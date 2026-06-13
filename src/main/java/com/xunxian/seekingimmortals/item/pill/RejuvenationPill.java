@@ -13,8 +13,9 @@ public class RejuvenationPill extends BasePillItem {
     protected boolean consumePill(ServerPlayer player) {
         return player.getCapability(CultivationProvider.CULTIVATION).map(cultivation -> {
             double multiplier = getQuality().getEffectMultiplier();
-            int spiritualPowerGain = (int)(50 * multiplier);
-            int cultivationExpGain = (int)(10 * multiplier);
+            double absorption = getPillAbsorptionMultiplier(player);
+            int spiritualPowerGain = (int) Math.round(50 * multiplier * absorption);
+            int cultivationExpGain = (int) Math.round(10 * multiplier * absorption);
 
             cultivation.addSpiritualPower(spiritualPowerGain);
             cultivation.addCultivationExp(cultivationExpGain);

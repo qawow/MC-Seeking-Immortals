@@ -93,9 +93,6 @@ public final class ClientEvents {
             LocalPlayer player = minecraft.player;
             boolean effectiveMeditating = ClientCultivationData.effectiveMeditating();
             if (player != null && effectiveMeditating && (player.input.up || player.input.down || player.input.left || player.input.right || player.input.jumping || player.input.shiftKeyDown)) {
-                if (player.isPassenger()) {
-                    player.stopRiding();
-                }
                 ClientCultivationData.setPendingMeditating(false);
                 ModNetwork.CHANNEL.sendToServer(new SetMeditatingPacket(false));
             }

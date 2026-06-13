@@ -15,6 +15,15 @@ public class SkillEffectRegistry {
         return EFFECTS.get(type);
     }
 
+    public static SkillType byDisplayName(String displayName) {
+        for (SkillType type : EFFECTS.keySet()) {
+            if (type.getDisplayName().equals(displayName)) {
+                return type;
+            }
+        }
+        return null;
+    }
+
     public static boolean hasEffect(SkillType type) {
         return EFFECTS.containsKey(type);
     }

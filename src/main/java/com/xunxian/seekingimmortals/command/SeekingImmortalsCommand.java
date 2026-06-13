@@ -55,14 +55,13 @@ public final class SeekingImmortalsCommand {
         CultivationHelper.get(player).ifPresent(cultivation -> source.sendSuccess(() -> Component.translatable(
                 "command.seeking_immortals.root",
                 cultivation.getSpiritualRoot().getDisplayName(),
+                cultivation.getSpiritualRoot().getCategoryName(),
                 cultivation.getSpiritualRootAttributeNames(),
-                cultivation.getSpiritualRootPurity(),
-                cultivation.isSpiritualRootAwakened() ? "是" : "否",
-                cultivation.getSpiritualRoot().getStarLevel(),
-                cultivation.getSpecialPhysique().getDisplayName(),
-                Math.round(cultivation.getBreakthroughMultiplier() * 100.0D) / 100.0D,
-                Math.round(cultivation.getCultivationSpeedMultiplier() * 100.0D) / 100.0D,
-                cultivation.getSpecialPhysique().hasDefect() ? "是" : "否"), false));
+                String.format(java.util.Locale.ROOT, "%.2f", cultivation.getCultivationSpeedMultiplier()),
+                String.format(java.util.Locale.ROOT, "%.2f", cultivation.getSpiritualRoot().getQiRecoveryMultiplier()),
+                String.format(java.util.Locale.ROOT, "%.0f", cultivation.getSpiritualRoot().getBreakthroughBonus() * 100),
+                String.format(java.util.Locale.ROOT, "%.2f", cultivation.getPillAbsorptionMultiplier()),
+                cultivation.getSpecialPhysique().getDisplayName()), false));
         return 1;
     }
 

@@ -105,8 +105,19 @@ public class LingGenTestStoneItem extends Item {
                 : "message.seeking_immortals.ling_gen_test.read_only"), false);
         viewer.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.result",
                 cultivation.getSpiritualRoot().getDisplayName(), stars(cultivation.getSpiritualRoot().getStarLevel()), cultivation.getSpiritualRootAttributeNames(), cultivation.getSpiritualRootPurity()), false);
+        // 显示分类名、修炼倍率、灵力回复倍率
         viewer.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.multiplier",
-                format(cultivation.getCultivationSpeedMultiplier()), format(cultivation.getBreakthroughMultiplier()), cultivation.isSpiritualRootAwakened()), false);
+                format(cultivation.getCultivationSpeedMultiplier()),
+                format(cultivation.getSpiritualRoot().getQiRecoveryMultiplier()),
+                format(cultivation.getBreakthroughMultiplier()),
+                format(cultivation.getSpiritualRoot().getBreakthroughBonus())), false);
+        // 如果是低资质灵根，额外显示丹药吸收率和青玉小瓶
+        if (cultivation.getSpiritualRoot().isLowTalent()) {
+            viewer.displayClientMessage(Component.translatable("tooltip.seeking_immortals.pill_absorption",
+                    format(cultivation.getPillAbsorptionMultiplier())), false);
+            viewer.displayClientMessage(Component.translatable("tooltip.seeking_immortals.jade_vial_chance",
+                    String.format(java.util.Locale.ROOT, "%.0f", cultivation.getJadeVialDropChance() * 100)), false);
+        }
         viewer.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.tip", cultivation.getSpiritualRoot().getDescription()), false);
     }
 

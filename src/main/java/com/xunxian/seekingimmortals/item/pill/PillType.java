@@ -33,7 +33,10 @@ public enum PillType {
     LONGEVITY("增寿丹", PillCategory.AUXILIARY, Realm.CORE_FORMATION, "增加寿元"),
     LONGEVITY_ETERNAL("长生丹", PillCategory.AUXILIARY, Realm.CORE_FORMATION, "增加寿元（用寿元果炼制）"),
     SPIRIT_STABILIZING("定灵丹", PillCategory.AUXILIARY, Realm.NASCENT_SOUL, "增进修为，定心安魂，减轻心魔"),
-    HEAVEN_MENDING("补天丹", PillCategory.AUXILIARY, Realm.FOUNDATION_ESTABLISHMENT, "洗炼灵根、弥补不纯，让进阶元婴更容易");
+    HEAVEN_MENDING("补天丹", PillCategory.AUXILIARY, Realm.FOUNDATION_ESTABLISHMENT, "洗炼灵根、弥补不纯，让进阶元婴更容易"),
+
+    // 走火入魔对策
+    CALMING("稳神丹", PillCategory.AUXILIARY, Realm.QI_REFINING, "稳定心神，降低 20% 走火入魔风险");
 
     private final String displayName;
     private final PillCategory category;

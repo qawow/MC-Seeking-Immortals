@@ -50,6 +50,7 @@ public final class ModItems {
     public static final RegistryObject<Item> HEALING_PILL_LOW = ITEMS.register("healing_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.HealingPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
     public static final RegistryObject<Item> CLEAR_SPIRIT_POWDER_LOW = ITEMS.register("clear_spirit_powder_low", () -> new com.xunxian.seekingimmortals.item.pill.ClearSpiritPowder(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
     public static final RegistryObject<Item> FASTING_PILL_LOW = ITEMS.register("fasting_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.FastingPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
+    public static final RegistryObject<Item> CALMING_PILL_LOW = ITEMS.register("calming_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.CalmingPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
 
     public static final RegistryObject<Item> SPIRIT_CHARM = ITEMS.register("spirit_charm", () -> new SpiritCharmItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> FLYING_SWORD = ITEMS.register("flying_sword", () -> new FlyingArtifactItem(new Item.Properties(), true));

@@ -2,6 +2,13 @@ package com.xunxian.seekingimmortals.cultivation;
 
 import net.minecraft.util.RandomSource;
 
+/**
+ * 灵根属性枚举（五行 + 变异 + 隐藏属性）。
+ *
+ * <p>属性对伤害/术法亲和的强度现在由灵根分类
+ * ({@link SpiritualRoot#getAttributeStrengthMultiplier()}) 决定，
+ * 不再依赖旧版纯度值。breakthroughCoefficient 仍作为属性级突破加成保留。</p>
+ */
 public enum SpiritualRootAttribute {
     METAL("金", false, false, 1.00D, "主攻击/锐利，擅长炼器与攻击法术"),
     WOOD("木", false, false, 1.00D, "主生机/治疗，擅长炼丹与治疗法术"),

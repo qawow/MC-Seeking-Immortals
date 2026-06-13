@@ -1,12 +1,19 @@
 package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
+import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.skill.effect.SkillContext;
+import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
+import com.xunxian.seekingimmortals.skill.effect.SkillEffectRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
+import java.util.Locale;
 import java.util.function.Supplier;
 
 public record ReleaseTechniquePacket(int slot) {
@@ -60,18 +67,68 @@ public record ReleaseTechniquePacket(int slot) {
                     return;
                 }
 
-                cultivation.setTechniqueCooldown(techniqueId, gameTime + DEFAULT_COOLDOWN_TICKS);
+                var techniqueOpt = TechniqueDataManager.getTechnique(player.getServer(), techniqueId);
+                int cooldownTicks = DEFAULT_COOLDOWN_TICKS;
+                boolean effectExecuted = false;
+
+                // 走火入魔风险：使用超出当前境界 2 级以上的功法
+                if (techniqueOpt.isPresent()) {
+                    Realm techniqueRealm = estimateTechniqueRealm(techniqueOpt.get());
+                    int realmDiff = techniqueRealm.ordinal() - cultivation.getRealm().ordinal();
+                    if (realmDiff >= 2) {
+                        cultivation.addQiDeviationRisk(5);
+                        player.displayClientMessage(Component.translatable(
+                                "message.seeking_immortals.technique_release.realm_too_high",
+                                realmDiff, cultivation.getQiDeviationRisk()), true);
+                    }
+                }
+
+                if (techniqueOpt.isPresent()) {
+                    var technique = techniqueOpt.get();
+                    SkillType skillType = SkillEffectRegistry.byDisplayName(technique.name());
+                    if (skillType != null) {
+                        CultivationSkill skill = cultivation.getSkill(skillType);
+                        SkillEffect effect = SkillEffectRegistry.get(skillType);
+                        if (skill != null && skill.isUnlocked() && effect != null) {
+                            cooldownTicks = effect.getCooldownTicks(skill.getLevel());
+                            SkillContext ctx = SkillContext.builder()
+                                    .level(player.serverLevel())
+                                    .position(player.position())
+                                    .lookDirection(player.getLookAngle())
+                                    .build();
+                            if (!effect.execute(player, cultivation, skill, ctx)) {
+                                player.displayClientMessage(
+                                        Component.translatable("message.seeking_immortals.technique_release.effect_failed"), true);
+                                SyncCultivationDataPacket.send(player, cultivation);
+                                return;
+                            }
+                            cultivation.addSkillProficiency(skillType, 10);
+                            effectExecuted = true;
+                        }
+                    }
+                }
+
+                cultivation.setTechniqueCooldown(techniqueId, gameTime + cooldownTicks);
                 SyncCultivationDataPacket.send(player, cultivation);
                 SyncLearnedTechniquesPacket.send(player, cultivation);
-                TechniqueDataManager.getTechnique(player.getServer(), techniqueId).ifPresentOrElse(technique ->
-                                player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
-                                        packet.slot + 1,
-                                        technique.name().isBlank() ? technique.id() : technique.name(),
-                                        cost), false),
-                        () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
-                                packet.slot + 1,
-                                techniqueId,
-                                cost), false));
+
+                if (effectExecuted) {
+                    var technique = techniqueOpt.get();
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
+                            packet.slot + 1,
+                            technique.name().isBlank() ? technique.id() : technique.name(),
+                            cost), false);
+                } else {
+                    techniqueOpt.ifPresentOrElse(technique ->
+                                    player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
+                                            packet.slot + 1,
+                                            technique.name().isBlank() ? technique.id() : technique.name(),
+                                            cost), false),
+                            () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
+                                    packet.slot + 1,
+                                    techniqueId,
+                                    cost), false));
+                }
             });
         });
         context.setPacketHandled(true);
@@ -88,5 +145,31 @@ public record ReleaseTechniquePacket(int slot) {
                     return 15;
                 })
                 .orElse(15);
+    }
+
+    /**
+     * 根据功法的 source/id 文本推断功法对应的境界等级。
+     * 用于走火入魔风险判定：使用超出当前境界 2 级以上的功法会增加风险。
+     */
+    private static Realm estimateTechniqueRealm(TechniqueDataManager.TechniqueEntry technique) {
+        String id = technique.id().toLowerCase(Locale.ROOT);
+        String source = technique.source().toLowerCase(Locale.ROOT);
+        if (containsAny(source, "天阶", "化神", "灵界", "古魔", "通天", "大衍", "元磁", "真魔")
+                || containsAny(id, "spirit_transformation", "heaven", "void", "magnetic")) return Realm.SOUL_TRANSFORMATION;
+        if (containsAny(source, "元婴", "古宝", "高级", "真灵")
+                || containsAny(id, "nascent", "soul")) return Realm.NASCENT_SOUL;
+        if (containsAny(source, "结丹", "金丹", "剑诀", "秘典")
+                || containsAny(id, "core", "golden", "sword")) return Realm.CORE_FORMATION;
+        if (containsAny(source, "筑基", "中阶", "阵法", "符宝")
+                || containsAny(id, "foundation")) return Realm.FOUNDATION_ESTABLISHMENT;
+        if (containsAny(source, "长春功", "低阶", "炼气")) return Realm.QI_REFINING;
+        return Realm.QI_REFINING;
+    }
+
+    private static boolean containsAny(String text, String... tokens) {
+        for (String token : tokens) {
+            if (text.contains(token.toLowerCase(Locale.ROOT))) return true;
+        }
+        return false;
     }
 }

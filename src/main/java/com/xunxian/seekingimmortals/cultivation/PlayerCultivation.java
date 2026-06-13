@@ -255,7 +255,8 @@ public class PlayerCultivation {
     }
 
     public double getSpiritualPowerRecoveryMultiplier() {
-        return severeInjury ? 0.60D : 1.0D;
+        double base = severeInjury ? 0.60D : 1.0D;
+        return base * spiritualRoot.getQiRecoveryMultiplier();
     }
 
     public void applyShatteredCore() {
@@ -373,7 +374,7 @@ public class PlayerCultivation {
         spiritualRoot = result.root();
         spiritualRootAttributes.clear();
         spiritualRootAttributes.addAll(result.attributes());
-        spiritualRootPurity = Math.max(1, Math.min(100, result.purity()));
+        spiritualRootPurity = (int) Math.round(spiritualRoot.getAttributeStrengthMultiplier() * 100.0D);
         spiritualRootAwakened = result.awakened();
         spiritualRootTested = true;
         rootInitialized = true;
@@ -402,8 +403,8 @@ public class PlayerCultivation {
         if (roll < 88) return SpiritualRoot.MUTATED;
         if (roll < 1350) return SpiritualRoot.DUAL;
         if (roll < 4300) return SpiritualRoot.TRIPLE;
-        if (roll < 8900) return SpiritualRoot.PSEUDO;
-        return SpiritualRoot.FIVE_ELEMENTS;
+        if (roll < 8900) return SpiritualRoot.FALSE_ROOT;
+        return SpiritualRoot.MIXED;
     }
 
     private List<SpiritualRootAttribute> randomAttributes(RandomSource random, SpiritualRoot root) {
@@ -434,6 +435,21 @@ public class PlayerCultivation {
 
     public double getSpiritualRootCultivationSpeedCoefficient() {
         return spiritualRoot.getCultivationSpeedCoefficient();
+    }
+
+    /** 丹药效果吸收倍率（低资质灵根更高） */
+    public double getPillAbsorptionMultiplier() {
+        return spiritualRoot.getPillAbsorptionMultiplier();
+    }
+
+    /** 青玉小瓶额外获取概率（预留接口） */
+    public double getJadeVialDropChance() {
+        return spiritualRoot.getJadeVialDropChance();
+    }
+
+    /** 灵根属性强度倍数（简化纯度后，基于灵根分类） */
+    public double getAttributeStrengthMultiplier() {
+        return spiritualRoot.getAttributeStrengthMultiplier();
     }
 
     public double getPhysiqueCultivationSpeedMultiplier() {
@@ -581,12 +597,16 @@ public class PlayerCultivation {
         return Math.min(0.85D, base + attributeBonus);
     }
 
+    /**
+     * 突破综合倍率（体质 × 属性，不含灵根加法加成）。
+     * 灵根加成改为加法，在 getBreakthroughChanceBreakdown 中叠加。
+     */
     public double getBreakthroughMultiplier() {
         double attributeMultiplier = spiritualRootAttributes.stream()
                 .mapToDouble(SpiritualRootAttribute::getBreakthroughCoefficient)
                 .average()
                 .orElse(1.0D);
-        return spiritualRoot.getBreakthroughCoefficient() * attributeMultiplier * specialPhysique.getBreakthroughMultiplier();
+        return attributeMultiplier * specialPhysique.getBreakthroughMultiplier();
     }
 
     public int getMaxSpiritualPower() {
@@ -690,6 +710,21 @@ public class PlayerCultivation {
         spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
     }
 
+    /**
+     * 直接增减修为经验值（不应用修炼速度倍率），用于走火入魔等惩罚。
+     * 不会低于当前境界起始经验值。
+     */
+    public void addCultivationExpRaw(int amount) {
+        cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + amount));
+    }
+
+    /**
+     * 公开方法：掉落一个境界阶段（用于走火入魔严重效果）。
+     */
+    public void fallOneStagePublic() {
+        fallOneStage();
+    }
+
     public void addAgeYears(int years) {
         ageYears = Math.max(0, ageYears + years);
     }
@@ -708,11 +743,12 @@ public class PlayerCultivation {
 
     public BreakthroughChanceBreakdown getBreakthroughChanceBreakdown(BreakthroughChanceModifiers modifiers) {
         double baseChance = Math.min(GLOBAL_BREAKTHROUGH_CAP, getBaseBreakthroughChance() * getBreakthroughMultiplier());
+        double rootBonus = spiritualRoot.getBreakthroughBonus();
         double obsessionBonus = getBreakthroughObsessionBonus();
         double pillBonus = modifiers == null ? 0.0D : modifiers.pillBonus();
         double spiritEyeBonus = modifiers == null ? 0.0D : modifiers.spiritEyeBonus();
         double techniqueQualityBonus = modifiers == null ? 0.0D : modifiers.techniqueQualityBonus();
-        double chance = Math.min(GLOBAL_BREAKTHROUGH_CAP, baseChance + pillBonus + spiritEyeBonus + techniqueQualityBonus + obsessionBonus);
+        double chance = Math.min(GLOBAL_BREAKTHROUGH_CAP, baseChance + rootBonus + pillBonus + spiritEyeBonus + techniqueQualityBonus + obsessionBonus);
         return new BreakthroughChanceBreakdown(baseChance, pillBonus, spiritEyeBonus, techniqueQualityBonus, obsessionBonus, chance);
     }
 
@@ -724,8 +760,8 @@ public class PlayerCultivation {
         Realm oldRealm = realm;
         RealmStage oldStage = stage;
         BreakthroughChanceBreakdown breakdown = getBreakthroughChanceBreakdown(modifiers);
-        if (isAtFinalStage()) return new BreakthroughAttemptResult(BreakthroughAttemptStatus.FINAL_STAGE, false, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
-        if (!isAtBreakthroughCap()) return new BreakthroughAttemptResult(BreakthroughAttemptStatus.NOT_AT_CAP, false, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
+        if (isAtFinalStage()) return new BreakthroughAttemptResult(BreakthroughAttemptStatus.FINAL_STAGE, false, QiDeviationTier.NONE, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
+        if (!isAtBreakthroughCap()) return new BreakthroughAttemptResult(BreakthroughAttemptStatus.NOT_AT_CAP, false, QiDeviationTier.NONE, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
         clearBreakthroughPillBonus();
         if (random.nextDouble() > breakdown.chance()) {
             failedBreakthroughs++;
@@ -734,13 +770,14 @@ public class PlayerCultivation {
             cultivationExp = stageStart + remainingProgress;
             addQiDeviationRisk(10);
             boolean qiDeviationTriggered = checkQiDeviation(random);
-            return new BreakthroughAttemptResult(BreakthroughAttemptStatus.FAILURE, qiDeviationTriggered, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
+            QiDeviationTier tier = qiDeviationTriggered ? determineQiDeviationTier() : QiDeviationTier.NONE;
+            return new BreakthroughAttemptResult(BreakthroughAttemptStatus.FAILURE, qiDeviationTriggered, tier, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
         }
         failedBreakthroughs = 0;
         spiritualPower = 0;
         advanceOneStage();
         cultivationExp = getCurrentStageStartExp();
-        return new BreakthroughAttemptResult(BreakthroughAttemptStatus.SUCCESS, false, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
+        return new BreakthroughAttemptResult(BreakthroughAttemptStatus.SUCCESS, false, QiDeviationTier.NONE, oldRealm, oldStage, realm, stage, breakdown, qiDeviationRisk);
     }
 
     public boolean tryBreakthrough() {
@@ -769,6 +806,7 @@ public class PlayerCultivation {
     public record BreakthroughAttemptResult(
             BreakthroughAttemptStatus status,
             boolean qiDeviationTriggered,
+            QiDeviationTier qiDeviationTier,
             Realm oldRealm,
             RealmStage oldStage,
             Realm newRealm,
@@ -779,16 +817,23 @@ public class PlayerCultivation {
         public double chance() { return chanceBreakdown.chance(); }
     }
 
+    // ========== 走火入魔分级 ==========
+    public enum QiDeviationTier {
+        NONE, MINOR, MODERATE, SEVERE, EXTREME
+    }
+
+    public QiDeviationTier determineQiDeviationTier() {
+        if (qiDeviationRisk >= 100) return QiDeviationTier.EXTREME;
+        if (qiDeviationRisk >= 90) return QiDeviationTier.SEVERE;
+        if (qiDeviationRisk >= 80) return QiDeviationTier.MODERATE;
+        if (qiDeviationRisk >= 70) return QiDeviationTier.MINOR;
+        return QiDeviationTier.NONE;
+    }
+
     private boolean checkQiDeviation(RandomSource random) {
         if (qiDeviationRisk < 70) return false;
         double chance = Math.min(0.50D, Math.max(0.20D, (qiDeviationRisk - 50) / 100.0D));
-        if (random.nextDouble() >= chance) return false;
-        if (heartDemonLevel <= 0) {
-            applyHeartDemon(random);
-        } else {
-            increaseHeartDemonLayer(random);
-        }
-        return true;
+        return random.nextDouble() < chance;
     }
 
     private void advanceOneStage() {
@@ -965,7 +1010,7 @@ public class PlayerCultivation {
         breakthroughPillBonus = tag.contains("BreakthroughPillBonus") ? Math.max(0.0D, Math.min(0.20D, tag.getDouble("BreakthroughPillBonus"))) : (tag.getBoolean("BreakthroughAssisted") ? 0.05D : 0.0D);
         breakthroughAssisted = breakthroughPillBonus > 0.0D;
         meditating = tag.getBoolean("Meditating");
-        try { spiritualRoot = SpiritualRoot.valueOf(tag.getString("SpiritualRoot")); } catch (Exception ignored) { spiritualRoot = SpiritualRoot.TRIPLE; }
+        spiritualRoot = SpiritualRoot.fromName(tag.getString("SpiritualRoot"));
         loadSpiritualRootAttributes(tag);
         try { specialPhysique = SpecialPhysique.valueOf(tag.getString("SpecialPhysique")); } catch (Exception ignored) { specialPhysique = SpecialPhysique.NONE; }
         lifespanYears = tag.contains("LifespanYears") ? tag.getInt("LifespanYears") : Realm.QI_REFINING.getLifespanYears();

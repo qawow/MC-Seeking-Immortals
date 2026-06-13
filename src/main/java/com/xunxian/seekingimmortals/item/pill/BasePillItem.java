@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.item.pill;
 
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -42,6 +43,13 @@ public class BasePillItem extends Item {
 
     protected boolean consumePill(ServerPlayer player) {
         return true;
+    }
+
+    /** 获取玩家的丹药吸收率倍数（低资质灵根更高） */
+    protected double getPillAbsorptionMultiplier(ServerPlayer player) {
+        return CultivationHelper.get(player)
+                .map(PlayerCultivation::getPillAbsorptionMultiplier)
+                .orElse(1.0D);
     }
 
     @Override

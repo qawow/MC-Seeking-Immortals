@@ -14,16 +14,14 @@ public class FireballSpell extends SpellEffect {
 
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
-        if (cultivation.getSpiritualPower() < getSpiritualPowerCost(skill.getLevel())) {
-            return false;
-        }
-
+        // 灵力检查和消耗已在 ReleaseTechniquePacket 中统一处理，此处无需重复检查
         double damage = calculateDamage(skill.getLevel(), skill.getProficiency());
         Vec3 look = player.getLookAngle();
         Vec3 pos = player.getEyePosition().add(look);
 
         SmallFireball fireball = new SmallFireball(context.getLevel(), player, look.x, look.y, look.z);
         fireball.setPos(pos);
+        fireball.getPersistentData().putDouble("SeekingImmortalsCustomDamage", damage);
         context.getLevel().addFreshEntity(fireball);
 
         player.displayClientMessage(

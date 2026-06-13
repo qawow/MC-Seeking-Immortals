@@ -9,7 +9,7 @@ import java.util.List;
 public final class LingGenCalculator {
     private LingGenCalculator() {}
 
-    public record Result(SpiritualRoot root, List<SpiritualRootAttribute> attributes, int purity, boolean awakened) {
+    public record Result(SpiritualRoot root, List<SpiritualRootAttribute> attributes, boolean awakened) {
         public String attributeNames() {
             return attributes.stream().map(SpiritualRootAttribute::getDisplayName).reduce((a, b) -> a + "/" + b).orElse("未知");
         }
@@ -29,19 +29,17 @@ public final class LingGenCalculator {
         } else if (roll < trueRootThreshold) {
             root = random.nextBoolean() ? SpiritualRoot.DUAL : SpiritualRoot.TRIPLE;
         } else {
-            root = random.nextInt(100) < 78 ? SpiritualRoot.PSEUDO : SpiritualRoot.FIVE_ELEMENTS;
+            root = random.nextInt(100) < 78 ? SpiritualRoot.FALSE_ROOT : SpiritualRoot.MIXED;
         }
 
         List<SpiritualRootAttribute> attributes = rollAttributes(random, root);
-        int purity = rollPurity(random, root, bonusChance);
         boolean awakened = root != SpiritualRoot.HIDDEN;
-        return new Result(root, attributes, purity, awakened);
+        return new Result(root, attributes, awakened);
     }
 
     public static Result rollAfterPurifying(RandomSource random, int currentPurity) {
         double bonus = clamp(currentPurity / 1000.0D + 0.08D, 0.08D, 0.18D);
-        Result result = roll(random, bonus);
-        return new Result(result.root(), result.attributes(), Math.max(currentPurity, result.purity()), result.awakened());
+        return roll(random, bonus);
     }
 
     private static List<SpiritualRootAttribute> rollAttributes(RandomSource random, SpiritualRoot root) {
@@ -62,26 +60,6 @@ public final class LingGenCalculator {
             result.add(attribute);
         }
         return result;
-    }
-
-    private static int rollPurity(RandomSource random, SpiritualRoot root, double bonusChance) {
-        int base = switch (root) {
-            case HEAVENLY -> 88;
-            case HIDDEN -> 90;
-            case MUTATED -> 78;
-            case DUAL -> 65;
-            case TRIPLE -> 52;
-            case PSEUDO -> 34;
-            case FIVE_ELEMENTS -> 22;
-        };
-        int spread = switch (root) {
-            case HEAVENLY, HIDDEN -> 12;
-            case MUTATED -> 18;
-            case DUAL, TRIPLE -> 24;
-            case PSEUDO, FIVE_ELEMENTS -> 30;
-        };
-        int bonus = (int)Math.round(bonusChance * 100.0D);
-        return Math.max(1, Math.min(100, base + random.nextInt(spread + 1) + bonus));
     }
 
     private static double clamp(double value, double min, double max) {

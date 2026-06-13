@@ -1,4 +1,4 @@
-# 步骤进度表：原生 UI 维护
+# UI 维护
 
 > 本表用于记录“一次目标”被拆成小步骤后推进到哪里。
 > **强制规则：每次开始任务必须先读取本表；每次完成小步、遇到阻塞、完成构建验证或阶段收尾，都必须更新本表。**
@@ -273,6 +273,7 @@
 | 2026-06-13 04:22 | `./gradlew build` | ✅ 成功 | 1.1 六大核心属性存储、展示、指令与文档同步后构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
 | 2026-06-13 12:38 | `./gradlew build` | ✅ 成功 | 手动突破流程、破境丹/药力资源校验、失败走火风险和按键/GUI/命令入口构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
 | 2026-06-13 13:12 | `./gradlew build` | ✅ 成功 | 突破成功率丹药/灵眼/功法/执念加成、同步展示与协议版本 4 构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+| 2026-06-13 | `./gradlew build` | ✅ 成功 | 打坐退出交互失效与穿方块修复后构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
 
 ## 22. 2026-06-13 0.1.47 六大核心属性记录
 
@@ -306,4 +307,48 @@
 | 执念加成 | ✅ 已完成 | 连续失败改为每次 +5%，最多 +30%，成功后清零 |
 | 同步与展示 | ✅ 已完成 | 同步突破概率和丹药/灵眼/功法/执念加成；修仙面板、`/realm` 和突破反馈使用同一预览结果 |
 | 文档同步 | ✅ 已完成 | 已同步 `features.md`、`pending_requests.md`、`missing_and_placeholders.md` 与 `updates/20260613_0.1.47.md` |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+
+## 26. 2026-06-13 0.1.47 走火入魔机制（MVP）实现记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取与规划 | ✅ 已完成 | 已读取 `PlayerCultivation.java`、`ModEvents.java`、`ReleaseTechniquePacket.java`、`BreakthroughService.java`、`BasePillItem.java`、`ModItems.java`、`PillType.java`、`SpiritualAuraManager.java`、`ModCreativeTabs.java` 与 `zh_cn.json` |
+| 安全备份 | ✅ 已完成 | 已创建显式备份 `.bak/20260613_qi_deviation/` |
+| 分级效果枚举 | ✅ 已完成 | `PlayerCultivation` 新增 `QiDeviationTier`（NONE/MINOR/MODERATE/SEVERE/EXTREME）和 `determineQiDeviationTier()`；`BreakthroughAttemptResult` 新增 `qiDeviationTier` 字段 |
+| 走火判定重构 | ✅ 已完成 | `checkQiDeviation` 改为纯概率判定（不再直接施加心魔）；`BreakthroughService.applyQiDeviationEffect` 按分级执行效果 |
+| 分级效果实现 | ✅ 已完成 | 轻微（-30% 修为）、中度（-50% 修为+昏迷 30 秒）、严重（掉境界+昏迷 3 分钟+装备损坏）、极端（当场死亡+背包掉落 50%） |
+| 受伤修炼风险 | ✅ 已完成 | `ModEvents` 每秒检测：打坐中血量低于最大值时 +2% 走火风险 |
+| 风险自然衰减 | ✅ 已完成 | 平稳打坐每 720 秒 -1%（≈每小时 -5%）；灵脉打坐额外每 360 秒 -1%（≈每小时 -10%） |
+| 功法境界校验 | ✅ 已完成 | `ReleaseTechniquePacket` 新增 `estimateTechniqueRealm`；功法超出当前境界 2 级以上时 +5% 走火风险 |
+| 稳神丹 | ✅ 已完成 | 新增 `CalmingPill`（继承 `BasePillItem`），服用后 -20% 走火风险；`PillType.CALMING` 已注册 |
+| 物品注册 | ✅ 已完成 | `ModItems.CALMING_PILL_LOW` 已注册，已加入创造栏和语言文件 |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+
+
+## 25. 2026-06-13 0.1.47 打坐退出交互失效与穿方块修复记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| Bug 分析 | ✅ 已完成 | 客户端按移动键退出打坐时直接调用 `player.stopRiding()` 导致客户端/服务端状态不同步（交互失效）；服务端 `stopMeditation` 下马后未重新定位玩家导致脚陷入蒲团碰撞箱（穿方块） |
+| 客户端修复 | ✅ 已完成 | `ClientEvents.onKeyInput` 移除客户端 `stopRiding()` 调用，仅发送 `SetMeditatingPacket(false)` 让服务端统一处理下马 |
+| 服务端修复 | ✅ 已完成 | `ModEvents.stopMeditation()` 与 `SetMeditatingPacket.handle()` 在下马后显式 `setPos` 到蒲团顶部（Y + 6/16），避免穿方块 |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+
+## 27. 2026-06-14 丹药系统适配灵根重构记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
+| CultivationPillItem 吸收率 | ✅ 已完成 | `addCultivationExp` 改为 `adjustedExp = expValue * getPillAbsorptionMultiplier()`，提示显示实际获得值 |
+| QiRecoveryPillItem 吸收率 | ✅ 已完成 | `addQi` 改为 `adjustedAmount = qiValue * getPillAbsorptionMultiplier()`，提示显示实际获得值 |
+| BasePillItem 便捷方法 | ✅ 已完成 | 新增 `getPillAbsorptionMultiplier(ServerPlayer)` 供子类使用 |
+| RejuvenationPill 吸收率 | ✅ 已完成 | 灵力和修为增益都乘以丹药吸收率 |
+| HealingPill 分析 | ✅ 已完成 | 恢复原版生命值（非灵力/修为），不需吸收率 |
+| CalmingPill/FastingPill/ClearSpiritPowder | ✅ 已完成 | 功能性丹药，不需吸收率 |
+| LingGenTestStoneItem 更新 | ✅ 已完成 | 显示修炼速度、灵力回复、突破倍率、灵根突破加成；低资质灵根额外显示丹药吸收率和青玉小瓶获取率 |
+| SeekingImmortalsCommand 更新 | ✅ 已完成 | `/seeking_immortals root` 显示灵根分类名、修炼速度、灵力回复、突破加成、丹药吸收、体质 |
+| SyncCultivationDataPacket 检查 | ✅ 已完成 | 已使用 displayName 字符串同步，无需修改；`PlayerCultivation` 已使用 `fromName()` |
+| 语言文件更新 | ✅ 已完成 | zh_cn/en_us 均添加灵根分类翻译 key、丹药吸收率和青玉小瓶获取率 tooltip |
+| 全局搜索旧枚举名 | ✅ 已完成 | 无 `SpiritualRoot.PSEUDO` 或 `SpiritualRoot.FIVE_ELEMENTS` 引用，无 `.purity()` 调用 |
 | 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |

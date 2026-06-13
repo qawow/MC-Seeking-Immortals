@@ -59,6 +59,7 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.HEALING_PILL_LOW.get());
                 output.accept(ModItems.CLEAR_SPIRIT_POWDER_LOW.get());
                 output.accept(ModItems.FASTING_PILL_LOW.get());
+                output.accept(ModItems.CALMING_PILL_LOW.get());
 
                 // 材料 - 灵草
                 output.accept(ModItems.SPIRIT_GRASS.get());

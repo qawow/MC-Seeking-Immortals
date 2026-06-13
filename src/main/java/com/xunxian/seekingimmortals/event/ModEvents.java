@@ -68,6 +68,12 @@ public final class ModEvents {
     private static final int MEDITATION_CULTIVATION_INTERVAL_SECONDS = 5;
     private static final int MEDITATION_HUNGER_MINIMUM = 6;
     private static final double MEDITATION_MONSTER_CHECK_RADIUS = 8.0D;
+    // 走火入魔风险：受伤修炼每秒 +2%
+    private static final int INJURED_MEDITATION_RISK_PER_SECOND = 2;
+    // 走火入魔风险衰减：平稳打坐每小时 -5%（每 720 秒 -1%）
+    private static final int QI_DEV_RISK_DECAY_INTERVAL_SECONDS = 720;
+    // 走火入魔风险衰减：灵脉打坐额外每小时 -10%（每 360 秒 -1%）
+    private static final int LEYLINE_RISK_DECAY_INTERVAL_SECONDS = 360;
     private static final String FLYING_GRANTED_KEY = "SeekingImmortalsFlyingGranted";
     private static final String FLYING_PREVIOUS_MAYFLY_KEY = "SeekingImmortalsFlyingPreviousMayfly";
     private static final String FLYING_PREVIOUS_SPEED_KEY = "SeekingImmortalsFlyingPreviousSpeed";
@@ -114,6 +120,24 @@ public final class ModEvents {
                         int techniqueAdjusted = Math.max(1, (int)Math.round(auraAdjusted * techniqueBonus.multiplier()));
                         cultivation.addCultivationExp(techniqueAdjusted + consumeStoneBonus(bonusStone, stoneBonus));
                     }
+
+                    // 走火入魔风险：受伤状态下修炼每秒 +2%
+                    if (event.player.getHealth() < event.player.getMaxHealth()) {
+                        cultivation.addQiDeviationRisk(INJURED_MEDITATION_RISK_PER_SECOND);
+                    }
+
+                    // 走火入魔风险衰减：平稳打坐每小时 -5%（每 720 秒 -1%）
+                    if (cultivation.getQiDeviationRisk() > 0
+                            && event.player.tickCount % (QI_DEV_RISK_DECAY_INTERVAL_SECONDS * 20) == 0) {
+                        cultivation.addQiDeviationRisk(-1);
+                    }
+
+                    // 走火入魔风险衰减：灵脉打坐额外每小时 -10%（每 360 秒 -1%）
+                    if (cultivation.getQiDeviationRisk() > 0
+                            && auraInfo.leyline()
+                            && event.player.tickCount % (LEYLINE_RISK_DECAY_INTERVAL_SECONDS * 20) == 0) {
+                        cultivation.addQiDeviationRisk(-1);
+                    }
                 }
             } else {
                 cultivation.addSpiritualPower(SpiritualAuraManager.adjustSpiritualPowerGain(1, auraInfo) + consumeStoneBonus(bonusStone, stoneBonus));
@@ -147,8 +171,13 @@ public final class ModEvents {
             });
         }
 
-        Entity sourceEntity = event.getSource().getEntity();
         Entity directEntity = event.getSource().getDirectEntity();
+        if (directEntity != null && directEntity.getPersistentData().contains("SeekingImmortalsCustomDamage")) {
+            event.setAmount((float) directEntity.getPersistentData().getDouble("SeekingImmortalsCustomDamage"));
+            directEntity.getPersistentData().remove("SeekingImmortalsCustomDamage");  // 立即清理，防止内存泄漏
+        }
+
+        Entity sourceEntity = event.getSource().getEntity();
         if (!(sourceEntity instanceof Player player)) return;
 
         CultivationHelper.get(player).ifPresent(cultivation -> {
@@ -324,7 +353,13 @@ public final class ModEvents {
         cultivation.setMeditating(false);
         clearMeditationAnchor(player.getPersistentData());
         if (player.isPassenger()) {
-            player.stopRiding();
+            if (player.getVehicle() instanceof CushionSeatEntity seat) {
+                net.minecraft.core.BlockPos cushionPos = seat.getCushionPos();
+                player.stopRiding();
+                player.setPos(cushionPos.getX() + 0.5D, cushionPos.getY() + 6.0D / 16.0D, cushionPos.getZ() + 0.5D);
+            } else {
+                player.stopRiding();
+            }
         }
         player.displayClientMessage(Component.translatable(reasonKey), true);
     }

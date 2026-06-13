@@ -25,8 +25,10 @@ public record SetMeditatingPacket(boolean meditating) {
             if (player == null) return;
 
             CultivationHelper.get(player).ifPresent(cultivation -> {
-                if (packet.meditating && player.getVehicle() instanceof CushionSeatEntity) {
+                if (!packet.meditating && player.getVehicle() instanceof CushionSeatEntity seat) {
+                    net.minecraft.core.BlockPos cushionPos = seat.getCushionPos();
                     player.stopRiding();
+                    player.setPos(cushionPos.getX() + 0.5D, cushionPos.getY() + 6.0D / 16.0D, cushionPos.getZ() + 0.5D);
                 }
                 cultivation.setMeditating(packet.meditating);
                 player.displayClientMessage(Component.translatable(

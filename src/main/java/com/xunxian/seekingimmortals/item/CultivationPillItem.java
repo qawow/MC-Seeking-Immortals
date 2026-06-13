@@ -22,8 +22,9 @@ public class CultivationPillItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide) {
             CultivationHelper.get(player).ifPresent(cultivation -> {
-                cultivation.addCultivationExp(expValue);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.cultivation_exp", expValue), true);
+                int adjustedExp = (int) Math.round(expValue * cultivation.getPillAbsorptionMultiplier());
+                cultivation.addCultivationExp(adjustedExp);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.cultivation_exp", adjustedExp), true);
                 if (!player.getAbilities().instabuild) stack.shrink(1);
             });
         }
