@@ -1,0 +1,18 @@
+{
+  "name": "灵力与境界",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:cultivation_pill",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "灵力",
+      "text": "灵力是修行的基础资源。吸收灵石或使用丹药可以恢复或积累灵力；部分符箓和突破行为会消耗灵力。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "境界",
+      "text": "境界代表修士当前层次。积累足够灵力与修为后，可尝试突破；破境丹能辅助突破，但仍需满足基础条件。"
+    }
+  ]
+}

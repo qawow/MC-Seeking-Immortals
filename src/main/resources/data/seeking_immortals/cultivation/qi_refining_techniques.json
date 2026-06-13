@@ -1,0 +1,167 @@
+{
+  "realm": "QI_REFINING",
+  "realm_name": "炼气期",
+  "description": "炼气期修士可学习和使用的入门功法、术法、符箓与世俗武技规则。当前为规则数据，供后续功法学习、灵根属性加成、宗门传承和任务奖励系统接入。",
+  "techniques": [
+    {
+      "id": "ice_freezing_art",
+      "name": "冰冻术",
+      "type": "spell",
+      "attribute": "水/冰",
+      "source": "长春功附载",
+      "summary": "水属性基础攻击法术，能够凝聚周围水汽形成冰锥或冰刃攻击敌人，威力虽不大但胜在消耗较低，是水系修士的入门攻击手段。"
+    },
+    {
+      "id": "entangling_art",
+      "name": "缠绕术",
+      "type": "spell",
+      "attribute": "木",
+      "source": "长春功附载",
+      "summary": "木属性限制法术，催动周围草木藤蔓缠绕敌人，虽然攻击力有限但能有效限制对手行动，常用于控场和逃脱。"
+    },
+    {
+      "id": "voice_transmission_art",
+      "name": "传音术",
+      "type": "utility",
+      "attribute": "通用",
+      "source": "通用低阶",
+      "summary": "近距离传声秘术，通过灵力传递声音，可在数里范围内与他人私密交流，是修士间常用的联络手段。"
+    },
+    {
+      "id": "earth_spike_art",
+      "name": "地刺术",
+      "type": "spell",
+      "attribute": "土",
+      "source": "长春功附载",
+      "summary": "土属性攻击法术，操控大地之力从地面突刺出土锥攻击敌人，具有一定的穿透力，在土质松软的地方威力更强。"
+    },
+    {
+      "id": "spirit_stabilizing_talisman",
+      "name": "定神符",
+      "type": "talisman",
+      "attribute": "通用",
+      "source": "长春功附载",
+      "summary": "低阶镇魂符箓，能够短暂定住敌人神魂，使其无法行动，对付同阶修士效果有限，但对付低阶妖兽颇为有效。"
+    },
+    {
+      "id": "turtle_breathing_skill",
+      "name": "龟息功",
+      "type": "martial_art",
+      "attribute": "通用",
+      "source": "世俗武林",
+      "summary": "降低气息心跳至假死状态的奇门功法，能够极大减缓新陈代谢，延长寿命或躲避强敌探查，是保命和潜伏的绝佳技能。"
+    },
+    {
+      "id": "spark_art",
+      "name": "火花术",
+      "type": "spell",
+      "attribute": "火",
+      "source": "长春功附载",
+      "summary": "火属性基础法术，凝聚灵力化作火花攻击敌人，虽然威力微弱但施展迅速，常用于引燃易燃物品或作为其他火系术法的引子。"
+    },
+    {
+      "id": "fire_bullet_art",
+      "name": "火弹术",
+      "type": "spell",
+      "attribute": "火",
+      "source": "长春功附载",
+      "summary": "火球攻击术法，将灵力凝聚成火球投射攻击，威力比火花术更强，爆炸时还能溅射伤敌，是火系修士的常用攻击手段。"
+    },
+    {
+      "id": "object_control_art",
+      "name": "控物术",
+      "type": "utility",
+      "attribute": "通用",
+      "source": "长春功附载",
+      "summary": "隔空取物的实用术法，通过灵力操控远处物品，可用于战斗中夺取敌人兵器，或在日常中便利取物，是修士必学的基础技能。"
+    },
+    {
+      "id": "quicksand_art",
+      "name": "流沙术",
+      "type": "spell",
+      "attribute": "土",
+      "source": "长春功附载",
+      "summary": "改变地形困敌的土系术法，能使坚实的土地变成流沙陷阱，困住敌人行动，在沙漠或土质松软的地方威力倍增。"
+    },
+    {
+      "id": "smoke_step",
+      "name": "罗烟步",
+      "type": "martial_art",
+      "attribute": "身法",
+      "source": "世俗武林",
+      "summary": "世俗武林轻功绝学，注重爆发速度和身法灵活，虽非仙家术法但在短距离移动中效果卓著，常被低阶修士采用。"
+    },
+    {
+      "id": "concealment_art",
+      "name": "匿身术",
+      "type": "utility",
+      "attribute": "通用",
+      "source": "长春功附载",
+      "summary": "简易隐身术法，通过扭曲光线使身形模糊难辨，虽然无法完全隐形但能在一定程度上躲避敌人视线，是潜行和逃脱的有用技能。"
+    },
+    {
+      "id": "levitation_art",
+      "name": "升空术",
+      "type": "movement",
+      "attribute": "通用",
+      "source": "长春功附载",
+      "summary": "低阶飞行术法，能够短暂腾空飞行，虽然高度和速度都有限制，但对于炼气期修士而言已是难得的机动能力。"
+    },
+    {
+      "id": "heavenly_eye_art",
+      "name": "天眼术",
+      "type": "detection",
+      "attribute": "通用",
+      "source": "长春功附载",
+      "summary": "观察灵力波动的探测术法，能够看透简单的幻象和隐匿，探查周围的灵力分布，是修士必备的侦察手段。"
+    },
+    {
+      "id": "blink_swordsmanship",
+      "name": "眨眼剑法",
+      "type": "martial_art",
+      "attribute": "剑法",
+      "source": "七玄门",
+      "summary": "巧妙利用光线视觉误差的剑招，通过特殊的剑势和走位造成视觉残影，使敌人难以准确判断攻击轨迹，虽为世俗剑法但颇具巧思。"
+    },
+    {
+      "id": "wind_riding_formula",
+      "name": "御风诀",
+      "type": "movement",
+      "attribute": "风",
+      "source": "御灵宗基础",
+      "summary": "低阶风系飞行术，操控风力辅助移动，速度比升空术更快且更灵活，能够在空中做出复杂的机动动作。"
+    },
+    {
+      "id": "invisibility_art",
+      "name": "隐形术",
+      "type": "utility",
+      "attribute": "通用",
+      "source": "通用低阶",
+      "summary": "比匿身术更彻底的隐身术法，能够在相当程度上隐匿身形和气息，是潜行和暗杀的高级技能。"
+    },
+    {
+      "id": "qi_guiding_art",
+      "name": "引气术",
+      "type": "cultivation",
+      "attribute": "通用",
+      "source": "通用",
+      "summary": "引导灵力入体的最基础功法，几乎所有修士都需要掌握，是修炼一切功法术法的前提和基础。"
+    },
+    {
+      "id": "elephant_armor_skill",
+      "name": "象甲功",
+      "type": "martial_art",
+      "attribute": "防御",
+      "source": "世俗武林",
+      "summary": "强化肉体防御的横练功夫，通过特殊的锻炼方法增强皮肤和肌肉的抗击打能力，虽为世俗武功但能与修仙功法相辅相成。"
+    },
+    {
+      "id": "snow_wind_swordsmanship",
+      "name": "雪风剑法",
+      "type": "martial_art",
+      "attribute": "冰/剑法",
+      "source": "古剑门",
+      "summary": "冰属性剑法，剑招中附带凛冽寒气，能够减缓敌人行动速度，剑气如雪花飞舞，既美观又实用的剑法绝学。"
+    }
+  ]
+}

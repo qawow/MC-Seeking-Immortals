@@ -1,0 +1,191 @@
+{
+  "realm": "NASCENT_SOUL",
+  "realm_name": "元婴期",
+  "description": "元婴期修士可学习和使用的顶阶剑阵、神识秘术、第二元婴、化身保命、魔道鬼道、五行克制与本命婴火规则。当前为规则数据，供后续高阶功法学习、神识系统、分魂化身、禁术代价、灵兽沟通和战斗神通系统接入。",
+  "techniques": [
+    {
+      "id": "spring_dawn_sword_formation_level_13_15",
+      "name": "春黎剑阵（13-15层）",
+      "type": "sword_formation",
+      "attribute": "剑法/木/幻术",
+      "source": "青元剑诀·灵界篇前置",
+      "summary": "青元剑诀灵界篇前置神通，以木属性幻术组成的复杂剑阵，能够创造出如梦如幻的春日景象迷惑敌人，同时暗藏杀机。"
+    },
+    {
+      "id": "azure_coiling_dragon_sword_formation_level_16_18",
+      "name": "青蟠剑阵（16-18层）",
+      "type": "sword_formation",
+      "attribute": "剑法/木/龙形剑阵",
+      "source": "青元剑诀·灵界篇",
+      "summary": "青元剑诀灵界篇的终极神通，将72柄飞剑组成青龙形态的恐怖剑阵，威力足以毁天灭地，是剑修的最高境界。"
+    },
+    {
+      "id": "three_turn_heavy_essence_skill_third_dispersal",
+      "name": "三转重元功（第三层散功）",
+      "type": "cultivation",
+      "attribute": "剑修/真元压缩/结婴准备",
+      "source": "青元剑诀辅助",
+      "summary": "三转重元功的最后一次散功，为冲击结婴做最后准备，成功后真元密度达到惊人程度，失败则前功尽弃。"
+    },
+    {
+      "id": "great_development_formula_seven_layers",
+      "name": "大衍诀（七层）",
+      "type": "spiritual_sense_cultivation",
+      "attribute": "神识",
+      "source": "千竹教传承",
+      "summary": "千竹教失传的神识修炼秘法，共分七层，专门用于锻炼和分化神识，是修炼高深神通的必备基础。"
+    },
+    {
+      "id": "thousandfold_spiritual_sense",
+      "name": "神识化千",
+      "type": "spiritual_sense_divine_ability",
+      "attribute": "神识/分化",
+      "source": "大衍诀",
+      "summary": "大衍诀第四层的标志性神通，能够将神识分化成千丝万缕，同时进行多项复杂操作，是神识修炼的重要里程碑。"
+    },
+    {
+      "id": "startling_spirit_sting",
+      "name": "惊神刺",
+      "type": "spiritual_sense_attack",
+      "attribute": "神识/神魂攻击",
+      "source": "大衍神君",
+      "summary": "大衍神君创造的神识攻击神通，以凝聚的神识如针刺般攻击敌人神魂，无声无息却威力惊人。"
+    },
+    {
+      "id": "mind_losing_sting",
+      "name": "失神刺",
+      "type": "spiritual_sense_attack",
+      "attribute": "神识/神魂攻击",
+      "source": "韩立自创",
+      "summary": "韩立根据惊神刺原理自创的简化版神识攻击，虽然威力有所下降但更容易掌握和施展。"
+    },
+    {
+      "id": "soul_splitting_art",
+      "name": "分魂术",
+      "type": "forbidden_art",
+      "attribute": "神魂/第二元神",
+      "source": "大衍神君",
+      "summary": "大衍神君的禁忌秘术，能够分裂出第二元神，相当于拥有第二条生命，但风险极大成功率极低。"
+    },
+    {
+      "id": "five_ghosts_spirit_locking_art",
+      "name": "五鬼锁神大法",
+      "type": "seal",
+      "attribute": "鬼道/镇压/封印",
+      "source": "大衍神君",
+      "summary": "大衍神君创造的镇压术法，以五鬼之力镇压煞气反噬，能够封印强大的邪恶力量或暴走的法宝。"
+    },
+    {
+      "id": "seven_emotions_formula",
+      "name": "七情决",
+      "type": "mind_control",
+      "attribute": "神识/情绪控制",
+      "source": "大衍神君",
+      "summary": "大衍神君的心理控制神通，能够操控他人的七种基本情绪，使敌人陷入特定的情感状态无法自拔。"
+    },
+    {
+      "id": "mystic_soul_demon_refining_art",
+      "name": "玄魂炼妖大法",
+      "type": "forbidden_art",
+      "attribute": "魔道/夺舍/神魂",
+      "source": "乱星海魔修",
+      "summary": "乱星海魔修的邪恶秘术，能够无限制地夺舍他人身体，但每次夺舍都会损失部分记忆和实力。"
+    },
+    {
+      "id": "spirit_attachment_art",
+      "name": "附灵术",
+      "type": "beast_symbiosis",
+      "attribute": "御兽/共生",
+      "source": "乱星海魔修",
+      "summary": "乱星海魔修的共生秘术，与妖兽建立生死与共的联系，能够共享力量但也会共同承受伤害。"
+    },
+    {
+      "id": "external_incarnation",
+      "name": "身外化身",
+      "type": "incarnation",
+      "attribute": "魔道/化身/第二生命",
+      "source": "魔道顶阶",
+      "summary": "魔道顶级秘术，创造出拥有独立意识的第二元婴或傀儡分身，相当于第二条生命，是魔修的终极追求。"
+    },
+    {
+      "id": "mystic_wood_nascent_soul_transformation_art",
+      "name": "玄牧化婴大法",
+      "type": "nascent_soul_cultivation",
+      "attribute": "魔道/第二元婴",
+      "source": "魔道",
+      "summary": "魔道秘传功法，专门用于培养和孵化第二元婴，过程复杂且风险极大，但成功后收益巨大。"
+    },
+    {
+      "id": "unity_formula",
+      "name": "归一决",
+      "type": "soul_fusion",
+      "attribute": "神魂/融合",
+      "source": "玄牧化婴附属",
+      "summary": "玄牧化婴大法的配套秘术，能够让第二元婴与主魂完美融合，避免多重人格的风险。"
+    },
+    {
+      "id": "shape_changing_formula",
+      "name": "换形诀",
+      "type": "transformation",
+      "attribute": "变化/伪装",
+      "source": "乱星海",
+      "summary": "乱星海的变化秘术，能够改变肉身形态进行易容伪装，变化程度取决于修为高低，是潜伏必备技能。"
+    },
+    {
+      "id": "elemental_magnet_divine_light",
+      "name": "元磁神光",
+      "type": "divine_light",
+      "attribute": "五行/元磁/克制",
+      "source": "乱星海",
+      "summary": "需要五灵根才能修炼的逆天神通，能够克制所有五行属性攻击，是五行体质修士的专属神通。"
+    },
+    {
+      "id": "spirit_communion_art",
+      "name": "通灵术",
+      "type": "communication",
+      "attribute": "灵兽/心灵交流",
+      "source": "天澜圣殿",
+      "summary": "天澜圣殿的沟通秘术，能够与远古灵兽进行心灵交流，获取古老的知识和记忆。"
+    },
+    {
+      "id": "thought_shouting_true_thunder",
+      "name": "叱念真雷",
+      "type": "thunder_divine_ability",
+      "attribute": "雷/神识",
+      "source": "上古秘术",
+      "summary": "上古失传的雷系秘术，以神识凝聚雷电之力形成雷珠，威力巨大且难以防御，是雷修的梦想神通。"
+    },
+    {
+      "id": "body_disintegration_transformation",
+      "name": "解体化形",
+      "type": "life_saving_art",
+      "attribute": "魔道/保命/重组",
+      "source": "魔道无上",
+      "summary": "魔道无上秘术，在生死关头解体重组肉身逃脱，虽然会大幅损伤修为但能保住性命。"
+    },
+    {
+      "id": "calamity_transference_art",
+      "name": "化劫大法",
+      "type": "life_saving_art",
+      "attribute": "魔道/替劫",
+      "source": "魔道",
+      "summary": "魔道保命秘术，能够以肢体代替本体承受致命攻击，将必死之劫转移到局部伤害。"
+    },
+    {
+      "id": "soul_restoration_art",
+      "name": "还魂术",
+      "type": "revival_art",
+      "attribute": "神魂/复活/跌境",
+      "source": "通用",
+      "summary": "通用的复活秘术，能够借助他人尸体重获新生，但会大幅跌落修为境界，是最后的保命手段。"
+    },
+    {
+      "id": "nascent_yang_infant_flame",
+      "name": "元阳婴火",
+      "type": "infant_flame",
+      "attribute": "元婴/本命真火",
+      "source": "元婴修士通用",
+      "summary": "元婴修士独有的本命真火，不仅可用于炼丹炼器，还能作为强大的攻击手段，是元婴修士的标志。"
+    }
+  ]
+}

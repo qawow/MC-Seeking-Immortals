@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/technique_manual_demon_domain_body_refining_placeholder"
+  }
+}

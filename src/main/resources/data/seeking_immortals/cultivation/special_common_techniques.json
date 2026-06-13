@@ -1,0 +1,127 @@
+{
+  "realm": "SPECIAL_COMMON",
+  "realm_name": "特殊/通用术法",
+  "description": "不完全绑定单一境界的特殊术法、通用秘术、御兽御虫、傀儡机关、鬼道魂术、魔道控神、咒术、阵法与通天灵宝驱动规则。当前为规则数据，供后续专题系统、宗门传承、阵法、法宝、傀儡、灵虫、魂魄与禁术代价系统接入。",
+  "techniques": [
+    {
+      "id": "spiritual_infusion_art",
+      "name": "灌注之法",
+      "type": "secret_art",
+      "attribute": "通用/灵力灌注",
+      "source": "通用秘术",
+      "summary": "通用秘术，能够强行灌注灵力来快速提升人、妖兽或法器的实力，虽然方便但基础不稳。"
+    },
+    {
+      "id": "spirit_sealing_great_art",
+      "name": "封灵大法",
+      "type": "seal",
+      "attribute": "封印/灵识/记忆",
+      "source": "银月提供",
+      "summary": "银月狐族提供的封印秘术，能够封印他人的记忆或灵识，既可用于保护秘密也可用于审讯。"
+    },
+    {
+      "id": "spiritual_treasure_activation_formula",
+      "name": "通宝诀",
+      "type": "treasure_formula",
+      "attribute": "通天灵宝/法宝驱动",
+      "source": "通天灵宝",
+      "summary": "每件通天灵宝都独有的驱动法诀，只有掌握对应的通宝诀才能完全发挥通天灵宝的威力。"
+    },
+    {
+      "id": "puppet_mechanism_art",
+      "name": "傀儡机关术",
+      "type": "puppet_art",
+      "attribute": "傀儡/机关/符文",
+      "source": "千竹教/御灵宗",
+      "summary": "制造和操控机关傀儡的综合技艺，包括材料选择、符文刻画、灵识注入等多个方面。"
+    },
+    {
+      "id": "insect_command_art",
+      "name": "驱虫术",
+      "type": "insect_control",
+      "attribute": "御虫/御兽",
+      "source": "御灵宗",
+      "summary": "御灵宗特色术法，能够驱使各种灵虫为己所用，从侦察到战斗都有不同的虫类可供选择。"
+    },
+    {
+      "id": "spirit_pattern_art",
+      "name": "灵纹术",
+      "type": "body_inscription",
+      "attribute": "毒功/灵纹/强化",
+      "source": "毒圣门",
+      "summary": "毒圣门的独门技艺，通过在身体上刻画特殊灵纹来增强毒功威力或获得特殊能力。"
+    },
+    {
+      "id": "soul_condensing_art",
+      "name": "凝魂术",
+      "type": "ghost_art",
+      "attribute": "鬼道/魂魄凝聚",
+      "source": "鬼道通用",
+      "summary": "鬼道通用的魂魄操作术法，能够凝聚游散魂魄或残魂，为后续炼魂、封魂、驱魂等术法提供基础。"
+    },
+    {
+      "id": "soul_refining_art",
+      "name": "炼魂术",
+      "type": "ghost_art",
+      "attribute": "鬼道/魂魄炼化",
+      "source": "鬼道通用",
+      "summary": "鬼道通用的魂魄炼化术法，能够将魂魄力量转化为法器、阵法或自身鬼道修为的资粮，风险与反噬极高。"
+    },
+    {
+      "id": "soul_guiding_art",
+      "name": "牵魂术",
+      "type": "ghost_art",
+      "attribute": "鬼道/魂魄牵引",
+      "source": "鬼道通用",
+      "summary": "鬼道通用的魂魄牵引术法，能够牵引目标魂魄或残念，用于追踪、审问、召魂或配合鬼道阵法施展。"
+    },
+    {
+      "id": "mind_control_art",
+      "name": "控神术",
+      "type": "forbidden_art",
+      "attribute": "魔道/精神控制",
+      "source": "魔道",
+      "summary": "魔道邪术，能够对凡人施加精神控制禁制，使其成为傀儡般的存在，极其邪恶。"
+    },
+    {
+      "id": "word_curse_art",
+      "name": "言咒之术",
+      "type": "curse_art",
+      "attribute": "咒术/语言/负面效果",
+      "source": "咒术类",
+      "summary": "以语言为媒介施展诅咒的神秘术法，通过特定的咒语和仪式对目标施加负面效果。"
+    },
+    {
+      "id": "insect_nurturing_notes",
+      "name": "育虫心得",
+      "type": "insect_cultivation",
+      "attribute": "御虫/培养/资料",
+      "source": "御灵宗",
+      "summary": "御灵宗进阶御虫术法，详细记录了培养各种灵虫的经验和技巧，是虫修的珍贵资料。"
+    },
+    {
+      "id": "yin_fire_great_formation",
+      "name": "阴火大阵",
+      "type": "formation",
+      "attribute": "鬼道/阴火/炼魂",
+      "source": "鬼灵门",
+      "summary": "鬼灵门的特色阵法，以阴森鬼火为核心炼化敌人魂魄，是鬼修最喜欢使用的杀敌手段。"
+    },
+    {
+      "id": "minor_five_elements_sumeru_seal_micro",
+      "name": "小五行须弥禁法",
+      "type": "formation",
+      "attribute": "五行/空间/禁锢",
+      "source": "阵法类",
+      "summary": "微型空间封锁术法，能够在极小范围内创造空间囚笼，虽然范围有限但威力不俗。"
+    },
+    {
+      "id": "yin_yang_reincarnation_formula",
+      "name": "阴阳轮回决",
+      "type": "supreme_ghost_art",
+      "attribute": "鬼道/阴阳/生死轮回",
+      "source": "鬼道",
+      "summary": "鬼道至高秘术，涉及生死轮回的终极奥秘，能够干涉生死循环，是鬼修的终极追求。"
+    }
+  ]
+}

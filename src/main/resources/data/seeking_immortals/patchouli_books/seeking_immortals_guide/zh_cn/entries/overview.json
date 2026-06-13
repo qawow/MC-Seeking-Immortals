@@ -1,0 +1,17 @@
+{
+  "name": "寻仙问道概览",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_charm",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(l)寻仙问道$() 是一个凡人流修仙玩法模组。玩家通过积累灵力和修为、服用丹药、使用符箓与灵石，逐步突破境界。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前内容",
+      "text": "当前版本包含灵石矿、下品灵石、回灵丹、凝气丹、破境丹、灵力护符，以及火弹符、金甲符、疾行符等基础物品。"
+    }
+  ]
+}

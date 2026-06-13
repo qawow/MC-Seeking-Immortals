@@ -1,0 +1,17 @@
+{
+  "name": "破境丹",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:breakthrough_pill",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "辅助突破",
+      "text": "破境丹能护持下一次突破尝试。它不是无条件晋升，仍需要足够的灵力、修为与瓶颈条件。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "seeking_immortals:breakthrough_pill"
+    }
+  ]
+}

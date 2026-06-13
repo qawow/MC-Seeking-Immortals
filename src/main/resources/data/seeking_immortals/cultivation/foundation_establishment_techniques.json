@@ -1,0 +1,143 @@
+{
+  "realm": "FOUNDATION_ESTABLISHMENT",
+  "realm_name": "筑基期",
+  "description": "筑基期修士可学习和使用的进阶功法、术法、阵法与秘术规则。当前为规则数据，供后续功法学习、灵根属性加成、宗门传承、阵法布置、御兽与战斗技能系统接入。",
+  "techniques": [
+    {
+      "id": "giant_sword_art",
+      "name": "巨剑术",
+      "type": "spell",
+      "attribute": "剑法/金",
+      "source": "青元剑诀衍生",
+      "summary": "青元剑诀的衍生术法，能够瞬间放大飞剑威势进行强力一击，虽然消耗较大但威力惊人，是剑修的重要攻击手段。"
+    },
+    {
+      "id": "thousand_blades_art",
+      "name": "千刃术",
+      "type": "spell",
+      "attribute": "金",
+      "source": "通用",
+      "summary": "金系群攻法术，凝聚无数金刃同时攻击多个目标，虽然单体威力有限但胜在覆盖面广，对付群敌效果显著。"
+    },
+    {
+      "id": "water_shield_art",
+      "name": "水罩术",
+      "type": "defense",
+      "attribute": "水",
+      "source": "通用",
+      "summary": "水系防御法术，在周身形成水属性护罩，能够有效抵御火系攻击和物理冲击，是水系修士的常用防护手段。"
+    },
+    {
+      "id": "earth_prison_art",
+      "name": "土牢术",
+      "type": "control",
+      "attribute": "土",
+      "source": "通用",
+      "summary": "困敌法术，操控大地之力形成土石牢笼困住敌人，坚固程度与施术者修为相关，是控制敌人的有效手段。"
+    },
+    {
+      "id": "wind_binding_art",
+      "name": "风缚之术",
+      "type": "control",
+      "attribute": "风",
+      "source": "通用",
+      "summary": "风属性束缚术法，操控气流形成无形枷锁束缚敌人，虽然无形但威力不俗，难以挣脱且不易察觉。"
+    },
+    {
+      "id": "wind_wall_art",
+      "name": "风墙术",
+      "type": "defense",
+      "attribute": "风",
+      "source": "通用",
+      "summary": "风属性防御术法，凝聚气流形成无形屏障，能够偏转远程攻击和减弱冲击力，是风系修士的重要防护手段。"
+    },
+    {
+      "id": "spirit_beast_command_art",
+      "name": "驱灵术",
+      "type": "beast_control",
+      "attribute": "御兽",
+      "source": "御灵宗基础",
+      "summary": "驱使低阶灵兽的御兽术法，通过灵力沟通和威压使灵兽为己所用，是御灵宗弟子的基础技能。"
+    },
+    {
+      "id": "essence_condensing_skill",
+      "name": "凝元功",
+      "type": "cultivation",
+      "attribute": "通用",
+      "source": "通用",
+      "summary": "提高打坐聚灵效率的辅助功法，能够更快地吸收天地灵力并转化为自身真元，是提升修炼速度的重要技能。"
+    },
+    {
+      "id": "essence_returning_skill",
+      "name": "归元功",
+      "type": "defense",
+      "attribute": "通用",
+      "source": "通用",
+      "summary": "形成临时灵甲的防护功法，将真元凝聚在体表形成护甲，能够抵御一定程度的攻击，是近战修士的必备技能。"
+    },
+    {
+      "id": "flame_shaping_formula",
+      "name": "弄焰诀",
+      "type": "utility",
+      "attribute": "火",
+      "source": "通用小技巧",
+      "summary": "改变火焰形态的小技巧，能够随意操控火焰的形状和分布，虽然实战价值有限但在炼丹炼器中颇为有用。"
+    },
+    {
+      "id": "three_turn_heavy_essence_skill_level_1",
+      "name": "三转重元功（第一层）",
+      "type": "cultivation",
+      "attribute": "剑修/真元压缩",
+      "source": "青元剑诀辅助功法",
+      "summary": "青元剑诀的重要辅助功法第一层，通过特殊的散功重聚方式压缩真元密度，为日后结丹打下坚实基础，是剑修进阶的必修功法。"
+    },
+    {
+      "id": "blood_core_art",
+      "name": "煞丹术",
+      "type": "forbidden_art",
+      "attribute": "魔道/血",
+      "source": "玄阴经附属",
+      "summary": "魔道邪术，以血气凝聚五行丹药造就假丹，虽能快速提升修为但后患无穷，是走捷径的危险修炼方法。"
+    },
+    {
+      "id": "minor_five_elements_sumeru_seal",
+      "name": "小五行须弥禁法",
+      "type": "formation",
+      "attribute": "五行/空间",
+      "source": "阵法类",
+      "summary": "小型空间禁锢阵法，能够在有限范围内扭曲空间形成囚笼，困敌效果显著，是阵法师的重要手段。"
+    },
+    {
+      "id": "minor_sumeru_vajra_formation",
+      "name": "小须弥金刚阵",
+      "type": "formation",
+      "attribute": "防御/空间",
+      "source": "阵法类",
+      "summary": "防御型阵法，能够抵挡结丹修士的全力一击，阵法坚固如金刚石，是保护重要地点的理想选择。"
+    },
+    {
+      "id": "mystic_ice_formula",
+      "name": "玄冰诀",
+      "type": "spell",
+      "attribute": "冰",
+      "source": "古剑门",
+      "summary": "高深的冰系功法，能够凝聚寒气化作锋利冰刃，威力远超普通冰系术法，是古剑门的镇派绝学之一。"
+    },
+    {
+      "id": "advanced_wind_riding_formula",
+      "name": "御风决",
+      "type": "movement",
+      "attribute": "风",
+      "source": "御灵宗",
+      "summary": "高级风系遁术，速度极快且能够长距离飞行，是御灵宗弟子赖以保命和追敌的重要手段。"
+    },
+    {
+      "id": "blood_spirit_drill",
+      "name": "血灵钻",
+      "type": "forbidden_art",
+      "attribute": "魔道/血",
+      "source": "魔道",
+      "summary": "魔道血系秘术，以自身精血凝聚成锋利血钻进行突袭，威力强大但消耗精血，是同归于尽的危险招式。"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:speed_talisman",
+    "count": 2
+  }
+}

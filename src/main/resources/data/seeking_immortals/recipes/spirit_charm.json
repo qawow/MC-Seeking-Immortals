@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "ASA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "item": "seeking_immortals:spirit_stone"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:spirit_charm",
+    "count": 1
+  }
+}

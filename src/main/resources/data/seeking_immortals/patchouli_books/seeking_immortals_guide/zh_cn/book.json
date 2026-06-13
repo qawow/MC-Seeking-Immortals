@@ -1,0 +1,7 @@
+{
+  "name": "寻仙问道手册",
+  "landing_text": "欢迎踏入寻仙问道。此手册由 Patchouli 数据文件提供；玩家首次进入世界时会自动获得一本《修仙引导手册》，用于查阅灵力、境界、丹药、符箓、灵石与功法传承等基础内容。",
+  "version": 1,
+  "creative_tab": "seeking_immortals:seeking_immortals_tab",
+  "use_resource_pack": true
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "seeking_immortals:block/spirit_gathering_array",
+    "top": "seeking_immortals:block/spirit_gathering_array",
+    "side": "seeking_immortals:block/spirit_gathering_array"
+  }
+}

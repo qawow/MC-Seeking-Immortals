@@ -1,0 +1,23 @@
+{
+  "name": "灵石",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_stone",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "灵石",
+      "text": "灵石是凝结灵力的基础资源。开采灵石矿可获得下品灵石，使用后可吸收灵力，为修炼、突破和施展符箓提供支撑。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "seeking_immortals:spirit_charm",
+      "text": "灵石也会参与护符、符箓与丹药等配方。安装 JEI 后，现有原版合成配方会自动显示。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "五行灵石",
+      "text": "金、木、水、火、土五行灵石均分为下品、中品、上品、极品。玩家通过手持灵石获得增幅时，必须使用与自身灵根属性一致的五行灵石；通用灵石仍可用于基础灵力吸收。"
+    }
+  ]
+}

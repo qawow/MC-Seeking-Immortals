@@ -1,0 +1,231 @@
+{
+  "realm": "CORE_FORMATION",
+  "realm_name": "结丹期",
+  "description": "结丹期修士可学习和使用的高阶功法、剑诀神通、五行遁术、妖族天赋、魔道鬼道与正道真火规则。当前为规则数据，供后续功法学习、宗门传承、阵法神通、禁术代价和战斗技能系统接入。",
+  "techniques": [
+    {
+      "id": "sword_shadow_splitting_art_level_7_9",
+      "name": "剑影分光术（7-9层）",
+      "type": "sword_divine_ability",
+      "attribute": "剑法/金",
+      "source": "青元剑诀",
+      "summary": "青元剑诀高层功法，能够幻化出多重剑影同时攻击敌人，虚实难辨令对手防不胜防，是剑修的顶级攻击神通。"
+    },
+    {
+      "id": "protective_sword_shield_level_4_6",
+      "name": "护体剑盾（4-6层）",
+      "type": "sword_defense",
+      "attribute": "剑法/金",
+      "source": "青元剑诀",
+      "summary": "青元剑诀防御神通，在身周形成能够自动反击的剑盾，既能防御又能攻击，是攻守兼备的强大技能。"
+    },
+    {
+      "id": "azure_origin_sword_radiance_level_1_3",
+      "name": "青元剑芒（1-3层）",
+      "type": "sword_divine_ability",
+      "attribute": "剑法/金",
+      "source": "青元剑诀",
+      "summary": "青元剑诀基础神通，能够徒手激发出丈许长的锋利剑芒，攻击力惊人且施展迅速，是剑修的标志性能力。"
+    },
+    {
+      "id": "great_geng_sword_formation_level_10_13",
+      "name": "大庚剑阵（10-13层）",
+      "type": "sword_formation",
+      "attribute": "剑法/金/阵法",
+      "source": "青元剑诀",
+      "summary": "青元剑诀终极神通，将掺入庚精的飞剑组成威力惊天的剑阵，能够斩杀元婴修士，是剑修梦寐以求的无上神通。"
+    },
+    {
+      "id": "three_turn_heavy_essence_skill_second_dispersal",
+      "name": "三转重元功（第二层散功）",
+      "type": "cultivation",
+      "attribute": "剑修/真元压缩",
+      "source": "青元剑诀辅助",
+      "summary": "三转重元功的第二次散功过程，进一步压缩真元密度，为结婴期打下更坚实的基础，过程痛苦但收益巨大。"
+    },
+    {
+      "id": "reversed_phoenix_origin_nourishing_skill_male_benefit",
+      "name": "颠凤培元功（男修受益版）",
+      "type": "forbidden_art",
+      "attribute": "魔道/采补",
+      "source": "六道极圣所创",
+      "summary": "六道极圣创造的邪恶功法，男修通过夺取女修元阴来突破瓶颈，虽然效果显著但手段卑劣，为正道所不齿。"
+    },
+    {
+      "id": "dragon_drawing_formula",
+      "name": "引龙决",
+      "type": "forbidden_art",
+      "attribute": "魔道/采补",
+      "source": "六道极圣所创",
+      "summary": "专门用于采补特殊资质女修的魔道邪术，能够强行吸取对方修为和本源，是极其残忍的魔道功法。"
+    },
+    {
+      "id": "kui_water_demonic_skill",
+      "name": "葵水魔功",
+      "type": "demonic_cultivation",
+      "attribute": "水/阴寒/魔道",
+      "source": "魔道",
+      "summary": "乱星海著名的魔道功法，以葵水为本修炼出阴寒魔气，既能攻击也能辅助修炼，是女魔修的热门选择。"
+    },
+    {
+      "id": "blood_shadow_escape",
+      "name": "血影遁",
+      "type": "movement",
+      "attribute": "妖族/血/遁术",
+      "source": "妖族禽修",
+      "summary": "妖族禽修的天赋神通，利用禽类精血进行瞬间移动，能够在百里范围内瞬移，是极其实用的逃命神通。"
+    },
+    {
+      "id": "nine_gale_transformations",
+      "name": "疾风九变",
+      "type": "movement",
+      "attribute": "妖族/风",
+      "source": "妖族禽修",
+      "summary": "禽类妖修的身法神通，拥有九种变化，速度快如疾风且变化莫测，在空战中优势明显。"
+    },
+    {
+      "id": "wood_escape_art",
+      "name": "木遁术",
+      "type": "movement",
+      "attribute": "木/遁术",
+      "source": "五行遁术",
+      "summary": "五行遁术之一，借助草木植被进行远距离遁逃，在森林中威力倍增，是木系修士的重要保命手段。"
+    },
+    {
+      "id": "thunder_escape_art",
+      "name": "雷遁术",
+      "type": "movement",
+      "attribute": "雷/遁术",
+      "source": "五行遁术",
+      "summary": "五行遁术中速度最快的遁术，化身雷电瞬息千里，但消耗极大且对修士要求很高，是最难掌握的遁术。"
+    },
+    {
+      "id": "metal_escape_art",
+      "name": "金遁术",
+      "type": "movement",
+      "attribute": "金/遁术",
+      "source": "五行遁术",
+      "summary": "五行遁术中最为罕见的遁术，借助金属矿脉进行遁逃，虽然受地形限制但在特定环境下威力巨大。"
+    },
+    {
+      "id": "phantom_spirit_formula",
+      "name": "幻灵决",
+      "type": "illusion",
+      "attribute": "幻术",
+      "source": "千幻宗",
+      "summary": "千幻宗的招牌神通，能够制造出几乎真实的幻影，无论是迷惑敌人还是辅助战斗都有奇效。"
+    },
+    {
+      "id": "great_luo_thousand_illusions_formula",
+      "name": "大罗千幻诀",
+      "type": "illusion",
+      "attribute": "幻术/隐匿",
+      "source": "千幻宗",
+      "summary": "千幻宗秘传神通，能够完美掩饰自身修为和气息，使敌人无法准确判断实力，是潜伏和偷袭的绝佳技能。"
+    },
+    {
+      "id": "maiden_reincarnation_skill_core_formation_chapter",
+      "name": "素女轮回功（结丹篇）",
+      "type": "cultivation",
+      "attribute": "轮回/月华/驻颜",
+      "source": "南宫婉主修",
+      "summary": "南宫婉主修的神秘功法结丹篇章，具有驻颜轮回的神奇效果，能够保持青春美貌并延缓衰老。"
+    },
+    {
+      "id": "maiden_heavenly_moon_formula",
+      "name": "姹女天月诀",
+      "type": "cultivation",
+      "attribute": "月华/女修",
+      "source": "南宫婉主修",
+      "summary": "素女轮回功的配套秘术，借助月华之力修炼，能够大幅提升修炼效果，是女修专属的高级功法。"
+    },
+    {
+      "id": "reincarnation_divine_light",
+      "name": "轮回神光",
+      "type": "control",
+      "attribute": "轮回/神魂",
+      "source": "南宫婉主修",
+      "summary": "素女轮回功的攻击神通，发出神秘光芒能够禁锢敌人元婴并迷惑心神，是极其强大的控制技能。"
+    },
+    {
+      "id": "sky_supporting_demonic_skill",
+      "name": "托天魔功",
+      "type": "demonic_defense",
+      "attribute": "魔道/防御",
+      "source": "魔道",
+      "summary": "乱星海公认的第一防御魔功，修炼到高深处能够托举天穹般坚不可摧，是魔修梦寐以求的护身神功。"
+    },
+    {
+      "id": "heavenly_fox_mind_bewildering_art",
+      "name": "天狐迷灵大法",
+      "type": "illusion",
+      "attribute": "妖族/月华/魅惑",
+      "source": "妖族",
+      "summary": "银月狐族的天赋神通，利用月华之力迷惑敌人心神，能够让对手产生幻觉或暂时失去理智。"
+    },
+    {
+      "id": "heavenly_wolf_drill",
+      "name": "天狼钻",
+      "type": "melee_divine_ability",
+      "attribute": "妖族/爪击",
+      "source": "妖族",
+      "summary": "银月狼族的爪指神通，将妖力集中在爪牙上形成锋利无比的攻击，穿透力极强能够洞穿大部分防御。"
+    },
+    {
+      "id": "mystic_soul_ghost_fire",
+      "name": "玄魂鬼火",
+      "type": "ghost_art",
+      "attribute": "鬼道/神魂/火",
+      "source": "鬼道",
+      "summary": "鬼道邪术，以神识点燃的阴森鬼火，专门克制魂魄类防御，被此火焚烧会直接伤及神魂本源。"
+    },
+    {
+      "id": "mystic_soul_bone_condensing_art",
+      "name": "玄魂凝骨术",
+      "type": "ghost_art",
+      "attribute": "鬼道/炼体/神魂",
+      "source": "鬼道",
+      "summary": "鬼道秘术，以魂魄之力强化自身骨骼，使骨骼坚硬如精铁，同时增强对魂魄攻击的抗性。"
+    },
+    {
+      "id": "blood_spirit_great_art",
+      "name": "血灵大法",
+      "type": "forbidden_art",
+      "attribute": "血道/魔道",
+      "source": "魔道",
+      "summary": "血道魔功，能够吞噬他人精血来增强自身实力，虽然提升迅速但会沾染无穷杀孽，为正道所不容。"
+    },
+    {
+      "id": "blood_luo_barrier",
+      "name": "血罗罩",
+      "type": "demonic_defense",
+      "attribute": "血道/防御",
+      "source": "魔道",
+      "summary": "血道防御秘术，以精血形成防护罩，不仅能够抵御攻击还能反弹部分伤害给攻击者，是血修的重要保命手段。"
+    },
+    {
+      "id": "yin_demon_slash",
+      "name": "阴魔斩",
+      "type": "demonic_attack",
+      "attribute": "阴/魔道",
+      "source": "魔道",
+      "summary": "阴属性斩击神通，专门克制各种护体灵光，能够无视大部分防御直接攻击本体，是魔修的杀手锏。"
+    },
+    {
+      "id": "purple_luo_extreme_fire",
+      "name": "紫罗极火",
+      "type": "fire_divine_ability",
+      "attribute": "火/腐蚀",
+      "source": "紫罗玄功",
+      "summary": "紫罗玄功的衍生火系神通，火焰呈现神秘紫色，温度极高且具有强烈的腐蚀性，是火系神通中的佼佼者。"
+    },
+    {
+      "id": "jade_yang_true_fire",
+      "name": "玉阳真火",
+      "type": "fire_divine_ability",
+      "attribute": "火/阳刚/驱邪",
+      "source": "正道",
+      "summary": "正道火系神通，蕴含纯正阳刚之气，专门克制一切阴邪鬼物，是驱邪除魔的利器。"
+    }
+  ]
+}

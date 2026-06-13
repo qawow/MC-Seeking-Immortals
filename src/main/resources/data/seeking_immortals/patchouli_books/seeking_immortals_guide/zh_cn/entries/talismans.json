@@ -1,0 +1,22 @@
+{
+  "name": "符箓",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:fire_talisman",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "火弹符、金甲符、疾行符",
+      "text": "符箓是修士随身携带的消耗品。火弹符用于进攻，金甲符提供防护，疾行符提升机动能力；使用前请确认灵力充足。"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "seeking_immortals:fire_talisman",
+      "recipe2": "seeking_immortals:armor_talisman"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "seeking_immortals:speed_talisman"
+    }
+  ]
+}

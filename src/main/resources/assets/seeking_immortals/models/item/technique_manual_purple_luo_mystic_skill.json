@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/technique_manual_purple_luo_mystic_skill_placeholder"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "realm": "SPIRIT_TRANSFORMATION_PLUS",
+  "realm_name": "化神期及以上",
+  "description": "化神期及以上修士、真灵、古魔、仙界传承与法则级神通规则。包含空间、跨界神念、真魔气、顶阶炼体、雷法本源、真灵血脉、幻世法则、水系潮汐与鬼仙煞气等高阶体系。当前为规则数据，供后续法则、跨界、真灵、魔化、仙界功法和终局战斗系统接入。",
+  "techniques": [
+    {
+      "id": "mystic_celestial_phenomenon",
+      "name": "幻妙天象",
+      "type": "immortal_art",
+      "attribute": "空间/封印/真仙术",
+      "source": "上古失传真仙术",
+      "summary": "上古失传的真仙级术法，能够将敌人封印在临时创造的空间裂缝中，涉及空间法则的高深运用，威力近乎神迹。"
+    },
+    {
+      "id": "earth_shrinking_art",
+      "name": "缩地术",
+      "type": "space_movement",
+      "attribute": "空间/遁术/赶路",
+      "source": "元婴后期以上",
+      "summary": "高阶空间神通，一步即可跨越千里距离，只有元婴后期以上修士才能掌握，是最实用的赶路神通。"
+    },
+    {
+      "id": "cross_space_divine_sense_great_art",
+      "name": "垮空神念大法",
+      "type": "divine_sense_art",
+      "attribute": "跨界/神念/远程操控",
+      "source": "元刹圣祖",
+      "summary": "元刹圣祖的独门绝技，能够跨越界面投射神念，在不同世界间进行远程操控和通讯。"
+    },
+    {
+      "id": "heavenly_wheel_demon_transformation_art",
+      "name": "天轮化魔大法",
+      "type": "forbidden_art",
+      "attribute": "古魔/真魔气/魔化",
+      "source": "古魔秘术",
+      "summary": "古魔族的终极秘术，通过灌注真魔气将修士转化为魔族，获得强大力量但也会失去人性。"
+    },
+    {
+      "id": "true_demon_armor",
+      "name": "真魔甲",
+      "type": "demonic_defense",
+      "attribute": "古魔/真魔气/护甲",
+      "source": "古魔",
+      "summary": "古魔族的防护神通，以纯净真魔气凝聚成坚不可摧的魔甲，防御力惊人且能反弹攻击。"
+    },
+    {
+      "id": "three_brahma_sacred_skill_complete",
+      "name": "三梵圣功（完整）",
+      "type": "supreme_cultivation",
+      "attribute": "妖族/炼体/幻化/神通",
+      "source": "梵圣真片",
+      "summary": "妖族至尊功法，包含炼体、幻化、神通三大篇章，修炼圆满可与真仙相提并论。"
+    },
+    {
+      "id": "bright_king_formula",
+      "name": "明王诀",
+      "type": "buddhist_cultivation",
+      "attribute": "佛门/度化/由魔入佛",
+      "source": "佛门",
+      "summary": "佛门至高心法，专为魔修度化而创，能够将魔道修为转化为佛门正果，由魔入佛的唯一途径。"
+    },
+    {
+      "id": "six_extremes_true_demon_skill",
+      "name": "六极真魔功",
+      "type": "demonic_cultivation",
+      "attribute": "魔道/六臂真魔/上古魔功",
+      "source": "上古魔功",
+      "summary": "乱星海第一魔功，修炼到极致可化身六臂真魔，威力足以撼动天地，是魔修的终极追求。"
+    },
+    {
+      "id": "great_five_elements_immortal_grasping_hand",
+      "name": "大五行擒仙手",
+      "type": "five_elements_divine_ability",
+      "attribute": "五行/擒拿/巨手",
+      "source": "大晋",
+      "summary": "突兀大仙师的独创秘术，以五行之力凝聚成巨手，能够擒拿仙人，威力超越常人想象。"
+    },
+    {
+      "id": "chaos_sky_opening",
+      "name": "混沌开天",
+      "type": "chaos_art",
+      "attribute": "混沌/空间/封印",
+      "source": "黑风旗器灵",
+      "summary": "黑风旗器灵的天赋神通，能够开辟混沌空间封印敌人，涉及创世级别的法则力量。"
+    },
+    {
+      "id": "northern_extreme_origin_light",
+      "name": "北极元光",
+      "type": "divine_light",
+      "attribute": "极光/穿透/追踪",
+      "source": "小极宫",
+      "summary": "小极宫的镇派神通，发射银丝般的极光能够洞穿一切灵力异动，具有极强的穿透和追踪能力。"
+    },
+    {
+      "id": "gold_magnetic_heavy_light",
+      "name": "金磁重光",
+      "type": "magnetic_divine_ability",
+      "attribute": "金磁/重力/磁场",
+      "source": "金磁灵木",
+      "summary": "金磁灵木的天赋神通，能够叠加重力和磁场效应，在特定范围内大幅增强重力压制敌人。"
+    },
+    {
+      "id": "asura_sacred_flame",
+      "name": "修罗圣火",
+      "type": "fire_divine_ability",
+      "attribute": "异火/冰焰/阴火/神雷",
+      "source": "自创",
+      "summary": "韩立融合冰焰、阴火、神雷三种异火创造的终极神通，威力超越单一异火数倍，是独一无二的杀手锏。"
+    },
+    {
+      "id": "awakening_insects_formula",
+      "name": "惊蛰诀",
+      "type": "true_spirit_transformation",
+      "attribute": "真灵血脉/变化/战斗",
+      "source": "鲲鹏族红云老祖所创",
+      "summary": "鲲鹏族红云老祖所创的至高神通，融合十二种真灵血脉之力，能够幻化出各种真灵形态进行战斗。"
+    },
+    {
+      "id": "five_thunders_orthodox_scripture",
+      "name": "五雷正法真经",
+      "type": "thunder_scripture",
+      "attribute": "仙界雷法/天雷/地雷/云雷",
+      "source": "仙界雷法本源",
+      "summary": "仙界雷法本源总纲，包含天雷、地雷、云雷等216种雷法神通，是所有雷系术法的根源。"
+    },
+    {
+      "id": "heavenly_baleful_prison_suppressing_skill",
+      "name": "天煞镇狱功",
+      "type": "body_refining",
+      "attribute": "魔域/炼体/玄窍",
+      "source": "魔域顶级炼体功",
+      "summary": "魔域顶级炼体功法，需要打通全身1800个玄窍，修炼圆满后肉身强度可比拟真仙。"
+    },
+    {
+      "id": "great_strength_vajra_formula",
+      "name": "大力金刚诀",
+      "type": "body_refining",
+      "attribute": "仙界/玄仙/双臂力量",
+      "source": "仙界功法",
+      "summary": "仙界玄仙级炼体功法，专注于双臂力量的修炼，大成后可徒手撕裂空间，力大无穷。"
+    },
+    {
+      "id": "nine_nether_demon_pupils",
+      "name": "九幽魔瞳",
+      "type": "pupil_art",
+      "attribute": "魔族/瞳术/破幻/破禁",
+      "source": "魔族秘传",
+      "summary": "魔族秘传的瞳术神通，能够勘破一切幻术和禁制，看透事物本质，是魔族的重要传承。"
+    },
+    {
+      "id": "great_five_elements_illusory_world_formula",
+      "name": "大五行幻世诀",
+      "type": "illusory_world_art",
+      "attribute": "五行/幻境世界/真言门",
+      "source": "真言门传承",
+      "summary": "真言门镇派绝学，分为水、火、土、木、金五卷，每一卷都能创造出对应属性的幻境世界。"
+    },
+    {
+      "id": "azure_sea_heavenly_wave_skill",
+      "name": "碧海天波功",
+      "type": "water_cultivation",
+      "attribute": "水/潮汐法则/大海",
+      "source": "碧海真君成名功法",
+      "summary": "碧海真君的成名功法，顶级水属性修炼法，能够领悟潮汐法则，操控大海之力。"
+    },
+    {
+      "id": "mystic_baleful_dark_spirit_skill",
+      "name": "玄煞暝灵功",
+      "type": "gray_immortal_cultivation",
+      "attribute": "灰仙/煞气/仙窍",
+      "source": "灰仙传承",
+      "summary": "灰仙独有的修炼方法，以煞气冲击仙窍来提升修为，虽然危险但效果显著。"
+    }
+  ]
+}
