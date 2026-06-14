@@ -16,7 +16,8 @@ public enum RealmStage {
     LAYER_13("13层（大圆满）", 1.80f),
     EARLY("初期", 2.00f),
     MIDDLE("中期", 2.40f),
-    LATE("后期", 3.00f);
+    LATE("后期", 3.00f),
+    PEAK("圆满", 3.60f);
 
     private final String displayName;
     private final float maxSpiritualPowerMultiplier;

@@ -72,6 +72,33 @@ public class PlayerCultivation {
     public int getQiDevRisk() { return getQiDeviationRisk(); }
     public int getTribulationResistance() { return tribulationResistance; }
     public int getTribRes() { return getTribulationResistance(); }
+
+    // ========== Phase 1: 字段别名 Getter（long/float 返回类型） ==========
+    /**
+     * 获取修为（long 类型别名）
+     * <p>存储层保持 int，通过 getter 返回 long 以便未来扩展</p>
+     */
+    public long getCultivationLong() { return (long) cultivationExp; }
+
+    /**
+     * 获取修为上限（long 类型）
+     */
+    public long getCultivationMax() { return (long) getCurrentStageCapExp(); }
+
+    /**
+     * 获取灵力上限（long 类型别名）
+     */
+    public long getManaMaxLong() { return (long) getMaxSpiritualPower(); }
+
+    /**
+     * 获取走火风险（float 类型别名，0-100）
+     */
+    public float getQiDevRiskFloat() { return (float) qiDeviationRisk; }
+
+    /**
+     * 获取天劫承受（float 类型别名，0-100）
+     */
+    public float getTribResFloat() { return (float) tribulationResistance; }
     public Realm getRealm() { return realm; }
     public RealmStage getStage() { return stage; }
     public int getCultivationExp() { return cultivationExp; }
@@ -632,6 +659,54 @@ public class PlayerCultivation {
         return Math.round(base * stage.getMaxSpiritualPowerMultiplier());
     }
 
+    // ========== Phase 1: 衍生属性计算方法 ==========
+
+    /**
+     * 获取最大生命值（HP）
+     * <p>公式: hpBase × 阶段倍率</p>
+     */
+    public int getMaxHealthPoints() {
+        int base = RealmStageConfig.getHpBase(realm);
+        return Math.round(base * stage.getMaxSpiritualPowerMultiplier());
+    }
+
+    /**
+     * 获取灵力回复速度（点/秒）
+     * <p>公式: 境界基准 × 灵根回复系数 × 重伤惩罚</p>
+     */
+    public float getManaRecoveryPerSecond() {
+        float base = RealmStageConfig.getManaRecoveryBase(realm);
+        double recoveryMultiplier = getSpiritualPowerRecoveryMultiplier();
+        return base * (float) recoveryMultiplier;
+    }
+
+    /**
+     * 获取修为增长速度（点/秒，打坐状态下）
+     * <p>公式: 境界基准 × 灵根修炼速度系数 × 体质倍率</p>
+     */
+    public float getCultivationGainPerSecond() {
+        float base = RealmStageConfig.getCultivationGainBase(realm);
+        double speedMultiplier = getCultivationSpeedMultiplier();
+        return base * (float) speedMultiplier;
+    }
+
+    /**
+     * 获取飞行速度（方块/秒）
+     * <p>公式: 境界基准 × 阶段加成</p>
+     */
+    public float getFlyingSpeed() {
+        float base = RealmStageConfig.getFlyingSpeedBase(realm);
+        // 阶段倍率简化：初期1.0，中期1.2，后期1.5，圆满1.8
+        float stageBonus = switch (stage) {
+            case EARLY -> 1.0f;
+            case MIDDLE -> 1.2f;
+            case LATE -> 1.5f;
+            case PEAK -> 1.8f;
+            default -> 1.0f; // 炼气期层数使用 1.0
+        };
+        return base * stageBonus;
+    }
+
     public void addSpiritualPower(int amount) {
         int adjusted = amount > 0 ? Math.max(0, (int)Math.floor(amount * getSpiritualPowerRecoveryMultiplier())) : amount;
         if (amount > 0 && adjusted <= 0) adjusted = 1;
@@ -938,6 +1013,10 @@ public class PlayerCultivation {
                     RealmStage.LAYER_6, RealmStage.LAYER_7, RealmStage.LAYER_8, RealmStage.LAYER_9, RealmStage.LAYER_10,
                     RealmStage.LAYER_11, RealmStage.LAYER_12, RealmStage.LAYER_13
             };
+        }
+        // 筑基期4阶：初期、中期、后期、圆满
+        if (targetRealm == Realm.FOUNDATION_ESTABLISHMENT) {
+            return new RealmStage[] { RealmStage.EARLY, RealmStage.MIDDLE, RealmStage.LATE, RealmStage.PEAK };
         }
         return new RealmStage[] { RealmStage.EARLY, RealmStage.MIDDLE, RealmStage.LATE };
     }

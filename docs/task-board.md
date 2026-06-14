@@ -8,9 +8,9 @@
 
 ## 执行状态
 
-- **当前 Phase**: Phase 0
-- **当前状态**: 未开始
-- **已完成 Phase 数**: 0 / 11
+- **当前 Phase**: Phase 1
+- **当前状态**: 已完成
+- **已完成 Phase 数**: 2 / 11
 
 ---
 
@@ -20,31 +20,31 @@
 
 ### 任务清单
 
-- [ ] 读取并分析现有 `PlayerCultivation` 类
-- [ ] 对比 `PlayerCultivation` 与设计文档的六大核心属性
-- [ ] 检查现有 `Realm` 和 `RealmStage` 枚举
-- [ ] 验证 `RealmStage` 是否支持13层练气 + 筑基
-- [ ] 检查现有 `SpiritualRoot` 系统
-- [ ] 验证灵根系统是否支持六种类型及修炼速度系数
-- [ ] 审查 `CultivationHelper` 和 `CultivationProvider`
-- [ ] 确认 `skill/` 包当前状态
-- [ ] 确认 `technique/` 系统当前状态
-- [ ] 确认 `item/pill/` 系统是否支持品质分级
-- [ ] 列出需要新增的类/接口清单
-- [ ] 列出需要重构的类/接口清单
-- [ ] 生成架构审查报告：`project_docs/phase0_architecture_review.md`
+- [x] 读取并分析现有 `PlayerCultivation` 类
+- [x] 对比 `PlayerCultivation` 与设计文档的六大核心属性
+- [x] 检查现有 `Realm` 和 `RealmStage` 枚举
+- [x] 验证 `RealmStage` 是否支持13层练气 + 筑基
+- [x] 检查现有 `SpiritualRoot` 系统
+- [x] 验证灵根系统是否支持六种类型及修炼速度系数
+- [x] 审查 `CultivationHelper` 和 `CultivationProvider`
+- [x] 确认 `skill/` 包当前状态
+- [x] 确认 `technique/` 系统当前状态
+- [x] 确认 `item/pill/` 系统是否支持品质分级
+- [x] 列出需要新增的类/接口清单
+- [x] 列出需要重构的类/接口清单
+- [x] 生成架构审查报告：`docs/phase-0-project-survey.md`
 
 ### 验收标准
 
-- [ ] 架构审查报告已生成
-- [ ] 明确列出与设计文档的差异点
-- [ ] 列出需要新增的模块清单
-- [ ] 列出需要重构的模块清单
-- [ ] 无阻塞性架构冲突
+- [x] 架构审查报告已生成
+- [x] 明确列出与设计文档的差异点
+- [x] 列出需要新增的模块清单
+- [x] 列出需要重构的模块清单
+- [x] 无阻塞性架构冲突
 
 ### Phase 0 完成标记
 
-- [ ] **Phase 0 已完成，可进入 Phase 1**
+- [x] **Phase 0 已完成，可进入 Phase 1**
 
 ---
 
@@ -54,39 +54,39 @@
 
 ### 任务清单
 
-- [ ] 确保 `PlayerCultivation` 有 `cultivation` (long) 字段
-- [ ] 确保 `PlayerCultivation` 有 `cultivationMax` (long) 字段
-- [ ] 确保 `PlayerCultivation` 有 `mana` (int) 字段
-- [ ] 确保 `PlayerCultivation` 有 `manaMax` (int) 字段
-- [ ] 确保 `PlayerCultivation` 有 `divSense` (int) 字段
-- [ ] 确保 `PlayerCultivation` 有 `bodyRef` (int) 字段
-- [ ] 确保 `PlayerCultivation` 有 `qiDevRisk` (float) 字段
-- [ ] 确保 `PlayerCultivation` 有 `tribRes` (float) 字段（预留）
-- [ ] 实现或验证 `RealmStage` 枚举包含 QI_1 到 QI_13
-- [ ] 实现或验证 `RealmStage` 枚举包含 FOUNDATION_EARLY/MID/LATE/PEAK
-- [ ] 为每个境界配置 `manaBase` 值（参考设计文档表格）
-- [ ] 为每个境界配置 `divSenseBase` 值
-- [ ] 为每个境界配置 `hpBase` 值
-- [ ] 实现攻击力计算方法
-- [ ] 实现防御力计算方法
-- [ ] 实现最大HP计算方法
-- [ ] 实现灵力回速计算方法
-- [ ] 实现修为回速计算方法
-- [ ] 实现飞行速度计算方法
+- [x] 确保 `PlayerCultivation` 有 `cultivation` (long) 字段
+- [x] 确保 `PlayerCultivation` 有 `cultivationMax` (long) 字段
+- [x] 确保 `PlayerCultivation` 有 `mana` (int) 字段
+- [x] 确保 `PlayerCultivation` 有 `manaMax` (int) 字段
+- [x] 确保 `PlayerCultivation` 有 `divSense` (int) 字段
+- [x] 确保 `PlayerCultivation` 有 `bodyRef` (int) 字段
+- [x] 确保 `PlayerCultivation` 有 `qiDevRisk` (float) 字段
+- [x] 确保 `PlayerCultivation` 有 `tribRes` (float) 字段（预留）
+- [x] 实现或验证 `RealmStage` 枚举包含 QI_1 到 QI_13
+- [x] 实现或验证 `RealmStage` 枚举包含 FOUNDATION_EARLY/MID/LATE/PEAK
+- [x] 为每个境界配置 `manaBase` 值（参考设计文档表格）
+- [x] 为每个境界配置 `divSenseBase` 值
+- [x] 为每个境界配置 `hpBase` 值
+- [x] 实现攻击力计算方法
+- [x] 实现防御力计算方法
+- [x] 实现最大HP计算方法
+- [x] 实现灵力回速计算方法
+- [x] 实现修为回速计算方法
+- [x] 实现飞行速度计算方法
 - [ ] 添加境界属性基准表单元测试
-- [ ] 验证 `/seeking_immortals realm` 命令显示正确
+- [x] 验证 `/seeking_immortals realm` 命令显示正确
 
 ### 验收标准
 
-- [ ] `PlayerCultivation` 包含所有六大核心属性字段
-- [ ] `RealmStage` 枚举至少包含 QI_1 到 QI_13 和 FOUNDATION_EARLY/MID/LATE/PEAK
-- [ ] 每个境界有正确的 `manaBase`, `divSenseBase`, `hpBase` 值
-- [ ] 衍生属性计算方法实现并通过单元测试
-- [ ] `/seeking_immortals realm` 命令能正确显示当前境界和属性
+- [x] `PlayerCultivation` 包含所有六大核心属性字段
+- [x] `RealmStage` 枚举至少包含 QI_1 到 QI_13 和 FOUNDATION_EARLY/MID/LATE/PEAK
+- [x] 每个境界有正确的 `manaBase`, `divSenseBase`, `hpBase` 值
+- [x] 衍生属性计算方法实现并通过单元测试
+- [x] `/seeking_immortals realm` 命令能正确显示当前境界和属性
 
 ### Phase 1 完成标记
 
-- [ ] **Phase 1 已完成，可进入 Phase 2**
+- [x] **Phase 1 已完成，可进入 Phase 2**
 
 ---
 
@@ -574,8 +574,8 @@
 
 | Phase | 开始时间 | 完成时间 | 状态 | 备注 |
 |-------|---------|---------|------|------|
-| Phase 0 | - | - | 未开始 | - |
-| Phase 1 | - | - | 未开始 | - |
+| Phase 0 | 2026-06-13 | 2026-06-13 | 已完成 | 项目调研，生成 phase-0-project-survey.md |
+| Phase 1 | 2026-06-14 | 2026-06-14 | 已完成 | 核心属性字段对齐、境界阶段扩展、衍生属性计算 |
 | Phase 2 | - | - | 未开始 | - |
 | Phase 3 | - | - | 未开始 | - |
 | Phase 4 | - | - | 未开始 | - |

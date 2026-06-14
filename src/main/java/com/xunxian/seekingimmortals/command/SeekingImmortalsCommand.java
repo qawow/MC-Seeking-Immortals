@@ -45,7 +45,22 @@ public final class SeekingImmortalsCommand {
         CultivationHelper.get(player).ifPresent(cultivation -> {
             double chance = BreakthroughService.preview(player, cultivation).chance();
             source.sendSuccess(() -> Component.translatable(
-                    "command.seeking_immortals.realm", cultivation.getRealm().getDisplayName(), cultivation.getStage().getDisplayName(), cultivation.getAgeYears(), cultivation.getLifespanYears(), cultivation.getRemainingLifespanYears(), Math.round(chance * 10000.0D) / 100.0D), false);
+                    "command.seeking_immortals.realm",
+                    cultivation.getRealm().getDisplayName(),
+                    cultivation.getStage().getDisplayName(),
+                    cultivation.getAgeYears(),
+                    cultivation.getLifespanYears(),
+                    cultivation.getRemainingLifespanYears(),
+                    Math.round(chance * 10000.0D) / 100.0D), false);
+
+            // Phase 1: 显示衍生属性
+            source.sendSuccess(() -> Component.literal(String.format(
+                    "衍生属性 | 最大HP: %d | 灵力回速: %.2f/s | 修为回速: %.2f/s | 飞行速度: %.1f格/s",
+                    cultivation.getMaxHealthPoints(),
+                    cultivation.getManaRecoveryPerSecond(),
+                    cultivation.getCultivationGainPerSecond(),
+                    cultivation.getFlyingSpeed()
+            )), false);
         });
         return 1;
     }
