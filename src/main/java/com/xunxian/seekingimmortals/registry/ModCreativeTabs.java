@@ -14,13 +14,9 @@ public final class ModCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> SEEKING_IMMORTALS_TAB = TABS.register("seeking_immortals_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.seeking_immortals"))
-            .icon(() -> new ItemStack(ModItems.SPIRIT_STONE.get()))
+            .icon(() -> new ItemStack(ModItems.METAL_SPIRIT_STONE.get()))
             .displayItems((parameters, output) -> {
                 // 货币
-                output.accept(ModItems.SPIRIT_STONE.get());
-                output.accept(ModItems.SPIRIT_STONE_MID.get());
-                output.accept(ModItems.SPIRIT_STONE_HIGH.get());
-                output.accept(ModItems.SPIRIT_STONE_SUPERIOR.get());
                 output.accept(ModItems.IMMORTAL_JADE.get());
 
                 // 五行灵石
@@ -48,6 +44,7 @@ public final class ModCreativeTabs {
                 // 方块
                 output.accept(ModItems.SPIRIT_ORE.get());
                 output.accept(ModItems.MEDITATION_CUSHION.get());
+                output.accept(ModItems.LING_GEN_IDENTIFICATION_SLAB.get());
                 output.accept(ModItems.SPIRIT_GATHERING_ARRAY.get());
 
                 // 丹药

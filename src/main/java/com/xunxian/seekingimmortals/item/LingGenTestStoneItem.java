@@ -36,7 +36,7 @@ public class LingGenTestStoneItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide) {
-            testPlayer((ServerLevel) level, player, player, stack);
+            testPlayer((ServerLevel) level, player, player, stack, true);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
@@ -44,10 +44,36 @@ public class LingGenTestStoneItem extends Item {
     @Override
     public InteractionResult interactLivingEntity(ItemStack stack, Player player, LivingEntity target, InteractionHand hand) {
         if (!player.level().isClientSide && target instanceof Player targetPlayer && player.level() instanceof ServerLevel serverLevel) {
-            testPlayer(serverLevel, player, targetPlayer, stack);
+            testPlayer(serverLevel, player, targetPlayer, stack, true);
             return InteractionResult.SUCCESS;
         }
         return super.interactLivingEntity(stack, player, target, hand);
+    }
+
+    public static void testPlayer(ServerLevel level, Player user, Player target, ItemStack stack, boolean consumeUse) {
+        testPlayer(level, user, target, stack, consumeUse, true);
+    }
+
+    public static void testPlayer(ServerLevel level, Player user, Player target, ItemStack stack, boolean consumeUse, boolean showTargetNotice) {
+        if (stack != null && getRemainingUses(stack) <= 0 && !user.getAbilities().instabuild) {
+            user.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test_stone.depleted"), true);
+            return;
+        }
+        CultivationHelper.get(target).ifPresentOrElse(cultivation -> {
+            boolean created = cultivation.createLingGenIfAbsent(level.getRandom());
+            showResult(user, target, cultivation, created);
+            if (showTargetNotice && user != target) {
+                target.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.target_notice", user.getDisplayName()), false);
+                showResult(target, target, cultivation, created);
+            }
+            if (target instanceof ServerPlayer targetServerPlayer) {
+                SyncCultivationDataPacket.send(targetServerPlayer, cultivation);
+            }
+            playEffects(level, target);
+            if (consumeUse && stack != null) {
+                consumeUse(level, user, stack);
+            }
+        }, () -> user.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.no_data"), true));
     }
 
     @Override
@@ -57,27 +83,7 @@ public class LingGenTestStoneItem extends Item {
         tooltip.add(Component.translatable("tooltip.seeking_immortals.ling_gen_test_stone.no_recharge").withStyle(ChatFormatting.RED));
     }
 
-    private void testPlayer(ServerLevel level, Player user, Player target, ItemStack stack) {
-        if (getRemainingUses(stack) <= 0 && !user.getAbilities().instabuild) {
-            user.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test_stone.depleted"), true);
-            return;
-        }
-        CultivationHelper.get(target).ifPresentOrElse(cultivation -> {
-            boolean created = cultivation.createLingGenIfAbsent(level.getRandom());
-            showResult(user, target, cultivation, created);
-            if (user != target) {
-                target.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.target_notice", user.getDisplayName()), false);
-                showResult(target, target, cultivation, created);
-            }
-            if (target instanceof ServerPlayer targetServerPlayer) {
-                SyncCultivationDataPacket.send(targetServerPlayer, cultivation);
-            }
-            playEffects(level, target);
-            consumeUse(level, user, stack);
-        }, () -> user.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.no_data"), true));
-    }
-
-    private int getRemainingUses(ItemStack stack) {
+    private static int getRemainingUses(ItemStack stack) {
         CompoundTag tag = stack.getOrCreateTag();
         if (!tag.contains(USES_KEY)) {
             tag.putInt(USES_KEY, MAX_USES);

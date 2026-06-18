@@ -1,0 +1,1142 @@
+[
+  {
+    "item_id": "immortal_jade",
+    "中文名": "仙玉",
+    "分类": "crystal",
+    "路径": "textures/item/immortal_jade.png",
+    "描述": "translucent jade-green immortal crystal with a soft inner glow, refined and precious like a rare cultivation currency",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare crystal currency icon, translucent jade-green immortal crystal with a soft inner glow, refined and precious like a rare cultivation currency. Palette and motif should match '仙玉' / immortal_jade; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "qi_recovery_pill",
+    "中文名": "回灵丹",
+    "分类": "pill",
+    "路径": "textures/item/qi_recovery_pill.png",
+    "描述": "pale blue round pill with faint qi energy swirls and a gentle restorative aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, pale blue round pill with faint qi energy swirls and a gentle restorative aura. Palette and motif should match '回灵丹' / qi_recovery_pill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "cultivation_pill",
+    "中文名": "凝气丹",
+    "分类": "pill",
+    "路径": "textures/item/cultivation_pill.png",
+    "描述": "glowing golden pill used to boost cultivation, condensed spiritual energy gathered around the surface",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, glowing golden pill used to boost cultivation, condensed spiritual energy gathered around the surface. Palette and motif should match '凝气丹' / cultivation_pill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "breakthrough_pill",
+    "中文名": "破境丹",
+    "分类": "pill",
+    "路径": "textures/item/breakthrough_pill.png",
+    "描述": "radiant crimson pill with tiny breakthrough rune markings and a powerful unstable aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, radiant crimson pill with tiny breakthrough rune markings and a powerful unstable aura. Palette and motif should match '破境丹' / breakthrough_pill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "rejuvenation_pill_low",
+    "中文名": "下品回春丹",
+    "分类": "pill",
+    "路径": "textures/item/rejuvenation_pill_low.png",
+    "描述": "small green low-grade pill with mild vitality-restoring herbal glow",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, small green low-grade pill with mild vitality-restoring herbal glow. Palette and motif should match '下品回春丹' / rejuvenation_pill_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "foundation_building_pill_low",
+    "中文名": "下品筑基丹",
+    "分类": "pill",
+    "路径": "textures/item/foundation_building_pill_low.png",
+    "描述": "amber low-grade pill with restrained swirling foundation-building energy",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, amber low-grade pill with restrained swirling foundation-building energy. Palette and motif should match '下品筑基丹' / foundation_building_pill_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "healing_pill_low",
+    "中文名": "下品疗伤丹",
+    "分类": "pill",
+    "路径": "textures/item/healing_pill_low.png",
+    "描述": "soft pink low-grade healing pill with a gentle restorative glow",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, soft pink low-grade healing pill with a gentle restorative glow. Palette and motif should match '下品疗伤丹' / healing_pill_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "clear_spirit_powder_low",
+    "中文名": "下品清灵散",
+    "分类": "powder",
+    "路径": "textures/item/clear_spirit_powder_low.png",
+    "描述": "fine white-blue medicinal powder in a small folded paper packet or pouch, faint clean spirit aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, alchemy powder packet icon, fine white-blue medicinal powder in a small folded paper packet or pouch, faint clean spirit aura. Palette and motif should match '下品清灵散' / clear_spirit_powder_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fasting_pill_low",
+    "中文名": "下品辟谷丹",
+    "分类": "pill",
+    "路径": "textures/item/fasting_pill_low.png",
+    "描述": "plain beige low-grade fasting pill resembling a compressed grain of rice, simple and practical",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, plain beige low-grade fasting pill resembling a compressed grain of rice, simple and practical. Palette and motif should match '下品辟谷丹' / fasting_pill_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "calming_pill_low",
+    "中文名": "稳神丹（下品）",
+    "分类": "pill",
+    "路径": "textures/item/calming_pill_low.png",
+    "描述": "serene lavender low-grade calming pill, quiet mind-stabilizing qi halo",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, round medicinal elixir pill, small alchemy丹药 icon, serene lavender low-grade calming pill, quiet mind-stabilizing qi halo. Palette and motif should match '稳神丹（下品）' / calming_pill_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "spirit_charm",
+    "中文名": "灵力护符",
+    "分类": "talisman",
+    "路径": "textures/item/spirit_charm.png",
+    "描述": "jade-green protective charm with spiritual rune inscriptions and a soft defensive aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, paper charm talisman icon with readable rune-like decoration, vertical rectangular silhouette, jade-green protective charm with spiritual rune inscriptions and a soft defensive aura. Palette and motif should match '灵力护符' / spirit_charm; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fire_talisman",
+    "中文名": "火弹符",
+    "分类": "talisman",
+    "路径": "textures/item/fire_talisman.png",
+    "描述": "yellow paper talisman with red fire runes and a tiny ember glow",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, paper charm talisman icon with readable rune-like decoration, vertical rectangular silhouette, yellow paper talisman with red fire runes and a tiny ember glow. Palette and motif should match '火弹符' / fire_talisman; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "armor_talisman",
+    "中文名": "金甲符",
+    "分类": "talisman",
+    "路径": "textures/item/armor_talisman.png",
+    "描述": "golden paper talisman with metallic armor sigil and firm protective light",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, paper charm talisman icon with readable rune-like decoration, vertical rectangular silhouette, golden paper talisman with metallic armor sigil and firm protective light. Palette and motif should match '金甲符' / armor_talisman; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "speed_talisman",
+    "中文名": "疾行符",
+    "分类": "talisman",
+    "路径": "textures/item/speed_talisman.png",
+    "描述": "light blue paper talisman with wind-speed rune markings and swift airy trails",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, paper charm talisman icon with readable rune-like decoration, vertical rectangular silhouette, light blue paper talisman with wind-speed rune markings and swift airy trails. Palette and motif should match '疾行符' / speed_talisman; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "spirit_ore",
+    "中文名": "灵石矿",
+    "分类": "block_item",
+    "路径": "textures/block/spirit_ore.png",
+    "描述": "stone block with embedded glowing blue spirit crystal veins, square block texture suitable for Minecraft ore",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, Minecraft block texture/item icon, square ore block, stone block with embedded glowing blue spirit crystal veins, square block texture suitable for Minecraft ore. Palette and motif should match '灵石矿' / spirit_ore; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "spirit_grass",
+    "中文名": "灵草",
+    "分类": "material",
+    "路径": "textures/item/spirit_grass.png",
+    "描述": "green glowing spiritual grass blade with faint qi aura, delicate herb material",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, green glowing spiritual grass blade with faint qi aura, delicate herb material. Palette and motif should match '灵草' / spirit_grass; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "cloud_mushroom",
+    "中文名": "云雾菇",
+    "分类": "material",
+    "路径": "textures/item/cloud_mushroom.png",
+    "描述": "pale white-blue mushroom surrounded by wispy cloud vapor",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, pale white-blue mushroom surrounded by wispy cloud vapor. Palette and motif should match '云雾菇' / cloud_mushroom; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "phoenix_feather_flower",
+    "中文名": "凤羽花",
+    "分类": "material",
+    "路径": "textures/item/phoenix_feather_flower.png",
+    "描述": "red-orange flower with petals shaped like phoenix feathers, warm spiritual glow",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, red-orange flower with petals shaped like phoenix feathers, warm spiritual glow. Palette and motif should match '凤羽花' / phoenix_feather_flower; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "dragon_blood_grass",
+    "中文名": "龙血草",
+    "分类": "material",
+    "路径": "textures/item/dragon_blood_grass.png",
+    "描述": "dark crimson grass stained with dragon blood essence, deep red spiritual veins",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, dark crimson grass stained with dragon blood essence, deep red spiritual veins. Palette and motif should match '龙血草' / dragon_blood_grass; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "immortal_ginseng",
+    "中文名": "仙参",
+    "分类": "material",
+    "路径": "textures/item/immortal_ginseng.png",
+    "描述": "golden immortal ginseng root with faint divine aura and root tendrils",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, golden immortal ginseng root with faint divine aura and root tendrils. Palette and motif should match '仙参' / immortal_ginseng; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "beast_core",
+    "中文名": "妖兽内丹",
+    "分类": "material",
+    "路径": "textures/item/beast_core.png",
+    "描述": "dark purple spherical beast core with swirling inner energy and wild beast aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, dark purple spherical beast core with swirling inner energy and wild beast aura. Palette and motif should match '妖兽内丹' / beast_core; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "spirit_beast_bone",
+    "中文名": "灵兽骨",
+    "分类": "material",
+    "路径": "textures/item/spirit_beast_bone.png",
+    "描述": "pale ivory bone fragment with faint spiritual energy traces",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, pale ivory bone fragment with faint spiritual energy traces. Palette and motif should match '灵兽骨' / spirit_beast_bone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "dragon_scale",
+    "中文名": "龙鳞",
+    "分类": "material",
+    "路径": "textures/item/dragon_scale.png",
+    "描述": "iridescent dragon scale with rainbow-shifting surface and hard polished edge",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, iridescent dragon scale with rainbow-shifting surface and hard polished edge. Palette and motif should match '龙鳞' / dragon_scale; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "phoenix_feather",
+    "中文名": "凤凰羽",
+    "分类": "material",
+    "路径": "textures/item/phoenix_feather.png",
+    "描述": "brilliant red-gold phoenix feather radiating warmth",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, brilliant red-gold phoenix feather radiating warmth. Palette and motif should match '凤凰羽' / phoenix_feather; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "true_dragon_blood",
+    "中文名": "真龙血",
+    "分类": "material",
+    "路径": "textures/item/true_dragon_blood.png",
+    "描述": "small vial of glowing crimson true dragon blood with golden flecks",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, small vial of glowing crimson true dragon blood with golden flecks. Palette and motif should match '真龙血' / true_dragon_blood; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "spirit_iron",
+    "中文名": "灵铁",
+    "分类": "material",
+    "路径": "textures/item/spirit_iron.png",
+    "描述": "dark metallic iron ingot with blue spiritual energy veins",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, dark metallic iron ingot with blue spiritual energy veins. Palette and motif should match '灵铁' / spirit_iron; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "cold_jade",
+    "中文名": "寒玉",
+    "分类": "material",
+    "路径": "textures/item/cold_jade.png",
+    "描述": "frost-blue jade piece emanating cold mist",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, frost-blue jade piece emanating cold mist. Palette and motif should match '寒玉' / cold_jade; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "star_meteorite",
+    "中文名": "星陨铁",
+    "分类": "material",
+    "路径": "textures/item/star_meteorite.png",
+    "描述": "dark metallic meteorite fragment with starlight specks",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, dark metallic meteorite fragment with starlight specks. Palette and motif should match '星陨铁' / star_meteorite; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "celestial_crystal",
+    "中文名": "天晶石",
+    "分类": "material",
+    "路径": "textures/item/celestial_crystal.png",
+    "描述": "prismatic celestial crystal refracting heavenly light",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, prismatic celestial crystal refracting heavenly light. Palette and motif should match '天晶石' / celestial_crystal; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "chaos_gold",
+    "中文名": "混沌金",
+    "分类": "material",
+    "路径": "textures/item/chaos_gold.png",
+    "描述": "swirling golden ingot with chaotic primordial energy patterns",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, swirling golden ingot with chaotic primordial energy patterns. Palette and motif should match '混沌金' / chaos_gold; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "soul_fragment",
+    "中文名": "魂魄碎片",
+    "分类": "material",
+    "路径": "textures/item/soul_fragment.png",
+    "描述": "ethereal ghostly fragment with translucent soul energy wisps",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, ethereal ghostly fragment with translucent soul energy wisps. Palette and motif should match '魂魄碎片' / soul_fragment; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "void_crystal",
+    "中文名": "虚空结晶",
+    "分类": "material",
+    "路径": "textures/item/void_crystal.png",
+    "描述": "deep purple-black crystal with void-space distortions inside",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, deep purple-black crystal with void-space distortions inside. Palette and motif should match '虚空结晶' / void_crystal; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "time_sand",
+    "中文名": "时光之砂",
+    "分类": "material",
+    "路径": "textures/item/time_sand.png",
+    "描述": "golden shimmering sand grains with temporal energy particles in a tiny vial or heap",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, golden shimmering sand grains with temporal energy particles in a tiny vial or heap. Palette and motif should match '时光之砂' / time_sand; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "primordial_essence",
+    "中文名": "先天本源",
+    "分类": "material",
+    "路径": "textures/item/primordial_essence.png",
+    "描述": "swirling multicolor orb of primordial creation essence, mysterious ancient aura",
+    "分组": "Missing Textures — 完全缺失/PNG缺失",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rare cultivation material icon, swirling multicolor orb of primordial creation essence, mysterious ancient aura. Palette and motif should match '先天本源' / primordial_essence; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_art",
+    "中文名": "青元剑诀传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_art.png",
+    "描述": "azure scroll with sword-light calligraphy",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, azure scroll with sword-light calligraphy. Palette and motif should match '青元剑诀传承卷轴' / technique_manual_azure_origin_sword_art; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_support",
+    "中文名": "青元剑诀辅助传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_support.png",
+    "描述": "lighter azure scroll with supporting sword diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, lighter azure scroll with supporting sword diagrams. Palette and motif should match '青元剑诀辅助传承卷轴' / technique_manual_azure_origin_sword_support; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_six_paths_sage_created",
+    "中文名": "六道极圣所创传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_six_paths_sage_created.png",
+    "描述": "six-colored scroll with sage rune seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, six-colored scroll with sage rune seals. Palette and motif should match '六道极圣所创传承卷轴' / technique_manual_six_paths_sage_created; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_demonic",
+    "中文名": "魔道传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_demonic.png",
+    "描述": "dark crimson scroll with demonic sigils",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, dark crimson scroll with demonic sigils. Palette and motif should match '魔道传承卷轴' / technique_manual_demonic; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_yao_bird_cultivator",
+    "中文名": "妖族禽修传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_yao_bird_cultivator.png",
+    "描述": "feathered scroll with avian yao beast motifs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, feathered scroll with avian yao beast motifs. Palette and motif should match '妖族禽修传承卷轴' / technique_manual_yao_bird_cultivator; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_five_elements_escape",
+    "中文名": "五行遁术传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_five_elements_escape.png",
+    "描述": "five-color elemental scroll with escape runes",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, five-color elemental scroll with escape runes. Palette and motif should match '五行遁术传承卷轴' / technique_manual_five_elements_escape; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_thousand_illusion_sect",
+    "中文名": "千幻宗传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_thousand_illusion_sect.png",
+    "描述": "shimmering illusory scroll with mirage patterns",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, shimmering illusory scroll with mirage patterns. Palette and motif should match '千幻宗传承卷轴' / technique_manual_thousand_illusion_sect; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_nangong_wan_main",
+    "中文名": "南宫婉主修传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_nangong_wan_main.png",
+    "描述": "elegant feminine scroll with soft jade glow",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, elegant feminine scroll with soft jade glow. Palette and motif should match '南宫婉主修传承卷轴' / technique_manual_nangong_wan_main; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_yao",
+    "中文名": "妖族传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_yao.png",
+    "描述": "primal beast-hide scroll with yao claw marks",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, primal beast-hide scroll with yao claw marks. Palette and motif should match '妖族传承卷轴' / technique_manual_yao; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ghost",
+    "中文名": "鬼道传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ghost.png",
+    "描述": "ghostly pale scroll with spectral rune chains",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ghostly pale scroll with spectral rune chains. Palette and motif should match '鬼道传承卷轴' / technique_manual_ghost; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_purple_luo_mystic_skill",
+    "中文名": "紫罗玄功传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_purple_luo_mystic_skill.png",
+    "描述": "deep purple scroll with mystic energy spirals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, deep purple scroll with mystic energy spirals. Palette and motif should match '紫罗玄功传承卷轴' / technique_manual_purple_luo_mystic_skill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_orthodox",
+    "中文名": "正道传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_orthodox.png",
+    "描述": "radiant golden scroll with righteous qi seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, radiant golden scroll with righteous qi seals. Palette and motif should match '正道传承卷轴' / technique_manual_orthodox; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_derivative",
+    "中文名": "青元剑诀衍生传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_derivative.png",
+    "描述": "derivative azure-white scroll with branching sword paths",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, derivative azure-white scroll with branching sword paths. Palette and motif should match '青元剑诀衍生传承卷轴' / technique_manual_azure_origin_sword_derivative; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_common",
+    "中文名": "通用传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_common.png",
+    "描述": "plain beige scroll with generic cultivation diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, plain beige scroll with generic cultivation diagrams. Palette and motif should match '通用传承卷轴' / technique_manual_common; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_spirit_taming_basic",
+    "中文名": "御灵宗基础传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_spirit_taming_basic.png",
+    "描述": "green scroll with basic spirit-beast taming glyphs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, green scroll with basic spirit-beast taming glyphs. Palette and motif should match '御灵宗基础传承卷轴' / technique_manual_spirit_taming_basic; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_common_tricks",
+    "中文名": "通用小技巧传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_common_tricks.png",
+    "描述": "small tattered scroll with practical cultivation tips",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, small tattered scroll with practical cultivation tips. Palette and motif should match '通用小技巧传承卷轴' / technique_manual_common_tricks; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_support_skill",
+    "中文名": "青元剑诀辅助功法传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_support_skill.png",
+    "描述": "supplementary azure scroll with sword-qi formulas",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, supplementary azure scroll with sword-qi formulas. Palette and motif should match '青元剑诀辅助功法传承卷轴' / technique_manual_azure_origin_sword_support_skill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_mystic_yin_appendix",
+    "中文名": "玄阴经附属传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_mystic_yin_appendix.png",
+    "描述": "dark yin scroll with cold moon-phase diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, dark yin scroll with cold moon-phase diagrams. Palette and motif should match '玄阴经附属传承卷轴' / technique_manual_mystic_yin_appendix; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_formation",
+    "中文名": "阵法类传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_formation.png",
+    "描述": "geometric scroll with formation circle blueprints",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, geometric scroll with formation circle blueprints. Palette and motif should match '阵法类传承卷轴' / technique_manual_formation; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ancient_sword_sect",
+    "中文名": "古剑门传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ancient_sword_sect.png",
+    "描述": "ancient stone-gray scroll with archaic sword engravings",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ancient stone-gray scroll with archaic sword engravings. Palette and motif should match '古剑门传承卷轴' / technique_manual_ancient_sword_sect; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_spirit_taming_sect",
+    "中文名": "御灵宗传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_spirit_taming_sect.png",
+    "描述": "emerald scroll with advanced beast-spirit binding seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, emerald scroll with advanced beast-spirit binding seals. Palette and motif should match '御灵宗传承卷轴' / technique_manual_spirit_taming_sect; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_spirit_realm_pre",
+    "中文名": "青元剑诀·灵界篇前置传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_spirit_realm_pre.png",
+    "描述": "transitional azure scroll with realm-crossing sword intent",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, transitional azure scroll with realm-crossing sword intent. Palette and motif should match '青元剑诀·灵界篇前置传承卷轴' / technique_manual_azure_origin_sword_spirit_realm_pre; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_origin_sword_spirit_realm",
+    "中文名": "青元剑诀·灵界篇传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_origin_sword_spirit_realm.png",
+    "描述": "powerful azure scroll with spirit-realm sword aura",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, powerful azure scroll with spirit-realm sword aura. Palette and motif should match '青元剑诀·灵界篇传承卷轴' / technique_manual_azure_origin_sword_spirit_realm; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_thousand_bamboo_heritage",
+    "中文名": "千竹教传承传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_thousand_bamboo_heritage.png",
+    "描述": "bamboo-green scroll with thousand bamboo leaf patterns",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, bamboo-green scroll with thousand bamboo leaf patterns. Palette and motif should match '千竹教传承传承卷轴' / technique_manual_thousand_bamboo_heritage; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_great_development_formula",
+    "中文名": "大衍诀传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_great_development_formula.png",
+    "描述": "complex mathematical scroll with derivation formulas",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, complex mathematical scroll with derivation formulas. Palette and motif should match '大衍诀传承卷轴' / technique_manual_great_development_formula; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_great_development_master",
+    "中文名": "大衍神君传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_great_development_master.png",
+    "描述": "divine-tier scroll with great development god-seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, divine-tier scroll with great development god-seals. Palette and motif should match '大衍神君传承卷轴' / technique_manual_great_development_master; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_han_li_self_created",
+    "中文名": "韩立自创传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_han_li_self_created.png",
+    "描述": "humble yet profound scroll with personal annotations",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, humble yet profound scroll with personal annotations. Palette and motif should match '韩立自创传承卷轴' / technique_manual_han_li_self_created; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_chaotic_star_sea_demonic",
+    "中文名": "乱星海魔修传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_chaotic_star_sea_demonic.png",
+    "描述": "chaotic starfield scroll with demonic corruption veins",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, chaotic starfield scroll with demonic corruption veins. Palette and motif should match '乱星海魔修传承卷轴' / technique_manual_chaotic_star_sea_demonic; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_top_demonic",
+    "中文名": "魔道顶阶传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_top_demonic.png",
+    "描述": "supreme dark-red scroll with top-tier demonic authority",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, supreme dark-red scroll with top-tier demonic authority. Palette and motif should match '魔道顶阶传承卷轴' / technique_manual_top_demonic; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_mystic_herder_nascent_appendix",
+    "中文名": "玄牧化婴附属传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_mystic_herder_nascent_appendix.png",
+    "描述": "pastoral mystic scroll with nascent-soul herding diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, pastoral mystic scroll with nascent-soul herding diagrams. Palette and motif should match '玄牧化婴附属传承卷轴' / technique_manual_mystic_herder_nascent_appendix; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_chaotic_star_sea",
+    "中文名": "乱星海传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_chaotic_star_sea.png",
+    "描述": "star-sea scroll with chaotic cosmic currents",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, star-sea scroll with chaotic cosmic currents. Palette and motif should match '乱星海传承卷轴' / technique_manual_chaotic_star_sea; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_heavenly_lan_temple",
+    "中文名": "天澜圣殿传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_heavenly_lan_temple.png",
+    "描述": "sacred temple scroll with heavenly blue wave motifs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, sacred temple scroll with heavenly blue wave motifs. Palette and motif should match '天澜圣殿传承卷轴' / technique_manual_heavenly_lan_temple; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ancient_secret_art",
+    "中文名": "上古秘术传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ancient_secret_art.png",
+    "描述": "ancient cracked scroll with primordial secret glyphs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ancient cracked scroll with primordial secret glyphs. Palette and motif should match '上古秘术传承卷轴' / technique_manual_ancient_secret_art; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_supreme_demonic",
+    "中文名": "魔道无上传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_supreme_demonic.png",
+    "描述": "ultimate dark scroll with supreme demonic crown seal",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ultimate dark scroll with supreme demonic crown seal. Palette and motif should match '魔道无上传承卷轴' / technique_manual_supreme_demonic; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_nascent_soul_common",
+    "中文名": "元婴修士通用传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_nascent_soul_common.png",
+    "描述": "standard nascent-soul scroll with golden embryo icon",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, standard nascent-soul scroll with golden embryo icon. Palette and motif should match '元婴修士通用传承卷轴' / technique_manual_nascent_soul_common; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_evergreen_appendix",
+    "中文名": "长春功附载传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_evergreen_appendix.png",
+    "描述": "evergreen scroll with perpetual spring vitality motifs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, evergreen scroll with perpetual spring vitality motifs. Palette and motif should match '长春功附载传承卷轴' / technique_manual_evergreen_appendix; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_common_low",
+    "中文名": "通用低阶传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_common_low.png",
+    "描述": "simple faded scroll with basic low-tier cultivation charts",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, simple faded scroll with basic low-tier cultivation charts. Palette and motif should match '通用低阶传承卷轴' / technique_manual_common_low; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_mortal_martial",
+    "中文名": "世俗武林传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_mortal_martial.png",
+    "描述": "worn martial-arts scroll with mortal combat techniques",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, worn martial-arts scroll with mortal combat techniques. Palette and motif should match '世俗武林传承卷轴' / technique_manual_mortal_martial; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_seven_mysteries_sect",
+    "中文名": "七玄门传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_seven_mysteries_sect.png",
+    "描述": "seven-symbol scroll with mysterious gate insignia",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, seven-symbol scroll with mysterious gate insignia. Palette and motif should match '七玄门传承卷轴' / technique_manual_seven_mysteries_sect; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_lost_true_immortal_art",
+    "中文名": "上古失传真仙术传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_lost_true_immortal_art.png",
+    "描述": "ancient divine scroll with lost immortal-realm calligraphy",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ancient divine scroll with lost immortal-realm calligraphy. Palette and motif should match '上古失传真仙术传承卷轴' / technique_manual_lost_true_immortal_art; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_nascent_soul_late_plus",
+    "中文名": "元婴后期以上传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_nascent_soul_late_plus.png",
+    "描述": "advanced golden scroll with late nascent-soul diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, advanced golden scroll with late nascent-soul diagrams. Palette and motif should match '元婴后期以上传承卷轴' / technique_manual_nascent_soul_late_plus; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_yuancha_saint_ancestor",
+    "中文名": "元刹圣祖传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_yuancha_saint_ancestor.png",
+    "描述": "primordial saint scroll with ancestral origin seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, primordial saint scroll with ancestral origin seals. Palette and motif should match '元刹圣祖传承卷轴' / technique_manual_yuancha_saint_ancestor; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ancient_demon_secret",
+    "中文名": "古魔秘术传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ancient_demon_secret.png",
+    "描述": "ancient demon scroll with forbidden secret runes",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ancient demon scroll with forbidden secret runes. Palette and motif should match '古魔秘术传承卷轴' / technique_manual_ancient_demon_secret; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ancient_demon",
+    "中文名": "古魔传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ancient_demon.png",
+    "描述": "weathered ancient scroll with primeval demon imagery",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, weathered ancient scroll with primeval demon imagery. Palette and motif should match '古魔传承卷轴' / technique_manual_ancient_demon; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_brahma_sacred_fragment",
+    "中文名": "梵圣真片传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_brahma_sacred_fragment.png",
+    "描述": "sacred fragment scroll with brahma divine light",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, sacred fragment scroll with brahma divine light. Palette and motif should match '梵圣真片传承卷轴' / technique_manual_brahma_sacred_fragment; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_buddhist",
+    "中文名": "佛门传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_buddhist.png",
+    "描述": "golden Buddhist scroll with dharma wheel and lotus",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, golden Buddhist scroll with dharma wheel and lotus. Palette and motif should match '佛门传承卷轴' / technique_manual_buddhist; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_ancient_demonic_skill",
+    "中文名": "上古魔功传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_ancient_demonic_skill.png",
+    "描述": "ancient dark scroll with primeval demonic power glyphs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ancient dark scroll with primeval demonic power glyphs. Palette and motif should match '上古魔功传承卷轴' / technique_manual_ancient_demonic_skill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_great_jin",
+    "中文名": "大晋传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_great_jin.png",
+    "描述": "imperial scroll with great jin dynasty dragon seal",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, imperial scroll with great jin dynasty dragon seal. Palette and motif should match '大晋传承卷轴' / technique_manual_great_jin; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_black_wind_flag_spirit",
+    "中文名": "黑风旗器灵传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_black_wind_flag_spirit.png",
+    "描述": "dark wind scroll with black flag spirit-art bound",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, dark wind scroll with black flag spirit-art bound. Palette and motif should match '黑风旗器灵传承卷轴' / technique_manual_black_wind_flag_spirit; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_little_pole_palace",
+    "中文名": "小极宫传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_little_pole_palace.png",
+    "描述": "ice-blue scroll with little pole palace frost motifs",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ice-blue scroll with little pole palace frost motifs. Palette and motif should match '小极宫传承卷轴' / technique_manual_little_pole_palace; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_gold_magnetic_spirit_wood",
+    "中文名": "金磁灵木传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_gold_magnetic_spirit_wood.png",
+    "描述": "golden-green scroll with magnetic spirit-wood grain",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, golden-green scroll with magnetic spirit-wood grain. Palette and motif should match '金磁灵木传承卷轴' / technique_manual_gold_magnetic_spirit_wood; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_self_created",
+    "中文名": "自创传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_self_created.png",
+    "描述": "blank-style scroll with personal creation aura",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, blank-style scroll with personal creation aura. Palette and motif should match '自创传承卷轴' / technique_manual_self_created; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_kunpeng_red_cloud_created",
+    "中文名": "鲲鹏族红云老祖所创传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_kunpeng_red_cloud_created.png",
+    "描述": "cosmic scroll with kunpeng and red cloud ancestor imagery",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, cosmic scroll with kunpeng and red cloud ancestor imagery. Palette and motif should match '鲲鹏族红云老祖所创传承卷轴' / technique_manual_kunpeng_red_cloud_created; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_immortal_thunder_origin",
+    "中文名": "仙界雷法本源传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_immortal_thunder_origin.png",
+    "描述": "crackling thunder scroll with immortal-realm lightning",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, crackling thunder scroll with immortal-realm lightning. Palette and motif should match '仙界雷法本源传承卷轴' / technique_manual_immortal_thunder_origin; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_demon_domain_body_refining",
+    "中文名": "魔域顶级炼体功传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_demon_domain_body_refining.png",
+    "描述": "dark muscular scroll with demon-domain body refining diagrams",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, dark muscular scroll with demon-domain body refining diagrams. Palette and motif should match '魔域顶级炼体功传承卷轴' / technique_manual_demon_domain_body_refining; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_immortal_realm_skill",
+    "中文名": "仙界功法传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_immortal_realm_skill.png",
+    "描述": "divine white-gold scroll with immortal-realm aura",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, divine white-gold scroll with immortal-realm aura. Palette and motif should match '仙界功法传承卷轴' / technique_manual_immortal_realm_skill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_demon_race_secret",
+    "中文名": "魔族秘传传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_demon_race_secret.png",
+    "描述": "sealed dark scroll with demon-race secret blood seals",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, sealed dark scroll with demon-race secret blood seals. Palette and motif should match '魔族秘传传承卷轴' / technique_manual_demon_race_secret; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_true_word_sect_heritage",
+    "中文名": "真言门传承传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_true_word_sect_heritage.png",
+    "描述": "scroll with true-word mantra glyphs and sect gate seal",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, scroll with true-word mantra glyphs and sect gate seal. Palette and motif should match '真言门传承传承卷轴' / technique_manual_true_word_sect_heritage; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_azure_sea_true_lord_skill",
+    "中文名": "碧海真君成名功法传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_azure_sea_true_lord_skill.png",
+    "描述": "ocean-blue scroll with azure-sea true-lord wave patterns",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, ocean-blue scroll with azure-sea true-lord wave patterns. Palette and motif should match '碧海真君成名功法传承卷轴' / technique_manual_azure_sea_true_lord_skill; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "technique_manual_gray_immortal_heritage",
+    "中文名": "灰仙传承传承卷轴",
+    "分类": "talisman_scroll",
+    "路径": "textures/item/technique_manual_gray_immortal_heritage.png",
+    "描述": "gray misty scroll with gray immortal heritage sigils",
+    "分组": "Missing Textures — 传承卷轴占位升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, rolled/unrolled cultivation inheritance scroll icon, distinctive seal and miniature motif, gray misty scroll with gray immortal heritage sigils. Palette and motif should match '灰仙传承传承卷轴' / technique_manual_gray_immortal_heritage; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "metal_spirit_stone",
+    "中文名": "下品金灵石",
+    "分类": "spirit_stone/Metal/Low",
+    "路径": "textures/item/metal_spirit_stone.png",
+    "描述": "small metallic gold gemstone with faint qi shimmer",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, small metallic gold gemstone with faint qi shimmer. Palette and motif should match '下品金灵石' / metal_spirit_stone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "metal_spirit_stone_mid",
+    "中文名": "中品金灵石",
+    "分类": "spirit_stone/Metal/Mid",
+    "路径": "textures/item/metal_spirit_stone_mid.png",
+    "描述": "medium metallic gold crystal with brighter inner glow",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, medium metallic gold crystal with brighter inner glow. Palette and motif should match '中品金灵石' / metal_spirit_stone_mid; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "metal_spirit_stone_high",
+    "中文名": "上品金灵石",
+    "分类": "spirit_stone/Metal/High",
+    "路径": "textures/item/metal_spirit_stone_high.png",
+    "描述": "large radiant gold crystal pulsing with metal qi",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, large radiant gold crystal pulsing with metal qi. Palette and motif should match '上品金灵石' / metal_spirit_stone_high; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "metal_spirit_stone_superior",
+    "中文名": "极品金灵石",
+    "分类": "spirit_stone/Metal/Superior",
+    "路径": "textures/item/metal_spirit_stone_superior.png",
+    "描述": "brilliant golden spirit gem radiating supreme metal essence",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, brilliant golden spirit gem radiating supreme metal essence. Palette and motif should match '极品金灵石' / metal_spirit_stone_superior; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "wood_spirit_stone",
+    "中文名": "下品木灵石",
+    "分类": "spirit_stone/Wood/Low",
+    "路径": "textures/item/wood_spirit_stone.png",
+    "描述": "small green gemstone with leaf-vein patterns inside",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, small green gemstone with leaf-vein patterns inside. Palette and motif should match '下品木灵石' / wood_spirit_stone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "wood_spirit_stone_mid",
+    "中文名": "中品木灵石",
+    "分类": "spirit_stone/Wood/Mid",
+    "路径": "textures/item/wood_spirit_stone_mid.png",
+    "描述": "medium emerald crystal with growing vine motifs",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, medium emerald crystal with growing vine motifs. Palette and motif should match '中品木灵石' / wood_spirit_stone_mid; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "wood_spirit_stone_high",
+    "中文名": "上品木灵石",
+    "分类": "spirit_stone/Wood/High",
+    "路径": "textures/item/wood_spirit_stone_high.png",
+    "描述": "large verdant crystal radiating lush wood qi",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, large verdant crystal radiating lush wood qi. Palette and motif should match '上品木灵石' / wood_spirit_stone_high; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "wood_spirit_stone_superior",
+    "中文名": "极品木灵石",
+    "分类": "spirit_stone/Wood/Superior",
+    "路径": "textures/item/wood_spirit_stone_superior.png",
+    "描述": "brilliant jade-green gem with supreme life-force glow",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, brilliant jade-green gem with supreme life-force glow. Palette and motif should match '极品木灵石' / wood_spirit_stone_superior; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "water_spirit_stone",
+    "中文名": "下品水灵石",
+    "分类": "spirit_stone/Water/Low",
+    "路径": "textures/item/water_spirit_stone.png",
+    "描述": "small deep-blue gemstone with ripple patterns",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, small deep-blue gemstone with ripple patterns. Palette and motif should match '下品水灵石' / water_spirit_stone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "water_spirit_stone_mid",
+    "中文名": "中品水灵石",
+    "分类": "spirit_stone/Water/Mid",
+    "路径": "textures/item/water_spirit_stone_mid.png",
+    "描述": "medium sapphire crystal with flowing water currents",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, medium sapphire crystal with flowing water currents. Palette and motif should match '中品水灵石' / water_spirit_stone_mid; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "water_spirit_stone_high",
+    "中文名": "上品水灵石",
+    "分类": "spirit_stone/Water/High",
+    "路径": "textures/item/water_spirit_stone_high.png",
+    "描述": "large oceanic crystal pulsing with water qi",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, large oceanic crystal pulsing with water qi. Palette and motif should match '上品水灵石' / water_spirit_stone_high; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "water_spirit_stone_superior",
+    "中文名": "极品水灵石",
+    "分类": "spirit_stone/Water/Superior",
+    "路径": "textures/item/water_spirit_stone_superior.png",
+    "描述": "brilliant deep-blue gem radiating supreme water essence",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, brilliant deep-blue gem radiating supreme water essence. Palette and motif should match '极品水灵石' / water_spirit_stone_superior; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fire_element_spirit_stone",
+    "中文名": "下品火灵石",
+    "分类": "spirit_stone/Fire/Low",
+    "路径": "textures/item/fire_element_spirit_stone.png",
+    "描述": "small red gemstone with flickering flame core",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, small red gemstone with flickering flame core. Palette and motif should match '下品火灵石' / fire_element_spirit_stone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fire_element_spirit_stone_mid",
+    "中文名": "中品火灵石",
+    "分类": "spirit_stone/Fire/Mid",
+    "路径": "textures/item/fire_element_spirit_stone_mid.png",
+    "描述": "medium ruby crystal with swirling fire energy",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, medium ruby crystal with swirling fire energy. Palette and motif should match '中品火灵石' / fire_element_spirit_stone_mid; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fire_element_spirit_stone_high",
+    "中文名": "上品火灵石",
+    "分类": "spirit_stone/Fire/High",
+    "路径": "textures/item/fire_element_spirit_stone_high.png",
+    "描述": "large blazing crystal radiating intense fire qi",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, large blazing crystal radiating intense fire qi. Palette and motif should match '上品火灵石' / fire_element_spirit_stone_high; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "fire_element_spirit_stone_superior",
+    "中文名": "极品火灵石",
+    "分类": "spirit_stone/Fire/Superior",
+    "路径": "textures/item/fire_element_spirit_stone_superior.png",
+    "描述": "brilliant crimson gem with supreme inferno essence",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, brilliant crimson gem with supreme inferno essence. Palette and motif should match '极品火灵石' / fire_element_spirit_stone_superior; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "earth_spirit_stone",
+    "中文名": "下品土灵石",
+    "分类": "spirit_stone/Earth/Low",
+    "路径": "textures/item/earth_spirit_stone.png",
+    "描述": "small brown-amber gemstone with earth-layer striations",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, small brown-amber gemstone with earth-layer striations. Palette and motif should match '下品土灵石' / earth_spirit_stone; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "earth_spirit_stone_mid",
+    "中文名": "中品土灵石",
+    "分类": "spirit_stone/Earth/Mid",
+    "路径": "textures/item/earth_spirit_stone_mid.png",
+    "描述": "medium amber crystal with mountain-core patterns",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, medium amber crystal with mountain-core patterns. Palette and motif should match '中品土灵石' / earth_spirit_stone_mid; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "earth_spirit_stone_high",
+    "中文名": "上品土灵石",
+    "分类": "spirit_stone/Earth/High",
+    "路径": "textures/item/earth_spirit_stone_high.png",
+    "描述": "large earthen crystal pulsing with grounded qi",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, large earthen crystal pulsing with grounded qi. Palette and motif should match '上品土灵石' / earth_spirit_stone_high; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  },
+  {
+    "item_id": "earth_spirit_stone_superior",
+    "中文名": "极品土灵石",
+    "分类": "spirit_stone/Earth/Superior",
+    "路径": "textures/item/earth_spirit_stone_superior.png",
+    "描述": "brilliant amber gem radiating supreme earth essence",
+    "分组": "Missing Textures — 五行灵石艺术升级",
+    "prompt": "Minecraft Java mod item texture, 16x16 pixel art, transparent background, centered single item icon, consistent xianxia cultivation aesthetic, inspired by classical Chinese immortal-cultivation atmosphere, subtle spiritual qi glow, high readability at small size, clean silhouette, no text, no watermark, no UI, no character, no photorealism, cultivation item icon, brilliant amber gem radiating supreme earth essence. Palette and motif should match '极品土灵石' / earth_spirit_stone_superior; grounded, cautious mortal-cultivation tone rather than flashy high fantasy.",
+    "negative_prompt": "blurry, low contrast, cropped, multiple items, text, letters, watermark, realistic photo, 3D render, background scene, inventory frame, excessive detail, unreadable tiny symbols"
+  }
+]

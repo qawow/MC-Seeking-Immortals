@@ -15,6 +15,7 @@ public final class RealmStageConfig {
      */
     public static int getManaBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 0;
             case QI_REFINING -> 100;
             case FOUNDATION_ESTABLISHMENT -> 250;
             case CORE_FORMATION -> 600;
@@ -35,6 +36,7 @@ public final class RealmStageConfig {
      */
     public static int getDivSenseBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 3;
             case QI_REFINING -> 50;
             case FOUNDATION_ESTABLISHMENT -> 150;
             case CORE_FORMATION -> 400;
@@ -55,6 +57,7 @@ public final class RealmStageConfig {
      */
     public static int getHpBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 0;
             case QI_REFINING -> 20;
             case FOUNDATION_ESTABLISHMENT -> 40;
             case CORE_FORMATION -> 80;
@@ -75,6 +78,7 @@ public final class RealmStageConfig {
      */
     public static float getManaRecoveryBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 0.0f;
             case QI_REFINING -> 0.5f;
             case FOUNDATION_ESTABLISHMENT -> 1.5f;
             case CORE_FORMATION -> 4.0f;
@@ -95,6 +99,7 @@ public final class RealmStageConfig {
      */
     public static float getCultivationGainBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 0.05f;
             case QI_REFINING -> 0.1f;
             case FOUNDATION_ESTABLISHMENT -> 0.08f;
             case CORE_FORMATION -> 0.15f;
@@ -115,6 +120,7 @@ public final class RealmStageConfig {
      */
     public static float getFlyingSpeedBase(Realm realm) {
         return switch (realm) {
+            case MORTAL -> 0.0f;
             case QI_REFINING -> 5.0f;
             case FOUNDATION_ESTABLISHMENT -> 8.0f;
             case CORE_FORMATION -> 12.0f;

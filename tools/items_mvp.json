@@ -1,0 +1,217 @@
+[
+  {
+    "id": "metal_spirit_stone",
+    "name": "下品金灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 下品金灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "metal_spirit_stone_mid",
+    "name": "中品金灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 中品金灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "metal_spirit_stone_high",
+    "name": "上品金灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 上品金灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "metal_spirit_stone_superior",
+    "name": "极品金灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 极品金灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "wood_spirit_stone",
+    "name": "下品木灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 下品木灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "wood_spirit_stone_mid",
+    "name": "中品木灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 中品木灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "wood_spirit_stone_high",
+    "name": "上品木灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 上品木灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "wood_spirit_stone_superior",
+    "name": "极品木灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 极品木灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "water_spirit_stone",
+    "name": "下品水灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 下品水灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "water_spirit_stone_mid",
+    "name": "中品水灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 中品水灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "water_spirit_stone_high",
+    "name": "上品水灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 上品水灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "water_spirit_stone_superior",
+    "name": "极品水灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 极品水灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fire_element_spirit_stone",
+    "name": "下品火灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 下品火灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fire_element_spirit_stone_mid",
+    "name": "中品火灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 中品火灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fire_element_spirit_stone_high",
+    "name": "上品火灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 上品火灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fire_element_spirit_stone_superior",
+    "name": "极品火灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 极品火灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "earth_spirit_stone",
+    "name": "下品土灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 下品土灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "earth_spirit_stone_mid",
+    "name": "中品土灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 中品土灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "earth_spirit_stone_high",
+    "name": "上品土灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 上品土灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "earth_spirit_stone_superior",
+    "name": "极品土灵石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 极品土灵石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "immortal_jade",
+    "name": "仙玉",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a translucent jade token with glowing green edges, high value currency, spiritual. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "qi_recovery_pill",
+    "name": "回气丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 回气丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "cultivation_pill",
+    "name": "凝气丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 凝气丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "breakthrough_pill",
+    "name": "破境丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 破境丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "rejuvenation_pill_low",
+    "name": "下品回春丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 下品回春丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "foundation_building_pill_low",
+    "name": "下品筑基丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 下品筑基丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, subtle clean magical glow aura, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "healing_pill_low",
+    "name": "下品疗伤丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 下品疗伤丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "clear_spirit_powder_low",
+    "name": "下品清灵散",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a small mysterious jade vial representing 下品清灵散, filled with glowing spiritual liquid. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fasting_pill_low",
+    "name": "下品辟谷丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 下品辟谷丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "calming_pill_low",
+    "name": "下品稳神丹",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a crystalline cultivation pill representing 下品稳神丹, simple round elixir shape. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "fire_talisman",
+    "name": "火符",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a paper talisman representing 火符, simple rectangular charm silhouette. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "armor_talisman",
+    "name": "护甲符",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a paper talisman representing 护甲符, simple rectangular charm silhouette. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: gold, red, orange and warm yellow. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "speed_talisman",
+    "name": "疾行符",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a paper talisman representing 疾行符, simple rectangular charm silhouette. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "spirit_charm",
+    "name": "灵符",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a paper talisman representing 灵符, simple rectangular charm silhouette. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "flying_sword",
+    "name": "飞剑",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, elegant flying sword with silver blade and glowing edge, xianxia cultivation styl. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "flying_artifact",
+    "name": "飞行法器",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, mystical flying artifact with ornate design and spiritual energy trail, cultivati. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "ling_gen_test_stone",
+    "name": "灵根测试石",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 灵根测试石, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "spirit_detector",
+    "name": "灵力探测器",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, compass-like spiritual detector with jade frame and glowing needle, cultivation t. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: jade green, emerald, white and dark green outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "leyline_compass",
+    "name": "地脉罗盘",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, bronze compass with spiritual markings and glowing cardinal points, feng shui too. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "spirit_ore",
+    "name": "灵矿",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: a spirit stone crystal cluster representing 灵矿, jagged mineral silhouette. Visual details: front view, object fills 80 percent of canvas, small clean magical glow, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: pale blue, cyan, white and dark blue outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "meditation_cushion",
+    "name": "打坐蒲团",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, round meditation cushion with woven texture and peaceful aura, cultivation item, . Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "spirit_gathering_array",
+    "name": "聚灵阵",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: A Minecraft mod item icon, pixel art style, 32x32 sprite, no transparency, centered object, mystical formation platform with glowing runes and spiritual energy, block texture, no t. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  },
+  {
+    "id": "technique_manual_default",
+    "name": "功法卷轴",
+    "prompt": "A clear pixel art fantasy RPG inventory icon, same style as a Minecraft mod mineral item sprite, transparent background, centered single object, chunky pixel clusters, thick dark outline, bright blocky highlights, high contrast, limited color palette, crisp hard pixel edges, readable at 32x32 and 64x64, no realistic rendering, no smooth 3D, no text, no watermark, no UI, no hands. Subject: an ancient parchment scroll representing 功法卷轴, simple rolled scroll shape with a small seal. Visual details: front view, object fills 80 percent of canvas, bright blocky highlights, thick dark outline, simple readable silhouette. Main colors: crimson red, orange, dark red and black outline. Avoid: realistic rendering, smooth gradients, complex background, tiny unreadable details, scene, character, excessive glow, text labels."
+  }
+]

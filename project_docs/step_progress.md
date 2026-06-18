@@ -352,3 +352,25 @@
 | 语言文件更新 | ✅ 已完成 | zh_cn/en_us 均添加灵根分类翻译 key、丹药吸收率和青玉小瓶获取率 tooltip |
 | 全局搜索旧枚举名 | ✅ 已完成 | 无 `SpiritualRoot.PSEUDO` 或 `SpiritualRoot.FIVE_ELEMENTS` 引用，无 `.purity()` 调用 |
 | 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+
+## 28. 2026-06-18 Phase 1 核心属性与境界系统修复记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取阶段文档 | ✅ 已完成 | 已读取 `docs/task-board.md`、`docs/phase-0-3-audit-report.md`、`docs/mvp-scope.md`、`docs/implementation-roadmap.md`、`docs/existing-implementation.md` |
+| 安全备份 | ✅ 已完成 | 已备份 Phase 1 相关文件到 `.bak/20260618_135342_phase_1_repair/` |
+| 核心属性兼容 | ✅ 已完成 | 保留 `cultivationExp`、`spiritualPower`、`divineConsciousness` 等内部字段，补齐设计语义 getter/setter 与 NBT 兼容 |
+| 境界映射 | ✅ 已完成 | `Realm`/`RealmStage` 新增 `getDesignId()` / `getDesignKey()`，映射 `QI_1`~`QI_13` 与筑基四阶设计名 |
+| 单元测试 | ✅ 已完成 | 新增 `Phase1CultivationSystemTest`，覆盖基准表、衍生属性、核心属性读写和旧 NBT 迁移 |
+| 构建验证 | ✅ 已完成 | `./gradlew.bat test` 与 `./gradlew.bat build` 均成功；未进入 Phase 2 实现 |
+
+## 29. 2026-06-18 Phase 2 Realm System 审计记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取任务与边界 | ✅ 已完成 | 已读取 `docs/task-board.md`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md`；按用户最新要求仅处理 Phase 2：Realm System |
+| 安全备份 | ✅ 已完成 | 已备份 `docs/task-board.md` 与 `project_docs/step_progress.md` 到 `.bak/20260618_223913_phase_2_realm_docs/` |
+| 代码证据审计 | ✅ 已完成 | `RealmStage`、`RealmStageConfig`、`PlayerCultivation`、`BreakthroughService` 已覆盖本次 Realm System 清单；未修改 Java 代码 |
+| 报告生成 | ✅ 已完成 | 已生成 `docs/phase-2-report.md` |
+| 任务板更新 | ✅ 已完成 | 已在 `docs/task-board.md` 增加本次 Realm System 子范围记录；因 build 失败，相关条目保持 `[ ] Unknown` |
+| 构建验证 | ⚠️ 阻塞 | `./gradlew.bat build` 先因沙箱网络受限无法下载 Gradle，授权后进入编译但 `:compileJava` 失败；阻塞点为既有 Java 编译错误，未按本任务修复 |

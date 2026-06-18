@@ -13,11 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, SeekingImmortalsMod.MODID);
 
-    public static final RegistryObject<Item> SPIRIT_STONE = registerSpiritStone("spirit_stone", 500, 25, 1, null);
-    public static final RegistryObject<Item> SPIRIT_STONE_MID = registerSpiritStone("spirit_stone_mid", 5000, 250, 4, null);
-    public static final RegistryObject<Item> SPIRIT_STONE_HIGH = registerSpiritStone("spirit_stone_high", 50000, 2500, 8, null);
-    public static final RegistryObject<Item> SPIRIT_STONE_SUPERIOR = registerSpiritStone("spirit_stone_superior", 500000, 25000, 12, null);
-
+    // 五行灵石
     public static final RegistryObject<Item> METAL_SPIRIT_STONE = registerSpiritStone("metal_spirit_stone", 500, 25, 1, SpiritualRootAttribute.METAL);
     public static final RegistryObject<Item> METAL_SPIRIT_STONE_MID = registerSpiritStone("metal_spirit_stone_mid", 5000, 250, 4, SpiritualRootAttribute.METAL);
     public static final RegistryObject<Item> METAL_SPIRIT_STONE_HIGH = registerSpiritStone("metal_spirit_stone_high", 50000, 2500, 8, SpiritualRootAttribute.METAL);
@@ -63,6 +59,7 @@ public final class ModItems {
     public static final RegistryObject<Item> LEYLINE_COMPASS = ITEMS.register("leyline_compass", () -> new LeylineCompassItem(new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_ORE = ITEMS.register("spirit_ore", () -> new BlockItem(ModBlocks.SPIRIT_ORE.get(), new Item.Properties()));
     public static final RegistryObject<Item> MEDITATION_CUSHION = ITEMS.register("meditation_cushion", () -> new BlockItem(ModBlocks.MEDITATION_CUSHION.get(), new Item.Properties()));
+    public static final RegistryObject<Item> LING_GEN_IDENTIFICATION_SLAB = ITEMS.register("ling_gen_identification_slab", () -> new BlockItem(ModBlocks.LING_GEN_IDENTIFICATION_SLAB.get(), new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_GATHERING_ARRAY = ITEMS.register("spirit_gathering_array", () -> new BlockItem(ModBlocks.SPIRIT_GATHERING_ARRAY.get(), new Item.Properties()));
     public static final RegistryObject<Item> TECHNIQUE_MANUAL_AZURE_ORIGIN_SWORD_ART = registerTechniqueManual("technique_manual_azure_origin_sword_art", "青元剑诀");
     public static final RegistryObject<Item> TECHNIQUE_MANUAL_AZURE_ORIGIN_SWORD_SUPPORT = registerTechniqueManual("technique_manual_azure_origin_sword_support", "青元剑诀辅助");

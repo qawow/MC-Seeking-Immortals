@@ -8,9 +8,11 @@
 
 ## 执行状态
 
-- **当前 Phase**: Phase 1
-- **当前状态**: 已完成
-- **已完成 Phase 数**: 2 / 11
+- **当前 Phase**: Phase 2（Realm System，本次用户指定范围）
+- **当前状态**: Phase 0、Phase 1 已完成；本次指定的 Phase 2 Realm System 有明确代码证据，但 `./gradlew.bat build` 在 `compileJava` 失败，因此按验收规则不得勾选完成；旧路线 Phase 2（灵根系统与打坐修炼）仍保持部分完成，未在本次处理；未进入 Phase 3
+- **已完成 Phase 数**: 2 / 11（按完整验收口径）
+
+> 状态来源：`docs/phase-1-repair-report.md`（2026-06-18 修复）、`docs/phase-0-3-audit-report.md`（2026-06-18 审计）和 `docs/phase-2-report.md`（2026-06-18 Realm System 审计）。只有证据明确且 `./gradlew.bat build` 成功的任务可标记为 `[x]`；Partial/Missing/Unknown 标记不计入完成数。
 
 ---
 
@@ -54,16 +56,16 @@
 
 ### 任务清单
 
-- [x] 确保 `PlayerCultivation` 有 `cultivation` (long) 字段
-- [x] 确保 `PlayerCultivation` 有 `cultivationMax` (long) 字段
-- [x] 确保 `PlayerCultivation` 有 `mana` (int) 字段
-- [x] 确保 `PlayerCultivation` 有 `manaMax` (int) 字段
-- [x] 确保 `PlayerCultivation` 有 `divSense` (int) 字段
-- [x] 确保 `PlayerCultivation` 有 `bodyRef` (int) 字段
-- [x] 确保 `PlayerCultivation` 有 `qiDevRisk` (float) 字段
-- [x] 确保 `PlayerCultivation` 有 `tribRes` (float) 字段（预留）
-- [x] 实现或验证 `RealmStage` 枚举包含 QI_1 到 QI_13
-- [x] 实现或验证 `RealmStage` 枚举包含 FOUNDATION_EARLY/MID/LATE/PEAK
+- [x] 确保 `PlayerCultivation` 有 `cultivation` (long) 字段 — 通过 `getCultivationLong()` / `setCultivation(long)` 提供 long 语义，保留内部 `cultivationExp`
+- [x] 确保 `PlayerCultivation` 有 `cultivationMax` (long) 字段 — 通过 `getCultivationMax()` 动态计算
+- [x] 确保 `PlayerCultivation` 有 `mana` (int) 字段 — 通过 `getMana()` / `setMana(int)` 读写，保留内部 `spiritualPower`
+- [x] 确保 `PlayerCultivation` 有 `manaMax` (int) 字段 — 通过 `getManaMax()` / `getManaMaxLong()` 动态计算
+- [x] 确保 `PlayerCultivation` 有 `divSense` (int) 字段 — 通过 `getDivSense()` / `setDivSense(int)` 读写，保留内部 `divineConsciousness`
+- [x] 确保 `PlayerCultivation` 有 `bodyRef` (int) 字段 — 通过 `getBodyRef()` / `setBodyRef(int)` 读写，保留内部 `bodyRefinement`
+- [x] 确保 `PlayerCultivation` 有 `qiDevRisk` (float) 字段 — 支持 0.0~1.0 float 语义与旧 0~100 百分比兼容
+- [x] 确保 `PlayerCultivation` 有 `tribRes` (float) 字段（预留） — 支持 0.0~0.9 float 语义与旧 0~90 百分比兼容
+- [x] 实现或验证 `RealmStage` 枚举包含 QI_1 到 QI_13 — 通过 `getDesignId()` 映射到现有 `LAYER_1`~`LAYER_13`
+- [x] 实现或验证 `RealmStage` 枚举包含 FOUNDATION_EARLY/MID/LATE/PEAK — 通过 `getDesignId()` 映射到现有 `EARLY/MIDDLE/LATE/PEAK`
 - [x] 为每个境界配置 `manaBase` 值（参考设计文档表格）
 - [x] 为每个境界配置 `divSenseBase` 值
 - [x] 为每个境界配置 `hpBase` 值
@@ -73,20 +75,20 @@
 - [x] 实现灵力回速计算方法
 - [x] 实现修为回速计算方法
 - [x] 实现飞行速度计算方法
-- [ ] 添加境界属性基准表单元测试
+- [x] 添加境界属性基准表单元测试 — `Phase1CultivationSystemTest` 已覆盖练气/筑基基准表并通过 `./gradlew.bat test`
 - [x] 验证 `/seeking_immortals realm` 命令显示正确
 
 ### 验收标准
 
-- [x] `PlayerCultivation` 包含所有六大核心属性字段
-- [x] `RealmStage` 枚举至少包含 QI_1 到 QI_13 和 FOUNDATION_EARLY/MID/LATE/PEAK
+- [x] `PlayerCultivation` 包含所有六大核心属性字段 — 通过兼容 getter/setter 提供设计语义，保留旧内部字段和旧 NBT
+- [x] `RealmStage` 枚举至少包含 QI_1 到 QI_13 和 FOUNDATION_EARLY/MID/LATE/PEAK — 通过 `getDesignId()` 映射并由测试验证
 - [x] 每个境界有正确的 `manaBase`, `divSenseBase`, `hpBase` 值
-- [x] 衍生属性计算方法实现并通过单元测试
+- [x] 衍生属性计算方法实现并通过单元测试 — `Phase1CultivationSystemTest` 覆盖攻击、防御、最大 HP、灵力回速、修为回速、飞行速度
 - [x] `/seeking_immortals realm` 命令能正确显示当前境界和属性
 
 ### Phase 1 完成标记
 
-- [x] **Phase 1 已完成，可进入 Phase 2**
+- [x] **Phase 1 已完成，可进入 Phase 2** — `./gradlew.bat test` 与 `./gradlew.bat build` 均已通过；未实现 Phase 2 功能
 
 ---
 
@@ -94,46 +96,65 @@
 
 **目标：** 实现灵根测试、永久写入、打坐修炼 GUI 和修为增长逻辑
 
+### 2026-06-18 本次执行范围：Realm System
+
+> 本小节记录用户本次指定的 Phase 2 子范围。它只审计/确认境界系统能力，不实现灵根鉴定、打坐 GUI、HUD、炼丹、技能或 Phase 3 新功能。证据详见 `docs/phase-2-report.md`。
+
+- [ ] `RealmStage` enum / 境界配置 — Unknown: `RealmStage` 与 `RealmStageConfig` 有明确代码证据，但当前 `./gradlew.bat build` 失败，不能标记完成
+- [ ] 凡人、练气 1~13、筑基初 — Unknown: `PlayerCultivation.getStagesForRealmPublic()` 与现有测试有明确证据，但当前 build 失败，不能标记完成
+- [ ] `cultivationMax` — Unknown: `PlayerCultivation#getCultivationMax()` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] `manaMax` — Unknown: `PlayerCultivation#getManaMax()` / `getManaMaxLong()` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] `divSense` — Unknown: `getDivSense()` / `setDivSense(int)` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] `hpBase` — Unknown: `RealmStageConfig#getHpBase()` 与 `getMaxHealthPoints()` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] 修为增加基础方法 — Unknown: `addCultivationExp(int)` / `setCultivation(long)` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] 灵力恢复基础方法 — Unknown: `addSpiritualPower(int)` / `setMana(int)` / `getManaRecoveryPerSecond()` 有明确证据，但当前 build 失败，不能标记完成
+- [ ] 突破成功 — Unknown: `tryBreakthrough(...)` 成功路径有明确证据，但当前 build 失败，不能标记完成
+- [ ] 突破失败 — Unknown: `tryBreakthrough(...)` 失败路径有明确证据，但当前 build 失败，不能标记完成
+- [ ] 修为回退 20% — Unknown: 失败后当前阶段进度保留为 80% 有明确证据，但当前 build 失败，不能标记完成
+- [ ] `qiDevRisk` 增加 — Unknown: 失败后 `addQiDeviationRisk(10)` 有明确证据，但当前 build 失败，不能标记完成
+
+### 原路线任务清单（本次未执行）
+
 ### 任务清单
 
-- [ ] 实现或验证 `SpiritRootType` 枚举：天灵根
-- [ ] 实现或验证 `SpiritRootType` 枚举：异灵根
-- [ ] 实现或验证 `SpiritRootType` 枚举：双灵根
-- [ ] 实现或验证 `SpiritRootType` 枚举：三灵根
-- [ ] 实现或验证 `SpiritRootType` 枚举：伪灵根
-- [ ] 实现或验证 `SpiritRootType` 枚举：杂灵根
-- [ ] 为每种灵根配置修炼速度系数
-- [ ] 为每种灵根配置灵力回复系数
-- [ ] 为每种灵根配置突破成功率加成
-- [ ] 为每种灵根配置丹药吸收率
-- [ ] 创建「灵根鉴定石板」方块或物品
-- [ ] 实现首次交互触发灵根测试逻辑
-- [ ] 实现灵根随机分配算法（伪/杂概率高，天灵根极低）
-- [ ] 实现灵根永久写入 `PlayerCultivation`
-- [ ] 创建打坐修炼 GUI (`MeditationScreen`)
-- [ ] GUI 显示当前修为 / 修为上限
-- [ ] GUI 显示修炼速度计算详情
-- [ ] GUI 显示实时修为增长
-- [ ] 实现打坐修炼逻辑（`PlayerTickEvent`）
-- [ ] 玩家进入打坐状态（静止）
-- [ ] 每 tick 增加修为：`(境界基准 × 灵根系数 × 打坐加成 × 灵脉加成) / 20`
-- [ ] 打坐时受伤打断打坐，走火风险 +2%
-- [ ] 打坐消耗饥饿度
-- [ ] 验证或改进现有 `MeditationCushionBlock` 支持打坐状态
+- [x] 实现或验证 `SpiritRootType` 枚举：天灵根
+- [x] 实现或验证 `SpiritRootType` 枚举：异灵根
+- [x] 实现或验证 `SpiritRootType` 枚举：双灵根
+- [x] 实现或验证 `SpiritRootType` 枚举：三灵根
+- [x] 实现或验证 `SpiritRootType` 枚举：伪灵根
+- [x] 实现或验证 `SpiritRootType` 枚举：杂灵根
+- [x] 为每种灵根配置修炼速度系数
+- [x] 为每种灵根配置灵力回复系数
+- [x] 为每种灵根配置突破成功率加成
+- [x] 为每种灵根配置丹药吸收率
+- [ ] 创建「灵根鉴定石板」方块或物品 — Partial: `LingGenTestStoneItem` 物品已存在，但「鉴定石板」方块未实现
+- [ ] 实现首次交互触发灵根测试逻辑 — Partial: `LingGenCalculator.roll()` 算法与物品交互入口已接入，但不是 NPC/方块首次交互
+- [x] 实现灵根随机分配算法（伪/杂概率高，天灵根极低）
+- [x] 实现灵根永久写入 `PlayerCultivation`
+- [ ] 创建打坐修炼 GUI (`MeditationScreen`) — Missing: 仅有 `BreathingHudOverlay`（HUD 覆盖层），无独立 Screen
+- [ ] GUI 显示当前修为 / 修为上限 — Partial: 修仙面板 `CultivationStatsScreen` 显示修为，但非打坐专用 GUI
+- [ ] GUI 显示修炼速度计算详情 — Missing: 未发现独立速度详情面板
+- [ ] GUI 显示实时修为增长 — Partial: HUD 显示进度条，但无速度详情
+- [x] 实现打坐修炼逻辑（`PlayerTickEvent`）
+- [x] 玩家进入打坐状态（静止）
+- [ ] 每 tick 增加修为：`(境界基准 × 灵根系数 × 打坐加成 × 灵脉加成) / 20` — Partial: 已实现打坐修为增长，但为 5 秒结算并叠加灵气/功法/灵石修正，不是字面每 tick 公式
+- [x] 打坐时受伤打断打坐，走火风险 +2%
+- [x] 打坐消耗饥饿度
+- [x] 验证或改进现有 `MeditationCushionBlock` 支持打坐状态
 
 ### 验收标准
 
-- [ ] 灵根鉴定石板方块/物品可交互
-- [ ] 玩家首次测试灵根后，数据永久写入
-- [ ] `/seeking_immortals root` 命令显示灵根类型和系数
-- [ ] 打坐 GUI 正确显示修为增长速度
-- [ ] 打坐时修为实时增长
-- [ ] 打坐时受伤会打断并增加走火风险
-- [ ] 不同灵根的修炼速度差异明显（天灵根 ×5.0，杂灵根 ×0.8）
+- [ ] 灵根鉴定石板方块/物品可交互 — Partial: 测试石物品可用，无方块版
+- [ ] 玩家首次测试灵根后，数据永久写入 — Partial: 物品交互已接入，但不是任务板所述 NPC/方块首次交互流程
+- [x] `/seeking_immortals root` 命令显示灵根类型和系数
+- [ ] 打坐 GUI 正确显示修为增长速度 — Missing: 无独立 GUI
+- [x] 打坐时修为实时增长
+- [x] 打坐时受伤会打断并增加走火风险
+- [x] 不同灵根的修炼速度差异明显（天灵根 ×5.0，杂灵根 ×0.8）
 
 ### Phase 2 完成标记
 
-- [ ] **Phase 2 已完成，可进入 Phase 3**
+- [ ] **Phase 2 已完成，可进入 Phase 3** — 灵根测试交互流程与独立打坐 GUI 未完成
 
 ---
 
@@ -143,46 +164,46 @@
 
 ### 任务清单
 
-- [ ] 实现突破触发检查：`cultivation >= cultivationMax`
-- [ ] 实现突破按键绑定或 GUI 按钮
-- [ ] 实现突破资源检查（背包丹药）
-- [ ] 显示所需材料和当前拥有量
-- [ ] 实现突破成功率计算：基础成功率
-- [ ] 突破成功率计算：灵根加成
-- [ ] 突破成功率计算：辅助丹药加成
-- [ ] 突破成功率计算：连续失败积累「执念」(+5%/次，最多+30%)
-- [ ] 实现突破成功逻辑：境界+1
-- [ ] 突破成功逻辑：修为清零
-- [ ] 突破成功逻辑：属性加成
-- [ ] 突破成功逻辑：消耗材料
-- [ ] 实现突破失败逻辑：修为回退20%
-- [ ] 突破失败逻辑：走火风险+10%
-- [ ] 突破失败逻辑：消耗材料
-- [ ] 实现走火触发条件：走火风险 ≥70% 时突破失败
-- [ ] 走火触发条件：修炼时受伤
-- [ ] 走火触发条件：使用超阶功法
-- [ ] 实现走火判定：70-79% 轻微走火（损失30%修为，风险清零）
-- [ ] 走火判定：80-89% 中度走火（损失50%修为 + 昏迷30s，风险清零）
-- [ ] 走火判定：90-99% 严重走火（掉落一个境界 + 昏迷3分钟 + 装备随机损坏）
-- [ ] 走火判定：100% 极端走火（当场死亡 + 背包掉落50%）
-- [ ] 实现走火风险降低：服用稳神丹 -20%
-- [ ] 走火风险降低：平稳打坐每小时 -5%（ServerTickEvent）
+- [x] 实现突破触发检查：`cultivation >= cultivationMax`
+- [x] 实现突破按键绑定或 GUI 按钮
+- [x] 实现突破资源检查（背包丹药）
+- [ ] 显示所需材料和当前拥有量 — Partial: `BreakthroughService` 在缺资源时提示，但无完整 GUI 列表
+- [x] 实现突破成功率计算：基础成功率
+- [x] 突破成功率计算：灵根加成
+- [x] 突破成功率计算：辅助丹药加成
+- [x] 突破成功率计算：连续失败积累「执念」(+5%/次，最多+30%)
+- [x] 实现突破成功逻辑：境界+1
+- [x] 突破成功逻辑：修为清零
+- [x] 突破成功逻辑：属性加成
+- [x] 突破成功逻辑：消耗材料
+- [x] 实现突破失败逻辑：修为回退20%
+- [x] 突破失败逻辑：走火风险+10%
+- [x] 突破失败逻辑：消耗材料
+- [x] 实现走火触发条件：走火风险 ≥70% 时突破失败
+- [ ] 走火触发条件：修炼时受伤 — Partial: 打坐受伤 +2% 已实现，但未直接触发走火检定
+- [ ] 走火触发条件：使用超阶功法 — Missing: 只发现超阶功法加风险，没有直接触发走火检定
+- [x] 实现走火判定：70-79% 轻微走火（损失30%修为，风险清零）
+- [x] 走火判定：80-89% 中度走火（损失50%修为 + 昏迷30s，风险清零）
+- [x] 走火判定：90-99% 严重走火（掉落一个境界 + 昏迷3分钟 + 装备随机损坏）
+- [x] 走火判定：100% 极端走火（当场死亡 + 背包掉落50%）
+- [x] 实现走火风险降低：服用稳神丹 -20%
+- [x] 走火风险降低：平稳打坐每小时 -5%（ServerTickEvent）
 
 ### 验收标准
 
-- [ ] 修为达到上限后，突破按钮/按键可用
-- [ ] 突破前显示成功率和所需材料
-- [ ] 突破成功后境界正确+1，修为清零
-- [ ] 突破失败后修为-20%，走火风险+10%
-- [ ] 走火风险≥70%时突破失败触发走火判定
-- [ ] 四级走火效果正确实现（修为损失/昏迷/掉境界/死亡）
-- [ ] 稳神丹正确降低走火风险20%
-- [ ] 平稳打坐每小时降低走火风险5%
-- [ ] 连续失败积累执念机制正常工作
+- [x] 修为达到上限后，突破按钮/按键可用
+- [ ] 突破前显示成功率和所需材料 — Partial: 突破前已显示成功率/加成，但无所需材料与当前拥有量列表
+- [x] 突破成功后境界正确+1，修为清零
+- [x] 突破失败后修为-20%，走火风险+10%
+- [x] 走火风险≥70%时突破失败触发走火判定
+- [x] 四级走火效果正确实现（修为损失/昏迷/掉境界/死亡）
+- [x] 稳神丹正确降低走火风险20%
+- [x] 平稳打坐每小时降低走火风险5%
+- [x] 连续失败积累执念机制正常工作
 
 ### Phase 3 完成标记
 
-- [ ] **Phase 3 已完成，可进入 Phase 4**
+- [ ] **Phase 3 已完成，可进入 Phase 4** — 突破材料拥有量预览缺失；超阶功法/打坐受伤只加风险或打断，未直接触发走火检定
 
 ---
 
@@ -192,47 +213,47 @@
 
 ### 任务清单
 
-- [ ] 实现或验证技能注册系统
-- [ ] 实现技能：引气入体（被动，练气1）
-- [ ] 实现技能：火球术（练气3，10灵力，2s冷却）
-- [ ] 实现技能：冰锥术（练气3，10灵力，2s冷却）
-- [ ] 实现技能：雷击术（练气3，12灵力，3s冷却）
-- [ ] 实现技能：土遁步（练气4，15灵力，5s冷却）
-- [ ] 实现技能：御剑飞行初（练气7，5灵力/s）
-- [ ] 实现技能：单剑刺击（练气7，20灵力，1s冷却）
-- [ ] 实现技能：灵气探测（练气10，5灵力，10s冷却）
-- [ ] 实现技能：三才剑阵（练气13，40灵力，3s冷却）
-- [ ] 实现技能解锁逻辑：境界达到要求后自动解锁
-- [ ] 实现技能冷却系统（`PlayerCultivation` 存储 `skillCooldowns[]`）
-- [ ] 实现灵力消耗检查
-- [ ] 创建 `FlyingSwordEntity`（可骑乘实体）
-- [ ] 创建 `SwordProjectileEntity`（弹射物）
-- [ ] 火球术弹射物实现
+- [x] 实现或验证技能注册系统 — Partial: `SkillEffectRegistry` 框架完整，已注册 5 个法术效果
+- [ ] 实现技能：引气入体（被动，练气1） — Stub: 未发现独立被动效果
+- [x] 实现技能：火球术（练气3，10灵力，2s冷却） — Partial: `FireballSpell` 已实现并使用原版 `SmallFireball`，需确认灵力/冷却参数
+- [ ] 实现技能：冰锥术（练气3，10灵力，2s冷却） — Stub: `ICE_CONE` 枚举存在，无效果实现
+- [ ] 实现技能：雷击术（练气3，12灵力，3s冷却） — Stub: `THUNDER_STRIKE` 枚举存在，无效果实现
+- [ ] 实现技能：土遁步（练气4，15灵力，5s冷却） — Stub: 仅有 `EarthWallSpell`（土墙），非土遁步
+- [ ] 实现技能：御剑飞行初（练气7，5灵力/s） — Partial: 飞剑物品 + 飞行事件存在，但作为技能未接入
+- [ ] 实现技能：单剑刺击（练气7，20灵力，1s冷却） — Stub: 无飞剑弹射物
+- [x] 实现技能：灵气探测（练气10，5灵力，10s冷却） — Partial: `DetectionSpell` 已实现，需确认参数
+- [ ] 实现技能：三才剑阵（练气13，40灵力，3s冷却） — Stub: 无三飞剑同时发射逻辑
+- [ ] 实现技能解锁逻辑：境界达到要求后自动解锁 — Stub: `SkillType.requiredRealm` 字段存在，自动解锁未发现
+- [x] 实现技能冷却系统（`PlayerCultivation` 存储 `skillCooldowns[]`） — Partial: 通过 `techniqueCooldownUntilTicks` 实现，按功法 id 而非技能枚举
+- [x] 实现灵力消耗检查
+- [ ] 创建 `FlyingSwordEntity`（可骑乘实体） — Stub: 未发现该实体类
+- [ ] 创建 `SwordProjectileEntity`（弹射物） — Stub: 未发现该实体类
+- [x] 火球术弹射物实现 — Partial: 复用原版 `SmallFireball`
 - [ ] 冰锥术弹射物实现 + 减速效果
 - [ ] 雷击术召唤闪电实现
 - [ ] 土遁步瞬移逻辑实现
 - [ ] 御剑飞行骑乘逻辑实现
 - [ ] 单剑刺击飞剑弹射物实现
-- [ ] 灵气探测高亮渲染实现
+- [x] 灵气探测高亮渲染实现 — Partial: `DetectionSpell` 已实现，需确认高亮范围
 - [ ] 三才剑阵三飞剑同时发射实现
 
 ### 验收标准
 
-- [ ] 练气1后自动解锁引气入体
-- [ ] 练气3后解锁火球术/冰锥术/雷击术
-- [ ] 火球术/冰锥术发射弹射物，命中造成伤害
+- [ ] 练气1后自动解锁引气入体 — Stub: 自动解锁逻辑未实现
+- [ ] 练气3后解锁火球术/冰锥术/雷击术 — Partial: 火球术可手动学习释放，冰锥/雷击仅有枚举
+- [x] 火球术/冰锥术发射弹射物，命中造成伤害 — Partial: 仅火球术已实现
 - [ ] 雷击术在目标位置召唤闪电
 - [ ] 土遁步正确瞬移玩家并穿过1格方块
-- [ ] 练气7后解锁御剑飞行，玩家可骑乘飞剑移动
+- [ ] 练气7后解锁御剑飞行，玩家可骑乘飞剑移动 — Partial: 飞剑物品支持飞行，但非"骑乘"
 - [ ] 单剑刺击发射飞剑攻击，射程=神识范围
-- [ ] 练气10后灵气探测高亮灵矿/灵草（发光轮廓）
+- [x] 练气10后灵气探测高亮灵矿/灵草（发光轮廓） — Partial: DetectionSpell 已实现
 - [ ] 练气13后三才剑阵发射三把飞剑
-- [ ] 技能冷却正确倒计时
-- [ ] 灵力不足时技能无法释放
+- [x] 技能冷却正确倒计时
+- [x] 灵力不足时技能无法释放
 
 ### Phase 4 完成标记
 
-- [ ] **Phase 4 已完成，可进入 Phase 5**
+- [ ] **Phase 4 已完成，可进入 Phase 5** — 9 个练气期技能仅 2-3 个有效果实现，飞剑/弹射物体系缺失
 
 ---
 
@@ -242,7 +263,7 @@
 
 ### 任务清单
 
-- [ ] 创建 `MysteriousVialItem` 类
+- [ ] 创建 `MysteriousVialItem` 类 — Stub: 仅有 `VialGrade` 枚举（Phase 1 预留）
 - [ ] 神秘小瓶设置为唯一绑定物品
 - [ ] 神秘小瓶不可丢弃（`onDroppedByPlayer` 返回 false）
 - [ ] NBT 存储 `vialCharges`（当前灵液份数）
@@ -254,7 +275,7 @@
 - [ ] 植物加速：消耗1份灵液
 - [ ] 植物加速：生长速度×10（蓝色灵液）
 - [ ] 实现 `BlockGrowEvent` 监听器加速作物成熟
-- [ ] 实现灵根与神秘小瓶获取关联：伪/杂灵根必得
+- [ ] 实现灵根与神秘小瓶获取关联：伪/杂灵根必得 — Partial: `SpiritualRoot.getJadeVialDropChance()` 接口已存在，未接入获取流程
 - [ ] 其他灵根极低概率获得（或任务获取）
 - [ ] 添加神秘小瓶物品模型
 - [ ] 添加神秘小瓶材质
@@ -282,12 +303,12 @@
 
 ### 任务清单
 
-- [ ] 实现技能：神识扩展（被动，筑基初）
-- [ ] 实现技能：御剑飞行进阶（筑基初，3灵力/s）
-- [ ] 实现技能：罡气护体（筑基初，50灵力，15s冷却）
-- [ ] 实现技能：五行遁术（筑基中，60灵力，20s冷却）
-- [ ] 实现技能：北斗剑阵（筑基后，80灵力，5s冷却）
-- [ ] 实现技能：阵法感知（被动，筑基圆满）
+- [ ] 实现技能：神识扩展（被动，筑基初） — Stub
+- [ ] 实现技能：御剑飞行进阶（筑基初，3灵力/s） — Partial: 飞剑物品 + 飞行事件存在，进阶版未实现
+- [ ] 实现技能：罡气护体（筑基初，50灵力，15s冷却） — Stub
+- [ ] 实现技能：五行遁术（筑基中，60灵力，20s冷却） — Stub: 仅有 `technique_manual_five_elements_escape` 卷轴
+- [ ] 实现技能：北斗剑阵（筑基后，80灵力，5s冷却） — Stub
+- [ ] 实现技能：阵法感知（被动，筑基圆满） — Stub
 - [ ] 神识扩展：修改 `divSense` 计算，×1.5
 - [ ] 神识扩展：可感知隐身生物
 - [ ] 御剑飞行进阶：速度×1.8
@@ -320,39 +341,39 @@
 
 ### 任务清单
 
-- [ ] 创建或验证 `AlchemyFurnaceBlock`
-- [ ] 创建或验证 `AlchemyFurnaceBlockEntity`
-- [ ] 实现自定义 Recipe 类型 `AlchemyRecipe`
-- [ ] 创建 JSON 配方格式目录：`data/seeking_immortals/recipes/alchemy/`
+- [ ] 创建或验证 `AlchemyFurnaceBlock` — Stub: 未发现该方块
+- [ ] 创建或验证 `AlchemyFurnaceBlockEntity` — Stub: 未发现 BlockEntity 实现
+- [ ] 实现自定义 Recipe 类型 `AlchemyRecipe` — Stub
+- [ ] 创建 JSON 配方格式目录：`data/seeking_immortals/recipes/alchemy/` — Stub
 - [ ] 实现炼丹流程：放入丹方 + 灵草材料
 - [ ] 炼丹流程：催火（消耗灵力或灵火石）
 - [ ] 炼丹流程：等待时间（Progress bar）
 - [ ] 炼丹流程：判定成功/失败
-- [ ] 实现品质判定：下品（基础）
-- [ ] 品质判定：中品（高技能等级概率出现）
-- [ ] 品质判定：上品（高技能+新鲜材料概率出现）
-- [ ] 品质判定：失败产出废丹
+- [x] 实现品质判定：下品（基础） — Partial: `PillQuality.LOW` 枚举存在，无炼丹品质判定逻辑
+- [x] 品质判定：中品（高技能等级概率出现） — Partial: `PillQuality.MIDDLE` 枚举存在
+- [x] 品质判定：上品（高技能+新鲜材料概率出现） — Partial: `PillQuality.HIGH` 枚举存在
+- [ ] 品质判定：失败产出废丹 — Stub: `generated_art/raw/waste_pill.png` 已有素材，未注册物品
 - [ ] 品质判定：小概率爆炉（丹炉损耗）
-- [ ] 实现炼丹技能等级系统（LV1~LV10）
+- [ ] 实现炼丹技能等级系统（LV1~LV10） — Stub: `SkillType.ALCHEMY` 枚举存在
 - [ ] 炼丹成功时获得经验
 - [ ] 等级提升解锁更高阶丹药配方
-- [ ] 创建核心丹药物品：凝气丹
-- [ ] 创建核心丹药物品：筑基丹
-- [ ] 创建核心丹药物品：稳神丹
-- [ ] 创建核心丹药物品：回灵丹
-- [ ] 凝气丹效果：服用后1小时修为×2
-- [ ] 筑基丹效果：练气→筑基突破必需
-- [ ] 稳神丹效果：走火风险-20%
-- [ ] 回灵丹效果：立刻恢复50%灵力
-- [ ] 创建灵草材料物品：浮云草
-- [ ] 创建灵草材料物品：碧云草
-- [ ] 创建灵草材料物品：万年灵草
-- [ ] 创建灵草材料物品：血灵芝
-- [ ] 创建灵草材料物品：天灵草
-- [ ] 创建灵草材料物品：定神草
-- [ ] 创建灵草材料物品：回灵草
-- [ ] 创建灵草材料物品：玉露
-- [ ] 添加所有丹药和材料的模型、材质、本地化
+- [x] 创建核心丹药物品：凝气丹 — Implemented: `CultivationPillItem`
+- [x] 创建核心丹药物品：筑基丹 — Implemented: `FoundationBuildingPill`（下品）
+- [x] 创建核心丹药物品：稳神丹 — Implemented: `CalmingPill`（下品）
+- [x] 创建核心丹药物品：回灵丹 — Implemented: `QiRecoveryPillItem`
+- [ ] 凝气丹效果：服用后1小时修为×2 — Partial: 物品已实现，需确认 1 小时 ×2 修为加成效果
+- [ ] 筑基丹效果：练气→筑基突破必需 — Partial: `FoundationBuildingPill` 已为突破辅助，需确认是否强制要求
+- [ ] 稳神丹效果：走火风险-20% — Partial: 物品已实现，需确认 -20% 效果接入
+- [ ] 回灵丹效果：立刻恢复50%灵力 — Partial: 物品已实现，需确认恢复量
+- [x] 创建灵草材料物品：浮云草 — Partial: 已注册 5 类灵草（`spirit_grass`/`cloud_mushroom`/`phoenix_feather_flower`/`dragon_blood_grass`/`immortal_ginseng`），命名与设计文档不一致
+- [ ] 创建灵草材料物品：碧云草 — Stub: 未注册
+- [ ] 创建灵草材料物品：万年灵草 — Stub: 未注册
+- [ ] 创建灵草材料物品：血灵芝 — Stub: 未注册
+- [ ] 创建灵草材料物品：天灵草 — Stub: 未注册
+- [ ] 创建灵草材料物品：定神草 — Stub: 未注册
+- [ ] 创建灵草材料物品：回灵草 — Stub: 未注册
+- [ ] 创建灵草材料物品：玉露 — Stub: 未注册
+- [ ] 添加所有丹药和材料的模型、材质、本地化 — Partial: 已注册物品的资源已接入（见 `docs/item-resource-validation-report.md`），缺失物品的资源同步缺失
 
 ### 验收标准
 
@@ -370,7 +391,7 @@
 
 ### Phase 7 完成标记
 
-- [ ] **Phase 7 已完成，可进入 Phase 8**
+- [ ] **Phase 7 已完成，可进入 Phase 8** — 丹炉系统/Recipe/GUI/技能等级缺失，丹药物品已存在但效果链路待验证
 
 ---
 
@@ -417,7 +438,7 @@
 
 ### Phase 8 完成标记
 
-- [ ] **Phase 8 已完成，可进入 Phase 9**
+- [ ] **Phase 8 已完成，可进入 Phase 9** — Stub: 整个 NPC/对话/任务系统未开始
 
 ---
 
@@ -478,7 +499,7 @@
 
 ### Phase 9 完成标记
 
-- [ ] **Phase 9 已完成，可进入 Phase 10**
+- [ ] **Phase 9 已完成，可进入 Phase 10** — Stub: 七玄门任务线未开始
 
 ---
 
@@ -542,7 +563,7 @@
 
 ### Phase 10 完成标记
 
-- [ ] **Phase 10 已完成，MVP 开发完成！**
+- [ ] **Phase 10 已完成，MVP 开发完成！** — Stub: 越国宗门任务线未开始
 
 ---
 
@@ -575,16 +596,16 @@
 | Phase | 开始时间 | 完成时间 | 状态 | 备注 |
 |-------|---------|---------|------|------|
 | Phase 0 | 2026-06-13 | 2026-06-13 | 已完成 | 项目调研，生成 phase-0-project-survey.md |
-| Phase 1 | 2026-06-14 | 2026-06-14 | 已完成 | 核心属性字段对齐、境界阶段扩展、衍生属性计算 |
-| Phase 2 | - | - | 未开始 | - |
-| Phase 3 | - | - | 未开始 | - |
-| Phase 4 | - | - | 未开始 | - |
-| Phase 5 | - | - | 未开始 | - |
-| Phase 6 | - | - | 未开始 | - |
-| Phase 7 | - | - | 未开始 | - |
-| Phase 8 | - | - | 未开始 | - |
-| Phase 9 | - | - | 未开始 | - |
-| Phase 10 | - | - | 未开始 | - |
+| Phase 1 | 2026-06-14 | 2026-06-18 | 已完成 | 核心属性兼容 API、Realm/RealmStage 设计映射、境界基准与衍生属性单元测试已通过 |
+| Phase 2 | 2026-06-18 | - | Realm System 有证据但未验收；原路线部分完成 | 本次指定 Realm System 子范围已生成 `docs/phase-2-report.md`；`./gradlew.bat build` 当前失败，按规则不能标记完成；灵根枚举/算法/系数齐全，测试石物品和打坐基础已实现；灵根鉴定方块、独立打坐 GUI、速度详情仍缺失 |
+| Phase 3 | - | - | 部分完成 | 突破流程、成功率（含执念）、走火 4 级、稳神丹和平稳打坐衰减已实现；材料拥有量预览与部分走火触发链路不完整 |
+| Phase 4 | - | - | 框架完成 | 技能枚举/存储/冷却已就绪；火球术、灵气探测有效果实现；飞剑/弹射物实体与多数练气期技能缺失 |
+| Phase 5 | - | - | 未开始 | 仅有 `VialGrade` 枚举占位，神秘小瓶物品未实现 |
+| Phase 6 | - | - | 未开始 | 筑基期 6 个技能均未实现 |
+| Phase 7 | - | - | 部分完成 | 丹药物品、品质枚举、材料系统已有；丹炉 BlockEntity/GUI/Recipe/技能等级缺失 |
+| Phase 8 | - | - | 未开始 | NPC、对话、任务系统未实现 |
+| Phase 9 | - | - | 未开始 | 七玄门任务线未实现 |
+| Phase 10 | - | - | 未开始 | 越国宗门任务线未实现 |
 
 ---
 
@@ -599,7 +620,10 @@
 
 ---
 
-**文档版本：** v1.0  
+**文档版本：** v1.2  
 **生成时间：** 2026-06-14  
+**最近审计更新：** 2026-06-18  
+**最近修复更新：** 2026-06-18  
+**最近 Phase 2 Realm System 更新：** 2026-06-18  
 **基于：** `docs/implementation-roadmap.md`  
-**配合文档：** `docs/mvp-scope.md`, `docs/ultivation-design-v3.md`
+**配合文档：** `docs/mvp-scope.md`, `docs/cultivation-design-v3.md`, `docs/phase-0-3-audit-report.md`, `docs/phase-1-repair-report.md`

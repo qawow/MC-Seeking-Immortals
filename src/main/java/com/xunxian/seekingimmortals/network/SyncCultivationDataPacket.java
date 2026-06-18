@@ -3,10 +3,14 @@ package com.xunxian.seekingimmortals.network;
 import com.xunxian.seekingimmortals.client.ClientCultivationData;
 import com.xunxian.seekingimmortals.combat.CombatStats;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
+import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.item.SpiritStoneItem;
+import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.network.NetworkEvent;
@@ -58,11 +62,26 @@ public record SyncCultivationDataPacket(
         double breakthroughSpiritEyeBonus,
         double breakthroughTechniqueQualityBonus,
         double breakthroughObsessionBonus,
-        int failedBreakthroughs) {
+        int failedBreakthroughs,
+        double meditationBasePerSecond,
+        double meditationRootMultiplier,
+        double meditationPhysiqueMultiplier,
+        double meditationBonus,
+        double meditationAuraMultiplier,
+        double meditationTechniqueMultiplier,
+        double meditationStoneBonus,
+        double meditationTotalPerSecond) {
     public static SyncCultivationDataPacket from(ServerPlayer player, PlayerCultivation cultivation) {
         SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(player.level(), player.blockPosition());
         CombatStats combatStats = new CombatStats(cultivation);
         PlayerCultivation.BreakthroughChanceBreakdown breakthrough = BreakthroughService.preview(player, cultivation);
+        int stoneBonus = getMatchingPassiveBonus(player.getMainHandItem(), cultivation) >= getMatchingPassiveBonus(player.getOffhandItem(), cultivation)
+                ? getMatchingPassiveBonus(player.getMainHandItem(), cultivation)
+                : getMatchingPassiveBonus(player.getOffhandItem(), cultivation);
+        ItemStack bonusStone = getMatchingPassiveBonus(player.getMainHandItem(), cultivation) >= getMatchingPassiveBonus(player.getOffhandItem(), cultivation)
+                ? player.getMainHandItem()
+                : player.getOffhandItem();
+        MeditationFormula.Breakdown meditation = MeditationFormula.calculate(cultivation, auraInfo, isSittingOnMeditationCushion(player), cultivation.getPhysiqueCultivationSpeedMultiplier(), bonusStone, stoneBonus);
         return new SyncCultivationDataPacket(
                 cultivation.getRealm().getDisplayName(),
                 cultivation.getStage().getDisplayName(),
@@ -107,7 +126,15 @@ public record SyncCultivationDataPacket(
                 breakthrough.spiritEyeBonus(),
                 breakthrough.techniqueQualityBonus(),
                 breakthrough.obsessionBonus(),
-                cultivation.getFailedBreakthroughs());
+                cultivation.getFailedBreakthroughs(),
+                meditation.basePerSecond(),
+                meditation.rootMultiplier(),
+                meditation.physiqueMultiplier(),
+                meditation.meditationBonus(),
+                meditation.auraMultiplier(),
+                meditation.techniqueMultiplier(),
+                meditation.heldStoneBonus(),
+                meditation.totalPerSecond());
     }
 
     public static void send(ServerPlayer player, PlayerCultivation cultivation) {
@@ -159,6 +186,14 @@ public record SyncCultivationDataPacket(
         buffer.writeDouble(packet.breakthroughTechniqueQualityBonus);
         buffer.writeDouble(packet.breakthroughObsessionBonus);
         buffer.writeVarInt(packet.failedBreakthroughs);
+        buffer.writeDouble(packet.meditationBasePerSecond);
+        buffer.writeDouble(packet.meditationRootMultiplier);
+        buffer.writeDouble(packet.meditationPhysiqueMultiplier);
+        buffer.writeDouble(packet.meditationBonus);
+        buffer.writeDouble(packet.meditationAuraMultiplier);
+        buffer.writeDouble(packet.meditationTechniqueMultiplier);
+        buffer.writeDouble(packet.meditationStoneBonus);
+        buffer.writeDouble(packet.meditationTotalPerSecond);
     }
 
     public static SyncCultivationDataPacket decode(FriendlyByteBuf buffer) {
@@ -206,7 +241,9 @@ public record SyncCultivationDataPacket(
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
-                buffer.readVarInt());
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble());
     }
 
     public static void handle(SyncCultivationDataPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {

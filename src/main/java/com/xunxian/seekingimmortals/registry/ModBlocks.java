@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.registry;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.block.LingGenIdentificationSlabBlock;
 import com.xunxian.seekingimmortals.block.MeditationCushionBlock;
 import com.xunxian.seekingimmortals.block.SpiritGatheringArrayBlock;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -23,6 +24,9 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> MEDITATION_CUSHION = BLOCKS.register("meditation_cushion", () -> new MeditationCushionBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(0.4F).sound(SoundType.WOOL).noOcclusion()));
+
+    public static final RegistryObject<Block> LING_GEN_IDENTIFICATION_SLAB = BLOCKS.register("ling_gen_identification_slab", () -> new LingGenIdentificationSlabBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.2F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
 
     public static final RegistryObject<Block> SPIRIT_GATHERING_ARRAY = BLOCKS.register("spirit_gathering_array", () -> new SpiritGatheringArrayBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(1.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));

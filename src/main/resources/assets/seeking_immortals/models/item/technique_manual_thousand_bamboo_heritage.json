@@ -1,6 +1,1 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/technique_manual_thousand_bamboo_heritage_placeholder"
-  }
-}
+{"parent": "minecraft:item/generated", "textures": {"layer0": "seeking_immortals:item/technique_manual_thousand_bamboo_heritage"}}

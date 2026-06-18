@@ -1,0 +1,342 @@
+[
+  {
+    "id": "immortal_jade",
+    "name": "仙玉",
+    "category": "crystal",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/immortal_jade.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "translucent jade-green immortal crystal with soft inner glow"
+  },
+  {
+    "id": "qi_recovery_pill",
+    "name": "回灵丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/qi_recovery_pill.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "pale blue round pill with faint qi energy swirls"
+  },
+  {
+    "id": "cultivation_pill",
+    "name": "凝气丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/cultivation_pill.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "glowing golden pill used to boost cultivation"
+  },
+  {
+    "id": "breakthrough_pill",
+    "name": "破境丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/breakthrough_pill.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "radiant crimson pill with breakthrough rune markings"
+  },
+  {
+    "id": "rejuvenation_pill_low",
+    "name": "下品回春丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/rejuvenation_pill_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "small green pill with vitality-restoring herbal aroma"
+  },
+  {
+    "id": "foundation_building_pill_low",
+    "name": "下品筑基丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/foundation_building_pill_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "amber pill with swirling foundation-building energy"
+  },
+  {
+    "id": "healing_pill_low",
+    "name": "下品疗伤丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/healing_pill_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "soft pink healing pill with gentle restorative glow"
+  },
+  {
+    "id": "clear_spirit_powder_low",
+    "name": "下品清灵散",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/clear_spirit_powder_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "fine white-blue powder in a small packet or pouch"
+  },
+  {
+    "id": "fasting_pill_low",
+    "name": "下品辟谷丹",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/fasting_pill_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "plain beige pill resembling a compressed grain of rice"
+  },
+  {
+    "id": "calming_pill_low",
+    "name": "稳神丹（下品）",
+    "category": "pill",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/calming_pill_low.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "serene lavender pill that calms the mind and reduces qi deviation risk"
+  },
+  {
+    "id": "spirit_charm",
+    "name": "灵力护符",
+    "category": "talisman",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/spirit_charm.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "jade-green protective talisman charm with spiritual rune inscriptions"
+  },
+  {
+    "id": "fire_talisman",
+    "name": "火弹符",
+    "category": "talisman",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/fire_talisman.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "yellow paper talisman with red fire runes"
+  },
+  {
+    "id": "armor_talisman",
+    "name": "金甲符",
+    "category": "talisman",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/armor_talisman.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "golden paper talisman with metallic armor sigil"
+  },
+  {
+    "id": "speed_talisman",
+    "name": "疾行符",
+    "category": "talisman",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/speed_talisman.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "light blue paper talisman with wind-speed rune markings"
+  },
+  {
+    "id": "spirit_ore",
+    "name": "灵石矿",
+    "category": "block_item",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/block/spirit_ore.png",
+    "model_exists": true,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "stone block with embedded glowing blue spirit crystal veins"
+  },
+  {
+    "id": "spirit_grass",
+    "name": "灵草",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/spirit_grass.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "green glowing spiritual grass blade with faint qi aura"
+  },
+  {
+    "id": "cloud_mushroom",
+    "name": "云雾菇",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/cloud_mushroom.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "pale white-blue mushroom surrounded by wispy cloud vapor"
+  },
+  {
+    "id": "phoenix_feather_flower",
+    "name": "凤羽花",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/phoenix_feather_flower.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "red-orange flower with petals shaped like phoenix feathers"
+  },
+  {
+    "id": "dragon_blood_grass",
+    "name": "龙血草",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/dragon_blood_grass.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "dark crimson grass stained with dragon blood essence"
+  },
+  {
+    "id": "immortal_ginseng",
+    "name": "仙参",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/immortal_ginseng.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "golden immortal ginseng root with faint divine aura"
+  },
+  {
+    "id": "beast_core",
+    "name": "妖兽内丹",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/beast_core.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "dark purple spherical beast core with swirling inner energy"
+  },
+  {
+    "id": "spirit_beast_bone",
+    "name": "灵兽骨",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/spirit_beast_bone.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "pale ivory bone fragment with faint spiritual energy traces"
+  },
+  {
+    "id": "dragon_scale",
+    "name": "龙鳞",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/dragon_scale.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "iridescent dragon scale with rainbow-shifting surface"
+  },
+  {
+    "id": "phoenix_feather",
+    "name": "凤凰羽",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/phoenix_feather.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "brilliant red-gold phoenix feather radiating warmth"
+  },
+  {
+    "id": "true_dragon_blood",
+    "name": "真龙血",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/true_dragon_blood.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "vial of glowing crimson true dragon blood with golden flecks"
+  },
+  {
+    "id": "spirit_iron",
+    "name": "灵铁",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/spirit_iron.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "dark metallic iron ingot with blue spiritual energy veins"
+  },
+  {
+    "id": "cold_jade",
+    "name": "寒玉",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/cold_jade.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "frost-blue jade piece emanating cold mist"
+  },
+  {
+    "id": "star_meteorite",
+    "name": "星陨铁",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/star_meteorite.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "dark metallic meteorite fragment with starlight specks"
+  },
+  {
+    "id": "celestial_crystal",
+    "name": "天晶石",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/celestial_crystal.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "prismatic celestial crystal refracting heavenly light"
+  },
+  {
+    "id": "chaos_gold",
+    "name": "混沌金",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/chaos_gold.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "swirling golden ingot with chaotic primordial energy patterns"
+  },
+  {
+    "id": "soul_fragment",
+    "name": "魂魄碎片",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/soul_fragment.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "ethereal ghostly fragment with translucent soul energy wisps"
+  },
+  {
+    "id": "void_crystal",
+    "name": "虚空结晶",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/void_crystal.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "deep purple-black crystal with void-space distortions inside"
+  },
+  {
+    "id": "time_sand",
+    "name": "时光之砂",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/time_sand.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "golden shimmering sand grains with temporal energy particles"
+  },
+  {
+    "id": "primordial_essence",
+    "name": "先天本源",
+    "category": "material",
+    "expected_texture": "src/main/resources/assets/seeking_immortals/textures/item/primordial_essence.png",
+    "model_exists": false,
+    "texture_exists": false,
+    "source": "src/main/java/com/xunxian/seekingimmortals/registry/ModItems.java",
+    "visual_hint": "swirling multicolor orb of primordial creation essence"
+  }
+]

@@ -1,0 +1,217 @@
+[
+  {
+    "id": "metal_spirit_stone",
+    "name": "下品金灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small golden metallic spiritual stone with faint metallic luster, low grade quality, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "metal_spirit_stone_mid",
+    "name": "中品金灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a golden metallic spiritual stone with bright metallic shine, medium grade quality, subtle glow, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "metal_spirit_stone_high",
+    "name": "上品金灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a radiant golden metallic stone with strong metallic glow, high grade quality, bright aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "metal_spirit_stone_superior",
+    "name": "极品金灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a brilliant golden spiritual stone with dazzling metallic light, supreme grade quality, intense radiance, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "wood_spirit_stone",
+    "name": "下品木灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small green natural spiritual stone with faint wooden texture, low grade quality, subtle nature energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "wood_spirit_stone_mid",
+    "name": "中品木灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a vibrant green spiritual stone with life energy glow, medium grade quality, nature aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "wood_spirit_stone_high",
+    "name": "上品木灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, an emerald green radiant stone with strong nature aura, high grade quality, intense life energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "wood_spirit_stone_superior",
+    "name": "极品木灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a brilliant jade green spiritual stone with intense life force, supreme grade quality, radiant nature power, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "water_spirit_stone",
+    "name": "下品水灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small blue aquatic spiritual stone with faint water ripples, low grade quality, subtle flow effect, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "water_spirit_stone_mid",
+    "name": "中品水灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, an azure blue spiritual stone with flowing water shimmer, medium grade quality, water aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "water_spirit_stone_high",
+    "name": "上品水灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a sapphire blue radiant stone with strong water aura, high grade quality, deep ocean energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "water_spirit_stone_superior",
+    "name": "极品水灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a brilliant ocean blue spiritual stone with deep sea energy, supreme grade quality, intense water power, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fire_element_spirit_stone",
+    "name": "下品火灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small red fiery spiritual stone with faint flame flicker, low grade quality, subtle heat, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fire_element_spirit_stone_mid",
+    "name": "中品火灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a crimson red spiritual stone with burning flames, medium grade quality, fire aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fire_element_spirit_stone_high",
+    "name": "上品火灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a blazing red radiant stone with intense fire aura, high grade quality, strong flames, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fire_element_spirit_stone_superior",
+    "name": "极品火灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a brilliant scarlet spiritual stone with inferno power, supreme grade quality, dazzling fire energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "earth_spirit_stone",
+    "name": "下品土灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small brown earthy spiritual stone with faint earth texture, low grade quality, subtle mountain energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "earth_spirit_stone_mid",
+    "name": "中品土灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, an ochre brown spiritual stone with solid earth energy, medium grade quality, ground aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "earth_spirit_stone_high",
+    "name": "上品土灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, an amber brown radiant stone with strong mountain aura, high grade quality, intense earth power, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "earth_spirit_stone_superior",
+    "name": "极品土灵石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a brilliant golden brown spiritual stone with ancient earth power, supreme grade quality, radiant mountain energy, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "immortal_jade",
+    "name": "仙玉",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a translucent jade token with glowing green edges, high value currency, spiritual radiance, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "qi_recovery_pill",
+    "name": "回气丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a small light blue medicinal pill with faint spiritual glow, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "cultivation_pill",
+    "name": "凝气丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a purple cultivation pill with spiritual energy aura, round shape, soft glow, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "breakthrough_pill",
+    "name": "破境丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a golden breakthrough pill with strong light burst, round shape, radiant aura, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "rejuvenation_pill_low",
+    "name": "下品回春丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a pale green healing pill with subtle glow, low grade quality, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "foundation_building_pill_low",
+    "name": "下品筑基丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a light golden foundation pill with faint radiance, low grade quality, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "healing_pill_low",
+    "name": "下品疗伤丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a soft red healing pill with gentle warmth, low grade quality, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "clear_spirit_powder_low",
+    "name": "下品清灵散",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, white powder in small vial with purifying mist, low grade quality, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fasting_pill_low",
+    "name": "下品辟谷丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a beige nutrition pill with subtle energy, low grade quality, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "calming_pill_low",
+    "name": "下品稳神丹",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, a pale blue calming pill with soothing aura, low grade quality, round shape, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "fire_talisman",
+    "name": "火符",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, red talisman paper with flame symbols and mystic runes, folded paper texture, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "armor_talisman",
+    "name": "护甲符",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, golden talisman paper with shield symbols and protective runes, folded paper texture, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "speed_talisman",
+    "name": "疾行符",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, cyan talisman paper with wind symbols and swift runes, folded paper texture, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "spirit_charm",
+    "name": "灵符",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, jade amulet pendant with glowing spiritual energy and ornate carving, detailed design, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "flying_sword",
+    "name": "飞剑",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, elegant flying sword with silver blade and glowing edge, xianxia cultivation style, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "flying_artifact",
+    "name": "飞行法器",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, mystical flying artifact with ornate design and spiritual energy trail, cultivation treasure, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "ling_gen_test_stone",
+    "name": "灵根测试石",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, ancient stone tablet with glowing runes and spiritual detection aura, mystical artifact, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "spirit_detector",
+    "name": "灵力探测器",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, compass-like spiritual detector with jade frame and glowing needle, cultivation tool, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "leyline_compass",
+    "name": "地脉罗盘",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, bronze compass with spiritual markings and glowing cardinal points, feng shui tool, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "spirit_ore",
+    "name": "灵矿",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, no transparency, centered object, glowing spiritual ore block embedded in stone with faint blue light, block texture, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "meditation_cushion",
+    "name": "打坐蒲团",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, round meditation cushion with woven texture and peaceful aura, cultivation item, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "spirit_gathering_array",
+    "name": "聚灵阵",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, no transparency, centered object, mystical formation platform with glowing runes and spiritual energy, block texture, no text, no watermark, high contrast, inventory icon"
+  },
+  {
+    "id": "technique_manual_default",
+    "name": "功法卷轴",
+    "prompt": "A Minecraft mod item icon, pixel art style, 32x32 sprite, transparent background, centered object, ancient cultivation manual scroll with rolled parchment and glowing text, mystical knowledge, no text, no watermark, high contrast, inventory icon"
+  }
+]

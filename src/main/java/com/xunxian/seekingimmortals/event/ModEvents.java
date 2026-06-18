@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.command.SeekingImmortalsCommand;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
+import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
@@ -65,7 +66,6 @@ public final class ModEvents {
     private static final String PATCHOULI_GUIDE_GIVEN_KEY = "SeekingImmortalsPatchouliGuideGiven";
     private static final ResourceLocation GUIDE_BOOK_ID = new ResourceLocation(SeekingImmortalsMod.MODID, "seeking_immortals_guide");
     private static final UUID SEVERE_INJURY_HEALTH_UUID = UUID.fromString("1a55257a-ea7e-4f42-95cf-3dc716c7f13a");
-    private static final int MEDITATION_CULTIVATION_INTERVAL_SECONDS = 5;
     private static final int MEDITATION_HUNGER_MINIMUM = 6;
     private static final double MEDITATION_MONSTER_CHECK_RADIUS = 8.0D;
     // 走火入魔风险：受伤修炼每秒 +2%
@@ -100,25 +100,27 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
-        if (event.player.tickCount % 20 != 0) return;
         CultivationHelper.get(event.player).ifPresent(cultivation -> {
-            handleMeditationMovement(event.player, cultivation);
+            SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(event.player.level(), event.player.blockPosition());
+            boolean onCushion = isSittingOnMeditationCushion(event.player);
             ItemStack bonusStone = getBestHeldSpiritStone(event.player, cultivation);
             int stoneBonus = getMatchingPassiveBonus(bonusStone, cultivation);
+            if (cultivation.isMeditating() && onCushion) {
+                MeditationTechniqueBonus techniqueBonus = getBestMeditationTechniqueBonus(event.player, cultivation);
+                MeditationFormula.Breakdown meditation = MeditationFormula.calculate(cultivation, auraInfo, true, techniqueBonus.multiplier(), bonusStone, stoneBonus);
+                cultivation.addMeditationCultivation(meditation);
+            }
 
-            SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(event.player.level(), event.player.blockPosition());
+            if (event.player.tickCount % 20 != 0) return;
+            handleMeditationMovement(event.player, cultivation);
             if (cultivation.isMeditating()) {
                 if (shouldInterruptMeditation(event.player, cultivation)) {
                     // Interrupt helpers already clear meditation and notify the player.
                 } else {
-                    boolean onCushion = isSittingOnMeditationCushion(event.player);
                     int baseGain = onCushion ? 2 : 1;
                     cultivation.addSpiritualPower(SpiritualAuraManager.adjustSpiritualPowerGain(baseGain, auraInfo));
-                    if (onCushion && event.player.tickCount % (MEDITATION_CULTIVATION_INTERVAL_SECONDS * 20) == 0) {
-                        MeditationTechniqueBonus techniqueBonus = getBestMeditationTechniqueBonus(event.player, cultivation);
-                        int auraAdjusted = SpiritualAuraManager.adjustCultivationExpGain(MEDITATION_CULTIVATION_INTERVAL_SECONDS, auraInfo);
-                        int techniqueAdjusted = Math.max(1, (int)Math.round(auraAdjusted * techniqueBonus.multiplier()));
-                        cultivation.addCultivationExp(techniqueAdjusted + consumeStoneBonus(bonusStone, stoneBonus));
+                    if (onCushion && stoneBonus > 0) {
+                        consumeStoneBonus(bonusStone, stoneBonus);
                     }
 
                     // 走火入魔风险：受伤状态下修炼每秒 +2%
@@ -226,10 +228,7 @@ public final class ModEvents {
             return;
         }
 
-        if (tryExchange(player, ModItems.SPIRIT_STONE_HIGH.get(), ModItems.SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.SPIRIT_STONE_MID.get(), ModItems.SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.SPIRIT_STONE.get(), ModItems.SPIRIT_STONE_MID.get())
-                || tryExchange(player, ModItems.METAL_SPIRIT_STONE_HIGH.get(), ModItems.METAL_SPIRIT_STONE_SUPERIOR.get())
+        if (tryExchange(player, ModItems.METAL_SPIRIT_STONE_HIGH.get(), ModItems.METAL_SPIRIT_STONE_SUPERIOR.get())
                 || tryExchange(player, ModItems.METAL_SPIRIT_STONE_MID.get(), ModItems.METAL_SPIRIT_STONE_HIGH.get())
                 || tryExchange(player, ModItems.METAL_SPIRIT_STONE.get(), ModItems.METAL_SPIRIT_STONE_MID.get())
                 || tryExchange(player, ModItems.WOOD_SPIRIT_STONE_HIGH.get(), ModItems.WOOD_SPIRIT_STONE_SUPERIOR.get())
@@ -540,6 +539,7 @@ public final class ModEvents {
     private record FlightProfile(int costPerSecond, int maxHeight, float flyingSpeed, double horizontalSpeed, double verticalSpeed) {
         private static FlightProfile forRealm(Realm realm) {
             return switch (realm) {
+                case MORTAL -> null;
                 case QI_REFINING -> null;
                 case FOUNDATION_ESTABLISHMENT -> new FlightProfile(3, 96, 0.045F, 0.45D, 0.35D);
                 case CORE_FORMATION -> new FlightProfile(5, 128, 0.060F, 0.60D, 0.45D);

@@ -30,8 +30,8 @@ public class PlayerCultivation {
     private int bodyRefinement = 0;
     private int qiDeviationRisk = 0;
     private int tribulationResistance = 0;
-    private Realm realm = Realm.QI_REFINING;
-    private RealmStage stage = RealmStage.LAYER_1;
+    private Realm realm = Realm.MORTAL;
+    private RealmStage stage = RealmStage.MORTAL;
     private int cultivationExp = 0;
     private boolean breakthroughAssisted = false;
     private double breakthroughPillBonus = 0.0D;
@@ -39,7 +39,7 @@ public class PlayerCultivation {
     private SpiritualRoot spiritualRoot = SpiritualRoot.TRIPLE;
     private final EnumSet<SpiritualRootAttribute> spiritualRootAttributes = EnumSet.of(SpiritualRootAttribute.WOOD, SpiritualRootAttribute.WATER, SpiritualRootAttribute.FIRE);
     private SpecialPhysique specialPhysique = SpecialPhysique.NONE;
-    private int lifespanYears = Realm.QI_REFINING.getLifespanYears();
+    private int lifespanYears = Realm.MORTAL.getLifespanYears();
     private int ageYears = 16;
     private int failedBreakthroughs = 0;
     private boolean rootInitialized = false;
@@ -55,6 +55,7 @@ public class PlayerCultivation {
     private final List<String> techniqueSlots = new ArrayList<>();
     private final Map<String, Long> techniqueCooldownUntilTicks = new HashMap<>();
     private final Map<SkillType, CultivationSkill> skills = new HashMap<>();
+    private double meditationCultivationProgress = 0.0D;
 
     public PlayerCultivation() {
         clearTechniqueSlots();
@@ -73,32 +74,14 @@ public class PlayerCultivation {
     public int getTribulationResistance() { return tribulationResistance; }
     public int getTribRes() { return getTribulationResistance(); }
 
-    // ========== Phase 1: 字段别名 Getter（long/float 返回类型） ==========
-    /**
-     * 获取修为（long 类型别名）
-     * <p>存储层保持 int，通过 getter 返回 long 以便未来扩展</p>
-     */
-    public long getCultivationLong() { return (long) cultivationExp; }
-
-    /**
-     * 获取修为上限（long 类型）
-     */
-    public long getCultivationMax() { return (long) getCurrentStageCapExp(); }
-
-    /**
-     * 获取灵力上限（long 类型别名）
-     */
-    public long getManaMaxLong() { return (long) getMaxSpiritualPower(); }
-
-    /**
-     * 获取走火风险（float 类型别名，0-100）
-     */
-    public float getQiDevRiskFloat() { return (float) qiDeviationRisk; }
-
-    /**
-     * 获取天劫承受（float 类型别名，0-100）
-     */
-    public float getTribResFloat() { return (float) tribulationResistance; }
+    public long getCultivationLong() { return cultivationExp; }
+    public long getCultivationMax() { return getCurrentStageCapExp(); }
+    public int getCultivationMaxInt() { return getCurrentStageCapExp(); }
+    public long getManaMaxLong() { return getMaxSpiritualPower(); }
+    public float getQiDevRiskFloat() { return qiDeviationRisk / 100.0F; }
+    public float getQiDevRiskPercent() { return qiDeviationRisk; }
+    public float getTribResFloat() { return tribulationResistance / 100.0F; }
+    public float getTribResPercent() { return tribulationResistance; }
     public Realm getRealm() { return realm; }
     public RealmStage getStage() { return stage; }
     public int getCultivationExp() { return cultivationExp; }
@@ -256,7 +239,12 @@ public class PlayerCultivation {
         breakthroughAssisted = false;
     }
     public double getBreakthroughObsessionBonus() { return Math.min(0.30D, failedBreakthroughs * 0.05D); }
-    public void setMeditating(boolean meditating) { this.meditating = meditating; }
+    public void setMeditating(boolean meditating) {
+        if (!meditating) {
+            meditationCultivationProgress = 0.0D;
+        }
+        this.meditating = meditating;
+    }
     public void setSpiritualRoot(SpiritualRoot spiritualRoot) { this.spiritualRoot = spiritualRoot; this.rootInitialized = true; }
     public void setSpiritualRootAttribute(SpiritualRootAttribute attribute) {
         this.spiritualRootAttributes.clear();
@@ -489,6 +477,7 @@ public class PlayerCultivation {
 
     public double getMeleeAttackPower() {
         double base = switch (realm) {
+            case MORTAL -> 1.0D;
             case QI_REFINING -> 2.0D + stage.ordinal() * 0.5D;
             case FOUNDATION_ESTABLISHMENT -> 15.0D + stage.ordinal() * 3.0D;
             case CORE_FORMATION -> 40.0D + stage.ordinal() * 8.0D;
@@ -520,6 +509,7 @@ public class PlayerCultivation {
 
     public double getDefensePower() {
         double base = switch (realm) {
+            case MORTAL -> 0.0D;
             case QI_REFINING -> 1.0D + stage.ordinal() * 0.3D;
             case FOUNDATION_ESTABLISHMENT -> 10.0D + stage.ordinal() * 2.0D;
             case CORE_FORMATION -> 30.0D + stage.ordinal() * 6.0D;
@@ -546,6 +536,7 @@ public class PlayerCultivation {
 
     public double getDodgeRate() {
         double base = switch (realm) {
+            case MORTAL -> 0.0D;
             case QI_REFINING -> 0.05D;
             case FOUNDATION_ESTABLISHMENT -> 0.08D;
             case CORE_FORMATION -> 0.12D;
@@ -572,6 +563,7 @@ public class PlayerCultivation {
 
     public double getCriticalRate() {
         double base = switch (realm) {
+            case MORTAL -> 0.0D;
             case QI_REFINING -> 0.05D;
             case FOUNDATION_ESTABLISHMENT -> 0.08D;
             case CORE_FORMATION -> 0.10D;
@@ -600,6 +592,7 @@ public class PlayerCultivation {
 
     public double getMagicResistance() {
         double base = switch (realm) {
+            case MORTAL -> 0.0D;
             case QI_REFINING -> 0.0D;
             case FOUNDATION_ESTABLISHMENT -> 0.05D;
             case CORE_FORMATION -> 0.12D;
@@ -645,6 +638,7 @@ public class PlayerCultivation {
 
     public int getMaxDivineConsciousness() {
         int base = switch (realm) {
+            case MORTAL -> 3;
             case QI_REFINING -> 50;
             case FOUNDATION_ESTABLISHMENT -> 150;
             case CORE_FORMATION -> 400;
@@ -719,6 +713,8 @@ public class PlayerCultivation {
         clearSevereInjuryIfRecovered();
     }
 
+    public void setManaMax(int ignoredDynamicMax) { setMana(spiritualPower); }
+
     public void setSpiritualPower(int amount) { setMana(amount); }
 
     public void addQi(int amount) { addSpiritualPower(amount); }
@@ -732,6 +728,8 @@ public class PlayerCultivation {
     public void setDivSense(int amount) {
         divineConsciousness = Math.max(0, Math.min(getMaxDivineConsciousness(), amount));
     }
+
+    public void setDivineConsciousness(int amount) { setDivSense(amount); }
 
     public void addBodyRefinement(int amount) {
         bodyRefinement = Math.max(0, bodyRefinement + amount);
@@ -753,7 +751,9 @@ public class PlayerCultivation {
         qiDeviationRisk = clamp(amount, 0, MAX_QI_DEVIATION_RISK);
     }
 
+    public void setQiDeviationRisk(float value) { setQiDeviationRisk(normalizeRiskPercent(value, MAX_QI_DEVIATION_RISK)); }
     public void setQiDevRisk(int amount) { setQiDeviationRisk(amount); }
+    public void setQiDevRisk(float value) { setQiDeviationRisk(value); }
 
     public void addTribulationResistance(int amount) {
         tribulationResistance = clamp(tribulationResistance + amount, 0, MAX_TRIBULATION_RESISTANCE);
@@ -763,7 +763,9 @@ public class PlayerCultivation {
         tribulationResistance = clamp(amount, 0, MAX_TRIBULATION_RESISTANCE);
     }
 
+    public void setTribulationResistance(float value) { setTribulationResistance(normalizeRiskPercent(value, MAX_TRIBULATION_RESISTANCE)); }
     public void setTribRes(int amount) { setTribulationResistance(amount); }
+    public void setTribRes(float value) { setTribulationResistance(value); }
 
     public boolean consumeSpiritualPower(int amount) {
         if (spiritualPower < amount) return false;
@@ -784,6 +786,25 @@ public class PlayerCultivation {
         cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + adjusted));
         spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
     }
+
+    public int addMeditationCultivation(MeditationFormula.Breakdown breakdown) {
+        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick());
+        int whole = (int) Math.floor(meditationCultivationProgress);
+        if (whole <= 0) return 0;
+        meditationCultivationProgress -= whole;
+        int before = cultivationExp;
+        cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + whole));
+        spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
+        return Math.max(0, cultivationExp - before);
+    }
+
+    public void setCultivation(long amount) {
+        cultivationExp = (int)Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), amount));
+        spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
+    }
+
+    public void setCultivationExp(int amount) { setCultivation(amount); }
+    public void setCultivationLong(long amount) { setCultivation(amount); }
 
     /**
      * 直接增减修为经验值（不应用修炼速度倍率），用于走火入魔等惩罚。
@@ -933,6 +954,7 @@ public class PlayerCultivation {
 
     private double getBaseBreakthroughChance() {
         return switch (realm) {
+            case MORTAL -> 0.10D;
             case QI_REFINING -> 0.05D;
             case FOUNDATION_ESTABLISHMENT -> 0.03D;
             case CORE_FORMATION -> 0.08D;
@@ -950,8 +972,25 @@ public class PlayerCultivation {
         return Math.max(min, Math.min(max, value));
     }
 
+    private static int normalizeRiskPercent(float value, int max) {
+        float percent = value <= 1.0F ? value * 100.0F : value;
+        return clamp(Math.round(percent), 0, max);
+    }
+
+    private static int loadPercentField(CompoundTag tag, String valueKey, String percentKey, int max) {
+        if (tag.contains(percentKey)) {
+            return clamp(tag.getInt(percentKey), 0, max);
+        }
+        if (!tag.contains(valueKey)) {
+            return 0;
+        }
+        float value = tag.getFloat(valueKey);
+        return normalizeRiskPercent(value, max);
+    }
+
     private int getFailureLifespanPenalty() {
         return switch (realm) {
+            case MORTAL -> 5;
             case QI_REFINING -> 10;
             case FOUNDATION_ESTABLISHMENT -> 15;
             case CORE_FORMATION -> 25;
@@ -1006,7 +1045,18 @@ public class PlayerCultivation {
         }
     }
 
+    public static RealmStage[] getStagesForRealmPublic(Realm targetRealm) {
+        return stagesForRealm(targetRealm).clone();
+    }
+
     private RealmStage[] getStagesForRealm(Realm targetRealm) {
+        return stagesForRealm(targetRealm);
+    }
+
+    private static RealmStage[] stagesForRealm(Realm targetRealm) {
+        if (targetRealm == Realm.MORTAL) {
+            return new RealmStage[] { RealmStage.MORTAL };
+        }
         if (targetRealm.isLayerBased()) {
             return new RealmStage[] {
                     RealmStage.LAYER_1, RealmStage.LAYER_2, RealmStage.LAYER_3, RealmStage.LAYER_4, RealmStage.LAYER_5,
@@ -1014,7 +1064,6 @@ public class PlayerCultivation {
                     RealmStage.LAYER_11, RealmStage.LAYER_12, RealmStage.LAYER_13
             };
         }
-        // 筑基期4阶：初期、中期、后期、圆满
         if (targetRealm == Realm.FOUNDATION_ESTABLISHMENT) {
             return new RealmStage[] { RealmStage.EARLY, RealmStage.MIDDLE, RealmStage.LATE, RealmStage.PEAK };
         }
@@ -1023,13 +1072,16 @@ public class PlayerCultivation {
 
     public CompoundTag saveNBTData() {
         CompoundTag tag = new CompoundTag();
-        tag.putInt("cultivation", cultivationExp);
+        tag.putLong("cultivation", cultivationExp);
+        tag.putLong("cultivationMax", getCultivationMax());
         tag.putInt("mana", spiritualPower);
         tag.putInt("manaMax", getMaxSpiritualPower());
         tag.putInt("divSense", divineConsciousness);
         tag.putInt("bodyRef", bodyRefinement);
-        tag.putInt("qiDevRisk", qiDeviationRisk);
-        tag.putInt("tribRes", tribulationResistance);
+        tag.putFloat("qiDevRisk", getQiDevRiskFloat());
+        tag.putFloat("tribRes", getTribResFloat());
+        tag.putInt("qiDevRiskPercent", qiDeviationRisk);
+        tag.putInt("tribResPercent", tribulationResistance);
         tag.putInt("SpiritualPower", spiritualPower);
         tag.putInt("Qi", spiritualPower);
         tag.putInt("DivineConsciousness", divineConsciousness);
@@ -1079,9 +1131,9 @@ public class PlayerCultivation {
         spiritualPower = tag.contains("mana") ? tag.getInt("mana") : (tag.contains("SpiritualPower") ? tag.getInt("SpiritualPower") : (tag.contains("Qi") ? tag.getInt("Qi") : INITIAL_MANA));
         divineConsciousness = tag.contains("divSense") ? tag.getInt("divSense") : (tag.contains("DivineConsciousness") ? tag.getInt("DivineConsciousness") : INITIAL_DIVINE_CONSCIOUSNESS);
         bodyRefinement = Math.max(0, tag.getInt("bodyRef"));
-        qiDeviationRisk = clamp(tag.getInt("qiDevRisk"), 0, MAX_QI_DEVIATION_RISK);
-        tribulationResistance = clamp(tag.getInt("tribRes"), 0, MAX_TRIBULATION_RESISTANCE);
-        cultivationExp = tag.contains("cultivation") ? tag.getInt("cultivation") : tag.getInt("CultivationExp");
+        qiDeviationRisk = loadPercentField(tag, "qiDevRisk", "qiDevRiskPercent", MAX_QI_DEVIATION_RISK);
+        tribulationResistance = loadPercentField(tag, "tribRes", "tribResPercent", MAX_TRIBULATION_RESISTANCE);
+        cultivationExp = tag.contains("cultivation") ? (int)Math.max(0L, Math.min(Integer.MAX_VALUE, tag.getLong("cultivation"))) : tag.getInt("CultivationExp");
         if (!loadRealmAndStage(tag)) {
             updateRealmFromCultivationExp();
         }
