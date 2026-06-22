@@ -19,12 +19,12 @@ public abstract class SpellEffect implements SkillEffect {
 
     @Override
     public int getSpiritualPowerCost(int skillLevel) {
-        return Math.max(1, baseSpiritualPowerCost - skillLevel * 2);
+        return Math.max(0, baseSpiritualPowerCost);
     }
 
     @Override
     public int getCooldownTicks(int skillLevel) {
-        return Math.max(20, baseCooldownTicks - skillLevel * 10);
+        return Math.max(0, baseCooldownTicks);
     }
 
     protected double calculateDamage(int skillLevel, int proficiency) {

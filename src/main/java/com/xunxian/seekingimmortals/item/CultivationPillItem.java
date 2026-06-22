@@ -10,6 +10,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class CultivationPillItem extends Item {
+    private static final int BOOST_TICKS = 60 * 60 * 20;
+    private static final double BOOST_MULTIPLIER = 2.0D;
     private final int expValue;
 
     public CultivationPillItem(Properties properties, int expValue) {
@@ -23,8 +25,11 @@ public class CultivationPillItem extends Item {
         if (!level.isClientSide) {
             CultivationHelper.get(player).ifPresent(cultivation -> {
                 int adjustedExp = (int) Math.round(expValue * cultivation.getPillAbsorptionMultiplier());
+                boolean alreadyBoosting = cultivation.getCultivationBoostTicks() > 0;
                 cultivation.addCultivationExp(adjustedExp);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.cultivation_exp", adjustedExp), true);
+                cultivation.addCultivationBoost(BOOST_TICKS, BOOST_MULTIPLIER);
+                player.displayClientMessage(Component.translatable(alreadyBoosting
+                        ? "message.seeking_immortals.cultivation_pill.boost_extend" : "message.seeking_immortals.cultivation_pill.boost", adjustedExp), true);
                 if (!player.getAbilities().instabuild) stack.shrink(1);
             });
         }

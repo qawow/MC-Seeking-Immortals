@@ -76,11 +76,13 @@ public final class ClientEvents {
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAboveAll("technique_skill_bar", TechniqueSkillBarOverlay::renderOverlay);
         event.registerAboveAll("breathing_hud", BreathingHudOverlay::renderOverlay);
+        event.registerAboveAll("cultivation_hud", CultivationHudOverlay::renderOverlay);
     }
 
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CUSHION_SEAT.get(), EmptyEntityRenderer::new);
+        event.registerEntityRenderer(ModEntities.SWORD_PROJECTILE.get(), EmptyEntityRenderer::new);
     }
 
     @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)

@@ -46,6 +46,7 @@ public class PlayerCultivation {
     private int spiritualRootPurity = 50;
     private boolean spiritualRootAwakened = true;
     private boolean spiritualRootTested = false;
+    private boolean mysticVialGranted = false;
     private boolean severeInjury = false;
     private int heartDemonLevel = 0;
     private int heartDemonTriggerTicks = 0;
@@ -56,6 +57,14 @@ public class PlayerCultivation {
     private final Map<String, Long> techniqueCooldownUntilTicks = new HashMap<>();
     private final Map<SkillType, CultivationSkill> skills = new HashMap<>();
     private double meditationCultivationProgress = 0.0D;
+    private int cultivationBoostTicks = 0;
+    private double cultivationBoostMultiplier = 1.0D;
+    // M3: 走火风险衰减累计 tick 计数器（非取模，保证稳定触发）
+    private int qiDevDecayAccumulatorTicks = 0;
+    private int leylineQiDevDecayAccumulatorTicks = 0;
+
+    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 平稳打坐每 720 秒 -1
+    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 灵脉额外每 360 秒 -1
 
     public PlayerCultivation() {
         clearTechniqueSlots();
@@ -103,6 +112,8 @@ public class PlayerCultivation {
     public boolean isAtBreakthroughCap() { return cultivationExp >= getCurrentStageCapExp(); }
     public boolean isAtFinalStage() { return realm == Realm.TRUE_IMMORTAL && stage == RealmStage.LATE; }
     public boolean isMeditating() { return meditating; }
+    public int getCultivationBoostTicks() { return cultivationBoostTicks; }
+    public double getCultivationBoostMultiplier() { return cultivationBoostTicks > 0 ? cultivationBoostMultiplier : 1.0D; }
     public SpiritualRoot getSpiritualRoot() { return spiritualRoot; }
     public Set<SpiritualRootAttribute> getSpiritualRootAttributes() { return EnumSet.copyOf(spiritualRootAttributes); }
     public SpiritualRootAttribute getSpiritualRootAttribute() { return spiritualRootAttributes.iterator().next(); }
@@ -110,6 +121,8 @@ public class PlayerCultivation {
     public int getSpiritualRootPurity() { return spiritualRootPurity; }
     public boolean isSpiritualRootAwakened() { return spiritualRootAwakened; }
     public boolean isSpiritualRootTested() { return spiritualRootTested; }
+    public boolean isMysticVialGranted() { return mysticVialGranted; }
+    public void setMysticVialGranted(boolean granted) { this.mysticVialGranted = granted; }
     public boolean hasSevereInjury() { return severeInjury; }
     public boolean hasShatteredCore() { return shatteredCore; }
     public int getHeartDemonLevel() { return heartDemonLevel; }
@@ -179,7 +192,8 @@ public class PlayerCultivation {
     }
 
     public boolean canLearnSkill(SkillType skillType) {
-        if (realm.ordinal() < skillType.getRequiredRealm().ordinal()) return false;
+        if (!hasReachedSkillRequirement(skillType)) return false;
+        if (skillType.isPhase4QiSkill()) return true;
         if (!skillType.hasAffinityRequirement()) return true;
         for (SpiritualRootAttribute required : skillType.getAffinityAttributes()) {
             if (spiritualRootAttributes.contains(required)) return true;
@@ -193,6 +207,36 @@ public class PlayerCultivation {
         if (skill.isUnlocked()) return false;
         skill.unlock();
         return true;
+    }
+
+    public List<SkillType> unlockEligiblePhase4Skills() {
+        List<SkillType> unlocked = new ArrayList<>();
+        for (SkillType skillType : SkillType.values()) {
+            if (!skillType.isPhase4QiSkill()) continue;
+            if (unlockSkill(skillType)) {
+                unlocked.add(skillType);
+                learnTechnique(skillType.getTechniqueId());
+            } else if (hasSkill(skillType) && !hasLearnedTechnique(skillType.getTechniqueId())) {
+                learnTechnique(skillType.getTechniqueId());
+            }
+        }
+        return unlocked;
+    }
+
+    private boolean hasReachedSkillRequirement(SkillType skillType) {
+        Realm requiredRealm = skillType.getRequiredRealm();
+        if (realm.ordinal() < requiredRealm.ordinal()) return false;
+        RealmStage requiredStage = skillType.getRequiredStage();
+        if (requiredStage == null || realm.ordinal() > requiredRealm.ordinal()) return true;
+        if (realm != requiredRealm) return false;
+        RealmStage[] stages = getStagesForRealm(requiredRealm);
+        int currentIndex = -1;
+        int requiredIndex = -1;
+        for (int i = 0; i < stages.length; i++) {
+            if (stages[i] == stage) currentIndex = i;
+            if (stages[i] == requiredStage) requiredIndex = i;
+        }
+        return currentIndex >= 0 && requiredIndex >= 0 && currentIndex >= requiredIndex;
     }
 
     public boolean addSkillExperience(SkillType skillType, int amount) {
@@ -264,7 +308,8 @@ public class PlayerCultivation {
     }
 
     public void clearSevereInjuryIfRecovered() {
-        if (severeInjury && spiritualPower >= getMaxSpiritualPower()) {
+        int max = getMaxSpiritualPower();
+        if (severeInjury && max > 0 && spiritualPower >= max) {
             severeInjury = false;
         }
     }
@@ -629,8 +674,11 @@ public class PlayerCultivation {
         return attributeMultiplier * specialPhysique.getBreakthroughMultiplier();
     }
 
+    private static final int MORTAL_MIN_SPIRITUAL_POWER = 50;
+
     public int getMaxSpiritualPower() {
-        return Math.round(realm.getBaseMaxSpiritualPower() * stage.getMaxSpiritualPowerMultiplier());
+        int raw = Math.round(realm.getBaseMaxSpiritualPower() * stage.getMaxSpiritualPowerMultiplier());
+        return realm == Realm.MORTAL ? Math.max(MORTAL_MIN_SPIRITUAL_POWER, raw) : raw;
     }
 
     public int getManaMax() { return getMaxSpiritualPower(); }
@@ -719,6 +767,10 @@ public class PlayerCultivation {
 
     public void addQi(int amount) { addSpiritualPower(amount); }
 
+    public void restoreHalfManaFromPill() {
+        addSpiritualPower((int)Math.ceil(getMaxSpiritualPower() * 0.5D));
+    }
+
     public void addDivineConsciousness(int amount) {
         divineConsciousness = Math.max(0, Math.min(getMaxDivineConsciousness(), divineConsciousness + amount));
     }
@@ -745,6 +797,41 @@ public class PlayerCultivation {
 
     public void addQiDeviationRisk(int amount) {
         qiDeviationRisk = clamp(qiDeviationRisk + amount, 0, MAX_QI_DEVIATION_RISK);
+    }
+
+    /** M3: 平稳打坐每 tick 累加，达阈值 -1 走火风险；risk=0 时重置累加器。 */
+    public void tickQiDeviationDecay(boolean leyline) {
+        if (qiDeviationRisk <= 0) {
+            qiDevDecayAccumulatorTicks = 0;
+            leylineQiDevDecayAccumulatorTicks = 0;
+            return;
+        }
+        if (++qiDevDecayAccumulatorTicks >= QI_DEV_RISK_DECAY_TICKS) {
+            addQiDeviationRisk(-1);
+            qiDevDecayAccumulatorTicks = 0;
+        }
+        if (leyline && ++leylineQiDevDecayAccumulatorTicks >= LEYLINE_RISK_DECAY_TICKS) {
+            addQiDeviationRisk(-1);
+            leylineQiDevDecayAccumulatorTicks = 0;
+        }
+    }
+
+    private static final int MAX_CULTIVATION_BOOST_TICKS = 72000 * 2; // 2 * 凝聚丹 boost ticks
+
+    public void addCultivationBoost(int ticks, double multiplier) {
+        cultivationBoostTicks = Math.min(cultivationBoostTicks + ticks, MAX_CULTIVATION_BOOST_TICKS);
+        cultivationBoostMultiplier = Math.max(cultivationBoostMultiplier, multiplier);
+    }
+
+    public void tickCultivationBoost() {
+        if (cultivationBoostTicks <= 0) {
+            cultivationBoostMultiplier = 1.0D;
+            return;
+        }
+        cultivationBoostTicks--;
+        if (cultivationBoostTicks <= 0) {
+            cultivationBoostMultiplier = 1.0D;
+        }
     }
 
     public void setQiDeviationRisk(int amount) {
@@ -782,13 +869,13 @@ public class PlayerCultivation {
     }
 
     public void addCultivationExp(int amount) {
-        int adjusted = Math.max(0, (int)Math.round(amount * getCultivationSpeedMultiplier()));
+        int adjusted = Math.max(0, (int)Math.round(amount * getCultivationSpeedMultiplier() * getCultivationBoostMultiplier()));
         cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + adjusted));
         spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
     }
 
     public int addMeditationCultivation(MeditationFormula.Breakdown breakdown) {
-        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick());
+        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick() * getCultivationBoostMultiplier());
         int whole = (int) Math.floor(meditationCultivationProgress);
         if (whole <= 0) return 0;
         meditationCultivationProgress -= whole;
@@ -926,7 +1013,12 @@ public class PlayerCultivation {
         return QiDeviationTier.NONE;
     }
 
+    public QiDeviationTier rollQiDeviation(RandomSource random) {
+        return checkQiDeviation(random) ? determineQiDeviationTier() : QiDeviationTier.NONE;
+    }
+
     private boolean checkQiDeviation(RandomSource random) {
+        if (qiDeviationRisk >= MAX_QI_DEVIATION_RISK) return true;
         if (qiDeviationRisk < 70) return false;
         double chance = Math.min(0.50D, Math.max(0.20D, (qiDeviationRisk - 50) / 100.0D));
         return random.nextDouble() < chance;
@@ -1102,11 +1194,16 @@ public class PlayerCultivation {
         tag.putInt("SpiritualRootPurity", spiritualRootPurity);
         tag.putBoolean("SpiritualRootAwakened", spiritualRootAwakened);
         tag.putBoolean("SpiritualRootTested", spiritualRootTested);
+        tag.putBoolean("MysticVialGranted", mysticVialGranted);
         tag.putBoolean("SevereInjury", severeInjury);
         tag.putInt("HeartDemonLevel", heartDemonLevel);
         tag.putInt("HeartDemonTriggerTicks", heartDemonTriggerTicks);
         tag.putBoolean("ShatteredCore", shatteredCore);
         tag.putInt("RealmFallScars", realmFallScars);
+        tag.putInt("CultivationBoostTicks", cultivationBoostTicks);
+        tag.putDouble("CultivationBoostMultiplier", cultivationBoostMultiplier);
+        tag.putInt("QiDevDecayTicks", qiDevDecayAccumulatorTicks);
+        tag.putInt("LeylineQiDevDecayTicks", leylineQiDevDecayAccumulatorTicks);
         ListTag learnedTechniqueList = new ListTag();
         learnedTechniques.stream().sorted().forEach(techniqueId -> learnedTechniqueList.add(StringTag.valueOf(techniqueId)));
         tag.put("LearnedTechniques", learnedTechniqueList);
@@ -1151,11 +1248,18 @@ public class PlayerCultivation {
         spiritualRootPurity = tag.contains("SpiritualRootPurity") ? Math.max(1, Math.min(100, tag.getInt("SpiritualRootPurity"))) : 50;
         spiritualRootAwakened = !tag.contains("SpiritualRootAwakened") || tag.getBoolean("SpiritualRootAwakened");
         spiritualRootTested = tag.getBoolean("SpiritualRootTested");
+        mysticVialGranted = tag.getBoolean("MysticVialGranted");
         severeInjury = tag.getBoolean("SevereInjury");
         heartDemonLevel = Math.max(0, tag.getInt("HeartDemonLevel"));
         heartDemonTriggerTicks = Math.max(0, tag.getInt("HeartDemonTriggerTicks"));
         shatteredCore = tag.getBoolean("ShatteredCore");
         realmFallScars = Math.max(0, tag.getInt("RealmFallScars"));
+        cultivationBoostTicks = Math.max(0, tag.getInt("CultivationBoostTicks"));
+        cultivationBoostMultiplier = cultivationBoostTicks > 0 && tag.contains("CultivationBoostMultiplier")
+                ? Math.max(1.0D, tag.getDouble("CultivationBoostMultiplier"))
+                : 1.0D;
+        qiDevDecayAccumulatorTicks = Math.max(0, tag.getInt("QiDevDecayTicks"));
+        leylineQiDevDecayAccumulatorTicks = Math.max(0, tag.getInt("LeylineQiDevDecayTicks"));
         learnedTechniques.clear();
         if (tag.contains("LearnedTechniques")) {
             ListTag learnedTechniqueList = tag.getList("LearnedTechniques", 8);
@@ -1177,7 +1281,10 @@ public class PlayerCultivation {
             fillDefaultTechniqueSlots();
         }
         techniqueCooldownUntilTicks.clear();
-        if (tag.contains("TechniqueCooldownUntilTicks")) {
+        // M9: 旧存档冷却值基于 per-dimension gameTime，全局时钟迁移后清空
+        if (tag.contains("TechniqueCooldownUntilTicks") && tag.getInt("CultivationNbtVersion") < 1) {
+            // 旧冷却值清空，首次登录重置全部冷却
+        } else if (tag.contains("TechniqueCooldownUntilTicks")) {
             CompoundTag cooldownTag = tag.getCompound("TechniqueCooldownUntilTicks");
             for (String techniqueId : cooldownTag.getAllKeys()) {
                 long untilTick = cooldownTag.getLong(techniqueId);
@@ -1246,3 +1353,4 @@ public class PlayerCultivation {
         }
     }
 }
+

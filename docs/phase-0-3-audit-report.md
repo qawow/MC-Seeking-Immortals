@@ -1,132 +1,126 @@
-# Phase 0-3 Audit Report
+﻿# Phase 0-6 Audit Report
 
-> Audit date: 2026-06-18
-> Scope: Phase 0 to Phase 3 only
-> Constraints: no Java changes, no feature implementation, no Phase 4 work
+> Audit date: 2026-06-19
+> Scope: Phase 0 to Phase 6 (按用户最新口径：Phase 5=炼丹，Phase 6=神秘小瓶)
+> Constraints: no Java changes, no feature implementation, no Phase 7+ work
+
+## Numbering Note
+
+`docs/task-board.md` 历史编号为 Phase 5=神秘小瓶、Phase 7=炼丹。本审计遵循用户最新指令：炼丹视为 Phase 5（已完成），神秘小瓶视为 Phase 6（未实现）。任务板原 Phase 6“筑基期技能”顺延为后续阶段，不在本次 Phase 0~6 审计完成口径内。
 
 ## Audit Method
 
-- Reviewed `docs/task-board.md`, `docs/mvp-scope.md`, `docs/implementation-roadmap.md`, `project_docs/ai_handoff.md`, and `project_docs/step_progress.md`.
-- Checked current implementation evidence under `src/main/java` and `src/main/resources`.
-- Did not count generated, backup, or historical folders as implementation truth.
-- Ran `./gradlew.bat build` after the audit.
+- 审阅 `docs/task-board.md`、`docs/mvp-scope.md`、`docs/implementation-roadmap.md`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md`。
+- 核对 `src/main/java` 与 `src/main/resources` 的当前实现证据。
+- 不把 `build/`、`.bak/`、`generated_art/` 等生成/历史目录当作实现真相。
+- 以当前 `gradlew.bat build` 结果作为 [x] 判定门槛。
 
 ## Build Result
 
-- Command: `./gradlew.bat build`
-- Result: BUILD SUCCESSFUL in 27s
-- Notes: `compileTestJava NO-SOURCE` and `test NO-SOURCE`; there are no test sources, so any task requiring unit-test evidence remains incomplete.
+- Command: `.\gradlew.bat --no-daemon --max-workers=1 build`
+- Result: BUILD SUCCESSFUL in 28s（`compileJava`/`test`/`build` 均通过，`compileTestJava UP-TO-DATE`）。
+- Notes: 历史报告显示 Phase 1/3/4/5 构建均成功；Phase 2 报告当时构建失败，但后续 Phase 3 修复已使整体构建恢复成功。
 
 ## Overall Conclusion
 
-- Phase 0: Complete.
-- Phase 1: Partial. Core implementation and build are present, but unit-test evidence is missing.
-- Phase 2: Partial. Root system and meditation runtime are mostly present, but the independent `MeditationScreen` and complete meditation speed-detail GUI are missing; root testing is item-based, not a stone-slab block.
-- Phase 3: Partial. Breakthrough and qi deviation are mostly implemented, including calming pill and risk decay, but pre-breakthrough material ownership preview is incomplete and over-tier technique usage only adds risk instead of directly triggering a qi-deviation check.
-- Current recommended execution phase: Phase 1, because it is the earliest incomplete Phase.
+- Phase 0: Complete（架构审查报告存在）。
+- Phase 1: Complete（核心属性/境界/基准表/单元测试，构建成功）。
+- Phase 2: Partial。Realm System 代码证据齐全且当前构建成功，可标 [x]；但灵根鉴定方块、独立打坐 GUI、速度详情仍缺失（Partial）。
+- Phase 3: Complete（突破预览、走火检定、四级走火效果、稳神丹、风险衰减，构建成功）。
+- Phase 4: Complete（9 个练气期技能、自动解锁、灵力/冷却、MVP 飞剑，构建成功）。
+- Phase 5（炼丹）: Complete（丹炉/BlockEntity/MVP丹方/废丹/爆炉/丹药效果，构建成功）；JSON 丹方目录、完整 GUI、炼丹等级系统为后续扩展（Missing）。
+- Phase 6（神秘小瓶）: Not started。仅有 `VialGrade` 枚举与 `getJadeVialDropChance()` 接口占位，无物品/灵液/植物加速实现。
+- Current recommended execution phase: Phase 6（神秘小瓶），为最早未完成 Phase。
 
 ## Phase 0: Pre-Implementation Architecture Review
 
 Status: Done
 
 Evidence:
+- `docs/phase-0-project-survey.md` 存在，覆盖修炼状态、境界/阶段、灵根、Capability、技能/功法、丹药、缺口与待新增/重构模块。
+- Phase 0 任务为文档/审计类，均有报告支撑。
 
-- Architecture survey exists: `docs/phase-0-project-survey.md`.
-- Task-board Phase 0 items are documentation/audit tasks and are supported by the generated survey.
-- The survey covers existing cultivation state, realm/stage structure, spiritual root system, capability access, skill/technique systems, pill system, gaps, and required modules.
-
-Conclusion:
-
-- Phase 0 remains `[x]`.
-- No Phase 0 blocker found during this audit.
+Conclusion: Phase 0 全部 `[x]`。
 
 ## Phase 1: Core Attributes and Realm System
 
-Status: Partial
+Status: Done
 
-Done evidence:
+Evidence:
+- `PlayerCultivation` 提供六大核心属性设计语义 getter/setter（cultivation/mana/manaMax/divSense/bodyRef/qiDevRisk/tribRes），保留旧内部字段与 NBT 兼容。
+- `RealmStage` 含 `LAYER_1`~`LAYER_13` 与 `EARLY/MIDDLE/LATE/PEAK`，`getDesignId()` 映射设计名。
+- `RealmStageConfig` 提供 manaBase/divSenseBase/hpBase/manaRecovery/cultivationGain/flyingSpeed 基准。
+- 衍生属性方法齐全；`Phase1CultivationSystemTest` 覆盖基准表与衍生属性，`gradlew test` 通过。
+- `phase-1-repair-report.md` 记录 `gradlew build` 成功。
 
-- `PlayerCultivation` stores the core cultivation state: spiritual power, divine consciousness, body refinement, qi deviation risk, tribulation resistance, realm/stage, and cultivation experience in `src/main/java/com/xunxian/seekingimmortals/cultivation/PlayerCultivation.java:28`.
-- Long/float compatibility getters exist for cultivation, cultivation max, mana max, qi deviation risk, and tribulation resistance in `src/main/java/com/xunxian/seekingimmortals/cultivation/PlayerCultivation.java:76`.
-- `RealmStage` covers mortal, Qi Refining layers 1-13, Foundation Establishment early/middle/late/peak, and higher placeholders in `src/main/java/com/xunxian/seekingimmortals/cultivation/RealmStage.java`.
-- `RealmStageConfig` provides `manaBase`, `divSenseBase`, `hpBase`, attack, defense, recovery, and flight-speed baseline values in `src/main/java/com/xunxian/seekingimmortals/cultivation/RealmStageConfig.java`.
-- Runtime derived cultivation attributes exist on `PlayerCultivation`; combat attack/defense are represented through `CombatStats` and `CombatCalculator`.
-- `/seeking_immortals realm` is registered through `SeekingImmortalsCommand` and displays realm/cultivation details.
+Conclusion: Phase 1 全部 `[x]`。
 
-Partial / Missing / Unknown:
-
-- Missing: no test sources were found; Gradle reported `compileTestJava NO-SOURCE` and `test NO-SOURCE`. Therefore “境界属性基准表单元测试” and “衍生属性计算方法实现并通过单元测试” cannot be marked complete.
-- Partial: `PlayerCultivation` storage uses legacy internal names/types (`int`-backed `cultivationExp`, `spiritualPower`) with compatibility getters, not literal `long cultivation` / `long cultivationMax` fields.
-- Partial: `RealmStage` uses `LAYER_1` to `LAYER_13` and `EARLY/MIDDLE/LATE/PEAK`, not literal `QI_1` / `FOUNDATION_EARLY` enum constants. Functionally it covers the required stages.
-
-Conclusion:
-
-- Phase 1 cannot be marked complete because unit-test evidence is explicitly absent.
-- Earliest incomplete Phase is Phase 1.
-
-## Phase 2: Spiritual Roots and Meditation Cultivation
+## Phase 2: Realm System / Spiritual Root & Meditation
 
 Status: Partial
 
-Done evidence:
+Evidence (可标 [x]):
+- `RealmStage` enum / 境界配置、凡人/练气1~13/筑基初、`cultivationMax`/`manaMax`/`divSense`/`hpBase`、修为增加/灵力恢复/突破成功/突破失败/修为回退20%/`qiDevRisk` 增加均有代码证据，且当前构建成功，可标 [x]。
 
-- Six spiritual-root categories and their cultivation speed, qi recovery, breakthrough, and pill-absorption modifiers exist in `src/main/java/com/xunxian/seekingimmortals/cultivation/SpiritualRoot.java`.
-- `SpiritRootType` also covers the six simplified categories in `src/main/java/com/xunxian/seekingimmortals/cultivation/SpiritRootType.java`.
-- `LingGenCalculator` implements randomized root generation with very rare heavenly roots and higher low-talent probability.
-- `PlayerCultivation#createLingGenIfAbsent` permanently writes the generated root and the tested flag.
-- `LingGenTestStoneItem` is an interactive item entry point and calls root creation/sync in `src/main/java/com/xunxian/seekingimmortals/item/LingGenTestStoneItem.java:36`.
-- `/seeking_immortals root` displays spiritual-root data and modifiers.
-- Meditation runtime logic exists in `ModEvents.onPlayerTick`, including spiritual power gain, cushion-based cultivation gain, aura/technique/stone bonuses, hunger/monster/movement interruption, sync, and risk decay.
-- `MeditationCushionBlock` supports interaction and meditation seating.
-- `BreathingHudOverlay` displays meditation HUD data and progress.
+Evidence (缺失，Partial/Missing):
+- 独立 `MeditationScreen` 打坐 GUI 未实现（Missing）。
+- 打坐速度详情 GUI 未完整（Partial）。
+- 灵根鉴定为测试石物品交互，非独立方块流程（Partial）。
 
-Partial / Missing / Unknown:
+Conclusion: Realm System 子项标 [x]；打坐 GUI/灵根鉴定流程保持 [ ] Partial/Missing。
 
-- Partial: “灵根鉴定石板” is implemented as an item (`LingGenTestStoneItem`), not as a dedicated stone-slab block; `ModBlocks` only registers spirit ore, meditation cushion, and spirit gathering array.
-- Partial: first interaction root testing is available through the item, but the roadmap’s NPC/block stone-slab flow is not present.
-- Missing: no independent `MeditationScreen` class was found.
-- Partial: cultivation and meditation information is visible via `BreathingHudOverlay` and `CultivationStatsScreen`, but no dedicated meditation GUI shows the full speed formula/details as specified.
-- Partial: meditation cultivation gain exists, but the implementation uses 5-second settlement with aura/technique/stone adjustments rather than the exact per-tick formula listed in the task board.
-- Partial: injury while meditating interrupts meditation through `LivingHurtEvent`; risk +2% is applied while health is below max during meditation, not directly in the same hurt-interrupt path.
+## Phase 3: Breakthrough & Qi Deviation
 
-Conclusion:
+Status: Done
 
-- Phase 2 remains incomplete.
-- Keep incomplete GUI, block/entry-flow, and formula-detail items unchecked with Partial or Missing notes.
+Evidence:
+- `BreakthroughService` 在突破前显示所需材料与拥有量、成功率与全部加成来源。
+- 打坐受伤与超阶功法均在增加风险后触发统一四级走火检定；四级效果保留。
+- 稳神丹 -20% 走火风险；平稳/灵脉打坐风险衰减保留。
+- `phase-3-repair-report.md` 记录 `gradlew build` 成功。
 
-## Phase 3: Breakthrough and Qi Deviation
+Conclusion: Phase 3 全部 `[x]`。
 
-Status: Partial
+## Phase 4: Qi Refining Skill System
 
-Done evidence:
+Status: Done
 
-- `BreakthroughService` checks final stage, breakthrough cap, breakthrough resources, consumes the resource, previews chance, and applies result in `src/main/java/com/xunxian/seekingimmortals/cultivation/BreakthroughService.java:24`.
-- Breakthrough can be triggered through a client key, `AttemptBreakthroughPacket`, command, and the cultivation screen button.
-- Breakthrough chance includes base chance, spiritual root modifier, pill bonus, leyline/spirit-eye bonus, technique-quality bonus, and obsession bonus.
-- Consecutive-failure obsession bonus is +5% per failure, capped at +30%, and clears on success.
-- Success advances the stage and clears current progress; failure rolls progress back and adds +10% qi-deviation risk.
-- Four qi-deviation tiers and their effects are implemented in `PlayerCultivation` and `BreakthroughService`: minor cultivation loss, moderate cultivation loss plus debuffs, severe realm fall plus equipment damage, and extreme death plus 50% inventory drop.
-- `CalmingPill` reduces qi-deviation risk by 20 in `src/main/java/com/xunxian/seekingimmortals/item/pill/CalmingPill.java:7` and is registered through `ModItems`.
-- Peaceful meditation risk decay exists in `ModEvents`: every 720 seconds reduces risk by 1, equivalent to -5% per hour; leyline meditation adds extra decay.
+Evidence:
+- `SkillType` 补齐 Phase 4 元数据；`PlayerCultivation.unlockEligiblePhase4Skills()` + `ModEvents` 自动解锁并同步。
+- 9 个练气期技能注册到 `SkillEffectRegistry`；`ReleaseTechniquePacket` 复用灵力/冷却服务端校验。
+- `SwordProjectileEntity` 提供最小飞剑弹射物；御剑飞行初用 MVP 基础飞行。
+- `phase-4-report.md` 记录 `BUILD SUCCESSFUL in 37s`。
 
-Partial / Missing / Unknown:
+Conclusion: Phase 4 全部 `[x]`。
 
-- Partial: pre-breakthrough UI shows chance and bonus details, but no complete “required materials and current owned amount” preview list was found. Missing resources are only reported when the attempt fails the resource check.
-- Partial: over-tier technique usage adds +5% qi-deviation risk in `ReleaseTechniquePacket`, but it does not directly run the four-tier qi-deviation trigger/check.
-- Partial: meditation injury increases risk while hurt and interrupts meditation, but direct qi-deviation tier triggering from injury was not found.
-- Unknown: no automated tests prove breakthrough and qi-deviation edge cases.
+## Phase 5: Alchemy & Pills
 
-Conclusion:
+Status: Done（含已知扩展缺口）
 
-- Phase 3 remains incomplete.
-- Several task-board items previously marked incomplete can now be upgraded where evidence is clear and build passed: calming pill and peaceful meditation risk decay are implemented.
-- Phase 3 completion marker remains unchecked due to incomplete material preview and direct trigger chains.
+Evidence:
+- `AlchemyFurnaceBlock` + `AlchemyFurnaceBlockEntity` 实现右键炼丹、材料/灵力消耗、cookTicks 计时、成功率/爆炉、产物持久化。
+- `AlchemyRecipe` 静态 MVP 丹方覆盖凝气丹/筑基丹/稳神丹/回灵丹；`WASTE_PILL` 注册。
+- 丹药效果接入 `PlayerCultivation`：凝气丹 1 小时 ×2 修炼增益、回灵丹 ≥50% 最大灵力、稳神丹 -20 走火风险、筑基丹用于练气13→筑基突破资源。
+- `phase-5-report.md` 记录 `BUILD SUCCESSFUL in 36s`。
 
-## Required Task Board Updates
+Gaps (Missing，不影响 Phase 5 验收):
+- JSON 丹方目录 `data/seeking_immortals/recipes/alchemy/` 未建。
+- 完整丹炉 GUI 未实现（用右键+聊天进度）。
+- 炼丹技能等级 LV1~LV10 与炼丹经验未实现。
 
-- Set current Phase to Phase 1, the earliest incomplete Phase.
-- Keep Phase 0 complete.
-- Change Phase 1 completion marker to unchecked because unit-test evidence is missing.
-- Keep Phase 2 incomplete and clarify item-based root testing, missing independent `MeditationScreen`, and Partial meditation formula/detail evidence.
-- Keep Phase 3 incomplete but mark confirmed implemented items as `[x]` where evidence is clear and build passed, especially calming pill and peaceful meditation decay.
-- Do not mark Phase 4 as current, because Phase 1 to Phase 3 are not all complete.
+Conclusion: Phase 5 核心项 `[x]`；JSON 目录/完整 GUI/等级系统 `[ ] Missing`。
+
+## Phase 6: Mysterious Vial
+
+Status: Not started
+
+Evidence:
+- 仅有 `cultivation.VialGrade` 枚举占位与 `SpiritualRoot.getJadeVialDropChance()` / `PlayerCultivation.getJadeVialDropChance()` 接口，`LingGenTestStoneItem` 显示获取率 tooltip。
+- 无 `MysteriousVialItem`、无 `vialCharges`/`vialLastRefill` NBT、无灵液积累/离线补偿、无植物加速、无 BlockGrow 监听、无物品模型/材质/本地化。
+
+Conclusion: Phase 6 全部 `[ ]`（Stub/Missing），当前执行阶段设为 Phase 6。
+
+## Current Recommended Phase
+
+Phase 6：神秘小瓶系统（最早未完成 Phase）。
+

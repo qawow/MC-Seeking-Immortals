@@ -172,7 +172,9 @@ public final class TechniqueDataManager {
                     getString(object, "name"),
                     getString(object, "source"),
                     getString(object, "attribute"),
-                    getInt(object, "quality")));
+                    getInt(object, "quality"),
+                    object.has("cost") ? object.get("cost").getAsInt() : 15,
+                    parseRealm(getString(object, "required_realm"))));
         }
     }
 
@@ -191,6 +193,12 @@ public final class TechniqueDataManager {
         return object.has(key) && !object.get(key).isJsonNull() ? object.get(key).getAsInt() : 0;
     }
 
+    private static Realm parseRealm(String id) {
+        if (id == null || id.isBlank()) return Realm.QI_REFINING;
+        try { return Realm.valueOf(id.toUpperCase(Locale.ROOT)); }
+        catch (IllegalArgumentException e) { return Realm.QI_REFINING; }
+    }
+
     public static double getBreakthroughQualityBonus(TechniqueEntry technique) {
         if (technique.quality() > 0) return Math.min(0.10D, Math.max(0, technique.quality()) / 100.0D);
         String id = technique.id().toLowerCase(Locale.ROOT);
@@ -203,7 +211,7 @@ public final class TechniqueDataManager {
         return 0.0D;
     }
 
-    public record TechniqueEntry(String id, String name, String source, String attribute, int quality) {}
+    public record TechniqueEntry(String id, String name, String source, String attribute, int quality, int cost, Realm requiredRealm) {}
     public record SourceSummary(String source, List<String> attributes, List<String> names) {
         public static SourceSummary empty(String source) {
             return new SourceSummary(source, List.of(), List.of());

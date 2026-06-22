@@ -46,11 +46,14 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.MEDITATION_CUSHION.get());
                 output.accept(ModItems.LING_GEN_IDENTIFICATION_SLAB.get());
                 output.accept(ModItems.SPIRIT_GATHERING_ARRAY.get());
+                output.accept(ModItems.ALCHEMY_FURNACE.get());
+                output.accept(ModItems.MYSTIC_VIAL.get());
 
                 // 丹药
                 output.accept(ModItems.QI_RECOVERY_PILL.get());
                 output.accept(ModItems.CULTIVATION_PILL.get());
                 output.accept(ModItems.BREAKTHROUGH_PILL.get());
+                output.accept(ModItems.WASTE_PILL.get());
                 output.accept(ModItems.REJUVENATION_PILL_LOW.get());
                 output.accept(ModItems.FOUNDATION_BUILDING_PILL_LOW.get());
                 output.accept(ModItems.HEALING_PILL_LOW.get());
@@ -162,3 +165,4 @@ public final class ModCreativeTabs {
     private ModCreativeTabs() {}
     public static void register(IEventBus bus) { TABS.register(bus); }
 }
+

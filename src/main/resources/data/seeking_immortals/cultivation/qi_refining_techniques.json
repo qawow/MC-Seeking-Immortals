@@ -4,6 +4,70 @@
   "description": "炼气期修士可学习和使用的入门功法、术法、符箓与世俗武技规则。当前为规则数据，供后续功法学习、灵根属性加成、宗门传承和任务奖励系统接入。",
   "techniques": [
     {
+      "id": "fireball_art",
+      "name": "火球术",
+      "type": "spell",
+      "attribute": "火",
+      "source": "练气期技能",
+      "summary": "练气三层解锁的基础火系攻击法术，消耗10点灵力，冷却2秒，发射火球攻击目标。"
+    },
+    {
+      "id": "ice_cone_art",
+      "name": "冰锥术",
+      "type": "spell",
+      "attribute": "水/冰",
+      "source": "练气期技能",
+      "summary": "练气三层解锁的冰系攻击法术，消耗10点灵力，冷却2秒，发射冰锥造成伤害并减速目标。"
+    },
+    {
+      "id": "thunder_strike_art",
+      "name": "雷击术",
+      "type": "spell",
+      "attribute": "雷",
+      "source": "练气期技能",
+      "summary": "练气三层解锁的雷系法术，消耗12点灵力，冷却3秒，在目标位置召唤闪电。"
+    },
+    {
+      "id": "earth_escape_step",
+      "name": "土遁步",
+      "type": "movement",
+      "attribute": "土",
+      "source": "练气期技能",
+      "summary": "练气四层解锁的移动法术，消耗15点灵力，冷却5秒，向前短距离瞬移并穿越一格阻隔。"
+    },
+    {
+      "id": "flying_sword_beginner",
+      "name": "御剑飞行初",
+      "type": "movement",
+      "attribute": "剑法",
+      "source": "练气期技能",
+      "summary": "练气七层解锁的基础御剑飞行，开启后可短暂御空，飞行时每秒消耗5点灵力。"
+    },
+    {
+      "id": "single_sword_thrust",
+      "name": "单剑刺击",
+      "type": "spell",
+      "attribute": "剑法",
+      "source": "练气期技能",
+      "summary": "练气七层解锁的飞剑攻击，消耗20点灵力，冷却1秒，发射单把飞剑刺击神识范围内的目标。"
+    },
+    {
+      "id": "aura_detection_art",
+      "name": "灵气探测",
+      "type": "detection",
+      "attribute": "通用",
+      "source": "练气期技能",
+      "summary": "练气十层解锁的探测术，消耗5点灵力，冷却10秒，在神识范围内标记生灵与灵物波动。"
+    },
+    {
+      "id": "three_talent_sword_array",
+      "name": "三才剑阵",
+      "type": "spell",
+      "attribute": "剑法",
+      "source": "练气期技能",
+      "summary": "练气十三层解锁的飞剑阵法，消耗40点灵力，冷却3秒，三把飞剑同时攻击。"
+    },
+    {
       "id": "ice_freezing_art",
       "name": "冰冻术",
       "type": "spell",
@@ -141,11 +205,11 @@
     },
     {
       "id": "qi_guiding_art",
-      "name": "引气术",
+      "name": "引气入体",
       "type": "cultivation",
       "attribute": "通用",
       "source": "通用",
-      "summary": "引导灵力入体的最基础功法，几乎所有修士都需要掌握，是修炼一切功法术法的前提和基础。"
+      "summary": "练气一层自动掌握的被动基础，解锁打坐与修炼入口，是修炼一切功法术法的前提。"
     },
     {
       "id": "elephant_armor_skill",

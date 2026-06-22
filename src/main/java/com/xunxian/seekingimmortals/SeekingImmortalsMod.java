@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals;
 import com.mojang.logging.LogUtils;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import com.xunxian.seekingimmortals.registry.ModCreativeTabs;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -20,6 +21,7 @@ public class SeekingImmortalsMod {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modBus);
         ModBlocks.register(modBus);
+        ModBlockEntities.register(modBus);
         ModEntities.register(modBus);
         ModCreativeTabs.register(modBus);
         ModNetwork.register();

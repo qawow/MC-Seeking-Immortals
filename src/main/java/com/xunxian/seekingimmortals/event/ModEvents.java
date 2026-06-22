@@ -2,8 +2,10 @@ package com.xunxian.seekingimmortals.event;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.command.SeekingImmortalsCommand;
+import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.CultivationProvider;
+import com.xunxian.seekingimmortals.cultivation.FlyingAuthority;
 import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
@@ -16,6 +18,8 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordBeginnerSpell;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -41,6 +45,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -74,12 +79,6 @@ public final class ModEvents {
     private static final int QI_DEV_RISK_DECAY_INTERVAL_SECONDS = 720;
     // 走火入魔风险衰减：灵脉打坐额外每小时 -10%（每 360 秒 -1%）
     private static final int LEYLINE_RISK_DECAY_INTERVAL_SECONDS = 360;
-    private static final String FLYING_GRANTED_KEY = "SeekingImmortalsFlyingGranted";
-    private static final String FLYING_PREVIOUS_MAYFLY_KEY = "SeekingImmortalsFlyingPreviousMayfly";
-    private static final String FLYING_PREVIOUS_SPEED_KEY = "SeekingImmortalsFlyingPreviousSpeed";
-    private static final String FLYING_SPEED_KEY = "SeekingImmortalsFlyingSpeed";
-    private static final float VANILLA_FLYING_SPEED = 0.05F;
-
     private ModEvents() {}
 
     @SubscribeEvent
@@ -101,6 +100,7 @@ public final class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
         CultivationHelper.get(event.player).ifPresent(cultivation -> {
+            cultivation.tickCultivationBoost();
             SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(event.player.level(), event.player.blockPosition());
             boolean onCushion = isSittingOnMeditationCushion(event.player);
             ItemStack bonusStone = getBestHeldSpiritStone(event.player, cultivation);
@@ -112,6 +112,9 @@ public final class ModEvents {
             }
 
             if (event.player.tickCount % 20 != 0) return;
+            if (event.player instanceof ServerPlayer serverPlayer && unlockPhase4Skills(serverPlayer, cultivation)) {
+                SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
+            }
             handleMeditationMovement(event.player, cultivation);
             if (cultivation.isMeditating()) {
                 if (shouldInterruptMeditation(event.player, cultivation)) {
@@ -128,18 +131,8 @@ public final class ModEvents {
                         cultivation.addQiDeviationRisk(INJURED_MEDITATION_RISK_PER_SECOND);
                     }
 
-                    // 走火入魔风险衰减：平稳打坐每小时 -5%（每 720 秒 -1%）
-                    if (cultivation.getQiDeviationRisk() > 0
-                            && event.player.tickCount % (QI_DEV_RISK_DECAY_INTERVAL_SECONDS * 20) == 0) {
-                        cultivation.addQiDeviationRisk(-1);
-                    }
-
-                    // 走火入魔风险衰减：灵脉打坐额外每小时 -10%（每 360 秒 -1%）
-                    if (cultivation.getQiDeviationRisk() > 0
-                            && auraInfo.leyline()
-                            && event.player.tickCount % (LEYLINE_RISK_DECAY_INTERVAL_SECONDS * 20) == 0) {
-                        cultivation.addQiDeviationRisk(-1);
-                    }
+                    // M3: 走火入魔风险衰减 —— 用累计 tick 计数器，不再依赖 tickCount 取模
+                    cultivation.tickQiDeviationDecay(auraInfo.leyline());
                 }
             } else {
                 cultivation.addSpiritualPower(SpiritualAuraManager.adjustSpiritualPowerGain(1, auraInfo) + consumeStoneBonus(bonusStone, stoneBonus));
@@ -156,6 +149,7 @@ public final class ModEvents {
                                 cultivation.addSpiritualPower(Math.max(1, (int)Math.round(cultivation.getCultivationSpeedMultiplier())))));
             }
             handleFlyingArtifact(event.player, cultivation);
+            handleQiFlying(event.player, cultivation);
             handleImmortalAfflictions(event.player, cultivation);
             if (event.player instanceof ServerPlayer serverPlayer) {
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
@@ -166,9 +160,18 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
         if (event.getEntity() instanceof Player hurtPlayer) {
+            // M13: 寿元耗尽致死不触发打坐中断与走火入魔
+            if (hurtPlayer.getPersistentData().getBoolean("SeekingImmortalsLifespanDeath")) {
+                hurtPlayer.getPersistentData().remove("SeekingImmortalsLifespanDeath");
+                return;
+            }
             CultivationHelper.get(hurtPlayer).ifPresent(cultivation -> {
                 if (cultivation.isMeditating()) {
+                    cultivation.addQiDeviationRisk(INJURED_MEDITATION_RISK_PER_SECOND);
                     stopMeditation(hurtPlayer, cultivation, "message.seeking_immortals.meditation.stop.attacked");
+                    if (hurtPlayer instanceof ServerPlayer serverPlayer) {
+                        BreakthroughService.tryTriggerQiDeviation(serverPlayer, cultivation, "message.seeking_immortals.qi_deviation.trigger.meditation_injury");
+                    }
                 }
             });
         }
@@ -177,6 +180,11 @@ public final class ModEvents {
         if (directEntity != null && directEntity.getPersistentData().contains("SeekingImmortalsCustomDamage")) {
             event.setAmount((float) directEntity.getPersistentData().getDouble("SeekingImmortalsCustomDamage"));
             directEntity.getPersistentData().remove("SeekingImmortalsCustomDamage");  // 立即清理，防止内存泄漏
+        }
+
+        // H9: 飞剑/冰锥弹射物伤害已在生成时 calculateDamage，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算
+        if (directEntity != null && directEntity.getPersistentData().getBoolean("SeekingImmortalsProjectileDamage")) {
+            return;
         }
 
         Entity sourceEntity = event.getSource().getEntity();
@@ -204,6 +212,27 @@ public final class ModEvents {
             event.setAmount((float)result.getFinalDamage());
         }
         com.xunxian.seekingimmortals.combat.CombatCalculator.showDamageFeedback(attacker, defender, result);
+    }
+
+    // H11: 飞行生命周期清理 —— 死亡/重生/换维时强制清除所有飞行授权
+    @SubscribeEvent
+    public static void onLivingDeath(LivingDeathEvent event) {
+        if (event.getEntity().level().isClientSide || !(event.getEntity() instanceof ServerPlayer player)) return;
+        player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
+        FlyingAuthority.clearAll(player);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        FlyingAuthority.clearAll(player);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerChangedDimension(PlayerEvent.PlayerChangedDimensionEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer player)) return;
+        player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
+        FlyingAuthority.clearAll(player);
     }
 
     @SubscribeEvent
@@ -257,6 +286,9 @@ public final class ModEvents {
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         CultivationHelper.get(event.getEntity()).ifPresent(cultivation -> {
             cultivation.ensureRootInitialized(event.getEntity().getRandom());
+            if (event.getEntity() instanceof ServerPlayer serverPlayer) {
+                unlockPhase4Skills(serverPlayer, cultivation);
+            }
             event.getEntity().displayClientMessage(
                     Component.translatable("message.seeking_immortals.login", cultivation.getRealm().getDisplayName(), cultivation.getStage().getDisplayName(), cultivation.getSpiritualPower(), cultivation.getMaxSpiritualPower()), false);
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
@@ -265,6 +297,14 @@ public final class ModEvents {
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
             }
         });
+    }
+
+    private static boolean unlockPhase4Skills(ServerPlayer player, PlayerCultivation cultivation) {
+        java.util.List<SkillType> unlocked = cultivation.unlockEligiblePhase4Skills();
+        if (unlocked.isEmpty()) return false;
+        String names = unlocked.stream().map(SkillType::getDisplayName).collect(java.util.stream.Collectors.joining("、"));
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.skill.unlock", names), false);
+        return true;
     }
 
     @SubscribeEvent
@@ -372,7 +412,8 @@ public final class ModEvents {
     private static int getMatchingPassiveBonus(ItemStack stack, PlayerCultivation cultivation) {
         if (stack.getCount() != 1 || !(stack.getItem() instanceof SpiritStoneItem stone) || SpiritStoneItem.getStoredPower(stack) <= 0) return 0;
         SpiritualRootAttribute requiredAttribute = cultivation.getSpiritualRootAttribute();
-        if (!isFiveElement(requiredAttribute)) return 0;
+        // M4: 变异/非五行灵根也能从五行灵石获得被动加成（半额）
+        if (!isFiveElement(requiredAttribute)) return stone.getPassiveBonus();
         return stone.matchesAttribute(requiredAttribute) ? stone.getPassiveBonus() : 0;
     }
 
@@ -458,8 +499,15 @@ public final class ModEvents {
             revokeFlying(serverPlayer, "message.seeking_immortals.flight.stop.no_artifact");
             return;
         }
-        if (player.getY() > player.level().getMinBuildHeight() + profile.maxHeight()) {
+        if (player.getY() > profile.maxHeight()) {
             revokeFlying(serverPlayer, "message.seeking_immortals.flight.stop.height");
+            return;
+        }
+
+        // H11: 灵力不足时不授予飞行，避免 grant/revoke 抖动
+        if (cultivation.getSpiritualPower() < profile.costPerSecond()) {
+            revokeFlying(serverPlayer, "message.seeking_immortals.flight.stop.no_power");
+            SyncCultivationDataPacket.send(serverPlayer, cultivation);
             return;
         }
 
@@ -486,6 +534,30 @@ public final class ModEvents {
         }
     }
 
+    private static void handleQiFlying(Player player, PlayerCultivation cultivation) {
+        if (!(player instanceof ServerPlayer serverPlayer)) return;
+        if (!player.getPersistentData().getBoolean(FlyingSwordBeginnerSpell.ACTIVE_KEY)) return;
+        if (player.isCreative() || player.isSpectator()) {
+            FlyingSwordBeginnerSpell.stop(serverPlayer, "御剑飞行已收束。");
+            return;
+        }
+        if (cultivation.getRealm() != Realm.QI_REFINING || !cultivation.hasSkill(SkillType.FLYING_SWORD_BEGINNER)) {
+            FlyingSwordBeginnerSpell.stop(serverPlayer, "境界或技能不足，御剑飞行中止。");
+            return;
+        }
+        if (!serverPlayer.getAbilities().mayfly || Math.abs(serverPlayer.getAbilities().getFlyingSpeed() - FlyingSwordBeginnerSpell.SPEED) > 0.0001F) {
+            FlyingAuthority.grant(serverPlayer, FlyingAuthority.SOURCE_QI_FLYING, FlyingSwordBeginnerSpell.SPEED);
+        }
+        if (serverPlayer.getAbilities().flying && serverPlayer.tickCount % 20 == 0) {
+            if (!cultivation.consumeSpiritualPower(FlyingSwordBeginnerSpell.COST_PER_SECOND)) {
+                FlyingSwordBeginnerSpell.stop(serverPlayer, "灵力不足，御剑飞行中止。");
+                SyncCultivationDataPacket.send(serverPlayer, cultivation);
+                return;
+            }
+            SyncCultivationDataPacket.send(serverPlayer, cultivation);
+        }
+    }
+
     private static boolean hasFlyingArtifact(Player player) {
         if (!ModList.get().isLoaded("curios")) return false;
         return CuriosApi.getCuriosInventory(player)
@@ -494,46 +566,15 @@ public final class ModEvents {
     }
 
     private static void grantFlying(ServerPlayer player, FlightProfile profile) {
-        CompoundTag data = player.getPersistentData();
-        boolean changed = false;
-        if (!data.getBoolean(FLYING_GRANTED_KEY)) {
-            data.putBoolean(FLYING_GRANTED_KEY, true);
-            data.putBoolean(FLYING_PREVIOUS_MAYFLY_KEY, player.getAbilities().mayfly);
-            data.putFloat(FLYING_PREVIOUS_SPEED_KEY, player.getAbilities().getFlyingSpeed());
-            changed = true;
+        boolean firstActivation = FlyingAuthority.activeSourceCount(player) == 0;
+        FlyingAuthority.grant(player, FlyingAuthority.SOURCE_ARTIFACT, profile.flyingSpeed());
+        if (firstActivation) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.flight.start"), true);
-        }
-        if (!player.getAbilities().mayfly) {
-            player.getAbilities().mayfly = true;
-            changed = true;
-        }
-        float speed = profile.flyingSpeed();
-        if (!data.contains(FLYING_SPEED_KEY) || Math.abs(data.getFloat(FLYING_SPEED_KEY) - speed) > 0.0001F) {
-            data.putFloat(FLYING_SPEED_KEY, speed);
-            player.getAbilities().setFlyingSpeed(speed);
-            changed = true;
-        }
-        if (changed) {
-            player.onUpdateAbilities();
         }
     }
 
     private static void revokeFlying(ServerPlayer player, String reasonKey) {
-        CompoundTag data = player.getPersistentData();
-        if (!data.getBoolean(FLYING_GRANTED_KEY)) return;
-        boolean previousMayfly = data.getBoolean(FLYING_PREVIOUS_MAYFLY_KEY);
-        float previousSpeed = data.contains(FLYING_PREVIOUS_SPEED_KEY) ? data.getFloat(FLYING_PREVIOUS_SPEED_KEY) : VANILLA_FLYING_SPEED;
-        data.remove(FLYING_GRANTED_KEY);
-        data.remove(FLYING_PREVIOUS_MAYFLY_KEY);
-        data.remove(FLYING_PREVIOUS_SPEED_KEY);
-        data.remove(FLYING_SPEED_KEY);
-        player.getAbilities().mayfly = previousMayfly;
-        if (!previousMayfly) {
-            player.getAbilities().flying = false;
-        }
-        player.getAbilities().setFlyingSpeed(previousSpeed);
-        player.onUpdateAbilities();
-        player.displayClientMessage(Component.translatable(reasonKey), true);
+        FlyingAuthority.revoke(player, FlyingAuthority.SOURCE_ARTIFACT, reasonKey, 0.0F);
     }
 
     private record FlightProfile(int costPerSecond, int maxHeight, float flyingSpeed, double horizontalSpeed, double verticalSpeed) {
@@ -594,7 +635,9 @@ public final class ModEvents {
         data.putLong(AGE_DAY_KEY, currentDay);
         cultivation.addAgeYears((int) Math.min(passedDays, 1000L));
         if (cultivation.isLifespanExhausted() && !player.isCreative() && !player.isSpectator()) {
-            player.hurt(player.damageSources().magic(), Float.MAX_VALUE);
+            // M13: 设置寿元死亡 flag，阻止 onLivingHurt 中打坐中断与走火入魔
+            player.getPersistentData().putBoolean("SeekingImmortalsLifespanDeath", true);
+            player.hurt(player.damageSources().fellOutOfWorld(), Float.MAX_VALUE);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.lifespan.exhausted"), false);
         }
     }

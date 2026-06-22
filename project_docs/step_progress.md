@@ -40,9 +40,9 @@
 - 等 API 和结构稳定后，再进一步替换为完整 旧第三方 UI 组件 / Screen。
 - 当前 `0.1.25` 已完成第一阶段。
 
-**当前版本**：`0.1.34`
+**当前版本**：`0.1.51`
 
-**最后更新时间**：2026-06-11 13:38 CST
+**最后更新时间**：2026-06-22（0.1.48：新增 Codex/Claude Code 固定 AI 工作流与 Gradle preflight 版本门禁；详细 Phase 进度见 `docs/task-board.md`，功能清单见 `project_docs/features.md`）
 
 ## 4. 总体进度
 
@@ -374,3 +374,131 @@
 | 报告生成 | ✅ 已完成 | 已生成 `docs/phase-2-report.md` |
 | 任务板更新 | ✅ 已完成 | 已在 `docs/task-board.md` 增加本次 Realm System 子范围记录；因 build 失败，相关条目保持 `[ ] Unknown` |
 | 构建验证 | ⚠️ 阻塞 | `./gradlew.bat build` 先因沙箱网络受限无法下载 Gradle，授权后进入编译但 `:compileJava` 失败；阻塞点为既有 Java 编译错误，未按本任务修复 |
+
+## 30. 2026-06-18 Phase 3 突破系统与走火入魔修复记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取任务与边界 | ✅ 已完成 | 已读取 `docs/phase-0-3-audit-report.md`、`docs/task-board.md`；`docs/phase-2-repair-report.md` 未存在，已记录为输入缺失并使用现有 Phase 2 报告/任务板上下文 |
+| 安全备份 | ✅ 已完成 | 已备份相关 Java、资源与文档到 `.bak/20260618_225520_phase_3_repair/` |
+| 突破预览修复 | ✅ 已完成 | `BreakthroughService` 在尝试前显示材料需求/拥有量、最终成功率和基础/灵根/丹药/灵眼/功法/执念来源 |
+| 走火触发链路 | ✅ 已完成 | 打坐受伤与超阶功法均在增加风险后调用统一四级走火检定；保留原四级效果 |
+| 构建阻塞修复 | ✅ 已完成 | 修复 `LingGenTestStoneItem` 静态 helper、`SyncCultivationDataPacket` helper 与 encode/decode/client snapshot 对齐问题 |
+| 构建验证 | ✅ 已完成 | `./gradlew.bat --no-daemon --max-workers=1 build` 成功；此前两次长构建超时，残留 Java 进程已清理 |
+| 文档同步 | ✅ 已完成 | 已生成 `docs/phase-3-repair-report.md` 并更新 `docs/task-board.md`；Phase 3 完成后当前阶段推进为 Phase 4，但本次未进入 Phase 4 实现 |
+
+## 31. 2026-06-19 Phase 4 练气期技能系统实现记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取任务与边界 | ✅ 已完成 | 已读取用户指定文档；`docs/phase-2-repair-report.md` 不存在，已记录为输入缺失；本次仅处理 Phase 4 |
+| 安全备份 | ✅ 已完成 | 已备份相关 Java、资源与文档到 `.bak/20260619_000104_phase_4/` |
+| 技能元数据与自动解锁 | ✅ 已完成 | `SkillType` 补齐 Phase 4 技能的解锁阶段、消耗、冷却和 technique id；`PlayerCultivation` 与 `ModEvents` 实现达标自动解锁并同步 |
+| 技能释放链路 | ✅ 已完成 | `ReleaseTechniquePacket` 复用现有技能槽/冷却/灵力系统，优先按 `SkillEffect` 配置结算消耗与冷却 |
+| 练气技能效果 | ✅ 已完成 | 补齐引气入体、冰锥、雷击、土遁、御剑飞行初、单剑刺击、三才剑阵，并校准火球与灵气探测参数 |
+| 飞剑与弹射物 | ✅ 已完成 | 新增 `SwordProjectileEntity`；御剑飞行初采用本阶段允许的 MVP 基础飞行能力，未进入完整可视骑乘实体/贴图资源 |
+| 构建验证 | ✅ 已完成 | 首次沙箱构建因 Gradle 下载权限失败；授权后第一轮编译发现并修复 Phase 4 lambda 捕获错误；第二轮 `./gradlew.bat --no-daemon --max-workers=1 build` 成功 |
+| 文档同步 | ✅ 已完成 | 已生成 `docs/phase-4-report.md` 并更新 `docs/task-board.md`；Phase 4 完成后当前阶段推进为 Phase 5，但本次未进入 Phase 5 实现 |
+
+## 32. 2026-06-19 Phase 8 资源与物品接入验证记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取任务与边界 | ✅ 已完成 | 已读取 Phase 8 指定文档；本次仅处理资源与物品接入验证，未进入 Phase 9 |
+| 安全备份 | ✅ 已完成 | 已备份资源/文档到 `.bak/20260619_214615_phase_8_resources/` |
+| 资源审计 | ✅ 已完成 | 审计 125 个注册物品、5 个注册方块，对照 models、textures、blockstates、zh_cn/en_us lang |
+| 资源修复 | ✅ 已完成 | 补齐 `ling_gen_identification_slab` blockstate/block model/item model/lang；修复 `mystic_vial`、`waste_pill`、`technique_manual_azure_origin_sword_derivative` 模型贴图路径 |
+| 素材接入 | ✅ 已完成 | 仅复用本地已有 raw/placeholder PNG，未生成新图片、未调用图片 API |
+| 报告生成 | ✅ 已完成 | 已生成 `docs/texture-resource-audit.md` 与 `docs/phase-8-report.md` |
+| 构建验证 | ✅ 已完成 | `.\gradlew.bat --no-daemon --max-workers=1 build` 成功，最终结果 BUILD SUCCESSFUL in 35s |
+| 文档同步 | ✅ 已完成 | 已更新 `docs/task-board.md`，当前推荐阶段推进为 Phase 9：MVP 集成测试；本次未进入 Phase 9 |
+
+## 33. 2026-06-22 代码审查修复 H1+H2（飞行竞态与高度方向）记录
+
+> 依据 `docs/code-review-fix-alternatives.md`：H1 采用**方案 A（引用计数）**、H2 采用**方案 A（绝对高度）**。均不涉及 packet 字段变更，**未 bump 协议**。
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取方案 | ✅ 已完成 | 已读取 `code-review-fix-alternatives.md` 的 H1/H2 段、`ModEvents.java` 飞行逻辑、`FlyingSwordBeginnerSpell.java` |
+| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622-022913/`（含 `ModEvents.java`、`FlyingSwordBeginnerSpell.java`） |
+| H1 方案 A | ✅ 已完成 | 新建 `cultivation/FlyingAuthority.java`：来源集合 + 首次采样基线，单一 mayfly 基线；`ModEvents.grantFlying/revokeFlying` 改为委托；`handleQiFlying` 速度维持改委托；`FlyingSwordBeginnerSpell.execute/stop` 删自身 PREVIOUS 快照改委托。删除 ModEvents 中失效的 FLYING_* 常量与 `VANILLA_FLYING_SPEED` |
+| H2 方案 A | ✅ 已完成 | `ModEvents.java:484` 高度判定删 `+ player.level().getMinBuildHeight()`，改为绝对 Y 比较 `player.getY() > profile.maxHeight()` |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+| 协议影响 | ✅ 无需 bump | H1/H2 均服务端逻辑 + NBT，未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持现状 |
+| 待办 | 📋 规划中 | H1 预留 `FlyingAuthority.clearAll` 供 H11（respawn/换维/死亡清理）后续接入；速度在双源切换时由 tick 循环自修，符合方案 A 说明 |
+
+## 34. 2026-06-22 代码审查双方案文档优化记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 安全备份 | ✅ 已完成 | 已备份 `docs/code-review-fix-alternatives.md` 与本文件到 `.bak/20260622-032609/` |
+| 文档结构优化 | ✅ 已完成 | `docs/code-review-fix-alternatives.md` 新增执行摘要、目录、当前版本/协议基线、行号保鲜期、单一真相规则和验收补充说明 |
+| 方案一致性修正 | ✅ 已完成 | 统一推荐符号语义，补回 H12 到第一批落地顺序；H13 改为“本期不排炼丹闭环则 TODO、同批排则 A+解锁/XP”的明确条件策略 |
+| 文本错误修正 | ✅ 已完成 | 差异速查表寿元条目统一为 `M13`；S-EarthWall 中 scheduled tick 相关拼写修正为 `STONE`；H12 正文推荐回到更稳的守卫上提方案 |
+| 构建验证 | ➖ 未运行 | 本次仅修改 Markdown 文档，未改 Java/资源/数据包代码，未执行 `./gradlew build` |
+
+## 35. 2026-06-22 0.1.48 AI 固定流程与版本门禁记录
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取交接文档 | ✅ 已完成 | 已读取 `project_docs/ai_handoff.md`、`project_docs/step_progress.md`，并补读 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` |
+| 安全备份 | ✅ 已完成 | 已备份 `AGENTS.md`、`CLAUDE.md`、`build.gradle`、`gradle.properties`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md` 到 `.bak/20260622-035917/` |
+| 固定 AI 流程 | ✅ 已完成 | `AGENTS.md` 与 `CLAUDE.md` 新增统一顺序：读文档、分类变更、备份、实现、必要升版/协议、更新文档、build、失败迭代、最终报告 |
+| 版本门禁 | ✅ 已完成 | 新增 `scripts/preflight.ps1`，Gradle `build` 前执行 `aiPreflight`；代码/资源/构建变更若未同步修改 `mod_version` 会失败，网络包目录变更会提示确认协议号 |
+| 版本同步 | ✅ 已完成 | `gradle.properties` 升至 `0.1.48`；本次未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
+| 构建验证 | ✅ 已完成 | `.\gradlew.bat --no-daemon --max-workers=1 build` 成功；`aiPreflight` 已在 build 前执行并在成功后记录 `.gradle/ai-preflight/last-success.json`，产物 `build/libs/seeking_immortals-0.1.48.jar` |
+
+## 36. 2026-06-22 代码审查修复 H3-H7 记录
+
+> 依据 `docs/code-review-fix-checklist.md`：H3/H4/H5/H6/H7 均采用**推荐方案（方案 A）**。均不涉及 packet 字段/顺序变更，**未 bump 协议**。
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取方案与源码 | ✅ 已完成 | 已读取 `code-review-fix-checklist.md`、`MysticVialItem.java`、`ReleaseTechniquePacket.java`、`PlayerCultivation.java` |
+| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622_124456_h3_h7/`（含 6 个文件） |
+| H3 方案 A | ✅ 已完成 | `MysticVialItem.isGrowTarget` 改签名传 `(Level level, BlockPos pos, BlockState state)`，`useOn` 传实参，消除 NPE |
+| H4 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` effect/skill 缺失时 early return + "无法施展"提示；删 `:121` 兜底扣费；仅 `effectExecuted=true` 才 setCooldown+成功提示；新增 lang key `technique_release.effect_unavailable`（zh_cn/en_us） |
+| H5 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` 改 execute-first：先 `canExecute`+`execute`，成功后再 `consumeSpiritualPower`；execute 前只做灵力检查不扣费 |
+| H6 方案 A | ✅ 已完成 | `PlayerCultivation.getMaxSpiritualPower()` MORTAL `Math.max(50, raw)`（凡人灵力下限50）；`clearSevereInjuryIfRecovered` 加 `max > 0` 门槛，解耦重伤门 |
+| H7 方案 A | ✅ 已完成 | `PlayerCultivation.checkQiDeviation` 入口加 `if (qiDeviationRisk >= MAX_QI_DEVIATION_RISK) return true;`，risk=100 必触发极端走火 |
+| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.48→0.1.49；未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产物 `build/libs/seeking_immortals-0.1.49.jar` |
+| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（H3-H7 标 [x]，第一批 5/6）和本文件 |
+
+## 37. 2026-06-22 代码审查修复 H9-H12 记录
+
+> 依据 `docs/code-review-fix-checklist.md`：H9/H10/H11 均采用**推荐方案（方案 A）**；H12 采用**守卫上提**方案。均不涉及 packet 字段/顺序变更，**未 bump 协议**。
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取方案与源码 | ✅ 已完成 | 已读取 `code-review-fix-checklist.md`、`ModEvents.java`、`SwordProjectileEntity.java`、`ClientTechniqueData.java`、`AlchemyFurnaceBlockEntity.java`、`FlyingAuthority.java` |
+| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622_131747_h9_h12/`（含 5 个文件 + gradle.properties） |
+| H9 方案 A | ✅ 已完成 | `SwordProjectileEntity` 构造时打 `SeekingImmortalsProjectileDamage` NBT；`ModEvents.onLivingHurt` 顶部对该标记 early return，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算 |
+| H10 方案 A | ✅ 已完成 | `ClientTechniqueData.setLearnedTechniques` 只存 learned 不碰 `techniqueSlots`（新增 `retainValidSlots` helper）；`normalizeSlots` 空时返回现有 slots 清理结果不 defaultSlots |
+| H11 方案 A | ✅ 已完成 | 新增 `onLivingDeath`/`onPlayerRespawn`/`onPlayerChangedDimension` 三个事件钩子调用 `FlyingAuthority.clearAll`（+ clear ACTIVE_KEY）；`handleFlyingArtifact` 的 `grantFlying` 前加灵力门，灵力不足不授予飞行 |
+| H12 修复 | ✅ 已完成 | `AlchemyFurnaceBlockEntity.serverTick` 守卫上提到函数顶端，非 `ServerLevel` 直接 return，避免 progressTicks 清零但 finishCraft 不执行的潜在 bug |
+| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.49→0.1.50；未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 33s，产物 `build/libs/seeking_immortals-0.1.50.jar` |
+| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（H9/H10/H11 标 [x]，第一批 6/6，第二批 3/15，第三批 1/8）和本文件 |
+
+## 38. 2026-06-22 代码审查修复 M1-M4/M8-M10/M12-M13 记录
+
+> 依据 `docs/code-review-fix-alternatives.md`：M1/M2/M3/M9/M10/M12/M13 采用**方案 A**，M4/M8 采用**方案 B**。M12 新增 `cultivationMax` packet 字段，**bump 协议 4→5**。
+
+| 步骤 | 状态 | 备注 |
+| --- | --- | --- |
+| 读取方案与源码 | ✅ 已完成 | 读取 `code-review-fix-checklist.md` 及 14 个相关源文件 |
+| 安全备份 | ✅ 已完成 | 备份至 `.bak/20260622_140506_m1_m13/` |
+| M1 方案 A | ✅ 已完成 | `PlayerCultivation.addCultivationBoost` 改续期（`Math.min(current+ticks, MAX_CULTIVATION_BOOST_TICKS)`）；`CultivationPillItem` 区分 boost/boost_extend 提示；新增 zh_cn/en_us lang key |
+| M2 方案 A | ✅ 已完成 | `QiRecoveryPillItem` 改 `Math.max(round(qiValue*absorption), ceil(maxSP*0.1))`，qiValue 主导回复量 |
+| M3 方案 A | ✅ 已完成 | `PlayerCultivation` 新增 `qiDevDecayAccumulatorTicks`/`leylineQiDevDecayAccumulatorTicks` + `tickQiDeviationDecay()` + NBT 持久化；`ModEvents` 走火衰减替换为累计计数器 |
+| M4 方案 B | ✅ 已完成 | `ModEvents.getMatchingPassiveBonus` 非五行灵根返回 `stone.getPassiveBonus()`（全额定）代替直接返回 0 |
+| M8 方案 B | ✅ 已完成 | `DetectionSpell` 新增 `maxBlockMatches=32` labeled break + `isLoaded(pos)` + 每匹配 1 粒子，保留探测范围 |
+| M9 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` 改用 `player.getServer().overworld().getGameTime()`；`PlayerCultivation.loadNBTData` 新增 `CultivationNbtVersion<1` 旧冷却迁移清空；`saveNBTData` 写入版本标记 |
+| M10 方案 A | ✅ 已完成 | `TechniqueEntry` 增 `int cost`/`Realm requiredRealm`；`loadEntries` 解析新字段（默认 cost=15/required_realm=QI_REFINING）；`parseRealm` helper；`ReleaseTechniquePacket.estimateCost` 改 `technique.cost()`、`estimateTechniqueRealm` 改 `technique.requiredRealm()`；删除 `containsAny` 死代码与 `Locale` import |
+| M12 方案 A | ✅ 已完成 | `SyncCultivationDataPacket` + `ClientCultivationData.Snapshot` 增 `long cultivationMax`；encode/decode 配对 `writeLong/readLong`；`CultivationHudOverlay` 修为进度条改真实比值 `data.cultivationMax()` |
+| M13 方案 A | ✅ 已完成 | `handleAgeAndLifespan` 设 `SeekingImmortalsLifespanDeath` flag → `fellOutOfWorld()` 致死；`onLivingHurt` 顶部对 flag early return（跳过打坐中断+走火） |
+| 协议 bump | ✅ 已完成 | M12 新增 packet 字段 → `ModNetwork.PROTOCOL_VERSION` 4→5 |
+| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.50→0.1.51 |
+| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 48s，产物 `build/libs/seeking_immortals-0.1.51.jar` |
+| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（M1-M4/M8-M10/M12-M13 标 [x]，第二/三批计数更新，D9/D12 落地）和本文件 |

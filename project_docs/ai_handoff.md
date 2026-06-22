@@ -9,9 +9,9 @@
 - **Mod ID**：`seeking_immortals`
 - **项目类型**：Minecraft Java Edition Forge 模组
 - **目标版本**：Minecraft `1.20.1` + Forge `47.2.0`
-- **当前版本**：`0.1.34`
-- **当前工作目录**：`/AstrBot/data/workspaces/webchat_FriendMessage_webchat_astrbot_94145b48-40fa-4617-814f-47ca1135a27a`
-- **当前重点**：旧第三方 UI 兼容层已移除，客户端界面统一使用原生 Forge/Minecraft Screen 与 Overlay 实现。
+- **当前版本**：`0.1.51`
+- **当前工作目录**：`D:\codex\mc-mod`
+- **当前重点**：0.1.48 已加入 Codex/Claude Code 固定 AI 工作流与 Gradle preflight 版本门禁；0.1.47 已实装六大核心属性、手动突破 + 成功率加成、走火入魔分级、飞剑/法宝飞行、炼丹系统、神秘小瓶、练气期 9 技能、基础 HUD 与资源接入验证。当前 Phase 9 MVP 集成测试（详见 `docs/task-board.md`）。
 
 ## 2. 技术栈与构建
 
@@ -26,7 +26,7 @@
 常用命令：
 
 ```bash
-cd /AstrBot/data/workspaces/webchat_FriendMessage_webchat_astrbot_94145b48-40fa-4617-814f-47ca1135a27a
+cd D:/codex/mc-mod
 ./gradlew build
 ```
 
@@ -38,12 +38,18 @@ cd /AstrBot/data/workspaces/webchat_FriendMessage_webchat_astrbot_94145b48-40fa-
 4. 每完成版本迭代，同步更新 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/YYYYMMDD_版本号.md`。
 5. 修改已有代码优先使用 `safe_edit` 或先做显式备份；当前工作区通常不是 Git 仓库。
 6. 代码修改后必须执行 `./gradlew build`。
-7. 客户端 UI 类必须放在 `client` 包并通过 `Dist.CLIENT` 事件隔离，避免服务端加载客户端类。
-8. 不要引入新的第三方 UI 框架，除非用户明确要求。
+7. 代码、资源、数据包、构建逻辑或 gameplay/config 变更必须先将 `gradle.properties` 的 `mod_version` 按 `0.1.X` 递增；`./gradlew build` 会运行 `scripts/preflight.ps1` 检查该门禁。
+8. 修改网络 packet 字段、字段顺序、编码/解码格式或不兼容通道行为时，必须同时 bump `ModNetwork.PROTOCOL_VERSION`。
+9. 客户端 UI 类必须放在 `client` 包并通过 `Dist.CLIENT` 事件隔离，避免服务端加载客户端类。
+10. 不要引入新的第三方 UI 框架，除非用户明确要求。
 
-## 4. 当前版本状态：0.1.34
+## 4. 当前版本状态：0.1.48
 
-`0.1.34` 在 0.1.33 原生 UI 基础上完成第一阶段技能槽持久化、绑定网络与冷却：
+`0.1.48` 将固定 AI 工作流写入 `AGENTS.md` 与 `CLAUDE.md`，并在 Gradle `build` 前接入 `scripts/preflight.ps1`，用于检查代码/资源/构建变更是否同步 bump `mod_version`；网络包目录变更会提示确认是否需要 bump `ModNetwork.PROTOCOL_VERSION`。
+
+`0.1.47` 在 0.1.34 原生 UI 基础上完成六大核心属性存储/同步/展示、手动突破流程与成功率加成（丹药/灵脉灵眼/功法品质/执念）、走火入魔四级判定、飞剑/法宝飞行闭环（Curios `artifact` 槽）、炼丹系统、神秘小瓶、练气期 9 技能、基础 HUD 与资源接入验证。详细功能见 `project_docs/features.md`，待办见 `project_docs/pending_requests.md`，进度对齐见 `docs/task-board.md`。
+
+`0.1.34`（历史）在 0.1.33 原生 UI 基础上完成第一阶段技能槽持久化、绑定网络与冷却：
 
 - 移除 Gradle 中旧 UI 库仓库与依赖。
 - 移除 `mods.toml` 中旧 UI 库 mandatory 依赖声明。

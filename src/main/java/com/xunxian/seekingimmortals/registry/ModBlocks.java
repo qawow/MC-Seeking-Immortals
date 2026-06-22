@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.registry;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.block.AlchemyFurnaceBlock;
 import com.xunxian.seekingimmortals.block.LingGenIdentificationSlabBlock;
 import com.xunxian.seekingimmortals.block.MeditationCushionBlock;
 import com.xunxian.seekingimmortals.block.SpiritGatheringArrayBlock;
@@ -30,6 +31,9 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> SPIRIT_GATHERING_ARRAY = BLOCKS.register("spirit_gathering_array", () -> new SpiritGatheringArrayBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(1.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
+
+    public static final RegistryObject<Block> ALCHEMY_FURNACE = BLOCKS.register("alchemy_furnace", () -> new AlchemyFurnaceBlock(
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.0F, 6.0F).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     private ModBlocks() {}
     public static void register(IEventBus bus) { BLOCKS.register(bus); }

@@ -9,7 +9,7 @@ import net.minecraft.world.phys.Vec3;
 
 public class FireballSpell extends SpellEffect {
     public FireballSpell() {
-        super(30, 100, 6.0);
+        super(10, 40, 6.0);
     }
 
     @Override

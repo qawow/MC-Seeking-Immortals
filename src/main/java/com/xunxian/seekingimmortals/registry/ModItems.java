@@ -40,6 +40,7 @@ public final class ModItems {
     public static final RegistryObject<Item> QI_RECOVERY_PILL = ITEMS.register("qi_recovery_pill", () -> new QiRecoveryPillItem(new Item.Properties(), 80));
     public static final RegistryObject<Item> CULTIVATION_PILL = ITEMS.register("cultivation_pill", () -> new CultivationPillItem(new Item.Properties(), 80));
     public static final RegistryObject<Item> BREAKTHROUGH_PILL = ITEMS.register("breakthrough_pill", () -> new BreakthroughPillItem(new Item.Properties()));
+    public static final RegistryObject<Item> WASTE_PILL = ITEMS.register("waste_pill", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> REJUVENATION_PILL_LOW = ITEMS.register("rejuvenation_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.RejuvenationPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
     public static final RegistryObject<Item> FOUNDATION_BUILDING_PILL_LOW = ITEMS.register("foundation_building_pill_low", () -> new com.xunxian.seekingimmortals.item.pill.FoundationBuildingPill(new Item.Properties(), com.xunxian.seekingimmortals.item.pill.PillQuality.LOW));
@@ -61,6 +62,8 @@ public final class ModItems {
     public static final RegistryObject<Item> MEDITATION_CUSHION = ITEMS.register("meditation_cushion", () -> new BlockItem(ModBlocks.MEDITATION_CUSHION.get(), new Item.Properties()));
     public static final RegistryObject<Item> LING_GEN_IDENTIFICATION_SLAB = ITEMS.register("ling_gen_identification_slab", () -> new BlockItem(ModBlocks.LING_GEN_IDENTIFICATION_SLAB.get(), new Item.Properties()));
     public static final RegistryObject<Item> SPIRIT_GATHERING_ARRAY = ITEMS.register("spirit_gathering_array", () -> new BlockItem(ModBlocks.SPIRIT_GATHERING_ARRAY.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ALCHEMY_FURNACE = ITEMS.register("alchemy_furnace", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> MYSTIC_VIAL = ITEMS.register("mystic_vial", () -> new MysticVialItem(new Item.Properties().rarity(net.minecraft.world.item.Rarity.RARE)));
     public static final RegistryObject<Item> TECHNIQUE_MANUAL_AZURE_ORIGIN_SWORD_ART = registerTechniqueManual("technique_manual_azure_origin_sword_art", "青元剑诀");
     public static final RegistryObject<Item> TECHNIQUE_MANUAL_AZURE_ORIGIN_SWORD_SUPPORT = registerTechniqueManual("technique_manual_azure_origin_sword_support", "青元剑诀辅助");
     public static final RegistryObject<Item> TECHNIQUE_MANUAL_SIX_PATHS_SAGE_CREATED = registerTechniqueManual("technique_manual_six_paths_sage_created", "六道极圣所创");
@@ -159,3 +162,4 @@ public final class ModItems {
     private ModItems() {}
     public static void register(IEventBus bus) { ITEMS.register(bus); }
 }
+

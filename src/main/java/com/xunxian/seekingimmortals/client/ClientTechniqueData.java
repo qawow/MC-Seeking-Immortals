@@ -35,7 +35,8 @@ public final class ClientTechniqueData {
     private ClientTechniqueData() {}
 
     public static void setLearnedTechniques(List<String> techniques) {
-        setTechniqueData(techniques, defaultSlots(techniques), Map.of());
+        List<String> learned = techniques.stream().sorted().toList();
+        setTechniqueData(learned, retainValidSlots(techniqueSlots, learned), Map.of());
     }
 
     public static void setTechniqueData(List<String> techniques, List<String> slots, Map<String, Integer> cooldownRemainingTicks) {
@@ -94,13 +95,22 @@ public final class ClientTechniqueData {
     }
 
     private static List<String> normalizeSlots(List<String> slots, List<String> learned) {
+        if (slots == null || slots.isEmpty()) return retainValidSlots(techniqueSlots, learned);
         List<String> normalized = emptySlots();
-        if (slots == null || slots.isEmpty()) return defaultSlots(learned);
         for (int i = 0; i < Math.min(SLOT_COUNT, slots.size()); i++) {
             String techniqueId = slots.get(i);
             normalized.set(i, techniqueId != null && learned.contains(techniqueId) ? techniqueId : "");
         }
         return List.copyOf(normalized);
+    }
+
+    private static List<String> retainValidSlots(List<String> current, List<String> learned) {
+        List<String> out = emptySlots();
+        for (int i = 0; i < SLOT_COUNT; i++) {
+            String id = i < current.size() ? current.get(i) : "";
+            out.set(i, !id.isBlank() && learned.contains(id) ? id : "");
+        }
+        return List.copyOf(out);
     }
 
     private static List<String> defaultSlots(List<String> techniques) {

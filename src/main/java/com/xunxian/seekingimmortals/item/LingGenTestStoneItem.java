@@ -68,6 +68,7 @@ public class LingGenTestStoneItem extends Item {
             }
             if (target instanceof ServerPlayer targetServerPlayer) {
                 SyncCultivationDataPacket.send(targetServerPlayer, cultivation);
+                grantMysticVialForLowTalent(level, targetServerPlayer, cultivation);
             }
             playEffects(level, target);
             if (consumeUse && stack != null) {
@@ -91,7 +92,21 @@ public class LingGenTestStoneItem extends Item {
         return Math.max(0, Math.min(MAX_USES, tag.getInt(USES_KEY)));
     }
 
-    private void consumeUse(ServerLevel level, Player player, ItemStack stack) {
+    private static void grantMysticVialForLowTalent(ServerLevel level, ServerPlayer player, PlayerCultivation cultivation) {
+        if (!cultivation.getSpiritualRoot().isLowTalent()) return;
+        if (cultivation.isMysticVialGranted()) return;
+        if (player.getInventory().contains(new ItemStack(com.xunxian.seekingimmortals.registry.ModItems.MYSTIC_VIAL.get()))) return;
+        ItemStack vial = new ItemStack(com.xunxian.seekingimmortals.registry.ModItems.MYSTIC_VIAL.get());
+        com.xunxian.seekingimmortals.item.MysticVialItem.setOwner(vial, player);
+        com.xunxian.seekingimmortals.item.MysticVialItem.refillIfNeeded(vial, System.currentTimeMillis());
+        if (!player.getInventory().add(vial)) {
+            player.drop(vial, false);
+        }
+        cultivation.setMysticVialGranted(true);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.granted"), false);
+    }
+
+    private static void consumeUse(ServerLevel level, Player player, ItemStack stack) {
         if (player.getAbilities().instabuild) return;
         CompoundTag tag = stack.getOrCreateTag();
         int remaining = Math.max(0, getRemainingUses(stack) - 1);
@@ -104,7 +119,7 @@ public class LingGenTestStoneItem extends Item {
         }
     }
 
-    private void showResult(Player viewer, Player target, PlayerCultivation cultivation, boolean created) {
+    private static void showResult(Player viewer, Player target, PlayerCultivation cultivation, boolean created) {
         viewer.displayClientMessage(Component.literal("§6§l【灵根检测】§r " + target.getName().getString()), false);
         viewer.displayClientMessage(Component.translatable(created
                 ? "message.seeking_immortals.ling_gen_test.created"
@@ -127,18 +142,19 @@ public class LingGenTestStoneItem extends Item {
         viewer.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test.tip", cultivation.getSpiritualRoot().getDescription()), false);
     }
 
-    private void playEffects(ServerLevel level, Player target) {
+    private static void playEffects(ServerLevel level, Player target) {
         level.sendParticles(ParticleTypes.ENCHANT, target.getX(), target.getY() + 1.2D, target.getZ(), 42, 0.55D, 0.75D, 0.55D, 0.04D);
         level.sendParticles(ParticleTypes.END_ROD, target.getX(), target.getY() + 1.0D, target.getZ(), 10, 0.35D, 0.45D, 0.35D, 0.02D);
         level.playSound(null, target.blockPosition(), SoundEvents.AMETHYST_BLOCK_RESONATE, SoundSource.PLAYERS, 0.75F, 1.35F);
     }
 
-    private String stars(int level) {
+    private static String stars(int level) {
         int count = Math.max(0, Math.min(6, level));
         return "★".repeat(count) + "☆".repeat(Math.max(0, 6 - count));
     }
 
-    private String format(double value) {
+    private static String format(double value) {
         return String.format(java.util.Locale.ROOT, "%.2f", value);
     }
 }
+

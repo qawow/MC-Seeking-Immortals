@@ -22,7 +22,9 @@ public class QiRecoveryPillItem extends Item {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide) {
             CultivationHelper.get(player).ifPresent(cultivation -> {
-                int adjustedAmount = (int) Math.round(qiValue * cultivation.getPillAbsorptionMultiplier());
+                int fromQi = (int) Math.round(qiValue * cultivation.getPillAbsorptionMultiplier());
+                int floor = (int) Math.ceil(cultivation.getMaxSpiritualPower() * 0.1D);
+                int adjustedAmount = Math.max(fromQi, floor);
                 cultivation.addQi(adjustedAmount);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.take_pill", adjustedAmount), true);
                 if (!player.getAbilities().instabuild) stack.shrink(1);

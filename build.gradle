@@ -64,6 +64,40 @@ test {
     useJUnitPlatform()
 }
 
+tasks.register('aiPreflight', Exec) {
+    group = 'verification'
+    description = 'Checks AI workflow gates before building.'
+
+    def scriptFile = file('scripts/preflight.ps1')
+    onlyIf { scriptFile.exists() }
+
+    if (project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()) {
+        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
+    } else {
+        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
+    }
+
+    if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+        executable 'powershell'
+    } else {
+        executable 'pwsh'
+    }
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('aiPreflight')
+    doLast {
+        exec {
+            if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+                executable 'powershell'
+            } else {
+                executable 'pwsh'
+            }
+            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
+        }
+    }
+}
+
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
             minecraft_version: minecraft_version,

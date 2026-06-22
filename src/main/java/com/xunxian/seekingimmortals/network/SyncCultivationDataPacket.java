@@ -5,11 +5,14 @@ import com.xunxian.seekingimmortals.combat.CombatStats;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
+import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.DistExecutor;
@@ -25,6 +28,7 @@ public record SyncCultivationDataPacket(
         int maxSpiritualPower,
         int cultivationExp,
         int cultivation,
+        long cultivationMax,
         int mana,
         int manaMax,
         int divSense,
@@ -89,6 +93,7 @@ public record SyncCultivationDataPacket(
                 cultivation.getMaxSpiritualPower(),
                 cultivation.getCultivationExp(),
                 cultivation.getCultivation(),
+                cultivation.getCultivationMax(),
                 cultivation.getMana(),
                 cultivation.getManaMax(),
                 cultivation.getDivSense(),
@@ -148,6 +153,7 @@ public record SyncCultivationDataPacket(
         buffer.writeVarInt(packet.maxSpiritualPower);
         buffer.writeVarInt(packet.cultivationExp);
         buffer.writeVarInt(packet.cultivation);
+        buffer.writeLong(packet.cultivationMax);
         buffer.writeVarInt(packet.mana);
         buffer.writeVarInt(packet.manaMax);
         buffer.writeVarInt(packet.divSense);
@@ -199,29 +205,30 @@ public record SyncCultivationDataPacket(
     public static SyncCultivationDataPacket decode(FriendlyByteBuf buffer) {
         return new SyncCultivationDataPacket(
                 buffer.readUtf(),
+                buffer.readUtf(),    // stage
+                buffer.readVarInt(), // spiritualPower
+                buffer.readVarInt(), // maxSpiritualPower
+                buffer.readVarInt(), // cultivationExp
+                buffer.readVarInt(), // cultivation
+                buffer.readLong(),   // cultivationMax
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
                 buffer.readUtf(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readVarInt(),
-                buffer.readUtf(),
-                buffer.readUtf(),
-                buffer.readVarInt(),
-                buffer.readBoolean(),
-                buffer.readBoolean(),
                 buffer.readUtf(),
                 buffer.readVarInt(),
                 buffer.readBoolean(),
                 buffer.readBoolean(),
+                buffer.readUtf(),
+                buffer.readVarInt(),
+                buffer.readBoolean(),
+                buffer.readBoolean(),
                 buffer.readVarInt(),
                 buffer.readBoolean(),
                 buffer.readVarInt(),
@@ -236,6 +243,12 @@ public record SyncCultivationDataPacket(
                 buffer.readDouble(),
                 buffer.readVarInt(),
                 buffer.readUtf(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readVarInt(),
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
@@ -256,6 +269,7 @@ public record SyncCultivationDataPacket(
                         packet.maxSpiritualPower,
                         packet.cultivationExp,
                         packet.cultivation,
+                        packet.cultivationMax,
                         packet.mana,
                         packet.manaMax,
                         packet.divSense,
@@ -293,7 +307,38 @@ public record SyncCultivationDataPacket(
                         packet.breakthroughSpiritEyeBonus,
                         packet.breakthroughTechniqueQualityBonus,
                         packet.breakthroughObsessionBonus,
-                        packet.failedBreakthroughs))));
+                        packet.failedBreakthroughs,
+                        packet.meditationBasePerSecond,
+                        packet.meditationRootMultiplier,
+                        packet.meditationPhysiqueMultiplier,
+                        packet.meditationBonus,
+                        packet.meditationAuraMultiplier,
+                        packet.meditationTechniqueMultiplier,
+                        packet.meditationStoneBonus,
+                        packet.meditationTotalPerSecond))));
         context.setPacketHandled(true);
+    }
+
+    private static boolean isSittingOnMeditationCushion(ServerPlayer player) {
+        Entity vehicle = player.getVehicle();
+        if (vehicle instanceof CushionSeatEntity seat) {
+            return player.level().getBlockState(seat.getCushionPos()).is(ModBlocks.MEDITATION_CUSHION.get());
+        }
+        return false;
+    }
+
+    private static int getMatchingPassiveBonus(ItemStack stack, PlayerCultivation cultivation) {
+        if (stack.getCount() != 1 || !(stack.getItem() instanceof SpiritStoneItem stone) || SpiritStoneItem.getStoredPower(stack) <= 0) return 0;
+        SpiritualRootAttribute requiredAttribute = cultivation.getSpiritualRootAttribute();
+        if (!isFiveElement(requiredAttribute)) return 0;
+        return stone.matchesAttribute(requiredAttribute) ? stone.getPassiveBonus() : 0;
+    }
+
+    private static boolean isFiveElement(SpiritualRootAttribute attribute) {
+        return attribute == SpiritualRootAttribute.METAL
+                || attribute == SpiritualRootAttribute.WOOD
+                || attribute == SpiritualRootAttribute.WATER
+                || attribute == SpiritualRootAttribute.FIRE
+                || attribute == SpiritualRootAttribute.EARTH;
     }
 }

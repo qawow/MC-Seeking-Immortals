@@ -32,12 +32,13 @@ public final class BreakthroughService {
                     cultivation.getCurrentStageExpSpan()), true);
             return;
         }
+        PlayerCultivation.BreakthroughChanceBreakdown preview = preview(player, cultivation);
+        showPreBreakthroughPreview(player, cultivation, preview);
         if (!consumeBreakthroughResource(player, cultivation)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.need_resource"), true);
             return;
         }
 
-        PlayerCultivation.BreakthroughChanceBreakdown preview = preview(player, cultivation);
         PlayerCultivation.BreakthroughAttemptResult result = cultivation.tryBreakthrough(player.getRandom(), new PlayerCultivation.BreakthroughChanceModifiers(
                 preview.pillBonus(),
                 preview.spiritEyeBonus(),
@@ -64,11 +65,25 @@ public final class BreakthroughService {
                     percent(result.chanceBreakdown().spiritEyeBonus()),
                     percent(result.chanceBreakdown().techniqueQualityBonus()),
                     percent(result.chanceBreakdown().obsessionBonus())), false);
-            if (result.qiDeviationTriggered() && result.qiDeviationTier() != QiDeviationTier.NONE) {
+            if (result.qiDeviationTriggered()) {
                 applyQiDeviationEffect(player, cultivation, result.qiDeviationTier(), player.getRandom());
-                SyncCultivationDataPacket.send(player, cultivation);
             }
         }
+    }
+
+    private static void showPreBreakthroughPreview(ServerPlayer player, PlayerCultivation cultivation, PlayerCultivation.BreakthroughChanceBreakdown preview) {
+        ResourceRequirement requirement = getBreakthroughResourceRequirement(player, cultivation);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.preview", percent(preview.chance())), false);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.required_resource",
+                requirement.name(), requirement.owned(), requirement.required(), requirement.assisted() ? 1 : 0), false);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.breakthrough.bonus_sources",
+                percent(preview.baseChance()),
+                percent(cultivation.getSpiritualRoot().getBreakthroughBonus()),
+                percent(preview.pillBonus()),
+                percent(preview.spiritEyeBonus()),
+                percent(preview.techniqueQualityBonus()),
+                percent(preview.obsessionBonus()),
+                percent(preview.chance())), false);
     }
 
     /**
@@ -78,6 +93,19 @@ public final class BreakthroughService {
      * 90~99% 严重：掉落一境界 + 昏迷 3 分钟，装备随机损坏
      * 100%   极端：当场死亡，背包掉落 50%
      */
+    public static boolean tryTriggerQiDeviation(ServerPlayer player, PlayerCultivation cultivation, String reasonKey) {
+        QiDeviationTier tier = cultivation.rollQiDeviation(player.getRandom());
+        if (tier == QiDeviationTier.NONE) {
+            SyncCultivationDataPacket.send(player, cultivation);
+            return false;
+        }
+        if (reasonKey != null && !reasonKey.isBlank()) {
+            player.displayClientMessage(Component.translatable(reasonKey, cultivation.getQiDeviationRisk()), false);
+        }
+        applyQiDeviationEffect(player, cultivation, tier, player.getRandom());
+        return true;
+    }
+
     private static void applyQiDeviationEffect(ServerPlayer player, PlayerCultivation cultivation, QiDeviationTier tier, RandomSource random) {
         switch (tier) {
             case MINOR -> {
@@ -112,6 +140,7 @@ public final class BreakthroughService {
             }
             default -> {}
         }
+        SyncCultivationDataPacket.send(player, cultivation);
     }
 
     private static void damageRandomEquipment(ServerPlayer player, RandomSource random) {
@@ -181,6 +210,15 @@ public final class BreakthroughService {
             cultivation.setBreakthroughPillBonus(0.05D);
             return true;
         }
+        if (requiresFoundationBuildingPill(cultivation)) {
+            for (ItemStack stack : player.getInventory().items) {
+                if (!stack.is(ModItems.FOUNDATION_BUILDING_PILL_LOW.get())) continue;
+                stack.shrink(1);
+                cultivation.setBreakthroughPillBonus(0.05D);
+                return true;
+            }
+            return false;
+        }
         for (ItemStack stack : player.getInventory().items) {
             if (!stack.is(ModItems.BREAKTHROUGH_PILL.get())) continue;
             stack.shrink(1);
@@ -190,7 +228,29 @@ public final class BreakthroughService {
         return false;
     }
 
+    private static ResourceRequirement getBreakthroughResourceRequirement(ServerPlayer player, PlayerCultivation cultivation) {
+        boolean assisted = cultivation.isBreakthroughAssisted() || player.getAbilities().instabuild;
+        if (requiresFoundationBuildingPill(cultivation)) {
+            return new ResourceRequirement(Component.translatable("item.seeking_immortals.foundation_building_pill_low"), countItem(player, ModItems.FOUNDATION_BUILDING_PILL_LOW.get()), 1, assisted);
+        }
+        return new ResourceRequirement(Component.translatable("item.seeking_immortals.breakthrough_pill"), countItem(player, ModItems.BREAKTHROUGH_PILL.get()), 1, assisted);
+    }
+
+    private static boolean requiresFoundationBuildingPill(PlayerCultivation cultivation) {
+        return cultivation.getRealm() == Realm.QI_REFINING && cultivation.getStage() == RealmStage.LAYER_13;
+    }
+
+    private static int countItem(ServerPlayer player, net.minecraft.world.item.Item item) {
+        int count = 0;
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.is(item)) count += stack.getCount();
+        }
+        return count;
+    }
+
     private static int percent(double value) {
         return (int)Math.round(value * 100.0D);
     }
+
+    private record ResourceRequirement(Component name, int owned, int required, boolean assisted) {}
 }
