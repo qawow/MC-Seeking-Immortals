@@ -1,0 +1,53 @@
+{
+  "id": "mulan",
+  "display": "慕兰草原",
+  "climate": "steppe_dry",
+  "spirit_density": 0.95,
+  "factions": [
+    "mulan_fashi_council",
+    "mulan_beast_god",
+    "wutu_clan_generic"
+  ],
+  "portals": [
+    {
+      "id": "holy_bird_altar",
+      "type": "blessing",
+      "reputation_min": 30
+    },
+    {
+      "id": "border_war_camp",
+      "type": "faction_war",
+      "cycle": "mulan_tianlan_war_minor"
+    }
+  ],
+  "daily_events": [
+    "nomad_migration",
+    "fashi_patrol",
+    "beast_tame_festival"
+  ],
+  "disasters": [
+    "grassland_beast_raid"
+  ],
+  "banned_paths": [
+    "demonic_core_unless_oath"
+  ],
+  "economy_notes": "法士灵术强；圣禽祝福需声望",
+  "chronicle_refs": [
+    "M4_holy_bird_mulan",
+    "K3_mulan_tianlan_war_1",
+    "K9_mulan_tianlan_escalation"
+  ],
+  "minecraft_biomes_hint": [
+    "savanna",
+    "windswept_hills"
+  ],
+  "notes": "与突兀族世仇；天虎兽产地；法士专精",
+  "schema_version": 3,
+  "war_ref": "mulan_tianlan_war.json",
+  "quest_chains": [
+    "mulan_fashi_path",
+    "mulan_war_campaign"
+  ],
+  "spatial_node": "node_mulan_steppe",
+  "feud_ref": "wutu_mulan_feud.json"
+}

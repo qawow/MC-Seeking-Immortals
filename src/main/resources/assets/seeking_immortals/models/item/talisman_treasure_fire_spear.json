@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "seeking_immortals:item/talisman_treasure_fire_spear"
+  }
+}

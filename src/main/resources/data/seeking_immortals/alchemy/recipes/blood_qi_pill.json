@@ -1,0 +1,34 @@
+{
+  "id": "blood_qi_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.blood_qi_pill",
+  "output_items": {
+    "low": "seeking_immortals:blood_qi_pill",
+    "medium": "seeking_immortals:blood_qi_pill_mid",
+    "high": "seeking_immortals:blood_qi_pill_high",
+    "supreme": "seeking_immortals:blood_qi_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 80,
+  "cook_ticks": 1080,
+  "success_rate": 0.48,
+  "explosion_chance": 0.1,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
+  "controlled": false,
+  "requires_earth_fire_room": true,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:true_dragon_blood",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:dragon_scale",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:dragon_blood_grass",
+      "count": 2
+    }
+  ]
+}

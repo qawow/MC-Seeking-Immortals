@@ -27,7 +27,7 @@ public class EarthEscapeStepSpell extends SpellEffect {
         Vec3 origin = player.position();
         for (double distance = 4.0D; distance >= 1.5D; distance -= 0.5D) {
             Vec3 target = origin.add(flat.scale(distance));
-            if (canStandAt(level, BlockPos.containing(target))) {
+            if (canStandAt(level, BlockPos.containing(target)) && isPathClear(level, origin, target)) {
                 player.teleportTo(target.x, target.y, target.z);
                 level.playSound(null, player.blockPosition(), SoundEvents.ENDERMAN_TELEPORT, SoundSource.PLAYERS, 0.7F, 1.3F);
                 player.displayClientMessage(Component.literal("土遁步穿行数步。"), true);
@@ -36,6 +36,23 @@ public class EarthEscapeStepSpell extends SpellEffect {
         }
         player.displayClientMessage(Component.literal("前方地脉紊乱，土遁步失败。"), true);
         return false;
+    }
+
+    /** 沿起止点之间的身体通道逐格检查无实心阻挡，避免穿薄墙（M7）。 */
+    private boolean isPathClear(ServerLevel level, Vec3 origin, Vec3 target) {
+        Vec3 step = target.subtract(origin);
+        int segments = Math.max(1, (int)Math.ceil(step.length() * 2.0D));
+        Vec3 delta = step.scale(1.0D / segments);
+        Vec3 cursor = origin;
+        for (int i = 0; i <= segments; i++) {
+            BlockPos body = BlockPos.containing(cursor);
+            BlockState state = level.getBlockState(body);
+            if (!state.getCollisionShape(level, body).isEmpty()) {
+                return false;
+            }
+            cursor = cursor.add(delta);
+        }
+        return true;
     }
 
     private boolean canStandAt(ServerLevel level, BlockPos feet) {

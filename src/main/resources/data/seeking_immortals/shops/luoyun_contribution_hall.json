@@ -1,0 +1,37 @@
+{
+  "id": "luoyun_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "luoyun_spirit_pill",
+      "item": "seeking_immortals:spirit_gathering_pill",
+      "count": 1,
+      "cost": 280
+    },
+    {
+      "id": "recipe_luoyun_spirit",
+      "item": "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper",
+      "count": 1,
+      "cost": 400,
+      "rank_min": "inner_disciple"
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "item": "seeking_immortals:alchemy_furnace_tier_3",
+      "count": 1,
+      "cost": 800
+    },
+    {
+      "id": "sect_herb_garden_seed_pack",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 8,
+      "cost": 60
+    },
+    {
+      "id": "condensation_pill",
+      "item": "seeking_immortals:essence_condensing_pill",
+      "count": 1,
+      "cost": 2500
+    }
+  ]
+}

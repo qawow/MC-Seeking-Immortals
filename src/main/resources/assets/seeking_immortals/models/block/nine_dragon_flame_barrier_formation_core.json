@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "seeking_immortals:block/nine_dragon_flame_barrier_formation_core"
+  }
+}

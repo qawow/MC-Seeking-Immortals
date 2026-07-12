@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "description": "炼器失败时按 recipe tier 返还碎料（结构参考，非精确经济）",
+  "default": [
+    {
+      "id": "scrap_spirit_iron",
+      "weight": 40,
+      "count_min": 1,
+      "count_max": 2,
+      "setting": {
+        "lore": "scrap_spirit_iron",
+        "ref": "refinement_failure_loot.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "spirit_stone_shard",
+      "weight": 30,
+      "count_min": 1,
+      "count_max": 3,
+      "setting": {
+        "lore": "spirit_stone_shard",
+        "ref": "refinement_failure_loot.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ],
+  "by_tier": {
+    "low": [
+      {
+        "id": "low_spirit_iron",
+        "weight": 50,
+        "count_min": 1,
+        "count_max": 2
+      },
+      {
+        "id": "scrap_spirit_iron",
+        "weight": 25,
+        "count_min": 1,
+        "count_max": 1
+      }
+    ],
+    "mid": [
+      {
+        "id": "scrap_spirit_iron",
+        "weight": 35,
+        "count_min": 1,
+        "count_max": 3
+      },
+      {
+        "id": "demon_core_fragment",
+        "weight": 15,
+        "count_min": 1,
+        "count_max": 1
+      }
+    ],
+    "high": [
+      {
+        "id": "kunwu_copper",
+        "weight": 20,
+        "count_min": 1,
+        "count_max": 1
+      },
+      {
+        "id": "demon_core_fragment",
+        "weight": 25,
+        "count_min": 1,
+        "count_max": 2
+      }
+    ],
+    "ancient_treasure": [
+      {
+        "id": "xuanguang_mirror_shard",
+        "weight": 5,
+        "count_min": 1,
+        "count_max": 1,
+        "note": "仅当配方含镜类残片"
+      },
+      {
+        "id": "spirit_stone_mid",
+        "weight": 10,
+        "count_min": 1,
+        "count_max": 1
+      }
+    ],
+    "spirit_treasure": [
+      {
+        "id": "void_marrow",
+        "weight": 8,
+        "count_min": 1,
+        "count_max": 1
+      },
+      {
+        "id": "space_crystal",
+        "weight": 12,
+        "count_min": 1,
+        "count_max": 1
+      }
+    ],
+    "puppet": [
+      {
+        "id": "ironwood",
+        "weight": 45,
+        "count_min": 2,
+        "count_max": 4
+      },
+      {
+        "id": "puppet_core_blank",
+        "weight": 10,
+        "count_min": 0,
+        "count_max": 1
+      }
+    ]
+  },
+  "explosion_on_mismatch": {
+    "forge_overheat": {
+      "player_damage": "mid",
+      "destroy_chance": 0.15,
+      "drops": [
+        "scrap_spirit_iron"
+      ]
+    }
+  }
+}

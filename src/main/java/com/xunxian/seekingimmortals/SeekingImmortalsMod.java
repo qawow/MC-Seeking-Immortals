@@ -1,12 +1,18 @@
 package com.xunxian.seekingimmortals;
 
 import com.mojang.logging.LogUtils;
+import com.xunxian.seekingimmortals.combat.AttributeLimitUnlocker;
 import com.xunxian.seekingimmortals.network.ModNetwork;
+import com.xunxian.seekingimmortals.quest.FtbQuestDefaults;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import com.xunxian.seekingimmortals.registry.ModCreativeTabs;
 import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.registry.ModBulkItems;
+import com.xunxian.seekingimmortals.registry.ModMenus;
+import com.xunxian.seekingimmortals.registry.ModRecipes;
+import com.xunxian.seekingimmortals.registry.ModSounds;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -18,12 +24,18 @@ public class SeekingImmortalsMod {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public SeekingImmortalsMod() {
+        AttributeLimitUnlocker.unlockCombatAttributeCaps();
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modBus);
+        ModBulkItems.register(modBus);
         ModBlocks.register(modBus);
         ModBlockEntities.register(modBus);
         ModEntities.register(modBus);
+        ModMenus.register(modBus);
+        ModRecipes.register(modBus);
+        ModSounds.register(modBus);
         ModCreativeTabs.register(modBus);
         ModNetwork.register();
+        FtbQuestDefaults.bootstrapDefaultPack();
     }
 }

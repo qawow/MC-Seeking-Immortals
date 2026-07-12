@@ -1,0 +1,175 @@
+{
+  "schema_version": 3,
+  "source": "汇编 灵界蛮荒·妖王结构；功能标签非剧情绑定",
+  "region": "barbarian_wasteland",
+  "dimension": "seeking_immortals:spirit_fengyuan",
+  "realm_span": [
+    "VOID_REFINEMENT",
+    "GREAT_VEHICLE"
+  ],
+  "kings": [
+    {
+      "id": "king_bear_mountain",
+      "display": "山岳熊王",
+      "archetype": "strength_earth",
+      "beast_ref": "spirit_bear_king",
+      "territory": "north_ridge",
+      "secret_realm_hint": "north_ridge_cave",
+      "drops": [
+        "bear_king_pelt",
+        "earth_spirit_core",
+        "barbarian_king_token_bear"
+      ],
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "山岳熊王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_fox_mist",
+      "display": "迷雾狐王",
+      "archetype": "illusion_wind",
+      "faction_affinity": "tianhu",
+      "territory": "mist_valley",
+      "secret_realm_hint": "mist_valley_illusion_grove",
+      "drops": [
+        "fox_mist_pearl",
+        "illusion_cloak_shard",
+        "barbarian_king_token_fox"
+      ],
+      "faction_trade": "tianhu",
+      "setting": {
+        "lore": "迷雾狐王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_pine_ancient",
+      "display": "古松妖王",
+      "archetype": "wood_array",
+      "faction_affinity": "shuyao",
+      "territory": "ancient_forest",
+      "secret_realm_hint": "ancient_forest_heart",
+      "drops": [
+        "ancient_pine_resin",
+        "wood_array_seed",
+        "barbarian_king_token_pine"
+      ],
+      "faction_trade": "shuyao",
+      "setting": {
+        "lore": "古松妖王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_roc_sky",
+      "display": "鹏王",
+      "archetype": "wind_flight",
+      "territory": "sky_cliff",
+      "secret_realm_hint": "sky_cliff_aerie",
+      "drops": [
+        "roc_feather_bundle",
+        "wind_sky_crystal",
+        "barbarian_king_token_roc"
+      ],
+      "setting": {
+        "lore": "鹏王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_snake_swamp",
+      "display": "沼泽蛇王",
+      "archetype": "poison_water",
+      "faction_affinity": "shezu",
+      "territory": "venom_swamp",
+      "secret_realm_hint": "venom_swamp_den",
+      "drops": [
+        "snake_king_gall",
+        "poison_sac_bulk",
+        "barbarian_king_token_snake"
+      ],
+      "faction_trade": "shezu",
+      "setting": {
+        "lore": "沼泽蛇王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_tiger_jungle",
+      "display": "丛林虎王",
+      "archetype": "melee_hunt",
+      "faction_affinity": "huzhu",
+      "territory": "green_jungle",
+      "secret_realm_hint": "green_jungle_lair",
+      "drops": [
+        "tiger_king_bone",
+        "hunt_trophy_fang",
+        "barbarian_king_token_tiger"
+      ],
+      "faction_trade": "huzhu",
+      "setting": {
+        "lore": "丛林虎王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    },
+    {
+      "id": "king_turtle_depth",
+      "display": "玄龟妖王",
+      "archetype": "defense_array",
+      "faction_affinity": "guizu",
+      "territory": "deep_lake",
+      "secret_realm_hint": "deep_lake_shell_temple",
+      "drops": [
+        "turtle_king_shell",
+        "defense_array_plate",
+        "barbarian_king_token_turtle"
+      ],
+      "faction_trade": "guizu",
+      "setting": {
+        "lore": "玄龟妖王",
+        "source_file": "barbarian_demon_kings.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "barbarian_demon_kings.json"
+      }
+    }
+  ],
+  "player_interaction": [
+    "tribute_trade",
+    "territory_quest",
+    "beast_material_bounty"
+  ],
+  "note": "避免与主角专属妖王剧情同名同设定",
+  "aggregate_token": {
+    "id": "barbarian_king_token",
+    "requires_any_king_token": 3,
+    "unlocks": "barbarian_council_audience"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "tables": [
+    {
+      "id": "loot_void_palace_lord",
+      "display": "虚天殿主掉落",
+      "entry_count": 0
+    },
+    {
+      "id": "loot_blood_jiao",
+      "display": "血蛟守卫掉落",
+      "entry_count": 0
+    }
+  ]
+}

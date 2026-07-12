@@ -1,0 +1,59 @@
+{
+  "id": "tiannan",
+  "display": "天南",
+  "climate": "temperate_humid",
+  "spirit_density": 1.0,
+  "factions": [
+    "huangfeng_valley",
+    "yanyue_sect",
+    "spirit_beast_mountain",
+    "qingxu_gate",
+    "huadao_wu",
+    "qixuan_men"
+  ],
+  "portals": [
+    {
+      "id": "market_huangfeng",
+      "type": "market",
+      "realm_min": "qi_refining"
+    },
+    {
+      "id": "blood_forbidden_gate",
+      "type": "secret_realm",
+      "cycle": "cycle_blood_forbidden"
+    }
+  ],
+  "daily_events": [
+    "sect_recruitment_spring",
+    "bandit_cultivator_road",
+    "spirit_herb_gatherers"
+  ],
+  "disasters": [],
+  "banned_paths": [],
+  "economy_notes": "筑基丹宗门管控；散修坊市溢价10%",
+  "chronicle_refs": [
+    "K1_seven_sects",
+    "A5_blood_forbidden_hermits",
+    "cycle_blood_forbidden"
+  ],
+  "minecraft_biomes_hint": [
+    "plains",
+    "forest",
+    "river"
+  ],
+  "notes": "世俗与修仙脱节；血色禁地五年一开",
+  "schema_version": 2,
+  "sect_archetypes": {
+    "huangfeng_valley": "alchemy",
+    "yanyue_sect": "illusion_array",
+    "qingxu_gate": "talisman",
+    "spirit_beast_mountain": "beast"
+  },
+  "secret_realms": [
+    "blood_forbidden"
+  ],
+  "quest_chains": [
+    "huangfeng_cultivation_path",
+    "mulan_tianlan_war"
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "schema_version": 2,
+  "modid": "seeking_immortals",
+  "note": "Forge 注册草稿；完整 169 条分批，本文件为 P0+P1 共 22 项",
+  "ref_priority": "forge_artifact_priority.json",
+  "items": [
+    {
+      "registry": "flying_sword_low",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "low",
+      "game_tier": 2,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "cloud_boots",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "low",
+      "game_tier": 2,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "spirit_gathering_bead",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "low",
+      "game_tier": 2,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "yellow_umbrella",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 4,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "qingye_leaf_fan",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "low",
+      "game_tier": 2,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "storage_bracelet_low",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "low",
+      "game_tier": 3,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "black_gold_shield",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 4,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "artifact_repair_kit",
+      "class": "ConsumableItem",
+      "max_stack": 16,
+      "tier": "low",
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "silver_giant_sword",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 5,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "gold_demon_chain",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "high",
+      "game_tier": 7,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "evil_illusion_mirror",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 5,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "gold_light_brick",
+      "class": "TalismanTreasureItem",
+      "max_stack": 1,
+      "uses": 3,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "soul_summon_bell",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 3,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "soul_gathering_bowl",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "karma": "negative",
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "poluo_beads",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 4,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "great_shift_token",
+      "class": "ConsumableArtifact",
+      "max_stack": 8,
+      "consumable": true,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "hunyuan_bowl",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "high",
+      "puppet_core": true,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "xuantie_flying_shield",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 5,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "invisible_needle_set",
+      "class": "ArtifactItem",
+      "max_stack": 1,
+      "tier": "mid",
+      "game_tier": 5,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "xuanguang_mirror_shard",
+      "class": "MaterialItem",
+      "max_stack": 64,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "natal_artifact_embryo",
+      "class": "MaterialItem",
+      "max_stack": 4,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "registry": "wanbao_pavilion_coupon",
+      "class": "ConsumableItem",
+      "max_stack": 8,
+      "setting": {
+        "lore": "",
+        "ref": "moditems_artifacts_draft.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ]
+}

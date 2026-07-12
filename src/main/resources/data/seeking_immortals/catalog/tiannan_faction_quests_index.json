@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "source": "tiannan_faction_quests.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "huangfeng_valley",
+      "display": "huangfeng_valley"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "yanyue_sect"
+    },
+    {
+      "id": "lingfu_sect",
+      "display": "lingfu_sect"
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "ghost_spirit_gate"
+    }
+  ],
+  "quests": []
+}

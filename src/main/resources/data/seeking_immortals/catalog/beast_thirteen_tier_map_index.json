@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "source": "beast_thirteen_tier_map.json",
+  "primary_key": "tiers",
+  "entries": [
+    {
+      "id": "0",
+      "display": "一阶妖兽"
+    },
+    {
+      "id": "1",
+      "display": "二阶"
+    },
+    {
+      "id": "2",
+      "display": "三阶"
+    },
+    {
+      "id": "3",
+      "display": "四阶"
+    },
+    {
+      "id": "4",
+      "display": "五阶"
+    },
+    {
+      "id": "5",
+      "display": "六阶"
+    },
+    {
+      "id": "6",
+      "display": "七阶"
+    },
+    {
+      "id": "7",
+      "display": "八阶"
+    },
+    {
+      "id": "8",
+      "display": "九阶"
+    },
+    {
+      "id": "9",
+      "display": "十阶"
+    },
+    {
+      "id": "10",
+      "display": "十一阶"
+    },
+    {
+      "id": "11",
+      "display": "十二阶"
+    },
+    {
+      "id": "12",
+      "display": "十三阶"
+    }
+  ]
+}

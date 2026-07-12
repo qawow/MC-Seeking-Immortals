@@ -1,0 +1,28 @@
+{
+  "name": "蛮荒七妖王",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:immortal_jade",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "七王领地",
+      "text": "本条目对应文本材料 patchouli_static_entries.json#barbarian_seven_kings、barbarian_demon_kings.json 与 secret_realm_template.json#barbarian_king_territories。当前版本已把七王领地接入世界包秘境列表。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前接入",
+      "text": "七个已接入领地为 king_bear_mountain、king_fox_mist、king_pine_ancient、king_roc_sky、king_snake_swamp、king_tiger_jungle、king_turtle_depth。它们归属 barbarian_wasteland，门槛为炼虚，门票复用 immortal_jade，冷却为 600000 tick。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "功能标签",
+      "text": "现有世界包只表达入口、门槛和标签：熊王偏 strength_earth，狐王偏 illusion_wind，古松偏 wood_array，鹏王偏 wind_flight，蛇王偏 poison_water，虎王偏 melee_hunt，玄龟偏 defense_array。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "延后内容",
+      "text": "文本材料中的专属掉落、妖王信物、三枚信物觐见蛮荒议会、朝贡贸易、领地任务、真实 boss、GeckoLib 动画、结构生成和 FTB Quests 章节仍未实装。本页只说明已存在的数据钩子。"
+    }
+  ]
+}

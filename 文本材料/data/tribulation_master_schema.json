@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §15 天劫小/大/仙三级",
+  "disclaimer": "波数伤害为模组量级",
+  "tier_schema_ref": "tribulation_tier_schema.json",
+  "rules_ref": "tribulation_rules.json",
+  "items_ref": "tribulation_items.json",
+  "tiers_summary": [
+    {
+      "id": "minor",
+      "display": "小劫",
+      "triggers": ["NASCENT_SOUL小境界", "妖兽七阶化形", "部分秘术反噬"]
+    },
+    {
+      "id": "major",
+      "display": "大劫",
+      "triggers": ["化神", "炼虚", "合体", "大乘突破"]
+    },
+    {
+      "id": "immortal",
+      "display": "仙劫",
+      "triggers": ["渡劫飞升", "灵界前奏"]
+    }
+  ],
+  "cultivation_progression_ref": "cultivation_progression.json",
+  "beast_shape_shift_ref": "beast_tier_schema.json#beast_tribulation_hook"
+}

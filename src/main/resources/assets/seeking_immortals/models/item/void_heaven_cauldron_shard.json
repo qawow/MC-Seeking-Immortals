@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/void_heaven_cauldron_shard"
+  }
+}

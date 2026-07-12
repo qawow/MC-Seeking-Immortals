@@ -1,0 +1,407 @@
+{
+  "schema_version": 3,
+  "source": "汇编 法宝十一级体系；模组五档 artifact_tier_rules + 本表 game_tier 1–11",
+  "disclaimer": "十一级为结构参考，具体数值可随版本调整",
+  "game_tiers": [
+    {
+      "tier": 1,
+      "display": "凡器",
+      "mod_tier": "low",
+      "realm_typical": "MORTAL",
+      "examples": [
+        "iron_sword_mortal"
+      ],
+      "setting": {
+        "lore": "凡人铁器，无灵力灌注。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 2,
+      "display": "低阶法器",
+      "mod_tier": "low",
+      "realm_typical": "QI_REFINING",
+      "examples": [
+        "flying_sword_low",
+        "snake_pearl",
+        "spirit_gathering_bead"
+      ],
+      "setting": {
+        "lore": "炼气修士常用低阶法器，坊市可购。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 3,
+      "display": "中阶法器",
+      "mod_tier": "low",
+      "realm_typical": "QI_REFINING_LATE",
+      "examples": [
+        "cloud_boots",
+        "soul_summon_bell"
+      ],
+      "setting": {
+        "lore": "炼气后期过渡，属性略优。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 4,
+      "display": "高阶法器",
+      "mod_tier": "mid",
+      "realm_typical": "FOUNDATION_EARLY",
+      "examples": [
+        "yellow_umbrella",
+        "black_boots",
+        "qingning_mirror"
+      ],
+      "setting": {
+        "lore": "筑基前后高阶法器，需炼器师或宗门兑换。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 5,
+      "display": "顶阶法器",
+      "mod_tier": "mid",
+      "realm_typical": "FOUNDATION_LATE",
+      "examples": [
+        "evil_illusion_mirror",
+        "potian_shovel",
+        "bedrock_shield"
+      ],
+      "setting": {
+        "lore": "筑基顶阶法器，性价比分水岭约三百下品量级。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 6,
+      "display": "低阶法宝",
+      "mod_tier": "high",
+      "realm_typical": "CORE_FORMATION_EARLY",
+      "examples": [
+        "green_bamboo_cloud_sword",
+        "peerless_flying_knives"
+      ],
+      "setting": {
+        "lore": "结丹期低阶法宝，可温养。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 7,
+      "display": "中阶法宝",
+      "mod_tier": "high",
+      "realm_typical": "CORE_FORMATION_LATE",
+      "examples": [
+        "gold_demon_chain",
+        "hunyuan_bowl",
+        "flat_crown_replica"
+      ],
+      "setting": {
+        "lore": "结丹中阶法宝，符宝近此档。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 8,
+      "display": "高阶法宝",
+      "mod_tier": "high",
+      "realm_typical": "NASCENT_SOUL_EARLY",
+      "examples": [
+        "nascent_soul_talisman_treasure",
+        "silver_moon_wolf"
+      ],
+      "setting": {
+        "lore": "结丹高阶法宝，需珍稀材料。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 9,
+      "display": "顶阶法宝/本命",
+      "mod_tier": "high",
+      "realm_typical": "NASCENT_SOUL",
+      "natal": true,
+      "examples": [
+        "natal_artifact_slot"
+      ],
+      "setting": {
+        "lore": "顶阶法宝/本命温养位，元婴前常见上限。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 10,
+      "display": "古宝",
+      "mod_tier": "ancient_treasure",
+      "realm_typical": "NASCENT_SOUL",
+      "examples": [
+        "xuanguang_mirror",
+        "xuanhuang_mirror",
+        "nine_dragon_cauldron_replica"
+      ],
+      "setting": {
+        "lore": "古宝残片或完整古宝，拍卖与秘境，难批量炼制。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    },
+    {
+      "tier": 11,
+      "display": "灵宝",
+      "mod_tier": "spirit_treasure",
+      "realm_typical": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "examples": [
+        "void_refining_bell"
+      ],
+      "setting": {
+        "lore": "灵宝，灵界法则之物，人界罕见。",
+        "source_file": "artifact_eleven_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_eleven_tier_map.json"
+      }
+    }
+  ],
+  "artifact_id_map": {
+    "flying_sword_low": 2,
+    "spirit_gathering_bead": 2,
+    "soul_summon_bell": 3,
+    "yellow_umbrella": 4,
+    "evil_illusion_mirror": 5,
+    "green_bamboo_cloud_sword": 6,
+    "hunyuan_bowl": 7,
+    "xuanguang_mirror": 10,
+    "xuanhuang_mirror": 10,
+    "nine_dragon_cauldron_replica": 10,
+    "void_refining_bell": 11,
+    "soul_gathering_bowl": 4,
+    "poluo_beads": 4,
+    "cloud_boots": 2,
+    "black_boots": 4,
+    "great_shift_token": 8,
+    "gold_demon_chain": 7,
+    "flat_crown": 5,
+    "demon_refining_pot": 10,
+    "void_key": 7,
+    "silver_moon_wolf": 8,
+    "qingning_mirror": 4,
+    "potian_shovel": 5,
+    "snake_pearl": 2,
+    "peerless_flying_knives": 6,
+    "bedrock_shield": 5,
+    "nascent_soul_talisman_treasure": 8,
+    "giant_ape_puppet_token": 2,
+    "flat_crown_replica": 5,
+    "spirit_boat_model": 4,
+    "giant_turtle_puppet_core": 4,
+    "nine_dragon_barrier_token": 9,
+    "quhun_iron_puppet": 3,
+    "evil_mirage_mirror_shard": 6,
+    "xuanhuang_mirror_shard": 8,
+    "qingye_leaf_fan": 2,
+    "lieyang_short_sword": 5,
+    "lengyue_blade": 5,
+    "huangsi_robe_artifact": 2,
+    "silver_giant_sword": 5,
+    "azure_rope_net": 4,
+    "fire_cloud_banner": 7,
+    "blood_jade_shield": 4,
+    "tortoise_shell_shield": 3,
+    "fire_rain_needles": 5,
+    "thousand_bee_needles": 6,
+    "wind_fire_wheels": 5,
+    "aura_conceal_cloth": 2,
+    "storage_bracelet_low": 3,
+    "soul_lock_chain": 4,
+    "gold_light_brick": 6,
+    "vermillion_bird_ring": 7,
+    "black_moon_ruler": 10,
+    "falling_star_ring": 10,
+    "green_copper_bell": 10,
+    "demon_suppress_tower_replica": 8,
+    "void_heaven_ruler_shard": 8,
+    "eight_spirit_ruler_shard": 11,
+    "black_wind_flag_fragment": 11,
+    "seven_flame_fan_replica": 11,
+    "mixed_element_bowl_low": 2,
+    "iron_chain_sickle": 2,
+    "spirit_lamp": 2,
+    "beast_taming_whip": 4,
+    "thunder_palm_artifact": 5,
+    "black_gold_shield": 4,
+    "dark_iron_ring": 4,
+    "soul_capturing_bell": 5,
+    "green_bamboo_leaf_sword": 2,
+    "soul_refining_banner": 5,
+    "stealth_cloak_artifact": 4,
+    "demon_subduing_staff": 5,
+    "flying_needle_set": 3,
+    "jade_law_seal": 4,
+    "five_element_orb": 7,
+    "talisman_treasure_thunder_rod": 7,
+    "talisman_treasure_demon_seal": 8,
+    "talisman_treasure_golden_wheel": 6,
+    "ancient_sea_halberd_shard": 10,
+    "ancient_forest_disk_shard": 10,
+    "natal_artifact_embryo": 9,
+    "star_palace_standard_sword": 5,
+    "reverse_star_assassin_blade": 5,
+    "void_palace_chain": 7,
+    "fire_crow_fan": 5,
+    "ice_silk_net": 4,
+    "wind_escape_sail": 4,
+    "celestial_silk_armor": 7,
+    "soul_scattering_mirror_shard": 8,
+    "blood_drinking_hook": 5,
+    "spirit_repelling_mirror": 3,
+    "great_vehicle_vajra_replica": 11,
+    "mixed_element_ruler_low": 5,
+    "spirit_beast_bridle": 4,
+    "beast_soul_bell": 4,
+    "demon_ape_armor": 5,
+    "bixie_blade": 7,
+    "silver_spirit_mirror": 4,
+    "copper_bell_charm": 2,
+    "giant_sword_gate_relic": 5,
+    "montain_five_friends_token": 2,
+    "wanbao_pavilion_coupon": 2,
+    "talisman_treasure_fire_spear": 6,
+    "talisman_treasure_ice_shield": 6,
+    "talisman_treasure_soul_charm": 5,
+    "void_palace_cold_jade_pendant": 7,
+    "ice_fire_dual_orb": 8,
+    "kunwu_seal_fragment": 10,
+    "demonized_ancient_sword": 7,
+    "space_rift_compass": 8,
+    "yellow_demon_banner": 5,
+    "seven_star_disk": 5,
+    "moon_shadow_disk": 5,
+    "phoenix_feather_fan": 7,
+    "dragon_scale_armor": 7,
+    "whirlpool_pearl": 4,
+    "thunder_dragon_horn": 7,
+    "artifact_repair_kit": 2,
+    "spirit_nourish_silk": 6,
+    "xuanguang_mirror_shard": 8,
+    "nine_dragon_cauldron_shard": 10,
+    "azure_ice_sword": 5,
+    "scarlet_dragon_blade": 7,
+    "purple_fire_bead": 7,
+    "vajra_shield": 5,
+    "glazed_guard_shield": 7,
+    "sky_cleaver_axe": 5,
+    "soul_devouring_chain": 5,
+    "thunder_pearl_talisman": 8,
+    "talisman_treasure_flat_mountain": 7,
+    "natal_sword_embryo": 9,
+    "artifact_spirit_awakening_incense": 6,
+    "ancient_treasure_appraisal_lens": 4,
+    "auction_sealed_hammer": 2,
+    "chaotic_sea_navigation_compass": 4,
+    "tianyuan_border_talisman_artifact": 11,
+    "demon_blood_saber": 5,
+    "wood_spirit_staff": 3,
+    "iron_bone_claw": 2,
+    "spirit_sand_hourglass": 6,
+    "xuanguang_mirror_replica": 8,
+    "hunyuan_bowl_replica": 7,
+    "cloud_sedan_token": 7,
+    "great_shift_token_replica": 8,
+    "invisible_needle_set": 5,
+    "xuantie_flying_shield": 5,
+    "dual_element_ring": 7,
+    "red_thread_needles_replica": 6,
+    "sky_bracelet_replica": 7,
+    "bone_wind_cart": 5,
+    "four_symbols_ruler_replica": 8,
+    "blood_thunder_pearl": 7,
+    "demon_dragon_blade_blank": 11,
+    "illusion_transform_clay": 7,
+    "sun_essence_stone_inlay": 8,
+    "geng_gold_inlay": 7,
+    "spirit_talisman_vessel": 8,
+    "six_ding_armor_talisman": 9,
+    "flat_mountain_seal_replica": 10,
+    "three_flame_fan_replica": 11,
+    "mixed_element_disk_replica": 11,
+    "demon_wind_flag_replica": 11,
+    "void_heaven_cauldron_shard": 11,
+    "jade_ruyi_replica": 10,
+    "two_luminaries_shuttle": 10,
+    "mirror_space_scroll": 8,
+    "yuan_yang_veil_replica": 9,
+    "forbidden_demon_ring_set": 10,
+    "star_palace_cipher_talisman": 4
+  },
+  "mod_tier_rules_ref": "artifact_tier_rules.json",
+  "examples_patch": {
+    "tier2": [
+      "qingye_leaf_fan",
+      "huangsi_robe_artifact",
+      "aura_conceal_cloth"
+    ],
+    "tier5": [
+      "lieyang_short_sword",
+      "silver_giant_sword",
+      "wind_fire_wheels"
+    ],
+    "tier6": [
+      "gold_light_brick",
+      "thousand_bee_needles"
+    ],
+    "tier10": [
+      "black_moon_ruler",
+      "green_copper_bell"
+    ],
+    "tier11": [
+      "seven_flame_fan_replica",
+      "eight_spirit_ruler_shard"
+    ]
+  },
+  "natal_artifact_typical_tier": 9,
+  "talisman_treasure_note": "符宝战力近 tier 6–7；符箓为消耗品见 talisman_catalog"
+}

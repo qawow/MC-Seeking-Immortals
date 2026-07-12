@@ -1,0 +1,303 @@
+{
+  "schema_version": 9,
+  "region": "chaotic_sea",
+  "factions": [
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "role": "hegemon",
+      "alignment": "lawful_neutral",
+      "headquarters": "inner_sea_star_island",
+      "structure": [
+        "双圣",
+        "长老会",
+        "执法队",
+        "外岛分舵"
+      ],
+      "player_join": {
+        "realm_min": "FOUNDATION",
+        "reputation_start": 0,
+        "rival_lock": "inverse_star_alliance_below_-50"
+      },
+      "benefits": [
+        "island_tax_reduction",
+        "void_palace_intel",
+        "patrol_merit"
+      ],
+      "controlled_resources": [
+        "bu_tian_pill_quota",
+        "teleport_array_license"
+      ],
+      "internal_conflict": "派系内斗，执法与贸易派分歧",
+      "chronicle_refs": [
+        "K4_star_palace",
+        "A4_void_palace_built"
+      ],
+      "reputation_tiers": [
+        {
+          "min": 0,
+          "max": 99,
+          "title": "外海过客",
+          "perks": [
+            "ferry_access"
+          ]
+        },
+        {
+          "min": 100,
+          "max": 299,
+          "title": "巡防候补",
+          "perks": [
+            "tax_reduction_light",
+            "patrol_quests"
+          ]
+        },
+        {
+          "min": 300,
+          "max": 599,
+          "title": "执法协助",
+          "perks": [
+            "bu_tian_pill_quota",
+            "void_palace_rumor"
+          ]
+        },
+        {
+          "min": 600,
+          "title": "内海通行",
+          "perks": [
+            "teleport_array_license",
+            "star_palace_art_manual"
+          ]
+        }
+      ],
+      "penalties": {
+        "inverse_star_below": -50,
+        "action": "attack_on_sight"
+      },
+      "archetype": "order_sea_law",
+      "specialty": [
+        "阵法",
+        "镇海",
+        "拍卖监管"
+      ],
+      "capital_node": "node_star_palace",
+      "methods": [
+        "star_palace_art"
+      ],
+      "reputation_id": "rep_star_palace",
+      "enemy": "inverse_star_alliance",
+      "internal_factions_ref": "star_palace_internal_factions.json",
+      "setting": {
+        "lore": "乱星海秩序：登记、征税、清剿逆星；双圣与长老会，派系内斗。",
+        "ref": "chaotic_sea_factions.json"
+      },
+      "learn_requirements": {
+        "join": {
+          "realm_min": "QI_REFINING",
+          "fee_spirit_stone": 10
+        }
+      },
+      "quest_chains": [
+        "chaotic_sea_politics",
+        "star_palace_internal_politics",
+        "chaotic_sea_civil_war"
+      ]
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "role": "insurgent",
+      "alignment": "chaotic",
+      "headquarters": "hidden_island_chain",
+      "structure": [
+        "盟主",
+        "各岛主",
+        "黑市议会"
+      ],
+      "player_join": {
+        "realm_min": "FOUNDATION",
+        "entry_quest": "inverse_star_contact",
+        "reputation_star_palace_max": -10
+      },
+      "benefits": [
+        "black_market_prices",
+        "smuggle_routes",
+        "inverse_star_art"
+      ],
+      "controlled_resources": [
+        "stolen_artifacts",
+        "demon_core_black_market"
+      ],
+      "note": "与星宫战争为主；走私边贸并存",
+      "chronicle_refs": [
+        "K5_inverse_star"
+      ],
+      "reputation_tiers": [
+        {
+          "min": 0,
+          "max": 99,
+          "title": "暗港客人",
+          "perks": [
+            "black_market_view"
+          ]
+        },
+        {
+          "min": 100,
+          "max": 299,
+          "title": "走私协力",
+          "perks": [
+            "smuggle_discount"
+          ]
+        },
+        {
+          "min": 300,
+          "title": "盟约岛民",
+          "perks": [
+            "inverse_star_art",
+            "stolen_jade_slip_quest"
+          ]
+        }
+      ],
+      "penalties": {
+        "star_palace_above": 50,
+        "action": "bounty_hunter"
+      },
+      "archetype": "rebel_smuggle",
+      "specialty": [
+        "秘传",
+        "破坏",
+        "海盗策应"
+      ],
+      "hideout_node": "node_inverse_star_hideout",
+      "methods": [
+        "inverse_star_art"
+      ],
+      "reputation_id": "rep_inverse_star",
+      "enemy": "star_palace",
+      "quest_network_ref": "inverse_star_quest_network.json",
+      "quest_chains": [
+        "inverse_star_recruit",
+        "inverse_star_smuggle_arc",
+        "inverse_star_void_heist"
+      ],
+      "setting": {
+        "lore": "与星宫对立，走私禁制与暗杀悬赏；黑市议会各岛主割据。",
+        "ref": "chaotic_sea_factions.json"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "FOUNDATION",
+          "cannot_if": [
+            "star_palace_elite"
+          ]
+        }
+      },
+      "chaotic_sea_quest_hub_ref": "chaotic_sea_faction_quests.json"
+    },
+    {
+      "id": "pirate_scatter",
+      "display": "散修海盗",
+      "archetype": "neutral_threat",
+      "specialty": [
+        "劫掠",
+        "黑市"
+      ],
+      "note": "可双面任务",
+      "black_market_shop": "pirate_black_market_outer_sea",
+      "spatial_node": "node_chaotic_sea_hub",
+      "quest_hooks": [
+        "pirate_bounty",
+        "chaotic_sea_pirate_raid",
+        "pirate_loot_turnin"
+      ],
+      "setting": {
+        "lore": "散修海盗",
+        "ref": "chaotic_sea_factions.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ],
+  "neutral_forces": [
+    {
+      "id": "free_cultivator_islands",
+      "display": "散修群岛",
+      "tax_to": "star_palace"
+    },
+    {
+      "id": "mortal_pearl_fleet",
+      "display": "采珠船队",
+      "event": "pearl_diving_mortals"
+    }
+  ],
+  "disasters_faction_response": {
+    "beast_tide": {
+      "star_palace": "征召巡防",
+      "inverse_star": "劫掠混乱"
+    },
+    "ghost_fog": {
+      "both": "暂休战"
+    },
+    "sky_wind": {
+      "mortals": "避难费暴涨"
+    }
+  },
+  "design_source": "汇编9.7 星宫秩序 vs 逆星盟割据",
+  "islands": [
+    {
+      "id": "outer_sea_market",
+      "display": "外海坊市",
+      "tax_faction": "star_palace",
+      "tax_rate": 0.1,
+      "services": [
+        "ferry",
+        "general_shop"
+      ],
+      "region_card": "outer_sea_market.json",
+      "spatial_node": "node_chaotic_sea_hub"
+    },
+    {
+      "id": "star_island_core",
+      "display": "天星岛",
+      "faction": "star_palace",
+      "realm_min": "FOUNDATION",
+      "services": [
+        "patrol_hall",
+        "array_license"
+      ]
+    },
+    {
+      "id": "hidden_smuggle_cove",
+      "display": "暗礁港",
+      "faction": "inverse_star_alliance",
+      "reputation_gate": {
+        "star_palace_max": 0
+      },
+      "services": [
+        "black_market"
+      ]
+    },
+    {
+      "id": "pearl_mortal_harbor",
+      "display": "采珠港",
+      "neutral": true,
+      "event": "mortal_pearl_fleet"
+    }
+  ],
+  "routes": [
+    {
+      "id": "outer_to_inner",
+      "display": "外海→内海航线",
+      "requires": "star_palace_rep_100_or_bribe",
+      "vehicle": "spirit_boat_mid"
+    },
+    {
+      "id": "smuggle_chain",
+      "display": "暗礁走私链",
+      "requires": "inverse_star_rep_50",
+      "legal": false
+    }
+  ],
+  "faction_war_ref": "chaotic_sea_faction_war.json",
+  "politics_quest_ref": "chaotic_sea_politics"
+}

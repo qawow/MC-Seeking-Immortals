@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "league_ref": "human_clan_league.json",
+  "chains": [
+    {
+      "id": "human_clan_neutral_intro",
+      "display": "世家引荐",
+      "steps": [
+        "fengyuan_clan_intro",
+        "clan_guest_register"
+      ],
+      "setting": {
+        "lore": "世家引荐",
+        "source_file": "human_clan_quest_network.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "human_clan_quest_network.json"
+      }
+    },
+    {
+      "id": "clan_array_mo_line",
+      "display": "莫家阵法线",
+      "faction": "clan_array_mo",
+      "steps": [
+        "array_disk_commission",
+        "formation_trial_mo",
+        "clan_feud_mediation_optional"
+      ],
+      "setting": {
+        "lore": "莫家阵法线",
+        "source_file": "human_clan_quest_network.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "human_clan_quest_network.json"
+      }
+    },
+    {
+      "id": "clan_refinement_yu_line",
+      "display": "俞家炼器线",
+      "faction": "clan_refinement_yu",
+      "steps": [
+        "spirit_ore_escort",
+        "refinement_apprentice_yu",
+        "artifact_appraisal_quest"
+      ],
+      "setting": {
+        "lore": "俞家炼器线",
+        "source_file": "human_clan_quest_network.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "human_clan_quest_network.json"
+      }
+    },
+    {
+      "id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线",
+      "faction": "clan_alchemy_gu",
+      "steps": [
+        "herb_tribute_gu",
+        "alchemy_furnace_access",
+        "pill_quality_audit"
+      ],
+      "setting": {
+        "lore": "谷家丹道线",
+        "source_file": "human_clan_quest_network.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "human_clan_quest_network.json"
+      }
+    },
+    {
+      "id": "clan_talisman_ning_line",
+      "display": "宁家符箓线",
+      "faction": "clan_talisman_ning",
+      "steps": [
+        "talisman_blank_order",
+        "talisman_inscription_lesson",
+        "clan_raid_defense_ning"
+      ],
+      "setting": {
+        "lore": "宁家符箓线",
+        "source_file": "human_clan_quest_network.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "human_clan_quest_network.json"
+      }
+    }
+  ],
+  "cross_clan_event": "dajin_clan_feud_mirror_fengyuan"
+}

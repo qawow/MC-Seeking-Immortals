@@ -1,0 +1,187 @@
+{
+  "schema_version": 3,
+  "note": "spirit_required 为相对量级，须按模组日产量调参",
+  "realms": [
+    {
+      "id": "QI_REFINING",
+      "display": "炼气",
+      "sub_stages": 13,
+      "spirit_per_sub": 100,
+      "lifespan_years": 120,
+      "tribulation": false,
+      "setting": {
+        "lore": "炼气期，引气入体，寿元与凡人相近略增。"
+      },
+      "learn_requirements": {
+        "advance": {
+          "next": "FOUNDATION",
+          "note": "筑基需筑基丹或机缘。"
+        }
+      }
+    },
+    {
+      "id": "FOUNDATION",
+      "display": "筑基",
+      "sub_stages": 4,
+      "spirit_per_sub": 800,
+      "lifespan_years": 250,
+      "tribulation": false,
+      "breakthrough_items": [
+        "foundation_pill"
+      ],
+      "breakthrough_chance_base": 0.3,
+      "setting": {
+        "lore": "筑基期，真元液化，可御器飞行。"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "CORE_FORMATION",
+      "display": "结丹",
+      "sub_stages": 3,
+      "spirit_per_sub": 5000,
+      "lifespan_years": 600,
+      "tribulation": false,
+      "breakthrough_items": [
+        "condensation_pill",
+        "demon_core_mid"
+      ],
+      "setting": {
+        "lore": "结丹期，金丹凝成，宗门中坚。"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "NASCENT_SOUL",
+      "display": "元婴",
+      "sub_stages": 3,
+      "spirit_per_sub": 25000,
+      "lifespan_years": 1200,
+      "tribulation": "minor_soul_trial",
+      "setting": {
+        "lore": "元婴期，可元婴出窍，一方老祖。"
+      },
+      "learn_requirements": {},
+      "tribulation_tier": "minor"
+    },
+    {
+      "id": "DEITY_TRANSFORMATION",
+      "display": "化神",
+      "sub_stages": 3,
+      "spirit_per_sub": 100000,
+      "lifespan_years": 2500,
+      "tribulation": "heart_demon_or_thunder",
+      "ascension_gate": true,
+      "setting": {
+        "lore": "化神期，人界顶阶，可寻界面。"
+      },
+      "learn_requirements": {},
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "VOID_REFINEMENT",
+      "display": "炼虚",
+      "sub_stages": 3,
+      "spirit_per_sub": 400000,
+      "lifespan_years": 5000,
+      "tribulation": "void_thunder",
+      "realm_layer": "spirit_realm_entry",
+      "setting": {
+        "lore": "炼虚"
+      },
+      "learn_requirements": {
+        "advance": {
+          "note": "三段式小境界下/中/上。"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "BODY_INTEGRATION",
+      "display": "合体",
+      "sub_stages": 3,
+      "spirit_per_sub": 1500000,
+      "lifespan_years": 10000,
+      "tribulation": "body_soul_dual",
+      "setting": {
+        "lore": "合体"
+      },
+      "learn_requirements": {
+        "advance": {
+          "note": "三段式小境界下/中/上。"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "GREAT_VEHICLE",
+      "display": "大乘",
+      "sub_stages": 3,
+      "spirit_per_sub": 6000000,
+      "lifespan_years": 100000,
+      "tribulation": "great_ascension_thunder",
+      "ascension_to_immortal": true,
+      "setting": {
+        "lore": "大乘"
+      },
+      "learn_requirements": {
+        "advance": {
+          "note": "三段式小境界下/中/上。"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "TRIBULATION_LAND",
+      "display": "渡劫期",
+      "sub_stages": 1,
+      "note": "大乘巅峰状态，非独立修炼阶",
+      "tribulation": "final_ascension",
+      "setting": {
+        "lore": "渡劫期"
+      },
+      "learn_requirements": {
+        "advance": {
+          "note": "三段式小境界下/中/上。"
+        }
+      },
+      "tribulation_tier": "immortal"
+    }
+  ],
+  "daily_cultivation_formula": "base_gain * region_multiplier * (spirit_root_mult * constitution_mult capped) * method_mult",
+  "bottlenecks": [
+    {
+      "at": "FOUNDATION",
+      "type": "pill_or_sect_resource"
+    },
+    {
+      "at": "CORE_FORMATION",
+      "type": "pill_and_demon_core"
+    },
+    {
+      "at": "DEITY_TRANSFORMATION",
+      "type": "tribulation_and_spirit_density"
+    },
+    {
+      "at": "VOID_REFINEMENT",
+      "type": "artificial_root_or_rare_manual"
+    }
+  ],
+  "crossref": [
+    "tribulation_rules.json",
+    "tribulation_items.json",
+    "economy_reference_magnitudes.json"
+  ],
+  "dimensions_ref": "dimensions_catalog.json",
+  "economy_refs": [
+    "spirit_stone_ladder.json",
+    "economy_auction_bands.json",
+    "economy_spirit_stone_master.json"
+  ],
+  "refs": [
+    "tribulation_tier_schema.json",
+    "tribulation_rules.json",
+    "beast_tier_schema.json",
+    "tribulation_master_schema.json"
+  ]
+}

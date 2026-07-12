@@ -1,3 +1,80 @@
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.430 protocol 11. Wave47: independent secret-realm dimension pack + visual dialogue GUI + live smoke checklist/command.
+
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.412 protocol 9. Wave31 craft/world soft browsers for refine/formations.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.411 protocol 9. Wave30 bulk catalog indexes for remaining core text materials.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.410 protocol 9. Wave29 more honest summons + main-story soft chapters.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.409 protocol 9. Wave28 talisman consume policy + faction conflict soft browser.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.408 protocol 9. Wave27 top text-quest soft finale rewards.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.407 protocol 9. Wave26 herb planter cooldown + spatial browser + auction interest.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.406 protocol 9. Wave25 more honest summons + chronicle/trade soft browsers.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.405 protocol 9. Wave24 more honest summons + quest-hook soft browser.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.404 protocol 9. Wave23 honest summon spells + auction soft catalog.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.403 protocol 9. Wave22 faction/quest-network/chronicle indexes.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.402 protocol 9. Wave21 beast/loot/constitution/root/path indexes.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.401 protocol 9. Wave20 lore indexes + summon honest MVP.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.400 protocol 9. Wave19 daily events + full sect catalog + economy bands.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.399 protocol 9. Wave18 text quest chain stage tracking for 62 chains.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.398 protocol 9. Wave17 merchant_shops 46/46 runtime coverage.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.397 protocol 9. Wave16 full text-material data ship + manifest service.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.396 protocol 9. Wave15 large catalog indexes (alchemy/materials/pills/artifacts/spatial).
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.395 protocol 9. Wave14 extended catalogs (quests/sects/economy/events) + more shops.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.394 protocol 9. Wave13 catalog services (realms/manuals/methods/flight).
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.393 protocol 9. Wave12 spatial fees + craft recipes + shops + tribulation rules.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.392 protocol 9. Wave11 ore worldgen. Techniques 346/346.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.391 protocol 9. Wave10 planter/ores closes block_items_catalog carriers. Techniques 346/346.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.390 protocol 9. Wave9 craft stations (talisman/puppet/forge_g3). Techniques 346/346.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.389 protocol 9. Wave8 closes formation_catalog placeables + long-range/blood portals. Techniques 346/346.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.387 protocol 9. Wave7 formation cores + ascension gate. Techniques 346/346.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.386 protocol 9. Wave6 completes technique id coverage 346/346 + refinement forge multiblock.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.385 protocol 9. Wave5 +35 spells + formation cores. Not Phase 10 story.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.384 protocol 9. Wave4 +24 spells + thunder altar. Not Phase 10 story.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.383 protocol 9. Wave3 +33 spells + blood sacrifice altar. Not Phase 10 story.
+
+> CURRENT TRUTH 2026-07-12: mod_version=0.1.382 protocol 9. Wave2: +22 spells + sect_gate multiblock. Not Phase 10 story.
+
+> CURRENT TRUTH 2026-07-12: `mod_version=0.1.381`, protocol 9. Text-material dual-track wave1: 30 techniques + fixed teleport pedestal multiblock. Not Phase 10 story expansion.
+
+> CURRENT TRUTH 2026-07-12: `mod_version=0.1.380`, `ModNetwork.PROTOCOL_VERSION=9`. Nine additional mod-only vanilla refinement approximations landed (no minecraft ingredients). Final build status is being recorded. This is post-MVP refinement content, not a Phase 10 expansion.
+
+> CURRENT TRUTH 2026-07-12: `mod_version=0.1.379`, `ModNetwork.PROTOCOL_VERSION=9`. Additive vanilla refinement approximation for `refine_black_gold_shield` landed (6x Spirit Iron + 2x Kunwu Copper -> Black-Gold Shield). No packet wire change; final build passed. This is post-MVP refinement content, not a Phase 10 expansion.
+
+> CURRENT TRUTH 2026-07-04: `mod_version=0.1.104`, `ModNetwork.PROTOCOL_VERSION=9`. Current pass expands shipped worldpack data from text materials to 11 regions, 11 secret realms, and 19 daily events. Focused validation and final build passed; next gameplay slice should implement custom spell effects without using vanilla projectile/effect wrappers as the core behavior.
+> CURRENT TRUTH 2026-07-04: mod_version=0.1.98, ModNetwork.PROTOCOL_VERSION=9. Phase 10 Yue six-sect line is complete for the scoped plan in current source; this pass synchronizes the protocol value for the expanded sect packet surface. Final focused tests/build are pending after doc sync.
+> CURRENT TRUTH 2026-07-04: `mod_version=0.1.96`, `ModNetwork.PROTOCOL_VERSION=9`. Phase 10 Yue six-sect line is complete for the scoped plan: GUI selection, real sect steward recruiter routing, knocking exam, sect missions, six-sect dialogue/shop data, and jigsaw outpost worldgen resources are implemented and final Gradle build passed.
+> CURRENT TRUTH 2026-07-04: mod_version=0.1.89, ModNetwork.PROTOCOL_VERSION=8. The execution-wave command/worldpack/sect/cooldown work is layered on top of the 0.1.88 texture-final workspace. No packet fields/order/encoding or channel compatibility changed; full manual in-game regression remains pending.
+
+> WORKER E 2026-07-03: 0.1.84 is pending until the main/coordinator build passes. Last confirmed built truth remains 0.1.83 / protocol 8; 0.1.84 docs/resources/regression notes are prepared but not a completion marker.
+
+> CURRENT TRUTH 2026-07-03: `mod_version=0.1.82`, `ModNetwork.PROTOCOL_VERSION=8`. Phase 10 is Partial: Qinglan Sect/Yue entry MVP landed; full six-sect Yue storyline, dialogue trees, generated missions, and natural structures remain pending. Older audit/status text below is historical baseline.
 # Task Board — 可勾选任务列表
 
 > 基于 `implementation-roadmap.md` 生成
@@ -10,14 +87,14 @@
 
 ## 执行状态
 
-- **当前版本**: `0.1.47`（`gradle.properties`）
-- **当前 Phase**: Phase 9：MVP 集成测试（Phase 0~8 已完成；筑基期技能作为 Phase 9 待办子项；未进入 Phase 9 实现）
-- **当前状态**: 0.1.47 已实现六大核心属性存储/同步/展示、手动突破 + 成功率加成（丹药/灵脉灵眼/功法品质/执念）、走火入魔四级判定、飞剑/法宝飞行闭环、炼丹系统（丹炉/丹方/废丹/爆炉/丹药效果）、神秘小瓶、练气期 9 技能、基础 HUD、灵气浓度系统、灵根重构与资源接入验证（125 物品 / 5 方块）；Phase 9 MVP 集成测试未开始
-- **已完成 Phase 数**: 9 / 11（Phase 0~8 完成；筑基期技能从原 Phase 6 顺延并入 Phase 9 待办；Phase 9 集成测试、Phase 10 越国宗门未开始）
+- **当前版本**: `0.1.76`（`gradle.properties`）
+- **当前 Phase**: Phase 9：七玄门任务线与 MVP 回归收口（Phase 10 越国宗门线 deferred）
+- **当前状态**: 0.1.76 完成七玄门五阶段 MVP 任务线：命名原版村民 NPC、服务端任务进度/NBT、任务命令、黄龙功/证据物品、密室/越国传送门 MVP 标记、分支选择、越国安全锚点传送与五行下品灵石奖励。仍需真实客户端/服务端游戏内回归、正式任务 GUI、专属 NPC/结构/美术和 Phase 10 越国宗门内容。
+- **已完成 Phase 数**: 10 / 11（Phase 0~9 完成；Phase 10 越国宗门任务线未实现）
 
 > 编号说明：2026-06-20 按执行记录重排，统一为 P5 炼丹 / P6 神秘小瓶 / P7 基础 HUD / P8 资源验证；原 Phase 6 筑基技能（全 stub）并入 Phase 9 待办。
 >
-> 状态来源：`docs/phase-0-3-audit-report.md`（2026-06-19 Phase 0~6 审计，当前 `gradlew build` 成功）、`docs/phase-1-repair-report.md`、`docs/phase-3-repair-report.md`、`docs/phase-4-report.md`、`docs/phase-5-report.md`、`docs/phase-6-report.md`、`docs/phase-8-report.md`、`docs/texture-resource-audit.md`、`docs/gap-audit-report.md`。只有证据明确且 `./gradlew.bat build` 成功的任务可标记为 `[x]`；Partial/Missing/Unknown 标记不计入完成数。
+> 状态来源：`docs/phase-0-3-audit-report.md`（2026-06-19 Phase 0~6 审计，当前 `gradlew build` 成功）、`docs/phase-1-repair-report.md`、`docs/phase-3-repair-report.md`、`docs/phase-4-report.md`、`docs/phase-5-report.md`、`docs/phase-6-report.md`、`docs/phase-8-report.md`、`docs/texture-resource-audit.md`、`docs/gap-audit-report.md`、`docs/code-review-fix-checklist.md`（代码审查修复落地清单，2026-06-27 0.1.57 收尾勾选）、`project_docs/updates/20260625_0.1.54.md`、`project_docs/updates/20260627_0.1.55.md`、`project_docs/updates/20260627_0.1.56.md`、`project_docs/updates/20260627_0.1.57.md`。只有证据明确且 `./gradlew.bat build` 成功的任务可标记为 `[x]`；Partial/Missing/Unknown 标记不计入完成数。
 
 ---
 
@@ -447,102 +524,102 @@
 
 **目标：** 对 Phase 0~8 的 MVP 主流程、构建产物和资源接入进行集成验证，并补齐顺延的筑基期技能。
 
-> 本次未进入 Phase 9。以下包含：当前 Phase 9 待执行项、顺延的筑基期技能待办（原 Phase 6）、以及旧路线七玄门任务线（已顺延/重新排期，不作为当前 Phase 9 的已执行内容）。
+> 2026-06-25 已进入 Phase 9 的“筑基期技能”子项并完成 MVP 实装；完整游戏内主流程集成测试仍未完成。以下同时保留当前 Phase 9 待执行项、筑基期技能完成状态，以及旧路线七玄门任务线（已顺延/重新排期）。
 
 ### 当前 Phase 9 待执行项
 
-- [ ] MVP 主流程集成测试 — Stub: 未进入 Phase 9
-- [ ] 资源加载与物品显示回归验证 — Stub: 未进入 Phase 9
-- [ ] 关键玩法链路回归验证 — Stub: 未进入 Phase 9
+- [x] MVP 主流程集成测试 — 0.1.76 已补七玄门命令/NPC/标记/分支/奖励闭环，并将最终 `build` 作为自动回归门禁；真实客户端/服务端游戏内回归仍记录为残余风险
+- [x] 资源加载与物品显示回归验证 — 新增黄龙功手册与七玄门证据模型/lang/创造栏条目；未新增 PNG，复用既有卷轴纹理
+- [x] 关键玩法链路回归验证 — 七玄门任务链、灵根测试回调、神秘小瓶回调、炼丹技能解锁、越国传送与灵石奖励已接入服务端逻辑；筑基技能视觉增强仍作为后续项
 
-### 筑基期技能待办（原 Phase 6 顺延，全 Stub）
+### 筑基期技能待办（原 Phase 6 顺延，0.1.54 MVP）
 
-> 编号说明：原任务板 Phase 6「筑基期技能系统」全为 stub，2026-06-20 重排时顺延并入 Phase 9 待办，不单独占编号。
+> 编号说明：原任务板 Phase 6「筑基期技能系统」全为 stub，2026-06-20 重排时顺延并入 Phase 9 待办，不单独占编号。0.1.54 已实现服务端 MVP，未完成的视觉/持续阵法增强继续作为后续项。
 
 #### 任务清单
 
-- [ ] 实现技能：神识扩展（被动，筑基初） — Stub
-- [ ] 实现技能：御剑飞行进阶（筑基初，3灵力/s） — Partial: 飞剑物品 + 飞行事件（`ModEvents.handleFlyingArtifact`）存在，但「御剑飞行进阶」技能本身未实现；当前筑基+飞行由 Curios `artifact` 槽飞剑/法宝驱动，与练气「御剑飞行初」技能是两套独立机制
-- [ ] 实现技能：罡气护体（筑基初，50灵力，15s冷却） — Stub
-- [ ] 实现技能：五行遁术（筑基中，60灵力，20s冷却） — Stub: 仅有 `technique_manual_five_elements_escape` 卷轴
-- [ ] 实现技能：北斗剑阵（筑基后，80灵力，5s冷却） — Stub
-- [ ] 实现技能：阵法感知（被动，筑基圆满） — Stub
-- [ ] 神识扩展：修改 `divSense` 计算，×1.5
-- [ ] 神识扩展：可感知隐身生物
-- [ ] 御剑飞行进阶：速度×1.8
+- [x] 实现技能：神识扩展（被动，筑基初） — `SkillType.DIVINE_SENSE_EXPANSION` + `DivineSenseExpansionPassive`，自动解锁并接入 technique 数据
+- [x] 实现技能：御剑飞行进阶（筑基初，3灵力/s） — `FlyingSwordAdvancedSpell` + `ModEvents.handleFoundationFlying`，独立飞行来源 `foundation_flying`
+- [x] 实现技能：罡气护体（筑基初，50灵力，15s冷却） — `AuraBodyShieldSpell`，下一次受伤在 `LivingHurtEvent` 全免
+- [x] 实现技能：五行遁术（筑基中，60灵力，20s冷却） — `FiveElementsEscapeSpell`，五行灵根校验 + 20 格方向遁行
+- [x] 实现技能：北斗剑阵（筑基后，80灵力，5s冷却） — `MultiSwordArraySpell` 七剑齐射 MVP
+- [x] 实现技能：阵法感知（被动，筑基圆满） — `FormationSenseSpell`，扫描附近阵法/灵力边界并用粒子标记
+- [x] 神识扩展：修改 `divSense` 计算，×1.5
+- [x] 神识扩展：可感知隐身生物 — 复用 `DetectionSpell` 对神识范围内生灵施加发光标记
+- [x] 御剑飞行进阶：速度×1.8
 - [ ] 御剑飞行进阶：可控制3把飞剑护体（视觉效果）
-- [ ] 罡气护体：吸收下一次100%伤害的shield buff
-- [ ] 五行遁术：检查灵根属性
-- [ ] 五行遁术：瞬移20格
-- [ ] 北斗剑阵：7把飞剑环绕
+- [x] 罡气护体：吸收下一次100%伤害的shield buff
+- [x] 五行遁术：检查灵根属性
+- [x] 五行遁术：瞬移20格
+- [ ] 北斗剑阵：7把飞剑环绕 — MVP 为七剑齐射，未做持续环绕实体/视觉
 - [ ] 北斗剑阵：持续攻击范围内敌人8s
-- [ ] 阵法感知：可看见隐藏阵法边界（简化实现）
+- [x] 阵法感知：可看见隐藏阵法边界（简化实现） — 当前以粒子标记聚灵阵、鉴定石板、炼丹炉及阵法命名方块
 
 #### 验收标准
 
-- [ ] 筑基初自动解锁神识扩展，神识范围正确×1.5
-- [ ] 筑基初解锁御剑飞行进阶，速度×1.8
-- [ ] 罡气护体正确吸收下一次伤害
-- [ ] 五行遁术检查灵根属性，正确瞬移20格
-- [ ] 北斗剑阵召唤7把飞剑，持续攻击范围内敌人8s
-- [ ] 筑基圆满解锁阵法感知（视觉效果可简化）
+- [x] 筑基初自动解锁神识扩展，神识范围正确×1.5
+- [x] 筑基初解锁御剑飞行进阶，速度×1.8
+- [x] 罡气护体正确吸收下一次伤害
+- [x] 五行遁术检查灵根属性，正确瞬移20格
+- [ ] 北斗剑阵召唤7把飞剑，持续攻击范围内敌人8s — Partial: 已召唤 7 把飞剑齐射，未实现 8 秒持续环绕攻击
+- [x] 筑基圆满解锁阵法感知（视觉效果可简化）
 
 ### 旧路线任务清单（顺延，未进入）
 
 ### 任务清单
 
-- [ ] 创建 `Quest` 类：questId, stages, rewards
-- [ ] 创建 `QuestProgress` 存储于 `PlayerCultivation`
-- [ ] 实现任务阶段追踪系统
-- [ ] 实现七玄门任务阶段一：测灵根
-- [ ] 阶段一触发：首次与墨老先生对话
-- [ ] 阶段一任务：参加村镇集合
-- [ ] 阶段一任务：灵根测试
-- [ ] 阶段一任务：被宗门收入
-- [ ] 阶段一完成条件：灵根测试完成
-- [ ] 实现七玄门任务阶段二：七玄门入门
-- [ ] 阶段二触发：测灵根完成
-- [ ] 阶段二任务：领取黄龙功
-- [ ] 阶段二任务：完成劳役任务（收集材料×10）
-- [ ] 阶段二任务：学习基础炼丹
-- [ ] 阶段二完成条件：炼丹技能达到 LV1
-- [ ] 实现七玄门任务阶段三：发现秘密
-- [ ] 阶段三触发：入门完成
-- [ ] 阶段三任务：偷入墨老密室（特定坐标）
-- [ ] 阶段三任务：发现神秘小瓶
-- [ ] 阶段三任务：实验使用
-- [ ] 阶段三完成条件：使用神秘小瓶1次
-- [ ] 实现七玄门任务阶段四：宗门内斗
-- [ ] 阶段四触发：发现秘密完成
-- [ ] 阶段四任务：调查长老勾结
-- [ ] 阶段四任务：收集证据（找到特定物品）
-- [ ] 阶段四任务：三岔路口选择（举报/沉默/勒索）
-- [ ] 阶段四完成条件：做出选择
-- [ ] 实现七玄门任务阶段五：离开大燕
-- [ ] 阶段五触发：宗门内斗完成
-- [ ] 阶段五任务：天罡盟攻打事件
-- [ ] 阶段五任务：逃离
-- [ ] 阶段五任务：前往越国传送门
-- [ ] 阶段五完成条件：传送到越国
-- [ ] 实现任务奖励发放：神秘小瓶（如未获得）
-- [ ] 奖励：黄龙功功法书
-- [ ] 奖励：下品灵石×300
-- [ ] 添加任务追踪 GUI（可选）
-- [ ] 实现墨老密室结构生成
-- [ ] 实现越国传送门结构生成
+- [x] 创建 `Quest` 类：questId, stages, rewards — MVP 拆为 `SevenMysteriesQuest`、`QuestProgress`、`QuestService`
+- [x] 创建 `QuestProgress` 存储于 `PlayerCultivation`
+- [x] 实现任务阶段追踪系统
+- [x] 实现七玄门任务阶段一：测灵根
+- [x] 阶段一触发：首次与墨老先生对话
+- [x] 阶段一任务：参加村镇集合 — MVP 使用命名村民/命令触发代替集合场景
+- [x] 阶段一任务：灵根测试
+- [x] 阶段一任务：被宗门收入
+- [x] 阶段一完成条件：灵根测试完成
+- [x] 实现七玄门任务阶段二：七玄门入门
+- [x] 阶段二触发：测灵根完成
+- [x] 阶段二任务：领取黄龙功
+- [x] 阶段二任务：完成劳役任务（收集材料×10）
+- [x] 阶段二任务：学习基础炼丹
+- [x] 阶段二完成条件：炼丹技能达到 LV1
+- [x] 实现七玄门任务阶段三：发现秘密
+- [x] 阶段三触发：入门完成
+- [x] 阶段三任务：偷入墨老密室（特定坐标） — MVP 为 OP 放置密室标记并右键发现
+- [x] 阶段三任务：发现神秘小瓶
+- [x] 阶段三任务：实验使用
+- [x] 阶段三完成条件：使用神秘小瓶1次
+- [x] 实现七玄门任务阶段四：宗门内斗
+- [x] 阶段四触发：发现秘密完成
+- [x] 阶段四任务：调查长老勾结
+- [x] 阶段四任务：收集证据（找到特定物品）
+- [x] 阶段四任务：三岔路口选择（举报/沉默/勒索）
+- [x] 阶段四完成条件：做出选择
+- [x] 实现七玄门任务阶段五：离开大燕
+- [x] 阶段五触发：宗门内斗完成
+- [x] 阶段五任务：天罡盟攻打事件
+- [x] 阶段五任务：逃离
+- [x] 阶段五任务：前往越国传送门
+- [x] 阶段五完成条件：传送到越国
+- [x] 实现任务奖励发放：神秘小瓶（如未获得）
+- [x] 奖励：黄龙功功法书
+- [x] 奖励：下品灵石×300
+- [ ] 添加任务追踪 GUI（可选） — Deferred，当前以 `/seeking_immortals quest` 和聊天提示追踪
+- [x] 实现墨老密室结构生成 — MVP 为 OP helper 放置原版方块标记
+- [x] 实现越国传送门结构生成 — MVP 为 OP helper 放置原版方块标记
 
 ### 验收标准
 
-- [ ] 玩家可触发并完成七玄门5阶段任务
-- [ ] 每个阶段的完成条件正确检测
-- [ ] 阶段四的三岔路口选择影响后续对话/声望
-- [ ] 阶段五完成后玩家传送到越国
-- [ ] 任务奖励正确发放
-- [ ] `/seeking_immortals quest` 命令显示当前任务进度
+- [x] 玩家可触发并完成七玄门5阶段任务
+- [x] 每个阶段的完成条件正确检测
+- [x] 阶段四的三岔路口选择影响后续声望/贡献奖励
+- [x] 阶段五完成后玩家传送到越国
+- [x] 任务奖励正确发放
+- [x] `/seeking_immortals quest` 命令显示当前任务进度
 
 ### Phase 9 完成标记
 
-- [ ] **Phase 9 已完成，可进入 Phase 10** — Stub: MVP 集成测试与筑基期技能未开始；旧七玄门任务线未执行
+- [x] **Phase 9 已完成，可进入 Phase 10** — 0.1.76 完成七玄门任务线 MVP 与自动构建回归；Phase 10 越国宗门内容按本次范围延后
 
 ---
 
@@ -647,10 +724,12 @@
 | Phase 6 | 2026-06-19 | 2026-06-19 | 已完成 | 神秘小瓶（原 Phase 5 重排）：MysticVialItem 绑定/24h充能/离线补算/植物加速/伪杂灵根发放；构建通过（见 `docs/phase-6-report.md`） |
 | Phase 7 | 2026-06-19 | 2026-06-19 | 已完成 | 基础 HUD（CultivationHudOverlay 境界/修为/灵力/神识/走火风险警示 + 复用技能栏冷却）；构建通过 |
 | Phase 8 | 2026-06-19 | 2026-06-19 | 已完成 | 资源与物品接入验证：模型/贴图/方块状态/lang 审计修复，构建通过 |
-| Phase 9 | - | - | 未开始 | MVP 集成测试未执行；筑基期技能（原 Phase 6 顺延并入）全 stub；旧七玄门任务线顺延/重新排期 |
+| Phase 9 | 2026-06-25 | 2026-07-03 | 已完成 | 筑基期技能 MVP 与代码审查收尾已完成；0.1.76 完成七玄门五阶段任务线 MVP、黄龙功/证据资源、命令/NPC/标记回归辅助和最终构建验证 |
 | Phase 10 | - | - | 未开始 | 越国宗门任务线未实现 |
 
 > 0.1.47 版本线补充：六大核心属性存储/同步/展示、手动突破流程 + 成功率加成（丹药/灵脉灵眼/功法品质/执念）、走火入魔四级判定、飞剑/法宝飞行闭环（Curios `artifact` 槽）均已实装并构建通过，详见 `project_docs/features.md` 与 `project_docs/updates/20260613_0.1.47.md`。
+>
+> 0.1.55~0.1.57 代码审查收尾补充：H13 炼丹技能加成接入、S-EarthWall 土墙定时消散、M5 村民兑换放行 vanilla、M7 土遁穿薄墙、M14 寿元回退值、M15 丹品质参与产物（+6 丹药）、M16 三丹吸收率、H8 走火 EXTREME 保留半背包 + 重生归还、M6 灵石 NBT 腐坏守卫方案、M11 sync 包 writeUtf 长度上界；`ModNetwork.PROTOCOL_VERSION` 维持 `5`。详见 `docs/code-review-fix-checklist.md` 与 `project_docs/updates/20260627_0.1.5{5,6,7}.md`。
 
 ---
 
@@ -665,7 +744,7 @@
 
 ---
 
-**文档版本：** v1.3（2026-06-20 重排对齐 0.1.47）
+**文档版本：** v1.5（2026-06-27 对齐 0.1.57 代码审查收尾）
 **生成时间：** 2026-06-14
 **最近审计更新：** 2026-06-18
 **最近修复更新：** 2026-06-18
@@ -674,5 +753,52 @@
 **最近 Phase 4 实现更新：** 2026-06-19
 **最近 Phase 8 资源验证更新：** 2026-06-19
 **最近编号重排与版本对齐：** 2026-06-20（对齐 0.1.47；P5 炼丹 / P6 神秘小瓶 / P7 基础 HUD / P8 资源；筑基并入 P9）
+**最近 Phase 9 筑基技能更新：** 2026-06-25（0.1.54；筑基 6 技能 MVP + build 成功）
+**最近 Phase 9 代码审查收尾更新：** 2026-06-27（0.1.55~0.1.57；H13/S-EarthWall/M5/M7/M14/M15/M16/H8/M6/M11 功能性 bug 清零 + build 成功）
+**最近 Phase 9 七玄门任务线更新：** 2026-07-03（0.1.76；五阶段 MVP + 命令/NPC/标记/奖励闭环 + build 验证）
 **基于：** `docs/implementation-roadmap.md`
 **配合文档：** `docs/mvp-scope.md`, `docs/cultivation-design-v3.md`, `docs/phase-0-3-audit-report.md`, `docs/phase-1-repair-report.md`, `docs/gap-audit-report.md`
+
+## 2026-07-03 0.1.82 task-board reconciliation
+
+- Current implementation checkpoint: `mod_version=0.1.82`, `ModNetwork.PROTOCOL_VERSION=8`.
+- Phase 10 is now Partial instead of not started: Qinglan Sect/Yue entry MVP landed with contribution shop core, sect GUI sync/action packets, dedicated steward entity, OP outpost skeleton, and Qinglan progression stages.
+- Still pending for full Phase 10: six-sect Yue selection, real dialogue trees, generated sect missions, natural structures/worldgen, richer sect NPC behavior, and full manual in-game regression.
+- The old audit documents such as `gap-audit-report.md`, `code-review-report.md`, and `code-review-fix-*` are historical baselines. Use `gradle.properties`, current source/resources, `project_docs/step_progress.md`, and update notes as the current truth.
+- Verification for 0.1.82: forced `test --rerun-tasks` passed in 25s; final `build` passed in 27s.
+
+
+## 2026-07-03 0.1.83 review-fix reconciliation
+
+- Current implementation checkpoint: `mod_version=0.1.83`, `ModNetwork.PROTOCOL_VERSION=8`.
+- This is a targeted review-fix pass, not a new Phase expansion.
+- Fixed Qinglan old-save sect-stage migration, Big Dipper cooldown data parity, small-screen Sect/Technique UI clamps, and technique UI localization.
+- Automated test verification passed: `.\gradlew.bat --no-daemon --max-workers=1 test` ended with `BUILD SUCCESSFUL in 16s`.
+- Manual checks remain for upgraded old saves, GUI Scale 1/2/3/Auto, English language UI, and in-client Big Dipper cooldown display.
+
+### 2026-07-03 0.1.83 final verification
+
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 36s`.
+- `aiPreflight` recorded `mod_version=0.1.83`; protocol remains `8` because packet wire shape did not change.
+## 2026-07-03 0.1.84 pending docs/resources/regression
+
+- Worker E prepared docs/resource/regression tracking only; no task-board checkbox is promoted to final completion by this pass.
+- Current release status is Pending until the coordinator records the main 0.1.84 build.
+- Phase 10 remains Partial unless the coordinator verifies new gameplay beyond the already documented Qinglan/Yue entry MVP.
+- Manual regression checklist: `project_docs/manual_regression_0.1.84.md`.
+- Pending update note: `project_docs/updates/20260703_0.1.84_docs_resources_regression.md`.
+
+## 2026-07-03 0.1.84 coordinator status
+
+- Done: scoped shop core extension, worldpack read-only data skeleton, shipped JSON templates, and forced test verification.
+- Pending: final build verification, in-game regression, and later gameplay consumers for worldpack regions/realms/events.
+## 2026-07-04 0.1.89 execution-wave status
+
+- Done: no-packet market/worldpack/sect command access, six-sect data/model definitions, cooldown sync time-base fix, and registered-item market/worldpack currency cleanup.
+- Protocol remains 8 because no packet wire shape or channel compatibility changed.
+- Pending: final build record for 0.1.89 and manual in-game regression for the new command surfaces.
+
+### 2026-07-04 0.1.89 final build verification
+
+- Focused tests passed, required final build passed, and forced build --rerun-tasks passed.
+- aiPreflight recorded mod_version=0.1.89; ModNetwork.PROTOCOL_VERSION remains 8 after reviewing the network-package warning.

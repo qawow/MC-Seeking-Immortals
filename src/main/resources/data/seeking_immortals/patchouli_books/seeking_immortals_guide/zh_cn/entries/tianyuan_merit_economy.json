@@ -1,0 +1,28 @@
+﻿{
+    "name":  "天渊功勋",
+    "category":  "seeking_immortals:basics",
+    "icon":  "seeking_immortals:immortal_jade",
+    "sortnum":  21,
+    "pages":  [
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "功勋来源",
+                      "text":  "本条目对应文本材料 tianyuan_merit_economy.json，并依托已接入的 tianyuan 世界包区域、灵界传送阵规则和 Patchouli 指南。材料列出的功勋来源包括荒原猎妖、兽潮守城、功勋车队护卫和妖族外交任务。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "兑换目录",
+                      "text":  "设定中的功勋兑换包含 high-grade spirit stone、pressure_resist_charm、diyuan_permit 和 wind_feather_raft_ticket；其中地渊令需 1200 功勋并以炼虚为最低境界。当前版本已用 alliance_merit_token 作为物品货币接入第一版天渊功勋殿。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "当前实现",
+                      "text":  "目前可游玩的前置面是天渊区域、天渊维度锚点、聚灵阵跨界规则、风羽舟票旅行规则、地渊令入场规则，以及 ShopService 物品货币商店：上品灵石 50 功勋令，抗压符 200，风羽舟票 300，地渊令 1200。购买仍由服务端校验。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "后续目标",
+                      "text":  "真正完整的天渊功勋体系仍需要服务器权威的联盟功绩账户、功勋任务、兑换 UI、月度/境界门槛、地渊任务检查、NPC 服务和 FTB Quests 章节。当前只是第一版物品货币兑换入口。"
+                  }
+              ]
+}

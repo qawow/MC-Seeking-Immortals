@@ -1,0 +1,30 @@
+{
+  "id": "tiannan_herb_market",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_grass",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4,
+      "cost": 2,
+      "stock": 24
+    },
+    {
+      "id": "cloud_mushroom",
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 1,
+      "cost": 3,
+      "stock": 12
+    },
+    {
+      "id": "immortal_ginseng",
+      "item": "seeking_immortals:immortal_ginseng",
+      "count": 1,
+      "cost": 8,
+      "stock": 4
+    }
+  ]
+}

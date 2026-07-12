@@ -4,6 +4,110 @@
   "description": "结丹期修士可学习和使用的高阶功法、剑诀神通、五行遁术、妖族天赋、魔道鬼道与正道真火规则。当前为规则数据，供后续功法学习、宗门传承、阵法神通、禁术代价和战斗技能系统接入。",
   "techniques": [
     {
+      "id": "primordial_magnet_sphere",
+      "name": "元磁神光",
+      "type": "spell",
+      "attribute": "金/元磁/控制",
+      "source": "长春功结丹扩展",
+      "cost": 26,
+      "cooldown_ticks": 220,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹期元磁术法，元磁之力摄物控敌，当前实现为自定义元磁球域粒子、牵引和飞矢偏转，不调用原版攻击实体。"
+    },
+    {
+      "id": "flame_serpent_storm",
+      "name": "炎蛇风暴",
+      "type": "spell",
+      "attribute": "火",
+      "source": "烈焰真经",
+      "cost": 30,
+      "cooldown_ticks": 220,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹期火系范围术法，数道火蛇交织成风暴灼烧范围内目标，当前实现为自定义灵焰蛇形粒子轨迹。"
+    },
+    {
+      "id": "earth_mountain_press",
+      "name": "山岳压",
+      "type": "spell",
+      "attribute": "土",
+      "source": "土元功",
+      "cost": 28,
+      "cooldown_ticks": 210,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹期土系范围术法，土灵化山影砸落并压制目标行动，当前实现为自定义下坠山影粒子和震荡圈。"
+    },
+    {
+      "id": "xuantian_ice_prison",
+      "name": "玄天冰牢",
+      "type": "spell",
+      "attribute": "冰/控制",
+      "source": "玄天冰诀",
+      "cost": 30,
+      "cooldown_ticks": 240,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹期冰系控制术法，玄冰成牢封禁敌人行动，当前实现为自定义冰牢粒子柱、冻结和迟滞。"
+    },
+    {
+      "id": "five_element_fusion_burst",
+      "name": "五行融爆",
+      "type": "secret_art",
+      "attribute": "五行/融合/爆裂",
+      "source": "五行本源诀",
+      "cost": 48,
+      "cooldown_ticks": 320,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "five_elements_root_art",
+      "summary": "源自文本材料 secret_arts.json 的结丹期五行秘术，五行灵力在一点融汇爆裂；当前实现为自定义五色环阵、五行光路牵引和范围魔法伤害，不调用原版爆炸或闪电实体。"
+    },
+    {
+      "id": "star_palace_patrol_beacon",
+      "name": "巡海信标",
+      "type": "utility",
+      "attribute": "阵法/星宫/巡海",
+      "source": "文本材料 formation.json",
+      "cost": 18,
+      "cooldown_ticks": 220,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "star_palace_art",
+      "summary": "结丹星宫阵法术，在身周竖起巡海信标，给予夜视和身法加持，并显形附近敌踪；视觉为蓝金信标阵纹而非原版实体。"
+    },
+    {
+      "id": "star_palace_seal",
+      "name": "镇海印",
+      "type": "control",
+      "attribute": "阵法/水/星宫",
+      "source": "文本材料 formation.json",
+      "cost": 26,
+      "cooldown_ticks": 220,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "star_palace_art",
+      "summary": "结丹星宫镇海印，阵力在落点合拢镇压目标，造成术法伤害、显形、迟滞和虚弱；视觉为自定义镇海印纹。"
+    },
+    {
+      "id": "kunwu_seal_strike",
+      "name": "坤吴印击",
+      "type": "aoe",
+      "attribute": "阵法/坤吴/封印",
+      "source": "文本材料 formation.json",
+      "cost": 26,
+      "cooldown_ticks": 210,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "kunwu_seal_art",
+      "summary": "坤吴印诀牵引阵力镇压一片区域，造成较高术法伤害并强力封禁行动；视觉为金青八角印击阵。"
+    },
+    {
+      "id": "star_palace_tidal_lock",
+      "name": "镇海潮封",
+      "type": "control",
+      "attribute": "阵法/潮汐/星宫",
+      "source": "文本材料 formation.json",
+      "cost": 26,
+      "cooldown_ticks": 240,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "star_palace_art",
+      "summary": "星宫海域禁制的战斗版本，以潮封阵纹迟滞敌方遁速并削弱攻势；视觉为蓝白潮纹阵而非原版水流实体。"
+    },
+    {
       "id": "sword_shadow_splitting_art_level_7_9",
       "name": "剑影分光术（7-9层）",
       "type": "sword_divine_ability",
@@ -73,6 +177,9 @@
       "type": "movement",
       "attribute": "妖族/血/遁术",
       "source": "妖族禽修",
+      "cost": 35,
+      "cooldown_ticks": 200,
+      "required_realm": "CORE_FORMATION",
       "summary": "妖族禽修的天赋神通，利用禽类精血进行瞬间移动，能够在百里范围内瞬移，是极其实用的逃命神通。"
     },
     {
@@ -153,6 +260,9 @@
       "type": "demonic_defense",
       "attribute": "魔道/防御",
       "source": "魔道",
+      "cost": 32,
+      "cooldown_ticks": 260,
+      "required_realm": "CORE_FORMATION",
       "summary": "乱星海公认的第一防御魔功，修炼到高深处能够托举天穹般坚不可摧，是魔修梦寐以求的护身神功。"
     },
     {
@@ -177,6 +287,9 @@
       "type": "ghost_art",
       "attribute": "鬼道/神魂/火",
       "source": "鬼道",
+      "cost": 30,
+      "cooldown_ticks": 180,
+      "required_realm": "CORE_FORMATION",
       "summary": "鬼道邪术，以神识点燃的阴森鬼火，专门克制魂魄类防御，被此火焚烧会直接伤及神魂本源。"
     },
     {
@@ -185,6 +298,9 @@
       "type": "ghost_art",
       "attribute": "鬼道/炼体/神魂",
       "source": "鬼道",
+      "cost": 24,
+      "cooldown_ticks": 240,
+      "required_realm": "CORE_FORMATION",
       "summary": "鬼道秘术，以魂魄之力强化自身骨骼，使骨骼坚硬如精铁，同时增强对魂魄攻击的抗性。"
     },
     {
@@ -201,6 +317,9 @@
       "type": "demonic_defense",
       "attribute": "血道/防御",
       "source": "魔道",
+      "cost": 34,
+      "cooldown_ticks": 240,
+      "required_realm": "CORE_FORMATION",
       "summary": "血道防御秘术，以精血形成防护罩，不仅能够抵御攻击还能反弹部分伤害给攻击者，是血修的重要保命手段。"
     },
     {
@@ -209,7 +328,67 @@
       "type": "demonic_attack",
       "attribute": "阴/魔道",
       "source": "魔道",
+      "cost": 32,
+      "cooldown_ticks": 190,
+      "required_realm": "CORE_FORMATION",
       "summary": "阴属性斩击神通，专门克制各种护体灵光，能够无视大部分防御直接攻击本体，是魔修的杀手锏。"
+    },
+    {
+      "id": "divine_sense_lock",
+      "name": "神识锁敌",
+      "type": "control",
+      "attribute": "神识/锁定",
+      "source": "通用结丹秘术",
+      "cost": 26,
+      "cooldown_ticks": 220,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹期强大神识锁敌术，压制并显形目标，当前实现为自定义神识锁环、魔法伤害、迟滞、虚弱和破隐。"
+    },
+    {
+      "id": "soul_attack_wave",
+      "name": "神魂冲击",
+      "type": "beam",
+      "attribute": "神识/神魂",
+      "source": "通用结丹秘术",
+      "cost": 26,
+      "cooldown_ticks": 200,
+      "required_realm": "CORE_FORMATION",
+      "summary": "神魂之力化作扇形冲击波轰出，震乱直线目标识海，使用自定义波纹粒子而非原版闪电或爆炸。"
+    },
+    {
+      "id": "soul_cry_shock",
+      "name": "啼魂尖啸",
+      "type": "aoe",
+      "attribute": "神识/啼魂/克鬼",
+      "source": "凡人向扩充",
+      "cost": 26,
+      "cooldown_ticks": 240,
+      "required_realm": "CORE_FORMATION",
+      "summary": "啼魂式神魂尖啸震荡周身目标，对鬼物与不死类额外有效，当前实现为自定义声波环和神魂压制。"
+    },
+    {
+      "id": "yanyue_phantom_array",
+      "name": "掩月幻阵",
+      "type": "aoe",
+      "attribute": "幻术/阵域/月影",
+      "source": "文本材料 illusion.json",
+      "cost": 38,
+      "cooldown_ticks": 300,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "yanyue_illusion_art",
+      "summary": "结丹期掩月秘式，在视线落点展开多层月影幻阵，造成范围术法伤害并施加反胃、迟滞、虚弱和显形；视觉为自定义月弧、环阵和幻影连线。"
+    },
+    {
+      "id": "wanhu_nine_illusion",
+      "name": "九尾幻境",
+      "type": "aoe",
+      "attribute": "幻术/多重幻境",
+      "source": "文本材料 illusion.json",
+      "cost": 26,
+      "cooldown_ticks": 260,
+      "required_realm": "CORE_FORMATION",
+      "requires_method": "wanhu_phantom_art",
+      "summary": "万狐一脉九重幻境，以九道幻弧扰乱范围内敌人心神，造成术法伤害并叠加混乱、迟滞、虚弱和显形；不生成原版爆炸或攻击实体。"
     },
     {
       "id": "purple_luo_extreme_fire",
@@ -226,6 +405,426 @@
       "attribute": "火/阳刚/驱邪",
       "source": "正道",
       "summary": "正道火系神通，蕴含纯正阳刚之气，专门克制一切阴邪鬼物，是驱邪除魔的利器。"
+    },
+    {
+      "id": "evil_ward_thunder",
+      "name": "镇邪雷",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 26,
+      "required_realm": "CORE_FORMATION",
+      "summary": "结丹镇邪雷芒投射击溃阴邪"
+    },
+    {
+      "id": "green_bamboo_sword_ray",
+      "name": "青竹剑芒",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 26,
+      "required_realm": "CORE_FORMATION",
+      "summary": "青竹剑气凝芒穿刺"
+    },
+    {
+      "id": "star_sword_array",
+      "name": "星辰剑阵",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 35,
+      "required_realm": "CORE_FORMATION",
+      "summary": "星芒剑阵覆盖一片战场"
+    },
+    {
+      "id": "sword_formation_basic",
+      "name": "小剑阵式",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 26,
+      "required_realm": "CORE_FORMATION",
+      "summary": "基础剑阵凝锋斩敌"
+    },
+    {
+      "id": "blood_curse_mark",
+      "name": "血咒印",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 28,
+      "required_realm": "CORE_FORMATION",
+      "summary": "血咒烙印削弱目标"
+    },
+    {
+      "id": "blood_demon_slash",
+      "name": "血魔斩",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 28,
+      "required_realm": "CORE_FORMATION",
+      "summary": "血刃近身重斩"
+    },
+    {
+      "id": "body_hardness",
+      "name": "金刚不坏",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 26,
+      "required_realm": "CORE_FORMATION",
+      "summary": "炼体金刚不坏"
+    },
+    {
+      "id": "thunder_talisman_storm",
+      "name": "雷符暴雨",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 10,
+      "required_realm": "CORE_FORMATION",
+      "summary": "雷符暴雨"
+    },
+    {
+      "id": "spirit_art_holy_feather_guard",
+      "name": "圣羽护体",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "圣羽护体"
+    },
+    {
+      "id": "puppet_summon_basic",
+      "name": "唤傀术",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "唤傀术"
+    },
+    {
+      "id": "heaven_demon_hand",
+      "name": "天魔手",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "天魔手"
+    },
+    {
+      "id": "demon_qi_burst",
+      "name": "魔气爆",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "魔气爆"
+    },
+    {
+      "id": "soul_contract",
+      "name": "魂契",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "魂契"
+    },
+    {
+      "id": "demon_soul_devour",
+      "name": "魔噬魂",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "魔噬魂"
+    },
+    {
+      "id": "spirit_art_lightning_palm",
+      "name": "雷掌灵术",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "雷掌灵术"
+    },
+    {
+      "id": "yin_body_condense",
+      "name": "凝阴体",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "凝阴体"
+    },
+    {
+      "id": "defensive_pearl_light",
+      "name": "护体珠光",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "护体珠光"
+    },
+    {
+      "id": "magnet_control",
+      "name": "元磁控物",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "CORE_FORMATION",
+      "summary": "元磁控物"
+    },
+    {
+      "id": "ghost_king_avatar",
+      "name": "鬼王化身",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 40,
+      "required_realm": "CORE_FORMATION",
+      "summary": "summon:鬼王化身"
+    },
+    {
+      "id": "gold_devour_swarm",
+      "name": "噬金虫群",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 26,
+      "required_realm": "CORE_FORMATION",
+      "summary": "summon:噬金虫群"
+    },
+    {
+      "id": "puppet_swarm_command",
+      "name": "群傀号令",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 30,
+      "required_realm": "CORE_FORMATION",
+      "summary": "summon:群傀号令"
+    },
+    {
+      "id": "sword_formation_secret",
+      "name": "万剑归宗（仿）",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:万剑归宗（仿）"
+    },
+    {
+      "id": "nether_core_form",
+      "name": "冥核凝形",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:冥核凝形"
+    },
+    {
+      "id": "inverse_star_rebellion",
+      "name": "逆星乱世",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:逆星乱世"
+    },
+    {
+      "id": "blood_demon_avatar",
+      "name": "血魔分身",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:血魔分身"
+    },
+    {
+      "id": "hehuan_union_secret",
+      "name": "双修合欢",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:双修合欢"
+    },
+    {
+      "id": "tianmo_berserk",
+      "name": "天魔狂化",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:天魔狂化"
+    },
+    {
+      "id": "beast_soul_fusion",
+      "name": "兽魂融合",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 57,
+      "required_realm": "CORE_FORMATION",
+      "summary": "ultimate:兽魂融合"
+    },
+    {
+      "id": "hehuan_soul_devour_secret",
+      "name": "合欢噬魂",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:合欢噬魂"
+    },
+    {
+      "id": "inverse_star_void_escape",
+      "name": "逆星虚空遁",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:逆星虚空遁"
+    },
+    {
+      "id": "pill_soul_condense_secret",
+      "name": "丹魂凝华",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:丹魂凝华"
+    },
+    {
+      "id": "mulan_holy_bird_call",
+      "name": "圣禽唤灵",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:圣禽唤灵"
+    },
+    {
+      "id": "beast_soul_fusion_secret",
+      "name": "兽魂合体",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:兽魂合体"
+    },
+    {
+      "id": "qingluo_ten_poison_seal",
+      "name": "十毒封脉",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:十毒封脉"
+    },
+    {
+      "id": "yinluo_soul_harvest",
+      "name": "阴罗摄魂",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:阴罗摄魂"
+    },
+    {
+      "id": "puppet_qianzhu_ultimate_secret",
+      "name": "千竹傀阵",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:千竹傀阵"
+    },
+    {
+      "id": "puppet_yuling_ultimate_secret",
+      "name": "御灵万傀",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:御灵万傀"
+    },
+    {
+      "id": "blade_giant_sword_ultimate_secret",
+      "name": "巨剑开山",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:巨剑开山"
+    },
+    {
+      "id": "artifact_spirit_awaken_secret",
+      "name": "器灵初醒",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 35,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:器灵初醒"
+    },
+    {
+      "id": "auction_bid_insight_secret",
+      "name": "竞价天机",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 20,
+      "required_realm": "CORE_FORMATION",
+      "summary": "secret_art:竞价天机"
+    },
+    {
+      "id": "cast_thunder_talisman",
+      "name": "雷霄符·瞬发",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 8,
+      "required_realm": "CORE_FORMATION",
+      "summary": "talisman_consume:雷霄符·瞬发"
+    },
+    {
+      "id": "cast_space_anchor_talisman",
+      "name": "定空符·瞬发",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 8,
+      "required_realm": "CORE_FORMATION",
+      "summary": "talisman_consume:定空符·瞬发"
     }
   ]
 }

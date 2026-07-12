@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "regions": [
+    {
+      "id": "tiannan",
+      "display": "天南",
+      "item_count": 0
+    },
+    {
+      "id": "chaotic_sea",
+      "display": "乱星海",
+      "item_count": 0
+    },
+    {
+      "id": "dajin",
+      "display": "大晋",
+      "item_count": 0
+    },
+    {
+      "id": "kunwu",
+      "display": "昆吾山",
+      "item_count": 0
+    },
+    {
+      "id": "mulan",
+      "display": "慕兰草原",
+      "item_count": 0
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display": "灵界风元大陆",
+      "item_count": 0
+    },
+    {
+      "id": "nether_river",
+      "display": "冥河",
+      "item_count": 0
+    },
+    {
+      "id": "yinming",
+      "display": "阴冥之地",
+      "item_count": 0
+    },
+    {
+      "id": "fallen_demon_valley",
+      "display": "坠魔谷",
+      "item_count": 0
+    },
+    {
+      "id": "tianyuan",
+      "display": "天渊",
+      "item_count": 0
+    },
+    {
+      "id": "region_barbarian_wasteland",
+      "display": "大晋蛮荒",
+      "item_count": 0
+    },
+    {
+      "id": "region_tianyuan",
+      "display": "天渊城周边",
+      "item_count": 0
+    }
+  ]
+}

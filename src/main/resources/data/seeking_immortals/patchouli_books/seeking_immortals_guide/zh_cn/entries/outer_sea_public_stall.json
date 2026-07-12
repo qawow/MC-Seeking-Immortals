@@ -1,0 +1,23 @@
+{
+  "name": "外海散修摊",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:pearl_raw",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "外海散修摊",
+      "text": "外海散修摊对应文本材料 merchant_shops.json#outer_sea_public_stall 与 region_cards/outer_sea_market.json。当前版本通过已有坊市系统接入，不新增独立摊位 NPC、珍珠税 UI 或额外加载器，仍使用下品金灵石作为物品货币。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前货品",
+      "text": "已接入货品为 spirit_stone_shard、pearl_raw 与 herb_bundle_low。灵石碎片按 1 枚下品金灵石换 10 片、库存 999；海灵原珠单价 8 下品金灵石、库存 50；药草包复用 4 份灵草，单价 12、库存 30，均按 24000 tick 刷新。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "延后内容",
+      "text": "珍珠税、公开摊位规矩、渡船与税票任务仍需经济循环和任务/商人表现；海灵原珠目前只完成物品与摊位售卖，精炼珊瑚灵珠、反向兑换和专属经济 UI 仍延后。"
+    }
+  ]
+}

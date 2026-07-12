@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "grades": [
+    {
+      "id": "inferior",
+      "display": "下品"
+    },
+    {
+      "id": "common",
+      "display": "凡品"
+    },
+    {
+      "id": "superior",
+      "display": "上品"
+    },
+    {
+      "id": "heavenly",
+      "display": "天灵根（单属）"
+    },
+    {
+      "id": "variant",
+      "display": "变异灵根"
+    }
+  ],
+  "elements": [
+    {
+      "id": "metal",
+      "display": "metal"
+    },
+    {
+      "id": "wood",
+      "display": "wood"
+    },
+    {
+      "id": "water",
+      "display": "water"
+    },
+    {
+      "id": "fire",
+      "display": "fire"
+    },
+    {
+      "id": "earth",
+      "display": "earth"
+    },
+    {
+      "id": "wind",
+      "display": "wind"
+    },
+    {
+      "id": "thunder",
+      "display": "thunder"
+    },
+    {
+      "id": "ice",
+      "display": "ice"
+    },
+    {
+      "id": "yin",
+      "display": "yin"
+    },
+    {
+      "id": "yang",
+      "display": "yang"
+    }
+  ]
+}

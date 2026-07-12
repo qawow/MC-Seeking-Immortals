@@ -1,0 +1,289 @@
+{
+  "schema_version": 2,
+  "source": "汇编§16经济§11材料§9势力§灵石四级",
+  "sect_shop_item_patches": {
+    "foundation_pill": {
+      "setting": {
+        "lore": "筑基丹，七派严控，内门限额兑换。"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "rank_min": "inner_disciple",
+          "realm_gate": "FOUNDATION",
+          "monthly_limit": 1
+        }
+      }
+    }
+  },
+  "materials_notable": {
+    "low_spirit_iron": {
+      "setting": {
+        "lore": "低阶炼器灵铁，炼气—筑基常用。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft": "refinement"
+        }
+      }
+    },
+    "spirit_stone_low": {
+      "setting": {
+        "lore": "下品灵石，流通基本单位。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "currency_tier": "low"
+        }
+      }
+    }
+  },
+  "consumables_new": [
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "低阶修士日常消耗。"
+      }
+    },
+    {
+      "id": "detox_minor_pill",
+      "display": "清毒丹",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "化解轻微丹毒。"
+      }
+    }
+  ],
+  "npc_archetypes_new": [
+    {
+      "id": "sect_contribution_clerk",
+      "display": "贡献堂执事",
+      "lines": [
+        "贡献点不足，秘传不可换。",
+        "外门每月限额一次。"
+      ],
+      "faction_affinity": [
+        "huangfeng_valley",
+        "luoyun_sect"
+      ],
+      "setting": {
+        "lore": "贡献堂执事"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_money_changer",
+      "display": "灵石兑换商",
+      "lines": [
+        "下品换中品，百一损耗。",
+        "大额兑换需验资。"
+      ],
+      "setting": {
+        "lore": "灵石兑换商"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "puppet_workshop_master",
+      "display": "傀儡坊主",
+      "lines": [
+        "千竹教不传外姓核心。",
+        "铁傀需阴魂祭炼。"
+      ],
+      "faction_affinity": [
+        "qianzhu_teach"
+      ],
+      "setting": {
+        "lore": "傀儡坊主"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "faction_graph_patches": {
+    "star_palace": {
+      "setting": {
+        "lore": "乱星海秩序势力。"
+      },
+      "learn_requirements": {
+        "reputation": {
+          "register_required": true
+        }
+      }
+    },
+    "inverse_star_alliance": {
+      "setting": {
+        "lore": "反星宫割据。"
+      },
+      "learn_requirements": {
+        "reputation": {
+          "hostile_to": "star_palace"
+        }
+      }
+    }
+  },
+  "items_by_region_new": [
+    {
+      "id": "region_barbarian_wasteland",
+      "display": "大晋蛮荒",
+      "loot_bias": [
+        "ancient_fragment",
+        "space_rift_shard"
+      ],
+      "setting": {
+        "lore": "上古遗迹与空间裂缝。"
+      }
+    },
+    {
+      "id": "region_tianyuan",
+      "display": "天渊城周边",
+      "loot_bias": [
+        "spirit_world_herb",
+        "demon_core_high"
+      ],
+      "setting": {
+        "lore": "灵界前线，灵气浓郁。"
+      }
+    }
+  ],
+  "spirit_roots_grade_setting": {
+    "pseudo": {
+      "setting": {
+        "lore": "伪灵根，四系杂灵，修炼慢。"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "speed_modifier_note": "低于真灵根"
+        }
+      }
+    },
+    "true": {
+      "setting": {
+        "lore": "真灵根，两系或三系，主流修士。"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "method_unlock": "by_element"
+        }
+      }
+    },
+    "heavenly": {
+      "setting": {
+        "lore": "天灵根，单系极致，各大派争抢。"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "sect_recruit_priority": true
+        }
+      }
+    }
+  },
+  "cultivation_realm_notes": {
+    "QI_REFINING": {
+      "setting": {
+        "lore": "炼气期，引气入体，寿元与凡人相近略增。"
+      },
+      "learn_requirements": {
+        "advance": {
+          "next": "FOUNDATION",
+          "note": "筑基需筑基丹或机缘。"
+        }
+      }
+    },
+    "FOUNDATION": {
+      "setting": {
+        "lore": "筑基期，真元液化，可御器飞行。"
+      }
+    },
+    "CORE_FORMATION": {
+      "setting": {
+        "lore": "结丹期，金丹凝成，宗门中坚。"
+      }
+    },
+    "NASCENT_SOUL": {
+      "setting": {
+        "lore": "元婴期，可元婴出窍，一方老祖。"
+      }
+    },
+    "DEITY_TRANSFORMATION": {
+      "setting": {
+        "lore": "化神期，人界顶阶，可寻界面。"
+      }
+    }
+  },
+  "flight_vehicles_new": [
+    {
+      "id": "spirit_boat_chaotic_sea",
+      "display": "乱星海灵舟",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "跨海域必备，需灵石驱动。"
+      }
+    },
+    {
+      "id": "teleport_array_ticket",
+      "display": "传送阵令牌",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "一次性或往返传送凭证。"
+      }
+    }
+  ],
+  "puppet_tier_lore": {
+    "tier_1": {
+      "setting": {
+        "lore": "炼气级傀儡，铁木傀常见。"
+      }
+    },
+    "tier_4": {
+      "setting": {
+        "lore": "结丹级战斗傀儡，需千竹核心术。"
+      }
+    }
+  },
+  "wanbao_new": [
+    {
+      "id": "auction_ancient_artifact_shard",
+      "display": "古宝残片（拍卖）",
+      "setting": {
+        "lore": "万宝楼压轴常见品。"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION",
+          "currency": "low_spirit_stone"
+        }
+      }
+    }
+  ],
+  "loot_table_meta_new": {
+    "wild_beast_tier3": {
+      "setting": {
+        "lore": "三阶妖兽掉落，材料与妖丹。"
+      },
+      "learn_requirements": {
+        "drop": {
+          "source": "combat",
+          "realm_suggested": "FOUNDATION"
+        }
+      }
+    },
+    "secret_realm_chest_mid": {
+      "setting": {
+        "lore": "秘境中层宝箱。"
+      },
+      "learn_requirements": {
+        "drop": {
+          "source": "exploration"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/roc_feather_bundle"
+  }
+}

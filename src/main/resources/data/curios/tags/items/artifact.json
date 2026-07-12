@@ -2,6 +2,28 @@
   "replace": false,
   "values": [
     "seeking_immortals:flying_sword",
-    "seeking_immortals:flying_artifact"
+    "seeking_immortals:flying_artifact",
+    "seeking_immortals:flying_sword_low",
+    "seeking_immortals:cloud_boots",
+    "seeking_immortals:spirit_gathering_bead",
+    "seeking_immortals:yellow_umbrella",
+    "seeking_immortals:qingye_leaf_fan",
+    "seeking_immortals:storage_bracelet_low",
+    "seeking_immortals:snake_pearl",
+    "seeking_immortals:flying_needle_set",
+    "seeking_immortals:black_gold_shield",
+    "seeking_immortals:bedrock_shield",
+    "seeking_immortals:artifact_repair_kit",
+    "seeking_immortals:silver_giant_sword",
+    "seeking_immortals:gold_demon_chain",
+    "seeking_immortals:evil_illusion_mirror",
+    "seeking_immortals:qingning_mirror",
+    "seeking_immortals:gold_light_brick",
+    "seeking_immortals:beast_taming_whip",
+    "seeking_immortals:spirit_beast_bridle",
+    "seeking_immortals:wind_escape_sail",
+    "seeking_immortals:moon_shadow_disk",
+    "seeking_immortals:talisman_treasure_soul_charm",
+    "seeking_immortals:void_palace_cold_jade_pendant"
   ]
 }

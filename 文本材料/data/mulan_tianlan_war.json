@@ -1,0 +1,90 @@
+{
+  "schema_version": 2,
+  "source": "汇编 慕兰突兀千年战；纪年 K3/K9/M4",
+  "war_id": "mulan_tianlan_war",
+  "phases": [
+    {
+      "id": "phase_border_skirmish",
+      "display": "边境斥候战",
+      "chronicle_refs": [
+        "mulan_tianlan_war_minor",
+        "K3_mulan_tianlan_war_1"
+      ],
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "hooks": [
+        "mulan_scout_clash",
+        "tiannan_defense_mobilize"
+      ],
+      "setting": {
+        "lore": "天南与慕兰草原边境摩擦，低阶修士与法士斥候交锋。"
+      }
+    },
+    {
+      "id": "phase_fashi_array",
+      "display": "护阵破阵",
+      "chronicle_refs": [
+        "K9_mulan_tianlan_escalation"
+      ],
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "hooks": [
+        "fashi_soul_array_battle",
+        "yanyue_formation_support"
+      ],
+      "setting": {
+        "lore": "慕兰法士灵术大阵对天南宗门阵法，燕乐宗常担破阵支援。"
+      }
+    },
+    {
+      "id": "phase_holy_bird",
+      "display": "圣禽线",
+      "chronicle_refs": [
+        "M4_holy_bird_mulan"
+      ],
+      "optional": true,
+      "hooks": [
+        "holy_bird_blessing_quest"
+      ],
+      "setting": {
+        "lore": "慕兰圣禽临凡，影响士气与停战筹码，非必胜剧情。"
+      }
+    },
+    {
+      "id": "phase_ceasefire",
+      "display": "停战谈判",
+      "hooks": [
+        "war_ceasefire_negotiation"
+      ],
+      "rewards": [
+        "war_campaign_token",
+        "mulan_war_merit"
+      ],
+      "setting": {
+        "lore": "资源枯竭与双方损耗后谈判，玩家功勋影响兑换与声望。"
+      }
+    }
+  ],
+  "faction_sides": [
+    {
+      "id": "tiannan_alliance",
+      "display": "天南联军",
+      "sects": [
+        "huangfeng_valley",
+        "yanyue_sect"
+      ]
+    },
+    {
+      "id": "mulan_fashi",
+      "display": "慕兰法士",
+      "sects": [
+        "mulan_fashi_council"
+      ]
+    }
+  ],
+  "quest_hub_ref": "mulan_faction_quests.json"
+}

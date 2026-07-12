@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.client.Minecraft;
 
 import java.io.BufferedReader;
@@ -85,6 +86,13 @@ public final class ClientTechniqueData {
         return getCooldownRemainingTicks(techniqueId) > 0;
     }
 
+    public static double getCooldownFraction(String techniqueId) {
+        int remaining = getCooldownRemainingTicks(techniqueId);
+        if (remaining <= 0) return 0.0D;
+        int total = Math.max(1, getTechniqueSummary(techniqueId).cooldownTicks());
+        return Math.max(0.0D, Math.min(1.0D, remaining / (double) total));
+    }
+
     public static TechniqueSummary getTechniqueSummary(String id) {
         return BUILTIN_SUMMARIES.getOrDefault(id, TechniqueSummary.fallback(id));
     }
@@ -111,15 +119,6 @@ public final class ClientTechniqueData {
             out.set(i, !id.isBlank() && learned.contains(id) ? id : "");
         }
         return List.copyOf(out);
-    }
-
-    private static List<String> defaultSlots(List<String> techniques) {
-        List<String> slots = emptySlots();
-        List<String> sorted = techniques.stream().sorted().toList();
-        for (int i = 0; i < Math.min(SLOT_COUNT, sorted.size()); i++) {
-            slots.set(i, sorted.get(i));
-        }
-        return List.copyOf(slots);
     }
 
     private static List<String> emptySlots() {
@@ -153,9 +152,10 @@ public final class ClientTechniqueData {
                         summaries.put(id, new TechniqueSummary(
                                 id,
                                 valueOrFallback(getString(object, "name"), id),
-                                valueOrFallback(getString(object, "source"), "未记录功法"),
-                                valueOrFallback(getString(object, "attribute"), "通用"),
-                                estimateCost(getString(object, "type"), getString(object, "attribute"))));
+                                valueOrFallback(getString(object, "source"), "unknown_source"),
+                                valueOrFallback(getString(object, "attribute"), "common"),
+                                getInt(object, "cost", configuredCost(id, getString(object, "type"), getString(object, "attribute"))),
+                                getInt(object, "cooldown_ticks", getInt(object, "cooldown", configuredCooldown(id)))));
                     }
                 }
             } catch (Exception ignored) {
@@ -169,23 +169,50 @@ public final class ClientTechniqueData {
         return object.has(key) && !object.get(key).isJsonNull() ? object.get(key).getAsString() : "";
     }
 
+    private static int getInt(JsonObject object, String key, int fallback) {
+        return object.has(key) && !object.get(key).isJsonNull() ? Math.max(0, object.get(key).getAsInt()) : fallback;
+    }
+
     private static String valueOrFallback(String value, String fallback) {
         return value == null || value.isBlank() ? fallback : value;
     }
 
     private static int estimateCost(String type, String attribute) {
         String text = (type + " " + attribute).toLowerCase(Locale.ROOT);
-        if (text.contains("formation") || text.contains("sword") || text.contains("阵")) return 35;
-        if (text.contains("secret") || text.contains("divine") || text.contains("秘") || text.contains("神通")) return 30;
-        if (text.contains("talisman") || text.contains("符")) return 12;
-        if (text.contains("utility") || text.contains("通用")) return 8;
+        if (text.contains("formation") || text.contains("sword")) return 35;
+        if (text.contains("secret") || text.contains("divine")) return 30;
+        if (text.contains("talisman")) return 12;
+        if (text.contains("utility")) return 8;
         return 15;
     }
 
-    public record TechniqueSummary(String id, String name, String source, String attribute, int cost) {
+    private static int configuredCost(String id, String type, String attribute) {
+        SkillType skillType = skillTypeByTechniqueId(id);
+        return skillType != null && skillType.getConfiguredSpiritualPowerCost() >= 0
+                ? skillType.getConfiguredSpiritualPowerCost()
+                : estimateCost(type, attribute);
+    }
+
+    private static int configuredCooldown(String id) {
+        SkillType skillType = skillTypeByTechniqueId(id);
+        return skillType != null && skillType.getConfiguredCooldownTicks() >= 0
+                ? skillType.getConfiguredCooldownTicks()
+                : 100;
+    }
+
+    private static SkillType skillTypeByTechniqueId(String id) {
+        for (SkillType skillType : SkillType.values()) {
+            if (skillType.getTechniqueId().equals(id)) {
+                return skillType;
+            }
+        }
+        return null;
+    }
+
+    public record TechniqueSummary(String id, String name, String source, String attribute, int cost, int cooldownTicks) {
         public static TechniqueSummary fallback(String id) {
             String safeId = id == null || id.isBlank() ? "unknown" : id;
-            return new TechniqueSummary(safeId, safeId, "未记录功法", "未知", 15);
+            return new TechniqueSummary(safeId, safeId, "unknown_source", "unknown", 15, 100);
         }
     }
 }

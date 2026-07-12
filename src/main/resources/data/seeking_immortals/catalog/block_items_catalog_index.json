@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "source": "block_items_catalog.json",
+  "primary_key": "blocks",
+  "entries": [
+    {
+      "id": "alchemy_furnace_g1",
+      "display": "一品丹炉"
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "display": "二品丹炉"
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "display": "三品丹炉"
+    },
+    {
+      "id": "earth_fire_alchemy_room",
+      "display": "地火炼丹室（结构）"
+    },
+    {
+      "id": "refinement_forge_g1",
+      "display": "一品炼器台"
+    },
+    {
+      "id": "refinement_forge_g3",
+      "display": "三品炼器阵"
+    },
+    {
+      "id": "talisman_table",
+      "display": "制符台"
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵基"
+    },
+    {
+      "id": "teleport_array_pedestal",
+      "display": "传送阵基座"
+    },
+    {
+      "id": "puppet_assembly_bench",
+      "display": "傀儡组装台"
+    },
+    {
+      "id": "spirit_herb_planter",
+      "display": "灵草圃"
+    },
+    {
+      "id": "low_spirit_iron_ore",
+      "display": "低阶灵铁矿"
+    },
+    {
+      "id": "yin_essence_ore_block",
+      "display": "阴元矿"
+    },
+    {
+      "id": "kunwu_copper_ore",
+      "display": "昆吾铜矿"
+    }
+  ]
+}

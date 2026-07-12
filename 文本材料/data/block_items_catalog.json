@@ -1,0 +1,235 @@
+{
+  "schema_version": 2,
+  "description": "多方块工作台与阵法方块对应的物品/放置物，对齐汇编炼器阵·丹炉·制符台",
+  "blocks": [
+    {
+      "id": "alchemy_furnace_g1",
+      "display": "一品丹炉",
+      "type": "multiblock_controller",
+      "craft_station": "alchemy",
+      "furnace_grade": 1,
+      "drops_self": true,
+      "setting": {
+        "lore": "一品丹炉",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "display": "二品丹炉",
+      "type": "multiblock_controller",
+      "furnace_grade": 2,
+      "setting": {
+        "lore": "二品丹炉",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "display": "三品丹炉",
+      "type": "multiblock_controller",
+      "furnace_grade": 3,
+      "setting": {
+        "lore": "三品丹炉",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "earth_fire_alchemy_room",
+      "display": "地火炼丹室（结构）",
+      "type": "structure",
+      "effect": "ideal_fire_tier_plus_1",
+      "setting": {
+        "lore": "地火炼丹室（结构）",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_g1",
+      "display": "一品炼器台",
+      "type": "multiblock_controller",
+      "forge_grade": 1,
+      "setting": {
+        "lore": "一品炼器台",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_g3",
+      "display": "三品炼器阵",
+      "type": "multiblock_controller",
+      "forge_grade": 3,
+      "setting": {
+        "lore": "三品炼器阵",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "talisman_table",
+      "display": "制符台",
+      "type": "single_block",
+      "craft_station": "talisman",
+      "setting": {
+        "lore": "制符台",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵基",
+      "type": "array_block",
+      "formation_id": "spirit_gather",
+      "setting": {
+        "lore": "聚灵阵基",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "teleport_array_pedestal",
+      "display": "传送阵基座",
+      "type": "array_block",
+      "formation_id": "teleport_array",
+      "fuel": "spirit_stone_shard",
+      "setting": {
+        "lore": "传送阵基座",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "puppet_assembly_bench",
+      "display": "傀儡组装台",
+      "type": "single_block",
+      "craft_station": "puppet",
+      "setting": {
+        "lore": "傀儡组装台",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "spirit_herb_planter",
+      "display": "灵草圃",
+      "type": "crop_block",
+      "grows": [
+        "yellow_essence",
+        "ginseng_spirit",
+        "spirit_mushroom"
+      ],
+      "setting": {
+        "lore": "灵草圃",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "low_spirit_iron_ore",
+      "display": "低阶灵铁矿",
+      "type": "ore",
+      "drops": "low_spirit_iron",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "低阶灵铁矿",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "yin_essence_ore_block",
+      "display": "阴元矿",
+      "type": "ore",
+      "drops": "yin_essence_ore",
+      "regions": [
+        "nether_river",
+        "yinming"
+      ],
+      "setting": {
+        "lore": "阴元矿",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    },
+    {
+      "id": "kunwu_copper_ore",
+      "display": "昆吾铜矿",
+      "type": "ore",
+      "drops": "kunwu_copper",
+      "regions": [
+        "kunwu",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "昆吾铜矿",
+        "source_file": "block_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "block_items_catalog.json"
+      }
+    }
+  ],
+  "item_forms": [
+    {
+      "block_id": "alchemy_furnace_g1",
+      "item_id": "alchemy_furnace_g1"
+    },
+    {
+      "block_id": "talisman_table",
+      "item_id": "talisman_table"
+    },
+    {
+      "block_id": "spirit_gathering_array",
+      "item_id": "portable_spirit_gather_disk",
+      "note": "便携阵盘放置为阵基"
+    }
+  ]
+}

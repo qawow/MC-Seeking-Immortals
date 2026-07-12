@@ -1,0 +1,1251 @@
+{
+  "schema_version": 1,
+  "source": "文本材料/data",
+  "catalog_files": 163,
+  "technique_files": 21,
+  "total_files": 207,
+  "files": [
+    {
+      "id": "alchemy_recipes",
+      "file": "alchemy_recipes.json",
+      "entries": 55,
+      "primary_key": "recipes"
+    },
+    {
+      "id": "alchemy_system",
+      "file": "alchemy_system.json",
+      "entries": 5,
+      "primary_key": "flame_sources"
+    },
+    {
+      "id": "ancient_treasure_index",
+      "file": "ancient_treasure_index.json",
+      "entries": 14,
+      "primary_key": "entries"
+    },
+    {
+      "id": "artifact_eleven_tier_map",
+      "file": "artifact_eleven_tier_map.json",
+      "entries": 11,
+      "primary_key": "game_tiers"
+    },
+    {
+      "id": "artifact_faction_specialty",
+      "file": "artifact_faction_specialty.json",
+      "entries": 6,
+      "primary_key": "factions"
+    },
+    {
+      "id": "artifact_realm_drops",
+      "file": "artifact_realm_drops.json",
+      "entries": 7,
+      "primary_key": "barbarian_king_territories"
+    },
+    {
+      "id": "artifact_taxonomy_111",
+      "file": "artifact_taxonomy_111.json",
+      "entries": 6,
+      "primary_key": "sections"
+    },
+    {
+      "id": "artifact_tier_map",
+      "file": "artifact_tier_map.json",
+      "entries": 11,
+      "primary_key": "grades"
+    },
+    {
+      "id": "artifact_tier_rules",
+      "file": "artifact_tier_rules.json",
+      "entries": 5,
+      "primary_key": "tiers"
+    },
+    {
+      "id": "artifacts_catalog",
+      "file": "artifacts_catalog.json",
+      "entries": 217,
+      "primary_key": "artifacts"
+    },
+    {
+      "id": "ascension_flow",
+      "file": "ascension_flow.json",
+      "entries": 5,
+      "primary_key": "stages"
+    },
+    {
+      "id": "asset_texture_batches",
+      "file": "asset_texture_batches.json",
+      "entries": 2,
+      "primary_key": "priority_batches"
+    },
+    {
+      "id": "asset_texture_job_map",
+      "file": "asset_texture_job_map.json",
+      "entries": 12,
+      "primary_key": "array"
+    },
+    {
+      "id": "asset_texture_pill_queue",
+      "file": "asset_texture_pill_queue.json",
+      "entries": 20,
+      "primary_key": "priority_order"
+    },
+    {
+      "id": "barbarian_demon_kings",
+      "file": "barbarian_demon_kings.json",
+      "entries": 7,
+      "primary_key": "kings"
+    },
+    {
+      "id": "beast_bestiary",
+      "file": "beast_bestiary.json",
+      "entries": 42,
+      "primary_key": "beasts"
+    },
+    {
+      "id": "beast_boss_tier_secret_realm_map",
+      "file": "beast_boss_tier_secret_realm_map.json",
+      "entries": 16,
+      "primary_key": "entries"
+    },
+    {
+      "id": "beast_loot_tiers",
+      "file": "beast_loot_tiers.json",
+      "entries": 4,
+      "primary_key": "crossref"
+    },
+    {
+      "id": "beast_thirteen_tier_map",
+      "file": "beast_thirteen_tier_map.json",
+      "entries": 13,
+      "primary_key": "tiers"
+    },
+    {
+      "id": "beast_tier_schema",
+      "file": "beast_tier_schema.json",
+      "entries": 5,
+      "primary_key": "crossref"
+    },
+    {
+      "id": "block_items_catalog",
+      "file": "block_items_catalog.json",
+      "entries": 14,
+      "primary_key": "blocks"
+    },
+    {
+      "id": "boss_extra_loot_index",
+      "file": "boss_extra_loot_index.json",
+      "entries": 3,
+      "primary_key": "entries"
+    },
+    {
+      "id": "boss_loot_tables",
+      "file": "boss_loot_tables.json",
+      "entries": 14,
+      "primary_key": "tables"
+    },
+    {
+      "id": "chaotic_sea_faction_quests",
+      "file": "chaotic_sea_faction_quests.json",
+      "entries": 4,
+      "primary_key": "hubs"
+    },
+    {
+      "id": "chaotic_sea_faction_war",
+      "file": "chaotic_sea_faction_war.json",
+      "entries": 5,
+      "primary_key": "phases"
+    },
+    {
+      "id": "chaotic_sea_factions",
+      "file": "chaotic_sea_factions.json",
+      "entries": 4,
+      "primary_key": "islands"
+    },
+    {
+      "id": "chaotic_sea_lore_compendium",
+      "file": "chaotic_sea_lore_compendium.json",
+      "entries": 5,
+      "primary_key": "factions_lore"
+    },
+    {
+      "id": "chronicle_events",
+      "file": "chronicle_events.json",
+      "entries": 56,
+      "primary_key": "events"
+    },
+    {
+      "id": "constitution_catalog",
+      "file": "constitution_catalog.json",
+      "entries": 13,
+      "primary_key": "constitutions"
+    },
+    {
+      "id": "consumables_catalog",
+      "file": "consumables_catalog.json",
+      "entries": 57,
+      "primary_key": "consumables"
+    },
+    {
+      "id": "craft_daily_loops",
+      "file": "craft_daily_loops.json",
+      "entries": 4,
+      "primary_key": "loops"
+    },
+    {
+      "id": "cultivation_methods",
+      "file": "cultivation_methods.json",
+      "entries": 91,
+      "primary_key": "methods"
+    },
+    {
+      "id": "cultivation_progression",
+      "file": "cultivation_progression.json",
+      "entries": 9,
+      "primary_key": "realms"
+    },
+    {
+      "id": "currency_items",
+      "file": "currency_items.json",
+      "entries": 9,
+      "primary_key": "items"
+    },
+    {
+      "id": "daily_quest_templates",
+      "file": "daily_quest_templates.json",
+      "entries": 6,
+      "primary_key": "templates"
+    },
+    {
+      "id": "daily_random_events",
+      "file": "daily_random_events.json",
+      "entries": 71,
+      "primary_key": "events"
+    },
+    {
+      "id": "dajin_faction_quests",
+      "file": "dajin_faction_quests.json",
+      "entries": 4,
+      "primary_key": "chains"
+    },
+    {
+      "id": "dajin_factions",
+      "file": "dajin_factions.json",
+      "entries": 5,
+      "primary_key": "factions"
+    },
+    {
+      "id": "dajin_righteous_demon_border",
+      "file": "dajin_righteous_demon_border.json",
+      "entries": 1,
+      "primary_key": "daily_event_ids"
+    },
+    {
+      "id": "data_manifest",
+      "file": "data_manifest.json",
+      "entries": 46,
+      "primary_key": "files"
+    },
+    {
+      "id": "demonic_six_sects",
+      "file": "demonic_six_sects.json",
+      "entries": 7,
+      "primary_key": "skill_tree_gate_audit"
+    },
+    {
+      "id": "dimension_registry",
+      "file": "dimension_registry.json",
+      "entries": 5,
+      "primary_key": "dimensions"
+    },
+    {
+      "id": "dimensions_catalog",
+      "file": "dimensions_catalog.json",
+      "entries": 8,
+      "primary_key": "cosmology_five_realms"
+    },
+    {
+      "id": "economy_auction_bands",
+      "file": "economy_auction_bands.json",
+      "entries": 4,
+      "primary_key": "lots"
+    },
+    {
+      "id": "economy_contribution_exchange",
+      "file": "economy_contribution_exchange.json",
+      "entries": 7,
+      "primary_key": "item_equiv_low_stone"
+    },
+    {
+      "id": "economy_price_bands",
+      "file": "economy_price_bands.json",
+      "entries": 20,
+      "primary_key": "item_overrides"
+    },
+    {
+      "id": "economy_reference_magnitudes",
+      "file": "economy_reference_magnitudes.json",
+      "entries": 6,
+      "primary_key": "magnitude_bands"
+    },
+    {
+      "id": "economy_shop_price_guidance",
+      "file": "economy_shop_price_guidance.json",
+      "entries": 6,
+      "primary_key": "shop_categories"
+    },
+    {
+      "id": "economy_spirit_stone_master",
+      "file": "economy_spirit_stone_master.json",
+      "entries": 7,
+      "primary_key": "crossref"
+    },
+    {
+      "id": "economy_tiers",
+      "file": "economy_tiers.json",
+      "entries": 4,
+      "primary_key": "spirit_stone_tiers"
+    },
+    {
+      "id": "economy_value_bands",
+      "file": "economy_value_bands.json",
+      "entries": 16,
+      "primary_key": "bands"
+    },
+    {
+      "id": "faction_conflict_events",
+      "file": "faction_conflict_events.json",
+      "entries": 21,
+      "primary_key": "events"
+    },
+    {
+      "id": "faction_graph",
+      "file": "faction_graph.json",
+      "entries": 20,
+      "primary_key": "nodes"
+    },
+    {
+      "id": "faction_species",
+      "file": "faction_species.json",
+      "entries": 21,
+      "primary_key": "spirit_realm_factions"
+    },
+    {
+      "id": "flight_vehicles",
+      "file": "flight_vehicles.json",
+      "entries": 8,
+      "primary_key": "vehicles"
+    },
+    {
+      "id": "forge_artifact_priority",
+      "file": "forge_artifact_priority.json",
+      "entries": 11,
+      "primary_key": "P0_launch"
+    },
+    {
+      "id": "formation_catalog",
+      "file": "formation_catalog.json",
+      "entries": 20,
+      "primary_key": "formations"
+    },
+    {
+      "id": "formation_items_catalog",
+      "file": "formation_items_catalog.json",
+      "entries": 13,
+      "primary_key": "items"
+    },
+    {
+      "id": "ghost_cultivation_path",
+      "file": "ghost_cultivation_path.json",
+      "entries": 4,
+      "primary_key": "stages"
+    },
+    {
+      "id": "ghost_sect_ban_rules",
+      "file": "ghost_sect_ban_rules.json",
+      "entries": 3,
+      "primary_key": "detection_tags"
+    },
+    {
+      "id": "human_clan_league",
+      "file": "human_clan_league.json",
+      "entries": 6,
+      "primary_key": "clans"
+    },
+    {
+      "id": "human_clan_quest_network",
+      "file": "human_clan_quest_network.json",
+      "entries": 5,
+      "primary_key": "chains"
+    },
+    {
+      "id": "inverse_star_quest_network",
+      "file": "inverse_star_quest_network.json",
+      "entries": 6,
+      "primary_key": "chains"
+    },
+    {
+      "id": "item_id_aliases",
+      "file": "item_id_aliases.json",
+      "entries": 5,
+      "primary_key": "aliases"
+    },
+    {
+      "id": "item_id_index",
+      "file": "item_id_index.json",
+      "entries": 7,
+      "primary_key": "expansion_log"
+    },
+    {
+      "id": "item_synergy",
+      "file": "item_synergy.json",
+      "entries": 22,
+      "primary_key": "synergies"
+    },
+    {
+      "id": "items_by_region",
+      "file": "items_by_region.json",
+      "entries": 12,
+      "primary_key": "regions"
+    },
+    {
+      "id": "loot_tables",
+      "file": "loot_tables.json",
+      "entries": 25,
+      "primary_key": "tables"
+    },
+    {
+      "id": "main_story_chapters",
+      "file": "main_story_chapters.json",
+      "entries": 7,
+      "primary_key": "chapters"
+    },
+    {
+      "id": "manuals_catalog",
+      "file": "manuals_catalog.json",
+      "entries": 21,
+      "primary_key": "manuals"
+    },
+    {
+      "id": "materials_catalog",
+      "file": "materials_catalog.json",
+      "entries": 221,
+      "primary_key": "materials"
+    },
+    {
+      "id": "merchant_shops",
+      "file": "merchant_shops.json",
+      "entries": 46,
+      "primary_key": "shops"
+    },
+    {
+      "id": "moditems_artifacts_draft",
+      "file": "moditems_artifacts_draft.json",
+      "entries": 22,
+      "primary_key": "items"
+    },
+    {
+      "id": "mulan_faction_quests",
+      "file": "mulan_faction_quests.json",
+      "entries": 3,
+      "primary_key": "chains"
+    },
+    {
+      "id": "mulan_tianlan_war",
+      "file": "mulan_tianlan_war.json",
+      "entries": 4,
+      "primary_key": "phases"
+    },
+    {
+      "id": "novel_beast_puppet_waves",
+      "file": "novel_beast_puppet_waves.json",
+      "entries": 10,
+      "primary_key": "new_beasts"
+    },
+    {
+      "id": "novel_cultivation_content_waves",
+      "file": "novel_cultivation_content_waves.json",
+      "entries": 37,
+      "primary_key": "method_content"
+    },
+    {
+      "id": "novel_cultivation_learn_requirements_waves",
+      "file": "novel_cultivation_learn_requirements_waves.json",
+      "entries": 30,
+      "primary_key": "method_learn_requirements"
+    },
+    {
+      "id": "novel_cultivation_master_index",
+      "file": "novel_cultivation_master_index.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_cultivation_setting_waves",
+      "file": "novel_cultivation_setting_waves.json",
+      "entries": 27,
+      "primary_key": "method_setting"
+    },
+    {
+      "id": "novel_cultivation_waves",
+      "file": "novel_cultivation_waves.json",
+      "entries": 57,
+      "primary_key": "spells"
+    },
+    {
+      "id": "novel_items_master_index",
+      "file": "novel_items_master_index.json",
+      "entries": 7,
+      "primary_key": "categories_covered"
+    },
+    {
+      "id": "novel_items_waves",
+      "file": "novel_items_waves.json",
+      "entries": 72,
+      "primary_key": "pills"
+    },
+    {
+      "id": "novel_world_expansion_waves_v64",
+      "file": "novel_world_expansion_waves_v64.json",
+      "entries": 10,
+      "primary_key": "quest_hooks_new"
+    },
+    {
+      "id": "novel_world_expansion_waves_v65",
+      "file": "novel_world_expansion_waves_v65.json",
+      "entries": 6,
+      "primary_key": "demonic_sect_patches"
+    },
+    {
+      "id": "novel_world_expansion_waves_v66",
+      "file": "novel_world_expansion_waves_v66.json",
+      "entries": 5,
+      "primary_key": "formation_new"
+    },
+    {
+      "id": "novel_world_expansion_waves_v67",
+      "file": "novel_world_expansion_waves_v67.json",
+      "entries": 5,
+      "primary_key": "talisman_new"
+    },
+    {
+      "id": "novel_world_expansion_waves_v68",
+      "file": "novel_world_expansion_waves_v68.json",
+      "entries": 5,
+      "primary_key": "cultivation_realm_notes"
+    },
+    {
+      "id": "novel_world_expansion_waves_v69",
+      "file": "novel_world_expansion_waves_v69.json",
+      "entries": 4,
+      "primary_key": "economy_tier_setting"
+    },
+    {
+      "id": "novel_world_expansion_waves_v70",
+      "file": "novel_world_expansion_waves_v70.json",
+      "entries": 4,
+      "primary_key": "mulan_phase_lore"
+    },
+    {
+      "id": "novel_world_expansion_waves_v71",
+      "file": "novel_world_expansion_waves_v71.json",
+      "entries": 6,
+      "primary_key": "daily_quest_template_ids"
+    },
+    {
+      "id": "novel_world_expansion_waves_v72",
+      "file": "novel_world_expansion_waves_v72.json",
+      "entries": 7,
+      "primary_key": "chapter_ids"
+    },
+    {
+      "id": "novel_world_expansion_waves_v73",
+      "file": "novel_world_expansion_waves_v73.json",
+      "entries": 4,
+      "primary_key": "craft_loop_ids"
+    },
+    {
+      "id": "novel_world_expansion_waves_v74",
+      "file": "novel_world_expansion_waves_v74.json",
+      "entries": 2,
+      "primary_key": "new_chains"
+    },
+    {
+      "id": "novel_world_expansion_waves_v75",
+      "file": "novel_world_expansion_waves_v75.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v76",
+      "file": "novel_world_expansion_waves_v76.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v77",
+      "file": "novel_world_expansion_waves_v77.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v78",
+      "file": "novel_world_expansion_waves_v78.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v79",
+      "file": "novel_world_expansion_waves_v79.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v80",
+      "file": "novel_world_expansion_waves_v80.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v81",
+      "file": "novel_world_expansion_waves_v81.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v82",
+      "file": "novel_world_expansion_waves_v82.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v83",
+      "file": "novel_world_expansion_waves_v83.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v84",
+      "file": "novel_world_expansion_waves_v84.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v85",
+      "file": "novel_world_expansion_waves_v85.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v86",
+      "file": "novel_world_expansion_waves_v86.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "novel_world_expansion_waves_v87",
+      "file": "novel_world_expansion_waves_v87.json",
+      "entries": 5,
+      "primary_key": "changes"
+    },
+    {
+      "id": "npc_dialogue_templates",
+      "file": "npc_dialogue_templates.json",
+      "entries": 23,
+      "primary_key": "archetypes"
+    },
+    {
+      "id": "patchouli_item_book",
+      "file": "patchouli_item_book.json",
+      "entries": 11,
+      "primary_key": "categories"
+    },
+    {
+      "id": "patchouli_static_entries",
+      "file": "patchouli_static_entries.json",
+      "entries": 13,
+      "primary_key": "entries"
+    },
+    {
+      "id": "pill_quality",
+      "file": "pill_quality.json",
+      "entries": 5,
+      "primary_key": "roll_factors"
+    },
+    {
+      "id": "pills_catalog",
+      "file": "pills_catalog.json",
+      "entries": 114,
+      "primary_key": "pills"
+    },
+    {
+      "id": "playable_races",
+      "file": "playable_races.json",
+      "entries": 10,
+      "primary_key": "races"
+    },
+    {
+      "id": "puppet_craft_recipes",
+      "file": "puppet_craft_recipes.json",
+      "entries": 7,
+      "primary_key": "recipes"
+    },
+    {
+      "id": "puppet_definitions",
+      "file": "puppet_definitions.json",
+      "entries": 8,
+      "primary_key": "definitions"
+    },
+    {
+      "id": "puppet_parts_catalog",
+      "file": "puppet_parts_catalog.json",
+      "entries": 15,
+      "primary_key": "parts"
+    },
+    {
+      "id": "quest_chains",
+      "file": "quest_chains.json",
+      "entries": 62,
+      "primary_key": "chains"
+    },
+    {
+      "id": "quest_hooks",
+      "file": "quest_hooks.json",
+      "entries": 208,
+      "primary_key": "hooks"
+    },
+    {
+      "id": "refine_manual_index",
+      "file": "refine_manual_index.json",
+      "entries": 59,
+      "primary_key": "recipes"
+    },
+    {
+      "id": "refinement_failure_loot",
+      "file": "refinement_failure_loot.json",
+      "entries": 2,
+      "primary_key": "default"
+    },
+    {
+      "id": "refinement_recipes",
+      "file": "refinement_recipes.json",
+      "entries": 73,
+      "primary_key": "recipes"
+    },
+    {
+      "id": "refinement_system",
+      "file": "refinement_system.json",
+      "entries": 5,
+      "primary_key": "success_factors"
+    },
+    {
+      "id": "schema_validation_report",
+      "file": "schema_validation_report.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "secret_realm_template",
+      "file": "secret_realm_template.json",
+      "entries": 14,
+      "primary_key": "realms_enriched"
+    },
+    {
+      "id": "secret_realms",
+      "file": "secret_realms.json",
+      "entries": 19,
+      "primary_key": "realms"
+    },
+    {
+      "id": "sect_contribution_shop",
+      "file": "sect_contribution_shop.json",
+      "entries": 7,
+      "primary_key": "shops"
+    },
+    {
+      "id": "sect_specialty_map",
+      "file": "sect_specialty_map.json",
+      "entries": 25,
+      "primary_key": "sects"
+    },
+    {
+      "id": "sects",
+      "file": "sects.json",
+      "entries": 28,
+      "primary_key": "sects"
+    },
+    {
+      "id": "skill_tree_layer_schema",
+      "file": "skill_tree_layer_schema.json",
+      "entries": 3,
+      "primary_key": "layers"
+    },
+    {
+      "id": "skill_trees",
+      "file": "skill_trees.json",
+      "entries": 90,
+      "primary_key": "trees"
+    },
+    {
+      "id": "spatial_nodes_catalog",
+      "file": "spatial_nodes_catalog.json",
+      "entries": 25,
+      "primary_key": "nodes"
+    },
+    {
+      "id": "spawn_tables",
+      "file": "spawn_tables.json",
+      "entries": 17,
+      "primary_key": "tables"
+    },
+    {
+      "id": "spirit_herbs_catalog",
+      "file": "spirit_herbs_catalog.json",
+      "entries": 79,
+      "primary_key": "herbs"
+    },
+    {
+      "id": "spirit_realm_clan_quests",
+      "file": "spirit_realm_clan_quests.json",
+      "entries": 19,
+      "primary_key": "factions"
+    },
+    {
+      "id": "spirit_realm_interface",
+      "file": "spirit_realm_interface.json",
+      "entries": 5,
+      "primary_key": "spirit_landmarks"
+    },
+    {
+      "id": "spirit_roots",
+      "file": "spirit_roots.json",
+      "entries": 0,
+      "primary_key": "object"
+    },
+    {
+      "id": "spirit_roots_catalog",
+      "file": "spirit_roots_catalog.json",
+      "entries": 10,
+      "primary_key": "elements"
+    },
+    {
+      "id": "spirit_stone_ladder",
+      "file": "spirit_stone_ladder.json",
+      "entries": 4,
+      "primary_key": "tiers"
+    },
+    {
+      "id": "star_palace_internal_factions",
+      "file": "star_palace_internal_factions.json",
+      "entries": 3,
+      "primary_key": "factions"
+    },
+    {
+      "id": "talisman_catalog",
+      "file": "talisman_catalog.json",
+      "entries": 47,
+      "primary_key": "talismans"
+    },
+    {
+      "id": "talisman_grade_map",
+      "file": "talisman_grade_map.json",
+      "entries": 4,
+      "primary_key": "grades"
+    },
+    {
+      "id": "talisman_materials_catalog",
+      "file": "talisman_materials_catalog.json",
+      "entries": 6,
+      "primary_key": "papers"
+    },
+    {
+      "id": "talisman_recipes",
+      "file": "talisman_recipes.json",
+      "entries": 24,
+      "primary_key": "recipes"
+    },
+    {
+      "id": "talisman_three_grade_schema",
+      "file": "talisman_three_grade_schema.json",
+      "entries": 4,
+      "primary_key": "grades"
+    },
+    {
+      "id": "talisman_three_grade_tiers",
+      "file": "talisman_three_grade_tiers.json",
+      "entries": 3,
+      "primary_key": "grades"
+    },
+    {
+      "id": "talisman_treasure_templates",
+      "file": "talisman_treasure_templates.json",
+      "entries": 10,
+      "primary_key": "templates"
+    },
+    {
+      "id": "techniques_sample",
+      "file": "techniques_sample.json",
+      "entries": 18,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "tiannan_faction_quests",
+      "file": "tiannan_faction_quests.json",
+      "entries": 4,
+      "primary_key": "factions"
+    },
+    {
+      "id": "tiannan_seven_sects_lore",
+      "file": "tiannan_seven_sects_lore.json",
+      "entries": 7,
+      "primary_key": "sects"
+    },
+    {
+      "id": "tianyuan_city",
+      "file": "tianyuan_city.json",
+      "entries": 3,
+      "primary_key": "factions"
+    },
+    {
+      "id": "tianyuan_daily_events",
+      "file": "tianyuan_daily_events.json",
+      "entries": 5,
+      "primary_key": "events"
+    },
+    {
+      "id": "tianyuan_merit_economy",
+      "file": "tianyuan_merit_economy.json",
+      "entries": 5,
+      "primary_key": "merit_sources"
+    },
+    {
+      "id": "trade_routes",
+      "file": "trade_routes.json",
+      "entries": 13,
+      "primary_key": "routes"
+    },
+    {
+      "id": "tribulation_items",
+      "file": "tribulation_items.json",
+      "entries": 9,
+      "primary_key": "items"
+    },
+    {
+      "id": "tribulation_master_schema",
+      "file": "tribulation_master_schema.json",
+      "entries": 3,
+      "primary_key": "tiers_summary"
+    },
+    {
+      "id": "tribulation_narrative_lore",
+      "file": "tribulation_narrative_lore.json",
+      "entries": 3,
+      "primary_key": "tiers"
+    },
+    {
+      "id": "tribulation_rules",
+      "file": "tribulation_rules.json",
+      "entries": 7,
+      "primary_key": "types"
+    },
+    {
+      "id": "tribulation_tier_schema",
+      "file": "tribulation_tier_schema.json",
+      "entries": 3,
+      "primary_key": "tiers"
+    },
+    {
+      "id": "wanbao_auction_artifacts",
+      "file": "wanbao_auction_artifacts.json",
+      "entries": 8,
+      "primary_key": "wanbao_pavilion_stock"
+    },
+    {
+      "id": "worldgen_biomes",
+      "file": "worldgen_biomes.json",
+      "entries": 12,
+      "primary_key": "biomes"
+    },
+    {
+      "id": "wutu_mulan_feud",
+      "file": "wutu_mulan_feud.json",
+      "entries": 3,
+      "primary_key": "history_tags"
+    },
+    {
+      "id": "yin_luo_hall",
+      "file": "yin_luo_hall.json",
+      "entries": 3,
+      "primary_key": "loot_focus"
+    },
+    {
+      "id": "yin_underworld_cluster",
+      "file": "yin_underworld_cluster.json",
+      "entries": 2,
+      "primary_key": "regions"
+    },
+    {
+      "id": "techniques/body",
+      "file": "techniques/body.json",
+      "entries": 10,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/buddhist",
+      "file": "techniques/buddhist.json",
+      "entries": 6,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/confucian",
+      "file": "techniques/confucian.json",
+      "entries": 5,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/dao",
+      "file": "techniques/dao.json",
+      "entries": 7,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/demon_path",
+      "file": "techniques/demon_path.json",
+      "entries": 4,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/demonic",
+      "file": "techniques/demonic.json",
+      "entries": 16,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/divine_sense",
+      "file": "techniques/divine_sense.json",
+      "entries": 10,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/elemental",
+      "file": "techniques/elemental.json",
+      "entries": 41,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/fashi",
+      "file": "techniques/fashi.json",
+      "entries": 15,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/formation",
+      "file": "techniques/formation.json",
+      "entries": 14,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/ghost",
+      "file": "techniques/ghost.json",
+      "entries": 8,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/illusion",
+      "file": "techniques/illusion.json",
+      "entries": 13,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/index",
+      "file": "techniques/index.json",
+      "entries": 20,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/misc",
+      "file": "techniques/misc.json",
+      "entries": 50,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/movement",
+      "file": "techniques/movement.json",
+      "entries": 12,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/puppet",
+      "file": "techniques/puppet.json",
+      "entries": 12,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/recovery",
+      "file": "techniques/recovery.json",
+      "entries": 8,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/secret_arts",
+      "file": "techniques/secret_arts.json",
+      "entries": 50,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/sword",
+      "file": "techniques/sword.json",
+      "entries": 15,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/talisman",
+      "file": "techniques/talisman.json",
+      "entries": 38,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "techniques/xuan_yin",
+      "file": "techniques/xuan_yin.json",
+      "entries": 12,
+      "primary_key": "techniques"
+    },
+    {
+      "id": "region_cards/barbarian_wasteland",
+      "file": "region_cards/barbarian_wasteland.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/chaotic_sea",
+      "file": "region_cards/chaotic_sea.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/dajin",
+      "file": "region_cards/dajin.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/extreme_west_thousand_bamboo",
+      "file": "region_cards/extreme_west_thousand_bamboo.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/fallen_demon_valley",
+      "file": "region_cards/fallen_demon_valley.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/great_jin_central",
+      "file": "region_cards/great_jin_central.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/index",
+      "file": "region_cards/index.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/inverse_star_hideout",
+      "file": "region_cards/inverse_star_hideout.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/kunwu",
+      "file": "region_cards/kunwu.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/mulan",
+      "file": "region_cards/mulan.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/mulan_grassland",
+      "file": "region_cards/mulan_grassland.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/nether_river",
+      "file": "region_cards/nether_river.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/outer_sea_market",
+      "file": "region_cards/outer_sea_market.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/qixuan_village",
+      "file": "region_cards/qixuan_village.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/spirit_fengyuan",
+      "file": "region_cards/spirit_fengyuan.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/spirit_realm_border",
+      "file": "region_cards/spirit_realm_border.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/star_palace_city",
+      "file": "region_cards/star_palace_city.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/tianlan",
+      "file": "region_cards/tianlan.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/tiannan",
+      "file": "region_cards/tiannan.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/tiannan_north_waste",
+      "file": "region_cards/tiannan_north_waste.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/tianyuan",
+      "file": "region_cards/tianyuan.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/wutu_border",
+      "file": "region_cards/wutu_border.json",
+      "entries": 1,
+      "primary_key": "region"
+    },
+    {
+      "id": "region_cards/yinming",
+      "file": "region_cards/yinming.json",
+      "entries": 1,
+      "primary_key": "region"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schema_version": 3,
+  "source": "汇编 §6 炼丹 + 知识库：炉+盖+火、等级错配爆炸、配方书、修为定资源档",
+  "components": {
+    "furnace": {
+      "id": "alchemy_furnace",
+      "display": "丹炉",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "lid": {
+      "id": "alchemy_lid",
+      "display": "炉盖",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "flame_source": {
+      "id": "alchemy_flame",
+      "display": "丹火",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "grade_mismatch_rules": [
+    {
+      "condition": "flame_grade > furnace_grade",
+      "result": "explosion",
+      "severity": "destroy_furnace",
+      "player_damage": "high",
+      "note": "高火低炉必炸",
+      "setting": {
+        "lore": "汇编：高火低炉必炸，毁炉重伤。"
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "flame_grade > lid_grade",
+      "result": "explosion",
+      "severity": "destroy_lid",
+      "player_damage": "mid",
+      "setting": {
+        "lore": "炉盖品阶不足则崩裂炸炉。"
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "furnace_grade < recipe_min_furnace",
+      "result": "fail",
+      "waste_materials": 0.5,
+      "setting": {
+        "lore": "丹炉低于配方要求则无法成丹，半数材料报废。"
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "realm_below_recipe_min",
+      "result": "fail",
+      "message": "神识不足控火",
+      "setting": {
+        "lore": "神识不足控火，丹液凝固或炸炉。"
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    }
+  ],
+  "flame_sources": [
+    {
+      "id": "mortal_fire",
+      "grade": 1,
+      "display": "凡火"
+    },
+    {
+      "id": "qi_flame",
+      "grade": 2,
+      "display": "真元丹火",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "foundation_flame",
+      "grade": 3,
+      "display": "筑基丹火",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "core_earth_fire",
+      "grade": 4,
+      "display": "地火",
+      "realm_min": "CORE_FORMATION",
+      "location": "sect_fire_room"
+    },
+    {
+      "id": "nascent_soul_flame",
+      "grade": 5,
+      "display": "婴火",
+      "realm_min": "NASCENT_SOUL"
+    }
+  ],
+  "recipe_medium": [
+    "jade_slip",
+    "paper_formula",
+    "sect_secret_scroll"
+  ],
+  "success_factors": [
+    "furnace_grade",
+    "flame_grade",
+    "alchemy_skill",
+    "herb_quality",
+    "realm_control"
+  ],
+  "crossref": [
+    "pills_catalog.json",
+    "alchemy_recipes.json",
+    "spirit_herbs_catalog.json",
+    "pill_quality.json",
+    "materials_catalog.json"
+  ],
+  "setting": {
+    "lore": "丹药品阶与境界错配会炸炉或丹毒",
+    "compliance": "结构向"
+  },
+  "learn_requirements": {
+    "apply": {
+      "note": "系统自动校验品阶错配。"
+    }
+  }
+}

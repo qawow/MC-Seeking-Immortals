@@ -1,0 +1,30 @@
+{
+  "id": "dajin_spirit_stone_bank",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 8,
+      "cost": 1,
+      "stock": 40
+    },
+    {
+      "id": "metal_spirit_stone",
+      "item": "seeking_immortals:metal_spirit_stone",
+      "count": 1,
+      "cost": 1,
+      "stock": 20
+    },
+    {
+      "id": "immortal_jade",
+      "item": "seeking_immortals:immortal_jade",
+      "count": 1,
+      "cost": 8,
+      "stock": 5
+    }
+  ]
+}

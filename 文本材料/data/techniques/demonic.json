@@ -1,0 +1,602 @@
+{
+  "schema_version": 17,
+  "school": "demonic",
+  "techniques": [
+    {
+      "id": "demon_flame",
+      "display": "魔焰术",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 21,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 42,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "requires_method": "tianmo_body_art",
+      "description": "魔焰术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔焰术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "soul_devour",
+      "display": "摄魂术",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 17,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 35,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "requires_method": "guiling_soul_art",
+      "description": "摄魂术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "摄魂术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "guiling_soul_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "guiling_soul_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_sacrifice",
+      "display": "血祭",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "blood",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "requires_method": "xuewu_blood_art",
+      "description": "血祭：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血祭：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuewu_blood_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuewu_blood_art"
+        ]
+      }
+    },
+    {
+      "id": "demon_form",
+      "display": "魔化",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "transform",
+        "element": "demon",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "description": "魔化：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔化：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "demon_contract",
+      "display": "魔契",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 19,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "demon",
+        "damage_base": 38,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "description": "魔契：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔契：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "demon_armor",
+      "display": "魔甲",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "demon",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "alignment": "demonic",
+      "description": "魔甲：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔甲：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "fox_phantom_shift",
+      "display": "狐影幻形",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "requires_method": "wanhu_phantom_art",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "buff",
+        "element": "illusion"
+      },
+      "description": "狐影幻形：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "狐影幻形：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "wanhu_phantom_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_curse_mark",
+      "display": "血咒印",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "xuewu_blood_art",
+      "spirit_cost_base": 28,
+      "effect": {
+        "type": "debuff",
+        "element": "blood"
+      },
+      "description": "血咒印：demonic神通，需境界 CORE_FORMATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "ritual",
+        "target": "battlefield",
+        "lore": "血咒印：demonic神通，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "xuewu_blood_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "secret_inheritance",
+          "ruin",
+          "tribulation"
+        ],
+        "realm_min_override_strict": true,
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "xuewu_blood_art"
+        ],
+        "prerequisite_mode": "all"
+      }
+    },
+    {
+      "id": "hehuan_charm",
+      "display": "媚惑术",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "媚惑术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "demonic"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "媚惑术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_curse_strike",
+      "display": "血咒击",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "血咒击：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "demonic"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血咒击：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "poison_mist",
+      "display": "毒雾术",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "毒雾术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "demonic"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "毒雾术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "demon_claw",
+      "display": "魔爪",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "魔爪：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "demonic"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔爪：demonic法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "hehuan_soul_charm",
+      "display": "合欢迷心",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "hehuan_mind_art",
+      "effect": {
+        "type": "debuff",
+        "tags": [
+          "charm",
+          "mind"
+        ]
+      },
+      "description": "扰乱敌修心神，对意志弱者尤效。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "cast_type": "instant",
+        "target": "single",
+        "tags": [
+          "mind",
+          "charm"
+        ],
+        "lore": "合欢媚术乱心神。",
+        "counter": [
+          "calm_spirit",
+          "buddhist"
+        ]
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "hehuan_mind_art"
+        ]
+      }
+    },
+    {
+      "id": "qingluo_poison_needle",
+      "display": "青罗毒针",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "qingluo_poison_art",
+      "effect": {
+        "type": "projectile",
+        "damage_base": 35,
+        "tags": [
+          "poison"
+        ]
+      },
+      "description": "毒针入骨，附带持续毒伤。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "毒针入骨，附带持续毒伤。",
+        "requires_method": "qingluo_poison_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingluo_poison_art"
+        ]
+      }
+    },
+    {
+      "id": "xuewu_blood_curse_mark",
+      "display": "血巫咒印",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "xuewu_blood_art",
+      "effect": {
+        "type": "debuff",
+        "tags": [
+          "curse"
+        ]
+      },
+      "description": "咒印标记，后续血咒伤害加深。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "咒印标记，后续血咒伤害加深。",
+        "requires_method": "xuewu_blood_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuewu_blood_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_demon_slash",
+      "display": "血魔斩",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "blood_demon_art",
+      "effect": {
+        "type": "melee",
+        "damage_base": 85,
+        "tags": [
+          "blood"
+        ]
+      },
+      "description": "血刃斩击，消耗精血。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "karma": "demonic",
+        "combat_style": "魔道杀伐",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血刃斩击，消耗精血。",
+        "requires_method": "blood_demon_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "blood_demon_art"
+        ]
+      }
+    }
+  ],
+  "six_sects_ref": "demonic_six_sects.json"
+}

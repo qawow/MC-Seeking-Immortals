@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "source": "chronicle_events.json",
+  "primary_key": "events",
+  "entries": [
+    {
+      "id": "M1_five_realms",
+      "display": "五界分立"
+    },
+    {
+      "id": "M2_true_spirit_fall",
+      "display": "真灵陨落纪"
+    },
+    {
+      "id": "M3_xiaolu_realm",
+      "display": "修罗界崩"
+    },
+    {
+      "id": "M4_holy_bird_mulan",
+      "display": "圣禽临凡"
+    },
+    {
+      "id": "M5_tianlan_oath",
+      "display": "天澜圣兽约"
+    },
+    {
+      "id": "A1_kunwu_peak",
+      "display": "昆吾灵山鼎盛"
+    },
+    {
+      "id": "A2_stone_puppet",
+      "display": "石灵傀儡术兴盛"
+    },
+    {
+      "id": "A3_dayan_sage",
+      "display": "千竹祖师悟衍"
+    },
+    {
+      "id": "A4_void_palace_built",
+      "display": "虚天殿建成"
+    },
+    {
+      "id": "A5_blood_forbidden_hermits",
+      "display": "血色禁地隐居潮"
+    },
+    {
+      "id": "A6_first_demon_war_kunwu",
+      "display": "人魔大战（第一次）"
+    },
+    {
+      "id": "A7_peiying_formula_peak",
+      "display": "培婴丹方鼎盛"
+    },
+    {
+      "id": "D1_demon_invasion",
+      "display": "上古魔界裂隙大开"
+    },
+    {
+      "id": "D2_spirit_vein_damage",
+      "display": "灵气脉络伤损"
+    },
+    {
+      "id": "D3_realm_cap_fall",
+      "display": "化神上限跌落"
+    },
+    {
+      "id": "D4_zhuimo_valley",
+      "display": "坠魔谷战役"
+    },
+    {
+      "id": "D5_seal_treaty",
+      "display": "封魔阵立约"
+    },
+    {
+      "id": "D6_mojin_mountain",
+      "display": "魔金山脉形成"
+    },
+    {
+      "id": "D7_demonization_spread",
+      "display": "魔化神通入人间"
+    },
+    {
+      "id": "K1_seven_sects",
+      "display": "越国七派立宗"
+    },
+    {
+      "id": "K2_six_demon_sects",
+      "display": "魔道六宗北迁"
+    },
+    {
+      "id": "K3_mulan_tianlan_war_1",
+      "display": "慕兰突兀千年战（第一期）"
+    },
+    {
+      "id": "K4_star_palace",
+      "display": "乱星海星宫建立"
+    },
+    {
+      "id": "K5_inverse_star",
+      "display": "逆星盟成形"
+    },
+    {
+      "id": "K6_dajin_clans",
+      "display": "大晋世家崛起"
+    },
+    {
+      "id": "K7_nine_nation_alliance",
+      "display": "九国盟组建"
+    },
+    {
+      "id": "K8_luoyun_sect",
+      "display": "天道盟与落云宗"
+    },
+    {
+      "id": "K9_mulan_tianlan_escalation",
+      "display": "慕兰突兀战烈度升级"
+    },
+    {
+      "id": "K10_qixuan_decline",
+      "display": "七玄门衰微"
+    },
+    {
+      "id": "P1_spirit_depletion_debate",
+      "display": "灵脉枯竭论起"
+    },
+    {
+      "id": "P2_spirit_transformation_rare",
+      "display": "化神修士绝迹人间"
+    },
+    {
+      "id": "P3_smuggle_ascension",
+      "display": "偷渡灵界盛行"
+    },
+    {
+      "id": "P4_tianyuan_open",
+      "display": "天渊城仍通人界"
+    },
+    {
+      "id": "P5_present_era",
+      "display": "当前纪年"
+    },
+    {
+      "id": "P6_void_palace_next",
+      "display": "虚天殿下次浮现（预测）"
+    },
+    {
+      "id": "P7_player_entry",
+      "display": "玩家入场"
+    },
+    {
+      "id": "L1_tianyuan_founded",
+      "display": "天渊城开城"
+    },
+    {
+      "id": "L2_treasure_fair",
+      "display": "万宝大会定例"
+    },
+    {
+      "id": "L3_diyuan",
+      "display": "地渊分层勘探"
+    },
+    {
+      "id": "L4_minghe",
+      "display": "冥河之地"
+    },
+    {
+      "id": "L5_guanghai",
+      "display": "广寒界断续现世"
+    },
+    {
+      "id": "L6_human_weak_northwest",
+      "display": "人族西北弱势"
+    },
+    {
+      "id": "Y1_yinsi_realm",
+      "display": "阴司之界"
+    },
+    {
+      "id": "Y2_ancient_demon_realm",
+      "display": "上古魔界未灭"
+    },
+    {
+      "id": "Y3_demon_remnant_awaken",
+      "display": "古魔余孽苏醒暗流"
+    },
+    {
+      "id": "cycle_blood_forbidden",
+      "display": "血色禁地衰弱期"
+    },
+    {
+      "id": "cycle_void_palace",
+      "display": "虚天殿浮现"
+    },
+    {
+      "id": "cycle_treasure_fair",
+      "display": "万宝大会"
+    },
+    {
+      "id": "mulan_tianlan_war_minor",
+      "display": "慕兰突兀边境冲突"
+    },
+    {
+      "id": "E_mulan_invasion_wave",
+      "display": "慕兰入侵波次"
+    },
+    {
+      "id": "E_tianlan_saint_beast",
+      "display": "天澜圣兽出世"
+    },
+    {
+      "id": "E_void_palace_cycle",
+      "display": "虚天殿周期开启"
+    },
+    {
+      "id": "E_ancient_demon_seal_weak",
+      "display": "古魔封印松动"
+    },
+    {
+      "id": "L3_void_realm_cultivation_norm",
+      "display": "L3_void_realm_cultivation_norm"
+    },
+    {
+      "id": "E_mortal_cap_enforcement",
+      "display": "E_mortal_cap_enforcement"
+    },
+    {
+      "id": "B_buddhist_dajin_spread",
+      "display": "大晋佛修北传"
+    }
+  ]
+}

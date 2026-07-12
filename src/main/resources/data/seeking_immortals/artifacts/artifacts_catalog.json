@@ -1,0 +1,5460 @@
+{
+  "schema_version": 10,
+  "tiers": [
+    "low",
+    "mid",
+    "high",
+    "ancient_treasure",
+    "spirit_treasure"
+  ],
+  "artifacts": [
+    {
+      "id": "flying_sword_low",
+      "display": "低阶飞剑",
+      "tier": "low",
+      "type": "flying_sword",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "offense",
+        "metal"
+      ],
+      "game_tier": 2,
+      "setting": {
+        "lore": "低阶飞剑",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑（仿）",
+      "tier": "high",
+      "type": "flying_sword",
+      "realm_min": "FOUNDATION",
+      "element": "wood",
+      "note": "对外发布建议改名",
+      "game_tier": 6,
+      "setting": {
+        "lore": "青竹蜂云剑，木系飞剑成套，剑阵核心。",
+        "tier_note": "成长型古宝"
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "method_any": [
+            "qingyuan_sword_art",
+            "wood_path"
+          ],
+          "refine_stages": true
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "yellow_umbrella",
+      "display": "黄罗伞",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "game_tier": 4,
+      "setting": {
+        "lore": "黄罗伞",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "xuanguang_mirror",
+      "display": "玄光镜",
+      "tier": "ancient_treasure",
+      "type": "soul_attack",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 10,
+      "setting": {
+        "lore": "玄光镜",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "xuanhuang_mirror",
+      "display": "玄黄镜",
+      "tier": "ancient_treasure",
+      "type": "soul_destroy",
+      "realm_min": "NASCENT_SOUL",
+      "game_tier": 10,
+      "setting": {
+        "lore": "玄黄镜",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "evil_illusion_mirror",
+      "display": "邪幻镜",
+      "tier": "mid",
+      "type": "illusion",
+      "realm_min": "FOUNDATION",
+      "game_tier": 5,
+      "setting": {
+        "lore": "邪幻镜",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "hunyuan_bowl",
+      "display": "混元钵",
+      "tier": "high",
+      "type": "hybrid_puppet_core",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 7,
+      "setting": {
+        "lore": "混元钵",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "soul_gathering_bowl",
+      "display": "聚魂钵",
+      "tier": "mid",
+      "type": "yin",
+      "realm_min": "FOUNDATION",
+      "karma": "negative",
+      "game_tier": 4,
+      "setting": {
+        "lore": "聚魂钵",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "soul_summon_bell",
+      "display": "引魂钟",
+      "tier": "mid",
+      "type": "puppet_control",
+      "realm_min": "QI_REFINING",
+      "game_tier": 3,
+      "setting": {
+        "lore": "引魂钟",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "path_any": [
+            "xuan_yin_art",
+            "ghost"
+          ]
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "poluo_beads",
+      "display": "婆罗珠",
+      "tier": "mid",
+      "type": "soul_stabilize",
+      "realm_min": "FOUNDATION",
+      "game_tier": 4,
+      "setting": {
+        "lore": "婆罗珠",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "cloud_boots",
+      "display": "踏云靴",
+      "tier": "low",
+      "type": "movement",
+      "realm_min": "QI_REFINING",
+      "bonus": "move_speed",
+      "game_tier": 2,
+      "setting": {
+        "lore": "踏云靴",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "black_boots",
+      "display": "乌靴",
+      "tier": "mid",
+      "type": "movement",
+      "realm_min": "FOUNDATION",
+      "bonus": "escape",
+      "game_tier": 4,
+      "setting": {
+        "lore": "乌靴",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "great_shift_token",
+      "display": "大挪移令",
+      "tier": "high",
+      "type": "teleport_protection",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "game_tier": 8,
+      "setting": {
+        "lore": "大挪移令",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "spirit_gathering_bead",
+      "display": "定神珠",
+      "tier": "low",
+      "type": "anti_illusion",
+      "realm_min": "QI_REFINING",
+      "game_tier": 2,
+      "setting": {
+        "lore": "定神珠",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "gold_demon_chain",
+      "display": "金蚨子母刃",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 7,
+      "setting": {
+        "lore": "金蚨子母刃",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "flat_crown",
+      "display": "平山冠",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "game_tier": 5,
+      "setting": {
+        "lore": "平山冠",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "demon_refining_pot",
+      "display": "炼妖壶（仿）",
+      "tier": "ancient_treasure",
+      "type": "beast_refine",
+      "realm_min": "NASCENT_SOUL",
+      "game_tier": 10,
+      "setting": {
+        "lore": "炼妖壶（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "void_key",
+      "display": "虚天殿密钥",
+      "tier": "high",
+      "type": "quest_key",
+      "realm_min": "CORE_FORMATION",
+      "binds": "void_palace",
+      "game_tier": 7,
+      "setting": {
+        "lore": "虚天殿密钥",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "silver_moon_wolf",
+      "display": "银月天狼",
+      "tier": "high",
+      "type": "beast_spirit",
+      "realm_min": "CORE_FORMATION",
+      "element": "ice",
+      "note": "可化形辅助",
+      "game_tier": 8,
+      "setting": {
+        "lore": "银月天狼",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "qingning_mirror",
+      "display": "青凝镜",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "freeze_attackers",
+      "game_tier": 4,
+      "setting": {
+        "lore": "青凝镜",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "potian_shovel",
+      "display": "破天锹",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "effect": "earth_split",
+      "game_tier": 5,
+      "setting": {
+        "lore": "破天锹",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "snake_pearl",
+      "display": "蛇珠",
+      "tier": "low",
+      "type": "poison",
+      "realm_min": "QI_REFINING",
+      "effect": "venom_burst",
+      "game_tier": 2,
+      "setting": {
+        "lore": "蛇珠",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "peerless_flying_knives",
+      "display": "无双飞刀",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "tags": [
+        "multi_projectile"
+      ],
+      "game_tier": 6,
+      "setting": {
+        "lore": "无双飞刀",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "bedrock_shield",
+      "display": "磐石盾",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "damage_reduce_flat",
+      "game_tier": 5,
+      "setting": {
+        "lore": "磐石盾",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "nascent_soul_talisman_treasure",
+      "display": "元婴符宝（模板）",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "NASCENT_SOUL",
+      "consumable": true,
+      "note": "一次性大威力",
+      "game_tier": 8,
+      "setting": {
+        "lore": "元婴符宝（模板）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "giant_ape_puppet_token",
+      "display": "巨猿傀儡符",
+      "tier": "low",
+      "type": "puppet_summon",
+      "realm_min": "QI_REFINING",
+      "summons": "giant_ape_puppet",
+      "consumable": true,
+      "game_tier": 2,
+      "setting": {
+        "lore": "巨猿傀儡符",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "flat_crown_replica",
+      "display": "平山冠（仿）",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "head_damage_reduce",
+      "game_tier": 5,
+      "setting": {
+        "lore": "平山冠（仿）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "spirit_boat_model",
+      "display": "灵舟模型",
+      "tier": "mid",
+      "type": "vehicle_key",
+      "realm_min": "FOUNDATION",
+      "binds": "spirit_boat",
+      "game_tier": 4,
+      "setting": {
+        "lore": "灵舟模型",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "giant_turtle_puppet_core",
+      "display": "巨龟傀儡核心",
+      "tier": "mid",
+      "type": "puppet_core",
+      "realm_min": "FOUNDATION",
+      "use": "assemble_giant_turtle_puppet",
+      "game_tier": 4,
+      "setting": {
+        "lore": "巨龟傀儡核心",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "nine_dragon_cauldron_replica",
+      "display": "九龙神火罩（仿·古宝模板）",
+      "tier": "ancient_treasure",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "flame_barrier_aoe",
+      "game_tier": 10,
+      "compliance": "template_not_canonical_name",
+      "note": "汇编古宝类结构参考，非原著命名绑定",
+      "setting": {
+        "lore": "九龙神火罩（仿·古宝模板）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "void_refining_bell",
+      "display": "炼虚钟（灵宝模板）",
+      "tier": "spirit_treasure",
+      "type": "space_control",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "effect": "void_zone_slow",
+      "game_tier": 11,
+      "compliance": "template_spirit_treasure",
+      "note": "灵界向控场灵宝占位",
+      "setting": {
+        "lore": "炼虚钟（灵宝模板）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "nine_dragon_barrier_token",
+      "display": "九龙罩阵符",
+      "tier": "high",
+      "type": "formation_token",
+      "realm_min": "CORE_FORMATION",
+      "effect": "deploy_flame_barrier_once",
+      "game_tier": 9,
+      "note": "仿古宝九龙罩的一次性阵符，非本体",
+      "setting": {
+        "lore": "九龙罩阵符",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "quhun_iron_puppet",
+      "display": "驱魂铁傀（战利品）",
+      "tier": "low",
+      "type": "puppet_summon",
+      "realm_min": "QI_REFINING",
+      "effect": "summon_t0_puppet_60s",
+      "game_tier": 3,
+      "note": "汇编驱魂铁傀向消耗品，非永久傀儡",
+      "setting": {
+        "lore": "驱魂铁傀（战利品）",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "evil_mirage_mirror_shard",
+      "display": "邪幻镜碎片",
+      "tier": "mid",
+      "type": "material_artifact",
+      "realm_min": "FOUNDATION",
+      "effect": "craft_mirage_heart_talisman_bonus",
+      "game_tier": 6,
+      "note": "汇编邪幻镜向，非法宝成品",
+      "setting": {
+        "lore": "邪幻镜碎片",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "display": "玄黄镜碎片",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "craft_soul_scatter_talisman_bonus",
+      "game_tier": 8,
+      "note": "汇编玄黄镜向古宝碎片",
+      "setting": {
+        "lore": "玄黄镜碎片",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "qingye_leaf_fan",
+      "display": "青叶法器",
+      "tier": "low",
+      "type": "offense",
+      "realm_min": "QI_REFINING",
+      "element": "wood",
+      "effect": "wind_blade",
+      "game_tier": 2,
+      "source": "汇编/人界常见低阶法器",
+      "setting": {
+        "lore": "青叶法器",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编/人界常见低阶法器"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "lieyang_short_sword",
+      "display": "烈阳剑（法器）",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "effect": "flame_slash",
+      "game_tier": 5,
+      "source": "汇编火系法器",
+      "setting": {
+        "lore": "烈阳剑（法器）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编火系法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "lengyue_blade",
+      "display": "冷月刀",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "element": "ice",
+      "effect": "frost_slash",
+      "game_tier": 5,
+      "source": "汇编冰系法器",
+      "setting": {
+        "lore": "冷月刀",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编冰系法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "huangsi_robe_artifact",
+      "display": "黄丝衫",
+      "tier": "low",
+      "type": "defense",
+      "realm_min": "QI_REFINING",
+      "effect": "physical_reduce_light",
+      "game_tier": 2,
+      "source": "汇编下品防御法器",
+      "setting": {
+        "lore": "黄丝衫",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编下品防御法器"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "silver_giant_sword",
+      "display": "银色巨剑",
+      "tier": "mid",
+      "type": "flying_sword",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "top_low_artifact"
+      ],
+      "effect": "heavy_slash",
+      "game_tier": 5,
+      "note": "顶阶法器极品向，筑基可御",
+      "source": "血色禁地巨剑门向",
+      "setting": {
+        "lore": "银色巨剑",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "血色禁地巨剑门向"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "azure_rope_net",
+      "display": "青索网",
+      "tier": "mid",
+      "type": "control",
+      "realm_min": "FOUNDATION",
+      "effect": "bind_slow",
+      "game_tier": 4,
+      "source": "汇编束缚类",
+      "setting": {
+        "lore": "青索网",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编束缚类"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "fire_cloud_banner",
+      "display": "火云旗",
+      "tier": "high",
+      "type": "formation_deploy",
+      "realm_min": "CORE_FORMATION",
+      "effect": "deploy_fire_formation",
+      "game_tier": 7,
+      "source": "汇编旗阵法器",
+      "setting": {
+        "lore": "火云旗",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编旗阵法器"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "blood_jade_shield",
+      "display": "血玉盾",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "spell_block_pulse",
+      "game_tier": 4,
+      "source": "汇编防御法器",
+      "setting": {
+        "lore": "血玉盾",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编防御法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "tortoise_shell_shield",
+      "display": "龟壳盾",
+      "tier": "low",
+      "type": "defense",
+      "realm_min": "QI_REFINING",
+      "effect": "block_projectile",
+      "game_tier": 3,
+      "source": "妖兽材料炼制",
+      "setting": {
+        "lore": "龟壳盾",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "妖兽材料炼制"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "fire_rain_needles",
+      "display": "火雨针",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "tags": [
+        "multi_projectile"
+      ],
+      "game_tier": 5,
+      "source": "汇编针类法器",
+      "setting": {
+        "lore": "火雨针",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编针类法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "thousand_bee_needles",
+      "display": "千蜂针",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "tags": [
+        "multi_projectile",
+        "poison"
+      ],
+      "game_tier": 6,
+      "source": "汇编群攻针器",
+      "setting": {
+        "lore": "千蜂针",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编群攻针器"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "wind_fire_wheels",
+      "display": "风火轮",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "effect": "spin_aoe",
+      "game_tier": 5,
+      "source": "汇编轮刃",
+      "setting": {
+        "lore": "风火轮",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编轮刃"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "aura_conceal_cloth",
+      "display": "敛气残帛",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "hide_aura_sense",
+      "game_tier": 2,
+      "note": "遮掩气息古宝残片向，非专名绑定",
+      "source": "汇编遮掩类",
+      "setting": {
+        "lore": "敛气残帛",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编遮掩类"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "storage_bracelet_low",
+      "display": "储物镯（低阶）",
+      "tier": "low",
+      "type": "storage",
+      "realm_min": "QI_REFINING",
+      "effect": "extra_slots_8",
+      "game_tier": 3,
+      "source": "汇编储物法器",
+      "setting": {
+        "lore": "储物镯（低阶）",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编储物法器"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "soul_lock_chain",
+      "display": "锁魂链",
+      "tier": "mid",
+      "type": "yin",
+      "realm_min": "FOUNDATION",
+      "effect": "soul_bind",
+      "karma": "negative",
+      "game_tier": 4,
+      "source": "魔道束缚",
+      "setting": {
+        "lore": "锁魂链",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道束缚"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 3,
+      "effect": "golden_brick_strike",
+      "game_tier": 6,
+      "note": "符宝：结丹炼制、次数有限，威力近法宝",
+      "source": "原著符宝机制",
+      "setting": {
+        "lore": "金光砖符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "原著符宝机制"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "vermillion_bird_ring",
+      "display": "朱雀环（仿）",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "element": "fire",
+      "effect": "ring_bind_burn",
+      "game_tier": 7,
+      "note": "对外发布用仿名；修为不足无法发挥",
+      "source": "法宝需境界匹配",
+      "setting": {
+        "lore": "朱雀环（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "法宝需境界匹配"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "black_moon_ruler",
+      "display": "黑月尺",
+      "tier": "ancient_treasure",
+      "type": "offense",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "space_cut",
+      "game_tier": 10,
+      "compliance": "generic_ancient_name",
+      "source": "古宝尺类",
+      "setting": {
+        "lore": "黑月尺",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "古宝尺类"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "falling_star_ring",
+      "display": "落星环",
+      "tier": "ancient_treasure",
+      "type": "offense",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "meteor_strike",
+      "game_tier": 10,
+      "source": "汇编古宝攻击",
+      "setting": {
+        "lore": "落星环",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编古宝攻击"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "green_copper_bell",
+      "display": "青铜古钟",
+      "tier": "ancient_treasure",
+      "type": "control",
+      "realm_min": "CORE_FORMATION",
+      "effect": "sound_stun_aoe",
+      "game_tier": 10,
+      "source": "汇编钟类古宝",
+      "setting": {
+        "lore": "青铜古钟",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编钟类古宝"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "demon_suppress_tower_replica",
+      "display": "镇妖塔（仿）",
+      "tier": "high",
+      "type": "beast_control",
+      "realm_min": "CORE_FORMATION",
+      "effect": "suppress_beast_tier",
+      "game_tier": 8,
+      "note": "仿制品非通天灵宝本体",
+      "source": "镇妖向",
+      "setting": {
+        "lore": "镇妖塔（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "镇妖向"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "void_heaven_ruler_shard",
+      "display": "虚天尺碎片",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "craft_space_artifact_bonus",
+      "game_tier": 8,
+      "note": "虚天殿线空间古宝碎片向",
+      "source": "乱星海秘境",
+      "setting": {
+        "lore": "虚天尺碎片",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海秘境"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片",
+      "tier": "spirit_treasure",
+      "type": "material_artifact",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "effect": "spirit_treasure_craft",
+      "game_tier": 11,
+      "compliance": "fragment_not_full_treasure",
+      "source": "通天灵宝向碎片",
+      "setting": {
+        "lore": "八灵尺碎片",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "通天灵宝向碎片"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "black_wind_flag_fragment",
+      "display": "黑风旗残角",
+      "tier": "spirit_treasure",
+      "type": "material_artifact",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "game_tier": 11,
+      "compliance": "fragment",
+      "source": "通天灵宝控风",
+      "setting": {
+        "lore": "黑风旗残角",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "通天灵宝控风"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "seven_flame_fan_replica",
+      "display": "七焰扇（仿）",
+      "tier": "spirit_treasure",
+      "type": "offense",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "element": "fire",
+      "game_tier": 11,
+      "compliance": "replica",
+      "note": "灵界通天灵宝仿，非本体",
+      "source": "汇编灵宝类",
+      "setting": {
+        "lore": "七焰扇（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编灵宝类"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "mixed_element_bowl_low",
+      "display": "混元药钵（凡）",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "mix_herb_powder",
+      "game_tier": 2,
+      "note": "与 high 混元钵区分",
+      "source": "命名区分",
+      "setting": {
+        "lore": "混元药钵（凡）",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "命名区分"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "iron_chain_sickle",
+      "display": "铁链镰",
+      "tier": "low",
+      "type": "offense",
+      "realm_min": "QI_REFINING",
+      "game_tier": 2,
+      "source": "炼气散修常用",
+      "setting": {
+        "lore": "铁链镰",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "炼气散修常用"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "spirit_lamp",
+      "display": "引灵灯",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "reveal_spirit_nodes",
+      "game_tier": 2,
+      "source": "探灵",
+      "setting": {
+        "lore": "引灵灯",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "探灵"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "beast_taming_whip",
+      "display": "御兽鞭",
+      "tier": "mid",
+      "type": "beast_control",
+      "realm_min": "FOUNDATION",
+      "effect": "beast_obey_chance",
+      "game_tier": 4,
+      "source": "御兽宗向",
+      "setting": {
+        "lore": "御兽鞭",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "御兽宗向"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "thunder_palm_artifact",
+      "display": "天雷符器",
+      "tier": "mid",
+      "type": "thunder",
+      "realm_min": "FOUNDATION",
+      "consumable": false,
+      "effect": "thunder_palm_cd",
+      "game_tier": 5,
+      "source": "雷法法器",
+      "setting": {
+        "lore": "天雷符器",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "雷法法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "black_gold_shield",
+      "display": "乌金盾",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "block_melee_spell",
+      "game_tier": 4,
+      "source": "汇编顶阶防御法器向",
+      "setting": {
+        "lore": "乌金盾",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编顶阶防御法器向"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "dark_iron_ring",
+      "display": "玄铁环",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "effect": "ring_throw_bind",
+      "game_tier": 4,
+      "source": "汇编环类法器",
+      "setting": {
+        "lore": "玄铁环",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编环类法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "soul_capturing_bell",
+      "display": "摄魂铃",
+      "tier": "mid",
+      "type": "soul_attack",
+      "realm_min": "FOUNDATION",
+      "effect": "soul_stun_short",
+      "karma": "negative",
+      "game_tier": 5,
+      "source": "汇编摄魂类",
+      "setting": {
+        "lore": "摄魂铃",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编摄魂类"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "green_bamboo_leaf_sword",
+      "display": "竹叶剑",
+      "tier": "low",
+      "type": "flying_sword",
+      "realm_min": "QI_REFINING",
+      "element": "wood",
+      "game_tier": 2,
+      "note": "低阶木系飞剑，非专名灵剑仿",
+      "source": "木系法器",
+      "setting": {
+        "lore": "竹叶剑",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "木系法器"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "soul_refining_banner",
+      "display": "炼魂幡",
+      "tier": "mid",
+      "type": "yin",
+      "realm_min": "FOUNDATION",
+      "effect": "soul_harvest_on_kill",
+      "karma": "negative",
+      "game_tier": 5,
+      "source": "魔道幡类",
+      "setting": {
+        "lore": "炼魂幡",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道幡类"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "stealth_cloak_artifact",
+      "display": "匿形斗篷",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "FOUNDATION",
+      "effect": "reduce_aggro_range",
+      "game_tier": 4,
+      "source": "隐匿法器",
+      "setting": {
+        "lore": "匿形斗篷",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "隐匿法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "demon_subduing_staff",
+      "display": "降魔杵",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "effect": "demon_damage_bonus",
+      "game_tier": 5,
+      "source": "佛门向法器",
+      "setting": {
+        "lore": "降魔杵",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "佛门向法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "flying_needle_set",
+      "display": "飞针匣",
+      "tier": "low",
+      "type": "offense",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "multi_projectile"
+      ],
+      "game_tier": 3,
+      "source": "针匣法器",
+      "setting": {
+        "lore": "飞针匣",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "针匣法器"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "jade_law_seal",
+      "display": "法印",
+      "tier": "mid",
+      "type": "control",
+      "realm_min": "FOUNDATION",
+      "effect": "seal_channel",
+      "game_tier": 4,
+      "source": "封印法器",
+      "setting": {
+        "lore": "法印",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "封印法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "five_element_orb",
+      "display": "五行灵珠",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "element": "mixed",
+      "effect": "element_rotate_strike",
+      "game_tier": 7,
+      "source": "五行成套法器",
+      "setting": {
+        "lore": "五行灵珠",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "五行成套法器"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 2,
+      "effect": "thunder_bolt_massive",
+      "game_tier": 7,
+      "source": "符宝雷系",
+      "setting": {
+        "lore": "霹雳神雷符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝雷系"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "uses": 2,
+      "effect": "seal_demon_beast",
+      "game_tier": 8,
+      "source": "符宝封魔",
+      "setting": {
+        "lore": "封魔符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝封魔"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 3,
+      "effect": "golden_wheel_slash",
+      "game_tier": 6,
+      "source": "符宝轮刃",
+      "setting": {
+        "lore": "金轮符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝轮刃"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "ancient_sea_halberd_shard",
+      "display": "平海戈碎片",
+      "tier": "ancient_treasure",
+      "type": "material_artifact",
+      "realm_min": "NASCENT_SOUL",
+      "game_tier": 10,
+      "compliance": "fragment",
+      "source": "通天灵宝向",
+      "setting": {
+        "lore": "平海戈碎片",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "通天灵宝向"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "ancient_forest_disk_shard",
+      "display": "万森轮盘碎片",
+      "tier": "ancient_treasure",
+      "type": "material_artifact",
+      "realm_min": "NASCENT_SOUL",
+      "game_tier": 10,
+      "compliance": "fragment",
+      "source": "通天灵宝向",
+      "setting": {
+        "lore": "万森轮盘碎片",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "通天灵宝向"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "natal_artifact_embryo",
+      "display": "本命法宝胚",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "start_natal_forge",
+      "game_tier": 9,
+      "note": "结丹后可孕育本命",
+      "source": "artifact_tier_rules",
+      "setting": {
+        "lore": "本命法宝胚",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "artifact_tier_rules"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "star_palace_standard_sword",
+      "display": "星宫制式飞剑",
+      "tier": "mid",
+      "type": "flying_sword",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "game_tier": 5,
+      "source": "乱星海势力",
+      "setting": {
+        "lore": "星宫制式飞剑",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海势力"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "reverse_star_assassin_blade",
+      "display": "逆星刺刃",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "faction": "reverse_star",
+      "effect": "backstab_bonus",
+      "game_tier": 5,
+      "source": "乱星海势力",
+      "setting": {
+        "lore": "逆星刺刃",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海势力"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "void_palace_chain",
+      "display": "镇海链",
+      "tier": "high",
+      "type": "control",
+      "realm_min": "CORE_FORMATION",
+      "region": "chaotic_sea",
+      "effect": "bind_water_spirit",
+      "game_tier": 7,
+      "note": "虚天殿海域控场向",
+      "source": "乱星海秘境",
+      "setting": {
+        "lore": "镇海链",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海秘境"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "fire_crow_fan",
+      "display": "火鸦扇",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "effect": "summon_fire_crows",
+      "game_tier": 5,
+      "source": "火系扇器",
+      "setting": {
+        "lore": "火鸦扇",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "火系扇器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "ice_silk_net",
+      "display": "冰蚕丝网",
+      "tier": "mid",
+      "type": "control",
+      "realm_min": "FOUNDATION",
+      "element": "ice",
+      "effect": "slow_freeze",
+      "game_tier": 4,
+      "source": "冰系网器",
+      "setting": {
+        "lore": "冰蚕丝网",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "冰系网器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "wind_escape_sail",
+      "display": "风遁帆",
+      "tier": "mid",
+      "type": "movement",
+      "realm_min": "FOUNDATION",
+      "effect": "flight_speed_boost",
+      "game_tier": 4,
+      "note": "单人飞行法器，非灵舟",
+      "source": "汇编飞行器具",
+      "setting": {
+        "lore": "风遁帆",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编飞行器具"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "celestial_silk_armor",
+      "display": "天蚕法衣",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "spell_resist",
+      "game_tier": 7,
+      "source": "顶阶防具法宝",
+      "setting": {
+        "lore": "天蚕法衣",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "顶阶防具法宝"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "soul_scattering_mirror_shard",
+      "display": "灭魂镜碎片",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "craft_soul_attack_mirror",
+      "game_tier": 8,
+      "source": "魂灭古宝向",
+      "setting": {
+        "lore": "灭魂镜碎片",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魂灭古宝向"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "blood_drinking_hook",
+      "display": "饮血钩",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "karma": "negative",
+      "effect": "lifesteal_on_hit",
+      "game_tier": 5,
+      "source": "魔道钩刃",
+      "setting": {
+        "lore": "饮血钩",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道钩刃"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "spirit_repelling_mirror",
+      "display": "驱灵镜",
+      "tier": "low",
+      "type": "anti_illusion",
+      "realm_min": "QI_REFINING",
+      "effect": "reveal_ghost",
+      "game_tier": 3,
+      "source": "对鬼道法器",
+      "setting": {
+        "lore": "驱灵镜",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "对鬼道法器"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "great_vehicle_vajra_replica",
+      "display": "金刚杵（仿）",
+      "tier": "spirit_treasure",
+      "type": "offense",
+      "realm_min": "GREAT_VEHICLE",
+      "realm_layer": "spirit_realm",
+      "game_tier": 11,
+      "compliance": "replica",
+      "note": "大乘向佛器仿",
+      "source": "灵界高阶",
+      "setting": {
+        "lore": "金刚杵（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "GREAT_VEHICLE",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "灵界高阶"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "mixed_element_ruler_low",
+      "display": "量天尺（法器）",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "effect": "measure_weakness",
+      "game_tier": 5,
+      "note": "低阶量天尺，非通天灵宝",
+      "source": "尺类法器",
+      "setting": {
+        "lore": "量天尺（法器）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "尺类法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "spirit_beast_bridle",
+      "display": "御兽环",
+      "tier": "mid",
+      "type": "beast_control",
+      "realm_min": "FOUNDATION",
+      "faction": "lingshou_mountain",
+      "effect": "tame_beast_mid",
+      "game_tier": 4,
+      "source": "灵兽山御兽法器",
+      "setting": {
+        "lore": "御兽环",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "灵兽山御兽法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "beast_soul_bell",
+      "display": "兽魂铃",
+      "tier": "mid",
+      "type": "beast_control",
+      "realm_min": "FOUNDATION",
+      "effect": "command_spirit_beast",
+      "game_tier": 4,
+      "source": "灵兽山",
+      "setting": {
+        "lore": "兽魂铃",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "灵兽山"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "demon_ape_armor",
+      "display": "铁猿甲",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "physical_armor_heavy",
+      "game_tier": 5,
+      "note": "铁罗妖化前蒙山五友档防御向",
+      "source": "血色禁地线",
+      "setting": {
+        "lore": "铁猿甲",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "血色禁地线"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "bixie_blade",
+      "display": "辟邪神兵（仿）",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "demon_slayer",
+      "game_tier": 7,
+      "compliance": "replica",
+      "note": "辟邪神兵为专名，模组用仿",
+      "source": "古剑辟邪向",
+      "setting": {
+        "lore": "辟邪神兵（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "古剑辟邪向"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "silver_spirit_mirror",
+      "display": "银灵镜",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "reflect_weak_spell",
+      "game_tier": 4,
+      "source": "反射法器",
+      "setting": {
+        "lore": "银灵镜",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "反射法器"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "copper_bell_charm",
+      "display": "铜钟护符",
+      "tier": "low",
+      "type": "defense",
+      "realm_min": "QI_REFINING",
+      "effect": "one_hit_block",
+      "consumable": true,
+      "uses": 1,
+      "game_tier": 2,
+      "source": "一次性护体",
+      "setting": {
+        "lore": "铜钟护符",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "一次性护体"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "giant_sword_gate_relic",
+      "display": "巨剑门残刃",
+      "tier": "mid",
+      "type": "material_artifact",
+      "realm_min": "FOUNDATION",
+      "effect": "upgrade_silver_giant_sword",
+      "game_tier": 5,
+      "source": "血色禁地巨剑门",
+      "setting": {
+        "lore": "巨剑门残刃",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "血色禁地巨剑门"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "montain_five_friends_token",
+      "display": "蒙山五友信物",
+      "tier": "low",
+      "type": "quest_key",
+      "realm_min": "QI_REFINING",
+      "binds": "blood_forbidden_side",
+      "game_tier": 2,
+      "source": "剧情钥匙",
+      "setting": {
+        "lore": "蒙山五友信物",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "剧情钥匙"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "wanbao_pavilion_coupon",
+      "display": "万宝楼鉴宝券",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "identify_artifact_once",
+      "game_tier": 2,
+      "source": "坊市万宝楼机制",
+      "setting": {
+        "lore": "万宝楼鉴宝券",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "坊市万宝楼机制"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 2,
+      "element": "fire",
+      "effect": "fire_spear_pierce",
+      "game_tier": 6,
+      "source": "符宝火系",
+      "setting": {
+        "lore": "火蛟矛符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝火系"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 2,
+      "effect": "full_block_once",
+      "game_tier": 6,
+      "source": "符宝防御",
+      "setting": {
+        "lore": "玄冰盾符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝防御"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 3,
+      "effect": "anti_soul_attack",
+      "game_tier": 5,
+      "source": "符宝魂防",
+      "setting": {
+        "lore": "定魂符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝魂防"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "void_palace_cold_jade_pendant",
+      "display": "寒玉佩",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "region": "void_palace",
+      "element": "ice",
+      "effect": "ice_resist_void",
+      "game_tier": 7,
+      "source": "虚天殿寒玉",
+      "setting": {
+        "lore": "寒玉佩",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "虚天殿寒玉"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "ice_fire_dual_orb",
+      "display": "冰火珠",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "region": "void_palace",
+      "element": "ice_fire",
+      "effect": "dual_element_burst",
+      "game_tier": 8,
+      "source": "虚天殿冰火妖兽线",
+      "setting": {
+        "lore": "冰火珠",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "虚天殿冰火妖兽线"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "kunwu_seal_fragment",
+      "display": "昆吾令碎片",
+      "tier": "ancient_treasure",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 10,
+      "compliance": "fragment",
+      "source": "昆吾山",
+      "setting": {
+        "lore": "昆吾令碎片",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "昆吾山"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "demonized_ancient_sword",
+      "display": "魔化古剑",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "karma": "negative",
+      "effect": "demon_qi_on_hit",
+      "game_tier": 7,
+      "region": "fallen_demon_valley",
+      "source": "坠魔谷",
+      "setting": {
+        "lore": "魔化古剑",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "坠魔谷"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "space_rift_compass",
+      "display": "裂隙罗盘",
+      "tier": "high",
+      "type": "utility",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "detect_spatial_tear",
+      "game_tier": 8,
+      "region": "fallen_demon_valley",
+      "source": "坠魔谷空间",
+      "setting": {
+        "lore": "裂隙罗盘",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "坠魔谷空间"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "yellow_demon_banner",
+      "display": "黄泉幡（仿）",
+      "tier": "mid",
+      "type": "yin",
+      "realm_min": "FOUNDATION",
+      "karma": "negative",
+      "effect": "summon_ghost_soldier",
+      "game_tier": 5,
+      "compliance": "replica",
+      "source": "魔道幡",
+      "setting": {
+        "lore": "黄泉幡（仿）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道幡"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "seven_star_disk",
+      "display": "七星盘",
+      "tier": "mid",
+      "type": "formation_deploy",
+      "realm_min": "FOUNDATION",
+      "effect": "deploy_star_array",
+      "game_tier": 5,
+      "source": "阵法宗门向",
+      "setting": {
+        "lore": "七星盘",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "阵法宗门向"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "moon_shadow_disk",
+      "display": "月影轮",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "faction": "yanyue_sect",
+      "element": "yin",
+      "effect": "moon_slash",
+      "game_tier": 5,
+      "source": "掩月宗",
+      "setting": {
+        "lore": "月影轮",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "掩月宗"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "phoenix_feather_fan",
+      "display": "凤羽扇",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "element": "fire",
+      "effect": "phoenix_flame",
+      "game_tier": 7,
+      "source": "火系顶阶法器",
+      "setting": {
+        "lore": "凤羽扇",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "火系顶阶法器"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "dragon_scale_armor",
+      "display": "龙鳞甲",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "scale_damage_reduce",
+      "game_tier": 7,
+      "source": "真龙材料炼器",
+      "setting": {
+        "lore": "龙鳞甲",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "真龙材料炼器"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "whirlpool_pearl",
+      "display": "旋涡珠",
+      "tier": "mid",
+      "type": "control",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "element": "water",
+      "effect": "pull_enemies",
+      "game_tier": 4,
+      "source": "乱星海水系",
+      "setting": {
+        "lore": "旋涡珠",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海水系"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "thunder_dragon_horn",
+      "display": "雷蛟角枪",
+      "tier": "high",
+      "type": "thunder",
+      "realm_min": "CORE_FORMATION",
+      "effect": "thunder_lance",
+      "game_tier": 7,
+      "source": "雷系法宝",
+      "setting": {
+        "lore": "雷蛟角枪",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "雷系法宝"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "artifact_repair_kit",
+      "display": "法宝修补匣",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "restore_artifact_durability",
+      "consumable": true,
+      "game_tier": 2,
+      "source": "炼器维护",
+      "setting": {
+        "lore": "法宝修补匣",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "炼器维护"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "spirit_nourish_silk",
+      "display": "养宝丝",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "CORE_FORMATION",
+      "effect": "natal_artifact_growth",
+      "game_tier": 6,
+      "note": "本命法宝温养材料用法器形态携带",
+      "source": "本命温养",
+      "setting": {
+        "lore": "养宝丝",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "本命温养"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜碎片",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "reforge_xuanguang",
+      "game_tier": 8,
+      "source": "古宝重铸",
+      "setting": {
+        "lore": "玄光镜碎片",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "古宝重铸"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "display": "九龙神火罩碎片",
+      "tier": "ancient_treasure",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 10,
+      "compliance": "fragment",
+      "source": "九龙罩仿古宝",
+      "setting": {
+        "lore": "九龙神火罩碎片",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "九龙罩仿古宝"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "azure_ice_sword",
+      "display": "玄冰剑",
+      "tier": "mid",
+      "type": "flying_sword",
+      "realm_min": "FOUNDATION",
+      "element": "ice",
+      "game_tier": 5,
+      "source": "汇编冰系飞剑",
+      "setting": {
+        "lore": "玄冰剑",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编冰系飞剑"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "scarlet_dragon_blade",
+      "display": "赤龙刃",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "element": "fire",
+      "game_tier": 7,
+      "source": "火系刃器",
+      "setting": {
+        "lore": "赤龙刃",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "火系刃器"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "purple_fire_bead",
+      "display": "紫罗天火珠",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "element": "fire",
+      "effect": "orb_blast",
+      "game_tier": 7,
+      "source": "火珠法宝",
+      "setting": {
+        "lore": "紫罗天火珠",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "火珠法宝"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "vajra_shield",
+      "display": "金刚罩",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "physical_barrier",
+      "game_tier": 5,
+      "source": "汇编防御罩",
+      "setting": {
+        "lore": "金刚罩",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编防御罩"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "glazed_guard_shield",
+      "display": "琉璃罩",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "spell_barrier",
+      "game_tier": 7,
+      "source": "顶阶防御罩",
+      "setting": {
+        "lore": "琉璃罩",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "顶阶防御罩"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "sky_cleaver_axe",
+      "display": "开天斧（法器）",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "effect": "heavy_cleave",
+      "game_tier": 5,
+      "note": "低阶开天斧名，非通天灵宝",
+      "source": "斧类法器",
+      "setting": {
+        "lore": "开天斧（法器）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "斧类法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "soul_devouring_chain",
+      "display": "噬魂链",
+      "tier": "mid",
+      "type": "yin",
+      "realm_min": "FOUNDATION",
+      "karma": "negative",
+      "effect": "drain_soul_on_bind",
+      "game_tier": 5,
+      "source": "魔道链器",
+      "setting": {
+        "lore": "噬魂链",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道链器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "thunder_pearl_talisman",
+      "display": "天雷子",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "uses": 1,
+      "effect": "thunder_explosion",
+      "game_tier": 8,
+      "note": "一次性雷符宝，威力极大",
+      "source": "原著天雷子机制",
+      "setting": {
+        "lore": "天雷子",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "原著天雷子机制"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "talisman_treasure_flat_mountain",
+      "display": "平山印符宝",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "uses": 2,
+      "effect": "mountain_press",
+      "game_tier": 7,
+      "source": "符宝印类",
+      "setting": {
+        "lore": "平山印符宝",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "符宝印类"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "natal_sword_embryo",
+      "display": "本命飞剑胚",
+      "tier": "high",
+      "type": "natal_slot",
+      "realm_min": "CORE_FORMATION",
+      "effect": "bind_flying_sword_natal",
+      "game_tier": 9,
+      "note": "结丹后择一飞剑为本命",
+      "source": "artifact_tier_rules",
+      "setting": {
+        "lore": "本命飞剑胚",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "artifact_tier_rules"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "artifact_spirit_awakening_incense",
+      "display": "启灵香",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "effect": "artifact_spirit_awaken_chance",
+      "game_tier": 6,
+      "source": "器灵觉醒向",
+      "setting": {
+        "lore": "启灵香",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "器灵觉醒向"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "ancient_treasure_appraisal_lens",
+      "display": "鉴宝瞳镜",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "FOUNDATION",
+      "effect": "reveal_artifact_tier",
+      "game_tier": 4,
+      "source": "万宝楼鉴定",
+      "setting": {
+        "lore": "鉴宝瞳镜",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "万宝楼鉴定"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "auction_sealed_hammer",
+      "display": "拍卖行密锤",
+      "tier": "low",
+      "type": "quest_key",
+      "realm_min": "QI_REFINING",
+      "binds": "great_jin_auction",
+      "game_tier": 2,
+      "source": "大晋拍卖剧情",
+      "setting": {
+        "lore": "拍卖行密锤",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "大晋拍卖剧情"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "chaotic_sea_navigation_compass",
+      "display": "星海罗盘",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "effect": "sea_route_bonus",
+      "game_tier": 4,
+      "source": "乱星海航行",
+      "setting": {
+        "lore": "星海罗盘",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海航行"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "tianyuan_border_talisman_artifact",
+      "display": "天渊护身佩",
+      "tier": "spirit_treasure",
+      "type": "defense",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "effect": "tianyuan_passive_shield",
+      "game_tier": 11,
+      "note": "天渊城修士常见，非专名绑定",
+      "source": "灵界天渊城",
+      "setting": {
+        "lore": "天渊护身佩",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "灵界天渊城"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "demon_blood_saber",
+      "display": "魔血刀",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "karma": "negative",
+      "effect": "blood_frenzy",
+      "game_tier": 5,
+      "source": "魔道刀",
+      "setting": {
+        "lore": "魔血刀",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔道刀"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "wood_spirit_staff",
+      "display": "碧玉杖",
+      "tier": "low",
+      "type": "offense",
+      "realm_min": "QI_REFINING",
+      "element": "wood",
+      "game_tier": 3,
+      "source": "木系杖",
+      "setting": {
+        "lore": "碧玉杖",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "木系杖"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "iron_bone_claw",
+      "display": "铁骨爪",
+      "tier": "low",
+      "type": "offense",
+      "realm_min": "QI_REFINING",
+      "game_tier": 2,
+      "source": "体修爪器",
+      "setting": {
+        "lore": "铁骨爪",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "体修爪器"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "spirit_sand_hourglass",
+      "display": "流沙漏",
+      "tier": "mid",
+      "type": "control",
+      "realm_min": "FOUNDATION",
+      "effect": "slow_time_zone",
+      "game_tier": 6,
+      "note": "小范围缓速，非时间法则灵宝",
+      "source": "控场法器",
+      "setting": {
+        "lore": "流沙漏",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "控场法器"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "xuanguang_mirror_replica",
+      "display": "玄光镜（仿）",
+      "tier": "high",
+      "type": "soul_attack",
+      "realm_min": "CORE_FORMATION",
+      "effect": "soul_stun",
+      "game_tier": 8,
+      "compliance": "replica",
+      "note": "非古宝本体，威力低于真品",
+      "source": "古宝仿",
+      "setting": {
+        "lore": "玄光镜（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "古宝仿"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "hunyuan_bowl_replica",
+      "display": "混元钵（仿）",
+      "tier": "high",
+      "type": "hybrid_puppet_core",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 7,
+      "compliance": "replica",
+      "note": "与高阶混元钵区分",
+      "source": "11.1混元钵",
+      "setting": {
+        "lore": "混元钵（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "11.1混元钵"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "cloud_sedan_token",
+      "display": "云轿令牌",
+      "tier": "high",
+      "type": "vehicle_key",
+      "realm_min": "CORE_FORMATION",
+      "binds": "cloud_sedan",
+      "game_tier": 7,
+      "source": "11.1云轿",
+      "setting": {
+        "lore": "云轿令牌",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "11.1云轿"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "great_shift_token_replica",
+      "display": "大挪移护符（仿）",
+      "tier": "high",
+      "type": "teleport_protection",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "uses": 1,
+      "game_tier": 8,
+      "compliance": "replica",
+      "source": "11.1大挪移令",
+      "setting": {
+        "lore": "大挪移护符（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "11.1大挪移令"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "invisible_needle_set",
+      "display": "无形针匣",
+      "tier": "mid",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "stealth_projectile"
+      ],
+      "effect": "invisible_pierce",
+      "game_tier": 5,
+      "note": "五金之精炼针，神识要求较高",
+      "source": "汇编针类顶阶法器向",
+      "setting": {
+        "lore": "无形针匣",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "汇编针类顶阶法器向"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "xuantie_flying_shield",
+      "display": "玄铁飞天盾",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "effect": "orbit_auto_block",
+      "game_tier": 5,
+      "source": "寒阴玄铁防御法器",
+      "setting": {
+        "lore": "玄铁飞天盾",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "寒阴玄铁防御法器"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "dual_element_ring",
+      "display": "两仪环（仿）",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "dual_ring_immune_beam",
+      "game_tier": 7,
+      "compliance": "replica",
+      "note": "阴阳双环仿，非原著专名组合",
+      "source": "元光克制向",
+      "setting": {
+        "lore": "两仪环（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "元光克制向"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "red_thread_needles_replica",
+      "display": "红线遁光针（仿）",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "set_13"
+      ],
+      "effect": "thread_pierce_vitals",
+      "game_tier": 6,
+      "compliance": "replica",
+      "note": "十三针成套，需筑基后期神识",
+      "source": "阴器成套针",
+      "setting": {
+        "lore": "红线遁光针（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "阴器成套针"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "sky_bracelet_replica",
+      "display": "弥天镯（仿）",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "blood_cost_barrier",
+      "game_tier": 7,
+      "compliance": "replica",
+      "note": "精血驱动防御镯仿",
+      "source": "防御镯类",
+      "setting": {
+        "lore": "弥天镯（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "防御镯类"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "bone_wind_cart",
+      "display": "御风车",
+      "tier": "mid",
+      "type": "vehicle_key",
+      "realm_min": "FOUNDATION",
+      "binds": "bone_wind_cart_vehicle",
+      "effect": "flight_no_beast",
+      "game_tier": 5,
+      "source": "兽骨炼制飞行器具",
+      "setting": {
+        "lore": "御风车",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "兽骨炼制飞行器具"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "four_symbols_ruler_replica",
+      "display": "四象尺（仿）",
+      "tier": "high",
+      "type": "control",
+      "realm_min": "CORE_FORMATION",
+      "effect": "lotus_illusion_trap",
+      "game_tier": 8,
+      "compliance": "replica",
+      "note": "八灵尺仿制品向困敌",
+      "source": "佛门尺仿",
+      "setting": {
+        "lore": "四象尺（仿）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "佛门尺仿"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "blood_thunder_pearl",
+      "display": "血雷珠",
+      "tier": "high",
+      "type": "offense",
+      "realm_min": "CORE_FORMATION",
+      "karma": "negative",
+      "effect": "debuff_enemy_artifact",
+      "game_tier": 7,
+      "note": "污秽雷珠，可污人法宝灵性",
+      "source": "血雷子机制向",
+      "setting": {
+        "lore": "血雷珠",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "血雷子机制向"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "demon_dragon_blade_blank",
+      "display": "魔龙刃胚",
+      "tier": "spirit_treasure",
+      "type": "material_artifact",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "game_tier": 11,
+      "compliance": "embryo_not_weapon",
+      "source": "魔髓钻炼制前置",
+      "setting": {
+        "lore": "魔龙刃胚",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "魔髓钻炼制前置"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "illusion_transform_clay",
+      "display": "化形泥",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "self_repair_artifact",
+      "game_tier": 7,
+      "source": "炼器稀有材料用法器形态",
+      "setting": {
+        "lore": "化形泥",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "炼器稀有材料用法器形态"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "sun_essence_stone_inlay",
+      "display": "太阳精石镶件",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "fire_artifact_socket",
+      "game_tier": 8,
+      "source": "火属性法宝镶嵌",
+      "setting": {
+        "lore": "太阳精石镶件",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "火属性法宝镶嵌"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "geng_gold_inlay",
+      "display": "庚精镶件",
+      "tier": "high",
+      "type": "material_artifact",
+      "realm_min": "CORE_FORMATION",
+      "effect": "sharpness_socket",
+      "game_tier": 7,
+      "source": "锐金渗入法宝",
+      "setting": {
+        "lore": "庚精镶件",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "锐金渗入法宝"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "spirit_talisman_vessel",
+      "display": "化灵符器",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "body_nurture_talisman_vessel",
+      "game_tier": 8,
+      "note": "丹田培炼类符器，非天符门镇派符本名",
+      "source": "化灵符机制向",
+      "setting": {
+        "lore": "化灵符器",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "化灵符机制向"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "six_ding_armor_talisman",
+      "display": "六丁天甲符器",
+      "tier": "high",
+      "type": "talisman_treasure",
+      "realm_min": "CORE_FORMATION",
+      "consumable": true,
+      "uses": 1,
+      "effect": "six_layer_shield",
+      "game_tier": 9,
+      "note": "一次性六层护罩符宝",
+      "source": "天符门向",
+      "setting": {
+        "lore": "六丁天甲符器",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "天符门向"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "flat_mountain_seal_replica",
+      "display": "平山印（仿）",
+      "tier": "ancient_treasure",
+      "type": "offense",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "mountain_crush_aoe",
+      "game_tier": 10,
+      "compliance": "replica",
+      "source": "掌天印仿向",
+      "setting": {
+        "lore": "平山印（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "掌天印仿向"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "three_flame_fan_replica",
+      "display": "三焰扇（仿）",
+      "tier": "spirit_treasure",
+      "type": "offense",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "element": "fire",
+      "game_tier": 11,
+      "compliance": "replica",
+      "note": "七焰扇材料简化仿",
+      "source": "通天灵宝仿",
+      "setting": {
+        "lore": "三焰扇（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "通天灵宝仿"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "mixed_element_disk_replica",
+      "display": "混元尺（仿）",
+      "tier": "spirit_treasure",
+      "type": "control",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "game_tier": 11,
+      "compliance": "replica",
+      "source": "混元尺通天灵宝向仿",
+      "setting": {
+        "lore": "混元尺（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "混元尺通天灵宝向仿"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "demon_wind_flag_replica",
+      "display": "黑风旗（仿）",
+      "tier": "spirit_treasure",
+      "type": "space_control",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "effect": "null_spirit_zone",
+      "game_tier": 11,
+      "compliance": "replica",
+      "note": "需碎片合成，非本体",
+      "source": "绝灵控风",
+      "setting": {
+        "lore": "黑风旗（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "绝灵控风"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "void_heaven_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "tier": "spirit_treasure",
+      "type": "material_artifact",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "game_tier": 11,
+      "compliance": "fragment",
+      "source": "乱星海第一秘宝向碎片",
+      "setting": {
+        "lore": "虚天鼎碎片",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "VOID_REFINEMENT",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "乱星海第一秘宝向碎片"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "jade_ruyi_replica",
+      "display": "玉如意（仿）",
+      "tier": "ancient_treasure",
+      "type": "defense",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "earth_escape_defense",
+      "game_tier": 10,
+      "compliance": "replica",
+      "note": "虚天殿古宝仿，无器灵银月绑定",
+      "source": "古宝防御",
+      "setting": {
+        "lore": "玉如意（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "古宝防御"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "two_luminaries_shuttle",
+      "display": "日月梭（仿）",
+      "tier": "ancient_treasure",
+      "type": "offense",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "gold_silver_shuttle",
+      "game_tier": 10,
+      "compliance": "replica",
+      "source": "三灵梭攻防一体向",
+      "setting": {
+        "lore": "日月梭（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "三灵梭攻防一体向"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "mirror_space_scroll",
+      "display": "画轴芥子器",
+      "tier": "high",
+      "type": "storage",
+      "realm_min": "CORE_FORMATION",
+      "effect": "hidden_realm_pocket",
+      "game_tier": 8,
+      "source": "芥子空间法器",
+      "setting": {
+        "lore": "画轴芥子器",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "芥子空间法器"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "yuan_yang_veil_replica",
+      "display": "元阳纱（仿）",
+      "tier": "ancient_treasure",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "anti_ghost_veil",
+      "game_tier": 9,
+      "compliance": "replica",
+      "source": "克鬼古宝向",
+      "setting": {
+        "lore": "元阳纱（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "克鬼古宝向"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "forbidden_demon_ring_set",
+      "display": "禁魔环（仿）",
+      "tier": "ancient_treasure",
+      "type": "control",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "seal_demon_avatar",
+      "game_tier": 10,
+      "compliance": "replica",
+      "note": "五枚翠环仿，一次性封印向",
+      "source": "禁困妖魔",
+      "setting": {
+        "lore": "禁魔环（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "NASCENT_SOUL",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "禁困妖魔"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "star_palace_cipher_talisman",
+      "display": "星宫密符器",
+      "tier": "mid",
+      "type": "utility",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "effect": "secure_message",
+      "game_tier": 4,
+      "source": "密符传音",
+      "setting": {
+        "lore": "星宫密符器",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "密符传音"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "flying_sword_mid",
+      "display": "中阶飞剑",
+      "tier": "mid",
+      "type": "flying_sword",
+      "realm_min": "FOUNDATION",
+      "game_tier": 4,
+      "setting": {
+        "lore": "中阶飞剑",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "flying_sword_high",
+      "display": "高阶飞剑",
+      "tier": "high",
+      "type": "flying_sword",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 6,
+      "setting": {
+        "lore": "高阶飞剑",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "black_turtle_shield",
+      "display": "玄龟盾",
+      "tier": "mid",
+      "type": "defense",
+      "realm_min": "FOUNDATION",
+      "game_tier": 4,
+      "setting": {
+        "lore": "玄龟盾",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "fire_cloud_fan",
+      "display": "火云扇",
+      "tier": "high",
+      "type": "attack",
+      "element": "fire",
+      "game_tier": 6,
+      "setting": {
+        "lore": "火云扇",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "ice_silk_ribbon",
+      "display": "冰蚕丝带",
+      "tier": "mid",
+      "type": "control",
+      "element": "ice",
+      "game_tier": 5,
+      "setting": {
+        "lore": "冰蚕丝带",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "soul_devouring_banner",
+      "display": "摄魂幡",
+      "tier": "high",
+      "type": "soul",
+      "school": "demonic",
+      "game_tier": 7,
+      "setting": {
+        "lore": "摄魂幡",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "purple_gold_bowl",
+      "display": "紫金钵",
+      "tier": "ancient_treasure",
+      "type": "capture",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 9,
+      "setting": {
+        "lore": "紫金钵",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "void_refining_pot",
+      "display": "炼虚鼎（仿）",
+      "tier": "ancient_treasure",
+      "type": "refinement",
+      "note": "非掌天瓶；炼化辅助结构",
+      "game_tier": 10,
+      "setting": {
+        "lore": "炼虚鼎（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "bamboo_spirit_sword_set",
+      "display": "青竹灵剑阵（仿）",
+      "tier": "spirit_treasure",
+      "type": "flying_sword",
+      "element": "wood",
+      "note": "合规化名剑阵",
+      "game_tier": 11,
+      "setting": {
+        "lore": "青竹灵剑阵（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "star_chasing_boat",
+      "display": "逐星舟",
+      "tier": "high",
+      "type": "vehicle",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "game_tier": 7,
+      "setting": {
+        "lore": "逐星舟",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "wind_thunder_raft",
+      "display": "风雷筏",
+      "tier": "high",
+      "type": "vehicle",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "game_tier": 7,
+      "setting": {
+        "lore": "风雷筏",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "golden_armor_talisman_treasure",
+      "display": "金刚符宝",
+      "tier": "mid",
+      "type": "talisman_treasure",
+      "game_tier": 5,
+      "setting": {
+        "lore": "金刚符宝",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "illusion_mirror_disk",
+      "display": "幻镜盘",
+      "tier": "high",
+      "type": "illusion",
+      "game_tier": 6,
+      "setting": {
+        "lore": "幻镜盘",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "space_storage_ring_low",
+      "display": "低阶储物戒",
+      "tier": "low",
+      "type": "storage",
+      "realm_min": "QI_REFINING",
+      "game_tier": 2,
+      "setting": {
+        "lore": "低阶储物戒",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "space_storage_ring_high",
+      "display": "高阶储物戒",
+      "tier": "high",
+      "type": "storage",
+      "realm_min": "CORE_FORMATION",
+      "game_tier": 6,
+      "setting": {
+        "lore": "高阶储物戒",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "flying_sword_top",
+      "display": "顶阶飞剑",
+      "tier": "high",
+      "type": "flying_sword",
+      "game_tier": 8,
+      "setting": {
+        "lore": "顶阶飞剑",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "demon_ward_thunder_pearl",
+      "display": "辟邪神雷珠（仿）",
+      "tier": "spirit_treasure",
+      "type": "thunder",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "辟邪神雷珠（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "spirit_nurture_green_vase",
+      "display": "灵润青瓶（仿）",
+      "tier": "spirit_treasure",
+      "type": "spirit_liquid",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "灵润青瓶（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "void_sky_cauldron_replica",
+      "display": "虚天鼎（仿）",
+      "tier": "ancient_treasure",
+      "type": "refinement",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "虚天鼎（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "eight_spirit_ruler_replica",
+      "display": "八灵尺（仿）",
+      "tier": "spirit_treasure",
+      "type": "ruler",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "八灵尺（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "primordial_magnet_peak_shard",
+      "display": "元磁山核碎片",
+      "tier": "legendary",
+      "type": "magnet",
+      "game_tier": 12,
+      "setting": {
+        "lore": "元磁山核碎片",
+        "tier": "legendary",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 12
+    },
+    {
+      "id": "rivers_mountains_pearl_replica",
+      "display": "山河珠（仿）",
+      "tier": "spirit_treasure",
+      "type": "world",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "山河珠（仿）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    },
+    {
+      "id": "gold_devour_beetle_nest",
+      "display": "噬金虫巢（仿）",
+      "tier": "ancient_treasure",
+      "type": "swarm",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "噬金虫巢（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "soul_cry_beast_token",
+      "display": "啼魂兽牌（仿）",
+      "tier": "ancient_treasure",
+      "type": "soul",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "啼魂兽牌（仿）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "flat_mirror_treasure",
+      "display": "平镜古宝",
+      "tier": "ancient_treasure",
+      "type": "mirror",
+      "game_tier": 9,
+      "setting": {
+        "lore": "平镜古宝",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "yin_yang_disk",
+      "display": "阴阳盘",
+      "tier": "high",
+      "type": "formation",
+      "game_tier": 6,
+      "setting": {
+        "lore": "阴阳盘",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "blood_demon_blade",
+      "display": "血魔刀",
+      "tier": "high",
+      "type": "attack",
+      "game_tier": 7,
+      "setting": {
+        "lore": "血魔刀",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "ghost_capturing_chain",
+      "display": "缚鬼链",
+      "tier": "mid",
+      "type": "soul",
+      "game_tier": 5,
+      "setting": {
+        "lore": "缚鬼链",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "turtle_puppet_shell",
+      "display": "玄龟傀儡壳",
+      "tier": "high",
+      "type": "puppet",
+      "game_tier": 7,
+      "setting": {
+        "lore": "玄龟傀儡壳",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "silver_moon_disk",
+      "display": "银月盘",
+      "tier": "ancient_treasure",
+      "type": "attack",
+      "game_tier": 9,
+      "setting": {
+        "lore": "银月盘",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "heaven_covering_silk",
+      "display": "遮天绫",
+      "tier": "high",
+      "type": "control",
+      "game_tier": 8,
+      "setting": {
+        "lore": "遮天绫",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "spirit_beast_bag",
+      "display": "灵兽袋",
+      "tier": "mid",
+      "type": "beast",
+      "game_tier": 5,
+      "setting": {
+        "lore": "灵兽袋",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "sound_attack_bell",
+      "display": "音攻钟",
+      "tier": "high",
+      "type": "sound",
+      "game_tier": 7,
+      "setting": {
+        "lore": "音攻钟",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "fire_spear_treasure",
+      "display": "火矛宝",
+      "tier": "mid",
+      "type": "attack",
+      "game_tier": 5,
+      "setting": {
+        "lore": "火矛宝",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "ice_needle_set",
+      "display": "冰针套",
+      "tier": "mid",
+      "type": "attack",
+      "game_tier": 5,
+      "setting": {
+        "lore": "冰针套",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "wood_staff_spirit",
+      "display": "灵木杖",
+      "tier": "low",
+      "type": "attack",
+      "game_tier": 3,
+      "setting": {
+        "lore": "灵木杖",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "metal_dagger_spirit",
+      "display": "灵匕",
+      "tier": "low",
+      "type": "attack",
+      "game_tier": 3,
+      "setting": {
+        "lore": "灵匕",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "generic_treasure_grade_1",
+      "display": "1阶法宝（通称）",
+      "tier": "low",
+      "type": "generic",
+      "game_tier": 1,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "1阶法宝（通称）",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 1
+    },
+    {
+      "id": "generic_treasure_grade_2",
+      "display": "2阶法宝（通称）",
+      "tier": "low",
+      "type": "generic",
+      "game_tier": 2,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "2阶法宝（通称）",
+        "tier": "low",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 2
+    },
+    {
+      "id": "generic_treasure_grade_3",
+      "display": "3阶法宝（通称）",
+      "tier": "mid",
+      "type": "generic",
+      "game_tier": 3,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "3阶法宝（通称）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 3
+    },
+    {
+      "id": "generic_treasure_grade_4",
+      "display": "4阶法宝（通称）",
+      "tier": "mid",
+      "type": "generic",
+      "game_tier": 4,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "4阶法宝（通称）",
+        "tier": "mid",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 4
+    },
+    {
+      "id": "generic_treasure_grade_5",
+      "display": "5阶法宝（通称）",
+      "tier": "high",
+      "type": "generic",
+      "game_tier": 5,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "5阶法宝（通称）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 5
+    },
+    {
+      "id": "generic_treasure_grade_6",
+      "display": "6阶法宝（通称）",
+      "tier": "high",
+      "type": "generic",
+      "game_tier": 6,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "6阶法宝（通称）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 6
+    },
+    {
+      "id": "generic_treasure_grade_7",
+      "display": "7阶法宝（通称）",
+      "tier": "high",
+      "type": "generic",
+      "game_tier": 7,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "7阶法宝（通称）",
+        "tier": "high",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 7
+    },
+    {
+      "id": "generic_treasure_grade_8",
+      "display": "8阶法宝（通称）",
+      "tier": "ancient_treasure",
+      "type": "generic",
+      "game_tier": 8,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "8阶法宝（通称）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 8
+    },
+    {
+      "id": "generic_treasure_grade_9",
+      "display": "9阶法宝（通称）",
+      "tier": "ancient_treasure",
+      "type": "generic",
+      "game_tier": 9,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "9阶法宝（通称）",
+        "tier": "ancient_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 9
+    },
+    {
+      "id": "generic_treasure_grade_10",
+      "display": "10阶法宝（通称）",
+      "tier": "spirit_treasure",
+      "type": "generic",
+      "game_tier": 10,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "10阶法宝（通称）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 10
+    },
+    {
+      "id": "generic_treasure_grade_11",
+      "display": "11阶法宝（通称）",
+      "tier": "spirit_treasure",
+      "type": "generic",
+      "game_tier": 11,
+      "structural": true,
+      "note": "结构占位，掉落可指向具体 named 法宝",
+      "setting": {
+        "lore": "11阶法宝（通称）",
+        "tier": "spirit_treasure",
+        "category": null
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "note": "法宝需认主祭炼；高阶古宝需境界与功法匹配。"
+        },
+        "obtain": {
+          "source": "loot_craft_quest"
+        }
+      },
+      "artifact_grade": 11
+    }
+  ],
+  "game_tier_ref": "artifact_eleven_tier_map.json",
+  "distinction": {
+    "low_mid_high_artifacts": "炼气筑基多用 low/mid 法器；结丹起 high 法宝",
+    "talisman_treasure": "符宝 type=talisman_treasure，consumable+uses，威力近法宝但次数少",
+    "ancient_treasure": "古宝不可批量炼，多为秘境/残片重铸",
+    "spirit_treasure": "灵宝灵界向，需 VOID_REFINEMENT+"
+  },
+  "expansion_round": 5,
+  "artifact_tier_map_ref": "artifact_tier_map.json"
+}

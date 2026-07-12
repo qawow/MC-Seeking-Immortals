@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "star_palace_internal_factions.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "star_palace_enforcement",
+      "display": "执法派"
+    },
+    {
+      "id": "star_palace_commerce",
+      "display": "贸易派"
+    },
+    {
+      "id": "star_palace_council_neutral",
+      "display": "长老会中立"
+    }
+  ]
+}

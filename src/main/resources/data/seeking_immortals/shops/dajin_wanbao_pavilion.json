@@ -1,0 +1,51 @@
+{
+  "id": "dajin_wanbao_pavilion",
+  "currency": "item",
+  "currency_item": "seeking_immortals:immortal_jade",
+  "stock": 10,
+  "refresh_ticks": 48000,
+  "entries": [
+    {
+      "id": "immortal_jade",
+      "item": "seeking_immortals:immortal_jade",
+      "count": 1,
+      "cost": 1,
+      "stock": 8
+    },
+    {
+      "id": "blank_jade_slip",
+      "item": "seeking_immortals:jade_slip_blank",
+      "count": 1,
+      "cost": 1,
+      "stock": 12
+    },
+    {
+      "id": "cold_jade",
+      "item": "seeking_immortals:cold_jade",
+      "count": 2,
+      "cost": 1,
+      "stock": 8
+    },
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 2,
+      "stock": 4
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "item": "seeking_immortals:star_palace_tax_receipt",
+      "count": 1,
+      "cost": 1,
+      "stock": 6
+    },
+    {
+      "id": "alliance_merit_token",
+      "item": "seeking_immortals:alliance_merit_token",
+      "count": 1,
+      "cost": 1,
+      "stock": 6
+    }
+  ]
+}

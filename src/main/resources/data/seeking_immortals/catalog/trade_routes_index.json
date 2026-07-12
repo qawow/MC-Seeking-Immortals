@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "source": "trade_routes.json",
+  "primary_key": "routes",
+  "entries": [
+    {
+      "id": "tiannan_to_chaotic_sea",
+      "display": "天南→乱星海"
+    },
+    {
+      "id": "chaotic_sea_to_dajin",
+      "display": "乱星海→大晋"
+    },
+    {
+      "id": "dajin_to_tianyuan",
+      "display": "大晋→天渊城"
+    },
+    {
+      "id": "tianyuan_to_spirit_fengyuan",
+      "display": "天渊城→风元大陆"
+    },
+    {
+      "id": "tiannan_internal",
+      "display": "天南诸宗商路"
+    },
+    {
+      "id": "mulan_tianlan_smuggle",
+      "display": "慕兰—天澜灰色商路"
+    },
+    {
+      "id": "nether_river_ferry",
+      "display": "冥河渡船线"
+    },
+    {
+      "id": "route_tiannan_to_mulan_smuggle",
+      "display": "route_tiannan_to_mulan_smuggle"
+    },
+    {
+      "id": "route_tianyuan_merit_convoy",
+      "display": "route_tianyuan_merit_convoy"
+    },
+    {
+      "id": "dajin_wanbao_spine",
+      "display": "大晋万宝商路"
+    },
+    {
+      "id": "route_tiannan_to_chaotic_sea",
+      "display": "天南—乱星海航线"
+    },
+    {
+      "id": "route_dajin_barbarian_caravan",
+      "display": "大晋蛮荒商路"
+    },
+    {
+      "id": "route_tiannan_dajin_land",
+      "display": "天南—大晋陆路"
+    }
+  ]
+}

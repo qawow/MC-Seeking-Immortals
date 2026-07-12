@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "catalog_ref": "spirit_roots_catalog.json",
+  "unlock_mode": "learn_requirements_and_element",
+  "element_to_methods": {
+    "fire": [
+      "lieyan_gong",
+      "huoyuan_gong",
+      "lieyan_zhenjing",
+      "luoyun_dan_dao"
+    ],
+    "water": [
+      "shuiyuan_gong",
+      "yanyue_gong"
+    ],
+    "metal": [
+      "qingyuan_sword_art",
+      "jinxuan_gong",
+      "jinyi_gong",
+      "tianfu_scripture",
+      "kunwu_seal_art"
+    ],
+    "wood": [
+      "changchun_gong",
+      "qingyuan_sword_art",
+      "tianfu_spirit_scripture",
+      "muyuan_gong",
+      "qingmu_gong",
+      "yanyue_gong",
+      "luoyun_dan_dao",
+      "tianfu_scripture"
+    ],
+    "earth": [
+      "tuyuan_gong",
+      "kunwu_seal_art"
+    ],
+    "ice": [
+      "xuanbing_zhenjing",
+      "xuantian_ice_art",
+      "kunwu_seal_art"
+    ],
+    "yin": [
+      "xuan_yin_art"
+    ]
+  }
+}

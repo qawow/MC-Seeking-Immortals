@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "alchemy_mid",
+        "pill_trade"
+      ]
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "dual_cultivation",
+        "body_refining",
+        "illusion"
+      ]
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "beast_taming",
+        "refinement_support"
+      ]
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "tao_spells",
+        "formation_basic"
+      ]
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "blade"
+      ]
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "defense_artifacts"
+      ]
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "sword"
+      ]
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "realm_focus": "",
+      "specialty": [
+        "starter"
+      ]
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "ghost",
+        "poison"
+      ]
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "dual_cultivation",
+        "illusion"
+      ]
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "fire_demonic"
+      ]
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "assassination"
+      ]
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "beast_taming",
+        "soul"
+      ]
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "illusion"
+      ]
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "alchemy_top"
+      ]
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "realm_focus": "",
+      "specialty": [
+        "governance",
+        "teleport_hubs",
+        "order_enforcement",
+        "artifact_standard"
+      ]
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "realm_focus": "",
+      "specialty": [
+        "black_market"
+      ]
+    },
+    {
+      "id": "qianzhu_teach",
+      "display": "千竹教",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "realm_focus": "",
+      "specialty": [
+        "puppet",
+        "formation_trap"
+      ]
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰神师府",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "realm_focus": "",
+      "specialty": [
+        "spirit_art_fashi"
+      ]
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "realm_focus": "",
+      "specialty": [
+        "holy_beast_oath"
+      ]
+    },
+    {
+      "id": "qianzhu_sect",
+      "display": "千竹教",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "realm_focus": "",
+      "specialty": [
+        "puppet",
+        "talisman_support"
+      ]
+    },
+    {
+      "id": "yuling_sect_secret",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "realm_focus": "",
+      "specialty": [
+        "beast_puppet",
+        "hidden"
+      ]
+    },
+    {
+      "id": "guiling_gate",
+      "display": "鬼灵门",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "摄魂",
+        "炼尸",
+        "阴火"
+      ]
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "魔体",
+        "狂战",
+        "血祭"
+      ]
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "毒术",
+        "虫傀"
+      ]
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "幻术",
+        "妖狐"
+      ]
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "realm_focus": "",
+      "specialty": [
+        "血咒",
+        "巫术"
+      ]
+    },
+    {
+      "id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "realm_focus": "",
+      "specialty": [
+        "body_refining",
+        "purify_demon"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1706 @@
+{
+  "schema_version": 1,
+  "daily_events": [
+    {
+      "id": "qinglan_herb_bloom",
+      "region_id": "qinglan_mountains",
+      "display_zh": "青岚药潮",
+      "display_en": "Qinglan Herb Bloom",
+      "weight": 12,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "starter_spirit_rain",
+      "region_id": "qinglan_mountains",
+      "display_zh": "山雨含灵",
+      "display_en": "Spirit Rain Over the Hills",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "spirit_rain",
+      "region_id": "qinglan_mountains",
+      "display_zh": "灵雨",
+      "display_en": "Spirit Rain",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "spirit_rain_bonus"
+      ]
+    },
+    {
+      "id": "tiannan_herb_gatherers",
+      "region_id": "tiannan",
+      "display_zh": "采药客云集",
+      "display_en": "Herb Gatherers Gather",
+      "weight": 10,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus"
+      ]
+    },
+    {
+      "id": "spirit_herb_gatherers",
+      "region_id": "tiannan",
+      "display_zh": "灵草采药客",
+      "display_en": "Spirit Herb Gatherers",
+      "weight": 10,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus"
+      ]
+    },
+    {
+      "id": "tiannan_herb_price_spike",
+      "region_id": "tiannan",
+      "display_zh": "坊市灵草涨价",
+      "display_en": "Tiannan Herb Price Spike",
+      "weight": 8,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "blood_forbidden_rumor",
+      "region_id": "tiannan",
+      "display_zh": "血禁将开传闻",
+      "display_en": "Blood Grounds Rumor",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "mist_valley_seal_thins",
+      "region_id": "yueling_mist_valley",
+      "display_zh": "雾谷禁制松动",
+      "display_en": "Mist Valley Seal Thins",
+      "weight": 6,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "chaotic_sea_pirate_raid",
+      "region_id": "chaotic_sea",
+      "display_zh": "海盗袭岛",
+      "display_en": "Pirate Raid",
+      "weight": 11,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "pirate_raid",
+      "region_id": "chaotic_sea",
+      "display_zh": "海盗袭岛",
+      "display_en": "Pirate Raid",
+      "weight": 11,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "chaotic_sea_auction_rumor",
+      "region_id": "chaotic_sea",
+      "display_zh": "岛拍传闻",
+      "display_en": "Island Auction Rumor",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "outer_sea_black_tide",
+      "region_id": "cangming_outer_sea",
+      "display_zh": "外海玄潮",
+      "display_en": "Outer Sea Black Tide",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "pearl_diving_mortals",
+      "region_id": "outer_sea_market",
+      "display_zh": "凡人采珠船出海",
+      "display_en": "Mortal Pearl Boats Set Sail",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "pearl_storm_shelter",
+      "region_id": "outer_sea_market",
+      "display_zh": "风暴避港",
+      "display_en": "Pearl Boats Shelter From Storms",
+      "weight": 3,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "pearl_tax_dispute",
+      "region_id": "outer_sea_market",
+      "display_zh": "采珠税争执",
+      "display_en": "Pearl Fleet Tax Dispute",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "mulan_wind_storm",
+      "region_id": "mulan_grassland",
+      "display_zh": "草原罡风",
+      "display_en": "Grassland Astral Wind",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "mulan_scout_clash",
+      "region_id": "mulan_grassland",
+      "display_zh": "边境斥候遭遇",
+      "display_en": "Border Scout Clash",
+      "weight": 9,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianlan_mulan_scout_clash",
+      "region_id": "tianlan",
+      "display_zh": "天澜斥候遭遇",
+      "display_en": "Tianlan Scout Clash",
+      "weight": 9,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "mulan_beast_migration",
+      "region_id": "mulan_grassland",
+      "display_zh": "慕兰兽群迁徙",
+      "display_en": "Mulan Beast Migration",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "nomad_migration",
+      "region_id": "mulan",
+      "display_zh": "游牧迁徙",
+      "display_en": "Nomad Migration",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "fashi_patrol",
+      "region_id": "mulan",
+      "display_zh": "法士巡草原",
+      "display_en": "Fashi Patrols the Steppe",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "beast_tame_festival",
+      "region_id": "mulan",
+      "display_zh": "驭兽节",
+      "display_en": "Beast Taming Festival",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "grassland_beast_raid",
+      "region_id": "mulan",
+      "display_zh": "草原兽袭",
+      "display_en": "Grassland Beast Raid",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "wutu_raid_mulan_camp",
+      "region_id": "wutu_border",
+      "display_zh": "突兀袭营",
+      "display_en": "Wutu Raids Mulan Camp",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "dajin_auction_week",
+      "region_id": "dajin",
+      "display_zh": "万宝拍卖周",
+      "display_en": "Wanbao Auction Week",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "auction_notice",
+      "region_id": "dajin",
+      "display_zh": "拍卖预告",
+      "display_en": "Auction Notice",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "kunwu_cold_snap",
+      "region_id": "kunwu",
+      "display_zh": "昆吾寒潮",
+      "display_en": "Kunwu Cold Snap",
+      "weight": 3,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "ancient_ruins_whisper",
+      "region_id": "dajin",
+      "display_zh": "古迹低鸣",
+      "display_en": "Ancient Ruins Whisper",
+      "weight": 4,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "kunwu_ancient_ruins_whisper",
+      "region_id": "kunwu",
+      "display_zh": "昆吾古迹低鸣",
+      "display_en": "Kunwu Ancient Ruins Whisper",
+      "weight": 4,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "nether_river_fog",
+      "region_id": "nether_river",
+      "display_zh": "冥河雾灰",
+      "display_en": "Nether River Fog",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "ghost_boat",
+      "region_id": "nether_river",
+      "display_zh": "冥河渡船",
+      "display_en": "Ghost Ferry",
+      "weight": 12,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "fallen_demon_qi_surge",
+      "region_id": "fallen_demon_valley",
+      "display_zh": "魔气涌动",
+      "display_en": "Demon Qi Surge",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "demon_qi_surge",
+      "region_id": "fallen_demon_valley",
+      "display_zh": "魔气涌动",
+      "display_en": "Demon Qi Surge",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "dajin_demon_qi_surge",
+      "region_id": "dajin",
+      "display_zh": "大晋魔气涌动",
+      "display_en": "Great Jin Demon Qi Surge",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "void_rift_sighting",
+      "region_id": "fallen_demon_valley",
+      "display_zh": "空间裂隙目击",
+      "display_en": "Void Rift Sighting",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "ancient_demon_seal_breach",
+      "region_id": "fallen_demon_valley",
+      "display_zh": "上古魔封松动",
+      "display_en": "Ancient Demon Seal Breach",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianyuan_void_rift_sighting",
+      "region_id": "tianyuan",
+      "display_zh": "天渊空间裂隙目击",
+      "display_en": "Tianyuan Void Rift Sighting",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "tianyuan_merit_patrol",
+      "region_id": "tianyuan",
+      "display_zh": "天渊巡防",
+      "display_en": "Tianyuan Patrol",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "merit_patrol",
+      "region_id": "tianyuan",
+      "display_zh": "功勋巡防",
+      "display_en": "Merit Patrol",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianyuan_auction_notice",
+      "region_id": "tianyuan",
+      "display_zh": "天渊拍卖预告",
+      "display_en": "Tianyuan Auction Notice",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianyuan_treasure_fair_rumor",
+      "region_id": "tianyuan",
+      "display_zh": "天渊宝会传闻",
+      "display_en": "Tianyuan Treasure Fair Rumor",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "wild_land_beast_horde",
+      "region_id": "spirit_realm_border",
+      "display_zh": "荒原兽群",
+      "display_en": "Wild Land Beast Horde",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "void_rift_surge",
+      "region_id": "spirit_realm_border",
+      "display_zh": "虚空裂隙涌动",
+      "display_en": "Void Rift Surge",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "spatial_rift_flutter",
+      "region_id": "spirit_realm_border",
+      "display_zh": "空间裂隙震颤",
+      "display_en": "Spatial Rift Flutter",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "ghost_expose_rumor",
+      "region_id": "tiannan",
+      "display_zh": "鬼修踪迹传闻",
+      "display_en": "Ghost Cultivator Trace Rumor",
+      "weight": 2,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "spirit_storm_major",
+      "region_id": "spirit_realm_border",
+      "display_zh": "荒原灵暴",
+      "display_en": "Major Wild Land Spirit Storm",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "spirit_storm",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "风元灵暴",
+      "display_en": "Fengyuan Spirit Storm",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "ancient_ruin_whisper",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "上古废墟低语",
+      "display_en": "Ancient Ruin Whisper",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "fengyuan_treasure_fair",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "风元宝会传闻",
+      "display_en": "Fengyuan Treasure Fair Rumor",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "treasure_fair_rumor",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "万宝大会传闻",
+      "display_en": "Treasure Fair Rumor",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianlan_fashi_patrol",
+      "region_id": "tianlan",
+      "display_zh": "天澜法士巡境",
+      "display_en": "Tianlan Fashi Patrol",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianlan_patrol",
+      "region_id": "tianlan",
+      "display_zh": "天澜巡境",
+      "display_en": "Tianlan Patrol",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "holy_bird_omen",
+      "region_id": "tianlan",
+      "display_zh": "圣禽祥兆",
+      "display_en": "Holy Bird Omen",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "yinming_corruption_warning",
+      "region_id": "yinming",
+      "display_zh": "阴煞侵体",
+      "display_en": "Yin Corruption Warning",
+      "weight": 12,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "yin_corruption_warning",
+      "region_id": "yinming",
+      "display_zh": "阴煞侵体",
+      "display_en": "Yin Corruption Warning",
+      "weight": 15,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "ghost_wail_night",
+      "region_id": "yinming",
+      "display_zh": "夜哭鬼啸",
+      "display_en": "Ghost Wail Night",
+      "weight": 8,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "thousand_bamboo_mechanism_fair",
+      "region_id": "extreme_west_thousand_bamboo",
+      "display_zh": "千竹机关市",
+      "display_en": "Thousand Bamboo Mechanism Fair",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "puppet_tower_whirs",
+      "region_id": "extreme_west_thousand_bamboo",
+      "display_zh": "机关塔低鸣",
+      "display_en": "Puppet Tower Whirs",
+      "weight": 4,
+      "duration_ticks": 12000,
+      "effects": [
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "spirit_vein_pulse",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "灵脉微涌",
+      "display_en": "Spirit Vein Pulse",
+      "weight": 3,
+      "duration_ticks": 36000,
+      "effects": [
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "fengyuan_beast_migration",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "风元兽群迁徙",
+      "display_en": "Fengyuan Beast Migration",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "diyuan_pressure_wave",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "地渊重压波",
+      "display_en": "Diyuan Pressure Wave",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "barbarian_beast_tide",
+      "region_id": "barbarian_wasteland",
+      "display_zh": "兽潮过境",
+      "display_en": "Beast Tide Sweeps Through",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "barbarian_king_roar",
+      "region_id": "barbarian_wasteland",
+      "display_zh": "妖王远啸",
+      "display_en": "Demon King Roar in the Distance",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "king_territory_intrusion",
+      "region_id": "barbarian_wasteland",
+      "display_zh": "妖王领地入侵",
+      "display_en": "Demon King Territory Intrusion",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "demon_gold_storm",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "魔金风暴",
+      "display_en": "Demon Gold Storm",
+      "weight": 3,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "asura_killing_intent",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "修罗杀意",
+      "display_en": "Asura Killing Intent",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "jiuxian_peak_seclusion",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "九峰闭关",
+      "display_en": "Jiuxian Peak Seclusion",
+      "weight": 2,
+      "duration_ticks": 48000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "tiannan_wandering_merchant",
+      "region_id": "tiannan",
+      "display_zh": "行商路过",
+      "display_en": "Wandering Merchant Passes Through",
+      "weight": 10,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "dajin_wandering_merchant",
+      "region_id": "dajin",
+      "display_zh": "万宝行商过境",
+      "display_en": "Wanbao Merchant Caravan",
+      "weight": 10,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "wandering_merchant",
+      "region_id": "tiannan",
+      "display_zh": "行商路过",
+      "display_en": "Wandering Merchant Passes Through",
+      "weight": 10,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "tiannan_bandit_cultivator",
+      "region_id": "tiannan",
+      "display_zh": "散修劫道",
+      "display_en": "Bandit Cultivator Ambush",
+      "weight": 8,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "bandit_cultivator_road",
+      "region_id": "tiannan",
+      "display_zh": "散修劫道",
+      "display_en": "Roadside Bandit Cultivators",
+      "weight": 8,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "chaotic_sea_bandit_cultivator",
+      "region_id": "chaotic_sea",
+      "display_zh": "海上散修劫道",
+      "display_en": "Sea-Road Rogue Cultivators",
+      "weight": 8,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "bandit_cultivator",
+      "region_id": "tiannan",
+      "display_zh": "散修劫道",
+      "display_en": "Bandit Cultivator Ambush",
+      "weight": 8,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tiannan_sect_recruit",
+      "region_id": "tiannan",
+      "display_zh": "宗门招新",
+      "display_en": "Sect Recruitment Notice",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "sect_recruitment_spring",
+      "region_id": "tiannan",
+      "display_zh": "宗门春招",
+      "display_en": "Spring Sect Recruitment",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "sect_recruit",
+      "region_id": "tiannan",
+      "display_zh": "宗门招新",
+      "display_en": "Sect Recruitment Notice",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "contribution_bonus_day",
+      "region_id": "tiannan",
+      "display_zh": "宗门赏功日",
+      "display_en": "Sect Merit Reward Day",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "sect_contribution_bonus"
+      ]
+    },
+    {
+      "id": "beast_migration",
+      "region_id": "mulan",
+      "display_zh": "兽潮前兆",
+      "display_en": "Beast Migration Omen",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "foundation_pill_rumor",
+      "region_id": "tiannan",
+      "display_zh": "筑基丹流言",
+      "display_en": "Foundation Pill Rumor",
+      "weight": 7,
+      "duration_ticks": 18000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "talisman_master_visit",
+      "region_id": "dajin",
+      "display_zh": "符师云游",
+      "display_en": "Traveling Talisman Master",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "rogue_cultivator_duel",
+      "region_id": "chaotic_sea",
+      "display_zh": "散修约战",
+      "display_en": "Rogue Cultivator Duel",
+      "weight": 6,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "sect_elder_lecture",
+      "region_id": "tiannan",
+      "display_zh": "长老讲道",
+      "display_en": "Sect Elder Lecture",
+      "weight": 4,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "chaotic_sea_beast_tide",
+      "region_id": "chaotic_sea",
+      "display_zh": "兽潮袭岛",
+      "display_en": "Beast Tide Strikes the Islands",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "chaotic_sea_tax_raid",
+      "region_id": "chaotic_sea",
+      "display_zh": "星宫查税",
+      "display_en": "Star Palace Tax Raid",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "chaotic_sea_ghost_fog_truce",
+      "region_id": "chaotic_sea",
+      "display_zh": "鬼雾暂息",
+      "display_en": "Ghost Fog Truce",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "ghost_fog_truce",
+      "region_id": "chaotic_sea",
+      "display_zh": "鬼雾暂休战",
+      "display_en": "Ghost Fog Truce",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "huangfeng_yanyue_rivalry",
+      "region_id": "tiannan",
+      "display_zh": "天南两宗摩擦",
+      "display_en": "Tiannan Sect Rivalry",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "star_palace_inverse_war",
+      "region_id": "chaotic_sea",
+      "display_zh": "星宫清剿逆星",
+      "display_en": "Star Palace Purges the Inverse Star",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "mulan_tianlan_campaign",
+      "region_id": "mulan_grassland",
+      "display_zh": "慕兰天澜大战",
+      "display_en": "Mulan and Tianlan Campaign",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "border_skirmish",
+      "region_id": "mulan",
+      "display_zh": "边境摩擦",
+      "display_en": "Border Skirmish",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "fashi_array_clash",
+      "region_id": "mulan",
+      "display_zh": "法士大阵对撞",
+      "display_en": "Fashi Array Clash",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "holy_beast_intervention",
+      "region_id": "mulan",
+      "display_zh": "圣禽介入",
+      "display_en": "Holy Beast Intervention",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "ceasefire_or_escalation",
+      "region_id": "tianlan",
+      "display_zh": "停战或升级",
+      "display_en": "Ceasefire or Escalation",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "human_demon_alliance_council",
+      "region_id": "tianyuan",
+      "display_zh": "天渊两族议和",
+      "display_en": "Tianyuan Alliance Council",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "feiling_border_skirmish",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "飞灵边境冲突",
+      "display_en": "Feiling Border Skirmish",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "qingxu_talisman_embargo",
+      "region_id": "tiannan",
+      "display_zh": "清虚符材禁运",
+      "display_en": "Qingxu Talisman Material Embargo",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "dajin_clan_auction_rival",
+      "region_id": "dajin",
+      "display_zh": "世家拍卖争标",
+      "display_en": "Great Jin Clan Auction Rivalry",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tiannan_mulan_border_war",
+      "region_id": "mulan_grassland",
+      "display_zh": "天南慕兰边境战",
+      "display_en": "Tiannan-Mulan Border War",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianlan_holy_beast_ritual",
+      "region_id": "tianlan",
+      "display_zh": "天澜圣兽祭",
+      "display_en": "Tianlan Holy Beast Rite",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "mulan_smuggle_caravan",
+      "region_id": "mulan_grassland",
+      "display_zh": "慕兰走私商队",
+      "display_en": "Mulan Smuggler Caravan",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "herb_shop_bonus",
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "seven_sects_joint_defense",
+      "region_id": "tiannan",
+      "display_zh": "七派联防令",
+      "display_en": "Seven Sects Joint Defense Order",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "chaotic_sea_blockade",
+      "region_id": "chaotic_sea",
+      "display_zh": "星宫封锁暗礁",
+      "display_en": "Star Palace Reef Blockade",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "inverse_star_raid_tax",
+      "region_id": "chaotic_sea",
+      "display_zh": "逆星劫税船",
+      "display_en": "Inverse Star Tax Ship Raid",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tiannan_to_chaotic_sea",
+      "region_id": "tiannan",
+      "display_zh": "天南乱星海商路",
+      "display_en": "Tiannan-Chaotic Sea Trade Route",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "chaotic_sea_to_dajin",
+      "region_id": "chaotic_sea",
+      "display_zh": "乱星海大晋远船",
+      "display_en": "Chaotic Sea-Great Jin Long Route",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "dajin_to_tianyuan",
+      "region_id": "dajin",
+      "display_zh": "大晋天渊风羽渡",
+      "display_en": "Great Jin-Tianyuan Windfeather Route",
+      "weight": 2,
+      "duration_ticks": 36000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tianyuan_to_spirit_fengyuan",
+      "region_id": "tianyuan",
+      "display_zh": "天渊风元军需线",
+      "display_en": "Tianyuan-Fengyuan Supply Line",
+      "weight": 2,
+      "duration_ticks": 36000,
+      "effects": [
+        "aura_plus_5",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tiannan_internal",
+      "region_id": "tiannan",
+      "display_zh": "天南宗门护送商路",
+      "display_en": "Tiannan Sect-Escorted Caravan",
+      "weight": 8,
+      "duration_ticks": 24000,
+      "effects": [
+        "herb_shop_bonus",
+        "aura_plus_5"
+      ]
+    },
+    {
+      "id": "mulan_tianlan_smuggle",
+      "region_id": "mulan_grassland",
+      "display_zh": "慕兰天澜灰色商路",
+      "display_en": "Mulan-Tianlan Smuggling Route",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "herb_shop_bonus",
+        "trade_risk_up"
+      ]
+    },
+    {
+      "id": "nether_river_ferry",
+      "region_id": "nether_river",
+      "display_zh": "冥河阴冥渡船线",
+      "display_en": "Nether River-Yinming Ferry Route",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "route_tiannan_to_mulan_smuggle",
+      "region_id": "tiannan",
+      "display_zh": "天南慕兰走私线",
+      "display_en": "Tiannan-Mulan Smuggler Trail",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "route_tianyuan_merit_convoy",
+      "region_id": "tianyuan",
+      "display_zh": "天渊战功护送队",
+      "display_en": "Tianyuan Merit Convoy",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "aura_plus_5",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "cultivator_pearl_snatch",
+      "region_id": "chaotic_sea",
+      "display_zh": "修士劫珠传闻",
+      "display_en": "Cultivator Pearl Snatch Rumor",
+      "weight": 3,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "spirit_realm_call_echo",
+      "region_id": "chaotic_sea",
+      "display_zh": "灵界共鸣",
+      "display_en": "Spirit Realm Call Echo",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "dajin_clan_feud",
+      "region_id": "dajin",
+      "display_zh": "世家械斗",
+      "display_en": "Great Jin Clan Feud",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "fengyuan_clan_feud",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "风元世家械斗",
+      "display_en": "Fengyuan Clan Feud",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "ascension_pressure_hint",
+      "region_id": "dajin",
+      "display_zh": "飞升压力暗涌",
+      "display_en": "Ascension Pressure Hint",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "fallen_demon_miasma",
+      "region_id": "fallen_demon_valley",
+      "display_zh": "坠魔谷魔雾",
+      "display_en": "Fallen Demon Miasma",
+      "weight": 4,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "clan_auction_spirit_realm",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "世家灵界拍卖",
+      "display_en": "Spirit Realm Clan Auction",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "great_vehicle_insight",
+      "region_id": "spirit_fengyuan",
+      "display_zh": "大道感悟异象",
+      "display_en": "Great Vehicle Insight Omen",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "mortal_realm_cap_insight",
+      "region_id": "tiannan",
+      "display_zh": "化神瓶颈感悟",
+      "display_en": "Mortal Realm Bottleneck Insight",
+      "weight": 3,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "demon_beast_siege",
+      "region_id": "tianyuan",
+      "display_zh": "兽潮攻城",
+      "display_en": "Demon Beast Siege",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "demon_clan_embassy",
+      "region_id": "tianyuan",
+      "display_zh": "妖族使馆纠纷",
+      "display_en": "Demon Clan Embassy Dispute",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "merit_convoy_ambush",
+      "region_id": "tianyuan",
+      "display_zh": "功勋车队遇袭",
+      "display_en": "Merit Convoy Ambush",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tribulation_cloud_gather",
+      "region_id": "tianyuan",
+      "display_zh": "天劫云聚",
+      "display_en": "Tribulation Clouds Gather",
+      "weight": 2,
+      "duration_ticks": 12000,
+      "effects": [
+        "aura_plus_5",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "yin_luo_patrol",
+      "region_id": "yinming",
+      "display_zh": "阴罗殿巡魂",
+      "display_en": "Yin Luo Hall Soul Patrol",
+      "weight": 3,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "yin_wind_howl",
+      "region_id": "yinming",
+      "display_zh": "阴风怒号",
+      "display_en": "Yin Wind Howl",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "great_jin_auction_week",
+      "region_id": "great_jin_central",
+      "display_zh": "万宝楼拍卖周",
+      "display_en": "Great Jin Wanbao Auction Week",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "tiannan_talisman_master_visit",
+      "region_id": "tiannan",
+      "display_zh": "天南符师云游",
+      "display_en": "Tiannan Talisman Master Visit",
+      "weight": 5,
+      "duration_ticks": 18000,
+      "effects": [
+        "herb_shop_bonus",
+        "secret_realm_ticket_hint"
+      ]
+    },
+    {
+      "id": "tiannan_rogue_cultivator_duel",
+      "region_id": "tiannan",
+      "display_zh": "天南散修约战",
+      "display_en": "Tiannan Rogue Cultivator Duel",
+      "weight": 6,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "dajin_rogue_cultivator_duel",
+      "region_id": "dajin",
+      "display_zh": "大晋散修约战",
+      "display_en": "Great Jin Rogue Cultivator Duel",
+      "weight": 6,
+      "duration_ticks": 18000,
+      "effects": [
+        "trade_risk_up",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "nether_river_ghost_wail_night",
+      "region_id": "nether_river",
+      "display_zh": "冥河夜哭鬼啸",
+      "display_en": "Nether River Ghost Wail Night",
+      "weight": 10,
+      "duration_ticks": 12000,
+      "effects": [
+        "secret_realm_ticket_hint",
+        "rare_loot_hint"
+      ]
+    },
+    {
+      "id": "evt_spirit_rain_tiannan",
+      "region_id": "tiannan",
+      "display_zh": "天南灵雨",
+      "display_en": "天南灵雨",
+      "weight": 8,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_demonic_scout",
+      "region_id": "tiannan",
+      "display_zh": "魔道探子",
+      "display_en": "魔道探子",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_auction_rumor",
+      "region_id": "tiannan",
+      "display_zh": "万宝楼拍卖传闻",
+      "display_en": "万宝楼拍卖传闻",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_sea_beast_migration",
+      "region_id": "chaotic_sea",
+      "display_zh": "海兽迁徙",
+      "display_en": "海兽迁徙",
+      "weight": 7,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_herb_merchant_caravan",
+      "region_id": "tiannan",
+      "display_zh": "灵药商队",
+      "display_en": "灵药商队",
+      "weight": 9,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_tribulation_omen",
+      "region_id": "tiannan",
+      "display_zh": "天劫异象",
+      "display_en": "天劫异象",
+      "weight": 3,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_clan_recruit",
+      "region_id": "tiannan",
+      "display_zh": "家族招揽",
+      "display_en": "家族招揽",
+      "weight": 6,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "evt_spirit_mine_dispute",
+      "region_id": "tiannan",
+      "display_zh": "灵矿争执",
+      "display_en": "灵矿争执",
+      "weight": 5,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "mulan_border_patrol",
+      "region_id": "mulan",
+      "display_zh": "边境巡哨",
+      "display_en": "边境巡哨",
+      "weight": 9,
+      "duration_ticks": 24000,
+      "effects": [
+        "war_scout_token",
+        "low_grade_spirit_stone"
+      ],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "mulan_soul_array_supply",
+      "region_id": "mulan",
+      "display_zh": "护阵供灵",
+      "display_en": "护阵供灵",
+      "weight": 7,
+      "duration_ticks": 24000,
+      "effects": [
+        "array_core_fragment",
+        "fashi_art_fragment"
+      ],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "tiannan_war_merit_muster",
+      "region_id": "tiannan",
+      "display_zh": "天南战勋集结",
+      "display_en": "天南战勋集结",
+      "weight": 8,
+      "duration_ticks": 24000,
+      "effects": [
+        "war_merit_huangfeng",
+        "anti_fashi_talisman"
+      ],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "ceasefire_envoy_rumor",
+      "region_id": "mulan",
+      "display_zh": "停战使者传闻",
+      "display_en": "停战使者传闻",
+      "weight": 4,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    },
+    {
+      "id": "open_sky_tribulation_omen",
+      "region_id": "tiannan",
+      "display_zh": "天象异变",
+      "display_en": "天象异变",
+      "weight": 1,
+      "duration_ticks": 24000,
+      "effects": [],
+      "source": "text_material_daily_random_events"
+    }
+  ]
+}

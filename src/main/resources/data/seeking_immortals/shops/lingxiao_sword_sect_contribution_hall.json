@@ -1,0 +1,24 @@
+{
+  "id": "lingxiao_sword_sect_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "flying_sword",
+      "item": "seeking_immortals:flying_sword",
+      "count": 1,
+      "cost": 180
+    },
+    {
+      "id": "azure_origin_sword_art",
+      "item": "seeking_immortals:technique_manual_azure_origin_sword_art",
+      "count": 1,
+      "cost": 260
+    },
+    {
+      "id": "five_elements_escape",
+      "item": "seeking_immortals:technique_manual_five_elements_escape",
+      "count": 1,
+      "cost": 420
+    }
+  ]
+}

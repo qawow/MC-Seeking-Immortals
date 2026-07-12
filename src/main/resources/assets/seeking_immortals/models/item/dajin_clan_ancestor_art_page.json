@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/dajin_clan_ancestor_art_page"
+  }
+}

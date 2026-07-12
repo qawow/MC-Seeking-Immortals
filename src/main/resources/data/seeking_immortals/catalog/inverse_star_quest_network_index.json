@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "inverse_star_quest_network.json",
+  "primary_key": "chains",
+  "entries": [
+    {
+      "id": "inverse_star_recruit",
+      "display": "逆星入盟"
+    },
+    {
+      "id": "inverse_star_smuggle_arc",
+      "display": "走私补给线"
+    },
+    {
+      "id": "inverse_star_void_heist",
+      "display": "虚天情报战"
+    },
+    {
+      "id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙"
+    },
+    {
+      "id": "inverse_star_assassination_bounty",
+      "display": "星宫执法悬赏"
+    },
+    {
+      "id": "inverse_star_array_sabotage",
+      "display": "传送阵破坏"
+    }
+  ]
+}

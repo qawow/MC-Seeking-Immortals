@@ -30,6 +30,7 @@ public final class FlyingAuthority {
 
     public static final String SOURCE_ARTIFACT = "artifact";
     public static final String SOURCE_QI_FLYING = "qi_flying";
+    public static final String SOURCE_FOUNDATION_FLYING = "foundation_flying";
 
     private static final String SOURCES_KEY = "SeekingImmortalsFlyingSources";
     private static final String BASELINE_MAYFLY_KEY = "SeekingImmortalsFlyingBaselineMayfly";

@@ -6,7 +6,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    private static final String PROTOCOL_VERSION = "5";
+    private static final String PROTOCOL_VERSION = "13";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -48,5 +48,89 @@ public final class ModNetwork {
                 .decoder(AttemptBreakthroughPacket::decode)
                 .consumerMainThread(AttemptBreakthroughPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(SetMovementSpeedScalePacket.class, id++)
+                .encoder(SetMovementSpeedScalePacket::encode)
+                .decoder(SetMovementSpeedScalePacket::decode)
+                .consumerMainThread(SetMovementSpeedScalePacket::handle)
+                .add();
+        CHANNEL.messageBuilder(SyncSectDataPacket.class, id++)
+                .encoder(SyncSectDataPacket::encode)
+                .decoder(SyncSectDataPacket::decode)
+                .consumerMainThread(SyncSectDataPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(SectActionPacket.class, id++)
+                .encoder(SectActionPacket::encode)
+                .decoder(SectActionPacket::decode)
+                .consumerMainThread(SectActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(SyncShopDataPacket.class, id++)
+                .encoder(SyncShopDataPacket::encode)
+                .decoder(SyncShopDataPacket::decode)
+                .consumerMainThread(SyncShopDataPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(ShopActionPacket.class, id++)
+                .encoder(ShopActionPacket::encode)
+                .decoder(ShopActionPacket::decode)
+                .consumerMainThread(ShopActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(SyncWorldpackDataPacket.class, id++)
+                .encoder(SyncWorldpackDataPacket::encode)
+                .decoder(SyncWorldpackDataPacket::decode)
+                .consumerMainThread(SyncWorldpackDataPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(WorldpackActionPacket.class, id++)
+                .encoder(WorldpackActionPacket::encode)
+                .decoder(WorldpackActionPacket::decode)
+                .consumerMainThread(WorldpackActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(AuctionActionPacket.class, id++)
+                .encoder(AuctionActionPacket::encode)
+                .decoder(AuctionActionPacket::decode)
+                .consumerMainThread(AuctionActionPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(OpenAuctionScreenPacket.class, id++)
+                .encoder(OpenAuctionScreenPacket::encode)
+                .decoder(OpenAuctionScreenPacket::decode)
+                .consumerMainThread(OpenAuctionScreenPacket::handle)
+                .add();
+        // Wave47: dialogue GUI packets.
+        CHANNEL.messageBuilder(OpenDialogueScreenPacket.class, id++)
+                .encoder(OpenDialogueScreenPacket::encode)
+                .decoder(OpenDialogueScreenPacket::decode)
+                .consumerMainThread(OpenDialogueScreenPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(DialogueActionPacket.class, id++)
+                .encoder(DialogueActionPacket::encode)
+                .decoder(DialogueActionPacket::decode)
+                .consumerMainThread(DialogueActionPacket::handle)
+                .add();
+        // Wave49: quest tracker + shop rank lock wire changes (protocol 12).
+        CHANNEL.messageBuilder(SyncQuestTrackerPacket.class, id++)
+                .encoder(SyncQuestTrackerPacket::encode)
+                .decoder(SyncQuestTrackerPacket::decode)
+                .consumerMainThread(SyncQuestTrackerPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(QuestTrackerActionPacket.class, id++)
+                .encoder(QuestTrackerActionPacket::encode)
+                .decoder(QuestTrackerActionPacket::decode)
+                .consumerMainThread(QuestTrackerActionPacket::handle)
+                .add();
+        // Wave50: alchemy/storage/refine GUI open packets.
+        CHANNEL.messageBuilder(OpenAlchemyStatusPacket.class, id++)
+                .encoder(OpenAlchemyStatusPacket::encode)
+                .decoder(OpenAlchemyStatusPacket::decode)
+                .consumerMainThread(OpenAlchemyStatusPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(OpenStoragePreviewPacket.class, id++)
+                .encoder(OpenStoragePreviewPacket::encode)
+                .decoder(OpenStoragePreviewPacket::decode)
+                .consumerMainThread(OpenStoragePreviewPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(OpenRefinePlanPacket.class, id++)
+                .encoder(OpenRefinePlanPacket::encode)
+                .decoder(OpenRefinePlanPacket::decode)
+                .consumerMainThread(OpenRefinePlanPacket::handle)
+                .add();
     }
 }
+

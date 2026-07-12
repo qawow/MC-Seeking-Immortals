@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source": "汇编 符箓三等级三阶结构；与技能树法术解锁对应",
+  "disclaimer": "成功率等为模组量级，非原著精确统计",
+  "catalog_ref": "talisman_catalog.json",
+  "grades": [
+    {
+      "id": "low",
+      "display": "低阶符",
+      "realm_typical": "QI_REFINING",
+      "paper": "mortal_or_low_spirit",
+      "unlock": "天符门制符基础或通用符术入门",
+      "examples": ["护体符", "火弹符", "遁形符"],
+      "economy_ref": "economy_spirit_stone_master.price_anchors_low_stone.talisman_low_shop"
+    },
+    {
+      "id": "mid",
+      "display": "中阶符",
+      "realm_typical": "FOUNDATION",
+      "paper": "mid_spirit",
+      "unlock": "筑基后灵墨与神识达标；宗门内门符室",
+      "examples": ["金刚符", "辟邪符", "雷火符"],
+      "economy_ref": "economy_spirit_stone_master.price_anchors_low_stone.talisman_mid_master"
+    },
+    {
+      "id": "high",
+      "display": "高阶符",
+      "realm_typical": "CORE_FORMATION",
+      "paper": "high_spirit",
+      "unlock": "结丹制符师；部分需秘传",
+      "examples": ["天雷符", "镇魂符", "遁天符高阶版"],
+      "note": "再高则为符宝，战力近法器，见 artifact_eleven_tier_map.talisman_treasure_note"
+    }
+  ],
+  "skill_tree_ref": "tianfu_talisman",
+  "sect_specialty_ref": "sect_specialty_map.json#tianfu_gate"
+}

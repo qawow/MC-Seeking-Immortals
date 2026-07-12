@@ -1,0 +1,422 @@
+{
+  "schema_version": 3,
+  "spirit_cost_formula": "base * (1 + 0.05 * max(0, caster_realm_tier - min_realm_tier))",
+  "techniques": [
+    {
+      "id": "fireball",
+      "display": "火弹术",
+      "school": "elemental_fire",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "cooldown_ticks": 40,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 12,
+        "damage_scale": "spirit_power * 0.15",
+        "range": 24,
+        "tags": [
+          "burn_chance_0.1"
+        ]
+      },
+      "setting": {
+        "lore": "火弹术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": "通用"
+        }
+      }
+    },
+    {
+      "id": "qingyuan_sword_ray",
+      "display": "青元剑芒",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 35,
+      "cooldown_ticks": 60,
+      "source": "青元剑诀",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 45,
+        "damage_scale": "spirit_power * 0.35 + sword_affinity * 10",
+        "range": 32,
+        "pierce": 1,
+        "tags": [
+          "requires_flying_sword"
+        ]
+      },
+      "setting": {
+        "lore": "青元剑芒",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": "青元剑诀"
+        }
+      }
+    },
+    {
+      "id": "soul_devouring_cloud",
+      "display": "噬魂云",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 40,
+      "source": "玄阴诀",
+      "effect": {
+        "type": "aoe_dot",
+        "element": "yin",
+        "damage_per_tick": 6,
+        "duration_ticks": 100,
+        "radius": 6,
+        "tags": [
+          "corpse_synergy",
+          "demonic_karma"
+        ]
+      },
+      "setting": {
+        "lore": "噬魂云",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": "玄阴诀"
+        }
+      }
+    },
+    {
+      "id": "yin_soul_claw",
+      "display": "阴魂爪",
+      "school": "xuan_yin",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "cooldown_ticks": 35,
+      "source": "鬼修传承",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 10,
+        "tags": [
+          "life_steal_0.1",
+          "ghost_cultivator_only"
+        ]
+      },
+      "setting": {
+        "lore": "阴魂爪",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": "鬼修传承"
+        }
+      }
+    },
+    {
+      "id": "spirit_art_wind_blade",
+      "display": "风刃灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "effect": {
+        "type": "projectile",
+        "element": "wind",
+        "damage_base": 14,
+        "range": 28,
+        "tags": [
+          "uses_spirit_art_charge_not_mana"
+        ]
+      },
+      "setting": {
+        "lore": "风刃灵术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "ice_prison_array",
+      "display": "冰封囚笼",
+      "school": "elemental_ice",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 45,
+      "source": "掩月宗秘术",
+      "effect": {
+        "type": "aoe_control",
+        "element": "ice",
+        "duration_ticks": 60,
+        "radius": 4,
+        "tags": [
+          "immobilize",
+          "ice_armor_synergy"
+        ]
+      },
+      "setting": {
+        "lore": "冰封囚笼",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": "掩月宗秘术"
+        }
+      }
+    },
+    {
+      "id": "five_element_shield",
+      "display": "五行盾",
+      "school": "defense",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 28,
+      "source": "通用",
+      "effect": {
+        "type": "shield",
+        "element": "neutral",
+        "shield_base": 50,
+        "shield_scale": "spirit_power * 0.2",
+        "tags": [
+          "element_adaptive"
+        ]
+      },
+      "setting": {
+        "lore": "五行盾",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": "通用"
+        }
+      }
+    },
+    {
+      "id": "fashi_spirit_art_lightning",
+      "display": "法士灵术·雷霆",
+      "school": "fashi_spirit_art",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 30,
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "effect": {
+        "type": "beam",
+        "element": "thunder",
+        "damage_base": 30,
+        "range": 24,
+        "tags": [
+          "uses_spirit_art_charge",
+          "fashi_soul_burn"
+        ]
+      },
+      "setting": {
+        "lore": "法士灵术·雷霆",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "blood_frenzy_secret",
+      "display": "血煞秘术",
+      "school": "blood",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 50,
+      "source": "魔道残篇",
+      "effect": {
+        "type": "buff",
+        "duration_ticks": 200,
+        "stat_modifiers": {
+          "attack_multiply": 1.5,
+          "defense_multiply": 0.6
+        },
+        "tags": [
+          "lifespan_debt",
+          "karma_demon"
+        ]
+      },
+      "setting": {
+        "lore": "血煞秘术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": "魔道残篇"
+        }
+      }
+    },
+    {
+      "id": "mulan_wind_blade",
+      "display": "风刃术",
+      "school": "mulan_fashi",
+      "tier": "spell",
+      "element": "wind",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "风刃术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "mulan_sand_storm",
+      "display": "风沙术",
+      "school": "mulan_fashi",
+      "tier": "spell",
+      "element": "earth_wind",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "风沙术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "tianlan_beast_soul_call",
+      "display": "唤兽术",
+      "school": "tianlan_fashi",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "唤兽术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "tiannan_sword_rain",
+      "display": "剑雨术",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "剑雨术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "talisman_spirit_chain",
+      "display": "缚灵术",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "缚灵术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "FOUNDATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "blood_shadow_escape",
+      "display": "血影遁",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "note": "魔道遁术",
+      "setting": {
+        "lore": "血影遁",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "CORE_FORMATION",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "body_lightness_art",
+      "display": "轻身术",
+      "school": "body",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "轻身术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "spirit_sense_probe",
+      "display": "神识探查",
+      "school": "generic",
+      "tier": "utility",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "神识探查",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": null
+        }
+      }
+    },
+    {
+      "id": "yin_body_condense",
+      "display": "阴体凝形术",
+      "school": "xuan_yin",
+      "tier": "utility",
+      "path": "ghost",
+      "setting": {
+        "lore": "阴体凝形术",
+        "note": "样例表，主数据见 cultivation_methods.json"
+      },
+      "learn_requirements": {
+        "cast": {
+          "realm_min": "QI_REFINING",
+          "source": null
+        }
+      }
+    }
+  ]
+}

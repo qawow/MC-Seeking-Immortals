@@ -1,0 +1,154 @@
+{
+  "schema_version": 2,
+  "source": "凡人符宝机制：结丹修士炼制，威力近法宝，使用次数有限且逐次衰减",
+  "rules": {
+    "crafter_realm_min": "CORE_FORMATION",
+    "default_uses": 3,
+    "power_decay_per_use": 0.15,
+    "user_realm_penalty": "低于法宝档时按 artifact_tier_rules 威能缩放"
+  },
+  "templates": [
+    {
+      "id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "element": "metal",
+      "burst_type": "single_target_slam",
+      "typical_target": "foundation_late_beast",
+      "setting": {
+        "lore": "金光砖符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝",
+      "element": "metal",
+      "burst_type": "aoe_slash",
+      "typical_target": "multiple_qi_refining",
+      "setting": {
+        "lore": "金轮符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝",
+      "element": "thunder",
+      "burst_type": "line_lightning",
+      "typical_target": "core_formation_threat",
+      "setting": {
+        "lore": "霹雳神雷符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝",
+      "element": "seal",
+      "burst_type": "beast_imprison",
+      "typical_target": "demon_beast_boss_add",
+      "setting": {
+        "lore": "封魔符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "nascent_soul_talisman_treasure",
+      "display": "元婴符宝（模板）",
+      "element": "mixed",
+      "burst_type": "realm_burst",
+      "typical_target": "nascent_soul_escape",
+      "default_uses": 1,
+      "setting": {
+        "lore": "元婴符宝（模板）",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝",
+      "element": "fire",
+      "burst_type": "pierce",
+      "default_uses": 2,
+      "setting": {
+        "lore": "火蛟矛符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝",
+      "element": "ice",
+      "burst_type": "full_block",
+      "default_uses": 2,
+      "setting": {
+        "lore": "玄冰盾符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝",
+      "element": "soul",
+      "burst_type": "anti_soul",
+      "default_uses": 3,
+      "setting": {
+        "lore": "定魂符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "thunder_pearl_talisman",
+      "display": "天雷子",
+      "element": "thunder",
+      "burst_type": "single_nuke",
+      "default_uses": 1,
+      "setting": {
+        "lore": "天雷子",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talisman_treasure_flat_mountain",
+      "display": "平山印符宝",
+      "element": "earth",
+      "burst_type": "aoe_press",
+      "default_uses": 2,
+      "setting": {
+        "lore": "平山印符宝",
+        "ref": "talisman_treasure_templates.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ],
+  "craft_ref": "refinement_recipes.json + talisman_paper + gold_seam_stone"
+}

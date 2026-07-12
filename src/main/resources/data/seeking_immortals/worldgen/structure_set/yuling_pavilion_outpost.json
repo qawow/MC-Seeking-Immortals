@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "seeking_immortals:yuling_pavilion_outpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 56,
+    "separation": 20,
+    "salt": 10391004
+  }
+}

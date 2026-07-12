@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "chaotic_sea_factions.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "star_palace",
+      "display": "星宫"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟"
+    },
+    {
+      "id": "pirate_scatter",
+      "display": "散修海盗"
+    }
+  ]
+}

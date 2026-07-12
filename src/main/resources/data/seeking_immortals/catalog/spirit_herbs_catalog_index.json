@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "source": "spirit_herbs_catalog.json",
+  "primary_key": "herbs",
+  "entries": [
+    {
+      "id": "yellow_essence",
+      "display": "黄精"
+    },
+    {
+      "id": "ginseng_spirit",
+      "display": "灵参"
+    },
+    {
+      "id": "snow_lotus",
+      "display": "雪莲花"
+    },
+    {
+      "id": "fire_sparrow_fruit",
+      "display": "火灵果"
+    },
+    {
+      "id": "soul_moss",
+      "display": "魂苔"
+    },
+    {
+      "id": "dragon_blood_grass",
+      "display": "龙血草"
+    },
+    {
+      "id": "void_marrow_herb",
+      "display": "虚空髓草"
+    },
+    {
+      "id": "demon_corruption_fungus",
+      "display": "魔染菌"
+    },
+    {
+      "id": "frost_moon_flower",
+      "display": "霜月花"
+    },
+    {
+      "id": "nether_bone_grass",
+      "display": "冥骨草"
+    },
+    {
+      "id": "thunder_essence_lotus",
+      "display": "雷莹莲"
+    },
+    {
+      "id": "star_moon_grass",
+      "display": "星月草"
+    },
+    {
+      "id": "phoenix_tail_fern",
+      "display": "凤尾蕨"
+    },
+    {
+      "id": "earth_spine_root",
+      "display": "地龙根"
+    },
+    {
+      "id": "ghost_face_mushroom",
+      "display": "鬼面菇"
+    },
+    {
+      "id": "spirit_mushroom",
+      "display": "灵菇"
+    },
+    {
+      "id": "kunwu_ice_lotus",
+      "display": "昆吾冰莲"
+    },
+    {
+      "id": "purple_ganoderma",
+      "display": "紫芝"
+    },
+    {
+      "id": "blood_lotus",
+      "display": "血莲"
+    },
+    {
+      "id": "anti_demon_herb",
+      "display": "驱魔草"
+    },
+    {
+      "id": "wind_herb",
+      "display": "风行草"
+    },
+    {
+      "id": "sea_coral_herb",
+      "display": "珊瑚灵藻"
+    },
+    {
+      "id": "nether_mist_flower",
+      "display": "冥雾兰"
+    },
+    {
+      "id": "kunwu_fire_moss",
+      "display": "昆吾火苔"
+    },
+    {
+      "id": "diyuan_pressure_moss",
+      "display": "地渊重压苔"
+    },
+    {
+      "id": "wild_land_spirit_sand",
+      "display": "荒原灵砂"
+    },
+    {
+      "id": "fengyuan_clan_ginseng",
+      "display": "风元世家参"
+    },
+    {
+      "id": "lingzhi_thousand_year",
+      "display": "千年灵芝"
+    },
+    {
+      "id": "blood_ginseng",
+      "display": "血参"
+    },
+    {
+      "id": "ice_lotus",
+      "display": "冰莲"
+    },
+    {
+      "id": "fire_heart_herb",
+      "display": "火心草"
+    },
+    {
+      "id": "void_sky_grass",
+      "display": "虚天灵草"
+    },
+    {
+      "id": "spirit_marrow_root",
+      "display": "灵髓根"
+    },
+    {
+      "id": "golden_silk_flower",
+      "display": "金蚕花"
+    },
+    {
+      "id": "yin_moon_orchid",
+      "display": "阴月兰"
+    },
+    {
+      "id": "yang_sun_fruit",
+      "display": "阳日果"
+    },
+    {
+      "id": "purple_bamboo_shoot",
+      "display": "紫竹笋"
+    },
+    {
+      "id": "star_sea_coral_herb",
+      "display": "星海珊瑚草"
+    },
+    {
+      "id": "barbarian_beast_lichen",
+      "display": "蛮荒兽苔"
+    },
+    {
+      "id": "yellow_essence_grass",
+      "display": "黄精草"
+    },
+    {
+      "id": "seven_rain_lotus",
+      "display": "七霞莲"
+    },
+    {
+      "id": "thousand_year_ginseng",
+      "display": "千年人参"
+    },
+    {
+      "id": "golden_thunder_bamboo",
+      "display": "金雷竹"
+    },
+    {
+      "id": "soul_nourish_wood",
+      "display": "养魂木"
+    },
+    {
+      "id": "cold_jade_herb",
+      "display": "寒玉草"
+    },
+    {
+      "id": "ghost_yin_herb",
+      "display": "阴魂草"
+    },
+    {
+      "id": "demon_blood_flower",
+      "display": "魔血花"
+    },
+    {
+      "id": "wind_spirit_grass",
+      "display": "风灵草"
+    },
+    {
+      "id": "earth_marrow_herb",
+      "display": "地髓草"
+    },
+    {
+      "id": "fire_spirit_fruit",
+      "display": "火灵果"
+    },
+    {
+      "id": "water_moon_lily",
+      "display": "水月莲"
+    },
+    {
+      "id": "metal_spirit_vine",
+      "display": "金灵藤"
+    },
+    {
+      "id": "wood_spirit_root",
+      "display": "木灵根"
+    },
+    {
+      "id": "fallen_demon_herb",
+      "display": "坠魔草"
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "display": "禁地血草"
+    },
+    {
+      "id": "yinming_mist_orchid",
+      "display": "阴冥雾兰"
+    },
+    {
+      "id": "chaotic_sea_kelp",
+      "display": "乱星海藻"
+    },
+    {
+      "id": "tiannan_fire_grass",
+      "display": "天南火灵草"
+    },
+    {
+      "id": "dajin_spirit_rice",
+      "display": "大晋灵稻"
+    },
+    {
+      "id": "mulan_spirit_grass",
+      "display": "慕兰灵草"
+    },
+    {
+      "id": "ghost_marsh_weed",
+      "display": "鬼沼阴藻"
+    },
+    {
+      "id": "ancient_ruin_moss",
+      "display": "废墟古苔"
+    },
+    {
+      "id": "spirit_vein_grass",
+      "display": "灵脉草"
+    },
+    {
+      "id": "beast_core_herb",
+      "display": "妖丹伴生草"
+    },
+    {
+      "id": "tribulation_thunder_herb",
+      "display": "劫雷草"
+    },
+    {
+      "id": "region_spirit_herb_tiannan",
+      "display": "tiannan特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_dajin",
+      "display": "dajin特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_chaotic_sea",
+      "display": "chaotic_sea特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_mulan",
+      "display": "mulan特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_yinming",
+      "display": "yinming特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_fallen_demon",
+      "display": "fallen_demon特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_spirit_fengyuan",
+      "display": "spirit_fengyuan特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_diyuan",
+      "display": "diyuan特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_barbarian_wasteland",
+      "display": "barbarian_wasteland特产灵草（通称）"
+    },
+    {
+      "id": "region_spirit_herb_tianyuan",
+      "display": "tianyuan特产灵草（通称）"
+    },
+    {
+      "id": "blood_forbidden_orchid",
+      "display": "禁地血兰"
+    },
+    {
+      "id": "chaotic_sea_coral_moss",
+      "display": "珊瑚灵苔"
+    },
+    {
+      "id": "ten_thousand_year_ginseng_spirit",
+      "display": "万年参灵"
+    },
+    {
+      "id": "mulan_sand_grass",
+      "display": "慕兰沙灵草"
+    }
+  ]
+}

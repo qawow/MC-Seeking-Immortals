@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "definitions": [
+    {
+      "id": "basic_wood_puppet",
+      "display": "木人傀儡（基础）",
+      "tier": "T0",
+      "realm_min": ""
+    },
+    {
+      "id": "giant_ape_puppet",
+      "display": "巨猿傀儡",
+      "tier": "T1",
+      "realm_min": ""
+    },
+    {
+      "id": "giant_turtle_puppet",
+      "display": "巨龟傀儡",
+      "tier": "T2",
+      "realm_min": ""
+    },
+    {
+      "id": "stone_spirit_puppet",
+      "display": "石灵傀儡",
+      "tier": "T3",
+      "realm_min": ""
+    },
+    {
+      "id": "hunyuan_bowl_core_puppet",
+      "display": "混元傀儡（改造）",
+      "tier": "T4",
+      "realm_min": ""
+    },
+    {
+      "id": "quhun_iron_puppet",
+      "display": "曲魂铁傀",
+      "tier": "T0",
+      "realm_min": ""
+    },
+    {
+      "id": "stone_guard_puppet",
+      "display": "石卫傀儡",
+      "tier": "T1",
+      "realm_min": ""
+    },
+    {
+      "id": "fire_spear_puppet",
+      "display": "火矛傀儡",
+      "tier": "T2",
+      "realm_min": ""
+    }
+  ]
+}

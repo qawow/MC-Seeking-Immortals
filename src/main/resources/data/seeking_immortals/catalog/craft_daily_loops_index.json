@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "craft_daily_loops.json",
+  "primary_key": "loops",
+  "entries": [
+    {
+      "id": "alchemy_daily_huangfeng",
+      "display": "黄枫丹房日课"
+    },
+    {
+      "id": "refinement_daily_forge",
+      "display": "炼器坊日课"
+    },
+    {
+      "id": "talisman_daily_sect",
+      "display": "制符堂日课"
+    },
+    {
+      "id": "formation_daily_array",
+      "display": "阵法学徒日课"
+    }
+  ]
+}

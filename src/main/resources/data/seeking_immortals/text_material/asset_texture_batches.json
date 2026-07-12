@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "style_doc": "docs/ASSET_TEXTURE_STYLE.md",
+  "total_registry": 330,
+  "priority_batches": [
+    {
+      "batch": 1,
+      "ids": [
+        "spirit_stone_low",
+        "spirit_stone_mid",
+        "jiangchen_pill",
+        "condensation_pill",
+        "blood_ginseng",
+        "yellow_essence_grass",
+        "demon_core_low",
+        "ghost_hide_talisman",
+        "alchemy_furnace_g1",
+        "border_merit_token"
+      ],
+      "displays": [
+        "spirit_stone_low",
+        "spirit_stone_mid",
+        "降尘丹",
+        "凝元丹",
+        "血参",
+        "yellow_essence_grass",
+        "低阶妖丹",
+        "敛魂符",
+        "一品丹炉",
+        "边境功勋令"
+      ],
+      "setting": {
+        "lore": "",
+        "ref": "asset_texture_batches.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "batch": 2,
+      "ids": [
+        "chaotic_sea_teleport_permit",
+        "inverse_star_cipher_token",
+        "body_tempering_pill",
+        "dual_harmony_pill",
+        "void_key",
+        "bu_tian_pill",
+        "star_palace_patrol_seal",
+        "tianyuan_spirit_pill",
+        "puppet_core_blank",
+        "refinement_quench_oil"
+      ],
+      "displays": [
+        "乱星海传送许可",
+        "逆星暗语牌",
+        "淬体丹",
+        "合欢丹",
+        "虚天殿密钥",
+        "补天丹",
+        "星宫巡防令",
+        "天渊聚灵丹",
+        "傀儡灵核（空）",
+        "淬器灵油"
+      ],
+      "setting": {
+        "lore": "",
+        "ref": "asset_texture_batches.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/marrow_extracting_pill_mid"
+  }
+}

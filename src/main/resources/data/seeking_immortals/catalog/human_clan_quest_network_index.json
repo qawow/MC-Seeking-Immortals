@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "human_clan_quest_network.json",
+  "primary_key": "chains",
+  "entries": [
+    {
+      "id": "human_clan_neutral_intro",
+      "display": "世家引荐"
+    },
+    {
+      "id": "clan_array_mo_line",
+      "display": "莫家阵法线"
+    },
+    {
+      "id": "clan_refinement_yu_line",
+      "display": "俞家炼器线"
+    },
+    {
+      "id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线"
+    },
+    {
+      "id": "clan_talisman_ning_line",
+      "display": "宁家符箓线"
+    }
+  ]
+}

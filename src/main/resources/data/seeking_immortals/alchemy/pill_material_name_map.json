@@ -1,0 +1,786 @@
+{
+  "schema_version": 1,
+  "namespace": "seeking_immortals",
+  "entries": [
+    {
+      "pills_catalog_id": "spirit_condense_pill",
+      "canonical_recipe_id": "spirit_gathering_pill",
+      "canonical_low_item": "seeking_immortals:spirit_gathering_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_gathering_pill",
+        "medium": "seeking_immortals:spirit_gathering_pill_mid",
+        "high": "seeking_immortals:spirit_gathering_pill_high",
+        "supreme": "seeking_immortals:spirit_gathering_pill_supreme"
+      },
+      "zh_cn": "聚灵丹",
+      "en_us": "Spirit Gathering Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "zh_cn": "灵草",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_iron",
+          "zh_cn": "灵铁",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "MORTAL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huoyuan_pill",
+      "canonical_recipe_id": "fire_origin_pill",
+      "canonical_low_item": "seeking_immortals:fire_origin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:fire_origin_pill",
+        "medium": "seeking_immortals:fire_origin_pill_mid",
+        "high": "seeking_immortals:fire_origin_pill_high",
+        "supreme": "seeking_immortals:fire_origin_pill_supreme"
+      },
+      "zh_cn": "火元丹",
+      "en_us": "Fire Origin Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_fire_origin_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather_flower",
+          "zh_cn": "凤羽花",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:fire_element_spirit_stone",
+          "zh_cn": "下品火灵石",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ice_fire_pill",
+      "canonical_recipe_id": "ice_fire_pill",
+      "canonical_low_item": "seeking_immortals:ice_fire_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ice_fire_pill",
+        "medium": "seeking_immortals:ice_fire_pill_mid",
+        "high": "seeking_immortals:ice_fire_pill_high",
+        "supreme": "seeking_immortals:ice_fire_pill_supreme"
+      },
+      "zh_cn": "冰火丹",
+      "en_us": "Ice-Fire Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_ice_fire_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather_flower",
+          "zh_cn": "凤羽花",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cold_jade",
+          "zh_cn": "寒玉",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:fire_element_spirit_stone",
+          "zh_cn": "下品火灵石",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "bone_marrow_pill",
+      "canonical_recipe_id": "marrow_cleansing_pill",
+      "canonical_low_item": "seeking_immortals:marrow_cleansing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:marrow_cleansing_pill",
+        "medium": "seeking_immortals:marrow_cleansing_pill_mid",
+        "high": "seeking_immortals:marrow_cleansing_pill_high",
+        "supreme": "seeking_immortals:marrow_cleansing_pill_supreme"
+      },
+      "zh_cn": "洗髓丸",
+      "en_us": "Marrow Cleansing Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_marrow_cleansing_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:immortal_ginseng",
+          "zh_cn": "仙参",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "zh_cn": "灵兽骨",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "zh_cn": "云雾菇",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "body_tempering_pill",
+      "canonical_recipe_id": "body_tempering_pill",
+      "canonical_low_item": "seeking_immortals:body_tempering_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:body_tempering_pill",
+        "medium": "seeking_immortals:body_tempering_pill_mid",
+        "high": "seeking_immortals:body_tempering_pill_high",
+        "supreme": "seeking_immortals:body_tempering_pill_supreme"
+      },
+      "zh_cn": "淬体丹",
+      "en_us": "Body Tempering Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_body_tempering_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "zh_cn": "灵兽骨",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "zh_cn": "妖兽内丹",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "foundation_pill",
+      "canonical_recipe_id": "foundation_building_pill_low",
+      "canonical_low_item": "seeking_immortals:foundation_building_pill_low",
+      "quality_outputs": {
+        "low": "seeking_immortals:foundation_building_pill_low",
+        "medium": "seeking_immortals:foundation_building_pill_mid",
+        "high": "seeking_immortals:foundation_building_pill_high",
+        "supreme": "seeking_immortals:foundation_building_pill_supreme"
+      },
+      "zh_cn": "筑基丹",
+      "en_us": "Foundation Building Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+        "seeking_immortals:alchemy_formula_foundation_building_pill_sect"
+      ],
+      "formula_source": "paper_or_sect_secret",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "zh_cn": "灵草",
+          "count": 4
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "zh_cn": "龙血草",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "zh_cn": "妖兽内丹",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "condensation_pill",
+      "canonical_recipe_id": "essence_condensing_pill",
+      "canonical_low_item": "seeking_immortals:essence_condensing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:essence_condensing_pill",
+        "medium": "seeking_immortals:essence_condensing_pill_mid",
+        "high": "seeking_immortals:essence_condensing_pill_high",
+        "supreme": "seeking_immortals:essence_condensing_pill_supreme"
+      },
+      "zh_cn": "凝元丹",
+      "en_us": "Essence Condensing Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_essence_condensing_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather_flower",
+          "zh_cn": "凤羽花",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "zh_cn": "龙血草",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:star_meteorite",
+          "zh_cn": "星陨铁",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "soul_gathering_pill",
+      "canonical_recipe_id": "soul_gathering_pill",
+      "canonical_low_item": "seeking_immortals:soul_gathering_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:soul_gathering_pill",
+        "medium": "seeking_immortals:soul_gathering_pill_mid",
+        "high": "seeking_immortals:soul_gathering_pill_high",
+        "supreme": "seeking_immortals:soul_gathering_pill_supreme"
+      },
+      "zh_cn": "聚魂丹",
+      "en_us": "Soul Gathering Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_soul_gathering_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "zh_cn": "魂魄碎片",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "zh_cn": "云雾菇",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "marrow_repair_pill",
+      "canonical_recipe_id": "marrow_repair_pill",
+      "canonical_low_item": "seeking_immortals:marrow_repair_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:marrow_repair_pill",
+        "medium": "seeking_immortals:marrow_repair_pill_mid",
+        "high": "seeking_immortals:marrow_repair_pill_high",
+        "supreme": "seeking_immortals:marrow_repair_pill_supreme"
+      },
+      "zh_cn": "修髓丹",
+      "en_us": "Marrow Repair Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_marrow_repair_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "zh_cn": "灵兽骨",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:true_dragon_blood",
+          "zh_cn": "真龙血",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "bigu_pill",
+      "canonical_recipe_id": "fasting_pill_low",
+      "canonical_low_item": "seeking_immortals:fasting_pill_low",
+      "quality_outputs": {
+        "low": "seeking_immortals:fasting_pill_low",
+        "medium": "seeking_immortals:fasting_pill_mid",
+        "high": "seeking_immortals:fasting_pill_high",
+        "supreme": "seeking_immortals:fasting_pill_supreme"
+      },
+      "zh_cn": "辟谷丹",
+      "en_us": "Fasting Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_fasting_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "zh_cn": "灵草",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "zh_cn": "云雾菇",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "MORTAL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "calm_spirit_pill",
+      "canonical_recipe_id": "clear_void_pill",
+      "canonical_low_item": "seeking_immortals:clear_void_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:clear_void_pill",
+        "medium": "seeking_immortals:clear_void_pill_mid",
+        "high": "seeking_immortals:clear_void_pill_high",
+        "supreme": "seeking_immortals:clear_void_pill_supreme"
+      },
+      "zh_cn": "清虚丹",
+      "en_us": "Clear Void Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_clear_void_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "zh_cn": "云雾菇",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "zh_cn": "虚空结晶",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "MORTAL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "pressure_resist_pill",
+      "canonical_recipe_id": "pressure_resist_pill",
+      "canonical_low_item": "seeking_immortals:pressure_resist_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:pressure_resist_pill",
+        "medium": "seeking_immortals:pressure_resist_pill",
+        "high": "seeking_immortals:pressure_resist_pill",
+        "supreme": "seeking_immortals:pressure_resist_pill"
+      },
+      "zh_cn": "抗压丹",
+      "en_us": "Pressure-Resist Pill",
+      "formula_items": [],
+      "formula_source": "deferred",
+      "materials": [
+        {
+          "item": "seeking_immortals:diyuan_pressure_moss",
+          "zh_cn": "地渊重压苔",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "VOID_REFINEMENT",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_realm_condense_pill",
+      "canonical_recipe_id": "spirit_realm_condense_pill",
+      "canonical_low_item": "seeking_immortals:spirit_realm_condense_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_realm_condense_pill",
+        "medium": "seeking_immortals:spirit_realm_condense_pill",
+        "high": "seeking_immortals:spirit_realm_condense_pill",
+        "supreme": "seeking_immortals:spirit_realm_condense_pill"
+      },
+      "zh_cn": "灵界凝元丹",
+      "en_us": "Spirit Realm Condense Pill",
+      "formula_items": [],
+      "formula_source": "deferred",
+      "materials": [
+        {
+          "item": "seeking_immortals:fengyuan_clan_ginseng",
+          "zh_cn": "风元世家参",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "SOUL_TRANSFORMATION",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "qingxin_pill",
+      "canonical_recipe_id": "qingxin_pill",
+      "canonical_low_item": "seeking_immortals:qingxin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:qingxin_pill",
+        "medium": "seeking_immortals:qingxin_pill",
+        "high": "seeking_immortals:qingxin_pill",
+        "supreme": "seeking_immortals:qingxin_pill"
+      },
+      "zh_cn": "清心丹",
+      "en_us": "Qingxin Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_qingxin_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "zh_cn": "灵草",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "forget_dust_pill",
+      "canonical_recipe_id": "forget_dust_pill",
+      "canonical_low_item": "seeking_immortals:forget_dust_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:forget_dust_pill",
+        "medium": "seeking_immortals:forget_dust_pill_mid",
+        "high": "seeking_immortals:forget_dust_pill_high",
+        "supreme": "seeking_immortals:forget_dust_pill_supreme"
+      },
+      "zh_cn": "忘尘丹",
+      "en_us": "Forget Dust Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_forget_dust_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "zh_cn": "魂魄碎片",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:time_sand",
+          "zh_cn": "时光之砂",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "MORTAL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "dingyan_pill",
+      "canonical_recipe_id": "appearance_fixing_pill",
+      "canonical_low_item": "seeking_immortals:appearance_fixing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:appearance_fixing_pill",
+        "medium": "seeking_immortals:appearance_fixing_pill_mid",
+        "high": "seeking_immortals:appearance_fixing_pill_high",
+        "supreme": "seeking_immortals:appearance_fixing_pill_supreme"
+      },
+      "zh_cn": "定颜丹",
+      "en_us": "Appearance Fixing Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_appearance_fixing_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather",
+          "zh_cn": "凤凰羽",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:immortal_ginseng",
+          "zh_cn": "仙参",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "longevity_fruit_pill",
+      "canonical_recipe_id": "longevity_pill",
+      "canonical_low_item": "seeking_immortals:longevity_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:longevity_pill",
+        "medium": "seeking_immortals:longevity_pill_mid",
+        "high": "seeking_immortals:longevity_pill_high",
+        "supreme": "seeking_immortals:longevity_pill_supreme"
+      },
+      "zh_cn": "长生丹",
+      "en_us": "Longevity Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_longevity_pill_sect"
+      ],
+      "formula_source": "sect_secret",
+      "materials": [
+        {
+          "item": "seeking_immortals:immortal_ginseng",
+          "zh_cn": "仙参",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:time_sand",
+          "zh_cn": "时光之砂",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:primordial_essence",
+          "zh_cn": "先天本源",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "NASCENT_SOUL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "blood_qi_pill",
+      "canonical_recipe_id": "blood_qi_pill",
+      "canonical_low_item": "seeking_immortals:blood_qi_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:blood_qi_pill",
+        "medium": "seeking_immortals:blood_qi_pill_mid",
+        "high": "seeking_immortals:blood_qi_pill_high",
+        "supreme": "seeking_immortals:blood_qi_pill_supreme"
+      },
+      "zh_cn": "血气丹",
+      "en_us": "Blood Qi Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_blood_qi_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:true_dragon_blood",
+          "zh_cn": "真龙血",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:dragon_scale",
+          "zh_cn": "龙鳞",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "zh_cn": "龙血草",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": true
+    },
+    {
+      "pills_catalog_id": "huiyang_true_water",
+      "canonical_recipe_id": "return_yang_true_water",
+      "canonical_low_item": "seeking_immortals:return_yang_true_water",
+      "quality_outputs": {
+        "low": "seeking_immortals:return_yang_true_water",
+        "medium": "seeking_immortals:return_yang_true_water_mid",
+        "high": "seeking_immortals:return_yang_true_water_high",
+        "supreme": "seeking_immortals:return_yang_true_water_supreme"
+      },
+      "zh_cn": "回阳真水",
+      "en_us": "Return Yang True Water",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_return_yang_true_water_sect"
+      ],
+      "formula_source": "sect_secret",
+      "materials": [
+        {
+          "item": "seeking_immortals:primordial_essence",
+          "zh_cn": "先天本源",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:time_sand",
+          "zh_cn": "时光之砂",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:celestial_crystal",
+          "zh_cn": "天晶石",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "NASCENT_SOUL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "marrow_extract_pill",
+      "canonical_recipe_id": "marrow_extracting_pill",
+      "canonical_low_item": "seeking_immortals:marrow_extracting_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:marrow_extracting_pill",
+        "medium": "seeking_immortals:marrow_extracting_pill_mid",
+        "high": "seeking_immortals:marrow_extracting_pill_high",
+        "supreme": "seeking_immortals:marrow_extracting_pill_supreme"
+      },
+      "zh_cn": "抽髓丸",
+      "en_us": "Marrow Extracting Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_marrow_extracting_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "zh_cn": "灵兽骨",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "zh_cn": "魂魄碎片",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:true_dragon_blood",
+          "zh_cn": "真龙血",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "soul_break_pill",
+      "canonical_recipe_id": "soul_breaking_pill",
+      "canonical_low_item": "seeking_immortals:soul_breaking_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:soul_breaking_pill",
+        "medium": "seeking_immortals:soul_breaking_pill_mid",
+        "high": "seeking_immortals:soul_breaking_pill_high",
+        "supreme": "seeking_immortals:soul_breaking_pill_supreme"
+      },
+      "zh_cn": "断魂丹",
+      "en_us": "Soul Breaking Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_soul_breaking_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "zh_cn": "魂魄碎片",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "zh_cn": "虚空结晶",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "zh_cn": "龙血草",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "poison_dragon_pearl",
+      "canonical_recipe_id": "poison_dragon_pearl",
+      "canonical_low_item": "seeking_immortals:poison_dragon_pearl",
+      "quality_outputs": {
+        "low": "seeking_immortals:poison_dragon_pearl",
+        "medium": "seeking_immortals:poison_dragon_pearl_mid",
+        "high": "seeking_immortals:poison_dragon_pearl_high",
+        "supreme": "seeking_immortals:poison_dragon_pearl_supreme"
+      },
+      "zh_cn": "毒龙珠",
+      "en_us": "Poison Dragon Pearl",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_poison_dragon_pearl_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_scale",
+          "zh_cn": "龙鳞",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:true_dragon_blood",
+          "zh_cn": "真龙血",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:chaos_gold",
+          "zh_cn": "混沌金",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "NASCENT_SOUL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    }
+  ]
+}

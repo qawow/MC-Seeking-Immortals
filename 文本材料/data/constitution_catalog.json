@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "stack_cap_note": "与灵根叠乘总修炼速度建议上限 x2.5",
+  "constitutions": [
+    {
+      "id": "tongyu_fengsui",
+      "display": "通玉凤髓",
+      "bonus": {
+        "cultivation": 1.15,
+        "wood": 1.2
+      },
+      "rarity": "legendary",
+      "setting": {
+        "lore": "通玉凤髓",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "dragon_chant",
+      "display": "龙吟之体",
+      "bonus": {
+        "thunder_tribulation": -0.1
+      },
+      "rarity": "epic",
+      "setting": {
+        "lore": "龙吟之体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "self_govern",
+      "display": "自治之体",
+      "bonus": {
+        "debuff_resist": 0.2
+      },
+      "rarity": "rare",
+      "setting": {
+        "lore": "自治之体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "undying",
+      "display": "不灭之体",
+      "bonus": {
+        "death_save": true
+      },
+      "rarity": "mythic",
+      "setting": {
+        "lore": "不灭之体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "vajra_undamage",
+      "display": "金刚不坏",
+      "bonus": {
+        "physical_resist": 0.25
+      },
+      "rarity": "epic",
+      "setting": {
+        "lore": "金刚不坏",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "gold_forge",
+      "display": "锻金之体",
+      "bonus": {
+        "metal": 1.3,
+        "forging": 1.2
+      },
+      "rarity": "rare",
+      "setting": {
+        "lore": "锻金之体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "nine_spirit_sword",
+      "display": "九灵剑体",
+      "bonus": {
+        "sword": 1.35
+      },
+      "rarity": "legendary",
+      "setting": {
+        "lore": "九灵剑体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "void_shadow",
+      "display": "虚影之体",
+      "bonus": {
+        "illusion": 1.25,
+        "escape": 1.15
+      },
+      "rarity": "epic",
+      "setting": {
+        "lore": "虚影之体",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "true_spirit_bloodline_generic",
+      "display": "真灵血脉（泛）",
+      "bonus": {
+        "bloodline_awaken": true
+      },
+      "rarity": "variable",
+      "setting": {
+        "lore": "真灵血脉（泛）",
+        "grade": null
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "spirit_body_mild",
+      "display": "灵体（弱）",
+      "grade": "rare",
+      "effects": {
+        "cultivation_speed": 1.1,
+        "note": "略快于常人，非顶级灵体。"
+      },
+      "setting": {
+        "lore": "灵体（弱）",
+        "grade": "rare"
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "fire_spirit_root_variant",
+      "display": "变异火灵根",
+      "grade": "epic",
+      "effects": {
+        "fire_arts_bonus": 1.25,
+        "forbidden_water_major": true
+      },
+      "setting": {
+        "lore": "变异火灵根",
+        "grade": "epic"
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "sword_intent_body",
+      "display": "剑意灵躯",
+      "grade": "legendary",
+      "effects": {
+        "sword_damage_bonus": 1.3,
+        "requires_path": "sword"
+      },
+      "setting": {
+        "lore": "剑意灵躯",
+        "grade": "legendary"
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    },
+    {
+      "id": "yin_yang_unbalanced",
+      "display": "阴阳不调",
+      "grade": "curse",
+      "effects": {
+        "breakthrough_penalty": 0.9,
+        "dual_cultivation_bonus": 1.2
+      },
+      "setting": {
+        "lore": "阴阳不调",
+        "grade": "curse"
+      },
+      "learn_requirements": {
+        "innate": true,
+        "note": "多为先天体质，后天难改。"
+      }
+    }
+  ]
+}

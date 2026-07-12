@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "dimensions": [
+    {
+      "id": "seeking_immortals:mortal_world",
+      "display": "人界",
+      "key": "seeking_immortals:mortal_world",
+      "cosmology": "mortal_realm",
+      "min_realm": ""
+    },
+    {
+      "id": "seeking_immortals:tianyuan",
+      "display": "天渊城",
+      "key": "seeking_immortals:tianyuan",
+      "cosmology": "spirit_realm",
+      "min_realm": "DEITY_TRANSFORMATION"
+    },
+    {
+      "id": "seeking_immortals:nether_river_pocket",
+      "display": "冥河秘境",
+      "key": "seeking_immortals:nether_river_pocket",
+      "cosmology": "",
+      "min_realm": "FOUNDATION"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_instance",
+      "display": "秘境实例",
+      "key": "seeking_immortals:secret_realm_instance",
+      "cosmology": "",
+      "min_realm": ""
+    },
+    {
+      "id": "seeking_immortals:yin_underworld",
+      "display": "阴司集群",
+      "key": "seeking_immortals:yin_underworld",
+      "cosmology": "yin_underworld_cluster",
+      "min_realm": ""
+    }
+  ],
+  "travel_gates": [
+    {
+      "from": "tiannan",
+      "to": "chaotic_sea",
+      "method": "teleport_array",
+      "cost_band": "travel_ticket"
+    },
+    {
+      "from": "mortal_world",
+      "to": "tianyuan",
+      "method": "ascension",
+      "gate_id": "mortal_to_tianyuan"
+    }
+  ]
+}

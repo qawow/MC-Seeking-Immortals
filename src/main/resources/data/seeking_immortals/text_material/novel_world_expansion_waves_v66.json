@@ -1,0 +1,405 @@
+{
+  "schema_version": 2,
+  "source": "汇编§9.7灵界§13阵法§14鬼道§11丹药§5飞升",
+  "dimensions_new": [
+    {
+      "id": "spirit_world_interface",
+      "display": "灵界界面节点",
+      "parent": "spirit_world",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "化神后期可寻界面裂缝，飞升或偷渡灵界。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "items_any": [
+            "ascension_talisman",
+            "space_node_key"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tianyuan_city_district",
+      "display": "天渊城",
+      "parent": "spirit_world",
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "人妖两族前线，灵气浓郁，修炼速度约为外界一倍。"
+      },
+      "learn_requirements": {
+        "reside": {
+          "race_any": [
+            "human",
+            "demon",
+            "hybrid"
+          ],
+          "reputation_min": "tianyuan_registered"
+        }
+      }
+    },
+    {
+      "id": "yin_underworld_gate",
+      "display": "阴司入口",
+      "parent": "yin_realm",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "鬼道修士与阴罗殿势力交汇。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "path_any": [
+            "ghost_cultivator",
+            "yin_luo_quest"
+          ]
+        }
+      }
+    }
+  ],
+  "formation_new": [
+    {
+      "id": "illusion_maze_array",
+      "display": "迷踪幻阵",
+      "grade": "mid",
+      "realm_min": "FOUNDATION",
+      "use": "trap",
+      "setting": {
+        "lore": "掩月宗、万狐宗常用幻阵。"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "method_any": [
+            "formation_basic",
+            "yanyue_illusion_art"
+          ],
+          "items": [
+            "formation_flag_mid"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵",
+      "grade": "low",
+      "realm_min": "QI_REFINING",
+      "use": "cultivation_boost",
+      "learn_requirements": {
+        "deploy": {
+          "learn_source": [
+            "qingxu_gate",
+            "formation_manual_low"
+          ]
+        }
+      },
+      "setting": {
+        "lore": "聚灵阵"
+      }
+    },
+    {
+      "id": "sword_array_bagua",
+      "display": "八卦剑阵",
+      "grade": "high",
+      "realm_min": "CORE_FORMATION",
+      "use": "combat",
+      "learn_requirements": {
+        "deploy": {
+          "method_any": [
+            "qingyuan_sword_art",
+            "formation_advanced"
+          ],
+          "sect_suggested": "qingyuan_sect"
+        }
+      },
+      "setting": {
+        "lore": "八卦剑阵"
+      }
+    },
+    {
+      "id": "teleport_array_long_range",
+      "display": "远距离传送阵",
+      "grade": "legendary",
+      "realm_min": "NASCENT_SOUL",
+      "use": "travel",
+      "setting": {
+        "lore": "跨域传送，消耗大量灵石与阵法师维护。"
+      }
+    },
+    {
+      "id": "barrier_sect_protection",
+      "display": "护山大阵",
+      "grade": "legendary",
+      "realm_min": "CORE_FORMATION",
+      "use": "sect_defense",
+      "setting": {
+        "lore": "宗门根基，需阵道大师与灵脉。"
+      }
+    }
+  ],
+  "ghost_stages_patches": {},
+  "pills_notable_learn": {
+    "foundation_establishment_pill": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "luoyun_sect"
+          ],
+          "note": "筑基丹为低阶修士关键资源，多宗门严控丹方。"
+        }
+      }
+    },
+    "spirit_condense_pill": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "market",
+            "huangfeng_outer"
+          ]
+        }
+      }
+    },
+    "nascent_soul_pill": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "rare_manual"
+          ],
+          "note": "结婴辅助丹药，配方稀少。"
+        }
+      }
+    }
+  },
+  "quest_chains_new": [
+    {
+      "id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门",
+      "steps": 3,
+      "faction": "tiannan_seven",
+      "rewards": [
+        "inner_manual_slot"
+      ],
+      "setting": {
+        "lore": "贡献、境界与师门考核。"
+      }
+    },
+    {
+      "id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役",
+      "steps": 5,
+      "region": "mulan_border",
+      "rewards": [
+        "war_merit",
+        "mulan_spoil"
+      ],
+      "setting": {
+        "lore": "天南联军对慕兰法士。"
+      }
+    },
+    {
+      "id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链",
+      "steps": 4,
+      "realm_min": "CORE_FORMATION",
+      "rewards": [
+        "void_key",
+        "legendary_roll"
+      ],
+      "setting": {
+        "lore": "三百年一开，多层殿宇。"
+      }
+    },
+    {
+      "id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置",
+      "steps": 6,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "rewards": [
+        "ascension_insight"
+      ],
+      "setting": {
+        "lore": "界面之力、心魔、空间节点。"
+      }
+    },
+    {
+      "id": "chain_tianyuan_enlist",
+      "display": "天渊城服役",
+      "steps": 4,
+      "region": "spirit_world",
+      "rewards": [
+        "tianyuan_contribution"
+      ],
+      "setting": {
+        "lore": "抵御异族，换取灵界资源。"
+      }
+    }
+  ],
+  "chaotic_sea_factions_patches": {
+    "star_palace": {
+      "setting": {
+        "lore": "乱星海秩序，登记、征税、清剿逆星。"
+      },
+      "learn_requirements": {
+        "join": {
+          "realm_min": "QI_REFINING",
+          "fee_spirit_stone": 10
+        }
+      }
+    },
+    "inverse_star_alliance": {
+      "setting": {
+        "lore": "反星宫割据，走私与暗杀。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "FOUNDATION",
+          "cannot_if": [
+            "star_palace_elite"
+          ]
+        }
+      }
+    },
+    "wanbao_chaotic_branch": {
+      "setting": {
+        "lore": "万宝楼乱星海分会，拍卖与情报。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    }
+  },
+  "ascension_patches": {
+    "human_ascension": {
+      "setting": {
+        "lore": "人界化神后寻界面飞升灵界。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "note": "需度过界面之力与心魔。"
+        }
+      }
+    }
+  },
+  "playable_races_new": [
+    {
+      "id": "demon_spirit_hybrid",
+      "display": "妖化人族",
+      "setting": {
+        "lore": "半妖血脉，灵界常见。"
+      },
+      "learn_requirements": {
+        "select": {
+          "note": "部分功法与妖修路径兼容。"
+        }
+      }
+    }
+  ],
+  "clans_new": [
+    {
+      "id": "ye_clan",
+      "display": "叶家",
+      "region": "dajin",
+      "specialty": [
+        "commerce",
+        "array"
+      ],
+      "setting": {
+        "lore": "大晋世家，商路与阵法。"
+      }
+    },
+    {
+      "id": "nan_clan",
+      "display": "南陇侯世家",
+      "region": "dajin",
+      "specialty": [
+        "alchemy",
+        "politics"
+      ],
+      "setting": {
+        "lore": "大晋诸侯与丹道势力。"
+      }
+    }
+  ],
+  "spatial_nodes_new": [
+    {
+      "id": "node_tiannan_to_chaotic_sea",
+      "display": "天南传送节点—乱星海",
+      "region": "tiannan",
+      "requires": {
+        "realm_min": "FOUNDATION",
+        "cost_spirit_stone": 500
+      },
+      "setting": {
+        "lore": "天南传送节点—乱星海"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "node_spirit_world_rift",
+      "display": "灵界裂缝节点",
+      "region": "human_realm_edge",
+      "requires": {
+        "realm_min": "DEITY_TRANSFORMATION"
+      },
+      "setting": {
+        "lore": "灵界裂缝节点"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "node_tianyuan_gate",
+      "display": "天渊城门阵",
+      "region": "spirit_world",
+      "requires": {
+        "realm_min": "VOID_REFINING",
+        "registration": true
+      },
+      "setting": {
+        "lore": "天渊城门阵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "human_clan_quests_new": [
+    {
+      "id": "clan_mine_guard_contract",
+      "display": "家族灵矿护卫",
+      "rewards": [
+        "clan_merit",
+        "spirit_stone"
+      ],
+      "setting": {
+        "lore": "家族灵矿护卫"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "clan_marriage_alliance",
+      "display": "联姻盟约",
+      "rewards": [
+        "clan_reputation"
+      ],
+      "setting": {
+        "lore": "联姻盟约"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ]
+}

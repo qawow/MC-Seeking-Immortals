@@ -1,0 +1,122 @@
+{
+  "schema_version": 5,
+  "school": "demon_path",
+  "techniques": [
+    {
+      "id": "heaven_demon_hand",
+      "display": "天魔手",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 35,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "demon",
+        "damage_base": 70,
+        "tags": []
+      },
+      "description": "天魔手：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "天魔手：demon_path法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "demon_qi_burst",
+      "display": "魔气爆",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "demon",
+        "damage_base": 65,
+        "tags": []
+      },
+      "description": "魔气爆：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔气爆：demon_path法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "soul_contract",
+      "display": "魂契",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 40,
+        "tags": []
+      },
+      "description": "魂契：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魂契：demon_path法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "demon_soul_devour",
+      "display": "魔噬魂",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 27,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "demon",
+        "damage_base": 55,
+        "tags": []
+      },
+      "description": "魔噬魂：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔噬魂：demon_path法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    }
+  ]
+}

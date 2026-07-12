@@ -1,0 +1,359 @@
+{
+  "schema_version": 2,
+  "disclaimer": "运费/税率为模组量级，非汇编原价",
+  "routes": [
+    {
+      "id": "tiannan_to_chaotic_sea",
+      "display": "天南→乱星海",
+      "from": "tiannan",
+      "to": "chaotic_sea",
+      "transport": [
+        "spirit_boat",
+        "teleport_array_talisman"
+      ],
+      "duration_days": 14,
+      "fee_low_stone": 25,
+      "risk_events": [
+        "pirate_raid",
+        "beast_migration"
+      ],
+      "goods_export": [
+        "spirit_herb",
+        "low_artifact",
+        "talisman"
+      ],
+      "goods_import": [
+        "sea_soul_grass",
+        "demon_core",
+        "island_deed"
+      ],
+      "setting": {
+        "lore": "天南→乱星海"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "chaotic_sea_to_dajin",
+      "display": "乱星海→大晋",
+      "from": "chaotic_sea",
+      "to": "dajin",
+      "transport": [
+        "long_range_boat",
+        "array_network"
+      ],
+      "duration_days": 30,
+      "fee_low_stone": 80,
+      "risk_events": [
+        "storm",
+        "demon_qi_surge"
+      ],
+      "goods_export": [
+        "chaotic_sea_ore",
+        "baby_carp_material"
+      ],
+      "goods_import": [
+        "snow_lotus",
+        "refinement_manual",
+        "auction_lot"
+      ],
+      "setting": {
+        "lore": "乱星海→大晋"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "dajin_to_tianyuan",
+      "display": "大晋→天渊城",
+      "from": "dajin",
+      "to": "tianyuan",
+      "transport": [
+        "wind_feather_raft",
+        "void_gate"
+      ],
+      "duration_days": 60,
+      "fee_low_stone": 500,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "risk_events": [
+        "spatial_rift",
+        "demon_wave_scout"
+      ],
+      "goods_export": [
+        "ancient_treasure",
+        "high_pill"
+      ],
+      "goods_import": [
+        "void_marrow",
+        "spirit_realm_ore",
+        "alliance_merit"
+      ],
+      "setting": {
+        "lore": "大晋→天渊城"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "tianyuan_to_spirit_fengyuan",
+      "display": "天渊城→风元大陆",
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "transport": [
+        "spirit_realm_gate"
+      ],
+      "fee_low_stone": 200,
+      "realm_min": "VOID_REFINEMENT",
+      "tax": "tianyuan_garrison",
+      "goods_export": [
+        "garrison_supply",
+        "demon_core_high"
+      ],
+      "goods_import": [
+        "phoenix_tail_fern",
+        "clan_auction_item"
+      ],
+      "setting": {
+        "lore": "天渊城→风元大陆"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "tiannan_internal",
+      "display": "天南诸宗商路",
+      "from": "tiannan",
+      "to": "tiannan",
+      "transport": [
+        "caravan",
+        "sect_escort"
+      ],
+      "duration_days": 3,
+      "fee_low_stone": 5,
+      "faction_escort": [
+        "huangfeng_valley",
+        "yanyue_sect"
+      ],
+      "goods": [
+        "herb",
+        "pill",
+        "contribution_exchange"
+      ],
+      "setting": {
+        "lore": "天南诸宗商路"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "mulan_tianlan_smuggle",
+      "display": "慕兰—天澜灰色商路",
+      "from": "mulan",
+      "to": "tianlan",
+      "transport": [
+        "smuggler"
+      ],
+      "duration_days": 7,
+      "fee_low_stone": 40,
+      "risk_events": [
+        "mulan_scout_clash",
+        "faction_war"
+      ],
+      "reputation_penalty": {
+        "mulan_council": -5,
+        "tianlan_temple": -5
+      },
+      "goods": [
+        "spirit_sand",
+        "holy_feather_black_market"
+      ],
+      "setting": {
+        "lore": "慕兰—天澜灰色商路"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "nether_river_ferry",
+      "display": "冥河渡船线",
+      "from": "nether_river",
+      "to": "yinming",
+      "transport": [
+        "ghost_boat"
+      ],
+      "fee_yin_stone": 30,
+      "realm_max": "FOUNDATION",
+      "goods": [
+        "yin_material",
+        "ghost_wood"
+      ],
+      "setting": {
+        "lore": "冥河渡船线"
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "route_tiannan_to_mulan_smuggle",
+      "from": "tiannan",
+      "to": "mulan",
+      "legal": false,
+      "goods": [
+        "wind_herb",
+        "beast_hide"
+      ],
+      "risk": "border_patrol",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "route_tianyuan_merit_convoy",
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "legal": true,
+      "fee_contribution": 200,
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "travel": {}
+      }
+    },
+    {
+      "id": "dajin_wanbao_spine",
+      "display": "大晋万宝商路",
+      "regions": [
+        "dajin",
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "nodes": [
+        "node_dajin_wanbao",
+        "node_chaotic_sea_hub"
+      ],
+      "requires": [
+        "auction_invite_or_reputation"
+      ],
+      "goods": [
+        "refinement_material_high",
+        "auction_lot_token",
+        "clan_merit_goods"
+      ],
+      "risks": [
+        "dajin_clan_feud",
+        "bandit_cultivator"
+      ],
+      "setting": {
+        "lore": "大晋万宝商路"
+      },
+      "learn_requirements": {
+        "travel": [
+          "auction_invite_or_reputation"
+        ]
+      }
+    },
+    {
+      "id": "route_tiannan_to_chaotic_sea",
+      "display": "天南—乱星海航线",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "risk": "high",
+      "requires": {
+        "realm_min": "FOUNDATION",
+        "vehicle_any": [
+          "spirit_boat",
+          "teleport_array"
+        ]
+      },
+      "setting": {
+        "lore": "跨海域需灵舟或传送阵，海兽与星宫检查。"
+      },
+      "learn_requirements": {
+        "travel": {
+          "realm_min": "FOUNDATION",
+          "vehicle_any": [
+            "spirit_boat",
+            "teleport_array"
+          ]
+        }
+      }
+    },
+    {
+      "id": "route_dajin_barbarian_caravan",
+      "display": "大晋蛮荒商路",
+      "regions": [
+        "dajin",
+        "barbarian_wasteland"
+      ],
+      "risk": "extreme",
+      "requires": {
+        "realm_min": "CORE_FORMATION"
+      },
+      "setting": {
+        "lore": "蛮荒空间裂缝多，向导必备。"
+      },
+      "learn_requirements": {
+        "travel": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "route_tiannan_dajin_land",
+      "display": "天南—大晋陆路",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "risk": "medium",
+      "requires": {
+        "realm_min": "FOUNDATION"
+      },
+      "setting": {
+        "lore": "漫长陆路，坊市驿站相连。"
+      },
+      "learn_requirements": {
+        "travel": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ],
+  "auction_hubs": [
+    {
+      "region": "chaotic_sea",
+      "name": "星宫拍卖岛",
+      "tier": "mid_high"
+    },
+    {
+      "region": "dajin",
+      "name": "大晋万宝阁",
+      "tier": "high"
+    },
+    {
+      "region": "tianyuan",
+      "name": "天渊城坊市",
+      "tier": "legendary"
+    },
+    {
+      "region": "spirit_fengyuan",
+      "name": "风元氏族拍卖",
+      "tier": "spirit_realm",
+      "cycle": "cycle_treasure_fair"
+    }
+  ],
+  "spatial_nodes_ref": "spatial_nodes_catalog.json"
+}

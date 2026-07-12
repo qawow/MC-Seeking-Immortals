@@ -1,0 +1,2478 @@
+{
+  "schema_version": 3,
+  "craft_station": "refinement_forge",
+  "tier_rules_ref": "artifact_tier_rules.json",
+  "note": "炼器需炼器阵或宗门地火炼器室；等级错配毁材料，结构对齐汇编多方块思路",
+  "recipes": [
+    {
+      "id": "refine_flying_sword_low",
+      "artifact_id": "flying_sword_low",
+      "display": "低阶飞剑",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 4
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 8
+        }
+      ],
+      "base_success_rate": 0.7,
+      "setting": {
+        "lore": "低阶飞剑"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "any_qi_method"
+          ],
+          "learn_source": [
+            "refinement_manual",
+            "luoyun_forge"
+          ],
+          "items_tool": [
+            "refinement_forge_hammer"
+          ],
+          "note": "低阶飞剑为炼器入门常见目标。"
+        }
+      }
+    },
+    {
+      "id": "refine_cloud_boots",
+      "artifact_id": "cloud_boots",
+      "display": "踏云靴",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 3
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.68,
+      "setting": {
+        "lore": "踏云靴"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_spirit_gathering_bead",
+      "artifact_id": "spirit_gathering_bead",
+      "display": "定神珠",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.65,
+      "setting": {
+        "lore": "定神珠"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_yellow_umbrella",
+      "artifact_id": "yellow_umbrella",
+      "display": "黄罗伞",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 5
+        },
+        {
+          "id": "demon_core_low",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.5,
+      "setting": {
+        "lore": "黄罗伞"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_black_boots",
+      "artifact_id": "black_boots",
+      "display": "乌靴",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "deep_sea_cold_iron",
+          "count": 2
+        },
+        {
+          "id": "spirit_silk",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.48,
+      "setting": {
+        "lore": "乌靴"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_qingning_mirror",
+      "artifact_id": "qingning_mirror",
+      "display": "青凝镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "hundred_year_ice",
+          "count": 2
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.42,
+      "setting": {
+        "lore": "青凝镜"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_green_bamboo_sword",
+      "artifact_id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑（仿）",
+      "tier": "high",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 8
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.35,
+      "note": "仿制品名",
+      "setting": {
+        "lore": "青竹灵云剑（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_gold_demon_chain",
+      "artifact_id": "gold_demon_chain",
+      "display": "金蚨子母刃",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "gold_seam_stone",
+          "count": 3
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 2
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.3,
+      "setting": {
+        "lore": "金蚨子母刃"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_hunyuan_bowl",
+      "artifact_id": "hunyuan_bowl",
+      "display": "混元钵",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "kunwu_copper",
+          "count": 4
+        },
+        {
+          "id": "space_crystal",
+          "count": 1
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.25,
+      "puppet_core": true,
+      "setting": {
+        "lore": "混元钵"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_xuanguang_shard",
+      "artifact_id": "xuanguang_mirror",
+      "display": "玄光镜（残片重铸）",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "xuanguang_mirror_shard",
+          "count": 3
+        },
+        {
+          "id": "demon_core_high",
+          "count": 2
+        },
+        {
+          "id": "true_spirit_blood_drop",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.12,
+      "quest_unlock": true,
+      "setting": {
+        "lore": "玄光镜（残片重铸）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_soul_summon_bell",
+      "artifact_id": "soul_summon_bell",
+      "display": "引魂钟",
+      "tier": "mid",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "ghost_wood",
+          "count": 3
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.52,
+      "setting": {
+        "lore": "引魂钟"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_soul_gathering_bowl",
+      "artifact_id": "soul_gathering_bowl",
+      "display": "聚魂钵",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "yin_essence_ore",
+          "count": 4
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.4,
+      "karma": "yin",
+      "setting": {
+        "lore": "聚魂钵"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_poluo_beads",
+      "artifact_id": "poluo_beads",
+      "display": "婆罗珠",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "soul_moss",
+          "count": 5
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.45,
+      "setting": {
+        "lore": "婆罗珠"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_snake_pearl",
+      "artifact_id": "snake_pearl",
+      "display": "蛇珠",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "demon_core_fragment",
+          "count": 3
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.62,
+      "setting": {
+        "lore": "蛇珠"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_potian_shovel",
+      "artifact_id": "potian_shovel",
+      "display": "破天锹",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "earth_spine_root",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 6
+        }
+      ],
+      "base_success_rate": 0.44,
+      "setting": {
+        "lore": "破天锹"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_bedrock_shield",
+      "artifact_id": "bedrock_shield",
+      "display": "磐石盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        },
+        {
+          "id": "earth_spine_root",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.46,
+      "setting": {
+        "lore": "磐石盾"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_peerless_knives",
+      "artifact_id": "peerless_flying_knives",
+      "display": "无双飞刀",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 3
+        },
+        {
+          "id": "spirit_silk",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.28,
+      "setting": {
+        "lore": "无双飞刀"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_flat_crown_replica",
+      "artifact_id": "flat_crown_replica",
+      "display": "平山冠（仿）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 4
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.5,
+      "setting": {
+        "lore": "平山冠（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_evil_illusion_mirror",
+      "artifact_id": "evil_illusion_mirror",
+      "display": "邪幻镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "hundred_year_ice",
+          "count": 1
+        },
+        {
+          "id": "demon_corruption_fungus",
+          "count": 3
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.35,
+      "setting": {
+        "lore": "邪幻镜"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_giant_ape_token",
+      "artifact_id": "giant_ape_puppet_token",
+      "display": "巨猿傀儡符",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 4
+        },
+        {
+          "id": "talisman_paper",
+          "count": 2
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.55,
+      "craft_school": "puppet",
+      "setting": {
+        "lore": "巨猿傀儡符"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_xuanhuang_shard",
+      "artifact_id": "xuanhuang_mirror",
+      "display": "玄黄镜（残片重铸）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "xuanhuang_mirror_shard",
+          "count": 3
+        },
+        {
+          "id": "demon_core_high",
+          "count": 3
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.08,
+      "quest_unlock": true,
+      "compliance": "ancient_treasure_template",
+      "setting": {
+        "lore": "玄黄镜（残片重铸）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_nine_dragon_replica",
+      "artifact_id": "nine_dragon_cauldron_replica",
+      "display": "九龙神火罩（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "nine_dragon_cauldron_shard",
+          "count": 2
+        },
+        {
+          "id": "fire_feather",
+          "count": 5
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 4
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.1,
+      "note": "仿古宝，非原著专名绑定",
+      "setting": {
+        "lore": "九龙神火罩（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_void_refining_bell",
+      "artifact_id": "void_refining_bell",
+      "display": "炼虚钟",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "forge_grade": 6,
+      "materials": [
+        {
+          "id": "void_bell_fragment",
+          "count": 2
+        },
+        {
+          "id": "void_marrow",
+          "count": 3
+        },
+        {
+          "id": "space_crystal",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.06,
+      "spirit_realm_only": true,
+      "setting": {
+        "lore": "炼虚钟"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "VOID_REFINEMENT",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_giant_turtle_core",
+      "artifact_id": "giant_turtle_puppet_core",
+      "display": "巨龟傀儡核心",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "turtle_shell",
+          "count": 4
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        },
+        {
+          "id": "ironwood",
+          "count": 6
+        }
+      ],
+      "base_success_rate": 0.42,
+      "craft_school": "puppet",
+      "note": "汇编巨龟远战防御型前置",
+      "setting": {
+        "lore": "巨龟傀儡核心"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_qingye_fan",
+      "artifact_id": "qingye_leaf_fan",
+      "display": "青叶法器",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 3
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.72,
+      "setting": {
+        "lore": "青叶法器"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_huangsi_robe",
+      "artifact_id": "huangsi_robe_artifact",
+      "display": "黄丝衫",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 6
+        },
+        {
+          "id": "beast_hide",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.7,
+      "setting": {
+        "lore": "黄丝衫"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_silver_giant_sword",
+      "artifact_id": "silver_giant_sword",
+      "display": "银色巨剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 8
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.38,
+      "note": "顶阶法器",
+      "setting": {
+        "lore": "银色巨剑"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_azure_rope_net",
+      "artifact_id": "azure_rope_net",
+      "display": "青索网",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 4
+        },
+        {
+          "id": "demon_core_low",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.5,
+      "setting": {
+        "lore": "青索网"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_fire_rain_needles",
+      "artifact_id": "fire_rain_needles",
+      "display": "火雨针",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.45,
+      "setting": {
+        "lore": "火雨针"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_thousand_bee_needles",
+      "artifact_id": "thousand_bee_needles",
+      "display": "千蜂针",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "poison_sac",
+          "count": 3
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 1
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 6
+        }
+      ],
+      "base_success_rate": 0.3,
+      "setting": {
+        "lore": "千蜂针"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_gold_light_brick",
+      "artifact_id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 5
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.22,
+      "note": "符宝炼制需结丹修为",
+      "setting": {
+        "lore": "金光砖符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_storage_bracelet",
+      "artifact_id": "storage_bracelet_low",
+      "display": "储物镯",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "space_crystal_fragment",
+          "count": 1
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.55,
+      "setting": {
+        "lore": "储物镯"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_beast_taming_whip",
+      "artifact_id": "beast_taming_whip",
+      "display": "御兽鞭",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "beast_hide",
+          "count": 4
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.48,
+      "setting": {
+        "lore": "御兽鞭"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_lieyang_sword",
+      "artifact_id": "lieyang_short_sword",
+      "display": "烈阳剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 3
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.44,
+      "setting": {
+        "lore": "烈阳剑"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_lengyue_blade",
+      "artifact_id": "lengyue_blade",
+      "display": "冷月刀",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "hundred_year_ice",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.44,
+      "setting": {
+        "lore": "冷月刀"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_black_gold_shield",
+      "artifact_id": "black_gold_shield",
+      "display": "乌金盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 6
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.48,
+      "setting": {
+        "lore": "乌金盾"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_dark_iron_ring",
+      "artifact_id": "dark_iron_ring",
+      "display": "玄铁环",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 5
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.5,
+      "setting": {
+        "lore": "玄铁环"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_soul_capturing_bell",
+      "artifact_id": "soul_capturing_bell",
+      "display": "摄魂铃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "ghost_wood",
+          "count": 2
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.4,
+      "karma": "yin",
+      "setting": {
+        "lore": "摄魂铃"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_green_bamboo_leaf_sword",
+      "artifact_id": "green_bamboo_leaf_sword",
+      "display": "竹叶剑",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 4
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 6
+        }
+      ],
+      "base_success_rate": 0.7,
+      "setting": {
+        "lore": "竹叶剑"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_flying_needle_set",
+      "artifact_id": "flying_needle_set",
+      "display": "飞针匣",
+      "tier": "low",
+      "realm_min": "QI_REFINING",
+      "forge_grade": 1,
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 3
+        },
+        {
+          "id": "spirit_silk",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.65,
+      "setting": {
+        "lore": "飞针匣"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_wind_escape_sail",
+      "artifact_id": "wind_escape_sail",
+      "display": "风遁帆",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 5
+        },
+        {
+          "id": "wind_feather",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.45,
+      "setting": {
+        "lore": "风遁帆"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_thunder_rod",
+      "artifact_id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 6
+        },
+        {
+          "id": "thunder_bamboo",
+          "count": 2
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.2,
+      "note": "符宝",
+      "setting": {
+        "lore": "霹雳神雷符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_golden_wheel",
+      "artifact_id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 4
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.24,
+      "setting": {
+        "lore": "金轮符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_demon_seal",
+      "artifact_id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 5
+        },
+        {
+          "id": "demon_suppress_talisman_blank",
+          "count": 1
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.18,
+      "setting": {
+        "lore": "封魔符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_fire_crow_fan",
+      "artifact_id": "fire_crow_fan",
+      "display": "火鸦扇",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 4
+        },
+        {
+          "id": "ironwood",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.46,
+      "setting": {
+        "lore": "火鸦扇"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_natal_embryo",
+      "artifact_id": "natal_artifact_embryo",
+      "display": "本命法宝胚",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "kunwu_copper",
+          "count": 6
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        },
+        {
+          "id": "true_spirit_blood_drop",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.15,
+      "quest_unlock": true,
+      "setting": {
+        "lore": "本命法宝胚"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_spirit_beast_bridle",
+      "artifact_id": "spirit_beast_bridle",
+      "display": "御兽环",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "beast_hide",
+          "count": 3
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        },
+        {
+          "id": "spirit_silk",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.5,
+      "faction_bonus": "lingshou_mountain",
+      "setting": {
+        "lore": "御兽环"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "spirit_beast_mountain",
+            "beast_taming_manual"
+          ],
+          "note": "御兽环需炼器基础。"
+        }
+      }
+    },
+    {
+      "id": "refine_beast_soul_bell",
+      "artifact_id": "beast_soul_bell",
+      "display": "兽魂铃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "ghost_wood",
+          "count": 2
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.48,
+      "setting": {
+        "lore": "兽魂铃"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_demon_ape_armor",
+      "artifact_id": "demon_ape_armor",
+      "display": "铁猿甲",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 8
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.4,
+      "setting": {
+        "lore": "铁猿甲"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_silver_spirit_mirror",
+      "artifact_id": "silver_spirit_mirror",
+      "display": "银灵镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "hundred_year_ice",
+          "count": 1
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.45,
+      "setting": {
+        "lore": "银灵镜"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_moon_shadow_disk",
+      "artifact_id": "moon_shadow_disk",
+      "display": "月影轮",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "yin_essence_ore",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.46,
+      "setting": {
+        "lore": "月影轮"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_seven_star_disk",
+      "artifact_id": "seven_star_disk",
+      "display": "七星盘",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "star_sand",
+          "count": 4
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.38,
+      "craft_school": "formation",
+      "setting": {
+        "lore": "七星盘"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_phoenix_feather_fan",
+      "artifact_id": "phoenix_feather_fan",
+      "display": "凤羽扇",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 6
+        },
+        {
+          "id": "true_spirit_blood_drop",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.28,
+      "setting": {
+        "lore": "凤羽扇"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_dragon_scale_armor",
+      "artifact_id": "dragon_scale_armor",
+      "display": "龙鳞甲",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "dragon_scale",
+          "count": 5
+        },
+        {
+          "id": "spirit_silk",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.26,
+      "setting": {
+        "lore": "龙鳞甲"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_fire_spear",
+      "artifact_id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 4
+        },
+        {
+          "id": "fire_feather",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.22,
+      "setting": {
+        "lore": "火蛟矛符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_ice_shield",
+      "artifact_id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 4
+        },
+        {
+          "id": "hundred_year_ice",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.24,
+      "setting": {
+        "lore": "玄冰盾符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_talisman_soul_charm",
+      "artifact_id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 3
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.25,
+      "setting": {
+        "lore": "定魂符宝"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_void_cold_jade_pendant",
+      "artifact_id": "void_palace_cold_jade_pendant",
+      "display": "寒玉佩",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "void_palace_cold_jade",
+          "count": 2
+        },
+        {
+          "id": "hundred_year_ice",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.2,
+      "quest_unlock": true,
+      "setting": {
+        "lore": "寒玉佩"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_ice_fire_orb",
+      "artifact_id": "ice_fire_dual_orb",
+      "display": "冰火珠",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "ice_fire_crystal",
+          "count": 2
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.15,
+      "quest_unlock": true,
+      "setting": {
+        "lore": "冰火珠"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_azure_ice_sword",
+      "artifact_id": "azure_ice_sword",
+      "display": "玄冰剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "hundred_year_ice",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.44,
+      "setting": {
+        "lore": "玄冰剑"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_vajra_shield",
+      "artifact_id": "vajra_shield",
+      "display": "金刚罩",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.42,
+      "setting": {
+        "lore": "金刚罩"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_glazed_guard",
+      "artifact_id": "glazed_guard_shield",
+      "display": "琉璃罩",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "space_crystal_fragment",
+          "count": 2
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.28,
+      "setting": {
+        "lore": "琉璃罩"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_scarlet_dragon",
+      "artifact_id": "scarlet_dragon_blade",
+      "display": "赤龙刃",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 4
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.3,
+      "setting": {
+        "lore": "赤龙刃"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_thunder_pearl",
+      "artifact_id": "thunder_pearl_talisman",
+      "display": "天雷子",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "thunder_bamboo",
+          "count": 3
+        },
+        {
+          "id": "talisman_paper",
+          "count": 8
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.12,
+      "note": "一次性符宝",
+      "setting": {
+        "lore": "天雷子"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_xuanguang_replica",
+      "artifact_id": "xuanguang_mirror_replica",
+      "display": "玄光镜（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "xuanguang_mirror_shard",
+          "count": 1
+        },
+        {
+          "id": "hundred_year_ice",
+          "count": 2
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.18,
+      "compliance": "replica",
+      "setting": {
+        "lore": "玄光镜（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_hunyuan_replica",
+      "artifact_id": "hunyuan_bowl_replica",
+      "display": "混元钵（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "kunwu_copper",
+          "count": 5
+        },
+        {
+          "id": "space_crystal",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.25,
+      "setting": {
+        "lore": "混元钵（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_natal_sword_embryo",
+      "artifact_id": "natal_sword_embryo",
+      "display": "本命飞剑胚",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "natal_artifact_embryo",
+          "count": 1
+        },
+        {
+          "id": "ironwood",
+          "count": 10
+        },
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.14,
+      "quest_unlock": true,
+      "setting": {
+        "lore": "本命飞剑胚"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_invisible_needles",
+      "artifact_id": "invisible_needle_set",
+      "display": "无形针匣",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "geng_gold_inlay",
+          "count": 1
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.35,
+      "setting": {
+        "lore": "无形针匣"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_xuantie_shield",
+      "artifact_id": "xuantie_flying_shield",
+      "display": "玄铁飞天盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 2,
+      "materials": [
+        {
+          "id": "deep_sea_cold_iron",
+          "count": 4
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.42,
+      "setting": {
+        "lore": "玄铁飞天盾"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_red_thread_replica",
+      "artifact_id": "red_thread_needles_replica",
+      "display": "红线遁光针（仿）",
+      "tier": "high",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 4,
+      "materials": [
+        {
+          "id": "gold_seam_stone",
+          "count": 2
+        },
+        {
+          "id": "spirit_silk",
+          "count": 6
+        },
+        {
+          "id": "invisible_needle_set",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.22,
+      "compliance": "replica",
+      "setting": {
+        "lore": "红线遁光针（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_bone_wind_cart",
+      "artifact_id": "bone_wind_cart",
+      "display": "御风车",
+      "tier": "mid",
+      "realm_min": "FOUNDATION",
+      "forge_grade": 3,
+      "materials": [
+        {
+          "id": "beast_bone_block",
+          "count": 12
+        },
+        {
+          "id": "spirit_silk",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.4,
+      "setting": {
+        "lore": "御风车"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_four_symbols_ruler",
+      "artifact_id": "four_symbols_ruler_replica",
+      "display": "四象尺（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION",
+      "forge_grade": 5,
+      "materials": [
+        {
+          "id": "eight_spirit_ruler_shard",
+          "count": 1
+        },
+        {
+          "id": "kunwu_copper",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.12,
+      "compliance": "replica",
+      "setting": {
+        "lore": "四象尺（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    },
+    {
+      "id": "refine_three_flame_fan",
+      "artifact_id": "three_flame_fan_replica",
+      "display": "三焰扇（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "forge_grade": 6,
+      "materials": [
+        {
+          "id": "seven_flame_fan_replica",
+          "count": 1
+        },
+        {
+          "id": "fire_feather",
+          "count": 8
+        }
+      ],
+      "base_success_rate": 0.08,
+      "compliance": "replica",
+      "setting": {
+        "lore": "三焰扇（仿）"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "VOID_REFINEMENT",
+          "learn_source": [
+            "refinement_manual",
+            "sect_forge"
+          ],
+          "note": "需炼器配方、灵材与炼器师境界匹配；高阶法宝需地火或炼器炉。"
+        }
+      }
+    }
+  ]
+}

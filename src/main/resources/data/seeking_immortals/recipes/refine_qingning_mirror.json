@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    " C ",
+    " K ",
+    " C "
+  ],
+  "key": {
+    "C": {
+      "item": "seeking_immortals:cold_jade"
+    },
+    "K": {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:qingning_mirror",
+    "count": 1
+  },
+  "show_notification": true
+}

@@ -1,0 +1,1804 @@
+{
+  "schema_version": 3,
+  "source": "汇编18 功法→法术→神通",
+  "methods": [
+    {
+      "id": "taixu_gong",
+      "display": "太虚功",
+      "path": "dao",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "dao",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "太虚功",
+        "path": "dao"
+      }
+    },
+    {
+      "id": "jinxuan_gong",
+      "display": "金玄功",
+      "path": "metal",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "metal",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "金玄功",
+        "path": "metal"
+      }
+    },
+    {
+      "id": "muyuan_gong",
+      "display": "木元功",
+      "path": "wood",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "wood",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "木元功",
+        "path": "wood"
+      }
+    },
+    {
+      "id": "shuiyuan_gong",
+      "display": "水元功",
+      "path": "water",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "water",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "水元功",
+        "path": "water"
+      }
+    },
+    {
+      "id": "huoyuan_gong",
+      "display": "火元功",
+      "path": "fire",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "fire",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "火元功",
+        "path": "fire"
+      }
+    },
+    {
+      "id": "tuyuan_gong",
+      "display": "土元功",
+      "path": "earth",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "earth",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "土元功",
+        "path": "earth"
+      }
+    },
+    {
+      "id": "qingmu_gong",
+      "display": "青木诀",
+      "path": "wood",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "wood",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "青木诀",
+        "path": "wood"
+      }
+    },
+    {
+      "id": "lieyan_zhenjing",
+      "display": "烈焰真经",
+      "path": "fire",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "fire",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "烈焰真经",
+        "path": "fire"
+      }
+    },
+    {
+      "id": "xuanbing_zhenjing",
+      "display": "玄冰真经",
+      "path": "ice",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "ice",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "玄冰真经",
+        "path": "ice"
+      }
+    },
+    {
+      "id": "jinyi_gong",
+      "display": "金翼功",
+      "path": "metal",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "metal",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "金翼功",
+        "path": "metal"
+      }
+    },
+    {
+      "id": "yanyue_gong",
+      "display": "掩月诀",
+      "path": "illusion",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "illusion",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "掩月诀",
+        "path": "illusion"
+      }
+    },
+    {
+      "id": "luoyun_dan_dao",
+      "display": "落云丹道诀",
+      "path": "alchemy",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "alchemy",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "落云丹道诀",
+        "path": "alchemy"
+      }
+    },
+    {
+      "id": "tianfu_scripture",
+      "display": "天符灵诀",
+      "path": "talisman",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "talisman",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "天符灵诀",
+        "path": "talisman"
+      }
+    },
+    {
+      "id": "star_palace_art",
+      "display": "星宫镇海诀",
+      "path": "formation",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "formation",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "星宫镇海诀",
+        "path": "formation"
+      }
+    },
+    {
+      "id": "inverse_star_art",
+      "display": "逆星秘典",
+      "path": "covert",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "covert",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "逆星秘典",
+        "path": "covert"
+      }
+    },
+    {
+      "id": "mulan_wind_spirit_art",
+      "display": "慕兰风灵诀",
+      "path": "wind",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "wind",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "慕兰风灵诀",
+        "path": "wind"
+      }
+    },
+    {
+      "id": "ghost_nether_art",
+      "display": "冥河鬼修诀",
+      "path": "ghost",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "ghost",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "冥河鬼修诀",
+        "path": "ghost"
+      }
+    },
+    {
+      "id": "guiling_soul_art",
+      "display": "鬼灵摄魂诀",
+      "path": "ghost",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "ghost",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "鬼灵摄魂诀",
+        "path": "ghost"
+      }
+    },
+    {
+      "id": "hehuan_mind_art",
+      "display": "合欢心法",
+      "path": "dual",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "dual",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "合欢心法",
+        "path": "dual"
+      }
+    },
+    {
+      "id": "tianmo_body_art",
+      "display": "天魔炼体诀",
+      "path": "demonic",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "demonic",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "天魔炼体诀",
+        "path": "demonic"
+      }
+    },
+    {
+      "id": "qingluo_poison_art",
+      "display": "青罗毒经",
+      "path": "poison",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "poison",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "青罗毒经",
+        "path": "poison"
+      }
+    },
+    {
+      "id": "wanhu_phantom_art",
+      "display": "万狐幻心诀",
+      "path": "illusion",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "illusion",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "万狐幻心诀",
+        "path": "illusion"
+      }
+    },
+    {
+      "id": "xuewu_blood_art",
+      "display": "血巫咒经",
+      "path": "blood",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "blood",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "血巫咒经",
+        "path": "blood"
+      }
+    },
+    {
+      "id": "dayan_art",
+      "display": "大衍诀",
+      "path": "puppet",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "puppet",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "大衍诀",
+        "path": "puppet"
+      }
+    },
+    {
+      "id": "lieyan_gong",
+      "display": "烈焰功",
+      "path": "fire",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "fire",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "烈焰功",
+        "path": "fire"
+      }
+    },
+    {
+      "id": "beast_transformation_art",
+      "display": "妖修化形诀",
+      "path": "demon",
+      "realm_min": "CORE_FORMATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "realm_max": null,
+          "path": "demon",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "妖修化形诀",
+        "path": "demon"
+      }
+    },
+    {
+      "id": "spirit_art_mulan",
+      "display": "慕兰灵术总纲",
+      "path": "fashi",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "fashi",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "慕兰灵术总纲",
+        "path": "fashi"
+      }
+    },
+    {
+      "id": "tiannan_seven_sect_base",
+      "display": "天南七派基础功",
+      "path": "mixed",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "mixed",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "天南七派基础功",
+        "path": "mixed"
+      }
+    },
+    {
+      "id": "dajin_buddhist_base",
+      "display": "大晋佛修基础",
+      "path": "buddhist",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "buddhist",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "大晋佛修基础",
+        "path": "buddhist"
+      }
+    },
+    {
+      "id": "void_refining_scripture",
+      "display": "炼虚真经",
+      "path": "void",
+      "realm_min": "VOID_REFINING",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "VOID_REFINING",
+          "realm_max": null,
+          "path": "void",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "炼虚真经",
+        "path": "void"
+      }
+    },
+    {
+      "id": "great_vehicle_dao",
+      "display": "大乘道典",
+      "path": "dao",
+      "realm_min": "GREAT_VEHICLE",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "GREAT_VEHICLE",
+          "realm_max": null,
+          "path": "dao",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "大乘道典",
+        "path": "dao"
+      }
+    },
+    {
+      "id": "spirit_severing_art",
+      "display": "炼神诀",
+      "path": "spirit",
+      "realm_min": "SPIRIT_SEVERING",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "SPIRIT_SEVERING",
+          "realm_max": null,
+          "path": "spirit",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "炼神诀",
+        "path": "spirit"
+      }
+    },
+    {
+      "id": "barbarian_body_art",
+      "display": "蛮荒炼体诀",
+      "path": "body",
+      "realm_min": "VOID_REFINING",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "VOID_REFINING",
+          "realm_max": null,
+          "path": "body",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "蛮荒炼体诀",
+        "path": "body"
+      }
+    },
+    {
+      "id": "tianyuan_guard_art",
+      "display": "天渊守城诀",
+      "path": "mixed",
+      "realm_min": "SPIRIT_SEVERING",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "SPIRIT_SEVERING",
+          "realm_max": null,
+          "path": "mixed",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "天渊守城诀",
+        "path": "mixed"
+      }
+    },
+    {
+      "id": "fallen_demon_art",
+      "display": "坠魔功",
+      "path": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "NASCENT_SOUL",
+          "realm_max": null,
+          "path": "demonic",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "坠魔功",
+        "path": "demonic"
+      }
+    },
+    {
+      "id": "blood_demon_art",
+      "display": "血魔功",
+      "path": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "realm_max": null,
+          "path": "demonic",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "血魔功",
+        "path": "demonic"
+      }
+    },
+    {
+      "id": "xuantian_ice_art",
+      "display": "玄天冰魄功",
+      "path": "ice",
+      "realm_min": "CORE_FORMATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "realm_max": null,
+          "path": "ice",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "玄天冰魄功",
+        "path": "ice"
+      }
+    },
+    {
+      "id": "wudang_sword_art",
+      "display": "武当剑诀（仿）",
+      "path": "sword",
+      "realm_min": "FOUNDATION",
+      "note": "合规化名",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "sword",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "武当剑诀（仿）",
+        "path": "sword"
+      }
+    },
+    {
+      "id": "qingyuan_sword_art",
+      "display": "青元剑诀",
+      "path": "sword",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "sword",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "青元剑诀",
+        "path": "sword"
+      }
+    },
+    {
+      "id": "changchun_gong",
+      "display": "长春功",
+      "path": "wood",
+      "realm_min": null,
+      "realm_max": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION",
+          "path": "wood",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "长春功",
+        "path": "wood"
+      }
+    },
+    {
+      "id": "xuan_yin_art",
+      "display": "玄阴诀",
+      "path": "yin",
+      "realm_min": "FOUNDATION",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "realm_max": null,
+          "path": "yin",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "玄阴诀",
+        "path": "yin"
+      }
+    },
+    {
+      "id": "nangong_wangzu_art",
+      "display": "南宫王族秘传（仿）",
+      "path": "mixed",
+      "realm_min": "CORE_FORMATION",
+      "note": "合规化名",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "realm_max": null,
+          "path": "mixed",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "南宫王族秘传（仿）",
+        "path": "mixed"
+      }
+    },
+    {
+      "id": "lingzu_pearl_art",
+      "display": "灵族凝珠诀",
+      "path": "spirit",
+      "realm_min": "SPIRIT_SEVERING",
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "SPIRIT_SEVERING",
+          "realm_max": null,
+          "path": "spirit",
+          "note": "汇编三层结构：功法定主线。"
+        }
+      },
+      "setting": {
+        "lore": "灵族凝珠诀",
+        "path": "spirit"
+      }
+    }
+  ],
+  "spells": [
+    {
+      "id": "fireball",
+      "display": "火球术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "fire",
+      "setting": {
+        "lore": "火球术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "water_arrow",
+      "display": "水箭术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "water",
+      "setting": {
+        "lore": "水箭术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "earth_spike",
+      "display": "土刺术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "earth",
+      "setting": {
+        "lore": "土刺术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_blade",
+      "display": "风刃术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "wind",
+      "setting": {
+        "lore": "风刃术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "metal_needle",
+      "display": "金针术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "metal",
+      "setting": {
+        "lore": "金针术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wood_bind",
+      "display": "木缚术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "element": "wood",
+      "setting": {
+        "lore": "木缚术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_spear",
+      "display": "冰矛术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "ice",
+      "setting": {
+        "lore": "冰矛术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "thunder_palm",
+      "display": "雷击掌",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "thunder",
+      "setting": {
+        "lore": "雷击掌"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flame_burst",
+      "display": "炎爆术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "setting": {
+        "lore": "炎爆术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flying_sword_strike",
+      "display": "御剑斩",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "metal",
+      "setting": {
+        "lore": "御剑斩"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "sword_rain",
+      "display": "剑雨术",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "metal",
+      "setting": {
+        "lore": "剑雨术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "qingyuan_sword_ray",
+      "display": "青元剑芒",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "metal",
+      "setting": {
+        "lore": "青元剑芒"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "sword_formation_basic",
+      "display": "小剑阵",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "metal",
+      "setting": {
+        "lore": "小剑阵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "earth_escape",
+      "display": "土遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "earth",
+      "setting": {
+        "lore": "土遁术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "water_escape",
+      "display": "水遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "water",
+      "setting": {
+        "lore": "水遁术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_escape",
+      "display": "风遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "wind",
+      "setting": {
+        "lore": "风遁术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_escape",
+      "display": "火遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "setting": {
+        "lore": "火遁术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "divine_sense_scan",
+      "display": "神识探查",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "神识探查"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "divine_sense_lock",
+      "display": "神识锁敌",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "神识锁敌"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_shield",
+      "display": "灵力护罩",
+      "school": "recovery",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "灵力护罩"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "light_body",
+      "display": "轻身术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "轻身术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "invisibility_basic",
+      "display": "隐匿术",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "隐匿术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_devouring_cloud",
+      "display": "噬魂阴云",
+      "school": "xuan_yin",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "yin",
+      "setting": {
+        "lore": "噬魂阴云"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_soul_chain",
+      "display": "阴魂锁链",
+      "school": "xuan_yin",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "yin",
+      "setting": {
+        "lore": "阴魂锁链"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ghost_walk",
+      "display": "鬼步",
+      "school": "ghost",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "yin",
+      "setting": {
+        "lore": "鬼步"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "poluo_soul_pull",
+      "display": "魄罗摄魂",
+      "school": "xuan_yin",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "yin",
+      "setting": {
+        "lore": "魄罗摄魂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_body_condense",
+      "display": "凝阴体",
+      "school": "ghost",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "yin",
+      "setting": {
+        "lore": "凝阴体"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_talisman",
+      "display": "火符术",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "setting": {
+        "lore": "火符术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_chain_talisman_cast",
+      "display": "缚灵符",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "缚灵符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "golden_armor_talisman_cast",
+      "display": "金刚符",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "金刚符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "formation_trap_basic",
+      "display": "困敌小阵",
+      "school": "formation",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "困敌小阵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_gather_array",
+      "display": "聚灵阵",
+      "school": "formation",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "聚灵阵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "puppet_summon_basic",
+      "display": "唤傀术",
+      "school": "puppet",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "唤傀术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "illusion_mist",
+      "display": "幻雾术",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "幻雾术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hehuan_charm",
+      "display": "媚惑术",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "媚惑术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "blood_curse_strike",
+      "display": "血咒击",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "血咒击"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "poison_mist",
+      "display": "毒雾术",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "毒雾术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_tame_call",
+      "display": "驭兽啸",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "驭兽啸"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_palace_seal",
+      "display": "镇海印",
+      "school": "formation",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "镇海印"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "inverse_star_veil",
+      "display": "逆星匿形",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "逆星匿形"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mulan_wind_blade",
+      "display": "慕兰风刃",
+      "school": "fashi",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "wind",
+      "setting": {
+        "lore": "慕兰风刃"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mulan_earth_wall",
+      "display": "慕兰土墙",
+      "school": "fashi",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "earth",
+      "setting": {
+        "lore": "慕兰土墙"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "body_hardness",
+      "display": "金刚不坏",
+      "school": "body",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "金刚不坏"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "vajra_palm",
+      "display": "金刚掌",
+      "school": "buddhist",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "金刚掌"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "confucian_righteous_qi",
+      "display": "浩然正气",
+      "school": "confucian",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "浩然正气"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "dao_nature_breath",
+      "display": "自然吐纳",
+      "school": "dao",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "自然吐纳"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_claw",
+      "display": "魔爪",
+      "school": "demonic",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "魔爪"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_beast_contract",
+      "display": "灵兽契约术",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "灵兽契约术"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_rift_slash",
+      "display": "裂隙斩",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "VOID_REFINING",
+      "element": "spatial",
+      "setting": {
+        "lore": "裂隙斩"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "great_vehicle_palm",
+      "display": "大乘神掌",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "GREAT_VEHICLE",
+      "setting": {
+        "lore": "大乘神掌"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "tribulation_thunder_ward",
+      "display": "护劫雷罩",
+      "school": "recovery",
+      "tier": "spell",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "护劫雷罩"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "barbarian_roar",
+      "display": "蛮荒咆哮",
+      "school": "body",
+      "tier": "spell",
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "蛮荒咆哮"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "defensive_pearl_light",
+      "display": "护体珠光",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "护体珠光"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_attack_wave",
+      "display": "神魂冲击",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "神魂冲击"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "magnet_control",
+      "display": "元磁控物",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "metal",
+      "setting": {
+        "lore": "元磁控物"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "green_bamboo_sword_ray",
+      "display": "青竹剑芒（仿）",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "wood",
+      "note": "合规化名",
+      "setting": {
+        "lore": "青竹剑芒（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evil_ward_thunder",
+      "display": "辟邪雷（仿）",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "thunder",
+      "note": "合规化名",
+      "setting": {
+        "lore": "辟邪雷（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "secrets": [
+    {
+      "id": "sword_formation_secret",
+      "display": "万剑归宗（仿）",
+      "school": "sword",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "note": "合规化名",
+      "setting": {
+        "lore": "万剑归宗（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "nether_core_form",
+      "display": "冥核凝形",
+      "school": "ghost",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "冥核凝形"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_soul_burst",
+      "display": "阴魂爆裂",
+      "school": "xuan_yin",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "阴魂爆裂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "thunder_talisman_storm",
+      "display": "雷符风暴",
+      "school": "talisman",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "雷符风暴"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "nine_palace_seal_secret",
+      "display": "九宫封天",
+      "school": "formation",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "九宫封天"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "dayan_puppet_legion",
+      "display": "大衍傀群",
+      "school": "puppet",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "大衍傀群"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_palace_heaven_seal",
+      "display": "星宫天印",
+      "school": "formation",
+      "tier": "secret",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "星宫天印"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "inverse_star_rebellion",
+      "display": "逆星乱世",
+      "school": "covert",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "逆星乱世"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_refining_domain",
+      "display": "炼虚领域",
+      "school": "misc",
+      "tier": "secret",
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "炼虚领域"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "great_vehicle_dharma_body",
+      "display": "法相天地",
+      "school": "body",
+      "tier": "secret",
+      "realm_min": "GREAT_VEHICLE",
+      "setting": {
+        "lore": "法相天地"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_severing_flash",
+      "display": "炼神一闪",
+      "school": "misc",
+      "tier": "secret",
+      "realm_min": "SPIRIT_SEVERING",
+      "setting": {
+        "lore": "炼神一闪"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fallen_demon_transform",
+      "display": "坠魔变身",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "坠魔变身"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "blood_demon_avatar",
+      "display": "血魔分身",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "血魔分身"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hehuan_union_secret",
+      "display": "双修合欢",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "双修合欢"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "tianmo_berserk",
+      "display": "天魔狂化",
+      "school": "demonic",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "天魔狂化"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "illusion_world",
+      "display": "幻界",
+      "school": "illusion",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "幻界"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_soul_fusion",
+      "display": "兽魂融合",
+      "school": "misc",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "兽魂融合"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spatial_tear_escape",
+      "display": "破空遁",
+      "school": "movement",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "element": "spatial",
+      "setting": {
+        "lore": "破空遁"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ]
+}

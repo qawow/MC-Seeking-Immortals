@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "source": "汇编 乱星海地理与势力；结构向非逐句原著",
+  "region": "chaotic_sea",
+  "geography": {
+    "inner_sea": "内星海：星宫直控，双圣坐镇，传送阵与补天丹配额垄断叙事。",
+    "outer_sea": "外星海：岛屿林立，海盗与散修，登记征税与逆星暗线并存。",
+    "abyss": "深渊裂隙：高阶海兽与走私航线，对应秘境 chaotic_sea_abyss_rift。",
+    "void_palace_node": "虚天殿周期开放，钥碎片为星宫、逆星、商盟共同筹码。"
+  },
+  "factions_ref": "chaotic_sea_factions.json",
+  "war_phases_ref": "chaotic_sea_faction_war.json",
+  "quest_chain_ref": "chaotic_sea_politics",
+  "factions_lore": [
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "lore": "乱星海名义秩序：外海登记、岛税、清剿海盗与逆星。双圣闭关，长老会与执法队实际主事；执法派要铁腕，贸易派重拍卖与坊市税。玩家忠诚线：巡逻功勋、清剿悬赏、虚天殿情报上缴。",
+      "join_note": "筑基起可投巡防候补；与逆星声望互斥低于 -50 则通缉。"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "lore": "对抗星宫割据：密语入盟、走私玉简、策应海盗。暗线可窃钥、破坏巡防，终章仍可能与虚天殿钥任务交汇。",
+      "join_note": "逆星接触 hook 后密语试炼；忠诚星宫则逆星线封闭。"
+    },
+    {
+      "id": "chaotic_sea_merchant_league",
+      "display": "乱星海商盟",
+      "lore": "中立贸易：星宫与逆星夹缝跑货，航海术与走私标签；可倒卖虚天殿情报两边通吃。",
+      "skill_tree_ref": "tree_chaotic_sea_nav_art"
+    },
+    {
+      "id": "penglai_sect",
+      "display": "蓬莱派",
+      "lore": "乱星海剑修大派，水剑与遁术；不必然绑星宫，可接外海猎妖与秘境组队。"
+    },
+    {
+      "id": "demon_gate_outer",
+      "display": "外海魔宫",
+      "lore": "外海魔道据点，与逆星时有合作；入魔修玩家可选，正道声望恶化。"
+    }
+  ],
+  "player_paths": [
+    {
+      "id": "loyalist",
+      "display": "星宫忠诚线",
+      "steps_ref": "quest_chains.json#chaotic_sea_politics: star_palace_patrol → pirate_bounty → void_palace_key"
+    },
+    {
+      "id": "rebel",
+      "display": "逆星暗线",
+      "steps_ref": "inverse_star_contact → stolen_jade_slip → inverse_star_sabotage → void_palace_key"
+    },
+    {
+      "id": "neutral_merchant",
+      "display": "商盟中立",
+      "note": "两边声望维持灰色，走私与情报倒卖；虚天殿钥可拍卖叙事。"
+    }
+  ],
+  "chronicle_refs": ["K4_star_palace", "K5_inverse_star", "A4_void_palace_built", "cycle_void_palace"],
+  "secret_realms": ["void_palace", "chaotic_sea_abyss_rift"],
+  "beast_boss_ref": "beast_boss_tier_secret_realm_map.json#abyss_jiao"
+}

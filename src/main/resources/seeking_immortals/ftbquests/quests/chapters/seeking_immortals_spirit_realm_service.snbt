@@ -1,0 +1,529 @@
+{
+  id: "1000000000000006",
+  filename: "seeking_immortals_spirit_realm_service",
+  title: "寻仙问道：灵界天渊与风元百族",
+  subtitle: ["源自 quest_chains.json、quest_hooks.json、spirit_realm_interface.json、tianyuan_city.json、tianyuan_merit_economy.json、tianyuan_daily_events.json、human_clan_league.json、human_clan_quest_network.json、spirit_realm_clan_quests.json 与 barbarian_demon_kings.json。"],
+  default_quest_shape: "circle",
+  default_hide_dependency_lines: false,
+  progression_mode: "linear",
+  quests: [
+    {
+      id: "1000000000000901",
+      title: "飞升照会",
+      subtitle: "人界化神赴灵界",
+      x: 0.0d,
+      y: 0.0d,
+      description: [
+        "来源：mortal_to_spirit_bridge / chain_ascension_spirit_world / spirit_realm_interface#ascension。",
+        "化神后期触碰人界上限，飞升照会将玩家引向天渊城登记；当前不触发真实飞升状态。"
+      ],
+      dependencies: ["1000000000000401"],
+      tags: ["seeking_immortals", "spirit_realm", "ascension_bridge"],
+      tasks: [{id: "1000000000001901", type: "checkmark", title: "完成飞升照会"}]
+    },
+    {
+      id: "1000000000000902",
+      title: "天渊军籍",
+      subtitle: "服役登记",
+      x: 2.0d,
+      y: 0.0d,
+      description: [
+        "来源：chain_tianyuan_enlist / tianyuan_merit_path / quest_hooks#tianyuan_merit_enlist。",
+        "天渊城以军籍和功勋管理飞升修士，后续可接入 border_merit_token 与军功任务板。"
+      ],
+      dependencies: ["1000000000000901"],
+      tags: ["seeking_immortals", "tianyuan", "merit", "service"],
+      tasks: [{id: "1000000000001902", type: "checkmark", title: "登记天渊军籍"}]
+    },
+    {
+      id: "1000000000000903",
+      title: "诛魔契约细则",
+      subtitle: "天渊功勋来源",
+      x: 4.0d,
+      y: -1.0d,
+      description: [
+        "来源：quest_hooks#tianyuan_demon_contract / spirit_realm_rise。",
+        "天渊诛魔契约是灵界前线的主要功勋入口；当前只展示契约节点，不授予功勋。"
+      ],
+      dependencies: ["1000000000000902"],
+      tags: ["seeking_immortals", "tianyuan", "demon_hunt", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001903", type: "checkmark", title: "签阅诛魔契约"}]
+    },
+    {
+      id: "1000000000000904",
+      title: "兽潮守城",
+      subtitle: "军功大项",
+      x: 4.0d,
+      y: 1.0d,
+      description: [
+        "来源：tianyuan_merit_economy#beast_wave_defense / quest_hooks#demon_beast_siege_defense。",
+        "兽潮守城是高额功勋来源，军功加倍日可提高收益；真实事件、刷怪和结算留待后续。"
+      ],
+      dependencies: ["1000000000000902"],
+      tags: ["seeking_immortals", "tianyuan", "beast_wave", "merit"],
+      tasks: [{id: "1000000000001904", type: "item", title: "持有兽潮妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000905",
+      title: "功勋车队护卫",
+      subtitle: "荒原补给线",
+      x: 4.0d,
+      y: 3.0d,
+      description: [
+        "来源：tianyuan_merit_economy#merit_convoy / tianyuan_daily_events#tianyuan_convoy_call。",
+        "物资车队通往风元荒原，易遭魔族与兽群伏击，是天渊到风元的自然过渡。"
+      ],
+      dependencies: ["1000000000000902"],
+      tags: ["seeking_immortals", "tianyuan", "convoy", "spirit_fengyuan"],
+      tasks: [{id: "1000000000001905", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000906",
+      title: "妖族使者入城",
+      subtitle: "外交支线",
+      x: 6.0d,
+      y: -1.0d,
+      optional: true,
+      description: [
+        "来源：tianyuan_daily_events#tianyuan_demon_envoy / tianyuan_merit_economy#demon_embassy_quest。",
+        "人妖共守前线但摩擦不断，妖族外交任务后续可接入声望、禁忌和族群路线。"
+      ],
+      dependencies: ["1000000000000903"],
+      tags: ["seeking_immortals", "tianyuan", "diplomacy", "optional"],
+      tasks: [{id: "1000000000001906", type: "checkmark", title: "接待妖族使者"}]
+    },
+    {
+      id: "1000000000000907",
+      title: "天渊灵雨",
+      subtitle: "修炼日程提示",
+      x: 6.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：tianyuan_daily_events#tianyuan_spirit_rain / spirit_realm_interface#tianyuan_city。",
+        "天渊城灵气倍率高于人界，灵雨日可作为吐纳和丹药活动窗口；当前不加 buff。"
+      ],
+      dependencies: ["1000000000000902"],
+      tags: ["seeking_immortals", "tianyuan", "daily_event", "optional"],
+      tasks: [{id: "1000000000001907", type: "checkmark", title: "记录天渊灵雨"}]
+    },
+    {
+      id: "1000000000000908",
+      title: "地渊名额放榜",
+      subtitle: "功勋换地渊令",
+      x: 6.0d,
+      y: 3.0d,
+      description: [
+        "来源：tianyuan_daily_events#tianyuan_diyuan_quota / tianyuan_merit_economy#diyuan_permit_exchange。",
+        "地渊令需高额功勋且炼虚以上，后续应接入真实兑换和准入检查。"
+      ],
+      dependencies: ["1000000000000904"],
+      tags: ["seeking_immortals", "tianyuan", "diyuan", "permit"],
+      tasks: [{id: "1000000000001908", type: "checkmark", title: "查看地渊名额"}]
+    },
+    {
+      id: "1000000000000909",
+      title: "风元通行阵",
+      subtitle: "管制传送",
+      x: 8.0d,
+      y: 3.0d,
+      description: [
+        "来源：spirit_realm_interface#gates#tianyuan_to_spirit_fengyuan / trade_routes#tianyuan_to_spirit_fengyuan。",
+        "天渊至风元大陆是管制传送阵路线，已由现有世界旅行需求提示承接。当前 FTB 物品任务检查 1 枚功勋令且不消耗。"
+      ],
+      dependencies: ["1000000000000905"],
+      tags: ["seeking_immortals", "spirit_fengyuan", "regulated_portal"],
+      tasks: [{id: "1000000000001909", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000910",
+      title: "风元初探",
+      subtitle: "灵界大陆入口",
+      x: 10.0d,
+      y: 3.0d,
+      description: [
+        "来源：fengyuan_explorer / region_cards#spirit_fengyuan。",
+        "风元大陆包含人族世家、百族聚落和蛮荒边境，是灵界开放探索的主舞台。"
+      ],
+      dependencies: ["1000000000000909"],
+      tags: ["seeking_immortals", "spirit_fengyuan", "exploration"],
+      tasks: [{id: "1000000000001910", type: "checkmark", title: "抵达风元大陆"}]
+    },
+    {
+      id: "1000000000000911",
+      title: "世家引荐",
+      subtitle: "风元人族联盟",
+      x: 12.0d,
+      y: 1.0d,
+      description: [
+        "来源：human_clan_neutral_intro / human_clan_league.json。",
+        "风元人族世家以炼丹、炼器、阵法和制符分工，外姓修士需盟约或客卿身份。"
+      ],
+      dependencies: ["1000000000000910"],
+      tags: ["seeking_immortals", "human_clan_league", "spirit_fengyuan"],
+      tasks: [{id: "1000000000001911", type: "checkmark", title: "取得世家引荐"}]
+    },
+    {
+      id: "1000000000000912",
+      title: "客卿登记",
+      subtitle: "外姓修士身份",
+      x: 14.0d,
+      y: 1.0d,
+      description: [
+        "来源：human_clan_quest_network#human_clan_neutral_intro / quest_hooks#clan_guest_register。",
+        "客卿登记是进入四条世家技能线的共用前置，当前不写家族声望。"
+      ],
+      dependencies: ["1000000000000911"],
+      tags: ["seeking_immortals", "human_clan_league", "guest_register"],
+      tasks: [{id: "1000000000001912", type: "checkmark", title: "登记世家客卿"}]
+    },
+    {
+      id: "1000000000000913",
+      title: "莫家阵盘委托",
+      subtitle: "阵法世家",
+      x: 16.0d,
+      y: -2.0d,
+      optional: true,
+      description: [
+        "来源：clan_array_mo_line / human_clan_league#clan_array_mo。",
+        "莫家偏阵法与阵盘碎片，后续可接入 portable array disk、阵法试炼和世家声望。"
+      ],
+      dependencies: ["1000000000000912"],
+      tags: ["seeking_immortals", "human_clan_league", "formation", "optional"],
+      tasks: [{id: "1000000000001913", type: "checkmark", title: "完成莫家委托"}]
+    },
+    {
+      id: "1000000000000914",
+      title: "俞家灵矿护送",
+      subtitle: "炼器世家",
+      x: 16.0d,
+      y: 0.0d,
+      optional: true,
+      description: [
+        "来源：clan_refinement_yu_line / human_clan_league#clan_refinement_yu。",
+        "俞家偏炼器与灵矿，能承接现有神器炼制、材料映射和鉴定路线。"
+      ],
+      dependencies: ["1000000000000912"],
+      tags: ["seeking_immortals", "human_clan_league", "refinement", "optional"],
+      tasks: [{id: "1000000000001914", type: "checkmark", title: "护送俞家灵矿"}]
+    },
+    {
+      id: "1000000000000915",
+      title: "谷家药贡",
+      subtitle: "炼丹世家",
+      x: 16.0d,
+      y: 2.0d,
+      optional: true,
+      description: [
+        "来源：clan_alchemy_gu_line / human_clan_league#clan_alchemy_gu。",
+        "谷家偏炼丹、药材贡赋和丹炉权限，后续可接入高阶丹方与品质审计。"
+      ],
+      dependencies: ["1000000000000912"],
+      tags: ["seeking_immortals", "human_clan_league", "alchemy", "optional"],
+      tasks: [{id: "1000000000001915", type: "item", title: "持有风元参", item: "seeking_immortals:fengyuan_clan_ginseng", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000916",
+      title: "宁家符箓订料",
+      subtitle: "制符世家",
+      x: 16.0d,
+      y: 4.0d,
+      optional: true,
+      description: [
+        "来源：clan_talisman_ning_line / human_clan_league#clan_talisman_ning。",
+        "宁家偏高阶符纸、铭符课程和突袭防守，后续可接入符箓技能线。"
+      ],
+      dependencies: ["1000000000000912"],
+      tags: ["seeking_immortals", "human_clan_league", "talisman", "optional"],
+      tasks: [{id: "1000000000001916", type: "item", title: "备好符纸订料", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000917",
+      title: "世家纷争调停",
+      subtitle: "跨族镜像事件",
+      x: 18.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：human_clan_quest_network#cross_clan_event / quest_chains#human_clan_league_hub。",
+        "世家纷争用于承接风元与大晋世家的镜像冲突，真实双声望奖励和锁定暂不实现。"
+      ],
+      dependencies: ["1000000000000912"],
+      tags: ["seeking_immortals", "human_clan_league", "clan_feud", "optional"],
+      tasks: [{id: "1000000000001917", type: "checkmark", title: "调停世家纷争"}]
+    },
+    {
+      id: "1000000000000918",
+      title: "十八族巡礼册",
+      subtitle: "百族路线入口",
+      x: 12.0d,
+      y: 6.0d,
+      description: [
+        "来源：spirit_eighteen_pilgrimage / spirit_realm_clan_quests.json。",
+        "灵界百族巡礼要求至少接触多个族群与特产兑换，当前以总览节点呈现。"
+      ],
+      dependencies: ["1000000000000910"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "spirit_fengyuan"],
+      tasks: [{id: "1000000000001918", type: "checkmark", title: "领取十八族巡礼册"}]
+    },
+    {
+      id: "1000000000000919",
+      title: "天狐幻境",
+      subtitle: "幻术与盟约",
+      x: 14.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#tianhu。",
+        "天狐族重幻术与盟约，忌破誓；可产 illusion_pearl，并关联蛮荒迷雾狐王。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "tianhu", "optional"],
+      tasks: [{id: "1000000000001919", type: "checkmark", title: "完成天狐幻境"}]
+    },
+    {
+      id: "1000000000000920",
+      title: "树妖根网",
+      subtitle: "森罗共生",
+      x: 14.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#shuyao。",
+        "树妖族守森罗根网，忌焚林；可产 ancient_wood_core，并关联古松妖王。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "shuyao", "optional"],
+      tasks: [{id: "1000000000001920", type: "checkmark", title: "修补树妖根网"}]
+    },
+    {
+      id: "1000000000000921",
+      title: "石人地脉",
+      subtitle: "地脉守望",
+      x: 16.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#shiren。",
+        "石人族守地脉，忌掘祖脉；可产 spirit_stone_vein_map，适合连接灵矿/地渊。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "shiren", "optional"],
+      tasks: [{id: "1000000000001921", type: "checkmark", title: "巡护石人地脉"}]
+    },
+    {
+      id: "1000000000000922",
+      title: "飞灵金翼天风",
+      subtitle: "天风骑猎",
+      x: 16.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#feiling / #jinyi。",
+        "飞灵族和金翼族代表空域、铸翼与天风骑猎，可衔接 wind_feather 与空战试炼。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "feiling", "jinyi", "optional"],
+      tasks: [{id: "1000000000001922", type: "checkmark", title: "完成天风骑猎"}]
+    },
+    {
+      id: "1000000000000923",
+      title: "夜叉魔血边战",
+      subtitle: "血契与劫掠",
+      x: 18.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#yaksha / #mozu。",
+        "夜叉与魔族支系代表边境血战和劫掠风险，后续可接入 demon_blood_crystal 与悬赏。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "yaksha", "mozu", "optional"],
+      tasks: [{id: "1000000000001923", type: "checkmark", title: "记录边境血契"}]
+    },
+    {
+      id: "1000000000000924",
+      title: "水府空岛长寿阵",
+      subtitle: "鱼鸟龟三线",
+      x: 18.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：spirit_realm_clan_quests#yuzu / #niaozu / #guizu。",
+        "鱼族水府、鸟族空岛和龟族长寿阵先合并展示，后续再拆水域、空岛与阵师任务。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "water_court", "air_island", "optional"],
+      tasks: [{id: "1000000000001924", type: "checkmark", title: "完成水府空岛巡礼"}]
+    },
+    {
+      id: "1000000000000925",
+      title: "异族朝贡集成",
+      subtitle: "五族章戳占位",
+      x: 20.0d,
+      y: 6.0d,
+      description: [
+        "来源：quest_chains#spirit_eighteen_clans / quest_hooks#clan_generic_tribute。",
+        "源设定要求接触至少五族并收集特产章戳；当前不统计数量，不发放 spirit_clan_grand_token。"
+      ],
+      dependencies: ["1000000000000918"],
+      tags: ["seeking_immortals", "spirit_eighteen_clans", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001925", type: "checkmark", title: "汇总异族朝贡"}]
+    },
+    {
+      id: "1000000000000926",
+      title: "地渊令申请",
+      subtitle: "炼虚准入",
+      x: 8.0d,
+      y: 6.0d,
+      description: [
+        "来源：diyuan_depth_delve / diyuan_campaign / tianyuan_merit_economy#diyuan_permit_exchange。",
+        "地渊申请承接主线地渊侦察与天渊功勋，后续应检查 pressure_resist_charm 与地渊令。当前 FTB 物品任务检查 1 枚地渊令且不消耗。"
+      ],
+      dependencies: ["1000000000000908", "1000000000000404"],
+      tags: ["seeking_immortals", "diyuan", "permit", "void_refining"],
+      tasks: [{id: "1000000000001926", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000927",
+      title: "裂隙口重压",
+      subtitle: "地渊入口",
+      x: 10.0d,
+      y: 6.0d,
+      description: [
+        "来源：quest_hooks#diyuan_rift_mouth / diyuan_campaign#diyuan_rift_mouth。",
+        "地渊裂隙口重压初显，未持令者神识受创；当前只呈现任务节点。"
+      ],
+      dependencies: ["1000000000000926"],
+      tags: ["seeking_immortals", "diyuan", "pressure"],
+      tasks: [{id: "1000000000001927", type: "checkmark", title: "抵达裂隙口"}]
+    },
+    {
+      id: "1000000000000928",
+      title: "浅矿灵脉",
+      subtitle: "灵脉取样",
+      x: 12.0d,
+      y: 8.0d,
+      description: [
+        "来源：diyuan_campaign#diyuan_shallow_mine / artifact_realm_drops#diyuan_by_layer。",
+        "浅层灵脉可作为地渊材料与灵脉碎片的来源，真实采集/掉落留待后续。"
+      ],
+      dependencies: ["1000000000000927"],
+      tags: ["seeking_immortals", "diyuan", "spirit_vein", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001928", type: "checkmark", title: "完成浅矿取样"}]
+    },
+    {
+      id: "1000000000000929",
+      title: "重压带探测",
+      subtitle: "压力波与褶皱",
+      x: 14.0d,
+      y: 8.0d,
+      description: [
+        "来源：diyuan_depth_delve#diyuan_pressure_wave / diyuan_campaign#environment_rules。",
+        "地渊深层有重压、紊乱灵气和空间褶皱，可承接现有 Pressure Resist Pill/Charm 机制。当前 FTB 物品任务检查 1 张抗压符且不消耗。"
+      ],
+      dependencies: ["1000000000000928"],
+      tags: ["seeking_immortals", "diyuan", "pressure_resist"],
+      tasks: [{id: "1000000000001929", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000930",
+      title: "地渊古兽守脉",
+      subtitle: "深层古兽",
+      x: 16.0d,
+      y: 8.0d,
+      description: [
+        "来源：diyuan_campaign#diyuan_ancient_beast / beast_boss_tier_secret_realm_map#diyuan_guardian。",
+        "古兽守脉是地渊深层收束，源设定奖励含 spirit_vein_shard 与 diyuan_core_crystal。"
+      ],
+      dependencies: ["1000000000000929"],
+      tags: ["seeking_immortals", "diyuan", "ancient_beast", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001930", type: "checkmark", title: "记录古兽守脉"}]
+    },
+    {
+      id: "1000000000000931",
+      title: "蛮荒边境接触",
+      subtitle: "妖王议会外缘",
+      x: 12.0d,
+      y: 10.0d,
+      description: [
+        "来源：barbarian_kings_line / barbarian_king_hunt / region_cards#barbarian_wasteland。",
+        "蛮荒之地位于风元大陆边缘，弱肉强食、朝贡与妖王领地构成主要玩法。"
+      ],
+      dependencies: ["1000000000000910"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council"],
+      tasks: [{id: "1000000000001931", type: "checkmark", title: "接触蛮荒边境"}]
+    },
+    {
+      id: "1000000000000932",
+      title: "蛮荒兽潮生还",
+      subtitle: "荒原灾厄",
+      x: 14.0d,
+      y: 10.0d,
+      description: [
+        "来源：region_cards#barbarian_wasteland#daily_events / quest_hooks#barbarian_beast_tide_survive。",
+        "蛮荒兽潮是妖王领地的基础风险，后续可接入野外事件、狩猎榜和部族声望。"
+      ],
+      dependencies: ["1000000000000931"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "beast_tide"],
+      tasks: [{id: "1000000000001932", type: "item", title: "持有蛮荒妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000933",
+      title: "妖王朝贡试炼",
+      subtitle: "贡礼与试胆",
+      x: 16.0d,
+      y: 10.0d,
+      description: [
+        "来源：quest_hooks#king_tribute_quest / spirit_realm_clan_quests#barbarian_council。",
+        "朝贡试炼决定妖王议会是否承认玩家，真实贡礼、声望和令牌消耗暂不实现。"
+      ],
+      dependencies: ["1000000000000932"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "tribute", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001933", type: "checkmark", title: "完成妖王朝贡"}]
+    },
+    {
+      id: "1000000000000934",
+      title: "七王令牌狩猎",
+      subtitle: "熊狐松鹏蛇虎龟",
+      x: 18.0d,
+      y: 10.0d,
+      description: [
+        "来源：barbarian_demon_kings.json / quest_hooks#barbarian_king_token_hunt。",
+        "七位妖王提供不同领地、掉落和族群亲和；聚合令牌要求任意三枚王令。"
+      ],
+      dependencies: ["1000000000000933"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "king_token"],
+      tasks: [{id: "1000000000001934", type: "checkmark", title: "记录七王令牌"}]
+    },
+    {
+      id: "1000000000000935",
+      title: "空间裂缝脱险",
+      subtitle: "可选风险",
+      x: 18.0d,
+      y: 12.0d,
+      optional: true,
+      description: [
+        "来源：barbarian_kings_line#spatial_rift_escape / trade_routes#route_dajin_barbarian_caravan。",
+        "蛮荒商路空间裂缝频发，向导必备；当前不触发伤害或传送，只展示风险。"
+      ],
+      dependencies: ["1000000000000933"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "spatial_rift", "optional"],
+      tasks: [{id: "1000000000001935", type: "checkmark", title: "脱离空间裂缝"}]
+    },
+    {
+      id: "1000000000000936",
+      title: "妖王议会觐见",
+      subtitle: "蛮荒线收束",
+      x: 20.0d,
+      y: 10.0d,
+      description: [
+        "来源：barbarian_demon_kings#aggregate_token / spirit_realm_clan_quests#barbarian_council。",
+        "任意三枚妖王令牌可开启妖王议会觐见；当前不统计令牌，不发放 ancient_beast_core。"
+      ],
+      dependencies: ["1000000000000934"],
+      tags: ["seeking_immortals", "barbarian_wasteland", "barbarian_council", "reward_bridge_deferred"],
+      tasks: [{id: "1000000000001936", type: "checkmark", title: "觐见妖王议会"}]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "stats_snapshot": {
+    "talisman_techniques_added": 26,
+    "talisman_linked": 51,
+    "talisman_craft_only": 1,
+    "star_palace_chains": 3,
+    "mulan_chains": 3,
+    "dajin_chains": 4
+  }
+}

@@ -1,0 +1,415 @@
+{
+  "schema_version": 3,
+  "ref": "beast_bestiary.json",
+  "tables": [
+    {
+      "region": "tiannan",
+      "biome": "forest",
+      "weights": [
+        {
+          "beast_id": "red_leopard_beast",
+          "tier": 1,
+          "weight": 30
+        },
+        {
+          "beast_id": "spirit_fox",
+          "tier": 6,
+          "weight": 2
+        },
+        {
+          "beast_id": "green_vine_demon",
+          "tier": 4,
+          "weight": 5
+        }
+      ],
+      "setting": {
+        "lore": "天南山林：低中阶混生，外门采药与猎妖主线。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "tiannan",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "tiannan",
+      "biome": "river",
+      "weights": [
+        {
+          "beast_id": "ink_flood_dragon",
+          "tier": 3,
+          "weight": 15
+        },
+        {
+          "beast_id": "mystic_water_turtle",
+          "tier": 4,
+          "weight": 8
+        }
+      ],
+      "setting": {
+        "lore": "天南水脉：墨蛟类与龟妖，筑基前常组队清理。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "tiannan",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "chaotic_sea",
+      "biome": "ocean",
+      "weights": [
+        {
+          "beast_id": "baby_carp_demon",
+          "tier": 6,
+          "weight": 12
+        },
+        {
+          "beast_id": "fire_jiao_adult",
+          "tier": 10,
+          "weight": 2
+        }
+      ],
+      "setting": {
+        "lore": "乱星海深海：幼蛟至火蛟，高阶权重低。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "chaotic_sea",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "chaotic_sea",
+      "event": "beast_tide",
+      "multiplier": 1.5,
+      "extra": [
+        {
+          "beast_id": "thunder_jiao",
+          "tier": 7,
+          "weight": 3
+        }
+      ],
+      "setting": {
+        "lore": "兽潮事件：权重乘数，与星宫/猎妖队联动。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "chaotic_sea",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "mulan",
+      "biome": "savanna",
+      "weights": [
+        {
+          "beast_id": "wind_screech_hawk",
+          "tier": 2,
+          "weight": 20
+        },
+        {
+          "beast_id": "sky_tiger_beast",
+          "tier": 13,
+          "weight": 1,
+          "reputation_gate": "faction_mulan"
+        }
+      ],
+      "setting": {
+        "lore": "慕兰草原：风禽与圣禽线高阶妖王（声望门）。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "mulan",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "dajin",
+      "biome": "mountain",
+      "weights": [
+        {
+          "beast_id": "ice_soul_serpent",
+          "tier": 7,
+          "weight": 5
+        },
+        {
+          "beast_id": "earth_armor_dragon",
+          "tier": 8,
+          "weight": 3
+        }
+      ],
+      "setting": {
+        "lore": "大晋山脉：寒蛇与地龙，昆吾外围。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "dajin",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "nether_river",
+      "biome": "yin",
+      "weights": [
+        {
+          "beast_id": "soul_weep_beast",
+          "tier": 4,
+          "weight": 20
+        },
+        {
+          "beast_id": "gold_body_moon_corpse",
+          "tier": 11,
+          "weight": 2
+        }
+      ],
+      "setting": {
+        "lore": "冥河阴域：尸妖与魂兽，纯阳克制。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "nether_river",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "region": "fallen_demon_valley",
+      "event": "demon_qi_surge",
+      "weights": [
+        {
+          "beast_id": "suanni_beast",
+          "tier": 9,
+          "weight": 6
+        },
+        {
+          "beast_id": "phantom_flame_moth",
+          "tier": 8,
+          "weight": 4
+        }
+      ],
+      "setting": {
+        "lore": "坠魔谷魔雾：魔化妖兽权重上升。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "fallen_demon_valley",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "id": "mulan_border",
+      "region": "mulan",
+      "entries": [
+        {
+          "entity": "mulan_wind_wolf",
+          "weight": 5
+        },
+        {
+          "entity": "mulan_fashi_scout",
+          "weight": 2
+        }
+      ],
+      "setting": {
+        "lore": "mulan 区域刷怪表（default）。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "mulan",
+          "realm_min": null
+        }
+      }
+    },
+    {
+      "id": "spawn_blood_forbidden_cycle",
+      "display": "血色禁地周期刷怪",
+      "region": "blood_forbidden",
+      "realm_min": "QI_REFINING",
+      "mobs": [
+        "blood_jiao_guardian",
+        "demon_ape",
+        "wild_beast_tier3"
+      ],
+      "setting": {
+        "lore": "禁地开启时妖兽狂暴。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "blood_forbidden",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spawn_chaotic_sea_shallows",
+      "display": "乱星海浅海",
+      "region": "chaotic_sea",
+      "mobs": [
+        "sea_serpent_low",
+        "pirate_cultivator"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "乱星海浅海"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "chaotic_sea",
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "spawn_kunwu_puppet_hall",
+      "display": "坤吴傀儡殿",
+      "region": "kunwu",
+      "mobs": [
+        "stone_guard_puppet",
+        "kunwu_puppet_king"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "坤吴傀儡殿"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "kunwu",
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "spawn_mulan_wind_riders",
+      "display": "慕兰风骑",
+      "region": "mulan_border",
+      "mobs": [
+        "mulan_fashi_patrol",
+        "wind_beast"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "慕兰风骑"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "mulan_border",
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "region": "tianyuan",
+      "biome": "wild_land",
+      "weights": [
+        {
+          "beast_id": "mountain_giant_ape",
+          "tier": 7,
+          "weight": 12
+        },
+        {
+          "beast_id": "void_mantis",
+          "tier": 10,
+          "weight": 3
+        },
+        {
+          "beast_id": "shape_shift_trial_beast",
+          "tier": 7,
+          "weight": 5
+        }
+      ],
+      "setting": {
+        "lore": "天渊城外荒原：边境功勋猎杀主区。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "tianyuan",
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "region": "tianyuan",
+      "event": "beast_wave",
+      "multiplier": 2.0,
+      "extra": [
+        {
+          "beast_id": "fire_jiao_adult",
+          "tier": 10,
+          "weight": 4
+        },
+        {
+          "beast_id": "thunder_jiao",
+          "tier": 7,
+          "weight": 8
+        }
+      ],
+      "setting": {
+        "lore": "兽潮攻城线：功勋与军需翻倍。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "tianyuan",
+          "realm_min": "VOID_REFINEMENT"
+        }
+      }
+    },
+    {
+      "region": "diyuan",
+      "biome": "rift",
+      "weights": [
+        {
+          "beast_id": "void_mantis",
+          "tier": 10,
+          "weight": 10
+        },
+        {
+          "beast_id": "four_ear_gold_ape",
+          "tier": 11,
+          "weight": 4
+        }
+      ],
+      "setting": {
+        "lore": "地渊裂隙：炼虚以上古兽，须地渊令。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "diyuan",
+          "realm_min": "VOID_REFINEMENT",
+          "item": "diyuan_permit"
+        }
+      }
+    },
+    {
+      "region": "spirit_fengyuan",
+      "biome": "plains",
+      "weights": [
+        {
+          "beast_id": "gold_devour_beetle",
+          "tier": 5,
+          "weight": 15
+        },
+        {
+          "beast_id": "wind_split_beast",
+          "tier": 9,
+          "weight": 6
+        }
+      ],
+      "setting": {
+        "lore": "风元大陆平原：灵界常规猎妖。"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "region": "spirit_fengyuan",
+          "realm_min": "VOID_REFINEMENT"
+        }
+      }
+    }
+  ]
+}

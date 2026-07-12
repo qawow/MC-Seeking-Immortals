@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.cultivation;
 
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
+import com.xunxian.seekingimmortals.quest.QuestProgress;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -24,12 +25,21 @@ public class PlayerCultivation {
     private static final int INITIAL_DIVINE_CONSCIOUSNESS = 5;
     private static final int MAX_QI_DEVIATION_RISK = 100;
     private static final int MAX_TRIBULATION_RESISTANCE = 90;
+    private static final double WORLDPACK_SPIRIT_RAIN_CULTIVATION_MULTIPLIER = 1.10D;
+    private static final double WORLDPACK_SPIRIT_VEIN_PULSE_CULTIVATION_MULTIPLIER = 1.20D;
 
     private int spiritualPower = INITIAL_MANA;
     private int divineConsciousness = INITIAL_DIVINE_CONSCIOUSNESS;
     private int bodyRefinement = 0;
     private int qiDeviationRisk = 0;
     private int tribulationResistance = 0;
+    private boolean tribulationActive = false;
+    private Realm tribulationTargetRealm = Realm.MORTAL;
+    private int tribulationCurrentStrike = 0;
+    private int tribulationTotalStrikes = 0;
+    private int tribulationNextStrikeTicks = 0;
+    private GoldCoreGrade goldCoreGrade = GoldCoreGrade.NONE;
+    private int goldCoreScore = 0;
     private Realm realm = Realm.MORTAL;
     private RealmStage stage = RealmStage.MORTAL;
     private int cultivationExp = 0;
@@ -41,12 +51,14 @@ public class PlayerCultivation {
     private SpecialPhysique specialPhysique = SpecialPhysique.NONE;
     private int lifespanYears = Realm.MORTAL.getLifespanYears();
     private int ageYears = 16;
+    private boolean usedReturnYangTrueWater = false;
     private int failedBreakthroughs = 0;
     private boolean rootInitialized = false;
     private int spiritualRootPurity = 50;
     private boolean spiritualRootAwakened = true;
     private boolean spiritualRootTested = false;
     private boolean mysticVialGranted = false;
+    private final QuestProgress sevenMysteriesQuest = new QuestProgress();
     private boolean severeInjury = false;
     private int heartDemonLevel = 0;
     private int heartDemonTriggerTicks = 0;
@@ -59,12 +71,25 @@ public class PlayerCultivation {
     private double meditationCultivationProgress = 0.0D;
     private int cultivationBoostTicks = 0;
     private double cultivationBoostMultiplier = 1.0D;
-    // M3: 走火风险衰减累计 tick 计数器（非取模，保证稳定触发）
+    private double movementSpeedScale = 1.0D;
+    private String worldpackCurrentRegionId = "qinglan_mountains";
+    private String worldpackActiveSecretRealmId = "";
+    private boolean worldpackHasReturnLocation = false;
+    private String worldpackReturnDimension = "";
+    private double worldpackReturnX = 0.0D;
+    private double worldpackReturnY = 64.0D;
+    private double worldpackReturnZ = 0.0D;
+    private float worldpackReturnYRot = 0.0F;
+    private float worldpackReturnXRot = 0.0F;
+    private final Map<String, Long> worldpackCooldownUntilTicks = new HashMap<>();
+    private String worldpackActiveDailyEventId = "";
+    private long worldpackActiveDailyEventUntilTick = 0L;
+    // M3: 璧扮伀椋庨櫓琛板噺绱 tick 璁℃暟鍣紙闈炲彇妯★紝淇濊瘉绋冲畾瑙﹀彂锛?    private int qiDevDecayAccumulatorTicks = 0;
     private int qiDevDecayAccumulatorTicks = 0;
     private int leylineQiDevDecayAccumulatorTicks = 0;
 
-    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 平稳打坐每 720 秒 -1
-    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 灵脉额外每 360 秒 -1
+    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 骞崇ǔ鎵撳潗姣?720 绉?-1
+    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 鐏佃剦棰濆姣?360 绉?-1
 
     public PlayerCultivation() {
         clearTechniqueSlots();
@@ -74,7 +99,12 @@ public class PlayerCultivation {
     public int getMana() { return getSpiritualPower(); }
     public int getQi() { return getSpiritualPower(); }
     public int getCultivation() { return getCultivationExp(); }
-    public int getDivineConsciousness() { return divineConsciousness; }
+    public int getDivineConsciousness() {
+        if (hasSkill(SkillType.DIVINE_SENSE_EXPANSION)) {
+            return Math.max(divineConsciousness, Math.round(divineConsciousness * 1.5F));
+        }
+        return divineConsciousness;
+    }
     public int getDivSense() { return getDivineConsciousness(); }
     public int getBodyRefinement() { return bodyRefinement; }
     public int getBodyRef() { return getBodyRefinement(); }
@@ -82,6 +112,22 @@ public class PlayerCultivation {
     public int getQiDevRisk() { return getQiDeviationRisk(); }
     public int getTribulationResistance() { return tribulationResistance; }
     public int getTribRes() { return getTribulationResistance(); }
+    public boolean isTribulationActive() { return tribulationActive; }
+    public boolean isInTribulation() { return tribulationActive; }
+    public Realm getTribulationTargetRealm() { return tribulationTargetRealm; }
+    public int getTribulationCurrentStrike() { return tribulationCurrentStrike; }
+    public int getTribulationTotalStrikes() { return tribulationTotalStrikes; }
+    public int getTribulationNextStrikeTicks() { return tribulationNextStrikeTicks; }
+    public GoldCoreGrade getGoldCoreGrade() { return goldCoreGrade; }
+    public String getGoldCoreGradeName() { return goldCoreGrade.getDisplayName(); }
+    public int getGoldCoreScore() { return goldCoreScore; }
+    public boolean hasCompleteFiveElements() {
+        return spiritualRootAttributes.contains(SpiritualRootAttribute.METAL)
+                && spiritualRootAttributes.contains(SpiritualRootAttribute.WOOD)
+                && spiritualRootAttributes.contains(SpiritualRootAttribute.WATER)
+                && spiritualRootAttributes.contains(SpiritualRootAttribute.FIRE)
+                && spiritualRootAttributes.contains(SpiritualRootAttribute.EARTH);
+    }
 
     public long getCultivationLong() { return cultivationExp; }
     public long getCultivationMax() { return getCurrentStageCapExp(); }
@@ -111,6 +157,26 @@ public class PlayerCultivation {
     public int getCurrentStageProgressExp() { return clamp(cultivationExp - getCurrentStageStartExp(), 0, getCurrentStageExpSpan()); }
     public boolean isAtBreakthroughCap() { return cultivationExp >= getCurrentStageCapExp(); }
     public boolean isAtFinalStage() { return realm == Realm.TRUE_IMMORTAL && stage == RealmStage.LATE; }
+    public Realm getNextBreakthroughRealm() {
+        if (isAtFinalStage()) return realm;
+        RealmStage[] stages = getStagesForRealm(realm);
+        for (int i = 0; i < stages.length; i++) {
+            if (stages[i] != stage) continue;
+            return i + 1 < stages.length ? realm : realm.next();
+        }
+        return realm;
+    }
+    public RealmStage getNextBreakthroughStage() {
+        if (isAtFinalStage()) return stage;
+        RealmStage[] stages = getStagesForRealm(realm);
+        for (int i = 0; i < stages.length; i++) {
+            if (stages[i] != stage) continue;
+            if (i + 1 < stages.length) return stages[i + 1];
+            Realm nextRealm = realm.next();
+            return getStagesForRealm(nextRealm)[0];
+        }
+        return stage;
+    }
     public boolean isMeditating() { return meditating; }
     public int getCultivationBoostTicks() { return cultivationBoostTicks; }
     public double getCultivationBoostMultiplier() { return cultivationBoostTicks > 0 ? cultivationBoostMultiplier : 1.0D; }
@@ -123,6 +189,8 @@ public class PlayerCultivation {
     public boolean isSpiritualRootTested() { return spiritualRootTested; }
     public boolean isMysticVialGranted() { return mysticVialGranted; }
     public void setMysticVialGranted(boolean granted) { this.mysticVialGranted = granted; }
+    public QuestProgress getSevenMysteriesQuest() { return sevenMysteriesQuest; }
+    public void resetSevenMysteriesQuest() { sevenMysteriesQuest.loadNBT(new CompoundTag()); }
     public boolean hasSevereInjury() { return severeInjury; }
     public boolean hasShatteredCore() { return shatteredCore; }
     public int getHeartDemonLevel() { return heartDemonLevel; }
@@ -187,13 +255,17 @@ public class PlayerCultivation {
         return skills.get(skillType);
     }
 
+    public boolean hasAlchemy() {
+        return hasSkill(SkillType.ALCHEMY);
+    }
+
     public Map<SkillType, CultivationSkill> getAllSkills() {
         return Map.copyOf(skills);
     }
 
     public boolean canLearnSkill(SkillType skillType) {
         if (!hasReachedSkillRequirement(skillType)) return false;
-        if (skillType.isPhase4QiSkill()) return true;
+        if (skillType.isAutoTechniqueSkill()) return true;
         if (!skillType.hasAffinityRequirement()) return true;
         for (SpiritualRootAttribute required : skillType.getAffinityAttributes()) {
             if (spiritualRootAttributes.contains(required)) return true;
@@ -209,10 +281,22 @@ public class PlayerCultivation {
         return true;
     }
 
+    public boolean unlockSkillForQuest(SkillType skillType) {
+        if (skillType == null) return false;
+        CultivationSkill skill = skills.computeIfAbsent(skillType, CultivationSkill::new);
+        if (skill.isUnlocked()) return false;
+        skill.unlock();
+        return true;
+    }
+
     public List<SkillType> unlockEligiblePhase4Skills() {
+        return unlockEligibleTechniqueSkills();
+    }
+
+    public List<SkillType> unlockEligibleTechniqueSkills() {
         List<SkillType> unlocked = new ArrayList<>();
         for (SkillType skillType : SkillType.values()) {
-            if (!skillType.isPhase4QiSkill()) continue;
+            if (!skillType.isAutoTechniqueSkill()) continue;
             if (unlockSkill(skillType)) {
                 unlocked.add(skillType);
                 learnTechnique(skillType.getTechniqueId());
@@ -265,6 +349,8 @@ public class PlayerCultivation {
     public int getLifespanYears() { return lifespanYears; }
     public int getAgeYears() { return ageYears; }
     public int getRemainingLifespanYears() { return Math.max(0, lifespanYears - ageYears); }
+    public boolean hasUsedReturnYangTrueWater() { return usedReturnYangTrueWater; }
+    public void setUsedReturnYangTrueWater(boolean used) { usedReturnYangTrueWater = used; }
     public int getFailedBreakthroughs() { return failedBreakthroughs; }
     public boolean isBreakthroughAssisted() { return breakthroughAssisted || breakthroughPillBonus > 0.0D; }
     public void setBreakthroughAssisted(boolean assisted) {
@@ -296,6 +382,20 @@ public class PlayerCultivation {
         this.rootInitialized = true;
     }
     public void setSpecialPhysique(SpecialPhysique specialPhysique) { this.specialPhysique = specialPhysique; }
+    public void setGoldCore(GoldCoreGrade grade, int score) {
+        goldCoreGrade = grade == null ? GoldCoreGrade.NONE : grade;
+        goldCoreScore = Math.max(0, score);
+    }
+
+    public void clearGoldCore() {
+        setGoldCore(GoldCoreGrade.NONE, 0);
+    }
+
+    public boolean formGoldCoreIfAbsent(int score) {
+        if (goldCoreGrade != GoldCoreGrade.NONE) return false;
+        setGoldCore(GoldCoreGrade.fromScore(score), score);
+        return true;
+    }
 
     public boolean createLingGenIfAbsent(RandomSource random) {
         if (spiritualRootTested) return false;
@@ -328,9 +428,7 @@ public class PlayerCultivation {
     }
 
     /**
-     * 基础战斗亲和：把灵根属性落实到现有近战、投射物和符箓伤害上。
-     * 该倍率只在灵根已觉醒时生效，纯度越高收益越接近满值；未觉醒不提供伤害加成。
-     */
+     * 鍩虹鎴樻枟浜插拰锛氭妸鐏垫牴灞炴€ц惤瀹炲埌鐜版湁杩戞垬銆佹姇灏勭墿鍜岀绠撲激瀹充笂銆?     * 璇ュ€嶇巼鍙湪鐏垫牴宸茶閱掓椂鐢熸晥锛岀函搴﹁秺楂樻敹鐩婅秺鎺ヨ繎婊″€硷紱鏈閱掍笉鎻愪緵浼ゅ鍔犳垚銆?     */
     public double getSpiritualRootDamageMultiplier() {
         if (!spiritualRootAwakened || spiritualRootAttributes.isEmpty()) return 1.0D;
         double affinity = spiritualRootAttributes.stream()
@@ -342,10 +440,8 @@ public class PlayerCultivation {
     }
 
     /**
-     * 指定属性术法亲和倍率。
-     * 主属性命中给完整加成，副属性命中给半额加成；未觉醒或未检测灵根时不提供专精加成。
-     *
-     * <p>保留该旧入口用于兼容物品与后续代码，实际公式统一委托给 TechniqueAffinityCalculator。</p>
+     * 鎸囧畾灞炴€ф湳娉曚翰鍜屽€嶇巼銆?     * 涓诲睘鎬у懡涓粰瀹屾暣鍔犳垚锛屽壇灞炴€у懡涓粰鍗婇鍔犳垚锛涙湭瑙夐啋鎴栨湭妫€娴嬬伒鏍规椂涓嶆彁渚涗笓绮惧姞鎴愩€?     *
+     * <p>淇濈暀璇ユ棫鍏ュ彛鐢ㄤ簬鍏煎鐗╁搧涓庡悗缁唬鐮侊紝瀹為檯鍏紡缁熶竴濮旀墭缁?TechniqueAffinityCalculator銆?/p>
      */
     public double getTechniqueAffinityMultiplier(SpiritualRootAttribute primary, SpiritualRootAttribute... secondary) {
         return TechniqueAffinityCalculator.calculate(this, primary, secondary).multiplier();
@@ -430,6 +526,28 @@ public class PlayerCultivation {
         updateRealmFromCultivationExp();
     }
 
+    private void fallOneStageForTribulation() {
+        Realm previousRealm = Realm.MORTAL;
+        RealmStage previousStage = RealmStage.MORTAL;
+        int previousStart = 0;
+        int start = 0;
+        for (Realm candidateRealm : Realm.values()) {
+            for (RealmStage candidateStage : getStagesForRealm(candidateRealm)) {
+                if (candidateRealm == realm && candidateStage == stage) {
+                    realm = previousRealm;
+                    stage = previousStage;
+                    cultivationExp = previousStart;
+                    lifespanYears = Math.max(lifespanYears, realm.getLifespanYears());
+                    return;
+                }
+                previousRealm = candidateRealm;
+                previousStage = candidateStage;
+                previousStart = start;
+                start += candidateRealm.getStageExpSpan();
+            }
+        }
+    }
+
     public void applyLingGenResult(LingGenCalculator.Result result) {
         spiritualRoot = result.root();
         spiritualRootAttributes.clear();
@@ -459,8 +577,7 @@ public class PlayerCultivation {
     private SpiritualRoot randomRoot(RandomSource random) {
         int roll = random.nextInt(10000);
         if (roll < 8) return SpiritualRoot.HEAVENLY;
-        // 隐灵根千年难遇且需特殊血脉/机缘觉醒，暂不参与首次登录随机。
-        if (roll < 88) return SpiritualRoot.MUTATED;
+        // 闅愮伒鏍瑰崈骞撮毦閬囦笖闇€鐗规畩琛€鑴?鏈虹紭瑙夐啋锛屾殏涓嶅弬涓庨娆＄櫥褰曢殢鏈恒€?        if (roll < 88) return SpiritualRoot.MUTATED;
         if (roll < 1350) return SpiritualRoot.DUAL;
         if (roll < 4300) return SpiritualRoot.TRIPLE;
         if (roll < 8900) return SpiritualRoot.FALSE_ROOT;
@@ -497,17 +614,17 @@ public class PlayerCultivation {
         return spiritualRoot.getCultivationSpeedCoefficient();
     }
 
-    /** 丹药效果吸收倍率（低资质灵根更高） */
+    /** 涓硅嵂鏁堟灉鍚告敹鍊嶇巼锛堜綆璧勮川鐏垫牴鏇撮珮锛?*/
     public double getPillAbsorptionMultiplier() {
         return spiritualRoot.getPillAbsorptionMultiplier();
     }
 
-    /** 青玉小瓶额外获取概率（预留接口） */
+    /** 闈掔帀灏忕摱棰濆鑾峰彇姒傜巼锛堥鐣欐帴鍙ｏ級 */
     public double getJadeVialDropChance() {
         return spiritualRoot.getJadeVialDropChance();
     }
 
-    /** 灵根属性强度倍数（简化纯度后，基于灵根分类） */
+    /** 鐏垫牴灞炴€у己搴﹀€嶆暟锛堢畝鍖栫函搴﹀悗锛屽熀浜庣伒鏍瑰垎绫伙級 */
     public double getAttributeStrengthMultiplier() {
         return spiritualRoot.getAttributeStrengthMultiplier();
     }
@@ -520,20 +637,135 @@ public class PlayerCultivation {
         return Math.max(0.05D, getSpiritualRootCultivationSpeedCoefficient() * getPhysiqueCultivationSpeedMultiplier());
     }
 
+    public double getGoldCoreAttributeMultiplier() {
+        if (shatteredCore || realm.ordinal() < Realm.CORE_FORMATION.ordinal() || !goldCoreGrade.isFormed()) {
+            return 1.0D;
+        }
+        return goldCoreGrade.getAttributeMultiplier();
+    }
+
+    public double getAdvancedBreakthroughBonus() {
+        return getAdvancedBreakthroughBonus(getNextBreakthroughRealm());
+    }
+
+    public double getAdvancedBreakthroughBonus(Realm targetRealm) {
+        if (targetRealm == null || targetRealm.ordinal() < Realm.CORE_FORMATION.ordinal()) return 0.0D;
+        double bonus = 0.0D;
+        if (targetRealm.ordinal() >= Realm.VOID_REFINEMENT.ordinal() && hasCompleteFiveElements()) {
+            bonus += 0.08D;
+        }
+        if (spiritualRoot == SpiritualRoot.HEAVENLY || spiritualRoot == SpiritualRoot.MUTATED || spiritualRoot == SpiritualRoot.HIDDEN) {
+            bonus += targetRealm.ordinal() >= Realm.SOUL_TRANSFORMATION.ordinal() ? 0.05D : 0.03D;
+        }
+        if (goldCoreGrade == GoldCoreGrade.HIGH) {
+            bonus += 0.02D;
+        } else if (goldCoreGrade == GoldCoreGrade.PERFECT) {
+            bonus += 0.04D;
+        }
+        return bonus;
+    }
+
+    public double getMovementSpeedScale() {
+        return movementSpeedScale;
+    }
+
+    public void setMovementSpeedScale(double scale) {
+        movementSpeedScale = Math.max(0.0D, Math.min(1.0D, scale));
+    }
+
+    public String getWorldpackCurrentRegionId() {
+        return worldpackCurrentRegionId == null || worldpackCurrentRegionId.isBlank()
+                ? "qinglan_mountains"
+                : worldpackCurrentRegionId;
+    }
+
+    public void setWorldpackCurrentRegionId(String regionId) {
+        worldpackCurrentRegionId = cleanWorldpackId(regionId, "qinglan_mountains");
+    }
+
+    public String getWorldpackActiveSecretRealmId() {
+        return worldpackActiveSecretRealmId == null ? "" : worldpackActiveSecretRealmId;
+    }
+
+    public void setWorldpackActiveSecretRealmId(String realmId) {
+        worldpackActiveSecretRealmId = cleanWorldpackId(realmId, "");
+    }
+
+    public boolean hasWorldpackReturnLocation() {
+        return worldpackHasReturnLocation && worldpackReturnDimension != null && !worldpackReturnDimension.isBlank();
+    }
+
+    public String getWorldpackReturnDimension() {
+        return worldpackReturnDimension == null ? "" : worldpackReturnDimension;
+    }
+
+    public double getWorldpackReturnX() {
+        return worldpackReturnX;
+    }
+
+    public double getWorldpackReturnY() {
+        return worldpackReturnY;
+    }
+
+    public double getWorldpackReturnZ() {
+        return worldpackReturnZ;
+    }
+
+    public float getWorldpackReturnYRot() {
+        return worldpackReturnYRot;
+    }
+
+    public float getWorldpackReturnXRot() {
+        return worldpackReturnXRot;
+    }
+
+    public void setWorldpackReturnLocation(String dimension, double x, double y, double z, float yRot, float xRot) {
+        worldpackHasReturnLocation = dimension != null && !dimension.isBlank();
+        worldpackReturnDimension = dimension == null ? "" : dimension;
+        worldpackReturnX = x;
+        worldpackReturnY = y;
+        worldpackReturnZ = z;
+        worldpackReturnYRot = yRot;
+        worldpackReturnXRot = xRot;
+    }
+
+    public void clearWorldpackReturnLocation() {
+        worldpackHasReturnLocation = false;
+        worldpackReturnDimension = "";
+    }
+
+    public long getWorldpackCooldownUntil(String realmId) {
+        return worldpackCooldownUntilTicks.getOrDefault(cleanWorldpackId(realmId, ""), 0L);
+    }
+
+    public void setWorldpackCooldownUntil(String realmId, long untilTick) {
+        String id = cleanWorldpackId(realmId, "");
+        if (id.isBlank() || untilTick <= 0L) {
+            worldpackCooldownUntilTicks.remove(id);
+            return;
+        }
+        worldpackCooldownUntilTicks.put(id, untilTick);
+    }
+
+    public Map<String, Long> getWorldpackCooldowns() {
+        return Map.copyOf(worldpackCooldownUntilTicks);
+    }
+
+    public String getWorldpackActiveDailyEventId() {
+        return worldpackActiveDailyEventId == null ? "" : worldpackActiveDailyEventId;
+    }
+
+    public long getWorldpackActiveDailyEventUntilTick() {
+        return worldpackActiveDailyEventUntilTick;
+    }
+
+    public void setWorldpackDailyEvent(String eventId, long untilTick) {
+        worldpackActiveDailyEventId = cleanWorldpackId(eventId, "");
+        worldpackActiveDailyEventUntilTick = Math.max(0L, untilTick);
+    }
+
     public double getMeleeAttackPower() {
-        double base = switch (realm) {
-            case MORTAL -> 1.0D;
-            case QI_REFINING -> 2.0D + stage.ordinal() * 0.5D;
-            case FOUNDATION_ESTABLISHMENT -> 15.0D + stage.ordinal() * 3.0D;
-            case CORE_FORMATION -> 40.0D + stage.ordinal() * 8.0D;
-            case NASCENT_SOUL -> 100.0D + stage.ordinal() * 20.0D;
-            case SOUL_TRANSFORMATION -> 250.0D + stage.ordinal() * 50.0D;
-            case VOID_REFINEMENT -> 600.0D + stage.ordinal() * 120.0D;
-            case UNITY -> 1500.0D + stage.ordinal() * 300.0D;
-            case MAHAYANA -> 4000.0D + stage.ordinal() * 800.0D;
-            case TRIBULATION -> 10000.0D + stage.ordinal() * 2000.0D;
-            case TRUE_IMMORTAL -> 25000.0D + stage.ordinal() * 5000.0D;
-        };
+        double base = RealmStageConfig.getAttackBase(realm) * stage.getMaxSpiritualPowerMultiplier();
         double attributeMultiplier = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case FIRE -> 1.15D;
@@ -545,7 +777,7 @@ public class PlayerCultivation {
                 })
                 .average()
                 .orElse(1.0D);
-        return base * attributeMultiplier * specialPhysique.getCultivationMultiplier();
+        return base * attributeMultiplier * getPhysiqueAttackMultiplier() * getGoldCoreAttributeMultiplier();
     }
 
     public double getMagicAttackPower() {
@@ -553,19 +785,7 @@ public class PlayerCultivation {
     }
 
     public double getDefensePower() {
-        double base = switch (realm) {
-            case MORTAL -> 0.0D;
-            case QI_REFINING -> 1.0D + stage.ordinal() * 0.3D;
-            case FOUNDATION_ESTABLISHMENT -> 10.0D + stage.ordinal() * 2.0D;
-            case CORE_FORMATION -> 30.0D + stage.ordinal() * 6.0D;
-            case NASCENT_SOUL -> 80.0D + stage.ordinal() * 15.0D;
-            case SOUL_TRANSFORMATION -> 200.0D + stage.ordinal() * 40.0D;
-            case VOID_REFINEMENT -> 500.0D + stage.ordinal() * 100.0D;
-            case UNITY -> 1200.0D + stage.ordinal() * 250.0D;
-            case MAHAYANA -> 3000.0D + stage.ordinal() * 600.0D;
-            case TRIBULATION -> 8000.0D + stage.ordinal() * 1600.0D;
-            case TRUE_IMMORTAL -> 20000.0D + stage.ordinal() * 4000.0D;
-        };
+        double base = RealmStageConfig.getDefenseBase(realm) * stage.getMaxSpiritualPowerMultiplier();
         double attributeMultiplier = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case EARTH -> 1.20D;
@@ -576,23 +796,12 @@ public class PlayerCultivation {
                 })
                 .average()
                 .orElse(1.0D);
-        return base * attributeMultiplier * specialPhysique.getBreakthroughMultiplier();
+        double bodyBonus = Math.sqrt(Math.max(0, bodyRefinement)) * (3.0D + RealmStageConfig.getRealmGrowthIndex(realm) * 2.0D);
+        return (base * attributeMultiplier * getPhysiqueDefenseMultiplier() + bodyBonus) * getGoldCoreAttributeMultiplier();
     }
 
     public double getDodgeRate() {
-        double base = switch (realm) {
-            case MORTAL -> 0.0D;
-            case QI_REFINING -> 0.05D;
-            case FOUNDATION_ESTABLISHMENT -> 0.08D;
-            case CORE_FORMATION -> 0.12D;
-            case NASCENT_SOUL -> 0.15D;
-            case SOUL_TRANSFORMATION -> 0.18D;
-            case VOID_REFINEMENT -> 0.22D;
-            case UNITY -> 0.26D;
-            case MAHAYANA -> 0.30D;
-            case TRIBULATION -> 0.35D;
-            case TRUE_IMMORTAL -> 0.40D;
-        };
+        double base = RealmStageConfig.getDodgeChanceBase(realm);
         double attributeBonus = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case WIND -> 0.10D;
@@ -603,23 +812,11 @@ public class PlayerCultivation {
                 })
                 .max()
                 .orElse(0.0D);
-        return Math.min(0.75D, base + attributeBonus);
+        return Math.min(0.75D, base + attributeBonus + getPhysiqueDodgeBonus());
     }
 
     public double getCriticalRate() {
-        double base = switch (realm) {
-            case MORTAL -> 0.0D;
-            case QI_REFINING -> 0.05D;
-            case FOUNDATION_ESTABLISHMENT -> 0.08D;
-            case CORE_FORMATION -> 0.10D;
-            case NASCENT_SOUL -> 0.12D;
-            case SOUL_TRANSFORMATION -> 0.15D;
-            case VOID_REFINEMENT -> 0.18D;
-            case UNITY -> 0.22D;
-            case MAHAYANA -> 0.26D;
-            case TRIBULATION -> 0.30D;
-            case TRUE_IMMORTAL -> 0.35D;
-        };
+        double base = RealmStageConfig.getCritChanceBase(realm);
         double attributeBonus = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case THUNDER -> 0.12D;
@@ -632,23 +829,11 @@ public class PlayerCultivation {
                 })
                 .max()
                 .orElse(0.0D);
-        return Math.min(0.80D, base + attributeBonus);
+        return Math.min(0.80D, base + attributeBonus + getPhysiqueCritBonus());
     }
 
     public double getMagicResistance() {
-        double base = switch (realm) {
-            case MORTAL -> 0.0D;
-            case QI_REFINING -> 0.0D;
-            case FOUNDATION_ESTABLISHMENT -> 0.05D;
-            case CORE_FORMATION -> 0.12D;
-            case NASCENT_SOUL -> 0.20D;
-            case SOUL_TRANSFORMATION -> 0.28D;
-            case VOID_REFINEMENT -> 0.35D;
-            case UNITY -> 0.42D;
-            case MAHAYANA -> 0.50D;
-            case TRIBULATION -> 0.60D;
-            case TRUE_IMMORTAL -> 0.70D;
-        };
+        double base = RealmStageConfig.getMagicResistanceBase(realm);
         double attributeBonus = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case EARTH -> 0.08D;
@@ -659,13 +844,98 @@ public class PlayerCultivation {
                 })
                 .max()
                 .orElse(0.0D);
-        return Math.min(0.85D, base + attributeBonus);
+        return Math.min(0.85D, base + attributeBonus + getPhysiqueMagicResistanceBonus());
+    }
+
+    public double getTribulationDamageReductionBonus() {
+        double attributeBonus = spiritualRootAttributes.stream()
+                .mapToDouble(attr -> switch (attr) {
+                    case THUNDER, HIDDEN_THUNDER -> 0.08D;
+                    case ICE, WATER -> 0.03D;
+                    case EARTH, METAL -> 0.02D;
+                    default -> 0.0D;
+                })
+                .max()
+                .orElse(0.0D);
+        double physiqueBonus = switch (specialPhysique) {
+            case FIVE_THUNDER_BODY -> 0.12D;
+            case HIDDEN_THUNDER_ROOT -> 0.10D;
+            case HEAVENLY_YIN_BODY, MYSTIC_YIN_BODY -> 0.08D;
+            case CHASTE_YIN_BODY, NINE_SPIRIT_SWORD_BODY -> 0.06D;
+            case GOLD_FORGING_BODY, MOLTEN_GOLD_BODY, ICE_MARROW_BODY -> 0.04D;
+            default -> 0.0D;
+        };
+        return Math.min(0.20D, attributeBonus + physiqueBonus + getMagicResistance() * 0.10D);
+    }
+
+    public double getAccuracyRate() {
+        double base = RealmStageConfig.getAccuracyBase(realm);
+        double attributeBonus = spiritualRootAttributes.stream()
+                .mapToDouble(attr -> switch (attr) {
+                    case THUNDER, HIDDEN_THUNDER -> 0.04D;
+                    case METAL, WIND -> 0.03D;
+                    case FIRE, DARK, HIDDEN_DARK -> 0.02D;
+                    default -> 0.0D;
+                })
+                .max()
+                .orElse(0.0D);
+        double physiqueBonus = switch (specialPhysique) {
+            case NINE_SPIRIT_SWORD_BODY -> 0.06D;
+            case FIVE_THUNDER_BODY, GOLD_FORGING_BODY -> 0.04D;
+            case HIDDEN_THUNDER_ROOT -> 0.03D;
+            default -> 0.0D;
+        };
+        return Math.min(0.99D, base + attributeBonus + physiqueBonus);
+    }
+
+    private double getPhysiqueAttackMultiplier() {
+        return switch (specialPhysique) {
+            case FIVE_THUNDER_BODY -> 1.12D;
+            case NINE_SPIRIT_SWORD_BODY -> 1.15D;
+            case GOLD_FORGING_BODY, MOLTEN_GOLD_BODY -> 1.08D;
+            case HIDDEN_THUNDER_ROOT, THREE_YANG_BODY -> 1.06D;
+            case DRAGON_CHANT_BODY -> realm.ordinal() < Realm.CORE_FORMATION.ordinal() ? 0.95D : 1.08D;
+            default -> 1.0D;
+        };
+    }
+
+    private double getPhysiqueDefenseMultiplier() {
+        return switch (specialPhysique) {
+            case MOLTEN_GOLD_BODY -> 1.10D;
+            case GOLD_FORGING_BODY, ICE_MARROW_BODY, HEAVENLY_YIN_BODY, MYSTIC_YIN_BODY -> 1.08D;
+            case CHASTE_YIN_BODY, SEVEN_STAR_MOON_BODY, FIVE_THUNDER_BODY -> 1.05D;
+            default -> 1.0D;
+        };
+    }
+
+    private double getPhysiqueCritBonus() {
+        return switch (specialPhysique) {
+            case NINE_SPIRIT_SWORD_BODY -> 0.08D;
+            case FIVE_THUNDER_BODY -> 0.06D;
+            case GOLD_FORGING_BODY, MOLTEN_GOLD_BODY -> 0.04D;
+            default -> 0.0D;
+        };
+    }
+
+    private double getPhysiqueDodgeBonus() {
+        return switch (specialPhysique) {
+            case SEVEN_STAR_MOON_BODY, CHARMING_BODY -> 0.04D;
+            case HIDDEN_THUNDER_ROOT, FIVE_THUNDER_BODY -> 0.03D;
+            default -> 0.0D;
+        };
+    }
+
+    private double getPhysiqueMagicResistanceBonus() {
+        return switch (specialPhysique) {
+            case HEAVENLY_YIN_BODY, MYSTIC_YIN_BODY -> 0.08D;
+            case CHASTE_YIN_BODY, ICE_MARROW_BODY, FIVE_THUNDER_BODY -> 0.06D;
+            case HIDDEN_THUNDER_ROOT -> 0.05D;
+            default -> 0.0D;
+        };
     }
 
     /**
-     * 突破综合倍率（体质 × 属性，不含灵根加法加成）。
-     * 灵根加成改为加法，在 getBreakthroughChanceBreakdown 中叠加。
-     */
+     * 绐佺牬缁煎悎鍊嶇巼锛堜綋璐?脳 灞炴€э紝涓嶅惈鐏垫牴鍔犳硶鍔犳垚锛夈€?     * 鐏垫牴鍔犳垚鏀逛负鍔犳硶锛屽湪 getBreakthroughChanceBreakdown 涓彔鍔犮€?     */
     public double getBreakthroughMultiplier() {
         double attributeMultiplier = spiritualRootAttributes.stream()
                 .mapToDouble(SpiritualRootAttribute::getBreakthroughCoefficient)
@@ -678,43 +948,33 @@ public class PlayerCultivation {
 
     public int getMaxSpiritualPower() {
         int raw = Math.round(realm.getBaseMaxSpiritualPower() * stage.getMaxSpiritualPowerMultiplier());
-        return realm == Realm.MORTAL ? Math.max(MORTAL_MIN_SPIRITUAL_POWER, raw) : raw;
+        int adjusted = (int)Math.round(raw * getGoldCoreAttributeMultiplier());
+        return realm == Realm.MORTAL ? Math.max(MORTAL_MIN_SPIRITUAL_POWER, adjusted) : adjusted;
     }
 
     public int getManaMax() { return getMaxSpiritualPower(); }
     public int getMaxQi() { return getMaxSpiritualPower(); }
 
     public int getMaxDivineConsciousness() {
-        int base = switch (realm) {
-            case MORTAL -> 3;
-            case QI_REFINING -> 50;
-            case FOUNDATION_ESTABLISHMENT -> 150;
-            case CORE_FORMATION -> 400;
-            case NASCENT_SOUL -> 1000;
-            case SOUL_TRANSFORMATION -> 2500;
-            case VOID_REFINEMENT -> 6000;
-            case UNITY -> 15000;
-            case MAHAYANA -> 40000;
-            case TRIBULATION -> 100000;
-            case TRUE_IMMORTAL -> 250000;
-        };
-        return Math.round(base * stage.getMaxSpiritualPowerMultiplier());
+        int base = RealmStageConfig.getDivSenseBase(realm);
+        return (int)Math.round(base * stage.getMaxSpiritualPowerMultiplier() * getGoldCoreAttributeMultiplier());
     }
 
-    // ========== Phase 1: 衍生属性计算方法 ==========
+    // ========== Phase 1: 琛嶇敓灞炴€ц绠楁柟娉?==========
 
     /**
-     * 获取最大生命值（HP）
-     * <p>公式: hpBase × 阶段倍率</p>
+     * 鑾峰彇鏈€澶х敓鍛藉€硷紙HP锛?     * <p>鍏紡: hpBase 脳 闃舵鍊嶇巼</p>
      */
     public int getMaxHealthPoints() {
         int base = RealmStageConfig.getHpBase(realm);
-        return Math.round(base * stage.getMaxSpiritualPowerMultiplier());
+        int realmHealth = Math.round(base * stage.getMaxSpiritualPowerMultiplier());
+        int bodyBonus = (int)Math.round(Math.sqrt(Math.max(0, bodyRefinement)) * (4.0D + RealmStageConfig.getRealmGrowthIndex(realm) * 1.5D));
+        return (int)Math.round((realmHealth + bodyBonus) * getGoldCoreAttributeMultiplier());
     }
 
     /**
-     * 获取灵力回复速度（点/秒）
-     * <p>公式: 境界基准 × 灵根回复系数 × 重伤惩罚</p>
+     * 鑾峰彇鐏靛姏鍥炲閫熷害锛堢偣/绉掞級
+     * <p>鍏紡: 澧冪晫鍩哄噯 脳 鐏垫牴鍥炲绯绘暟 脳 閲嶄激鎯╃綒</p>
      */
     public float getManaRecoveryPerSecond() {
         float base = RealmStageConfig.getManaRecoveryBase(realm);
@@ -723,30 +983,30 @@ public class PlayerCultivation {
     }
 
     /**
-     * 获取修为增长速度（点/秒，打坐状态下）
-     * <p>公式: 境界基准 × 灵根修炼速度系数 × 体质倍率</p>
+     * 鑾峰彇淇负澧為暱閫熷害锛堢偣/绉掞紝鎵撳潗鐘舵€佷笅锛?     * <p>鍏紡: 澧冪晫鍩哄噯 脳 鐏垫牴淇偧閫熷害绯绘暟 脳 浣撹川鍊嶇巼</p>
      */
     public float getCultivationGainPerSecond() {
         float base = RealmStageConfig.getCultivationGainBase(realm);
         double speedMultiplier = getCultivationSpeedMultiplier();
-        return base * (float) speedMultiplier;
+        return base * (float) (speedMultiplier * getGoldCoreAttributeMultiplier());
     }
 
     /**
-     * 获取飞行速度（方块/秒）
-     * <p>公式: 境界基准 × 阶段加成</p>
+     * 鑾峰彇椋炶閫熷害锛堟柟鍧?绉掞級
+     * <p>鍏紡: 澧冪晫鍩哄噯 脳 闃舵鍔犳垚</p>
      */
     public float getFlyingSpeed() {
         float base = RealmStageConfig.getFlyingSpeedBase(realm);
-        // 阶段倍率简化：初期1.0，中期1.2，后期1.5，圆满1.8
-        float stageBonus = switch (stage) {
-            case EARLY -> 1.0f;
-            case MIDDLE -> 1.2f;
-            case LATE -> 1.5f;
-            case PEAK -> 1.8f;
-            default -> 1.0f; // 炼气期层数使用 1.0
-        };
-        return base * stageBonus;
+        // 闃舵鍊嶇巼绠€鍖栵細鍒濇湡1.0锛屼腑鏈?.2锛屽悗鏈?.5锛屽渾婊?.8
+        return base * stage.getMaxSpiritualPowerMultiplier();
+    }
+
+    public double getMovementSpeedBonus() {
+        return Math.max(0.0D, getFlyingSpeed() * 0.002D);
+    }
+
+    public double getEffectiveMovementSpeedBonus() {
+        return getMovementSpeedBonus() * movementSpeedScale;
     }
 
     public void addSpiritualPower(int amount) {
@@ -799,7 +1059,7 @@ public class PlayerCultivation {
         qiDeviationRisk = clamp(qiDeviationRisk + amount, 0, MAX_QI_DEVIATION_RISK);
     }
 
-    /** M3: 平稳打坐每 tick 累加，达阈值 -1 走火风险；risk=0 时重置累加器。 */
+    /** M3: 骞崇ǔ鎵撳潗姣?tick 绱姞锛岃揪闃堝€?-1 璧扮伀椋庨櫓锛況isk=0 鏃堕噸缃疮鍔犲櫒銆?*/
     public void tickQiDeviationDecay(boolean leyline) {
         if (qiDeviationRisk <= 0) {
             qiDevDecayAccumulatorTicks = 0;
@@ -816,7 +1076,7 @@ public class PlayerCultivation {
         }
     }
 
-    private static final int MAX_CULTIVATION_BOOST_TICKS = 72000 * 2; // 2 * 凝聚丹 boost ticks
+    private static final int MAX_CULTIVATION_BOOST_TICKS = 72000 * 2; // 2 * 鍑濊仛涓?boost ticks
 
     public void addCultivationBoost(int ticks, double multiplier) {
         cultivationBoostTicks = Math.min(cultivationBoostTicks + ticks, MAX_CULTIVATION_BOOST_TICKS);
@@ -854,6 +1114,61 @@ public class PlayerCultivation {
     public void setTribRes(int amount) { setTribulationResistance(amount); }
     public void setTribRes(float value) { setTribulationResistance(value); }
 
+    public void startTribulation(Realm targetRealm, int totalStrikes, int initialDelayTicks) {
+        if (targetRealm == null || totalStrikes <= 0) {
+            clearTribulation();
+            return;
+        }
+        tribulationActive = true;
+        tribulationTargetRealm = targetRealm;
+        tribulationCurrentStrike = 0;
+        tribulationTotalStrikes = Math.max(1, totalStrikes);
+        tribulationNextStrikeTicks = Math.max(0, initialDelayTicks);
+    }
+
+    public void clearTribulation() {
+        tribulationActive = false;
+        tribulationTargetRealm = Realm.MORTAL;
+        tribulationCurrentStrike = 0;
+        tribulationTotalStrikes = 0;
+        tribulationNextStrikeTicks = 0;
+    }
+
+    public boolean tickTribulationCountdown() {
+        if (!tribulationActive) return false;
+        if (tribulationNextStrikeTicks > 0) {
+            tribulationNextStrikeTicks--;
+        }
+        return tribulationNextStrikeTicks <= 0;
+    }
+
+    public void recordTribulationStrike(int nextDelayTicks) {
+        if (!tribulationActive) return;
+        tribulationCurrentStrike = Math.min(tribulationTotalStrikes, tribulationCurrentStrike + 1);
+        tribulationNextStrikeTicks = Math.max(0, nextDelayTicks);
+    }
+
+    public boolean isTribulationComplete() {
+        return tribulationActive && tribulationTotalStrikes > 0 && tribulationCurrentStrike >= tribulationTotalStrikes;
+    }
+
+    public int failTribulationPenalty() {
+        int bodyLoss = bodyRefinement <= 0 ? 0 : Math.max(1, (int)Math.ceil(bodyRefinement * 0.15D));
+        Realm failedTargetRealm = tribulationTargetRealm;
+        clearTribulation();
+        applySevereInjury();
+        addQiDeviationRisk(20);
+        bodyRefinement = Math.max(0, bodyRefinement - bodyLoss);
+        fallOneStageForTribulation();
+        if (failedTargetRealm == Realm.CORE_FORMATION) {
+            clearGoldCore();
+        }
+        realmFallScars++;
+        spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
+        divineConsciousness = Math.min(divineConsciousness, getMaxDivineConsciousness());
+        return bodyLoss;
+    }
+
     public boolean consumeSpiritualPower(int amount) {
         if (spiritualPower < amount) return false;
         spiritualPower -= amount;
@@ -875,7 +1190,8 @@ public class PlayerCultivation {
     }
 
     public int addMeditationCultivation(MeditationFormula.Breakdown breakdown) {
-        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick() * getCultivationBoostMultiplier());
+        double worldpackMultiplier = getWorldpackDailyCultivationMultiplier(worldpackActiveDailyEventId);
+        meditationCultivationProgress += Math.max(0.0D, breakdown.perTick() * getCultivationBoostMultiplier() * worldpackMultiplier);
         int whole = (int) Math.floor(meditationCultivationProgress);
         if (whole <= 0) return 0;
         meditationCultivationProgress -= whole;
@@ -893,23 +1209,40 @@ public class PlayerCultivation {
     public void setCultivationExp(int amount) { setCultivation(amount); }
     public void setCultivationLong(long amount) { setCultivation(amount); }
 
+    public void setAbsoluteCultivationForDebug(long amount) {
+        cultivationExp = (int)Math.max(0L, Math.min(Integer.MAX_VALUE, amount));
+        updateRealmFromCultivationExp();
+        cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(cultivationExp, getCurrentStageCapExp()));
+        spiritualPower = Math.min(spiritualPower, getMaxSpiritualPower());
+        divineConsciousness = Math.min(divineConsciousness, getMaxDivineConsciousness());
+        unlockEligibleTechniqueSkills();
+    }
+
+    public void setCoreAttributesForDebug(int divSense, int bodyRef, int qiDevRisk, int tribRes) {
+        divineConsciousness = Math.max(0, divSense);
+        bodyRefinement = Math.max(0, bodyRef);
+        setQiDeviationRisk(qiDevRisk);
+        setTribulationResistance(tribRes);
+    }
+
     /**
-     * 直接增减修为经验值（不应用修炼速度倍率），用于走火入魔等惩罚。
-     * 不会低于当前境界起始经验值。
-     */
+     * 鐩存帴澧炲噺淇负缁忛獙鍊硷紙涓嶅簲鐢ㄤ慨鐐奸€熷害鍊嶇巼锛夛紝鐢ㄤ簬璧扮伀鍏ラ瓟绛夋儵缃氥€?     * 涓嶄細浣庝簬褰撳墠澧冪晫璧峰缁忛獙鍊笺€?     */
     public void addCultivationExpRaw(int amount) {
         cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + amount));
     }
 
     /**
-     * 公开方法：掉落一个境界阶段（用于走火入魔严重效果）。
-     */
+     * 鍏紑鏂规硶锛氭帀钀戒竴涓鐣岄樁娈碉紙鐢ㄤ簬璧扮伀鍏ラ瓟涓ラ噸鏁堟灉锛夈€?     */
     public void fallOneStagePublic() {
         fallOneStage();
     }
 
     public void addAgeYears(int years) {
         ageYears = Math.max(0, ageYears + years);
+    }
+
+    public void addLifespanYears(int years) {
+        lifespanYears = Math.max(realm.getLifespanYears(), lifespanYears + Math.max(0, years));
     }
 
     public boolean isLifespanExhausted() {
@@ -931,8 +1264,11 @@ public class PlayerCultivation {
         double pillBonus = modifiers == null ? 0.0D : modifiers.pillBonus();
         double spiritEyeBonus = modifiers == null ? 0.0D : modifiers.spiritEyeBonus();
         double techniqueQualityBonus = modifiers == null ? 0.0D : modifiers.techniqueQualityBonus();
-        double chance = Math.min(GLOBAL_BREAKTHROUGH_CAP, baseChance + rootBonus + pillBonus + spiritEyeBonus + techniqueQualityBonus + obsessionBonus);
-        return new BreakthroughChanceBreakdown(baseChance, pillBonus, spiritEyeBonus, techniqueQualityBonus, obsessionBonus, chance);
+        Realm targetRealm = getNextBreakthroughRealm();
+        double advancedBonus = getAdvancedBreakthroughBonus(targetRealm);
+        double chanceCap = getBreakthroughChanceCap(targetRealm);
+        double chance = Math.min(chanceCap, baseChance + rootBonus + pillBonus + spiritEyeBonus + techniqueQualityBonus + obsessionBonus + advancedBonus);
+        return new BreakthroughChanceBreakdown(baseChance, pillBonus, spiritEyeBonus, techniqueQualityBonus, obsessionBonus, advancedBonus, chance);
     }
 
     public BreakthroughAttemptResult tryBreakthrough(RandomSource random) {
@@ -984,6 +1320,7 @@ public class PlayerCultivation {
             double spiritEyeBonus,
             double techniqueQualityBonus,
             double obsessionBonus,
+            double advancedBonus,
             double chance) {}
 
     public record BreakthroughAttemptResult(
@@ -1000,7 +1337,7 @@ public class PlayerCultivation {
         public double chance() { return chanceBreakdown.chance(); }
     }
 
-    // ========== 走火入魔分级 ==========
+    // ========== 璧扮伀鍏ラ瓟鍒嗙骇 ==========
     public enum QiDeviationTier {
         NONE, MINOR, MODERATE, SEVERE, EXTREME
     }
@@ -1060,8 +1397,37 @@ public class PlayerCultivation {
         };
     }
 
+    private double getBreakthroughChanceCap(Realm targetRealm) {
+        if (targetRealm == null) return GLOBAL_BREAKTHROUGH_CAP;
+        return switch (targetRealm) {
+            case SOUL_TRANSFORMATION -> 0.75D;
+            case VOID_REFINEMENT -> 0.65D;
+            case UNITY -> 0.55D;
+            case MAHAYANA -> 0.45D;
+            case TRIBULATION -> 0.35D;
+            case TRUE_IMMORTAL -> 0.25D;
+            default -> GLOBAL_BREAKTHROUGH_CAP;
+        };
+    }
+
     private static int clamp(int value, int min, int max) {
         return Math.max(min, Math.min(max, value));
+    }
+
+    private static String cleanWorldpackId(String value, String fallback) {
+        if (value == null || value.isBlank()) {
+            return fallback;
+        }
+        String trimmed = value.trim();
+        return trimmed.length() > 128 ? trimmed.substring(0, 128) : trimmed;
+    }
+
+    static double getWorldpackDailyCultivationMultiplier(String eventId) {
+        return switch (cleanWorldpackId(eventId, "").toLowerCase(Locale.ROOT)) {
+            case "spirit_rain" -> WORLDPACK_SPIRIT_RAIN_CULTIVATION_MULTIPLIER;
+            case "spirit_vein_pulse" -> WORLDPACK_SPIRIT_VEIN_PULSE_CULTIVATION_MULTIPLIER;
+            default -> 1.0D;
+        };
     }
 
     private static int normalizeRiskPercent(float value, int max) {
@@ -1137,6 +1503,27 @@ public class PlayerCultivation {
         }
     }
 
+    private void loadTribulationData(CompoundTag tag) {
+        if (!tag.getBoolean("TribulationActive")) {
+            clearTribulation();
+            return;
+        }
+        try {
+            tribulationTargetRealm = Realm.valueOf(tag.getString("TribulationTargetRealm"));
+        } catch (Exception ignored) {
+            clearTribulation();
+            return;
+        }
+        tribulationTotalStrikes = Math.max(0, tag.getInt("TribulationTotalStrikes"));
+        if (tribulationTotalStrikes <= 0 || tribulationTargetRealm.ordinal() < Realm.CORE_FORMATION.ordinal()) {
+            clearTribulation();
+            return;
+        }
+        tribulationActive = true;
+        tribulationCurrentStrike = clamp(tag.getInt("TribulationCurrentStrike"), 0, tribulationTotalStrikes);
+        tribulationNextStrikeTicks = Math.max(0, tag.getInt("TribulationNextStrikeTicks"));
+    }
+
     public static RealmStage[] getStagesForRealmPublic(Realm targetRealm) {
         return stagesForRealm(targetRealm).clone();
     }
@@ -1174,6 +1561,13 @@ public class PlayerCultivation {
         tag.putFloat("tribRes", getTribResFloat());
         tag.putInt("qiDevRiskPercent", qiDeviationRisk);
         tag.putInt("tribResPercent", tribulationResistance);
+        tag.putBoolean("TribulationActive", tribulationActive);
+        tag.putString("TribulationTargetRealm", tribulationTargetRealm.name());
+        tag.putInt("TribulationCurrentStrike", tribulationCurrentStrike);
+        tag.putInt("TribulationTotalStrikes", tribulationTotalStrikes);
+        tag.putInt("TribulationNextStrikeTicks", tribulationNextStrikeTicks);
+        tag.putString("GoldCoreGrade", goldCoreGrade.name());
+        tag.putInt("GoldCoreScore", goldCoreScore);
         tag.putInt("SpiritualPower", spiritualPower);
         tag.putInt("Qi", spiritualPower);
         tag.putInt("DivineConsciousness", divineConsciousness);
@@ -1189,12 +1583,14 @@ public class PlayerCultivation {
         tag.putString("SpecialPhysique", specialPhysique.name());
         tag.putInt("LifespanYears", lifespanYears);
         tag.putInt("AgeYears", ageYears);
+        tag.putBoolean("UsedReturnYangTrueWater", usedReturnYangTrueWater);
         tag.putInt("FailedBreakthroughs", failedBreakthroughs);
         tag.putBoolean("RootInitialized", rootInitialized);
         tag.putInt("SpiritualRootPurity", spiritualRootPurity);
         tag.putBoolean("SpiritualRootAwakened", spiritualRootAwakened);
         tag.putBoolean("SpiritualRootTested", spiritualRootTested);
         tag.putBoolean("MysticVialGranted", mysticVialGranted);
+        tag.put("SevenMysteriesQuest", sevenMysteriesQuest.saveNBT());
         tag.putBoolean("SevereInjury", severeInjury);
         tag.putInt("HeartDemonLevel", heartDemonLevel);
         tag.putInt("HeartDemonTriggerTicks", heartDemonTriggerTicks);
@@ -1202,6 +1598,23 @@ public class PlayerCultivation {
         tag.putInt("RealmFallScars", realmFallScars);
         tag.putInt("CultivationBoostTicks", cultivationBoostTicks);
         tag.putDouble("CultivationBoostMultiplier", cultivationBoostMultiplier);
+        tag.putDouble("MovementSpeedScale", movementSpeedScale);
+        tag.putString("WorldpackCurrentRegion", getWorldpackCurrentRegionId());
+        tag.putString("WorldpackActiveSecretRealm", getWorldpackActiveSecretRealmId());
+        tag.putString("WorldpackActiveDailyEvent", getWorldpackActiveDailyEventId());
+        tag.putLong("WorldpackDailyEventUntilTick", worldpackActiveDailyEventUntilTick);
+        CompoundTag worldpackReturnTag = new CompoundTag();
+        worldpackReturnTag.putBoolean("HasReturn", hasWorldpackReturnLocation());
+        worldpackReturnTag.putString("Dimension", getWorldpackReturnDimension());
+        worldpackReturnTag.putDouble("X", worldpackReturnX);
+        worldpackReturnTag.putDouble("Y", worldpackReturnY);
+        worldpackReturnTag.putDouble("Z", worldpackReturnZ);
+        worldpackReturnTag.putFloat("YRot", worldpackReturnYRot);
+        worldpackReturnTag.putFloat("XRot", worldpackReturnXRot);
+        tag.put("WorldpackReturn", worldpackReturnTag);
+        CompoundTag worldpackCooldownTag = new CompoundTag();
+        worldpackCooldownUntilTicks.forEach(worldpackCooldownTag::putLong);
+        tag.put("WorldpackCooldownUntilTicks", worldpackCooldownTag);
         tag.putInt("QiDevDecayTicks", qiDevDecayAccumulatorTicks);
         tag.putInt("LeylineQiDevDecayTicks", leylineQiDevDecayAccumulatorTicks);
         ListTag learnedTechniqueList = new ListTag();
@@ -1230,6 +1643,13 @@ public class PlayerCultivation {
         bodyRefinement = Math.max(0, tag.getInt("bodyRef"));
         qiDeviationRisk = loadPercentField(tag, "qiDevRisk", "qiDevRiskPercent", MAX_QI_DEVIATION_RISK);
         tribulationResistance = loadPercentField(tag, "tribRes", "tribResPercent", MAX_TRIBULATION_RESISTANCE);
+        loadTribulationData(tag);
+        try {
+            goldCoreGrade = tag.contains("GoldCoreGrade") ? GoldCoreGrade.valueOf(tag.getString("GoldCoreGrade")) : GoldCoreGrade.NONE;
+        } catch (Exception ignored) {
+            goldCoreGrade = GoldCoreGrade.NONE;
+        }
+        goldCoreScore = Math.max(0, tag.getInt("GoldCoreScore"));
         cultivationExp = tag.contains("cultivation") ? (int)Math.max(0L, Math.min(Integer.MAX_VALUE, tag.getLong("cultivation"))) : tag.getInt("CultivationExp");
         if (!loadRealmAndStage(tag)) {
             updateRealmFromCultivationExp();
@@ -1241,14 +1661,16 @@ public class PlayerCultivation {
         spiritualRoot = SpiritualRoot.fromName(tag.getString("SpiritualRoot"));
         loadSpiritualRootAttributes(tag);
         try { specialPhysique = SpecialPhysique.valueOf(tag.getString("SpecialPhysique")); } catch (Exception ignored) { specialPhysique = SpecialPhysique.NONE; }
-        lifespanYears = tag.contains("LifespanYears") ? tag.getInt("LifespanYears") : Realm.QI_REFINING.getLifespanYears();
+        lifespanYears = tag.contains("LifespanYears") ? tag.getInt("LifespanYears") : realm.getLifespanYears();
         ageYears = tag.contains("AgeYears") ? tag.getInt("AgeYears") : 16;
+        usedReturnYangTrueWater = tag.getBoolean("UsedReturnYangTrueWater");
         failedBreakthroughs = tag.getInt("FailedBreakthroughs");
         rootInitialized = tag.getBoolean("RootInitialized") || tag.contains("SpiritualRootAttributes") || tag.contains("SpiritualRootAttribute");
         spiritualRootPurity = tag.contains("SpiritualRootPurity") ? Math.max(1, Math.min(100, tag.getInt("SpiritualRootPurity"))) : 50;
         spiritualRootAwakened = !tag.contains("SpiritualRootAwakened") || tag.getBoolean("SpiritualRootAwakened");
         spiritualRootTested = tag.getBoolean("SpiritualRootTested");
         mysticVialGranted = tag.getBoolean("MysticVialGranted");
+        sevenMysteriesQuest.loadNBT(tag.contains("SevenMysteriesQuest") ? tag.getCompound("SevenMysteriesQuest") : new CompoundTag());
         severeInjury = tag.getBoolean("SevereInjury");
         heartDemonLevel = Math.max(0, tag.getInt("HeartDemonLevel"));
         heartDemonTriggerTicks = Math.max(0, tag.getInt("HeartDemonTriggerTicks"));
@@ -1258,6 +1680,35 @@ public class PlayerCultivation {
         cultivationBoostMultiplier = cultivationBoostTicks > 0 && tag.contains("CultivationBoostMultiplier")
                 ? Math.max(1.0D, tag.getDouble("CultivationBoostMultiplier"))
                 : 1.0D;
+        movementSpeedScale = tag.contains("MovementSpeedScale")
+                ? Math.max(0.0D, Math.min(1.0D, tag.getDouble("MovementSpeedScale")))
+                : 1.0D;
+        worldpackCurrentRegionId = cleanWorldpackId(tag.getString("WorldpackCurrentRegion"), "qinglan_mountains");
+        worldpackActiveSecretRealmId = cleanWorldpackId(tag.getString("WorldpackActiveSecretRealm"), "");
+        worldpackActiveDailyEventId = cleanWorldpackId(tag.getString("WorldpackActiveDailyEvent"), "");
+        worldpackActiveDailyEventUntilTick = Math.max(0L, tag.getLong("WorldpackDailyEventUntilTick"));
+        worldpackHasReturnLocation = false;
+        worldpackReturnDimension = "";
+        if (tag.contains("WorldpackReturn")) {
+            CompoundTag worldpackReturnTag = tag.getCompound("WorldpackReturn");
+            worldpackHasReturnLocation = worldpackReturnTag.getBoolean("HasReturn");
+            worldpackReturnDimension = worldpackReturnTag.getString("Dimension");
+            worldpackReturnX = worldpackReturnTag.getDouble("X");
+            worldpackReturnY = worldpackReturnTag.contains("Y") ? worldpackReturnTag.getDouble("Y") : 64.0D;
+            worldpackReturnZ = worldpackReturnTag.getDouble("Z");
+            worldpackReturnYRot = worldpackReturnTag.getFloat("YRot");
+            worldpackReturnXRot = worldpackReturnTag.getFloat("XRot");
+        }
+        worldpackCooldownUntilTicks.clear();
+        if (tag.contains("WorldpackCooldownUntilTicks")) {
+            CompoundTag worldpackCooldownTag = tag.getCompound("WorldpackCooldownUntilTicks");
+            for (String realmId : worldpackCooldownTag.getAllKeys()) {
+                long untilTick = worldpackCooldownTag.getLong(realmId);
+                if (!realmId.isBlank() && untilTick > 0L) {
+                    worldpackCooldownUntilTicks.put(cleanWorldpackId(realmId, ""), untilTick);
+                }
+            }
+        }
         qiDevDecayAccumulatorTicks = Math.max(0, tag.getInt("QiDevDecayTicks"));
         leylineQiDevDecayAccumulatorTicks = Math.max(0, tag.getInt("LeylineQiDevDecayTicks"));
         learnedTechniques.clear();
@@ -1281,9 +1732,10 @@ public class PlayerCultivation {
             fillDefaultTechniqueSlots();
         }
         techniqueCooldownUntilTicks.clear();
-        // M9: 旧存档冷却值基于 per-dimension gameTime，全局时钟迁移后清空
+        // M9: legacy cooldown values used per-dimension gameTime; clear them after global-time migration.
         if (tag.contains("TechniqueCooldownUntilTicks") && tag.getInt("CultivationNbtVersion") < 1) {
-            // 旧冷却值清空，首次登录重置全部冷却
+            // 鏃у喎鍗村€兼竻绌猴紝棣栨鐧诲綍閲嶇疆鍏ㄩ儴鍐峰嵈
+        } else if (tag.contains("TechniqueCooldownUntilTicks")) {
         } else if (tag.contains("TechniqueCooldownUntilTicks")) {
             CompoundTag cooldownTag = tag.getCompound("TechniqueCooldownUntilTicks");
             for (String techniqueId : cooldownTag.getAllKeys()) {

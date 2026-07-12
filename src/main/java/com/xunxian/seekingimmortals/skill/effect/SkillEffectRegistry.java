@@ -6,9 +6,19 @@ import java.util.Map;
 
 public class SkillEffectRegistry {
     private static final Map<SkillType, SkillEffect> EFFECTS = new HashMap<>();
+    private static final Map<String, SkillType> EFFECTS_BY_TECHNIQUE_ID = new HashMap<>();
 
     public static void register(SkillType type, SkillEffect effect) {
         EFFECTS.put(type, effect);
+        if (type.getTechniqueId() != null && !type.getTechniqueId().isBlank()) {
+            EFFECTS_BY_TECHNIQUE_ID.put(type.getTechniqueId(), type);
+        }
+    }
+
+    public static void registerTechniqueAlias(String techniqueId, SkillType type) {
+        if (techniqueId != null && !techniqueId.isBlank() && type != null) {
+            EFFECTS_BY_TECHNIQUE_ID.put(techniqueId, type);
+        }
     }
 
     public static SkillEffect get(SkillType type) {
@@ -24,6 +34,10 @@ public class SkillEffectRegistry {
         return null;
     }
 
+    public static SkillType byTechniqueId(String techniqueId) {
+        return techniqueId == null ? null : EFFECTS_BY_TECHNIQUE_ID.get(techniqueId);
+    }
+
     public static boolean hasEffect(SkillType type) {
         return EFFECTS.containsKey(type);
     }
@@ -32,15 +46,1325 @@ public class SkillEffectRegistry {
         // 法术
         register(SkillType.QI_GUIDING, new com.xunxian.seekingimmortals.skill.effect.spell.QiGuidingPassive());
         register(SkillType.FIREBALL, new com.xunxian.seekingimmortals.skill.effect.spell.FireballSpell());
+        register(SkillType.FIRE_BULLET, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 12.0D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                "message.seeking_immortals.spell.fire_bullet.success"));
+        register(SkillType.WATER_ARROW, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 10.0D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WATER,
+                "message.seeking_immortals.spell.water_arrow.success"));
+        register(SkillType.METAL_NEEDLE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 11.0D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.METAL,
+                "message.seeking_immortals.spell.metal_needle.success"));
+        register(SkillType.DARK_FLAME, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(9, 60, 19.0D, 1.10D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
+                "message.seeking_immortals.spell.dark_flame.success"));
+        register(SkillType.LIGHT_ORB, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 55, 17.0D, 1.08D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.LIGHT,
+                "message.seeking_immortals.spell.light_orb.success"));
+        register(SkillType.WIND_BLADE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 12.0D, 1.35D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WIND,
+                "message.seeking_immortals.spell.wind_blade.success"));
+        register(SkillType.VINE_ARROW, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 9.0D, 1.05D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WOOD,
+                "message.seeking_immortals.spell.vine_arrow.success"));
+        register(SkillType.THUNDER_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.ThunderPalmSpell());
+        register(SkillType.FLAME_RING, new com.xunxian.seekingimmortals.skill.effect.spell.FlameRingSpell());
+        register(SkillType.FROST_ARMOR, new com.xunxian.seekingimmortals.skill.effect.spell.FrostArmorSpell());
+        register(SkillType.GOLD_BEAM, new com.xunxian.seekingimmortals.skill.effect.spell.GoldBeamSpell());
+        register(SkillType.LAVA_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(14, 130, 13.5D, 19.0D, 3.7D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.lava_burst.success"));
+        register(SkillType.MIST_RAIN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(8, 90, 7.5D, 18.0D, 3.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.MIST_RAIN,
+                "message.seeking_immortals.spell.mist_rain.success"));
+        register(SkillType.SAND_STORM, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(12, 120, 10.5D, 18.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.SAND_STORM,
+                "message.seeking_immortals.spell.sand_storm.success"));
+        register(SkillType.BLIZZARD, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(13, 140, 12.0D, 19.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.BLIZZARD,
+                "message.seeking_immortals.spell.blizzard.success"));
+        register(SkillType.CYCLONE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 110, 9.5D, 19.0D, 3.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CYCLONE,
+                "message.seeking_immortals.spell.cyclone.success"));
+        register(SkillType.CHAIN_LIGHTNING, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(17, 170, 15.5D, 20.0D, 4.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CHAIN_THUNDER,
+                "message.seeking_immortals.spell.chain_lightning.success"));
+        register(SkillType.FIVE_THUNDER, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(25, 220, 50.0D, 22.0D, 4.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.FIVE_THUNDER,
+                "message.seeking_immortals.spell.five_thunder.success"));
+        register(SkillType.PURE_YANG_SWORD, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(21, 160, 42.0D, 24.0D, 0.62D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.PURE_YANG_SWORD,
+                "message.seeking_immortals.spell.pure_yang_sword.success"));
+        register(SkillType.TAOIST_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(14, 130, 28.0D, 18.0D, 0.9D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.TAOIST_SEAL,
+                "message.seeking_immortals.spell.taoist_seal.success"));
+        register(SkillType.CLOUD_WALK, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(12, 150, 0.0D, 0.0D, 2.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.CLOUD_WALK,
+                "message.seeking_immortals.spell.cloud_walk.success"));
+        register(SkillType.IMMORTAL_ROPE, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(16, 150, 33.0D, 20.0D, 0.82D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.IMMORTAL_ROPE,
+                "message.seeking_immortals.spell.immortal_rope.success"));
+        register(SkillType.BAGUA_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(22, 190, 44.0D, 20.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.BAGUA_SEAL,
+                "message.seeking_immortals.spell.bagua_seal.success"));
+        register(SkillType.DAO_NATURE_BREATH, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(10, 140, 25.0D, 0.0D, 2.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.DAO_NATURE_BREATH,
+                "message.seeking_immortals.spell.dao_nature_breath.success"));
+        register(SkillType.BUDDHA_LIGHT, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(19, 170, 38.0D, 20.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.BUDDHA_LIGHT,
+                "message.seeking_immortals.spell.buddha_light.success"));
+        register(SkillType.SARIRA_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(12, 190, 0.0D, 0.0D, 3.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.SARIRA_SHIELD,
+                "message.seeking_immortals.spell.sarira_shield.success"));
+        register(SkillType.DEMON_SUBDUE_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(22, 150, 45.0D, 8.5D, 1.45D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.DEMON_SUBDUE_PALM,
+                "message.seeking_immortals.spell.demon_subdue_palm.success"));
+        register(SkillType.ZEN_PULSE, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(15, 150, 30.0D, 0.0D, 4.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.ZEN_PULSE,
+                "message.seeking_immortals.spell.zen_pulse.success"));
+        register(SkillType.VAJRA_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(18, 145, 37.0D, 21.0D, 0.82D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.VAJRA_PALM,
+                "message.seeking_immortals.spell.vajra_palm.success"));
+        register(SkillType.DAJIN_BUDDHIST_VAJRA, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(18, 170, 45.0D, 10.0D, 1.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.DAJIN_BUDDHIST_VAJRA,
+                "message.seeking_immortals.spell.dajin_buddhist_vajra.success"));
+        register(SkillType.RIGHTEOUS_QI, new com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell(12, 160, 0.0D, 0.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell.ConfucianForm.RIGHTEOUS_QI,
+                "message.seeking_immortals.spell.righteous_qi.success"));
+        register(SkillType.WORD_SUPPRESS, new com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell(16, 150, 32.0D, 20.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell.ConfucianForm.WORD_SUPPRESS,
+                "message.seeking_immortals.spell.word_suppress.success"));
+        register(SkillType.SCROLL_STRIKE, new com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell(18, 145, 36.0D, 22.0D, 1.05D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell.ConfucianForm.SCROLL_STRIKE,
+                "message.seeking_immortals.spell.scroll_strike.success"));
+        register(SkillType.INK_SEA, new com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell(20, 210, 40.0D, 20.0D, 4.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell.ConfucianForm.INK_SEA,
+                "message.seeking_immortals.spell.ink_sea.success"));
+        register(SkillType.CONFUCIAN_RIGHTEOUS_QI, new com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell(18, 170, 37.0D, 24.0D, 0.82D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ConfucianSpell.ConfucianForm.CONFUCIAN_RIGHTEOUS_QI,
+                "message.seeking_immortals.spell.confucian_righteous_qi.success"));
+        register(SkillType.SMALL_SWORD_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(20, 160, 40.0D, 22.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SMALL_SWORD_ARRAY,
+                "message.seeking_immortals.spell.small_sword_array.success"));
+        register(SkillType.ILLUSION_FORMATION, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(12, 150, 25.0D, 20.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.ILLUSION_FORMATION,
+                "message.seeking_immortals.spell.illusion_formation.success"));
+        register(SkillType.SPIRIT_GATHER_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(12, 220, 0.0D, 0.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SPIRIT_GATHER_ARRAY,
+                "message.seeking_immortals.spell.spirit_gather_array.success"));
+        register(SkillType.THUNDER_TRAP_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(27, 220, 55.0D, 22.0D, 4.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.THUNDER_TRAP_ARRAY,
+                "message.seeking_immortals.spell.thunder_trap_array.success"));
+        register(SkillType.SEAL_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(15, 170, 30.0D, 20.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SEAL_ARRAY,
+                "message.seeking_immortals.spell.seal_array.success"));
+        register(SkillType.KILL_SWORD_FORMATION, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(30, 240, 60.0D, 22.0D, 4.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.KILL_SWORD_FORMATION,
+                "message.seeking_immortals.spell.kill_sword_formation.success"));
+        register(SkillType.DEFENSE_FORMATION, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(12, 220, 0.0D, 0.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.DEFENSE_FORMATION,
+                "message.seeking_immortals.spell.defense_formation.success"));
+        register(SkillType.SEA_LOCK_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(24, 220, 36.0D, 22.0D, 4.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SEA_LOCK_ARRAY,
+                "message.seeking_immortals.spell.sea_lock_array.success"));
+        register(SkillType.STAR_PALACE_PATROL_BEACON, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(18, 220, 0.0D, 0.0D, 7.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.STAR_PALACE_PATROL_BEACON,
+                "message.seeking_immortals.spell.star_palace_patrol_beacon.success"));
+        register(SkillType.FORMATION_TRAP_BASIC, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(18, 180, 28.0D, 20.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.FORMATION_TRAP_BASIC,
+                "message.seeking_immortals.spell.formation_trap_basic.success"));
+        register(SkillType.STAR_PALACE_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(26, 220, 60.0D, 24.0D, 4.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.STAR_PALACE_SEAL,
+                "message.seeking_immortals.spell.star_palace_seal.success"));
+        register(SkillType.KUNWU_SEAL_STRIKE, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(26, 210, 70.0D, 24.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.KUNWU_SEAL_STRIKE,
+                "message.seeking_immortals.spell.kunwu_seal_strike.success"));
+        register(SkillType.STAR_PALACE_TIDAL_LOCK, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(26, 240, 48.0D, 24.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.STAR_PALACE_TIDAL_LOCK,
+                "message.seeking_immortals.spell.star_palace_tidal_lock.success"));
         register(SkillType.ICE_CONE, new com.xunxian.seekingimmortals.skill.effect.spell.IceConeSpell());
+        register(SkillType.ICE_FREEZING, new com.xunxian.seekingimmortals.skill.effect.spell.IceConeSpell(
+                "message.seeking_immortals.spell.ice_freezing.success"));
+        register(SkillType.VINE_BIND, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(8, 80, 2.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 80, 3,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
+                net.minecraft.sounds.SoundEvents.GRASS_BREAK,
+                "message.seeking_immortals.spell.entangling.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.VOICE_TRANSMISSION, new com.xunxian.seekingimmortals.skill.effect.spell.VoiceTransmissionSpell(6, 80, 48.0D));
+        register(SkillType.EARTH_SPIKE, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(12, 60, 7.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 50, 1,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.STONE_BREAK,
+                "message.seeking_immortals.spell.earth_spike.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.OBJECT_CONTROL, new com.xunxian.seekingimmortals.skill.effect.spell.ObjectControlSpell(8, 60, 16.0D));
+        register(SkillType.QUICKSAND, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(12, 120, 1.0D, 18.0D, 3.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 4,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.SAND_BREAK,
+                "message.seeking_immortals.spell.quicksand.success",
+                "message.seeking_immortals.spell.area.fail"));
         register(SkillType.THUNDER_STRIKE, new com.xunxian.seekingimmortals.skill.effect.spell.ThunderStrikeSpell());
         register(SkillType.EARTH_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.EarthEscapeStepSpell());
         register(SkillType.FLYING_SWORD_BEGINNER, new com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordBeginnerSpell());
         register(SkillType.SINGLE_SWORD_THRUST, new com.xunxian.seekingimmortals.skill.effect.spell.SwordProjectileSpell(20, 20, 8.0D, 1));
         register(SkillType.THREE_TALENT_SWORD_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.SwordProjectileSpell(40, 60, 7.0D, 3));
+        register(SkillType.ELEMENTAL_BURST_FIRE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.20D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                "message.seeking_immortals.spell.elemental_burst_fire.success"));
+        register(SkillType.ELEMENTAL_BURST_WATER, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.18D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WATER,
+                "message.seeking_immortals.spell.elemental_burst_water.success"));
+        register(SkillType.ELEMENTAL_BURST_EARTH, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.02D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.EARTH,
+                "message.seeking_immortals.spell.elemental_burst_earth.success"));
+        register(SkillType.ELEMENTAL_BURST_WIND, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.38D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WIND,
+                "message.seeking_immortals.spell.elemental_burst_wind.success"));
+        register(SkillType.ELEMENTAL_BURST_METAL, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.28D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.METAL,
+                "message.seeking_immortals.spell.elemental_burst_metal.success"));
+        register(SkillType.ELEMENTAL_BURST_WOOD, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.10D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WOOD,
+                "message.seeking_immortals.spell.elemental_burst_wood.success"));
+        register(SkillType.ELEMENTAL_BURST_ICE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.12D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE,
+                "message.seeking_immortals.spell.elemental_burst_ice.success"));
+        register(SkillType.ELEMENTAL_BURST_THUNDER, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.45D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.THUNDER,
+                "message.seeking_immortals.spell.elemental_burst_thunder.success"));
+        register(SkillType.ICE_SPEAR, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.30D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE_SPEAR,
+                "message.seeking_immortals.spell.ice_spear.success"));
+        register(SkillType.FLAME_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 37.0D, 1.18D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FLAME_BURST,
+                "message.seeking_immortals.spell.flame_burst.success"));
+        register(SkillType.HUANGFENG_FIRE_SERPENT, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 150, 42.0D, 1.32D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE_SERPENT,
+                "message.seeking_immortals.spell.huangfeng_fire_serpent.success"));
+        register(SkillType.LUOYUN_SPIRIT_FLAME, new com.xunxian.seekingimmortals.skill.effect.spell.SpiritFlameBeamSpell());
+        register(SkillType.ICE_JADE_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell(22, 180, 0.0D, 18.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell.UtilityElement.ICE_JADE_SHIELD,
+                "message.seeking_immortals.spell.ice_jade_shield.success"));
+        register(SkillType.WOOD_SPIRIT_VINE, new com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell(20, 160, 8.0D, 20.0D, 1.3D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell.UtilityElement.WOOD_SPIRIT_VINE,
+                "message.seeking_immortals.spell.wood_spirit_vine.success"));
+        register(SkillType.WATER_MIRROR_REFLECT, new com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell(20, 180, 0.0D, 18.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell.UtilityElement.WATER_MIRROR_REFLECT,
+                "message.seeking_immortals.spell.water_mirror_reflect.success"));
+        register(SkillType.HEAL_QI, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(15, 120, 22.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.HEAL_QI,
+                "message.seeking_immortals.spell.heal_qi.success"));
+        register(SkillType.DETOXIFY, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(12, 110, 0.0D, 2.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.DETOXIFY,
+                "message.seeking_immortals.spell.detoxify.success"));
+        register(SkillType.SPIRIT_RECOVERY, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(12, 140, 8.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_RECOVERY,
+                "message.seeking_immortals.spell.spirit_recovery.success"));
+        register(SkillType.BODY_REPAIR, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(20, 160, 9.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.BODY_REPAIR,
+                "message.seeking_immortals.spell.body_repair.success"));
+        register(SkillType.GROUP_HEAL, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(25, 240, 8.0D, 5.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.GROUP_HEAL,
+                "message.seeking_immortals.spell.group_heal.success"));
+        register(SkillType.REVIVE_WEAK, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(12, 220, 6.0D, 2.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.REVIVE_WEAK,
+                "message.seeking_immortals.spell.revive_weak.success"));
+        register(SkillType.SPIRIT_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(10, 180, 0.0D, 3.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_SHIELD,
+                "message.seeking_immortals.spell.spirit_shield.success"));
+        register(SkillType.TRIBULATION_THUNDER_WARD, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(34, 360, 0.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.TRIBULATION_THUNDER_WARD,
+                "message.seeking_immortals.spell.tribulation_thunder_ward.success"));
+        register(SkillType.MIRROR_PHANTOM, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(8, 100, 10.0D, 18.0D, 0.85D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIRROR_PHANTOM,
+                "message.seeking_immortals.spell.mirror_phantom.success"));
+        register(SkillType.HUNDRED_ILLUSION, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(17, 180, 35.0D, 20.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.HUNDRED_ILLUSION,
+                "message.seeking_immortals.spell.hundred_illusion.success"));
+        register(SkillType.MIND_CONFUSION, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(9, 120, 18.0D, 18.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
+                "message.seeking_immortals.spell.mind_confusion.success"));
+        register(SkillType.VOID_STEP, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(11, 120, 22.0D, 8.5D, 1.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.void_step.success"));
+        register(SkillType.DREAM_SNARE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(13, 150, 26.0D, 20.0D, 1.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.DREAM_SNARE,
+                "message.seeking_immortals.spell.dream_snare.success"));
+        register(SkillType.CLONE_IMAGE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(12, 180, 0.0D, 0.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.CLONE_IMAGE,
+                "message.seeking_immortals.spell.clone_image.success"));
+        register(SkillType.VEIL_OF_MOON, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(20, 200, 0.0D, 0.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VEIL_OF_MOON,
+                "message.seeking_immortals.spell.veil_of_moon.success"));
+        register(SkillType.INVISIBILITY_BASIC, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 220, 0.0D, 0.0D, 2.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVISIBILITY_BASIC,
+                "message.seeking_immortals.spell.invisibility_basic.success"));
+        register(SkillType.ILLUSION_MIST, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 180, 0.0D, 0.0D, 4.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.ILLUSION_MIST,
+                "message.seeking_immortals.spell.illusion_mist.success"));
+        register(SkillType.INVERSE_STAR_VEIL, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 220, 0.0D, 0.0D, 4.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVERSE_STAR_VEIL,
+                "message.seeking_immortals.spell.inverse_star_veil.success"));
+        register(SkillType.YANYUE_MOON_ILLUSION, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 220, 0.0D, 0.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.YANYUE_MOON_ILLUSION,
+                "message.seeking_immortals.spell.yanyue_moon_illusion.success"));
+        register(SkillType.YANYUE_PHANTOM_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(38, 300, 72.0D, 24.0D, 6.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.YANYUE_PHANTOM_ARRAY,
+                "message.seeking_immortals.spell.yanyue_phantom_array.success"));
+        register(SkillType.WANHU_NINE_ILLUSION, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(26, 260, 62.0D, 22.0D, 5.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.WANHU_NINE_ILLUSION,
+                "message.seeking_immortals.spell.wanhu_nine_illusion.success"));
+        register(SkillType.SOUL_DEVOURING_CLOUD, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(8, 180, 6.0D, 18.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.SOUL_DEVOURING_CLOUD,
+                "message.seeking_immortals.spell.soul_devouring_cloud.success"));
+        register(SkillType.YIN_SOUL_CHAIN, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(14, 140, 28.0D, 20.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.YIN_SOUL_CHAIN,
+                "message.seeking_immortals.spell.yin_soul_chain.success"));
+        register(SkillType.UNDERWORLD_FLAME, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(19, 150, 38.0D, 22.0D, 0.72D,
+                com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.UNDERWORLD_FLAME,
+                "message.seeking_immortals.spell.underworld_flame.success"));
+        register(SkillType.CORPSE_ARMOR, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(12, 220, 0.0D, 0.0D, 2.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.CORPSE_ARMOR,
+                "message.seeking_immortals.spell.corpse_armor.success"));
+        register(SkillType.QINGYUAN_SWORD_RAY, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(22, 150, 45.0D, 24.0D, 0.62D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.QINGYUAN_SWORD_RAY,
+                "message.seeking_immortals.spell.qingyuan_sword_ray.success"));
+        register(SkillType.FLYING_SWORD_STRIKE, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(19, 120, 38.0D, 22.0D, 0.9D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.FLYING_SWORD_STRIKE,
+                "message.seeking_immortals.spell.flying_sword_strike.success"));
+        register(SkillType.GREEN_BAMBOO_SWORD_QI, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(20, 140, 40.0D, 23.0D, 0.68D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.GREEN_BAMBOO_SWORD_QI,
+                "message.seeking_immortals.spell.green_bamboo_sword_qi.success"));
+        register(SkillType.SWORD_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(12, 180, 0.0D, 0.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.SWORD_SHIELD,
+                "message.seeking_immortals.spell.sword_shield.success"));
+        register(SkillType.SWORD_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(15, 150, 30.0D, 14.0D, 1.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.SWORD_ESCAPE,
+                "message.seeking_immortals.spell.sword_escape.success"));
+        register(SkillType.THOUSAND_SWORD_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(40, 240, 80.0D, 22.0D, 4.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.THOUSAND_SWORD_ARRAY,
+                "message.seeking_immortals.spell.thousand_sword_array.success"));
+        register(SkillType.BLOOD_SWORD_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(25, 150, 50.0D, 7.5D, 1.35D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.BLOOD_SWORD_SLASH,
+                "message.seeking_immortals.spell.blood_sword_slash.success"));
+        register(SkillType.SWORD_MERGE, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(12, 220, 0.0D, 0.0D, 2.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.SWORD_MERGE,
+                "message.seeking_immortals.spell.sword_merge.success"));
+        register(SkillType.INVISIBLE_SWORD, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(26, 160, 52.0D, 26.0D, 0.44D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.INVISIBLE_SWORD,
+                "message.seeking_immortals.spell.invisible_sword.success"));
+        register(SkillType.SWORD_DOMAIN, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(35, 260, 70.0D, 0.0D, 5.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.SWORD_DOMAIN,
+                "message.seeking_immortals.spell.sword_domain.success"));
+        register(SkillType.DUAL_SWORD_DANCE, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(24, 130, 48.0D, 8.5D, 1.15D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.DUAL_SWORD_DANCE,
+                "message.seeking_immortals.spell.dual_sword_dance.success"));
+        register(SkillType.PRIMORDIAL_MAGNET_SPHERE, new com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell(26, 220, 80.0D, 24.0D, 4.3D,
+                com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell.CoreElement.PRIMORDIAL_MAGNET,
+                "message.seeking_immortals.spell.primordial_magnet_sphere.success"));
+        register(SkillType.FLAME_SERPENT_STORM, new com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell(30, 220, 75.0D, 21.0D, 4.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell.CoreElement.FLAME_SERPENT_STORM,
+                "message.seeking_immortals.spell.flame_serpent_storm.success"));
+        register(SkillType.EARTH_MOUNTAIN_PRESS, new com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell(28, 210, 65.0D, 20.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell.CoreElement.EARTH_MOUNTAIN_PRESS,
+                "message.seeking_immortals.spell.earth_mountain_press.success"));
+        register(SkillType.XUANTIAN_ICE_PRISON, new com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell(30, 240, 42.0D, 20.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.CoreElementalAreaSpell.CoreElement.XUANTIAN_ICE_PRISON,
+                "message.seeking_immortals.spell.xuantian_ice_prison.success"));
+        register(SkillType.SENSE_SCAN, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(12, 120, 0.0D, 22.0D, 0.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_SCAN,
+                "message.seeking_immortals.spell.sense_scan.success"));
+        register(SkillType.SENSE_PRESSURE, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(12, 130, 25.0D, 20.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_PRESSURE,
+                "message.seeking_immortals.spell.sense_pressure.success"));
+        register(SkillType.SENSE_NEEDLE, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(15, 140, 30.0D, 22.0D, 0.45D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_NEEDLE,
+                "message.seeking_immortals.spell.sense_needle.success"));
+        register(SkillType.SENSE_DOMAIN, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(22, 190, 45.0D, 0.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_DOMAIN,
+                "message.seeking_immortals.spell.sense_domain.success"));
+        register(SkillType.MIND_READ, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(12, 160, 0.0D, 18.0D, 0.9D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.MIND_READ,
+                "message.seeking_immortals.spell.mind_read.success"));
+        register(SkillType.SENSE_LOCK, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(20, 180, 40.0D, 24.0D, 1.15D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_LOCK,
+                "message.seeking_immortals.spell.sense_lock.success"));
+        register(SkillType.DIVINE_SENSE_SCAN, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(18, 180, 0.0D, 32.0D, 0.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.DIVINE_SENSE_SCAN,
+                "message.seeking_immortals.spell.divine_sense_scan.success"));
+        register(SkillType.DIVINE_SENSE_LOCK, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(26, 220, 55.0D, 30.0D, 1.45D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.DIVINE_SENSE_LOCK,
+                "message.seeking_immortals.spell.divine_sense_lock.success"));
+        register(SkillType.SOUL_ATTACK_WAVE, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(26, 200, 60.0D, 24.0D, 1.85D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SOUL_ATTACK_WAVE,
+                "message.seeking_immortals.spell.soul_attack_wave.success"));
+        register(SkillType.SOUL_CRY_SHOCK, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(26, 240, 60.0D, 0.0D, 6.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SOUL_CRY_SHOCK,
+                "message.seeking_immortals.spell.soul_cry_shock.success"));
+        register(SkillType.BLOOD_SHADOW_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(35, 200, 58.0D, 16.0D, 1.25D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.BLOOD_SHADOW_ESCAPE,
+                "message.seeking_immortals.spell.blood_shadow_escape.success"));
+        register(SkillType.SKY_SUPPORTING_DEMONIC_SKILL, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(32, 260, 0.0D, 0.0D, 4.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.SKY_SUPPORTING_DEMONIC_SKILL,
+                "message.seeking_immortals.spell.sky_supporting_demonic_skill.success"));
+        register(SkillType.MYSTIC_SOUL_GHOST_FIRE, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(30, 180, 82.0D, 24.0D, 0.85D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.MYSTIC_SOUL_GHOST_FIRE,
+                "message.seeking_immortals.spell.mystic_soul_ghost_fire.success"));
+        register(SkillType.MYSTIC_SOUL_BONE_CONDENSING_ART, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(24, 240, 0.0D, 0.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.MYSTIC_SOUL_BONE_CONDENSING_ART,
+                "message.seeking_immortals.spell.mystic_soul_bone_condensing_art.success"));
+        register(SkillType.BLOOD_LUO_BARRIER, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(34, 240, 30.0D, 0.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.BLOOD_LUO_BARRIER,
+                "message.seeking_immortals.spell.blood_luo_barrier.success"));
+        register(SkillType.YIN_DEMON_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(32, 190, 88.0D, 18.0D, 1.1D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.YIN_DEMON_SLASH,
+                "message.seeking_immortals.spell.yin_demon_slash.success"));
+        register(SkillType.FIVE_ELEMENT_FUSION_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell(48, 320, 80.0D, 24.0D, 4.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell.SecretElement.FIVE_ELEMENT_FUSION,
+                "message.seeking_immortals.spell.five_element_fusion_burst.success"));
+        register(SkillType.LIFE_FIRE, new com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell(42, 320, 85.0D, 24.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell.SecretElement.LIFE_FIRE,
+                "message.seeking_immortals.spell.life_fire.success"));
+        register(SkillType.LIEYAN_TRUE_FIRE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell(54, 360, 90.0D, 26.0D, 4.6D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SecretElementalSpell.SecretElement.TRUE_FIRE_HEAVEN,
+                "message.seeking_immortals.spell.lieyan_true_fire_secret.success"));
+        register(SkillType.DIVINE_SENSE_EXPANSION, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseExpansionPassive());
+        register(SkillType.FLYING_SWORD_ADVANCED, new com.xunxian.seekingimmortals.skill.effect.spell.FlyingSwordAdvancedSpell());
+        register(SkillType.AURA_BODY_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.AuraBodyShieldSpell());
+        register(SkillType.WATER_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(30, 220,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 0,
+                net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE, 180, 0,
+                net.minecraft.core.particles.ParticleTypes.BUBBLE,
+                net.minecraft.sounds.SoundEvents.BUCKET_FILL,
+                "message.seeking_immortals.spell.water_shield.success"));
+        register(SkillType.EARTH_PRISON, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(35, 180, 3.0D, 20.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 4,
+                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 120, 1,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.STONE_PLACE,
+                "message.seeking_immortals.spell.earth_prison.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.WIND_BINDING, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(28, 160, 1.0D, 22.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 3,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.CLOUD,
+                net.minecraft.sounds.SoundEvents.TRIDENT_THROW,
+                "message.seeking_immortals.spell.wind_binding.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.WIND_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.WindWallSpell(32, 200, 160, 4.5D));
+        register(SkillType.FIVE_ELEMENTS_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.FiveElementsEscapeSpell());
+        register(SkillType.BIG_DIPPER_SWORD_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.MultiSwordArraySpell(80, 160, 9.0D, 7, "北斗剑阵七星齐出。"));
+        register(SkillType.FORMATION_SENSE, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSenseSpell());
         register(SkillType.DETECTION, new com.xunxian.seekingimmortals.skill.effect.spell.DetectionSpell());
         register(SkillType.INVISIBILITY, new com.xunxian.seekingimmortals.skill.effect.spell.InvisibilitySpell());
         register(SkillType.LIGHTNESS_SKILL, new com.xunxian.seekingimmortals.skill.effect.spell.LightBodySpell());
         register(SkillType.EARTH_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.EarthWallSpell());
+        register(SkillType.ICE_SHARD, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 13.0D, 1.20D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE,
+                        "message.seeking_immortals.spell.ice_shard.success"));
+        register(SkillType.WOOD_BIND, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(8, 80, 2.0D, 18.0D,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 90, 3,
+                        net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 90, 0,
+                        net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
+                        net.minecraft.sounds.SoundEvents.GRASS_BREAK,
+                        "message.seeking_immortals.spell.wood_bind.success",
+                        "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.STEAM_CLOUD, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(8, 100, 1.0D, 16.0D, 3.2D,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 2,
+                        net.minecraft.world.effect.MobEffects.BLINDNESS, 60, 0,
+                        net.minecraft.core.particles.ParticleTypes.CLOUD,
+                        net.minecraft.sounds.SoundEvents.FIRE_EXTINGUISH,
+                        "message.seeking_immortals.spell.steam_cloud.success",
+                        "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.EVIL_WARD_THUNDER, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(26, 160, 49.0D, 1.40D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.THUNDER,
+                        "message.seeking_immortals.spell.evil_ward_thunder.success"));
+        register(SkillType.METAL_SWORD_FINGER, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(12, 80, 40.0D, 22.0D, 0.55D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.QINGYUAN_SWORD_RAY,
+                        "message.seeking_immortals.spell.metal_sword_finger.success"));
+        register(SkillType.GREEN_BAMBOO_SWORD_RAY, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(26, 150, 49.0D, 24.0D, 0.60D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.GREEN_BAMBOO_SWORD_QI,
+                        "message.seeking_immortals.spell.green_bamboo_sword_ray.success"));
+        register(SkillType.STAR_SWORD_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(35, 220, 70.0D, 22.0D, 4.5D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.THOUSAND_SWORD_ARRAY,
+                        "message.seeking_immortals.spell.star_sword_array.success"));
+        register(SkillType.SWORD_FORMATION_BASIC, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(26, 180, 49.0D, 22.0D, 3.8D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SMALL_SWORD_ARRAY,
+                        "message.seeking_immortals.spell.sword_formation_basic.success"));
+        register(SkillType.QINGLUO_POISON_NEEDLE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 100, 35.0D, 1.25D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
+                        "message.seeking_immortals.spell.qingluo_poison_needle.success"));
+        register(SkillType.DEMON_FLAME, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(21, 160, 42.0D, 18.0D, 3.6D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                        "message.seeking_immortals.spell.demon_flame.success"));
+        register(SkillType.BLOOD_SACRIFICE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 200,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 160, 1,
+                        net.minecraft.world.effect.MobEffects.ABSORPTION, 160, 0,
+                        net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
+                        net.minecraft.sounds.SoundEvents.WARDEN_HEARTBEAT,
+                        "message.seeking_immortals.spell.blood_sacrifice.success"));
+        register(SkillType.BLOOD_CURSE_MARK, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(28, 160, 12.0D, 20.0D,
+                        net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                        net.minecraft.world.effect.MobEffects.WITHER, 80, 0,
+                        net.minecraft.core.particles.ParticleTypes.DAMAGE_INDICATOR,
+                        net.minecraft.sounds.SoundEvents.SCULK_SHRIEKER_SHRIEK,
+                        "message.seeking_immortals.spell.blood_curse_mark.success",
+                        "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEMON_ARMOR, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 200,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 0,
+                        net.minecraft.world.effect.MobEffects.ABSORPTION, 180, 1,
+                        net.minecraft.core.particles.ParticleTypes.SMOKE,
+                        net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_NETHERITE,
+                        "message.seeking_immortals.spell.demon_armor.success"));
+        register(SkillType.FOX_PHANTOM_SHIFT, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 160, 0.0D, 0.0D, 3.5D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                        "message.seeking_immortals.spell.fox_phantom_shift.success"));
+        register(SkillType.NETHER_GHOST_WALK, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 120,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 140, 1,
+                        net.minecraft.world.effect.MobEffects.JUMP, 140, 0,
+                        net.minecraft.core.particles.ParticleTypes.SOUL,
+                        net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                        "message.seeking_immortals.spell.nether_ghost_walk.success"));
+        register(SkillType.YIN_SOUL_DEVOUR, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(14, 140, 28.0D, 18.0D, 0.95D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.YIN_SOUL_CHAIN,
+                        "message.seeking_immortals.spell.yin_soul_devour.success"));
+        register(SkillType.SPIRIT_ART_WIND_BLADE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 40, 14.0D, 1.35D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WIND,
+                        "message.seeking_immortals.spell.spirit_art_wind_blade.success"));
+        register(SkillType.SPIRIT_ART_THUNDER, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(11, 60, 22.0D, 1.40D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.THUNDER,
+                        "message.seeking_immortals.spell.spirit_art_thunder.success"));
+        register(SkillType.SPIRIT_ART_HEAL, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(15, 120, 22.0D, 2.0D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.HEAL_QI,
+                        "message.seeking_immortals.spell.spirit_art_heal.success"));
+        register(SkillType.SPIRIT_ART_SAND_STORM, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(18, 140, 22.0D, 18.0D, 3.5D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.SAND_STORM,
+                        "message.seeking_immortals.spell.spirit_art_sand_storm.success"));
+        register(SkillType.SPIRIT_ART_EARTH_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.EarthWallSpell());
+        register(SkillType.SPIRIT_ART_HOLY_LIGHT, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(17, 140, 18.0D, 2.2D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.BODY_REPAIR,
+                        "message.seeking_immortals.spell.spirit_art_holy_light.success"));
+        register(SkillType.SPIRIT_ART_WIND_RIDE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(10, 140,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                        net.minecraft.world.effect.MobEffects.SLOW_FALLING, 160, 0,
+                        net.minecraft.core.particles.ParticleTypes.CLOUD,
+                        net.minecraft.sounds.SoundEvents.ELYTRA_FLYING,
+                        "message.seeking_immortals.spell.spirit_art_wind_ride.success"));
+        register(SkillType.VAJRA_BODY, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 200,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 1,
+                        net.minecraft.world.effect.MobEffects.ABSORPTION, 200, 0,
+                        net.minecraft.core.particles.ParticleTypes.CRIT,
+                        net.minecraft.sounds.SoundEvents.ANVIL_LAND,
+                        "message.seeking_immortals.spell.vajra_body.success"));
+        register(SkillType.IRON_SKIN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 180,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 0,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 100, 0,
+                        net.minecraft.core.particles.ParticleTypes.CRIT,
+                        net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_IRON,
+                        "message.seeking_immortals.spell.iron_skin.success"));
+        register(SkillType.DRAGON_STRENGTH, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 180,
+                        net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 180, 1,
+                        net.minecraft.world.effect.MobEffects.DIG_SPEED, 180, 0,
+                        net.minecraft.core.particles.ParticleTypes.ANGRY_VILLAGER,
+                        net.minecraft.sounds.SoundEvents.RAVAGER_ROAR,
+                        "message.seeking_immortals.spell.dragon_strength.success"));
+        register(SkillType.BODY_FLASH, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(10, 80, 0.0D, 0.0D, 2.0D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.CLOUD_WALK,
+                        "message.seeking_immortals.spell.body_flash.success"));
+        register(SkillType.PALM_WIND, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(12, 60, 25.0D, 8.0D,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 1,
+                        null, 0, 0,
+                        net.minecraft.core.particles.ParticleTypes.CLOUD,
+                        net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP,
+                        "message.seeking_immortals.spell.palm_wind.success",
+                        "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BONE_CRUSH, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(16, 80, 32.0D, 6.0D,
+                        net.minecraft.world.effect.MobEffects.WEAKNESS, 60, 0,
+                        net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 1,
+                        net.minecraft.core.particles.ParticleTypes.CRIT,
+                        net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_CRIT,
+                        "message.seeking_immortals.spell.bone_crush.success",
+                        "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.TIANYUAN_JOINT_ARRAY, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(40, 260, 90.0D, 24.0D, 5.0D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.KILL_SWORD_FORMATION,
+                        "message.seeking_immortals.spell.tianyuan_joint_array.success"));
+        register(SkillType.SOUL_DEVOUR, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(17, 140, 35.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 1,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.WARDEN_SONIC_BOOM,
+                "message.seeking_immortals.spell.soul_devour.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEMON_FORM, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 220,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 200, 1,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 0,
+                net.minecraft.core.particles.ParticleTypes.SMOKE,
+                net.minecraft.sounds.SoundEvents.RAVAGER_ROAR,
+                "message.seeking_immortals.spell.demon_form.success"));
+        register(SkillType.DEMON_CONTRACT, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(19, 160, 38.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                net.minecraft.world.effect.MobEffects.GLOWING, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.SMOKE,
+                net.minecraft.sounds.SoundEvents.SCULK_SHRIEKER_SHRIEK,
+                "message.seeking_immortals.spell.demon_contract.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.HEHUAN_CHARM, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 140, 18.0D, 18.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
+                "message.seeking_immortals.spell.hehuan_charm.success"));
+        register(SkillType.BLOOD_CURSE_STRIKE, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(18, 120, 37.0D, 18.0D, 0.7D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.BLOOD_SWORD_SLASH,
+                "message.seeking_immortals.spell.blood_curse_strike.success"));
+        register(SkillType.POISON_MIST, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(18, 150, 8.0D, 16.0D, 3.5D,
+                net.minecraft.world.effect.MobEffects.POISON, 120, 0,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 1,
+                net.minecraft.core.particles.ParticleTypes.SPORE_BLOSSOM_AIR,
+                net.minecraft.sounds.SoundEvents.BREWING_STAND_BREW,
+                "message.seeking_immortals.spell.poison_mist.success",
+                "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.DEMON_CLAW, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(18, 100, 37.0D, 7.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 60, 0,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_STRONG,
+                "message.seeking_immortals.spell.demon_claw.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BLOOD_DEMON_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(28, 140, 85.0D, 8.0D, 1.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.BLOOD_SWORD_SLASH,
+                "message.seeking_immortals.spell.blood_demon_slash.success"));
+        register(SkillType.SOUL_BANNER_WAVE, new com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell(22, 180, 40.0D, 18.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.XuanYinSpell.XuanYinForm.SOUL_DEVOURING_CLOUD,
+                "message.seeking_immortals.spell.soul_banner_wave.success"));
+        register(SkillType.YIN_LUO_GHOST_CLOAK, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 200, 0.0D, 0.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVISIBILITY_BASIC,
+                "message.seeking_immortals.spell.yin_luo_ghost_cloak.success"));
+        register(SkillType.GHOST_WALK, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 120,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 140, 1,
+                net.minecraft.world.effect.MobEffects.INVISIBILITY, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                "message.seeking_immortals.spell.ghost_walk.success"));
+        register(SkillType.SHORT_TELEPORT, new com.xunxian.seekingimmortals.skill.effect.spell.EarthEscapeStepSpell());
+        register(SkillType.WIND_RIDE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 120,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                net.minecraft.world.effect.MobEffects.SLOW_FALLING, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.CLOUD,
+                net.minecraft.sounds.SoundEvents.ELYTRA_FLYING,
+                "message.seeking_immortals.spell.wind_ride.success"));
+        register(SkillType.SHADOW_FLASH, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(12, 100, 0.0D, 0.0D, 2.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.shadow_flash.success"));
+        register(SkillType.WATER_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 140,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                net.minecraft.world.effect.MobEffects.DOLPHINS_GRACE, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.BUBBLE,
+                net.minecraft.sounds.SoundEvents.BUCKET_FILL,
+                "message.seeking_immortals.spell.water_escape.success"));
+        register(SkillType.FIRE_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 140,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                net.minecraft.world.effect.MobEffects.FIRE_RESISTANCE, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.FLAME,
+                net.minecraft.sounds.SoundEvents.FIRECHARGE_USE,
+                "message.seeking_immortals.spell.fire_escape.success"));
+        register(SkillType.QI_BURST_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(14, 70, 28.0D, 7.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 0,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_KNOCKBACK,
+                "message.seeking_immortals.spell.qi_burst_palm.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BODY_HARDNESS, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(26, 240,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 220, 1,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 220, 1,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.ANVIL_LAND,
+                "message.seeking_immortals.spell.body_hardness.success"));
+        register(SkillType.TIANMO_BLOOD_ARMOR, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 200,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 1,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 180, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
+                net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_NETHERITE,
+                "message.seeking_immortals.spell.tianmo_blood_armor.success"));
+        register(SkillType.SMUGGLE_RIFT_STEP, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(16, 120, 0.0D, 0.0D, 2.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.smuggle_rift_step.success"));
+        register(SkillType.INVERSE_STAR_SHADOW_STEP, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 140, 0.0D, 0.0D, 3.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVERSE_STAR_VEIL,
+                "message.seeking_immortals.spell.inverse_star_shadow_step.success"));
+        register(SkillType.XUEWU_BLOOD_CURSE_MARK, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(18, 150, 10.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                net.minecraft.world.effect.MobEffects.GLOWING, 120, 0,
+                net.minecraft.core.particles.ParticleTypes.DAMAGE_INDICATOR,
+                net.minecraft.sounds.SoundEvents.SCULK_SHRIEKER_SHRIEK,
+                "message.seeking_immortals.spell.xuewu_blood_curse_mark.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.FIRE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(10, 40, 16.0D, 1.15D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                "message.seeking_immortals.spell.fire_talisman.success"));
+        register(SkillType.ICE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(9, 40, 14.0D, 1.15D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE,
+                "message.seeking_immortals.spell.ice_talisman.success"));
+        register(SkillType.TELEPORT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.EarthEscapeStepSpell());
+        register(SkillType.SPIRIT_SHIELD_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 160,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 160, 0,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.END_ROD,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.spirit_shield_talisman.success"));
+        register(SkillType.EXPLOSION_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(17, 140, 28.0D, 16.0D, 3.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.explosion_talisman.success"));
+        register(SkillType.WIND_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 120,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                net.minecraft.world.effect.MobEffects.JUMP, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.CLOUD,
+                net.minecraft.sounds.SoundEvents.ELYTRA_FLYING,
+                "message.seeking_immortals.spell.wind_talisman.success"));
+        register(SkillType.SEAL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(12, 100, 4.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 3,
+                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 100, 1,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,
+                "message.seeking_immortals.spell.seal_talisman.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.GHOST_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(14, 120, 22.0D, 16.0D, 3.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CHAIN_THUNDER,
+                "message.seeking_immortals.spell.ghost_talisman.success"));
+        register(SkillType.SPIRIT_CHAIN_TALISMAN_CAST, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(16, 140, 8.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 3,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.CHAIN_PLACE,
+                "message.seeking_immortals.spell.spirit_chain_talisman_cast.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.GOLDEN_ARMOR_TALISMAN_CAST, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(14, 180,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 1,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 180, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_GOLD,
+                "message.seeking_immortals.spell.golden_armor_talisman_cast.success"));
+        register(SkillType.THUNDER_TALISMAN_STORM, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(32, 200, 55.0D, 20.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CHAIN_THUNDER,
+                "message.seeking_immortals.spell.thunder_talisman_storm.success"));
+        register(SkillType.PALM_THUNDER, new com.xunxian.seekingimmortals.skill.effect.spell.ThunderPalmSpell());
+        register(SkillType.BLOOD_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(10, 100,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 120, 1,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
+                net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                "message.seeking_immortals.spell.blood_escape.success"));
+        register(SkillType.EARTH_BURROW, new com.xunxian.seekingimmortals.skill.effect.spell.EarthEscapeStepSpell());
+        register(SkillType.GREEN_SHIELD, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(10, 160,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 160, 0,
+                net.minecraft.world.effect.MobEffects.REGENERATION, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.green_shield.success"));
+        register(SkillType.SOUL_CHOP, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(10, 80, 20.0D, 1.20D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
+                "message.seeking_immortals.spell.soul_chop.success"));
+        register(SkillType.DEMON_ROAR, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 120, 18.0D, 14.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CYCLONE,
+                "message.seeking_immortals.spell.demon_roar.success"));
+        register(SkillType.SPIRIT_NEEDLE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(10, 50, 15.0D, 1.30D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.METAL,
+                "message.seeking_immortals.spell.spirit_needle.success"));
+        register(SkillType.ICE_PRISON, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(10, 140, 6.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 4,
+                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 100, 1,
+                net.minecraft.core.particles.ParticleTypes.SNOWFLAKE,
+                net.minecraft.sounds.SoundEvents.GLASS_BREAK,
+                "message.seeking_immortals.spell.ice_prison.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.FIRE_RAIN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 140, 20.0D, 16.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.fire_rain.success"));
+        register(SkillType.SAND_BURY, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(10, 120, 2.0D, 14.0D, 3.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 3,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.SAND_BREAK,
+                "message.seeking_immortals.spell.sand_bury.success",
+                "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.GHOST_BIND, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(10, 100, 5.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 3,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                "message.seeking_immortals.spell.ghost_bind.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.CORPSE_EXPLODE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 160, 24.0D, 14.0D, 3.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.corpse_explode.success"));
+        register(SkillType.SWORD_RAIN, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(10, 160, 30.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.THOUSAND_SWORD_ARRAY,
+                "message.seeking_immortals.spell.sword_rain.success"));
+        register(SkillType.MIRROR_REFLECT, new com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell(10, 180, 0.0D, 16.0D, 4.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FoundationElementalUtilitySpell.UtilityElement.WATER_MIRROR_REFLECT,
+                "message.seeking_immortals.spell.mirror_reflect.success"));
+        register(SkillType.WATER_DRAGON, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(10, 90, 22.0D, 1.18D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WATER,
+                "message.seeking_immortals.spell.water_dragon.success"));
+        register(SkillType.GOLD_NEEDLE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(10, 40, 14.0D, 1.28D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.METAL,
+                "message.seeking_immortals.spell.gold_needle.success"));
+        register(SkillType.YIN_FIRE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 140, 22.0D, 15.0D, 3.3D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.yin_fire.success"));
+        register(SkillType.YANG_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(10, 140, 24.0D, 15.0D, 3.4D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.yang_burst.success"));
+        register(SkillType.FIVE_ELEMENTS_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(10, 70, 20.0D, 7.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 40, 0,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_SWEEP,
+                "message.seeking_immortals.spell.five_elements_palm.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.SOUL_SEARCH_SPELL, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(12, 160, 0.0D, 18.0D, 0.9D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.MIND_READ,
+                "message.seeking_immortals.spell.soul_search_spell.success"));
+        register(SkillType.SPIRIT_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(12, 140, 6.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 2,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,
+                "message.seeking_immortals.spell.spirit_seal.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEMON_SUBDUE_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(12, 140, 28.0D, 16.0D, 1.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.DEMON_SUBDUE_PALM,
+                "message.seeking_immortals.spell.demon_subdue_seal.success"));
+        register(SkillType.NASCENT_SOUL_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(12, 160, 0.0D, 0.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.nascent_soul_escape.success"));
+        register(SkillType.DOMAIN_COMPRESS, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(45, 240, 50.0D, 20.0D, 4.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CYCLONE,
+                "message.seeking_immortals.spell.domain_compress.success"));
+        register(SkillType.VOID_REFINE_TOUCH, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(37, 180, 30.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 1,
+                net.minecraft.core.particles.ParticleTypes.REVERSE_PORTAL,
+                net.minecraft.sounds.SoundEvents.ENDERMAN_TELEPORT,
+                "message.seeking_immortals.spell.void_refine_touch.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.SPIRIT_SENSE_MERGE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 220,
+                net.minecraft.world.effect.MobEffects.NIGHT_VISION, 200, 0,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.spirit_sense_merge.success"));
+        register(SkillType.SPACE_TEAR_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(47, 160, 70.0D, 22.0D, 0.55D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.QINGYUAN_SWORD_RAY,
+                "message.seeking_immortals.spell.space_tear_slash.success"));
+        register(SkillType.TRIBULATION_REDIRECT, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(12, 260, 15.0D, 20.0D,
+                net.minecraft.world.effect.MobEffects.GLOWING, 160, 0,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 0,
+                net.minecraft.core.particles.ParticleTypes.ELECTRIC_SPARK,
+                net.minecraft.sounds.SoundEvents.LIGHTNING_BOLT_THUNDER,
+                "message.seeking_immortals.spell.tribulation_redirect.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BLOODLINE_AWAKEN, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 240,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 200, 1,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 200, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
+                net.minecraft.sounds.SoundEvents.TOTEM_USE,
+                "message.seeking_immortals.spell.bloodline_awaken.success"));
+        register(SkillType.MULAN_WIND_BLADE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(18, 100, 30.0D, 1.35D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.WIND,
+                "message.seeking_immortals.spell.mulan_wind_blade.success"));
+        register(SkillType.MULAN_EARTH_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.EarthWallSpell());
+        register(SkillType.SPIRIT_ART_HOLY_FEATHER_GUARD, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(35, 200,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 1,
+                net.minecraft.world.effect.MobEffects.SLOW_FALLING, 200, 0,
+                net.minecraft.core.particles.ParticleTypes.END_ROD,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.spirit_art_holy_feather_guard.success"));
+        register(SkillType.PUPPET_SELF_DESTRUCT, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(30, 200, 40.0D, 14.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.puppet_self_destruct.success"));
+        register(SkillType.SPIRIT_THREAD_CONTROL, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(10, 140,
+                net.minecraft.world.effect.MobEffects.DIG_SPEED, 160, 0,
+                net.minecraft.world.effect.MobEffects.NIGHT_VISION, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.ENCHANTMENT_TABLE_USE,
+                "message.seeking_immortals.spell.spirit_thread_control.success"));
+        register(SkillType.ARRAY_PUPPET, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(19, 180, 5.0D, 14.0D, 3.2D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 2,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.IRON_TRAPDOOR_CLOSE,
+                "message.seeking_immortals.spell.array_puppet.success",
+                "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.PUPPET_ARRAY_TRAP, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(20, 180, 6.0D, 15.0D, 3.3D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 140, 3,
+                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 120, 1,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.STONE_PLACE,
+                "message.seeking_immortals.spell.puppet_array_trap.success",
+                "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.PUPPET_SUMMON_BASIC, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(26, 220, "puppet_summon_basic", 1, 0, 240, "message.seeking_immortals.spell.puppet_summon_basic.success"));
+        register(SkillType.CORPSE_EXPLOSION, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(20, 160, 35.0D, 14.0D, 3.3D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.corpse_explosion.success"));
+        register(SkillType.SOUL_BANNER, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(11, 140, 18.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 1,
+                net.minecraft.world.effect.MobEffects.GLOWING, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                "message.seeking_immortals.spell.soul_banner.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.SOUL_ANCHOR_RITE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(25, 220,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 0,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 200, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL_FIRE_FLAME,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.soul_anchor_rite.success"));
+        register(SkillType.YIN_SOUL_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(55, 260, 60.0D, 18.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.BLIZZARD,
+                "message.seeking_immortals.spell.yin_soul_burst.success"));
+        register(SkillType.POLUO_SOUL_PULL, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(18, 150, 20.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 120, 2,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.WARDEN_SONIC_BOOM,
+                "message.seeking_immortals.spell.poluo_soul_pull.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.HEAVEN_DEMON_HAND, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(35, 120, 55.0D, 8.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 80, 1,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_STRONG,
+                "message.seeking_immortals.spell.heaven_demon_hand.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEMON_QI_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(32, 180, 48.0D, 16.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.demon_qi_burst.success"));
+        register(SkillType.SOUL_CONTRACT, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(20, 160, 25.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                net.minecraft.world.effect.MobEffects.GLOWING, 120, 0,
+                net.minecraft.core.particles.ParticleTypes.SMOKE,
+                net.minecraft.sounds.SoundEvents.SCULK_SHRIEKER_SHRIEK,
+                "message.seeking_immortals.spell.soul_contract.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEMON_SOUL_DEVOUR, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(27, 160, 35.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 140, 1,
+                net.minecraft.world.effect.MobEffects.WITHER, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.WARDEN_HEARTBEAT,
+                "message.seeking_immortals.spell.demon_soul_devour.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BARBARIAN_ROAR, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(50, 200, 55.0D, 16.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CYCLONE,
+                "message.seeking_immortals.spell.barbarian_roar.success"));
+        register(SkillType.HEHUAN_SOUL_CHARM, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(18, 140, 18.0D, 18.0D, 0.95D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
+                "message.seeking_immortals.spell.hehuan_soul_charm.success"));
+        register(SkillType.SPIRIT_ART_LIGHTNING_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.ThunderPalmSpell());
+        register(SkillType.SPIRIT_FENGYUAN_WIND_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.WindWallSpell(18, 160, 160, 4.0D));
+        register(SkillType.SPIRIT_ART_ARRAY_ANCHOR, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(20, 180,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 0,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 180, 0,
+                net.minecraft.core.particles.ParticleTypes.ENCHANT,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.spirit_art_array_anchor.success"));
+        register(SkillType.YIN_BODY_CONDENSE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(26, 200,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 1,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 200, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_NETHERITE,
+                "message.seeking_immortals.spell.yin_body_condense.success"));
+        register(SkillType.SPIRIT_WALL, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(12, 160, 0.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_SHIELD,
+                "message.seeking_immortals.spell.spirit_wall.success"));
+        register(SkillType.BLOOD_SWORD, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(12, 80, 28.0D, 18.0D, 0.7D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.BLOOD_SWORD_SLASH,
+                "message.seeking_immortals.spell.blood_sword.success"));
+        register(SkillType.PHANTOM_CLONE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(12, 180, 0.0D, 0.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.CLONE_IMAGE,
+                "message.seeking_immortals.spell.phantom_clone.success"));
+        register(SkillType.SKY_HOOK, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(12, 90, 22.0D, 1.20D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
+                "message.seeking_immortals.spell.sky_hook.success"));
+        register(SkillType.GROUND_SPIKE, new com.xunxian.seekingimmortals.skill.effect.spell.AreaDebuffSpell(12, 120, 8.0D, 14.0D, 3.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 2,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.POOF,
+                net.minecraft.sounds.SoundEvents.STONE_BREAK,
+                "message.seeking_immortals.spell.ground_spike.success",
+                "message.seeking_immortals.spell.area.fail"));
+        register(SkillType.LIGHTNING_CHAIN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(14, 140, 26.0D, 16.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CHAIN_THUNDER,
+                "message.seeking_immortals.spell.lightning_chain.success"));
+        register(SkillType.FROST_BREATH, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(12, 100, 18.0D, 12.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.BLIZZARD,
+                "message.seeking_immortals.spell.frost_breath.success"));
+        register(SkillType.MOLTEN_SPLASH, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(12, 130, 24.0D, 14.0D, 3.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.LAVA,
+                "message.seeking_immortals.spell.molten_splash.success"));
+        register(SkillType.SPIRIT_ABSORB, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(14, 140, 20.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 1,
+                net.minecraft.world.effect.MobEffects.HUNGER, 80, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.WARDEN_SONIC_BOOM,
+                "message.seeking_immortals.spell.spirit_absorb.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BONE_ARMOR, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 180,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 180, 0,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 180, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.ARMOR_EQUIP_GENERIC,
+                "message.seeking_immortals.spell.bone_armor.success"));
+        register(SkillType.STAR_FALL, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(16, 160, 32.0D, 16.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.SAND_STORM,
+                "message.seeking_immortals.spell.star_fall.success"));
+        register(SkillType.VOID_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(14, 90, 30.0D, 8.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 60, 0,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_CRIT,
+                "message.seeking_immortals.spell.void_slash.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.HEAVEN_PUNISH, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell(18, 180, 36.0D, 16.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.ElementalAreaSpell.AreaElement.CHAIN_THUNDER,
+                "message.seeking_immortals.spell.heaven_punish.success"));
+        register(SkillType.BEAST_TAME_CALL, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(16, 140, 12.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 100, 0,
+                net.minecraft.world.effect.MobEffects.GLOWING, 100, 0,
+                net.minecraft.core.particles.ParticleTypes.ANGRY_VILLAGER,
+                net.minecraft.sounds.SoundEvents.RAVAGER_ROAR,
+                "message.seeking_immortals.spell.beast_tame_call.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.SPIRIT_BEAST_CONTRACT, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 180,
+                net.minecraft.world.effect.MobEffects.DAMAGE_BOOST, 160, 0,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.HAPPY_VILLAGER,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.spirit_beast_contract.success"));
+        register(SkillType.VOID_RIFT_SLASH, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(40, 160, 75.0D, 22.0D, 0.55D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.QINGYUAN_SWORD_RAY,
+                "message.seeking_immortals.spell.void_rift_slash.success"));
+        register(SkillType.GREAT_VEHICLE_PALM, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(60, 200, 80.0D, 10.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 80, 1,
+                null, 0, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.PLAYER_ATTACK_KNOCKBACK,
+                "message.seeking_immortals.spell.great_vehicle_palm.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.DEFENSIVE_PEARL_LIGHT, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(28, 200,
+                net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE, 200, 1,
+                net.minecraft.world.effect.MobEffects.ABSORPTION, 200, 1,
+                net.minecraft.core.particles.ParticleTypes.END_ROD,
+                net.minecraft.sounds.SoundEvents.AMETHYST_BLOCK_CHIME,
+                "message.seeking_immortals.spell.defensive_pearl_light.success"));
+        register(SkillType.MAGNET_CONTROL, new com.xunxian.seekingimmortals.skill.effect.spell.ObjectControlSpell(26, 160, 18.0D));
+        register(SkillType.NASCENT_SOUL_AVATAR, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "nascent_soul_avatar", 1, 1, 260, "message.seeking_immortals.spell.nascent_soul_avatar.success"));
+        register(SkillType.DEITY_TRANSFORMATION_DOMAIN, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(48, 260, 70.0D, 22.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.KILL_SWORD_FORMATION,
+                "message.seeking_immortals.spell.deity_transformation_domain.success"));
+        register(SkillType.LINGZU_PEARL_BARRAGE, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(40, 140, 50.0D, 1.25D,
+                com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.LIGHT,
+                "message.seeking_immortals.spell.lingzu_pearl_barrage.success"));
+        register(SkillType.STAR_PALACE_SEAL_BURST, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(20, 160, 40.0D, 18.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.STAR_PALACE_SEAL,
+                "message.seeking_immortals.spell.star_palace_seal_burst.success"));
+        register(SkillType.RIVER_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(12, 120,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 140, 1,
+                net.minecraft.world.effect.MobEffects.DOLPHINS_GRACE, 140, 0,
+                net.minecraft.core.particles.ParticleTypes.BUBBLE,
+                net.minecraft.sounds.SoundEvents.BUCKET_FILL,
+                "message.seeking_immortals.spell.river_escape.success"));
+        register(SkillType.WIND_ESCAPE_MOVE, new com.xunxian.seekingimmortals.skill.effect.spell.SelfBuffSpell(18, 140,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED, 160, 1,
+                net.minecraft.world.effect.MobEffects.SLOW_FALLING, 160, 0,
+                net.minecraft.core.particles.ParticleTypes.CLOUD,
+                net.minecraft.sounds.SoundEvents.ELYTRA_FLYING,
+                "message.seeking_immortals.spell.wind_escape.success"));
+        register(SkillType.DAYAN_EYE, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(14, 160, 0.0D, 28.0D, 0.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_SCAN,
+                "message.seeking_immortals.spell.dayan_eye.success"));
+        register(SkillType.TIANFU_GOLDEN_CHAIN, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(18, 150, 10.0D, 18.0D,
+                net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 140, 3,
+                net.minecraft.world.effect.MobEffects.DIG_SLOWDOWN, 120, 1,
+                net.minecraft.core.particles.ParticleTypes.CRIT,
+                net.minecraft.sounds.SoundEvents.CHAIN_PLACE,
+                "message.seeking_immortals.spell.tianfu_golden_chain.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.BLOOD_CORRUPTION, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(16, 140, 12.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.WITHER, 100, 0,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 0,
+                net.minecraft.core.particles.ParticleTypes.CRIMSON_SPORE,
+                net.minecraft.sounds.SoundEvents.WARDEN_HEARTBEAT,
+                "message.seeking_immortals.spell.blood_corruption.success",
+                "message.seeking_immortals.spell.target.fail"));
+        register(SkillType.YIN_CORROSION, new com.xunxian.seekingimmortals.skill.effect.spell.TargetedDebuffSpell(16, 140, 12.0D, 16.0D,
+                net.minecraft.world.effect.MobEffects.POISON, 120, 0,
+                net.minecraft.world.effect.MobEffects.WEAKNESS, 120, 0,
+                net.minecraft.core.particles.ParticleTypes.SOUL,
+                net.minecraft.sounds.SoundEvents.SOUL_ESCAPE,
+                "message.seeking_immortals.spell.yin_corrosion.success",
+                "message.seeking_immortals.spell.target.fail"));
+
+        // Text-material id aliases for already-wired techniques
+register(SkillType.SPIRIT_ART_BEAST_CALL, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "spirit_art_beast_call", 0, 0, 220, "message.seeking_immortals.spell.spirit_art_beast_call.success"));
+        register(SkillType.SPIRIT_ART_HOLY_BEAST_CALL, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(25, 220, "spirit_art_holy_beast_call", 1, 0, 240, "message.seeking_immortals.spell.spirit_art_holy_beast_call.success"));
+        register(SkillType.GHOST_KING_AVATAR, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(40, 220, "ghost_king_avatar", 2, 1, 260, "message.seeking_immortals.spell.ghost_king_avatar.success"));
+        register(SkillType.GUILING_CORPSE_SUMMON, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(18, 220, "guiling_corpse_summon", 1, 0, 240, "message.seeking_immortals.spell.guiling_corpse_summon.success"));
+        register(SkillType.BEAST_SUMMON, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(10, 220, "beast_summon", 0, 0, 220, "message.seeking_immortals.spell.beast_summon.success"));
+        register(SkillType.GOLD_DEVOUR_SWARM, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(26, 220, "gold_devour_swarm", 1, 0, 240, "message.seeking_immortals.spell.gold_devour_swarm.success"));
+        register(SkillType.TREASURE_APPRAISAL_GLIMPSE, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(8, 140, 0.0D, 24.0D, 0.0D,
+                        com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_SCAN,
+                        "message.seeking_immortals.spell.treasure_appraisal_glimpse.success"));
+        register(SkillType.SUMMON_WOOD_PUPPET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "basic_wood_puppet", 0, 0, 220, "message.seeking_immortals.spell.summon_wood_puppet.success"));
+        register(SkillType.PUPPET_SWARM, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "puppet_swarm", 1, 0, 240, "message.seeking_immortals.spell.puppet_swarm.success"));
+        register(SkillType.IRON_PUPPET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "iron_puppet", 1, 1, 240, "message.seeking_immortals.spell.iron_puppet.success"));
+        register(SkillType.PUPPET_CONTROL_BASIC, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(8, 140, "puppet_control_basic", 0, 0, 180, "message.seeking_immortals.spell.puppet_control_basic.success"));
+        register(SkillType.PUPPET_SWARM_COMMAND, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(30, 220, "puppet_swarm_command", 1, 1, 260, "message.seeking_immortals.spell.puppet_swarm_command.success"));
+        register(SkillType.BEAST_SOUL_PUPPET_BIND, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(22, 140, "beast_soul_puppet_bind", 1, 0, 200, "message.seeking_immortals.spell.beast_soul_puppet_bind.success"));
+        register(SkillType.SECOND_NASCENT_SOUL, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "second_nascent_soul", 1, 1, 280, "message.seeking_immortals.spell.second_nascent_soul.success"));
+        // Wave36: rebind remaining secret cyclone stubs onto form libraries.
+        register(SkillType.SWORD_FORMATION_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                57, 260, 55.0D, 20.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.SWORD_DOMAIN,
+                "message.seeking_immortals.spell.sword_formation_secret.success"));
+        register(SkillType.NETHER_CORE_FORM, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                57, 260, 50.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.MYSTIC_SOUL_BONE_CONDENSING_ART,
+                "message.seeking_immortals.spell.nether_core_form.success"));
+        register(SkillType.NINE_PALACE_SEAL_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(
+                74, 260, 48.0D, 18.0D, 4.2D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SEAL_ARRAY,
+                "message.seeking_immortals.spell.nine_palace_seal_secret.success"));
+        register(SkillType.DAYAN_PUPPET_LEGION, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(74, 260, "dayan_puppet_legion", 2, 1, 300, "message.seeking_immortals.spell.dayan_puppet_legion.success"));
+        register(SkillType.STAR_PALACE_HEAVEN_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(
+                92, 260, 55.0D, 20.0D, 4.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.BAGUA_SEAL,
+                "message.seeking_immortals.spell.star_palace_heaven_seal.success"));
+        register(SkillType.INVERSE_STAR_REBELLION, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                57, 260, 40.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVERSE_STAR_VEIL,
+                "message.seeking_immortals.spell.inverse_star_rebellion.success"));
+        register(SkillType.VOID_REFINING_DOMAIN, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(
+                110, 260, 60.0D, 22.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.KILL_SWORD_FORMATION,
+                "message.seeking_immortals.spell.void_refining_domain.success"));
+        register(SkillType.GREAT_VEHICLE_DHARMA_BODY, new com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell(
+                127, 260, 55.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.BuddhistSpell.BuddhistForm.DAJIN_BUDDHIST_VAJRA,
+                "message.seeking_immortals.spell.great_vehicle_dharma_body.success"));
+        register(SkillType.SPIRIT_SEVERING_FLASH, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                145, 260, 70.0D, 24.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.INVISIBLE_SWORD,
+                "message.seeking_immortals.spell.spirit_severing_flash.success"));
+        register(SkillType.FALLEN_DEMON_TRANSFORM, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                74, 260, 55.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.SKY_SUPPORTING_DEMONIC_SKILL,
+                "message.seeking_immortals.spell.fallen_demon_transform.success"));
+        register(SkillType.BLOOD_DEMON_AVATAR, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(40, 260, "blood_demon_avatar", 2, 1, 280, "message.seeking_immortals.spell.blood_demon_avatar.success"));
+        register(SkillType.HEHUAN_UNION_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                57, 260, 35.0D, 16.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.MIND_CONFUSION,
+                "message.seeking_immortals.spell.hehuan_union_secret.success"));
+        register(SkillType.TIANMO_BERSERK, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                57, 260, 58.0D, 16.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.BLOOD_SHADOW_ESCAPE,
+                "message.seeking_immortals.spell.tianmo_berserk.success"));
+        register(SkillType.ILLUSION_WORLD, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                74, 260, 42.0D, 18.0D, 4.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.HUNDRED_ILLUSION,
+                "message.seeking_immortals.spell.illusion_world.success"));
+        register(SkillType.BEAST_SOUL_FUSION, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(
+                57, 260, "beast_summon", 2, 1, 280,
+                "message.seeking_immortals.spell.beast_soul_fusion.success"));
+        register(SkillType.SPATIAL_TEAR_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                74, 260, 20.0D, 24.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.spatial_tear_escape.success"));
+        register(SkillType.WAN_SWORD_RETURN, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                74, 260, 60.0D, 22.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.THOUSAND_SWORD_ARRAY,
+                "message.seeking_immortals.spell.wan_sword_return.success"));
+        register(SkillType.VOID_PALACE_HEAVEN_EARTH, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(
+                92, 260, 58.0D, 22.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.DEFENSE_FORMATION,
+                "message.seeking_immortals.spell.void_palace_heaven_earth.success"));
+        register(SkillType.TRUE_IMMORTAL_SWORD_ART, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                145, 260, 80.0D, 26.0D, 4.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.QINGYUAN_SWORD_RAY,
+                "message.seeking_immortals.spell.true_immortal_sword_art.success"));
+        register(SkillType.TIANMO_DEMON_BODY_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                18, 260, 45.0D, 16.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.BLOOD_LUO_BARRIER,
+                "message.seeking_immortals.spell.tianmo_demon_body_secret.success"));
+        register(SkillType.HEHUAN_SOUL_DEVOUR_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                18, 260, 45.0D, 16.0D, 3.5D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.MYSTIC_SOUL_GHOST_FIRE,
+                "message.seeking_immortals.spell.hehuan_soul_devour_secret.success"));
+        register(SkillType.INVERSE_STAR_VOID_ESCAPE, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                18, 260, 20.0D, 22.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.inverse_star_void_escape.success"));
+        register(SkillType.PILL_SOUL_CONDENSE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(
+                18, 260, 30.0D, 0.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_RECOVERY,
+                "message.seeking_immortals.spell.pill_soul_condense_secret.success"));
+        register(SkillType.HUADAO_SLASH_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                18, 260, 45.0D, 18.0D, 3.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.BLOOD_SWORD_SLASH,
+                "message.seeking_immortals.spell.huadao_slash_secret.success"));
+        register(SkillType.MULAN_HOLY_BIRD_CALL, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(
+                18, 260, "spirit_art_holy_beast_call", 1, 0, 240,
+                "message.seeking_immortals.spell.mulan_holy_bird_call.success"));
+        register(SkillType.BEAST_SOUL_FUSION_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(
+                18, 260, "beast_soul_puppet_bind", 1, 1, 240,
+                "message.seeking_immortals.spell.beast_soul_fusion_secret.success"));
+        register(SkillType.QINGLUO_TEN_POISON_SEAL, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(
+                18, 260, 40.0D, 16.0D, 3.8D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SEAL_ARRAY,
+                "message.seeking_immortals.spell.qingluo_ten_poison_seal.success"));
+        // Wave35: rebind cyclone-stub secrets onto form-based spell libraries (no vanilla projectile core).
+        register(SkillType.WANHU_THOUSAND_PHANTOM_DOMAIN, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.WANHU_NINE_ILLUSION,
+                "message.seeking_immortals.spell.wanhu_thousand_phantom_domain.success"));
+        register(SkillType.TIANYUAN_BOUNDARY_BREAK, new com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.FormationSpell.FormationForm.SEAL_ARRAY,
+                "message.seeking_immortals.spell.tianyuan_boundary_break.success"));
+        register(SkillType.YINLUO_SOUL_HARVEST, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.YIN_DEMON_SLASH,
+                "message.seeking_immortals.spell.yinluo_soul_harvest.success"));
+        register(SkillType.INVERSE_STAR_COVERT_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.INVERSE_STAR_VEIL,
+                "message.seeking_immortals.spell.inverse_star_covert_ultimate_secret.success"));
+        register(SkillType.DEMONIC_GUILING_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(
+                18, 260, "guiling_corpse_summon", 2, 1, 280,
+                "message.seeking_immortals.spell.demonic_guiling_ultimate_secret.success"));
+        register(SkillType.YIN_CLUSTER_GHOST_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DemonicGhostSpell.DemonicGhostForm.MYSTIC_SOUL_GHOST_FIRE,
+                "message.seeking_immortals.spell.yin_cluster_ghost_ultimate_secret.success"));
+        register(SkillType.PUPPET_QIANZHU_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(18, 260, "puppet_qianzhu_ultimate_secret", 2, 1, 280, "message.seeking_immortals.spell.puppet_qianzhu_ultimate_secret.success"));
+        register(SkillType.PUPPET_YULING_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(18, 260, "puppet_yuling_ultimate_secret", 2, 1, 280, "message.seeking_immortals.spell.puppet_yuling_ultimate_secret.success"));
+        register(SkillType.BLADE_GIANT_SWORD_ULTIMATE_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell(
+                18, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.SwordTechniqueSpell.SwordForm.THOUSAND_SWORD_ARRAY,
+                "message.seeking_immortals.spell.blade_giant_sword_ultimate_secret.success"));
+        register(SkillType.ARTIFACT_SPIRIT_AWAKEN_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell(
+                35, 260, 45.0D, 18.0D, 4.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DaoSpell.DaoForm.BAGUA_SEAL,
+                "message.seeking_immortals.spell.artifact_spirit_awaken_secret.success"));
+        register(SkillType.AUCTION_BID_INSIGHT_SECRET, new com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell(
+                20, 260, 12.0D, 24.0D, 5.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseSpell.DivineSenseForm.SENSE_SCAN,
+                "message.seeking_immortals.spell.auction_bid_insight_secret.success"));
+        register(SkillType.CAST_FIRE_BURST_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FLAME_BURST,
+                        "message.seeking_immortals.spell.cast_fire_burst_talisman.success"));
+        register(SkillType.CAST_ICE_SEAL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 18.0D, 1.10D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.ICE,
+                        "message.seeking_immortals.spell.cast_ice_seal_talisman.success"));
+        register(SkillType.CAST_ESCAPE_HEAVEN_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                8, 80, 8.0D, 16.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.cast_escape_heaven_talisman.success"));
+        register(SkillType.CAST_SPIRIT_FIX_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell(
+                8, 80, 18.0D, 0.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.RecoverySpell.RecoveryForm.SPIRIT_RECOVERY,
+                "message.seeking_immortals.spell.cast_spirit_fix_talisman.success"));
+        register(SkillType.CAST_THUNDER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 22.0D, 1.20D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.THUNDER,
+                        "message.seeking_immortals.spell.cast_thunder_talisman.success"));
+        register(SkillType.CAST_SOUL_LOCK_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 16.0D, 1.05D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.DARK,
+                        "message.seeking_immortals.spell.cast_soul_lock_talisman.success"));
+        register(SkillType.CAST_TELEPORT_ARRAY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell(
+                8, 80, 6.0D, 20.0D, 2.0D,
+                com.xunxian.seekingimmortals.skill.effect.spell.IllusionSpell.IllusionForm.VOID_STEP,
+                "message.seeking_immortals.spell.cast_teleport_array_talisman.success"));
+        register(SkillType.CAST_BEAST_CONTRACT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_beast_contract_talisman.success"));
+        register(SkillType.CAST_ANTI_DEMON_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_anti_demon_talisman.success"));
+        register(SkillType.CAST_YIN_PROTECT_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_yin_protect_talisman.success"));
+        register(SkillType.CAST_GHOST_HIDE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_ghost_hide_talisman.success"));
+        register(SkillType.CAST_SPACE_ANCHOR_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_space_anchor_talisman.success"));
+        register(SkillType.CAST_LIFE_SAVE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_life_save_talisman.success"));
+        register(SkillType.CAST_EARTH_WALL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_earth_wall_talisman.success"));
+        register(SkillType.CAST_MIRAGE_HEART_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_mirage_heart_talisman.success"));
+        register(SkillType.CAST_INVISIBILITY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_invisibility_talisman.success"));
+        register(SkillType.CAST_SPIRIT_GATHER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_spirit_gather_talisman.success"));
+        register(SkillType.CAST_ILLUSION_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_illusion_talisman.success"));
+        register(SkillType.CAST_STAR_PALACE_PATROL_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_star_palace_patrol_talisman.success"));
+        register(SkillType.CAST_GOLDEN_ARMOR_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_golden_armor_talisman.success"));
+        register(SkillType.CAST_INVERSE_STAR_CIPHER_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_inverse_star_cipher_talisman.success"));
+        register(SkillType.CAST_BU_TIAN_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_bu_tian_talisman.success"));
+        register(SkillType.CAST_WOOD_BIND_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_wood_bind_talisman.success"));
+        register(SkillType.CAST_METAL_BLADE_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_metal_blade_talisman.success"));
+        register(SkillType.CAST_VOID_PALACE_KEY_TALISMAN, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_void_palace_key_talisman.success"));
+        register(SkillType.CAST_TALISMAN_WOODEN_OX, new com.xunxian.seekingimmortals.skill.effect.spell.ElementalProjectileSpell(8, 80, 20.0D, 1.15D,
+                        com.xunxian.seekingimmortals.entity.CultivationFireballEntity.SpellElement.FIRE,
+                        "message.seeking_immortals.spell.cast_talisman_wooden_ox.success"));
+        register(SkillType.GHOST_KING_SUMMON, new com.xunxian.seekingimmortals.skill.effect.spell.HonestSummonSpell(12, 220, "ghost_king_summon", 1, 0, 240, "message.seeking_immortals.spell.ghost_king_summon.success"));
+
+                registerTechniqueAlias("fireball", SkillType.FIREBALL);
+        registerTechniqueAlias("earth_spike", SkillType.EARTH_SPIKE);
+        registerTechniqueAlias("five_elements_escape", SkillType.FIVE_ELEMENTS_ESCAPE);
+        registerTechniqueAlias("ice_cone", SkillType.ICE_CONE);
+        registerTechniqueAlias("thunder_strike", SkillType.THUNDER_STRIKE);
+        registerTechniqueAlias("earth_escape", SkillType.EARTH_ESCAPE);
+        registerTechniqueAlias("aura_detection", SkillType.DETECTION);
+        registerTechniqueAlias("entangling", SkillType.VINE_BIND);
+        registerTechniqueAlias("voice_transmission", SkillType.VOICE_TRANSMISSION);
+        registerTechniqueAlias("object_control", SkillType.OBJECT_CONTROL);
+        registerTechniqueAlias("quicksand", SkillType.QUICKSAND);
+        registerTechniqueAlias("water_shield", SkillType.WATER_SHIELD);
+        registerTechniqueAlias("earth_prison", SkillType.EARTH_PRISON);
+        registerTechniqueAlias("wind_binding", SkillType.WIND_BINDING);
+        registerTechniqueAlias("wind_wall", SkillType.WIND_WALL);
+        registerTechniqueAlias("big_dipper_sword_array", SkillType.BIG_DIPPER_SWORD_ARRAY);
+        registerTechniqueAlias("light_body", SkillType.LIGHTNESS_SKILL);
+        registerTechniqueAlias("lightness_skill", SkillType.LIGHTNESS_SKILL);
+        registerTechniqueAlias("soul_search", SkillType.SOUL_SEARCH_SPELL);
+        registerTechniqueAlias("demon_subdue", SkillType.DEMON_SUBDUE_SEAL);
     }
 }

@@ -1,0 +1,498 @@
+{
+  "schema_version": 3,
+  "note": "占位台词与分支键，供模组 Dialogue 系统引用；不含原著角色真名",
+  "archetypes": [
+    {
+      "id": "elder_alchemist",
+      "display": "炼丹长老",
+      "faction_affinity": [
+        "huangfeng_valley"
+      ],
+      "greetings": [
+        "丹道一途，火候为先。",
+        "地火室今日尚有空位，需贡献点预约。"
+      ],
+      "services": [
+        "alchemy_tutorial",
+        "recipe_hint",
+        "fire_room_booking"
+      ],
+      "quest_offers": [
+        "alchemy_apprentice",
+        "sect_fire_room"
+      ],
+      "setting": {
+        "lore": "炼丹长老"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "huangfeng_valley"
+          ]
+        }
+      }
+    },
+    {
+      "id": "contribution_clerk",
+      "display": "贡献堂执事",
+      "services": [
+        "sect_contribution_shop"
+      ],
+      "lines": {
+        "low_rep": "外门弟子每月筑基丹配额一枚，勿多求。",
+        "high_rep": "内门可阅中阶丹方残卷，需长老引荐。"
+      },
+      "setting": {
+        "lore": "贡献堂执事"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_tax_officer",
+      "display": "星宫征税吏",
+      "faction": "star_palace",
+      "lines": [
+        "乱星海行商，十取其一。",
+        "逆星盟余孽，格杀勿论。"
+      ],
+      "shop_ref": "chaotic_sea_island_general",
+      "setting": {
+        "lore": "星宫征税吏"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "inverse_star_broker",
+      "display": "黑市掮客",
+      "faction": "inverse_star_alliance",
+      "reputation_gate": {
+        "star_palace": -15
+      },
+      "lines": [
+        "星宫查得紧，货从暗港来。",
+        "玉简来路你莫问。"
+      ],
+      "shop_ref": "inverse_star_black_market",
+      "setting": {
+        "lore": "黑市掮客"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "nether_ferryman",
+      "display": "冥河渡夫",
+      "region": "nether_river",
+      "currency": "yin_stone",
+      "lines": [
+        "阴石不够，魂也留不得。",
+        "敛魂符贴上，莫回头。"
+      ],
+      "shop_ref": "nether_ferry_vendor",
+      "quest_offers": [
+        "nether_river_pilgrim"
+      ],
+      "setting": {
+        "lore": "冥河渡夫"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "mulan_fashi_captain",
+      "display": "慕兰法士长",
+      "ethic": "mulan_fashi",
+      "lines": [
+        "灵术共鸣阵已布，随我破阵。",
+        "天澜圣禽翎羽，万勿轻露。"
+      ],
+      "shop_ref": "mulan_fashi_supply",
+      "setting": {
+        "lore": "慕兰法士长"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "tianyuan_garrison_officer",
+      "display": "天渊诛魔校尉",
+      "region": "tianyuan",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "lines": [
+        "魔潮三日一报，功勋殿兑赏。",
+        "炼虚方可过风元门阵。"
+      ],
+      "quest_offers": [
+        "tianyuan_demon_contract",
+        "tianyuan_enlist"
+      ],
+      "shop_ref": "tianyuan_merit_exchange",
+      "setting": {
+        "lore": "天渊诛魔校尉"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "fengyuan_auctioneer",
+      "display": "风元拍卖师",
+      "region": "spirit_fengyuan",
+      "cycle_bind": "cycle_treasure_fair",
+      "lines": [
+        "万宝大会千年一届，请柬在此核验。",
+        "虚空髓草，起拍价已标。"
+      ],
+      "shop_ref": "fengyuan_clan_auction",
+      "setting": {
+        "lore": "风元拍卖师"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "herb_peddler",
+      "display": "坊市药贩",
+      "region": "tiannan",
+      "shop_ref": "tiannan_herb_market",
+      "lines": [
+        "黄精五十年份，童叟无欺。",
+        "聚灵丹刚出炉，要几枚？"
+      ],
+      "setting": {
+        "lore": "坊市药贩"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "puppet_artisan",
+      "display": "傀儡匠人",
+      "lines": [
+        "铁木备足否？巨猿核心需低阶妖丹。",
+        "曲魂铁傀需引魂钟，莫强炼。"
+      ],
+      "tutorial_ref": "puppet_definitions",
+      "setting": {
+        "lore": "傀儡匠人"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "secret_realm_guide",
+      "display": "秘境引路人",
+      "dynamic_by_realm": {
+        "blood_forbidden": [
+          "禁地五年一开，门阵在谷东。",
+          "末层血蛟，勿孤身。"
+        ],
+        "void_palace": [
+          "虚天殿钥可换贡献，殿内禁飞。",
+          "冰火妖兽中层盘踞。"
+        ],
+        "diyuan": [
+          "地渊裂隙不稳，炼虚以下勿深。",
+          "古兽苏醒传闻日多。"
+        ],
+        "guanghan_realm": [
+          "广寒碎片周期性显化，月华伤神。",
+          "月兽喜阴，白日可探浅层。"
+        ]
+      },
+      "setting": {
+        "lore": "秘境引路人"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "mulan_wind_elder",
+      "display": "慕兰风灵长老",
+      "region": "mulan",
+      "faction": "mulan_council",
+      "lines": [
+        "罡风一起，法士当先。",
+        "天南修士若越界，风沙不留情。"
+      ],
+      "quest_offers": [
+        "hook_mulan_border_patrol"
+      ],
+      "setting": {
+        "lore": "慕兰风灵长老"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "tianyuan_merit_clerk",
+      "display": "天渊功勋吏",
+      "region": "tianyuan",
+      "services": [
+        "merit_shop",
+        "demon_hunt_contract"
+      ],
+      "lines": [
+        "斩魔有功，功勋可换灵材。",
+        "城内修炼，灵气倍于荒外。"
+      ],
+      "setting": {
+        "lore": "天渊功勋吏"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "thousand_bamboo_craftsman",
+      "display": "千竹机关师",
+      "faction": "thousand_bamboo_sect",
+      "services": [
+        "puppet_assembly_bench",
+        "puppet_tower_key"
+      ],
+      "lines": [
+        "铁木为骨，灵核为魂。",
+        "塔中石灵，非筑基不可敌。"
+      ],
+      "quest_offers": [
+        "hook_puppet_tower_trial"
+      ],
+      "setting": {
+        "lore": "千竹机关师"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_island_lord",
+      "display": "外海岛主",
+      "region": "chaotic_sea",
+      "lines": [
+        "星宫要税，逆星要命，散修要命也要灵石。",
+        "虚天殿百年一开，钥在风浪里。"
+      ],
+      "services": [
+        "island_tax_evasion",
+        "ferry_charter"
+      ],
+      "setting": {
+        "lore": "外海岛主"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "sect_elder_alchemy",
+      "display": "丹堂长老",
+      "lines": [
+        "丹道一途，火候为先。",
+        "贡献不足，秘传不可换。"
+      ],
+      "faction_affinity": [
+        "luoyun_sect",
+        "huangfeng_valley"
+      ],
+      "setting": {
+        "lore": "丹堂长老"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "luoyun_sect",
+            "huangfeng_valley"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_palace_enforcer",
+      "display": "星宫执法",
+      "lines": [
+        "未登记者，不得入岛坊市。",
+        "逆星盟余孽，格杀勿论。"
+      ],
+      "faction_affinity": [
+        "star_palace"
+      ],
+      "setting": {
+        "lore": "星宫执法"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "star_palace"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demonic_ambassador",
+      "display": "魔道使者",
+      "lines": [
+        "正道伪善，不如入我魔宗。",
+        "血祭之事，休要外传。"
+      ],
+      "faction_affinity": [
+        "demonic_six"
+      ],
+      "setting": {
+        "lore": "魔道使者"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "demonic_six"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wanbao_auctioneer",
+      "display": "万宝拍卖师",
+      "lines": [
+        "价高者得，灵石为凭。",
+        "今日压轴，古宝残片一件。"
+      ],
+      "services": [
+        "auction"
+      ],
+      "setting": {
+        "lore": "万宝拍卖师"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "barbarian_guide",
+      "display": "蛮荒向导",
+      "lines": [
+        "深处空间裂缝，结丹以下莫入。",
+        "上古遗迹，九死一生。"
+      ],
+      "region": [
+        "barbarian_wasteland"
+      ],
+      "setting": {
+        "lore": "蛮荒向导"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "sect_contribution_clerk",
+      "display": "贡献堂执事",
+      "lines": [
+        "贡献点不足，秘传不可换。",
+        "外门每月限额一次。"
+      ],
+      "faction_affinity": [
+        "huangfeng_valley",
+        "luoyun_sect"
+      ],
+      "setting": {
+        "lore": "贡献堂执事"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "huangfeng_valley",
+            "luoyun_sect"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_money_changer",
+      "display": "灵石兑换商",
+      "lines": [
+        "下品换中品，百一损耗。",
+        "大额兑换需验资。"
+      ],
+      "setting": {
+        "lore": "灵石兑换商"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": []
+        }
+      }
+    },
+    {
+      "id": "puppet_workshop_master",
+      "display": "傀儡坊主",
+      "lines": [
+        "千竹教不传外姓核心。",
+        "铁傀需阴魂祭炼。"
+      ],
+      "faction_affinity": [
+        "qianzhu_teach"
+      ],
+      "setting": {
+        "lore": "傀儡坊主"
+      },
+      "learn_requirements": {
+        "dialogue": {
+          "faction_affinity": [
+            "qianzhu_teach"
+          ]
+        }
+      }
+    }
+  ],
+  "dialogue_tags": [
+    "greeting",
+    "service",
+    "quest_offer",
+    "warning",
+    "farewell"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "alchemy_system.json",
+  "primary_key": "flame_sources",
+  "entries": [
+    {
+      "id": "mortal_fire",
+      "display": "凡火"
+    },
+    {
+      "id": "qi_flame",
+      "display": "真元丹火"
+    },
+    {
+      "id": "foundation_flame",
+      "display": "筑基丹火"
+    },
+    {
+      "id": "core_earth_fire",
+      "display": "地火"
+    },
+    {
+      "id": "nascent_soul_flame",
+      "display": "婴火"
+    }
+  ]
+}

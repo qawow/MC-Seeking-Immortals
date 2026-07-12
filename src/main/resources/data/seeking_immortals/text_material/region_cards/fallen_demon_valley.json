@@ -1,0 +1,7 @@
+{
+  "schema_version": 2,
+  "id": "fallen_demon_valley",
+  "display": "坠魔谷",
+  "realm_min": "NASCENT_SOUL",
+  "dimension_rift": "seeking_immortals:demon_rift"
+}

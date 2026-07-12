@@ -1,0 +1,49 @@
+{
+  "schema_version": 2,
+  "source": "汇编 §15 天劫小/大/仙三级结构",
+  "disclaimer": "波数与伤害为模组量级，非原著精确数值",
+  "tiers": [
+    {
+      "id": "minor",
+      "display": "小劫",
+      "typical_trigger": "元婴前后小境界、妖兽化形等",
+      "rules_ref": [
+        "minor_soul_trial"
+      ]
+    },
+    {
+      "id": "major",
+      "display": "大劫",
+      "typical_trigger": "化神、炼虚、合体、大乘突破",
+      "rules_ref": [
+        "heart_demon_or_thunder",
+        "void_thunder",
+        "body_soul_dual",
+        "great_ascension_thunder"
+      ]
+    },
+    {
+      "id": "immortal",
+      "display": "仙劫",
+      "typical_trigger": "渡劫飞升",
+      "rules_ref": [
+        "final_ascension",
+        "gv_ascension_pre"
+      ]
+    }
+  ],
+  "rule_to_tier": {
+    "minor_soul_trial": "minor",
+    "heart_demon_or_thunder": "major",
+    "void_thunder": "major",
+    "body_soul_dual": "major",
+    "great_ascension_thunder": "major",
+    "final_ascension": "immortal",
+    "gv_ascension_pre": "immortal"
+  },
+  "items_ref": "tribulation_items.json",
+  "rules_ref": "tribulation_rules.json",
+  "narrative_lore_ref": "tribulation_narrative_lore.json",
+  "master_ref": "tribulation_master_schema.json",
+  "beast_hook_ref": "beast_tier_schema.json"
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    " K ",
+    "KRK",
+    " K "
+  ],
+  "key": {
+    "R": {
+      "item": "seeking_immortals:eight_spirit_ruler_shard"
+    },
+    "K": {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:four_symbols_ruler_replica",
+    "count": 1
+  },
+  "show_notification": true
+}

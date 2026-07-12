@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "artifact_tier_rules.json",
+  "primary_key": "tiers",
+  "entries": [
+    {
+      "id": "low",
+      "display": "法器（低阶）"
+    },
+    {
+      "id": "mid",
+      "display": "法器（中阶）"
+    },
+    {
+      "id": "high",
+      "display": "法宝"
+    },
+    {
+      "id": "ancient_treasure",
+      "display": "古宝"
+    },
+    {
+      "id": "spirit_treasure",
+      "display": "灵宝"
+    }
+  ]
+}

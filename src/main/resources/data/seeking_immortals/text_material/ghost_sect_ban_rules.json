@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "path_ref": "ghost_cultivation_path.json",
+  "detection_tags": [
+    "yin_qi_aura",
+    "ghost_path_active",
+    "failed_hide_talisman"
+  ],
+  "consequences_ref": "ghost_cultivation_path.json#sect_ban_consequences",
+  "hooks": [
+    "righteous_sect_ghost_hunt",
+    "ghost_expose_event",
+    "sect_ban_lift_rare_quest"
+  ]
+}

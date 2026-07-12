@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "mulan_tianlan_war.json",
+  "primary_key": "phases",
+  "entries": [
+    {
+      "id": "phase_border_skirmish",
+      "display": "边境斥候战"
+    },
+    {
+      "id": "phase_fashi_array",
+      "display": "护阵破阵"
+    },
+    {
+      "id": "phase_holy_bird",
+      "display": "圣禽线"
+    },
+    {
+      "id": "phase_ceasefire",
+      "display": "停战谈判"
+    }
+  ]
+}

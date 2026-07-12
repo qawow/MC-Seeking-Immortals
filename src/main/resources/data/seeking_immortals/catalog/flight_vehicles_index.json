@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "flight_vehicles.json",
+  "primary_key": "vehicles",
+  "entries": [
+    {
+      "id": "spirit_boat_low",
+      "display": "低阶灵舟"
+    },
+    {
+      "id": "spirit_boat_mid",
+      "display": "中阶灵舟"
+    },
+    {
+      "id": "chaotic_sea_ferry",
+      "display": "乱星海渡船"
+    },
+    {
+      "id": "cloud_sedan",
+      "display": "云轿"
+    },
+    {
+      "id": "wind_feather_raft",
+      "display": "风羽筏"
+    },
+    {
+      "id": "bone_wind_cart_vehicle",
+      "display": "御风车"
+    },
+    {
+      "id": "spirit_boat_chaotic_sea",
+      "display": "乱星海灵舟"
+    },
+    {
+      "id": "teleport_array_ticket",
+      "display": "传送阵令牌"
+    }
+  ]
+}

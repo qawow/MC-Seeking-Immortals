@@ -1,0 +1,311 @@
+{
+  "schema_version": 8,
+  "school": "divine_sense",
+  "techniques": [
+    {
+      "id": "sense_scan",
+      "display": "神识扫描",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "scout",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "神识扫描：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神识扫描：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sense_pressure",
+      "display": "神识压",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 25,
+        "tags": []
+      },
+      "description": "神识压：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神识压：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sense_needle",
+      "display": "神念针",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 30,
+        "tags": []
+      },
+      "description": "神念针：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神念针：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sense_domain",
+      "display": "神识域",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 22,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 45,
+        "tags": []
+      },
+      "description": "神识域：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神识域：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "mind_read",
+      "display": "读心",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "scout",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "读心：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "读心：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sense_lock",
+      "display": "神识锁",
+      "school": "divine_sense",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 40,
+        "tags": []
+      },
+      "description": "神识锁：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神识锁：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "divine_sense_scan",
+      "display": "神识探查",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "神识探查：divine_sense法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "scan",
+        "tags": [
+          "divine_sense"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "cast_type": "sustained",
+        "target": "area",
+        "range": "long",
+        "lore": "神识外放探查，高阶可破隐匿。",
+        "cost_note": "持续消耗神识"
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "divine_sense_min": "unlocked",
+        "learn_source": [
+          "any_foundation_manual"
+        ],
+        "note": "筑基后神识外放方可习。"
+      }
+    },
+    {
+      "id": "divine_sense_lock",
+      "display": "神识锁敌",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "description": "神识锁敌：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "scan",
+        "tags": [
+          "divine_sense"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神识锁敌：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "soul_attack_wave",
+      "display": "神魂冲击",
+      "school": "divine_sense",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "description": "神魂冲击：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "scan",
+        "tags": [
+          "divine_sense"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神魂冲击：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "soul_cry_shock",
+      "display": "啼魂尖啸",
+      "school": "divine_sense",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "soul_attack",
+        "damage_base": 60,
+        "tags": [
+          "beast_soul"
+        ]
+      },
+      "description": "神魂冲击，对鬼物额外伤害。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 26,
+      "setting": {
+        "combat_style": "神识攻防",
+        "cost_note": "神识",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神魂冲击，对鬼物额外伤害。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    }
+  ]
+}

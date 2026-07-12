@@ -1,0 +1,339 @@
+{
+  "schema_version": 2,
+  "spirit_realm_factions": [
+    {
+      "id": "tianhu",
+      "display": "天狐族",
+      "culture": "幻术与盟约",
+      "specialty_item": "illusion_pearl",
+      "taboo": "破誓",
+      "setting": {
+        "lore": "天狐族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "shuyao",
+      "display": "树妖族",
+      "culture": "森罗共生",
+      "specialty_item": "ancient_wood_core",
+      "taboo": "焚林",
+      "setting": {
+        "lore": "树妖族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "shiren",
+      "display": "石人族",
+      "culture": "地脉守望",
+      "specialty_item": "spirit_stone_vein_map",
+      "taboo": "掘祖脉",
+      "setting": {
+        "lore": "石人族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "feiling",
+      "display": "飞灵族",
+      "culture": "天风骑猎",
+      "specialty_item": "wind_feather",
+      "taboo": "缚翼",
+      "setting": {
+        "lore": "飞灵族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "jinyi",
+      "display": "金翼族",
+      "culture": "铸翼战阵",
+      "specialty_item": "gold_wing_plate",
+      "setting": {
+        "lore": "金翼族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "yaksha",
+      "display": "夜叉族",
+      "culture": "战鬼血祭",
+      "specialty_item": "yaksha_blood",
+      "setting": {
+        "lore": "夜叉族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_city",
+      "display": "天渊城",
+      "culture": "人妖共防魔潮",
+      "specialty_item": "border_merit_token",
+      "spirit_density_bonus": 2.0,
+      "setting": {
+        "lore": "天渊城"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "langzu",
+      "display": "狼族",
+      "culture": "月嚎猎团",
+      "specialty_item": "moon_fang",
+      "setting": {
+        "lore": "狼族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "zhizu",
+      "display": "蛛族",
+      "culture": "丝网陷阱",
+      "specialty_item": "soul_silk",
+      "setting": {
+        "lore": "蛛族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "shezu",
+      "display": "蛇族",
+      "culture": "毒潭秘仪",
+      "specialty_item": "venom_sac_refined",
+      "setting": {
+        "lore": "蛇族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "xiongzu",
+      "display": "熊族",
+      "culture": "巨力图腾",
+      "specialty_item": "bear_totem",
+      "setting": {
+        "lore": "熊族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "huzhu",
+      "display": "虎族",
+      "culture": "山林霸主",
+      "specialty_item": "tiger_bone_talisman",
+      "setting": {
+        "lore": "虎族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "yuzu",
+      "display": "鱼族",
+      "culture": "深海水府",
+      "specialty_item": "deep_pearl",
+      "setting": {
+        "lore": "鱼族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "niaozu",
+      "display": "鸟族",
+      "culture": "空岛驿站",
+      "specialty_item": "sky_plume",
+      "setting": {
+        "lore": "鸟族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "guizu",
+      "display": "龟族",
+      "culture": "长寿阵师",
+      "specialty_item": "turtle_shell_array",
+      "setting": {
+        "lore": "龟族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "shouzu",
+      "display": "兽族（泛）",
+      "culture": "混居部落",
+      "specialty_item": "beast_contract",
+      "setting": {
+        "lore": "兽族（泛）"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "mozu",
+      "display": "魔族支系",
+      "culture": "边境劫掠",
+      "specialty_item": "demon_blood_crystal",
+      "setting": {
+        "lore": "魔族支系"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "renzu_lingjie",
+      "display": "灵界人族",
+      "culture": "天渊城附庸",
+      "specialty_item": "ascension_token",
+      "setting": {
+        "lore": "灵界人族"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "barbarian_council",
+      "display": "蛮荒妖王议会",
+      "culture": "弱肉强食朝贡",
+      "specialty_item": "barbarian_king_token",
+      "note": "松散联盟",
+      "setting": {
+        "lore": "蛮荒妖王议会"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "spirit_cloud_mountain",
+      "display": "云梦山灵族",
+      "region": "spirit_world",
+      "setting": {
+        "lore": "灵界妖族聚落之一。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING"
+        }
+      }
+    },
+    {
+      "id": "human_spirit_alliance",
+      "display": "人族联军",
+      "region": "spirit_world",
+      "setting": {
+        "lore": "天渊城人族修士同盟。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "reputation": "tianyuan"
+        }
+      }
+    }
+  ],
+  "mortal_realm_entities": [
+    {
+      "id": "mulan_council",
+      "display": "慕兰神师府",
+      "race": "mulan_fashi"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "race": "human_cultivator",
+      "holy_beast": "tianlan_beast"
+    }
+  ],
+  "barbarian_kings_ref": "barbarian_demon_kings.json",
+  "human_clan_league_ref": "human_clan_league.json",
+  "spirit_realm_clan_quests_ref": "spirit_realm_clan_quests.json"
+}

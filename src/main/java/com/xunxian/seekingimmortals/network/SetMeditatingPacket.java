@@ -2,14 +2,21 @@ package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
+import com.xunxian.seekingimmortals.registry.ModBlocks;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
 public record SetMeditatingPacket(boolean meditating) {
+    private static final int MEDITATION_HUNGER_MINIMUM = 6;
+    private static final double MEDITATION_MONSTER_CHECK_RADIUS = 8.0D;
+
     public static void encode(SetMeditatingPacket packet, FriendlyByteBuf buffer) {
         buffer.writeBoolean(packet.meditating);
     }
@@ -25,6 +32,15 @@ public record SetMeditatingPacket(boolean meditating) {
             if (player == null) return;
 
             CultivationHelper.get(player).ifPresent(cultivation -> {
+                if (packet.meditating) {
+                    Component failure = validateStart(player);
+                    if (failure != null) {
+                        cultivation.setMeditating(false);
+                        player.displayClientMessage(failure, true);
+                        SyncCultivationDataPacket.send(player, cultivation);
+                        return;
+                    }
+                }
                 if (!packet.meditating && player.getVehicle() instanceof CushionSeatEntity seat) {
                     net.minecraft.core.BlockPos cushionPos = seat.getCushionPos();
                     player.stopRiding();
@@ -37,5 +53,33 @@ public record SetMeditatingPacket(boolean meditating) {
             });
         });
         context.setPacketHandled(true);
+    }
+
+    private static Component validateStart(ServerPlayer player) {
+        if (!isSittingOnValidMeditationCushion(player)) {
+            return Component.translatable("message.seeking_immortals.meditation.start.not_cushion");
+        }
+        if (!player.getAbilities().instabuild && player.getFoodData().getFoodLevel() <= MEDITATION_HUNGER_MINIMUM) {
+            return Component.translatable("message.seeking_immortals.meditation.start.hungry");
+        }
+        if (hasNearbyMonster(player)) {
+            return Component.translatable("message.seeking_immortals.meditation.start.monster");
+        }
+        return null;
+    }
+
+    private static boolean isSittingOnValidMeditationCushion(ServerPlayer player) {
+        Entity vehicle = player.getVehicle();
+        if (vehicle instanceof CushionSeatEntity seat) {
+            BlockPos cushionPos = seat.getCushionPos();
+            return player.level().getBlockState(cushionPos).is(ModBlocks.MEDITATION_CUSHION.get());
+        }
+        return false;
+    }
+
+    private static boolean hasNearbyMonster(ServerPlayer player) {
+        return !player.level().getEntitiesOfClass(Monster.class,
+                player.getBoundingBox().inflate(MEDITATION_MONSTER_CHECK_RADIUS),
+                monster -> monster.isAlive() && !monster.isSpectator()).isEmpty();
     }
 }

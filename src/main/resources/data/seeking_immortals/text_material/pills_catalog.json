@@ -1,0 +1,2736 @@
+{
+  "schema_version": 9,
+  "quality_ref": "pill_quality.json",
+  "categories": [
+    "cultivation",
+    "breakthrough",
+    "recovery",
+    "special",
+    "poison",
+    "legendary"
+  ],
+  "pills": [
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "category": "special",
+      "realm_max": "QI_REFINING",
+      "effect": "no_food_24h",
+      "setting": {
+        "lore": "辟谷丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "foundation_pill",
+      "display": "筑基丹",
+      "category": "breakthrough",
+      "realm_target": "FOUNDATION",
+      "controlled": true,
+      "sect_distribution": true,
+      "setting": {
+        "lore": "筑基丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "condensation_pill",
+      "display": "凝元丹",
+      "category": "breakthrough",
+      "realm_target": "CORE_FORMATION",
+      "materials": [
+        "demon_core_mid",
+        "spirit_herb_rare"
+      ],
+      "setting": {
+        "lore": "凝元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huoyuan_pill",
+      "display": "火元丹",
+      "category": "cultivation",
+      "element": "fire",
+      "spirit_gain_flat": 50,
+      "setting": {
+        "lore": "火元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "soul_gathering_pill",
+      "display": "聚魂丹",
+      "category": "recovery",
+      "effect": "restore_spirit_30pct",
+      "setting": {
+        "lore": "聚魂丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "bone_marrow_pill",
+      "display": "洗髓丸",
+      "category": "cultivation",
+      "risk": "lifespan_debt",
+      "setting": {
+        "lore": "洗髓丸",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "forget_dust_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "effect": "erase_memory_12h",
+      "setting": {
+        "lore": "忘尘丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "calm_spirit_pill",
+      "display": "清虚丹",
+      "category": "special",
+      "effect": "pet_mind_clarity",
+      "setting": {
+        "lore": "清虚丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "longevity_fruit_pill",
+      "display": "长生丹",
+      "category": "special",
+      "effect": "max_lifespan_plus",
+      "rarity": "legendary",
+      "setting": {
+        "lore": "长生丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "dingyan_pill",
+      "display": "定颜丹",
+      "category": "special",
+      "effect": "freeze_appearance",
+      "setting": {
+        "lore": "定颜丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "blood_qi_pill",
+      "display": "血气丹",
+      "category": "special",
+      "realm_min": "SPIRIT_SEVERANCE",
+      "effect": "lifespan_plus_decades",
+      "setting": {
+        "lore": "血气丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "SPIRIT_SEVERANCE",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "SPIRIT_SEVERANCE"
+        }
+      }
+    },
+    {
+      "id": "huiyang_true_water",
+      "display": "回阳真水",
+      "category": "special",
+      "rarity": "mythic",
+      "effect": "lifespan_quarter_once",
+      "once_per_life": true,
+      "setting": {
+        "lore": "回阳真水",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "marrow_extract_pill",
+      "display": "抽髓丸",
+      "category": "poison",
+      "effect": "power_now_lifespan_debt",
+      "addiction": true,
+      "setting": {
+        "lore": "抽髓丸",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "soul_break_pill",
+      "display": "断魂丹",
+      "category": "poison",
+      "effect": "lethal_silent",
+      "setting": {
+        "lore": "断魂丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "poison_dragon_pearl",
+      "display": "毒龙珠",
+      "category": "poison",
+      "effect": "force_power_side_effect",
+      "setting": {
+        "lore": "毒龙珠",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "marrow_repair_pill",
+      "display": "修髓丹",
+      "category": "recovery",
+      "effect": "save_life_self_damage",
+      "setting": {
+        "lore": "修髓丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_condense_pill",
+      "display": "聚灵丹",
+      "category": "cultivation",
+      "spirit_gain_flat": 30,
+      "setting": {
+        "lore": "聚灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "market",
+            "huangfeng_outer"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_fire_pill",
+      "display": "冰火丹",
+      "category": "cultivation",
+      "element": "ice_fire",
+      "risk": "dual_element",
+      "setting": {
+        "lore": "冰火丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "bu_tian_pill",
+      "display": "补天丹",
+      "category": "legendary",
+      "effect": "spirit_root_purify",
+      "rarity": "legendary",
+      "controlled": true,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "补天丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "nascent_soul_pill",
+      "display": "培婴丹",
+      "category": "breakthrough",
+      "realm_target": "NASCENT_SOUL",
+      "rarity": "legendary",
+      "note": "化神辅助，宗门失传方",
+      "setting": {
+        "lore": "培婴丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "rare_manual"
+          ],
+          "note": "结婴辅助丹药，配方稀少。"
+        }
+      }
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "display": "回灵丹",
+      "category": "recovery",
+      "effect": "restore_mana_50pct",
+      "realm_max": "CORE_FORMATION",
+      "setting": {
+        "lore": "回灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "body_tempering_pill",
+      "display": "淬体丹",
+      "category": "cultivation",
+      "effect": "physique_plus",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "淬体丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "demon_suppress_pill",
+      "display": "镇魔丹",
+      "category": "special",
+      "effect": "suppress_demon_qi_24h",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "镇魔丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "antidote_pill",
+      "display": "解毒丹",
+      "category": "recovery",
+      "effect": "clear_poison",
+      "realm_max": "FOUNDATION",
+      "setting": {
+        "lore": "解毒丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "mana_shield_pill",
+      "display": "护灵丹",
+      "category": "recovery",
+      "effect": "temp_mana_shield",
+      "duration_ticks": 600,
+      "setting": {
+        "lore": "护灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "beast_taming_pill",
+      "display": "驭兽丹",
+      "category": "special",
+      "effect": "beast_contract_bonus",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "驭兽丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivate_speed_pill",
+      "display": "凝气丹",
+      "category": "cultivation",
+      "effect": "cultivation_speed_1h",
+      "spirit_gain_flat": 15,
+      "realm_max": "QI_REFINING",
+      "setting": {
+        "lore": "凝气丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "jiangchen_pill",
+      "display": "降尘丹",
+      "category": "breakthrough",
+      "realm_target": "FOUNDATION",
+      "effect": "foundation_breakthrough_bonus",
+      "note": "天南低阶修士常用破境丹，效力弱于筑基丹",
+      "setting": {
+        "lore": "降尘丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huanglong_pill",
+      "display": "黄龙丹",
+      "category": "cultivation",
+      "realm_max": "QI_REFINING",
+      "spirit_gain_flat": 40,
+      "note": "炼气期增进修为常用丹",
+      "setting": {
+        "lore": "黄龙丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "heqi_pill",
+      "display": "合气丹",
+      "category": "cultivation",
+      "realm_max": "QI_REFINING",
+      "spirit_gain_flat": 25,
+      "effect": "dual_cultivation_compatible",
+      "setting": {
+        "lore": "合气丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ningshen_pill",
+      "display": "凝神丹",
+      "category": "special",
+      "effect": "calm_inner_demon",
+      "realm_min": "FOUNDATION",
+      "note": "稳固心神、抗心魔",
+      "setting": {
+        "lore": "凝神丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "yanghun_pill",
+      "display": "养魂丹",
+      "category": "recovery",
+      "effect": "restore_soul_minor",
+      "realm_min": "FOUNDATION",
+      "note": "神魂受损时温养",
+      "setting": {
+        "lore": "养魂丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "sea_calm_pill",
+      "display": "定海丹",
+      "category": "special",
+      "effect": "sea_sickness_immune",
+      "realm_min": "QI_REFINING",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "note": "乱星海渡海常用",
+      "setting": {
+        "lore": "定海丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "demon_heart_pill",
+      "display": "镇心丹",
+      "category": "special",
+      "effect": "resist_demon_qi_corruption",
+      "realm_min": "FOUNDATION",
+      "note": "坠魔谷/魔气环境辅助",
+      "setting": {
+        "lore": "镇心丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "snow_lotus_pill",
+      "display": "雪莲丹",
+      "category": "recovery",
+      "effect": "clear_cold_poison",
+      "realm_min": "FOUNDATION",
+      "regions": [
+        "dajin"
+      ],
+      "note": "大晋寒毒类丹药",
+      "setting": {
+        "lore": "雪莲丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "category": "special",
+      "effect": "reduce_demon_qi_stack",
+      "realm_min": "CORE_FORMATION",
+      "regions": [
+        "fallen_demon_valley",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "驱魔丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "yin_ward_pill",
+      "display": "护阴丹",
+      "category": "special",
+      "effect": "yin_damage_resist_24h",
+      "realm_min": "FOUNDATION",
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "护阴丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_spirit_pill",
+      "display": "天渊聚灵丹",
+      "category": "cultivation",
+      "effect": "cultivation_speed_tianyuan",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "regions": [
+        "tianyuan"
+      ],
+      "note": "天渊城灵气浓郁，丹药为本地炼制向",
+      "setting": {
+        "lore": "天渊聚灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "display": "避雷丹",
+      "category": "special",
+      "effect": "tribulation_lightning_reduce",
+      "realm_min": "NASCENT_SOUL",
+      "note": "小雷劫/元婴向辅助，非替代天劫",
+      "setting": {
+        "lore": "避雷丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "NASCENT_SOUL"
+        }
+      }
+    },
+    {
+      "id": "heart_guard_pill",
+      "display": "守心丹",
+      "category": "special",
+      "effect": "heart_demon_resist",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "note": "化神心魔劫辅助",
+      "setting": {
+        "lore": "守心丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "id": "demon_gold_body_pill",
+      "display": "魔金锻体丹",
+      "category": "special",
+      "effect": "demon_body_temper",
+      "realm_min": "VOID_REFINEMENT",
+      "regions": [
+        "demon_gold_mountain"
+      ],
+      "note": "魔道炼体辅助",
+      "setting": {
+        "lore": "魔金锻体丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "VOID_REFINEMENT",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "VOID_REFINEMENT"
+        }
+      }
+    },
+    {
+      "id": "asura_mind_pill",
+      "display": "修罗定念丹",
+      "category": "special",
+      "effect": "killing_intent_control",
+      "realm_min": "BODY_INTEGRATION",
+      "regions": [
+        "minor_asura_realm"
+      ],
+      "setting": {
+        "lore": "修罗定念丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "BODY_INTEGRATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "BODY_INTEGRATION"
+        }
+      }
+    },
+    {
+      "id": "luoyun_spirit_pill",
+      "display": "落云聚元丹",
+      "category": "cultivation",
+      "spirit_gain_flat": 120,
+      "realm_min": "CORE_FORMATION",
+      "regions": [
+        "tiannan"
+      ],
+      "note": "落云宗炼丹强宗向高阶修炼丹",
+      "setting": {
+        "lore": "落云聚元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "dual_harmony_pill",
+      "display": "合欢丹",
+      "category": "special",
+      "effect": "dual_cultivation_bonus",
+      "realm_min": "FOUNDATION",
+      "note": "双修宗门辅助，非具体人物功法",
+      "setting": {
+        "lore": "合欢丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "demonic_yang_gather_pill",
+      "display": "采阳丹",
+      "category": "special",
+      "effect": "demonic_dual_cultivation",
+      "realm_min": "FOUNDATION",
+      "karma": "demonic",
+      "note": "魔道双修向，煞气副作用由系统处理",
+      "setting": {
+        "lore": "采阳丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "great_vehicle_ascension_aid_pill",
+      "display": "大乘护劫丹",
+      "category": "special",
+      "effect": "ascension_tribulation_aid",
+      "realm_min": "GREAT_VEHICLE",
+      "regions": [
+        "jiuxian_seclusion",
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "大乘护劫丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "GREAT_VEHICLE",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "GREAT_VEHICLE"
+        }
+      }
+    },
+    {
+      "id": "spirit_beast_nurture_pill",
+      "display": "灵兽育灵丹",
+      "category": "special",
+      "effect": "pet_growth",
+      "realm_min": "QI_REFINING",
+      "regions": [
+        "tiannan"
+      ],
+      "note": "灵兽山御兽向",
+      "setting": {
+        "lore": "灵兽育灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "solid_essence_pill",
+      "display": "固元丹",
+      "tier": "low",
+      "effect": "stabilize_foundation",
+      "realm_min": "FOUNDATION",
+      "note": "巩固筑基根基",
+      "setting": {
+        "lore": "固元丹",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "spirit_recovery_pill_high",
+      "display": "回灵丹（中）",
+      "tier": "mid",
+      "effect": "restore_mana",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "回灵丹（中）",
+        "tier": "mid"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "demon_expel_pill",
+      "display": "驱魔丹",
+      "tier": "mid",
+      "effect": "purge_demon_qi",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "驱魔丹",
+        "tier": "mid"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "longevity_wine_pill",
+      "display": "延寿丹",
+      "tier": "high",
+      "effect": "lifespan_small",
+      "realm_min": "CORE_FORMATION",
+      "note": "小幅增寿，非长生",
+      "setting": {
+        "lore": "延寿丹",
+        "tier": "high"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "blood_essence_pill",
+      "display": "血精丹",
+      "tier": "mid",
+      "effect": "blood_cultivation_boost",
+      "realm_min": "FOUNDATION",
+      "karma": "yin",
+      "setting": {
+        "lore": "血精丹",
+        "tier": "mid"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "mulan_wind_pill",
+      "display": "风行丹",
+      "tier": "low",
+      "effect": "movement_speed",
+      "realm_min": "QI_REFINING",
+      "region": "mulan",
+      "setting": {
+        "lore": "风行丹",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_antidote",
+      "display": "海毒解丹",
+      "tier": "mid",
+      "effect": "sea_poison_cure",
+      "realm_min": "QI_REFINING",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "海毒解丹",
+        "tier": "mid"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "pressure_resist_pill",
+      "display": "抗压丹",
+      "tier": "rare",
+      "realm_min": "VOID_REFINING",
+      "effect_tags": [
+        "diyuan_debuff_reduce"
+      ],
+      "setting": {
+        "lore": "抗压丹",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "VOID_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "VOID_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_condense_pill",
+      "display": "灵界凝元丹",
+      "tier": "legendary",
+      "realm_min": "SPIRIT_SEVERING",
+      "setting": {
+        "lore": "灵界凝元丹",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "SPIRIT_SEVERING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "SPIRIT_SEVERING"
+        }
+      }
+    },
+    {
+      "id": "jiedan_pill",
+      "display": "结丹丹",
+      "category": "breakthrough",
+      "realm_target": "CORE_FORMATION",
+      "setting": {
+        "lore": "结丹丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ningyuan_pill",
+      "display": "凝元丹（外海）",
+      "category": "breakthrough",
+      "realm_target": "CORE_FORMATION",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "凝元丹（外海）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huashen_pill",
+      "display": "化神丹",
+      "category": "breakthrough",
+      "realm_target": "DEITY_TRANSFORMATION",
+      "controlled": true,
+      "setting": {
+        "lore": "化神丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ninghun_dan",
+      "display": "凝魂丹",
+      "category": "recovery",
+      "effect_tags": [
+        "soul_heal"
+      ],
+      "setting": {
+        "lore": "凝魂丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "yangyuan_pill",
+      "display": "养元丹",
+      "category": "cultivation",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "setting": {
+        "lore": "养元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huichun_pill",
+      "display": "回春丹",
+      "category": "recovery",
+      "effect_tags": [
+        "hp_regen"
+      ],
+      "setting": {
+        "lore": "回春丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "qingxin_pill",
+      "display": "清心丹",
+      "category": "recovery",
+      "effect_tags": [
+        "heart_demon_reduce"
+      ],
+      "setting": {
+        "lore": "清心丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "biyu_pill",
+      "display": "碧玉丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "碧玉丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "xuanbing_pill",
+      "display": "玄冰丹",
+      "category": "special",
+      "element": "ice",
+      "setting": {
+        "lore": "玄冰丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "lieyan_pill",
+      "display": "烈焰丹",
+      "category": "special",
+      "element": "fire",
+      "setting": {
+        "lore": "烈焰丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "juyuan_pill",
+      "display": "聚元丹",
+      "category": "cultivation",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "聚元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "tihu_pill",
+      "display": "替魂丹",
+      "category": "special",
+      "effect_tags": [
+        "death_substitute_once"
+      ],
+      "setting": {
+        "lore": "替魂丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "dujie_pill",
+      "display": "渡劫丹",
+      "category": "breakthrough",
+      "realm_target": "NASCENT_SOUL",
+      "effect_tags": [
+        "tribulation_aid"
+      ],
+      "setting": {
+        "lore": "渡劫丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "longhu_pill",
+      "display": "龙虎丹",
+      "category": "cultivation",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "龙虎丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "xueying_pill",
+      "display": "血影丹",
+      "category": "poison",
+      "school": "demonic",
+      "setting": {
+        "lore": "血影丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "wuxing_pill",
+      "display": "五行丹",
+      "category": "cultivation",
+      "element": "mixed",
+      "setting": {
+        "lore": "五行丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "tianling_pill",
+      "display": "天灵丹",
+      "category": "legendary",
+      "realm_min": "SPIRIT_SEVERING",
+      "setting": {
+        "lore": "天灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "SPIRIT_SEVERING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "SPIRIT_SEVERING"
+        }
+      }
+    },
+    {
+      "id": "spirit_condense_minor",
+      "display": "小凝元丹",
+      "category": "cultivation",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "小凝元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "anti_poison_pill",
+      "display": "解毒丹",
+      "category": "recovery",
+      "effect_tags": [
+        "detox"
+      ],
+      "setting": {
+        "lore": "解毒丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "jiangying_pill",
+      "display": "降尘丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "降尘丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "xiyu_pill",
+      "display": "洗髓丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "洗髓丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huanti_pill",
+      "display": "淬体丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "淬体丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huanxue_pill",
+      "display": "换血丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "换血丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "juling_pill",
+      "display": "聚灵丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "聚灵丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ningjin_pill",
+      "display": "凝金丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "凝金丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ningying_pill",
+      "display": "凝婴丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "凝婴丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "wangchen_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "setting": {
+        "lore": "忘尘丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "jingxin_pill",
+      "display": "静心丸",
+      "category": "recovery",
+      "setting": {
+        "lore": "静心丸",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "jieqi_pill",
+      "display": "解气丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "解气丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "huiyuan_pill",
+      "display": "回元丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "回元丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "yin_yang_pill",
+      "display": "阴阳丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "阴阳丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "golden_core_pill",
+      "display": "金丹丸",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "金丹丸",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "body_refine_pill",
+      "display": "炼体丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "炼体丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "meridian_open_pill",
+      "display": "通脉丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "通脉丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_seed_pill",
+      "display": "灵种丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "灵种丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ghost_cultivate_pill",
+      "display": "炼鬼丹",
+      "category": "poison",
+      "setting": {
+        "lore": "炼鬼丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "demonic_blood_pill",
+      "display": "魔血丹",
+      "category": "poison",
+      "setting": {
+        "lore": "魔血丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "hehuan_pill",
+      "display": "合欢丹",
+      "category": "special",
+      "setting": {
+        "lore": "合欢丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "illusion_pill",
+      "display": "幻心丹",
+      "category": "special",
+      "setting": {
+        "lore": "幻心丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "tribulation_guard_pill",
+      "display": "护劫丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "护劫丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "void_condense_pill",
+      "display": "炼虚丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "炼虚丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_severing_pill",
+      "display": "炼神丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "炼神丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "star_sea_pill",
+      "display": "星海丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "星海丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "barbarian_strength_pill",
+      "display": "蛮力丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "蛮力丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "diyuan_adapt_pill",
+      "display": "地渊适应丹",
+      "category": "special",
+      "setting": {
+        "lore": "地渊适应丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_merit_pill",
+      "display": "天渊功勋丹",
+      "category": "special",
+      "setting": {
+        "lore": "天渊功勋丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ghost_gate_pill",
+      "display": "鬼灵门阴丹",
+      "category": "poison",
+      "setting": {
+        "lore": "鬼灵门阴丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "poison_insect_pill",
+      "display": "毒虫丸",
+      "category": "poison",
+      "setting": {
+        "lore": "毒虫丸",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "blood_curse_pill",
+      "display": "血咒丹",
+      "category": "poison",
+      "setting": {
+        "lore": "血咒丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "fox_illusion_pill",
+      "display": "天狐幻丹",
+      "category": "special",
+      "setting": {
+        "lore": "天狐幻丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_qi_refining",
+      "display": "QI_REFINING辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "QI_REFINING",
+      "structural": true,
+      "setting": {
+        "lore": "QI_REFINING辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_foundation",
+      "display": "FOUNDATION辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "FOUNDATION",
+      "structural": true,
+      "setting": {
+        "lore": "FOUNDATION辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_core_formation",
+      "display": "CORE_FORMATION辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "CORE_FORMATION",
+      "structural": true,
+      "setting": {
+        "lore": "CORE_FORMATION辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_nascent_soul",
+      "display": "NASCENT_SOUL辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "NASCENT_SOUL",
+      "structural": true,
+      "setting": {
+        "lore": "NASCENT_SOUL辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_deity_transformation",
+      "display": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "DEITY_TRANSFORMATION",
+      "structural": true,
+      "setting": {
+        "lore": "DEITY_TRANSFORMATION辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_void_refining",
+      "display": "VOID_REFINING辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "VOID_REFINING",
+      "structural": true,
+      "setting": {
+        "lore": "VOID_REFINING辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_great_vehicle",
+      "display": "GREAT_VEHICLE辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "GREAT_VEHICLE",
+      "structural": true,
+      "setting": {
+        "lore": "GREAT_VEHICLE辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cultivation_aid_spirit_severing",
+      "display": "SPIRIT_SEVERING辅修丹（通称）",
+      "category": "cultivation",
+      "realm_target": "SPIRIT_SEVERING",
+      "structural": true,
+      "setting": {
+        "lore": "SPIRIT_SEVERING辅修丹（通称）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "alchemy_manual",
+            "pill_recipe"
+          ],
+          "note": "需丹方与丹炉火候；服用亦受境界限制。"
+        },
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    }
+  ]
+}

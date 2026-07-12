@@ -1,0 +1,555 @@
+{
+  "schema_version": 3,
+  "disclaimer": "掉率为模组建议值；item id 对齐 materials/pills/artifacts/consumables 目录",
+  "tables": [
+    {
+      "boss_id": "blood_jiao_guardian",
+      "secret_realm": "blood_forbidden",
+      "drops": [
+        {
+          "item": "demon_core_mid",
+          "chance": 0.35,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "dragon_blood_grass",
+          "chance": 0.12,
+          "count": 1
+        },
+        {
+          "item": "blood_lotus",
+          "chance": 0.18,
+          "count": 1
+        },
+        {
+          "item": "recipe_foundation",
+          "chance": 0.05,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "foundation_pill",
+          "chance": 0.03,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "void_palace_lord",
+      "secret_realm": "void_palace",
+      "drops": [
+        {
+          "item": "void_key",
+          "chance": 0.08,
+          "count": 1
+        },
+        {
+          "item": "space_crystal",
+          "chance": 0.3,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "xuanguang_mirror_shard",
+          "chance": 0.1,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "great_shift_token",
+          "chance": 0.06,
+          "count": 1
+        },
+        {
+          "item": "recipe_condensation",
+          "chance": 0.04,
+          "type": "formula_scroll"
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "kunwu_puppet_king",
+      "secret_realm": "kunwu_mountain",
+      "drops": [
+        {
+          "item": "kunwu_copper",
+          "chance": 0.4,
+          "count": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "ancient_puppet_method",
+          "chance": 0.1,
+          "count": 1
+        },
+        {
+          "item": "refinement_manual_mid",
+          "chance": 0.08,
+          "count": 1
+        },
+        {
+          "item": "stone_spirit_core",
+          "chance": 0.05,
+          "count": 1
+        },
+        {
+          "item": "hunyuan_bowl",
+          "chance": 0.02,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "ancient_demon_projection",
+      "secret_realm": "fallen_demon_valley",
+      "drops": [
+        {
+          "item": "ancient_demon_fragment",
+          "chance": 0.2,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "demon_corruption_fungus",
+          "chance": 0.25,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "recipe_poison_dragon",
+          "chance": 0.04,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "evil_illusion_mirror",
+          "chance": 0.03,
+          "count": 1
+        },
+        {
+          "item": "marrow_extract_pill",
+          "chance": 0.06,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "nether_river_guardian",
+      "secret_realm": "nether_river_land",
+      "drops": [
+        {
+          "item": "yin_essence_ore",
+          "chance": 0.35,
+          "count": [
+            2,
+            4
+          ]
+        },
+        {
+          "item": "soul_gathering_stone",
+          "chance": 0.2,
+          "count": 1
+        },
+        {
+          "item": "ghost_cultivation_manual",
+          "chance": 0.12,
+          "count": 1
+        },
+        {
+          "item": "ghost_hide_talisman",
+          "chance": 0.15,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "soul_gathering_bowl",
+          "chance": 0.04,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "moon_beast",
+      "secret_realm": "guanghan_realm",
+      "drops": [
+        {
+          "item": "hundred_year_ice",
+          "chance": 0.35,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "snow_lotus",
+          "chance": 0.2,
+          "count": 1
+        },
+        {
+          "item": "qingning_mirror",
+          "chance": 0.05,
+          "count": 1
+        },
+        {
+          "item": "recipe_ice_fire",
+          "chance": 0.08,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "spatial_law_fragment",
+          "chance": 0.06,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "ancient_beast_sovereign",
+      "secret_realm": "diyuan",
+      "drops": [
+        {
+          "item": "ancient_beast_core",
+          "chance": 0.15,
+          "count": 1
+        },
+        {
+          "item": "earth_spine_root",
+          "chance": 0.28,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "bone_marrow_pill",
+          "chance": 0.1,
+          "count": 1
+        },
+        {
+          "item": "recipe_blood_qi",
+          "chance": 0.03,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "spatial_law_fragment",
+          "chance": 0.08,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "gold_demon_general",
+      "secret_realm": "demon_gold_mountain",
+      "drops": [
+        {
+          "item": "gold_seam_stone",
+          "chance": 0.35,
+          "count": [
+            2,
+            4
+          ]
+        },
+        {
+          "item": "demon_core_high",
+          "chance": 0.2,
+          "count": 1
+        },
+        {
+          "item": "ancient_demon_fragment",
+          "chance": 0.12,
+          "count": 1
+        },
+        {
+          "item": "gold_demon_chain",
+          "chance": 0.04,
+          "count": 1
+        },
+        {
+          "item": "recipe_marrow_extract",
+          "chance": 0.05,
+          "type": "formula_scroll"
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "asura_avatar",
+      "secret_realm": "minor_asura_realm",
+      "drops": [
+        {
+          "item": "thunder_stone",
+          "chance": 0.3,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "three_pure_thunder_talisman",
+          "chance": 0.06,
+          "count": 1
+        },
+        {
+          "item": "trial_merit",
+          "chance": 0.5,
+          "count": [
+            10,
+            30
+          ]
+        },
+        {
+          "item": "body_tempering_pill",
+          "chance": 0.12,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "chaotic_sea_jiao_lord",
+      "secret_realm": "chaotic_sea",
+      "drops": [
+        {
+          "item": "jiao_scale",
+          "chance": 0.4,
+          "count": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "coral_spirit_pearl",
+          "chance": 0.15,
+          "count": 1
+        },
+        {
+          "item": "deep_sea_cold_iron",
+          "chance": 0.2,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "recipe_bu_tian",
+          "chance": 0.02,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "bu_tian_pill",
+          "chance": 0.01,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "tier_6_spirit_beast_generic",
+      "source": "beast_bestiary",
+      "drops": [
+        {
+          "item": "demon_core_mid",
+          "chance": 0.5,
+          "count": 1
+        },
+        {
+          "item": "beast_blood_vial",
+          "chance": 0.35,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "beast_soul_essence",
+          "chance": 0.08,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "boss_id": "puppet_tower_lord",
+      "secret_realm": "thousand_bamboo_puppet_tower",
+      "drops": [
+        {
+          "item": "puppet_core_blank",
+          "chance": 0.4,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "stone_spirit_core",
+          "chance": 0.08,
+          "count": 1
+        },
+        {
+          "item": "manual_ancient_puppet_method",
+          "chance": 0.05,
+          "type": "formula_scroll"
+        },
+        {
+          "item": "dayan_fragment",
+          "chance": 0.03,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": null,
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "id": "loot_void_palace_lord",
+      "display": "虚天殿主掉落",
+      "boss": "void_palace_lord",
+      "setting": {
+        "lore": "虚天殿主掉落"
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": "void_palace_lord",
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    },
+    {
+      "id": "loot_blood_jiao",
+      "display": "血蛟守卫掉落",
+      "boss": "blood_jiao_guardian",
+      "setting": {
+        "lore": "血蛟守卫掉落"
+      },
+      "learn_requirements": {
+        "drop": {
+          "boss": "blood_jiao_guardian",
+          "note": "击杀 BOSS 后按表掉落。"
+        }
+      }
+    }
+  ],
+  "crossref": [
+    "secret_realms.json",
+    "beast_loot_tiers.json",
+    "materials_catalog.json",
+    "pills_catalog.json",
+    "artifacts_catalog.json"
+  ]
+}

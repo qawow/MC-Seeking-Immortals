@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "manuals": [
+    {
+      "id": "refinement_manual_low",
+      "display": "炼器入门篇",
+      "type": "refinement",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "炼器入门篇"
+    },
+    {
+      "id": "refinement_manual_mid",
+      "display": "炼器真解（中篇）",
+      "type": "refinement",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "炼器真解（中篇）"
+    },
+    {
+      "id": "refinement_manual_ancient",
+      "display": "古宝重铸秘要",
+      "type": "refinement",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "古宝重铸秘要"
+    },
+    {
+      "id": "recipe_refine_flying_sword",
+      "display": "低阶飞剑谱",
+      "type": "refinement",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "低阶飞剑谱"
+    },
+    {
+      "id": "recipe_refine_evil_mirror",
+      "display": "邪幻镜炼制要诀",
+      "type": "refinement",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "邪幻镜炼制要诀"
+    },
+    {
+      "id": "recipe_refine_giant_turtle",
+      "display": "巨龟核心图",
+      "type": "puppet",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "巨龟核心图"
+    },
+    {
+      "id": "ancient_puppet_method",
+      "display": "上古傀儡术",
+      "type": "puppet",
+      "unlocks": [
+        "stone_spirit_puppet"
+      ],
+      "realm_min": "",
+      "note": "上古傀儡术"
+    },
+    {
+      "id": "ghost_cultivation_manual",
+      "display": "阴灵鬼修录",
+      "type": "cultivation_path",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "阴灵鬼修录"
+    },
+    {
+      "id": "fashi_array_manual",
+      "display": "慕兰法阵要诀",
+      "type": "formation",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "慕兰法阵要诀"
+    },
+    {
+      "id": "array_blueprint_scroll",
+      "display": "阵图残卷",
+      "type": "formation",
+      "unlocks": [
+        "illusion_maze",
+        "defense_wall"
+      ],
+      "realm_min": "",
+      "note": "阵图残卷"
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "display": "聚灵丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "聚灵丹方"
+    },
+    {
+      "id": "recipe_foundation",
+      "display": "筑基丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "筑基丹方"
+    },
+    {
+      "id": "recipe_bigu",
+      "display": "辟谷丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "辟谷丹方"
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "display": "清虚丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "清虚丹方"
+    },
+    {
+      "id": "recipe_condensation",
+      "display": "凝婴丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "凝婴丹方"
+    },
+    {
+      "id": "recipe_bu_tian",
+      "display": "补天丹方",
+      "type": "alchemy",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "补天丹方"
+    },
+    {
+      "id": "illusion_talisman_scroll",
+      "display": "幻符要诀",
+      "type": "talisman",
+      "unlocks": [
+        "illusion_dispel_talisman"
+      ],
+      "realm_min": "",
+      "note": "幻符要诀"
+    },
+    {
+      "id": "dayan_solution_fragment",
+      "display": "大衍诀残页",
+      "type": "puppet",
+      "unlocks": [
+        "dayan_grade_puppet"
+      ],
+      "realm_min": "",
+      "note": "大衍诀残页"
+    },
+    {
+      "id": "stolen_jade_slip",
+      "display": "失窃玉简",
+      "type": "quest",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "失窃玉简"
+    },
+    {
+      "id": "manual_dayan_true_solution",
+      "display": "大衍真解",
+      "type": "puppet",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "大衍真解"
+    },
+    {
+      "id": "manual_ancient_puppet_art",
+      "display": "上古傀儡术",
+      "type": "puppet",
+      "unlocks": [],
+      "realm_min": "",
+      "note": "上古傀儡术"
+    }
+  ]
+}

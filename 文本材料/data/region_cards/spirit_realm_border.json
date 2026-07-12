@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "id": "spirit_realm_border",
+  "display": "灵界边境荒原",
+  "parent_region": "spirit_realm",
+  "spirit_density": 1.3,
+  "daily_events": [
+    "wild_land_beast_horde",
+    "spatial_rift_flutter"
+  ],
+  "connects": [
+    "tianyuan",
+    "wild_land"
+  ],
+  "realm_min": "SPIRIT_SEVERING"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "tianyuan_merit_exchange",
+  "currency": "item",
+  "currency_item": "seeking_immortals:alliance_merit_token",
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_stone_high",
+      "item": "seeking_immortals:metal_spirit_stone_high",
+      "count": 1,
+      "cost": 50,
+      "stock": 16
+    },
+    {
+      "id": "pressure_resist_charm",
+      "item": "seeking_immortals:pressure_resist_charm",
+      "count": 1,
+      "cost": 200,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "diyuan_permit",
+      "item": "seeking_immortals:diyuan_permit",
+      "count": 1,
+      "cost": 1200,
+      "stock": 1,
+      "refresh_ticks": 96000
+    },
+    {
+      "id": "wind_feather_raft_ticket",
+      "item": "seeking_immortals:wind_feather_raft_ticket",
+      "count": 1,
+      "cost": 300,
+      "stock": 4,
+      "refresh_ticks": 48000
+    }
+  ]
+}

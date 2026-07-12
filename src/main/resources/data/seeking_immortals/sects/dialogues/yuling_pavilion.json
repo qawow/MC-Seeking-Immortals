@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "knocking",
+      "title_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.knocking.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.knocking.text",
+      "options": [
+        { "id": "exam", "label_key": "screen.seeking_immortals.sect.dialogue.option.exam", "action": "advance" }
+      ]
+    },
+    {
+      "id": "outer",
+      "title_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.outer.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.outer.text",
+      "options": [
+        { "id": "mission", "label_key": "screen.seeking_immortals.sect.dialogue.option.mission", "action": "accept_mission" }
+      ]
+    },
+    {
+      "id": "foundation",
+      "title_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.foundation.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.foundation.text",
+      "options": [
+        { "id": "promotion", "label_key": "screen.seeking_immortals.sect.dialogue.option.promotion", "action": "advance" }
+      ]
+    },
+    {
+      "id": "inner",
+      "title_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.inner.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.inner.text",
+      "options": [
+        { "id": "competition", "label_key": "screen.seeking_immortals.sect.dialogue.option.competition", "action": "advance" }
+      ]
+    },
+    {
+      "id": "complete",
+      "title_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.complete.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.yuling_pavilion.complete.text",
+      "options": []
+    }
+  ]
+}

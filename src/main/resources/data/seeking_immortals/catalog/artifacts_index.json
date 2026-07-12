@@ -1,0 +1,1307 @@
+{
+  "schema_version": 1,
+  "artifacts": [
+    {
+      "id": "flying_sword_low",
+      "display": "低阶飞剑",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑（仿）",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "yellow_umbrella",
+      "display": "黄罗伞",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "xuanguang_mirror",
+      "display": "玄光镜",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "xuanhuang_mirror",
+      "display": "玄黄镜",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "evil_illusion_mirror",
+      "display": "邪幻镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "hunyuan_bowl",
+      "display": "混元钵",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "soul_gathering_bowl",
+      "display": "聚魂钵",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "soul_summon_bell",
+      "display": "引魂钟",
+      "tier": "mid",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "poluo_beads",
+      "display": "婆罗珠",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "cloud_boots",
+      "display": "踏云靴",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "black_boots",
+      "display": "乌靴",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "great_shift_token",
+      "display": "大挪移令",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "spirit_gathering_bead",
+      "display": "定神珠",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "gold_demon_chain",
+      "display": "金蚨子母刃",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "flat_crown",
+      "display": "平山冠",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "demon_refining_pot",
+      "display": "炼妖壶（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "void_key",
+      "display": "虚天殿密钥",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "silver_moon_wolf",
+      "display": "银月天狼",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "qingning_mirror",
+      "display": "青凝镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "potian_shovel",
+      "display": "破天锹",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "snake_pearl",
+      "display": "蛇珠",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "peerless_flying_knives",
+      "display": "无双飞刀",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "bedrock_shield",
+      "display": "磐石盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "nascent_soul_talisman_treasure",
+      "display": "元婴符宝（模板）",
+      "tier": "high",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "giant_ape_puppet_token",
+      "display": "巨猿傀儡符",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "flat_crown_replica",
+      "display": "平山冠（仿）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "spirit_boat_model",
+      "display": "灵舟模型",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "giant_turtle_puppet_core",
+      "display": "巨龟傀儡核心",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "nine_dragon_cauldron_replica",
+      "display": "九龙神火罩（仿·古宝模板）",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "void_refining_bell",
+      "display": "炼虚钟（灵宝模板）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "nine_dragon_barrier_token",
+      "display": "九龙罩阵符",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "quhun_iron_puppet",
+      "display": "驱魂铁傀（战利品）",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "evil_mirage_mirror_shard",
+      "display": "邪幻镜碎片",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "display": "玄黄镜碎片",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "qingye_leaf_fan",
+      "display": "青叶法器",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "lieyang_short_sword",
+      "display": "烈阳剑（法器）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "lengyue_blade",
+      "display": "冷月刀",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "huangsi_robe_artifact",
+      "display": "黄丝衫",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "silver_giant_sword",
+      "display": "银色巨剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "azure_rope_net",
+      "display": "青索网",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "fire_cloud_banner",
+      "display": "火云旗",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "blood_jade_shield",
+      "display": "血玉盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "tortoise_shell_shield",
+      "display": "龟壳盾",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "fire_rain_needles",
+      "display": "火雨针",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "thousand_bee_needles",
+      "display": "千蜂针",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "wind_fire_wheels",
+      "display": "风火轮",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "aura_conceal_cloth",
+      "display": "敛气残帛",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "storage_bracelet_low",
+      "display": "储物镯（低阶）",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "soul_lock_chain",
+      "display": "锁魂链",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "vermillion_bird_ring",
+      "display": "朱雀环（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "black_moon_ruler",
+      "display": "黑月尺",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "falling_star_ring",
+      "display": "落星环",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "green_copper_bell",
+      "display": "青铜古钟",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "demon_suppress_tower_replica",
+      "display": "镇妖塔（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "void_heaven_ruler_shard",
+      "display": "虚天尺碎片",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "black_wind_flag_fragment",
+      "display": "黑风旗残角",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "seven_flame_fan_replica",
+      "display": "七焰扇（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "mixed_element_bowl_low",
+      "display": "混元药钵（凡）",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "iron_chain_sickle",
+      "display": "铁链镰",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "spirit_lamp",
+      "display": "引灵灯",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "beast_taming_whip",
+      "display": "御兽鞭",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "thunder_palm_artifact",
+      "display": "天雷符器",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "black_gold_shield",
+      "display": "乌金盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "dark_iron_ring",
+      "display": "玄铁环",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "soul_capturing_bell",
+      "display": "摄魂铃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "green_bamboo_leaf_sword",
+      "display": "竹叶剑",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "soul_refining_banner",
+      "display": "炼魂幡",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "stealth_cloak_artifact",
+      "display": "匿形斗篷",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "demon_subduing_staff",
+      "display": "降魔杵",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "flying_needle_set",
+      "display": "飞针匣",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "jade_law_seal",
+      "display": "法印",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "five_element_orb",
+      "display": "五行灵珠",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "ancient_sea_halberd_shard",
+      "display": "平海戈碎片",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "ancient_forest_disk_shard",
+      "display": "万森轮盘碎片",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "natal_artifact_embryo",
+      "display": "本命法宝胚",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "star_palace_standard_sword",
+      "display": "星宫制式飞剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "reverse_star_assassin_blade",
+      "display": "逆星刺刃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "void_palace_chain",
+      "display": "镇海链",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "fire_crow_fan",
+      "display": "火鸦扇",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "ice_silk_net",
+      "display": "冰蚕丝网",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "wind_escape_sail",
+      "display": "风遁帆",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "celestial_silk_armor",
+      "display": "天蚕法衣",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "soul_scattering_mirror_shard",
+      "display": "灭魂镜碎片",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "blood_drinking_hook",
+      "display": "饮血钩",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "spirit_repelling_mirror",
+      "display": "驱灵镜",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "great_vehicle_vajra_replica",
+      "display": "金刚杵（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "GREAT_VEHICLE"
+    },
+    {
+      "id": "mixed_element_ruler_low",
+      "display": "量天尺（法器）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "spirit_beast_bridle",
+      "display": "御兽环",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "beast_soul_bell",
+      "display": "兽魂铃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "demon_ape_armor",
+      "display": "铁猿甲",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "bixie_blade",
+      "display": "辟邪神兵（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "silver_spirit_mirror",
+      "display": "银灵镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "copper_bell_charm",
+      "display": "铜钟护符",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "giant_sword_gate_relic",
+      "display": "巨剑门残刃",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "montain_five_friends_token",
+      "display": "蒙山五友信物",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "wanbao_pavilion_coupon",
+      "display": "万宝楼鉴宝券",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "void_palace_cold_jade_pendant",
+      "display": "寒玉佩",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "ice_fire_dual_orb",
+      "display": "冰火珠",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "kunwu_seal_fragment",
+      "display": "昆吾令碎片",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "demonized_ancient_sword",
+      "display": "魔化古剑",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "space_rift_compass",
+      "display": "裂隙罗盘",
+      "tier": "high",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "yellow_demon_banner",
+      "display": "黄泉幡（仿）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "seven_star_disk",
+      "display": "七星盘",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "moon_shadow_disk",
+      "display": "月影轮",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "phoenix_feather_fan",
+      "display": "凤羽扇",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "dragon_scale_armor",
+      "display": "龙鳞甲",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "whirlpool_pearl",
+      "display": "旋涡珠",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "thunder_dragon_horn",
+      "display": "雷蛟角枪",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "artifact_repair_kit",
+      "display": "法宝修补匣",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "spirit_nourish_silk",
+      "display": "养宝丝",
+      "tier": "mid",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜碎片",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "display": "九龙神火罩碎片",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "azure_ice_sword",
+      "display": "玄冰剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "scarlet_dragon_blade",
+      "display": "赤龙刃",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "purple_fire_bead",
+      "display": "紫罗天火珠",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "vajra_shield",
+      "display": "金刚罩",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "glazed_guard_shield",
+      "display": "琉璃罩",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "sky_cleaver_axe",
+      "display": "开天斧（法器）",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "soul_devouring_chain",
+      "display": "噬魂链",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "thunder_pearl_talisman",
+      "display": "天雷子",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "talisman_treasure_flat_mountain",
+      "display": "平山印符宝",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "natal_sword_embryo",
+      "display": "本命飞剑胚",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "artifact_spirit_awakening_incense",
+      "display": "启灵香",
+      "tier": "mid",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "ancient_treasure_appraisal_lens",
+      "display": "鉴宝瞳镜",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "auction_sealed_hammer",
+      "display": "拍卖行密锤",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "chaotic_sea_navigation_compass",
+      "display": "星海罗盘",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "tianyuan_border_talisman_artifact",
+      "display": "天渊护身佩",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "demon_blood_saber",
+      "display": "魔血刀",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "wood_spirit_staff",
+      "display": "碧玉杖",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "iron_bone_claw",
+      "display": "铁骨爪",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "spirit_sand_hourglass",
+      "display": "流沙漏",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "xuanguang_mirror_replica",
+      "display": "玄光镜（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "hunyuan_bowl_replica",
+      "display": "混元钵（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "cloud_sedan_token",
+      "display": "云轿令牌",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "great_shift_token_replica",
+      "display": "大挪移护符（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "invisible_needle_set",
+      "display": "无形针匣",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "xuantie_flying_shield",
+      "display": "玄铁飞天盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "dual_element_ring",
+      "display": "两仪环（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "red_thread_needles_replica",
+      "display": "红线遁光针（仿）",
+      "tier": "high",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "sky_bracelet_replica",
+      "display": "弥天镯（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "bone_wind_cart",
+      "display": "御风车",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "four_symbols_ruler_replica",
+      "display": "四象尺（仿）",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "blood_thunder_pearl",
+      "display": "血雷珠",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "demon_dragon_blade_blank",
+      "display": "魔龙刃胚",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "illusion_transform_clay",
+      "display": "化形泥",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "sun_essence_stone_inlay",
+      "display": "太阳精石镶件",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "geng_gold_inlay",
+      "display": "庚精镶件",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "spirit_talisman_vessel",
+      "display": "化灵符器",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "six_ding_armor_talisman",
+      "display": "六丁天甲符器",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "flat_mountain_seal_replica",
+      "display": "平山印（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "three_flame_fan_replica",
+      "display": "三焰扇（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "mixed_element_disk_replica",
+      "display": "混元尺（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "demon_wind_flag_replica",
+      "display": "黑风旗（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "void_heaven_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "tier": "spirit_treasure",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "id": "jade_ruyi_replica",
+      "display": "玉如意（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "two_luminaries_shuttle",
+      "display": "日月梭（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "mirror_space_scroll",
+      "display": "画轴芥子器",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "yuan_yang_veil_replica",
+      "display": "元阳纱（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "forbidden_demon_ring_set",
+      "display": "禁魔环（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": "NASCENT_SOUL"
+    },
+    {
+      "id": "star_palace_cipher_talisman",
+      "display": "星宫密符器",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "flying_sword_mid",
+      "display": "中阶飞剑",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "flying_sword_high",
+      "display": "高阶飞剑",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "black_turtle_shield",
+      "display": "玄龟盾",
+      "tier": "mid",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "fire_cloud_fan",
+      "display": "火云扇",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "ice_silk_ribbon",
+      "display": "冰蚕丝带",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "soul_devouring_banner",
+      "display": "摄魂幡",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "purple_gold_bowl",
+      "display": "紫金钵",
+      "tier": "ancient_treasure",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "void_refining_pot",
+      "display": "炼虚鼎（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "bamboo_spirit_sword_set",
+      "display": "青竹灵剑阵（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "star_chasing_boat",
+      "display": "逐星舟",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "wind_thunder_raft",
+      "display": "风雷筏",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "golden_armor_talisman_treasure",
+      "display": "金刚符宝",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "illusion_mirror_disk",
+      "display": "幻镜盘",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "space_storage_ring_low",
+      "display": "低阶储物戒",
+      "tier": "low",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "id": "space_storage_ring_high",
+      "display": "高阶储物戒",
+      "tier": "high",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "flying_sword_top",
+      "display": "顶阶飞剑",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "demon_ward_thunder_pearl",
+      "display": "辟邪神雷珠（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "spirit_nurture_green_vase",
+      "display": "灵润青瓶（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "void_sky_cauldron_replica",
+      "display": "虚天鼎（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "eight_spirit_ruler_replica",
+      "display": "八灵尺（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "primordial_magnet_peak_shard",
+      "display": "元磁山核碎片",
+      "tier": "legendary",
+      "realm_min": ""
+    },
+    {
+      "id": "rivers_mountains_pearl_replica",
+      "display": "山河珠（仿）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "gold_devour_beetle_nest",
+      "display": "噬金虫巢（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "soul_cry_beast_token",
+      "display": "啼魂兽牌（仿）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "flat_mirror_treasure",
+      "display": "平镜古宝",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "yin_yang_disk",
+      "display": "阴阳盘",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "blood_demon_blade",
+      "display": "血魔刀",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "ghost_capturing_chain",
+      "display": "缚鬼链",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "turtle_puppet_shell",
+      "display": "玄龟傀儡壳",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "silver_moon_disk",
+      "display": "银月盘",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "heaven_covering_silk",
+      "display": "遮天绫",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "spirit_beast_bag",
+      "display": "灵兽袋",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "sound_attack_bell",
+      "display": "音攻钟",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "fire_spear_treasure",
+      "display": "火矛宝",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "ice_needle_set",
+      "display": "冰针套",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "wood_staff_spirit",
+      "display": "灵木杖",
+      "tier": "low",
+      "realm_min": ""
+    },
+    {
+      "id": "metal_dagger_spirit",
+      "display": "灵匕",
+      "tier": "low",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_1",
+      "display": "1阶法宝（通称）",
+      "tier": "low",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_2",
+      "display": "2阶法宝（通称）",
+      "tier": "low",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_3",
+      "display": "3阶法宝（通称）",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_4",
+      "display": "4阶法宝（通称）",
+      "tier": "mid",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_5",
+      "display": "5阶法宝（通称）",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_6",
+      "display": "6阶法宝（通称）",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_7",
+      "display": "7阶法宝（通称）",
+      "tier": "high",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_8",
+      "display": "8阶法宝（通称）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_9",
+      "display": "9阶法宝（通称）",
+      "tier": "ancient_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_10",
+      "display": "10阶法宝（通称）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    },
+    {
+      "id": "generic_treasure_grade_11",
+      "display": "11阶法宝（通称）",
+      "tier": "spirit_treasure",
+      "realm_min": ""
+    }
+  ]
+}

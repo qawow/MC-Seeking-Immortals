@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "region": "tiannan",
+  "factions": [
+    "huangfeng_valley",
+    "yanyue_sect",
+    "lingfu_sect",
+    "ghost_spirit_gate"
+  ],
+  "quests": [],
+  "dimension_registry_ref": "dimension_registry.json",
+  "hub_regions": [
+    "tiannan",
+    "huangfeng_valley",
+    "yanyue_sect"
+  ],
+  "mulan_war_ref": "mulan_tianlan_war.json"
+}

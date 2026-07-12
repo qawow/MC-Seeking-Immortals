@@ -1,0 +1,554 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "id": "wandering_merchant",
+      "display": "行商路过",
+      "region": "",
+      "weight": 10,
+      "effects": []
+    },
+    {
+      "id": "bandit_cultivator",
+      "display": "散修劫道",
+      "region": "",
+      "weight": 8,
+      "effects": []
+    },
+    {
+      "id": "spirit_rain",
+      "display": "灵雨",
+      "region": "",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "auction_notice",
+      "display": "拍卖预告",
+      "region": "",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "sect_recruit",
+      "display": "宗门招新",
+      "region": "",
+      "weight": 6,
+      "effects": []
+    },
+    {
+      "id": "ghost_boat",
+      "display": "冥河渡船",
+      "region": "",
+      "weight": 12,
+      "effects": []
+    },
+    {
+      "id": "demon_qi_surge",
+      "display": "魔气涌动",
+      "region": "",
+      "weight": 7,
+      "effects": []
+    },
+    {
+      "id": "beast_migration",
+      "display": "兽潮前兆",
+      "region": "",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "mulan_scout_clash",
+      "display": "斥候遭遇",
+      "region": "",
+      "weight": 9,
+      "effects": []
+    },
+    {
+      "id": "pirate_raid",
+      "display": "海盗袭岛",
+      "region": "",
+      "weight": 11,
+      "effects": []
+    },
+    {
+      "id": "ancient_ruins_whisper",
+      "display": "古迹低鸣",
+      "region": "",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "yin_corruption_warning",
+      "display": "阴煞侵体",
+      "region": "",
+      "weight": 15,
+      "effects": []
+    },
+    {
+      "id": "foundation_pill_rumor",
+      "display": "筑基丹流言",
+      "region": "",
+      "weight": 7,
+      "effects": []
+    },
+    {
+      "id": "talisman_master_visit",
+      "display": "符师云游",
+      "region": "",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "spirit_vein_pulse",
+      "display": "灵脉微涌",
+      "region": "",
+      "weight": 2,
+      "effects": []
+    },
+    {
+      "id": "rogue_cultivator_duel",
+      "display": "散修约战",
+      "region": "",
+      "weight": 6,
+      "effects": []
+    },
+    {
+      "id": "sect_elder_lecture",
+      "display": "长老讲道",
+      "region": "",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "void_rift_sighting",
+      "display": "空间裂隙目击",
+      "region": "",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "treasure_fair_rumor",
+      "display": "万宝大会传闻",
+      "region": "",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "ghost_wail_night",
+      "display": "夜哭鬼啸",
+      "region": "",
+      "weight": 10,
+      "effects": []
+    },
+    {
+      "id": "contribution_bonus_day",
+      "display": "宗门赏功日",
+      "region": "",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "tiannan_herb_price_spike",
+      "display": "坊市灵草涨价",
+      "region": "tiannan",
+      "weight": 8,
+      "effects": []
+    },
+    {
+      "id": "chaotic_sea_pirate_raid",
+      "display": "海盗袭船",
+      "region": "chaotic_sea",
+      "weight": 6,
+      "effects": []
+    },
+    {
+      "id": "mulan_wind_storm",
+      "display": "草原罡风",
+      "region": "mulan",
+      "weight": 7,
+      "effects": []
+    },
+    {
+      "id": "blood_forbidden_rumor",
+      "display": "血色禁地将开传闻",
+      "region": "tiannan",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "great_jin_auction_week",
+      "display": "万宝楼拍卖周",
+      "region": "great_jin",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "nether_river_fog",
+      "display": "冥河雾灾",
+      "region": "nether_river",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "chaotic_sea_beast_tide",
+      "display": "兽潮袭岛",
+      "region": "chaotic_sea",
+      "weight": 5,
+      "effects": {
+        "spawn_beast_wave": true,
+        "star_palace_patrol_bonus": true
+      }
+    },
+    {
+      "id": "chaotic_sea_ghost_fog_truce",
+      "display": "鬼雾暂休战",
+      "region": "chaotic_sea",
+      "weight": 3,
+      "effects": {
+        "pvp_disabled_factions": [
+          "star_palace",
+          "inverse_star_alliance"
+        ],
+        "duration_days": 3
+      }
+    },
+    {
+      "id": "chaotic_sea_tax_raid",
+      "display": "星宫查税",
+      "region": "chaotic_sea",
+      "weight": 4,
+      "effects": {
+        "tax_mult": 1.2,
+        "inverse_star_smuggle_chance": 0.3
+      }
+    },
+    {
+      "id": "chaotic_sea_auction_rumor",
+      "display": "岛拍传闻",
+      "region": "chaotic_sea",
+      "weight": 4,
+      "effects": {
+        "quest_hint": "void_palace_key"
+      }
+    },
+    {
+      "id": "dajin_clan_feud",
+      "display": "世家械斗",
+      "region": "dajin",
+      "weight": 4,
+      "effects": {
+        "pvp_local": true
+      }
+    },
+    {
+      "id": "kunwu_cold_snap",
+      "display": "昆吾寒潮",
+      "region": "kunwu",
+      "weight": 3,
+      "effects": {
+        "movement_debuff": true
+      }
+    },
+    {
+      "id": "barbarian_beast_tide",
+      "display": "兽潮过境",
+      "region": "barbarian_wasteland",
+      "weight": 4,
+      "effects": {
+        "spawn_elite": true
+      }
+    },
+    {
+      "id": "yin_wind_howl",
+      "display": "阴风怒号",
+      "region": "yinming",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "pearl_diving_mortals",
+      "display": "凡人采珠船出海",
+      "region": "outer_sea_market",
+      "weight": 6,
+      "effects": {
+        "shop_pearl_raw_stock": true
+      }
+    },
+    {
+      "id": "pearl_storm_shelter",
+      "display": "风暴避港",
+      "region": "outer_sea_market",
+      "weight": 3,
+      "effects": {
+        "ferry_delay": true
+      }
+    },
+    {
+      "id": "pearl_tax_dispute",
+      "display": "采珠税争执",
+      "region": "outer_sea_market",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "cultivator_pearl_snatch",
+      "display": "修士劫珠传闻",
+      "region": "chaotic_sea",
+      "weight": 3,
+      "effects": {
+        "quest_hint": "protect_mortal_fleet"
+      }
+    },
+    {
+      "id": "wutu_raid_mulan_camp",
+      "display": "突兀袭营",
+      "region": "wutu_border",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "fallen_demon_miasma",
+      "display": "坠魔谷魔雾",
+      "region": "fallen_demon_valley",
+      "weight": 4,
+      "effects": {
+        "demonization_risk_tag": true
+      }
+    },
+    {
+      "id": "yin_luo_patrol",
+      "display": "阴罗殿巡魂",
+      "region": "yinming",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "demon_beast_siege",
+      "display": "兽潮攻城",
+      "region": "tianyuan",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "wild_land_beast_horde",
+      "display": "荒原兽群",
+      "region": "spirit_realm_border",
+      "weight": 6,
+      "effects": []
+    },
+    {
+      "id": "ghost_expose_rumor",
+      "display": "鬼修踪迹传闻",
+      "region": "tiannan",
+      "weight": 2,
+      "effects": {
+        "ghost_hunt_risk": true
+      }
+    },
+    {
+      "id": "void_rift_surge",
+      "display": "虚空裂隙涌动",
+      "region": "spirit_realm_border",
+      "weight": 4,
+      "effects": {
+        "spatial_damage_risk": true
+      }
+    },
+    {
+      "id": "great_vehicle_insight",
+      "display": "大道感悟异象",
+      "region": "spirit_fengyuan",
+      "weight": 3,
+      "effects": {
+        "cultivation_buff_tag": true
+      }
+    },
+    {
+      "id": "tribulation_cloud_gather",
+      "display": "天劫云聚",
+      "region": "tianyuan",
+      "weight": 2,
+      "effects": {
+        "tribulation_prep_event": true
+      }
+    },
+    {
+      "id": "diyuan_pressure_wave",
+      "display": "地渊重压波",
+      "region": "diyuan",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "barbarian_king_roar",
+      "display": "妖王远啸",
+      "region": "barbarian_wasteland",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "clan_auction_spirit_realm",
+      "display": "世家灵界拍卖",
+      "region": "spirit_fengyuan",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "demon_clan_embassy",
+      "display": "妖族使馆纠纷",
+      "region": "tianyuan",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "spirit_storm_major",
+      "display": "荒原灵暴",
+      "region": "wild_land",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "ancient_ruin_whisper",
+      "display": "上古废墟低语",
+      "region": "spirit_fengyuan",
+      "weight": 2,
+      "effects": []
+    },
+    {
+      "id": "merit_convoy_ambush",
+      "display": "功勋车队遇袭",
+      "region": "tianyuan",
+      "weight": 5,
+      "effects": []
+    },
+    {
+      "id": "mortal_realm_cap_insight",
+      "display": "化神瓶颈感悟",
+      "region": "tiannan",
+      "weight": 3,
+      "effects": []
+    },
+    {
+      "id": "ascension_pressure_hint",
+      "display": "飞升压力暗涌",
+      "region": "dajin",
+      "weight": 2,
+      "effects": []
+    },
+    {
+      "id": "spirit_realm_call_echo",
+      "display": "灵界共鸣",
+      "region": "chaotic_sea",
+      "weight": 2,
+      "effects": []
+    },
+    {
+      "id": "evt_spirit_rain_tiannan",
+      "display": "天南灵雨",
+      "region": "",
+      "weight": 8,
+      "effects": [
+        "herb_growth_boost"
+      ]
+    },
+    {
+      "id": "evt_demonic_scout",
+      "display": "魔道探子",
+      "region": "",
+      "weight": 6,
+      "effects": [
+        "random_ambush_low"
+      ]
+    },
+    {
+      "id": "evt_auction_rumor",
+      "display": "万宝楼拍卖传闻",
+      "region": "",
+      "weight": 5,
+      "effects": [
+        "auction_preview"
+      ]
+    },
+    {
+      "id": "evt_sea_beast_migration",
+      "display": "海兽迁徙",
+      "region": "",
+      "weight": 7,
+      "effects": [
+        "sea_spawn_boost"
+      ]
+    },
+    {
+      "id": "evt_herb_merchant_caravan",
+      "display": "灵药商队",
+      "region": "",
+      "weight": 9,
+      "effects": [
+        "shop_herb_discount"
+      ]
+    },
+    {
+      "id": "evt_tribulation_omen",
+      "display": "天劫异象",
+      "region": "",
+      "weight": 3,
+      "effects": [
+        "tribulation_pressure"
+      ]
+    },
+    {
+      "id": "evt_clan_recruit",
+      "display": "家族招揽",
+      "region": "",
+      "weight": 6,
+      "effects": [
+        "clan_quest_offer"
+      ]
+    },
+    {
+      "id": "evt_spirit_mine_dispute",
+      "display": "灵矿争执",
+      "region": "",
+      "weight": 5,
+      "effects": [
+        "faction_conflict_minor"
+      ]
+    },
+    {
+      "id": "mulan_border_patrol",
+      "display": "边境巡哨",
+      "region": "",
+      "weight": 9,
+      "effects": []
+    },
+    {
+      "id": "mulan_soul_array_supply",
+      "display": "护阵供灵",
+      "region": "",
+      "weight": 7,
+      "effects": []
+    },
+    {
+      "id": "tiannan_war_merit_muster",
+      "display": "天南战勋集结",
+      "region": "",
+      "weight": 8,
+      "effects": []
+    },
+    {
+      "id": "ceasefire_envoy_rumor",
+      "display": "停战使者传闻",
+      "region": "",
+      "weight": 4,
+      "effects": []
+    },
+    {
+      "id": "open_sky_tribulation_omen",
+      "display": "天象异变",
+      "region": "any",
+      "weight": 0.4,
+      "effects": []
+    }
+  ]
+}

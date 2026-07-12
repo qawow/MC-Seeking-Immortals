@@ -1,0 +1,38 @@
+{
+  "name": "阵法与阵盘",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_gathering_array",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "设定来源",
+      "text": "本页对应 formation_catalog.json、formation_items_catalog.json 与 techniques/formation.json。文本材料把阵法分成聚灵、迷踪、杀伐、守御、封印、传送、引雷和护山等用途，并要求阵旗阵盘、阵图传承、神识和境界共同支撑。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前可用",
+      "text": "当前已能制作并放置 seeking_immortals:spirit_gathering_array。右键可查看当前位置灵气浓度与阵法加成；完整 13x13 聚灵阵、四角十格灵石柱和中心 11x11 九格通道可作为界门阵，通过现有世界包路线服务进行跨域传送校验。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "传承入口",
+      "text": "五岳殿贡献商店已提供 seeking_immortals:technique_manual_formation，作为阵法类传承卷轴的当前载体。筑基技法中已有阵法感知，可用神识显露附近阵法/灵力边界；三才剑阵与北斗剑阵则作为剑阵战斗钩子接入。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "目录路线",
+      "text": "阵法目录中，低阶以聚灵小阵、迷踪阵和守阵为主；中阶包含杀阵、传送阵、颠倒五行阵和御风阵；高阶进入引雷阵、九龙火阵盘、封魔柱阵和金刚困仙阵；传奇/上古阵法则连接远距离传送、元合五极山、护山大阵与昆吾封魔。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阵盘阵旗",
+      "text": "formation_items_catalog.json 预留了聚灵阵盘、迷踪阵旗、杀阵盘、守阵盘、传送阵核心、引雷阵桩、阵图残卷、九龙火阵盘和聚灵阵旗组。当前这些多数仍是设定目录，后续应优先复用现有物品注册、ShopService、JEI 和 Patchouli 展示路径。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "后续补全",
+      "text": "尚未实装便携阵盘耐久、阵旗布置、持续区域效果、阵法燃料、破阵/识阵、护山大阵、完整阵法师技能树和阵图掉落。阵法部署必须继续由服务端校验位置、材料、境界、功法、冷却和消耗，客户端只提交意图。"
+    }
+  ]
+}

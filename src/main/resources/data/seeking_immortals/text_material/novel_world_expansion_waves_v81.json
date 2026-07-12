@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "stats_snapshot": {
+    "artifact_tiers_enriched": 11,
+    "sects_specialty_added": 0,
+    "sects_linked": 18,
+    "dimension_registry": true
+  }
+}

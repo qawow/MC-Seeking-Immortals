@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "beasts": [
+    {
+      "id": "twin_pupil_rat",
+      "display": "双瞳鼠",
+      "tier": 1,
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "drops": [
+        "beast_fur_low",
+        "spirit_dust"
+      ],
+      "entity_id_hint": "seeking_immortals:twin_pupil_rat",
+      "pet_capable": true
+    },
+    {
+      "id": "red_leopard_beast",
+      "display": "红狸兽",
+      "tier": 1,
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "drops": [
+        "beast_hide_low"
+      ],
+      "entity_id_hint": "seeking_immortals:red_leopard_beast",
+      "pet_capable": true
+    },
+    {
+      "id": "fire_horn_deer",
+      "display": "炙角鹿",
+      "tier": 2,
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "hills"
+      ],
+      "drops": [
+        "beast_horn_fire",
+        "beast_meat"
+      ],
+      "entity_id_hint": "seeking_immortals:fire_horn_deer",
+      "pet_capable": false
+    },
+    {
+      "id": "wind_screech_hawk",
+      "display": "风啸鹰",
+      "tier": 2,
+      "element": "wind",
+      "regions": [
+        "tiannan",
+        "mulan"
+      ],
+      "drops": [
+        "feather_wind",
+        "beast_bone"
+      ],
+      "entity_id_hint": "seeking_immortals:wind_screech_hawk",
+      "pet_capable": true
+    },
+    {
+      "id": "scent_spirit_beast",
+      "display": "嗅灵兽",
+      "tier": 2,
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "sect"
+      ],
+      "drops": [
+        "beast_fur_mid"
+      ],
+      "entity_id_hint": "seeking_immortals:scent_spirit_beast",
+      "pet_capable": true
+    },
+    {
+      "id": "giant_centipede",
+      "display": "巨型蜈蚣",
+      "tier": 3,
+      "element": "poison",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "drops": [
+        "chitin",
+        "venom_sac"
+      ],
+      "entity_id_hint": "seeking_immortals:giant_centipede",
+      "pet_capable": false
+    },
+    {
+      "id": "ink_flood_dragon",
+      "display": "墨蛟",
+      "tier": 3,
+      "element": "water",
+      "regions": [
+        "tiannan",
+        "river"
+      ],
+      "drops": [
+        "scale_water",
+        "demon_core_fragment"
+      ],
+      "entity_id_hint": "seeking_immortals:ink_flood_dragon",
+      "pet_capable": false
+    },
+    {
+      "id": "heart_bore_worm",
+      "display": "钻心虫",
+      "tier": 3,
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "demonic"
+      ],
+      "drops": [
+        "yin_silk"
+      ],
+      "entity_id_hint": "seeking_immortals:heart_bore_worm",
+      "pet_capable": false
+    },
+    {
+      "id": "fire_crow",
+      "display": "火鸦",
+      "tier": 4,
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "volcano"
+      ],
+      "drops": [
+        "feather_fire",
+        "beast_core_t4"
+      ],
+      "entity_id_hint": "seeking_immortals:fire_crow",
+      "pet_capable": false
+    },
+    {
+      "id": "green_vine_demon",
+      "display": "青木妖藤",
+      "tier": 4,
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "jungle"
+      ],
+      "drops": [
+        "vine_fiber",
+        "wood_essence"
+      ],
+      "entity_id_hint": "seeking_immortals:green_vine_demon",
+      "pet_capable": false
+    },
+    {
+      "id": "mystic_water_turtle",
+      "display": "玄水龟",
+      "tier": 4,
+      "element": "water",
+      "regions": [
+        "chaotic_sea",
+        "tiannan"
+      ],
+      "drops": [
+        "turtle_shell",
+        "water_pearl"
+      ],
+      "entity_id_hint": "seeking_immortals:mystic_water_turtle",
+      "pet_capable": false
+    },
+    {
+      "id": "thunder_horn_tiger",
+      "display": "雷角虎",
+      "tier": 4,
+      "element": "thunder",
+      "regions": [
+        "tiannan"
+      ],
+      "drops": [
+        "tiger_bone",
+        "thunder_horn"
+      ],
+      "entity_id_hint": "seeking_immortals:thunder_horn_tiger",
+      "pet_capable": false
+    },
+    {
+      "id": "demon_core_bear",
+      "display": "妖丹熊",
+      "tier": 5,
+      "element": "earth",
+      "regions": [
+        "tiannan",
+        "mountain"
+      ],
+      "drops": [
+        "demon_core_low",
+        "bear_gall"
+      ],
+      "entity_id_hint": "seeking_immortals:demon_core_bear",
+      "pet_capable": false
+    },
+    {
+      "id": "baby_carp_demon",
+      "display": "婴鲤兽",
+      "tier": 6,
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "drops": [
+        "demon_core_mid",
+        "carp_scale"
+      ],
+      "entity_id_hint": "seeking_immortals:baby_carp_demon",
+      "pet_capable": false
+    },
+    {
+      "id": "ice_soul_serpent",
+      "display": "冰魄蛇",
+      "tier": 6,
+      "element": "ice",
+      "regions": [
+        "tiannan",
+        "snow"
+      ],
+      "drops": [
+        "ice_fang",
+        "serpent_skin"
+      ],
+      "entity_id_hint": "seeking_immortals:ice_soul_serpent",
+      "pet_capable": false
+    },
+    {
+      "id": "spirit_fox",
+      "display": "灵狐",
+      "tier": 6,
+      "element": "illusion",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "drops": [
+        "fox_tail",
+        "illusion_core"
+      ],
+      "entity_id_hint": "seeking_immortals:spirit_fox",
+      "pet_capable": true
+    },
+    {
+      "id": "shape_shift_trial_beast",
+      "display": "化形试炼兽",
+      "tier": 7,
+      "element": "mixed",
+      "regions": [
+        "global"
+      ],
+      "drops": [
+        "demon_core_high",
+        "shape_shift_scroll"
+      ],
+      "entity_id_hint": "seeking_immortals:shape_shift_trial_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "thunder_jiao",
+      "display": "雷劫蛟",
+      "tier": 7,
+      "element": "thunder",
+      "regions": [
+        "chaotic_sea",
+        "storm"
+      ],
+      "drops": [
+        "jiao_horn",
+        "thunder_demon_core"
+      ],
+      "entity_id_hint": "seeking_immortals:thunder_jiao",
+      "pet_capable": false
+    },
+    {
+      "id": "silver_wing_yaksha",
+      "display": "银翅夜叉",
+      "tier": 8,
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "zhuimo"
+      ],
+      "drops": [
+        "corpse_marrow",
+        "silver_wing"
+      ],
+      "entity_id_hint": "seeking_immortals:silver_wing_yaksha",
+      "pet_capable": false
+    },
+    {
+      "id": "wind_split_beast",
+      "display": "裂风兽",
+      "tier": 9,
+      "element": "wind",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "drops": [
+        "wind_core",
+        "beast_king_token"
+      ],
+      "entity_id_hint": "seeking_immortals:wind_split_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "earth_armor_dragon",
+      "display": "土甲龙",
+      "tier": 9,
+      "element": "earth",
+      "regions": [
+        "dajin",
+        "caves"
+      ],
+      "drops": [
+        "dragon_scale_earth",
+        "treasure_sense_buff"
+      ],
+      "entity_id_hint": "seeking_immortals:earth_armor_dragon",
+      "pet_capable": false
+    },
+    {
+      "id": "fire_jiao_adult",
+      "display": "离火蛟",
+      "tier": 10,
+      "element": "fire",
+      "regions": [
+        "chaotic_sea",
+        "ocean"
+      ],
+      "drops": [
+        "jiao_blood",
+        "demon_core_peak"
+      ],
+      "entity_id_hint": "seeking_immortals:fire_jiao_adult",
+      "pet_capable": false
+    },
+    {
+      "id": "suanni_beast",
+      "display": "狻猊兽",
+      "tier": 10,
+      "element": "fire",
+      "regions": [
+        "dajin"
+      ],
+      "drops": [
+        "suanni_mane",
+        "ancient_blood"
+      ],
+      "entity_id_hint": "seeking_immortals:suanni_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "four_ear_gold_ape",
+      "display": "四耳金猿",
+      "tier": 11,
+      "element": "metal",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "drops": [
+        "ape_bone",
+        "gold_fur"
+      ],
+      "entity_id_hint": "seeking_immortals:four_ear_gold_ape",
+      "pet_capable": false
+    },
+    {
+      "id": "gold_body_moon_corpse",
+      "display": "金身月尸",
+      "tier": 11,
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "drops": [
+        "moon_corpse_core"
+      ],
+      "entity_id_hint": "seeking_immortals:gold_body_moon_corpse",
+      "pet_capable": false
+    },
+    {
+      "id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣",
+      "tier": 12,
+      "element": "ice",
+      "regions": [
+        "spirit_realm",
+        "ancient"
+      ],
+      "drops": [
+        "frost_wing",
+        "true_dragon_blood_trace"
+      ],
+      "entity_id_hint": "seeking_immortals:six_wing_frost_centipede",
+      "pet_capable": false
+    },
+    {
+      "id": "leopard_qilin_beast",
+      "display": "豹麟兽",
+      "tier": 12,
+      "element": "mixed",
+      "regions": [
+        "spirit_realm"
+      ],
+      "drops": [
+        "qilin_blood",
+        "beast_soul"
+      ],
+      "entity_id_hint": "seeking_immortals:leopard_qilin_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "mirage_sand_beast",
+      "display": "蜃兽",
+      "tier": 13,
+      "element": "illusion",
+      "regions": [
+        "chaotic_sea",
+        "desert"
+      ],
+      "drops": [
+        "mirage_pearl",
+        "illusion_true_essence"
+      ],
+      "entity_id_hint": "seeking_immortals:mirage_sand_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "sky_tiger_beast",
+      "display": "天虎兽",
+      "tier": 13,
+      "element": "earth_wind",
+      "regions": [
+        "mulan"
+      ],
+      "drops": [
+        "sky_tiger_wing",
+        "mulan_spirit_feather"
+      ],
+      "entity_id_hint": "seeking_immortals:sky_tiger_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "holy_peacock",
+      "display": "圣禽（青孔雀）",
+      "tier": 13,
+      "element": "fire",
+      "regions": [
+        "mulan",
+        "spirit_realm"
+      ],
+      "drops": [
+        "holy_bird_plume",
+        "peacock_true_fire"
+      ],
+      "entity_id_hint": "seeking_immortals:holy_peacock",
+      "pet_capable": false
+    },
+    {
+      "id": "soul_weep_beast",
+      "display": "泣魂兽",
+      "tier": 4,
+      "element": "yin",
+      "regions": [
+        "nether_river"
+      ],
+      "drops": [
+        "soul_moss",
+        "yin_coffin_nail",
+        "beast_blood_vial"
+      ],
+      "entity_id_hint": "seeking_immortals:soul_weep_beast",
+      "pet_capable": false
+    },
+    {
+      "id": "phantom_flame_moth",
+      "display": "幻焰蛾",
+      "tier": 8,
+      "element": "fire",
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "drops": [
+        "fire_feather",
+        "demon_core_mid",
+        "beast_soul_essence"
+      ],
+      "entity_id_hint": "seeking_immortals:phantom_flame_moth",
+      "pet_capable": false
+    },
+    {
+      "id": "gold_devour_beetle",
+      "display": "噬金虫",
+      "tier": 5,
+      "element": "metal",
+      "regions": [
+        "chaotic_sea",
+        "spirit_world"
+      ],
+      "drops": [
+        "gold_devour_larva",
+        "beetle_shell"
+      ],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "soul_weeping_beast",
+      "display": "啼魂兽",
+      "tier": 6,
+      "element": "yin",
+      "regions": [
+        "demonic_ruins"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "mountain_giant_ape",
+      "display": "山岳巨猿",
+      "tier": 7,
+      "element": "earth",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": false
+    },
+    {
+      "id": "blood_jiao",
+      "display": "血蛟",
+      "tier": 8,
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "drops": [
+        "jiao_scale",
+        "demon_core_high"
+      ],
+      "entity_id_hint": "",
+      "pet_capable": false
+    },
+    {
+      "id": "three_tailed_fox",
+      "display": "三尾妖狐",
+      "tier": 5,
+      "element": "illusion",
+      "regions": [
+        "tiannan"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "iron_lion_beast",
+      "display": "铁甲狮兽",
+      "tier": 4,
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "cloud_silk_spider",
+      "display": "云丝蛛",
+      "tier": 3,
+      "element": "wood",
+      "regions": [
+        "caves"
+      ],
+      "drops": [
+        "spirit_silk"
+      ],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "flame_salamander",
+      "display": "火蜥兽",
+      "tier": 2,
+      "element": "fire",
+      "regions": [
+        "volcano"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "ice_phoenix_chick",
+      "display": "冰凤幼禽",
+      "tier": 9,
+      "element": "ice",
+      "regions": [
+        "polar"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": true
+    },
+    {
+      "id": "void_mantis",
+      "display": "虚空螳螂",
+      "tier": 10,
+      "element": "void",
+      "regions": [
+        "spirit_world"
+      ],
+      "drops": [],
+      "entity_id_hint": "",
+      "pet_capable": false
+    }
+  ],
+  "spirit_pets": [
+    {
+      "id": "gold_devouring_beetle",
+      "display": "噬金虫",
+      "tier": ""
+    },
+    {
+      "id": "soul_weep_beast",
+      "display": "啼魂兽",
+      "tier": 8
+    },
+    {
+      "id": "musk_orchid_beast",
+      "display": "麝兰兽",
+      "tier": 2
+    },
+    {
+      "id": "phantom_flame_moth",
+      "display": "幻焰蛾",
+      "tier": 4
+    },
+    {
+      "id": "iron_wood_great_ape_puppet",
+      "display": "巨猿傀儡（战兽级）",
+      "tier": 2
+    }
+  ]
+}

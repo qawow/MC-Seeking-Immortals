@@ -1,0 +1,369 @@
+{
+  id: "1000000000000008",
+  filename: "seeking_immortals_star_palace_inverse",
+  title: "寻仙问道：星宫派系与逆星暗线",
+  subtitle: ["源自 star_palace_internal_factions.json、chaotic_sea_faction_war.json、inverse_star_quest_network.json 与虚天殿设定。"],
+  default_quest_shape: "circle",
+  default_hide_dependency_lines: false,
+  progression_mode: "linear",
+  quests: [
+    {
+      id: "1000000000001101",
+      title: "天星城阵枢复核",
+      subtitle: "星宫二层入口",
+      x: 0.0d,
+      y: 0.0d,
+      description: [
+        "来源：chaotic_sea_factions.json#star_palace / spatial_nodes_catalog.json#node_star_palace。",
+        "外海登记后进入天星城阵枢，复核通行、岛税和巡防身份。当前只展示路线，不发放通行令或声望。"
+      ],
+      dependencies: ["1000000000000502"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_politics"],
+      tasks: [{id: "1000000000002101", type: "checkmark", title: "复核天星城阵枢"}]
+    },
+    {
+      id: "1000000000001102",
+      title: "长老会内议",
+      subtitle: "执法与贸易分歧",
+      x: 2.0d,
+      y: 0.0d,
+      description: [
+        "来源：star_palace_internal_factions.json / chaotic_sea_faction_war#phase_internal_star_palace。",
+        "星宫执法派主张严查逆星，贸易派主张以商养战，长老会维持中立调停。"
+      ],
+      dependencies: ["1000000000001101"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace", "council"],
+      tasks: [{id: "1000000000002102", type: "checkmark", title: "旁听长老会内议"}]
+    },
+    {
+      id: "1000000000001103",
+      title: "执法派巡防简报",
+      subtitle: "铁腕支线",
+      x: 4.0d,
+      y: -2.0d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#star_palace_enforcement_patrol / quest_chains#star_palace_branch_enforcement。",
+        "执法派巡防清剿海盗与逆星走私船；真实分支锁、功勋和通缉热度后续接入。"
+      ],
+      dependencies: ["1000000000001102", "1000000000000503"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "optional"],
+      tasks: [{id: "1000000000002103", type: "checkmark", title: "领取执法派简报"}]
+    },
+    {
+      id: "1000000000001104",
+      title: "外海镇压清单",
+      subtitle: "清剿与缉私",
+      x: 6.0d,
+      y: -2.0d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#outer_sea_demon_suppress / chaotic_sea_factions#pirate_scatter。",
+        "外海镇压清单包含海盗据点、高阶海兽与逆星走私航线，暂不生成战斗任务。"
+      ],
+      dependencies: ["1000000000001103"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "pirate_bounty", "optional"],
+      tasks: [{id: "1000000000002104", type: "item", title: "持有镇魔火符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001105",
+      title: "巡功上缴",
+      subtitle: "执法派收束",
+      x: 8.0d,
+      y: -2.0d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#enforcement_merit_turn_in / quest_hooks#star_palace_branch_enforcement。",
+        "源设定奖励 patrol_merit_bonus；当前 FTB 章节不授予功勋或改变声望。"
+      ],
+      dependencies: ["1000000000001104"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "reward_bridge_deferred", "optional"],
+      tasks: [{id: "1000000000002105", type: "checkmark", title: "登记巡功"}]
+    },
+    {
+      id: "1000000000001106",
+      title: "贸易派税册审计",
+      subtitle: "坊市与岛税",
+      x: 4.0d,
+      y: 0.5d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#star_palace_commerce_license / quest_chains#star_palace_branch_commerce。",
+        "贸易派审计岛税、传送阵费和拍卖抽成；与执法派立场互斥的真实锁定留待后续。"
+      ],
+      dependencies: ["1000000000001102"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "optional"],
+      tasks: [{id: "1000000000002106", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001107",
+      title: "传送阵费减免",
+      subtitle: "阵枢许可",
+      x: 6.0d,
+      y: 0.5d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#teleport_array_fee_waiver / spatial_nodes_catalog#node_chaotic_sea_hub。",
+        "贸易派争取传送阵费减免和通行许可；当前不写入费用折扣或空间节点状态。"
+      ],
+      dependencies: ["1000000000001106"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "teleport_array", "optional"],
+      tasks: [{id: "1000000000002107", type: "checkmark", title: "记录阵费减免议案"}]
+    },
+    {
+      id: "1000000000001108",
+      title: "虚天拍卖掮客",
+      subtitle: "贸易派收束",
+      x: 8.0d,
+      y: 0.5d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#void_auction_broker / chaotic_sea_lore_compendium#void_palace_node。",
+        "虚天殿钥与情报成为拍卖筹码，贸易派试图以商路换取入殿优势。"
+      ],
+      dependencies: ["1000000000001107"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "void_palace", "optional"],
+      tasks: [{id: "1000000000002108", type: "item", title: "持有拍卖仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001109",
+      title: "长老会调停差事",
+      subtitle: "中立长老",
+      x: 4.0d,
+      y: 2.5d,
+      optional: true,
+      description: [
+        "来源：star_palace_internal_factions#star_palace_council_mediation。",
+        "中立长老要求玩家在执法派、贸易派和逆星压力之间传话，避免双边声望彻底破裂。"
+      ],
+      dependencies: ["1000000000001102"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace_council_neutral", "optional"],
+      tasks: [{id: "1000000000002109", type: "checkmark", title: "接下调停差事"}]
+    },
+    {
+      id: "1000000000001110",
+      title: "内税投票",
+      subtitle: "星宫派系收束",
+      x: 10.0d,
+      y: 0.0d,
+      optional: true,
+      description: [
+        "来源：quest_chains#star_palace_internal_politics / quest_hooks#internal_tax_vote。",
+        "执法、贸易或调停路线最后落到岛税投票；当前只呈现结果节点，不调整税率标签。"
+      ],
+      dependencies: ["1000000000001105", "1000000000001108", "1000000000001109"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace", "internal_tax_vote", "optional"],
+      tasks: [{id: "1000000000002110", type: "checkmark", title: "参与内税投票"}]
+    },
+    {
+      id: "1000000000001111",
+      title: "暗礁港复联",
+      subtitle: "逆星二层入口",
+      x: 0.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：chaotic_sea_factions#hidden_smuggle_cove / spatial_nodes_catalog#node_inverse_star_hideout。",
+        "完成逆星盟誓后，暗礁港重新开放走私、悬赏和破阵支线；当前不写入隐藏节点可见性。"
+      ],
+      dependencies: ["1000000000000506"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "hidden_smuggle_cove", "optional"],
+      tasks: [{id: "1000000000002111", type: "checkmark", title: "重返暗礁港"}]
+    },
+    {
+      id: "1000000000001112",
+      title: "星宫通缉榜",
+      subtitle: "黑市悬赏",
+      x: 2.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#inverse_star_assassination_bounty / chaotic_sea_faction_war#phase_patrol_clash。",
+        "逆星黑市承接星宫通缉风险，后续可接入通缉热度、目标 NPC 和赏金回收。"
+      ],
+      dependencies: ["1000000000001111"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "bounty", "optional"],
+      tasks: [{id: "1000000000002112", type: "checkmark", title: "查阅星宫通缉榜"}]
+    },
+    {
+      id: "1000000000001113",
+      title: "逆星标记走私",
+      subtitle: "暗港标记",
+      x: 4.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#inverse_star_mark_smuggle。",
+        "为逆星黑市标记走私货箱，当前不生成物品提交或巡逻追捕。"
+      ],
+      dependencies: ["1000000000001112"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle", "optional"],
+      tasks: [{id: "1000000000002113", type: "checkmark", title: "完成走私标记"}]
+    },
+    {
+      id: "1000000000001114",
+      title: "黑市赏金回收",
+      subtitle: "逆星悬赏收束",
+      x: 6.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#collect_black_market_reward。",
+        "源设定奖励 rep_inverse_star 与 stolen_jade_slip；当前不授予玉简、声望或黑市折扣。逆星黑市已有妖丹货架承接，当前 FTB 物品任务检查 1 枚妖丹且不消耗。"
+      ],
+      dependencies: ["1000000000001113"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "reward_bridge_deferred", "optional"],
+      tasks: [{id: "1000000000002114", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001115",
+      title: "传送阵节点侦察",
+      subtitle: "破阵前置",
+      x: 2.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#inverse_star_array_sabotage / spatial_nodes_catalog#node_star_palace。",
+        "逆星盟要求侦察星宫传送阵节点，削弱内海通行；当前不破坏真实路线或传送阵。"
+      ],
+      dependencies: ["1000000000001111"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "teleport_array", "optional"],
+      tasks: [{id: "1000000000002115", type: "checkmark", title: "侦察传送阵节点"}]
+    },
+    {
+      id: "1000000000001116",
+      title: "破阵器材交付",
+      subtitle: "逆星破坏",
+      x: 4.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#inverse_star_sabotage_kit。",
+        "破阵器材用于表达逆星破坏路线；真实材料消耗、追捕和阵法失效留待后续。"
+      ],
+      dependencies: ["1000000000001115"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
+      tasks: [{id: "1000000000002116", type: "checkmark", title: "交付破阵器材"}]
+    },
+    {
+      id: "1000000000001117",
+      title: "巡窗撤离",
+      subtitle: "避开执法队",
+      x: 6.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_quest_network#escape_patrol_window / quest_hooks#star_palace_patrol_dodge。",
+        "在星宫巡防窗口撤离，后续可接入时间窗、追捕热度和失败惩罚。"
+      ],
+      dependencies: ["1000000000001116"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "sabotage", "optional"],
+      tasks: [{id: "1000000000002117", type: "checkmark", title: "趁巡窗撤离"}]
+    },
+    {
+      id: "1000000000001118",
+      title: "黑市购虚天线索",
+      subtitle: "虚天情报战",
+      x: 8.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：quest_chains#inverse_star_void_heist / inverse_star_quest_network#inverse_star_void_heist。",
+        "逆星线通过黑市购买虚天钥碎片线索，与商盟情报倒卖和星宫巡防形成三角博弈。"
+      ],
+      dependencies: ["1000000000001114", "1000000000001117", "1000000000000509"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "void_palace", "optional"],
+      tasks: [{id: "1000000000002118", type: "item", title: "持有线索仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001119",
+      title: "揭露星宫密探",
+      subtitle: "可选反制",
+      x: 10.0d,
+      y: 5.0d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#star_palace_spy_expose_optional。",
+        "可将密探交给星宫或逆星；当前节点只记录选择空间，不写入双边声望。"
+      ],
+      dependencies: ["1000000000001118"],
+      tags: ["seeking_immortals", "chaotic_sea", "spy", "branch_design", "optional"],
+      tasks: [{id: "1000000000002119", type: "checkmark", title: "处理星宫密探"}]
+    },
+    {
+      id: "1000000000001120",
+      title: "深渊前哨劫案",
+      subtitle: "虚天筹码争夺",
+      x: 10.0d,
+      y: 7.0d,
+      optional: true,
+      description: [
+        "来源：chaotic_sea_faction_quests#hub_abyss_rift_outpost / chaotic_sea_lore_compendium#abyss。",
+        "深渊裂隙处高阶海兽、逆星劫案和星宫清剿交叉，暂不生成深渊 Boss 或海兽战。"
+      ],
+      dependencies: ["1000000000001118"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "abyss_rift", "void_palace", "optional"],
+      tasks: [{id: "1000000000002120", type: "item", title: "持有深渊妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001121",
+      title: "虚天钥残片上缴",
+      subtitle: "钥碎片复线",
+      x: 12.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#void_palace_key_fragment_turnin / quest_chains#chain_void_palace_expedition。",
+        "虚天钥碎片可上缴星宫、倒卖商盟或交给逆星，当前不消耗碎片或发放地图残片。"
+      ],
+      dependencies: ["1000000000001118", "1000000000000511"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace", "key_fragment", "optional"],
+      tasks: [{id: "1000000000002121", type: "checkmark", title: "登记虚天钥残片"}]
+    },
+    {
+      id: "1000000000001122",
+      title: "虚天殿周期入口",
+      subtitle: "三百年开门",
+      x: 14.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：spatial_nodes_catalog#node_void_palace_gate / secret_realms.json#void_palace。",
+        "虚天殿入口需要周期、钥碎片和高境界准备；当前不触发真实秘境门或收取灵石。"
+      ],
+      dependencies: ["1000000000001121", "1000000000000510"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace", "cycle_gate", "optional"],
+      tasks: [{id: "1000000000002122", type: "item", title: "持有秘境仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001123",
+      title: "多层殿宇路线图",
+      subtitle: "外殿至寒玉殿",
+      x: 16.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：secret_realms.json#void_palace / quest_chains#void_palace_campaign。",
+        "虚天殿分外殿、灵药园、寒玉殿和核心宝库，作为 chain_void_palace_expedition 的四步展开。"
+      ],
+      dependencies: ["1000000000001122", "1000000000000512"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace", "chain_void_palace_expedition", "optional"],
+      tasks: [{id: "1000000000002123", type: "checkmark", title: "绘制多层殿宇路线"}]
+    },
+    {
+      id: "1000000000001124",
+      title: "虚天殿主掉落账",
+      subtitle: "古宝残片收束",
+      x: 18.0d,
+      y: 6.0d,
+      optional: true,
+      description: [
+        "来源：novel_world_expansion_waves_v67#loot_void_palace_lord / boss_loot_tables.json#loot_void_palace_lord。",
+        "源设定奖励古宝残片、虚天寒玉与高阶材料；当前仅展示账册，不授予战利品。殿主掉落表的 space_crystal 已映射为虚空结晶，当前 FTB 物品任务检查 1 枚虚空结晶且不消耗。"
+      ],
+      dependencies: ["1000000000001123", "1000000000000515"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace", "boss_loot", "reward_bridge_deferred", "optional"],
+      tasks: [{id: "1000000000002124", type: "item", title: "持有虚空结晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
+    }
+  ]
+}

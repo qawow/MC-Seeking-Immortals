@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "stages": [
+    {
+      "id": "mortal_peak",
+      "display": "mortal_peak"
+    },
+    {
+      "id": "ascension_channel",
+      "display": "ascension_channel"
+    },
+    {
+      "id": "tianyuan_garrison",
+      "display": "tianyuan_garrison"
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display": "spirit_fengyuan"
+    },
+    {
+      "id": "great_vehicle_ascension",
+      "display": "great_vehicle_ascension"
+    }
+  ]
+}

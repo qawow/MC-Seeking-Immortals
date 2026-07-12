@@ -1,0 +1,208 @@
+{
+  "schema_version": 3,
+  "disclaimer": "汇编 §16：量级关系参考，非原著精确物价；实现时用区间随机而非固定价",
+  "spirit_stone_ladder": [
+    {
+      "id": "low",
+      "display": "下品灵石",
+      "exchange_to_mid": [
+        100,
+        120
+      ],
+      "typical_uses": [
+        "炼气日常",
+        "低阶符箓",
+        "传送小额"
+      ],
+      "setting": {
+        "lore": "下品灵石，炼气—筑基日常。",
+        "source_file": "economy_value_bands.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "economy_value_bands.json"
+      }
+    },
+    {
+      "id": "mid",
+      "display": "中品灵石",
+      "exchange_to_high": [
+        100,
+        100
+      ],
+      "typical_uses": [
+        "筑基法器",
+        "中阶丹药",
+        "宗门任务赏"
+      ],
+      "setting": {
+        "lore": "中品灵石，筑基—结丹流通。",
+        "source_file": "economy_value_bands.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "economy_value_bands.json"
+      }
+    },
+    {
+      "id": "high",
+      "display": "上品灵石",
+      "exchange_to_peak": [
+        100,
+        100
+      ],
+      "typical_uses": [
+        "结丹法宝材料",
+        "拍卖入场"
+      ],
+      "setting": {
+        "lore": "上品灵石，结丹—元婴大宗。",
+        "source_file": "economy_value_bands.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "economy_value_bands.json"
+      }
+    },
+    {
+      "id": "peak",
+      "display": "极品灵石",
+      "typical_uses": [
+        "元婴级资源",
+        "古宝残片竞价"
+      ],
+      "setting": {
+        "lore": "极品灵石，拍卖与大额结算。",
+        "source_file": "economy_value_bands.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "economy_value_bands.json"
+      },
+      "exchange_from_high": [
+        100,
+        100
+      ]
+    }
+  ],
+  "bands": {
+    "pill_qi_refining": {
+      "low_stone_min": 5,
+      "low_stone_max": 80,
+      "examples": [
+        "spirit_recovery_pill",
+        "bigu_pill"
+      ]
+    },
+    "pill_foundation": {
+      "low_stone_min": 80,
+      "low_stone_max": 400,
+      "mid_stone_min": 0,
+      "mid_stone_max": 5,
+      "examples": [
+        "foundation_pill"
+      ]
+    },
+    "artifact_low": {
+      "low_stone_min": 30,
+      "low_stone_max": 200,
+      "examples": [
+        "flying_sword_low",
+        "cloud_boots"
+      ]
+    },
+    "artifact_mid": {
+      "low_stone_min": 200,
+      "low_stone_max": 800,
+      "mid_stone_min": 1,
+      "mid_stone_max": 15,
+      "examples": [
+        "yellow_umbrella",
+        "evil_illusion_mirror"
+      ]
+    },
+    "artifact_high": {
+      "mid_stone_min": 5,
+      "mid_stone_max": 40,
+      "examples": [
+        "green_bamboo_cloud_sword",
+        "hunyuan_bowl"
+      ]
+    },
+    "ancient_treasure": {
+      "auction_only": true,
+      "mid_stone_min": 50,
+      "high_stone_min": 1,
+      "note": "残片任务或大会，不坊市标价"
+    },
+    "manual_refine_low": {
+      "contribution_min": 80,
+      "contribution_max": 200,
+      "ref": "economy_contribution_exchange.json"
+    },
+    "herb_common": {
+      "low_stone_min": 2,
+      "low_stone_max": 25
+    },
+    "talisman_low": {
+      "low_stone_min": 8,
+      "low_stone_max": 35,
+      "examples": [
+        "body_guard_talisman",
+        "fire_burst_talisman"
+      ]
+    },
+    "talisman_mid": {
+      "low_stone_min": 25,
+      "low_stone_max": 120,
+      "examples": [
+        "escape_heaven_talisman",
+        "illusion_dispel_talisman"
+      ]
+    },
+    "talisman_high": {
+      "low_stone_min": 80,
+      "low_stone_max": 400,
+      "mid_stone_min": 0,
+      "mid_stone_max": 3,
+      "examples": [
+        "thunder_talisman",
+        "space_anchor_talisman"
+      ]
+    },
+    "sect_stipend_qi_outer": {
+      "low_stone_min": 5,
+      "low_stone_max": 15,
+      "note": "汇编：外门月例个位数到十数位下品"
+    },
+    "talisman_basic_shop": {
+      "low_stone_min": 1,
+      "low_stone_max": 2,
+      "note": "汇编：初级符箓约 1–2 下品起"
+    },
+    "artifact_fine_threshold": {
+      "low_stone_min": 300,
+      "low_stone_max": 300,
+      "note": "汇编：极品法器约 300 下品性价比分水岭"
+    },
+    "artifact_top_tier": {
+      "low_stone_min": 1500,
+      "low_stone_max": 3000,
+      "note": "汇编：顶阶法器 1500–3000 下品量级"
+    },
+    "auction_deity_pill": {
+      "low_stone_min": 500000,
+      "low_stone_max": 700000,
+      "auction_only": true,
+      "ref": "economy_auction_bands.json#lot_deity_pill_bundle"
+    }
+  },
+  "crossref": [
+    "currency_items.json",
+    "merchant_shops.json",
+    "sect_contribution_shop.json",
+    "artifact_tier_rules.json"
+  ],
+  "spirit_stone_ladder_ref": "spirit_stone_ladder.json",
+  "auction_bands_ref": "economy_auction_bands.json"
+}

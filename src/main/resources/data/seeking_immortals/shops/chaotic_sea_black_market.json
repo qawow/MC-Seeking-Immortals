@@ -1,0 +1,37 @@
+{
+  "id": "chaotic_sea_black_market",
+  "currency": "item",
+  "currency_item": "seeking_immortals:immortal_jade",
+  "stock": 10,
+  "refresh_ticks": 48000,
+  "entries": [
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 1,
+      "stock": 5
+    },
+    {
+      "id": "star_meteorite",
+      "item": "seeking_immortals:star_meteorite",
+      "count": 1,
+      "cost": 1,
+      "stock": 5
+    },
+    {
+      "id": "chaos_gold",
+      "item": "seeking_immortals:chaos_gold",
+      "count": 1,
+      "cost": 2,
+      "stock": 3
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "item": "seeking_immortals:star_palace_tax_receipt",
+      "count": 1,
+      "cost": 1,
+      "stock": 6
+    }
+  ]
+}

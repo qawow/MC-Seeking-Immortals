@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source": "汇编 妖兽十三级体系（结构分类，非精确战力）",
+  "canonical_map": "beast_thirteen_tier_map.json",
+  "tier_count": 13,
+  "rules": {
+    "demon_core_from_tier": 5,
+    "shape_shift_tribulation_at_tier": 7,
+    "shape_shift_note": "七阶及以上妖兽化形需渡小劫，失败则重伤或跌阶",
+    "loot_bands": {
+      "1-4": "beast_loot_tiers.json#1-4",
+      "5-8": "beast_loot_tiers.json#5-8",
+      "9-13": "beast_loot_tiers.json#9-13"
+    }
+  },
+  "realm_mapping_note": "一阶≈炼气初 … 十三阶≈大乘前后；与 cultivation_progression 小境界对齐",
+  "boss_secret_realm_map_ref": "beast_boss_tier_secret_realm_map.json",
+  "crossref": [
+    "beast_bestiary.json",
+    "beast_loot_tiers.json",
+    "beast_spawn_rules.json",
+    "pet_taming_rules.json",
+    "tribulation_tier_schema.json"
+  ],
+  "beast_tribulation_hook": {
+    "id": "beast_shape_shift_minor",
+    "tribulation_tier": "minor",
+    "rules_ref": "tribulation_rules.json#beast_shape_shift_minor"
+  }
+}

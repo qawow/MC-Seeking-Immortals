@@ -1,0 +1,47 @@
+{
+  "dialogue_greeting": {
+    "subtitle": "subtitles.seeking_immortals.dialogue_greeting",
+    "sounds": [
+      {
+        "name": "minecraft:entity.villager.yes",
+        "type": "event"
+      }
+    ]
+  },
+  "dialogue_advance": {
+    "subtitle": "subtitles.seeking_immortals.dialogue_advance",
+    "sounds": [
+      {
+        "name": "minecraft:ui.button.click",
+        "type": "event"
+      }
+    ]
+  },
+  "dialogue_branch": {
+    "subtitle": "subtitles.seeking_immortals.dialogue_branch",
+    "sounds": [
+      {
+        "name": "minecraft:item.book.page_turn",
+        "type": "event"
+      }
+    ]
+  },
+  "dialogue_npc_mo_lao": {
+    "subtitle": "subtitles.seeking_immortals.dialogue_npc_mo_lao",
+    "sounds": [
+      {
+        "name": "minecraft:entity.villager.ambient",
+        "type": "event"
+      }
+    ]
+  },
+  "dialogue_npc_guide": {
+    "subtitle": "subtitles.seeking_immortals.dialogue_npc_guide",
+    "sounds": [
+      {
+        "name": "minecraft:entity.villager.trade",
+        "type": "event"
+      }
+    ]
+  }
+}

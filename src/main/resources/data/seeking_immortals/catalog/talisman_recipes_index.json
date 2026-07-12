@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "source": "talisman_recipes.json",
+  "primary_key": "recipes",
+  "entries": [
+    {
+      "id": "craft_mirage_heart",
+      "display": "幻心符"
+    },
+    {
+      "id": "craft_soul_scatter",
+      "display": "散魂符"
+    },
+    {
+      "id": "craft_fire_burst",
+      "display": "爆炎符"
+    },
+    {
+      "id": "craft_ice_seal",
+      "display": "冰封符"
+    },
+    {
+      "id": "craft_body_guard",
+      "display": "护体符"
+    },
+    {
+      "id": "craft_spirit_fix",
+      "display": "定神符"
+    },
+    {
+      "id": "craft_escape_heaven",
+      "display": "遁天符"
+    },
+    {
+      "id": "craft_anti_demon",
+      "display": "驱魔符"
+    },
+    {
+      "id": "craft_illusion_dispel",
+      "display": "破幻符"
+    },
+    {
+      "id": "craft_thunder",
+      "display": "雷霄符"
+    },
+    {
+      "id": "craft_ghost_hide",
+      "display": "敛魂符"
+    },
+    {
+      "id": "craft_yin_protect",
+      "display": "阴灵护符"
+    },
+    {
+      "id": "craft_soul_lock",
+      "display": "锁魂符"
+    },
+    {
+      "id": "craft_teleport_array",
+      "display": "传送符"
+    },
+    {
+      "id": "craft_beast_contract",
+      "display": "御兽契符"
+    },
+    {
+      "id": "craft_space_anchor",
+      "display": "定空符"
+    },
+    {
+      "id": "craft_wind_blade",
+      "display": "风刃符"
+    },
+    {
+      "id": "craft_earth_wall",
+      "display": "土墙符"
+    },
+    {
+      "id": "craft_spirit_chain",
+      "display": "缚灵符"
+    },
+    {
+      "id": "craft_three_pure_thunder",
+      "display": "三清雷霄符"
+    },
+    {
+      "id": "craft_life_save",
+      "display": "替身符"
+    },
+    {
+      "id": "recipe_invisibility_talisman",
+      "display": "recipe_invisibility_talisman"
+    },
+    {
+      "id": "recipe_binding_talisman",
+      "display": "recipe_binding_talisman"
+    },
+    {
+      "id": "recipe_gold_armor_talisman",
+      "display": "recipe_gold_armor_talisman"
+    }
+  ]
+}

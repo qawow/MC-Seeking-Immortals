@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "source": "data_manifest.json",
+  "primary_key": "files",
+  "entries": [
+    {
+      "id": "artifact_taxonomy_111.json",
+      "display": "artifact_taxonomy_111.json"
+    },
+    {
+      "id": "moditems_artifacts_draft.json",
+      "display": "moditems_artifacts_draft.json"
+    },
+    {
+      "id": "wanbao_auction_artifacts.json",
+      "display": "wanbao_auction_artifacts.json"
+    },
+    {
+      "id": "artifact_realm_drops.json",
+      "display": "artifact_realm_drops.json"
+    },
+    {
+      "id": "artifact_faction_specialty.json",
+      "display": "artifact_faction_specialty.json"
+    },
+    {
+      "id": "dimensions_catalog.json",
+      "display": "dimensions_catalog.json"
+    },
+    {
+      "id": "skill_trees.json",
+      "display": "skill_trees.json"
+    },
+    {
+      "id": "demonic_six_sects.json",
+      "display": "demonic_six_sects.json"
+    },
+    {
+      "id": "ascension_flow.json",
+      "display": "ascension_flow.json"
+    },
+    {
+      "id": "region_cards/tiannan_north_waste.json",
+      "display": "region_cards/tiannan_north_waste.json"
+    },
+    {
+      "id": "region_cards/tianyuan.json",
+      "display": "region_cards/tianyuan.json"
+    },
+    {
+      "id": "region_cards/spirit_fengyuan.json",
+      "display": "region_cards/spirit_fengyuan.json"
+    },
+    {
+      "id": "yin_underworld_cluster.json",
+      "display": "yin_underworld_cluster.json"
+    },
+    {
+      "id": "barbarian_demon_kings.json",
+      "display": "barbarian_demon_kings.json"
+    },
+    {
+      "id": "region_cards/yinming.json",
+      "display": "region_cards/yinming.json"
+    },
+    {
+      "id": "region_cards/nether_river.json",
+      "display": "region_cards/nether_river.json"
+    },
+    {
+      "id": "region_cards/barbarian_wasteland.json",
+      "display": "region_cards/barbarian_wasteland.json"
+    },
+    {
+      "id": "spirit_realm_clan_quests.json",
+      "display": "spirit_realm_clan_quests.json"
+    },
+    {
+      "id": "spatial_nodes_catalog.json",
+      "display": "spatial_nodes_catalog.json"
+    },
+    {
+      "id": "ghost_cultivation_path.json",
+      "display": "ghost_cultivation_path.json"
+    },
+    {
+      "id": "chaotic_sea_factions.json",
+      "display": "chaotic_sea_factions.json"
+    },
+    {
+      "id": "spirit_roots.json",
+      "display": "spirit_roots.json"
+    },
+    {
+      "id": "quest_chains.json",
+      "display": "quest_chains.json"
+    },
+    {
+      "id": "quest_hooks.json",
+      "display": "quest_hooks.json"
+    },
+    {
+      "id": "secret_realm_template.json",
+      "display": "secret_realm_template.json"
+    },
+    {
+      "id": "star_palace_internal_factions.json",
+      "display": "star_palace_internal_factions.json"
+    },
+    {
+      "id": "mulan_tianlan_war.json",
+      "display": "mulan_tianlan_war.json"
+    },
+    {
+      "id": "schema_validation_report.json",
+      "display": "schema_validation_report.json"
+    },
+    {
+      "id": "region_cards/tianlan.json",
+      "display": "region_cards/tianlan.json"
+    },
+    {
+      "id": "wutu_mulan_feud.json",
+      "display": "wutu_mulan_feud.json"
+    },
+    {
+      "id": "yin_luo_hall.json",
+      "display": "yin_luo_hall.json"
+    },
+    {
+      "id": "region_cards/wutu_border.json",
+      "display": "region_cards/wutu_border.json"
+    },
+    {
+      "id": "region_cards/dajin.json",
+      "display": "region_cards/dajin.json"
+    },
+    {
+      "id": "region_cards/kunwu.json",
+      "display": "region_cards/kunwu.json"
+    },
+    {
+      "id": "techniques/ghost.json",
+      "display": "techniques/ghost.json"
+    },
+    {
+      "id": "tianyuan_city.json",
+      "display": "tianyuan_city.json"
+    },
+    {
+      "id": "ghost_sect_ban_rules.json",
+      "display": "ghost_sect_ban_rules.json"
+    },
+    {
+      "id": "region_cards/spirit_realm_border.json",
+      "display": "region_cards/spirit_realm_border.json"
+    },
+    {
+      "id": "human_clan_league.json",
+      "display": "human_clan_league.json"
+    },
+    {
+      "id": "human_clan_quest_network.json",
+      "display": "human_clan_quest_network.json"
+    },
+    {
+      "id": "patchouli_static_entries.json",
+      "display": "patchouli_static_entries.json"
+    },
+    {
+      "id": "inverse_star_quest_network.json",
+      "display": "inverse_star_quest_network.json"
+    },
+    {
+      "id": "novel_items_master_index.json",
+      "display": "novel_items_master_index.json"
+    },
+    {
+      "id": "novel_items_waves.json",
+      "display": "novel_items_waves.json"
+    },
+    {
+      "id": "novel_cultivation_waves.json",
+      "display": "novel_cultivation_waves.json"
+    },
+    {
+      "id": "novel_cultivation_master_index.json",
+      "display": "novel_cultivation_master_index.json"
+    }
+  ]
+}

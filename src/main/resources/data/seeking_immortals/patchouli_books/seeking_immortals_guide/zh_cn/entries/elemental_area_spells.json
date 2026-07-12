@@ -1,0 +1,28 @@
+{
+  "name": "元素范围术法",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_charm",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "来源与定位",
+      "text": "本页对应 文本材料/data/techniques/elemental.json 中的 lava_burst、mist_rain、sand_storm、blizzard、cyclone、chain_lightning。当前实现复用已有功法术法数据、七槽术法释放路径与 ElementalAreaSpell，不新增法术实体、GUI、包格式或运行时加载器。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "释放规则",
+      "text": "六个术法均作为炼气期五行范围术法接入，可随长春功附载或手册玉简学习后放入术法槽。释放时服务端继续校验已学状态、槽位、灵力消耗与冷却；客户端只发送释放意图。命中点由施法者视线决定，范围内目标按距离承受递减法术伤害。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "六术效果",
+      "text": "熔岩爆：火土冲击，灼烧并虚弱。$(br)雾雨术：水雾落雨，灭火、减速并虚弱。$(br)沙暴术：沙尘卷场，强减速并短暂致盲。$(br)暴雪术：寒气暴卷，减速并降低挖掘动作。$(br)旋风术：风柱牵制，减速、虚弱并上推。$(br)连锁雷：自定义雷链跳跃，减速并虚弱。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仍待深化",
+      "text": "光球术与暗焰术仍在后续投射物范围内；文本中的功法前置和灵根门槛目前主要由学习数据表达，仍需更严格的来源校验与展示。专用粒子类型、独立贴图、PvP手感、实机多人视觉检查和更高阶五行爆发也仍待后续阶段。"
+    }
+  ]
+}

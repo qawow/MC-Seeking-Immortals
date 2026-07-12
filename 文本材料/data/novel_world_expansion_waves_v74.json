@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "new_chains": [
+    "nether_river_campaign",
+    "diyuan_campaign"
+  ],
+  "war_file": "mulan_tianlan_war.json",
+  "stats_snapshot": {
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "war_phases": 4,
+    "materials_added": 7,
+    "hooks_added": 5
+  }
+}

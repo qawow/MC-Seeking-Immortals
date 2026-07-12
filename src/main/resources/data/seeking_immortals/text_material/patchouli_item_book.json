@@ -1,0 +1,213 @@
+{
+  "schema_version": 16,
+  "book_id": "seeking_immortals:immortal_items",
+  "title": "修仙物品总览",
+  "landing": "intro",
+  "categories": [
+    {
+      "id": "intro",
+      "name": "导言",
+      "entries": [
+        "economy_tiers",
+        "quality_pills",
+        "compliance_note",
+        "skill_trees_overview",
+        "ghost_path_summary",
+        "chaotic_sea_factions",
+        "dajin_kunwu",
+        "demonic_six_overview",
+        "ascension_flow",
+        "tianyuan_city",
+        "yin_underworld_cluster",
+        "barbarian_seven_kings",
+        "diyuan_depth",
+        "spatial_nodes",
+        "spirit_eighteen_clans",
+        "spirit_fengyuan",
+        "human_clan_league",
+        "tianyuan_merit_exchange",
+        "mortal_realm_cap",
+        "spirit_realm_tribulation"
+      ],
+      "setting": {
+        "lore": "intro",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "pills",
+      "name": "丹药",
+      "data_ref": "pills_catalog.json",
+      "entry_prefix": "pill_",
+      "setting": {
+        "lore": "pills",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "herbs",
+      "name": "灵草",
+      "data_ref": "spirit_herbs_catalog.json",
+      "entry_prefix": "herb_",
+      "setting": {
+        "lore": "herbs",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "materials",
+      "name": "材料",
+      "data_ref": "materials_catalog.json",
+      "entry_prefix": "mat_",
+      "setting": {
+        "lore": "materials",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "artifacts",
+      "name": "法宝",
+      "data_ref": "artifacts_catalog.json",
+      "entry_prefix": "art_",
+      "taxonomy_ref": "artifact_taxonomy_111.json",
+      "static_entries": [
+        "art_tier_rules",
+        "art_talisman_treasure",
+        "art_111_special"
+      ],
+      "setting": {
+        "lore": "artifacts",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "talismans",
+      "name": "符箓",
+      "data_ref": "talisman_catalog.json",
+      "entry_prefix": "tal_",
+      "setting": {
+        "lore": "talismans",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "craft",
+      "name": "炼制",
+      "entries": [
+        "alchemy_flow",
+        "talisman_flow",
+        "refinement_flow",
+        "puppet_flow",
+        "refinement_artifacts",
+        "wanbao_auction",
+        "qianzhu_puppet_loop",
+        "yuling_beast_puppet",
+        "dajin_clan_politics"
+      ],
+      "setting": {
+        "lore": "craft",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "loot",
+      "name": "获取",
+      "entries": [
+        "boss_drops",
+        "beast_tiers",
+        "merchants"
+      ],
+      "setting": {
+        "lore": "loot",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "regions",
+      "name": "区域特产",
+      "data_ref": "items_by_region.json",
+      "entry_prefix": "region_",
+      "setting": {
+        "lore": "regions",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "factions",
+      "name": "势力与坊市",
+      "entries": [
+        "star_palace_governance",
+        "inverse_star_black_market",
+        "tianyuan_garrison",
+        "mulan_tianlan_war",
+        "tianlan_temple"
+      ],
+      "setting": {
+        "lore": "factions",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "expansion_v29_v37",
+      "name": "扩充索引",
+      "entries": [
+        "expansion_changelog"
+      ],
+      "setting": {
+        "lore": "expansion_v29_v37",
+        "ref": "patchouli_item_book.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ],
+  "static_entries": {
+    "economy_tiers": "灵石四级：下品→中品→上品→极品；贡献/功勋见 currency_items.json",
+    "quality_pills": "成丹四档：下品/中品/上品/极品，见 pill_quality.json",
+    "compliance_note": "专属古宝以残片、仿制品、模板形式出现，见 artifacts_catalog.note",
+    "alchemy_flow": "丹炉+丹方+灵草+修为门槛；失败炸炉见 alchemy_system.json",
+    "talisman_flow": "符纸阶+墨+制符台；见 talisman_recipes.json",
+    "refinement_flow": "炼器阵+手册+灵铁/铜；古宝残片重铸",
+    "puppet_flow": "铁木→巨猿→巨龟→石灵→混元核心；见 puppet_definitions.json",
+    "boss_drops": "秘境 Boss 表 boss_loot_tables.json",
+    "beast_tiers": "妖兽 1-4/5-8/9-13 通用掉落 beast_loot_tiers.json",
+    "merchants": "坊市 merchant_shops.json、贡献堂 sect_contribution_shop.json",
+    "star_palace_governance": "星宫：功勋殿、传送许可、税契、巡防令；乱星海物价偏高见 economy_contribution_exchange",
+    "inverse_star_black_market": "逆星盟黑市：脏灵石、失窃玉简、暗语牌、走私包；声望 gate 见 merchant_shops",
+    "tianyuan_garrison": "天渊城：人妖共防魔潮，功勋殿兑换边境令、驱魔丹、灵界通行证、风雷舟图纸；灵气密度×2 见 faction_species",
+    "expansion_changelog": "v29–v37 区域丹药/秘境宝箱/宗门专精坊市见 docs/ITEMS_EXPANSION_v*.md 与 items_by_region.json"
+  },
+  "mod_path_hint": "src/main/resources/assets/seeking_immortals/patchouli_books/immortal_items/",
+  "static_entries_ref": "patchouli_static_entries.json"
+}

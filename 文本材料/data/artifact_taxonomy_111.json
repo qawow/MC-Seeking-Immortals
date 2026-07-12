@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §11.1 法宝/法器功能分类 + §18 十一级结构",
+  "sections": {
+    "attack": {
+      "display": "攻击类",
+      "types": ["flying_sword", "offense", "thunder", "poison"],
+      "examples": [
+        "flying_sword_low", "gold_demon_chain", "peerless_flying_knives", "thousand_bee_needles",
+        "invisible_needle_set", "red_thread_needles_replica", "scarlet_dragon_blade"
+      ]
+    },
+    "defense": {
+      "display": "防御类",
+      "types": ["defense"],
+      "examples": [
+        "yellow_umbrella", "black_gold_shield", "xuantie_flying_shield", "bedrock_shield",
+        "dragon_scale_armor", "glazed_guard_shield", "sky_bracelet_replica"
+      ]
+    },
+    "flight_escape": {
+      "display": "飞行/遁逃",
+      "types": ["movement", "vehicle_key", "teleport_protection"],
+      "examples": [
+        "cloud_boots", "black_boots", "wind_escape_sail", "great_shift_token",
+        "bone_wind_cart", "cloud_sedan_token", "spirit_boat_model"
+      ],
+      "note": "灵舟见 flight_vehicles.json"
+    },
+    "special_control": {
+      "display": "特殊/控制",
+      "types": ["illusion", "soul_attack", "soul_destroy", "yin", "control", "beast_control", "puppet_control"],
+      "examples": [
+        "soul_summon_bell", "soul_gathering_bowl", "poluo_beads", "evil_illusion_mirror",
+        "xuanhuang_mirror", "hunyuan_bowl", "azure_rope_net"
+      ]
+    },
+    "talisman_treasure": {
+      "display": "符宝",
+      "ref": "talisman_treasure_templates.json",
+      "examples": ["gold_light_brick", "thunder_pearl_talisman", "six_ding_armor_talisman"]
+    },
+    "ancient_and_spirit": {
+      "display": "古宝与灵宝向",
+      "ref": "ancient_treasure_index.json",
+      "tiers": ["ancient_treasure", "spirit_treasure"]
+    }
+  },
+  "eleven_tier_ref": "artifact_eleven_tier_map.json",
+  "natal_ref": "artifact_tier_rules.json#natal_artifact"
+}

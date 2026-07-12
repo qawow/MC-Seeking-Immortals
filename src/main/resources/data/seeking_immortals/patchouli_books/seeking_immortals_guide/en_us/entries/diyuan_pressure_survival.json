@@ -1,0 +1,28 @@
+{
+  "name": "Diyuan Pressure Survival",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:pressure_resist_pill",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Pressure Source",
+      "text": "This page maps secret_realms.json#diyuan, pills_catalog.json#pressure_resist_pill, and spirit_herbs_catalog.json#diyuan_pressure_moss. Diyuan is defined by chaotic aura, heavy-pressure debuffs, high-tier beasts, and folded space."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Rule",
+      "text": "The current build has a first server-side pressure loop: while the player is in active secret realm diyuan without pressure-resist time, it periodically applies slowness, nausea, divine-sense attrition, and non-lethal magic pressure damage. Diyuan also suppresses normal flight sources."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pressure-Resist Pill",
+      "text": "seeking_immortals:pressure_resist_pill is now an active right-click pill. It requires Void Refinement, writes pressure-resist time, clears Diyuan pressure effects, and blocks the first pressure loop while the timer lasts."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pill And Charm",
+      "text": "The pill recipe already uses the alchemy data path: 2x seeking_immortals:diyuan_pressure_moss produce one Pressure-Resist Pill, and its formula is available through the Danxia contribution shop. Pressure-Resist Charms now craft from pressure moss, an armor talisman, and a mid-grade metal spirit stone; real moss gathering, pressure depth layers, and Diyuan quests remain later work."
+    }
+  ]
+}

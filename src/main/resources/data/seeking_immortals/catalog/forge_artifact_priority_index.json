@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "forge_artifact_priority.json",
+  "primary_key": "P0_launch",
+  "entries": [
+    {
+      "id": "flying_sword_low",
+      "display": "flying_sword_low"
+    },
+    {
+      "id": "cloud_boots",
+      "display": "cloud_boots"
+    },
+    {
+      "id": "spirit_gathering_bead",
+      "display": "spirit_gathering_bead"
+    },
+    {
+      "id": "yellow_umbrella",
+      "display": "yellow_umbrella"
+    },
+    {
+      "id": "qingye_leaf_fan",
+      "display": "qingye_leaf_fan"
+    },
+    {
+      "id": "storage_bracelet_low",
+      "display": "storage_bracelet_low"
+    },
+    {
+      "id": "snake_pearl",
+      "display": "snake_pearl"
+    },
+    {
+      "id": "flying_needle_set",
+      "display": "flying_needle_set"
+    },
+    {
+      "id": "black_gold_shield",
+      "display": "black_gold_shield"
+    },
+    {
+      "id": "bedrock_shield",
+      "display": "bedrock_shield"
+    },
+    {
+      "id": "artifact_repair_kit",
+      "display": "artifact_repair_kit"
+    }
+  ]
+}

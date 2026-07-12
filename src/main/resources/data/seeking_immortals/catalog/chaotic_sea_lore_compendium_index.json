@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "chaotic_sea_lore_compendium.json",
+  "primary_key": "factions_lore",
+  "entries": [
+    {
+      "id": "star_palace",
+      "display": "星宫"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟"
+    },
+    {
+      "id": "chaotic_sea_merchant_league",
+      "display": "乱星海商盟"
+    },
+    {
+      "id": "penglai_sect",
+      "display": "蓬莱派"
+    },
+    {
+      "id": "demon_gate_outer",
+      "display": "外海魔宫"
+    }
+  ]
+}

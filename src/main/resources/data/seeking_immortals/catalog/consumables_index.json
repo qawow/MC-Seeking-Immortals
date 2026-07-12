@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "consumables": [
+    {
+      "id": "spirit_rice_bowl",
+      "display": "灵米粥",
+      "category": "food",
+      "realm_min": "",
+      "effect": "minor_spirit_regen"
+    },
+    {
+      "id": "spirit_wine_jar",
+      "display": "灵酒",
+      "category": "food",
+      "realm_min": "",
+      "effect": "courage_buff_short"
+    },
+    {
+      "id": "beast_meat_jerky",
+      "display": "妖兽肉干",
+      "category": "food",
+      "realm_min": "",
+      "effect": "satiation_plus_strength"
+    },
+    {
+      "id": "talisman_ink_bottle",
+      "display": "符墨",
+      "category": "craft",
+      "realm_min": "",
+      "effect": "talisman_craft"
+    },
+    {
+      "id": "spirit_sand_pouch",
+      "display": "灵砂袋",
+      "category": "craft",
+      "realm_min": "",
+      "effect": "array_fuel"
+    },
+    {
+      "id": "tribulation_ward_charm",
+      "display": "避雷符箓（一次性）",
+      "category": "tribulation",
+      "realm_min": "",
+      "effect": "lightning_mitigate_once"
+    },
+    {
+      "id": "sect_identity_token",
+      "display": "宗门令牌",
+      "category": "quest",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "auction_invitation",
+      "display": "拍卖请柬",
+      "category": "quest",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_beast_feed",
+      "display": "灵兽饵",
+      "category": "pet",
+      "realm_min": "",
+      "effect": "pet_loyalty_plus"
+    },
+    {
+      "id": "yin_coffin_nail",
+      "display": "镇尸钉",
+      "category": "ghost_path",
+      "realm_min": "",
+      "effect": "corpse_control"
+    },
+    {
+      "id": "jade_slip_blank",
+      "display": "空白玉简",
+      "category": "craft",
+      "realm_min": "",
+      "effect": "inscribe_formula"
+    },
+    {
+      "id": "paper_formula_scroll",
+      "display": "空白纸方",
+      "category": "craft",
+      "realm_min": "",
+      "effect": "inscribe_formula"
+    },
+    {
+      "id": "spirit_boat_ticket",
+      "display": "灵舟船票",
+      "category": "travel",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ferry_pass",
+      "display": "冥河渡票",
+      "category": "travel",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "low_spirit_stone_pouch",
+      "display": "下品灵石袋",
+      "category": "currency_bundle",
+      "realm_min": "",
+      "effect": "contains_low_stone_10"
+    },
+    {
+      "id": "nascent_soul_escape_charm",
+      "display": "元婴遁符（一次性）",
+      "category": "tribulation",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "forced_escape_once"
+    },
+    {
+      "id": "spirit_root_test_stone",
+      "display": "测灵石",
+      "category": "quest",
+      "realm_min": "",
+      "effect": "reveal_spirit_roots"
+    },
+    {
+      "id": "recipe_scroll_bundle",
+      "display": "丹方礼包（随机）",
+      "category": "loot",
+      "realm_min": "",
+      "effect": "random_recipe_low_tier"
+    },
+    {
+      "id": "talisman_crate_low",
+      "display": "低阶符箓匣",
+      "category": "loot",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "talisman_crate_mid",
+      "display": "中阶符箓匣",
+      "category": "loot",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "talisman_crate_high",
+      "display": "高阶符箓匣",
+      "category": "loot",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "storage_pouch_low",
+      "display": "低阶储物袋",
+      "category": "equipment",
+      "realm_min": "",
+      "effect": "extra_inventory_slots_9"
+    },
+    {
+      "id": "storage_pouch_mid",
+      "display": "中阶储物袋",
+      "category": "equipment",
+      "realm_min": "FOUNDATION",
+      "effect": "extra_inventory_slots_18"
+    },
+    {
+      "id": "spirit_stone_pouch_sealed",
+      "display": "封灵石袋",
+      "category": "currency",
+      "realm_min": "",
+      "effect": "open_low_spirit_stone_pouch"
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "display": "星宫抽税凭条",
+      "category": "quest",
+      "realm_min": "",
+      "effect": "island_trade_tax_paid"
+    },
+    {
+      "id": "pirate_loot_bundle",
+      "display": "海盗赃物包",
+      "category": "loot",
+      "realm_min": "",
+      "effect": "open_random_contraband"
+    },
+    {
+      "id": "void_palace_map_fragment",
+      "display": "虚天殿残图",
+      "category": "quest",
+      "realm_min": "CORE_FORMATION",
+      "effect": ""
+    },
+    {
+      "id": "fallen_demon_scout_report",
+      "display": "坠魔谷探报",
+      "category": "quest",
+      "realm_min": "NASCENT_SOUL",
+      "effect": ""
+    },
+    {
+      "id": "kunwu_map_scroll",
+      "display": "昆吾山舆图",
+      "category": "quest",
+      "realm_min": "CORE_FORMATION",
+      "effect": ""
+    },
+    {
+      "id": "yin_body_protection_charm",
+      "display": "避阴符",
+      "category": "ghost_path",
+      "realm_min": "",
+      "effect": "yin_corruption_mitigate"
+    },
+    {
+      "id": "minor_thunder_ward_charm",
+      "display": "小避雷符",
+      "category": "tribulation",
+      "realm_min": "",
+      "effect": "lightning_mitigate_once"
+    },
+    {
+      "id": "major_thunder_array_token",
+      "display": "大阵避雷牌",
+      "category": "tribulation",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": "formation_tribulation_buff"
+    },
+    {
+      "id": "spirit_garden_fertilizer",
+      "display": "灵田肥",
+      "category": "craft",
+      "realm_min": "",
+      "effect": "herb_growth_speed"
+    },
+    {
+      "id": "yanyue_incense_bundle",
+      "display": "掩月熏香",
+      "category": "special",
+      "realm_min": "",
+      "effect": "dual_cultivation_mood"
+    },
+    {
+      "id": "star_palace_patrol_seal",
+      "display": "星宫巡防令",
+      "category": "quest",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "inverse_star_smuggler_pack",
+      "display": "逆星走私包",
+      "category": "loot",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "category": "special",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": "demon_qi_resist"
+    },
+    {
+      "id": "wind_feather_raft_blueprint",
+      "display": "风雷舟图纸",
+      "category": "manual",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": [
+        "vehicle_craft"
+      ]
+    },
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "category": "currency",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_stone_mid_bulk",
+      "display": "中品灵石袋",
+      "category": "currency",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_stone_high_bulk",
+      "display": "上品灵石袋",
+      "category": "currency",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "teleport_talisman_chaotic_sea",
+      "display": "乱星海传送符",
+      "category": "talisman_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "escape_talisman",
+      "display": "遁逃符",
+      "category": "talisman_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "fireball_talisman",
+      "display": "火球符",
+      "category": "talisman_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ice_shard_talisman",
+      "display": "冰锥符",
+      "category": "talisman_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "golden_armor_talisman",
+      "display": "金刚符",
+      "category": "talisman_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "display": "聚灵阵盘",
+      "category": "formation_consumable",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "beast_feed_spirit",
+      "display": "灵兽饵",
+      "category": "beast",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "storage_bag_low",
+      "display": "低阶储物袋",
+      "category": "storage",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "storage_bag_high",
+      "display": "高阶储物袋",
+      "category": "storage",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_water_flask",
+      "display": "灵泉瓶",
+      "category": "recovery",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "healing_salve",
+      "display": "疗伤膏",
+      "category": "recovery",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "poison_antidote_pack",
+      "display": "解毒包",
+      "category": "recovery",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "smoke_bomb_spirit",
+      "display": "迷烟弹",
+      "category": "special",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "sound_beacon",
+      "display": "传音符",
+      "category": "special",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "category": "",
+      "realm_min": "QI_REFINING",
+      "effect": ""
+    },
+    {
+      "id": "detox_minor_pill",
+      "display": "清毒丹",
+      "category": "",
+      "realm_min": "QI_REFINING",
+      "effect": ""
+    }
+  ]
+}

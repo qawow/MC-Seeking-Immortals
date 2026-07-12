@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §15–§16 灵石四级 + 三层经济；与 economy_spirit_stone_master 对齐",
+  "disclaimer": "区间为结构量级，非原著逐句定价",
+  "master_ref": "economy_spirit_stone_master.json",
+  "shop_categories": [
+    {
+      "id": "tiannan_herb_stall",
+      "display": "天南坊市灵草摊",
+      "currency": "low_spirit_stone",
+      "anchors": {
+        "common_herb": { "min": 5, "max": 35, "note": "百年以下灵草" },
+        "spirit_mushroom": { "min": 6, "max": 15 },
+        "condense_pill": { "min": 35, "max": 60, "ref": "price_anchors_low_stone.talisman_low_shop 同量级" }
+      }
+    },
+    {
+      "id": "talisman_paper_stall",
+      "display": "符纸灵墨摊",
+      "currency": "low_spirit_stone",
+      "anchors": {
+        "mortal_talisman_paper": { "min": 1, "max": 5 },
+        "spirit_talisman_paper": { "min": 8, "max": 30 },
+        "finished_low_talisman": { "min": 1, "max": 50, "ref": "master.price_anchors_low_stone.talisman_low_shop" }
+      }
+    },
+    {
+      "id": "low_artifact_stall",
+      "display": "低阶法器摊",
+      "currency": "low_spirit_stone",
+      "anchors": {
+        "ref": "master.price_anchors_low_stone.low_artifact_fair",
+        "mid_artifact": "master.price_anchors_low_stone.mid_artifact_fair"
+      }
+    },
+    {
+      "id": "sect_contribution",
+      "display": "宗门贡献堂",
+      "currency": "sect_contribution",
+      "note": "贡献与灵石不硬挂钩，见 economy_contribution_exchange.json"
+    },
+    {
+      "id": "wanbao_side_stall",
+      "display": "万宝楼外围摊",
+      "currency": "low_spirit_stone",
+      "anchors": {
+        "appraisal_fee": { "min": 10, "max": 200, "note": "鉴宝手续费，非拍品本身" },
+        "intel_scroll": { "min": 50, "max": 800, "currency_mix": ["low", "mid"] }
+      }
+    },
+    {
+      "id": "auction_house",
+      "display": "拍卖行",
+      "currency_mix": ["low", "mid", "high", "peak"],
+      "layer": "auction_house",
+      "note": "拍品价不套用坊市摊价；范例见 master.auction_canon_examples"
+    }
+  ],
+  "validation_note": "merchant_shops 中单件 price 宜落在上表 anchors 内；超界应标注 event_only 或 auction_only"
+}

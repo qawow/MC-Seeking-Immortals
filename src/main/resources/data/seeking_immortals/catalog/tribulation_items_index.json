@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source": "tribulation_items.json",
+  "primary_key": "items",
+  "entries": [
+    {
+      "id": "three_pure_thunder_talisman",
+      "display": "三清雷霄符"
+    },
+    {
+      "id": "thunder_ward_sign",
+      "display": "御雷签"
+    },
+    {
+      "id": "nether_river_shield_zone",
+      "display": "冥河屏蔽区"
+    },
+    {
+      "id": "five_elements_mountain_array",
+      "display": "元合五极山阵"
+    },
+    {
+      "id": "demon_qi_penalty",
+      "display": "煞气加雷"
+    },
+    {
+      "id": "beast_tribulation_bonus",
+      "display": "妖修雷劫"
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "display": "避雷丹"
+    },
+    {
+      "id": "heart_guard_pill",
+      "display": "守心丹"
+    },
+    {
+      "id": "tianyuan_guard_talisman",
+      "display": "天渊护身符"
+    }
+  ]
+}

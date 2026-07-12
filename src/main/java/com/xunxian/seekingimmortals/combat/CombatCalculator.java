@@ -20,6 +20,12 @@ public class CombatCalculator {
      */
     public static DamageResult calculateDamage(ServerPlayer attacker, ServerPlayer defender,
                                               double baseDamage, RandomSource random) {
+        return calculateDamage(attacker, defender, baseDamage, random, true);
+    }
+
+    public static DamageResult calculateDamage(ServerPlayer attacker, ServerPlayer defender,
+                                              double baseDamage, RandomSource random,
+                                              boolean includeCultivationAttack) {
         Optional<CombatStats> attackerStats = getCombatStats(attacker);
         Optional<CombatStats> defenderStats = getCombatStats(defender);
         if (attackerStats.isEmpty() || defenderStats.isEmpty()) {
@@ -40,7 +46,7 @@ public class CombatCalculator {
         }
 
         // 3. 计算原始伤害（基础伤害 + 攻击力）
-        double rawDamage = baseDamage + attack.getBaseAttack();
+        double rawDamage = Math.max(baseDamage, 0.0D) + (includeCultivationAttack ? attack.getBaseAttack() : 0.0D);
 
         // 4. 暴击判定
         boolean isCrit = random.nextDouble() < attack.getCritChance();

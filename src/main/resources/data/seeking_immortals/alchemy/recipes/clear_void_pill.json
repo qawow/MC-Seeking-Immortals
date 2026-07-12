@@ -1,0 +1,30 @@
+{
+  "id": "clear_void_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.clear_void_pill",
+  "output_items": {
+    "low": "seeking_immortals:clear_void_pill",
+    "medium": "seeking_immortals:clear_void_pill_mid",
+    "high": "seeking_immortals:clear_void_pill_high",
+    "supreme": "seeking_immortals:clear_void_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 360,
+  "success_rate": 0.78,
+  "explosion_chance": 0.02,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "MORTAL",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:void_crystal",
+      "count": 1
+    }
+  ]
+}

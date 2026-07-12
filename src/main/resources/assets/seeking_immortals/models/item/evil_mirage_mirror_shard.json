@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/evil_mirage_mirror_shard"
+  }
+}

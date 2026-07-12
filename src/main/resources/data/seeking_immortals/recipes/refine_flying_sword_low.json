@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "SIS",
+    "ISI",
+    "SIS"
+  ],
+  "key": {
+    "I": {
+      "item": "seeking_immortals:spirit_iron"
+    },
+    "S": {
+      "item": "seeking_immortals:spirit_stone_shard"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:flying_sword_low",
+    "count": 1
+  }
+}

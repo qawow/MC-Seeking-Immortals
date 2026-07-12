@@ -1,0 +1,31 @@
+{
+  "schema_version": 3,
+  "id": "spirit_fengyuan",
+  "display": "风元大陆",
+  "parent_cosmology": "spirit_realm",
+  "spirit_density": 1.25,
+  "climate": "temperate_spirit_rich",
+  "factions": [
+    "human_clan_league_generic",
+    "demon_clan_generic",
+    "barbarian_council"
+  ],
+  "subregions": [
+    "barbarian_wasteland",
+    "spirit_fengyuan_border",
+    "wild_land"
+  ],
+  "daily_events": [
+    "fengyuan_clan_feud",
+    "spirit_storm"
+  ],
+  "quest_chains": [
+    "fengyuan_explorer",
+    "barbarian_king_hunt"
+  ],
+  "chronicle_refs": [
+    "L2_fengyuan_edge"
+  ],
+  "spatial_node": "node_fengyuan_hub",
+  "human_clan_ref": "human_clan_league.json"
+}

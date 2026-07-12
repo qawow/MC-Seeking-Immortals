@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "seeking_immortals:block/low_spirit_iron_ore"
+  }
+}

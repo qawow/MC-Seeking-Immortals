@@ -1,0 +1,158 @@
+{
+  "schema_version": 3,
+  "note": "秘境四要素之稀有掉落：法宝/碎片/符宝，对齐汇编 §13",
+  "realms": {
+    "blood_forbidden": {
+      "artifact_pool": [
+        {
+          "id": "silver_giant_sword",
+          "weight": 6,
+          "tier": "mid"
+        },
+        {
+          "id": "giant_sword_gate_relic",
+          "weight": 10,
+          "tier": "material"
+        },
+        {
+          "id": "demon_ape_armor",
+          "weight": 4,
+          "tier": "mid"
+        },
+        {
+          "id": "copper_bell_charm",
+          "weight": 12,
+          "tier": "low"
+        },
+        {
+          "id": "talisman_treasure_soul_charm",
+          "weight": 3,
+          "tier": "talisman_treasure"
+        }
+      ]
+    },
+    "void_palace": {
+      "artifact_pool": [
+        {
+          "id": "void_palace_cold_jade_pendant",
+          "weight": 8
+        },
+        {
+          "id": "ice_fire_dual_orb",
+          "weight": 5
+        },
+        {
+          "id": "void_heaven_ruler_shard",
+          "weight": 2
+        },
+        {
+          "id": "xuanguang_mirror_shard",
+          "weight": 3
+        },
+        {
+          "id": "void_key",
+          "weight": 4
+        }
+      ]
+    },
+    "kunwu_mountain": {
+      "artifact_pool": [
+        {
+          "id": "kunwu_seal_fragment",
+          "weight": 4
+        },
+        {
+          "id": "nine_dragon_cauldron_shard",
+          "weight": 3
+        },
+        {
+          "id": "green_copper_bell",
+          "weight": 1
+        }
+      ]
+    },
+    "fallen_demon_valley": {
+      "artifact_pool": [
+        {
+          "id": "demonized_ancient_sword",
+          "weight": 6
+        },
+        {
+          "id": "space_rift_compass",
+          "weight": 5
+        },
+        {
+          "id": "xuanhuang_mirror_shard",
+          "weight": 2
+        }
+      ]
+    }
+  },
+  "barbarian_king_territories": {
+    "king_bear_mountain": {
+      "rare": [
+        "bear_king_pelt",
+        "earth_spirit_core",
+        "barbarian_king_token_bear"
+      ]
+    },
+    "king_fox_mist": {
+      "rare": [
+        "fox_mist_pearl",
+        "illusion_cloak_shard",
+        "barbarian_king_token_fox"
+      ]
+    },
+    "king_pine_ancient": {
+      "rare": [
+        "ancient_pine_resin",
+        "wood_array_seed",
+        "barbarian_king_token_pine"
+      ]
+    },
+    "king_roc_sky": {
+      "rare": [
+        "roc_feather_bundle",
+        "wind_sky_crystal",
+        "barbarian_king_token_roc"
+      ]
+    },
+    "king_snake_swamp": {
+      "rare": [
+        "snake_king_gall",
+        "poison_sac_bulk",
+        "barbarian_king_token_snake"
+      ]
+    },
+    "king_tiger_jungle": {
+      "rare": [
+        "tiger_king_bone",
+        "hunt_trophy_fang",
+        "barbarian_king_token_tiger"
+      ]
+    },
+    "king_turtle_depth": {
+      "rare": [
+        "turtle_king_shell",
+        "defense_array_plate",
+        "barbarian_king_token_turtle"
+      ]
+    }
+  },
+  "diyuan_by_layer": {
+    "layer_1": [
+      "spirit_stone_mid_bulk"
+    ],
+    "layer_3": [
+      "diyuan_layer_chest"
+    ],
+    "layer_5": [
+      "diyuan_core_crystal",
+      "spirit_vein_shard"
+    ],
+    "layer_6": [
+      "ancient_beast_material",
+      "pressure_resist_charm"
+    ]
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "schema_version": 8,
+  "school": "movement",
+  "techniques": [
+    {
+      "id": "short_teleport",
+      "display": "瞬步",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "space",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "瞬步：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "瞬步：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "earth_escape",
+      "display": "土遁",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "土遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "cast_type": "instant",
+        "target": "self",
+        "range": "dash",
+        "lore": "土遁脱身，需土灵气环境更佳。",
+        "limitations": [
+          "禁空阵内失效"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tuyuan_gong",
+          "changchun_gong"
+        ],
+        "prerequisite_mode": "any_one",
+        "spirit_roots": {
+          "bonus": [
+            "earth"
+          ]
+        },
+        "learn_source": [
+          "movement_slip"
+        ],
+        "terrain_bonus": [
+          "earth",
+          "mountain"
+        ]
+      }
+    },
+    {
+      "id": "wind_ride",
+      "display": "御风",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "御风：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "御风：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "five_elements_escape",
+      "display": "五行遁",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "mixed",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "五行遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "五行遁：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "shadow_flash",
+      "display": "影闪",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "dark",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "影闪：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "影闪：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "river_escape",
+      "display": "水遁",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "water",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "水遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "水遁：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "smuggle_rift_step",
+      "display": "暗港遁步",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "requires_method": "inverse_star_art",
+      "spirit_cost_base": 16,
+      "effect": {
+        "type": "teleport_short",
+        "tags": [
+          "smuggle"
+        ]
+      },
+      "description": "暗港遁步：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "暗港遁步：movement法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "inverse_star_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "inverse_star_art"
+        ]
+      }
+    },
+    {
+      "id": "water_escape",
+      "display": "水遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "water",
+      "description": "水遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "movement"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "水遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+        "element": "water"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION",
+        "spirit_roots": {
+          "bonus": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wind_escape",
+      "display": "风遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "wind",
+      "description": "风遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "movement"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "风遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+        "element": "wind"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION",
+        "spirit_roots": {
+          "bonus": [
+            "wind"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fire_escape",
+      "display": "火遁术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "description": "火遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "movement"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "火遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION",
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "light_body",
+      "display": "轻身术",
+      "school": "movement",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "description": "轻身术：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "spirit_cost_base": 10,
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "movement"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "遁术位移",
+        "cast_bias": "dash",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "轻身术：movement法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "inverse_star_shadow_step",
+      "display": "逆星影步",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "requires_method": "inverse_star_art",
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "stealth"
+        ]
+      },
+      "description": "短距遁走并降低被神识锁定概率。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "cast_type": "instant",
+        "target": "self",
+        "lore": "逆星盟影步，降被锁定概率。",
+        "synergy": [
+          "inverse_star_veil"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "inverse_star_art"
+        ],
+        "reputation": {
+          "star_palace": "hostile"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,848 @@
+{
+  "schema_version": 2,
+  "currency": "sect_contribution_point",
+  "shops": [
+    {
+      "faction_id": "huangfeng_valley",
+      "display": "黄枫谷贡献堂",
+      "items": [
+        {
+          "id": "foundation_pill",
+          "cost": 1200,
+          "realm_gate": "FOUNDATION",
+          "monthly_limit": 1,
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "筑基丹，七派严控，内门限额兑换。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "rank_min": "inner_disciple",
+              "realm_gate": "FOUNDATION",
+              "monthly_limit": 1
+            }
+          }
+        },
+        {
+          "id": "recipe_spirit_condense",
+          "cost": 80,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_spirit_condense"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 80,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "alchemy_furnace_g2",
+          "cost": 350,
+          "type": "equipment",
+          "setting": {
+            "lore": "alchemy_furnace_g2"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 350,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "spirit_herb_bundle",
+          "cost": 40,
+          "type": "material",
+          "setting": {
+            "lore": "spirit_herb_bundle"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 40,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_bigu",
+          "cost": 30,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_bigu"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 30,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_calm_spirit",
+          "cost": 50,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_calm_spirit"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 50,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "spirit_recovery_pill",
+          "cost": 35,
+          "type": "pill",
+          "setting": {
+            "lore": "spirit_recovery_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 35,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "refinement_manual_low",
+          "cost": 120,
+          "type": "manual",
+          "setting": {
+            "lore": "refinement_manual_low"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 120,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "talisman_paper_mid",
+          "cost": 15,
+          "type": "material",
+          "stock_monthly": 10,
+          "setting": {
+            "lore": "talisman_paper_mid"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 15,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_craft_body_guard",
+          "cost": 45,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_craft_body_guard"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 45,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "talisman_crate_low",
+          "cost": 55,
+          "type": "consumable",
+          "stock_monthly": 5,
+          "rank_min": "outer_disciple",
+          "setting": {
+            "lore": "talisman_crate_low"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 55,
+              "rank_min": "outer_disciple",
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "talisman_crate_mid",
+          "cost": 180,
+          "type": "consumable",
+          "stock_monthly": 2,
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "talisman_crate_mid"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 180,
+              "rank_min": "inner_disciple",
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "body_guard_talisman",
+          "cost": 12,
+          "type": "talisman",
+          "stock_monthly": 20,
+          "setting": {
+            "lore": "body_guard_talisman"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 12,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_jiangchen",
+          "cost": 25,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_jiangchen"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 25,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_ningshen",
+          "cost": 90,
+          "type": "recipe_unlock",
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "recipe_ningshen"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 90,
+              "rank_min": "inner_disciple",
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_huanglong",
+          "cost": 45,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_huanglong"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 45,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "sect_herb_garden_seed_pack",
+          "cost": 50,
+          "type": "material",
+          "setting": {
+            "lore": "sect_herb_garden_seed_pack"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 50,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "spirit_garden_fertilizer",
+          "cost": 20,
+          "type": "consumable",
+          "setting": {
+            "lore": "spirit_garden_fertilizer"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 20,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "flying_sword_low",
+          "cost": 180,
+          "type": "artifact",
+          "rank_min": "outer_disciple",
+          "setting": {
+            "lore": "flying_sword_low"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 180,
+              "rank_min": "outer_disciple",
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "artifact_repair_kit",
+          "cost": 25,
+          "type": "consumable",
+          "stock_monthly": 5,
+          "setting": {
+            "lore": "artifact_repair_kit"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 25,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "黄枫谷贡献堂"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "huangfeng_valley"
+        }
+      }
+    },
+    {
+      "faction_id": "yanyue_sect",
+      "display": "掩月宗贡献阁",
+      "items": [
+        {
+          "id": "illusion_talisman_scroll",
+          "cost": 120,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "illusion_talisman_scroll"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 120,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "foundation_pill",
+          "cost": 1400,
+          "monthly_limit": 1,
+          "setting": {
+            "lore": "筑基丹，七派严控，内门限额兑换。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "rank_min": "inner_disciple",
+              "realm_gate": "FOUNDATION",
+              "monthly_limit": 1
+            }
+          }
+        },
+        {
+          "id": "calm_spirit_pill",
+          "cost": 60,
+          "type": "pill",
+          "setting": {
+            "lore": "calm_spirit_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 60,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_heqi",
+          "cost": 40,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_heqi"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 40,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "ningshen_pill",
+          "cost": 70,
+          "type": "pill",
+          "setting": {
+            "lore": "ningshen_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 70,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "掩月宗贡献阁"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "yanyue_sect"
+        }
+      }
+    },
+    {
+      "faction_id": "star_palace",
+      "display": "星宫功勋库",
+      "region": "chaotic_sea",
+      "items": [
+        {
+          "id": "island_teleport_token",
+          "cost": 200,
+          "type": "service",
+          "setting": {
+            "lore": "island_teleport_token"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 200,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "condensation_pill",
+          "cost": 8000,
+          "realm_gate": "CORE_FORMATION",
+          "setting": {
+            "lore": "condensation_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 8000,
+              "rank_min": null,
+              "realm_gate": "CORE_FORMATION"
+            }
+          }
+        },
+        {
+          "id": "recipe_condensation",
+          "cost": 2500,
+          "type": "recipe_unlock",
+          "reputation_min": 30,
+          "setting": {
+            "lore": "recipe_condensation"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 2500,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_yanghun",
+          "cost": 600,
+          "type": "recipe_unlock",
+          "reputation_min": 20,
+          "setting": {
+            "lore": "recipe_yanghun"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 600,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "star_palace_patrol_order",
+          "cost": 50,
+          "type": "quest_item",
+          "setting": {
+            "lore": "star_palace_patrol_order"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 50,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_sea_calm",
+          "cost": 40,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_sea_calm"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 40,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "void_palace_map_fragment",
+          "cost": 1200,
+          "type": "quest_item",
+          "reputation_min": 50,
+          "monthly_limit": 1,
+          "setting": {
+            "lore": "void_palace_map_fragment"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 1200,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "星宫功勋库"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "star_palace"
+        }
+      }
+    },
+    {
+      "faction_id": "mulan_council",
+      "display": "慕兰神师库",
+      "items": [
+        {
+          "id": "fashi_array_manual",
+          "cost": 500,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "fashi_array_manual"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 500,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "mulan_spirit_sand",
+          "cost": 30,
+          "type": "material",
+          "setting": {
+            "lore": "mulan_spirit_sand"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 30,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "sky_tiger_beast_contract",
+          "cost": 3000,
+          "type": "quest_item",
+          "setting": {
+            "lore": "sky_tiger_beast_contract"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 3000,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "慕兰神师库"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "mulan_council"
+        }
+      }
+    },
+    {
+      "faction_id": "luoyun_sect",
+      "display": "落云宗贡献殿",
+      "items": [
+        {
+          "id": "luoyun_spirit_pill",
+          "cost": 280,
+          "type": "pill",
+          "realm_gate": "CORE_FORMATION",
+          "monthly_limit": 2,
+          "setting": {
+            "lore": "luoyun_spirit_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 280,
+              "rank_min": null,
+              "realm_gate": "CORE_FORMATION"
+            }
+          }
+        },
+        {
+          "id": "recipe_luoyun_spirit",
+          "cost": 400,
+          "type": "recipe_unlock",
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "recipe_luoyun_spirit"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 400,
+              "rank_min": "inner_disciple",
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "alchemy_furnace_g3",
+          "cost": 800,
+          "type": "equipment",
+          "setting": {
+            "lore": "alchemy_furnace_g3"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 800,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "sect_herb_garden_seed_pack",
+          "cost": 60,
+          "type": "material",
+          "setting": {
+            "lore": "sect_herb_garden_seed_pack"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 60,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "condensation_pill",
+          "cost": 2500,
+          "type": "pill",
+          "realm_gate": "CORE_FORMATION",
+          "monthly_limit": 1,
+          "setting": {
+            "lore": "condensation_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 2500,
+              "rank_min": null,
+              "realm_gate": "CORE_FORMATION"
+            }
+          }
+        },
+        {
+          "id": "recipe_nascent_assist",
+          "cost": 3500,
+          "rank_min": "core_disciple",
+          "setting": {
+            "lore": "结婴辅丹方，丹堂秘传。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "realm_min": "CORE_FORMATION"
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "落云宗贡献殿"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "luoyun_sect"
+        }
+      }
+    },
+    {
+      "faction_id": "hehuan_sect",
+      "display": "合欢宗贡献楼",
+      "items": [
+        {
+          "id": "dual_harmony_pill",
+          "cost": 90,
+          "type": "pill",
+          "monthly_limit": 3,
+          "setting": {
+            "lore": "dual_harmony_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 90,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "recipe_dual_harmony",
+          "cost": 350,
+          "type": "recipe_unlock",
+          "setting": {
+            "lore": "recipe_dual_harmony"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 350,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "demonic_blood_coral",
+          "cost": 50,
+          "type": "material",
+          "setting": {
+            "lore": "demonic_blood_coral"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 50,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "合欢宗贡献楼"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "hehuan_sect"
+        }
+      }
+    },
+    {
+      "faction_id": "spirit_beast_mountain",
+      "display": "灵兽山贡献堂",
+      "items": [
+        {
+          "id": "spirit_beast_nurture_pill",
+          "cost": 90,
+          "type": "pill",
+          "setting": {
+            "lore": "spirit_beast_nurture_pill"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 90,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "spirit_beast_feed",
+          "cost": 15,
+          "type": "consumable",
+          "setting": {
+            "lore": "spirit_beast_feed"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 15,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        },
+        {
+          "id": "beast_soul_essence",
+          "cost": 200,
+          "type": "material",
+          "setting": {
+            "lore": "beast_soul_essence"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "cost_contribution": 200,
+              "rank_min": null,
+              "realm_gate": null
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "灵兽山贡献堂"
+      },
+      "learn_requirements": {
+        "exchange": {
+          "currency": "sect_contribution_point",
+          "faction": "spirit_beast_mountain"
+        }
+      }
+    }
+  ],
+  "economy_ref": "economy_reference_magnitudes.json",
+  "huangfeng_valley": {
+    "currency": "contribution",
+    "alchemy_tier_unlock": [
+      {
+        "rep": 0,
+        "recipes": [
+          "bigu_pill"
+        ]
+      }
+    ]
+  }
+}

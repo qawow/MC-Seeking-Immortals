@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "human_clan_league.json",
+  "primary_key": "clans",
+  "entries": [
+    {
+      "id": "clan_array_mo",
+      "display": "莫家（阵法）"
+    },
+    {
+      "id": "clan_refinement_yu",
+      "display": "俞家（炼器）"
+    },
+    {
+      "id": "clan_alchemy_gu",
+      "display": "谷家（炼丹）"
+    },
+    {
+      "id": "clan_talisman_ning",
+      "display": "宁家（制符）"
+    },
+    {
+      "id": "ye_clan",
+      "display": "叶家"
+    },
+    {
+      "id": "nan_clan",
+      "display": "南陇侯世家"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "economy_reference_magnitudes.json",
+  "primary_key": "magnitude_bands",
+  "entries": [
+    {
+      "id": "mortal_life",
+      "display": "mortal_life"
+    },
+    {
+      "id": "qi_refining_gear",
+      "display": "qi_refining_gear"
+    },
+    {
+      "id": "foundation_breakthrough",
+      "display": "foundation_breakthrough"
+    },
+    {
+      "id": "core_formation",
+      "display": "core_formation"
+    },
+    {
+      "id": "nascent_soul",
+      "display": "nascent_soul"
+    },
+    {
+      "id": "auction_legendary",
+      "display": "auction_legendary"
+    }
+  ]
+}

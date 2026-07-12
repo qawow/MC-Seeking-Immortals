@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "dajin_factions.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "wanbao_pavilion",
+      "display": "万宝楼"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗"
+    },
+    {
+      "id": "yinluo_hall",
+      "display": "阴罗殿"
+    },
+    {
+      "id": "dajin_clan_alliance",
+      "display": "大晋世家盟"
+    },
+    {
+      "id": "taizhen_gate",
+      "display": "太真门"
+    }
+  ]
+}

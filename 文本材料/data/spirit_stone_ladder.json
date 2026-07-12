@@ -1,0 +1,136 @@
+{
+  "schema_version": 2,
+  "source": "汇编 §15–§16 灵石阶梯 + 三层经济（日常/段位定价/拍卖）",
+  "disclaimer": "兑换比与拍卖价为量级参考，非原著精确数；实现用区间随机",
+  "canonical_unit": "low_spirit_stone",
+  "exchange_ratio": {
+    "low_to_mid": 100,
+    "mid_to_high": 100,
+    "high_to_peak": 100,
+    "note": "高阶灵气更精纯，实务中少有人愿高换低；黑市 contraband 可折价。",
+    "low_equiv_multiplier": {
+      "low": 1,
+      "mid": 100,
+      "high": 10000,
+      "peak": 1000000
+    }
+  },
+  "tiers": [
+    {
+      "id": "low",
+      "display": "下品灵石",
+      "item_id": "low_spirit_stone",
+      "realm_circulation": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "typical_uses": [
+        "外门月例",
+        "低阶符箓",
+        "短途传送",
+        "坊市杂货"
+      ],
+      "setting": {
+        "lore": "炼气筑基日常流通，一块约抵凡人一年口粮量级。"
+      }
+    },
+    {
+      "id": "mid",
+      "display": "中品灵石",
+      "item_id": "mid_spirit_stone",
+      "realm_circulation": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "typical_uses": [
+        "筑基法器",
+        "中阶丹药",
+        "宗门任务大宗结算"
+      ],
+      "setting": {
+        "lore": "结丹前后大宗交易常用，100 下品可兑 1 中品（结构默认）。"
+      }
+    },
+    {
+      "id": "high",
+      "display": "上品灵石",
+      "item_id": "high_spirit_stone",
+      "realm_circulation": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "typical_uses": [
+        "结丹法宝材料",
+        "拍卖入场押金",
+        "乱星海关税"
+      ],
+      "setting": {
+        "lore": "元婴前高价值资源标价；万宝楼部分拍品接受上品结算。"
+      }
+    },
+    {
+      "id": "peak",
+      "display": "极品灵石",
+      "item_id": "top_spirit_stone",
+      "aliases": [
+        "spirit",
+        "top"
+      ],
+      "realm_circulation": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "typical_uses": [
+        "拍卖压轴",
+        "古宝残片竞价",
+        "化神丹药量级"
+      ],
+      "setting": {
+        "lore": "极少流通；顶级拍品常以数十万至上千万下品等价计价。"
+      }
+    }
+  ],
+  "economy_layers": [
+    {
+      "id": "daily_market",
+      "display": "坊市/商铺",
+      "currency": [
+        "low",
+        "mid"
+      ],
+      "ref": "merchant_shops.json"
+    },
+    {
+      "id": "sect_contribution",
+      "display": "宗门贡献",
+      "currency": [
+        "contribution_point"
+      ],
+      "ref": "economy_contribution_exchange.json"
+    },
+    {
+      "id": "auction_house",
+      "display": "拍卖行",
+      "currency": [
+        "low",
+        "mid",
+        "high",
+        "peak"
+      ],
+      "regions": [
+        "chaotic_sea",
+        "dajin",
+        "tianyuan_city"
+      ],
+      "ref": "economy_auction_bands.json",
+      "note": "顶级物品单独结算，避免冲垮日常物价。"
+    }
+  ],
+  "crossref": [
+    "currency_items.json",
+    "economy_value_bands.json",
+    "economy_reference_magnitudes.json",
+    "economy_price_bands.json"
+  ],
+  "master_ref": "economy_spirit_stone_master.json"
+}

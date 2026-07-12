@@ -1,0 +1,44 @@
+{
+  "id": "tiannan_puppet_lane",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 18,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "puppet_core_blank",
+      "item": "seeking_immortals:puppet_core_blank",
+      "count": 1,
+      "cost": 8,
+      "stock": 10
+    },
+    {
+      "id": "ironwood",
+      "item": "seeking_immortals:ironwood",
+      "count": 4,
+      "cost": 4,
+      "stock": 20
+    },
+    {
+      "id": "beast_core",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 12,
+      "stock": 6
+    },
+    {
+      "id": "spirit_iron",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 2,
+      "cost": 5,
+      "stock": 16
+    },
+    {
+      "id": "phoenix_feather",
+      "item": "seeking_immortals:phoenix_feather",
+      "count": 1,
+      "cost": 14,
+      "stock": 4
+    }
+  ]
+}

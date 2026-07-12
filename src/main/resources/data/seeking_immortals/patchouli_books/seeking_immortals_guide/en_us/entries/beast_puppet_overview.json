@@ -1,0 +1,38 @@
+{
+  "name": "Beasts and Puppets",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_beast_bridle",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Two Tracks",
+      "text": "This page maps beast_bestiary.json, BEAST_PUPPET_v63.md, puppet_definitions.json, and puppet_craft_recipes.json. The source materials separate two systems: spirit beasts are tamed partners bound by blood-contract style rituals; puppets are crafted equipment-like constructs driven by blueprints, materials, divine sense, and methods."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Beast Tiers",
+      "text": "The beast table maps tiers 1-13 to cultivation realms. Beast cores generally appear from tier 5, and tier 7+ connects to shape-shifting minor tribulations. The current mod has beast_core, spirit_beast_bone, spirit_beast_bridle, beast_taming_whip, and Yuling Pavilion contribution supply; real beast entities, affinity, growth, and ecology are still deferred."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Taming Gates",
+      "text": "tame_requirements usually use realm_min, items, method_any, ritual, success_base, quests, and tame_allowed. Low-tier examples such as Twin-Pupil Rat use a bridle and basic taming method; Wind Screech Hawk expects Foundation and flight support; Gold-Devouring Beetles and Soul-Weeping Beasts are chance encounters; fierce jiao and giant apes are mostly not tameable."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Puppet Crafting",
+      "text": "Puppet definitions advance from T0 to T6: basic wood puppets, giant ape puppets, giant turtle puppets, stone spirit puppets, Hunyuan-core upgrades, and Spirit-Realm prototypes. Craft-learning gates usually include realm_min, qianzhu_puppet_art or dayan_art, blueprints/cores, divine_sense_min, and quest_unlock."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Hooks",
+      "text": "Current hooks include the Yuling Pavilion shop, Extreme West Thousand Bamboo region, Thousand Bamboo Puppet Tower secret realm, spirit-taming/Thousand Bamboo/Great Development manuals, and loaded technique data such as Spirit Beast Command Art, Puppet Mechanism Art, Great Development Formula, and beast-symbiosis arts. These are mostly data and learning hooks, not live beast or puppet units yet."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Next Work",
+      "text": "Future slices should reuse ShopService, TechniqueManualItem, ArtifactDataService, worldpack secret realms, and the existing GeckoLib/FTB Quests prerequisites. Deferred work includes beast entities and AI, contracts/affinity, bridle consumption, puppet assembly benches, custom recipes, puppet entities or summons, repair fuel, loot tables, and quest guidance."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "stats_snapshot": {
+    "artifact_grades": 11,
+    "artifacts_game_tier_filled": 0,
+    "chaotic_war_phases": 5,
+    "spatial_dimension_filled": 25,
+    "hooks_added": 1
+  }
+}

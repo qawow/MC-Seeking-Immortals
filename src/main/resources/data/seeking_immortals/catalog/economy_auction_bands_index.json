@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "economy_auction_bands.json",
+  "primary_key": "lots",
+  "entries": [
+    {
+      "id": "lot_deity_pill_bundle",
+      "display": "化神修为丹药（三瓶）"
+    },
+    {
+      "id": "lot_ancient_beast_scale",
+      "display": "古兽鳞片炼丹材料（压轴）"
+    },
+    {
+      "id": "lot_foundation_pill",
+      "display": "筑基丹"
+    },
+    {
+      "id": "lot_low_ancient_treasure",
+      "display": "低阶古宝/符宝"
+    }
+  ]
+}

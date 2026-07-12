@@ -1,0 +1,154 @@
+{
+  "schema_version": 5,
+  "school": "confucian",
+  "techniques": [
+    {
+      "id": "righteous_qi",
+      "display": "浩然正气",
+      "school": "confucian",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "yang",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "word_suppress",
+      "display": "言镇",
+      "school": "confucian",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 32,
+        "tags": []
+      },
+      "description": "言镇：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "言镇：confucian法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "scroll_strike",
+      "display": "书卷击",
+      "school": "confucian",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 36,
+        "tags": []
+      },
+      "description": "书卷击：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "书卷击：confucian法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "ink_sea",
+      "display": "墨海",
+      "school": "confucian",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "water",
+        "damage_base": 40,
+        "tags": []
+      },
+      "description": "墨海：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "墨海：confucian法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "confucian_righteous_qi",
+      "display": "浩然正气",
+      "school": "confucian",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "confucian"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    }
+  ]
+}

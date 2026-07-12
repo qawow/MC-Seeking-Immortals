@@ -20,6 +20,13 @@ public final class SpiritualAuraManager {
     private static final int FORMATION_BONUS_PER_BLOCK = 50;
     private static final int MAX_FORMATION_COUNT = 4;
     private static final int LEYLINE_SEARCH_RADIUS_CHUNKS = 16;
+    private static final ResourceLocation NETHER_DIMENSION = new ResourceLocation("minecraft", "the_nether");
+    private static final ResourceLocation END_DIMENSION = new ResourceLocation("minecraft", "the_end");
+    private static final ResourceLocation TIANYUAN_DIMENSION = new ResourceLocation("seeking_immortals", "tianyuan");
+    private static final ResourceLocation SPIRIT_FENGYUAN_DIMENSION = new ResourceLocation("seeking_immortals", "spirit_fengyuan");
+    private static final ResourceLocation YIN_MING_POCKET_DIMENSION = new ResourceLocation("seeking_immortals", "yin_ming_pocket");
+    private static final ResourceLocation NETHER_RIVER_POCKET_DIMENSION = new ResourceLocation("seeking_immortals", "nether_river_pocket");
+    private static final ResourceLocation DEMON_RIFT_DIMENSION = new ResourceLocation("seeking_immortals", "demon_rift");
 
     private SpiritualAuraManager() {}
 
@@ -88,10 +95,20 @@ public final class SpiritualAuraManager {
     }
 
     private static double getDimensionMultiplier(Level level) {
-        if (level.dimension() == Level.NETHER) return 1.2D;
-        if (level.dimension() == Level.END) return 1.5D;
-        ResourceLocation id = level.dimension().location();
-        String path = id.getPath();
+        return getDimensionMultiplier(level.dimension().location());
+    }
+
+    static double getDimensionMultiplier(ResourceLocation dimensionId) {
+        if (NETHER_DIMENSION.equals(dimensionId)) return 1.2D;
+        if (END_DIMENSION.equals(dimensionId)) return 1.5D;
+        if (TIANYUAN_DIMENSION.equals(dimensionId)) return 2.0D;
+        if (SPIRIT_FENGYUAN_DIMENSION.equals(dimensionId)) return 1.8D;
+        if (YIN_MING_POCKET_DIMENSION.equals(dimensionId)) return 0.7D;
+        if (NETHER_RIVER_POCKET_DIMENSION.equals(dimensionId)) return 0.85D;
+        if (DEMON_RIFT_DIMENSION.equals(dimensionId)) return 1.1D;
+        String path = dimensionId.getPath();
+        if (path.contains("yin")) return 0.7D;
+        if (path.contains("nether_river")) return 0.85D;
         if (path.contains("secret") || path.contains("mystic") || path.contains("immortal_mansion") || path.contains("xianfu")) {
             return 10.0D;
         }
@@ -99,10 +116,25 @@ public final class SpiritualAuraManager {
     }
 
     private static AuraNature getAuraNature(Level level) {
-        if (level.dimension() == Level.NETHER) return AuraNature.BODY_REFINING_FIRE_DEMONIC;
-        if (level.dimension() == Level.END) return AuraNature.LAW_VOID;
-        ResourceLocation id = level.dimension().location();
-        String path = id.getPath();
+        return getAuraNature(level.dimension().location());
+    }
+
+    static AuraNature getAuraNature(ResourceLocation dimensionId) {
+        if (NETHER_DIMENSION.equals(dimensionId)) return AuraNature.BODY_REFINING_FIRE_DEMONIC;
+        if (END_DIMENSION.equals(dimensionId)) return AuraNature.LAW_VOID;
+        if (TIANYUAN_DIMENSION.equals(dimensionId) || SPIRIT_FENGYUAN_DIMENSION.equals(dimensionId)) {
+            return AuraNature.SPIRIT_REALM;
+        }
+        if (YIN_MING_POCKET_DIMENSION.equals(dimensionId) || NETHER_RIVER_POCKET_DIMENSION.equals(dimensionId)) {
+            return AuraNature.YIN_UNDERWORLD;
+        }
+        if (DEMON_RIFT_DIMENSION.equals(dimensionId)) {
+            return AuraNature.BODY_REFINING_FIRE_DEMONIC;
+        }
+        String path = dimensionId.getPath();
+        if (path.contains("yin") || path.contains("nether_river")) {
+            return AuraNature.YIN_UNDERWORLD;
+        }
         if (path.contains("secret") || path.contains("mystic") || path.contains("immortal_mansion") || path.contains("xianfu")) {
             return AuraNature.SECRET_REALM;
         }
@@ -164,6 +196,8 @@ public final class SpiritualAuraManager {
         NORMAL("天地灵气"),
         BODY_REFINING_FIRE_DEMONIC("火煞魔气/炼体灵气"),
         LAW_VOID("虚空法则灵气"),
+        SPIRIT_REALM("灵界浓郁灵气"),
+        YIN_UNDERWORLD("阴冥寒煞灵气"),
         SECRET_REALM("秘境仙府灵气");
 
         private final String displayName;

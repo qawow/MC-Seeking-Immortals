@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "wuyue_earth_stone",
+      "title_key": "screen.seeking_immortals.sect.mission.wuyue_earth_stone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:earth_spirit_stone",
+      "target": 6,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "wuyue_cold_jade",
+      "title_key": "screen.seeking_immortals.sect.mission.wuyue_cold_jade.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cold_jade",
+      "target": 5,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "wuyue_celestial_crystal",
+      "title_key": "screen.seeking_immortals.sect.mission.wuyue_celestial_crystal.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:celestial_crystal",
+      "target": 1,
+      "reward_contribution": 95,
+      "min_stage": 3
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "阴司集群",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:yin_stone",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "阴冥与冥河",
+      "text": "本页对应 yin_underworld_cluster.json、yin_luo_hall.json 与 secret_realms.json#nether_river_land。阴司之界不是完整主维度，而是阴冥、冥河秘境和口袋维组成的集群。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "进入路线",
+      "text": "阴冥之地是鬼修入门区域，文本门槛为鬼修路径与炼气；冥河门槛为筑基与鬼道任务，设有摆渡商。当前版本已有 yinming 区域事件、阴石物品载体和冥河/阴冥设定记录。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "阴罗殿",
+      "text": "阴罗殿是阴司侧鬼道魔宗枢纽，方法为 yin_luo_ghost_art，货币为 yin_stone。声望称号从游魂客到殿外弟子，后续可解锁魂幡制作；敌对标签包括正道宗门与纯阳修士。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "环境风险",
+      "text": "全局环境包含鬼修白日 debuff、纯阳伤害加成等规则；冥河还可作为阴属性天劫减伤区。当前这些多为手册/事件引导，真实摆渡费、阴伤、魂幡、鬼修任务和清洗/抗性系统仍待实装。"
+    }
+  ]
+}

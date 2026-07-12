@@ -1,0 +1,277 @@
+{
+  "schema_version": 2,
+  "source": "汇编§11符箓§12法宝§15天劫§三层技能树",
+  "talisman_new": [
+    {
+      "id": "talisman_earth_escape",
+      "display": "土遁符",
+      "grade": "low",
+      "realm_min": "QI_REFINING",
+      "use": "escape",
+      "setting": {
+        "lore": "低阶遁逃常用符。"
+      }
+    },
+    {
+      "id": "talisman_golden_sword",
+      "display": "金光符",
+      "grade": "mid",
+      "realm_min": "FOUNDATION",
+      "use": "combat",
+      "setting": {
+        "lore": "天符宗量产攻击符。"
+      }
+    },
+    {
+      "id": "talisman_spirit_shield_high",
+      "display": "护体灵光符（高阶）",
+      "grade": "high",
+      "realm_min": "CORE_FORMATION",
+      "use": "defense",
+      "setting": {
+        "lore": "护体灵光符（高阶）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "talisman_teleport_single",
+      "display": "单向传送符",
+      "grade": "high",
+      "realm_min": "CORE_FORMATION",
+      "use": "travel",
+      "setting": {
+        "lore": "一次性传送，距离受阵法师品阶限制。"
+      }
+    },
+    {
+      "id": "talisman_wooden_ox",
+      "display": "木牛符",
+      "grade": "mid",
+      "realm_min": "FOUNDATION",
+      "use": "utility",
+      "setting": {
+        "lore": "机关载具类符宝雏形。"
+      }
+    }
+  ],
+  "artifact_notable": {
+    "green_bamboo_cloud_sword": {
+      "setting": {
+        "lore": "青竹蜂云剑，木系飞剑成套，剑阵核心。",
+        "tier_note": "成长型古宝"
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "FOUNDATION",
+          "method_any": [
+            "qingyuan_sword_art",
+            "wood_path"
+          ],
+          "refine_stages": true
+        }
+      }
+    },
+    "void_heaven_ruler": {
+      "setting": {
+        "lore": "虚天殿镇殿古宝，残片可炼。",
+        "compliance": "名宝仿"
+      },
+      "learn_requirements": {
+        "obtain": {
+          "quest_chain": "chain_void_palace_expedition",
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    "gold_devour_beetle_nest_artifact": {
+      "setting": {
+        "lore": "噬金虫巢穴容器，虫群克宝。",
+        "compliance": "噬金虫仿"
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [
+            "beast_taming_advanced"
+          ]
+        }
+      }
+    },
+    "soul_summon_bell": {
+      "setting": {
+        "lore": "引魂钟，驱策铁傀与阴魂。"
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "QI_REFINING",
+          "path_any": [
+            "xuan_yin_art",
+            "ghost"
+          ]
+        }
+      }
+    },
+    "hunyuan_bowl": {
+      "setting": {
+        "lore": "混元钵，可作傀儡核心。"
+      },
+      "learn_requirements": {
+        "equip": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    }
+  },
+  "skill_tree_patches": {
+    "sword_qingyuan": {
+      "setting": {
+        "lore": "青元剑诀技能树：剑气、剑阵、御剑。"
+      },
+      "learn_requirements": {
+        "unlock": {
+          "method_root": "qingyuan_sword_art",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    "alchemy_luoyun": {
+      "setting": {
+        "lore": "落云丹道树：炼丹、控火、丹方。"
+      },
+      "learn_requirements": {
+        "unlock": {
+          "faction": "luoyun_sect",
+          "method_root": "luoyun_alchemy_art"
+        }
+      }
+    },
+    "talisman_tianfu": {
+      "setting": {
+        "lore": "天符制符树。"
+      },
+      "learn_requirements": {
+        "unlock": {
+          "faction": "tianfu_sect"
+        }
+      }
+    },
+    "puppet_qianzhu": {
+      "setting": {
+        "lore": "千竹傀儡树。"
+      },
+      "learn_requirements": {
+        "unlock": {
+          "method_root": "qianzhu_puppet_art"
+        }
+      }
+    },
+    "illusion": {
+      "setting": {
+        "lore": "幻术与媚术分支。"
+      },
+      "learn_requirements": {
+        "unlock": {
+          "method_any": [
+            "yanyue_illusion_art",
+            "hehuan_mind_art"
+          ]
+        }
+      }
+    }
+  },
+  "manuals_new": [
+    {
+      "id": "manual_dayan_true_solution",
+      "display": "大衍真解",
+      "type": "puppet",
+      "rarity": "legendary",
+      "learn_requirements": {
+        "obtain": {
+          "quest_any": [
+            "dayan_ruin_probe"
+          ],
+          "realm_min": "NASCENT_SOUL"
+        }
+      },
+      "setting": {
+        "lore": "大衍真解"
+      }
+    },
+    {
+      "id": "manual_ancient_puppet_art",
+      "display": "上古傀儡术",
+      "type": "puppet",
+      "rarity": "legendary",
+      "learn_requirements": {
+        "obtain": {
+          "items_any": [
+            "ancient_puppet_method"
+          ],
+          "realm_min": "FOUNDATION"
+        }
+      },
+      "setting": {
+        "lore": "上古傀儡术"
+      }
+    }
+  ],
+  "tribulation_items_patches": {
+    "tribulation_thunder_ward_talisman": {
+      "setting": {
+        "lore": "避雷符，小劫辅助。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "CORE_FORMATION",
+          "tribulation_type": "minor"
+        }
+      }
+    },
+    "body_tempering_thunder_salve": {
+      "setting": {
+        "lore": "炼体渡劫外敷。"
+      },
+      "learn_requirements": {
+        "use": {
+          "path": "body"
+        }
+      }
+    }
+  },
+  "boss_loot_new": [
+    {
+      "id": "loot_void_palace_lord",
+      "display": "虚天殿主掉落",
+      "boss": "void_palace_lord",
+      "setting": {
+        "lore": "古宝残片与高阶材料。"
+      }
+    },
+    {
+      "id": "loot_blood_jiao",
+      "display": "血蛟守卫掉落",
+      "boss": "blood_jiao_guardian",
+      "setting": {
+        "lore": "禁地妖丹与灵草。"
+      }
+    }
+  ],
+  "spirit_realm_faction_patches": {
+    "spirit_cloud_clan": {
+      "setting": {
+        "lore": "灵界云族分支势力。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING"
+        }
+      }
+    }
+  },
+  "system_rules_note": {
+    "alchemy": "丹药品阶与境界错配会炸炉或丹毒",
+    "refinement": "炼器材料品阶需匹配炼器师境界"
+  }
+}

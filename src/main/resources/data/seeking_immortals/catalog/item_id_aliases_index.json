@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "item_id_aliases.json",
+  "primary_key": "aliases",
+  "entries": [
+    {
+      "id": "0",
+      "display": "0"
+    },
+    {
+      "id": "1",
+      "display": "1"
+    },
+    {
+      "id": "2",
+      "display": "2"
+    },
+    {
+      "id": "3",
+      "display": "3"
+    },
+    {
+      "id": "4",
+      "display": "4"
+    }
+  ]
+}

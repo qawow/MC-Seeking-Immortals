@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "SBS",
+    " B ",
+    "S D"
+  ],
+  "key": {
+    "S": {
+      "item": "seeking_immortals:xuanguang_mirror_shard"
+    },
+    "B": {
+      "item": "seeking_immortals:beast_core"
+    },
+    "D": {
+      "item": "seeking_immortals:true_dragon_blood"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:xuanguang_mirror",
+    "count": 1
+  },
+  "show_notification": true
+}

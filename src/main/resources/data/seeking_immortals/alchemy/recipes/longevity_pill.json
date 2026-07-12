@@ -1,0 +1,34 @@
+{
+  "id": "longevity_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.longevity_pill",
+  "output_items": {
+    "low": "seeking_immortals:longevity_pill",
+    "medium": "seeking_immortals:longevity_pill_mid",
+    "high": "seeking_immortals:longevity_pill_high",
+    "supreme": "seeking_immortals:longevity_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 120,
+  "cook_ticks": 1600,
+  "success_rate": 0.28,
+  "explosion_chance": 0.16,
+  "required_furnace_tier": 5,
+  "ideal_fire_tier": 5,
+  "min_control_realm": "NASCENT_SOUL",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:immortal_ginseng",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:time_sand",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:primordial_essence",
+      "count": 1
+    }
+  ]
+}

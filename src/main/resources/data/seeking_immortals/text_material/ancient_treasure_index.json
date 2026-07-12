@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "source": "汇编古宝/通天灵宝向：成品不可批量炼，碎片秘境掉落",
+  "categories": {
+    "ancient_treasure_complete": "元婴+可驱使，多为剧情/重铸",
+    "ancient_shard": "3–5 片重铸或镶嵌",
+    "spirit_treasure_fragment": "灵界 VOID_REFINEMENT+ 合成灵宝仿"
+  },
+  "entries": [
+    {
+      "id": "xuanguang_mirror",
+      "kind": "complete",
+      "effect": "soul_attack",
+      "setting": {
+        "lore": "玄光镜残片，虚天殿相关古宝。"
+      },
+      "learn_requirements": {
+        "obtain": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "xuanhuang_mirror",
+      "kind": "complete",
+      "effect": "soul_destroy",
+      "setting": {
+        "lore": "xuanhuang_mirror",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "black_moon_ruler",
+      "kind": "complete",
+      "effect": "space_cut",
+      "setting": {
+        "lore": "black_moon_ruler",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "green_copper_bell",
+      "kind": "complete",
+      "effect": "sound_stun",
+      "setting": {
+        "lore": "green_copper_bell",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "kind": "shard",
+      "reforge_recipe": "refine_xuanguang_shard",
+      "setting": {
+        "lore": "xuanguang_mirror_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "kind": "shard",
+      "reforge_recipe": "refine_xuanhuang_shard",
+      "setting": {
+        "lore": "xuanhuang_mirror_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "void_heaven_ruler_shard",
+      "kind": "shard",
+      "region": "void_palace",
+      "setting": {
+        "lore": "void_heaven_ruler_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "ancient_sea_halberd_shard",
+      "kind": "spirit_treasure_fragment",
+      "setting": {
+        "lore": "ancient_sea_halberd_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "ancient_forest_disk_shard",
+      "kind": "spirit_treasure_fragment",
+      "setting": {
+        "lore": "ancient_forest_disk_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "kind": "spirit_treasure_fragment",
+      "setting": {
+        "lore": "eight_spirit_ruler_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "black_wind_flag_fragment",
+      "kind": "spirit_treasure_fragment",
+      "setting": {
+        "lore": "black_wind_flag_fragment",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "nine_dragon_cauldron_replica",
+      "kind": "replica_template",
+      "note": "非本体",
+      "setting": {
+        "lore": "nine_dragon_cauldron_replica",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "kind": "shard",
+      "reforge_recipe": "refine_nine_dragon_replica",
+      "setting": {
+        "lore": "nine_dragon_cauldron_shard",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    },
+    {
+      "id": "kunwu_seal_fragment",
+      "kind": "shard",
+      "region": "kunwu_mountain",
+      "setting": {
+        "lore": "kunwu_seal_fragment",
+        "source_file": "ancient_treasure_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "ancient_treasure_index.json"
+      }
+    }
+  ]
+}

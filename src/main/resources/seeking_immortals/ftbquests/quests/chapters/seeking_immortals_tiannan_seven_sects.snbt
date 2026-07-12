@@ -1,0 +1,438 @@
+{
+  id: "1000000000000007",
+  filename: "seeking_immortals_tiannan_seven_sects",
+  title: "寻仙问道：天南七派与百艺旁支",
+  subtitle: ["源自 quest_chains.json、quest_hooks.json、tiannan_seven_sects_lore.json、puppet/talisman/illusion 技艺设定。"],
+  default_quest_shape: "circle",
+  default_hide_dependency_lines: false,
+  progression_mode: "linear",
+  quests: [
+    {
+      id: "1000000000001001",
+      title: "七派专精总览",
+      subtitle: "天南旁支入口",
+      x: 0.0d,
+      y: 0.0d,
+      description: [
+        "来源：tiannan_seven_sects_lore.json / sect_specialty_map.json。",
+        "黄枫谷之外，天南七派还有掩月幻阵、天符制符、炼器守御、剑遁、土阵防御，以及化刀、巨剑、千竹、御灵等旁支路线。"
+      ],
+      dependencies: ["1000000000000201"],
+      tags: ["seeking_immortals", "tiannan", "seven_sects"],
+      tasks: [{id: "1000000000002001", type: "checkmark", title: "整理七派专精"}]
+    },
+    {
+      id: "1000000000001002",
+      title: "化刀坞入门",
+      subtitle: "刀坞试刀",
+      x: 2.0d,
+      y: -3.0d,
+      optional: true,
+      description: [
+        "来源：huadao_blade_path / quest_hooks#huadao_entry。",
+        "化刀坞以刀意与铸刀委托为主，当前只展示路线，不写入阵营身份。源设定奖励：huadao_blade_intent_hint。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "huadao_wu", "optional"],
+      tasks: [{id: "1000000000002002", type: "checkmark", title: "完成刀坞试刀"}]
+    },
+    {
+      id: "1000000000001003",
+      title: "铸刀委托",
+      subtitle: "炼材与刀胚",
+      x: 4.0d,
+      y: -3.0d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#huadao_forge_contract。",
+        "承接炼器材料和法器胚体，后续可替换为材料提交或炼器台任务。源设定奖励：refine_material_mid。"
+      ],
+      dependencies: ["1000000000001002"],
+      tags: ["seeking_immortals", "tiannan", "huadao_wu", "refinement", "optional"],
+      tasks: [{id: "1000000000002003", type: "item", title: "备好灵铁铸刀料", item: "seeking_immortals:spirit_iron", count: 2L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001004",
+      title: "刀意对决",
+      subtitle: "筑基刀道",
+      x: 6.0d,
+      y: -3.0d,
+      optional: true,
+      description: [
+        "来源：huadao_blade_path#huadao_duel_trial / secret_arts.json#huadao_slash_secret。",
+        "筑基后以刀意试炼推进到化刀秘页；后续可接入 PvE 对决和刀道神通学习。"
+      ],
+      dependencies: ["1000000000001003"],
+      tags: ["seeking_immortals", "tiannan", "huadao_wu", "sword_path", "optional"],
+      tasks: [{id: "1000000000002004", type: "checkmark", title: "完成刀意对决"}]
+    },
+    {
+      id: "1000000000001005",
+      title: "巨剑门入门",
+      subtitle: "重剑传承",
+      x: 2.0d,
+      y: -1.5d,
+      optional: true,
+      description: [
+        "来源：giant_sword_gate_path / quest_hooks#giant_sword_entry。",
+        "巨剑门重攻伐与古剑残片，先作为血色禁地之后的可见分支。源设定奖励：giant_sword_art_hint。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "giant_sword_gate", "optional"],
+      tasks: [{id: "1000000000002005", type: "checkmark", title: "完成巨剑入门"}]
+    },
+    {
+      id: "1000000000001006",
+      title: "银巨剑线索",
+      subtitle: "血色禁地支路",
+      x: 4.0d,
+      y: -1.5d,
+      optional: true,
+      description: [
+        "来源：giant_sword_gate_path#blood_forbidden_run / artifacts_catalog.json#silver_giant_sword。",
+        "血色禁地中发现银色巨剑与古剑残刃线索，当前不发放法器或图纸。"
+      ],
+      dependencies: ["1000000000001005", "1000000000000304"],
+      tags: ["seeking_immortals", "tiannan", "giant_sword_gate", "blood_forbidden_campaign", "optional"],
+      tasks: [{id: "1000000000002006", type: "checkmark", title: "记录银巨剑线索"}]
+    },
+    {
+      id: "1000000000001007",
+      title: "古剑残片重铸",
+      subtitle: "巨剑秘传",
+      x: 6.0d,
+      y: -1.5d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#giant_sword_relic_restore / secret_arts.json#blade_giant_sword_ultimate_secret。",
+        "以残片重铸引出银巨剑蓝图和巨剑术；真实重铸、材料消耗与成功率后续接炼器系统。"
+      ],
+      dependencies: ["1000000000001006"],
+      tags: ["seeking_immortals", "tiannan", "giant_sword_gate", "refinement", "optional"],
+      tasks: [{id: "1000000000002007", type: "item", title: "备好残片重铸灵铁", item: "seeking_immortals:spirit_iron", count: 4L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001008",
+      title: "千竹傀儡学徒",
+      subtitle: "木傀入门",
+      x: 2.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：qianzhu_puppet_path / quest_hooks#qianzhu_puppet_apprentice / puppet_craft_recipes.json#assemble_basic_wood。",
+        "千竹教入门从木人傀儡、铁木和空白傀儡核心开始。源设定奖励：basic_wood_puppet_blueprint。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "puppet", "optional"],
+      tasks: [{id: "1000000000002008", type: "item", title: "备好空白傀儡核心", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001009",
+      title: "千竹傀儡塔",
+      subtitle: "机关塔历练",
+      x: 4.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#thousand_bamboo_tower_run / beast_boss_tier_secret_realm_map.json。",
+        "千竹塔承载机关波次与傀王威胁，当前先作为 checkmark 秘境节点。源设定奖励：dayan_fragment、puppet_core_blank。"
+      ],
+      dependencies: ["1000000000001008"],
+      tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "puppet", "secret_realm", "optional"],
+      tasks: [{id: "1000000000002009", type: "checkmark", title: "完成千竹塔历练"}]
+    },
+    {
+      id: "1000000000001010",
+      title: "大衍残页搜集",
+      subtitle: "大衍诀线索",
+      x: 6.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#dayan_fragment_quest / techniques/puppet.json。",
+        "大衍残页用于承接大衍诀、傀群术与高阶傀儡操控；当前不授予功法。"
+      ],
+      dependencies: ["1000000000001009"],
+      tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "dayan_art", "optional"],
+      tasks: [{id: "1000000000002010", type: "checkmark", title: "搜集大衍残页"}]
+    },
+    {
+      id: "1000000000001011",
+      title: "高阶傀儡维护",
+      subtitle: "铁木与核心",
+      x: 8.0d,
+      y: 1.0d,
+      optional: true,
+      description: [
+        "来源：qianzhu_puppet_path#puppet_maintain / quest_hooks#puppet_maintain。",
+        "维护循环需要 ironwood、spirit_stone_shard 等材料，后续可接入傀儡台、燃料和耐久。"
+      ],
+      dependencies: ["1000000000001010"],
+      tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "puppet", "maintenance", "optional"],
+      tasks: [{id: "1000000000002011", type: "item", title: "备好铁木检修料", item: "seeking_immortals:ironwood", count: 4L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001012",
+      title: "御灵宗暗线",
+      subtitle: "灵兽山旧事",
+      x: 2.0d,
+      y: 2.5d,
+      optional: true,
+      description: [
+        "来源：yuling_puppet_path / quest_hooks#yuling_secret_contact。",
+        "御灵兽傀线从灵兽山暗线切入，后续可与灵兽契约、兽魂傀儡和门派声望相互影响。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "yuling_sect_secret", "beast_taming", "optional"],
+      tasks: [{id: "1000000000002012", type: "checkmark", title: "接触御灵暗线"}]
+    },
+    {
+      id: "1000000000001013",
+      title: "兽魂封傀",
+      subtitle: "兽魂与机关",
+      x: 4.0d,
+      y: 2.5d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#beast_soul_bind_puppet / techniques/secret_arts.json#puppet_yuling_ultimate_secret。",
+        "筑基后将兽魂封入傀儡，暂不生成实体或契约状态。源设定奖励：yuling_beast_puppet_art、beast_puppet_core。"
+      ],
+      dependencies: ["1000000000001012"],
+      tags: ["seeking_immortals", "tiannan", "yuling_sect_secret", "puppet", "beast_taming", "optional"],
+      tasks: [{id: "1000000000002013", type: "item", title: "备好兽魂封傀核心", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001014",
+      title: "灵兽契约",
+      subtitle: "可选兽契",
+      x: 6.0d,
+      y: 2.5d,
+      optional: true,
+      description: [
+        "来源：quest_hooks#lingshou_contract_beast / novel_beast_puppet_waves.json。",
+        "灵兽契约展示铁甲狮兽、云丝蛛等低中阶兽宠方向；真实契约、喂养和 AI 留待后续。"
+      ],
+      dependencies: ["1000000000001012"],
+      tags: ["seeking_immortals", "tiannan", "spirit_beast_mountain", "beast_taming", "optional"],
+      tasks: [{id: "1000000000002014", type: "item", title: "备好灵兽契约兽核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001015",
+      title: "掩月神识试炼",
+      subtitle: "入门心性",
+      x: 2.0d,
+      y: 4.0d,
+      optional: true,
+      description: [
+        "来源：yanyue_illusion_path / tiannan_seven_sects_lore.json#yanyue_sect。",
+        "掩月宗入门重神识与心性，女修为主，幻阵与媚术双修；当前不写宗门锁。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "yanyue_sect", "illusion", "optional"],
+      tasks: [{id: "1000000000002015", type: "checkmark", title: "完成神识试炼"}]
+    },
+    {
+      id: "1000000000001016",
+      title: "幻阵双修课业",
+      subtitle: "镜影与百幻",
+      x: 4.0d,
+      y: 4.0d,
+      optional: true,
+      description: [
+        "来源：yanyue_illusion_path#illusion_array_practice / techniques/illusion.json。",
+        "以镜影术、百幻术、迷心术等幻术设定承接掩月课业，后续可加入专属技能释放和锁定理由。"
+      ],
+      dependencies: ["1000000000001015"],
+      tags: ["seeking_immortals", "tiannan", "yanyue_sect", "illusion", "optional"],
+      tasks: [{id: "1000000000002016", type: "checkmark", title: "完成幻阵课业"}]
+    },
+    {
+      id: "1000000000001017",
+      title: "七派大比",
+      subtitle: "可选试炼洞",
+      x: 6.0d,
+      y: 3.0d,
+      optional: true,
+      description: [
+        "来源：yanyue_illusion_path#seven_sect_tournament / tiannan_seven_sects_lore.json#seven_meridian_cave。",
+        "七脉试炼洞按脉系分岔，稀有掉落有贡献令、低阶丹药和内门推荐；当前不发放掉落。"
+      ],
+      dependencies: ["1000000000001016"],
+      tags: ["seeking_immortals", "tiannan", "seven_sects", "seven_meridian_cave", "optional"],
+      tasks: [{id: "1000000000002017", type: "checkmark", title: "参加七派大比"}]
+    },
+    {
+      id: "1000000000001018",
+      title: "内门媚术秘传",
+      subtitle: "掩月收束",
+      x: 6.0d,
+      y: 4.0d,
+      optional: true,
+      description: [
+        "来源：yanyue_illusion_path#inner_veil_secret / artifact_faction_specialty.json#yanyue_sect。",
+        "内门秘传连接幻术、阴属性法器与邪幻镜等方向；当前只作为路线收束。源设定奖励：yanyue_inner_token、illusion_manual_fragment。"
+      ],
+      dependencies: ["1000000000001016"],
+      tags: ["seeking_immortals", "tiannan", "yanyue_sect", "illusion", "optional"],
+      tasks: [{id: "1000000000002018", type: "checkmark", title: "记录内门秘传"}]
+    },
+    {
+      id: "1000000000001019",
+      title: "符纸灵墨基础",
+      subtitle: "天符门入门",
+      x: 2.0d,
+      y: 5.5d,
+      optional: true,
+      description: [
+        "来源：tianfu_talisman_path / talisman_materials_catalog.json / talisman.json。",
+        "天符门从符纸、灵墨和天符灵经入门，当前不消耗材料。"
+      ],
+      dependencies: ["1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
+      tasks: [{id: "1000000000002019", type: "item", title: "备好凡符纸", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001020",
+      title: "低阶符考核",
+      subtitle: "烈火寒冰遁天",
+      x: 4.0d,
+      y: 5.5d,
+      optional: true,
+      description: [
+        "来源：tianfu_talisman_path#low_talisman_cert / techniques/talisman.json。",
+        "低阶符考核覆盖烈火符、寒冰符、遁天符等入门符术，后续可替换为制符配方任务。"
+      ],
+      dependencies: ["1000000000001019"],
+      tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
+      tasks: [{id: "1000000000002020", type: "item", title: "备好烈火符考核样符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001021",
+      title: "筑基中阶符室",
+      subtitle: "符室进阶",
+      x: 6.0d,
+      y: 5.5d,
+      optional: true,
+      description: [
+        "来源：tianfu_talisman_path#mid_talisman_inner / talisman_three_grade_tiers.json。",
+        "筑基后开放中阶符室，表现三品符箓等级、符宝另计和宗门内门门槛。"
+      ],
+      dependencies: ["1000000000001020"],
+      tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
+      tasks: [{id: "1000000000002021", type: "checkmark", title: "进入中阶符室"}]
+    },
+    {
+      id: "1000000000001022",
+      title: "结丹秘传符",
+      subtitle: "高阶符分支",
+      x: 8.0d,
+      y: 5.5d,
+      optional: true,
+      description: [
+        "来源：tianfu_talisman_path#high_talisman_secret / talisman_recipes.json。",
+        "结丹后接触高阶秘传符、空间锚定符和护命符等方向；当前不授予配方或符宝。"
+      ],
+      dependencies: ["1000000000001021"],
+      tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
+      tasks: [{id: "1000000000002022", type: "checkmark", title: "记录高阶秘符"}]
+    },
+    {
+      id: "1000000000001023",
+      title: "百艺精通起课",
+      subtitle: "丹器符傀阵",
+      x: 0.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：quest_chains.json#craft_master。",
+        "百艺精通汇总炼丹、傀儡、阵法、炼器与制符路线，先作为可见进阶称号路径。"
+      ],
+      dependencies: ["1000000000000202", "1000000000001001"],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "optional"],
+      tasks: [{id: "1000000000002023", type: "checkmark", title: "开启百艺总纲"}]
+    },
+    {
+      id: "1000000000001024",
+      title: "丹童复核",
+      subtitle: "黄枫丹道",
+      x: 2.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：craft_master#alchemy_apprentice / huangfeng_cultivation_path#alchemy_apprentice。",
+        "复核已实现炼丹炉、辟谷丹和公式学习循环；真实称号统计后续再接入。"
+      ],
+      dependencies: ["1000000000001023"],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "alchemy", "optional"],
+      tasks: [{id: "1000000000002024", type: "item", title: "备好辟谷丹纸方", item: "seeking_immortals:alchemy_formula_fasting_pill_paper", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000001025",
+      title: "傀儡工坊复核",
+      subtitle: "千竹维护",
+      x: 4.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：craft_master#puppet_maintain / qianzhu_puppet_path。",
+        "将百艺线与千竹傀儡维护合流，后续可接入傀儡台、零件、耐久和燃料。"
+      ],
+      dependencies: ["1000000000001024", "1000000000001011"],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "puppet", "optional"],
+      tasks: [{id: "1000000000002025", type: "checkmark", title: "完成工坊复核"}]
+    },
+    {
+      id: "1000000000001026",
+      title: "封魔阵残卷研读",
+      subtitle: "昆吾阵法回流",
+      x: 6.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：craft_master#kunwu_seal_research / quest_hooks#kunwu_seal_research。",
+        "百艺进阶可回读昆吾封魔阵残卷，将阵法、傀儡与古魔封印线合流。"
+      ],
+      dependencies: ["1000000000001025", "1000000000000613"],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "formation", "kunwu_mountain_campaign", "optional"],
+      tasks: [{id: "1000000000002026", type: "checkmark", title: "研读封魔阵残卷"}]
+    },
+    {
+      id: "1000000000001027",
+      title: "炼器地火资格",
+      subtitle: "地火室收束",
+      x: 8.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：craft_master#sect_fire_room / quest_hooks#sect_fire_room / artifact_faction_specialty.json#refinement_hall_generic。",
+        "结丹后以地火室资格收束炼器进阶，后续可接炼器台、淬火油和法器胚体。"
+      ],
+      dependencies: ["1000000000001023", "1000000000000205"],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "refinement", "optional"],
+      tasks: [{id: "1000000000002027", type: "checkmark", title: "取得地火资格"}]
+    },
+    {
+      id: "1000000000001028",
+      title: "七派百艺名号",
+      subtitle: "旁支阶段收束",
+      x: 10.0d,
+      y: 8.0d,
+      optional: true,
+      description: [
+        "来源：craft_master#unlocks_title / 七派与百艺旁支汇总。",
+        "完成主要旁支后登记百艺名号。当前不授予称号、贡献、功法、法器或 FTB 奖励，只保留任务线呈现。"
+      ],
+      dependencies: [
+        "1000000000001004",
+        "1000000000001007",
+        "1000000000001011",
+        "1000000000001013",
+        "1000000000001018",
+        "1000000000001022",
+        "1000000000001027"
+      ],
+      tags: ["seeking_immortals", "tiannan", "craft_master", "reward_bridge_deferred", "optional"],
+      tasks: [{id: "1000000000002028", type: "checkmark", title: "登记百艺名号"}]
+    }
+  ]
+}

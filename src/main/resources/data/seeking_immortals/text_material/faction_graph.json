@@ -1,0 +1,314 @@
+{
+  "schema_version": 2,
+  "edge_types": [
+    "war",
+    "trade",
+    "alliance",
+    "secret_tie",
+    "blockade",
+    "rivalry"
+  ],
+  "nodes": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "region": "tiannan",
+      "archetype": "alchemy_strong",
+      "note": "炼丹强宗；地火室、筑基丹配额",
+      "setting": {
+        "lore": "黄枫谷"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "region": "tiannan",
+      "archetype": "illusion_array",
+      "note": "阵法/幻术强宗",
+      "setting": {
+        "lore": "掩月宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "region": "tiannan",
+      "archetype": "beast_tamer",
+      "note": "御兽强宗",
+      "setting": {
+        "lore": "灵兽山"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "region": "tiannan",
+      "archetype": "talisman_specialist",
+      "note": "制符见长",
+      "setting": {
+        "lore": "清虚门"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "region": "tiannan",
+      "setting": {
+        "lore": "化刀坞"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "region": "tiannan",
+      "setting": {
+        "lore": "天阙堡"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "region": "tiannan",
+      "setting": {
+        "lore": "巨剑门"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "region": "tiannan",
+      "setting": {
+        "lore": "七玄门"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "region": "tiannan",
+      "setting": {
+        "lore": "鬼灵门"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "region": "tiannan",
+      "setting": {
+        "lore": "合欢宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "region": "tiannan",
+      "setting": {
+        "lore": "魔焰门"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "region": "tiannan",
+      "setting": {
+        "lore": "天煞宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "setting": {
+        "lore": "御灵宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "region": "tiannan",
+      "setting": {
+        "lore": "千幻宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "region": "tiannan",
+      "setting": {
+        "lore": "落云宗"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "region": "chaotic_sea",
+      "archetype": "order_maintainer",
+      "note": "星宫体系，逆星盟对立",
+      "setting": {
+        "lore": "乱星海秩序势力。"
+      },
+      "learn_requirements": {
+        "reputation": {
+          "register_required": true
+        }
+      }
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "region": "chaotic_sea",
+      "archetype": "rebel_faction",
+      "note": "乱星海割据",
+      "setting": {
+        "lore": "反星宫割据。"
+      },
+      "learn_requirements": {
+        "reputation": {
+          "hostile_to": "star_palace"
+        }
+      }
+    },
+    {
+      "id": "qianzhu_teach",
+      "display": "千竹教",
+      "region": "extreme_west",
+      "setting": {
+        "lore": "千竹教"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰神师府",
+      "region": "mulan",
+      "setting": {
+        "lore": "慕兰神师府"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "region": "tianlan",
+      "archetype": "holy_beast_cult",
+      "note": "圣禽祭祀体系",
+      "setting": {
+        "lore": "天澜圣殿"
+      },
+      "learn_requirements": {}
+    }
+  ],
+  "edges": [
+    {
+      "from": "huangfeng_valley",
+      "to": "hehuan_sect",
+      "type": "rivalry",
+      "weight": -40
+    },
+    {
+      "from": "huangfeng_valley",
+      "to": "ghost_spirit_gate",
+      "type": "war",
+      "weight": -70
+    },
+    {
+      "from": "yanyue_sect",
+      "to": "hehuan_sect",
+      "type": "rivalry",
+      "weight": -30,
+      "note": "同源合欢"
+    },
+    {
+      "from": "spirit_beast_mountain",
+      "to": "yuling_sect",
+      "type": "secret_tie",
+      "weight": 20
+    },
+    {
+      "from": "star_palace",
+      "to": "inverse_star_alliance",
+      "type": "war",
+      "weight": -80
+    },
+    {
+      "from": "star_palace",
+      "to": "inverse_star_alliance",
+      "type": "trade",
+      "weight": 10,
+      "note": "走私"
+    },
+    {
+      "from": "mulan_fashi_council",
+      "to": "tianlan_temple",
+      "type": "war",
+      "weight": -60
+    },
+    {
+      "from": "mulan_fashi_council",
+      "to": "tianlan_temple",
+      "type": "alliance",
+      "weight": 5,
+      "note": "圣印不可互杀条约为底线"
+    },
+    {
+      "from": "luoyun_sect",
+      "to": "huangfeng_valley",
+      "type": "trade",
+      "weight": 50
+    },
+    {
+      "from": "qianzhu_teach",
+      "to": "qingxu_gate",
+      "type": "trade",
+      "weight": 25
+    },
+    {
+      "from": "nine_nation_alliance",
+      "to": "ghost_spirit_gate",
+      "type": "war",
+      "weight": -50,
+      "virtual_node": true
+    }
+  ],
+  "virtual_nodes": [
+    {
+      "id": "nine_nation_alliance",
+      "display": "九国盟",
+      "region": "tiannan"
+    }
+  ],
+  "player_actions": [
+    {
+      "action": "complete_quest_for",
+      "target": "star_palace",
+      "edge": {
+        "from": "inverse_star_alliance",
+        "to": "star_palace",
+        "delta": -5
+      }
+    },
+    {
+      "action": "smuggle_for_inverse_star",
+      "target": "inverse_star_alliance",
+      "edge": {
+        "from": "star_palace",
+        "to": "player",
+        "delta": -10
+      }
+    }
+  ]
+}

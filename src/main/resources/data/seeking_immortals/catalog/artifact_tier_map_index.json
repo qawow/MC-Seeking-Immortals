@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "artifact_tier_map.json",
+  "primary_key": "grades",
+  "entries": [
+    {
+      "id": "0",
+      "display": "法器下品"
+    },
+    {
+      "id": "1",
+      "display": "法器中品"
+    },
+    {
+      "id": "2",
+      "display": "法器上品"
+    },
+    {
+      "id": "3",
+      "display": "法器顶品"
+    },
+    {
+      "id": "4",
+      "display": "法宝下品"
+    },
+    {
+      "id": "5",
+      "display": "法宝中品"
+    },
+    {
+      "id": "6",
+      "display": "法宝上品"
+    },
+    {
+      "id": "7",
+      "display": "法宝顶品"
+    },
+    {
+      "id": "8",
+      "display": "古宝"
+    },
+    {
+      "id": "9",
+      "display": "通天灵宝"
+    },
+    {
+      "id": "10",
+      "display": "玄天之宝"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": 4,
+  "description": "灵石与功勋类可堆叠货币物品，经济量级见 economy_reference_magnitudes.json",
+  "items": [
+    {
+      "id": "spirit_stone_shard",
+      "display": "灵石碎片",
+      "tier": "fragment",
+      "exchange": {
+        "to": "low_spirit_stone",
+        "rate": 10
+      },
+      "setting": {
+        "lore": "灵石碎片",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "low_spirit_stone",
+      "display": "下品灵石",
+      "tier": "low",
+      "stack_max": 64,
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "下品灵石，日常计价单位。",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "mid_spirit_stone",
+      "display": "中品灵石",
+      "tier": "mid",
+      "exchange": {
+        "from_low": 100
+      },
+      "setting": {
+        "lore": "中品灵石，100 下品兑换（结构默认）。",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "high_spirit_stone",
+      "display": "上品灵石",
+      "tier": "high",
+      "exchange": {
+        "from_mid": 100
+      },
+      "setting": {
+        "lore": "上品灵石，100 中品兑换。",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "top_spirit_stone",
+      "display": "极品灵石",
+      "tier": "top",
+      "exchange": {
+        "from_high": 100
+      },
+      "rarity": "rare",
+      "setting": {
+        "lore": "极品灵石，100 上品兑换；拍卖压轴。",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      },
+      "tier_canonical": "peak"
+    },
+    {
+      "id": "yin_stone",
+      "display": "阴石",
+      "tier": "yin",
+      "regions": [
+        "nether_river",
+        "yinming"
+      ],
+      "setting": {
+        "lore": "阴石",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "sect_contribution_token",
+      "display": "宗门贡献符",
+      "tier": "faction",
+      "binds": "sect_contribution_point",
+      "setting": {
+        "lore": "宗门贡献符",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "alliance_merit_token",
+      "display": "功勋令",
+      "tier": "faction",
+      "binds": "alliance_merit",
+      "setting": {
+        "lore": "功勋令",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    },
+    {
+      "id": "war_contribution_token",
+      "display": "战勋牌",
+      "tier": "faction",
+      "binds": "war_contribution",
+      "setting": {
+        "lore": "战勋牌",
+        "source_file": "currency_items.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "currency_items.json"
+      }
+    }
+  ],
+  "spirit_stone_ladder_ref": "spirit_stone_ladder.json",
+  "economy_master_ref": "economy_spirit_stone_master.json"
+}

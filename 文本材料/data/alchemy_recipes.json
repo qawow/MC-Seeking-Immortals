@@ -1,0 +1,1893 @@
+{
+  "schema_version": 3,
+  "material_id_notes": "与 spirit_herbs_catalog、materials_catalog 对齐",
+  "recipes": [
+    {
+      "id": "recipe_bigu",
+      "pill_id": "bigu_pill",
+      "display": "辟谷丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 1,
+      "flame_max_grade": 2,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "yellow_essence",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.75,
+      "quest_unlock": "alchemy_apprentice",
+      "sect_bonus": "huangfeng_valley",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "辟谷丹方"
+      }
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "pill_id": "spirit_condense_pill",
+      "display": "聚灵丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "flame_max_grade": 2,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.65,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "聚灵丹方"
+      }
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "pill_id": "calm_spirit_pill",
+      "display": "清虚丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 1,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 4
+        }
+      ],
+      "base_success_rate": 0.7,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "清虚丹方"
+      }
+    },
+    {
+      "id": "recipe_huoyuan",
+      "pill_id": "huoyuan_pill",
+      "display": "火元丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "flame_max_grade": 3,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "fire_sparrow_fruit",
+          "count": 2
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.6,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "火元丹方"
+      }
+    },
+    {
+      "id": "recipe_ice_fire",
+      "pill_id": "ice_fire_pill",
+      "display": "冰火丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "snow_lotus",
+          "count": 1
+        },
+        {
+          "id": "fire_sparrow_fruit",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.45,
+      "risk": "dual_element",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "冰火丹方"
+      }
+    },
+    {
+      "id": "recipe_bone_marrow",
+      "pill_id": "bone_marrow_pill",
+      "display": "洗髓丸方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "earth_spine_root",
+          "count": 2
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.5,
+      "risk": "lifespan_debt",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "洗髓丸方"
+      }
+    },
+    {
+      "id": "recipe_soul_gathering",
+      "pill_id": "soul_gathering_pill",
+      "display": "聚魂丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "flame_max_grade": 3,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "frost_moon_flower",
+          "count": 2
+        },
+        {
+          "id": "soul_moss",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "聚魂丹方"
+      }
+    },
+    {
+      "id": "recipe_foundation",
+      "pill_id": "foundation_pill",
+      "display": "筑基丹方（残卷）",
+      "medium": "sect_secret_scroll",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 3,
+      "ideal_fire_tier": 3,
+      "flame_max_grade": 3,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 10
+        }
+      ],
+      "base_success_rate": 0.35,
+      "controlled": true,
+      "sect_exclusive_quota": "huangfeng_valley",
+      "requires_contribution": 80,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "筑基丹方（残卷）"
+      }
+    },
+    {
+      "id": "recipe_forget_dust",
+      "pill_id": "forget_dust_pill",
+      "display": "忘尘丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "soul_moss",
+          "count": 1
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.65,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "忘尘丹方"
+      }
+    },
+    {
+      "id": "recipe_dingyan",
+      "pill_id": "dingyan_pill",
+      "display": "定颜丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "yellow_essence",
+          "count": 3
+        },
+        {
+          "id": "spirit_silk",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.68,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "定颜丹方"
+      }
+    },
+    {
+      "id": "recipe_marrow_repair",
+      "pill_id": "marrow_repair_pill",
+      "display": "修髓丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "earth_spine_root",
+          "count": 1
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.52,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "修髓丹方"
+      }
+    },
+    {
+      "id": "recipe_marrow_extract",
+      "pill_id": "marrow_extract_pill",
+      "display": "抽髓丸方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "ghost_face_mushroom",
+          "count": 2
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.4,
+      "karma": "negative",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "抽髓丸方"
+      }
+    },
+    {
+      "id": "recipe_soul_break",
+      "pill_id": "soul_break_pill",
+      "display": "断魂丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "ghost_face_mushroom",
+          "count": 3
+        },
+        {
+          "id": "yin_essence_ore",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.38,
+      "karma": "negative",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "断魂丹方"
+      }
+    },
+    {
+      "id": "recipe_poison_dragon",
+      "pill_id": "poison_dragon_pearl",
+      "display": "毒龙珠方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 3,
+      "ideal_fire_tier": 4,
+      "requires_earth_fire_room": true,
+      "materials": [
+        {
+          "id": "demon_core_mid",
+          "count": 2
+        },
+        {
+          "id": "demon_corruption_fungus",
+          "count": 2
+        },
+        {
+          "id": "ancient_demon_fragment",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.3,
+      "karma": "negative",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "毒龙珠方"
+      }
+    },
+    {
+      "id": "recipe_condensation",
+      "pill_id": "condensation_pill",
+      "display": "凝元丹方",
+      "medium": "jade_slip",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 4,
+      "flame_max_grade": 4,
+      "requires_earth_fire_room": true,
+      "materials": [
+        {
+          "id": "demon_core_mid",
+          "count": 3
+        },
+        {
+          "id": "star_moon_grass",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.4,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "凝元丹方"
+      }
+    },
+    {
+      "id": "recipe_longevity_fruit",
+      "pill_id": "longevity_fruit_pill",
+      "display": "长生丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 4,
+      "requires_earth_fire_room": true,
+      "materials": [
+        {
+          "id": "phoenix_tail_fern",
+          "count": 1
+        },
+        {
+          "id": "thousand_year_ganoderma",
+          "count": 1
+        },
+        {
+          "id": "demon_core_high",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.22,
+      "rarity": "legendary",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "长生丹方"
+      }
+    },
+    {
+      "id": "recipe_blood_qi",
+      "pill_id": "blood_qi_pill",
+      "display": "血气丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "SPIRIT_SEVERANCE",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 4,
+      "requires_earth_fire_room": true,
+      "materials": [
+        {
+          "id": "dragon_blood_grass",
+          "count": 2
+        },
+        {
+          "id": "true_spirit_blood_drop",
+          "count": 1
+        },
+        {
+          "id": "demon_core_high",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.25,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "SPIRIT_SEVERANCE",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "血气丹方"
+      }
+    },
+    {
+      "id": "recipe_huiyang",
+      "pill_id": "huiyang_true_water",
+      "display": "回阳真水方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "NASCENT_SOUL",
+      "furnace_min_grade": 5,
+      "ideal_fire_tier": 5,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "phoenix_tail_fern",
+          "count": 2
+        },
+        {
+          "id": "thunder_essence_lotus",
+          "count": 1
+        },
+        {
+          "id": "void_marrow",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.12,
+      "rarity": "mythic",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "回阳真水方"
+      }
+    },
+    {
+      "id": "recipe_bu_tian",
+      "pill_id": "bu_tian_pill",
+      "display": "补天丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 5,
+      "ideal_fire_tier": 4,
+      "requires_earth_fire_room": true,
+      "materials": [
+        {
+          "id": "coral_spirit_pearl",
+          "count": 2
+        },
+        {
+          "id": "star_moon_grass",
+          "count": 3
+        },
+        {
+          "id": "space_crystal",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.15,
+      "rarity": "legendary",
+      "controlled": true,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "sect_exclusive_quota": "star_palace",
+      "exchange_ref": "economy_contribution_exchange.json#star_palace.bu_tian_pill_quota",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "补天丹方"
+      }
+    },
+    {
+      "id": "recipe_spirit_recovery",
+      "pill_id": "spirit_recovery_pill",
+      "display": "回灵丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.72,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "回灵丹方"
+      }
+    },
+    {
+      "id": "recipe_body_tempering",
+      "pill_id": "body_tempering_pill",
+      "display": "淬体丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "earth_spine_root",
+          "count": 1
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.62,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "淬体丹方"
+      }
+    },
+    {
+      "id": "recipe_demon_suppress",
+      "pill_id": "demon_suppress_pill",
+      "display": "镇魔丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "thunder_stone",
+          "count": 1
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.48,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "镇魔丹方"
+      }
+    },
+    {
+      "id": "recipe_nascent_soul",
+      "pill_id": "nascent_soul_pill",
+      "display": "培婴丹方（残篇）",
+      "medium": "sect_secret_scroll",
+      "realm_min": "NASCENT_SOUL",
+      "furnace_min_grade": 5,
+      "ideal_fire_tier": 5,
+      "requires_earth_fire_room": false,
+      "materials": [
+        {
+          "id": "demon_core_high",
+          "count": 3
+        },
+        {
+          "id": "void_marrow",
+          "count": 2
+        },
+        {
+          "id": "thunder_essence_lotus",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.1,
+      "rarity": "legendary",
+      "note": "任务或年表解锁",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "培婴丹方（残篇）"
+      }
+    },
+    {
+      "id": "recipe_antidote",
+      "pill_id": "antidote_pill",
+      "display": "解毒丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        },
+        {
+          "id": "purple_ganoderma",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.82,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "解毒丹方"
+      }
+    },
+    {
+      "id": "recipe_mana_shield",
+      "pill_id": "mana_shield_pill",
+      "display": "护灵丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "star_moon_grass",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.58,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "护灵丹方"
+      }
+    },
+    {
+      "id": "recipe_beast_taming",
+      "pill_id": "beast_taming_pill",
+      "display": "驭兽丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "beast_blood_vial",
+          "count": 2
+        },
+        {
+          "id": "spirit_mushroom",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.7,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "驭兽丹方"
+      }
+    },
+    {
+      "id": "recipe_foundation_break",
+      "pill_id": "foundation_pill",
+      "display": "筑基丹方（破境篇）",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 4
+        },
+        {
+          "id": "purple_ganoderma",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 8
+        }
+      ],
+      "base_success_rate": 0.45,
+      "note": "汇编筑基常用丹方向，产出 foundation_pill",
+      "sect_exclusive_quota": "huangfeng_valley",
+      "requires_contribution": 80,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "筑基丹方（破境篇）"
+      }
+    },
+    {
+      "id": "recipe_jiangchen",
+      "pill_id": "jiangchen_pill",
+      "display": "降尘丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "yellow_essence",
+          "count": 3
+        },
+        {
+          "id": "spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.65,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "降尘丹方"
+      }
+    },
+    {
+      "id": "recipe_huanglong",
+      "pill_id": "huanglong_pill",
+      "display": "黄龙丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        },
+        {
+          "id": "demon_core_fragment",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.58,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "黄龙丹方"
+      }
+    },
+    {
+      "id": "recipe_heqi",
+      "pill_id": "heqi_pill",
+      "display": "合气丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "spirit_mushroom",
+          "count": 4
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.7,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "合气丹方"
+      }
+    },
+    {
+      "id": "recipe_ningshen",
+      "pill_id": "ningshen_pill",
+      "display": "凝神丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "soul_moss",
+          "count": 2
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.52,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "凝神丹方"
+      }
+    },
+    {
+      "id": "recipe_yanghun",
+      "pill_id": "yanghun_pill",
+      "display": "养魂丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        },
+        {
+          "id": "sea_soul_grass",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.48,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "养魂丹方"
+      }
+    },
+    {
+      "id": "recipe_sea_calm",
+      "pill_id": "sea_calm_pill",
+      "display": "定海丹方",
+      "medium": "paper_formula",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "sea_soul_grass",
+          "count": 2
+        },
+        {
+          "id": "spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.75,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "定海丹方"
+      }
+    },
+    {
+      "id": "recipe_demon_heart",
+      "pill_id": "demon_heart_pill",
+      "display": "镇心丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "demon_suppress_pill",
+          "count": 1
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.5,
+      "note": "以镇魔丹为引炼制",
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "镇心丹方"
+      }
+    },
+    {
+      "id": "recipe_snow_lotus",
+      "pill_id": "snow_lotus_pill",
+      "display": "雪莲丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "snow_lotus",
+          "count": 2
+        },
+        {
+          "id": "hundred_year_ice",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "雪莲丹方"
+      }
+    },
+    {
+      "id": "recipe_demon_qi_purge",
+      "pill_id": "demon_qi_purge_pill",
+      "display": "驱魔丹方",
+      "medium": "jade_slip",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 3,
+      "ideal_fire_tier": 4,
+      "materials": [
+        {
+          "id": "demon_corruption_fungus",
+          "count": 2
+        },
+        {
+          "id": "thunder_stone",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.42,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "驱魔丹方"
+      }
+    },
+    {
+      "id": "recipe_yin_ward",
+      "pill_id": "yin_ward_pill",
+      "display": "护阴丹方",
+      "medium": "jade_slip",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "frost_moon_flower",
+          "count": 2
+        },
+        {
+          "id": "soul_moss",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "护阴丹方"
+      }
+    },
+    {
+      "id": "recipe_tianyuan_spirit",
+      "pill_id": "tianyuan_spirit_pill",
+      "display": "天渊聚灵丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 4,
+      "materials": [
+        {
+          "id": "void_marrow",
+          "count": 1
+        },
+        {
+          "id": "spirit_realm_sand",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.35,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "天渊聚灵丹方"
+      }
+    },
+    {
+      "id": "recipe_thunder_soothing",
+      "pill_id": "thunder_soothing_pill",
+      "display": "避雷丹方",
+      "medium": "jade_slip",
+      "realm_min": "NASCENT_SOUL",
+      "furnace_min_grade": 3,
+      "ideal_fire_tier": 4,
+      "materials": [
+        {
+          "id": "thunder_stone",
+          "count": 2
+        },
+        {
+          "id": "thunder_essence_lotus",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.35,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "避雷丹方"
+      }
+    },
+    {
+      "id": "recipe_heart_guard",
+      "pill_id": "heart_guard_pill",
+      "display": "守心丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 4,
+      "materials": [
+        {
+          "id": "ningshen_pill",
+          "count": 2
+        },
+        {
+          "id": "void_marrow",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.28,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "守心丹方"
+      }
+    },
+    {
+      "id": "recipe_demon_gold_body",
+      "pill_id": "demon_gold_body_pill",
+      "display": "魔金锻体丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "VOID_REFINEMENT",
+      "furnace_min_grade": 4,
+      "ideal_fire_tier": 5,
+      "materials": [
+        {
+          "id": "demon_gold_ore",
+          "count": 2
+        },
+        {
+          "id": "holy_demon_blood",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.22,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "VOID_REFINEMENT",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "魔金锻体丹方"
+      }
+    },
+    {
+      "id": "recipe_asura_mind",
+      "pill_id": "asura_mind_pill",
+      "display": "修罗定念丹方",
+      "medium": "jade_slip",
+      "realm_min": "BODY_INTEGRATION",
+      "furnace_min_grade": 5,
+      "ideal_fire_tier": 5,
+      "materials": [
+        {
+          "id": "killing_intent_crystal",
+          "count": 1
+        },
+        {
+          "id": "ningshen_pill",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.25,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "BODY_INTEGRATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "修罗定念丹方"
+      }
+    },
+    {
+      "id": "recipe_luoyun_spirit",
+      "pill_id": "luoyun_spirit_pill",
+      "display": "落云聚元丹方",
+      "medium": "jade_slip",
+      "realm_min": "CORE_FORMATION",
+      "furnace_min_grade": 3,
+      "ideal_fire_tier": 4,
+      "materials": [
+        {
+          "id": "ginseng_spirit",
+          "count": 3
+        },
+        {
+          "id": "yellow_essence",
+          "count": 2
+        },
+        {
+          "id": "spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.48,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "落云聚元丹方"
+      }
+    },
+    {
+      "id": "recipe_dual_harmony",
+      "pill_id": "dual_harmony_pill",
+      "display": "合欢丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "FOUNDATION",
+      "furnace_min_grade": 2,
+      "ideal_fire_tier": 3,
+      "materials": [
+        {
+          "id": "heqi_pill",
+          "count": 1
+        },
+        {
+          "id": "frost_moon_flower",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.5,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "合欢丹方"
+      }
+    },
+    {
+      "id": "recipe_great_vehicle_ascension_aid",
+      "pill_id": "great_vehicle_ascension_aid_pill",
+      "display": "大乘护劫丹方",
+      "medium": "sect_secret_scroll",
+      "realm_min": "GREAT_VEHICLE",
+      "furnace_min_grade": 5,
+      "ideal_fire_tier": 5,
+      "materials": [
+        {
+          "id": "thunder_soothing_pill",
+          "count": 2
+        },
+        {
+          "id": "void_marrow",
+          "count": 2
+        }
+      ],
+      "base_success_rate": 0.15,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "GREAT_VEHICLE",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "大乘护劫丹方"
+      }
+    },
+    {
+      "id": "recipe_spirit_beast_nurture",
+      "pill_id": "spirit_beast_nurture_pill",
+      "display": "灵兽育灵丹方",
+      "medium": "jade_slip",
+      "realm_min": "QI_REFINING",
+      "furnace_min_grade": 1,
+      "ideal_fire_tier": 2,
+      "materials": [
+        {
+          "id": "spirit_mushroom",
+          "count": 3
+        },
+        {
+          "id": "beast_soul_essence",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.6,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "灵兽育灵丹方"
+      }
+    },
+    {
+      "id": "recipe_solid_essence_pill",
+      "pill_id": "solid_essence_pill",
+      "display": "solid_essence_pill",
+      "realm_min": "QI_REFINING",
+      "furnace_grade": 1,
+      "materials": [
+        {
+          "id": "spirit_condense_pill",
+          "count": 1
+        },
+        {
+          "id": "yellow_essence",
+          "count": 3
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "solid_essence_pill"
+      }
+    },
+    {
+      "id": "recipe_demon_expel_pill",
+      "pill_id": "demon_expel_pill",
+      "display": "demon_expel_pill",
+      "realm_min": "QI_REFINING",
+      "furnace_grade": 1,
+      "materials": [
+        {
+          "id": "anti_demon_herb",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 5
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "demon_expel_pill"
+      }
+    },
+    {
+      "id": "recipe_mulan_wind_pill",
+      "pill_id": "mulan_wind_pill",
+      "display": "mulan_wind_pill",
+      "realm_min": "QI_REFINING",
+      "furnace_grade": 1,
+      "materials": [
+        {
+          "id": "wind_herb",
+          "count": 4
+        },
+        {
+          "id": "talisman_paper_mortal",
+          "count": 1
+        }
+      ],
+      "base_success_rate": 0.55,
+      "furnace_tier_note": "炉+盖+火；高火低炉炸炉见 pill_furnace.json",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "mulan_wind_pill"
+      }
+    },
+    {
+      "id": "recipe_pressure_resist",
+      "pill_id": "pressure_resist_pill",
+      "materials": [
+        {
+          "id": "diyuan_pressure_moss",
+          "count": 2
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_pressure_resist"
+      }
+    },
+    {
+      "id": "recipe_spirit_realm_condense",
+      "pill_id": "spirit_realm_condense_pill",
+      "materials": [
+        {
+          "id": "fengyuan_clan_ginseng",
+          "count": 1
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_spirit_realm_condense"
+      }
+    },
+    {
+      "id": "recipe_jiedan_pill",
+      "pill_id": "jiedan_pill",
+      "materials": [
+        {
+          "id": "spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_jiedan_pill"
+      }
+    },
+    {
+      "id": "recipe_yangyuan_pill",
+      "pill_id": "yangyuan_pill",
+      "materials": [
+        {
+          "id": "spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_yangyuan_pill"
+      }
+    },
+    {
+      "id": "recipe_qingxin_pill",
+      "pill_id": "qingxin_pill",
+      "materials": [
+        {
+          "id": "spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_qingxin_pill"
+      }
+    },
+    {
+      "id": "recipe_anti_poison_pill",
+      "pill_id": "anti_poison_pill",
+      "materials": [
+        {
+          "id": "spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_alchemy_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_anti_poison_pill"
+      }
+    }
+  ],
+  "huangfeng_loop": {
+    "method": "changchun_gong",
+    "chain": "huangfeng_cultivation_path",
+    "hooks": [
+      "alchemy_apprentice",
+      "herb_gather_contract",
+      "sect_fire_room"
+    ],
+    "shop": "sect_contribution_shop.json#huangfeng_valley",
+    "earth_fire_unlock": "sect_fire_room",
+    "quota_items": [
+      "foundation_pill",
+      "bigu_pill"
+    ]
+  }
+}

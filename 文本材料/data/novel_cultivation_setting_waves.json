@@ -1,0 +1,545 @@
+{
+  "schema_version": 2,
+  "source": "汇编§18三层+§9宗门专精",
+  "method_setting": {
+    "changchun_gong": {
+      "cultivation_type": "qi",
+      "sect_specialty": "balanced",
+      "spirit_root_gate": {
+        "required_any": [
+          "wood"
+        ],
+        "bonus": [
+          "wood"
+        ]
+      },
+      "breakthrough": "炼气十三层圆满后需筑基丹或机缘筑基；功法本身不提供结丹路径。",
+      "combat_style": "低阶木系术法与符箓过渡，后期必须转修剑诀或其他宗门秘传。",
+      "region": "tiannan",
+      "faction": "huangfeng_valley",
+      "layers_max": 13
+    },
+    "qingyuan_sword_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "sword",
+      "spirit_root_gate": {
+        "required_any": [
+          "metal",
+          "wood"
+        ],
+        "bonus": [
+          "metal"
+        ]
+      },
+      "breakthrough": "筑基后凝剑芒；结丹后可剑光分化、御剑更远。",
+      "combat_style": "远程剑芒、剑阵前置；依赖飞剑或剑器法宝。",
+      "requires_items": [
+        "flying_sword_low"
+      ],
+      "faction": "huangfeng_valley"
+    },
+    "kunwu_seal_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "formation_seal",
+      "spirit_root_gate": {
+        "required_any": [
+          "earth",
+          "metal",
+          "ice"
+        ]
+      },
+      "breakthrough": "大晋坤吴山一脉；印诀与阵纹并重，高阶与古宝坤吴印共鸣。",
+      "combat_style": "印击、封阵、镇压；海域与山地阵势加成。",
+      "region": "dajin",
+      "faction": "kunwu_lineage",
+      "lore": "人界大晋顶级阵宗传承，与魔劫封印相关。"
+    },
+    "luoyun_dan_dao": {
+      "cultivation_type": "qi",
+      "sect_specialty": "alchemy",
+      "spirit_root_gate": {
+        "bonus": [
+          "wood",
+          "fire"
+        ]
+      },
+      "breakthrough": "丹道感悟可助突破，但斗法神通偏弱。",
+      "combat_style": "灵焰、丹火术；炼丹成功率加成。",
+      "faction": "luoyun_sect",
+      "region": "tiannan"
+    },
+    "tianfu_scripture": {
+      "cultivation_type": "qi",
+      "sect_specialty": "talisman",
+      "spirit_root_gate": {
+        "bonus": [
+          "wood",
+          "metal"
+        ]
+      },
+      "combat_style": "制符施符、符宝前置；神识消耗偏高。",
+      "faction": "tianfu_sect",
+      "region": "tiannan"
+    },
+    "yanyue_gong": {
+      "cultivation_type": "qi",
+      "sect_specialty": "illusion_dual",
+      "spirit_root_gate": {
+        "bonus": [
+          "water",
+          "wood"
+        ],
+        "note": "女修阴柔灵气更佳"
+      },
+      "combat_style": "幻术、隐匿、媚惑；正面强攻弱。",
+      "faction": "yanyue_sect",
+      "region": "tiannan"
+    },
+    "xuan_yin_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "demonic_yin",
+      "karma": "demonic_karma",
+      "spirit_root_gate": {
+        "bonus": [
+          "yin_virtual"
+        ],
+        "forbidden": [
+          "pure_yang_body"
+        ]
+      },
+      "combat_style": "摄魂、阴火、鬼幡类；正道声望下降。",
+      "faction": "demonic_alliance"
+    },
+    "guiling_soul_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "corpse_soul",
+      "faction": "guiling_gate",
+      "combat_style": "炼尸、驱尸、阴火；需尸材资源。",
+      "karma": "demonic_karma"
+    },
+    "hehuan_mind_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "dual_charm",
+      "faction": "hehuan_sect",
+      "combat_style": "媚术、心神扰乱、双修增益。",
+      "karma": "demonic_karma"
+    },
+    "tianmo_body_art": {
+      "cultivation_type": "body",
+      "sect_specialty": "demonic_body",
+      "faction": "tianmo_sect",
+      "combat_style": "肉身强横、血祭爆发；灵力术法为辅。",
+      "karma": "demonic_karma"
+    },
+    "qingluo_poison_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "poison",
+      "faction": "qingluo_sect",
+      "combat_style": "毒虫、毒雾、持续伤害。"
+    },
+    "wanhu_phantom_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "illusion",
+      "faction": "wanhu_sect",
+      "combat_style": "幻境、分身、规避锁定。"
+    },
+    "xuewu_blood_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "blood_curse",
+      "faction": "xuewu_sect",
+      "combat_style": "血咒、精血换威能。"
+    },
+    "dayan_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "puppet",
+      "spirit_root_gate": {
+        "requires_divine_sense": "above_average"
+      },
+      "combat_style": "傀儡群战、神识分神；单体弱。",
+      "source_type": "legacy"
+    },
+    "star_palace_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "formation_sea",
+      "faction": "star_palace",
+      "region": "chaotic_sea",
+      "combat_style": "海域禁制、镇封、潮阵。",
+      "reputation_gate": {
+        "min": "star_palace_friendly"
+      }
+    },
+    "inverse_star_art": {
+      "cultivation_type": "qi",
+      "sect_specialty": "smuggle_covert",
+      "faction": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "combat_style": "隐匿、破禁、走私逃脱。",
+      "reputation_gate": {
+        "conflicts": "star_palace"
+      }
+    },
+    "mulan_wind_spirit_art": {
+      "cultivation_type": "fashi",
+      "sect_specialty": "mulan_spirit",
+      "race_affinity": "mulan_fashi",
+      "combat_style": "风灵墙、沙刃；不消耗丹田灵力而借天地灵气。",
+      "region": "mulan_plains"
+    },
+    "ghost_nether_art": {
+      "cultivation_type": "ghost",
+      "path_exclusive": "ghost_cultivator",
+      "combat_style": "阴体、驭鬼、冥河遁；怕至阳雷法。",
+      "karma": "ghost_path"
+    },
+    "dajin_buddhist_base": {
+      "cultivation_type": "qi",
+      "sect_specialty": "buddhist",
+      "region": "dajin",
+      "combat_style": "金刚护体、降魔杵；克魔克鬼。"
+    },
+    "void_refining_scripture": {
+      "cultivation_type": "qi",
+      "realm_focus": "VOID_REFINING",
+      "combat_style": "空间裂隙、领域雏形；灵界规则。",
+      "region": "spirit_world"
+    },
+    "great_vehicle_dao": {
+      "cultivation_type": "qi",
+      "realm_focus": "GREAT_VEHICLE",
+      "combat_style": "法相、天地元气调动；大乘标志。"
+    },
+    "spirit_severing_art": {
+      "cultivation_type": "qi",
+      "realm_focus": "SPIRIT_SEVERING",
+      "combat_style": "法则感悟、神魂杀伐；代价极大。"
+    },
+    "barbarian_body_art": {
+      "cultivation_type": "body",
+      "region": "barbarian_wasteland",
+      "combat_style": "妖血淬体、近战碾压。"
+    },
+    "fallen_demon_art": {
+      "cultivation_type": "demon",
+      "region": "fallen_demon_valley",
+      "combat_style": "魔化变身、魔气侵蚀；心魔风险高。"
+    },
+    "tianyuan_guard_art": {
+      "cultivation_type": "qi",
+      "faction": "tianyuan_city",
+      "combat_style": "合阵、守城、对妖加成。",
+      "region": "tianyuan"
+    },
+    "lingzu_pearl_art": {
+      "cultivation_type": "qi",
+      "race": "spirit_race",
+      "combat_style": "灵珠、珠光护体。"
+    },
+    "beast_transformation_art": {
+      "cultivation_type": "demon",
+      "race": "demon_cultivator",
+      "combat_style": "化形、妖躯、血脉神通。"
+    }
+  },
+  "new_methods": [
+    {
+      "id": "kunwu_seal_art",
+      "display": "坤吴印诀",
+      "path": "formation",
+      "realm_min": "FOUNDATION",
+      "source": "kunwu_mountain",
+      "faction": "kunwu_lineage",
+      "region": "dajin",
+      "unlocks_techniques_school": "formation",
+      "description": "坤吴印诀：大晋坤吴山阵宗核心，以印引阵、以阵镇魔；高阶与古印碎片共鸣。",
+      "setting": {
+        "lore": "坤吴印诀",
+        "ref": "novel_cultivation_setting_waves.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "lingwu_sect_art",
+      "display": "灵武门炼体诀",
+      "path": "body",
+      "realm_min": "FOUNDATION",
+      "faction": "lingwu_sect",
+      "region": "tiannan",
+      "description": "灵武门：天南体修小宗，炼体与低阶武技并用。",
+      "setting": {
+        "lore": "灵武门炼体诀",
+        "ref": "novel_cultivation_setting_waves.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "juvenile_sect_art",
+      "display": "幼童门心法",
+      "path": "mixed",
+      "realm_min": "QI_REFINING",
+      "faction": "juvenile_sect",
+      "region": "tiannan",
+      "description": "幼童门：天南小派，功法平庸，以收徒闻名。",
+      "setting": {
+        "lore": "幼童门心法",
+        "ref": "novel_cultivation_setting_waves.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "huangjin_sect_art",
+      "display": "皇金宗金罡诀",
+      "path": "metal",
+      "realm_min": "FOUNDATION",
+      "faction": "huangjin_sect",
+      "region": "dajin",
+      "description": "大晋皇金宗：金系攻伐正宗。",
+      "setting": {
+        "lore": "皇金宗金罡诀",
+        "ref": "novel_cultivation_setting_waves.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "id": "taiyi_sect_art",
+      "display": "太一门太玄功",
+      "path": "dao",
+      "realm_min": "FOUNDATION",
+      "faction": "taiyi_sect",
+      "region": "dajin",
+      "description": "大晋太一门：道修正宗，兼修阵法。",
+      "setting": {
+        "lore": "太一门太玄功",
+        "ref": "novel_cultivation_setting_waves.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ],
+  "technique_setting": {
+    "fireball": {
+      "cast_type": "instant",
+      "target": "single",
+      "range": "medium",
+      "element": "fire",
+      "lore": "炼气期最常见火系术，凝灵为弹。",
+      "counter": [
+        "water_shield"
+      ],
+      "synergy": [
+        "flame_burst"
+      ]
+    },
+    "qingyuan_sword_ray": {
+      "cast_type": "instant",
+      "target": "single",
+      "range": "long",
+      "needs_artifact": "flying_sword",
+      "lore": "青元剑诀标志剑芒。",
+      "synergy": [
+        "flying_sword_strike"
+      ]
+    },
+    "earth_escape": {
+      "cast_type": "instant",
+      "target": "self",
+      "range": "dash",
+      "lore": "土遁脱身，需土灵气环境更佳。",
+      "limitations": [
+        "禁空阵内失效"
+      ]
+    },
+    "divine_sense_scan": {
+      "cast_type": "sustained",
+      "target": "area",
+      "range": "long",
+      "lore": "神识外放探查，高阶可破隐匿。",
+      "cost_note": "持续消耗神识"
+    },
+    "soul_devouring_cloud": {
+      "cast_type": "sustained",
+      "target": "area",
+      "karma": "yin",
+      "lore": "玄阴一脉噬魂阴云。",
+      "counter": [
+        "buddhist_light"
+      ]
+    },
+    "star_palace_tidal_lock": {
+      "cast_type": "ritual",
+      "target": "battlefield",
+      "region_bonus": "chaotic_sea",
+      "lore": "星宫海域封潮禁制。",
+      "requires_method": "star_palace_art"
+    },
+    "inverse_star_shadow_step": {
+      "cast_type": "instant",
+      "target": "self",
+      "lore": "逆星盟影步，降被锁定概率。",
+      "synergy": [
+        "inverse_star_veil"
+      ]
+    },
+    "puppet_summon_basic": {
+      "cast_type": "ritual",
+      "target": "summon",
+      "needs_item": "puppet_core_spirit",
+      "lore": "大衍一脉基础唤傀。",
+      "limitations": [
+        "傀毁需重修"
+      ]
+    },
+    "kunwu_seal_strike": {
+      "cast_type": "instant",
+      "target": "area",
+      "range": "medium",
+      "lore": "坤吴印诀印击，阵力镇压。",
+      "synergy": [
+        "formation_trap_basic"
+      ]
+    },
+    "wan_sword_return": {
+      "cast_type": "ritual",
+      "target": "battlefield",
+      "tier": "secret",
+      "compliance": "化名神通",
+      "lore": "剑阵合一之大神通（仿），需多柄飞剑。",
+      "limitations": [
+        "灵力与神识巨幅消耗"
+      ]
+    },
+    "primordial_magnet_sphere": {
+      "cast_type": "sustained",
+      "target": "area",
+      "lore": "元磁神光摄金属法宝与飞剑。",
+      "counter": [
+        "non_metal_arts"
+      ]
+    },
+    "gold_devour_swarm": {
+      "cast_type": "sustained",
+      "target": "single_artifact",
+      "compliance": "噬金虫仿设定",
+      "lore": "虫群啃噬法宝灵光。",
+      "limitations": [
+        "虫群需预先培养"
+      ]
+    },
+    "nascent_soul_avatar": {
+      "cast_type": "sustained",
+      "target": "self",
+      "realm_min": "NASCENT_SOUL",
+      "lore": "元婴出窍，法力强肉身危。",
+      "limitations": [
+        "肉身被毁则重伤"
+      ]
+    },
+    "mulan_wind_blade": {
+      "cast_type": "instant",
+      "target": "single",
+      "cultivation_type": "fashi",
+      "lore": "慕兰法士风刃，借外界灵气。",
+      "region_bonus": "mulan_plains"
+    },
+    "hehuan_soul_charm": {
+      "cast_type": "instant",
+      "target": "single",
+      "tags": [
+        "mind",
+        "charm"
+      ],
+      "lore": "合欢媚术乱心神。",
+      "counter": [
+        "calm_spirit",
+        "buddhist"
+      ]
+    },
+    "guiling_corpse_summon": {
+      "cast_type": "ritual",
+      "target": "summon",
+      "needs_item": "corpse_refined",
+      "lore": "鬼灵门驱尸。",
+      "karma": "demonic"
+    }
+  },
+  "school_default_setting": {
+    "sword": {
+      "combat_style": "剑芒御器",
+      "cast_bias": "beam_projectile"
+    },
+    "elemental": {
+      "combat_style": "五行术法",
+      "cast_bias": "elemental"
+    },
+    "movement": {
+      "combat_style": "遁术位移",
+      "cast_bias": "dash"
+    },
+    "formation": {
+      "combat_style": "阵法控场",
+      "cast_bias": "control_ritual"
+    },
+    "talisman": {
+      "combat_style": "符箓瞬发",
+      "cast_bias": "instant",
+      "cost_note": "耗符纸或灵墨"
+    },
+    "puppet": {
+      "combat_style": "傀儡作战",
+      "cast_bias": "summon"
+    },
+    "ghost": {
+      "combat_style": "阴魂尸鬼",
+      "karma": "yin"
+    },
+    "xuan_yin": {
+      "combat_style": "魔道阴术",
+      "karma": "demonic"
+    },
+    "fashi": {
+      "cultivation_type": "fashi",
+      "combat_style": "借天地灵气施法"
+    },
+    "body": {
+      "cultivation_type": "body",
+      "combat_style": "肉身近战"
+    },
+    "buddhist": {
+      "combat_style": "佛修克魔",
+      "synergy": [
+        "anti_demon"
+      ]
+    },
+    "illusion": {
+      "combat_style": "幻术隐匿",
+      "cast_bias": "debuff_buff"
+    },
+    "demonic": {
+      "karma": "demonic",
+      "combat_style": "魔道杀伐"
+    },
+    "divine_sense": {
+      "combat_style": "神识攻防",
+      "cost_note": "神识"
+    },
+    "recovery": {
+      "combat_style": "护体疗伤",
+      "cast_bias": "buff"
+    },
+    "misc": {
+      "combat_style": "杂学秘术"
+    },
+    "secret_arts": {
+      "tier": "secret",
+      "cast_bias": "ultimate"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "economy_tiers.json",
+  "primary_key": "spirit_stone_tiers",
+  "entries": [
+    {
+      "id": "low",
+      "display": "下品灵石"
+    },
+    {
+      "id": "mid",
+      "display": "中品灵石"
+    },
+    {
+      "id": "high",
+      "display": "上品灵石"
+    },
+    {
+      "id": "spirit",
+      "display": "极品灵石"
+    }
+  ]
+}

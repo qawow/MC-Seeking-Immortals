@@ -28,9 +28,9 @@
 | Required item textures | Present for all non-block registered items |
 | zh_cn lang keys | Present for audited registered items/blocks |
 | en_us lang keys | Present for audited registered items/blocks |
-| Current `xiuxian:` references | None found in current assets/data |
+| Current `xiuxian:` references | No active resources; legacy `assets/xiuxian/` was removed in 0.1.80 |
 
-The project namespace is `seeking_immortals`. The user-facing requirement mentioned `xiuxian:item/<item_id>`, but current code and resource packs consistently use `seeking_immortals:item/<item_id>`, so Phase 8 fixes used the active project namespace.
+The project namespace is `seeking_immortals`. The user-facing requirement mentioned `xiuxian:item/<item_id>`, but current code and resource packs consistently use `seeking_immortals:item/<item_id>`, so Phase 8 fixes used the active project namespace. In 0.1.80 the old legacy `src/main/resources/assets/xiuxian/` directory was backed up and removed.
 
 ## Fixed
 
@@ -55,7 +55,8 @@ The project namespace is `seeking_immortals`. The user-facing requirement mentio
 ## Validation
 
 - Resource existence audit after fixes: 125 registered items and 5 registered blocks have required model/lang/resource entries.
-- No current assets/data reference `xiuxian:`.
+- No current assets/data reference `xiuxian:`; after 0.1.80 the legacy `assets/xiuxian/` namespace directory is no longer shipped.
+- 0.1.80 review-fix check: `rg "xiuxian:" src/main/resources project_docs docs` returns only this explanatory docs section, and `src/main/resources/assets/xiuxian` is absent.
 - Final build command:
 
 ```powershell

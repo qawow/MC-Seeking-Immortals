@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "display": "突兀族与慕兰世仇",
+  "source": "mulan region notes；草原异族与法士联盟对照",
+  "factions": {
+    "wutu_tribe": "wutu_clan_generic",
+    "mulan": "mulan_fashi_council"
+  },
+  "history_tags": [
+    "grassland_invasion_legacy",
+    "holy_bird_blood_oath",
+    "border_raid_cycle"
+  ],
+  "player_roles": [
+    "mulan_ally",
+    "wutu_scout",
+    "neutral_broker"
+  ],
+  "conflict_events": [
+    "wutu_raid_mulan_camp",
+    "mulan_counter_hunt",
+    "feud_truce_broker"
+  ],
+  "rewards": {
+    "mulan_ally": [
+      "mulan_rep",
+      "fashi_art_fragment"
+    ],
+    "wutu_scout": [
+      "wutu_wolf_pelt_bulk"
+    ],
+    "broker": [
+      "dual_rep_neutral"
+    ]
+  },
+  "war_link": "mulan_tianlan_war.json#phases.border_skirmish",
+  "setting": {
+    "lore": "草原突兀族与慕兰法士世仇，玩家可选慕兰盟友、突兀斥候或中立调解。",
+    "war_link": "mulan_tianlan_war"
+  },
+  "learn_requirements": {
+    "engage": {
+      "region": "mulan",
+      "roles": [
+        "mulan_ally",
+        "wutu_scout",
+        "neutral_broker"
+      ]
+    }
+  }
+}

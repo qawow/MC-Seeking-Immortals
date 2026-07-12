@@ -1,0 +1,113 @@
+{
+  "id": "qinglan_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "foundation_formula",
+      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_sect",
+      "count": 1,
+      "cost": 120
+    },
+    {
+      "id": "longevity_formula",
+      "item": "seeking_immortals:alchemy_formula_longevity_pill_sect",
+      "count": 1,
+      "cost": 600
+    },
+    {
+      "id": "return_yang_true_water_formula",
+      "item": "seeking_immortals:alchemy_formula_return_yang_true_water_sect",
+      "count": 1,
+      "cost": 900
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1200,
+      "rank_min": "inner_disciple"
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "item": "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper",
+      "count": 1,
+      "cost": 80
+    },
+    {
+      "id": "recipe_bigu",
+      "item": "seeking_immortals:alchemy_formula_fasting_pill_paper",
+      "count": 1,
+      "cost": 30
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "item": "seeking_immortals:alchemy_formula_clear_void_pill_paper",
+      "count": 1,
+      "cost": 50
+    },
+    {
+      "id": "recipe_jiangchen",
+      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+      "count": 1,
+      "cost": 25
+    },
+    {
+      "id": "recipe_huanglong",
+      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "count": 1,
+      "cost": 45
+    },
+    {
+      "id": "recipe_ningshen",
+      "item": "seeking_immortals:alchemy_formula_calming_pill_jade",
+      "count": 1,
+      "cost": 90,
+      "rank_min": "inner_disciple"
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "item": "seeking_immortals:alchemy_furnace_tier_2",
+      "count": 1,
+      "cost": 350
+    },
+    {
+      "id": "spirit_herb_bundle",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 8,
+      "cost": 40
+    },
+    {
+      "id": "sect_herb_garden_seed_pack",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 8,
+      "cost": 50
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 35
+    },
+    {
+      "id": "body_guard_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 12
+    },
+    {
+      "id": "flying_sword_low",
+      "item": "seeking_immortals:flying_sword_low",
+      "count": 1,
+      "cost": 180,
+      "rank_min": "outer_disciple"
+    },
+    {
+      "id": "artifact_repair_kit",
+      "item": "seeking_immortals:artifact_repair_kit",
+      "count": 1,
+      "cost": 25,
+      "stock": 5,
+      "refresh_ticks": 96000
+    }
+  ]
+}

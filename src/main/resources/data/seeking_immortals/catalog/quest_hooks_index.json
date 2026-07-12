@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "source": "quest_hooks.json",
+  "primary_key": "hooks",
+  "entries": [
+    {
+      "id": "huangfeng_entry",
+      "display": "黄枫谷入门"
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地一行"
+    },
+    {
+      "id": "void_palace_key",
+      "display": "虚天殿钥"
+    },
+    {
+      "id": "mulan_side",
+      "display": "慕兰边军"
+    },
+    {
+      "id": "tianlan_side",
+      "display": "天澜圣印"
+    },
+    {
+      "id": "inverse_star_contact",
+      "display": "逆星盟接触"
+    },
+    {
+      "id": "kunwu_expedition",
+      "display": "昆吾远征"
+    },
+    {
+      "id": "nether_river_pilgrim",
+      "display": "冥河朝圣"
+    },
+    {
+      "id": "star_palace_patrol",
+      "display": "星宫巡防"
+    },
+    {
+      "id": "beast_tide_defense",
+      "display": "兽潮守城"
+    },
+    {
+      "id": "alchemy_apprentice",
+      "display": "丹童试炼"
+    },
+    {
+      "id": "sect_fire_room",
+      "display": "地火室资格"
+    },
+    {
+      "id": "stolen_jade_slip",
+      "display": "失窃玉简"
+    },
+    {
+      "id": "yinming_escape",
+      "display": "阴冥脱困"
+    },
+    {
+      "id": "fallen_demon_scout",
+      "display": "坠魔谷前哨"
+    },
+    {
+      "id": "tianyuan_enlist",
+      "display": "天渊城征召"
+    },
+    {
+      "id": "kunwu_seal_research",
+      "display": "封魔阵残卷"
+    },
+    {
+      "id": "herb_gather_contract",
+      "display": "灵草收购"
+    },
+    {
+      "id": "pirate_bounty",
+      "display": "海盗悬赏"
+    },
+    {
+      "id": "inverse_star_sabotage",
+      "display": "逆星暗线"
+    },
+    {
+      "id": "dajin_auction_preview",
+      "display": "大晋拍卖预览"
+    },
+    {
+      "id": "spirit_pet_tame",
+      "display": "灵兽驯服"
+    },
+    {
+      "id": "puppet_maintain",
+      "display": "傀儡检修"
+    },
+    {
+      "id": "chaotic_sea_convoy",
+      "display": "乱星海护航"
+    },
+    {
+      "id": "dajin_caravan",
+      "display": "大晋商队"
+    },
+    {
+      "id": "tianyuan_demon_contract",
+      "display": "天渊诛魔契约"
+    },
+    {
+      "id": "treasure_fair_invite",
+      "display": "万宝大会请柬"
+    },
+    {
+      "id": "diyuan_scout",
+      "display": "地渊侦察"
+    },
+    {
+      "id": "guanghan_moon_hunt",
+      "display": "广寒月兽"
+    },
+    {
+      "id": "demon_gold_mine_run",
+      "display": "魔金山矿脉"
+    },
+    {
+      "id": "asura_trial",
+      "display": "修罗试炼"
+    },
+    {
+      "id": "jiuxian_seclusion_permit",
+      "display": "九仙闭关许可"
+    },
+    {
+      "id": "hook_sect_alchemy_trial",
+      "display": "宗门炼丹考核"
+    },
+    {
+      "id": "hook_talisman_gate_exam",
+      "display": "制符殿考核"
+    },
+    {
+      "id": "hook_beast_taming_hunt",
+      "display": "灵兽山驭兽试炼"
+    },
+    {
+      "id": "hook_void_palace_rumor",
+      "display": "虚天殿异象"
+    },
+    {
+      "id": "hook_mulan_border_patrol",
+      "display": "天南慕兰边境巡防"
+    },
+    {
+      "id": "hook_puppet_tower_trial",
+      "display": "机关塔试炼"
+    },
+    {
+      "id": "hook_tianyuan_demon_hunt",
+      "display": "天渊斩魔契约"
+    },
+    {
+      "id": "island_tax_evasion",
+      "display": "逃税岛主委托"
+    },
+    {
+      "id": "chaotic_sea_ferry_escort",
+      "display": "灵舟护航"
+    },
+    {
+      "id": "hook_ghost_yin_body",
+      "display": "阴体凝形"
+    },
+    {
+      "id": "hook_ghost_soul_anchor",
+      "display": "魂锚稳固"
+    },
+    {
+      "id": "hook_ghost_nether_core",
+      "display": "冥河结冥核"
+    },
+    {
+      "id": "nether_river_guardian",
+      "display": "冥河守关"
+    },
+    {
+      "id": "kunwu_intel",
+      "display": "昆吾情报"
+    },
+    {
+      "id": "clan_territory_patrol",
+      "display": "世家领地巡护"
+    },
+    {
+      "id": "demon_rift_closure",
+      "display": "魔界裂隙稳固"
+    },
+    {
+      "id": "yanyue_array_trial",
+      "display": "掩月阵试"
+    },
+    {
+      "id": "qingxu_talisman_exam",
+      "display": "清虚符考"
+    },
+    {
+      "id": "lingshou_contract_beast",
+      "display": "灵兽契约"
+    },
+    {
+      "id": "huangfeng_inner_promotion",
+      "display": "黄枫内门晋升"
+    },
+    {
+      "id": "mulan_spirit_charge_drill",
+      "display": "慕兰灵石充能操演"
+    },
+    {
+      "id": "qixuan_village_intro",
+      "display": "七玄山村"
+    },
+    {
+      "id": "qixuan_herb_errand",
+      "display": "七玄采药"
+    },
+    {
+      "id": "qixuan_sect_trial",
+      "display": "七玄入门试"
+    },
+    {
+      "id": "qixuan_decline_legacy",
+      "display": "衰落遗册"
+    },
+    {
+      "id": "huadao_entry",
+      "display": "化刀坞入门"
+    },
+    {
+      "id": "huadao_forge_contract",
+      "display": "铸刀委托"
+    },
+    {
+      "id": "huadao_duel_trial",
+      "display": "刀意试炼"
+    },
+    {
+      "id": "giant_sword_entry",
+      "display": "巨剑门入门"
+    },
+    {
+      "id": "giant_sword_relic_restore",
+      "display": "巨剑残片重铸"
+    },
+    {
+      "id": "qianzhu_puppet_apprentice",
+      "display": "千竹傀儡学徒"
+    },
+    {
+      "id": "thousand_bamboo_tower_run",
+      "display": "千竹傀儡塔"
+    },
+    {
+      "id": "dayan_fragment_quest",
+      "display": "大衍残页搜集"
+    },
+    {
+      "id": "yuling_secret_contact",
+      "display": "御灵宗暗线"
+    },
+    {
+      "id": "beast_soul_bind_puppet",
+      "display": "兽魂封傀"
+    },
+    {
+      "id": "clan_ancestor_trial",
+      "display": "世家祖传试炼"
+    },
+    {
+      "id": "demonic_north_rumor",
+      "display": "魔道北迁传闻"
+    },
+    {
+      "id": "guiling_gate_recruit",
+      "display": "鬼灵门招募"
+    },
+    {
+      "id": "hehuan_sect_trial",
+      "display": "合欢试心"
+    },
+    {
+      "id": "tianmo_blood_rite",
+      "display": "天魔血祭"
+    },
+    {
+      "id": "righteous_bounty_hunt",
+      "display": "正道悬赏"
+    },
+    {
+      "id": "barbarian_border_contact",
+      "display": "蛮荒边境接触"
+    },
+    {
+      "id": "king_tribute_quest",
+      "display": "妖王朝贡试炼"
+    },
+    {
+      "id": "spatial_rift_escape",
+      "display": "空间裂缝脱险"
+    },
+    {
+      "id": "yin_cluster_ferry_toll",
+      "display": "冥河渡费"
+    },
+    {
+      "id": "nether_river_fog_event",
+      "display": "冥河雾散"
+    },
+    {
+      "id": "clan_generic_tribute",
+      "display": "异族朝贡"
+    },
+    {
+      "id": "illusion_trial",
+      "display": "天狐幻试"
+    },
+    {
+      "id": "wind_hunt_race",
+      "display": "飞灵竞猎"
+    },
+    {
+      "id": "vein_guard_patrol",
+      "display": "石人巡脉"
+    },
+    {
+      "id": "demon_hunt_weekly",
+      "display": "天渊猎魔周常"
+    },
+    {
+      "id": "spatial_node_calibration",
+      "display": "传送阵校准"
+    },
+    {
+      "id": "rift_stabilize_mortal",
+      "display": "人界裂缝稳固"
+    },
+    {
+      "id": "star_palace_dock_permit",
+      "display": "星宫泊船许可"
+    },
+    {
+      "id": "inverse_star_smuggle_run",
+      "display": "逆星走私线"
+    },
+    {
+      "id": "void_palace_key_fragment_turnin",
+      "display": "虚天钥残片上缴"
+    },
+    {
+      "id": "pirate_loot_turnin",
+      "display": "海盗赃物销赃"
+    },
+    {
+      "id": "star_palace_branch_enforcement",
+      "display": "star_palace_branch_enforcement"
+    },
+    {
+      "id": "star_palace_branch_commerce",
+      "display": "star_palace_branch_commerce"
+    },
+    {
+      "id": "internal_tax_vote",
+      "display": "internal_tax_vote"
+    },
+    {
+      "id": "protect_mortal_fleet",
+      "display": "protect_mortal_fleet"
+    },
+    {
+      "id": "tiannan_defense_mobilize",
+      "display": "天南动员"
+    },
+    {
+      "id": "fashi_soul_array_battle",
+      "display": "法士护阵战"
+    },
+    {
+      "id": "holy_bird_blessing_quest",
+      "display": "圣禽祝福"
+    },
+    {
+      "id": "war_ceasefire_negotiation",
+      "display": "停战谈判"
+    },
+    {
+      "id": "tianlan_oath_renew",
+      "display": "天澜誓约"
+    },
+    {
+      "id": "mulan_fashi_initiation",
+      "display": "法士入门"
+    },
+    {
+      "id": "wutu_raid_mulan_camp",
+      "display": "wutu_raid_mulan_camp"
+    },
+    {
+      "id": "mulan_counter_hunt",
+      "display": "mulan_counter_hunt"
+    },
+    {
+      "id": "feud_truce_broker",
+      "display": "feud_truce_broker"
+    },
+    {
+      "id": "wutu_scout_contact",
+      "display": "wutu_scout_contact"
+    },
+    {
+      "id": "seal_weak_event",
+      "display": "seal_weak_event"
+    },
+    {
+      "id": "demon_qi_purge_side",
+      "display": "demon_qi_purge_side"
+    },
+    {
+      "id": "auction_invite_dajin",
+      "display": "auction_invite_dajin"
+    },
+    {
+      "id": "kunwu_rumor",
+      "display": "kunwu_rumor"
+    },
+    {
+      "id": "yin_luo_initiation",
+      "display": "yin_luo_initiation"
+    },
+    {
+      "id": "soul_banner_quest",
+      "display": "soul_banner_quest"
+    },
+    {
+      "id": "kunwu_puppet_king",
+      "display": "kunwu_puppet_king"
+    },
+    {
+      "id": "kunwu_map_fragment_turnin",
+      "display": "kunwu_map_fragment_turnin"
+    },
+    {
+      "id": "kunwu_cold_snap_survive",
+      "display": "kunwu_cold_snap_survive"
+    },
+    {
+      "id": "righteous_sect_ghost_hunt",
+      "display": "正道追魂"
+    },
+    {
+      "id": "ghost_expose_event",
+      "display": "鬼修身份暴露"
+    },
+    {
+      "id": "sect_ban_lift_rare_quest",
+      "display": "洗髓改息"
+    },
+    {
+      "id": "tianyuan_merit_enlist",
+      "display": "tianyuan_merit_enlist"
+    },
+    {
+      "id": "demon_beast_siege_defense",
+      "display": "demon_beast_siege_defense"
+    },
+    {
+      "id": "diyuan_permit_apply",
+      "display": "diyuan_permit_apply"
+    },
+    {
+      "id": "fengyuan_clan_intro",
+      "display": "fengyuan_clan_intro"
+    },
+    {
+      "id": "spirit_fengyuan_border_patrol",
+      "display": "spirit_fengyuan_border_patrol"
+    },
+    {
+      "id": "barbarian_beast_tide_survive",
+      "display": "barbarian_beast_tide_survive"
+    },
+    {
+      "id": "barbarian_king_token_hunt",
+      "display": "barbarian_king_token_hunt"
+    },
+    {
+      "id": "king_territory_intrusion",
+      "display": "king_territory_intrusion"
+    },
+    {
+      "id": "clan_guest_register",
+      "display": "clan_guest_register"
+    },
+    {
+      "id": "array_disk_commission",
+      "display": "array_disk_commission"
+    },
+    {
+      "id": "formation_trial_mo",
+      "display": "formation_trial_mo"
+    },
+    {
+      "id": "clan_feud_mediation_optional",
+      "display": "clan_feud_mediation_optional"
+    },
+    {
+      "id": "spirit_ore_escort",
+      "display": "spirit_ore_escort"
+    },
+    {
+      "id": "refinement_apprentice_yu",
+      "display": "refinement_apprentice_yu"
+    },
+    {
+      "id": "artifact_appraisal_quest",
+      "display": "artifact_appraisal_quest"
+    },
+    {
+      "id": "herb_tribute_gu",
+      "display": "herb_tribute_gu"
+    },
+    {
+      "id": "alchemy_furnace_access",
+      "display": "alchemy_furnace_access"
+    },
+    {
+      "id": "pill_quality_audit",
+      "display": "pill_quality_audit"
+    },
+    {
+      "id": "talisman_blank_order",
+      "display": "talisman_blank_order"
+    },
+    {
+      "id": "talisman_inscription_lesson",
+      "display": "talisman_inscription_lesson"
+    },
+    {
+      "id": "clan_raid_defense_ning",
+      "display": "clan_raid_defense_ning"
+    },
+    {
+      "id": "barbarian_council_audience",
+      "display": "barbarian_council_audience"
+    },
+    {
+      "id": "ancient_ruin_explore",
+      "display": "ancient_ruin_explore"
+    },
+    {
+      "id": "illusion_pearl_trade",
+      "display": "illusion_pearl_trade"
+    },
+    {
+      "id": "ancient_wood_core_donate",
+      "display": "ancient_wood_core_donate"
+    },
+    {
+      "id": "wind_feather_craft_order",
+      "display": "wind_feather_craft_order"
+    },
+    {
+      "id": "spirit_eighteen_pilgrimage",
+      "display": "十八族巡礼"
+    },
+    {
+      "id": "barbarian_tribute_run",
+      "display": "barbarian_tribute_run"
+    },
+    {
+      "id": "diyuan_core_probe",
+      "display": "diyuan_core_probe"
+    },
+    {
+      "id": "wild_land_rumor",
+      "display": "wild_land_rumor"
+    },
+    {
+      "id": "tianhu",
+      "display": "tianhu"
+    },
+    {
+      "id": "shuyao",
+      "display": "shuyao"
+    },
+    {
+      "id": "shiren",
+      "display": "shiren"
+    },
+    {
+      "id": "feiling",
+      "display": "feiling"
+    },
+    {
+      "id": "jinyi",
+      "display": "jinyi"
+    },
+    {
+      "id": "yaksha",
+      "display": "yaksha"
+    },
+    {
+      "id": "tianyuan_city",
+      "display": "tianyuan_city"
+    },
+    {
+      "id": "langzu",
+      "display": "langzu"
+    },
+    {
+      "id": "huzhu",
+      "display": "huzhu"
+    },
+    {
+      "id": "shezu",
+      "display": "shezu"
+    },
+    {
+      "id": "guizu",
+      "display": "guizu"
+    },
+    {
+      "id": "tianpeng",
+      "display": "tianpeng"
+    },
+    {
+      "id": "mayi",
+      "display": "mayi"
+    },
+    {
+      "id": "muyao",
+      "display": "muyao"
+    },
+    {
+      "id": "shuiyue",
+      "display": "shuiyue"
+    },
+    {
+      "id": "jinhai",
+      "display": "jinhai"
+    },
+    {
+      "id": "mozu",
+      "display": "mozu"
+    },
+    {
+      "id": "lingzu",
+      "display": "lingzu"
+    },
+    {
+      "id": "diyuan_core_crystal_boss",
+      "display": "diyuan_core_crystal_boss"
+    },
+    {
+      "id": "ascension_gate_rumor",
+      "display": "ascension_gate_rumor"
+    },
+    {
+      "id": "inverse_star_contact_rumor",
+      "display": "inverse_star_contact_rumor"
+    },
+    {
+      "id": "inverse_star_cipher_trial",
+      "display": "inverse_star_cipher_trial"
+    },
+    {
+      "id": "inverse_star_oath",
+      "display": "inverse_star_oath"
+    },
+    {
+      "id": "star_palace_patrol_dodge",
+      "display": "star_palace_patrol_dodge"
+    },
+    {
+      "id": "void_palace_intel_sell",
+      "display": "void_palace_intel_sell"
+    },
+    {
+      "id": "void_key_fragment_rumor",
+      "display": "void_key_fragment_rumor"
+    },
+    {
+      "id": "star_palace_spy_expose_optional",
+      "display": "star_palace_spy_expose_optional"
+    },
+    {
+      "id": "inverse_star_ambush_event",
+      "display": "inverse_star_ambush_event"
+    },
+    {
+      "id": "chaotic_sea_neutral_ending_optional",
+      "display": "乱星海中立"
+    },
+    {
+      "id": "star_palace_enforcement_raid",
+      "display": "star_palace_enforcement_raid"
+    },
+    {
+      "id": "hook_seven_sect_trial",
+      "display": "七派入门试炼"
+    },
+    {
+      "id": "hook_luoyun_alchemy_apprentice",
+      "display": "落云丹堂学徒"
+    },
+    {
+      "id": "hook_tianfu_talisman_exam",
+      "display": "天符制符考核"
+    },
+    {
+      "id": "hook_star_palace_register",
+      "display": "星宫登记"
+    },
+    {
+      "id": "hook_inverse_star_contact",
+      "display": "逆星暗线"
+    },
+    {
+      "id": "hook_kunwu_array_study",
+      "display": "坤吴阵学"
+    },
+    {
+      "id": "hook_blood_forbidden_ticket",
+      "display": "血色禁地名额"
+    },
+    {
+      "id": "hook_void_palace_key_hunt",
+      "display": "虚天钥碎片"
+    },
+    {
+      "id": "hook_dayan_ruin_probe",
+      "display": "大衍遗迹探查"
+    },
+    {
+      "id": "hook_spirit_beast_capture",
+      "display": "灵兽山驯兽委托"
+    },
+    {
+      "id": "hook_demonic_six_recruit",
+      "display": "魔道六宗招揽"
+    },
+    {
+      "id": "hook_wanbao_consignment",
+      "display": "万宝楼寄售"
+    },
+    {
+      "id": "hook_barbarian_relic_escort",
+      "display": "蛮荒遗迹护送"
+    },
+    {
+      "id": "hook_yin_luo_ghost_contract",
+      "display": "阴罗鬼契"
+    },
+    {
+      "id": "blood_forbidden_outer_layer",
+      "display": "血色禁地外层"
+    },
+    {
+      "id": "void_palace_cycle_notice",
+      "display": "虚天殿周期预告"
+    },
+    {
+      "id": "void_key_fragment_hunt",
+      "display": "虚天钥碎片"
+    },
+    {
+      "id": "fallen_demon_seal_weaken",
+      "display": "坠魔谷封印松动"
+    },
+    {
+      "id": "fallen_demon_outer_gorge",
+      "display": "坠魔外谷"
+    },
+    {
+      "id": "kunwu_open_permit",
+      "display": "昆吾入山令"
+    },
+    {
+      "id": "kunwu_outer_array",
+      "display": "昆吾外阵"
+    },
+    {
+      "id": "refinement_apprentice",
+      "display": "炼器坊学徒"
+    },
+    {
+      "id": "talisman_apprentice",
+      "display": "制符堂学徒"
+    },
+    {
+      "id": "demon_qi_purge_prep",
+      "display": "备驱魔之物"
+    },
+    {
+      "id": "nether_ferry_ticket",
+      "display": "购冥河渡票"
+    },
+    {
+      "id": "nether_river_fog_entry",
+      "display": "阴雾入冥河"
+    },
+    {
+      "id": "nether_soul_shoal",
+      "display": "魂滩"
+    },
+    {
+      "id": "diyuan_rift_mouth",
+      "display": "地渊裂隙口"
+    },
+    {
+      "id": "yanyue_formation_support",
+      "display": "燕乐破阵支援"
+    },
+    {
+      "id": "star_palace_patrol_quest",
+      "display": "星宫巡防任务"
+    },
+    {
+      "id": "dajin_border_rumor",
+      "display": "边境传闻"
+    },
+    {
+      "id": "dajin_righteous_patrol_hook",
+      "display": "正道巡边"
+    },
+    {
+      "id": "dajin_demon_infiltrate_hook",
+      "display": "魔道渗透"
+    }
+  ]
+}

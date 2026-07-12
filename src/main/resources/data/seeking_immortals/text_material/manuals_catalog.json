@@ -1,0 +1,382 @@
+{
+  "schema_version": 2,
+  "description": "功法/丹方/炼器/傀儡/阵法/鬼修等可学习手册，对齐汇编配方书·玉简",
+  "manuals": [
+    {
+      "id": "refinement_manual_low",
+      "display": "炼器入门篇",
+      "type": "refinement",
+      "unlocks_forge_grade": 1,
+      "source": [
+        "sect_contribution",
+        "merchant"
+      ],
+      "setting": {
+        "lore": "炼器入门篇",
+        "type": "refinement"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "refinement_manual_mid",
+      "display": "炼器真解（中篇）",
+      "type": "refinement",
+      "unlocks_forge_grade": 3,
+      "rarity": "rare",
+      "setting": {
+        "lore": "炼器真解（中篇）",
+        "type": "refinement"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "refinement_manual_ancient",
+      "display": "古宝重铸秘要",
+      "type": "refinement",
+      "unlocks_forge_grade": 5,
+      "unlocks_recipe_tags": [
+        "ancient_treasure",
+        "shard_reforge"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "古宝重铸秘要",
+        "type": "refinement"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_refine_flying_sword",
+      "display": "低阶飞剑谱",
+      "type": "refinement",
+      "recipe_id": "refine_flying_sword_low",
+      "setting": {
+        "lore": "低阶飞剑谱",
+        "type": "refinement"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_refine_evil_mirror",
+      "display": "邪幻镜炼制要诀",
+      "type": "refinement",
+      "recipe_id": "refine_evil_illusion_mirror",
+      "setting": {
+        "lore": "邪幻镜炼制要诀",
+        "type": "refinement"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_refine_giant_turtle",
+      "display": "巨龟核心图",
+      "type": "puppet",
+      "recipe_id": "refine_giant_turtle_core",
+      "setting": {
+        "lore": "巨龟核心图",
+        "type": "puppet"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "ancient_puppet_method",
+      "display": "上古傀儡术",
+      "type": "puppet",
+      "unlocks": [
+        "stone_spirit_puppet"
+      ],
+      "source": [
+        "kunwu_boss"
+      ],
+      "setting": {
+        "lore": "上古傀儡术",
+        "type": "puppet"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "ghost_cultivation_manual",
+      "display": "阴灵鬼修录",
+      "type": "cultivation_path",
+      "path": "ghost",
+      "source": [
+        "nether_boss"
+      ],
+      "setting": {
+        "lore": "阴灵鬼修录",
+        "type": "cultivation_path"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "fashi_array_manual",
+      "display": "慕兰法阵要诀",
+      "type": "formation",
+      "faction": "mulan_council",
+      "source": [
+        "mulan_shop"
+      ],
+      "setting": {
+        "lore": "慕兰法阵要诀",
+        "type": "formation"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "array_blueprint_scroll",
+      "display": "阵图残卷",
+      "type": "formation",
+      "unlocks": [
+        "illusion_maze",
+        "defense_wall"
+      ],
+      "setting": {
+        "lore": "阵图残卷",
+        "type": "formation"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "display": "聚灵丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_spirit_condense",
+      "setting": {
+        "lore": "聚灵丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_foundation",
+      "display": "筑基丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_foundation",
+      "setting": {
+        "lore": "筑基丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_bigu",
+      "display": "辟谷丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_bigu",
+      "setting": {
+        "lore": "辟谷丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "display": "清虚丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_calm_spirit",
+      "setting": {
+        "lore": "清虚丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_condensation",
+      "display": "凝婴丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_condensation",
+      "rarity": "epic",
+      "setting": {
+        "lore": "凝婴丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "recipe_bu_tian",
+      "display": "补天丹方",
+      "type": "alchemy",
+      "recipe_id": "recipe_bu_tian",
+      "rarity": "legendary",
+      "setting": {
+        "lore": "补天丹方",
+        "type": "alchemy"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "illusion_talisman_scroll",
+      "display": "幻符要诀",
+      "type": "talisman",
+      "unlocks": [
+        "illusion_dispel_talisman"
+      ],
+      "setting": {
+        "lore": "幻符要诀",
+        "type": "talisman"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "dayan_solution_fragment",
+      "display": "大衍诀残页",
+      "type": "puppet",
+      "unlocks": [
+        "dayan_grade_puppet"
+      ],
+      "rarity": "legendary",
+      "setting": {
+        "lore": "大衍诀残页",
+        "type": "puppet"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "stolen_jade_slip",
+      "display": "失窃玉简",
+      "type": "quest",
+      "effect": "random_recipe_or_technique",
+      "source": [
+        "black_market"
+      ],
+      "setting": {
+        "lore": "失窃玉简",
+        "type": "quest"
+      },
+      "learn_requirements": {
+        "study": {
+          "realm_min": "QI_REFINING",
+          "note": "秘籍残页需神识研读，多属宗门秘传。"
+        }
+      }
+    },
+    {
+      "id": "manual_dayan_true_solution",
+      "display": "大衍真解",
+      "type": "puppet",
+      "rarity": "legendary",
+      "learn_requirements": {
+        "obtain": {
+          "quest_any": [
+            "dayan_ruin_probe"
+          ],
+          "realm_min": "NASCENT_SOUL"
+        }
+      },
+      "setting": {
+        "lore": "大衍真解",
+        "type": "puppet"
+      }
+    },
+    {
+      "id": "manual_ancient_puppet_art",
+      "display": "上古傀儡术",
+      "type": "puppet",
+      "rarity": "legendary",
+      "learn_requirements": {
+        "obtain": {
+          "items_any": [
+            "ancient_puppet_method"
+          ],
+          "realm_min": "FOUNDATION"
+        }
+      },
+      "setting": {
+        "lore": "上古傀儡术",
+        "type": "puppet"
+      }
+    }
+  ],
+  "consume_action": "right_click_learn",
+  "duplicate_policy": "convert_to_contribution_or_exp"
+}

@@ -5,7 +5,6 @@ import com.xunxian.seekingimmortals.combat.CombatStats;
 import com.xunxian.seekingimmortals.cultivation.BreakthroughService;
 import com.xunxian.seekingimmortals.cultivation.MeditationFormula;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
-import com.xunxian.seekingimmortals.cultivation.SpiritualRootAttribute;
 import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
@@ -44,6 +43,14 @@ public record SyncCultivationDataPacket(
         boolean spiritualRootAwakened,
         boolean spiritualRootTested,
         String specialPhysique,
+        String goldCoreGrade,
+        int goldCoreScore,
+        boolean completeFiveElements,
+        boolean tribulationActive,
+        String tribulationTargetRealm,
+        int tribulationCurrentStrike,
+        int tribulationTotalStrikes,
+        int tribulationNextStrikeTicks,
         int learnedTechniqueCount,
         boolean meditating,
         boolean severeInjury,
@@ -59,6 +66,8 @@ public record SyncCultivationDataPacket(
         double critDamage,
         double dodgeChance,
         double accuracy,
+        double movementSpeedScale,
+        double movementSpeedBonus,
         int auraConcentration,
         String auraNature,
         double breakthroughChance,
@@ -75,6 +84,15 @@ public record SyncCultivationDataPacket(
         double meditationTechniqueMultiplier,
         double meditationStoneBonus,
         double meditationTotalPerSecond) {
+    private static final int REALM_TEXT_LIMIT = 64;
+    private static final int STAGE_TEXT_LIMIT = 64;
+    private static final int ROOT_TEXT_LIMIT = 128;
+    private static final int ROOT_ATTRIBUTES_TEXT_LIMIT = 256;
+    private static final int PHYSIQUE_TEXT_LIMIT = 64;
+    private static final int GOLD_CORE_TEXT_LIMIT = 64;
+    private static final int TRIBULATION_TARGET_TEXT_LIMIT = 64;
+    private static final int AURA_NATURE_TEXT_LIMIT = 64;
+
     public static SyncCultivationDataPacket from(ServerPlayer player, PlayerCultivation cultivation) {
         SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(player.level(), player.blockPosition());
         CombatStats combatStats = new CombatStats(cultivation);
@@ -109,6 +127,14 @@ public record SyncCultivationDataPacket(
                 cultivation.isSpiritualRootAwakened(),
                 cultivation.isSpiritualRootTested(),
                 cultivation.getSpecialPhysique().getDisplayName(),
+                cultivation.getGoldCoreGradeName(),
+                cultivation.getGoldCoreScore(),
+                cultivation.hasCompleteFiveElements(),
+                cultivation.isTribulationActive(),
+                cultivation.getTribulationTargetRealm().getDisplayName(),
+                cultivation.getTribulationCurrentStrike(),
+                cultivation.getTribulationTotalStrikes(),
+                cultivation.getTribulationNextStrikeTicks(),
                 cultivation.getLearnedTechniques().size(),
                 cultivation.isMeditating(),
                 cultivation.hasSevereInjury(),
@@ -124,6 +150,8 @@ public record SyncCultivationDataPacket(
                 combatStats.getCritDamage(),
                 combatStats.getDodgeChance(),
                 combatStats.getAccuracy(),
+                cultivation.getMovementSpeedScale(),
+                cultivation.getEffectiveMovementSpeedBonus(),
                 auraInfo.concentration(),
                 auraInfo.nature().getDisplayName(),
                 breakthrough.chance(),
@@ -146,9 +174,28 @@ public record SyncCultivationDataPacket(
         ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), from(player, cultivation));
     }
 
+    /**
+     * M11：按 modified-UTF8 字节数截断同步文本，与 {@link FriendlyByteBuf#writeUtf(String, int)} 的字节上限口径一致，
+     * 避免异常长值（尤其中文，每字符 ~3 字节）撑破 writeUtf 上限抛 EncoderException。正常服务端生成值远小于上限。
+     */
+    private static String cap(String s, int maxLen) {
+        if (s == null) return "";
+        int bytes = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            // modified-UTF8（与 Netty writeUtf 一致）：U+0000=2、其余 BMP<=3、代理对=6。
+            int cost = (c >= 0x0001 && c <= 0x007F) ? 1 : (c <= 0x07FF) ? 2 : 3;
+            if (bytes + cost > maxLen) {
+                return s.substring(0, i);
+            }
+            bytes += cost;
+        }
+        return s;
+    }
+
     public static void encode(SyncCultivationDataPacket packet, FriendlyByteBuf buffer) {
-        buffer.writeUtf(packet.realm);
-        buffer.writeUtf(packet.stage);
+        buffer.writeUtf(cap(packet.realm, REALM_TEXT_LIMIT), REALM_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.stage, STAGE_TEXT_LIMIT), STAGE_TEXT_LIMIT);
         buffer.writeVarInt(packet.spiritualPower);
         buffer.writeVarInt(packet.maxSpiritualPower);
         buffer.writeVarInt(packet.cultivationExp);
@@ -163,12 +210,20 @@ public record SyncCultivationDataPacket(
         buffer.writeVarInt(packet.lifespanYears);
         buffer.writeVarInt(packet.ageYears);
         buffer.writeVarInt(packet.remainingLifespanYears);
-        buffer.writeUtf(packet.spiritualRoot);
-        buffer.writeUtf(packet.spiritualRootAttributes);
+        buffer.writeUtf(cap(packet.spiritualRoot, ROOT_TEXT_LIMIT), ROOT_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.spiritualRootAttributes, ROOT_ATTRIBUTES_TEXT_LIMIT), ROOT_ATTRIBUTES_TEXT_LIMIT);
         buffer.writeVarInt(packet.spiritualRootPurity);
         buffer.writeBoolean(packet.spiritualRootAwakened);
         buffer.writeBoolean(packet.spiritualRootTested);
-        buffer.writeUtf(packet.specialPhysique);
+        buffer.writeUtf(cap(packet.specialPhysique, PHYSIQUE_TEXT_LIMIT), PHYSIQUE_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.goldCoreGrade, GOLD_CORE_TEXT_LIMIT), GOLD_CORE_TEXT_LIMIT);
+        buffer.writeVarInt(packet.goldCoreScore);
+        buffer.writeBoolean(packet.completeFiveElements);
+        buffer.writeBoolean(packet.tribulationActive);
+        buffer.writeUtf(cap(packet.tribulationTargetRealm, TRIBULATION_TARGET_TEXT_LIMIT), TRIBULATION_TARGET_TEXT_LIMIT);
+        buffer.writeVarInt(packet.tribulationCurrentStrike);
+        buffer.writeVarInt(packet.tribulationTotalStrikes);
+        buffer.writeVarInt(packet.tribulationNextStrikeTicks);
         buffer.writeVarInt(packet.learnedTechniqueCount);
         buffer.writeBoolean(packet.meditating);
         buffer.writeBoolean(packet.severeInjury);
@@ -184,8 +239,10 @@ public record SyncCultivationDataPacket(
         buffer.writeDouble(packet.critDamage);
         buffer.writeDouble(packet.dodgeChance);
         buffer.writeDouble(packet.accuracy);
+        buffer.writeDouble(packet.movementSpeedScale);
+        buffer.writeDouble(packet.movementSpeedBonus);
         buffer.writeVarInt(packet.auraConcentration);
-        buffer.writeUtf(packet.auraNature);
+        buffer.writeUtf(cap(packet.auraNature, AURA_NATURE_TEXT_LIMIT), AURA_NATURE_TEXT_LIMIT);
         buffer.writeDouble(packet.breakthroughChance);
         buffer.writeDouble(packet.breakthroughPillBonus);
         buffer.writeDouble(packet.breakthroughSpiritEyeBonus);
@@ -204,8 +261,8 @@ public record SyncCultivationDataPacket(
 
     public static SyncCultivationDataPacket decode(FriendlyByteBuf buffer) {
         return new SyncCultivationDataPacket(
-                buffer.readUtf(),
-                buffer.readUtf(),    // stage
+                buffer.readUtf(REALM_TEXT_LIMIT),
+                buffer.readUtf(STAGE_TEXT_LIMIT),
                 buffer.readVarInt(), // spiritualPower
                 buffer.readVarInt(), // maxSpiritualPower
                 buffer.readVarInt(), // cultivationExp
@@ -220,12 +277,20 @@ public record SyncCultivationDataPacket(
                 buffer.readVarInt(),
                 buffer.readVarInt(),
                 buffer.readVarInt(),
-                buffer.readUtf(),
-                buffer.readUtf(),
+                buffer.readUtf(ROOT_TEXT_LIMIT),
+                buffer.readUtf(ROOT_ATTRIBUTES_TEXT_LIMIT),
                 buffer.readVarInt(),
                 buffer.readBoolean(),
                 buffer.readBoolean(),
-                buffer.readUtf(),
+                buffer.readUtf(PHYSIQUE_TEXT_LIMIT),
+                buffer.readUtf(GOLD_CORE_TEXT_LIMIT),
+                buffer.readVarInt(),
+                buffer.readBoolean(),
+                buffer.readBoolean(),
+                buffer.readUtf(TRIBULATION_TARGET_TEXT_LIMIT),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
+                buffer.readVarInt(),
                 buffer.readVarInt(),
                 buffer.readBoolean(),
                 buffer.readBoolean(),
@@ -241,8 +306,10 @@ public record SyncCultivationDataPacket(
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
+                buffer.readDouble(),
+                buffer.readDouble(),
                 buffer.readVarInt(),
-                buffer.readUtf(),
+                buffer.readUtf(AURA_NATURE_TEXT_LIMIT),
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
@@ -285,6 +352,14 @@ public record SyncCultivationDataPacket(
                         packet.spiritualRootAwakened,
                         packet.spiritualRootTested,
                         packet.specialPhysique,
+                        packet.goldCoreGrade,
+                        packet.goldCoreScore,
+                        packet.completeFiveElements,
+                        packet.tribulationActive,
+                        packet.tribulationTargetRealm,
+                        packet.tribulationCurrentStrike,
+                        packet.tribulationTotalStrikes,
+                        packet.tribulationNextStrikeTicks,
                         packet.learnedTechniqueCount,
                         packet.meditating,
                         packet.severeInjury,
@@ -300,6 +375,8 @@ public record SyncCultivationDataPacket(
                         packet.critDamage,
                         packet.dodgeChance,
                         packet.accuracy,
+                        packet.movementSpeedScale,
+                        packet.movementSpeedBonus,
                         packet.auraConcentration,
                         packet.auraNature,
                         packet.breakthroughChance,
@@ -328,17 +405,6 @@ public record SyncCultivationDataPacket(
     }
 
     private static int getMatchingPassiveBonus(ItemStack stack, PlayerCultivation cultivation) {
-        if (stack.getCount() != 1 || !(stack.getItem() instanceof SpiritStoneItem stone) || SpiritStoneItem.getStoredPower(stack) <= 0) return 0;
-        SpiritualRootAttribute requiredAttribute = cultivation.getSpiritualRootAttribute();
-        if (!isFiveElement(requiredAttribute)) return 0;
-        return stone.matchesAttribute(requiredAttribute) ? stone.getPassiveBonus() : 0;
-    }
-
-    private static boolean isFiveElement(SpiritualRootAttribute attribute) {
-        return attribute == SpiritualRootAttribute.METAL
-                || attribute == SpiritualRootAttribute.WOOD
-                || attribute == SpiritualRootAttribute.WATER
-                || attribute == SpiritualRootAttribute.FIRE
-                || attribute == SpiritualRootAttribute.EARTH;
+        return SpiritStoneItem.getMatchingPassiveBonus(stack, cultivation.getSpiritualRootAttribute());
     }
 }

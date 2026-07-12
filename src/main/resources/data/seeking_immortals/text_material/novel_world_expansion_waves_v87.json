@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "wave": "v87_lore_only",
+  "note": "纯设定与数据扩充，无脚本/Forge",
+  "changes_v88": [
+    "secret_realms: 四秘境三段式补全",
+    "talisman_three_grade_tiers.json",
+    "tiannan_seven_sects_lore.json",
+    "quest_chains: yanyue/tianfu/demonic_six_expanded"
+  ],
+  "changes": [
+    "cultivation_methods: artifact_refining_basic, treasure_appraisal_art",
+    "techniques: 2 spells + 2 secrets for craft/treasure trees",
+    "sect_specialty_map: 掩月宗名称与专精修正",
+    "economy_shop_price_guidance + merchant_shops economy 锚定",
+    "docs/LORE_EXPANSION_v87.md"
+  ]
+}

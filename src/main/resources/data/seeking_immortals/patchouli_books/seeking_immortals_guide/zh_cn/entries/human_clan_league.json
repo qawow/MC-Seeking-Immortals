@@ -1,0 +1,28 @@
+{
+  "name": "人族世家联盟",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_grass",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "风元世家",
+      "text": "本条目对应文本材料 patchouli_static_entries.json#human_clan_league、human_clan_league.json 与 human_clan_quest_network.json。当前版本复用已接入的 spirit_fengyuan 世界包区域作为世家联盟的可见承载。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "四类专精",
+      "text": "文本材料将风元人族世家按功能标签区分：莫家偏阵法、俞家偏炼器、谷家偏炼丹、宁家偏制符。大晋叶家与南陇侯世家也保留在同一联盟资料中，作为后续跨区域世家钩子。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "任务网络",
+      "text": "human_clan_quest_network.json 定义了世家引荐、莫家阵法线、俞家炼器线、谷家丹道线和宁家符箓线，并预留 dajin_clan_feud_mirror_fengyuan 跨世家事件。当前尚未接入真实任务或声望系统。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "延后内容",
+      "text": "真实世家 NPC、世家声望、外姓盟约或联姻门槛、专精商店、委托任务、世家争端、大晋镜像联动与 FTB Quests 章节仍未实装。本页只说明已存在的文本材料和风元区域钩子。"
+    }
+  ]
+}

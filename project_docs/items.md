@@ -1,78 +1,75 @@
-# 当前已有物品
+0.1.453 item/data note: Registered residual quest reward carrier trade_discount_token via bulk catalog. Bulk total 869. Deferred non-item soft tags pill_quality_rank_up_chance_tag and skill_trees_overview. No packet/capability changes.
 
-> 规则：本文件只在首次创建；后续新增/修改物品时直接更新本文件，不为完整物品列表另建新文件。
-> 流程：每次版本更新完成后，即使没有新增物品，也需要检查并维护本文件。
-> 0.1.15：新增按 cultivation JSON 中 `source` 自动对应的功法传承卷轴/书籍体系，当前排除 `special_common_techniques.json`。
-> 0.1.16：传承卷轴/书籍图标统一改为占位符；Tooltip 改为“传承来源/使用条件/学会术法/右键使用”四行；右侧新增基础技能栏。
-> 0.1.17：技能栏数量改为 7 格；传承卷轴 Tooltip 改为按 cultivation JSON 的同 source 动态列出条件和术法；传承卷轴占位图标按传承来源分类；灵根测试石改为单个 5 次且不可补充；原版背包新增“修仙”数值页签。
-> 0.1.18：技能栏改到左侧；新增蒲团方块物品，空手右键可坐上去并作为打坐修炼增益点。
-> 0.1.19：新增统一术法/技能属性亲和计算接口，火弹符、金甲符、疾行符已作为首批接入案例改为复用统一接口。
-> 0.1.21：玩家首次进入世界时自动获得 Patchouli《修仙引导手册》（`seeking_immortals:seeking_immortals_guide`）；`missing_and_placeholders.md` 已详细列出 60 个仍使用占位贴图的传承物品。
-> 0.1.22：新增灵气浓度系统、测灵盘、寻脉罗盘与聚灵阵；修炼基础灵力收益已按当前位置灵气浓度倍率提升。
-> 0.1.23：蒲团打坐升级为“打坐吐纳”：坐在蒲团上每 5 秒按灵气浓度、修炼速度、功法品质和灵根亲和结算修为，并显示动作栏状态。
-> 0.1.24：接入 旧第三方 UI 作为必需库，为后续独立修仙 GUI、技能栏交互、可视化编辑器和数据同步 UI 打基础；本次未新增玩家可获得物品。
-> 0.1.25：左侧技能栏槽位绘制迁移为 旧第三方 UI 纹理适配层；固定显示 7 个槽位，无技能时显示透明背景空框，有技能时显示占位图标与编号；新增统一客户端 旧第三方 UI UI 皮肤，背包“修仙”页主面板和灵力/吐纳状态条已开始复用；本次未新增玩家可获得物品。
-> 0.1.26：修复背包“修仙”页打开后原版玩家物品栏不显示的问题；修仙页改为保留原版背包槽并在右侧追加 旧第三方 UI 风格四分页（基础状态/灵根信息/功法信息/负面状态）；左侧技能栏新增竖向 tooltip；打坐吐纳 HUD 独立显示在屏幕下方；复修 HUD/技能栏 Overlay 生命周期，避免依赖先打开背包初始化或污染背包物品栏渲染；本次未新增玩家可获得物品。
-> 0.1.27：集中修复高优先级 UI/图形问题：原版背包“修仙”按钮只注入原版 `InventoryScreen`，客户端登录/退出/重生/进世界时重置同步缓存，技能栏未同步时稳定显示 7 空槽并保留服务端顺序，吐纳 HUD 只在已同步或待确认打坐时显示，修仙页补同步占位与屏幕边界避让，旧第三方 UI 风格皮肤消除可变颜色状态污染；本次未新增玩家可获得物品。
-> 0.1.28：根据 旧第三方 UI Agent 指南复查 Screen/Menu、Overlay/HUD、布局与样式外置方向后，最小修复修仙页面板在极窄屏/高 GUI 缩放下的宽度、分页按钮和状态条越界问题；仍不替用户决定最终 UI 样式，本次未新增玩家可获得物品。
-> 0.1.29：修复技能栏 HUD 坐标防护，确保左侧固定 7 槽按 scaledHeight 竖向排列，不再受玩家背包界面右上角定位影响；按用户选择的 B 方案将修仙页改为独立全屏/居中大面板，原版背包仅保留“修仙”入口按钮；本次未新增玩家可获得物品。
-> 0.1.30：左侧技能栏接入用户参考图外框，新增 GUI 纹理 `textures/gui/skill_bar_frame.png`；槽位继续固定 7 格并放入外框内部开口区域，未同步仍显示空槽，同步后显示占位图标与文本；本次未新增玩家可获得物品。
-> 0.1.31：新增 GUI 纹理 `textures/gui/cultivation_progress_bar.png`，打坐吐纳 HUD 的 5 秒结算进度改用用户新图裁剪生成的修炼进度条；技能栏左边距从 4 改为 1，并停止绘制 0.1.30 外框以移除玩家左上角额外图案；本次未新增玩家可获得物品。
-> 0.1.32：移除旧第三方 UI 依赖、兼容命名和 mandatory 依赖声明；客户端界面统一改为原生 Forge/Minecraft UI，左侧 7 槽技能栏、打坐吐纳 HUD 与 B 方案独立修仙面板功能形态保持不变；本次未新增玩家可获得物品。
-> 0.1.33：独立修仙面板由四分页合并为单页分区总览；新增 7 个技能释放按键与技能编辑界面入口，服务端新增技能释放占位校验包；移除打坐吐纳每 5 秒反复动作栏状态提示；本次未新增玩家可获得物品。
-> 0.1.34：第一阶段技能槽数据/网络/冷却落地：7 个槽位绑定持久化到玩家修炼数据，旧存档无绑定时按已学技能排序填入前 7 槽；客户端技能栏和快捷键改为按绑定槽释放；新增/完善槽位绑定网络包与 5 秒默认技能冷却同步；本次未新增玩家可获得物品。
-> 0.1.47：新增飞行系统基础物品 `flying_sword`（青竹飞剑）与 `flying_artifact`（御风法宝），通过 Curios `artifact` 槽装备后，筑基及以上玩家可御空飞行；服务端按境界控制速度、高度和每秒灵力消耗。
+0.1.452 item/data note: Mapped remaining item_id_aliases into text_material_id_map: kunwu_spirit_copper -> kunwu_copper, sea_soul_grass_herb -> sea_soul_grass. No new registrations. No packet/capability changes.
 
-## 物品
+0.1.451 item/data note: Bulk-registered 146 remaining physical quest/beast/reward carriers plus residual manual_qingyuan_sword_inner; added 12 soft aliases for rename variants. Bulk total 868. No packet/capability changes.
 
-- `spirit_stone`：低阶/下品灵石，单个灵石长按引导吸收，每次消耗储量恢复 25 点灵力，总储量 500；可 100:1 兑换为中阶灵石。
-- `spirit_stone_mid`：中阶灵石，单个灵石长按引导吸收，每次消耗储量恢复 250 点灵力，总储量 5000；可 100:1 兑换为高阶灵石。
-- `spirit_stone_high`：高阶灵石，单个灵石长按引导吸收，每次消耗储量恢复 2500 点灵力，总储量 50000；可 100:1 兑换为极品灵石。
-- `spirit_stone_superior`：极品灵石，单个灵石长按引导吸收，每次消耗储量恢复 25000 点灵力，总储量 500000。
-- `qi_recovery_pill`：回灵丹，右键服用后恢复灵力。
-- `cultivation_pill`：凝气丹，右键服用后增加修为。
-- `breakthrough_pill`：破境丹，右键服用后提高下次突破概率。
-- `spirit_charm`：灵力护符，Curios 饰品；装备后每 5 秒额外恢复灵力。
-- `flying_sword`：青竹飞剑，Curios `artifact` 槽飞行法宝；筑基及以上装备后获得御空飞行能力，飞行速度、最大高度和每秒灵力消耗随境界提升。
-- `flying_artifact`：御风法宝，Curios `artifact` 槽飞行法宝；规则同飞剑，作为后续法宝飞行体系的通用入口。
-- `fire_talisman`：火弹符，消耗灵力释放小火球；灵根已检测且觉醒后，火灵根主加成，雷/隐雷灵根副加成，提升火弹速度与伤害倍率。
-- `ling_gen_test_stone`：灵根测试石，右键自己或其他玩家检测并记录灵根；单个物品只能使用 5 次，次数写入 NBT `RemainingUses`，不可补充，用完破碎，只能重新合成；Tooltip 显示剩余次数。
-- `armor_talisman`：金甲符，消耗灵力获得抗性提升；灵根已检测且觉醒后，土灵根主加成，金/冰灵根副加成，提升抗性持续时间并可提高效果等级。
-- `speed_talisman`：疾行符，消耗灵力获得速度提升；灵根已检测且觉醒后，风灵根主加成，雷/隐雷灵根副加成，提升速度持续时间并可提高效果等级。
+0.1.450 item/data note: Registered remaining hard-missing loot/manual carriers ancient_artifact_fragment, dayan_fragment, manual_ancient_puppet_method via bulk catalog. Bulk total 722. No packet/capability changes.
 
-## 功法传承卷轴/书籍
+0.1.449 item/data note: Registered remaining hard-missing carriers formation_flag_mid and spirit_herb_rare via bulk catalog. Bulk total 719. No packet/capability changes.
 
-- `technique_manual_*`：按 `src/main/resources/data/seeking_immortals/cultivation` 下功法数据的 `source` 字段生成的传承物品；当前排除 `special_common_techniques.json`。
-  - 占位图标按传承来源分类生成，不同 `source` 使用不同占位纹理，后续仍可替换为正式贴图。
-  - Tooltip 固定四行：传承来源、使用条件、学会术法、右键使用；其中“使用条件”由同 source 的 `attribute` 字段去重聚合，“学会术法”由同 source 的 `name` 字段聚合并截断展示。
-  - 右键使用后读取同一 `source` 下的一系列功法/术法。
-  - 每条功法/术法的 `attribute` 字段作为使用条件：通用/辅助/神识/阵法/炼体/身法等默认可学，金木水火土、风雷冰暗等需玩家灵根属性匹配；0.1.19 起该字段也可通过统一亲和接口参与后续技能倍率、持续时间和效果等级结算。
-  - 学会的技能 ID 保存到玩家修炼 Capability/NBT 的 `LearnedTechniques` 中，死亡/重登后保留，并同步到客户端左侧基础技能栏；技能栏显示在屏幕左侧，最多展示 7 格，超出时显示 +N；0.1.33 起默认可用 Z/X/C/G/B/N/M 释放前 7 个槽位；0.1.34 起这 7 个键按玩家持久化绑定槽释放，空槽不会回退到已学排序。
-  - 本次共接入 60 个传承物品，如 `technique_manual_evergreen_appendix`（长春功附载）、`technique_manual_azure_origin_sword_art`（青元剑诀）、`technique_manual_common`（通用）、`technique_manual_demonic`（魔道）等。
+0.1.448 item/data note: Bulk-registered 18 remaining physical carriers (flight vehicles, puppet bodies, refinement anvil/bellows, high refinement manual) and mapped 25 formation/soft aliases in text_material_id_map. Bulk total 717. No packet/capability changes.
 
-## 方块物品
+0.1.387 item/data note: Registered seal_demon_formation_core, illusion_maze_formation_core, kill_sword_formation_core, ascension_gate. No packet/capability changes.
 
-- `spirit_ore`：灵石矿，挖掘后通过掉落表产出下品灵石。
-- `meditation_cushion`：蒲团，高度低于半砖并使用占位贴图；手持可右键放置，空手右键可坐上去，同一蒲团同一时间只允许一名玩家乘坐；坐在蒲团上打坐吐纳时每秒恢复灵力、每 5 秒按灵气浓度/修炼速度/功法品质/灵根亲和结算修为，动作栏显示境界、修为、效率、功法和灵地；受攻击、移动、饥饿过低或附近有怪物会中断。
+0.1.386 item/data note: Registered refinement_forge block/item/tab/models/lang. Added remaining 79 technique data entries across cultivation technique JSON files. No packet/capability schema changes.
 
-## 五行灵石（0.1.20）
+0.1.385 item/data note: Registered spirit_gathering_formation_core and defense_formation_core block/item/tab/models/lang. Added 35 technique data entries. No packet/capability changes.
 
-五行灵石用于按灵根属性提供修炼/打坐增幅；通用灵石仍保留基础灵力吸收用途。
+0.1.384 item/data note: Registered thunder_tribulation_altar block/item/tab/models/lang. Added 24 technique data entries for wave4. No packet/capability changes.
 
-| 属性 | 下品 | 中品 | 上品 | 极品 | 增幅规则 |
-| --- | --- | --- | --- | --- | --- |
-| 金 | `metal_spirit_stone` | `metal_spirit_stone_mid` | `metal_spirit_stone_high` | `metal_spirit_stone_superior` | 仅金灵根获得手持增幅 |
-| 木 | `wood_spirit_stone` | `wood_spirit_stone_mid` | `wood_spirit_stone_high` | `wood_spirit_stone_superior` | 仅木灵根获得手持增幅 |
-| 水 | `water_spirit_stone` | `water_spirit_stone_mid` | `water_spirit_stone_high` | `water_spirit_stone_superior` | 仅水灵根获得手持增幅 |
-| 火 | `fire_element_spirit_stone` | `fire_element_spirit_stone_mid` | `fire_element_spirit_stone_high` | `fire_element_spirit_stone_superior` | 仅火灵根获得手持增幅 |
-| 土 | `earth_spirit_stone` | `earth_spirit_stone_mid` | `earth_spirit_stone_high` | `earth_spirit_stone_superior` | 仅土灵根获得手持增幅 |
+0.1.383 item/data note: Registered blood_sacrifice_altar block/item/tab/models/lang. Added 33 technique data entries for talisman/misc wave. No packet/capability changes.
 
-五行灵石等级数值沿用通用灵石：下品储量 500/每秒吸收 25/增幅 1，中品 5000/250/4，上品 50000/2500/8，极品 500000/25000/12。村民潜行兑换支持同属性 100:1 升级。
+0.1.382 item/data note: Registered sect_gate_array block/item, creative tab, models, lang. Added 22 technique data entries for wave2 spell ids. No packet/capability changes.
 
+0.1.381 item/data note: Registered `teleport_array_pedestal` block/item, creative-tab entry, blockstate/model, and localization. Added 30 technique data entries across qi/foundation/core/spirit-plus technique JSON files for text-material ids. No packet/capability/schema changes.
 
-## 灵气系统物品与方块（0.1.22）
+0.1.380 item/data note: Added nine player-facing artifact-refinement recipe resources with seeking_immortals materials only: `refine_gold_demon_chain`, `refine_xuanguang_shard`, `refine_xuanhuang_shard`, `refine_void_refining_bell`, `refine_gold_light_brick`, `refine_talisman_demon_seal`, `refine_natal_embryo`, `refine_four_symbols_ruler`, and `refine_three_flame_fan`. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
 
-- `spirit_detector`：测灵盘，右键检测当前区块灵气浓度，显示维度倍率、地势倍率、灵脉倍率、聚灵阵加成与灵气性质。
-- `leyline_compass`：寻脉罗盘，右键扫描附近 16 区块范围内的隐藏灵脉核心，以文字方向、距离与倍率提示目标，并把目标坐标写入物品 NBT。
-- `spirit_gathering_array`：聚灵阵，薄型阵盘方块；灵气计算时扫描附近 16 格、垂直 ±6 格内的聚灵阵，最多统计 4 个，每个提供 +50 灵气浓度。
+0.1.379 item/data note: Added the player-facing `refine_black_gold_shield` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:spirit_iron` as the current `low_spirit_iron` equivalent, `seeking_immortals:kunwu_copper`, and the already registered `seeking_immortals:black_gold_shield` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
 
+0.1.378 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB chapter files, or runtime data loaders were added. This crash fix only changes the Java seeding helper for bundled FTB defaults so missing config files can be copied without unsupported `COPY_ATTRIBUTES` metadata copying.
+
+0.1.376 item/data note: Added the player-facing `refine_moon_shadow_disk` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:yin_stone` as the current `yin_essence_ore` equivalent, `seeking_immortals:spirit_iron` as the current `low_spirit_iron` equivalent, and the already registered `seeking_immortals:moon_shadow_disk` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.374 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, or runtime data loaders were added by the formation spell slice. The playable additions are executable spell mappings, one `FormationSpell` runtime class, Foundation/Core technique data, and zh_cn/en_us feedback for 13 formation ids from `techniques/formation.json`.
+
+0.1.373/0.1.374 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The Dajin / Kunwu FTB bridge reuses existing carriers only: `seeking_immortals:immortal_jade`, `seeking_immortals:jade_slip_blank`, `seeking_immortals:cold_jade`, `seeking_immortals:spirit_gathering_array`, and `seeking_immortals:demon_suppress_talisman_blank` as non-consuming inventory checks for Wanbao auction collateral, Kunwu intelligence, cold-tide preparation, outer-array routing, and demon-sealing script presentation.
+
+0.1.375 item/data note: Added the player-facing `refine_void_cold_jade_pendant` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:cold_jade` as the current equivalent for both `void_palace_cold_jade` and `hundred_year_ice`, and the already registered `seeking_immortals:void_palace_cold_jade_pendant` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.372 item/data note: Added the player-facing `refine_evil_illusion_mirror` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:cold_jade` as the current `hundred_year_ice` equivalent, `seeking_immortals:cloud_mushroom` as the current `demon_corruption_fungus` equivalent, `seeking_immortals:soul_gathering_stone`, and the already registered `seeking_immortals:evil_illusion_mirror` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.368 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The Fallen Demon / Yin FTB bridge reuses existing carriers only: `seeking_immortals:yin_stone`, `seeking_immortals:soul_gathering_stone`, and `seeking_immortals:soul_fragment` as non-consuming inventory checks for Yin Luo initiation, soul-anchor stabilization, and Nether Core formation.
+
+0.1.371 item/data note: Added the player-facing `refine_talisman_soul_charm` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:talisman_paper_mortal` as the current generic `talisman_paper` equivalent, `seeking_immortals:soul_gathering_stone`, and the already registered `seeking_immortals:talisman_treasure_soul_charm` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.370 item/data note: Added the player-facing `refine_talisman_soul_charm` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:talisman_paper_mortal` as the current `talisman_paper` equivalent, `seeking_immortals:soul_gathering_stone`, and the already registered `seeking_immortals:talisman_treasure_soul_charm` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added by this recipe slice.
+
+0.1.366 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, or runtime data loaders were added by the Confucian spell slice. The playable additions are one spell source class, executable technique mappings, Foundation technique data, and zh_cn/en_us feedback for five Confucian ids from `techniques/confucian.json`.
+
+0.1.367 item/data note: Added the player-facing `refine_bedrock_shield` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:kunwu_copper`, `seeking_immortals:diyuan_pressure_moss` as the current `earth_spine_root` equivalent, and the already registered `seeking_immortals:bedrock_shield` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.365 item/data note: Added the player-facing `refine_snake_pearl` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:beast_core` as the current `demon_core_fragment` equivalent, `seeking_immortals:true_dragon_blood` as the current `beast_blood_vial` equivalent, and the already registered `seeking_immortals:snake_pearl` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.364 item/data note: Added the player-facing `refine_qingning_mirror` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:cold_jade` as the current `hundred_year_ice` equivalent, `seeking_immortals:kunwu_copper`, and the already registered `seeking_immortals:qingning_mirror` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.361 item/data note: Added the player-facing `refine_flying_needle_set` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:spirit_iron` as the current `low_spirit_iron` equivalent, `seeking_immortals:spirit_silk`, and the already registered `seeking_immortals:flying_needle_set` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, FTB files, or runtime data loaders were added.
+
+0.1.359 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added by this verification pass. It verifies the existing Mulan/Tianlan/Demonic FTB bridge carriers (`beast_core`, `soul_fragment`, and `demonic_blood_coral`) and the current Buddhist spell compile reconciliation under `mod_version=0.1.359`.
+
+0.1.359 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added by this current-tree build recheck. It only documents that the inherited `0.1.358` 13x13 realm gate and `0.1.357` FTB item-task bridge now build successfully under `mod_version=0.1.359`.
+
+0.1.359 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The larger portal slice reuses existing `seeking_immortals:spirit_gathering_array` and `seeking_immortals:spirit_ore` blocks only, expanding the validated structure from 11x11 to 13x13.
+
+0.1.356 item/data note: Added the player-facing `refine_storage_bracelet` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:void_crystal` as the current `space_crystal_fragment` equivalent, `seeking_immortals:kunwu_copper`, and the already registered `seeking_immortals:storage_bracelet_low` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, or runtime data loaders were added.
+
+  0.1.357 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The FTB bridge reuses existing carriers only: `seeking_immortals:beast_core`, `seeking_immortals:soul_fragment`, and `seeking_immortals:demonic_blood_coral` as non-consuming inventory checks for Tianhu beast taming, Tianlan beast-soul training, Guiling Gate soul/corpse contact, Tianmo blood rite, and North Waste demonic-core treasure routing.
+
+  0.1.353 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The FTB bridge reuses existing carriers only: `seeking_immortals:fire_talisman`, `seeking_immortals:void_crystal`, `seeking_immortals:demon_suppress_talisman_blank`, `seeking_immortals:soul_fragment`, and `seeking_immortals:yin_body_protection_charm` as non-consuming inventory checks for Fallen Demon preparation, spatial-rift stabilization, demon-rift reinforcement, soul-banner clue routing, and Nether River fog entry.
+
+  0.1.354 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, or runtime data loaders were added by the Dao spell slice. The playable additions are technique data plus executable spell mappings only: seven Daoist ids from `techniques/dao.json` release through the existing technique path and code-side DustParticle visuals.
+0.1.355 item/data note: Added the player-facing `refine_yellow_umbrella` artifact-refinement recipe resource. It reuses existing carriers only: `seeking_immortals:spirit_silk`, `seeking_immortals:beast_core` as the current `demon_core_low` equivalent, `seeking_immortals:spirit_iron` as the current `low_spirit_iron` equivalent, and the already registered `seeking_immortals:yellow_umbrella` output. No new item ids, registrations, creative-tab entries, models, textures, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement catalogs, worldpack files, spell files, or runtime data loaders were added.
+0.1.358 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The larger portal slice reuses existing `seeking_immortals:spirit_gathering_array` and `seeking_immortals:spirit_ore` blocks only, expanding the validated structure from 11x11 to 13x13.
+0.1.360 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, FTB files, worldpack files, or runtime data loaders were added. Artifact failure salvage reuses existing carriers through `text_material_id_map`; the only new mapping is `scrap_spirit_iron -> seeking_immortals:spirit_iron` as an implemented-partial fallback until a dedicated scrap material exists.
+0.1.364 item/data note: No new item ids, registrations, creative-tab entries, models, textures, recipes, loot tables, GUI assets, packets, entities, shop files, capabilities, player-data fields, artifact/refinement maps, worldpack files, spell files, or runtime data loaders were added. The Tiannan seven-sects FTB bridge reuses existing carriers only: `seeking_immortals:spirit_iron`, `seeking_immortals:beast_core`, and `seeking_immortals:fire_talisman` as non-consuming inventory checks for Huadao forge work, Giant Sword relic restoration, Yuling beast-puppet/contract routing, and Tianfu low talisman certification.

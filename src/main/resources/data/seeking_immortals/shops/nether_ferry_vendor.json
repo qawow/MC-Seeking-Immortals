@@ -1,0 +1,44 @@
+{
+  "id": "nether_ferry_vendor",
+  "currency": "item",
+  "currency_item": "seeking_immortals:yin_stone",
+  "stock": 12,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "yin_stone_pack",
+      "item": "seeking_immortals:yin_stone",
+      "count": 8,
+      "cost": 1,
+      "stock": 16
+    },
+    {
+      "id": "soul_fragment",
+      "item": "seeking_immortals:soul_fragment",
+      "count": 1,
+      "cost": 4,
+      "stock": 8
+    },
+    {
+      "id": "yin_protection_charm",
+      "item": "seeking_immortals:yin_body_protection_charm",
+      "count": 1,
+      "cost": 6,
+      "stock": 6
+    },
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 12,
+      "stock": 3
+    },
+    {
+      "id": "wind_feather_raft_ticket",
+      "item": "seeking_immortals:wind_feather_raft_ticket",
+      "count": 1,
+      "cost": 10,
+      "stock": 4
+    }
+  ]
+}

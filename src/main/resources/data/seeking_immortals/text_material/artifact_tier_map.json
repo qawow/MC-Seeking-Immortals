@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "source": "汇编 法宝十一级体系；game_tier 1-11 与 tier 标签映射",
+  "disclaimer": "阶位为结构分类，具体战力可重平衡",
+  "grades": [
+    {
+      "grade": 1,
+      "display": "法器下品",
+      "realm_equiv": "QI_REFINING",
+      "loot_band": "low"
+    },
+    {
+      "grade": 2,
+      "display": "法器中品",
+      "realm_equiv": "QI_REFINING_MID",
+      "loot_band": "low"
+    },
+    {
+      "grade": 3,
+      "display": "法器上品",
+      "realm_equiv": "QI_REFINING_LATE",
+      "loot_band": "low"
+    },
+    {
+      "grade": 4,
+      "display": "法器顶品",
+      "realm_equiv": "QI_REFINING_PEAK",
+      "loot_band": "low"
+    },
+    {
+      "grade": 5,
+      "display": "法宝下品",
+      "realm_equiv": "FOUNDATION",
+      "loot_band": "mid"
+    },
+    {
+      "grade": 6,
+      "display": "法宝中品",
+      "realm_equiv": "FOUNDATION_MID",
+      "loot_band": "mid"
+    },
+    {
+      "grade": 7,
+      "display": "法宝上品",
+      "realm_equiv": "FOUNDATION_LATE",
+      "loot_band": "mid"
+    },
+    {
+      "grade": 8,
+      "display": "法宝顶品",
+      "realm_equiv": "CORE_FORMATION",
+      "loot_band": "high"
+    },
+    {
+      "grade": 9,
+      "display": "古宝",
+      "realm_equiv": "NASCENT_SOUL",
+      "loot_band": "high"
+    },
+    {
+      "grade": 10,
+      "display": "通天灵宝",
+      "realm_equiv": "DEITY_TRANSFORMATION",
+      "loot_band": "spirit_treasure"
+    },
+    {
+      "grade": 11,
+      "display": "玄天之宝",
+      "realm_equiv": "VOID_REFINING",
+      "loot_band": "ancient_treasure"
+    }
+  ],
+  "tier_tag_to_grade": {
+    "low": [
+      1,
+      4
+    ],
+    "mid": [
+      5,
+      7
+    ],
+    "high": [
+      8,
+      9
+    ],
+    "spirit_treasure": [
+      10,
+      10
+    ],
+    "ancient_treasure": [
+      11,
+      11
+    ],
+    "legendary": [
+      11,
+      11
+    ]
+  },
+  "catalog_ref": "artifacts_catalog.json"
+}

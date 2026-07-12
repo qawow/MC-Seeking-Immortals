@@ -1,0 +1,38 @@
+{
+  "name": "Artifact Activation",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:flying_sword_low",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Source Basis",
+      "text": "This page follows ARTIFACTS_FANREN.md, ARTIFACTS_AND_PILLS.md, ARTIFACT_ELEVEN_TIERS.md, REFINEMENT_ARTIFACTS_MASTER_LIST.md, artifact_tier_rules.json, forge_artifact_priority.json, and talisman_treasure_templates.json. The current guide covers the first playable right-click activation pass for P0/P1 artifact carriers."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Use",
+      "text": "Exact ArtifactCatalogItem carriers can be right-clicked to activate. The server checks minimum realm, spiritual power cost, item cooldown, talisman-treasure uses, and artifact integrity before applying effects and syncing cultivation data. The Low Storage Bracelet has 8 NBT storage slots: sneak right-click to store the item in the other hand, or right-click to withdraw the newest stored stack."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Effect Families",
+      "text": "movement artifacts grant speed, jump, and slow falling. defense artifacts grant resistance and absorption. anti_illusion and soul_stabilize clear confusion, blindness, weakness, and poison while restoring a little divine consciousness. offense, poison, soul_attack, control, yin, and thunder artifacts fire custom spiritual projectiles. illusion artifacts hide the user and disrupt nearby targets; beast_control artifacts suppress nearby monsters."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Talismans",
+      "text": "Talisman treasures follow talisman_treasure_templates.json and have limited uses, commonly 3. Golden Light Brick-style talismans lean offensive, while the Soul-Calming Talisman Treasure focuses on stabilizing the soul and weakening threats. The Artifact Repair Kit repairs the artifact held in the other hand, consumes spiritual power, restores integrity, and consumes the kit."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Flight Slot",
+      "text": "The Curios artifact slot now recognizes exact flying carriers: seeking_immortals:flying_sword_low, silver_giant_sword, wind_escape_sail, and cloud_boots. They still obey no_fly areas such as Diyuan, and all flight authority remains server managed."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Still Deferred",
+      "text": "Full refinement and repair workstations, Wanbao auction and appraisal services, secret-realm/sect/shop/quest placement, dedicated art, graphical storage screens, and live combat balance checks remain future slices. This page documents the activation, limited talisman uses, repair kit, low storage bracelet, and flying carriers that are currently interactive."
+    }
+  ]
+}

@@ -62,6 +62,14 @@ public final class ClientCultivationData {
             boolean spiritualRootAwakened,
             boolean spiritualRootTested,
             String specialPhysique,
+            String goldCoreGrade,
+            int goldCoreScore,
+            boolean completeFiveElements,
+            boolean tribulationActive,
+            String tribulationTargetRealm,
+            int tribulationCurrentStrike,
+            int tribulationTotalStrikes,
+            int tribulationNextStrikeTicks,
             int learnedTechniqueCount,
             boolean meditating,
             boolean severeInjury,
@@ -77,6 +85,8 @@ public final class ClientCultivationData {
             double critDamage,
             double dodgeChance,
             double accuracy,
+            double movementSpeedScale,
+            double movementSpeedBonus,
             int auraConcentration,
             String auraNature,
             double breakthroughChance,
@@ -94,7 +104,14 @@ public final class ClientCultivationData {
             double meditationStoneBonus,
             double meditationTotalPerSecond) {
         public static Snapshot empty() {
-            return new Snapshot("未同步", "", 0, 100, 0, 0, 1L, 0, 100, 0, 0, 0, 0, 0, 0, 0, "未检测", "未知", 0, false, false, "无", 0, false, false, 0, false, 0, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 1.5D, 0.0D, 0.0D, 100, "天地灵气", 0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0, 0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D, 0.0D, 0.0D);
+            return new Snapshot(
+                    "未同步", "", 0, 100, 0, 0, 1L, 0, 100, 0, 0, 0, 0,
+                    0, 0, 0, "未检测", "未知", 0, false, false, "无",
+                    "未结丹", 0, false, false, "无", 0, 0, 0, 0,
+                    false, false, 0, false, 0, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D,
+                    0.0D, 1.5D, 0.0D, 0.0D, 1.0D, 0.0D, 100, "天地灵气",
+                    0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0, 0.0D, 0.0D, 0.0D,
+                    1.0D, 1.0D, 1.0D, 0.0D, 0.0D);
         }
     }
 }

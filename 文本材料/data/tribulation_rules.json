@@ -1,0 +1,216 @@
+{
+  "schema_version": 7,
+  "types": [
+    {
+      "id": "minor_soul_trial",
+      "display": "元婴小劫",
+      "trigger_realm": "NASCENT_SOUL",
+      "waves": 3,
+      "damage_per_wave_base": 40,
+      "failure": [
+        "realm_drop_one_sub",
+        "injury_debuff"
+      ],
+      "setting": {
+        "lore": "元婴小劫（小劫）",
+        "trigger_realm": "NASCENT_SOUL"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "NASCENT_SOUL",
+          "tier": "minor"
+        }
+      },
+      "tribulation_tier": "minor"
+    },
+    {
+      "id": "heart_demon_or_thunder",
+      "display": "化神心魔/雷劫",
+      "trigger_realm": "DEITY_TRANSFORMATION",
+      "waves": 5,
+      "branch": [
+        "heart_demon_fight",
+        "thunder_strikes"
+      ],
+      "failure": [
+        "death",
+        "demonization_chance"
+      ],
+      "setting": {
+        "lore": "化神心魔/雷劫（大劫）",
+        "trigger_realm": "DEITY_TRANSFORMATION"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "DEITY_TRANSFORMATION",
+          "tier": "major"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "void_thunder",
+      "display": "炼虚雷劫",
+      "trigger_realm": "VOID_REFINEMENT",
+      "waves": 9,
+      "damage_per_wave_base": 120,
+      "mitigation_stackable": true,
+      "setting": {
+        "lore": "炼虚雷劫（大劫）",
+        "trigger_realm": "VOID_REFINEMENT"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "VOID_REFINEMENT",
+          "tier": "major"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "body_soul_dual",
+      "display": "合体双劫",
+      "trigger_realm": "BODY_INTEGRATION",
+      "waves": 12,
+      "requires": [
+        "body_and_soul_both_above_threshold"
+      ],
+      "setting": {
+        "lore": "合体双劫（大劫）",
+        "trigger_realm": "BODY_INTEGRATION"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "BODY_INTEGRATION"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "great_ascension_thunder",
+      "display": "大乘天劫",
+      "trigger_realm": "GREAT_VEHICLE",
+      "waves": 18,
+      "failure": [
+        "severe_injury",
+        "lifespan_burn"
+      ],
+      "setting": {
+        "lore": "大乘天劫（大劫）",
+        "trigger_realm": "GREAT_VEHICLE"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "GREAT_VEHICLE"
+        }
+      },
+      "tribulation_tier": "major"
+    },
+    {
+      "id": "final_ascension",
+      "display": "飞升仙劫",
+      "trigger_realm": "TRIBULATION_LAND",
+      "waves": 27,
+      "success": "ascension_immortal_realm",
+      "items_ref": "tribulation_items.json",
+      "setting": {
+        "lore": "飞升仙劫（仙劫）",
+        "trigger_realm": "TRIBULATION_LAND"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm": "TRIBULATION_LAND"
+        }
+      },
+      "tribulation_tier": "immortal"
+    },
+    {
+      "id": "beast_shape_shift_minor",
+      "display": "妖兽化形小劫",
+      "trigger": "beast_tier>=7",
+      "waves": 3,
+      "damage_per_wave_base": 25,
+      "failure": [
+        "stay_beast_form",
+        "tier_drop_one"
+      ],
+      "tribulation_tier": "minor",
+      "setting": {
+        "lore": "七阶妖兽化形渡小劫，与人修元婴小劫同属小劫结构。"
+      }
+    }
+  ],
+  "modifiers": {
+    "stack_rule": "multiplicative_cap_0.65_min_damage",
+    "demon_karma": "demon_qi_penalty",
+    "nether_delay": "nether_river_shield_zone",
+    "beast_race": "beast_tribulation_bonus"
+  },
+  "environment": {
+    "open_sky_required": true,
+    "forbidden_in_secret_realm": [
+      "illusion_maze"
+    ],
+    "allowed_delay_zones": [
+      "nether_river_land",
+      "tianyuan_inner_array"
+    ]
+  },
+  "realm_context_modifiers": {
+    "spirit_realm": {
+      "display": "灵界天劫环境",
+      "modifiers": [
+        {
+          "tag": "wild_land_proximity",
+          "effect": "心魔劫结构加重"
+        },
+        {
+          "tag": "diyuan_pressure",
+          "effect": "雷劫层+1结构",
+          "realm_min": "VOID_REFINING"
+        },
+        {
+          "tag": "tianyuan_shelter",
+          "effect": "功勋护劫阵一次",
+          "ref": "economy_contribution_exchange#tianyuan"
+        },
+        {
+          "tag": "barbarian_king_roar",
+          "effect": "渡劫骚扰事件"
+        }
+      ]
+    }
+  },
+  "great_vehicle_variants": [
+    {
+      "id": "gv_spirit_core",
+      "display": "灵界大乘天劫",
+      "realm": "GREAT_VEHICLE",
+      "waves": [
+        "yin_thunder",
+        "void_wind",
+        "heart_demon"
+      ]
+    },
+    {
+      "id": "gv_ascension_pre",
+      "display": "飞升前兆劫",
+      "realm": "TRIBULATION",
+      "waves": [
+        "nine_heaven_thunder",
+        "spatial_tear"
+      ]
+    }
+  ],
+  "setting": {
+    "lore": "小劫/大劫/仙劫结构；突破境界时触发。",
+    "compliance": "结构向"
+  },
+  "learn_requirements": {
+    "breakthrough": {
+      "note": "达到境界瓶颈且选择突破时自动适用，非主动学习。"
+    }
+  },
+  "tribulation_tier_schema_ref": "tribulation_tier_schema.json",
+  "tribulation_master_ref": "tribulation_master_schema.json"
+}

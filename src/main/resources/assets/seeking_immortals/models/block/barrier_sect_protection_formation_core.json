@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "seeking_immortals:block/barrier_sect_protection_formation_core"
+  }
+}

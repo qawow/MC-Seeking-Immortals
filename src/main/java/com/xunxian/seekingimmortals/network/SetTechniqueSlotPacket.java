@@ -10,13 +10,15 @@ import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
 
 public record SetTechniqueSlotPacket(int slot, String techniqueId) {
+    public static final int MAX_TECHNIQUE_ID_LENGTH = 128;
+
     public static void encode(SetTechniqueSlotPacket packet, FriendlyByteBuf buffer) {
         buffer.writeVarInt(packet.slot);
-        buffer.writeUtf(packet.techniqueId == null ? "" : packet.techniqueId);
+        buffer.writeUtf(packet.techniqueId == null ? "" : packet.techniqueId, MAX_TECHNIQUE_ID_LENGTH);
     }
 
     public static SetTechniqueSlotPacket decode(FriendlyByteBuf buffer) {
-        return new SetTechniqueSlotPacket(buffer.readVarInt(), buffer.readUtf());
+        return new SetTechniqueSlotPacket(buffer.readVarInt(), buffer.readUtf(MAX_TECHNIQUE_ID_LENGTH));
     }
 
     public static void handle(SetTechniqueSlotPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {

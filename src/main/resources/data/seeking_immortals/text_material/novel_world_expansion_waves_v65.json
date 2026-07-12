@@ -1,0 +1,491 @@
+{
+  "schema_version": 2,
+  "source": "汇编§11炼器§9魔道§16商会§13探索",
+  "refinement_learn_patches": {
+    "refine_flying_sword_low": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "any_qi_method"
+          ],
+          "learn_source": [
+            "refinement_manual",
+            "luoyun_forge"
+          ],
+          "items_tool": [
+            "refinement_forge_hammer"
+          ],
+          "note": "低阶飞剑为炼器入门常见目标。"
+        }
+      }
+    },
+    "refine_foundation_pill_furnace": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "faction_suggested": "luoyun_sect",
+          "learn_source": [
+            "alchemy_forge_upgrade"
+          ]
+        }
+      }
+    },
+    "refine_spirit_beast_bridle": {
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "spirit_beast_mountain",
+            "beast_taming_manual"
+          ],
+          "note": "御兽环需炼器基础。"
+        }
+      }
+    }
+  },
+  "merchant_shops_new": [
+    {
+      "id": "wanbao_auction_house_tiannan",
+      "display": "万宝楼（天南分会）",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "services": [
+        "auction",
+        "appraisal"
+      ],
+      "npc_archetype": "wanbao_auctioneer",
+      "setting": {
+        "lore": "天南最大商会之一，拍卖古宝残片与稀有丹药。"
+      }
+    },
+    {
+      "id": "chaotic_sea_black_market",
+      "display": "乱星海黑市",
+      "region": "chaotic_sea",
+      "currency": "low_spirit_stone",
+      "faction_ban": [
+        "star_palace_strict"
+      ],
+      "setting": {
+        "lore": "逆星盟势力渗透，走私禁品。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "realm_min": "FOUNDATION",
+          "reputation_any": [
+            "inverse_star_friendly",
+            "smuggler_contact"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dajin_spirit_stone_bank",
+      "display": "大晋灵石庄",
+      "region": "dajin",
+      "currency": "low_spirit_stone",
+      "services": [
+        "exchange",
+        "storage"
+      ],
+      "setting": {
+        "lore": "灵石兑换与保管，费率随品阶上升。"
+      }
+    },
+    {
+      "id": "kunwu_array_material_shop",
+      "display": "坤吴阵材铺",
+      "region": "dajin",
+      "currency": "mid_spirit_stone",
+      "faction": "kunwu_lineage",
+      "stock_hint": [
+        "formation_scroll",
+        "array_core"
+      ],
+      "setting": {
+        "lore": "坤吴阵材铺"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_luo_ghost_trade",
+      "display": "阴罗鬼市",
+      "region": "yin_underworld",
+      "currency": "yin_pearl",
+      "learn_requirements": {
+        "enter": {
+          "path_any": [
+            "ghost_cultivator",
+            "yin_luo_quest"
+          ]
+        }
+      },
+      "setting": {
+        "lore": "阴罗鬼市"
+      }
+    }
+  ],
+  "faction_conflicts_new": [
+    {
+      "id": "conflict_zhengmo_border_skirmish",
+      "display": "正魔边境冲突",
+      "factions": [
+        "huangfeng_valley",
+        "guiling_gate"
+      ],
+      "region": "tiannan_north",
+      "effects": [
+        "spawn_demonic_scout"
+      ],
+      "setting": {
+        "lore": "魔道六宗北迁后，天南正道与魔道摩擦不断。"
+      }
+    },
+    {
+      "id": "conflict_mulan_invasion_wave",
+      "display": "慕兰法士入侵",
+      "factions": [
+        "tiannan_alliance",
+        "mulan_fashi"
+      ],
+      "region": "mulan_border",
+      "effects": [
+        "war_event_mulan"
+      ],
+      "setting": {
+        "lore": "天南与法士大战，边境灵脉易主。"
+      }
+    },
+    {
+      "id": "conflict_star_palace_raid",
+      "display": "星宫清剿逆星",
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance"
+      ],
+      "region": "chaotic_sea",
+      "effects": [
+        "sea_patrol_boost"
+      ],
+      "setting": {
+        "lore": "星宫清剿逆星"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "conflict_clan_vs_sect_mine",
+      "display": "家族夺矿",
+      "factions": [
+        "human_clan",
+        "minor_sect"
+      ],
+      "region": "tiannan",
+      "effects": [
+        "mine_dispute_quest"
+      ],
+      "setting": {
+        "lore": "家族夺矿"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "chronicle_setting_patches": {
+    "A1_kunwu_peak": {
+      "setting": {
+        "era": "ancient",
+        "lore": "坤吴山立，人界大晋阵道圣地。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "region": "dajin",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    "A3_dayan_sage": {
+      "setting": {
+        "lore": "大衍神君创大衍诀与傀儡术，千竹教渊源。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "quest_any": [
+            "dayan_ruin_probe"
+          ]
+        }
+      }
+    },
+    "K1_seven_sects": {
+      "setting": {
+        "lore": "天南七派格局确立，黄枫谷等为支柱。"
+      }
+    },
+    "K_demonic_six_north_migration": {
+      "setting": {
+        "lore": "魔道六宗北迁，正魔对峙加剧。"
+      }
+    }
+  },
+  "demonic_sect_patches": {
+    "guiling_gate": {
+      "setting": {
+        "lore": "炼尸摄魂，鬼灵门为六宗之一。",
+        "join_risk": "righteous_bounty"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "karma": "demonic",
+          "realm_min": "QI_REFINING",
+          "forbidden_if": [
+            "huangfeng_inner"
+          ]
+        }
+      }
+    },
+    "hehuan_sect": {
+      "setting": {
+        "lore": "媚术双修，女修居多。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "gender_note": "女修优先",
+          "karma": "demonic"
+        }
+      }
+    },
+    "tianmo_sect": {
+      "setting": {
+        "lore": "魔体炼体，血祭狂战。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION",
+          "items_suggested": [
+            "blood_altar_access"
+          ]
+        }
+      }
+    },
+    "qingluo_sect": {
+      "setting": {
+        "lore": "毒道诡术。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    "wanhu_sect": {
+      "setting": {
+        "lore": "幻术惑心。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    "xuewu_sect": {
+      "setting": {
+        "lore": "血咒杀伐。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  },
+  "trade_routes_new": [
+    {
+      "id": "route_tiannan_to_chaotic_sea",
+      "display": "天南—乱星海航线",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "risk": "high",
+      "requires": {
+        "realm_min": "FOUNDATION",
+        "vehicle_any": [
+          "spirit_boat",
+          "teleport_array"
+        ]
+      },
+      "setting": {
+        "lore": "跨海域需灵舟或传送阵，海兽与星宫检查。"
+      }
+    },
+    {
+      "id": "route_dajin_barbarian_caravan",
+      "display": "大晋蛮荒商路",
+      "regions": [
+        "dajin",
+        "barbarian_wasteland"
+      ],
+      "risk": "extreme",
+      "requires": {
+        "realm_min": "CORE_FORMATION"
+      },
+      "setting": {
+        "lore": "蛮荒空间裂缝多，向导必备。"
+      }
+    },
+    {
+      "id": "route_tiannan_dajin_land",
+      "display": "天南—大晋陆路",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "risk": "medium",
+      "requires": {
+        "realm_min": "FOUNDATION"
+      },
+      "setting": {
+        "lore": "漫长陆路，坊市驿站相连。"
+      }
+    }
+  ],
+  "spawn_tables_new": [
+    {
+      "id": "spawn_blood_forbidden_cycle",
+      "display": "血色禁地周期刷怪",
+      "region": "blood_forbidden",
+      "realm_min": "QI_REFINING",
+      "mobs": [
+        "blood_jiao_guardian",
+        "demon_ape",
+        "wild_beast_tier3"
+      ],
+      "setting": {
+        "lore": "禁地开启时妖兽狂暴。"
+      }
+    },
+    {
+      "id": "spawn_chaotic_sea_shallows",
+      "display": "乱星海浅海",
+      "region": "chaotic_sea",
+      "mobs": [
+        "sea_serpent_low",
+        "pirate_cultivator"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "乱星海浅海"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spawn_kunwu_puppet_hall",
+      "display": "坤吴傀儡殿",
+      "region": "kunwu",
+      "mobs": [
+        "stone_guard_puppet",
+        "kunwu_puppet_king"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "坤吴傀儡殿"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spawn_mulan_wind_riders",
+      "display": "慕兰风骑",
+      "region": "mulan_border",
+      "mobs": [
+        "mulan_fashi_patrol",
+        "wind_beast"
+      ],
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "慕兰风骑"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "quest_hooks_new": [
+    {
+      "id": "hook_demonic_six_recruit",
+      "display": "魔道六宗招揽",
+      "faction": "demonic_alliance",
+      "realm_max": "CORE_FORMATION",
+      "rewards": [
+        "demonic_manual_low"
+      ],
+      "setting": {
+        "lore": "叛宗风险极高。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "karma_allow": "demonic",
+          "cannot_if": [
+            "righteous_inner_sect"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hook_wanbao_consignment",
+      "display": "万宝楼寄售",
+      "region": "tiannan",
+      "rewards": [
+        "spirit_stone",
+        "auction_slot"
+      ],
+      "setting": {
+        "lore": "万宝楼寄售"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_barbarian_relic_escort",
+      "display": "蛮荒遗迹护送",
+      "region": "barbarian_wasteland",
+      "realm_min": "CORE_FORMATION",
+      "rewards": [
+        "ancient_fragment_chance"
+      ],
+      "setting": {
+        "lore": "蛮荒遗迹护送"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_yin_luo_ghost_contract",
+      "display": "阴罗鬼契",
+      "region": "yin_underworld",
+      "rewards": [
+        "ghost_path_hint"
+      ],
+      "learn_requirements": {
+        "accept": {
+          "path_any": [
+            "ghost_cultivator"
+          ]
+        }
+      },
+      "setting": {
+        "lore": "阴罗鬼契"
+      }
+    }
+  ]
+}

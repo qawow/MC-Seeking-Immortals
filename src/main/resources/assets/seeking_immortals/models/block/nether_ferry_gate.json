@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "seeking_immortals:block/nether_ferry_gate",
+    "top": "seeking_immortals:block/nether_ferry_gate",
+    "side": "seeking_immortals:block/nether_ferry_gate"
+  }
+}

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "seeking_immortals:spirit_stone"
+      "item": "seeking_immortals:metal_spirit_stone"
     },
     {
       "item": "minecraft:glow_berries"

@@ -1,0 +1,1783 @@
+{
+  "schema_version": 32,
+  "school": "elemental",
+  "techniques": [
+    {
+      "id": "fireball",
+      "display": "火弹术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 12,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "fire",
+      "description": "火弹术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "cast_type": "instant",
+        "target": "single",
+        "range": "medium",
+        "element": "fire",
+        "lore": "炼气期最常见火系术，凝灵为弹。",
+        "counter": [
+          "water_shield"
+        ],
+        "synergy": [
+          "flame_burst"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong",
+          "lieyan_gong",
+          "huoyuan_gong"
+        ],
+        "prerequisite_mode": "any_one",
+        "spirit_roots": {
+          "required_any": [
+            "fire"
+          ],
+          "or_method_unlock": true
+        },
+        "learn_source": [
+          "sect_basic",
+          "slip_common"
+        ]
+      }
+    },
+    {
+      "id": "water_arrow",
+      "display": "水箭术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 10,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "water",
+      "description": "水箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "水箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "earth_spike",
+      "display": "土刺术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 14,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "earth",
+      "description": "土刺术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "土刺术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "earth"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wood_bind",
+      "display": "藤缚术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "wood",
+        "damage_base": 8,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "wood",
+      "description": "藤缚术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "藤缚术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "wood"
+          ]
+        }
+      }
+    },
+    {
+      "id": "metal_needle",
+      "display": "金针术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 11,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "metal",
+      "description": "金针术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金针术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_shard",
+      "display": "冰锥术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 13,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "ice",
+      "description": "冰锥术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "冰锥术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wind_blade",
+      "display": "风刃术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "wind",
+        "damage_base": 12,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "wind",
+      "description": "风刃术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "风刃术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "wind"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thunder_palm",
+      "display": "雷击掌",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 9,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "thunder",
+        "damage_base": 18,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "thunder",
+      "description": "雷击掌：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "雷击掌：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "thunder"
+          ]
+        }
+      }
+    },
+    {
+      "id": "flame_ring",
+      "display": "火环术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 11,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 22,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "fire",
+      "description": "火环术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "火环术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "frost_armor",
+      "display": "寒冰护体",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "ice",
+        "damage_base": 15,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "ice",
+      "description": "寒冰护体：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "寒冰护体：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lava_burst",
+      "display": "熔岩爆",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 28,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "fire",
+      "description": "熔岩爆：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "熔岩爆：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mist_rain",
+      "display": "雾雨术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "water",
+        "damage_base": 16,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "water",
+      "description": "雾雨术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "雾雨术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sand_storm",
+      "display": "沙暴术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 24,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "earth",
+      "description": "沙暴术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "沙暴术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "earth"
+          ]
+        }
+      }
+    },
+    {
+      "id": "vine_arrow",
+      "display": "木箭术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 9,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "wood",
+      "description": "木箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "木箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "wood"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gold_beam",
+      "display": "金芒术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "通用",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 20,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "metal",
+      "description": "金芒术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金芒术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blizzard",
+      "display": "暴雪术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 13,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "ice",
+        "damage_base": 26,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "ice",
+      "description": "暴雪术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "暴雪术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cyclone",
+      "display": "旋风术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "wind",
+        "damage_base": 21,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "wind",
+      "description": "旋风术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "旋风术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "wind"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chain_lightning",
+      "display": "连锁雷",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 17,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "thunder",
+        "damage_base": 34,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "thunder",
+      "description": "连锁雷：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "连锁雷：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "thunder"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dark_flame",
+      "display": "暗焰术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 9,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "dark",
+        "damage_base": 19,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "dark",
+      "description": "暗焰术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "暗焰术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "dark"
+          ]
+        }
+      }
+    },
+    {
+      "id": "light_orb",
+      "display": "光球术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "light",
+        "damage_base": 17,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "light",
+      "description": "光球术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "光球术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "light"
+          ]
+        }
+      }
+    },
+    {
+      "id": "steam_cloud",
+      "display": "蒸汽云",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "water",
+        "damage_base": 14,
+        "tags": []
+      },
+      "tier": "spell",
+      "element_required": "water",
+      "description": "蒸汽云：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "蒸汽云：elemental法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "changchun_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "required_any": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_spear",
+      "display": "冰矛术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "ice",
+      "description": "冰矛术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "冰矛术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "ice"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "flame_burst",
+      "display": "炎爆术",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "fire",
+      "description": "炎爆术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "炎爆术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evil_ward_thunder",
+      "display": "辟邪雷（仿）",
+      "school": "elemental",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "thunder",
+      "note": "合规化名",
+      "description": "辟邪雷（仿）：elemental法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "projectile",
+        "element": "thunder",
+        "damage_base": 49,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "辟邪雷（仿）：elemental法术，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "thunder"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "thunder"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_fire",
+      "display": "fire系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "fire",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "fire系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "fire系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_water",
+      "display": "water系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "water",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "water系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "water系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "water"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_earth",
+      "display": "earth系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "earth",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "earth系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "earth系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "earth"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "earth"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_wind",
+      "display": "wind系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "wind",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "wind系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "wind",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "wind系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "wind"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "wind"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_metal",
+      "display": "metal系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "metal",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "metal系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "metal系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "metal"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_wood",
+      "display": "wood系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "wood",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "wood系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "wood系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "wood"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "wood"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_ice",
+      "display": "ice系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "ice",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "ice系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "ice系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "ice"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "elemental_burst_thunder",
+      "display": "thunder系爆发术（通称）",
+      "school": "elemental",
+      "tier": "spell",
+      "element": "thunder",
+      "realm_min": "FOUNDATION",
+      "structural": true,
+      "description": "thunder系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "projectile",
+        "element": "thunder",
+        "damage_base": 37,
+        "tags": [
+          "elemental"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "changchun_gong",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "thunder系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "changchun_gong",
+        "element": "thunder"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "thunder"
+          ]
+        }
+      }
+    },
+    {
+      "id": "huangfeng_fire_serpent",
+      "display": "黄枫火蛇术",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "FOUNDATION",
+      "requires_method": "changchun_gong",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 42,
+        "tags": [
+          "sect_huangfeng"
+        ]
+      },
+      "description": "黄枫谷低阶火系法术，凝火成蛇扑敌。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "黄枫谷低阶火系法术，凝火成蛇扑敌。",
+        "requires_method": "changchun_gong",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "luoyun_spirit_flame",
+      "display": "落云灵焰",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "FOUNDATION",
+      "requires_method": "luoyun_dan_dao",
+      "effect": {
+        "type": "beam",
+        "damage_base": 36,
+        "tags": [
+          "alchemy_synergy"
+        ]
+      },
+      "description": "丹火化焰，斗法威力一般但可引丹火。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "丹火化焰，斗法威力一般但可引丹火。",
+        "requires_method": "luoyun_dan_dao",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "luoyun_dan_dao"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "primordial_magnet_sphere",
+      "display": "元磁神光",
+      "school": "elemental",
+      "element": "metal",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 80,
+        "tags": [
+          "magnet",
+          "control"
+        ]
+      },
+      "description": "元磁之力摄物控敌，金属法宝受制。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 26,
+      "requires_method": "changchun_gong",
+      "setting": {
+        "cast_type": "sustained",
+        "target": "area",
+        "lore": "元磁神光摄金属法宝与飞剑。",
+        "counter": [
+          "non_metal_arts"
+        ]
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "changchun_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_jade_shield",
+      "display": "冰玉盾",
+      "school": "elemental",
+      "element": "ice",
+      "realm_min": "FOUNDATION",
+      "requires_method": "xuanbing_zhenjing",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "ice_shield"
+        ]
+      },
+      "description": "凝冰为盾，挡术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "凝冰为盾，挡术法。",
+        "requires_method": "xuanbing_zhenjing",
+        "element": "ice"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuanbing_zhenjing"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "ice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "flame_serpent_storm",
+      "display": "炎蛇风暴",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "lieyan_zhenjing",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 75
+      },
+      "description": "火蛇交织成风暴。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "火蛇交织成风暴。",
+        "requires_method": "lieyan_zhenjing",
+        "element": "fire"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "lieyan_zhenjing"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "fire"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wood_spirit_vine",
+      "display": "木灵藤",
+      "school": "elemental",
+      "element": "wood",
+      "realm_min": "FOUNDATION",
+      "requires_method": "qingmu_gong",
+      "effect": {
+        "type": "control",
+        "tags": [
+          "bind"
+        ]
+      },
+      "description": "藤萝缚足。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "藤萝缚足。",
+        "requires_method": "qingmu_gong",
+        "element": "wood"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingmu_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "wood"
+          ]
+        }
+      }
+    },
+    {
+      "id": "water_mirror_reflect",
+      "display": "水镜术",
+      "school": "elemental",
+      "element": "water",
+      "realm_min": "FOUNDATION",
+      "requires_method": "shuiyuan_gong",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "reflect_partial"
+        ]
+      },
+      "description": "水镜偏折部分术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "水镜偏折部分术法。",
+        "requires_method": "shuiyuan_gong",
+        "element": "water"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "shuiyuan_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "water"
+          ]
+        }
+      }
+    },
+    {
+      "id": "earth_mountain_press",
+      "display": "山岳压",
+      "school": "elemental",
+      "element": "earth",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "tuyuan_gong",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 65
+      },
+      "description": "土灵化山影砸落。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "土灵化山影砸落。",
+        "requires_method": "tuyuan_gong",
+        "element": "earth"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "tuyuan_gong"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "earth"
+          ]
+        }
+      }
+    },
+    {
+      "id": "xuantian_ice_prison",
+      "display": "玄天冰牢",
+      "school": "elemental",
+      "element": "ice",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "xuantian_ice_art",
+      "effect": {
+        "type": "control",
+        "tags": [
+          "freeze"
+        ]
+      },
+      "description": "冰封敌人行动。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "五行术法",
+        "cast_bias": "elemental",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "冰封敌人行动。",
+        "requires_method": "xuantian_ice_art",
+        "element": "ice"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "xuantian_ice_art"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "ice"
+          ]
+        }
+      }
+    }
+  ],
+  "root_gate_note": "汇编18：灵根属性解锁对应属性法术；伪灵根可学但效率 debuff 在 cultivation 侧",
+  "root_gate_ref": "spirit_roots_catalog.json#synergy"
+}

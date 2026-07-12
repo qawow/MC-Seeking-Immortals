@@ -1,0 +1,91 @@
+{
+  "schema_version": 3,
+  "parent_faction": "star_palace",
+  "factions": [
+    {
+      "id": "star_palace_enforcement",
+      "display": "执法派",
+      "perks": [
+        "patrol_merit_bonus"
+      ],
+      "setting": {
+        "lore": "主张严刑巡防，与逆星硬碰。",
+        "source_file": "star_palace_internal_factions.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "star_palace_internal_factions.json"
+      }
+    },
+    {
+      "id": "star_palace_commerce",
+      "display": "贸易派",
+      "perks": [
+        "tax_reduction_deal"
+      ],
+      "setting": {
+        "lore": "主张以商养战，传送阵与拍卖利益。",
+        "source_file": "star_palace_internal_factions.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "star_palace_internal_factions.json"
+      }
+    },
+    {
+      "id": "star_palace_council_neutral",
+      "display": "长老会中立",
+      "setting": {
+        "lore": "长老会骑墙调停，任务偏情报与斡旋。",
+        "source_file": "star_palace_internal_factions.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "star_palace_internal_factions.json"
+      }
+    }
+  ],
+  "player_choice": "join_branch_or_remain_neutral",
+  "quest_chains": [
+    {
+      "id": "star_palace_enforcement_patrol",
+      "display": "执法派巡防",
+      "branch": "star_palace_enforcement",
+      "steps": [
+        "star_palace_patrol_brief",
+        "outer_sea_demon_suppress",
+        "enforcement_merit_turn_in"
+      ],
+      "setting": {
+        "lore": "执法派主导清剿外海妖兽与逆星走私船。"
+      }
+    },
+    {
+      "id": "star_palace_commerce_license",
+      "display": "贸易派通行",
+      "branch": "star_palace_commerce",
+      "steps": [
+        "commerce_tax_audit",
+        "teleport_array_fee_waiver",
+        "void_auction_broker"
+      ],
+      "setting": {
+        "lore": "贸易派争取传送阵许可与拍卖分成。"
+      }
+    },
+    {
+      "id": "star_palace_council_mediation",
+      "display": "长老会调停",
+      "branch": "star_palace_council_neutral",
+      "steps": [
+        "faction_rival_rumor",
+        "council_neutral_mission",
+        "dual_rep_penalty_avoid"
+      ],
+      "setting": {
+        "lore": "两派内斗时中立长老委以调停差事。"
+      }
+    }
+  ],
+  "chaotic_sea_quest_hub_ref": "chaotic_sea_faction_quests.json"
+}

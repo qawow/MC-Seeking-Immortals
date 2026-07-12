@@ -1,0 +1,30 @@
+{
+  "id": "body_tempering_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.body_tempering_pill",
+  "output_items": {
+    "low": "seeking_immortals:body_tempering_pill",
+    "medium": "seeking_immortals:body_tempering_pill_mid",
+    "high": "seeking_immortals:body_tempering_pill_high",
+    "supreme": "seeking_immortals:body_tempering_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 24,
+  "cook_ticks": 460,
+  "success_rate": 0.62,
+  "explosion_chance": 0.04,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:beast_core",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "source": "puppet_parts_catalog.json",
+  "primary_key": "parts",
+  "entries": [
+    {
+      "id": "puppet_core_blank",
+      "display": "傀儡灵核（空）"
+    },
+    {
+      "id": "ironwood_frame",
+      "display": "铁木机架"
+    },
+    {
+      "id": "turtle_plating",
+      "display": "龟甲覆片"
+    },
+    {
+      "id": "thunder_fire_orb",
+      "display": "雷火珠"
+    },
+    {
+      "id": "stone_spirit_core",
+      "display": "石灵核心"
+    },
+    {
+      "id": "dayan_solution_fragment",
+      "display": "大衍诀残页"
+    },
+    {
+      "id": "ancient_puppet_method",
+      "display": "上古傀儡术"
+    },
+    {
+      "id": "puppet_repair_kit",
+      "display": "傀儡修缮包"
+    },
+    {
+      "id": "giant_ape_puppet_blueprint",
+      "display": "巨猿傀儡图"
+    },
+    {
+      "id": "giant_turtle_shell_blank",
+      "display": "巨龟甲胚"
+    },
+    {
+      "id": "puppet_joint_bearing",
+      "display": "机括轴承"
+    },
+    {
+      "id": "refinement_forge_hammer",
+      "display": "炼器锤（低阶）"
+    },
+    {
+      "id": "puppet_limb_iron",
+      "display": "铁制傀儡肢"
+    },
+    {
+      "id": "puppet_array_core",
+      "display": "傀儡阵芯"
+    },
+    {
+      "id": "giant_turtle_shell_plate",
+      "display": "巨龟壳板"
+    }
+  ]
+}

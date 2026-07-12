@@ -1,0 +1,371 @@
+{
+  "schema_version": 8,
+  "school": "body",
+  "techniques": [
+    {
+      "id": "vajra_body",
+      "display": "金刚诀",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "金刚诀：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金刚诀：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "iron_skin",
+      "display": "铁肤术",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "铁肤术：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "铁肤术：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "dragon_strength",
+      "display": "龙力诀",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "龙力诀：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "龙力诀：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "palm_wind",
+      "display": "掌风",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "wind",
+        "damage_base": 25,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "掌风：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "掌风：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "body_flash",
+      "display": "身闪",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 10,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "身闪：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "身闪：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "bone_crush",
+      "display": "碎骨拳",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "earth",
+        "damage_base": 32,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "碎骨拳：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "碎骨拳：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "qi_burst_palm",
+      "display": "气爆掌",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "neutral",
+        "damage_base": 28,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "气爆掌：body法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "气爆掌：body法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "body_hardness",
+      "display": "金刚不坏",
+      "school": "body",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "description": "金刚不坏：body法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 49,
+        "tags": [
+          "body"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金刚不坏：body法术，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "barbarian_roar",
+      "display": "蛮荒咆哮",
+      "school": "body",
+      "tier": "spell",
+      "realm_min": "VOID_REFINING",
+      "description": "蛮荒咆哮：body法术，需境界 VOID_REFINING 以上方可施展。",
+      "spirit_cost_base": 50,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 85,
+        "tags": [
+          "body"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "tianmo_body_art",
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "蛮荒咆哮：body法术，需境界 VOID_REFINING 以上方可施展。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "VOID_REFINING",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    },
+    {
+      "id": "tianmo_blood_armor",
+      "display": "天魔血甲",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianmo_body_art",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "defense",
+          "demonic"
+        ]
+      },
+      "description": "血祭化甲，短时大幅提升物防。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "cultivation_type": "body",
+        "combat_style": "肉身近战",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血祭化甲，短时大幅提升物防。",
+        "requires_method": "tianmo_body_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianmo_body_art"
+        ]
+      }
+    }
+  ]
+}

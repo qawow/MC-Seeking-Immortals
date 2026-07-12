@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source": "cultivation_progression.json",
+  "primary_key": "realms",
+  "entries": [
+    {
+      "id": "QI_REFINING",
+      "display": "炼气"
+    },
+    {
+      "id": "FOUNDATION",
+      "display": "筑基"
+    },
+    {
+      "id": "CORE_FORMATION",
+      "display": "结丹"
+    },
+    {
+      "id": "NASCENT_SOUL",
+      "display": "元婴"
+    },
+    {
+      "id": "DEITY_TRANSFORMATION",
+      "display": "化神"
+    },
+    {
+      "id": "VOID_REFINEMENT",
+      "display": "炼虚"
+    },
+    {
+      "id": "BODY_INTEGRATION",
+      "display": "合体"
+    },
+    {
+      "id": "GREAT_VEHICLE",
+      "display": "大乘"
+    },
+    {
+      "id": "TRIBULATION_LAND",
+      "display": "渡劫期"
+    }
+  ]
+}

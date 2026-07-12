@@ -1,0 +1,22 @@
+{
+  "id": "star_palace_patrol_supply",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "refresh_ticks": 48000,
+  "entries": [
+    {
+      "id": "body_guard_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 25,
+      "stock": 10
+    },
+    {
+      "id": "anti_demon_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 55,
+      "stock": 5
+    }
+  ]
+}

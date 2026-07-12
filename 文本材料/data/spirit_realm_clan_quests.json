@@ -1,0 +1,541 @@
+{
+  "schema_version": 4,
+  "source": "汇编 灵界十八族；每族至少一任务钩+特产兑换",
+  "factions": [
+    {
+      "faction_id": "tianhu",
+      "display": "天狐族",
+      "specialty_item": "illusion_pearl",
+      "culture": "幻术与盟约",
+      "taboo": "破誓",
+      "quest_hooks": [
+        "illusion_trial",
+        "illusion_pearl_trade",
+        "fox_illusion_maze"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_tianhu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "fox_illusion_maze",
+      "setting": {
+        "lore": "天狐族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "shuyao",
+      "display": "树妖族",
+      "specialty_item": "ancient_wood_core",
+      "culture": "森罗共生",
+      "taboo": "焚林",
+      "quest_hooks": [
+        "forest_oath",
+        "ancient_wood_core_donate",
+        "root_network_repair"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_shuyao",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "root_network_repair",
+      "setting": {
+        "lore": "树妖族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "shiren",
+      "display": "石人族",
+      "specialty_item": "spirit_stone_vein_map",
+      "culture": "地脉守望",
+      "taboo": "掘祖脉",
+      "quest_hooks": [
+        "vein_guard_patrol",
+        "spirit_stone_vein_map_quest",
+        "stone_heart_awakening"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_shiren",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "stone_heart_awakening",
+      "setting": {
+        "lore": "石人族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "feiling",
+      "display": "飞灵族",
+      "specialty_item": "wind_feather",
+      "culture": "天风骑猎",
+      "taboo": "缚翼",
+      "quest_hooks": [
+        "wind_hunt_race",
+        "wind_feather_craft_order",
+        "sky_feather_raid"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_feiling",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "sky_feather_raid",
+      "setting": {
+        "lore": "飞灵族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "jinyi",
+      "display": "金翼族",
+      "specialty_item": "gold_wing_plate",
+      "culture": "铸翼战阵",
+      "taboo": null,
+      "quest_hooks": [
+        "wing_plate_forge",
+        "aerial_duel",
+        "gold_wing_array_drill"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_jinyi",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "gold_wing_array_drill",
+      "setting": {
+        "lore": "金翼族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "yaksha",
+      "display": "夜叉族",
+      "specialty_item": "yaksha_blood",
+      "culture": "战鬼血祭",
+      "taboo": null,
+      "quest_hooks": [
+        "blood_rite_contract",
+        "yaksha_blood_exchange",
+        "night_battle_trial"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_yaksha",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "night_battle_trial",
+      "setting": {
+        "lore": "夜叉族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "tianyuan_city",
+      "display": "天渊城",
+      "specialty_item": "border_merit_token",
+      "culture": "人妖共防魔潮",
+      "taboo": null,
+      "quest_hooks": [
+        "tianyuan_enlist",
+        "demon_hunt_weekly",
+        "border_wall_reinforce"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_tianyuan_city",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "economy_ref": "economy_contribution_exchange.json#tianyuan",
+      "quest_chains": [
+        "tianyuan_merit_path"
+      ],
+      "quest_hooks_secondary_ref": "border_wall_reinforce",
+      "setting": {
+        "lore": "天渊城"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "langzu",
+      "display": "狼族",
+      "specialty_item": "moon_fang",
+      "culture": "月嚎猎团",
+      "taboo": null,
+      "quest_hooks": [
+        "moon_hunt",
+        "moon_fang_tribute",
+        "moon_howl_ritual"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_langzu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "moon_howl_ritual",
+      "setting": {
+        "lore": "狼族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "zhizu",
+      "display": "蛛族",
+      "specialty_item": "soul_silk",
+      "culture": "丝网陷阱",
+      "taboo": null,
+      "quest_hooks": [
+        "silk_trap_clear",
+        "soul_silk_weave"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_zhizu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "蛛族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "shezu",
+      "display": "蛇族",
+      "specialty_item": "venom_sac_refined",
+      "culture": "毒潭秘仪",
+      "taboo": null,
+      "quest_hooks": [
+        "venom_sac_delivery",
+        "poison_swamp_escort",
+        "venom_sac_refine"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_shezu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "venom_sac_refine",
+      "setting": {
+        "lore": "蛇族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "xiongzu",
+      "display": "熊族",
+      "specialty_item": "bear_totem",
+      "culture": "巨力图腾",
+      "taboo": null,
+      "quest_hooks": [
+        "totem_guard",
+        "bear_totem_bless"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_xiongzu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "熊族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "huzhu",
+      "display": "虎族",
+      "specialty_item": "tiger_bone_talisman",
+      "culture": "山林霸主",
+      "taboo": null,
+      "quest_hooks": [
+        "tiger_territory_mark",
+        "tiger_bone_talisman_craft"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_huzhu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "tiger_territory_mark",
+      "setting": {
+        "lore": "虎族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "yuzu",
+      "display": "鱼族",
+      "specialty_item": "deep_pearl",
+      "culture": "深海水府",
+      "taboo": null,
+      "quest_hooks": [
+        "deep_pearl_dive",
+        "water_court_permit"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_yuzu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "鱼族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "niaozu",
+      "display": "鸟族",
+      "specialty_item": "sky_plume",
+      "culture": "空岛驿站",
+      "taboo": null,
+      "quest_hooks": [
+        "sky_plume_courier",
+        "air_island_relay"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_niaozu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "鸟族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "guizu",
+      "display": "龟族",
+      "specialty_item": "turtle_shell_array",
+      "culture": "长寿阵师",
+      "taboo": null,
+      "quest_hooks": [
+        "longevity_array_repair",
+        "turtle_shell_array_scroll",
+        "turtle_shell_array"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_guizu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "turtle_shell_array",
+      "setting": {
+        "lore": "龟族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "shouzu",
+      "display": "兽族（泛）",
+      "specialty_item": "beast_contract",
+      "culture": "混居部落",
+      "taboo": null,
+      "quest_hooks": [
+        "mixed_tribe_mediation",
+        "beast_contract_witness"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_shouzu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "兽族（泛）"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "mozu",
+      "display": "魔族支系",
+      "specialty_item": "demon_blood_crystal",
+      "culture": "边境劫掠",
+      "taboo": null,
+      "quest_hooks": [
+        "border_raid_repulse",
+        "demon_blood_crystal_turnin",
+        "demon_blood_oath"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_mozu",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "quest_hooks_secondary_ref": "demon_blood_oath",
+      "setting": {
+        "lore": "魔族支系"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "renzu_lingjie",
+      "display": "灵界人族",
+      "specialty_item": "ascension_token",
+      "culture": "天渊城附庸",
+      "taboo": null,
+      "quest_hooks": [
+        "ascension_token_verify",
+        "human_enclave_tax"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_renzu_lingjie",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "灵界人族"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "faction_id": "barbarian_council",
+      "display": "蛮荒妖王议会",
+      "specialty_item": "barbarian_king_token",
+      "culture": "弱肉强食朝贡",
+      "taboo": null,
+      "quest_hooks": [
+        "clan_generic_tribute"
+      ],
+      "reward_pattern": [
+        "specialty_item",
+        "rep_barbarian_council",
+        "spirit_stone_mid"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "蛮荒妖王议会"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "VOID_REFINING",
+          "region": "spirit_world"
+        }
+      }
+    }
+  ],
+  "cross_refs": {
+    "human_clan_league": "human_clan_league.json",
+    "barbarian_kings": "barbarian_demon_kings.json",
+    "fengyuan_region": "region_cards/spirit_fengyuan.json",
+    "tianyuan": "tianyuan_city.json",
+    "spirit_eighteen_index": "faction_species.json#spirit_realm_factions"
+  },
+  "barbarian_faction_affinity_map": {
+    "king_fox_mist": "tianhu",
+    "king_pine_ancient": "shuyao",
+    "king_snake_swamp": "shezu",
+    "king_tiger_jungle": "huzhu",
+    "king_turtle_depth": "guizu"
+  },
+  "note_secondary_hooks": "每族至少两钩：原钩+汇编扩展第二钩"
+}

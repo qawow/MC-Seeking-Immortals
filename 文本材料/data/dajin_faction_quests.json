@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "region": "dajin",
+  "factions_ref": "dajin_factions.json",
+  "chains": [
+    {
+      "id": "dajin_wanbao_route",
+      "display": "万宝楼拍卖线",
+      "faction": "wanbao_pavilion",
+      "steps": [
+        "wanbao_register_bidder",
+        "auction_preview_intel",
+        "post_auction_escort"
+      ],
+      "setting": {
+        "lore": "大晋拍卖中枢，正魔皆可竞价。"
+      }
+    },
+    {
+      "id": "dajin_clan_line",
+      "display": "世家祖传诀",
+      "faction": "dajin_clan_alliance",
+      "steps": [
+        "clan_territory_patrol",
+        "ancestor_manual_fragment",
+        "clan_feud_mediation"
+      ],
+      "setting": {
+        "lore": "宁家等世家领地与祖传功法碎片。"
+      }
+    },
+    {
+      "id": "dajin_righteous_demon_border",
+      "display": "正魔边境摩擦",
+      "steps": [
+        "border_skirmish_hook",
+        "hehuan_or_yinluo_infiltration",
+        "taizhen_sword_support_optional"
+      ],
+      "setting": {
+        "lore": "合欢、阴罗渗透与太真门剑阵支援结构向。"
+      },
+      "border_ref": "dajin_righteous_demon_border.json"
+    },
+    {
+      "id": "yinluo_ghost_river",
+      "display": "阴罗冥河线",
+      "faction": "yinluo_hall",
+      "steps": [
+        "ghost_path_initiation",
+        "nether_river_pocket_rumor",
+        "yin_underworld_gate_contact"
+      ],
+      "setting": {
+        "lore": "鬼道与冥河秘境交汇，结构向。"
+      }
+    }
+  ],
+  "dimension_registry_ref": "dimension_registry.json"
+}

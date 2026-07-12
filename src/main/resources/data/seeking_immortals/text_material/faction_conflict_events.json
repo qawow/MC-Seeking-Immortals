@@ -1,0 +1,465 @@
+{
+  "schema_version": 3,
+  "events": [
+    {
+      "id": "huangfeng_yanyue_rivalry",
+      "display": "天南两宗摩擦",
+      "factions": [
+        "huangfeng_valley",
+        "yanyue_sect"
+      ],
+      "type": "rivalry",
+      "region": "tiannan",
+      "triggers": [
+        "sect_recruit",
+        "herb_gather_contract"
+      ],
+      "effects": {
+        "reputation_shift": 3,
+        "duel_chance": 0.15
+      },
+      "setting": {
+        "lore": "黄枫谷与燕乐山门弟子在外门资源上摩擦，偶发斗法不伤及性命。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "star_palace_inverse_war",
+      "display": "星宫清剿逆星",
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance"
+      ],
+      "type": "war",
+      "region": "chaotic_sea",
+      "triggers": [
+        "pirate_raid",
+        "inverse_star_sabotage"
+      ],
+      "effects": {
+        "blockade_islands": true,
+        "tax_increase": 0.05
+      },
+      "setting": {
+        "lore": "星宫对逆星盟清剿常年不断，岛屿封锁与赋税上调并行。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "mulan_tianlan_campaign",
+      "display": "慕兰天澜大战",
+      "factions": [
+        "mulan_council",
+        "tianlan_temple"
+      ],
+      "type": "war",
+      "region": "mulan",
+      "cycle_bind": "cycle_mulan_invasion",
+      "effects": {
+        "spawn_fashi_squads": true,
+        "smuggle_route_open": "mulan_tianlan_smuggle"
+      },
+      "setting": {
+        "lore": "慕兰法士与天南联军大战，战役分边境摩擦、法士大阵、圣禽介入与停战分支。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "human_demon_alliance_council",
+      "display": "天渊两族议和",
+      "factions": [
+        "human_alliance",
+        "demon_alliance"
+      ],
+      "type": "alliance",
+      "region": "tianyuan",
+      "effects": {
+        "merit_shop_discount": 0.1
+      },
+      "setting": {
+        "lore": "天渊两族议和"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tianyuan"
+        }
+      }
+    },
+    {
+      "id": "feiling_border_skirmish",
+      "display": "飞灵边境冲突",
+      "factions": [
+        "feiling",
+        "demon_lords_border"
+      ],
+      "type": "war",
+      "region": "spirit_fengyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "setting": {
+        "lore": "飞灵边境冲突"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "qingxu_talisman_embargo",
+      "display": "清虚符材禁运",
+      "factions": [
+        "qingxu_gate",
+        "huadao_wu"
+      ],
+      "type": "blockade",
+      "region": "tiannan",
+      "effects": {
+        "talisman_paper_price_mult": 1.25
+      },
+      "setting": {
+        "lore": "清虚符材禁运"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "dajin_clan_auction_rival",
+      "display": "世家拍卖争标",
+      "factions": [
+        "dajin_clans_generic"
+      ],
+      "type": "rivalry",
+      "region": "dajin",
+      "hooks": [
+        "dajin_auction_preview"
+      ],
+      "setting": {
+        "lore": "世家拍卖争标"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "dajin"
+        }
+      }
+    },
+    {
+      "id": "tiannan_mulan_border_war",
+      "display": "天南慕兰边境战",
+      "factions": [
+        "tiannan_seven_sects",
+        "mulan_council"
+      ],
+      "type": "war",
+      "region": "mulan",
+      "cycle_bind": "cycle_mulan_invasion",
+      "effects": {
+        "spawn_fashi_squads": true,
+        "contribution_double_tiannan": true,
+        "wind_debuff_tiannan_army": 0.1
+      },
+      "rewards": [
+        "wind_herb",
+        "mulan_wind_pill"
+      ],
+      "setting": {
+        "lore": "天南慕兰边境战"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "tianlan_holy_beast_ritual",
+      "display": "天澜圣兽祭",
+      "factions": [
+        "tianlan_temple"
+      ],
+      "type": "ritual",
+      "region": "tianlan",
+      "effects": {
+        "buff_tianlan_fashi": true
+      },
+      "hooks": [
+        "hook_tianlan_saint_beast"
+      ],
+      "setting": {
+        "lore": "天澜圣兽祭"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tianlan"
+        }
+      }
+    },
+    {
+      "id": "mulan_smuggle_caravan",
+      "display": "慕兰走私商队",
+      "factions": [
+        "mulan_council",
+        "scatter_alliance"
+      ],
+      "type": "trade",
+      "region": "mulan",
+      "effects": {
+        "black_market_discount": 0.15
+      },
+      "setting": {
+        "lore": "慕兰走私商队"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "seven_sects_joint_defense",
+      "display": "七派联防令",
+      "factions": [
+        "huangfeng_valley",
+        "qingxu_gate",
+        "spirit_beast_mountain"
+      ],
+      "type": "alliance",
+      "region": "tiannan",
+      "triggers": [
+        "mulan_tiannan_border_war"
+      ],
+      "effects": {
+        "sect_shop_discount": 0.05
+      },
+      "setting": {
+        "lore": "七派联防令"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_blockade",
+      "display": "星宫封锁暗礁",
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance"
+      ],
+      "type": "blockade",
+      "region": "chaotic_sea",
+      "effects": {
+        "smuggle_risk_up": true,
+        "ferry_delay": true
+      },
+      "setting": {
+        "lore": "星宫封锁暗礁"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_raid_tax",
+      "display": "逆星劫税船",
+      "factions": [
+        "inverse_star_alliance",
+        "star_palace"
+      ],
+      "type": "war",
+      "region": "chaotic_sea",
+      "effects": {
+        "loot_spirit_stones": true
+      },
+      "setting": {
+        "lore": "逆星劫税船"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "ancient_demon_seal_breach",
+      "display": "古魔封印松动",
+      "type": "world_event",
+      "regions": [
+        "tiannan",
+        "fallen_demon_valley"
+      ],
+      "effects": {
+        "open_dimension": "seeking_immortals:demon_rift",
+        "spawn_demon_elite": true
+      },
+      "setting": {
+        "lore": "古魔封印松动"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_patrol_clash",
+      "display": "星宫巡海遇袭",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance",
+        "pirate_scatter"
+      ],
+      "effects": {
+        "rep_shift": true
+      },
+      "setting": {
+        "lore": "星宫巡海遇袭"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "void_palace_cycle_open",
+      "display": "虚天殿开启",
+      "type": "world_cycle",
+      "cycle": "cycle_void_palace",
+      "effects": {
+        "open_node": "node_void_palace_gate"
+      },
+      "setting": {
+        "lore": "虚天殿开启"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "mulan_tianlan_war_outbreak",
+      "display": "慕兰天澜战事爆发",
+      "type": "regional_war",
+      "war_ref": "mulan_tianlan_war.json",
+      "regions": [
+        "mulan",
+        "tianlan",
+        "tiannan_border"
+      ],
+      "chronicle": [
+        "K3_mulan_tianlan_war_1"
+      ],
+      "setting": {
+        "lore": "慕兰天澜战事爆发"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "conflict_zhengmo_border_skirmish",
+      "display": "正魔边境冲突",
+      "factions": [
+        "huangfeng_valley",
+        "guiling_gate"
+      ],
+      "region": "tiannan_north",
+      "effects": [
+        "spawn_demonic_scout"
+      ],
+      "setting": {
+        "lore": "魔道六宗北迁后，天南正道与魔道摩擦不断。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tiannan_north"
+        }
+      }
+    },
+    {
+      "id": "conflict_mulan_invasion_wave",
+      "display": "慕兰法士入侵",
+      "factions": [
+        "tiannan_alliance",
+        "mulan_fashi"
+      ],
+      "region": "mulan_border",
+      "effects": [
+        "war_event_mulan"
+      ],
+      "setting": {
+        "lore": "天南与法士大战，边境灵脉易主。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "mulan_border"
+        }
+      }
+    },
+    {
+      "id": "conflict_star_palace_raid",
+      "display": "星宫清剿逆星",
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance"
+      ],
+      "region": "chaotic_sea",
+      "effects": [
+        "sea_patrol_boost"
+      ],
+      "setting": {
+        "lore": "星宫清剿逆星"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "conflict_clan_vs_sect_mine",
+      "display": "家族夺矿",
+      "factions": [
+        "human_clan",
+        "minor_sect"
+      ],
+      "region": "tiannan",
+      "effects": [
+        "mine_dispute_quest"
+      ],
+      "setting": {
+        "lore": "家族夺矿"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "region": "tiannan"
+        }
+      }
+    }
+  ],
+  "graph_ref": "faction_graph.json"
+}

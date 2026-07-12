@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "type": ""
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "type": ""
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "type": ""
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "type": ""
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "type": ""
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "type": ""
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "type": ""
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "type": ""
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "type": ""
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "type": ""
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "type": ""
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "type": ""
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "type": ""
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "type": ""
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "type": ""
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "type": ""
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "type": ""
+    },
+    {
+      "id": "qianzhu_teach",
+      "display": "千竹教",
+      "type": ""
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰神师府",
+      "type": ""
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "type": ""
+    }
+  ],
+  "edge_count": 11
+}

@@ -1,0 +1,30 @@
+{
+  "id": "calming_pill_low",
+  "display_translation": "alchemy_recipe.seeking_immortals.calming_pill_low",
+  "output_items": {
+    "low": "seeking_immortals:calming_pill_low",
+    "medium": "seeking_immortals:calming_pill_mid",
+    "high": "seeking_immortals:calming_pill_high",
+    "supreme": "seeking_immortals:calming_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 25,
+  "cook_ticks": 500,
+  "success_rate": 0.75,
+  "explosion_chance": 0.03,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:phoenix_feather_flower",
+      "count": 1
+    }
+  ]
+}

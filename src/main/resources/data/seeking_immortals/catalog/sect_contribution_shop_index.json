@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "sect_contribution_shop.json",
+  "primary_key": "shops",
+  "entries": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷贡献堂"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗贡献阁"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫功勋库"
+    },
+    {
+      "id": "mulan_council",
+      "display": "慕兰神师库"
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗贡献殿"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗贡献楼"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山贡献堂"
+    }
+  ]
+}

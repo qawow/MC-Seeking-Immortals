@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "seeking_immortals:block/thunder_tribulation_altar",
+    "top": "seeking_immortals:block/thunder_tribulation_altar",
+    "side": "seeking_immortals:block/thunder_tribulation_altar"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "region": "dajin",
+  "source": "汇编 §9 大晋正魔并立；结构向阵营专精标签",
+  "camps": [
+    {
+      "id": "righteous_dajin",
+      "display": "大晋正道",
+      "alignment": "righteous",
+      "factions": [
+        "wanbao_pavilion",
+        "dajin_buddhist_temple_line",
+        "dajin_clan_alliance"
+      ],
+      "setting": {
+        "lore": "万宝楼拍卖、世家联盟、佛修一脉并立，共御魔道渗透。"
+      }
+    },
+    {
+      "id": "demonic_dajin",
+      "display": "大晋魔道",
+      "alignment": "demonic",
+      "factions": [
+        "hehuan_sect",
+        "yinluo_hall",
+        "demon_clan_scatter"
+      ],
+      "setting": {
+        "lore": "合欢双修、阴罗鬼道、魔道散修；与正道边境摩擦。"
+      }
+    }
+  ],
+  "factions": [
+    {
+      "id": "wanbao_pavilion",
+      "display": "万宝楼",
+      "role": "auction_house",
+      "specialty": [
+        "treasure_trade",
+        "intel"
+      ],
+      "spatial_node": "node_dajin_wanbao",
+      "quest_chains": [
+        "dajin_wanbao_route"
+      ],
+      "setting": {
+        "lore": "大晋拍卖中枢，正魔皆可竞价，情报价高。入门执事多修鉴宝诀，外围摊只收鉴宝费，真货上拍走独立灵石阶梯。"
+      },
+      "method_ref": "treasure_appraisal_art",
+      "skill_tree_ref": "tree_wanbao_treasure_art"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "role": "demon_sect",
+      "specialty": [
+        "dual_cultivation",
+        "charm"
+      ],
+      "methods": [
+        "hehuan_art"
+      ],
+      "setting": {
+        "lore": "魔道双修强宗，媚术与采补线结构向。"
+      }
+    },
+    {
+      "id": "yinluo_hall",
+      "display": "阴罗殿",
+      "role": "ghost_demon",
+      "specialty": [
+        "ghost_path",
+        "soul"
+      ],
+      "methods": [
+        "yinluo_ghost_art"
+      ],
+      "setting": {
+        "lore": "鬼道魔宗，与冥河、阴司线交汇。"
+      }
+    },
+    {
+      "id": "dajin_clan_alliance",
+      "display": "大晋世家盟",
+      "role": "clan_politics",
+      "specialty": [
+        "ancestor_art",
+        "territory"
+      ],
+      "quest_chains": [
+        "dajin_clan_line"
+      ],
+      "setting": {
+        "lore": "宁家等世家祖传诀与领地巡防。"
+      }
+    },
+    {
+      "id": "taizhen_gate",
+      "display": "太真门",
+      "role": "righteous_major",
+      "specialty": [
+        "sword",
+        "formation"
+      ],
+      "setting": {
+        "lore": "正道大派之一，剑阵双修标签。"
+      }
+    }
+  ],
+  "border_conflict_ref": "dajin_righteous_demon_border.json",
+  "quest_hub_ref": "dajin_faction_quests.json"
+}

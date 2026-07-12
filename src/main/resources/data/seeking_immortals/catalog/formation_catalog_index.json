@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "source": "formation_catalog.json",
+  "primary_key": "formations",
+  "entries": [
+    {
+      "id": "spirit_gather",
+      "display": "聚灵阵"
+    },
+    {
+      "id": "illusion_maze",
+      "display": "迷踪阵"
+    },
+    {
+      "id": "kill_sword",
+      "display": "杀阵"
+    },
+    {
+      "id": "defense_wall",
+      "display": "守阵"
+    },
+    {
+      "id": "thunder_tribulation_array",
+      "display": "引雷阵"
+    },
+    {
+      "id": "five_elements_mountain",
+      "display": "元合五极山"
+    },
+    {
+      "id": "seal_demon_array",
+      "display": "封魔大阵"
+    },
+    {
+      "id": "teleport_array",
+      "display": "传送阵"
+    },
+    {
+      "id": "blood_forbidden_gate",
+      "display": "禁地门阵"
+    },
+    {
+      "id": "nine_dragon_flame_barrier",
+      "display": "九龙神火罩（阵法仿）"
+    },
+    {
+      "id": "inverted_five_elements_array",
+      "display": "颠倒五行阵"
+    },
+    {
+      "id": "vajra_prison_array",
+      "display": "金刚困仙阵"
+    },
+    {
+      "id": "spirit_gathering_minor",
+      "display": "聚灵小阵"
+    },
+    {
+      "id": "demon_seal_pillar_array",
+      "display": "封魔柱阵"
+    },
+    {
+      "id": "mulan_wind_ride_array",
+      "display": "御风阵"
+    },
+    {
+      "id": "illusion_maze_array",
+      "display": "迷踪幻阵"
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵"
+    },
+    {
+      "id": "sword_array_bagua",
+      "display": "八卦剑阵"
+    },
+    {
+      "id": "teleport_array_long_range",
+      "display": "远距离传送阵"
+    },
+    {
+      "id": "barrier_sect_protection",
+      "display": "护山大阵"
+    }
+  ]
+}

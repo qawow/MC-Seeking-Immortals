@@ -1,0 +1,1418 @@
+{
+  "schema_version": 5,
+  "herbs": [
+    {
+      "id": "yellow_essence",
+      "display": "黄精",
+      "age_years": 50,
+      "use": "qi_pill",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "黄精",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ginseng_spirit",
+      "display": "灵参",
+      "age_years": 100,
+      "use": "recovery",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "灵参",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "snow_lotus",
+      "display": "雪莲花",
+      "age_years": 200,
+      "use": "ice_breakthrough",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "雪莲花",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "dajin",
+            "kunwu"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fire_sparrow_fruit",
+      "display": "火灵果",
+      "age_years": 80,
+      "use": "fire_cultivation",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "火灵果",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_moss",
+      "display": "魂苔",
+      "age_years": 30,
+      "use": "soul_pill",
+      "regions": [
+        "chaotic_sea",
+        "nether"
+      ],
+      "setting": {
+        "lore": "魂苔",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea",
+            "nether"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dragon_blood_grass",
+      "display": "龙血草",
+      "age_years": 500,
+      "use": "bloodline",
+      "rarity": "legendary",
+      "regions": [
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "龙血草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "kunwu"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_marrow_herb",
+      "display": "虚空髓草",
+      "age_years": 300,
+      "use": "void_refinement",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "setting": {
+        "lore": "虚空髓草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "spirit_fengyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_corruption_fungus",
+      "display": "魔染菌",
+      "age_years": 20,
+      "use": "demon_pill",
+      "risk": "demon_qi",
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "setting": {
+        "lore": "魔染菌",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "fallen_demon_valley"
+          ]
+        }
+      }
+    },
+    {
+      "id": "frost_moon_flower",
+      "display": "霜月花",
+      "age_years": 150,
+      "use": "yin_pill",
+      "regions": [
+        "yinming"
+      ],
+      "setting": {
+        "lore": "霜月花",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "yinming"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nether_bone_grass",
+      "display": "冥骨草",
+      "age_years": 40,
+      "use": "ghost_cultivation",
+      "regions": [
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "冥骨草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "nether_river"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thunder_essence_lotus",
+      "display": "雷莹莲",
+      "age_years": 300,
+      "use": "tribulation_pill",
+      "rarity": "rare",
+      "regions": [
+        "chaotic_sea_storm"
+      ],
+      "setting": {
+        "lore": "雷莹莲",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea_storm"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_moon_grass",
+      "display": "星月草",
+      "age_years": 200,
+      "use": "spirit_refinement",
+      "regions": [
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "星月草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tianyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "phoenix_tail_fern",
+      "display": "凤尾蕨",
+      "age_years": 400,
+      "use": "resurrection_pill",
+      "rarity": "legendary",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "setting": {
+        "lore": "凤尾蕨",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "spirit_fengyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "earth_spine_root",
+      "display": "地龙根",
+      "age_years": 250,
+      "use": "body_refinement",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "地龙根",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "dajin",
+            "kunwu"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_face_mushroom",
+      "display": "鬼面菇",
+      "age_years": 15,
+      "use": "poison_pill",
+      "risk": "yin_corruption",
+      "regions": [
+        "yinming"
+      ],
+      "setting": {
+        "lore": "鬼面菇",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "yinming"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_mushroom",
+      "display": "灵菇",
+      "age_years": 10,
+      "use": "food_spirit",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "灵菇",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_ice_lotus",
+      "display": "昆吾冰莲",
+      "age_years": 400,
+      "use": "ice_breakthrough",
+      "rarity": "epic",
+      "regions": [
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "昆吾冰莲",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "kunwu"
+          ]
+        }
+      }
+    },
+    {
+      "id": "purple_ganoderma",
+      "display": "紫芝",
+      "age_years": 120,
+      "use": "recovery",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "紫芝",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_lotus",
+      "display": "血莲",
+      "age_years": 180,
+      "use": "blood_pill",
+      "risk": "karma",
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "setting": {
+        "lore": "血莲",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "fallen_demon_valley"
+          ]
+        }
+      }
+    },
+    {
+      "id": "anti_demon_herb",
+      "display": "驱魔草",
+      "rarity": "uncommon",
+      "age_tiers": [
+        50,
+        100
+      ],
+      "region": "tiannan",
+      "setting": {
+        "lore": "驱魔草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "wind_herb",
+      "display": "风行草",
+      "rarity": "common",
+      "age_tiers": [
+        30,
+        80
+      ],
+      "region": "mulan",
+      "setting": {
+        "lore": "风行草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "sea_coral_herb",
+      "display": "珊瑚灵藻",
+      "rarity": "uncommon",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "珊瑚灵藻",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "nether_mist_flower",
+      "display": "冥雾兰",
+      "rarity": "rare",
+      "region": "nether_river",
+      "setting": {
+        "lore": "冥雾兰",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "kunwu_fire_moss",
+      "display": "昆吾火苔",
+      "rarity": "rare",
+      "region": "kunwu_mountain",
+      "setting": {
+        "lore": "昆吾火苔",
+        "tier": null
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "diyuan_pressure_moss",
+      "display": "地渊重压苔",
+      "regions": [
+        "diyuan"
+      ],
+      "tier": "rare",
+      "alchemy_tags": [
+        "pressure_resist"
+      ],
+      "setting": {
+        "lore": "地渊重压苔",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "diyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wild_land_spirit_sand",
+      "display": "荒原灵砂",
+      "regions": [
+        "wild_land"
+      ],
+      "tier": "uncommon",
+      "setting": {
+        "lore": "荒原灵砂",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "wild_land"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fengyuan_clan_ginseng",
+      "display": "风元世家参",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "tier": "rare",
+      "setting": {
+        "lore": "风元世家参",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "spirit_fengyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lingzhi_thousand_year",
+      "display": "千年灵芝",
+      "tier": "rare",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "千年灵芝",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_ginseng",
+      "display": "血参",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "血参",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "ice_lotus",
+      "display": "冰莲",
+      "tier": "rare",
+      "element": "ice",
+      "setting": {
+        "lore": "冰莲",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "fire_heart_herb",
+      "display": "火心草",
+      "tier": "uncommon",
+      "element": "fire",
+      "setting": {
+        "lore": "火心草",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "void_sky_grass",
+      "display": "虚天灵草",
+      "tier": "legendary",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "虚天灵草",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_marrow_root",
+      "display": "灵髓根",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵髓根",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "golden_silk_flower",
+      "display": "金蚕花",
+      "tier": "rare",
+      "setting": {
+        "lore": "金蚕花",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "yin_moon_orchid",
+      "display": "阴月兰",
+      "tier": "rare",
+      "school": "ghost",
+      "setting": {
+        "lore": "阴月兰",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "yang_sun_fruit",
+      "display": "阳日果",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "阳日果",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "purple_bamboo_shoot",
+      "display": "紫竹笋",
+      "tier": "uncommon",
+      "element": "wood",
+      "setting": {
+        "lore": "紫竹笋",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "star_sea_coral_herb",
+      "display": "星海珊瑚草",
+      "tier": "rare",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "星海珊瑚草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "barbarian_beast_lichen",
+      "display": "蛮荒兽苔",
+      "tier": "rare",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "setting": {
+        "lore": "蛮荒兽苔",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "barbarian_wasteland"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yellow_essence_grass",
+      "display": "黄精草",
+      "tier": "common",
+      "setting": {
+        "lore": "黄精草",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "seven_rain_lotus",
+      "display": "七霞莲",
+      "tier": "legendary",
+      "setting": {
+        "lore": "七霞莲",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "thousand_year_ginseng",
+      "display": "千年人参",
+      "tier": "rare",
+      "setting": {
+        "lore": "千年人参",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "golden_thunder_bamboo",
+      "display": "金雷竹",
+      "tier": "legendary",
+      "setting": {
+        "lore": "金雷竹",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "soul_nourish_wood",
+      "display": "养魂木",
+      "tier": "legendary",
+      "setting": {
+        "lore": "养魂木",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "cold_jade_herb",
+      "display": "寒玉草",
+      "tier": "rare",
+      "setting": {
+        "lore": "寒玉草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "ghost_yin_herb",
+      "display": "阴魂草",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴魂草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "demon_blood_flower",
+      "display": "魔血花",
+      "tier": "rare",
+      "setting": {
+        "lore": "魔血花",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "wind_spirit_grass",
+      "display": "风灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "风灵草",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "earth_marrow_herb",
+      "display": "地髓草",
+      "tier": "rare",
+      "setting": {
+        "lore": "地髓草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "fire_spirit_fruit",
+      "display": "火灵果",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "火灵果",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "water_moon_lily",
+      "display": "水月莲",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "水月莲",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "metal_spirit_vine",
+      "display": "金灵藤",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "金灵藤",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "wood_spirit_root",
+      "display": "木灵根",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "木灵根",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "fallen_demon_herb",
+      "display": "坠魔草",
+      "tier": "legendary",
+      "setting": {
+        "lore": "坠魔草",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "display": "禁地血草",
+      "tier": "rare",
+      "setting": {
+        "lore": "禁地血草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "yinming_mist_orchid",
+      "display": "阴冥雾兰",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴冥雾兰",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_kelp",
+      "display": "乱星海藻",
+      "tier": "common",
+      "setting": {
+        "lore": "乱星海藻",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "tiannan_fire_grass",
+      "display": "天南火灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "天南火灵草",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "dajin_spirit_rice",
+      "display": "大晋灵稻",
+      "tier": "common",
+      "setting": {
+        "lore": "大晋灵稻",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "mulan_spirit_grass",
+      "display": "慕兰灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "慕兰灵草",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "ghost_marsh_weed",
+      "display": "鬼沼阴藻",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "鬼沼阴藻",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "ancient_ruin_moss",
+      "display": "废墟古苔",
+      "tier": "rare",
+      "setting": {
+        "lore": "废墟古苔",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "spirit_vein_grass",
+      "display": "灵脉草",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵脉草",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "beast_core_herb",
+      "display": "妖丹伴生草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖丹伴生草",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "tribulation_thunder_herb",
+      "display": "劫雷草",
+      "tier": "legendary",
+      "setting": {
+        "lore": "劫雷草",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": []
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_tiannan",
+      "display": "tiannan特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "tiannan"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "tiannan特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_dajin",
+      "display": "dajin特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "dajin"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "dajin特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_chaotic_sea",
+      "display": "chaotic_sea特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "chaotic_sea特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_mulan",
+      "display": "mulan特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "mulan"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "mulan特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "mulan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_yinming",
+      "display": "yinming特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "yinming"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "yinming特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "yinming"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_fallen_demon",
+      "display": "fallen_demon特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "fallen_demon"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "fallen_demon特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "fallen_demon"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_spirit_fengyuan",
+      "display": "spirit_fengyuan特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "spirit_fengyuan特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "spirit_fengyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_diyuan",
+      "display": "diyuan特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "diyuan"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "diyuan特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "diyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_barbarian_wasteland",
+      "display": "barbarian_wasteland特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "barbarian_wasteland特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "barbarian_wasteland"
+          ]
+        }
+      }
+    },
+    {
+      "id": "region_spirit_herb_tianyuan",
+      "display": "tianyuan特产灵草（通称）",
+      "tier": "uncommon",
+      "regions": [
+        "tianyuan"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "tianyuan特产灵草（通称）",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "tianyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_forbidden_orchid",
+      "display": "禁地血兰",
+      "tier": 3,
+      "regions": [
+        "blood_forbidden"
+      ],
+      "use": [
+        "pill",
+        "alchemy"
+      ],
+      "lore": "血色禁地特有，筑基丹辅药。",
+      "setting": {
+        "lore": "血色禁地特有，筑基丹辅药。",
+        "tier": 3
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "blood_forbidden"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_coral_moss",
+      "display": "珊瑚灵苔",
+      "tier": 4,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "use": [
+        "refinement",
+        "pill"
+      ],
+      "setting": {
+        "lore": "珊瑚灵苔",
+        "tier": 4
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ten_thousand_year_ginseng_spirit",
+      "display": "万年参灵",
+      "tier": 6,
+      "regions": [
+        "spirit_world",
+        "secret_realms"
+      ],
+      "use": [
+        "longevity_pill",
+        "spirit_recovery"
+      ],
+      "setting": {
+        "lore": "万年参灵",
+        "tier": 6
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "spirit_world",
+            "secret_realms"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_sand_grass",
+      "display": "慕兰沙灵草",
+      "tier": 3,
+      "regions": [
+        "mulan_plains"
+      ],
+      "use": [
+        "fashi_support"
+      ],
+      "setting": {
+        "lore": "慕兰沙灵草",
+        "tier": 3
+      },
+      "learn_requirements": {
+        "gather": {
+          "regions": [
+            "mulan_plains"
+          ]
+        }
+      }
+    }
+  ],
+  "age_tiers": [
+    {
+      "tier": "young",
+      "years": "1-50",
+      "effect_modifier": 0.5
+    },
+    {
+      "tier": "mature",
+      "years": "51-200",
+      "effect_modifier": 1.0
+    },
+    {
+      "tier": "ancient",
+      "years": "201-500",
+      "effect_modifier": 1.5
+    },
+    {
+      "tier": "primordial",
+      "years": "501+",
+      "effect_modifier": 2.5
+    }
+  ],
+  "crossref": "alchemy_recipes.json"
+}

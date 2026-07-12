@@ -1,0 +1,110 @@
+{
+  "schema_version": 6,
+  "entries": {
+    "tianyuan_city": {
+      "title": "天渊城",
+      "category": "intro",
+      "pages": [
+        "灵界人妖两族共守之城。修炼环境为**结构倍率**约外界两倍（见 tianyuan_city.json）。",
+        "货币：**功勋点**（merit_points）。兑换见 economy_contribution_exchange#tianyuan 与商店 tianyuan_merit_exchange。",
+        "服务：灵界通道、风雷舟、地渊许可中介。任务链 tianyuan_merit_path。"
+      ]
+    },
+    "spirit_fengyuan": {
+      "title": "风元大陆",
+      "category": "intro",
+      "pages": [
+        "灵界主大陆之一，人族世家联盟与妖族并存，北接**蛮荒**。",
+        "人族四世家原型：阵法莫家、炼器俞家、炼丹谷家、制符宁家（human_clan_league.json）。",
+        "任务：fengyuan_explorer、human_clan_league_hub 及各世家线。"
+      ]
+    },
+    "barbarian_seven_kings": {
+      "title": "蛮荒七妖王",
+      "category": "intro",
+      "pages": [
+        "炼虚+区域 barbarian_wasteland。七王：熊、狐、松、鹏、蛇、虎、龟（功能 archetype）。",
+        "每王有领地秘境提示与专属掉落（barbarian_demon_kings.json#drops）。",
+        "集齐 3 枚妖王信物可觐见蛮荒议会（barbarian_council_audience）。"
+      ]
+    },
+    "human_clan_league": {
+      "title": "人族世家联盟",
+      "category": "intro",
+      "pages": [
+        "汇编9：按**专精标签**区分阵营（阵/器/丹/符），非照搬全部原著世家名。",
+        "任务网 human_clan_quest_network.json；与 dajin_clan_feud 可镜像联动。"
+      ]
+    },
+    "tianyuan_merit_exchange": {
+      "title": "天渊功勋阁",
+      "category": "intro",
+      "pages": [
+        "spirit_realm_gate_voucher、diyuan_access_token、tianyuan_spirit_pill 等为结构兑换项。",
+        "声望 tier 解锁地渊许可与通道优先权。"
+      ]
+    },
+    "diyuan_depth": {
+      "title": "地渊",
+      "category": "intro",
+      "pages": [
+        "炼虚+秘境，六层结构：裂隙→浅矿→回廊→重压→核心→古脉。",
+        "开放需天渊功勋或风元许可与 diyuan_access_token。",
+        "与任务链 void_great_cultivation_arc、diyuan_depth_delve 联动。"
+      ]
+    },
+    "spirit_eighteen_clans": {
+      "title": "灵界十八族",
+      "category": "intro",
+      "pages": [
+        "spirit_realm_clan_quests.json 每族双任务钩。",
+        "巡礼链 spirit_eighteen_pilgrimage；与蛮荒妖王 affinity 见 barbarian_faction_affinity_map。"
+      ]
+    },
+    "mortal_realm_cap": {
+      "title": "人界境界上限",
+      "category": "intro",
+      "pages": [
+        "化神结构上限与 mortal_to_spirit_bridge 任务链。"
+      ]
+    },
+    "spirit_realm_tribulation": {
+      "title": "灵界渡劫",
+      "category": "intro",
+      "pages": [
+        "见 tribulation_rules#realm_context_modifiers 与 great_vehicle_variants。"
+      ]
+    },
+    "inverse_star_alliance": {
+      "title": "逆星盟",
+      "category": "intro",
+      "pages": [
+        "与星宫对立的黑市割据势力。任务网 inverse_star_quest_network.json。",
+        "入盟链 inverse_star_recruit；走私 inverse_star_smuggle_arc；虚天情报 inverse_star_void_heist。"
+      ]
+    },
+    "demonic_six_overview": {
+      "title": "魔道六宗",
+      "category": "intro",
+      "pages": [
+        "鬼灵门/合欢宗/天魔宗/青罗宗/万狐宗/血巫教专精标签见 demonic_six_sects.json。",
+        "skill_tree_gate_audit 与新增五宗道途树；正道 sect_ban 见 karma.righteous_sect_ban。"
+      ]
+    },
+    "novel_items_compliance": {
+      "title": "物品与合规",
+      "category": "intro",
+      "pages": [
+        "见 ITEMS_EXPANSION_v57.md 与 novel_items_master_index.json"
+      ]
+    },
+    "cultivation_three_layers": {
+      "title": "功法·法术·神通",
+      "category": "intro",
+      "pages": [
+        "汇编§18：功法定方向与门槛，法术为技能，神通/秘术为高阶。索引 novel_cultivation_master_index.json。",
+        "种子库 novel_cultivation_waves.json；合并脚本 expand_cultivation_novel_all.py。"
+      ]
+    }
+  }
+}

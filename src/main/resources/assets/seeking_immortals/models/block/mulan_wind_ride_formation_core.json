@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "seeking_immortals:block/mulan_wind_ride_formation_core"
+  }
+}

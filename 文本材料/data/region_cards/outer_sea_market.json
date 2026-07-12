@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "id": "outer_sea_market",
+  "display": "外海坊市",
+  "parent_region": "chaotic_sea",
+  "spirit_density": "mid",
+  "tax_faction": "star_palace",
+  "spatial_node": "node_chaotic_sea_hub",
+  "shops": [
+    "outer_sea_public_stall",
+    "pirate_black_market_outer_sea"
+  ],
+  "daily_events": [
+    "chaotic_sea_pirate_raid"
+  ],
+  "quest_hooks": [
+    "star_palace_dock_permit"
+  ]
+}

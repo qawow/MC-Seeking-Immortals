@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "talisman_grade_map.json",
+  "primary_key": "grades",
+  "entries": [
+    {
+      "id": "low",
+      "display": "低阶符箓"
+    },
+    {
+      "id": "mid",
+      "display": "中阶符箓"
+    },
+    {
+      "id": "high",
+      "display": "高阶符箓"
+    },
+    {
+      "id": "ancient",
+      "display": "古符/符宝雏形"
+    }
+  ]
+}

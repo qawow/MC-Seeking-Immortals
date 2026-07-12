@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "spirit_realm_interface.json",
+  "primary_key": "spirit_landmarks",
+  "entries": [
+    {
+      "id": "jiuxian_mount",
+      "display": "九仙山"
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊"
+    },
+    {
+      "id": "guanghan",
+      "display": "广寒界"
+    },
+    {
+      "id": "demon_gold_mountain",
+      "display": "魔金山"
+    },
+    {
+      "id": "minor_asura",
+      "display": "小修罗界"
+    }
+  ]
+}

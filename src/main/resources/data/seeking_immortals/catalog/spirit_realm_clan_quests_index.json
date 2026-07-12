@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "source": "spirit_realm_clan_quests.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "0",
+      "display": "天狐族"
+    },
+    {
+      "id": "1",
+      "display": "树妖族"
+    },
+    {
+      "id": "2",
+      "display": "石人族"
+    },
+    {
+      "id": "3",
+      "display": "飞灵族"
+    },
+    {
+      "id": "4",
+      "display": "金翼族"
+    },
+    {
+      "id": "5",
+      "display": "夜叉族"
+    },
+    {
+      "id": "6",
+      "display": "天渊城"
+    },
+    {
+      "id": "7",
+      "display": "狼族"
+    },
+    {
+      "id": "8",
+      "display": "蛛族"
+    },
+    {
+      "id": "9",
+      "display": "蛇族"
+    },
+    {
+      "id": "10",
+      "display": "熊族"
+    },
+    {
+      "id": "11",
+      "display": "虎族"
+    },
+    {
+      "id": "12",
+      "display": "鱼族"
+    },
+    {
+      "id": "13",
+      "display": "鸟族"
+    },
+    {
+      "id": "14",
+      "display": "龟族"
+    },
+    {
+      "id": "15",
+      "display": "兽族（泛）"
+    },
+    {
+      "id": "16",
+      "display": "魔族支系"
+    },
+    {
+      "id": "17",
+      "display": "灵界人族"
+    },
+    {
+      "id": "18",
+      "display": "蛮荒妖王议会"
+    }
+  ]
+}

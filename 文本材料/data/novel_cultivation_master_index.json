@@ -1,0 +1,202 @@
+{
+  "schema_version": 4,
+  "source": "汇编 §18 功法→法术→神通",
+  "compliance": "主角强绑定神通化名（仿）；通用法术名可复用",
+  "merge_stats": {
+    "methods_wave": 26,
+    "methods_struct": 16,
+    "spells_added": 47,
+    "secrets_added": 18,
+    "trees_added": 60
+  },
+  "totals": {
+    "methods": 87,
+    "techniques": 273,
+    "skill_trees": 88
+  },
+  "waves_ref": "novel_cultivation_waves.json",
+  "content_enrich_v60": {
+    "methods_with_description": 37,
+    "techniques_fields_filled": 23,
+    "detailed_added": 10
+  },
+  "setting_enrich_v61": {
+    "methods_setting": 87,
+    "techniques_setting": 293,
+    "new_methods": 5,
+    "kunwu_seal_art": true
+  },
+  "learn_enrich_v62": {
+    "methods_learn": 87,
+    "techniques_learn": 293,
+    "detailed_method_learn": 30,
+    "detailed_technique_learn": 13
+  },
+  "beast_puppet_v63": {
+    "beasts_total": 42,
+    "beasts_added": 10,
+    "puppets_total": 8,
+    "methods_added": 1
+  },
+  "world_expansion_v64": {
+    "realms": 6,
+    "daily_events": 8,
+    "quests": 10,
+    "sects_patched": 6,
+    "sects_total": 27,
+    "constitutions": 4,
+    "herbs": 4,
+    "npc": 5
+  },
+  "world_expansion_v65": {
+    "refinement_patched": 73,
+    "shops_new": 5,
+    "conflicts_new": 4,
+    "chronicle_patched": 3,
+    "demonic_patched": 6,
+    "routes_new": 3,
+    "spawn_new": 4,
+    "quests_new": 4
+  },
+  "world_expansion_v66": {
+    "dimensions": 3,
+    "formations": 22,
+    "formations_new": 0,
+    "ghost_stages": 4,
+    "pills_patched": 114,
+    "chains_new": 5,
+    "races_new": 1,
+    "clans_new": 2,
+    "nodes_new": 3
+  },
+  "world_expansion_v67": {
+    "talisman_new": 5,
+    "artifacts": 217,
+    "manuals_new": 2,
+    "boss_new": 2
+  },
+  "world_expansion_v68": {
+    "loot_tables": 25,
+    "materials": 214,
+    "consumables_new": 2,
+    "npc_new": 3,
+    "regions_new": 2,
+    "flight_new": 2,
+    "wanbao_new": 1
+  },
+  "world_expansion_v69": {
+    "buddhist_methods": 1,
+    "generic_enriched": 450
+  },
+  "world_expansion_v70": {
+    "merged_methods": 0,
+    "merged_spells": 0,
+    "merged_pills": 0,
+    "merged_beasts": 0,
+    "merged_realms": 0,
+    "leftovers_enriched": 0,
+    "wave_files": 13
+  },
+  "world_expansion_v71": {
+    "daily_lore_patched": 17,
+    "daily_events_added": 4,
+    "daily_quest_templates": 6,
+    "mulan_war_patched": true,
+    "quest_chains_lore": 4,
+    "faction_lore": 3,
+    "techniques_added": 4,
+    "technique_total": 297
+  },
+  "world_expansion_v72": {
+    "daily_lore_v72": 48,
+    "main_chapters": 7,
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "economy_income_realms": 6,
+    "ascension_lore": 5
+  },
+  "world_expansion_v73": {
+    "alchemy_rules_lore": 4,
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "main_chapters_patched": true,
+    "craft_loops": 4,
+    "sect_specialty": 6,
+    "hooks_added": 10
+  },
+  "world_expansion_v74": {
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "war_phases": 4,
+    "materials_added": 7,
+    "hooks_added": 5
+  },
+  "world_expansion_v75": {
+    "tier_lore_patched": 13,
+    "spawn_lore_patched": 9,
+    "spawn_tables_added": 4,
+    "tianyuan_daily_events": 5,
+    "registry_count": 783,
+    "v74_items_in_registry": 7,
+    "forge_models_created": 7
+  },
+  "world_expansion_v76": {
+    "artifact_grades": 11,
+    "artifacts_game_tier_filled": 0,
+    "chaotic_war_phases": 5,
+    "spatial_dimension_filled": 25,
+    "hooks_added": 1
+  },
+  "world_expansion_v77": {
+    "talisman_grade_filled": 21,
+    "dajin_factions": 5,
+    "sects_added": 4,
+    "chains_added": 1,
+    "hooks_added": 3,
+    "dimension_lore_patched": 11
+  },
+  "world_expansion_v78": {
+    "value_bands_added": 5
+  },
+  "world_expansion_v79": {
+    "spells_filled": 16,
+    "secrets_filled": 24,
+    "methods_linked": 82
+  },
+  "world_expansion_v80": {
+    "tribulation_types_tagged": 7,
+    "secrets_added": 19,
+    "beast_tribulation_note": true,
+    "daily_event_added": 1
+  },
+  "world_expansion_v81": {
+    "artifact_tiers_enriched": 11,
+    "sects_specialty_added": 0,
+    "sects_linked": 18,
+    "dimension_registry": true
+  },
+  "world_expansion_v82": {
+    "talisman_unlock_linked": 9,
+    "inverse_star_chains": 6
+  },
+  "world_expansion_v83": {
+    "talisman_techniques_added": 26,
+    "talisman_linked": 51,
+    "talisman_craft_only": 1,
+    "star_palace_chains": 3,
+    "mulan_chains": 3,
+    "dajin_chains": 4
+  },
+  "economy_spirit_stone_v84": {
+    "master": "economy_spirit_stone_master.json",
+    "doc": "docs/SPIRIT_STONE_ECONOMY.md"
+  },
+  "world_expansion_v85": {
+    "beast_tier_schema": "beast_tier_schema.json",
+    "tribulation_master": "tribulation_master_schema.json"
+  },
+  "world_expansion_v86": {
+    "sects_linked": 25,
+    "trees_added": 2
+  }
+}

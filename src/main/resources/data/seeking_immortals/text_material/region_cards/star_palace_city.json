@@ -1,0 +1,16 @@
+{
+  "schema_version": 2,
+  "id": "star_palace_city",
+  "display": "天星城",
+  "parent_region": "chaotic_sea",
+  "faction": "star_palace",
+  "spatial_node": "node_star_palace",
+  "spirit_density": "high",
+  "services": [
+    "auction",
+    "patrol_board"
+  ],
+  "quest_chains": [
+    "chaotic_sea_politics"
+  ]
+}

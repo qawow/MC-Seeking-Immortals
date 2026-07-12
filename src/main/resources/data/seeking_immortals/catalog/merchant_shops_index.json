@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "source": "merchant_shops.json",
+  "primary_key": "shops",
+  "entries": [
+    {
+      "id": "huangfeng_contribution_hall",
+      "display": "黄枫谷贡献堂"
+    },
+    {
+      "id": "tiannan_herb_market",
+      "display": "天南坊市灵草摊"
+    },
+    {
+      "id": "luoyun_contribution_hall",
+      "display": "落云宗贡献殿"
+    },
+    {
+      "id": "chaotic_sea_island_general",
+      "display": "乱星海岛杂货"
+    },
+    {
+      "id": "inverse_star_black_market",
+      "display": "逆星盟黑市"
+    },
+    {
+      "id": "dajin_wanbao_pavilion",
+      "display": "大晋万宝阁"
+    },
+    {
+      "id": "nether_ferry_vendor",
+      "display": "冥河渡夫"
+    },
+    {
+      "id": "tianyuan_merit_exchange",
+      "display": "天渊功勋殿"
+    },
+    {
+      "id": "fengyuan_clan_auction",
+      "display": "风元氏族拍卖行"
+    },
+    {
+      "id": "mulan_fashi_supply",
+      "display": "慕兰法士物资站"
+    },
+    {
+      "id": "tiannan_puppet_lane",
+      "display": "天南傀儡巷"
+    },
+    {
+      "id": "tiannan_formation_lane",
+      "display": "天南阵法坊"
+    },
+    {
+      "id": "tiannan_talisman_lane",
+      "display": "天南制符阁"
+    },
+    {
+      "id": "tiannan_demonic_dual_market",
+      "display": "天南魔市（双修货）"
+    },
+    {
+      "id": "hehuan_contribution_pavilion",
+      "display": "合欢宗贡献楼"
+    },
+    {
+      "id": "tiannan_refinement_forge",
+      "display": "天南炼器坊"
+    },
+    {
+      "id": "star_palace_merit_hall",
+      "display": "星宫功勋殿"
+    },
+    {
+      "id": "star_palace_patrol_supply",
+      "display": "星宫巡防补给"
+    },
+    {
+      "id": "qixuan_village_stall",
+      "display": "七玄村货摊"
+    },
+    {
+      "id": "qianzhu_puppet_hall",
+      "display": "千竹傀儡堂"
+    },
+    {
+      "id": "pirate_black_market_outer_sea",
+      "display": "外海黑市"
+    },
+    {
+      "id": "outer_sea_public_stall",
+      "display": "外海公开摊位"
+    },
+    {
+      "id": "spirit_clan_tianhu_exchange",
+      "display": "天狐族特产阁"
+    },
+    {
+      "id": "spirit_clan_shuyao_exchange",
+      "display": "树妖族特产阁"
+    },
+    {
+      "id": "spirit_clan_shiren_exchange",
+      "display": "石人族特产阁"
+    },
+    {
+      "id": "spirit_clan_feiling_exchange",
+      "display": "飞灵族特产阁"
+    },
+    {
+      "id": "spirit_clan_jinyi_exchange",
+      "display": "金翼族特产阁"
+    },
+    {
+      "id": "spirit_clan_yaksha_exchange",
+      "display": "夜叉族特产阁"
+    },
+    {
+      "id": "spirit_clan_tianyuan_city_exchange",
+      "display": "天渊城特产阁"
+    },
+    {
+      "id": "spirit_clan_langzu_exchange",
+      "display": "狼族特产阁"
+    },
+    {
+      "id": "spirit_clan_zhizu_exchange",
+      "display": "蛛族特产阁"
+    },
+    {
+      "id": "spirit_clan_shezu_exchange",
+      "display": "蛇族特产阁"
+    },
+    {
+      "id": "spirit_clan_xiongzu_exchange",
+      "display": "熊族特产阁"
+    },
+    {
+      "id": "spirit_clan_huzhu_exchange",
+      "display": "虎族特产阁"
+    },
+    {
+      "id": "spirit_clan_yuzu_exchange",
+      "display": "鱼族特产阁"
+    },
+    {
+      "id": "spirit_clan_niaozu_exchange",
+      "display": "鸟族特产阁"
+    },
+    {
+      "id": "spirit_clan_guizu_exchange",
+      "display": "龟族特产阁"
+    },
+    {
+      "id": "spirit_clan_shouzu_exchange",
+      "display": "兽族（泛）特产阁"
+    },
+    {
+      "id": "spirit_clan_mozu_exchange",
+      "display": "魔族支系特产阁"
+    },
+    {
+      "id": "spirit_clan_renzu_lingjie_exchange",
+      "display": "灵界人族特产阁"
+    },
+    {
+      "id": "spirit_clan_barbarian_council_exchange",
+      "display": "蛮荒妖王议会特产阁"
+    },
+    {
+      "id": "wanbao_auction_house_tiannan",
+      "display": "万宝楼（天南分会）"
+    },
+    {
+      "id": "chaotic_sea_black_market",
+      "display": "乱星海黑市"
+    },
+    {
+      "id": "dajin_spirit_stone_bank",
+      "display": "大晋灵石庄"
+    },
+    {
+      "id": "kunwu_array_material_shop",
+      "display": "坤吴阵材铺"
+    },
+    {
+      "id": "yin_luo_ghost_trade",
+      "display": "阴罗鬼市"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    " B ",
+    "CCC",
+    " B "
+  ],
+  "key": {
+    "B": {
+      "item": "seeking_immortals:true_dragon_blood"
+    },
+    "C": {
+      "item": "seeking_immortals:beast_core"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:snake_pearl",
+    "count": 1
+  },
+  "show_notification": true
+}

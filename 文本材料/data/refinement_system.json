@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "source": "汇编 §12 炼器：多方块 + 等级错配 + 手册/玉简 + 修为定档",
+  "craft_station": "refinement_forge",
+  "components": {
+    "forge": {
+      "id": "refinement_forge",
+      "display": "炼器阵",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "anvil_core": {
+      "id": "refinement_anvil",
+      "display": "锻心",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "spirit_bellows": {
+      "id": "refinement_bellows",
+      "display": "灵风囊",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "grade_mismatch_rules": [
+    {
+      "condition": "forge_grade < recipe_forge_grade",
+      "result": "fail",
+      "waste_materials": 0.6,
+      "message": "炼器阵品阶不足",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "realm_below_recipe_min",
+      "result": "fail",
+      "waste_materials": 0.3,
+      "message": "神识不足以御器",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "manual_missing_for_tier_high",
+      "result": "fail",
+      "waste_materials": 0.5,
+      "requires": "refinement_manual_mid",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    },
+    {
+      "condition": "ancient_treasure_without_shard",
+      "result": "fail",
+      "waste_materials": 1.0,
+      "message": "古宝需残片重铸",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "trigger": "craft_attempt"
+      }
+    }
+  ],
+  "success_factors": [
+    "forge_grade",
+    "refinement_skill",
+    "material_quality",
+    "realm_control",
+    "manual_unlock"
+  ],
+  "failure_loot_ref": "refinement_failure_loot.json",
+  "failure_loot_tables_ref": "loot_tables.json#recipe_tier_to_table",
+  "manual_index_ref": "refine_manual_index.json",
+  "crossref": [
+    "refinement_recipes.json",
+    "manuals_catalog.json",
+    "artifact_tier_rules.json",
+    "materials_catalog.json"
+  ],
+  "setting": {
+    "lore": "炼器材料品阶需匹配炼器师境界",
+    "compliance": "结构向"
+  },
+  "learn_requirements": {
+    "apply": {
+      "note": "系统自动校验品阶错配。"
+    }
+  }
+}

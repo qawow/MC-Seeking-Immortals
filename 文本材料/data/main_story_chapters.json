@@ -1,0 +1,190 @@
+{
+  "schema_version": 3,
+  "source": "汇编 扩充方向Q；凡人→宗门→筑基→乱星海→大晋→化神→灵界",
+  "chapters": [
+    {
+      "id": "chapter_0_mortal",
+      "display": "凡人入世",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "region": "tiannan",
+      "quest_chain_refs": [
+        "huangfeng_cultivation_path"
+      ],
+      "milestones": [
+        "测灵根",
+        "入门",
+        "炼气一层"
+      ],
+      "setting": {
+        "lore": "七玄门式入门弧：凡人求仙、测灵根、入外门。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_max": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "chapter_1_sect",
+      "display": "宗门修行",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "region": "tiannan",
+      "quest_chain_refs": [
+        "huangfeng_cultivation_path",
+        "mulan_war_campaign"
+      ],
+      "milestones": [
+        "外门任务",
+        "辟谷丹",
+        "筑基准备"
+      ],
+      "setting": {
+        "lore": "黄枫谷式外门：采药、丹童、贡献点换资源。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "QI_REFINING",
+          "realm_max": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "chapter_2_foundation_secret",
+      "display": "筑基秘境",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "region": "tiannan",
+      "quest_chain_refs": [
+        "blood_forbidden_campaign"
+      ],
+      "secret_realm_refs": [
+        "blood_forbidden"
+      ],
+      "cycle_ref": "cycle_blood_forbidden",
+      "setting": {
+        "lore": "血色禁地五年/十年周期开放，名额有限，内层妖兽狂暴。",
+        "structure": "开放条件+环境规则+分层探索"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "QI_REFINING",
+          "ticket": "blood_forbidden_token"
+        }
+      }
+    },
+    {
+      "id": "chapter_3_chaotic_sea",
+      "display": "乱星海",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "region": "chaotic_sea",
+      "quest_chain_refs": [
+        "chaotic_sea_politics"
+      ],
+      "milestones": [
+        "买灵舟",
+        "岛民登记",
+        "星宫或逆星分支"
+      ],
+      "setting": {
+        "lore": "入星海需舟与身份，星宫征税清剿逆星。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "FOUNDATION",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "chapter_4_great_jin",
+      "display": "大晋纵横",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "region": "dajin",
+      "quest_chain_refs": [
+        "void_great_cultivation_arc",
+        "kunwu_mountain_campaign"
+      ],
+      "secret_realm_refs": [
+        "void_palace",
+        "kunwu_mountain"
+      ],
+      "setting": {
+        "lore": "大晋世家与蛮荒并存，虚天殿三百年一现。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "chapter_5_deity_transformation",
+      "display": "化神天劫",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "region": "tiannan",
+      "tribulation_ref": "tribulation_rules.json",
+      "milestones": [
+        "小劫/大劫",
+        "心魔",
+        "飞升准备"
+      ],
+      "setting": {
+        "lore": "人界顶阶突破走天劫小/大结构，非刷概率。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "NASCENT_SOUL"
+        }
+      },
+      "quest_chain_refs": [
+        "fallen_demon_campaign"
+      ],
+      "secret_realm_refs": [
+        "fallen_demon_valley"
+      ]
+    },
+    {
+      "id": "chapter_6_spirit_realm",
+      "display": "灵界飞升",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "region": "tianyuan",
+      "quest_chain_refs": [
+        "spirit_realm_rise",
+        "spirit_realm_border"
+      ],
+      "ascension_ref": "ascension_flow.json",
+      "setting": {
+        "lore": "飞升天渊登记，灵气倍率与功勋换资源。"
+      },
+      "learn_requirements": {
+        "progress": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "gate": "mortal_to_tianyuan"
+        }
+      },
+      "secret_realm_refs": [
+        "diyuan"
+      ]
+    }
+  ]
+}

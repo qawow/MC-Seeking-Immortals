@@ -1,0 +1,33 @@
+{
+  "schema_version": 3,
+  "id": "chaotic_sea",
+  "display": "乱星海",
+  "climate": "ocean_storm",
+  "spirit_density": "mid_high",
+  "factions": [
+    "star_palace",
+    "inverse_star_alliance",
+    "free_cultivator_islands"
+  ],
+  "portals": [
+    "tiannan_to_chaotic_sea_ferry"
+  ],
+  "daily_events_ref": [
+    "chaotic_sea_pirate_raid",
+    "chaotic_sea_beast_tide",
+    "ghost_fog_truce"
+  ],
+  "disasters": [
+    "beast_tide",
+    "ghost_fog",
+    "sky_wind"
+  ],
+  "economy_note": "岛税、走私、拍卖与虚天殿情报",
+  "secret_realms": [
+    "void_palace"
+  ],
+  "dimension_parent": "seeking_immortals:mortal_world",
+  "faction_data_ref": "chaotic_sea_factions.json",
+  "spatial_node": "node_chaotic_sea_hub",
+  "teleport_permit": "chaotic_sea_teleport_permit"
+}

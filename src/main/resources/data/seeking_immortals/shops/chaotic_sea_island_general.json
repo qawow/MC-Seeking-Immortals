@@ -1,0 +1,87 @@
+{
+  "id": "chaotic_sea_island_general",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 8,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 50,
+      "stock": 6
+    },
+    {
+      "id": "soul_gathering_pill",
+      "item": "seeking_immortals:soul_gathering_pill",
+      "count": 1,
+      "cost": 75,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "ningshen_pill",
+      "item": "seeking_immortals:calming_pill_low",
+      "count": 1,
+      "cost": 95,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "yanghun_pill",
+      "item": "seeking_immortals:soul_gathering_pill",
+      "count": 1,
+      "cost": 110,
+      "stock": 3,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "sea_calm_pill",
+      "item": "seeking_immortals:calming_pill_low",
+      "count": 1,
+      "cost": 35,
+      "stock": 10,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "recipe_sea_calm",
+      "item": "seeking_immortals:alchemy_formula_calming_pill_jade",
+      "count": 1,
+      "cost": 20,
+      "stock": 5,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "jiao_scale",
+      "item": "seeking_immortals:dragon_scale",
+      "count": 1,
+      "cost": 55,
+      "stock": 8,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "deep_sea_cold_iron",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 1,
+      "cost": 90,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "anti_demon_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 65,
+      "stock": 10,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "item": "seeking_immortals:star_palace_tax_receipt",
+      "count": 1,
+      "cost": 5,
+      "stock": 20
+    }
+  ]
+}

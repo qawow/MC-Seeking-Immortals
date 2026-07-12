@@ -1,0 +1,28 @@
+﻿{
+    "name":  "天渊城",
+    "category":  "seeking_immortals:basics",
+    "icon":  "seeking_immortals:immortal_jade",
+    "sortnum":  20,
+    "pages":  [
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "灵界门户",
+                      "text":  "本条目对应文本材料 patchouli_static_entries.json#tianyuan_city、tianyuan_city.json 与 region_cards/tianyuan.json。当前世界包已接入 tianyuan 区域，门槛为化神，旅行锚点为 tianyuan_anchor。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "当前数据",
+                      "text":  "天渊城在世界包中拥有 2.0 灵气倍率，并带有 spirit_realm、frontier、merit 标签。文本材料中的人妖两族共守、灵界通道、风雷舟和地渊许可中介目前只作为指南说明与后续任务钩子保留。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "功勋与地渊",
+                      "text":  "文本材料将 merit_points、tianyuan_merit_path、spirit_realm_gate、wind_feather_raft 与 diyuan_permit_broker 归入天渊体系。当前版本已经提供 seeking_immortals:diyuan_permit 与 seeking_immortals:wind_feather_raft_ticket；从大晋中枢或大晋区域前往天渊时，服务端会消耗 1 张风羽舟票，进入地渊秘境时会消耗 1 枚地渊令。独立功勋阁、兑换来源和任务检查仍未实现。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "延后内容",
+                      "text":  "真实天渊城 NPC、功勋兑换 UI、巡防任务、跨界通道扩展、地渊令兑换来源、风雷舟售票来源、守城事件奖励和 FTB Quests 章节仍未实装。本页只说明已存在的世界包区域、地渊令入场消耗、风羽舟票路线与文本材料目标。"
+                  }
+              ]
+}

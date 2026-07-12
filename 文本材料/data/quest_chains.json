@@ -1,0 +1,2173 @@
+{
+  "schema_version": 18,
+  "chains": [
+    {
+      "id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "huangfeng_entry",
+          "summary": "入门测灵根"
+        },
+        {
+          "hook": "alchemy_apprentice",
+          "summary": "丹童与辟谷丹"
+        },
+        {
+          "hook": "herb_gather_contract",
+          "summary": "外门灵草任务",
+          "repeatable_skip": true
+        },
+        {
+          "hook": "blood_forbidden_run",
+          "summary": "血色禁地历练"
+        },
+        {
+          "hook": "sect_fire_room",
+          "summary": "结丹后地火室"
+        }
+      ],
+      "rewards_finale": [
+        "core_earth_fire",
+        "contribution_rank_inner"
+      ],
+      "alchemy_loop_ref": "alchemy_recipes.json#huangfeng_loop",
+      "skill_tree_ref": "alchemy_huangfeng",
+      "setting": {
+        "lore": "黄枫谷修行线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      },
+      "main_chapter_ref": "chapter_1_sect"
+    },
+    {
+      "id": "chaotic_sea_politics",
+      "display": "乱星海势力线",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": [
+        {
+          "hook": "star_palace_patrol",
+          "branch": "loyalist"
+        },
+        {
+          "hook": "inverse_star_contact",
+          "branch": "rebel"
+        },
+        {
+          "hook": "stolen_jade_slip",
+          "requires_branch": "rebel"
+        },
+        {
+          "hook": "inverse_star_sabotage",
+          "requires_branch": "rebel"
+        },
+        {
+          "hook": "pirate_bounty",
+          "requires_branch": "loyalist"
+        },
+        {
+          "hook": "void_palace_key",
+          "summary": "虚天殿钥终章"
+        }
+      ],
+      "branch_mutual_exclusive": [
+        "star_palace_patrol",
+        "inverse_star_sabotage"
+      ],
+      "setting": {
+        "lore": "乱星海星宫忠诚线与逆星暗线互斥，走私与清剿悬赏各据一方。",
+        "war_ref": null
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "chaotic_sea"
+        }
+      },
+      "main_chapter_ref": "chapter_3_chaotic_sea",
+      "war_events_ref": "chaotic_sea_faction_war.json"
+    },
+    {
+      "id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线",
+      "region": "mulan",
+      "steps": [
+        {
+          "hook": "mulan_side",
+          "alt": "tianlan_side"
+        },
+        {
+          "hook": "beast_tide_defense"
+        },
+        {
+          "hook": "mulan_scout_clash",
+          "event_ref": "faction_conflict_events#mulan_tianlan_campaign"
+        }
+      ],
+      "setting": {
+        "lore": "慕兰与天澜势力线并行，兽潮与斥候战挂钩 faction_conflict_events。",
+        "war_ref": null
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "ghost_path",
+      "display": "鬼道线",
+      "path_ref": "ghost_cultivation_path.json",
+      "steps": [
+        {
+          "hook": "yinming_escape",
+          "summary": "阴冥脱困得玄阴残卷"
+        },
+        {
+          "hook": "hook_ghost_yin_body",
+          "summary": "敛魂符阴体"
+        },
+        {
+          "hook": "nether_river_pilgrim",
+          "summary": "冥河朝圣换阴石"
+        },
+        {
+          "hook": "hook_ghost_soul_anchor",
+          "summary": "聚魂石魂锚"
+        },
+        {
+          "hook": "hook_ghost_nether_core",
+          "summary": "冥河地结冥核"
+        },
+        {
+          "hook": "nether_river_guardian",
+          "type": "boss",
+          "summary": "阴婴门槛"
+        }
+      ],
+      "rewards_finale": [
+        "yin_soul_stage",
+        "ghost_nether_art_full_page"
+      ],
+      "setting": {
+        "lore": "鬼道线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "high_realm_endgame",
+      "display": "高境界终局",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "kunwu_expedition"
+        },
+        {
+          "hook": "kunwu_seal_research"
+        },
+        {
+          "hook": "fallen_demon_scout"
+        },
+        {
+          "hook": "tianyuan_enlist"
+        }
+      ],
+      "setting": {
+        "lore": "高境界终局"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_rise",
+      "display": "灵界上升线",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "steps": [
+        {
+          "hook": "tianyuan_demon_contract"
+        },
+        {
+          "hook": "treasure_fair_invite"
+        },
+        {
+          "hook": "diyuan_scout"
+        },
+        {
+          "hook": "asura_trial",
+          "optional": true
+        },
+        {
+          "hook": "jiuxian_seclusion_permit"
+        },
+        {
+          "hook": "tianyuan_enlist",
+          "summary": "天渊入伍"
+        }
+      ],
+      "ascension_ref": "ascension_flow.json",
+      "includes_regions": [
+        "barbarian_wasteland",
+        "diyuan"
+      ],
+      "setting": {
+        "lore": "灵界上升线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      },
+      "main_chapter_ref": "chapter_6_spirit_realm"
+    },
+    {
+      "id": "craft_master",
+      "display": "百艺精通",
+      "steps": [
+        {
+          "hook": "alchemy_apprentice"
+        },
+        {
+          "hook": "puppet_maintain"
+        },
+        {
+          "hook": "kunwu_seal_research",
+          "summary": "阵法进阶"
+        },
+        {
+          "hook": "sect_fire_room",
+          "summary": "炼器地火"
+        }
+      ],
+      "unlocks_title": "craft_master_title",
+      "skill_tree_ref": [
+        "alchemy_huangfeng",
+        "puppet_dayan"
+      ],
+      "faction_optional": "huangfeng_valley",
+      "includes": [
+        "qianzhu_puppet_path",
+        "puppet_dayan"
+      ],
+      "setting": {
+        "lore": "百艺精通"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "dajin_kunwu_line",
+      "display": "大晋昆吾线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": [
+        {
+          "hook": "dajin_auction_preview"
+        },
+        {
+          "hook": "kunwu_intel"
+        },
+        {
+          "hook": "kunwu_expedition"
+        },
+        {
+          "hook": "kunwu_seal_research"
+        }
+      ],
+      "rewards_finale": [
+        "kunwu_seal_fragment",
+        "ancient_treasure_appraisal_lens"
+      ],
+      "setting": {
+        "lore": "大晋昆吾线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "dajin"
+        }
+      }
+    },
+    {
+      "id": "ancient_demon_line",
+      "display": "古魔封印线",
+      "region": "tiannan",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "fallen_demon_scout",
+          "summary": "坠魔谷侦察"
+        },
+        {
+          "hook": "kunwu_seal_research",
+          "summary": "封印残片（可并行昆吾线）"
+        },
+        {
+          "hook": "blood_forbidden_run",
+          "optional": true,
+          "summary": "血色禁地周期"
+        },
+        {
+          "hook": "demon_rift_closure",
+          "summary": "协助稳固裂隙"
+        }
+      ],
+      "rewards_finale": [
+        "seal_reinforcement_token",
+        "anti_demon_talisman_bulk"
+      ],
+      "setting": {
+        "lore": "古魔封印线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "steps": [
+        {
+          "hook": "qixuan_village_intro",
+          "summary": "山村与墨大夫传闻"
+        },
+        {
+          "hook": "qixuan_herb_errand",
+          "summary": "采药杂役"
+        },
+        {
+          "hook": "qixuan_sect_trial",
+          "summary": "测灵根入外门"
+        },
+        {
+          "hook": "qixuan_decline_legacy",
+          "summary": "门派衰落遗册"
+        }
+      ],
+      "rewards_finale": [
+        "qixuan_mortal_art_scroll",
+        "spirit_stone_shard"
+      ],
+      "chronicle_ref": "K10_qixuan_decline",
+      "setting": {
+        "lore": "七玄门凡俗线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "huadao_blade_path",
+      "display": "化刀坞刀道",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": [
+        {
+          "hook": "huadao_entry",
+          "summary": "刀坞试刀"
+        },
+        {
+          "hook": "huadao_forge_contract",
+          "summary": "铸刀委托"
+        },
+        {
+          "hook": "huadao_duel_trial",
+          "summary": "刀意对决"
+        }
+      ],
+      "rewards_finale": [
+        "huadao_blade_intent_page"
+      ],
+      "setting": {
+        "lore": "化刀坞刀道"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "giant_sword_gate_path",
+      "display": "巨剑门传承",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": [
+        {
+          "hook": "giant_sword_entry",
+          "summary": "巨剑入门"
+        },
+        {
+          "hook": "blood_forbidden_run",
+          "optional": true,
+          "summary": "血色禁地银巨剑线索"
+        },
+        {
+          "hook": "giant_sword_relic_restore",
+          "summary": "古剑残片重铸"
+        }
+      ],
+      "rewards_finale": [
+        "silver_giant_sword_blueprint",
+        "giant_sword_art"
+      ],
+      "setting": {
+        "lore": "巨剑门传承"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "qianzhu_puppet_apprentice",
+          "summary": "傀儡童工"
+        },
+        {
+          "hook": "thousand_bamboo_tower_run",
+          "summary": "千竹塔历练"
+        },
+        {
+          "hook": "dayan_fragment_quest",
+          "summary": "大衍残页"
+        },
+        {
+          "hook": "puppet_maintain",
+          "summary": "维护高阶傀"
+        }
+      ],
+      "rewards_finale": [
+        "dayan_art_scroll",
+        "puppet_core_blank_bulk"
+      ],
+      "setting": {
+        "lore": "千竹傀儡线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "yuling_puppet_path",
+      "display": "御灵兽傀线",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "yuling_secret_contact",
+          "summary": "灵兽山暗线"
+        },
+        {
+          "hook": "beast_soul_bind_puppet",
+          "summary": "兽魂封傀"
+        },
+        {
+          "hook": "lingshou_contract_beast",
+          "optional": true
+        }
+      ],
+      "rewards_finale": [
+        "yuling_beast_puppet_art",
+        "beast_puppet_core"
+      ],
+      "setting": {
+        "lore": "御灵兽傀线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "dajin_clan_line",
+      "display": "大晋世家线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": [
+        {
+          "hook": "clan_territory_patrol"
+        },
+        {
+          "hook": "dajin_auction_preview"
+        },
+        {
+          "hook": "clan_ancestor_trial",
+          "summary": "祖传诀试炼"
+        },
+        {
+          "hook": "kunwu_expedition",
+          "optional": true
+        }
+      ],
+      "rewards_finale": [
+        "dajin_clan_ancestor_art",
+        "clan_seal_token"
+      ],
+      "setting": {
+        "lore": "大晋世家祖传诀、拍卖与可选昆吾支线。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "dajin"
+        }
+      },
+      "factions_ref": "dajin_factions.json"
+    },
+    {
+      "id": "demonic_six_path",
+      "display": "魔道六宗线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "karma_required": "demonic_karma",
+      "steps": [
+        {
+          "hook": "demonic_north_rumor",
+          "summary": "北迁传闻"
+        },
+        {
+          "hook": "guiling_gate_recruit",
+          "branch": "guiling_gate"
+        },
+        {
+          "hook": "hehuan_sect_trial",
+          "branch": "hehuan_sect",
+          "optional": true
+        },
+        {
+          "hook": "tianmo_blood_rite",
+          "branch": "tianmo_sect"
+        },
+        {
+          "hook": "righteous_bounty_hunt",
+          "summary": "正道悬赏反噬"
+        }
+      ],
+      "rewards_finale": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ],
+      "setting": {
+        "lore": "魔道六宗线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线",
+      "region": "yin_underworld",
+      "path_optional": "ghost_cultivator",
+      "steps": [
+        {
+          "hook": "yinming_escape"
+        },
+        {
+          "hook": "nether_river_pilgrim"
+        },
+        {
+          "hook": "nether_river_fog_event",
+          "type": "daily"
+        }
+      ],
+      "rewards_finale": [
+        "yin_protect_talisman_bulk",
+        "nether_river_map"
+      ],
+      "setting": {
+        "lore": "阴司朝圣线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "yin_underworld"
+        }
+      }
+    },
+    {
+      "id": "barbarian_kings_line",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "steps": [
+        {
+          "hook": "diyuan_scout"
+        },
+        {
+          "hook": "barbarian_border_contact"
+        },
+        {
+          "hook": "king_tribute_quest",
+          "summary": "任选妖王朝贡/试炼"
+        },
+        {
+          "hook": "spatial_rift_escape",
+          "optional": true
+        }
+      ],
+      "rewards_finale": [
+        "barbarian_king_token",
+        "ancient_beast_core"
+      ],
+      "setting": {
+        "lore": "蛮荒妖王线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "barbarian_wasteland"
+        }
+      }
+    },
+    {
+      "id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "min_factions": 5,
+      "steps": [
+        {
+          "hook": "tianyuan_enlist",
+          "summary": "天渊入伍"
+        },
+        {
+          "hook": "clan_generic_tribute",
+          "repeatable": true,
+          "count": 5
+        },
+        {
+          "hook": "treasure_fair_invite",
+          "optional": true
+        },
+        {
+          "hook": "asura_trial",
+          "optional": true
+        }
+      ],
+      "rewards_finale": [
+        "spirit_clan_grand_token",
+        "specialty_item_bundle"
+      ],
+      "setting": {
+        "lore": "灵界十八族巡礼"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "star_palace_internal_politics",
+      "display": "星宫派系线",
+      "region": "chaotic_sea",
+      "steps": [
+        {
+          "hook": "star_palace_patrol"
+        },
+        {
+          "hook": "star_palace_branch_enforcement",
+          "branch": "enforcement"
+        },
+        {
+          "hook": "star_palace_branch_commerce",
+          "branch": "commerce",
+          "mutually_exclusive": "enforcement"
+        },
+        {
+          "hook": "internal_tax_vote"
+        }
+      ],
+      "setting": {
+        "lore": "星宫派系线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "mulan_war_campaign",
+      "display": "慕兰天澜战役",
+      "region": "mulan",
+      "war_ref": "mulan_tianlan_war.json",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "mulan_scout_clash",
+          "summary": "边境遭遇"
+        },
+        {
+          "hook": "mulan_side",
+          "branch": "mulan",
+          "optional": true
+        },
+        {
+          "hook": "tiannan_defense_mobilize",
+          "branch": "tiannan"
+        },
+        {
+          "hook": "fashi_soul_array_battle",
+          "summary": "法士护阵"
+        },
+        {
+          "hook": "holy_bird_blessing_quest",
+          "requires": "M4_holy_bird_mulan",
+          "optional": true
+        },
+        {
+          "hook": "war_ceasefire_negotiation",
+          "summary": "停战谈判"
+        }
+      ],
+      "rewards_finale": [
+        "war_campaign_token",
+        "rep_faction_major"
+      ],
+      "setting": {
+        "lore": "慕兰法士与天南千年摩擦：择边、斥候、护阵/破阵、圣禽、停战；结构向战役非必胜。",
+        "war_ref": "mulan_tianlan_war.json"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "mulan"
+        }
+      },
+      "war_events_ref": "mulan_tianlan_war.json",
+      "main_chapter_ref": "chapter_1_sect"
+    },
+    {
+      "id": "mulan_fashi_path",
+      "display": "慕兰法士道途",
+      "region": "mulan",
+      "race_required": "mulan_fashi",
+      "steps": [
+        {
+          "hook": "mulan_fashi_initiation"
+        },
+        {
+          "hook": "holy_bird_altar_visit"
+        },
+        {
+          "hook": "tianhu_beast_tame_optional"
+        }
+      ],
+      "skill_tree_ref": "fashi_mulan",
+      "setting": {
+        "lore": "慕兰法士入门、圣禽祭坛与可选天虎驯兽，对接 fashi_mulan 技能树。",
+        "war_ref": null
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "tianlan_defense_line",
+      "display": "天澜御兽线",
+      "region": "tianlan",
+      "steps": [
+        {
+          "hook": "tianlan_oath_renew"
+        },
+        {
+          "hook": "tianlan_beast_soul_call_training"
+        },
+        {
+          "hook": "mulan_war_campaign",
+          "link": true
+        }
+      ],
+      "faction": "tianlan_temple",
+      "setting": {
+        "lore": "天澜御兽线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "tianlan_temple",
+          "region": "tianlan"
+        }
+      }
+    },
+    {
+      "display": "突兀慕兰世仇",
+      "region": "mulan",
+      "feud_ref": "wutu_mulan_feud.json",
+      "steps": [
+        {
+          "hook": "wutu_raid_mulan_camp"
+        },
+        {
+          "hook": "mulan_counter_hunt"
+        },
+        {
+          "hook": "feud_truce_broker",
+          "optional": true
+        }
+      ],
+      "id": "wutu_mulan_feud_line",
+      "setting": {
+        "lore": "突兀慕兰世仇"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "display": "坠魔谷探谷",
+      "region": "fallen_demon_valley",
+      "realm_min": "NASCENT_SOUL",
+      "steps": [
+        {
+          "hook": "fallen_demon_scout"
+        },
+        {
+          "hook": "seal_weak_event"
+        },
+        {
+          "hook": "demon_qi_purge_side"
+        },
+        {
+          "hook": "ancient_demon_projection_boss"
+        }
+      ],
+      "id": "fallen_demon_expedition",
+      "setting": {
+        "lore": "坠魔谷探谷"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "NASCENT_SOUL",
+          "faction": null,
+          "region": "fallen_demon_valley"
+        }
+      }
+    },
+    {
+      "display": "大晋商路",
+      "region": "dajin",
+      "steps": [
+        {
+          "hook": "auction_invite_dajin"
+        },
+        {
+          "hook": "dajin_clan_feud_choice"
+        },
+        {
+          "hook": "kunwu_rumor"
+        }
+      ],
+      "id": "dajin_wanbao_route",
+      "setting": {
+        "lore": "万宝楼商路与拍卖准入。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "dajin"
+        }
+      },
+      "factions_ref": "dajin_factions.json"
+    },
+    {
+      "display": "阴罗殿线",
+      "region": "yinming",
+      "requires": "ghost_cultivator",
+      "steps": [
+        {
+          "hook": "yin_luo_initiation"
+        },
+        {
+          "hook": "soul_banner_quest"
+        },
+        {
+          "hook": "nether_ferry_pass"
+        }
+      ],
+      "id": "yin_luo_ghost_sect",
+      "setting": {
+        "lore": "阴罗殿线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "yinming"
+        }
+      }
+    },
+    {
+      "id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山",
+      "region": "kunwu",
+      "realm_min": "NASCENT_SOUL",
+      "steps": [
+        {
+          "hook": "kunwu_intel"
+        },
+        {
+          "hook": "kunwu_map_fragment_turnin"
+        },
+        {
+          "hook": "kunwu_cold_snap_survive"
+        },
+        {
+          "hook": "kunwu_puppet_king"
+        }
+      ],
+      "rewards_finale": [
+        "kunwu_seal_fragment",
+        "kunwu_puppet_core"
+      ],
+      "setting": {
+        "lore": "昆吾山探山"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "NASCENT_SOUL",
+          "faction": null,
+          "region": "kunwu"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_merit_path",
+      "display": "天渊功勋线",
+      "region": "tianyuan",
+      "realm_min": "SPIRIT_SEVERING",
+      "steps": [
+        {
+          "hook": "tianyuan_merit_enlist"
+        },
+        {
+          "hook": "demon_beast_siege_defense"
+        },
+        {
+          "hook": "diyuan_permit_apply"
+        }
+      ],
+      "setting": {
+        "lore": "天渊功勋线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "SPIRIT_SEVERING",
+          "faction": null,
+          "region": "tianyuan"
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_border",
+      "display": "灵界边境",
+      "region": "spirit_realm_border",
+      "steps": [
+        {
+          "hook": "wild_land_beast_horde"
+        },
+        {
+          "hook": "spatial_rift_flutter_survive"
+        }
+      ],
+      "setting": {
+        "lore": "灵界边境"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_realm_border"
+        }
+      }
+    },
+    {
+      "id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道",
+      "requires": "ghost_cultivator",
+      "steps": [
+        {
+          "hook": "ghost_expose_event"
+        },
+        {
+          "hook": "righteous_sect_ghost_hunt"
+        },
+        {
+          "hook": "sect_ban_lift_rare_quest",
+          "optional": true
+        }
+      ],
+      "setting": {
+        "lore": "鬼修禁入正道"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "fengyuan_explorer",
+      "display": "风元探索",
+      "region": "spirit_fengyuan",
+      "realm_min": "SPIRIT_SEVERING",
+      "steps": [
+        {
+          "hook": "fengyuan_clan_intro"
+        },
+        {
+          "hook": "spirit_fengyuan_border_patrol"
+        },
+        {
+          "hook": "wild_land_rumor"
+        }
+      ],
+      "setting": {
+        "lore": "风元探索"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "SPIRIT_SEVERING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_min": "VOID_REFINING",
+      "steps": [
+        {
+          "hook": "barbarian_border_contact"
+        },
+        {
+          "hook": "barbarian_beast_tide_survive"
+        },
+        {
+          "hook": "barbarian_king_token_hunt"
+        }
+      ],
+      "setting": {
+        "lore": "蛮荒妖王线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "VOID_REFINING",
+          "faction": null,
+          "region": "barbarian_wasteland"
+        }
+      }
+    },
+    {
+      "id": "human_clan_neutral_intro",
+      "display": "世家引荐",
+      "steps": [
+        "fengyuan_clan_intro",
+        "clan_guest_register"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "世家引荐"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "clan_array_mo_line",
+      "display": "莫家阵法线",
+      "faction": "clan_array_mo",
+      "steps": [
+        "array_disk_commission",
+        "formation_trial_mo",
+        "clan_feud_mediation_optional"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "莫家阵法线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "clan_array_mo",
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "clan_refinement_yu_line",
+      "display": "俞家炼器线",
+      "faction": "clan_refinement_yu",
+      "steps": [
+        "spirit_ore_escort",
+        "refinement_apprentice_yu",
+        "artifact_appraisal_quest"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "俞家炼器线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "clan_refinement_yu",
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线",
+      "faction": "clan_alchemy_gu",
+      "steps": [
+        "herb_tribute_gu",
+        "alchemy_furnace_access",
+        "pill_quality_audit"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "谷家丹道线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "clan_alchemy_gu",
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "clan_talisman_ning_line",
+      "display": "宁家符箓线",
+      "faction": "clan_talisman_ning",
+      "steps": [
+        "talisman_blank_order",
+        "talisman_inscription_lesson",
+        "clan_raid_defense_ning"
+      ],
+      "region": "spirit_fengyuan",
+      "setting": {
+        "lore": "宁家符箓线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "clan_talisman_ning",
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "human_clan_league_hub",
+      "display": "世家联盟总线",
+      "region": "spirit_fengyuan",
+      "steps": [
+        {
+          "hook": "fengyuan_clan_intro"
+        },
+        {
+          "hook": "clan_guest_register"
+        },
+        {
+          "hook": "dajin_clan_feud",
+          "optional": true
+        }
+      ],
+      "league_ref": "human_clan_league.json",
+      "setting": {
+        "lore": "世家联盟总线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "steps": [
+        {
+          "hook": "fengyuan_clan_intro"
+        },
+        {
+          "hook": "spirit_eighteen_pilgrimage"
+        },
+        {
+          "hook": "tianyuan_enlist",
+          "optional": true
+        }
+      ],
+      "cross_ref": "spirit_realm_clan_quests.json",
+      "setting": {
+        "lore": "灵界十八族巡礼"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途",
+      "realm_span": [
+        "VOID_REFINING",
+        "TRIBULATION"
+      ],
+      "steps": [
+        {
+          "hook": "void_rift_surge"
+        },
+        {
+          "hook": "diyuan_core_probe"
+        },
+        {
+          "hook": "great_vehicle_insight"
+        },
+        {
+          "hook": "tribulation_cloud_gather"
+        }
+      ],
+      "daily_pool_ref": "daily_random_events.json#spirit_realm_void_great",
+      "setting": {
+        "lore": "炼虚大乘道途"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "diyuan_depth_delve",
+      "display": "地渊深层",
+      "region": "diyuan",
+      "realm_min": "VOID_REFINING",
+      "steps": [
+        {
+          "hook": "diyuan_permit_apply"
+        },
+        {
+          "hook": "diyuan_pressure_wave"
+        },
+        {
+          "hook": "diyuan_core_probe"
+        },
+        {
+          "hook": "diyuan_core_crystal_boss"
+        }
+      ],
+      "parent_chain": "void_great_cultivation_arc",
+      "setting": {
+        "lore": "地渊深层"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "VOID_REFINING",
+          "faction": null,
+          "region": "diyuan"
+        }
+      }
+    },
+    {
+      "id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "steps": [
+        {
+          "hook": "mortal_realm_cap_insight"
+        },
+        {
+          "hook": "ascension_gate_rumor"
+        },
+        {
+          "hook": "spirit_realm_gate_voucher"
+        }
+      ],
+      "setting": {
+        "lore": "人界化神·赴灵界"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "inverse_star_recruit",
+      "display": "逆星入盟",
+      "steps": [
+        "inverse_star_contact_rumor",
+        "inverse_star_cipher_trial",
+        "inverse_star_oath"
+      ],
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "setting": {
+        "lore": "逆星入盟"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "inverse_star_alliance",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_smuggle_arc",
+      "display": "走私补给线",
+      "steps": [
+        "inverse_star_smuggler_pack",
+        "star_palace_patrol_dodge",
+        "void_palace_intel_sell"
+      ],
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "setting": {
+        "lore": "走私补给线"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "inverse_star_alliance",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_void_heist",
+      "display": "虚天情报战",
+      "steps": [
+        "void_key_fragment_rumor",
+        "inverse_star_black_market_buy",
+        "star_palace_spy_expose_optional"
+      ],
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "setting": {
+        "lore": "虚天情报战"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "inverse_star_alliance",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙",
+      "steps": [
+        {
+          "hook": "star_palace_patrol_quest",
+          "branch": "loyalist"
+        },
+        {
+          "hook": "inverse_star_ambush_event",
+          "branch": "rebel"
+        },
+        {
+          "hook": "star_palace_enforcement_raid",
+          "branch": "loyalist",
+          "optional": true
+        },
+        {
+          "hook": "inverse_star_smuggle_run",
+          "branch": "rebel",
+          "optional": true
+        },
+        {
+          "hook": "chaotic_sea_neutral_ending_optional",
+          "optional": true
+        }
+      ],
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "setting": {
+        "lore": "星宫巡防与逆星伏击对峙，可选中立收束；结构向非阵营必胜。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "inverse_star_alliance",
+          "region": "chaotic_sea"
+        }
+      },
+      "war_events_ref": "chaotic_sea_faction_war.json",
+      "branch_mutual_exclusive": [
+        "star_palace_patrol_quest",
+        "inverse_star_ambush_event"
+      ]
+    },
+    {
+      "id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门",
+      "steps": 3,
+      "faction": "tiannan_seven",
+      "rewards": [
+        "inner_manual_slot"
+      ],
+      "setting": {
+        "lore": "贡献、境界与师门考核。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "tiannan_seven",
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役",
+      "steps": [
+        {
+          "hook": "mulan_scout_clash",
+          "summary": "边境遭遇"
+        },
+        {
+          "hook": "fashi_soul_array_battle",
+          "summary": "法士大阵"
+        },
+        {
+          "hook": "holy_bird_blessing_quest",
+          "optional": true
+        },
+        {
+          "hook": "war_ceasefire_negotiation",
+          "summary": "停战"
+        }
+      ],
+      "region": "mulan_border",
+      "rewards": [
+        "war_merit",
+        "mulan_spoil"
+      ],
+      "setting": {
+        "lore": "天南联军对慕兰法士。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "mulan_border"
+        }
+      },
+      "war_events_ref": "mulan_tianlan_war.json",
+      "merge_note": "与 mulan_war_campaign 并行，简版四步"
+    },
+    {
+      "id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链",
+      "steps": 4,
+      "realm_min": "CORE_FORMATION",
+      "rewards": [
+        "void_key",
+        "legendary_roll"
+      ],
+      "setting": {
+        "lore": "三百年一开，多层殿宇。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "CORE_FORMATION",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置",
+      "steps": 6,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "rewards": [
+        "ascension_insight"
+      ],
+      "setting": {
+        "lore": "界面之力、心魔、空间节点。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "faction": null,
+          "region": null
+        }
+      }
+    },
+    {
+      "id": "chain_tianyuan_enlist",
+      "display": "天渊城服役",
+      "steps": 4,
+      "region": "spirit_world",
+      "rewards": [
+        "tianyuan_contribution"
+      ],
+      "setting": {
+        "lore": "抵御异族，换取灵界资源。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": null,
+          "region": "spirit_world"
+        }
+      }
+    },
+    {
+      "id": "blood_forbidden_campaign",
+      "display": "血色禁地历练",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "secret_realm_ref": "blood_forbidden",
+      "cycle_id": "cycle_blood_forbidden",
+      "steps": [
+        {
+          "hook": "blood_forbidden_rumor",
+          "summary": "传闻与名额"
+        },
+        {
+          "hook": "hook_blood_forbidden_ticket",
+          "summary": "争取入场令"
+        },
+        {
+          "hook": "blood_forbidden_entry_scar",
+          "summary": "穿越禁制入口"
+        },
+        {
+          "hook": "blood_forbidden_outer_layer",
+          "summary": "外层猎妖取药"
+        },
+        {
+          "hook": "blood_forbidden_inner_layer",
+          "summary": "内层结伴破禁"
+        },
+        {
+          "hook": "blood_jiao_guardian",
+          "summary": "守关妖蛟",
+          "boss": true
+        }
+      ],
+      "rewards_finale": [
+        "foundation_pill_material",
+        "blood_forbidden_herb",
+        "contribution_rank_inner"
+      ],
+      "constraints": {
+        "party_size_max": 4,
+        "cycle_years": 5,
+        "note": "原著五年周期；数据层用 cycle_id 对齐纪年"
+      },
+      "setting": {
+        "lore": "天南筑基机缘秘境：开放条件、禁制环境、外→内→禁地三层结构。",
+        "open_condition": "周期开放+宗门名额",
+        "environment_rules": "妖兽狂暴、禁制压制"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "void_palace_campaign",
+      "display": "虚天殿探宝",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "secret_realm_ref": "void_palace",
+      "cycle_id": "cycle_void_palace",
+      "steps": [
+        {
+          "hook": "void_palace_cycle_notice",
+          "summary": "三百年周期预告"
+        },
+        {
+          "hook": "void_key_fragment_hunt",
+          "summary": "搜集虚天钥碎片"
+        },
+        {
+          "hook": "void_palace_outer_hall",
+          "summary": "外殿傀儡战"
+        },
+        {
+          "hook": "void_palace_herb_garden",
+          "summary": "灵药园采集"
+        },
+        {
+          "hook": "void_palace_cold_jade_hall",
+          "summary": "寒玉殿极寒"
+        },
+        {
+          "hook": "void_palace_treasury",
+          "summary": "核心宝库",
+          "boss": "void_palace_lord"
+        }
+      ],
+      "rewards_finale": [
+        "void_key_fragment",
+        "void_palace_cold_jade",
+        "ancient_spirit_treasure_shard"
+      ],
+      "constraints": {
+        "cycle_years": 300,
+        "realm_suggested": "NASCENT_SOUL"
+      },
+      "setting": {
+        "lore": "乱星海奇景虚天殿：空间法则、极寒层、分层殿宇；古宝以碎片形式掉落。",
+        "open_condition": "周期+钥碎片+境界"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "CORE_FORMATION",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘",
+      "region": "fallen_demon_valley",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "secret_realm_ref": "fallen_demon_valley",
+      "main_chapter_ref": "chapter_5_deity_transformation",
+      "steps": [
+        {
+          "hook": "fallen_demon_seal_weaken",
+          "summary": "封印松动传闻"
+        },
+        {
+          "hook": "demon_qi_purge_prep",
+          "summary": "备驱魔丹与辟邪物"
+        },
+        {
+          "hook": "fallen_demon_outer_gorge",
+          "summary": "外谷魔雾"
+        },
+        {
+          "hook": "fallen_demon_rift_layer",
+          "summary": "裂隙层心魔"
+        },
+        {
+          "hook": "ancient_demon_projection",
+          "summary": "古魔投影",
+          "boss": true
+        }
+      ],
+      "rewards_finale": [
+        "demon_qi_purge_pill",
+        "space_rift_compass",
+        "fallen_demon_chest"
+      ],
+      "constraints": {
+        "realm_min": "NASCENT_SOUL",
+        "miasma_debuff": true
+      },
+      "setting": {
+        "lore": "魔道入侵遗留禁地：魔气、心魔、空间裂隙；封印削弱方可入谷，非刷胜率副本。",
+        "environment_rules": "魔化风险、心魔触发",
+        "chronicle": "D3_ancient_demon_invasion"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "NASCENT_SOUL",
+          "region": "fallen_demon_valley"
+        }
+      }
+    },
+    {
+      "id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝",
+      "region": "kunwu",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "secret_realm_ref": "kunwu_mountain",
+      "main_chapter_ref": "chapter_4_great_jin",
+      "cycle_id": "cycle_kunwu_open",
+      "steps": [
+        {
+          "hook": "kunwu_open_permit",
+          "summary": "入山许可"
+        },
+        {
+          "hook": "kunwu_outer_array",
+          "summary": "外阵破禁"
+        },
+        {
+          "hook": "kunwu_mine_tunnel",
+          "summary": "矿脉傀儡"
+        },
+        {
+          "hook": "kunwu_puppet_hall",
+          "summary": "傀儡殿"
+        },
+        {
+          "hook": "kunwu_peak_seal",
+          "summary": "峰顶封印",
+          "boss": "kunwu_puppet_king"
+        }
+      ],
+      "rewards_finale": [
+        "kunwu_core_ore",
+        "kunwu_puppet_core",
+        "kunwu_seal_fragment"
+      ],
+      "constraints": {
+        "cold_debuff": true,
+        "puppet_waves": true
+      },
+      "setting": {
+        "lore": "大晋昆吾山：寒禁、上古傀儡、矿脉与封印；周期开放+许可+境界三重门槛。",
+        "layered_exploration": "外阵→矿脉→傀儡殿→峰顶"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "CORE_FORMATION",
+          "region": "kunwu"
+        }
+      }
+    },
+    {
+      "id": "nether_river_campaign",
+      "display": "冥河之地行",
+      "region": "nether_river",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "secret_realm_ref": "nether_river_land",
+      "steps": [
+        {
+          "hook": "nether_ferry_ticket",
+          "summary": "冥河渡费"
+        },
+        {
+          "hook": "nether_river_fog_entry",
+          "summary": "阴雾入界"
+        },
+        {
+          "hook": "nether_soul_shoal",
+          "summary": "魂滩采集"
+        },
+        {
+          "hook": "nether_ghost_hall",
+          "summary": "冥殿鬼修"
+        },
+        {
+          "hook": "nether_river_guardian",
+          "summary": "守关",
+          "boss": true
+        }
+      ],
+      "rewards_finale": [
+        "soul_gathering_stone",
+        "ghost_cultivation_manual",
+        "nether_river_chest"
+      ],
+      "setting": {
+        "lore": "鬼道秘境：渡费、敛魂符、阴雾减阳伤；白日 debuff，纯阳术法克制鬼物。",
+        "open_condition": "鬼修或筑基+渡费"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "FOUNDATION",
+          "region": "nether_river"
+        }
+      }
+    },
+    {
+      "id": "diyuan_campaign",
+      "display": "地渊探脉",
+      "region": "diyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_FUSION"
+      ],
+      "secret_realm_ref": "diyuan",
+      "main_chapter_ref": "chapter_6_spirit_realm",
+      "steps": [
+        {
+          "hook": "diyuan_permit_apply",
+          "summary": "天渊功勋换地渊令"
+        },
+        {
+          "hook": "diyuan_rift_mouth",
+          "summary": "裂隙口重压"
+        },
+        {
+          "hook": "diyuan_shallow_mine",
+          "summary": "浅矿灵脉"
+        },
+        {
+          "hook": "diyuan_pressure_zone",
+          "summary": "重压带"
+        },
+        {
+          "hook": "diyuan_ancient_beast",
+          "summary": "古兽守脉",
+          "boss": "ancient_beast_sovereign"
+        }
+      ],
+      "rewards_finale": [
+        "spirit_vein_shard",
+        "diyuan_core_crystal",
+        "pressure_resist_charm"
+      ],
+      "setting": {
+        "lore": "灵界地渊：炼虚以上、许可与功勋；紊乱灵气与空间褶皱，非刷宝副本。",
+        "environment_rules": "重压、深层古兽"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "VOID_REFINEMENT",
+          "region": "diyuan"
+        }
+      }
+    },
+    {
+      "id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "branch_mutual_exclusive": [
+        "dajin_righteous_patrol_hook",
+        "dajin_demon_infiltrate_hook"
+      ],
+      "steps": [
+        {
+          "hook": "dajin_border_rumor",
+          "summary": "边境传闻"
+        },
+        {
+          "hook": "dajin_righteous_patrol_hook",
+          "branch": "righteous"
+        },
+        {
+          "hook": "dajin_demon_infiltrate_hook",
+          "branch": "demonic"
+        },
+        {
+          "hook": "wanbao_auction_lead",
+          "optional": true
+        },
+        {
+          "hook": "kunwu_expedition",
+          "optional": true
+        }
+      ],
+      "factions_ref": "dajin_factions.json",
+      "setting": {
+        "lore": "正道巡边与魔道渗透互斥支线；万宝拍卖可中立介入。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "FOUNDATION",
+          "region": "dajin"
+        }
+      }
+    },
+    {
+      "id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": [
+        {
+          "hook": "yanyue_entry_trial",
+          "summary": "神识心性试炼"
+        },
+        {
+          "hook": "illusion_array_practice",
+          "summary": "幻阵双修课业"
+        },
+        {
+          "hook": "seven_sect_tournament",
+          "summary": "七派大比（可选）",
+          "optional": true
+        },
+        {
+          "hook": "inner_veil_secret",
+          "summary": "内门媚术秘传"
+        }
+      ],
+      "rewards_finale": [
+        "yanyue_inner_token",
+        "illusion_manual_fragment"
+      ],
+      "skill_tree_ref": "illusion_yanyue",
+      "setting": {
+        "lore": "女修为主；媚术幻阵双修，与黄枫谷资源竞合。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "yanyue_sect",
+          "region": "tiannan"
+        }
+      },
+      "secret_realm_ref": "seven_meridian_cave"
+    },
+    {
+      "id": "tianfu_talisman_path",
+      "display": "天符门制符线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        {
+          "hook": "tianfu_paper_grind",
+          "summary": "符纸灵墨基础"
+        },
+        {
+          "hook": "low_talisman_cert",
+          "summary": "低阶符考核"
+        },
+        {
+          "hook": "mid_talisman_inner",
+          "summary": "筑基后中阶符室"
+        },
+        {
+          "hook": "high_talisman_secret",
+          "summary": "结丹秘传符（可选分支）"
+        }
+      ],
+      "rewards_finale": [
+        "talisman_master_seal",
+        "high_talisman_recipe_scroll"
+      ],
+      "talisman_grade_ref": "talisman_three_grade_tiers.json",
+      "skill_tree_ref": "tianfu_talisman",
+      "setting": {
+        "lore": "符箓三品对应低中高阶符解锁；符宝另计。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "faction": "tianfu_gate",
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "demonic_six_expanded",
+      "display": "魔道六宗深入线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "karma_required": "demonic_karma",
+      "steps": [
+        {
+          "hook": "demonic_north_rumor",
+          "summary": "北迁与边境悬赏"
+        },
+        {
+          "hook": "sect_branch_choice",
+          "summary": "六宗择一入门",
+          "branch_any": [
+            "guiling_gate",
+            "hehuan_sect",
+            "tianmo_sect",
+            "qingluo_sect",
+            "wanhu_sect",
+            "xuewu_sect"
+          ]
+        },
+        {
+          "hook": "righteous_bounty_hunt",
+          "summary": "正道围剿压力"
+        },
+        {
+          "hook": "north_waste_ruin",
+          "summary": "荒原古冢夺宝",
+          "optional": true
+        }
+      ],
+      "rewards_finale": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ],
+      "extends_chain": "demonic_six_path",
+      "setting": {
+        "lore": "鬼灵、合欢、天魔、青罗、万狐、血巫六宗；入魔则七派关系恶化。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "region": "tiannan_north_waste"
+        }
+      }
+    }
+  ],
+  "hooks_ref": "quest_hooks.json"
+}

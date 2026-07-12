@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "id": "yinming",
+  "display": "阴冥",
+  "spirit_density": "yin_heavy",
+  "parent_cluster": "yin_underworld_cluster",
+  "quest_hooks": [
+    "yinming_escape"
+  ],
+  "path_unlock": "ghost_cultivator",
+  "herbs": [
+    "ghost_face_mushroom",
+    "nether_bone_grass"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": 5,
+  "source": "汇编 五界 + 飞升链 + 天渊城设定",
+  "realms": [
+    {
+      "id": "mortal_realm",
+      "display": "人界",
+      "realm_cap": "DEITY_TRANSFORMATION",
+      "ascension_from": null,
+      "setting": {
+        "lore": "人界",
+        "source_file": "spirit_realm_interface.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "spirit_realm_interface.json"
+      }
+    },
+    {
+      "id": "spirit_realm",
+      "display": "灵界",
+      "realm_cap": "GREAT_VEHICLE",
+      "ascension_from": "mortal_realm",
+      "setting": {
+        "lore": "灵界",
+        "source_file": "spirit_realm_interface.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "spirit_realm_interface.json"
+      }
+    },
+    {
+      "id": "immortal_realm",
+      "display": "仙界",
+      "realm_cap": null,
+      "ascension_from": "spirit_realm",
+      "setting": {
+        "lore": "仙界",
+        "source_file": "spirit_realm_interface.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "spirit_realm_interface.json"
+      }
+    }
+  ],
+  "ascension": {
+    "trigger": "DEITY_TRANSFORMATION_peak + tribulation_success",
+    "destination_default": "tianyuan",
+    "failure_outcomes": [
+      "death",
+      "cripple",
+      "demonization"
+    ],
+    "items_help": [
+      "ascension_talisman",
+      "space_anchor_talisman"
+    ],
+    "chronicle_ref": "K6_spirit_realm"
+  },
+  "tianyuan_city": {
+    "role": "人界飞升首站 + 灵界前线要塞",
+    "dual_population": [
+      "human_cultivator",
+      "demon_cultivator",
+      "feiling_mixed"
+    ],
+    "cultivation_multiplier": 2.0,
+    "services": [
+      "merit_shop",
+      "demon_hunt_contract",
+      "spirit_realm_gate",
+      "wind_feather_craft"
+    ],
+    "defense": [
+      "five_elements_mountain_array",
+      "garrison_legion"
+    ],
+    "realm_min_residence": "DEITY_TRANSFORMATION",
+    "design_source": "汇编9.7 修炼速度约为外界一倍",
+    "merit_shop_ref": "economy_contribution_exchange.json#tianyuan"
+  },
+  "gates": [
+    {
+      "id": "mortal_to_tianyuan",
+      "type": "ascension",
+      "from": "mortal_realm",
+      "to": "tianyuan",
+      "one_way": true,
+      "note": "飞升通道，不可逆回人界本体（分身下界另机制）",
+      "to_dimension": "seeking_immortals:tianyuan",
+      "from_dimension": "seeking_immortals:mortal_world",
+      "node_ref": "gate_mortal_to_tianyuan"
+    },
+    {
+      "id": "tianyuan_to_spirit_fengyuan",
+      "type": "regulated_portal",
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "fee_contribution": 500,
+      "faction": "tianyuan_garrison",
+      "to_dimension": "seeking_immortals:spirit_fengyuan",
+      "from_dimension": "seeking_immortals:tianyuan"
+    },
+    {
+      "id": "spirit_subrealms",
+      "type": "secret_realm_cluster",
+      "parent": "spirit_realm",
+      "examples": [
+        "diyuan",
+        "guanghan",
+        "demon_gold_mountain",
+        "minor_asura"
+      ],
+      "realm_min_typical": "VOID_REFINEMENT"
+    }
+  ],
+  "avatar_descent": {
+    "enabled": true,
+    "user_realm_min": "VOID_REFINEMENT",
+    "mortal_body": "weaker_clone",
+    "purpose": [
+      "avoid_tribulation",
+      "inheritance",
+      "resource_gather"
+    ],
+    "risk": "clone_death_no_main_death"
+  },
+  "spirit_landmarks": [
+    {
+      "id": "jiuxian_mount",
+      "display": "九仙山",
+      "use": "high_order_seclusion"
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊",
+      "use": "ancient_ruins_danger"
+    },
+    {
+      "id": "guanghan",
+      "display": "广寒界",
+      "use": "ice_spirit_materials"
+    },
+    {
+      "id": "demon_gold_mountain",
+      "display": "魔金山",
+      "use": "demon_cultivation_ore"
+    },
+    {
+      "id": "minor_asura",
+      "display": "小修罗界",
+      "use": "trial_combat"
+    }
+  ],
+  "crossref": [
+    "region_cards/tianyuan.json",
+    "region_cards/spirit_fengyuan.json",
+    "trade_routes.json",
+    "faction_species.json"
+  ],
+  "descent_to_mortal": {
+    "enabled": true,
+    "realm_min": "VOID_REFINEMENT",
+    "note": "分身下界，本体留灵界"
+  },
+  "dimensions_catalog_ref": "dimensions_catalog.json",
+  "spatial_nodes_ref": "spatial_nodes_catalog.json",
+  "clan_quests_ref": "spirit_realm_clan_quests.json"
+}

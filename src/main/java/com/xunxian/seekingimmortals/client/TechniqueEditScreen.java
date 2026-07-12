@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.Mth;
 
 import java.util.List;
 
@@ -19,8 +20,10 @@ public class TechniqueEditScreen extends Screen {
     private static final int SLOT_ROW_HEIGHT = 22;
     private static final int LEARNED_X_OFFSET = 190;
     private static final int LIST_START_Y_OFFSET = 58;
+    private static final int SCROLLBAR_WIDTH = 3;
 
     private String draggingTechniqueId = "";
+    private int learnedScrollOffset = 0;
 
     public TechniqueEditScreen() {
         super(Component.translatable("screen.seeking_immortals.technique_edit.title"));
@@ -31,8 +34,12 @@ public class TechniqueEditScreen extends Screen {
         super.init();
         int left = panelLeft();
         int top = panelTop();
+        int width = panelWidth();
+        int height = panelHeight();
+        int buttonWidth = Math.min(66, Math.max(1, width - 24));
+        int buttonY = Math.max(top + 4, top + height - 26);
         addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.cultivation_stats.close"), button -> onClose())
-                .bounds(left + panelWidth() - 78, top + panelHeight() - 26, 66, 20)
+                .bounds(left + width - 12 - buttonWidth, buttonY, buttonWidth, 20)
                 .build());
     }
 
@@ -98,6 +105,21 @@ public class TechniqueEditScreen extends Screen {
         return super.mouseReleased(mouseX, mouseY, button);
     }
 
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        if (ClientTechniqueData.isSynced() && isInsideLearnedList(mouseX, mouseY)) {
+            List<String> techniques = ClientTechniqueData.getLearnedTechniques();
+            int maxRows = maxLearnedRows(panelTop(), panelHeight());
+            int maxScroll = maxLearnedScroll(techniques.size(), maxRows);
+            if (maxScroll > 0) {
+                int direction = delta > 0.0D ? -1 : 1;
+                learnedScrollOffset = Mth.clamp(learnedScrollOffset + direction, 0, maxScroll);
+                return true;
+            }
+        }
+        return super.mouseScrolled(mouseX, mouseY, delta);
+    }
+
     private void renderPanel(GuiGraphics graphics, int mouseX, int mouseY) {
         int left = panelLeft();
         int top = panelTop();
@@ -105,7 +127,9 @@ public class TechniqueEditScreen extends Screen {
         int height = panelHeight();
         ImmortalUiSkin.drawPanel(graphics, left, top, width, height);
         graphics.drawCenteredString(font, title, left + width / 2, top + 12, 0xFFE6D59A);
-        graphics.drawString(font, "拖拽右侧已学技能到左侧槽位绑定；右键槽位清空。左键槽位仍绑定同序号技能。", left + 14, top + 32, 0xFFB8F5A2, false);
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.technique_edit.instruction").getString(),
+                left + 14, top + 32, Math.max(1, width - 28), 0xFFB8F5A2, false);
 
         List<String> techniques = ClientTechniqueData.isSynced() ? ClientTechniqueData.getLearnedTechniques() : List.of();
         List<String> slots = ClientTechniqueData.isSynced() ? ClientTechniqueData.getTechniqueSlots() : List.of();
@@ -116,59 +140,95 @@ public class TechniqueEditScreen extends Screen {
     private void renderSlots(GuiGraphics graphics, int left, int top, List<String> slots, int mouseX, int mouseY) {
         int x = left + SLOT_X_OFFSET;
         int y = top + SLOT_START_Y_OFFSET;
-        graphics.drawString(font, "技能槽位", x, y - 16, 0xFFE6D59A, false);
+        int learnedOffset = learnedXOffset();
+        ClientCultivationData.Snapshot data = ClientCultivationData.getSnapshot();
+        graphics.drawString(font, Component.translatable("screen.seeking_immortals.technique_edit.slots"), x, y - 16, 0xFFE6D59A, false);
         for (int i = 0; i < SLOT_COUNT; i++) {
             String techniqueId = i < slots.size() ? slots.get(i) : "";
             ClientTechniqueData.TechniqueSummary summary = techniqueId.isBlank() ? null : ClientTechniqueData.getTechniqueSummary(techniqueId);
+            boolean canRelease = summary != null && ClientTechniqueData.canRelease(techniqueId, data);
             int rowY = y + i * SLOT_ROW_HEIGHT;
             boolean hovered = hoveredSlot(mouseX, mouseY) == i;
             if (hovered) {
-                graphics.fill(x - 3, rowY - 5, left + LEARNED_X_OFFSET - 10, rowY - 5 + SLOT_ROW_HEIGHT, 0x332F8F45);
+                graphics.fill(x - 3, rowY - 5, left + learnedOffset - 10, rowY - 5 + SLOT_ROW_HEIGHT, 0x332F8F45);
             }
             ImmortalUiSkin.drawSkillSlot(graphics, x, rowY - 3, 18, summary != null);
+            if (summary != null && ImmortalUiSkin.hasSkillIcon(techniqueId)) {
+                ImmortalUiSkin.drawSkillIcon(graphics, x + 1, rowY - 2, 16, techniqueId);
+                if (!canRelease) {
+                    graphics.fill(x + 1, rowY - 2, x + 17, rowY + 14, 0x88000000);
+                }
+            }
             graphics.drawString(font, Integer.toString(i + 1), x + 6, rowY + 2, 0xFFFFFFFF, true);
             int cooldownSeconds = techniqueId.isBlank() ? 0 : (int)Math.ceil(ClientTechniqueData.getCooldownRemainingTicks(techniqueId) / 20.0D);
-            String cooldownText = cooldownSeconds > 0 ? " · 冷却 " + cooldownSeconds + " 秒" : "";
-            String text = summary == null ? "空槽" : summary.name() + " · 消耗 " + summary.cost() + cooldownText;
-            graphics.drawString(font, "槽 " + (i + 1) + "：" + text, x + 26, rowY + 1, summary == null ? 0xFFBFAF8A : 0xFFEFE4C2, false);
+            String cooldownText = cooldownSeconds > 0
+                    ? " / " + Component.translatable("screen.seeking_immortals.technique_edit.cooldown", cooldownSeconds).getString()
+                    : "";
+            String text = summary == null
+                    ? Component.translatable("screen.seeking_immortals.technique_edit.empty_slot").getString()
+                    : Component.translatable("screen.seeking_immortals.technique_edit.slot_summary", summary.name(), summary.cost()).getString() + cooldownText;
+            int color = summary == null ? 0xFFBFAF8A : (canRelease ? 0xFFEFE4C2 : 0xFFFFB0A0);
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.technique_edit.slot_label", i + 1, text).getString(),
+                    x + 26, rowY + 1, Math.max(1, learnedOffset - SLOT_X_OFFSET - 38), color, false);
         }
     }
 
     private void renderLearnedList(GuiGraphics graphics, int left, int top, int height, List<String> techniques, int mouseX, int mouseY) {
-        int x = left + LEARNED_X_OFFSET;
+        int x = left + learnedXOffset();
         int y = top + LIST_START_Y_OFFSET;
-        graphics.drawString(font, "已学技能（按住左键拖拽）", x, y - 16, 0xFFE6D59A, false);
+        graphics.drawString(font, Component.translatable("screen.seeking_immortals.technique_edit.learned"), x, y - 16, 0xFFE6D59A, false);
         if (!ClientTechniqueData.isSynced()) {
-            graphics.drawString(font, "等待服务端同步技能数据...", x, y, 0xFFBFAF8A, false);
+            graphics.drawString(font, Component.translatable("screen.seeking_immortals.technique_edit.waiting_sync"), x, y, 0xFFBFAF8A, false);
             return;
         }
         if (techniques.isEmpty()) {
-            graphics.drawString(font, "暂无已学技能。", x, y, 0xFFBFAF8A, false);
+            graphics.drawString(font, Component.translatable("screen.seeking_immortals.technique_edit.empty_learned"), x, y, 0xFFBFAF8A, false);
             return;
         }
 
         int maxRows = maxLearnedRows(top, height);
+        renderScrollableLearnedRows(graphics, left, x, y, maxRows, techniques, mouseX, mouseY);
+    }
+
+    private void renderScrollableLearnedRows(GuiGraphics graphics, int left, int x, int y, int maxRows, List<String> techniques, int mouseX, int mouseY) {
+        learnedScrollOffset = Mth.clamp(learnedScrollOffset, 0, maxLearnedScroll(techniques.size(), maxRows));
         int hoveredIndex = hoveredLearnedIndex(mouseX, mouseY);
-        for (int i = 0; i < Math.min(maxRows, techniques.size()); i++) {
-            ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(techniques.get(i));
+        int visibleRows = Math.min(maxRows, techniques.size() - learnedScrollOffset);
+        int rowRight = learnedListRight(left);
+        for (int i = 0; i < visibleRows; i++) {
+            int techniqueIndex = learnedScrollOffset + i;
+            ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(techniques.get(techniqueIndex));
             int rowY = y + i * LINE_HEIGHT;
-            if (hoveredIndex == i) {
-                graphics.fill(x - 3, rowY - 2, left + panelWidth() - 14, rowY + LINE_HEIGHT - 1, 0x332F8F45);
+            if (hoveredIndex == techniqueIndex) {
+                graphics.fill(x - 3, rowY - 2, rowRight, rowY + LINE_HEIGHT - 1, 0x332F8F45);
             }
-            graphics.drawString(font, (i + 1) + ". " + summary.name() + "（" + summary.attribute() + "）", x, rowY, 0xFFEFE4C2, false);
+            graphics.drawString(font, (techniqueIndex + 1) + ". " + summary.name() + " / " + summary.attribute(), x, rowY, 0xFFEFE4C2, false);
         }
-        if (techniques.size() > maxRows) {
-            graphics.drawString(font, "+" + (techniques.size() - maxRows) + " 个未显示", x, y + maxRows * LINE_HEIGHT, 0xFFE6D59A, false);
-        }
+        renderLearnedScrollbar(graphics, left, y, maxRows, techniques.size());
+    }
+
+    private void renderLearnedScrollbar(GuiGraphics graphics, int left, int y, int maxRows, int totalRows) {
+        int maxScroll = maxLearnedScroll(totalRows, maxRows);
+        if (maxScroll <= 0) return;
+
+        int trackHeight = maxRows * LINE_HEIGHT;
+        int trackX = left + panelWidth() - 18;
+        graphics.fill(trackX, y, trackX + SCROLLBAR_WIDTH, y + trackHeight, 0x55302216);
+
+        int thumbHeight = Math.max(10, trackHeight * maxRows / totalRows);
+        int thumbTravel = Math.max(1, trackHeight - thumbHeight);
+        int thumbY = y + thumbTravel * learnedScrollOffset / maxScroll;
+        graphics.fill(trackX, thumbY, trackX + SCROLLBAR_WIDTH, thumbY + thumbHeight, 0xCCB8F5A2);
     }
 
     private void renderDraggedTechnique(GuiGraphics graphics, int mouseX, int mouseY) {
         if (draggingTechniqueId.isBlank()) return;
         ClientTechniqueData.TechniqueSummary summary = ClientTechniqueData.getTechniqueSummary(draggingTechniqueId);
-        String text = "拖拽绑定：《" + summary.name() + "》→ 释放到左侧槽位";
-        int boxWidth = font.width(text) + 12;
-        int x = Math.min(mouseX + 10, width - boxWidth - 4);
-        int y = Math.min(mouseY + 10, height - 20);
+        String text = Component.translatable("screen.seeking_immortals.technique_edit.dragging", summary.name()).getString();
+        int boxWidth = Math.max(1, Math.min(Math.max(1, width - 4), font.width(text) + 12));
+        int x = Math.max(0, Math.min(mouseX + 10, width - boxWidth - 4));
+        int y = Math.max(0, Math.min(mouseY + 10, height - 20));
         ImmortalUiSkin.drawTooltipPanel(graphics, x, y, boxWidth, 18);
         graphics.drawString(font, text, x + 6, y + 5, 0xFFB8F5A2, false);
     }
@@ -180,7 +240,7 @@ public class TechniqueEditScreen extends Screen {
         int y = top + SLOT_START_Y_OFFSET;
         for (int i = 0; i < SLOT_COUNT; i++) {
             int rowY = y + i * SLOT_ROW_HEIGHT;
-            if (mouseX >= x - 3 && mouseX < left + LEARNED_X_OFFSET - 10 && mouseY >= rowY - 5 && mouseY < rowY - 5 + SLOT_ROW_HEIGHT) {
+            if (mouseX >= x - 3 && mouseX < left + learnedXOffset() - 10 && mouseY >= rowY - 5 && mouseY < rowY - 5 + SLOT_ROW_HEIGHT) {
                 return i;
             }
         }
@@ -188,13 +248,19 @@ public class TechniqueEditScreen extends Screen {
     }
 
     private int hoveredLearnedIndex(double mouseX, double mouseY) {
+        if (!ClientTechniqueData.isSynced()) return -1;
+        List<String> techniques = ClientTechniqueData.getLearnedTechniques();
+        if (techniques.isEmpty()) return -1;
+
         int left = panelLeft();
         int top = panelTop();
-        int x = left + LEARNED_X_OFFSET;
+        int x = left + learnedXOffset();
         int y = top + LIST_START_Y_OFFSET;
         int maxRows = maxLearnedRows(top, panelHeight());
-        if (mouseX >= x - 3 && mouseX < left + panelWidth() - 14 && mouseY >= y && mouseY < y + maxRows * LINE_HEIGHT) {
-            return (int)((mouseY - y) / LINE_HEIGHT);
+        if (mouseX >= x - 3 && mouseX < learnedListRight(left) && mouseY >= y && mouseY < y + maxRows * LINE_HEIGHT) {
+            int visibleIndex = (int)((mouseY - y) / LINE_HEIGHT);
+            int learnedIndex = learnedScrollOffset + visibleIndex;
+            return learnedIndex < techniques.size() ? learnedIndex : -1;
         }
         return -1;
     }
@@ -203,19 +269,52 @@ public class TechniqueEditScreen extends Screen {
         return Math.max(1, (top + height - 44 - (top + LIST_START_Y_OFFSET)) / LINE_HEIGHT);
     }
 
+    private boolean isInsideLearnedList(double mouseX, double mouseY) {
+        int left = panelLeft();
+        int top = panelTop();
+        int x = left + learnedXOffset();
+        int y = top + LIST_START_Y_OFFSET;
+        int maxRows = maxLearnedRows(top, panelHeight());
+        return mouseX >= x - 3 && mouseX < learnedListRight(left) && mouseY >= y && mouseY < y + maxRows * LINE_HEIGHT;
+    }
+
+    private int maxLearnedScroll(int totalRows, int visibleRows) {
+        return Math.max(0, totalRows - visibleRows);
+    }
+
+    private int learnedListRight(int left) {
+        return left + panelWidth() - 24;
+    }
+
     private int panelLeft() {
-        return (width - panelWidth()) / 2;
+        return Math.max(0, (width - panelWidth()) / 2);
     }
 
     private int panelTop() {
-        return (height - panelHeight()) / 2;
+        return Math.max(0, (height - panelHeight()) / 2);
     }
 
     private int panelWidth() {
-        return Math.max(300, Math.min(PANEL_WIDTH, width - 24));
+        return calculatePanelWidth(width);
     }
 
     private int panelHeight() {
-        return Math.max(220, Math.min(PANEL_HEIGHT, height - 24));
+        return calculatePanelHeight(height);
+    }
+
+    private int learnedXOffset() {
+        return Math.min(LEARNED_X_OFFSET, Math.max(56, panelWidth() / 2));
+    }
+
+    static int calculatePanelWidth(int screenWidth) {
+        if (screenWidth <= 0) return 1;
+        int margin = screenWidth >= 260 ? 24 : Math.min(8, Math.max(0, screenWidth / 10));
+        return Math.max(1, Math.min(PANEL_WIDTH, screenWidth - margin));
+    }
+
+    static int calculatePanelHeight(int screenHeight) {
+        if (screenHeight <= 0) return 1;
+        int margin = screenHeight >= 180 ? 24 : Math.min(8, Math.max(0, screenHeight / 10));
+        return Math.max(1, Math.min(PANEL_HEIGHT, screenHeight - margin));
     }
 }

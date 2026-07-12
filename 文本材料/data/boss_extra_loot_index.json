@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "description": "Boss / 高阶妖兽额外掉落索引，与 beast_bestiary.extra_loot 同步",
+  "entries": [
+    {
+      "beast_id": "thunder_jiao",
+      "boss": true,
+      "tier": 7,
+      "extra_loot": [
+        "talisman_crate_mid",
+        "thunder_stone"
+      ],
+      "setting": {
+        "lore": "",
+        "source_file": "boss_extra_loot_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "boss_extra_loot_index.json"
+      }
+    },
+    {
+      "beast_id": "mirage_sand_beast",
+      "tier": 13,
+      "extra_loot": [
+        "talisman_crate_high",
+        "mirage_sand"
+      ],
+      "setting": {
+        "lore": "",
+        "source_file": "boss_extra_loot_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "boss_extra_loot_index.json"
+      }
+    },
+    {
+      "beast_id": "tier_9_plus_generic",
+      "rule": "tier>=9",
+      "extra_loot": [
+        "talisman_crate_low"
+      ],
+      "chance": 0.08,
+      "setting": {
+        "lore": "",
+        "source_file": "boss_extra_loot_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "boss_extra_loot_index.json"
+      }
+    }
+  ],
+  "loot_table_ref": "loot_tables.json",
+  "crossref": [
+    "beast_loot_tiers.json",
+    "consumables_catalog.json"
+  ]
+}

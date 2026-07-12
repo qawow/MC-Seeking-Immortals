@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "unit": "low_spirit_stone_equivalent",
+  "disclaimer": "汇编拍卖范例量级；落地下品等价便于比价",
+  "bid_rules": {
+    "min_increment_pct": 0.05,
+    "deposit_band": {
+      "low_stone_min": 50,
+      "low_stone_max": 500
+    },
+    "settlement": [
+      "low_spirit_stone",
+      "mid_spirit_stone",
+      "high_spirit_stone"
+    ]
+  },
+  "venues": [
+    {
+      "id": "wanbao_auction",
+      "region": "dajin",
+      "faction": "wanbao_pavilion"
+    },
+    {
+      "id": "chaotic_sea_inner",
+      "region": "chaotic_sea",
+      "faction": "star_palace"
+    },
+    {
+      "id": "tianyuan_garrison",
+      "region": "tianyuan",
+      "currency_alt": "alliance_merit"
+    }
+  ],
+  "lots": [
+    {
+      "id": "lot_deity_pill_bundle",
+      "display": "化神修为丹药（三瓶）",
+      "low_stone_equiv_min": 500000,
+      "low_stone_equiv_max": 700000,
+      "source_note": "汇编：六十万灵石量级成交范例"
+    },
+    {
+      "id": "lot_ancient_beast_scale",
+      "display": "古兽鳞片炼丹材料（压轴）",
+      "low_stone_equiv_min": 30000000,
+      "low_stone_equiv_max": 40000000,
+      "extras": [
+        "ten_thousand_year_herb_bundle"
+      ],
+      "source_note": "汇编：三千五百万灵石+万年灵草范例"
+    },
+    {
+      "id": "lot_foundation_pill",
+      "display": "筑基丹",
+      "low_stone_equiv_min": 800,
+      "low_stone_equiv_max": 5000,
+      "auction_only": false
+    },
+    {
+      "id": "lot_low_ancient_treasure",
+      "display": "低阶古宝/符宝",
+      "low_stone_equiv_min": 1500,
+      "low_stone_equiv_max": 8000
+    }
+  ],
+  "ladder_ref": "spirit_stone_ladder.json",
+  "economy_master_ref": "economy_spirit_stone_master.json"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "qianzhu_puppet_hall",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 14,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "puppet_core_blank",
+      "item": "seeking_immortals:puppet_core_blank",
+      "count": 1,
+      "cost": 8,
+      "stock": 12
+    },
+    {
+      "id": "ironwood",
+      "item": "seeking_immortals:ironwood",
+      "count": 4,
+      "cost": 4,
+      "stock": 20
+    },
+    {
+      "id": "spirit_beast_bone",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 1,
+      "cost": 7,
+      "stock": 8
+    },
+    {
+      "id": "soul_fragment",
+      "item": "seeking_immortals:soul_fragment",
+      "count": 1,
+      "cost": 9,
+      "stock": 6
+    }
+  ]
+}

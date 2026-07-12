@@ -1,0 +1,69 @@
+{
+  "schema_version": 4,
+  "spirit_stone_tiers": [
+    {
+      "id": "low",
+      "display": "下品灵石",
+      "exchange_to_mid": 100,
+      "setting": {
+        "lore": "下品灵石，炼气—筑基日常。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 1
+        }
+      }
+    },
+    {
+      "id": "mid",
+      "display": "中品灵石",
+      "exchange_to_high": 100,
+      "setting": {
+        "lore": "中品灵石，结丹期流通。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 2
+        }
+      }
+    },
+    {
+      "id": "high",
+      "display": "上品灵石",
+      "exchange_to_spirit": 100,
+      "setting": {
+        "lore": "上品灵石，元婴以上大宗交易。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 3
+        }
+      }
+    },
+    {
+      "id": "spirit",
+      "display": "极品灵石",
+      "note": "拍卖行大宗交易",
+      "setting": {
+        "lore": "极品灵石",
+        "source_file": "economy_tiers.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "economy_tiers.json"
+      },
+      "alias_of": "peak",
+      "id_canonical": "peak"
+    }
+  ],
+  "auction_regions": [
+    "chaotic_sea",
+    "dajin",
+    "tianyuan_city"
+  ],
+  "sect_contribution": "宗门贡献点可兑换筑基丹等管控资源",
+  "chaotic_sea_tax": "星宫抽成与逆星盟黑市并行",
+  "spirit_stone_ladder_ref": "spirit_stone_ladder.json",
+  "auction_bands_ref": "economy_auction_bands.json",
+  "economy_master_ref": "economy_spirit_stone_master.json"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "tiannan_refinement_forge",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 8,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "low_spirit_iron",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 1,
+      "cost": 8,
+      "stock": 40
+    },
+    {
+      "id": "spirit_iron_ingot_mid",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 2,
+      "cost": 45,
+      "stock": 12,
+      "refresh_ticks": 48000
+    }
+  ]
+}

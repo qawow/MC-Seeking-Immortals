@@ -1,0 +1,33 @@
+{
+  "name": "天星城与功勋殿",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:essence_condensing_pill",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "星宫主城",
+      "text": "本条目对应文本材料 region_cards/star_palace_city.json、merchant_shops.json#star_palace_merit_hall 与 sect_contribution_shop.json#star_palace。当前版本复用已有世界包区域与功勋商店数据，不新增独立 NPC、拍卖 UI、巡防板 UI、任务加载器或额外网络包。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前区域",
+      "text": "天星城已作为 star_palace_city 区域接入世界包：灵气倍率 1.45，进入门槛为筑基，旅行锚点为 star_palace_city_anchor，并带有 sea、star_palace、auction、patrol_board 标签。文本材料中的拍卖与巡防板目前作为后续系统钩子保留。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "功勋货品",
+      "text": "星宫功勋殿当前通过 ShopService 使用宗门贡献：凝元丹对应精元凝丹，8000 贡献，库存 1；凝元方对应精元凝丹玉简，1200 贡献，库存 2；养魂方对应聚魂丹玉简，600 贡献。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "海路补给",
+      "text": "已接入的海路补给包括 sea_calm_pill 与 recipe_sea_calm：前者复用清心类低阶丹药，80 贡献，库存 15，刷新 24000 tick；后者复用清心丹玉简，40 贡献。传送令、巡防令与虚天殿残图尚未作为可用物品接入。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "延后内容",
+      "text": "真实星宫声望门槛、月度或个人限购、拍卖排期、巡防任务、传送许可、虚天殿地图残片、星宫 NPC、海域事件奖励与 FTB Quests 章节仍未实装。本页只说明已经存在的世界包区域和贡献商店钩子。"
+    }
+  ]
+}

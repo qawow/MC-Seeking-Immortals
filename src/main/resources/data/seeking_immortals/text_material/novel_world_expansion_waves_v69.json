@@ -1,0 +1,323 @@
+{
+  "schema_version": 2,
+  "source": "汇编§12古宝§10妖兽十三级§9异族§11炼器§阴司§大晋佛修结构",
+  "yin_cluster_patches": {
+    "yinming": {
+      "setting": {
+        "lore": "阴冥之地，鬼修入门，阴石流通。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "path": "ghost_cultivator",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    "nether_river": {
+      "setting": {
+        "lore": "冥河摆渡，秘境入口，阴属性天劫可减伤。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "realm_min": "FOUNDATION",
+          "quest": "ghost_path"
+        }
+      }
+    }
+  },
+  "buddhist_path": {
+    "methods": [
+      {
+        "id": "buddhist_vajra_body_art",
+        "display": "金刚诀",
+        "type": "body",
+        "realm_min": "QI_REFINING",
+        "source": "大晋佛修",
+        "setting": {
+          "lore": "佛修炼体入门，与道门炼体并行但因果不同。",
+          "compliance": "结构向"
+        },
+        "learn_requirements": {
+          "learn": {
+            "region": "dajin",
+            "cannot_if": [
+              "demonic_inner"
+            ],
+            "note": "需佛寺或残卷。"
+          }
+        }
+      }
+    ],
+    "sects": [
+      {
+        "id": "dajin_buddhist_temple_line",
+        "display": "大晋佛寺一脉",
+        "region": "dajin",
+        "alignment": "neutral_righteous",
+        "specialty": [
+          "body_refining",
+          "purify_demon"
+        ],
+        "setting": {
+          "lore": "诛魔与炼体，不主炼丹。"
+        },
+        "learn_requirements": {
+          "join": {
+            "karma_max": "demonic",
+            "realm_min": "QI_REFINING"
+          }
+        }
+      }
+    ]
+  },
+  "barbarian_king_patches": {
+    "barbarian_king_ancient_demon": {
+      "setting": {
+        "lore": "蛮荒上古魔影，空间裂缝伴生。"
+      },
+      "learn_requirements": {
+        "fight": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    }
+  },
+  "ancient_treasure_lore": {
+    "xuanguang_mirror": {
+      "setting": {
+        "lore": "玄光镜残片，虚天殿相关古宝。"
+      },
+      "learn_requirements": {
+        "obtain": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    "nine_dragon_cauldron": {
+      "setting": {
+        "lore": "九龙鼎仿，炼丹古宝。"
+      },
+      "learn_requirements": {
+        "obtain": {
+          "path": "alchemy"
+        }
+      }
+    }
+  },
+  "economy_tier_setting": {
+    "low": {
+      "setting": {
+        "lore": "下品灵石，炼气—筑基日常。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 1
+        }
+      }
+    },
+    "mid": {
+      "setting": {
+        "lore": "中品灵石，结丹期流通。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 2
+        }
+      }
+    },
+    "high": {
+      "setting": {
+        "lore": "上品灵石，元婴以上大宗交易。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 3
+        }
+      }
+    },
+    "top": {
+      "setting": {
+        "lore": "极品灵石，化神/拍卖压轴。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "tier": 4
+        }
+      }
+    }
+  },
+  "sect_secret_exchange_add": [
+    {
+      "faction_id": "qingyuan_sect",
+      "items": [
+        {
+          "id": "manual_qingyuan_sword_inner",
+          "cost": 2000,
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "青元剑诀内门篇。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "realm_min": "FOUNDATION"
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "sect_secret_exchange_add"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "faction_id": "luoyun_sect",
+      "items": [
+        {
+          "id": "recipe_nascent_assist",
+          "cost": 3500,
+          "rank_min": "core_disciple",
+          "setting": {
+            "lore": "结婴辅丹方，丹堂秘传。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "realm_min": "CORE_FORMATION"
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "sect_secret_exchange_add"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "faction_id": "tianfu_sect",
+      "items": [
+        {
+          "id": "talisman_recipe_high_bundle",
+          "cost": 1800,
+          "rank_min": "inner_disciple",
+          "setting": {
+            "lore": "高阶符方套装。"
+          },
+          "learn_requirements": {
+            "exchange": {
+              "realm_min": "FOUNDATION"
+            }
+          }
+        }
+      ],
+      "setting": {
+        "lore": "sect_secret_exchange_add"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "spirit_realm_faction_new": [
+    {
+      "id": "spirit_cloud_mountain",
+      "display": "云梦山灵族",
+      "region": "spirit_world",
+      "setting": {
+        "lore": "灵界妖族聚落之一。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING"
+        }
+      }
+    },
+    {
+      "id": "human_spirit_alliance",
+      "display": "人族联军",
+      "region": "spirit_world",
+      "setting": {
+        "lore": "天渊城人族修士同盟。"
+      },
+      "learn_requirements": {
+        "contact": {
+          "realm_min": "VOID_REFINING",
+          "reputation": "tianyuan"
+        }
+      }
+    }
+  ],
+  "beast_tier_structure": {
+    "tier_1": {
+      "setting": {
+        "lore": "一阶妖兽≈炼气。"
+      },
+      "learn_requirements": {
+        "hunt": {
+          "realm_suggested": "QI_REFINING"
+        }
+      }
+    },
+    "tier_3": {
+      "setting": {
+        "lore": "三阶妖兽≈筑基，妖丹可入药。"
+      },
+      "learn_requirements": {
+        "hunt": {
+          "realm_suggested": "FOUNDATION"
+        }
+      }
+    },
+    "tier_6": {
+      "setting": {
+        "lore": "六阶≈结丹，灵智初开。"
+      },
+      "learn_requirements": {
+        "hunt": {
+          "realm_suggested": "CORE_FORMATION"
+        }
+      }
+    },
+    "tier_9": {
+      "setting": {
+        "lore": "九阶≈元婴，一方妖王。"
+      },
+      "learn_requirements": {
+        "hunt": {
+          "realm_suggested": "NASCENT_SOUL"
+        }
+      }
+    }
+  },
+  "synergy_notable": {
+    "sword_array_green_bamboo": {
+      "setting": {
+        "lore": "青竹蜂云剑与剑阵法术联动。"
+      },
+      "learn_requirements": {
+        "activate": {
+          "method": "qingyuan_sword_art",
+          "artifact": "green_bamboo_cloud_sword"
+        }
+      }
+    }
+  },
+  "chronicle_events_new": [
+    {
+      "id": "B_buddhist_dajin_spread",
+      "display": "大晋佛修北传",
+      "era": "history",
+      "summary": "佛修与道门并存，诛魔卫道。",
+      "setting": {
+        "lore": "大晋特色势力线。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "region": "dajin"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "seeking_immortals:block/thunder_tribulation_array_formation_core"
+  }
+}

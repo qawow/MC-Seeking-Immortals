@@ -1,0 +1,1599 @@
+{
+  "schema_version": 18,
+  "school": "misc",
+  "techniques": [
+    {
+      "id": "palm_thunder",
+      "display": "掌心雷",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "thunder",
+        "damage_base": 22,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "掌心雷：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "掌心雷：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "blood_escape",
+      "display": "血遁",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "dash",
+        "element": "blood",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "血遁：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血遁：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "earth_burrow",
+      "display": "土遁",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "dash",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "土遁：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "土遁：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "green_shield",
+      "display": "青元护体",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "buff_self",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "青元护体：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "青元护体：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "soul_chop",
+      "display": "斩魂诀",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 35,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "斩魂诀：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "斩魂诀：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "demon_roar",
+      "display": "魔啸",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "demon",
+        "damage_base": 45,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "魔啸：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魔啸：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_needle",
+      "display": "灭灵针",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 28,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "灭灵针：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灭灵针：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "ice_prison",
+      "display": "玄冰牢",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "debuff",
+        "element": "ice",
+        "damage_base": 30,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "玄冰牢：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "玄冰牢：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "fire_rain",
+      "display": "火雨术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 40,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "火雨术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "火雨术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sand_bury",
+      "display": "流沙术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "trap",
+        "element": "earth",
+        "damage_base": 25,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "流沙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "流沙术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "ghost_bind",
+      "display": "缚鬼索",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "缚鬼索：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "缚鬼索：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "beast_summon",
+      "display": "唤兽术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "唤兽术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "唤兽术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_wall",
+      "display": "灵墙术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "buff_zone",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "灵墙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灵墙术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "corpse_explode",
+      "display": "尸爆",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 50,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "尸爆：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "尸爆：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sword_rain",
+      "display": "剑雨术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 38,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "剑雨术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "剑雨术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "mirror_reflect",
+      "display": "镜光反",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "buff_self",
+        "element": "illusion",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "镜光反：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "镜光反：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "water_dragon",
+      "display": "水龙术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 36,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "水龙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "水龙术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "gold_needle",
+      "display": "金针术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 26,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "金针术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金针术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "yin_fire",
+      "display": "阴火焚",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 42,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "阴火焚：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阴火焚：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "yang_burst",
+      "display": "阳爆",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "阳爆：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阳爆：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "five_elements_palm",
+      "display": "五行掌",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "melee",
+        "element": "neutral",
+        "damage_base": 30,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "五行掌：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "五行掌：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "soul_search",
+      "display": "搜魂术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 15,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "搜魂术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "搜魂术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_seal",
+      "display": "封灵印",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 28,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "封灵印：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "封灵印：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "demon_subdue",
+      "display": "伏魔印",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "debuff",
+        "element": "buddhist",
+        "damage_base": 35,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "伏魔印：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "伏魔印：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "blood_sword",
+      "display": "血剑术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "blood",
+        "damage_base": 40,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "血剑术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血剑术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "phantom_clone",
+      "display": "幻影分身",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "buff_self",
+        "element": "illusion",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "幻影分身：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "幻影分身：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "sky_hook",
+      "display": "摄魂钩",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 33,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "摄魂钩：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "摄魂钩：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "ground_spike",
+      "display": "地刺阵",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "trap",
+        "element": "earth",
+        "damage_base": 34,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "地刺阵：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "地刺阵：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "lightning_chain",
+      "display": "连锁雷",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "chain",
+        "element": "thunder",
+        "damage_base": 37,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "连锁雷：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "连锁雷：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "frost_breath",
+      "display": "寒息",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "cone",
+        "element": "ice",
+        "damage_base": 29,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "寒息：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "寒息：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "molten_splash",
+      "display": "熔岩溅",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 41,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "熔岩溅：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "熔岩溅：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_absorb",
+      "display": "摄灵术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "drain",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "摄灵术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "摄灵术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "bone_armor",
+      "display": "骨甲术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "骨甲术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "骨甲术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "star_fall",
+      "display": "坠星术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 48,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "坠星术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "坠星术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "void_slash",
+      "display": "虚空斩",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "melee",
+        "element": "void",
+        "damage_base": 45,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "虚空斩：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "虚空斩：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "heaven_punish",
+      "display": "天罚术",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "散修杂录·正名",
+      "effect": {
+        "type": "aoe",
+        "element": "thunder",
+        "damage_base": 55,
+        "tags": [
+          "named_misc"
+        ]
+      },
+      "tier": "spell",
+      "description": "天罚术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "天罚术：misc法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "beast_tame_call",
+      "display": "驭兽啸",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "驭兽啸：misc法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "驭兽啸：misc法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "spirit_beast_contract",
+      "display": "灵兽契约术",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "灵兽契约术：misc法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灵兽契约术：misc法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "void_rift_slash",
+      "display": "裂隙斩",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "VOID_REFINING",
+      "element": "spatial",
+      "description": "裂隙斩：misc法术，需境界 VOID_REFINING 以上方可施展。",
+      "spirit_cost_base": 50,
+      "effect": {
+        "type": "beam",
+        "element": "spatial",
+        "damage_base": 85,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "裂隙斩：misc法术，需境界 VOID_REFINING 以上方可施展。",
+        "element": "spatial"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "VOID_REFINING",
+        "spirit_roots": {
+          "bonus": [
+            "spatial"
+          ]
+        }
+      }
+    },
+    {
+      "id": "great_vehicle_palm",
+      "display": "大乘神掌",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "GREAT_VEHICLE",
+      "description": "大乘神掌：misc法术，需境界 GREAT_VEHICLE 以上方可施展。",
+      "spirit_cost_base": 58,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 97,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "大乘神掌：misc法术，需境界 GREAT_VEHICLE 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "GREAT_VEHICLE"
+      }
+    },
+    {
+      "id": "defensive_pearl_light",
+      "display": "护体珠光",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "description": "护体珠光：misc法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 49,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "护体珠光：misc法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "magnet_control",
+      "display": "元磁控物",
+      "school": "misc",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "metal",
+      "description": "元磁控物：misc法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 49,
+        "tags": [
+          "misc"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "元磁控物：misc法术，需境界 CORE_FORMATION 以上方可施展。",
+        "element": "metal"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION",
+        "spirit_roots": {
+          "bonus": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nascent_soul_avatar",
+      "display": "元婴出窍",
+      "school": "misc",
+      "realm_min": "NASCENT_SOUL",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "avatar",
+          "soul"
+        ]
+      },
+      "description": "元婴暂离肉身，法力强增但肉身脆弱。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 34,
+      "setting": {
+        "cast_type": "sustained",
+        "target": "self",
+        "realm_min": "NASCENT_SOUL",
+        "lore": "元婴出窍，法力强肉身危。",
+        "limitations": [
+          "肉身被毁则重伤"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "prerequisite_realm_stage": "nascent_soul_formed",
+        "cannot_learn_if": [
+          "no_nascent_soul"
+        ]
+      }
+    },
+    {
+      "id": "deity_transformation_domain",
+      "display": "化神领域",
+      "school": "misc",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": {
+        "type": "field",
+        "tags": [
+          "domain"
+        ]
+      },
+      "description": "小范围法则压制，属神通前置表现。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 42,
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "小范围法则压制，属神通前置表现。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "DEITY_TRANSFORMATION"
+      }
+    },
+    {
+      "id": "gold_devour_swarm",
+      "display": "噬金虫群",
+      "school": "misc",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "summon",
+        "tags": [
+          "swarm",
+          "metal_eater"
+        ]
+      },
+      "description": "驱使噬金虫啃噬敌方法宝灵光。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 26,
+      "setting": {
+        "cast_type": "sustained",
+        "target": "single_artifact",
+        "compliance": "噬金虫仿设定",
+        "lore": "虫群啃噬法宝灵光。",
+        "limitations": [
+          "虫群需预先培养"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "items_required": [
+          {
+            "id": "gold_devour_beetle_nest",
+            "consume": false
+          }
+        ],
+        "learn_source": [
+          "beast_taming_secret"
+        ],
+        "compliance": "噬金虫仿"
+      }
+    },
+    {
+      "id": "lingzu_pearl_barrage",
+      "display": "灵珠连射",
+      "school": "misc",
+      "realm_min": "SPIRIT_SEVERING",
+      "requires_method": "lingzu_pearl_art",
+      "effect": {
+        "type": "projectile",
+        "damage_base": 100
+      },
+      "description": "灵珠连发。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灵珠连发。",
+        "requires_method": "lingzu_pearl_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "SPIRIT_SEVERING",
+        "prerequisite_methods": [
+          "lingzu_pearl_art"
+        ]
+      }
+    },
+    {
+      "id": "inverse_star_veil",
+      "display": "逆星匿踪",
+      "school": "misc",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "逆星盟秘传",
+      "tier": "spell",
+      "effect": {
+        "type": "buff_self",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "inverse_star"
+        ]
+      },
+      "setting": {
+        "lore": "乱星海逆星修士用以躲开星宫神识扫描的遁形术。"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "quest": "inverse_star_contact"
+        }
+      }
+    },
+    {
+      "id": "star_palace_seal_burst",
+      "display": "星宫封灵爆",
+      "school": "misc",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "星宫执法录",
+      "tier": "spell",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "star_palace"
+        ]
+      },
+      "setting": {
+        "lore": "星宫执法队用以破逆星盟隐匿禁制的制式术法。"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "faction": "star_palace"
+        }
+      }
+    },
+    {
+      "id": "treasure_appraisal_glimpse",
+      "display": "鉴宝灵光",
+      "school": "misc",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "万宝楼鉴宝诀",
+      "tier": "spell",
+      "requires_method": "treasure_appraisal_art",
+      "effect": {
+        "type": "inspect",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": ["treasure", "non_combat"]
+      },
+      "description": "以神识扫过法器胚体，辨明大致品阶与是否藏煞，拍卖前常用。",
+      "setting": {
+        "lore": "万宝楼学徒第一课：先看宝光，再谈价钱。",
+        "combat_style": "非战斗"
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": ["treasure_appraisal_art"]
+      }
+    },
+    {
+      "id": "golden_armor_talisman_cast",
+      "display": "金刚护体符",
+      "school": "misc",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "天阙堡炼器一脉",
+      "tier": "spell",
+      "requires_method": "artifact_refining_basic",
+      "effect": {
+        "type": "buff",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": ["talisman", "defense"]
+      },
+      "description": "炼器宗门将护体符文炼入符纸，短时提升肉身与法器共鸣。",
+      "setting": {
+        "lore": "天阙堡外门弟子护身标配，需炼器基础诀方可绘制。"
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": ["artifact_refining_basic"]
+      }
+    }
+  ]
+}

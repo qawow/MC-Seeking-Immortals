@@ -1,0 +1,44 @@
+{
+  "id": "tiannan_formation_lane",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 16,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_gathering_array",
+      "item": "seeking_immortals:spirit_gathering_array",
+      "count": 1,
+      "cost": 10,
+      "stock": 8
+    },
+    {
+      "id": "spirit_gathering_formation_core",
+      "item": "seeking_immortals:spirit_gathering_formation_core",
+      "count": 1,
+      "cost": 18,
+      "stock": 4
+    },
+    {
+      "id": "defense_formation_core",
+      "item": "seeking_immortals:defense_formation_core",
+      "count": 1,
+      "cost": 20,
+      "stock": 4
+    },
+    {
+      "id": "teleport_array_pedestal",
+      "item": "seeking_immortals:teleport_array_pedestal",
+      "count": 1,
+      "cost": 24,
+      "stock": 3
+    },
+    {
+      "id": "spirit_ore",
+      "item": "seeking_immortals:spirit_ore",
+      "count": 8,
+      "cost": 6,
+      "stock": 20
+    }
+  ]
+}

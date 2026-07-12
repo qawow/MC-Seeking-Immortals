@@ -1,0 +1,233 @@
+{
+  "schema_version": 4,
+  "description": "宗门贡献点与下品灵石等价（量级，非官方）；用于 UI 提示与 validate_contribution_prices",
+  "unit_contribution": "sect_contribution_point",
+  "unit_stone": "low_spirit_stone",
+  "default_rate": {
+    "contribution_per_low_stone": 1.0,
+    "note": "1 贡献 ≈ 1 下品灵石为黄枫谷基准"
+  },
+  "faction_rates": [
+    {
+      "faction_id": "huangfeng_valley",
+      "low_stone_per_contribution": 1.0,
+      "setting": {
+        "lore": "huangfeng_valley"
+      },
+      "learn_requirements": {
+        "convert": {
+          "note": "贡献与灵石兑换率因宗门而异。"
+        }
+      }
+    },
+    {
+      "faction_id": "yanyue_sect",
+      "low_stone_per_contribution": 1.1,
+      "setting": {
+        "lore": "yanyue_sect"
+      },
+      "learn_requirements": {
+        "convert": {
+          "note": "贡献与灵石兑换率因宗门而异。"
+        }
+      }
+    },
+    {
+      "faction_id": "star_palace",
+      "low_stone_per_contribution": 0.8,
+      "note": "功勋点，乱星海物价偏高",
+      "setting": {
+        "lore": "star_palace"
+      },
+      "learn_requirements": {
+        "convert": {
+          "note": "贡献与灵石兑换率因宗门而异。"
+        }
+      }
+    },
+    {
+      "faction_id": "mulan_council",
+      "low_stone_per_contribution": 0.9,
+      "setting": {
+        "lore": "mulan_council"
+      },
+      "learn_requirements": {
+        "convert": {
+          "note": "贡献与灵石兑换率因宗门而异。"
+        }
+      }
+    },
+    {
+      "faction_id": "tianyuan_guard_generic",
+      "low_stone_per_contribution": 0.6,
+      "note": "天渊功勋，灵界物价",
+      "setting": {
+        "lore": "tianyuan_guard_generic"
+      },
+      "learn_requirements": {
+        "convert": {
+          "note": "贡献与灵石兑换率因宗门而异。"
+        }
+      }
+    }
+  ],
+  "item_equiv_low_stone": {
+    "foundation_pill": {
+      "min": 800,
+      "max": 2000,
+      "huangfeng_cost": 1200
+    },
+    "recipe_spirit_condense": {
+      "min": 50,
+      "max": 120,
+      "huangfeng_cost": 80
+    },
+    "refinement_manual_low": {
+      "min": 80,
+      "max": 200,
+      "huangfeng_cost": 120
+    },
+    "condensation_pill": {
+      "min": 5000,
+      "max": 15000,
+      "star_palace_cost": 8000
+    },
+    "illusion_talisman_scroll": {
+      "min": 80,
+      "max": 200,
+      "yanyue_cost": 120
+    },
+    "bu_tian_pill": {
+      "min": 5000,
+      "max": 20000,
+      "star_palace_cost": 6500
+    },
+    "diyuan_access_token": {
+      "min": 3000,
+      "max": 8000,
+      "tianyuan_cost": 1200
+    }
+  },
+  "magnitudes_ref": "economy_reference_magnitudes.json",
+  "price_bands_ref": "economy_price_bands.json",
+  "tianyuan": {
+    "currency": "merit_points",
+    "city_ref": "tianyuan_city.json",
+    "exchange_rate": {
+      "merit_per_low_stone": 0.6,
+      "note": "量级：1功勋≈0.6下品灵石"
+    },
+    "reputation_tiers": [
+      {
+        "min": 0,
+        "title": "外城散修",
+        "perks": [
+          "ferry_discount_light"
+        ]
+      },
+      {
+        "min": 200,
+        "title": "巡防客卿",
+        "perks": [
+          "diyuan_permit_broker_access"
+        ]
+      },
+      {
+        "min": 800,
+        "title": "功勋长老候补",
+        "perks": [
+          "spirit_realm_gate_priority"
+        ]
+      }
+    ],
+    "items": [
+      {
+        "id": "spirit_realm_gate_voucher",
+        "cost_merit": 500,
+        "realm_min": "SPIRIT_SEVERING"
+      },
+      {
+        "id": "wind_feather_raft_blueprint",
+        "cost_merit": 800
+      },
+      {
+        "id": "diyuan_access_token",
+        "cost_merit": 1200,
+        "realm_min": "VOID_REFINING",
+        "requires_rep": 200
+      },
+      {
+        "id": "tianyuan_spirit_pill",
+        "cost_merit": 400,
+        "note": "灵界丹药配额结构"
+      }
+    ]
+  },
+  "star_palace": {
+    "currency": "patrol_merit",
+    "items": [
+      {
+        "id": "teleport_array_license",
+        "cost": 300
+      },
+      {
+        "id": "void_palace_intel_scroll",
+        "cost": 150
+      },
+      {
+        "id": "tax_waiver_token",
+        "cost": 80
+      },
+      {
+        "id": "bu_tian_pill",
+        "cost_patrol_merit": 6500,
+        "requires_rep": 300,
+        "realm_min": "NASCENT_SOUL",
+        "cycle_limit_ref": "bu_tian_pill_quota"
+      }
+    ],
+    "reputation_tiers_ref": "chaotic_sea_factions.json#star_palace.reputation_tiers",
+    "bu_tian_pill_quota": [
+      {
+        "rep_min": 0,
+        "rep_max": 99,
+        "quota_per_cycle": 0,
+        "note": "仅闻其名，无配额"
+      },
+      {
+        "rep_min": 100,
+        "rep_max": 299,
+        "quota_per_cycle": 0,
+        "unlock": "patrol_merit_shop"
+      },
+      {
+        "rep_min": 300,
+        "rep_max": 599,
+        "quota_per_cycle": 1,
+        "cost_patrol_merit": 6000,
+        "realm_min": "NASCENT_SOUL"
+      },
+      {
+        "rep_min": 600,
+        "quota_per_cycle": 2,
+        "cost_patrol_merit": 5500,
+        "bonus": [
+          "teleport_array_license_discount"
+        ]
+      }
+    ]
+  },
+  "inverse_star": {
+    "currency": "smuggle_credit",
+    "items": [
+      {
+        "id": "black_market_vip",
+        "cost": 200
+      },
+      {
+        "id": "inverse_star_art_page",
+        "cost": 400
+      }
+    ]
+  }
+}

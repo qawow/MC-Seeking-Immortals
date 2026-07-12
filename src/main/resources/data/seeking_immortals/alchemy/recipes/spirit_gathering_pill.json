@@ -1,0 +1,30 @@
+{
+  "id": "spirit_gathering_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.spirit_gathering_pill",
+  "output_items": {
+    "low": "seeking_immortals:spirit_gathering_pill",
+    "medium": "seeking_immortals:spirit_gathering_pill_mid",
+    "high": "seeking_immortals:spirit_gathering_pill_high",
+    "supreme": "seeking_immortals:spirit_gathering_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 18,
+  "cook_ticks": 360,
+  "success_rate": 0.84,
+  "explosion_chance": 0.02,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "MORTAL",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:spirit_iron",
+      "count": 1
+    }
+  ]
+}

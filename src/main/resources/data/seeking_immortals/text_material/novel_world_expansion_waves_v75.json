@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "stats_snapshot": {
+    "tier_lore_patched": 13,
+    "spawn_lore_patched": 9,
+    "spawn_tables_added": 4,
+    "tianyuan_daily_events": 5,
+    "registry_count": 783,
+    "v74_items_in_registry": 7,
+    "forge_models_created": 7
+  }
+}

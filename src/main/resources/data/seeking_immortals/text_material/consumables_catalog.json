@@ -1,0 +1,872 @@
+{
+  "schema_version": 5,
+  "description": "非丹药消耗品：灵食、符墨辅料、渡劫消耗、任务道具",
+  "consumables": [
+    {
+      "id": "spirit_rice_bowl",
+      "display": "灵米粥",
+      "category": "food",
+      "effect": "minor_spirit_regen",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "灵米粥"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_wine_jar",
+      "display": "灵酒",
+      "category": "food",
+      "effect": "courage_buff_short",
+      "risk": "drunk",
+      "setting": {
+        "lore": "灵酒"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "beast_meat_jerky",
+      "display": "妖兽肉干",
+      "category": "food",
+      "effect": "satiation_plus_strength",
+      "setting": {
+        "lore": "妖兽肉干"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "talisman_ink_bottle",
+      "display": "符墨",
+      "category": "craft",
+      "use": "talisman_craft",
+      "stack": 16,
+      "setting": {
+        "lore": "符墨"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_sand_pouch",
+      "display": "灵砂袋",
+      "category": "craft",
+      "use": "array_fuel",
+      "regions": [
+        "mulan",
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "灵砂袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "tribulation_ward_charm",
+      "display": "避雷符箓（一次性）",
+      "category": "tribulation",
+      "effect": "lightning_mitigate_once",
+      "consumable": true,
+      "setting": {
+        "lore": "避雷符箓（一次性）"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "sect_identity_token",
+      "display": "宗门令牌",
+      "category": "quest",
+      "binds": "faction",
+      "non_drop": true,
+      "setting": {
+        "lore": "宗门令牌"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "auction_invitation",
+      "display": "拍卖请柬",
+      "category": "quest",
+      "regions": [
+        "chaotic_sea",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "拍卖请柬"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_beast_feed",
+      "display": "灵兽饵",
+      "category": "pet",
+      "effect": "pet_loyalty_plus",
+      "setting": {
+        "lore": "灵兽饵"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "yin_coffin_nail",
+      "display": "镇尸钉",
+      "category": "ghost_path",
+      "use": "corpse_control",
+      "karma": "yin",
+      "setting": {
+        "lore": "镇尸钉"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "jade_slip_blank",
+      "display": "空白玉简",
+      "category": "craft",
+      "use": "inscribe_formula",
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "空白玉简"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "paper_formula_scroll",
+      "display": "空白纸方",
+      "category": "craft",
+      "use": "inscribe_formula",
+      "setting": {
+        "lore": "空白纸方"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_boat_ticket",
+      "display": "灵舟船票",
+      "category": "travel",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "consumable": true,
+      "setting": {
+        "lore": "灵舟船票"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ferry_pass",
+      "display": "冥河渡票",
+      "category": "travel",
+      "regions": [
+        "nether_river"
+      ],
+      "consumable": true,
+      "setting": {
+        "lore": "冥河渡票"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "low_spirit_stone_pouch",
+      "display": "下品灵石袋",
+      "category": "currency_bundle",
+      "effect": "contains_low_stone_10",
+      "setting": {
+        "lore": "下品灵石袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "nascent_soul_escape_charm",
+      "display": "元婴遁符（一次性）",
+      "category": "tribulation",
+      "effect": "forced_escape_once",
+      "realm_min": "NASCENT_SOUL",
+      "consumable": true,
+      "setting": {
+        "lore": "元婴遁符（一次性）"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "NASCENT_SOUL"
+        }
+      }
+    },
+    {
+      "id": "spirit_root_test_stone",
+      "display": "测灵石",
+      "category": "quest",
+      "effect": "reveal_spirit_roots",
+      "non_drop": true,
+      "setting": {
+        "lore": "测灵石"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "recipe_scroll_bundle",
+      "display": "丹方礼包（随机）",
+      "category": "loot",
+      "effect": "random_recipe_low_tier",
+      "loot_table": "recipe_scroll_random_low",
+      "setting": {
+        "lore": "丹方礼包（随机）"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "talisman_crate_low",
+      "display": "低阶符箓匣",
+      "category": "loot",
+      "loot_table": "talisman_crate_low",
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "低阶符箓匣"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "talisman_crate_mid",
+      "display": "中阶符箓匣",
+      "category": "loot",
+      "loot_table": "talisman_crate_mid",
+      "rarity": "rare",
+      "setting": {
+        "lore": "中阶符箓匣"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "talisman_crate_high",
+      "display": "高阶符箓匣",
+      "category": "loot",
+      "loot_table": "talisman_crate_high",
+      "rarity": "epic",
+      "setting": {
+        "lore": "高阶符箓匣"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "storage_pouch_low",
+      "display": "低阶储物袋",
+      "category": "equipment",
+      "effect": "extra_inventory_slots_9",
+      "realm_max": "FOUNDATION",
+      "note": "炼气筑基常用储物法器",
+      "setting": {
+        "lore": "低阶储物袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "storage_pouch_mid",
+      "display": "中阶储物袋",
+      "category": "equipment",
+      "effect": "extra_inventory_slots_18",
+      "realm_min": "FOUNDATION",
+      "realm_max": "CORE_FORMATION",
+      "setting": {
+        "lore": "中阶储物袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_pouch_sealed",
+      "display": "封灵石袋",
+      "category": "currency",
+      "effect": "open_low_spirit_stone_pouch",
+      "note": "坊市流通，内含下品灵石",
+      "setting": {
+        "lore": "封灵石袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "display": "星宫抽税凭条",
+      "category": "quest",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "effect": "island_trade_tax_paid",
+      "setting": {
+        "lore": "星宫抽税凭条"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "pirate_loot_bundle",
+      "display": "海盗赃物包",
+      "category": "loot",
+      "effect": "open_random_contraband",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "reputation_risk": {
+        "star_palace": -5
+      },
+      "setting": {
+        "lore": "海盗赃物包"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "void_palace_map_fragment",
+      "display": "虚天殿残图",
+      "category": "quest",
+      "binds": "void_palace",
+      "realm_min": "CORE_FORMATION",
+      "stack": 1,
+      "setting": {
+        "lore": "虚天殿残图"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "fallen_demon_scout_report",
+      "display": "坠魔谷探报",
+      "category": "quest",
+      "binds": "fallen_demon_valley",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "坠魔谷探报"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "NASCENT_SOUL"
+        }
+      }
+    },
+    {
+      "id": "kunwu_map_scroll",
+      "display": "昆吾山舆图",
+      "category": "quest",
+      "binds": "kunwu_mountain",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "昆吾山舆图"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "yin_body_protection_charm",
+      "display": "避阴符",
+      "category": "ghost_path",
+      "effect": "yin_corruption_mitigate",
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "consumable": true,
+      "setting": {
+        "lore": "避阴符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "minor_thunder_ward_charm",
+      "display": "小避雷符",
+      "category": "tribulation",
+      "effect": "lightning_mitigate_once",
+      "tier": "minor",
+      "consumable": true,
+      "setting": {
+        "lore": "小避雷符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "major_thunder_array_token",
+      "display": "大阵避雷牌",
+      "category": "tribulation",
+      "effect": "formation_tribulation_buff",
+      "tier": "major",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "大阵避雷牌"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "id": "spirit_garden_fertilizer",
+      "display": "灵田肥",
+      "category": "craft",
+      "effect": "herb_growth_speed",
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "灵田肥"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "yanyue_incense_bundle",
+      "display": "掩月熏香",
+      "category": "special",
+      "effect": "dual_cultivation_mood",
+      "regions": [
+        "tiannan"
+      ],
+      "note": "掩月宗双修向氛围道具",
+      "setting": {
+        "lore": "掩月熏香"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "star_palace_patrol_seal",
+      "display": "星宫巡防令",
+      "category": "quest",
+      "binds": "star_palace_patrol",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "星宫巡防令"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_smuggler_pack",
+      "display": "逆星走私包",
+      "category": "loot",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "note": "逆星盟线任务掉落向",
+      "setting": {
+        "lore": "逆星走私包"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "category": "special",
+      "effect": "demon_qi_resist",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "regions": [
+        "tianyuan"
+      ],
+      "note": "边境沾染魔气后服用",
+      "setting": {
+        "lore": "驱魔丹"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "id": "wind_feather_raft_blueprint",
+      "display": "风雷舟图纸",
+      "category": "manual",
+      "use": [
+        "vehicle_craft"
+      ],
+      "regions": [
+        "tianyuan"
+      ],
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "风雷舟图纸"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "DEITY_TRANSFORMATION"
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "category": "currency",
+      "tier": "common",
+      "setting": {
+        "lore": "下品灵石"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_mid_bulk",
+      "display": "中品灵石袋",
+      "category": "currency",
+      "setting": {
+        "lore": "中品灵石袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_high_bulk",
+      "display": "上品灵石袋",
+      "category": "currency",
+      "setting": {
+        "lore": "上品灵石袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "teleport_talisman_chaotic_sea",
+      "display": "乱星海传送符",
+      "category": "talisman_consumable",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "乱星海传送符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "escape_talisman",
+      "display": "遁逃符",
+      "category": "talisman_consumable",
+      "setting": {
+        "lore": "遁逃符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "fireball_talisman",
+      "display": "火球符",
+      "category": "talisman_consumable",
+      "tier": "low",
+      "setting": {
+        "lore": "火球符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "ice_shard_talisman",
+      "display": "冰锥符",
+      "category": "talisman_consumable",
+      "tier": "low",
+      "setting": {
+        "lore": "冰锥符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "golden_armor_talisman",
+      "display": "金刚符",
+      "category": "talisman_consumable",
+      "tier": "mid",
+      "setting": {
+        "lore": "金刚符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "display": "聚灵阵盘",
+      "category": "formation_consumable",
+      "setting": {
+        "lore": "聚灵阵盘"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "beast_feed_spirit",
+      "display": "灵兽饵",
+      "category": "beast",
+      "setting": {
+        "lore": "灵兽饵"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "storage_bag_low",
+      "display": "低阶储物袋",
+      "category": "storage",
+      "setting": {
+        "lore": "低阶储物袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "storage_bag_high",
+      "display": "高阶储物袋",
+      "category": "storage",
+      "setting": {
+        "lore": "高阶储物袋"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_water_flask",
+      "display": "灵泉瓶",
+      "category": "recovery",
+      "setting": {
+        "lore": "灵泉瓶"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "healing_salve",
+      "display": "疗伤膏",
+      "category": "recovery",
+      "setting": {
+        "lore": "疗伤膏"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "poison_antidote_pack",
+      "display": "解毒包",
+      "category": "recovery",
+      "setting": {
+        "lore": "解毒包"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "smoke_bomb_spirit",
+      "display": "迷烟弹",
+      "category": "special",
+      "setting": {
+        "lore": "迷烟弹"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "sound_beacon",
+      "display": "传音符",
+      "category": "special",
+      "setting": {
+        "lore": "传音符"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "低阶修士日常消耗。"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "detox_minor_pill",
+      "display": "清毒丹",
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "化解轻微丹毒。"
+      },
+      "learn_requirements": {
+        "consume": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    }
+  ]
+}

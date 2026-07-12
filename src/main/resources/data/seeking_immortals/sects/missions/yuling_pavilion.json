@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "yuling_beast_core",
+      "title_key": "screen.seeking_immortals.sect.mission.yuling_beast_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:beast_core",
+      "target": 3,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "yuling_spirit_beast_bone",
+      "title_key": "screen.seeking_immortals.sect.mission.yuling_spirit_beast_bone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "target": 6,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "yuling_dragon_scale",
+      "title_key": "screen.seeking_immortals.sect.mission.yuling_dragon_scale.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:dragon_scale",
+      "target": 1,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

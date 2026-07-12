@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "seeking_immortals:low_spirit_iron_ore",
+  "step": "underground_ores"
+}

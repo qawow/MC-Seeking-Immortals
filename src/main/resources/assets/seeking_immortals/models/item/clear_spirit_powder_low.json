@@ -1,1 +1,6 @@
-{"parent": "minecraft:item/generated", "textures": {"layer0": "seeking_immortals:item/clear_spirit_powder_low"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/clear_spirit_powder_low"
+  }
+}

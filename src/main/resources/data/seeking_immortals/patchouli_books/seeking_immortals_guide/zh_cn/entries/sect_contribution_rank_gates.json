@@ -1,0 +1,33 @@
+{
+  "name": "宗门贡献品阶门槛",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:alchemy_formula_foundation_building_pill_sect",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "设定来源",
+      "text": "本页对应 文本材料/data/sect_contribution_shop.json 中的 rank_min 与 exchange 门槛。当前版本复用已有 ShopService 宗门贡献兑换、QuestProgress 宗门阶段和 Patchouli 手册，不新增独立 NPC、商店 UI、任务加载器或网络包。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "购买校验",
+      "text": "贡献商店现在会在扣除贡献和占用库存之前校验品阶。支持 outer_disciple、inner_disciple、core_disciple 三档；源资料中的 null 表示清除继承门槛。品阶不足时会返回 RANK_TOO_LOW，并显示本地化的所需品阶。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前门槛",
+      "text": "清澜/丹霞的筑基丹与凝神丹方需要内门弟子；清澜/丹霞的低阶飞剑需要外门弟子；掩月宗筑基丹需要内门弟子；落云宗落云凝灵丹方需要内门弟子。法宝修补匣保持无品阶门槛。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "游玩提示",
+      "text": "如果货品可见但购买失败，先通过宗门任务、贡献积累或晋升流程提高当前宗门阶段。现有商店列表还不会预先绘制锁定状态，可靠提示来自服务端购买反馈。贡献和库存都只会在校验通过后变化。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仍待补全",
+      "text": "境界门槛、声望门槛、月度或个人限购、可视化锁定文本、严格炼丹权限、专属 NPC/任务投放和更完整的源设定货品分布仍是后续切片。本页只说明已经接入服务器校验的 rank_min 路线。"
+    }
+  ]
+}

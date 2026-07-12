@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "races": [
+    {
+      "id": "human_mortal",
+      "display": "凡人",
+      "layer": "mortal"
+    },
+    {
+      "id": "human_cultivator",
+      "display": "人族修士",
+      "layer": "cultivator"
+    },
+    {
+      "id": "demon_cultivator",
+      "display": "妖修",
+      "layer": "cultivator"
+    },
+    {
+      "id": "ghost_cultivator",
+      "display": "鬼修",
+      "layer": "cultivator"
+    },
+    {
+      "id": "mulan_fashi",
+      "display": "慕兰法士",
+      "layer": "cultivator"
+    },
+    {
+      "id": "spirit_fox_clan",
+      "display": "天狐族",
+      "layer": "spirit_realm"
+    },
+    {
+      "id": "spirit_tree_clan",
+      "display": "树妖族",
+      "layer": "spirit_realm"
+    },
+    {
+      "id": "spirit_stone_clan",
+      "display": "石人族",
+      "layer": "spirit_realm"
+    },
+    {
+      "id": "spirit_fly_clan",
+      "display": "飞灵族",
+      "layer": "spirit_realm"
+    },
+    {
+      "id": "demon_spirit_hybrid",
+      "display": "妖化人族",
+      "layer": ""
+    }
+  ]
+}

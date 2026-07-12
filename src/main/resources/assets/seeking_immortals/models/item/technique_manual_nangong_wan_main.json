@@ -1,1 +1,6 @@
-{"parent": "minecraft:item/generated", "textures": {"layer0": "seeking_immortals:item/technique_manual_nangong_wan_main"}}
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "seeking_immortals:item/technique_manual_nangong_wan_main"
+  }
+}

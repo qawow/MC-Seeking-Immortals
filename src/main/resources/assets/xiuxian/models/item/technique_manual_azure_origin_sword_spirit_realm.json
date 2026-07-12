@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "xiuxian:item/technique_manual_azure_origin_sword_spirit_realm"
-  }
-}

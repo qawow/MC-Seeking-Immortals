@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "economy_shop_price_guidance.json",
+  "primary_key": "shop_categories",
+  "entries": [
+    {
+      "id": "tiannan_herb_stall",
+      "display": "天南坊市灵草摊"
+    },
+    {
+      "id": "talisman_paper_stall",
+      "display": "符纸灵墨摊"
+    },
+    {
+      "id": "low_artifact_stall",
+      "display": "低阶法器摊"
+    },
+    {
+      "id": "sect_contribution",
+      "display": "宗门贡献堂"
+    },
+    {
+      "id": "wanbao_side_stall",
+      "display": "万宝楼外围摊"
+    },
+    {
+      "id": "auction_house",
+      "display": "拍卖行"
+    }
+  ]
+}

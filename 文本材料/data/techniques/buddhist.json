@@ -1,0 +1,213 @@
+{
+  "schema_version": 8,
+  "school": "buddhist",
+  "techniques": [
+    {
+      "id": "buddha_light",
+      "display": "佛光",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 19,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "yang",
+        "damage_base": 38,
+        "tags": []
+      },
+      "description": "佛光：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "佛光：buddhist法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "sarira_shield",
+      "display": "舍利护体",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "yang",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "舍利护体：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "舍利护体：buddhist法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "demon_subdue_palm",
+      "display": "降魔掌",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "yang",
+        "damage_base": 45,
+        "tags": []
+      },
+      "description": "降魔掌：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "降魔掌：buddhist法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "zen_pulse",
+      "display": "禅波",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 15,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "yang",
+        "damage_base": 30,
+        "tags": []
+      },
+      "description": "禅波：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "禅波：buddhist法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "vajra_palm",
+      "display": "金刚掌",
+      "school": "buddhist",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "金刚掌：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 37,
+        "tags": [
+          "buddhist"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "dajin_buddhist_base",
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金刚掌：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "dajin_buddhist_base"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "dajin_buddhist_base"
+        ]
+      }
+    },
+    {
+      "id": "dajin_buddhist_vajra",
+      "display": "大晋金刚杵",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "requires_method": "dajin_buddhist_base",
+      "effect": {
+        "type": "melee",
+        "damage_base": 45,
+        "tags": [
+          "buddhist"
+        ]
+      },
+      "description": "佛修金刚杵一击。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "combat_style": "佛修克魔",
+        "synergy": [
+          "anti_demon"
+        ],
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "佛修金刚杵一击。",
+        "requires_method": "dajin_buddhist_base"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "dajin_buddhist_base"
+        ]
+      }
+    }
+  ]
+}

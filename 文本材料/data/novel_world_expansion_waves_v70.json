@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "汇编§13秘境三段式§慕兰大战§天劫小大仙§种子合并",
+  "mulan_phase_lore": {
+    "border_skirmish": {"setting": {"lore": "天南与慕兰边境巡逻冲突，炼气—筑基散修与低阶法士交锋。", "structure": "战役阶段非胜率"}, "learn_requirements": {"participate": {"realm_min": "QI_REFINING", "faction_any": ["tiannan_alliance", "mulan_fashi"]}}},
+    "fashi_array_clash": {"setting": {"lore": "慕兰法士以阵法聚天地元气，与天南剑修大阵对撞；破阵为战役目标。"}, "learn_requirements": {"participate": {"realm_min": "FOUNDATION", "role_any": ["array_breaker", "sword_array"]}}},
+    "holy_beast_intervention": {"setting": {"lore": "慕兰圣禽血脉介入，需足够慕兰声望方可借圣力。", "chronicle": "M4_holy_bird_mulan"}, "learn_requirements": {"participate": {"realm_min": "CORE_FORMATION", "rep_mulan_min": 30}}},
+    "tiannan_counter_offensive": {"setting": {"lore": "天南联军反攻，元婴老怪坐镇后方。"}, "learn_requirements": {"participate": {"realm_min": "CORE_FORMATION", "faction": "tiannan_alliance"}}}
+  },
+  "wutu_mulan_meta": {
+    "setting": {"lore": "草原突兀族与慕兰法士世仇，玩家可选慕兰盟友、突兀斥候或中立调解。", "war_link": "mulan_tianlan_war"},
+    "learn_requirements": {"engage": {"region": "mulan", "roles": ["mulan_ally", "wutu_scout", "neutral_broker"]}}
+  },
+  "worldgen_biome_samples": {
+    "tiannan_forest": {"setting": {"lore": "天南灵木葱郁，低阶妖兽与灵草。"}, "learn_requirements": {"explore": {"realm_suggested": "QI_REFINING"}}},
+    "chaotic_sea_island": {"setting": {"lore": "乱星海岛屿，海盗与星宫巡逻。"}, "learn_requirements": {"explore": {"realm_min": "FOUNDATION"}}},
+    "barbarian_wasteland": {"setting": {"lore": "大晋蛮荒，空间裂缝与上古遗迹。"}, "learn_requirements": {"explore": {"realm_min": "CORE_FORMATION"}}}
+  },
+  "tribulation_type_lore": {
+    "minor_soul_trial": {"setting": {"lore": "元婴小劫，原著天劫「小劫」结构。"}, "learn_requirements": {"trigger": {"realm": "NASCENT_SOUL", "tier": "minor"}}},
+    "heart_demon_or_thunder": {"setting": {"lore": "化神心魔或雷劫分支，人界顶阶突破。"}, "learn_requirements": {"trigger": {"realm": "DEITY_TRANSFORMATION", "tier": "major"}}},
+    "void_thunder": {"setting": {"lore": "炼虚雷劫，灵界常见大劫。"}, "learn_requirements": {"trigger": {"realm": "VOID_REFINEMENT", "tier": "major"}}}
+  },
+  "yin_luo_tiers": {
+    "stranger": {"setting": {"lore": "阴罗殿陌生客，仅可外围交易。"}, "learn_requirements": {"reputation": {"tier": 0}}},
+    "contract_ghost": {"setting": {"lore": "立鬼契后可接冥河任务。"}, "learn_requirements": {"reputation": {"tier": 1, "quest": "ghost_path"}}}
+  },
+  "merge_flags": {
+    "novel_cultivation_waves": "methods -> cultivation_methods.json",
+    "novel_cultivation_content_waves": "detailed_spells -> techniques/*.json",
+    "novel_items_waves": "pills -> pills_catalog.json",
+    "novel_beast_puppet_waves": "new_beasts -> beast_bestiary.json",
+    "novel_world_expansion_waves_v64": "secret_realms_new -> secret_realms.json"
+  }
+}

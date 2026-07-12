@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "archetypes": [
+    {
+      "id": "elder_alchemist",
+      "display": "炼丹长老",
+      "tags": []
+    },
+    {
+      "id": "contribution_clerk",
+      "display": "贡献堂执事",
+      "tags": []
+    },
+    {
+      "id": "chaotic_sea_tax_officer",
+      "display": "星宫征税吏",
+      "tags": []
+    },
+    {
+      "id": "inverse_star_broker",
+      "display": "黑市掮客",
+      "tags": []
+    },
+    {
+      "id": "nether_ferryman",
+      "display": "冥河渡夫",
+      "tags": []
+    },
+    {
+      "id": "mulan_fashi_captain",
+      "display": "慕兰法士长",
+      "tags": []
+    },
+    {
+      "id": "tianyuan_garrison_officer",
+      "display": "天渊诛魔校尉",
+      "tags": []
+    },
+    {
+      "id": "fengyuan_auctioneer",
+      "display": "风元拍卖师",
+      "tags": []
+    },
+    {
+      "id": "herb_peddler",
+      "display": "坊市药贩",
+      "tags": []
+    },
+    {
+      "id": "puppet_artisan",
+      "display": "傀儡匠人",
+      "tags": []
+    },
+    {
+      "id": "secret_realm_guide",
+      "display": "秘境引路人",
+      "tags": []
+    },
+    {
+      "id": "mulan_wind_elder",
+      "display": "慕兰风灵长老",
+      "tags": []
+    },
+    {
+      "id": "tianyuan_merit_clerk",
+      "display": "天渊功勋吏",
+      "tags": []
+    },
+    {
+      "id": "thousand_bamboo_craftsman",
+      "display": "千竹机关师",
+      "tags": []
+    },
+    {
+      "id": "chaotic_sea_island_lord",
+      "display": "外海岛主",
+      "tags": []
+    },
+    {
+      "id": "sect_elder_alchemy",
+      "display": "丹堂长老",
+      "tags": []
+    },
+    {
+      "id": "star_palace_enforcer",
+      "display": "星宫执法",
+      "tags": []
+    },
+    {
+      "id": "demonic_ambassador",
+      "display": "魔道使者",
+      "tags": []
+    },
+    {
+      "id": "wanbao_auctioneer",
+      "display": "万宝拍卖师",
+      "tags": []
+    },
+    {
+      "id": "barbarian_guide",
+      "display": "蛮荒向导",
+      "tags": []
+    },
+    {
+      "id": "sect_contribution_clerk",
+      "display": "贡献堂执事",
+      "tags": []
+    },
+    {
+      "id": "spirit_stone_money_changer",
+      "display": "灵石兑换商",
+      "tags": []
+    },
+    {
+      "id": "puppet_workshop_master",
+      "display": "傀儡坊主",
+      "tags": []
+    }
+  ]
+}

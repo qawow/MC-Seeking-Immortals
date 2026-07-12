@@ -1,0 +1,29 @@
+{
+  "id": "inverse_star_black_market",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 4,
+  "refresh_ticks": 48000,
+  "entries": [
+    {
+      "id": "demon_core_mid",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 90,
+      "stock": 4
+    },
+    {
+      "id": "demon_heart_pill",
+      "item": "seeking_immortals:calming_pill_low",
+      "count": 1,
+      "cost": 180,
+      "stock": 3
+    },
+    {
+      "id": "recipe_demon_heart",
+      "item": "seeking_immortals:alchemy_formula_calming_pill_jade",
+      "count": 1,
+      "cost": 350
+    }
+  ]
+}

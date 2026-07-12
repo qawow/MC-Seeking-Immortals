@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "mulan_grassland",
+  "display": "慕兰草原",
+  "climate": "windy_steppe",
+  "spirit_density": "low_mid",
+  "factions": [
+    "mulan_tribes",
+    "tiannan_border_guards"
+  ],
+  "portals": [
+    "tiannan_teleport_array"
+  ],
+  "daily_events_ref": "daily_random_events.json#mulan",
+  "banned_paths": [
+    "demonic_core_uncontrolled"
+  ],
+  "specialty_resources": [
+    "wind_herb",
+    "beast_hide"
+  ],
+  "cultivation_note": "法士主流，体修与风属性术法常见",
+  "war_context": "慕兰与天南千年边境摩擦"
+}

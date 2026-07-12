@@ -1,0 +1,533 @@
+{
+  "schema_version": 4,
+  "formations": [
+    {
+      "id": "spirit_gather",
+      "display": "聚灵阵",
+      "grade": "basic",
+      "effect": "cultivation_speed_1.2",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "聚灵阵",
+        "grade": "basic"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "FOUNDATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "illusion_maze",
+      "display": "迷踪阵",
+      "grade": "basic",
+      "effect": "confuse_intruder",
+      "setting": {
+        "lore": "迷踪阵",
+        "grade": "basic"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "kill_sword",
+      "display": "杀阵",
+      "grade": "mid",
+      "effect": "trap_damage",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "杀阵",
+        "grade": "mid"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "FOUNDATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "defense_wall",
+      "display": "守阵",
+      "grade": "basic",
+      "effect": "damage_reduction_zone",
+      "setting": {
+        "lore": "守阵",
+        "grade": "basic"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "thunder_tribulation_array",
+      "display": "引雷阵",
+      "grade": "high",
+      "effect": "weaponize_tribulation",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "引雷阵",
+        "grade": "high"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "CORE_FORMATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "five_elements_mountain",
+      "display": "元合五极山",
+      "grade": "legendary",
+      "effect": "tribulation_mitigate_0.35",
+      "realm_min": "VOID_REFINEMENT",
+      "setting": {
+        "lore": "元合五极山",
+        "grade": "legendary"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "VOID_REFINEMENT",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "VOID_REFINEMENT",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "seal_demon_array",
+      "display": "封魔大阵",
+      "grade": "ancient",
+      "effect": "demon_seal",
+      "location": "kunwu",
+      "setting": {
+        "lore": "封魔大阵",
+        "grade": "ancient"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "teleport_array",
+      "display": "传送阵",
+      "grade": "mid",
+      "effect": "fast_travel",
+      "cost_spirit_stones": true,
+      "setting": {
+        "lore": "传送阵",
+        "grade": "mid"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "blood_forbidden_gate",
+      "display": "禁地门阵",
+      "grade": "mid",
+      "effect": "cycle_gate",
+      "binds": "blood_forbidden_land",
+      "setting": {
+        "lore": "禁地门阵",
+        "grade": "mid"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "nine_dragon_flame_barrier",
+      "display": "九龙神火罩（阵法仿）",
+      "grade": "high",
+      "effect": "aoe_fire_barrier",
+      "realm_min": "CORE_FORMATION",
+      "note": "对应古宝九龙神火罩的一次性阵法效果，非本体",
+      "setting": {
+        "lore": "九龙神火罩（阵法仿）",
+        "grade": "high"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "CORE_FORMATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "inverted_five_elements_array",
+      "display": "颠倒五行阵",
+      "tier": "mid",
+      "type": "illusion_trap",
+      "realm_min": "FOUNDATION",
+      "effect": "hide_sect_gate",
+      "source": "汇编小禁断之阵向",
+      "setting": {
+        "lore": "颠倒五行阵",
+        "grade": null
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "FOUNDATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "vajra_prison_array",
+      "display": "金刚困仙阵",
+      "tier": "high",
+      "type": "defense",
+      "realm_min": "CORE_FORMATION",
+      "effect": "must_break_by_force",
+      "source": "佛宗持久阵",
+      "setting": {
+        "lore": "金刚困仙阵",
+        "grade": null
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "CORE_FORMATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "spirit_gathering_minor",
+      "display": "聚灵小阵",
+      "tier": "low",
+      "type": "utility",
+      "realm_min": "QI_REFINING",
+      "effect": "cultivation_speed_1.1",
+      "setting": {
+        "lore": "聚灵小阵",
+        "grade": null
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "QI_REFINING",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "demon_seal_pillar_array",
+      "display": "封魔柱阵",
+      "tier": "high",
+      "type": "seal",
+      "realm_min": "CORE_FORMATION",
+      "effect": "seal_demon_beast",
+      "setting": {
+        "lore": "封魔柱阵",
+        "grade": null
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "CORE_FORMATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "mulan_wind_ride_array",
+      "display": "御风阵",
+      "tier": "mid",
+      "type": "movement",
+      "realm_min": "FOUNDATION",
+      "region": "mulan",
+      "effect": "wind_mount_buff",
+      "setting": {
+        "lore": "御风阵",
+        "grade": null
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "FOUNDATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "illusion_maze_array",
+      "display": "迷踪幻阵",
+      "grade": "mid",
+      "realm_min": "FOUNDATION",
+      "use": "trap",
+      "setting": {
+        "lore": "迷踪幻阵",
+        "grade": "mid"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "method_any": [
+            "formation_basic",
+            "yanyue_illusion_art"
+          ],
+          "items": [
+            "formation_flag_mid"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵",
+      "grade": "low",
+      "realm_min": "QI_REFINING",
+      "use": "cultivation_boost",
+      "learn_requirements": {
+        "deploy": {
+          "learn_source": [
+            "qingxu_gate",
+            "formation_manual_low"
+          ]
+        }
+      },
+      "setting": {
+        "lore": "聚灵阵",
+        "grade": "low"
+      }
+    },
+    {
+      "id": "sword_array_bagua",
+      "display": "八卦剑阵",
+      "grade": "high",
+      "realm_min": "CORE_FORMATION",
+      "use": "combat",
+      "learn_requirements": {
+        "deploy": {
+          "method_any": [
+            "qingyuan_sword_art",
+            "formation_advanced"
+          ],
+          "sect_suggested": "qingyuan_sect"
+        }
+      },
+      "setting": {
+        "lore": "八卦剑阵",
+        "grade": "high"
+      }
+    },
+    {
+      "id": "teleport_array_long_range",
+      "display": "远距离传送阵",
+      "grade": "legendary",
+      "realm_min": "NASCENT_SOUL",
+      "use": "travel",
+      "setting": {
+        "lore": "远距离传送阵",
+        "grade": "legendary"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "NASCENT_SOUL",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    },
+    {
+      "id": "barrier_sect_protection",
+      "display": "护山大阵",
+      "grade": "legendary",
+      "realm_min": "CORE_FORMATION",
+      "use": "sect_defense",
+      "setting": {
+        "lore": "护山大阵",
+        "grade": "legendary"
+      },
+      "learn_requirements": {
+        "deploy": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "formation_manual",
+            "sect_array_hall"
+          ],
+          "note": "需阵旗阵盘与阵法师神识。"
+        }
+      },
+      "deploy": {
+        "realm_min": "CORE_FORMATION",
+        "learn_source": [
+          "formation_manual"
+        ]
+      }
+    }
+  ],
+  "technique_crossref": "data/techniques/formation.json"
+}

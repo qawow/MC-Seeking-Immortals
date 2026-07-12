@@ -3,7 +3,11 @@ package com.xunxian.seekingimmortals.block;
 import com.xunxian.seekingimmortals.block.entity.AlchemyFurnaceBlockEntity;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.MenuProvider;
+import net.minecraftforge.network.NetworkHooks;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -23,9 +27,19 @@ import org.jetbrains.annotations.Nullable;
 
 public class AlchemyFurnaceBlock extends BaseEntityBlock {
     private static final VoxelShape SHAPE = box(1.0D, 0.0D, 1.0D, 15.0D, 14.0D, 15.0D);
+    private final int tier;
 
     public AlchemyFurnaceBlock(Properties properties) {
+        this(properties, 1);
+    }
+
+    public AlchemyFurnaceBlock(Properties properties, int tier) {
         super(properties);
+        this.tier = Math.max(1, tier);
+    }
+
+    public int tier() {
+        return tier;
     }
 
     @Override
@@ -58,6 +72,20 @@ public class AlchemyFurnaceBlock extends BaseEntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof AlchemyFurnaceBlockEntity furnace && player instanceof ServerPlayer serverPlayer) {
             ItemStack held = player.getItemInHand(hand);
+            if (held.isEmpty()) {
+                NetworkHooks.openScreen(serverPlayer, new MenuProvider() {
+                    @Override
+                    public Component getDisplayName() {
+                        return Component.translatable("screen.seeking_immortals.alchemy_menu.title");
+                    }
+
+                    @Override
+                    public AbstractContainerMenu createMenu(int id, net.minecraft.world.entity.player.Inventory inv, Player p) {
+                        return new com.xunxian.seekingimmortals.menu.AlchemyFurnaceMenu(id, inv, furnace, furnace.getContainerData());
+                    }
+                }, buf -> buf.writeBlockPos(pos));
+                return InteractionResult.CONSUME;
+            }
             furnace.interact(serverPlayer, held);
             return InteractionResult.CONSUME;
         }
@@ -67,7 +95,7 @@ public class AlchemyFurnaceBlock extends BaseEntityBlock {
     @Override
     public void onRemove(BlockState oldState, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (!oldState.is(newState.getBlock()) && level.getBlockEntity(pos) instanceof AlchemyFurnaceBlockEntity furnace) {
-            furnace.dropStoredOutput();
+            furnace.dropStoredContents();
         }
         super.onRemove(oldState, level, pos, newState, movedByPiston);
     }

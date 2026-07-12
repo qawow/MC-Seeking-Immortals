@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "puppet_craft_recipes.json",
+  "primary_key": "recipes",
+  "entries": [
+    {
+      "id": "assemble_basic_wood",
+      "display": "木人傀儡"
+    },
+    {
+      "id": "assemble_giant_ape",
+      "display": "巨猿傀儡"
+    },
+    {
+      "id": "assemble_giant_turtle",
+      "display": "巨龟傀儡"
+    },
+    {
+      "id": "assemble_stone_spirit",
+      "display": "石灵傀儡"
+    },
+    {
+      "id": "upgrade_hunyuan_core",
+      "display": "混元核心改造"
+    },
+    {
+      "id": "assemble_stone_guard",
+      "display": "石卫傀儡"
+    },
+    {
+      "id": "assemble_fire_spear",
+      "display": "火矛傀儡"
+    }
+  ]
+}

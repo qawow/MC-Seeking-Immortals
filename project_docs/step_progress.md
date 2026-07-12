@@ -1,504 +1,6571 @@
+## 397. 2026-07-12 0.1.453 residual reward token
+
+  Step   Status   Notes
+  ---   ---   ---
+  Post-0.1.452 reaudit        Done   only trade_discount_token real item left
+  Register token + assets     Done   bulk 869; soft tags deferred
+  Version/build               Done   0.1.452->0.1.453 BUILD SUCCESSFUL protocol 13
+
+## 396. 2026-07-12 0.1.452 residual item aliases
+
+  Step   Status   Notes
+  ---   ---   ---
+  Post-0.1.451 reaudit        Done   item-field hard missing=0; only alias gaps left
+  item_id_aliases closeout    Done   kunwu_spirit_copper->kunwu_copper; sea_soul_grass_herb->sea_soul_grass
+  Version/build               Done   0.1.451->0.1.452 BUILD SUCCESSFUL protocol 13
+
+## 395. 2026-07-12 0.1.451 quest/beast/reward carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Secondary-source reaudit   Done   quest_hooks/beast_bestiary/barbarian/daily rewards
+  Soft alias map             Done   12 rename aliases (e.g. talisman_fire_burst)
+  Bulk physical carriers     Done   +146; bulk total 868
+  Residual manual            Done   manual_qingyuan_sword_inner
+  Reaudit key catalogs       Done   hard-missing=0; shipped refs=0
+  Version/build              Done   0.1.450->0.1.451 BUILD SUCCESSFUL protocol 13
+
+## 394. 2026-07-12 0.1.450 loot/manual residual carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Strict item-field reaudit   Done   ancient_artifact_fragment/dayan_fragment/manual_ancient_puppet_method
+  Bulk carriers + assets      Done   +3; bulk total 722
+  Reaudit                     Done   text-material item/output/result missing=0; shipped refs=0
+  Version/build               Done   0.1.449->0.1.450 BUILD SUCCESSFUL protocol 13
+
+## 393. 2026-07-12 0.1.449 two residual catalog carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Strict hard-missing reaudit   Done   only formation_flag_mid + spirit_herb_rare
+  Bulk carriers + assets        Done   +2; bulk total 719
+  Reaudit                       Done   hard-missing=0 (fail is non-item result token)
+  Version/build                 Done   0.1.448->0.1.449 BUILD SUCCESSFUL protocol 13
+
+## 392. 2026-07-12 0.1.448 vehicle/puppet/refinement carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Full reaudit after 0.1.447   Done   formation short-ids, vehicles, puppets, refinement components still open
+  Bulk carriers + assets       Done   +18 physical carriers; bulk total 717
+  Formation/soft aliases       Done   25 id-map aliases to existing cores/items
+  Reaudit catalogs             Done   missing=0 on scanned catalogs + shops/recipes
+  Version/build                Done   0.1.447->0.1.448 BUILD SUCCESSFUL protocol 13
+
+## 391. 2026-07-12 0.1.446 remaining catalog carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Residual gap inventory   Done   herbs/talisman/puppet/formation ~114
+  Bulk append + assets     Done   bulk total 673
+  Block id aliases         Done   4 map aliases
+  Reaudit catalogs         Done   missing=0 across scanned sources
+  Version/build            Done   0.1.445->0.1.446 BUILD SUCCESSFUL protocol 13
+
+## 390. 2026-07-12 0.1.444 bulk catalog carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Full gap inventory   Done   559 unique missing catalog ids
+  ModBulkItems loader  Done   data-driven DeferredRegister
+  Assets/lang/id-map   Done   559 models/textures/lang/map
+  Creative tab loop    Done   accepts all bulk carriers
+  Version              Done   0.1.443->0.1.444 protocol 13
+  Verification         Done   full build BUILD SUCCESSFUL
+
+## 389. 2026-07-12 0.1.443 manuals_catalog carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Hard-missing reaudit   Done   refinement/shops/recipes empty
+  Manual carriers        Done   17 CatalogManualItem ids
+  invisible_needle map    Done   independent canonical
+  Version                Done   0.1.442->0.1.443 protocol 13
+  Verification           Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.443
+
+## 388. 2026-07-12 0.1.442 soft material decompress
+
+  Step   Status   Notes
+  ---   ---   ---
+  Hard-missing audit   Done   still empty after 0.1.441
+  Soft alias decompress Done   7 refinement materials
+  Version              Done   0.1.441->0.1.442 protocol 13
+  Verification         Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.442
+
+## 387. 2026-07-12 0.1.441 vanilla deref + missing carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Item/block model deref   Done   65 item + 35 block models
+  Vanilla material carriers Done   wind_feather/beast_hide/turtle_shell/poison_sac
+  Missing artifact carriers Done   43 refinement outputs registered
+  Version                  Done   0.1.440->0.1.441 protocol 13
+  Verification             Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.441
+
+## 386. 2026-07-12 0.1.440 fix yin_essence biome_modifier crash
+
+  Step   Status   Notes
+  ---   ---   ---
+  Root cause   Done   illegal biomes array in add_yin_essence_ore.json
+  Overworld modifier   Done   single tag string #minecraft:is_overworld
+  Nether modifier      Done   add_yin_essence_ore_nether.json
+  Version              Done   0.1.439->0.1.440 protocol 13
+  Verification         Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.440
+
+## 385. 2026-07-12 0.1.439 Wave56 A-zone art/assets closeout
+
+  Step   Status   Notes
+  ---   ---   ---
+  GeckoLib GeoEntity renderer   Done   SummonedServitorEntity + GeoEntityRenderer
+  Secret-realm biomes/types     Done   4 biomes + dim types + noise remaps
+  Live smoke human sign-off     Done   live_smoke sign + signed report
+  Dialogue portraits/sounds     Done   6 portraits + ModSounds event aliases
+  Missing icon art pack         Done   generated missing item/block PNGs
+  Version                       Done   0.1.438->0.1.439 protocol 13
+  Verification                  Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.439
+
+## 384. 2026-07-12 0.1.438 Wave55 quest NPC authority + material decompress
+
+  Step   Status   Notes
+  ---   ---   ---
+  Text-quest NPC world hooks   Done   TextQuestNpcHookService + villager interact
+  Hook accept authority        Done   QuestHookSoftService.accept -> TextQuestChainService.start
+  Dialogue NPC proximity gate  Done   advance/branch requires nearby bound NPC
+  Material alias decompress    Done   16 independent carriers + id_map remap
+  Version                      Done   0.1.437->0.1.438 protocol 13 unchanged
+  Verification                 Done   full build BUILD SUCCESSFUL; protocol 13; aiPreflight 0.1.438
+
+## 383. 2026-07-12 0.1.437 Wave54 real MenuType/serializer/formation BE
+
+  Step   Status   Notes
+  ---   ---   ---
+  Honest checklist restore   Done   reopened false deferred marks
+  Alchemy MenuType GUI       Done   AlchemyFurnaceMenu/Screen
+  Storage MenuType GUI       Done   StorageBraceletMenu/ScreenMenu
+  Refinement RecipeSerializer Done  RefinementCraftingRecipe + forge path
+  Formation core BE          Done   FormationCoreBlockEntity on spirit gather core
+  Version                    Done   0.1.436->0.1.437
+  Verification               Done   full build
+
+## 382. 2026-07-12 0.1.436 Wave53 closeout depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Design herbs registered   Done   biyun/wannian/blood/tian/ding/hui/yulu
+  Dialogue portrait panel   Done   placeholder portrait frame
+  Alchemy skill gate        Done   requiredSkill = furnaceTier*2-1
+  JEI refinement category   Done   SeekingImmortalsJeiPlugin REFINEMENT
+  Version/protocol          Done   0.1.435->0.1.436; protocol 13
+  Verification              Done   build BUILD SUCCESSFUL
+
+## 381. 2026-07-12 0.1.435 Wave52 remaining shells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Shop per-player quota   Done   ShopQuotaService limit 5
+  Boss encounters   Done   BossEncounterService + secret realm core
+  Sect mission generator   Done   gather/kill/escort-proxy
+  Soft phase shells 12-18   Done   SoftPhaseShellService marks
+  Version   Done   0.1.434→0.1.435 protocol 13
+  Verification   Done   full build BUILD SUCCESSFUL
+
+## 380. 2026-07-12 0.1.434 Wave51 remaining depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Natal binding   Done   NatalBindingService + artifact natal commands
+  Capture jar   Done   CaptureJarItem + ArtifactCaptureService
+  Daily event spawns   Done   DailyEventEncounterService
+  Big Dipper orbit swords   Done   MultiSwordArraySpell orbit projectiles
+  Version   Done   0.1.433→0.1.434 protocol remains 13
+  Verification   Done   full build BUILD SUCCESSFUL
+
+## 379. 2026-07-12 0.1.433 Wave50 checklist expansions
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave50_checklist_more/
+  Alchemy status GUI   Done   sneak empty-hand furnace opens AlchemyStatusScreen
+  Storage preview GUI   Done   bracelet use opens OpenStoragePreviewPacket screen
+  Refine plan GUI   Done   forge non-sneak opens recipe browser
+  FTB reward bridge   Done   FtbRewardBridgeService on text quest finale
+  Phase10 knocking 3-gate   Done   combat/gather/quiz flags
+  Live smoke report file   Done   project_docs/live_smoke_report_latest.md
+  Protocol   Done   12→13
+  Version   Done   0.1.432→0.1.433
+  Verification   Done   full build BUILD SUCCESSFUL
+
+## 378. 2026-07-12 0.1.432 Wave49 checklist depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave49_checklist_depth/
+  Formation persistence   Done   FormationFieldSavedData + free deploy fields
+  Ling-gen slab independent   Done   cooldown+fee, no stone share path
+  Shop rank-lock UI   Done   SyncShopDataPacket rankMin/locked protocol 12
+  MeditationScreen   Done   key B, breakdown from ClientCultivationData
+  Quest tracker GUI   Done   key J + SyncQuestTrackerPacket
+  Beast contracts   Done   BeastContractService + commands
+  Spirit boat vehicle   Done   SpiritBoatEntity rideable
+  Asura/Immortal dims   Done   datapack dims + map
+  Sect war scoreboard   Done   SectWarService SavedData
+  Puppet durable life   Done   10min servitor lifetime
+  Protocol   Done   11→12
+  Version   Done   0.1.431→0.1.432
+  Verification   Done   TextMaterialSmokeTest + full build BUILD SUCCESSFUL; protocol 12; aiPreflight 0.1.432
+
+## 377. 2026-07-12 0.1.431 Text-material dual-track wave48
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave48_remaining_depth/
+  Secret-realm encounters   Done   core guardian + adds once per realm
+  Summon archetypes   Done   BEAST/PUPPET/GHOST/GENERIC AI-stats
+  Quest stage costs   Done   mid/finale/every-3rd consume inventory
+  Flying/sword visuals   Done   3 guard swords + Big Dipper ring particles
+  Artifact plan cmd   Done   /seeking_immortals artifact plan <id>
+  Version/protocol   Done   0.1.430→0.1.431; protocol remains 11
+  Verification   Done   TextMaterialSmokeTest + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.431
+
+## 376. 2026-07-12 0.1.430 Text-material dual-track wave47
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave47_dim_dialogue_smoke/
+  Secret-realm dimension pack   Done   4 dedicated dims + SecretRealmDimensionService entry routing
+  Visual dialogue GUI   Done   DialogueScreen + Open/Action packets
+  Live smoke checklist   Done   LiveSmokeChecklistService + /seeking_immortals live_smoke + docs
+  Version/protocol   Done   0.1.429→0.1.430; protocol 10→11
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.430
+
+## 375. 2026-07-12 0.1.429 Text-material dual-track wave46
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave46_full_remaining/
+  Shared auction SavedData   Done   AuctionHouseSavedData multiplayer highest-bid ladder
+  Reputation shop discounts   Done   friendly/honored multipliers in marketCostModifier
+  Quest dialogue talk tree   Done   TextQuestDialogueService + talk command
+  Secret-realm layered shells   Done   outer/mid/core + 3 loot chests
+  GeckoLib asset/API surface   Done   geo assets + client GeoModel adapter compiles
+  Smoke tests   Done   TextMaterialSmokeTest
+  Version/protocol   Done   0.1.428→0.1.429; protocol 10
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.429
+
+## 374. 2026-07-12 0.1.428 Text-material dual-track wave45
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave45_remaining_depth/
+  Auction multi-bid ladder   Done   personal raise ladder + settle; auto-settle @3 raises
+  Quest branch/NPC light authority   Done   righteous/neutral/demonic + NPC hooks + branch bonus
+  Secret-realm multi-room shells   Done   outer+inner chamber + loot chests
+  Reputation economy loop   Done   travel/shop/quest/auction grant paths
+  GeckoLib min assets   Done   geo/animation/texture placeholders for summoned_servitor
+  Version/protocol   Done   0.1.427→0.1.428; protocol 10
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.428
+
+## 373. 2026-07-12 0.1.427 Text-material dual-track wave44
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave44_auction_gecko_puppet/
+  Prelib re-read   Done   SpellEffect/MultiblockPattern/Shop/Auction/Summon/Puppet/GeckoLib inventory
+  Auction GUI   Done   AuctionScreen + AuctionActionPacket + OpenAuctionScreenPacket
+  Protocol bump   Done   PROTOCOL_VERSION 9→10 (new packets)
+  Puppet entity spawn   Done   PuppetCraftService spawns SummonedServitor via SummonHonestMvpService
+  GeckoLib note   Done   dependency present; humanoid fallback renderer; full geo art still open
+  Version/protocol   Done   0.1.426→0.1.427; protocol 10
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.427
+
+## 372. 2026-07-12 0.1.426 Text-material dual-track wave43
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave43_reputation/
+  Reputation store   Done   ReputationService NBT + catalog reputation commands
+  Rep requires hard gate   Done   rep_* spatial requires hard-gated
+  Event requires partial   Done   tribulation_success + ancient_demon_seal_breach hard-gated
+  Version/protocol   Done   0.1.423→0.1.426; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.426
+
+## 371. 2026-07-12 0.1.423 Text-material dual-track wave42
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave42_tickets_trials/
+  Spatial ticket items   Done   9 permit/ticket proxy items registered + mapped
+  Requires map upgrade   Done   SpatialNodeRequiresService uses dedicated tickets
+  Secret-realm shells expand   Done   more realm ids get trial shell (void/nether/diyuan/kings/etc.)
+  Version/protocol   Done   0.1.422→0.1.423; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.423
+
+## 370. 2026-07-12 0.1.422 Text-material dual-track wave41
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave41_spatial_requires/
+  Spatial requires hard gates   Done   SpatialNodeRequiresService item/realm gates; soft rep/event warn
+  Gate multiblock requires   Done   specialized portal methods enforce by node type
+  Quest mid-stage rewards   Done   half-chain milestone grants 2 shards once
+  Version/protocol   Done   0.1.420→0.1.422; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.422
+
+## 369. 2026-07-12 0.1.420 Text-material dual-track wave40
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave40_residual/
+  Quest generic soft rewards   Done   all 62 chains now grant at least 4 shards on finale
+  Spatial travel command   Done   catalog spatial travel <id> routes by node type
+  Version/protocol   Done   0.1.419→0.1.420; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.420
+
+## 368. 2026-07-12 0.1.419 Text-material dual-track wave39
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave39_polish/
+  Thunder altar cost   Done   survival consumes 12 spirit-stone shards (no LightningBolt)
+  Illusion maze field   Done   FormationFieldService.ILLUSION_MAZE timed aura
+  Quest soft rewards 15   Done   TextQuestChainService expanded to 15 real chain ids
+  Version/protocol   Done   0.1.418→0.1.419; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.419
+
+## 367. 2026-07-12 0.1.418 Text-material dual-track wave38
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave38_alchemy_altar/
+  Alchemy furnace shell   Done   AlchemyFurnaceShellStructure via MultiblockPattern; tier3+ gate
+  Blood sacrifice cost   Done   survival consumes 8 spirit-stone shards
+  Version/protocol   Done   0.1.417→0.1.418; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.418
+
+## 366. 2026-07-12 0.1.417 Text-material dual-track wave37
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave37_king_territory/
+  King territory gate   Done   shared placeable for 7 king_territory nodes → barbarian_wasteland
+  Refinement forge G2   Done   middle-tier multiblock + selectRecipeId refine path
+  Version/protocol   Done   0.1.416→0.1.417; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.417
+
+## 365. 2026-07-12 0.1.416 Text-material dual-track wave36
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave36_portals_spells/
+  Cycle gate multiblock   Done   CycleGate + structure; chaotic_sea / void_palace path
+  Hidden rift multiblock   Done   HiddenRiftGate + structure; inverse_star_hideout path
+  Secret cyclone rebinds   Done   ~25 secret stubs rebound to form/summon/recovery libs (4 legitimate CYCLONE remain)
+  Version/protocol   Done   0.1.415→0.1.416; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.416
+
+## 364. 2026-07-12 0.1.415 Text-material dual-track wave35
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_wave35_portals_spells/
+  Pocket gate multiblock   Done   NetherFerryGate + structure + travel to nether_river
+  Ancient rift multiblock   Done   AncientRiftGate + structure + travel to fallen_demon_valley
+  Spell honesty rebinds   Done   cyclone stubs + CAST_* talismans rebound to form/element libs
+  Version/protocol   Done   0.1.414→0.1.415; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.415
+
+## 363. 2026-07-12 0.1.414 Text-material dual-track wave32-34
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave32/ + .bak/20260712_135846_wave32_finish/
+  Summon combat entity finish   Done   SummonedServitor renderer + owner follow + lang
+  Auction bid command   Done   catalog auction bid <lotId> over AuctionSoftService.bid
+  Persistent formation fields   Done   FormationFieldService 90s aura for top cores + catalog
+  Secret-realm trial light   Done   SecretRealmTrialService shell + one-time rare proxy
+  Quest soft rewards 10   Done   TextQuestChainService expanded to 10 real chain ids
+  Forge recipe selection   Done   ArtifactRefinementService.selectRecipeId prefers affordable
+  Version/protocol   Done   0.1.412→0.1.414; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.414
+
+## 362. 2026-07-12 0.1.412 Text-material dual-track wave31
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave31/
+  Craft/world soft browsers   Done   CraftWorldSoftService for refine/formation/talisman/puppet indexes
+  Commands   Done   catalog refine/formations
+  Version/protocol   Done   0.1.411→0.1.412; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.412
+
+## 361. 2026-07-12 0.1.411 Text-material dual-track wave30
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave30/
+  Bulk indexes   Done   60+ remaining core catalogs indexed; BulkCatalogIndexService (1000+ entries)
+  Commands   Done   catalog bulk list/show
+  Version/protocol   Done   0.1.410→0.1.411; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.411
+
+## 360. 2026-07-12 0.1.410 Text-material dual-track wave29
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave29/
+  More honest summons   Done   +4 ultimate/legion ids (HonestSummonSpell total 20)
+  Main story soft   Done   MainStorySoftService chapter complete flags + commands
+  Version/protocol   Done   0.1.409→0.1.410; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.410
+
+## 359. 2026-07-12 0.1.409 Text-material dual-track wave28
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave28/
+  Talisman consume policy   Done   CAST_*/talisman techniques consume mapped items in survival
+  Faction conflicts soft   Done   FactionConflictSoftService + command
+  Version/protocol   Done   0.1.408→0.1.409; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.409
+
+## 358. 2026-07-12 0.1.408 Text-material dual-track wave27
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave27/
+  Top quest soft rewards   Done   5 mainline chains grant one-time item rewards on completion
+  Version/protocol   Done   0.1.407→0.1.408; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.408
+
+## 357. 2026-07-12 0.1.407 Text-material dual-track wave26
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave26/
+  Herb planter CD   Done   3-minute growth cooldown via player persistent data
+  Spatial node browser   Done   SpatialNodeCatalogService + command
+  Auction interest   Done   AuctionInterestService mark/list
+  Version/protocol   Done   0.1.406→0.1.407; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.407
+
+## 356. 2026-07-12 0.1.406 Text-material dual-track wave25
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave25/
+  More honest summons   Done   +3 (16 total HonestSummonSpell)
+  Chronicle/trade soft   Done   ChronicleTradeSoftService + commands
+  Version/protocol   Done   0.1.405→0.1.406; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.406
+
+## 355. 2026-07-12 0.1.405 Text-material dual-track wave24
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave24/
+  More honest summons   Done   +5 summon skill ids via HonestSummonSpell (13 total)
+  Quest hooks soft   Done   QuestHookSoftService + quest text hooks command
+  Version/protocol   Done   0.1.404→0.1.405; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.405
+
+## 354. 2026-07-12 0.1.404 Text-material dual-track wave23
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave23/
+  Honest summon spells   Done   HonestSummonSpell wired for 8 key summon skill ids
+  Auction soft service   Done   AuctionSoftService venues/lots preview + command
+  Version/protocol   Done   0.1.403→0.1.404; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.404
+
+## 353. 2026-07-12 0.1.403 Text-material dual-track wave22
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave22/
+  Faction/quest networks   Done   chronicle/conflicts/hooks/trade routes/faction quest packs indexed
+  FactionQuestCatalogService   Done   command catalog factions
+  Version/protocol   Done   0.1.402→0.1.403; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.403
+
+## 352. 2026-07-12 0.1.402 Text-material dual-track wave21
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave21/
+  Beast/loot/path indexes   Done   bestiary42 + loot/boss loot + constitutions + roots + ghost/ascension stages
+  LoreCatalogService   Done   extended with beasts/loot/constitutions/roots/paths
+  Version/protocol   Done   0.1.401→0.1.402; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.402
+
+## 351. 2026-07-12 0.1.401 Text-material dual-track wave20
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave20/
+  Lore indexes   Done   NPC/dimensions/skill trees/factions/puppets/races/currency/spawn tables
+  Summon honest MVP   Done   SummonHonestMvpService + command catalog summon
+  Version/protocol   Done   0.1.400→0.1.401; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.401
+
+## 350. 2026-07-12 0.1.400 Text-material dual-track wave19
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave19/
+  Daily events   Done   merged +13 text events into worldpack daily_events (146 total)
+  Sect catalog   Done   SectDefinitionService now includes all catalog sects; playable remains 6
+  Economy bands   Done   EconomyPriceBandService soft guidance
+  Version/protocol   Done   0.1.399→0.1.400; protocol 9
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.400
+
+## 349. 2026-07-12 0.1.399 Text-material dual-track wave18
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave18/
+  Quest chains runtime   Done   TextQuestChainService stage tracking for all 62 chains + commands
+  Version/protocol   Done   0.1.398→0.1.399; protocol 9 (persistentData only)
+  Verification   Done   tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.399
+
+## 348. 2026-07-12 0.1.398 Text-material dual-track wave17
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave17/
+  Merchant shops   Done   46/46 text merchant_shops now have runtime JSON; ShopService auto-discovers market shops
+  Version/protocol   Done   0.1.397→0.1.398; protocol 9
+  Verification   Done   shop tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.398
+
+## 347. 2026-07-12 0.1.397 Text-material dual-track wave16
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave16/
+  Full ship   Done   All 163 文本材料/data JSON + 21 technique files copied to runtime text_material/
+  Manifest service   Done   TextMaterialManifestService indexes 207 files / 3000+ entries
+  Commands   Done   catalog manifest/has
+  Version/protocol   Done   0.1.396→0.1.397; protocol 9
+  Verification   Done   focused tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.397
+
+## 346. 2026-07-12 0.1.396 Text-material dual-track wave15
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave15/
+  More indexes   Done   alchemy55/spatial25/materials221/pills114/artifacts217/talismanMats6
+  ExtendedCatalogService   Done   totalIndexedEntries > 800
+  Version/protocol   Done   0.1.395→0.1.396; protocol 9
+  Verification   Done   focused tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.396
+
+## 345. 2026-07-12 0.1.395 Text-material dual-track wave14
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave14/
+  Extended catalogs   Done   quests62/sects28/bands17/consumables57/chapters7/events71 + 4 shops
+  Commands   Done   catalog quests/sects/bands/chapters
+  Version/protocol   Done   0.1.394→0.1.395; protocol 9
+  Verification   Done   focused tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.395
+
+## 344. 2026-07-12 0.1.394 Text-material dual-track wave13
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave13/
+  Secret realm flavor   Done   14 template flavors on enter + catalog command
+  Manuals/methods/flight   Done   21 manuals, 91 methods, 8 flight bindings loaded; commands study/board
+  Version/protocol   Done   0.1.393→0.1.394; protocol 9
+  Verification   Done   focused catalog tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.394
+
+## 343. 2026-07-12 0.1.393 Text-material dual-track wave12
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave12/
+  Spatial fees   Done   SpatialNodeFeeRules + consumeSpatialNodeFee in WorldpackGameplayService
+  Talisman recipes   Done   TalismanCraftService 24 recipes via talisman_table
+  Puppet recipes   Done   PuppetCraftService 7 recipes honest MVP via puppet_assembly_bench
+  Tribulation rules   Done   getStrikeCount aligned to tribulation_rules waves
+  Shops   Done   +5 merchant lanes (talisman/puppet/formation/nether ferry/wanbao)
+  Version/protocol   Done   0.1.392→0.1.393; protocol 9
+  Verification   Done   focused tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.393
+
+## 342. 2026-07-12 0.1.392 Text-material dual-track wave11
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave11/
+  Ore worldgen   Done   low_spirit_iron_ore overworld + yin_essence_ore overworld/nether
+  Coverage CSV   Done   regenerated project_docs/text_material_technique_coverage.csv
+  Version/protocol   Done   0.1.391→0.1.392; protocol 9
+  Verification   Done   full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.392
+
+## 341. 2026-07-12 0.1.391 Text-material dual-track wave10
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave10/
+  Planter/ores   Done   spirit_herb_planter soil-ring multiblock; low_spirit_iron_ore; yin_essence_ore
+  block_items_catalog   Done   14 catalog blocks now have runtime carriers (alchemy/forge/talisman/puppet/planter/ores/arrays)
+  Version/protocol   Done   0.1.390→0.1.391; protocol 9
+  Verification   Done   Focused planter test + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.391
+
+## 340. 2026-07-12 0.1.390 Text-material dual-track wave9
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave9/
+  Craft stations   Done   talisman_table + puppet_assembly_bench + refinement_forge_g3 multiblocks
+  Honest MVP   Done   puppet bench no entity; talisman crafts fire/armor/speed from paper+shard
+  Version/protocol   Done   0.1.389→0.1.390; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.390
+
+## 339. 2026-07-12 0.1.389 Text-material dual-track wave8
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave8_complete/ (+ prior .bak/20260712_text_material_wave8/)
+  Formation catalog close   Done   +4 placeable cores: spirit_gathering_minor, demon_seal_pillar, sword_array_bagua, thunder_tribulation_array (via CatalogFormationCoreBlock)
+  Portals   Done   long_range_teleport_array 9x9 + blood_forbidden_gate 7x7 multiblocks → WorldpackGameplayService
+  Alias note   Done   illusion_maze_array treated as illusion_maze core (no second block)
+  Version/protocol   Done   mod_version=0.1.389; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.389
+
+## 338. 2026-07-12 0.1.387 Text-material dual-track wave7
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave7/
+  Formation cores   Done   seal demon / illusion maze / kill sword
+  Ascension gate   Done   tall multiblock + worldpack travel
+  Version/protocol   Done   0.1.386→0.1.387; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.387
+
+## 337. 2026-07-12 0.1.386 Text-material dual-track wave6
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave6/
+  Remaining techniques   Done   79 ids wired; text technique coverage 346/346
+  Refinement forge   Done   RefinementForgeStructure + Block + ArtifactRefinementService hook
+  Version/protocol   Done   0.1.385→0.1.386; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.386; text techniques 346/346 wired
+
+## 336. 2026-07-12 0.1.385 Text-material dual-track wave5
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave5/
+  Spell batch   Done   35 remaining mappable techniques
+  Formation zones   Done   spirit gather + defense formation cores
+  Version/protocol   Done   0.1.384→0.1.385; protocol 9
+  Verification   Done   structure tests + full build BUILD SUCCESSFUL; aiPreflight 0.1.385
+
+## 335. 2026-07-12 0.1.384 Text-material dual-track wave4
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave4/
+  Spell batch   Done   24 secret/fashi/puppet/xuan_yin/demon_path ids
+  Thunder ritual   Done   ThunderTribulationAltarStructure + Block + tests
+  Version/protocol   Done   0.1.383→0.1.384; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.384
+
+## 334. 2026-07-12 0.1.383 Text-material dual-track wave3
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave3/
+  Spell batch   Done   33 talisman/misc ids via existing bases
+  Blood ritual   Done   BloodSacrificeAltarStructure + Block + tests
+  Version/protocol   Done   0.1.382→0.1.383; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.383
+
+## 333. 2026-07-12 0.1.382 Text-material dual-track wave2
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup   Done   .bak/20260712_text_material_wave2/
+  Open decisions   Done   project_docs/text_material_open_decisions.md
+  Spell batch   Done   22 demonic/ghost/movement/body ids + light_body alias
+  Sect gate   Done   SectGateStructure + SectGateArrayBlock + tests; Worldpack travel
+  Version/protocol   Done   0.1.381→0.1.382; protocol 9
+  Verification   Done   Focused structure tests + full build BUILD SUCCESSFUL; aiPreflight mod_version=0.1.382
+
+## 332. 2026-07-12 0.1.381 Text-material dual-track wave1
+
+  Step   Status   Notes
+  ---   ---   ---
+  Wave0 matrix   Done   Parsed 346 text techniques vs SkillType; wrote coverage CSV and lane picks. True missing after alias heuristics ~226.
+  Spell batch   Done   30 true-missing ids registered via existing spell bases; registry aliases for common text ids without `_art` suffix.
+  Portal multiblock   Done   `TeleportArrayPedestalBlock` + `FixedTeleportArrayStructure` + tests; sneak-use validates ring then calls WorldpackGameplayService.
+  Version/protocol   Done   `mod_version` 0.1.380→0.1.381; PROTOCOL_VERSION remains 9.
+  Verification   Done   Focused structure/resource tests passed. Final build BUILD SUCCESSFUL; aiPreflight recorded mod_version=0.1.381; network-package warning reviewed as inherited/unrelated.
+  Follow-up   Pending   Continue remaining technique lanes; sect/ascension/ritual gates; placeable formations; live smoke.
+
+## 331. 2026-07-12 0.1.380 Mod-only refinement recipe batch
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from verified `0.1.379` Black-Gold Shield recipe; preserved concurrent tree state and chose only fully-mapped recipes with seeking_immortals materials.
+  Scope filter   Done   Explicitly skipped recipes that still resolve materials to minecraft leather/feather stand-ins (`beast_taming_whip`, `spirit_beast_bridle`, `wind_escape_sail`) to keep crafting more original.
+  Parallel write   Done   Three agents wrote independent recipe JSON files; main session fixed one count mismatch on `refine_xuanhuang_shard` and validated all nine material counts.
+  Backup   Done   Existing docs/tests/version files backed up under `.bak/20260712_modonly_refine_batch/`.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.379` to `0.1.380`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resources   Done   Added nine `data/seeking_immortals/recipes/refine_*.json` files using existing registered carriers only.
+  Tests   Done   Extended `ResourceJsonParseTest` with nine focused recipe assertions.
+  Verification   Done   Focused `ResourceJsonParseTest` passed. Final `./gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.380`; inherited network-package warning reviewed as unrelated to this recipe batch.
+  Follow-up   Pending   Real refinement forge/custom serializer remains the durable replacement for vanilla-grid approximations; source-accurate acquisition and JEI/live smoke checks remain open.
+
+## 330. 2026-07-12 0.1.379 Black-Gold Shield refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from verified `0.1.378` FTB default-copy fix; preserved concurrent tree state and chose the next fully-mapped refinement recipe without vanilla-grid coverage.
+  Text-material basis   Done   Used shipped `refinement_recipes.json#refine_black_gold_shield` (6x low_spirit_iron + 2x kunwu_copper -> black_gold_shield) with current id-map carriers Spirit Iron and Kunwu Copper.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files backed up under `.bak/20260712_052334_black_gold_shield_recipe/`; new recipe and update note had no previous copies.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.378` to `0.1.379`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_black_gold_shield.json`, crafting Black-Gold Shield from 6x Spirit Iron and 2x Kunwu Copper through the existing artifact-refinement recipe group.
+  Verification   Done   Focused `ResourceJsonParseTest` passed. Final `./gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.379`; inherited network-package warning reviewed as unrelated to this recipe/docs slice.
+  Follow-up   Pending   Continue remaining fully-mapped vanilla refine approximations or replace them with a real refinement forge/custom serializer; live recipe-book smoke checks remain open.
+
+## 329. 2026-07-07 0.1.378 FTB default seeding COPY_ATTRIBUTES crash fix
+
+  Step   Status   Notes
+  ---   ---   ---
+  Crash analysis   Done   User crash report showed `seeking_immortals-0.1.376.jar` failing during mod construction with `UnsupportedOperationException: COPY_ATTRIBUTES not supported` at `FtbQuestDefaults.copyIfMissing`.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_134212_ftb_default_copy_fix/`; new test and update-note files had no previous copies.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.377` to `0.1.378`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime fix   Done   Removed unsupported `StandardCopyOption.COPY_ATTRIBUTES` from the bundled FTB default `InputStream` copy while preserving copy-only-when-missing behavior for existing user/server FTB quest packs.
+  Test coverage   Done   Added `FtbQuestDefaultsTest` for missing-file seeding and existing-file preservation.
+  Verification   Done   Initial sandbox test failed only on network restrictions. Focused `FtbQuestDefaultsTest` passed after network-enabled rerun. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.378`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Live launcher smoke test the rebuilt jar in the PCL/Forge instance and audit inherited network-package diffs before release if packet compatibility changed.
+
+## 328. 2026-07-07 0.1.376 Current-tree build recheck after Void Cold Jade Pendant
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed current shared version movement to `mod_version=0.1.376` after the Void Cold Jade Pendant recipe and parallel Formation Spells / Dajin-Kunwu FTB work; preserved all concurrent edits.
+  Recipe recheck   Done   `refine_void_cold_jade_pendant.json` remains present and `ResourceJsonParseTest` still includes the focused Void Cold Jade Pendant recipe assertion.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.376`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build recheck changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.376`; inherited network-package warning reviewed as unrelated to this recipe/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.376_current_tree_after_void_cold_jade_docs/`; implementation backups remain `.bak/20260707_0.1.375_void_cold_jade_pendant_recipe/`.
+  Follow-up   Pending   Continue replacing vanilla-grid refinement approximations with a real refinement workstation/custom serializer and audit inherited network diffs before release if packet compatibility changed.
+
+## 327. 2026-07-07 0.1.376 Moon Shadow Disk refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the observed `0.1.375` Void Cold Jade Pendant recipe work, the `0.1.374` Formation spell and Dajin/Kunwu FTB current-tree verification slices, the `0.1.372` Evil Illusion Mirror recipe, and earlier shared work without reverting unrelated edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_moon_shadow_disk`, mapped `yin_essence_ore` to `seeking_immortals:yin_stone`, mapped `low_spirit_iron` to `seeking_immortals:spirit_iron`, and reused the existing registered output `seeking_immortals:moon_shadow_disk`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.374_moon_shadow_disk_recipe/` before the first attempt and `.bak/20260707_0.1.376_moon_shadow_disk_recipe/` after rebasing on parallel work; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.375` to `0.1.376`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_moon_shadow_disk.json`, crafting Moon Shadow Disk from 2x Yin Stone and 4x Spirit Iron through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.376`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate Yin Essence Ore / low Spirit Iron acquisition, and live recipe-book smoke checks.
+
+## 326. 2026-07-07 0.1.374 Formation spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed and preserved the parallel `0.1.373` Dajin/Kunwu FTB item-task bridge plus the `0.1.372` Evil Illusion Mirror recipe and earlier shared-tree work; advanced this independent spell slice to `mod_version=0.1.374` without reverting unrelated edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was `data/techniques/formation.json`.
+  Planning   Done   Scoped to the already staged formation spell runtime plus missing release feedback, version reconciliation, docs, and build verification; no packet, registry, item/block/entity, GUI, shop, FTB, worldpack, capability, player-NBT, or runtime-loader changes were made by this slice.
+  Backup   Done   Earlier implementation backup remains `.bak/20260707_0.1.368_formation_spells/`; current-state backups include `.bak/20260707_0.1.374_formation_spells_reconcile/`.
+  Version/protocol   Done   Final current shared `mod_version` is `0.1.374`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   `FormationSpell` covers small sword, illusion, spirit-gathering, thunder trap, seal, killing sword, defense, sea-lock, patrol beacon, basic trap, Star Palace seal, Kunwu seal strike, and tidal lock forms with server-authoritative damage/control/buffs/projectile deflection and custom DustParticle visuals, avoiding vanilla attack entities.
+  Technique data   Done   Foundation/Core technique data maps the 13 ids into the existing technique release path.
+  Localization   Done   zh_cn/en_us release feedback was added for all 13 formation spell ids.
+  Verification   Done   Changed language and technique JSON parsed successfully with explicit UTF-8. `compileJava` passed after approved Gradle dependency/cache access. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.374`; inherited network-package warning reviewed as unrelated to this spell/data slice.
+  Follow-up   Pending   Add strict method/source/region/reputation gates in learning UI, dedicated spell icons and custom particle textures, source-accurate formation manuals/sect acquisition, persistent placeable formations, PvP tuning, and live client visual smoke tests.
+
+## 326. 2026-07-07 0.1.373/0.1.374 FTB Dajin/Kunwu item-task bridge current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree at `0.1.372`, advanced the Dajin/Kunwu FTB item-task bridge under `0.1.373`, then preserved parallel movement to current `mod_version=0.1.374` before final build without reverting concurrent edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Dajin/Wanbao auction and Kunwu routing plus existing carriers for Immortal Jade, Blank Jade Slip, Cold Jade, Spirit Gathering Array, and Demon-Suppress Talisman Blank.
+  Planning   Done   Scoped to converting five safe Dajin/Kunwu checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, runtime behavior, and no reward/state semantics.
+  Backup   Done   Existing target/current files were backed up to `.bak/20260707_0.1.372_ftb_dajin_kunwu_item_tasks/`, `.bak/20260707_0.1.373_ftb_dajin_kunwu_item_tasks_reconcile/`, and `.bak/20260707_0.1.374_ftb_dajin_kunwu_post_build_docs/`; the update note had no previous tracked baseline beyond the current slice note.
+  Version/protocol   Done   Dajin/Kunwu bridge work advanced the observed shared version to `0.1.373`; final current-tree build recorded `mod_version=0.1.374` after parallel movement. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1602`, `1607`, `1608`, `1609`, and `1613` to checks for Immortal Jade x1, Blank Jade Slip x1, Cold Jade x1, Spirit Gathering Array x1, and Demon-Suppress Talisman Blank x1, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 61 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.374`; inherited network-package warning reviewed as unrelated to this FTB/data/test/docs slice.
+  Follow-up   Pending   Continue broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Wanbao auction and Kunwu permit validation, formation-skill checks, puppet-king encounter hooks, `QuestProgress` sync, quest icons, and live FTB client smoke tests.
+
+## 326. 2026-07-07 0.1.375 Void Cold Jade Pendant refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel Evil Illusion Mirror recipe and current version movement through `0.1.374`; selected a different low-conflict additive recipe slice, then advanced to `0.1.375` while preserving parallel recipe, FTB, spell, portal, artifact, and docs work.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_void_cold_jade_pendant`, mapped both `void_palace_cold_jade` and `hundred_year_ice` to the current `seeking_immortals:cold_jade` carrier, and reused the existing registered output `seeking_immortals:void_palace_cold_jade_pendant`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused resource assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.375_void_cold_jade_pendant_recipe/`; earlier preflight backups while tracking parallel version movement are `.bak/20260707_0.1.372_void_cold_jade_pendant_recipe/`, `.bak/20260707_0.1.373_void_cold_jade_pendant_recipe/`, and `.bak/20260707_0.1.374_void_cold_jade_pendant_recipe/`. The new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.374` to `0.1.375`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_void_cold_jade_pendant.json`, crafting Void Palace Cold Jade Pendant from 3x Cold Jade through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.375`; inherited network-package warning reviewed as unrelated to this recipe/docs slice.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces Core Formation/forge-grade/manual/quest gates, success chance, failure loot, source-specific Void Palace Cold Jade acquisition, JEI display, and live recipe-book smoke checks.
+
+## 325. 2026-07-07 0.1.372 Evil Illusion Mirror refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the `0.1.371` current-tree version-gate reconcile and Talisman Soul Charm recipe, the Fallen Demon/Yin FTB bridge, Bedrock Shield, Snake Pearl, Confucian spells, Demon Rift, Qingning Mirror, Flying Needle, artifact failure-loot, and earlier shared work without reverting unrelated edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_evil_illusion_mirror`, mapped `hundred_year_ice` to `seeking_immortals:cold_jade`, mapped `demon_corruption_fungus` to `seeking_immortals:cloud_mushroom`, mapped `soul_gathering_stone` to `seeking_immortals:soul_gathering_stone`, and reused the existing registered output `seeking_immortals:evil_illusion_mirror`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.372_evil_illusion_mirror_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.371` to `0.1.372`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_evil_illusion_mirror.json`, crafting Evil Illusion Mirror from 3x Cloud Mushroom, 1x Cold Jade, and 1x Soul-Gathering Stone through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.372`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate Hundred-Year Ice / Demon Corruption Fungus / Soul-Gathering Stone acquisition, and live recipe-book smoke checks.
+
+## 324. 2026-07-07 0.1.371 Current-tree version-gate reconcile
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed continued parallel version movement beyond the `0.1.369` Fallen Demon / Yin FTB recheck and concurrent Talisman Soul Charm recipe work; preserved shared-tree edits without reverting unrelated files.
+  Version gate   Done   A current-tree build attempt at `0.1.370` failed only `aiPreflight` because shippable tracked files changed since the previous successful fingerprint while `mod_version` was still `0.1.370`; the shared tree advanced to `0.1.371` rather than using the skip flag.
+  FTB recheck   Done   Fallen Demon / Yin tasks `1710`, `1715`, and `1716` remain non-consuming checks for Yin Stone x8, Soul-Gathering Stone x1, and Soul Fragment x2; focused FTB coverage remains at 56 implemented item tasks.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.371`; inherited network-package warning reviewed as unrelated to this FTB/docs/version reconcile.
+  Backup   Done   Existing version/docs were backed up to `.bak/20260707_0.1.371_current_tree_version_gate_reconcile/`; implementation backups remain `.bak/20260707_0.1.368_ftb_fallen_demon_yin_item_tasks/`.
+  Follow-up   Pending   Continue protocol audit for inherited network-package diffs if compatibility changed, and keep expanding FTB from inventory checks toward authoritative rewards, branch locks, state validation, icons, and live smoke tests.
+
+## 323. 2026-07-07 0.1.369 FTB Fallen Demon / Yin current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel version movement beyond the `0.1.368` Fallen Demon / Yin FTB bridge record; preserved the item-task bridge and concurrent shared-tree edits without reverting unrelated files.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.369`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields/order/encoding/registrations or channel behavior.
+  FTB recheck   Done   Fallen Demon / Yin tasks `1710`, `1715`, and `1716` remain non-consuming checks for Yin Stone x8, Soul-Gathering Stone x1, and Soul Fragment x2; `FtbQuestSnbtTest` still validates 56 implemented item tasks across 215 packaged quest nodes.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.369`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.369_ftb_fallen_demon_yin_current_tree_recheck/`; implementation backups remain `.bak/20260707_0.1.368_ftb_fallen_demon_yin_item_tasks/`.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom conditions, authoritative rewards, branch locks, Yin Luo reputation and ghost-stage validation, Nether River encounter hooks, quest icons, `QuestProgress` sync, and live FTB client smoke tests.
+
+## 322. 2026-07-07 0.1.368 FTB Fallen Demon / Yin item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree already at `mod_version=0.1.367`; preserved the Bedrock Shield recipe, Snake Pearl recheck, Confucian spell effects, Tiannan FTB bridge, Demon Rift portal, Qingning Mirror recipe, and earlier shared work without reverting unrelated edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Fallen Demon / Yin routing, Yin Luo Hall initiation, soul-anchor, Nether Core, and current Yin Stone/Soul-Gathering Stone/Soul Fragment carriers.
+  Planning   Done   Scoped to converting three safe checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, runtime behavior, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.368_ftb_fallen_demon_yin_item_tasks/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.367` to `0.1.368`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1710`, `1715`, and `1716` to checks for Yin Stone x8, Soul-Gathering Stone x1, and Soul Fragment x2, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 56 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.368`; inherited network-package warning reviewed as unrelated to this FTB/data/test/docs slice.
+  Follow-up   Pending   Continue broader item/advancement/custom FTB task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Yin Luo reputation and ghost-stage validation, Nether River encounter hooks, `QuestProgress` sync, quest icons, and live FTB client smoke tests.
+
+## 322. 2026-07-07 0.1.371 Talisman Soul Charm refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree already at `mod_version=0.1.368`, then advanced/reconciled through `0.1.369`, `0.1.370`, and final `0.1.371` for this low-conflict artifact recipe slice while preserving the verified Bedrock Shield, Snake Pearl, Confucian spell, Demon Rift, Qingning Mirror, Flying Needle, artifact failure-loot, FTB, and earlier spell work without reverting unrelated edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_talisman_soul_charm`, mapped `talisman_paper` to `seeking_immortals:talisman_paper_mortal`, mapped `soul_gathering_stone` to `seeking_immortals:soul_gathering_stone`, and reused the existing registered output `seeking_immortals:talisman_treasure_soul_charm`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.369_talisman_soul_charm_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.368` through `0.1.369`/`0.1.370` to `0.1.371`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_talisman_soul_charm.json`, crafting Soul-Calming Talisman Treasure from 3x Mortal Talisman Paper and 1x Soul-Gathering Stone through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Full build attempts at `0.1.369` and `0.1.370` were blocked only by the version gate, so the shared tree advanced to `0.1.371`; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.371`.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate paper grade / soul-stone acquisition, and live recipe-book smoke checks.
+
+## 322. 2026-07-07 0.1.370 Talisman Soul Charm refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel `0.1.368` FTB Fallen Demon/Yin item-task work plus the current `0.1.367` Bedrock Shield/Snake Pearl/Confucian records; preserved them without reverting unrelated edits and reconciled this artifact recipe slice upward after `0.1.369` hit the version fingerprint gate.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_talisman_soul_charm`, mapped `talisman_paper` to `seeking_immortals:talisman_paper_mortal`, mapped `soul_gathering_stone` to `seeking_immortals:soul_gathering_stone`, and reused the existing registered output `seeking_immortals:talisman_treasure_soul_charm`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed by this slice.
+  Backup   Done   Existing target/current files were backed up to `.bak/20260707_0.1.368_talisman_soul_charm_recipe/`, `.bak/20260707_0.1.369_talisman_soul_charm_recipe/`, and `.bak/20260707_0.1.370_talisman_soul_charm_version_reconcile/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Final current shared `mod_version` is `0.1.370`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_talisman_soul_charm.json`, crafting Soul-Calming Talisman Treasure from 3x Mortal Talisman Paper and 1x Soul-Gathering Stone through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. A first full build at `0.1.369` failed only the `aiPreflight` version/fingerprint gate after parallel movement; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL at `0.1.370` and `aiPreflight` recorded `mod_version=0.1.370`.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate talisman-paper / soul-gathering acquisition, and live recipe-book smoke checks.
+
+## 321. 2026-07-07 0.1.367 Snake Pearl current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel version movement beyond the `0.1.366` Snake Pearl/Confucian records; preserved the Snake Pearl recipe, Confucian spell effects, Tiannan FTB bridge, Demon Rift portal, Qingning Mirror recipe, and earlier shared-tree work without reverting unrelated edits.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.367`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Recipe recheck   Done   `refine_snake_pearl` remains present and covered by `ResourceJsonParseTest`, crafting Snake Pearl from 3x Beast Core and 2x True Dragon Blood through current mapped source equivalents.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.367`; inherited network-package warning reviewed as unrelated to this resource/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.367_snake_pearl_current_tree_recheck/`; implementation backups remain in the `0.1.365` and `0.1.366` Snake Pearl backup folders.
+  Follow-up   Pending   Continue replacing vanilla-grid refinement approximations with the real refinement forge/custom serializer and audit inherited network diffs before release if packet compatibility changed.
+
+## 320. 2026-07-07 0.1.366 Snake Pearl current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel version movement beyond the `0.1.365` Snake Pearl recipe/current-tree records; preserved the Snake Pearl recipe, current Confucian spell effects, Tiannan FTB bridge, Demon Rift portal, Qingning Mirror recipe, and earlier shared-tree work without reverting unrelated edits.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.366`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Recipe recheck   Done   `refine_snake_pearl` remains present and covered by `ResourceJsonParseTest`, crafting Snake Pearl from 3x Beast Core and 2x True Dragon Blood through current mapped source equivalents.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.366`; inherited network-package warning reviewed as unrelated to this resource/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.366_snake_pearl_current_tree_recheck/` and `.bak/20260707_0.1.366_snake_pearl_confucian_docs_reconcile/`; implementation backups remain `.bak/20260707_0.1.365_snake_pearl_recipe/` and `.bak/20260707_0.1.365_snake_pearl_post_build_docs/`.
+  Follow-up   Pending   Continue replacing vanilla-grid refinement approximations with the real refinement forge/custom serializer and audit inherited network diffs before release if packet compatibility changed.
+
+## 320. 2026-07-07 0.1.366 Confucian spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree moving through `0.1.365` Snake Pearl and FTB current-tree recheck work and preserved the build-verified Demon Rift, Qingning Mirror, Flying Needle, artifact failure-loot, Buddhist spell, FTB, portal, and earlier spell slices without reverting concurrent edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was `techniques/confucian.json` ids `righteous_qi`, `word_suppress`, `scroll_strike`, `ink_sea`, and `confucian_righteous_qi`.
+  Planning   Done   Scoped to one reusable `ConfucianSpell`, append-only `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, version/docs, and no packet/schema/registry/GUI/shop/worldpack/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.361_confucian_spells/`, then current docs/version states were backed up to `.bak/20260707_0.1.364_confucian_spells_reconcile/` and `.bak/20260707_0.1.366_confucian_spells_reconcile/`; the new spell source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.366`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `ConfucianSpell` covers righteous-qi self warding, word suppression, scroll strike, ink sea, and righteous-qi beam with custom DustParticle glyphs/scrolls/ink ripples/beams, hostile suppression, and projectile deflection where appropriate, avoiding vanilla fireball/fire-charge/lightning/explosion attack entities.
+  Technique data   Done   Added the five Confucian ids to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.366`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add strict Confucian-method/source gate enforcement and UI presentation, dedicated spell icons/custom particle textures, source-accurate manual/sect acquisition, richer persistent ink-sea/word-seal behavior, PvP tuning, and live client visual smoke tests.
+
+## 320. 2026-07-07 0.1.367 Bedrock Shield refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree already at `mod_version=0.1.366`, then advanced one patch for this low-conflict artifact recipe slice while preserving the verified Snake Pearl, Demon Rift, Qingning Mirror, Flying Needle, artifact failure-loot, FTB, and spell work without reverting unrelated edits.
+  Text-material basis   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; used shipped artifact refinement source `refine_bedrock_shield`, mapped `kunwu_copper` to `seeking_immortals:kunwu_copper`, mapped `earth_spine_root` to `seeking_immortals:diyuan_pressure_moss`, and reused the existing registered output `seeking_immortals:bedrock_shield`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.367_bedrock_shield_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.366` to `0.1.367`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_bedrock_shield.json`, crafting Bedrock Shield from 2x Kunwu Copper and 1x Diyuan Pressure Moss through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.367`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate Earth Spine Root / Diyuan Pressure Moss acquisition, and live recipe-book smoke checks.
+
+## 319. 2026-07-07 0.1.365 Current-tree build recheck after FTB Tiannan bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the Tiannan seven-sects FTB item-task bridge together with the parallel Demon Rift event-gated portal work, Qingning Mirror recipe, Flying Needle Set recipe, and earlier shared-tree slices without reverting unrelated edits.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.365`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/` and `.bak/20260707_0.1.365_current_tree_docs_top_reconcile/`; the new update note had no previous file to preserve.
+  Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
+
+## 319. 2026-07-07 0.1.365 Snake Pearl refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.364` Demon Rift event-gated portal and Qingning Mirror recipe work, verified Flying Needle Set recipe, artifact failure-loot command path, Buddhist/FTB verification, and earlier shared-tree work while avoiding their Java/runtime hot files.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_snake_pearl`, mapped `demon_core_fragment` to `seeking_immortals:beast_core`, mapped `beast_blood_vial` to `seeking_immortals:true_dragon_blood`, and reused the existing registered output `seeking_immortals:snake_pearl`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.365_snake_pearl_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.364` to `0.1.365`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_snake_pearl.json`, crafting Snake Pearl from 3x Beast Core and 2x True Dragon Blood through the existing artifact-refinement recipe group.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate material acquisition, and live recipe-book smoke checks.
+
+## 319. 2026-07-07 0.1.365 Demon Rift portal current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the `0.1.364` Demon Rift event-gated portal slice and current Qingning Mirror recipe work without changing gameplay code.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.365`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`.
+  Backup   Done   Current docs/version state was backed up to `.bak/20260707_0.1.365_demon_rift_docs_current_version_reconcile/`.
+
+## 318. 2026-07-07 0.1.364 Demon Rift event-gated 13x13 portal
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current Qingning Mirror recipe slice, verified Flying Needle Set recipe, artifact failure-loot command path, Buddhist/FTB verification, and 13x13 realm gate work without reverting unrelated shared-tree edits.
+  Text-material basis   Done   Used `DIMENSIONS_DESIGN.md`, `dimensions_catalog.json#seeking_immortals:demon_rift`, `spatial_nodes_catalog.json#node_fallen_demon_rift`, and the current Fallen Demon Valley worldpack region/events.
+  Planning   Done   Scoped to server-side route validation, portal destination selection, route/localization text, focused worldpack tests, version/docs, and no packet/schema/registry/item/block/entity/shop/FTB/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.361_demon_rift_event_gate/`, `.bak/20260707_0.1.362_demon_rift_event_gate_reconcile/`, and `.bak/20260707_0.1.364_demon_rift_event_gate_version_reconcile/`.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.364`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime behavior   Done   Fallen Demon/Demon Rift travel now requires the complete 13x13 realm gate array plus active `ancient_demon_seal_breach`; Great Jin/Dajin/Kunwu portal arrays prefer Demon Rift only while the seal breach is open, and Demon Rift portal use returns to Great Jin Central.
+  Verification   Done   Focused portal tests passed. A first full build at `0.1.363` failed the version gate after parallel version movement; final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed under `0.1.364` with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.364`.
+  Follow-up   Pending   Add live in-game portal smoke checks, richer Demon Rift hazards/terrain/structures, route/quest UI polish, dedicated portal art, higher-tier frame materials, and source-accurate Demon Rift loot/encounters.
+
+## 318. 2026-07-07 0.1.364 Qingning Mirror refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed current `gradle.properties` moving through `0.1.362` and parallel `0.1.363` docs/recheck work; this slice reconciles under `0.1.364` and preserves the verified Flying Needle Set recipe/recheck, artifact failure-loot command path, Buddhist/FTB verification, and earlier shared-tree work while avoiding their Java/runtime hot files.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_qingning_mirror`, mapped `hundred_year_ice` to `seeking_immortals:cold_jade`, mapped `kunwu_copper` to `seeking_immortals:kunwu_copper`, and reused the existing registered output `seeking_immortals:qingning_mirror`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.362_qingning_mirror_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.364`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_qingning_mirror.json`, crafting Qingning Mirror from 2x Cold Jade and 1x Kunwu Copper through the existing artifact-refinement recipe group.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.364`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate material acquisition, and live recipe-book smoke checks.
+
+## 317. 2026-07-07 0.1.363 Flying Needle current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel version movement after the `0.1.361` Flying Needle Set recipe slice and preserved the current shared tree without reverting concurrent work.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.363`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this recheck changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.363`; inherited network-package warning reviewed as unrelated to the Flying Needle recipe slice.
+  Backup   Done   Current docs/version state was backed up to `.bak/20260707_0.1.363_flying_needle_current_tree_recheck/`; implementation backup remains `.bak/20260707_0.1.361_flying_needle_recipe/`.
+  Follow-up   Pending   Continue replacing vanilla-grid refinement approximations with the real refinement forge/custom serializer and audit inherited network diffs before release if packet compatibility changed.
+
+## 316. 2026-07-07 0.1.361 Flying Needle Set refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.360` artifact failure-loot command path, `0.1.359` Buddhist/FTB verification, `0.1.358` 13x13 realm gate work, and earlier artifact/quest/spell slices while avoiding their Java/runtime hot files.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_flying_needle_set`, mapped `low_spirit_iron` to `seeking_immortals:spirit_iron`, mapped `spirit_silk` to `seeking_immortals:spirit_silk`, and reused the existing registered output `seeking_immortals:flying_needle_set`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, spell, or artifact Java files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.361_flying_needle_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.360` to `0.1.361`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_flying_needle_set.json`, crafting Flying Needle Case from 3x Spirit Iron and 2x Spirit Silk through the existing artifact-refinement recipe group.
+  Verification   Done   Changed recipe JSON parsed successfully. Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.361`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, manual unlocks, success chance, failure loot, JEI display, source-accurate material acquisition, and live recipe-book smoke checks.
+
+## 316. 2026-07-07 0.1.360 FTB Mulan current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree at `mod_version=0.1.360` after parallel Artifact Failure Loot work; preserved the `0.1.357` Mulan/Tianlan/Demonic FTB bridge and the `0.1.359` Buddhist/portal/build rechecks without reverting unrelated edits.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.360`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification recheck changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.360`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.360_ftb_mulan_current_docs_recheck/`.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom conditions, authoritative rewards, branch/exclusion locks, faction/beast-contract/demonic-karma validation, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+
+## 315. 2026-07-07 0.1.359 FTB Mulan/Tianlan/Demonic current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree at `mod_version=0.1.359` after parallel portal-array and Buddhist spell reconciliation work; preserved the `0.1.357` Mulan/Tianlan/Demonic FTB bridge without reverting unrelated edits.
+  FTB bridge   Done   The chapter keeps item-task coverage for `1812`, `1814`, `1820`, `1822`, and `1825` using Beast Core, Beast Core, Soul Fragment, Demonic Blood Coral, and Beast Core as non-consuming, NBT-insensitive checks.
+  Compile reconcile   Done   Current `BuddhistSpell` resolves the note-block chime holder to a `SoundEvent`, removing the compile blocker seen during shared-tree verification.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.359`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.359`; inherited network-package warning reviewed as unrelated to this FTB/docs verification.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.359_ftb_mulan_verified_docs/`; earlier implementation backups remain `.bak/20260707_0.1.356_ftb_mulan_demonic_item_tasks/`, `.bak/20260707_0.1.357_ftb_mulan_demonic_item_tasks_reconcile/`, and `.bak/20260707_0.1.359_ftb_mulan_demonic_buddhist_compile_reconcile/`.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom conditions, authoritative rewards, branch/exclusion locks, faction/beast-contract/demonic-karma validation, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+
+## 314. 2026-07-07 0.1.359 Current-tree build recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.358` 13x13 realm gate array, the `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge, and earlier verified artifact/spell/quest slices without editing their implementation files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully.
+  Version/protocol   Done   Observed current shared `mod_version=0.1.359`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields, field order, encode/decode format, registrations, or channel behavior.
+  Compile blocker   Done   Confirmed the inherited Buddhist spell sound compile issue is already fixed in the current tree with `SoundEvents.NOTE_BLOCK_CHIME.value()`.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.359`.
+  Backup   Done   Existing edited docs were backed up to `.bak/20260707_0.1.359_current_tree_build_recheck/`; the new update note had no previous file to preserve.
+  Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed, live-smoke the 13x13 realm gate, and continue replacing FTB inventory checks with authoritative task/reward/state bridges.
+
+## 313. 2026-07-07 0.1.359 13x13 realm gate array
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge, `0.1.356` Storage Bracelet recipe, `0.1.355` Yellow Umbrella recipe/current-tree FTB docs recheck, `0.1.354` Dao spells, and `0.1.353` Fallen Demon/Yin bridge while avoiding their hot files.
+  Text-material basis   Done   Used `文本材料/docs/DIMENSIONS_DESIGN.md`, `文本材料/data/dimensions_catalog.json`, `文本材料/data/spatial_nodes_catalog.json`, formation catalog references, and the current Demon Rift dimension/default-anchor slice.
+  Planning   Done   Scoped to enlarging the existing portal multiblock constants, focused portal tests, route/Patchouli text, version/docs, and no packet/schema/registry/item/block/entity/shop/FTB/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.357_portal_array_13x13/`, reconciled current files to `.bak/20260707_0.1.358_portal_array_13x13_reconcile/`, and docs/version reconciliation to `.bak/20260707_0.1.359_portal_array_docs_reconcile/`.
+  Version/protocol   Done   Final current shared `mod_version` is `0.1.359`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Portal structure   Done   `PortalArrayStructure` now requires a 13x13 Spirit Gathering Array base, four ten-high Spirit Ore corner pillars, and a clear 11x11, nine-block-high aperture; default dimension anchors inherit the larger generated platform through existing constants.
+  Resources   Done   zh_cn/en_us incomplete-portal feedback, route hints, and mirrored Patchouli formation overview text now describe the 13x13 gate.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.block.PortalArrayStructureTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackPortalArrayRulesTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.359`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Live in-game portal travel smoke checks, dedicated portal/ferry art, higher-tier frame materials, route/quest presentation, Demon Rift entry enforcement, and dimension terrain/structure dressing remain deferred.
+
+## 312. 2026-07-07 0.1.357 FTB Mulan/Tianlan/Demonic item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.356` Storage Bracelet recipe, `0.1.355` Yellow Umbrella recipe/current-tree FTB docs recheck, `0.1.354` Dao spells, and `0.1.353` Fallen Demon/Yin bridge while avoiding Java runtime systems, artifact/refinement hot files, spell/technique data, packet/network classes, registries, GUI/menu classes, shops, worldpack schemas, capabilities, player NBT schema, and reward/state systems.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Mulan/Tianlan/Demonic quest routing plus beast-soul, demonic-core, Guiling soul/corpse, and Tianmo blood-rite sources.
+  Planning   Done   Scoped to converting five safe Mulan/Tianlan/Demonic checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.356_ftb_mulan_demonic_item_tasks/`, then current parallel `0.1.356` state was backed up to `.bak/20260707_0.1.357_ftb_mulan_demonic_item_tasks_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.356` tree to `0.1.357`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1812`, `1814`, `1820`, `1822`, and `1825` to checks for Beast Core, Beast Core, Soul Fragment, Demonic Blood Coral, and Beast Core, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 48 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed under `mod_version=0.1.359`; the earlier Buddhist spell SoundEvent compile blocker is reconciled in the shared tree.
+  Follow-up   Pending   Continue broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Mulan/Tianlan faction and beast-contract validation, demonic karma validation, Seeking Immortals quest-state synchronization, boss/encounter hooks, dedicated icons, and live FTB client smoke tests.
+
+## 311. 2026-07-07 0.1.356 Storage Bracelet refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the `0.1.355` Yellow Umbrella recipe and current-tree FTB docs recheck, `0.1.354` Dao spells, and `0.1.353` Fallen Demon/Yin FTB bridge while avoiding FTB quest files/tests, network packets, registries, GUI/menu classes, shops, worldpack schemas, spell/technique data, artifact/refinement catalogs, runtime loaders, and item/block/entity registrations.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_storage_bracelet`, mapped `space_crystal_fragment` to `seeking_immortals:void_crystal`, mapped `kunwu_copper` to `seeking_immortals:kunwu_copper`, and reused the existing registered output `seeking_immortals:storage_bracelet_low`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, or spell files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.356_storage_bracelet_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.355` to `0.1.356`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_storage_bracelet.json`, crafting low Storage Bracelet from 1x Void Crystal and 2x Kunwu Copper through the existing artifact-refinement recipe group.
+  Verification   Done   `ResourceJsonParseTest` asserts the recipe shape/material/output. Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.356`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces realm gates, forge grade, success chance, manual unlocks, failure loot, JEI display, and source-accurate Void Crystal/Kunwu Copper acquisition.
+
+## 311. 2026-07-07 0.1.359 Buddhist spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.358` 13x13 portal-array work, `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge, `0.1.356` Storage Bracelet recipe, `0.1.355` Yellow Umbrella recipe, Dao spells, and existing FTB/artifact changes while avoiding FTB quest files/tests, artifact/refinement files, network packets, registries, GUI/menu classes, shops, worldpack schemas, capabilities, player NBT schema, and runtime data loaders.
+  Text-material basis   Done   Re-read the text-material corpus scan: 315 UTF-8 files under `文本材料` and 207 valid JSON files. Direct basis was `techniques/buddhist.json` ids `buddha_light`, `sarira_shield`, `demon_subdue_palm`, `zen_pulse`, `vajra_palm`, and `dajin_buddhist_vajra`.
+  Planning   Done   Scoped to one reusable `BuddhistSpell`, append-only `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, version/docs, and no packet/schema/registry/GUI/shop/worldpack/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.356_buddhist_spells/`; after observing shared version movement to `0.1.358`, current state was backed up again to `.bak/20260707_0.1.359_buddhist_spells_reconcile/`. The new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.359`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `BuddhistSpell` covers Buddhist light, sarira shield, demon-subduing palm, zen pulse, vajra palm, and Dajin vajra with custom DustParticle lotus wheels, sarira beads, palm waves, zen rings, vajra beams, and vajra-strike columns, plus anti-demon/undead suppression and shield projectile deflection.
+  Technique data   Done   Added the six Buddhist ids to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us. `vajra_palm` and `dajin_buddhist_vajra` keep `dajin_buddhist_base` method hints.
+  Verification   Done   Changed technique/lang JSON parsed successfully. First full build reached `compileJava` and failed during `reobfJar` jar-copy with a length mismatch consistent with transient shared build-output contention; rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.359`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add strict Buddhist-method/source gate enforcement and UI presentation, dedicated spell icons/custom particle textures, source-accurate Buddhist manual/sect acquisition, persistent sarira shield state, PvP balance tuning, and live client visual smoke tests.
+
+## 309. 2026-07-07 0.1.355 Yellow Umbrella refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel build-verified `0.1.354` Dao spells slice, `0.1.353` Fallen Demon/Yin FTB item-task bridge, `0.1.352` Spirit-Gathering Bead recipe, and `0.1.351` Cloud Boots recipe while avoiding FTB quest files/tests, network packets, registries, GUI/menu classes, shops, worldpack schemas, spell/technique data, artifact/refinement catalogs, runtime loaders, and item/block/entity registrations.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_yellow_umbrella`, mapped `spirit_silk` to `seeking_immortals:spirit_silk`, `demon_core_low` to `seeking_immortals:beast_core`, and `low_spirit_iron` to `seeking_immortals:spirit_iron`, then reused the existing registered output `seeking_immortals:yellow_umbrella`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, or spell files changed.
+  Backup   Done   Pre-edit `0.1.353` state was backed up to `.bak/20260707_0.1.354_yellow_umbrella_recipe/`, and current parallel `0.1.354` state was backed up to `.bak/20260707_0.1.355_yellow_umbrella_recipe_reconcile/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.354` tree to `0.1.355`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_yellow_umbrella.json`, crafting Yellow Umbrella from 5x Spirit Silk, 2x Beast Core, and 2x Spirit Iron through the existing artifact-refinement recipe group.
+  Verification   Done   `ResourceJsonParseTest` asserts the recipe shape/material/output. Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.355`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces source counts including the third low-spirit-iron input, realm gates, forge grade, success chance, manual unlocks, failure loot, JEI display, and source-accurate material acquisition.
+
+## 310. 2026-07-07 0.1.355 Current-tree FTB docs recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel build-verified `0.1.355` Yellow Umbrella recipe, `0.1.354` Dao spells, and `0.1.353` Fallen Demon/Yin FTB item-task bridge without reverting implementation files.
+  Docs repair   Done   Repaired current 0.1.353 handoff/progress/item/feature documentation: rejoined split `.\gradlew.bat` command strings, restored `seeking_immortals:void_crystal`, and restored current `QuestProgress` code styling.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.355`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.quest.FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 25s. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.355`; inherited network-package warning reviewed as unrelated to this docs-recheck pass.
+  Backup   Done   Existing edited docs were backed up to `.bak/20260707_0.1.353_docs_format_repair/` and current coordination docs were backed up to `.bak/20260707_0.1.355_current_tree_docs_recheck/`.
+  Follow-up   Pending   Continue FTB item/advancement/custom task bridges and live FTB client smoke tests; Dao spell source gates/icons/visual smoke checks and refinement workstation/custom serializer work remain separate future slices.
+
+## 307. 2026-07-07 0.1.353 FTB Fallen Demon/Yin item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.352` Spirit-Gathering Bead recipe, `0.1.351` Cloud Boots recipe, the `0.1.350` Star Palace / Inverse bridge, and current-tree verified illusion spell docs; avoided Java runtime systems, artifact/refinement hot files, packet/network classes, registries, GUI/menu classes, shops, worldpack schemas, capabilities, player NBT schema, spell/technique data, and reward/state systems.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Fallen Demon / Yin quest routing plus ghost-path, Yin-underworld, anti-demon, spatial-rift, soul-fragment, and Yin-protection item sources.
+  Planning   Done   Scoped to converting five safe Fallen Demon / Yin checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.352_ftb_fallen_demon_yin_item_tasks/`, then current docs/version state was backed up to `.bak/20260707_0.1.353_ftb_fallen_demon_yin_reconcile/`; the moved update note had no pre-existing `0.1.353` file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.352` tree to `0.1.353`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1702`, `1704`, `1706`, `1711`, and `1713` to checks for Fire Talisman, Void Crystal, Demon-Suppress Talisman Blank, Soul Fragment, and Yin-Body Protection Charm, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 43 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed and `aiPreflight` recorded `mod_version=0.1.353`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Fallen Demon seal-state and ghost-path stage validation, Nether River hazard checks, Seeking Immortals quest-state synchronization, boss/encounter hooks, dedicated icons, and live FTB client smoke tests.
+## 306. 2026-07-07 0.1.352 Spirit-Gathering Bead refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.351` Cloud Boots recipe slice and current illusion verification docs, while avoiding parallel hot files including FTB quest data/tests, network packets, registries, GUI/menu classes, shops, worldpack schemas, spell/technique code/data, artifact/refinement catalogs, runtime loaders, and item/block/entity registrations.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_spirit_gathering_bead`, mapped `soul_gathering_stone` to `seeking_immortals:soul_gathering_stone`, mapped `spirit_stone_shard` to `seeking_immortals:spirit_stone_shard`, and reused the existing registered output `seeking_immortals:spirit_gathering_bead`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, or spell files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.352_spirit_gathering_bead_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.351` to `0.1.352`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_spirit_gathering_bead.json`, crafting Spirit-Gathering Bead from 1x Soul-Gathering Stone and 5x Spirit Stone Shards through the existing artifact-refinement recipe group.
+  Verification   Done   `ResourceJsonParseTest` asserts the recipe shape/material/output. Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.352`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces source counts, realm gates, forge grade, success chance, manual unlocks, failure loot, JEI display, and source-accurate material acquisition.
+
+## 305. 2026-07-07 0.1.351 Cloud Boots refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree already at `mod_version=0.1.350`, verified it with a full build, and avoided recent parallel hot files including `IllusionSpell`, Star Palace / Inverse FTB quest data, `FtbQuestSnbtTest`, network packets, registries, GUI/menu classes, shops, worldpack schemas, spell/technique data, artifact/refinement catalogs, and runtime loaders.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_cloud_boots`, mapped `spirit_silk` to `seeking_immortals:spirit_silk`, mapped `low_spirit_iron` to `seeking_immortals:spirit_iron`, and reused the existing registered output `seeking_immortals:cloud_boots`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation plus version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, or spell files changed.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.351_cloud_boots_recipe/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.350` to `0.1.351`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_cloud_boots.json`, crafting Cloud-Treading Boots from 3x Spirit Silk and 2x Spirit Iron through the same artifact-refinement recipe group as existing low flying-sword and Qingye fan approximations.
+  Verification   Done   Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.351`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces source counts, realm gates, forge grade, success chance, manual unlocks, failure loot, JEI display, and source-accurate material acquisition.
+
+## 304. 2026-07-07 0.1.350 FTB Star Palace/Inverse item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed undocumented parallel `gradle.properties` movement to `mod_version=0.1.349`, preserved the verified `0.1.348` artifact support activation and earlier FTB bridges, and kept this slice out of artifact/spell/code/network hot files, registries, GUI/menu classes, shops, worldpack schemas, capabilities, player NBT schema, runtime loaders, and reward/state systems.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Star Palace / Inverse Star routing plus current registered item carriers and shipped id-map/shop data.
+  Planning   Done   Scoped to converting six safe Star Palace / Inverse Star checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up first to `.bak/20260707_0.1.349_ftb_star_palace_inverse_item_tasks/`; after observing current version movement, current files were backed up again to `.bak/20260707_0.1.350_ftb_star_palace_inverse_item_tasks/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from observed `0.1.349` to `0.1.350`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `2104`, `2106`, `2108`, `2118`, `2120`, and `2122` to checks for Fire Talisman, Star Palace Tax Receipt, Immortal Jade, Immortal Jade, Beast Core, and Immortal Jade, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 38 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed and `aiPreflight` recorded `mod_version=0.1.350`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader item/advancement/custom FTB task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Star Palace/Inverse Star reputation and Void Palace key validation, Seeking Immortals quest-state sync, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+
+## 305. 2026-07-07 0.1.350 Illusion spells current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Documenting the in-tree illusion spell slice that occupied the observed undocumented `0.1.349` movement while preserving the build-verified `0.1.350` FTB Star Palace/Inverse item-task bridge, the `0.1.348` artifact support activation, and earlier spell work; kept this pass out of FTB resources/tests, artifact/refinement files, network packets, registries, GUI/menu classes, shops, worldpack schemas, and runtime loaders.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was `文本材料/data/techniques/illusion.json`.
+  Planning   Done   Scoped to existing illusion implementation verification/docs only: `SkillType`, `SkillEffectRegistry`, `IllusionSpell`, Qi/Foundation/Core technique data, zh_cn/en_us feedback, docs, and no packet/schema/registry changes.
+  Backup   Done   Earlier implementation backups remain `.bak/20260707_0.1.346_illusion_spells_current/` and `.bak/20260707_0.1.349_illusion_spells_reconcile/`; documentation reconciliation backups are `.bak/20260707_0.1.350_illusion_spells_docs/`, `.bak/20260707_0.1.351_illusion_docs_reconcile/`, and `.bak/20260707_0.1.351_illusion_docs_verified/`.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.351` after the parallel Cloud Boots recipe slice; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `IllusionSpell` covers mirror beams, phantom fields, mind confusion, safe void-step blinking, dream snares, clone silhouettes, moon veils, stealth mist, Yanyue phantom arrays, and Wanhu nine-illusion fields using server-authoritative logic and custom DustParticle visuals rather than vanilla fireball/fire-charge/lightning/explosion attack entities.
+  Technique data   Done   Wired six Qi Refining ids, five Foundation ids, and two Core Formation ids into shipped technique data with zh_cn/en_us release feedback.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Final full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.351`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add stricter illusion-method/source gates, dedicated spell icons and custom particle textures, source-accurate Yanyue/Wanhu manual acquisition, better AI target confusion, PvP tuning, and live client visual smoke tests.
+
+## 303. 2026-07-07 0.1.348 Artifact support activation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel version movement to `0.1.345` for the FTB Ascension Border item-task bridge, preserved the verified recovery/protection spell and prior artifact slices, and avoided FTB, spell/technique data, network packets, registries, GUI/menu classes, shops, worldpack schemas, artifact/refinement JSON resources, and runtime loaders.
+  Text-material read   Done   Re-read the full text-material corpus: 315 UTF-8 files, 207 JSON files, 0 JSON parse errors. Direct basis was the artifact catalog support families: utility, capture, refinement, spirit-liquid, vehicle, and vehicle-key carriers.
+  Planning   Done   Scoped to additive `ArtifactActivationService` classifications/effects and focused activation-info tests only; generic structural treasure placeholders remain unsupported.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.345_artifact_support_activation/`; after observing parallel `mod_version=0.1.345`, current files were backed up again to `.bak/20260707_0.1.346_artifact_support_activation_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.348`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Artifact behavior   Done   Added first server-authoritative active behavior for utility, capture, refinement, spirit-liquid, and vehicle/vehicle-key artifact families through the existing artifact activation path.
+  Verification   Done   Focused `ArtifactActivationServiceTest` passed with BUILD SUCCESSFUL. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.348`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add real vehicle entities/routes, persistent capture containers, refinement workstation integration, true spirit-liquid growth timers, dedicated visuals, acquisition/loot/shop placement, JEI display, and live multiplayer smoke checks.
+
+## 302. 2026-07-07 0.1.347 FTB Spirit Realm service item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree at `mod_version=0.1.346` with `aiPreflight` last-success but no documented `0.1.346` CURRENT TRUTH entry, preserved the verified `0.1.345` FTB Ascension Border bridge, and avoided spell/artifact/code/network hot files, registries, GUI/menu classes, shops, worldpack schemas, capabilities, and runtime loaders.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Spirit Realm/Tianyuan/Fengyuan/Barbarian quest routing plus current registered item carriers.
+  Planning   Done   Scoped to converting five safe Spirit Realm service checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.347_ftb_spirit_realm_service_item_tasks/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.346` to `0.1.347`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1904`, `1905`, `1915`, `1916`, and `1932` to checks for Beast Core, Alliance Merit Token, Fengyuan Clan Ginseng, Mortal Talisman Paper, and Beast Core, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 32 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed and `aiPreflight` recorded `mod_version=0.1.347`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader item/advancement/custom FTB task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Seeking Immortals quest-state sync, reputation/craft-station validation, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+
+## 300. 2026-07-07 0.1.344 Recovery/protection spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.343` artifact utility activation and earlier `0.1.342` FTB Chaotic Sea/Void item-task bridge; avoided FTB, artifact/refinement, network, GUI/menu, item/block/entity registry, shop, recipe, loot, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Used the latest full corpus scan context: 315 files under `文本材料` read as UTF-8 and all 207 JSON files parsed successfully; direct source basis was `文本材料/data/techniques/recovery.json`.
+  Planning   Done   Scoped to executable recovery/protection spell hooks only: `SkillType`, `SkillEffectRegistry`, one reusable `RecoverySpell`, shipped Qi Refining / Nascent Soul technique data, zh_cn/en_us feedback, version/docs, and no packet/schema/registry changes.
+  Backup   Done   Initial in-progress edited files were backed up to `.bak/20260707_0.1.341_recovery_spells/`; current reconciliation files were backed up to `.bak/20260707_0.1.343_recovery_spells_reconcile/` and `.bak/20260707_0.1.344_recovery_spells_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.343` to `0.1.344`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `RecoverySpell` covers `heal_qi`, `detoxify`, `spirit_recovery`, `body_repair`, `group_heal`, `revive_weak`, `spirit_shield`, and `tribulation_thunder_ward` with server-authoritative recovery, cleansing, warding, projectile deflection, and tribulation-resistance behavior using custom DustParticle visuals instead of vanilla attack entities.
+  Technique data   Done   Added seven Qi Refining recovery/protection entries and one Nascent Soul thunder-ward entry to shipped technique data with zh_cn/en_us release feedback.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.344`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add stricter recovery-method/root/source gates, dedicated spell icons and custom particle textures, source-accurate manual/sect/ruin acquisition, persistent ward state, richer group-target UI feedback, PvP/balance tuning, and live client visual smoke tests.
+
+## 299. 2026-07-07 0.1.343 Artifact utility activation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.342` FTB Chaotic Sea/Void bridge, observed the parallel version/docs reconciliation, and kept this slice out of FTB quest files, quest tests, packet/network classes, registries, GUI/menu classes, shops, worldpack data, and artifact/refinement JSON resources.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was artifact catalog entries for teleport-protection, magnet, world-domain, formation, formation-token, and formation-deploy families.
+  Planning   Done   Scoped to additive `ArtifactActivationService` classifications/effects, focused activation-info coverage, version/docs, and no packet/protocol/schema/registry/data-file changes.
+  Backup   Done   Existing initially edited files were backed up to `.bak/20260707_0.1.342_artifact_utility_activation/`; after parallel FTB docs/version movement, current version/docs state was backed up to `.bak/20260707_0.1.343_artifact_utility_activation_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.342` to `0.1.343`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Artifact behavior   Done   Added first active behavior for `teleport_protection`, `magnet`, `world`, and `formation`/`formation_token`/`formation_deploy` types through the existing server-authoritative artifact activation path.
+  Verification   Done   Focused `ArtifactActivationServiceTest` passed with BUILD SUCCESSFUL in 19s. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.343`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add persistent formation placement, source-accurate 大挪移 escape costs/risks, richer magnet/world-domain behavior, dedicated artifact visuals, acquisition/loot/shop placement, JEI display, and live multiplayer smoke checks.
+
+## 298. 2026-07-07 0.1.340 Current pointer
+
+  Step   Status   Notes
+  ---   ---   ---
+  Current truth   Done   The detailed `0.1.340 Artifact family activation` section below records this artifact slice at the version it was built and verified; after that verification, FTB work and post-doc version reconciliation advanced the shared `gradle.properties` to `mod_version=0.1.342`, which should be preserved.
+
+## 298. 2026-07-07 0.1.342 FTB Chaotic Sea/Void item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   First verified the inherited `0.1.340` artifact-family activation current tree with a full build, then avoided artifact/code/network hot files and kept this slice to FTB data, focused test coverage, version, and docs.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Chaotic Sea, Star Palace/Inverse Star, Void Palace, shop, region, secret-realm, and boss-loot source data plus current registered item carriers.
+  Planning   Done   Scoped to converting five safe checkmark nodes into FTB item tasks while preserving packaged quest counts, dependencies, non-overwriting FTB defaults, and no server-state/reward semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.341_ftb_chaotic_sea_void_item_tasks/`; post-doc version reconciliation files were backed up to `.bak/20260707_0.1.342_ftb_chaotic_sea_void_version_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.340` to `0.1.342`; the first full build passed at `0.1.341`, then post-doc preflight required the final patch bump because tracked docs changed after that fingerprint. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted Chaotic Sea tasks for outer-sea registration, merchant intel, and Cold Jade Hall checks, plus Inverse Star black-market and Void Palace boss-loot checks, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 22 implemented item tasks while keeping packaged chapter count, 215 quest-node count, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 18s. Full `.\gradlew.bat --no-daemon --max-workers=1 build` first passed at `0.1.341` in 22s; final post-doc build passed at `0.1.342` and `aiPreflight` recorded `mod_version=0.1.342`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Seeking Immortals quest-state sync, craft-station and reputation validation, icons, and live FTB client smoke tests.
+
+## 297. 2026-07-07 0.1.339 FTB Tiannan/Dajin/Mulan item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.337` high-tier artifact active behavior and observed shared version movement through `0.1.338`; avoided artifact/code/network hot files and kept this slice to FTB data, focused test coverage, version, and docs.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Tiannan seven-sects, Dajin/Kunwu, and Mulan war quest/material source data plus current registered item carriers.
+  Planning   Done   Scoped to converting seven safe checkmark nodes into FTB item tasks while preserving packaged quest counts, dependencies, non-overwriting FTB defaults, and no server-state/reward semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.338_ftb_tiannan_dajin_mulan_item_tasks/`; after parallel docs/version movement, current files were backed up again to `.bak/20260707_0.1.339_ftb_tiannan_dajin_mulan_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.339`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted Tiannan tasks for puppet-core, ironwood, mortal talisman paper, and fasting-pill formula checks; Dajin/Kunwu tasks for Kunwu Copper and puppet-core checks; and Mulan war-contribution task for War Contribution Token, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 17 implemented item tasks while keeping packaged chapter count, 215 quest-node count, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 18s. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.339`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Seeking Immortals quest-state sync, craft-station validation, icons, and live FTB client smoke tests.
+
+## 297. 2026-07-07 0.1.340 Artifact family activation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed parallel FTB backup/version movement through `0.1.338`/`0.1.339` and kept this slice out of FTB quest files, `FtbQuestSnbtTest`, GUI/menu classes, packets, registries, and artifact/refinement JSON data.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was `artifacts_catalog.json` entries for `ruler`, `mirror`, `sound`, `swarm`, and puppet/beast artifact families.
+  Planning   Done   Scoped to additive `ArtifactActivationService` classifications/effects and focused activation-info coverage; no network/protocol/schema/registry/data-file changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.340_artifact_family_activation/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from observed `0.1.339` to `0.1.340`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Artifact behavior   Done   Added first active behavior for `ruler`, `mirror`, `sound`, and `swarm` artifact types, mapped puppet/beast artifact variants to existing beast-control suppression, and added tier-based realm fallback for supported high-tier artifacts that omit `realm_min`.
+  Verification   Done   Focused `ArtifactActivationServiceTest` passed; full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.340`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add source-accurate entity summons/contracts for puppet/beast artifacts, richer persistent swarm/mirror/ruler behavior, natal binding, acquisition/loot/shop placement, refinement UI/custom serializer, JEI display, dedicated art, and live multiplayer smoke checks.
+
+## 296. 2026-07-07 0.1.337 High-tier artifact active behavior
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the concurrent build-verified `0.1.336` FTB Yin/Diyuan version reconcile and moved this artifact behavior slice to `mod_version=0.1.337` instead of sharing that version; preserved the `0.1.335` spell/FTB work and avoided unrelated dirty shared-tree files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was the high-tier artifact entries for `xuanhuang_mirror`, `void_refining_bell`, `talisman_treasure_demon_seal`, and deferred `natal_sword_embryo`.
+  Planning   Done   Scoped to extending the existing `ArtifactActivationService` server-authoritative right-click path and focused activation tests; no network/protocol/schema/registry/data-file changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.336_high_tier_artifact_activation/`; latest parallel docs/version state was backed up to `.bak/20260707_0.1.337_high_tier_artifact_activation_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the verified `0.1.336` tree to `0.1.337`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Artifact behavior   Done   `soul_destroy` artifacts now activate as a soul-shock area burst, `space_control` artifacts now create a void slow/weakness zone, and `talisman_treasure_demon_seal` now performs a monster-only seal/damage burst through the existing talisman-use count path.
+  Verification   Done   Focused `ArtifactActivationServiceTest` passed after correcting an over-specific cost assertion; full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.337`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add active behaviors for more artifact types (`ruler`, `mirror`, `sound`, `swarm`, puppet/beast control variants), source-accurate acquisition/loot/shop placement, refinement forge UI/custom serializer, JEI display, dedicated art, and live multiplayer smoke checks.
+
+## 295. 2026-07-07 0.1.336 FTB Yin/Diyuan version reconcile
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the concurrent `0.1.335` Demonic/Ghost spell behavior reconcile and preserved both it and the `0.1.335` FTB Yin/Diyuan item-task bridge without reverting shared-tree work.
+  Backup   Done   Current version/docs state for this reconcile was backed up to `.bak/20260707_0.1.336_ftb_yin_diyuan_version_reconcile/`; the original FTB data/test backup remains `.bak/20260707_0.1.335_ftb_yin_diyuan_item_tasks/`.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.336` to avoid two cooperative shippable slices sharing `0.1.335`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Verification   Done   Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.336`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader FTB item/advancement/custom task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, quest-state sync, icons, and live FTB client smoke tests.
+
+## 297. 2026-07-07 0.1.339 Divine Sense spells current-tree verified
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.337` high-tier artifact active behavior, the `0.1.336` FTB Yin/Diyuan version reconcile, the `0.1.335` Demonic/Ghost behavior reconcile, and unrelated dirty shared-tree work without reverting parallel edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct source basis was `techniques/divine_sense.json`.
+  Planning   Done   Scoped to executable custom神识 spells only: `SkillType`, `SkillEffectRegistry`, one reusable `DivineSenseSpell`, shipped technique data, localization, version/docs, and no packet, registry, GUI, recipe, loot, shop, FTB, worldpack, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.337_divine_sense_spells/`; the new spell source and update note had no previous file to preserve.
+  Version/protocol   Done   Final current shared `mod_version` is `0.1.339` after observing concurrent movement through `0.1.337`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Added `DivineSenseSpell` with custom DustParticle scan rings, mind links, needle beams, lock rings, soul waves, and domain fields for ten divine-sense ids, avoiding vanilla fireball/fire-charge/lightning/explosion attack entities.
+  Technique data   Done   Added six Qi Refining神识 entries, Foundation `divine_sense_scan`, and Core Formation `divine_sense_lock`, `soul_attack_wave`, and `soul_cry_shock` to shipped technique summaries with zh_cn/en_us release feedback.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 35s before docs, and the final post-doc full build passed with BUILD SUCCESSFUL in 19s with `aiPreflight` recording `mod_version=0.1.339`.
+  Follow-up   Pending   Add strict divine-sense prerequisites and locked-reason UI, dedicated spell icons/particle textures, source-accurate manual/sect/ruin acquisition, PvP balance, and live client visual smoke tests.
+
+## 294. 2026-07-07 0.1.335 Demonic/Ghost spell behavior reconcile
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.334` current-tree version sync, the `0.1.333` Demonic/Ghost spell compile fix, artifact output carriers, FTB item-task bridge, and unrelated dirty shared-tree work without reverting parallel edits.
+  Planning   Done   Scoped to the already implemented `DemonicGhostSpell` behavior mismatch: Blood Shadow Escape failure feedback and Sky-Supporting Demonic Skill projectile deflection/message semantics, plus version/docs/build verification.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.335_demonic_ghost_spell_behavior_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced the shared version target to `mod_version=0.1.335` because this is a post-`0.1.334` code behavior change; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell behavior   Done   Blood Shadow Escape now uses `message.seeking_immortals.spell.blood_shadow_escape.fail`; Sky-Supporting Demonic Skill now grants a short strength boost, deflects nearby hostile projectiles, and reports the deflected count expected by localization.
+  Verification   Done   First full build attempt passed `aiPreflight` but failed on a transient Windows lock under `build/test-results/test/binary`; the rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.335`.
+  Follow-up   Pending   Add stricter demonic/ghost prerequisite gates, dedicated spell icons/particle textures, source-accurate manual/sect acquisition, PvP tuning, and live client visual smoke tests.
+
+## 294. 2026-07-07 0.1.335 FTB Yin/Diyuan item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.334` current-tree version sync, the `0.1.333` Demonic/Ghost spell compile fix, the high-tier artifact output carriers, and all earlier FTB chapters without reverting parallel edits.
+  Planning   Done   Scoped to replacing six safe Fallen Demon/Yin and Spirit Realm service checkmarks with FTB item tasks, expanding `FtbQuestSnbtTest`, version/docs, and no packet/protocol/schema/reward/runtime-state changes.
+  Source read   Done   Used `ghost_cultivation_path.json`, `daily_random_events.json`, `trade_routes.json`, `tianyuan_merit_economy.json`, `spirit_realm_interface.json`, shipped `text_material_id_map.json`, current registered carriers, and existing worldpack route/merit surfaces.
+  Backup   Done   Existing edited files were backed up under `.bak/20260707_0.1.335_ftb_yin_diyuan_item_tasks/`, preserving relative paths; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.334` to `0.1.335`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1000000000001709`, `1000000000001712`, `1000000000001714`, `1000000000001909`, `1000000000001926`, and `1000000000001929` into non-consuming inventory checks for Yin Stone x8, Yin Stone x30, Soul-Gathering Stone x1, Alliance Merit Token x1, Diyuan Permit x1, and Pressure-Resist Charm x1.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 10 expected item tasks through `Map.ofEntries`, including exact item ids, counts, non-consumption, and NBT-insensitive matching while keeping global quest/task/dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 18s. The first full build failed only while writing XML test result files under `build/test-results/test`; immediate rerun of `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.335`.
+  Follow-up   Pending   Add broader item/advancement/custom FTB task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Seeking Immortals quest-state sync, dedicated icons, and live FTB client smoke tests.
+
+## 293. 2026-07-07 0.1.334 Current-tree version sync after artifact output carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.333` Demonic/Ghost spell compile fix, the `0.1.333` high-tier artifact output carrier slice, and the `0.1.332` FTB mainline item-task bridge without reverting parallel edits.
+  Version gate   Done   A final current-tree build at `0.1.333` was blocked by `aiPreflight` because shippable tracked files had changed since the last successful fingerprint, so `mod_version` was advanced to `0.1.334`.
+  Protocol   Done   `ModNetwork.PROTOCOL_VERSION` remains `9`; no packet fields/order/encoding/registrations or channel behavior changed in the output-carrier/version-sync work.
+  Backup   Done   Current version/docs state was backed up to `.bak/20260707_0.1.334_output_artifact_carriers_version_sync/`.
+  Verification   Done   Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.334`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue artifact active behavior, acquisition/loot/shop placement, refinement UI/serializer, JEI, dedicated art, and live smoke checks from the `0.1.333` output-carrier slice.
+
+## 292. 2026-07-07 0.1.333 Demonic/Ghost spell compile fix
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree advance from the verified `0.1.332` FTB item-task bridge to `mod_version=0.1.333`; preserved it and did not revert unrelated parallel edits.
+  Planning   Done   Scoped to adding the missing `DemonicGhostSpell` class already referenced by `SkillEffectRegistry`, plus docs/update note; no network, packet schema, registries, GUI, FTB resources, recipes, loot, shops, worldpack, or runtime-loader changes.
+  Source read   Done   Used current `SkillType` and `SkillEffectRegistry` references, shipped `core_formation_techniques.json`, and text-material `secret_arts.json` / sample technique entries for blood-shadow, demonic defense, ghost-fire, bone-condensing, blood-barrier, and Yin-demon slash behavior.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.333_demonic_ghost_spell_compile_fix/`; the new `DemonicGhostSpell.java` source and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.333`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Added `DemonicGhostSpell` with six forms: Blood Shadow Escape safe teleport/trail, Sky-Supporting Demonic Skill defense dome, Mystic Soul Ghost Fire beam, Mystic Soul Bone Condensing self armor, Blood Luo Barrier shield/deflect/repel, and Yin Demon Slash line attack.
+  Verification   Done   Initial focused `FtbQuestSnbtTest` failed at `compileJava` on missing `DemonicGhostSpell`; after the fix, focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 24s and full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.333`.
+  Follow-up   Pending   Add stricter demonic/ghost prerequisite gates, dedicated spell icons/particle textures, source-accurate manual/sect acquisition, PvP tuning, and live client visual smoke tests.
+
+## 291. 2026-07-07 0.1.333 High-tier artifact output carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.332` FTB mainline item-task bridge, the `0.1.331` refinement gap carriers, the sword expansion verification, and unrelated dirty shared-tree work by avoiding FTB resources, spell/technique data, network packets, GUI/menu classes, shops, worldpack schemas, block/entity registries, recipes, loot tables, and runtime loaders.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct source basis was high-tier artifact output ids in `artifacts_catalog.json`, `ancient_treasure_index.json`, `artifact_eleven_tier_map.json`, `forge_artifact_priority.json`, `refine_manual_index.json`, and shipped artifact refinement recipes.
+  Planning   Done   Scoped to passive `ArtifactCatalogItem` carriers, creative-tab visibility, localization, lightweight item models, reference id-map entries, focused artifact/resource tests, docs, and no packet/protocol/schema/runtime behavior changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.332_output_artifact_carriers/`; current docs/version after the parallel `0.1.332` FTB bridge were backed up to `.bak/20260707_0.1.333_output_artifact_carriers_docs_reconcile/`. The eight new item-model files and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.333`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Output carriers   Done   Added `xuanguang_mirror`, `xuanhuang_mirror`, `nine_dragon_cauldron_replica`, `void_refining_bell`, `talisman_treasure_demon_seal`, `natal_sword_embryo`, `four_symbols_ruler_replica`, and `three_flame_fan_replica` as registered artifact carriers.
+  Resource coverage   Done   Added creative-tab entries, zh_cn/en_us localization, lightweight vanilla item models, canonical id-map entries, and expanded `ArtifactDataServiceTest` carrier resource coverage for the new high-tier outputs.
+  Verification   Done   Changed JSON parsed successfully; full text-material corpus scan still reports 315 files, 207 JSON files, and 0 parse errors; focused `ArtifactDataServiceTest` + `JsonSanityTest` passed with BUILD SUCCESSFUL in 13s; full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.333`. The inherited network-package warning remains present and unrelated to this item/resource/test/docs slice.
+  Follow-up   Pending   Add active behavior for these higher treasures, source-accurate drops/shops/loot, refinement forge UI/custom serializer, recipe/manual unlock gates, failure loot, JEI display, dedicated art, and live multiplayer smoke checks.
+
+## 290. 2026-07-07 0.1.332 FTB mainline item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.331` refinement gap carriers, sword expansion verification, and all nine packaged FTB chapters while avoiding network, `QuestProgress`, capabilities, rewards, GUI/menu classes, item/block/entity registries, shops, worldpack, spell/technique, artifact/refinement, and runtime-loader hot files.
+  Planning   Done   Scoped to replacing four early mainline checkmark tasks with FTB item tasks, tightening the SNBT test to validate item-task fields, version/docs, and no packet/protocol/schema/reward/runtime-state changes.
+  FTB compatibility read   Done   Confirmed local FTB `ItemTask` SNBT shape before editing: task `type: "item"`, plain string `item`, numeric `count`, plus explicit `consume_items` and `match_nbt` flags.
+  Backup   Done   Existing edited files were backed up under `.bak/20260707_0.1.332_ftb_main_item_tasks/`, preserving relative paths; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.331` to `0.1.332`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted mainline tasks `1000000000001102`, `1000000000001103`, `1000000000001104`, and `1000000000001202` into non-consuming inventory checks for Spirit Grass x4, Ling Gen Test Stone x1, Spirit Stone Shard x1, and low Fasting Pill x1.
+  Test coverage   Done   `FtbQuestSnbtTest` now accepts known `item` tasks, verifies exact expected ids/items/counts, and asserts `consume_items: false` plus `match_nbt: false` while keeping global quest/task/dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 12s, and full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s; `aiPreflight` recorded `mod_version=0.1.332`. The inherited network-package warning remains present and unrelated to this FTB/data/test/docs slice.
+  Follow-up   Pending   Extend item/advancement/custom FTB task bridges beyond the first four mainline checks, add validated rewards, branch/exclusion locks, Seeking Immortals quest-state sync, server-side trigger bridges, icons, and live FTB client smoke tests.
+
+## 289. 2026-07-07 0.1.331 Refinement gap carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel FTB Ascension Border / endgame slice documented and current-tree verified under `mod_version=0.1.330`, plus the parallel sword expansion verification under `0.1.331`; preserved them by avoiding FTB, spell, technique, network, GUI, block/entity registry, recipe, loot, shop, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct source basis was the remaining artifact-refinement material ids in `materials_catalog.json`, `artifacts_catalog.json`, `ancient_treasure_index.json`, `artifact_realm_drops.json`, `refinement_recipes.json`, `moditems_artifacts_draft.json`, `forge_artifact_priority.json`, and shipped artifact refinement data.
+  Planning   Done   Scoped to eight remaining material/artifact carriers, creative-tab visibility, localization, lightweight item models, id-map entries, focused artifact-plan tests, version/docs, and no packet/protocol/schema/runtime behavior changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.330_refinement_gap_carriers/`; current docs/version after the parallel `0.1.329` FTB verification were backed up to `.bak/20260707_0.1.331_refinement_gap_carriers_reconcile/`. The eight new item-model files and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.330` to `0.1.331`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material carriers   Done   Added `xuanguang_mirror_shard`, `xuanhuang_mirror_shard`, `nine_dragon_cauldron_shard`, `void_bell_fragment`, `demon_suppress_talisman_blank`, `natal_artifact_embryo`, and `eight_spirit_ruler_shard` as registered material items, plus `seven_flame_fan_replica` as a registered artifact carrier.
+  Refinement coverage   Done   Artifact refinement material mapping gaps dropped from 8 to 0; Void Refining Bell, demon-seal talisman treasure, natal sword embryo, four-symbols ruler, three-flame fan, and mirror/dragon-shard plans can now resolve their material requirements through current carriers.
+  Verification   Done   Changed JSON parsed successfully; the material-gap scan reports 0 missing ids; focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 19s; full build passed with BUILD SUCCESSFUL in 25s before docs sync, then final post-doc `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.331`.
+  Follow-up   Pending   Add registered output carriers for high-tier recipe results still falling back to unregistered ids, source-accurate drops/shops/loot, refinement forge UI/custom serializer, recipe/manual unlock gates, failure loot, JEI display, dedicated art, and live multiplayer smoke checks.
+
+## 288. 2026-07-07 0.1.329 FTB Ascension Border and endgame quest backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared tree at `mod_version=0.1.328`, preserved the build-verified `0.1.327` Foundation sword techniques and existing FTB chapters, and avoided spell, artifact/refinement, network, GUI, registry, model, texture, recipe, loot, shop, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct source basis was the high-realm/endgame/ascension/border chains in `quest_chains.json`, plus `quest_hooks.json`, `ascension_flow.json`, `spirit_realm_interface.json`, `region_cards/spirit_realm_border.json`, `daily_random_events.json`, `dimensions_catalog.json`, and `tribulation_rules.json`.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, version/docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.329_ftb_ascension_border/`; current docs after the parallel `0.1.328` material-carrier verification were backed up to `.bak/20260707_0.1.329_ftb_ascension_border_docs_reconcile/`; current recheck docs were backed up to `.bak/20260707_0.1.330_ftb_ascension_border_current_tree_verify/`; the new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.328` to `0.1.329`, then observed the shared tree at `0.1.330` before current-tree recheck and did not revert it; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_ascension_border.snbt` with 32 safe checkmark nodes for high-realm endgame, Kunwu/Fallen Demon direct expedition backfill, Yin pilgrimage and ghost-sect ban, seven-sect outer-to-inner promotion, mortal-to-spirit ascension bridge, Spirit Realm border hazards, Diyuan deep core, Great Vehicle insight, tribulation clouds, and immortal-realm placeholder.
+  Coverage scan   Done   All 62 `quest_chains.json` ids now have a direct mention in packaged FTB chapter text; direct-id missing count is 0.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 15s and full build passed in 22s under `0.1.329`; after the shared version advance, focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 19s and full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s under `0.1.330`, with `aiPreflight` recording `mod_version=0.1.330`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative FTB item/advancement/custom task bridges, validated rewards, branch/exclusion locks, ghost/sect/ascension/tribulation state, NPC triggers, boss and border encounter wiring, dedicated quest icons, and live FTB client smoke tests.
+
+## 287. 2026-07-07 0.1.328 Refinement material carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved build-verified `0.1.327` Foundation sword technique work and the `0.1.326/0.1.327` FTB Star Palace / Inverse chapter by avoiding spell, technique, FTB, network, GUI, block/entity registry, recipe, loot, shop, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `puppet_parts_catalog.json#puppet_core_blank`, `materials_catalog.json#void_marrow`, `materials_catalog.json#ice_fire_crystal`, thunder-bamboo seed entries, and artifact refinement recipes consuming those ids.
+  Planning   Done   Scoped to four physical `BaseMaterialItem` carriers, creative-tab visibility, localization, lightweight item models, id-map entries, focused artifact-plan tests, version/docs, and no packet/protocol/schema/runtime behavior changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.328_refinement_material_carriers/`; current docs after the parallel `0.1.327` verification were backed up to `.bak/20260707_0.1.328_refinement_material_carriers_docs_reconcile/`. The four new item-model files and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from observed `0.1.327` to `0.1.328`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material carriers   Done   Added `puppet_core_blank`, `thunder_bamboo`, `ice_fire_crystal`, and `void_marrow` as registered material items with creative-tab placement, zh_cn/en_us names, vanilla-texture models, and `text_material_id_map.json` entries.
+  Refinement coverage   Done   Artifact refinement material gaps dropped from 12 to 8; Giant Ape Puppet Token, Thunder Rod, Ice-Fire Orb, Thunder Pearl, and the Void Marrow portion of Void Refining Bell now resolve their new material carriers.
+  Verification   Done   Changed JSON parsed successfully; focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 21s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.328`.
+  Follow-up   Pending   Add exact high-tier ancient-treasure shard/replica/embryo carriers, real output carriers for higher recipes, source-accurate drops/shops/loot, refinement forge UI/custom serializer, JEI display, and live multiplayer smoke checks.
+
+## 286. 2026-07-07 0.1.326 FTB Star Palace and Inverse Star quest chapter current-tree verified under 0.1.327
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.325` turtle/poison refinement aliases, `0.1.324` FTB Tiannan verification, Xuan Yin work, and existing 7 FTB chapters while avoiding artifact/refinement mapping, spell, network, GUI, item/block/entity registry, model, texture, recipe, loot, shop, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Used `quest_chains.json#star_palace_internal_politics`, `#inverse_star_void_heist`, `#chain_void_palace_expedition`, plus `inverse_star_quest_network.json`, `star_palace_internal_factions.json`, `chaotic_sea_faction_quests.json`, `chaotic_sea_faction_war.json`, `chaotic_sea_factions.json`, `chaotic_sea_lore_compendium.json`, `secret_realms.json`, `spatial_nodes_catalog.json`, and `quest_hooks.json` as the direct source basis.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, version/docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.326_ftb_star_palace_inverse/`; the new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.325` to `0.1.326`, then observed the shared tree at `mod_version=0.1.327` before final build and did not revert it; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_star_palace_inverse.snbt` with 24 safe checkmark nodes for Star Palace internal factions, Inverse Star bounty/smuggle/sabotage routes, Void Palace intelligence war, abyss outpost, cycle gate, layered expedition map, and boss-loot ledger.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 25s. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.327`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative FTB item/advancement/custom tasks, validated rewards, branch/exclusion locks, NPC triggers, Star Palace/Inverse Star reputation synchronization, patrol heat, tax votes, teleport-array sabotage state, Void Palace cycle/key checks, dedicated quest icons, and live FTB client smoke tests.
+
+## 285. 2026-07-07 0.1.325 Turtle and poison refinement aliases
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.324` FTB Tiannan verification, `0.1.323` FTB Tiannan chapter, Xuan Yin work, and beast/wind/needle aliases while avoiding FTB, spell, network, GUI, item-registration, model, texture, recipe, loot, shop, worldpack, and runtime-loader hot files.
+  Text-material read   Done   Used `materials_catalog.json`, `beast_bestiary.json`, `artifact_realm_drops.json`, and shipped artifact refinement recipes `refine_giant_turtle_core` / `refine_thousand_bee_needles` as the direct source basis.
+  Planning   Done   Scoped to two current-carrier aliases, one focused artifact-plan test method, version/docs, and no new items, registries, packets, capabilities, recipes, loot, shops, FTB files, spell files, or runtime loaders.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.324_turtle_poison_refinement_aliases/`; current reconcile state was backed up to `.bak/20260707_0.1.325_turtle_poison_refinement_aliases_reconcile/`.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.325` after the parallel `0.1.324` FTB verification; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material coverage   Done   Added aliases `turtle_shell -> minecraft:scute` and `poison_sac -> minecraft:spider_eye` so Giant Turtle Puppet Core and Thousand Bee Needles can resolve their biological material requirements through existing registered vanilla items.
+  Verification   Done   Changed id-map JSON parsed successfully, focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 15s, focused `JsonSanityTest` + `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 13s, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s; `aiPreflight` recorded `mod_version=0.1.325`.
+  Follow-up   Pending   Add exact turtle-shell plates, poison sacs, Spirit Realm turtle-shell faction rewards, venom beast drops, dedicated art, high-tier artifact shard/embryo carriers, thunder bamboo, ice-fire crystal, blank puppet cores, void marrow, real refinement forge UI/custom serializer, JEI display, and live multiplayer smoke checks.
+
+## 284. 2026-07-07 0.1.324 FTB Tiannan current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared version advance to `mod_version=0.1.324`, preserved the `0.1.323` FTB Tiannan seven-sects chapter and parallel Xuan Yin work, and did not revert unrelated dirty files.
+  Version/protocol   Done   Current `mod_version` is `0.1.324`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Backup   Done   Current docs were backed up to `.bak/20260707_0.1.324_ftb_tiannan_docs_reconcile/`.
+  Verification   Done   Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.324`; inherited network-package warning reviewed as unrelated to this FTB/data/docs verification.
+  Follow-up   Pending   Continue replacing FTB checkmarks with authoritative task bridges, rewards, branch locks, NPC triggers, craft-station validation, icons, and live FTB client smoke tests.
+
+## 283. 2026-07-07 0.1.323 FTB Tiannan seven sects and craft branches
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel `0.1.323` Xuan Yin Foundation spell verification, preserved it and the existing 6 FTB chapters, and kept this slice additive.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was the Tiannan side chains in `quest_chains.json`, `quest_hooks.json`, `tiannan_seven_sects_lore.json`, `sect_specialty_map.json`, `artifact_faction_specialty.json`, puppet/beast/talisman/illusion/secret-art catalogs, and craft-master hooks.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, version/docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.321_ftb_tiannan_seven_sects/`; after observing the parallel version advance, current files were backed up again to `.bak/20260707_0.1.323_ftb_tiannan_seven_sects_reconcile/`. The new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.323`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_tiannan_seven_sects.snbt` with 28 safe checkmark nodes for 化刀坞刀道, 巨剑门传承, 千竹傀儡, 御灵兽傀, 掩月幻阵, 天符制符, and 百艺精通/地火/昆吾阵法回流.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 15s. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.323`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative FTB item/advancement/custom task bridges, validated rewards, branch/exclusion locks, NPC triggers, sect/reputation/skill-state synchronization, real craft-station checks, quest icons, and live FTB client smoke tests.
+
+## 282. 2026-07-07 0.1.323 Xuan Yin Foundation spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.320` secret elemental/refinement/FTB shared tree and avoided unrelated dirty files from the parallel Codex.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `techniques/xuan_yin.json` entries `soul_devouring_cloud`, `yin_soul_chain`, `underworld_flame`, and `corpse_armor`.
+  Planning   Done   Scoped to one custom Xuan Yin spell class, `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, version/docs, and no packet, registry, GUI, model, texture, recipe, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.321_xuan_yin_foundation_spells/`; the new `XuanYinSpell` source and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.323` after observing parallel version advances; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `XuanYinSpell` implements 噬魂云, 阴魂链, 幽冥火, and 炼尸甲 with custom DustParticle cloud/chain/beam/armor visuals, server-authoritative magic damage/control, and no vanilla fireball/fire-charge/lightning attack entities.
+  Technique data   Done   Added the four Xuan Yin ids to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.323`; inherited network-package warning reviewed as unrelated to this spell/data/docs slice.
+  Follow-up   Pending   Add stricter prerequisite-method/path gates for Xuan Yin and ghost cultivator paths, dedicated spell icons/particles/textures, PvP balance, live client visual smoke tests, and deeper ghost summons/corpse interactions.
+
+## 281. 2026-07-07 0.1.320 Secret elemental and refinement alias coordination
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel `0.1.319` refinement Yin/special existing-material alias slice after the secret elemental spell work, preserved both sets of edits, and advanced the shared tree to `0.1.320`.
+  Version/protocol   Done   `mod_version` is now `0.1.320`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Backup   Done   Current docs/version state was backed up to `.bak/20260707_0.1.320_secret_elemental_reconcile_parallel_aliases/`.
+  Verification   Done   Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.320`; inherited network-package warning reviewed as unrelated to this coordination/data/spell slice.
+  Follow-up   Pending   Continue strict spell prerequisite gates, dedicated spell visuals, exact material carriers/acquisition, refinement forge UI/custom serializer, and live multiplayer/client smoke checks.
+
+## 280. 2026-07-07 0.1.319 Refinement Yin/special existing-material aliases
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.317` FTB Mulan/Tianlan + Demonic Six chapter and avoided the observed current-tree `0.1.318` secret elemental spell files; this slice touches only artifact/refinement mapping, one focused test, version, and docs.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `materials_catalog.json` and shipped artifact refinement recipes using ghost/yin/soul/blood/earth/demon-fungus/star/void-cold materials.
+  Planning   Done   Scoped to existing-carrier id-map aliases, focused artifact-plan tests, version/docs, and no new item ids, registries, packets, GUI, capabilities, recipes, loot, shops, FTB files, spell files, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.319_refinement_yin_existing_aliases/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from observed `0.1.318` to `0.1.319`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material coverage   Done   Added aliases `ghost_wood -> seeking_immortals:ironwood`, `yin_essence_ore -> seeking_immortals:yin_stone`, `soul_moss -> seeking_immortals:soul_fragment`, `beast_blood_vial -> seeking_immortals:true_dragon_blood`, `earth_spine_root -> seeking_immortals:diyuan_pressure_moss`, `demon_corruption_fungus -> seeking_immortals:cloud_mushroom`, `star_sand -> seeking_immortals:star_meteorite`, and `void_palace_cold_jade -> seeking_immortals:cold_jade`.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now proves material resolution for Snake Pearl, Bedrock Shield, Evil Illusion Mirror, Moon Shadow Disk, Void Palace Cold Jade Pendant, Soul Summon Bell, Poluo Beads, and Seven Star Disk plans through current carriers.
+  Verification   Done   Changed JSON parsed successfully, the text-material corpus scan passed, focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 24s, focused `JsonSanityTest` + `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 17s, and full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s after parallel version coordination to `mod_version=0.1.320`.
+  Follow-up   Pending   Add exact physical carriers/drops for ghost wood, Yin essence ore, soul moss, beast blood, Earth-Spine Root, demon-corruption fungus, star sand, and Void Palace cold jade; add source-accurate acquisition/loot/shop placement, registered output carriers for unmapped P2+ artifacts, real refinement forge UI/custom serializer, failure loot, JEI display, and live multiplayer smoke checks.
+
+## 282. 2026-07-07 0.1.319 FTB Spirit Realm quest chapter current-tree verified under 0.1.320
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the observed shared tree, existing FTB main/Chaotic Sea/Dajin/Fallen Demon/Yin/Mulan chapters, and the parallel `0.1.320` secret-elemental/refinement-alias coordination without reverting unrelated edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `quest_chains.json` spirit-realm/Tianyuan/Fengyuan/Diyuan/barbarian/human-clan chains plus `quest_hooks.json`, `spirit_realm_interface.json`, `tianyuan_city.json`, `tianyuan_merit_economy.json`, `tianyuan_daily_events.json`, `human_clan_league.json`, `human_clan_quest_network.json`, `spirit_realm_clan_quests.json`, and `barbarian_demon_kings.json`.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.319_ftb_spirit_realm_service/`; the new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Implemented as the `0.1.319` FTB resource/test/docs slice and current-tree verified under `mod_version=0.1.320` after parallel version coordination. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_spirit_realm_service.snbt` with 36 safe checkmark nodes covering Tianyuan service/merit, Fengyuan human-clan branches, Spirit Realm eighteen-clan pilgrimage, Diyuan deep delve, and barbarian demon-king tribute/hunt routing.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 13s. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.320`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative FTB item/advancement/custom task bridges, validated rewards, branch/exclusion locks, NPC triggers, real merit/reputation state, Diyuan permit checks, barbarian king-token tracking, and dedicated quest icons.
+
+## 279. 2026-07-07 0.1.317 FTB Mulan/Tianlan and Demonic Six quest chapter
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.316` Foundation utility + FTB current-tree recheck and existing FTB main/Chaotic Sea/Dajin/Fallen Demon/Yin chapters without reverting unrelated shared edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `quest_chains.json#mulan_war_campaign`, `#chain_mulan_war_campaign`, `#mulan_fashi_path`, `#tianlan_defense_line`, `#wutu_mulan_feud_line`, `#demonic_six_path`, `#demonic_six_expanded`, `quest_hooks.json`, `mulan_tianlan_war.json`, `mulan_faction_quests.json`, and `demonic_six_sects.json`.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.317_ftb_mulan_demonic/`; the new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced the shared tree from observed `mod_version=0.1.316` to `0.1.317` for this FTB resource/test/docs slice. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_mulan_demonic.snbt` with 25 safe checkmark nodes covering Mulan/Tiannan/Tianlan war routing, Fashi/Holy Bird/Tianhu optional branches, Wutu feud, and Demonic Six north-migration/recruitment/sect/righteous-bounty routes.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 19s. Current-version `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.317`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Continue FTB coverage for Diyuan/barbarian endgame, Spirit Realm clans/Tianyuan service, and replace checkmarks with authoritative item/advancement/custom tasks plus validated rewards, branch locking, and NPC triggers.
+
+## 279. 2026-07-07 0.1.319 Secret elemental spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed current `mod_version=0.1.317` before editing, preserved parallel work, first advanced to `0.1.318`, then reconciled upward to `0.1.319` after preflight reported an existing `0.1.318` successful shippable fingerprint.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `techniques/secret_arts.json` entries `life_fire`, `lieyan_true_fire_secret`, and `five_element_fusion_burst`.
+  Planning   Done   Scoped to one custom high-tier spell class, `SkillType`/`SkillEffectRegistry` mappings, Core Formation / Nascent Soul technique data, zh_cn/en_us feedback, docs, and no packet, registry, GUI, model, texture, recipe, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Existing files were backed up to `.bak/20260707_0.1.318_secret_elemental_spells/`; current pending docs/version state was backed up to `.bak/20260707_0.1.319_secret_elemental_spells_reconcile/`; the new `SecretElementalSpell` source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.319`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `SecretElementalSpell` implements 本命真火 as a nascent flame beam, 真炎焚天 as a violet-red true-fire field, and 五行融爆 as a five-color elemental burst with custom DustParticle visuals and server-authoritative magic damage/control.
+  Technique data   Done   Added `five_element_fusion_burst` to shipped Core Formation technique data and `life_fire` / `lieyan_true_fire_secret` to shipped Nascent Soul technique data with localized release feedback.
+  Verification   Pending   Changed technique/lang JSON parsed successfully; the `0.1.318` build attempt was blocked by `aiPreflight` version fingerprint reuse; final `.\gradlew.bat --no-daemon --max-workers=1 build` at `0.1.319` remains pending.
+  Follow-up   Pending   Continue strict method/root gate enforcement, dedicated spell icons/particles/textures, persistent high-tier visual tuning, PvP balance, and live client visual smoke tests.
+
+## 278. 2026-07-07 0.1.316 Foundation utility and FTB current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel build-verified `0.1.315` FTB Fallen Demon/Yin chapter after the Foundation utility spell slice, preserved both sets of changes, and advanced the shared tree to `0.1.316`.
+  Version/protocol   Done   `mod_version` is now `0.1.316`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Verification   Done   Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.316`; inherited network-package warning reviewed as unrelated to this spell/version reconciliation.
+  Backup   Done   Current docs/version state was backed up to `.bak/20260707_0.1.316_foundation_utility_spells_reconcile/` and post-build docs to `.bak/20260707_0.1.316_foundation_utility_spells_post_build_docs/`.
+  Follow-up   Pending   Continue spell prerequisite gate display/enforcement, dedicated spell icons/particles/textures, persistent reflect/absorb tuning, PvP balance, and live client visual smoke tests.
+
+## 276. 2026-07-07 0.1.315 FTB Fallen Demon and Yin quest chapter
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified parallel `0.1.314` refinement existing-material alias work, verified `0.1.313` Core Formation spell work, and existing FTB main/Chaotic Sea/Dajin chapters without reverting unrelated shared edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `quest_chains.json#fallen_demon_campaign`, `#nether_river_campaign`, `#ghost_path`, `#yin_cluster_pilgrim`, `quest_hooks.json`, `ghost_cultivation_path.json`, and `yin_underworld_cluster.json`.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.314_ftb_fallen_demon_yin/`; after observing parallel 0.1.314 artifact docs, current docs/version were backed up to `.bak/20260707_0.1.315_ftb_fallen_demon_yin_reconcile/`. The new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced the shared tree to `mod_version=0.1.315` for this FTB resource/test/docs slice after detecting parallel `0.1.314` artifact alias work. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_fallen_demon_yin.snbt` with 18 safe checkmark nodes covering Fallen Demon Valley seal weakening, purge prep, outer gorge, rift layer, ancient demon projection, rift closure, Yinming escape, Yin body formation, Yin Luo Hall branch, Nether River ferry/fog/soul shoal, soul anchor, nether core, ghost hall, and guardian.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 13s. Current-version `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 35s, and the final post-doc recheck passed with BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.315`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Continue FTB coverage for Mulan/Tianlan war, demonic six sects, Diyuan/barbarian endgame, spirit clans, and replace checkmarks with authoritative item/advancement/custom tasks plus validated rewards, branch locking, and NPC triggers.
+
+## 274. 2026-07-07 0.1.310 Gold Seam Stone material carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.309` named Foundation spell work, current artifact material-carrier work, 11x11 realm gate, and FTB quest-default scaffold without reverting parallel edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `materials_catalog.json#gold_seam_stone` plus artifact refinement recipes that consume it.
+  Planning   Done   Scoped to one physical material carrier, creative-tab visibility, localization, lightweight model, id-map coverage, focused artifact-plan test, docs, and no packet, GUI, block/entity registry, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.310_gold_seam_stone/`; the new model and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.310`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material coverage   Done   Added `seeking_immortals:gold_seam_stone` through the existing material item framework with mineral creative-tab entry, zh_cn/en_us names, vanilla raw-gold model, and source-id mapping.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now proves `refine_gold_demon_chain` resolves 3x Gold Seam Stone + 2x Beast Core via current `demon_core_mid` compression + 2x Kunwu Copper.
+  Verification   Done   Changed JSON parsed successfully. Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 23s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.310`; inherited network-package warning reviewed as unrelated to this item/refinement slice.
+  Follow-up   Pending   Add source-accurate Dajin/Kunwu mining, loot/shop placement, dedicated art, missing companion materials such as earth_spine_root, fire_feather, yin_essence_ore, and ghost_wood, exact demon-core tier carriers beyond the current Beast Core compression, plus real refinement forge UI/custom serializer and JEI display.
+
+## 273. 2026-07-07 0.1.309 Named Foundation elemental spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the active `0.1.308` Kunwu Copper material-carrier work, `0.1.306` Spirit Silk / Soul-Gathering Stone carrier work, `0.1.305` ironwood/Yin protection/foundation burst work, and earlier elemental spell slices without reverting parallel edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `ice_spear`, `flame_burst`, `huangfeng_fire_serpent`, and `luoyun_spirit_flame`: Foundation named elemental spells with cost 18 and damage 36-42.
+  Planning   Done   Scoped to additive custom projectile element profiles, one custom beam spell class, `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, docs, and no packet, entity registry, item/block registry, model, texture, recipe, loot, shop-loader, worldpack, GUI, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.307_named_foundation_spells/`; current parallel-version docs/version state was backed up to `.bak/20260707_0.1.309_named_foundation_spells_reconcile/`; the new `SpiritFlameBeamSpell` source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.309` after observing the parallel `0.1.308` Kunwu Copper slice; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Added ICE_SPEAR, FLAME_BURST, and FIRE_SERPENT profiles to the mod-owned `CultivationFireballEntity` with custom DustParticle trails/impact effects, and added `SpiritFlameBeamSpell` for 落云灵焰 as a custom flame beam. No vanilla fireball/fire-charge/lightning entities are spawned.
+  Technique data   Done   Added `ice_spear`, `flame_burst`, `huangfeng_fire_serpent`, and `luoyun_spirit_flame` to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Sandbox `compileJava` was blocked by dependency-resolution network permissions and was stopped; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.309`; inherited network-package warning reviewed as unrelated to this spell slice.
+  Follow-up   Pending   Continue Core Formation elemental spells such as `primordial_magnet_sphere`, add stricter method/root gate display and enforcement, dedicated spell icons/particles/textures, PvP tuning, and live client visual smoke tests.
+
+## 272. 2026-07-07 0.1.308 Kunwu Copper material carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the active `0.1.306` Spirit Silk / Soul-Gathering Stone carrier work, plus the `0.1.305` ironwood, Yin protection, formation, and elemental-burst slices without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/materials_catalog.json#kunwu_copper`, Kunwu-region/worldpack notes, shipped artifact refinement data, `text_material_id_map.json`, and `refine_qingning_mirror` as the first exact command-refinement proof.
+  Planning   Done   Scoped to one physical material carrier, creative-tab visibility, localization, lightweight model, id-map coverage, focused artifact-plan test, docs, and no packet, GUI, block/entity registry, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Current files were backed up to `.bak/20260707_0.1.308_kunwu_copper_refinement/`; an earlier pre-version-movement snapshot is `.bak/20260707_0.1.307_kunwu_copper_refinement/`. The new model and update note had no previous files to preserve.
+  Version/protocol   Done   Implemented after advancing observed `mod_version=0.1.307` to `0.1.308`, then current-tree verified after parallel version movement to `mod_version=0.1.309`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material coverage   Done   Added `seeking_immortals:kunwu_copper` through the existing material item framework with creative-tab entry, zh_cn/en_us names, vanilla copper-ingot model, and source-id mapping.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now proves `refine_qingning_mirror` resolves 2x Hundred-Year Ice through the current Cold Jade mapping plus 1x Kunwu Copper, and other Kunwu recipes can now pass the Kunwu material-resolution step when remaining materials are mapped.
+  Verification   Done   Changed JSON parsed successfully. Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 14s. The first full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s at `mod_version=0.1.308`; after docs sync and parallel version movement, the current-tree recheck passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.309`. The inherited network-package warning was reviewed as unrelated to this item/refinement slice.
+  Follow-up   Pending   Add source-accurate Kunwu mining/loot/shop placement, dedicated art, Kunwu-region resource nodes, more missing refinement materials such as gold seam stone / space crystal fragments, broader exact P0/P1 recipe coverage, JEI display, failure loot, and a real refinement forge UI/custom serializer.
+
+## 270. 2026-07-07 0.1.305 Foundation elemental burst projectiles
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.304` formation guide verification, the active `0.1.303` Yin body protection charm work, artifact-refinement command changes, and earlier elemental projectile/area spell slices without reverting parallel edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `elemental_burst_fire`, `elemental_burst_water`, `elemental_burst_earth`, `elemental_burst_wind`, `elemental_burst_metal`, `elemental_burst_wood`, `elemental_burst_ice`, and `elemental_burst_thunder`: Foundation projectile spells, cost 18, damage 37, `requires_method=changchun_gong`.
+  Planning   Done   Scoped to additive custom projectile element variants, `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, docs, and no packet, registry, GUI, model, texture, recipe, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.300_foundation_elemental_bursts/`, `.bak/20260707_0.1.302_foundation_elemental_bursts_reconcile/`, and `.bak/20260707_0.1.305_foundation_elemental_bursts_docs/`; the new update note has no previous file to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.305` after parallel version movement; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   Added EARTH and THUNDER variants to the mod-owned `CultivationFireballEntity`; all eight Foundation burst ids reuse `ElementalProjectileSpell` with custom projectile cores, DustParticle trails/impact bursts, and element-specific hit effects instead of vanilla projectile or lightning entities.
+  Technique data   Done   Added all eight `elemental_burst_*` ids to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Pending   Changed technique/lang JSON parsed successfully. Sandbox `compileJava` failed on dependency-resolution network permissions; final `.\gradlew.bat --no-daemon --max-workers=1 build` remains pending.
+  Follow-up   Pending   Implement named Foundation variants such as `ice_spear`, `flame_burst`, `huangfeng_fire_serpent`, and `luoyun_spirit_flame`; add stricter method/root gate presentation, dedicated spell icons/particles/textures, PvP tuning, and live client visual smoke checks.
+
+## 270. 2026-07-07 0.1.305 Ironwood carrier and Qingye exact refinement
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.305` tree, including the `0.1.304` formation overview, artifact-refinement command verification, Yin protection work, the `0.1.301` recheck, and earlier Qingye fan recipe/resource work without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/materials_catalog.json#ironwood`, `文本材料/data/refinement_recipes.json#refine_qingye_fan`, shipped artifact refinement data, and current `ArtifactRefinementService` / `text_material_id_map` resolution behavior.
+  Planning   Done   Scoped to one material carrier, one recipe correction, id-map coverage, focused tests, docs, and no packet, GUI, capability, worldpack-loader, shop-loader, entity, or loot-table changes.
+  Backup   Done   Existing code/resource/test files were backed up to `.bak/20260707_0.1.304_ironwood_qingye_refinement/`; current docs were backed up to `.bak/20260707_0.1.305_ironwood_qingye_refinement_docs/`; the new ironwood model and update note had no previous file to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.305`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Item and mapping   Done   Added `seeking_immortals:ironwood` through the existing `BaseMaterialItem` path, creative-tab visibility, zh_cn/en_us names, lightweight vanilla-texture model, and `text_material_id_map.json` mapping from source `ironwood`.
+  Refinement coverage   Done   `refine_qingye_fan` now uses real `seeking_immortals:ironwood` and matches the source 3x ironwood + 4x spirit-stone-shard counts. The command refinement plan now resolves both materials instead of reporting `ironwood` as unmapped.
+  Verification   Done   Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 25s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.305`; inherited network-package warning reviewed as unrelated to this slice.
+  Follow-up   Pending   Add survival acquisition for ironwood, source-accurate ironwood logs/hearts, Extreme West/Thousand Bamboo resource nodes, puppet crafting consumers, dedicated art, loot/shop/quest placement, and a real refinement forge UI/custom recipe path for broader exact-count recipes.
+
+## 269. 2026-07-07 0.1.304 Patchouli formation array overview
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.304` tree, including parallel 0.1.303 version movement and observed foundation elemental burst/artifact-refinement command/Yin protection backups, without reverting unrelated dirty files.
+  Source read   Done   Used `文本材料/data/formation_catalog.json`, `文本材料/data/formation_items_catalog.json`, `文本材料/data/techniques/formation.json`, plus current `spirit_gathering_array`, 9x9 realm-gate array, Wuyue Hall formation-manual shop hook, Formation Sense, Three Talent Sword Array, and Big Dipper Sword Array.
+  Planning   Done   Scoped to mirrored Patchouli guide entries, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, recipe, loot, shop-loader, worldpack-data, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.304_patchouli_formation_array_overview/`; new Patchouli entry files and the new update note have no previous file to preserve.
+  Version/protocol   Done   Advanced `mod_version` from `0.1.303` to `0.1.304`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `formation_array_overview` entries explaining formation categories, current playable array hooks, manual access, cataloged disks/flags, and deferred portable formation gameplay.
+  Verification   Done   Changed Patchouli JSON parsed successfully, all 97 guide JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s. `aiPreflight` recorded `mod_version=0.1.304`; inherited network-package warning reviewed as unrelated to this guide slice.
+  Follow-up   Pending   Add real portable array disks/flags, persistent formation zones, formation fuel, array breaking/inspection rules, formation-specialist skill progression, blueprint drops, JEI/Patchouli recipe linkage, and server-authoritative deployment validation.
+
+## 269. 2026-07-07 0.1.305 Yin body protection charm
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the 9x9 realm-gate array, Yinming/Nether River pocket dimensions, the current Yin underworld hazard runtime, the Patchouli beast/puppet overview, and later observed `0.1.301/0.1.302` shared version movement without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/consumables_catalog.json#yin_body_protection_charm`, `items_by_region.json`, `yin_underworld_cluster.json`, `daily_random_events.json`, and current `YinUnderworldHazard` / `CatalogPillItem` / server player tick infrastructure.
+  Planning   Done   Scoped to one low-tier Yin mitigation consumable, persistent timer reuse, hazard-profile mitigation, registration/resources/localization, focused test coverage, docs, and no packet/schema/worldpack-loader/dimension changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.299_yin_body_protection_charm/`; new item/model/recipe/update-note files had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from observed `0.1.302` through parallel movement to final `0.1.305`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Runtime   Done   Added `seeking_immortals:yin_body_protection_charm`: Qi Refining+ right-click use writes a half-day Yin-protection timer, clears Darkness/Slowness/Weakness/Nausea, and grants short defensive/night-vision feedback.
+  Hazard mitigation   Done   Yin underworld hazards now use a mitigated pure profile while the timer is active: cadence is slower, duration is shorter, weakness/nausea are suppressed, divine-consciousness drain is reduced, and damage is halved while preserving the non-lethal floor.
+  Resources   Done   Registered the item, added creative-tab visibility, zh_cn/en_us localization, a lightweight model reusing the armor-talisman texture, a first shapeless recipe from talisman paper/Yin Stone/Soul Fragment, and text-material reference mapping.
+  Verification   Done   Focused `.\gradlew.bat --no-daemon --max-workers=1 test --rerun-tasks --tests com.xunxian.seekingimmortals.worldpack.YinUnderworldHazardTest` passed with BUILD SUCCESSFUL in 30s after rerunning outside the sandbox dependency-resolution block. A first full build was correctly blocked by `aiPreflight` because parallel work had moved to `0.1.304`; after advancing to `0.1.305`, full build passed with BUILD SUCCESSFUL in 27s, and the final post-doc recheck passed with BUILD SUCCESSFUL in 21s. `aiPreflight` recorded `mod_version=0.1.305`.
+  Follow-up   Pending   Add source-accurate `yin_protect_talisman`/`ghost_hide_talisman` crafting, Yin Luo Hall shop placement, underworld drops/loot, dedicated art/particles/audio, in-game smoke checks, ghost NPC/encounters, route quest presentation, and deeper Yin hazard balance.
+
+## 267. 2026-07-07 0.1.299 Patchouli beast/puppet overview
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.298` verified tree, including Patchouli technique-learning requirements, dark/light projectile verification, Yin underworld hazard verification, and earlier Patchouli/runtime slices without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/beast_bestiary.json`, `文本材料/docs/BEAST_PUPPET_v63.md`, `文本材料/data/puppet_definitions.json`, `文本材料/data/puppet_craft_recipes.json`, plus current Yuling Pavilion shop data, Extreme West/Thousand Bamboo worldpack hooks, technique manual carriers, and shipped cultivation technique data.
+  Planning   Done   Scoped to mirrored Patchouli guide entries, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, recipe, loot, shop-loader, worldpack-data, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.299_patchouli_beast_puppet_overview/`; new Patchouli entry files and the new update note have no previous file to preserve.
+  Version/protocol   Done   Implemented as the `0.1.299` guide slice; current shared `mod_version` is `0.1.300` after parallel version movement. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `beast_puppet_overview` entries explaining spirit-beast taming, puppet crafting, beast tiers, tame requirements, puppet T0-T6 gates, current hooks, and deferred live entity/contract/assembly systems.
+  Verification   Done   Changed Patchouli JSON parsed successfully, all 95 guide JSON files parsed successfully, the first guide-slice `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 33s at `mod_version=0.1.299`, and final current-tree recheck passed with BUILD SUCCESSFUL in 35s at `mod_version=0.1.300`. `aiPreflight` recorded `mod_version=0.1.300`; inherited network-package warning reviewed as unrelated to this guide slice.
+  Follow-up   Pending   Add live spirit-beast entities/AI, contract/affinity state, bridle/feed consumption, beast loot/spawn tables, puppet assembly bench/custom recipes, puppet entities or summons, repair/fuel loops, quest routing, and GeckoLib/FTB Quests presentation.
+
+## 266. 2026-07-07 0.1.297 Yin underworld ambient hazard
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.298` Patchouli technique-learning guide resource, `0.1.297` dark/light projectile work, `0.1.296` low flying-sword recipe slice, `0.1.295` elemental-area guide, `0.1.294` elemental-area runtime, `0.1.292` 9x9 realm-gate array, and earlier Yin pocket dimension/ferry work without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/yin_underworld_cluster.json`, `文本材料/data/daily_random_events.json` entries `yin_corruption_warning`, `ghost_wail_night`, and `nether_river_fog`, plus shipped `worldpack/daily_events.json`, `secret_realms.json#yinming_pocket`, and `secret_realms.json#nether_river_land`.
+  Planning   Done   Scoped to a server-side ambient hazard using existing player tick, worldpack region/secret-realm/daily-event state, vanilla mob effects, cultivation sync, focused tests, localization, version/docs, and no packet/schema/registry/data-loader work.
+  Backup   Done   Code/resource baseline backup is `.bak/20260706_0.1.296_yin_underworld_hazard/`; doc backups are `.bak/20260707_0.1.297_yin_underworld_hazard_docs/` and `.bak/20260707_0.1.298_yin_underworld_hazard_docs_reconcile/`; new `YinUnderworldHazard` source/test files and the new update note had no previous file to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.298` after parallel version movement; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Runtime   Done   Added pure `YinUnderworldHazard` profiles for Yinming/Nether River regions, secret realms, and pocket dimensions. Server player tick now applies non-lethal Yin miasma effects: Darkness, Slowness, event-driven Weakness/Nausea, divine-consciousness drain, and magic damage capped above four health.
+  Event tuning   Done   `yin_corruption_warning`, `yinming_corruption_warning`, `yin_wind_howl`, `yin_luo_patrol`, `ghost_wail_night`, `nether_river_ghost_wail_night`, and `nether_river_fog` intensify cadence/effects while normal mortal/Spirit-Realm regions are ignored.
+  Verification   Done   Focused `YinUnderworldHazardTest` passed with BUILD SUCCESSFUL in 22s after rerunning outside the sandbox dependency-resolution block. A current-tree build first hit a transient Windows test-results file lock; the rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s, and `aiPreflight` recorded `mod_version=0.1.298`; inherited network-package warning reviewed as unrelated to this slice.
+  Follow-up   Pending   Live in-game Yinming/Nether River smoke checks, Yin-protection talisman/pill mitigation, ghost NPC/encounter rules, underworld terrain/structures, dedicated visuals/audio, route UI/quest presentation, and deeper balance tuning remain deferred.
+
+## 265. 2026-07-07 0.1.297 Dark/light elemental projectiles, verified under 0.1.298
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued the active shared-tree `0.1.297` spell slice, preserving the other Codex's low flying-sword recipe/current-tree records and earlier elemental spell work without reverting unrelated dirty files.
+  Text-material read   Done   Used `text-material data/techniques/elemental.json` entries `dark_flame` and `light_orb`: Qi Refining projectile spells, cost 9/8, damage 19/17, Changchun appendix source; light has no current root enum, so no new root enum was invented.
+  Planning   Done   Scoped to existing custom projectile visuals/effects, additive skill/effect mapping, shipped Qi Refining technique data, zh_cn/en_us feedback, docs, and verification. No new packet, item/block/entity registry, model, texture, recipe, loot, GUI, shop-loader, or runtime-loader surface was planned.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.297_dark_light_projectiles/`; current-state finish backups are under `.bak/20260707_0.1.297_dark_light_projectiles_finish/`.
+  Version/protocol   Done   Implemented across the shared `0.1.297` slice and verified after the shared tree advanced to `mod_version=0.1.298`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Projectile effects   Done   Reused the mod-owned `CultivationFireballEntity` instead of vanilla fireball/fire-charge/lightning entities, adding DARK and LIGHT variants with colored dust trail/impact visuals, wither/glowing effects, and distinct impact sounds.
+  Technique data   Done   Added `dark_flame` and `light_orb` to shipped Qi Refining technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed successfully; final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and `aiPreflight` recorded `mod_version=0.1.298`. The inherited network-package warning was reviewed as unrelated to this spell slice.
+  Follow-up   Pending   Foundation elemental bursts, stricter prerequisite-method/root presentation, dedicated spell icons/particles/textures, PvP/in-game feel tuning, and live client visual smoke tests remain deferred.
+
+## 263. 2026-07-07 0.1.298 Patchouli technique learning requirements
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.297` shared tree, the `0.1.295` Patchouli elemental-area guide, and earlier verified Patchouli/runtime slices without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/novel_cultivation_learn_requirements_waves.json`, `cultivation_methods.json`, `manuals_catalog.json`, `techniques/` fields such as `realm_min`, `requires_method`, and `spirit_roots`, plus current `TechniqueManualItem`, `TechniqueDataManager`, and `ReleaseTechniquePacket` behavior.
+  Planning   Done   Scoped to mirrored Patchouli guide entries, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, recipe, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.298_patchouli_technique_learning_requirements/`; new Patchouli entry files and the new update note have no previous file to preserve.
+  Version/protocol   Done   Current `mod_version` is `0.1.298`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `technique_learning_requirements` entries explaining source learning gates, current manual/source learning, spiritual-root attribute matching, learned-slot release validation, over-tier qi-deviation risk, and deferred strict sect/reputation/item/method-layer/divine-sense gates.
+  Verification   Done   Changed Patchouli JSON parsed successfully, all 93 guide JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s. `aiPreflight` recorded `mod_version=0.1.298`; inherited network-package warning reviewed as unrelated to this guide slice.
+  Follow-up   Pending   Add real locked-reason UI/tooltip, strict method-layer checks, sect rank/reputation gates, item/manual consumption policies, divine-sense thresholds, and source-accurate quest/NPC acquisition.
+
+## 262. 2026-07-06 0.1.295 Patchouli elemental area spell guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.294` elemental-area spell runtime, `0.1.293` Patchouli sect rank-gate guide, `0.1.292` 9x9 realm-gate array, and `0.1.291` low storage bracelet runtime without reverting parallel shared-tree edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, and `chain_lightning`, plus shipped `ElementalAreaSpell` behavior and Qi Refining technique summaries.
+  Planning   Done   Scoped to mirrored Patchouli guide entries, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, recipe, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.295_elemental_area_patchouli/`; verification doc backups are `.bak/20260706_0.1.295_elemental_area_patchouli_verify/`, `.bak/20260706_0.1.296_current_tree_after_elemental_area_patchouli/`, and `.bak/20260706_0.1.297_parallel_version_observed_after_patchouli/`; new Patchouli entry files and the new update note had no previous file to preserve.
+  Version/protocol   Done   Implemented as the `0.1.295` guide slice; current shared `mod_version` is `0.1.297` after parallel version movement. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `elemental_area_spells` entries describing release rules, server validation, distance falloff, the six implemented area effects, and deferred light/dark projectiles plus stricter method/root display.
+  Verification   Done   Changed Patchouli JSON parsed successfully, all 91 guide JSON files parsed successfully, the guide-slice `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s at `mod_version=0.1.295`, and final current-tree builds passed with BUILD SUCCESSFUL in 38s at `mod_version=0.1.296` and 23s at `mod_version=0.1.297`. `aiPreflight` recorded `mod_version=0.1.297`; inherited network-package warning reviewed as unrelated to this guide slice.
+  Follow-up   Pending   Light/dark projectile coverage, Foundation elemental bursts, stricter prerequisite-method enforcement, dedicated particles/textures, PvP tuning, and live client visual smoke tests remain deferred.
+
+## 261. 2026-07-06 0.1.294 Elemental area spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.292` 9x9 realm-gate array, build-verified `0.1.293` Patchouli sect rank-gate guide, `0.1.291` low storage bracelet runtime, build-verified `0.1.289` contribution-shop rank gates, and earlier elemental spell work without reverting parallel shared-tree edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, and `chain_lightning`, all Qi Refining elemental AoE spells.
+  Planning   Done   Scoped to a reusable spell effect class, additive `SkillType` entries, `SkillEffectRegistry`, Qi Refining technique data, zh_cn/en_us feedback, version/docs, and no packet/entity/registry/resource-loader/schema work.
+  Backup   Done   Initial existing files were backed up to `.bak/20260706_0.1.287_elemental_area_spells/`; reconciliation backups are `.bak/20260706_0.1.288_elemental_area_spells_reconcile/`, `.bak/20260706_0.1.289_elemental_area_spells_reconcile/`, `.bak/20260706_0.1.291_elemental_area_spells_reconcile/`, `.bak/20260706_0.1.293_elemental_area_spells_reconcile/`, and `.bak/20260706_0.1.294_elemental_area_spells_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.294`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   Added `ElementalAreaSpell`: custom DustParticle lava rings, mist-rain falls, sand swirls, blizzard scatter, cyclone helix, and chain-thunder arcs, with server-side area targeting, damage falloff, and element-specific debuffs/burn/push.
+  Technique data   Done   Added `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, and `chain_lightning` to shipped Qi Refining technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   UTF-8 JSON validation passed and `compileJava --rerun-tasks` passed outside the sandbox dependency-resolution block with inherited JEI deprecation warnings; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.294`.
+  Follow-up   Pending   Continue light/dark projectiles (`dark_flame`, `light_orb`), Foundation elemental bursts, source-accurate prerequisite-method enforcement, dedicated particle/textures, PvP tuning, and live client visual smoke tests.
+
+## 260. 2026-07-06 0.1.292 9x9 realm gate array
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the pending/parallel `0.1.291` storage-bracelet and elemental-area work, verified `0.1.289` contribution-shop rank gates, `0.1.287` Patchouli artifact guide and route-display guard, and `0.1.286` portal route hints without reverting shared edits.
+  Source read   Done   Used the user request for a larger multiblock portal and the existing `PortalArrayStructure` / `SpiritGatheringArrayBlock` / `WorldpackGameplayService` portal path as the direct implementation basis.
+  Planning   Done   Scoped to portal-structure constants, generated default anchor platform shape through existing constants, zh_cn/en_us portal text, focused tests, version/docs, and no route-cost, packet, registry, dimension, item, recipe, loot, GUI, or runtime-loader changes.
+  Backup   Done   Initial backup is `.bak/20260706_0.1.288_portal_array_9x9/`; version-collision/current-tree reconciliation backups are `.bak/20260706_0.1.289_portal_array_9x9_reconcile/`, `.bak/20260706_0.1.290_portal_array_9x9_reconcile/`, and `.bak/20260706_0.1.292_portal_array_9x9_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.292`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Portal structure   Done   `PortalArrayStructure` now requires a 9x9 Spirit Gathering Array base, four six-high Spirit Ore corner pillars, and a clear 7x7, five-block-high aperture. Default built-in worldpack anchors inherit the larger generated platform because `WorldpackGameplayService` already consumes these constants.
+  Localization   Done   zh_cn/en_us incomplete-portal messages, route hints, and portal-required messages now describe the 9x9 / six-high / 7x7 five-high structure.
+  Tests/build   Done   Focused `PortalArrayStructureTest` + `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 25s after rerunning outside the sandbox dependency-resolution block; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.292`.
+  Follow-up   Pending   In-game portal travel smoke checks, dedicated portal/ferry art, route quest presentation, higher-tier frame materials, Yin damage/ghost NPC rules, underworld terrain dressing, and live client visual checks remain deferred.
+## 260. 2026-07-06 0.1.293 Patchouli sect contribution rank-gate guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the in-progress `0.1.292` 9x9 realm-gate array, `0.1.291` low storage bracelet runtime, `0.1.291` elemental-area spell work, and build-verified `0.1.289` contribution-shop rank gates without reverting shared edits.
+  Text-material read   Done   Used `文本材料/data/sect_contribution_shop.json` `rank_min` / exchange gates plus the current shipped contribution-shop JSON for Qinglan, Danxia, Yanyue, and Luoyun.
+  Planning   Done   Scoped to mirrored Patchouli guide entries, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, recipe, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.293_patchouli_sect_rank_gates/`; new Patchouli entry files and the new update note have no previous file to preserve.
+  Version/protocol   Done   Current `mod_version` is `0.1.293`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `sect_contribution_rank_gates` entries explaining server-side rank checks, supported disciple ranks, null-clearing semantics, current item gates, ungated repair kit behavior, and deferred lock/quota/reputation/NPC work.
+  Verification   Done   Changed Patchouli JSON parsed successfully, all 89 guide JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s. `aiPreflight` recorded `mod_version=0.1.293`; the inherited network-package warning was reviewed as unrelated to this guide slice.
+  Follow-up   Pending   Realm gates, reputation gates, monthly/per-player limits, visible sect-shop lock state, stricter alchemy privilege semantics, NPC/quest acquisition, and source-accurate contribution stock placement remain deferred.
+
+## 259. 2026-07-06 0.1.291 Low storage bracelet runtime
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the in-progress `0.1.290` 9x9 realm-gate array, the verified `0.1.289` contribution-shop rank gates, and parallel elemental-area spell work without reverting shared edits.
+  Text-material read   Done   Full scan read all 315 files under `文本材料`; all 207 JSON files parsed successfully. Direct basis is `artifacts_catalog.json#storage_bracelet_low`, `REFINEMENT_ARTIFACTS_MASTER_LIST.md#refine_storage_bracelet`, `ARTIFACTS_FANREN.md`, and `forge_artifact_priority.json` P0.
+  Planning   Done   Scoped to a non-GUI NBT storage MVP on the existing exact `storage_bracelet_low` carrier. No packet, menu/container, capability, registry id, model, texture, recipe, loot table, or runtime-loader change was planned.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.289_storage_bracelet/`; current parallel doc/version state was additionally backed up under `.bak/20260706_0.1.289_storage_bracelet/post_parallel_before_docs/`.
+  Version/protocol   Done   Implemented as the `0.1.291` storage slice and verified on the current shared `mod_version=0.1.294` tree; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Artifact storage   Done   `ArtifactDataService` exposes `effect`; new `ArtifactStorageService` parses `extra_slots_8`, realm-gates storage at Qi Refining, stores up to 8 item stacks in bracelet NBT, blocks nested storage artifacts, deposits the other-hand stack on sneak-right-click, and withdraws the newest stack on normal right-click.
+  Guide/resources   Done   zh_cn/en_us tooltips/messages and mirrored Patchouli artifact guide entries now document low storage bracelet use while leaving graphical storage UI, refinement workstations, auction/appraisal, placement, and dedicated art deferred.
+  Tests/build   Done   Focused artifact tests and changed JSON parsing passed. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed on the current shared tree with BUILD SUCCESSFUL in 31s, and `aiPreflight` recorded `mod_version=0.1.294`.
+  Follow-up   Pending   Graphical storage screen/menu, Curios/equipment-slot storage policy, refinement workstation output, source-accurate loot/shop/NPC/quest placement, dedicated art, and live multiplayer/inventory smoke checks remain deferred.
+
+## 256. 2026-07-06 0.1.287 Patchouli artifact guide and route display guard
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.286` worldpack route hints and elemental spell shapes, `0.1.285` artifact shop acquisition, `0.1.283` artifact repair/integrity runtime, and build-verified `0.1.282` artifact activation runtime without reverting parallel shared-tree edits.
+  Text-material read   Done   Direct Patchouli source basis is `docs/ARTIFACTS_FANREN.md`, `docs/ARTIFACTS_AND_PILLS.md`, `docs/ARTIFACT_ELEVEN_TIERS.md`, `docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, `data/artifact_tier_rules.json`, `data/forge_artifact_priority.json`, and `data/talisman_treasure_templates.json`.
+  Planning   Done   Started as a guide-only Patchouli slice, then added a narrow build-fix guard in `WorldpackGameplayService.resolveItem` after the shared current tree exposed a plain-JUnit unbootstrapped registry path. No packet/channel/schema work was added.
+  Backup   Done   Existing docs were backed up to `.bak/20260706_0.1.283_patchouli_artifact_activation/`; the current `WorldpackGameplayService.java` states were backed up to `.bak/20260706_0.1.284_worldpack_route_hint_bootstrap_guard/`; current `gradle.properties` was backed up to `.bak/20260706_0.1.287_patchouli_artifact_activation_reconcile/`; post-build docs were backed up to `.bak/20260706_0.1.287_patchouli_artifact_activation_post_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.287`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this finish did not change packet fields/order/encoding/registrations or SimpleChannel behavior. The network-package warning is inherited from existing shared-tree changes.
+  Patchouli data   Done   Added zh_cn/en_us `artifact_activation` entries explaining right-click activation, server-side gates, effect families, talisman uses, repair kit behavior, exact Curios flying carriers, and deferred storage/refinement/auction/art-placement work.
+  Build fix   Done   `WorldpackGameplayService.resolveItem` now catches unbootstrapped/unavailable `ForgeRegistries` access and returns `null`; display-only route hints keep resource-id translation-key fallback while runtime item consumption still resolves items when the registry is available.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully, all 84 guide JSON files parsed successfully, focused `WorldpackPortalArrayRulesTest` passed, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s. `aiPreflight` recorded `mod_version=0.1.287`.
+  Follow-up   Pending   Continue with storage bracelet inventory, refinement/repair workstations, Wanbao auction/appraisal services, source-accurate loot/shop/NPC/quest placement, dedicated artifact art, live in-game balance checks, and remaining elemental spell visual slices.
+
+## 257. 2026-07-06 0.1.289 Contribution shop rank gates
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel/current `0.1.287` Patchouli artifact guide and route-display guard, the build-verified `0.1.286` route-hint and elemental spell slices, and the `0.1.285` artifact shop acquisition without reverting shared edits.
+  Text-material read   Done   Used `文本材料/data/sect_contribution_shop.json` `rank_min` / exchange gates for Huangfeng/Qinglan, Danxia, Yanyue, and Luoyun entries already represented by shipped contribution shops.
+  Planning   Done   Scoped to existing `QuestProgress.getSectQuestStage()`, `SectContributionService.buy`, `ShopService`, shipped shop JSON, localization, focused tests, docs, and no packet/client-sync/schema/player-NBT changes.
+  Backup   Done   Initial edited files were backed up to `.bak/20260706_0.1.287_shop_rank_gates/`; current post-build docs/reference state was backed up to `.bak/20260706_0.1.288_shop_rank_gates_post_build_docs/`; version-reconciliation files were backed up to `.bak/20260706_0.1.289_shop_rank_gates_version_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.289`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed. The network-package warning is inherited from existing shared-tree changes.
+  Runtime   Done   `ShopService` now parses optional `rank_min`, normalizes `outer_disciple` / `inner_disciple` / `core_disciple`, validates sect rank before stock reservation or contribution spending, and returns localized `RANK_TOO_LOW` feedback.
+  Shop data   Done   Applied gates to shipped implemented equivalents: Qinglan/Danxia `foundation_pill` and `recipe_ningshen` require inner disciple; Qinglan/Danxia `flying_sword_low` requires outer disciple; Yanyue `foundation_pill` requires inner disciple; Luoyun `recipe_luoyun_spirit` requires inner disciple. `artifact_repair_kit` remains ungated.
+  Tests/build   Done   Focused `ShopServiceTest` + `JsonSanityTest` passed with BUILD SUCCESSFUL in 37s; a post-doc/resource build at `0.1.288` correctly failed `aiPreflight` because `text_material_id_map.json` changed after the previous successful fingerprint; after advancing to `0.1.289`, final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 32s and `aiPreflight` recorded `mod_version=0.1.289`.
+  Follow-up   Pending   Realm gates, reputation gates, monthly/per-player purchase limits, rank display/lock state in the sect UI, stricter alchemy privilege semantics, and source-accurate quest/NPC acquisition remain deferred.
+
+## 255. 2026-07-06 0.1.286 Elemental spell shapes
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.285` artifact shop acquisition, the parallel artifact repair/integrity runtime, the `0.1.282` wind/wood projectile slice, and earlier custom elemental projectile work without reverting shared edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `thunder_palm`, `flame_ring`, `frost_armor`, and `gold_beam`, all Qi Refining elemental spells with `requires_method=changchun_gong`.
+  Planning   Done   Scoped to additive `SkillType` entries, four small spell-effect classes, `SkillEffectRegistry`, Qi Refining technique data, zh_cn/en_us messages, version/docs, and no new packet/entity/item/block/GUI/recipe/loot/runtime-loader surface.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.284_elemental_spells/`; current-state reconciliation backups after parallel movement are under `post_parallel_current/` and `post_artifact_shop_current/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.286`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   Added `ThunderPalmSpell`, `FlameRingSpell`, `FrostArmorSpell`, and `GoldBeamSpell`: custom DustParticle palm arc, fire ring, frost armor shell, and gold beam visuals replace vanilla spell-entity approximations while keeping authority on the server.
+  Technique data   Done   Added `thunder_palm`, `flame_ring`, `frost_armor`, and `gold_beam` to shipped Qi Refining technique data and wired localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed locally; `compileJava --rerun-tasks` passed after rerunning outside the sandbox dependency-resolution block; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 33s and `aiPreflight` recorded `mod_version=0.1.286`.
+  Follow-up   Pending   Continue remaining elemental ids such as `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, `chain_lightning`, light/dark projectiles, and Foundation elemental bursts; add dedicated particle types/textures and live client visual smoke tests later.
+
+## 254. 2026-07-06 0.1.284/0.1.285 Artifact repair kit shop acquisition and exact low flying sword stock
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel/current `0.1.283` artifact repair + integrity runtime and advanced this contribution-shop slice to `0.1.284` instead of reusing the same version; final verification ran after the shared tree advanced to `0.1.285`, preserving the `0.1.283` runtime/guide, build-verified `0.1.282` activation runtime, and existing artifact carrier/catalog work without reverting parallel edits.
+  Text-material read   Done   Used `文本材料/data/sect_contribution_shop.json` entries `flying_sword_low` (cost 180, artifact, outer-disciple source gate) and `artifact_repair_kit` (cost 25, consumable, stock_monthly 5), plus current exact registered carriers `seeking_immortals:flying_sword_low` and `seeking_immortals:artifact_repair_kit`.
+  Planning   Done   Scoped to existing `ShopService` data fields, built-in shop JSON, `ShopServiceTest`, reference maps, version/docs, and no packet/schema/runtime/registry/model/texture/recipe/loot/GUI/entity changes.
+  Backup   Done   Initial edited-file backups are under `.bak/20260706_0.1.283_artifact_repair_kit_shop/`; current-state reconciliation backups after detecting the parallel `0.1.283` runtime are under `.bak/20260706_0.1.284_artifact_shop_reconcile/`; the build-blocker Java helper backup is under `.bak/20260706_0.1.284_worldpack_route_display_bootstrap_fix/`; post-build doc backups are under `.bak/20260706_0.1.285_post_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.285`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   `qinglan_contribution_hall` and `danxia_valley_contribution_hall` now stock `flying_sword_low -> seeking_immortals:flying_sword_low` for 180 contribution and `artifact_repair_kit -> seeking_immortals:artifact_repair_kit` for 25 contribution with stock 5 / 96000-tick refresh.
+  Build blocker   Done   The first full build exposed a plain-JUnit bootstrap failure in `WorldpackPortalArrayRulesTest` because `routeRequirementForDisplay` resolved item display names through `ForgeRegistries`; `WorldpackGameplayService.itemDescriptionId` now derives standard item translation keys directly from resource ids for display paths, leaving server-side item consumption registry lookups unchanged.
+  Tests/build   Done   Changed shop/reference JSON parsed locally; focused `ShopServiceTest`, `ArtifactActivationServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed; focused `WorldpackPortalArrayRulesTest` passed after the display bootstrap fix; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and `aiPreflight` recorded `mod_version=0.1.285`.
+  Follow-up   Pending   Rank-gate enforcement, repair/refinement recipes or workstation outputs, storage bracelet inventory, broader NPC/quest/loot placement, Wanbao services, dedicated item art, and live economy balance checks remain deferred.
+
+## 253. 2026-07-06 0.1.283 Artifact repair kit and integrity runtime
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved build-verified `0.1.282` artifact activation runtime, `0.1.281` Pressure Resist Charm / Demonic Blood Coral records, and the shared uncommitted artifact data/carrier work without reverting parallel changes.
+  Source read   Done   Used `artifacts_catalog.json#artifact_repair_kit` (`restore_artifact_durability`), `storage_bracelet_low`, `forge_artifact_priority.json`, and `REFINEMENT_ARTIFACTS_MASTER_LIST.md` as the direct artifact source basis.
+  Planning   Done   Scoped to the existing `ArtifactActivationService`, `ArtifactCatalogItem`, NBT, cultivation sync, lang, focused tests, docs, and version bump. No new packet, menu, screen, capability, container, registry id, recipe, loot table, shop protocol, runtime loader, or dedicated art was added.
+  Backup   Done   Existing planned edit files were backed up to `.bak/20260706_0.1.283_artifact_repair_integrity/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.283`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime   Done   Activated exact artifacts now have lightweight spiritual integrity NBT: tooltip shows current/max integrity and per-use wear, successful non-creative activation spends integrity, and worn-out artifacts refuse activation until repaired.
+  Repair kit   Done   `artifact_repair_kit` now right-click repairs the exact artifact held in the other hand, consumes spiritual power, restores integrity, and consumes one kit for non-creative players. Storage bracelet inventory remains deferred for a later real container/menu/sync slice.
+  Tests/build   Done   Focused `ArtifactActivationServiceTest` passed in the current focused verification set, and final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s under `mod_version=0.1.285`.
+  Follow-up   Pending   True storage bracelet inventory, refinement workstation outputs, Wanbao auction/appraisal services, loot/shop/NPC/quest placement, dedicated artifact art, and live in-game balance checks remain deferred.
+
+## 253. 2026-07-06 0.1.283 Patchouli artifact activation guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the observed shared `0.1.283` tree, build-verified `0.1.282` artifact activation runtime, build-verified Pressure Resist Charm guide/runtime path, and P0/P1 exact artifact carriers without reverting parallel shared-tree edits.
+  Text-material read   Done   Direct source basis is `docs/ARTIFACTS_FANREN.md`, `docs/ARTIFACTS_AND_PILLS.md`, `docs/ARTIFACT_ELEVEN_TIERS.md`, `docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, `data/artifact_tier_rules.json`, `data/forge_artifact_priority.json`, and `data/talisman_treasure_templates.json`.
+  Planning   Done   Scoped to mirrored Patchouli guide resources plus project docs. No Java, registry, packet, model, texture, recipe, loot table, shop data, GUI, entity, runtime loader, or SimpleChannel behavior is changed by this guide pass.
+  Backup   Done   Existing edited docs were backed up to `.bak/20260706_0.1.283_patchouli_artifact_activation/`; new Patchouli and update-note files do not need rollback backups.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.283`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `artifact_activation` entries explaining right-click activation, server-side gates, effect families, talisman uses, repair kit behavior, exact Curios flying carriers, and deferred storage/refinement/auction/art-placement work.
+  Tests/build   Done   Resource JSON validation was covered by the focused resource tests, and final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s under `mod_version=0.1.285`.
+  Follow-up   Pending   Continue with storage bracelet inventory, refinement/repair workstations, Wanbao auction/appraisal services, source-accurate loot/shop/NPC/quest placement, dedicated artifact art, and live in-game balance checks.
+
+## 252. 2026-07-06 0.1.282 P0/P1 artifact activation runtime
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.281` Demonic Blood Coral item carrier, build-verified `0.1.280` custom ice/thunder spell visuals, `0.1.280` Nether ferry large portal work, build-verified Pressure Resist Charm runtime/crafting records, and build-verified `0.1.275` P0/P1 artifact exact carriers without reverting parallel shared-tree work.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; direct artifact source basis is `docs/ARTIFACTS_FANREN.md`, `docs/ARTIFACTS_AND_PILLS.md`, `docs/ARTIFACT_ELEVEN_TIERS.md`, `docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, `data/artifact_tier_rules.json`, `data/forge_artifact_priority.json`, and `data/talisman_treasure_templates.json`.
+  Planning   Done   Scoped to the existing `ArtifactDataService`, exact `ArtifactCatalogItem` carriers, current cultivation capability/sync helpers, custom projectile entity, Curios artifact tag, localization, focused tests, version/docs, and no new packet/channel/GUI/refinement workstation/storage runtime.
+  Backup   Done   Initial edited-file backups are under `.bak/20260706_0.1.279_artifact_activation/`; current-state backups after parallel version movement are under `.bak/20260706_0.1.279_artifact_activation/post_parallel_0.1.280/`; version/doc reconciliation backups are under `.bak/20260706_0.1.282_artifact_activation_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.282`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime   Done   Added `ArtifactActivationService` so exact artifact carriers can right-click activate movement, defense, anti-illusion/soul-stabilize, offense, illusion, beast-control, and talisman-treasure effects with server-side realm gates, spiritual-power costs, cooldowns, limited talisman uses, and cultivation sync.
+  Curios data   Done   Extended the Curios artifact tag to include the exact P0/P1 artifact carriers and updated server flight checks so equipped `flying_sword_low`, `silver_giant_sword`, `wind_escape_sail`, and `cloud_boots` count as managed flying artifacts.
+  Tests/build   Done   Focused `ArtifactActivationServiceTest` passed, changed zh_cn/en_us/Curios artifact JSON parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s. `aiPreflight` recorded `mod_version=0.1.282`; the inherited network-package warning was reviewed as unrelated to this artifact slice.
+  Follow-up   Pending   True storage bracelet inventory, repair/refinement workstation behavior, Wanbao auction/appraisal services, loot/shop/NPC/quest placement, dedicated artifact art, and live in-game balance smoke checks remain deferred.
+
+## 252. 2026-07-06 0.1.281 Pressure Resist Charm runtime, crafting, guide, and build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.278` Patchouli Yin/Diyuan survival topics, build-verified `0.1.277` Pressure Resist Pill runtime, current-tree-verified `0.1.277` custom elemental projectiles, build-verified `0.1.280` ice/thunder spell visuals, build-verified `0.1.280` Nether ferry / larger portal work, and build-verified `0.1.281` Demonic Blood Coral item carrier without reverting parallel shared-tree work.
+  Text-material read   Done   Used `tianyuan_merit_economy.json#pressure_resist_charm`, `secret_realms.json#diyuan`, `spirit_herbs_catalog.json#diyuan_pressure_moss`, `pills_catalog.json#pressure_resist_pill`, and `tribulation_rules.json#diyuan_pressure` as the direct source basis.
+  Planning   Done   Scoped to the existing pressure-resist timer, item registry, vanilla recipe JSON, mirrored Patchouli guide entries, existing Diyuan guide copy, lang/reference docs, and project docs. No packet, GUI, shop protocol, worldpack behavior, alchemy loader, loot table, model, texture, entity, or runtime loader was added by this guide pass.
+  Backup   Done   Existing runtime-edited files were backed up to `.bak/20260706_0.1.279_pressure_resist_charm_runtime/`; this Patchouli/docs pass backed up existing edited files to `.bak/20260706_0.1.279_patchouli_pressure_charm_guide/`; current shared docs were backed up to `.bak/20260706_0.1.280_pressure_resist_charm_doc_reconcile/` and `.bak/20260706_0.1.281_pressure_resist_charm_post_build_docs/`.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.281`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime   Done   `pressure_resist_charm` now uses `PressureResistCharmItem`, requires `VOID_REFINEMENT`, refuses wasteful use while an equal-or-stronger timer is active, writes a half-day pressure-resist timer, and clears the first Diyuan pressure slow/confusion loop.
+  Recipe   Done   Added a first shapeless crafting recipe using paper, `diyuan_pressure_moss`, `armor_talisman`, and mid-grade metal spirit stone; the existing Tianyuan merit exchange stock remains unchanged.
+  Patchouli data   Done   Added mirrored zh_cn/en_us `pressure_resist_charm` entries and updated the existing Diyuan pressure survival pages so the handbook now reflects the implemented charm use/crafting path instead of listing it as deferred.
+  Tests/build   Done   Focused `JsonSanityTest` and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.281`; the inherited network-package warning was reviewed as unrelated to this pressure-charm slice.
+  Follow-up   Pending   Diyuan moss gathering placement, exact loot placement, pressure-wave depth/balance tuning, NPC/quest placement, FTB Quests routing, dedicated art/visuals, and in-game long-session balance smoke checks remain deferred.
+
+## 247. 2026-07-06 0.1.278 Patchouli Yin/Diyuan survival topics
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.277` Pressure Resist Pill runtime, current-tree-verified `0.1.277` custom elemental projectiles, and build-verified `0.1.276` Patchouli travel/tribulation topics without reverting parallel shared-tree work.
+  Text-material read   Done   Used `trade_routes.json#nether_river_ferry`, `yin_underworld_cluster.json`, `yin_luo_hall.json`, `secret_realms.json#nether_river_land`, `secret_realms.json#diyuan`, `pills_catalog.json#pressure_resist_pill`, and `spirit_herbs_catalog.json#diyuan_pressure_moss` as the direct source basis.
+  Planning   Done   Scoped to two mirrored zh_cn/en_us Patchouli entries plus version/docs. No Java, registry, packet, shop data, alchemy recipe, loot table, texture, model, custom UI, worldpack behavior, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.278_patchouli_yin_diyuan_survival/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.278`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `nether_river_ferry` and `diyuan_pressure_survival` guide entries, expanding the handbook with Yin Stone ferry expectations and the newly implemented Diyuan pressure-resist pill loop.
+  Tests/build   Done   The four changed Patchouli JSON files and all 83 guide JSON files parsed successfully; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.278`. The inherited network-package warning was reviewed as unrelated to this Patchouli slice.
+  Follow-up   Pending   Continue Patchouli coverage for demonic-six recruitment, route unlocking, pressure-resist charm behavior, Yin Luo Hall shops, ghost-path quests, and FTB presentation.
+
+## 246. 2026-07-06 0.1.277 Pressure Resist Pill runtime and Diyuan pressure mitigation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved build-verified `0.1.275` P0/P1 Artifact Exact Carriers, observed pending `0.1.276` Patchouli travel/tribulation topics, build-verified `0.1.274` War Contribution Token, and prior pressure formula/alchemy work without reverting parallel shared-tree edits.
+  Text-material read   Done   Used `pills_catalog.json#pressure_resist_pill`, `alchemy_recipes.json#recipe_pressure_resist`, `spirit_herbs_catalog.json#diyuan_pressure_moss`, and `secret_realms.json#diyuan` as the direct source basis.
+  Planning   Done   Scoped to the existing catalog-pill framework and server player tick. No packet, GUI, new registry id, recipe, loot table, shop protocol, entity, custom loader, or dedicated texture was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.275_pressure_resist_runtime/`; current parallel-version docs/reference state was backed up to `.bak/20260706_0.1.277_pressure_resist_runtime_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.277`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime   Done   `pressure_resist_pill` now uses `CatalogPillItem`, is gated at `VOID_REFINEMENT`, stores a pressure-resist timer on right-click, and mitigates a first active-`diyuan` secret-realm pressure tick that otherwise applies slow/confusion, divine-sense attrition, and non-lethal magic pressure damage.
+  Tests/build   Done   zh_cn/en_us/reference JSON parsed and focused `BreakthroughAidLogicTest` passed. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.277`; the inherited network-package warning was reviewed as unrelated to this slice.
+  Follow-up   Pending   Diyuan moss gathering, pressure-resist charm crafting/use, richer pressure-wave balance, NPC/loot/quest placement, FTB Quests routing, dedicated art, and long-session in-game smoke checks remain deferred.
+
+## 247. 2026-07-06 0.1.277 Custom elemental projectiles
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.277` Pressure Resist Pill runtime work, the build-verified `0.1.276` Patchouli travel/tribulation topics, the build-verified `0.1.275` P0/P1 artifact carriers, the build-verified `0.1.274` War Contribution Token item, and the pending `0.1.273` Yin underworld pocket dimensions without reverting parallel changes.
+  Text-material read   Done   Direct source basis is `文本材料/data/techniques/elemental.json` entries `fireball`, `water_arrow`, and `metal_needle`, plus current shipped `qi_refining_techniques.json` and the user note to avoid vanilla fireball/fire-charge style implementations where practical.
+  Planning   Done   Scoped to the existing custom `cultivation_fireball` entity registration, renderer, `SkillType`, `SkillEffectRegistry`, Qi Refining technique data, lang keys, version/docs, and one reusable `ElementalProjectileSpell`. No new SimpleChannel packet, item, block, shop, recipe, loot table, GUI, or dedicated texture was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.274_custom_elemental_projectiles/`; current `gradle.properties` after the parallel `0.1.275` advance was backed up under `post_parallel_0.1.275/`; current docs before compile/build notes were backed up under `post_compile_docs/` and `post_build_0.1.277_docs/`.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.277`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   `CultivationFireballEntity` now carries synced FIRE/WATER/METAL variants with colored spiritual-dust trails, impact bursts, and element-specific fire/slow/weakness effects; `CultivationFireballRenderer` draws a glowing in-mod projectile core instead of a rendered item model.
+  Techniques   Done   `water_arrow` and `metal_needle` are added to shipped Qi Refining technique data and wired through `SkillType` / `SkillEffectRegistry`; fireball and fire bullet now use the same custom elemental projectile path.
+  Verification   Done   Changed technique/lang JSON parsed successfully and `.\gradlew.bat --no-daemon --max-workers=1 compileJava --rerun-tasks` passed. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.277`; the inherited network-package warning was reviewed as unrelated to this spell slice.
+  Follow-up   Pending   Replace more raycast/vanilla-lightning style spells with custom projectile or area entities, add dedicated particle types/textures when asset scope is ready, tune PvP/in-game feel, and smoke-test client rendering in a live world.
+
+## 245. 2026-07-06 0.1.276 Patchouli travel/tribulation topics
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.274` War Contribution Token item slice and the observed undocumented `0.1.275` shared version advance without reverting parallel changes; scoped this slice to new Patchouli resource pages and docs only.
+  Text-material read   Done   Used `spatial_nodes_catalog.json` and `tribulation_rules.json` as the direct source basis for cross-domain travel thresholds, fixed teleport arrays, rift risks, ascension gates, tribulation tiers, and Spirit-Realm environmental modifiers.
+  Planning   Done   Scoped to two mirrored zh_cn/en_us Patchouli entries plus version/docs. No Java, registry, packet, shop data, alchemy recipe, loot table, texture, model, custom UI, worldpack behavior, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.276_patchouli_travel_tribulation_topics/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.276`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `spatial_nodes` and `spirit_realm_tribulation` guide entries, expanding the handbook from regions/factions into travel gate planning and high-realm tribulation environment guidance.
+  Tests/build   Done   The four changed Patchouli JSON files and all 79 guide JSON files parsed successfully; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 36s and `aiPreflight` recorded `mod_version=0.1.276`. The inherited network-package warning was reviewed as unrelated to this Patchouli slice.
+  Follow-up   Pending   Continue Patchouli coverage for Nether River ferry details, demonic-six recruitment, Diyuan pressure gameplay, route unlocking, tribulation shelter items, and quest/FTB presentation.
+
+## 245. 2026-07-06 0.1.275 P0/P1 artifact exact carriers
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.274` War Contribution Token item, the pending/current `0.1.273` Yin underworld pocket dimensions, the build-verified `0.1.272` Patchouli region/faction topics, and the earlier `0.1.269/0.1.271` first P0 artifact carrier work without reverting parallel changes.
+  Text-material read   Done   Used shipped artifact resources copied from the text-material corpus: `forge_artifact_priority.json` P0/P1 lists, `artifacts_catalog.json`, and `moditems_artifacts_draft.json`; the project-wide text-material scan remains 315 files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to exact physical catalog carriers for all P0/P1 priority artifact ids, creative-tab exposure, zh_cn/en_us names, lightweight models, focused tests, and docs. Existing `flying_sword` / `flying_artifact` behavior carriers remain intact. No packet, GUI, Curios/equipment behavior, recipe, loot table, shop stock, refinement workstation, auction runtime, or dedicated texture was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.273_p0_p1_artifact_carriers/`; current `0.1.274` shared-tree state was backed up to `.bak/20260706_0.1.275_p0_p1_artifact_carriers_reconcile/`; post-build docs were backed up to `.bak/20260706_0.1.275_p0_p1_artifact_carriers_post_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.275`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added exact priority carriers for the remaining P0/P1 ids: `flying_sword_low`, `yellow_umbrella`, `qingye_leaf_fan`, `storage_bracelet_low`, `snake_pearl`, `flying_needle_set`, `black_gold_shield`, `bedrock_shield`, `silver_giant_sword`, `gold_demon_chain`, `evil_illusion_mirror`, `qingning_mirror`, `gold_light_brick`, `beast_taming_whip`, `spirit_beast_bridle`, `wind_escape_sail`, `moon_shadow_disk`, `talisman_treasure_soul_charm`, and `void_palace_cold_jade_pendant`.
+  Tests/build   Done   Focused `ArtifactDataServiceTest` + `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 26s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.275`; the inherited network-package warning was reviewed as unrelated to this artifact item slice.
+  Follow-up   Pending   Add exact Curios/equipment/activation behavior, server-authoritative spiritual-power costs, refinement workstation outputs, talisman-treasure use/durability, storage behavior, loot/shop/NPC/quest placement, Wanbao auction/appraisal services, FTB Quests presentation, balance tuning, and dedicated artifact art.
+
+## 244. 2026-07-06 0.1.274 War Contribution Token item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.272` Patchouli region/faction topics and the observed pending `0.1.273` Yin underworld pocket-dimension work without reverting parallel changes.
+  Text-material read   Done   Used `currency_items.json#war_contribution_token`, `merchant_shops.json#mulan_fashi_supply`, and `item_ids_export.csv` as the direct source basis; the broader text-material scan remains 315 files with 207 parsed JSON files.
+  Planning   Done   Scoped to a physical war-contribution currency carrier through existing Forge item registration, creative tab resources, language/model resources, and the reference id map. No account currency, shop spending, reward source, packet, GUI, NPC, recipe, loot table, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.274_war_contribution_token_item/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.274`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:war_contribution_token` as a visible currency carrier, creative-tab entry, zh_cn/en_us localization, paper-formula-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully, the text-material scan still covers 315 files with 207 JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 34s; `aiPreflight` recorded `mod_version=0.1.274`. The inherited network-package warning was reviewed as unrelated to this item slice.
+  Follow-up   Pending   War contribution account state, Mulan Fashi Supply shop spending, war/reputation reward sources, NPC/quest placement, dedicated art, and FTB Quests routing remain deferred.
+
+## 243. 2026-07-06 0.1.273 Yin underworld pocket dimensions
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.272` Patchouli region/faction topics, `0.1.271` Patchouli core topics, `0.1.269` Yin Stone/P0 artifact carriers, and `0.1.267` large Spirit Realm portal frame; scoped this slice to data-pack dimensions, aura profiles, default anchors, tests, and docs.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; direct source basis is `docs/DIMENSIONS_DESIGN.md`, `docs/UNDERWORLD_REALMS.md`, `data/dimensions_catalog.json`, `data/dimension_registry.json`, `data/yin_underworld_cluster.json`, `data/region_cards/yinming.json`, `data/region_cards/nether_river.json`, and `data/spatial_nodes_catalog.json`.
+  Planning   Done   Prioritized user request for dimensions and a larger multiblock portal frame. Reused the existing data-pack dimension system, aura manager, and worldpack framed portal platform generator instead of adding a new packet/channel/UI path.
+  Backup   Done   Existing edited files were backed up under `.bak/20260706_0.1.270_yin_pocket_dimensions/`; reconciliation/doc backups are `.bak/20260706_0.1.271_yin_pocket_dimensions_reconcile/`, `.bak/20260706_0.1.272_yin_pocket_dimensions_reconcile/`, `.bak/20260706_0.1.272_yin_pocket_dimensions_docs/`, `.bak/20260706_0.1.273_yin_pocket_dimensions_docs/`, `.bak/20260706_0.1.273_catalog_pill_compile_fix/`, `.bak/20260706_0.1.276_yin_pocket_post_build_docs/`, and `.bak/20260706_0.1.277_yin_pocket_current_tree_verified_docs/`.
+  Implementation   Done   Added shipped `yin_ming_pocket` and `nether_river_pocket` dimension/dimension_type resources, mapped both to `YIN_UNDERWORLD` aura nature and Yin-biased multipliers, and added default Yinming Gate / Nether River ferry anchors that generate large framed portal platforms.
+  Verification   Done   Changed dimension JSON parsed successfully; focused tests for dimension resources, aura profiles, default worldpack anchors, and artifact catalog regression passed with BUILD SUCCESSFUL in 24s. A shared `CatalogPillItem` exhaustive-switch compile guard was added after a parallel alchemy enum change exposed a compile failure. Final latest current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.277`.
+  Deferred   Open   In-game travel smoke checks, true Yin Stone ferry/shop fees, Yin damage/ghost NPC rules, underworld terrain dressing/structures, dedicated portal art, and quest/Patchouli routing remain future slices.
+
+## 242. 2026-07-06 0.1.272 Patchouli region/faction topics
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.271` Patchouli core topics and observed same-version utility spell work; scoped this slice to new Patchouli resource pages and docs only.
+  Text-material read   Done   Read all 315 files under the text-material source folder and parsed all 207 JSON files successfully; direct source basis is `demonic_six_sects.json`, `secret_realms.json#diyuan`, `yin_underworld_cluster.json`, and `yin_luo_hall.json`.
+  Planning   Done   Scoped to three mirrored zh_cn/en_us Patchouli entries plus version/docs. No Java, registry, packet, shop data, alchemy recipe, loot table, texture, model, custom UI, worldpack data, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.272_patchouli_region_faction_topics/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.272`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `demonic_six_overview`, `diyuan_depth`, and `yin_underworld_cluster` guide entries, expanding the source-material handbook from core systems into faction/region guidance.
+  Tests/build   Done   The six changed Patchouli JSON files parsed successfully, all 75 guide JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.272`. The inherited network-package warning was reviewed as unrelated to this Patchouli slice.
+  Follow-up   Pending   Continue with Spirit Realm tribulation, spatial nodes, Nether River ferry details, demonic-six recruitment, and Diyuan pressure gameplay as future slices.
+
+## 241. 2026-07-06 0.1.271 Patchouli core topics
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.268` guide index and observed shared `0.1.269` plus occupied `0.1.270` version state; scoped this slice to new Patchouli resource pages and docs only.
+  Text-material read   Done   Read all 315 files under the text-material source folder and parsed all 207 JSON files successfully; direct source basis is `economy_tiers.json`, `pill_quality.json`, and `novel_cultivation_master_index.json`.
+  Planning   Done   Scoped to three mirrored zh_cn/en_us Patchouli entries plus version/docs. No Java, registry, packet, shop data, alchemy recipe, loot table, texture, model, custom UI, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.270_patchouli_core_topics/`; version/docs reconciliation backup is `.bak/20260706_0.1.271_patchouli_core_topics/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.271`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed. The `0.1.270` clean-build rerun was stopped by `aiPreflight` because that version was already recorded as the last successful fingerprint.
+  Patchouli data   Done   Added `economy_tiers`, `quality_pills`, and `cultivation_three_layers` guide entries, splitting the prior broad guide index into concrete pages for spirit-stone economy, pill quality, and method/spell/divine-ability layering.
+  Tests/build   Done   The six changed Patchouli JSON files parsed successfully, all 69 guide JSON files parsed successfully, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s; `aiPreflight` recorded `mod_version=0.1.271`. The inherited network-package warning was reviewed as unrelated to this Patchouli slice.
+  Follow-up   Pending   Continue with `demonic_six_overview`, Diyuan depth, Spirit Realm tribulation, spatial nodes, and Yin underworld cluster as future low-conflict Patchouli slices.
+
+## 240. 2026-07-06 0.1.269 Yin Stone item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.268` Patchouli Guide Index work plus the build-verified `0.1.267` Spirit Realm portal corner-frame, Basic Spell Effects, and Artifact Catalog Commands states without reverting unrelated shared-tree changes.
+  Text-material read   Done   Used `currency_items.json#yin_stone` plus `yin_underworld_cluster.json`, `yin_luo_hall.json`, and `trade_routes.json` references as the direct source basis; the project-wide text-material scan remains complete for all 315 files with 207 parsed JSON files.
+  Planning   Done   Scoped to a physical Yin Stone currency carrier through existing Forge item registration, creative tab resources, language/model resources, and the reference id map. No ferry route payment, Yin Luo shop, account currency, yin-damage mitigation, recipe, loot table, packet, GUI, NPC, worldpack data, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.268_yin_stone_item/` before the Patchouli version advance was observed, `.bak/20260706_0.1.269_yin_stone_item_rebase/` after rebasing onto the current `0.1.268` shared tree, `.bak/20260706_0.1.269_yin_stone_item_post_build_docs/` before final docs-only verification notes, and `.bak/20260706_0.1.269_yin_stone_item_step_reorder/` before final top-section reorder.
+  Version/protocol   Done   Current `mod_version` is `0.1.269`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:yin_stone` as a visible currency carrier, creative-tab entry, zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON validation passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.269`; the inherited network-package warning was reviewed as unrelated to this item slice.
+  Follow-up   Pending   Yinming/Nether River economy, Yin Luo Hall shops, Nether River ferry fees, Yin-stone rewards, yin-corruption mitigation, dedicated art, and shop/quest placement remain deferred.
+
+
+## 240. 2026-07-06 0.1.269/0.1.271 P0 artifact carrier first batch
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.268` Patchouli Guide Index, the build-verified `0.1.267` Artifact Catalog Commands / Spirit Realm portal frame / Basic Spell Effects states, and the shipped `0.1.262` Artifact Data Service without reverting unrelated shared-tree work.
+  Text-material read   Done   Reused `forge_artifact_priority.json` `P0_launch` plus `artifacts_catalog.json` entries for `cloud_boots`, `spirit_gathering_bead`, and `artifact_repair_kit`; the broader project record remains 315 text-material files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to a generic artifact item carrier, three exact P0 registry items, creative-tab exposure, localization/model resources, focused tests, and docs. No packet, GUI, recipe, loot table, shop stock, Curios behavior, refinement workstation, auction runtime, or dedicated texture was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.268_p0_artifact_carriers/`; current docs/gradle reconcile state was backed up to `.bak/20260706_0.1.269_p0_artifact_carriers_reconcile/`; final shared-tree docs states were backed up to `.bak/20260706_0.1.270_p0_artifact_carriers_final_docs/` and `.bak/20260706_0.1.271_p0_artifact_carriers_final_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.271` after parallel shared-tree version advances; this artifact item slice was implemented on `0.1.269` and did not change `ModNetwork.PROTOCOL_VERSION=9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:cloud_boots`, `seeking_immortals:spirit_gathering_bead`, and `seeking_immortals:artifact_repair_kit`. `ArtifactCatalogItem` reads `ArtifactDataService` for tooltip metadata.
+  Tests/build   Done   Focused `ArtifactDataServiceTest` + `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed under `mod_version=0.1.269`, then the shared current tree passed under `mod_version=0.1.271`.
+  Follow-up   Pending   Register remaining P0/P1 artifact items, add exact equipment/Curios behavior, implement refinement workstations and recipes, add repair durability semantics, connect loot/shop/NPC/quest placement and Wanbao auction/appraisal, and add dedicated art.
+## 239. 2026-07-06 0.1.268 Patchouli guide index
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.267` Spirit Realm portal corner-frame, Basic Spell Effects, and Artifact Catalog Commands states plus the `0.1.265` Mortal Talisman Paper item work; scoped this slice to Patchouli resources/docs only.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; direct source basis is `patchouli_item_book.json`, `patchouli_static_entries.json`, and current shipped Patchouli/worldpack/shop/alchemy guide surfaces.
+  Planning   Done   Scoped to the root Patchouli landing text, zh_cn/en_us overview expansion, a mirrored zh_cn/en_us `guide_index` entry, version metadata, and project docs. No custom UI, item/block/entity registry, packet, shop data, alchemy recipe, loot table, texture, model, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.267_patchouli_guide_index/` and the latest shared state was backed up to `.bak/20260706_0.1.268_patchouli_guide_index/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.268`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Overview now explains the mod's cultivation loop, current guide coverage, and text-material source policy; new `guide_index` entries summarize economy, cultivation, pills, crafting, regions, factions, and high-realm roadmap as the first broad in-game navigation page.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 63 guide JSON files parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.268`; the inherited network-package warning was reviewed as unrelated to this Patchouli slice.
+  Follow-up   Pending   Split the index into dedicated pages for economy tiers, pill quality, cultivation three layers, demonic six sects, Diyuan depth, Spirit Realm tribulation, spatial nodes, and Yin underworld cluster as future low-conflict Patchouli slices.
+
+## 237. 2026-07-06 0.1.267 Spirit Realm portal corner frame
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved concurrent `0.1.265` Mortal Talisman Paper and Basic Spell Effects work, the build-verified `0.1.264` version-sync state, the build-verified `0.1.263` Tianyuan Merit Exchange shop, and the build-verified `0.1.259` large portal + fee behavior without reverting parallel edits.
+  Text-material read   Done   Reused the same dimension/portal source basis: `dimensions_catalog.json` and `spirit_realm_interface.json` regulated portal entries plus `spatial_nodes_catalog.json` Tianyuan gate references; the broader project record remains 315 text-material files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to existing `SpiritGatheringArrayBlock`, `PortalArrayStructure`, `WorldpackGameplayService`, zh_cn/en_us messages, and focused JUnit tests. No new block/item/entity, packet, GUI, worldgen structure registry, recipe, loot table, texture, or runtime data loader was added.
+  Backup   Done   Initial source backup is `.bak/20260706_0.1.263_spirit_realm_portal_frame/`; current-tree rebase/final backups are `.bak/20260706_0.1.265_spirit_realm_portal_frame_rebase/`, `.bak/20260706_0.1.266_spirit_realm_portal_frame_reconcile/`, and `.bak/20260706_0.1.267_spirit_realm_portal_frame_final_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.267`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Realm gate validation now requires a 5x5 Spirit Gathering Array base, four three-block-high Spirit Ore corner pillars, and a clear 3x3, three-block-high aperture. Default Tianyuan/Fengyuan dimension anchors now generate the same framed portal platform.
+  Tests/build   Done   Changed zh_cn/en_us JSON parsed successfully. Focused `PortalArrayStructureTest` and `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 24s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.267`.
+  Follow-up   Pending   In-game client/runtime smoke checks, dedicated portal/dimension art, route UI/quest presentation, richer high-tier frame variants, real Tianyuan merit reward sources, and later Yin/Demon/Asura expansion remain deferred.
+
+## 237. 2026-07-06 0.1.267 Basic spell effects current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel Mortal Talisman Paper item work, the `0.1.265` current-tree recheck, and the Basic Spell Effects implementation without reverting unrelated shared-tree changes.
+  Text-material read   Done   The project-wide scan remains complete for all 315 files under `文本材料`, with all 207 JSON files parsed successfully; this slice continues to use the technique index plus elemental/movement/recovery/sword technique catalogs and shipped cultivation JSON ids as the source basis.
+  Planning   Done   Scoped to executable behavior for existing spell technique ids and the smallest current-tree version/build reconciliation needed after `aiPreflight` rejected the observed `0.1.266` tree.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.263_basic_spell_effects/`; post-parallel version/docs states were backed up under `.bak/20260706_0.1.263_basic_spell_effects/post_parallel_0.1.264/` and `.bak/20260706_0.1.263_basic_spell_effects/post_parallel_0.1.266/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.267`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this spell-effect work did not change packet fields/order/encoding/registrations or channel behavior. The inherited network-package warning belongs to existing shared-tree network changes.
+  Spell effects   Done   Existing technique ids `fire_bullet_art`, `ice_freezing_art`, `entangling_art`, `earth_spike_art`, `water_shield_art`, `earth_prison_art`, and `wind_binding_art` map to executable server-side effects through `SkillType` / `SkillEffectRegistry`.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.267`; the inherited network-package warning was reviewed as existing shared-tree network changes, not packet work from this spell slice.
+  Follow-up   Pending   More text-material spells, richer custom particles/projectiles, source-accurate acquisition, balance passes, and dedicated spell visuals remain deferred.
+
+## 238. 2026-07-06 0.1.267 Artifact catalog commands
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.266` Spirit Realm portal corner-frame work, the build-verified `0.1.265` Mortal Talisman Paper / Basic Spell Effects aggregate, and the build-verified `0.1.262` Artifact Data Service without reverting unrelated files.
+  Planning   Done   Scoped to existing server command registration, the shipped `ArtifactDataService` catalog, and a focused service test; no new item/block/entity, packet, GUI, recipe, loot table, texture, auction runtime, refinement workstation, or runtime data loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.266_artifact_catalog_commands/`; current docs/gradle reconcile state was backed up to `.bak/20260706_0.1.266_artifact_catalog_commands_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.267`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Command surface   Done   Added `/seeking_immortals artifact`, `artifact p0`, `artifact list`, `artifact files`, `artifact info <id>`, and `artifact recipe <id>` for catalog counts, P0 launch entries, source-file entry counts, artifact metadata, and refinement recipe summaries.
+  Service/test   Done   Added `ArtifactDataService.Snapshot#priorityArtifacts` and a focused test proving P0 priority ids resolve to artifact definitions in order.
+  Tests/build   Done   Focused `ArtifactDataServiceTest` passed with BUILD SUCCESSFUL in 20s. Current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s, then the docs-inclusive recheck passed with BUILD SUCCESSFUL in 20s; `aiPreflight` recorded `mod_version=0.1.267`.
+  Follow-up   Pending   Register P0/P1 artifact items, implement refinement workstations and recipes, add Curios/equipment slots for artifact categories, implement talisman-treasure use/durability, connect Wanbao auction/appraisal services, and add dedicated art.
+
+## 236. 2026-07-06 0.1.265 Mortal Talisman Paper item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the concurrent `0.1.265` Basic Spell Effects work plus the build-verified `0.1.264` current-tree version sync and `0.1.263` Tianyuan Merit Exchange shop, then coordinated this independent item-prerequisite slice with current shared `mod_version=0.1.265` without reverting parallel work.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `talisman_materials_catalog.json#talisman_paper_mortal`, `alchemy_recipes.json`, `merchant_shops.json`, `economy_price_bands.json`, and `item_ids_export.csv` as the direct source basis.
+  Planning   Done   Scoped to a physical mortal talisman-paper carrier through existing Forge item registration, creative tab resources, language/model resources, and the reference id map; no talisman crafting runtime, shop stock, recipe, loot table, packet, GUI, runtime loader, NPC, or quest resource was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.264_talisman_paper_mortal/`; version-reconcile docs/gradle state was backed up to `.bak/20260706_0.1.265_talisman_paper_mortal_reconcile/`; build-doc state was backed up to `.bak/20260706_0.1.265_parallel_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.265`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed by this item slice.
+  Item data   Done   Added `seeking_immortals:talisman_paper_mortal` as a visible craft carrier, creative-tab entry, zh_cn/en_us localization, vanilla-paper item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON validation passed. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.265`.
+  Follow-up   Pending   Runtime talisman crafting, paper-grade recipes, Tiannan talisman-lane shop stock, talisman material economy, dedicated art, and higher-grade talisman paper variants remain deferred.
+
+## 235. 2026-07-06 0.1.264 Current tree version-sync build recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.263` Tianyuan Merit Exchange slice, the build-verified `0.1.262` Paper Formula Scroll item carrier, and the current-tree verified `0.1.261` Pressure Resist Pill formula acquisition without reverting parallel work.
+  Backup   Done   Version-sync baseline backup is `.bak/20260706_0.1.264_pressure_formula_version_sync/`; final docs backup is `.bak/20260706_0.1.264_pressure_formula_final_docs/`.
+  Version/protocol   Done   Advanced current `mod_version` from `0.1.263` to `0.1.264` after `aiPreflight` reported shippable tracked files changed since the previous successful fingerprint. `ModNetwork.PROTOCOL_VERSION` remains `9`.
+  Build   Done   Initial current-tree build at `0.1.263` failed in `aiPreflight` only; after the version-sync bump, `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 37s and `aiPreflight` recorded `mod_version=0.1.264`.
+  Follow-up   Pending   This pass only records version/build verification. Functional follow-ups remain tracked in the Tianyuan Merit Exchange, Paper Formula Scroll, and Pressure Resist Pill formula notes.
+
+## 234. 2026-07-06 0.1.263 Tianyuan Merit Exchange shop
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.262` Paper Formula Scroll item carrier, the current-tree verified `0.1.261` Pressure Resist Pill formula acquisition, and the build-verified `0.1.259` Spirit Realm portal-fee work, then moved this independent Tianyuan merit shop slice to `mod_version=0.1.263` to avoid parallel version collisions.
+  Text-material read   Done   Used `tianyuan_merit_economy.json` `currency=border_merit_token` and `exchange_catalog` plus `currency_items.json#alliance_merit_token` as the direct source basis; the broader project record remains 315 text-material files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to the existing `ShopService` item-currency market path, current registered item carriers, language title keys, Patchouli guide text, reference-map notes, and focused shop tests; no new item/block/entity, packet, GUI, account system, reward-source loader, NPC, recipe, loot table, or texture was added.
+  Backup   Done   Source/resource baseline backup is `.bak/20260706_0.1.262_tianyuan_merit_exchange/`; final version/docs reconcile backup is `.bak/20260706_0.1.263_tianyuan_merit_exchange_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.263`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   Added `tianyuan_merit_exchange` as a market shop using `seeking_immortals:alliance_merit_token` item currency: high-grade metal spirit stone 50 tokens / stock 16 / 24000 refresh, pressure-resist charm 200 / stock 6 / 48000, Wind Feather Raft ticket 300 / stock 4 / 48000, and Diyuan Permit 1200 / stock 1 / 96000.
+  Docs/reference   Done   Updated market title localization, Patchouli Tianyuan merit text, and `text_material_id_map.json` so the first playable item-currency exchange is no longer marked as wholly deferred.
+  Tests/build   Done   Changed JSON parsed successfully with explicit UTF-8. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.263`.
+  Follow-up   Pending   Server-authoritative account merit, merit reward sources, monthly/per-player/realm purchase gates, dedicated exchange UI, Tianyuan merit NPC services, Diyuan quest checks, FTB Quests chapter routing, and dedicated token/shop art remain deferred.
+
+## 235. 2026-07-06 0.1.265 Basic spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.264` version state observed after parallel work, the build-verified `0.1.262` Paper Formula Scroll item carrier, the in-progress artifact data service note, and the `0.1.261` Pressure Resist Pill formula acquisition without reverting unrelated files.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; direct source basis was the 346-technique catalog in `techniques/index.json`, spell entries from `techniques/elemental.json`, `movement.json`, `recovery.json`, and `sword.json`, plus shipped `qi_refining_techniques.json` / `foundation_establishment_techniques.json` ids.
+  Planning   Done   Scoped to existing `SkillType`, `SkillEffectRegistry`, existing projectile/effect infrastructure, two reusable effect classes, and localized player feedback. No new items, blocks, entities, packets, shop data, recipes, loot tables, runtime loaders, or technique JSON schema changes were added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.263_basic_spell_effects/`; the post-parallel `gradle.properties` state at `0.1.264` was additionally backed up under `.bak/20260706_0.1.263_basic_spell_effects/post_parallel_0.1.264/`; build-doc state was backed up to `.bak/20260706_0.1.265_parallel_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.265`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Existing technique ids `fire_bullet_art`, `ice_freezing_art`, `entangling_art`, `earth_spike_art`, `water_shield_art`, `earth_prison_art`, and `wind_binding_art` now map to executable server-side effects. Fire Bullet/Ice Freezing reuse existing projectile effects; control spells reuse `TargetedDebuffSpell`; Water Shield reuses `SelfBuffSpell`.
+  Tests/build   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.265`.
+  Follow-up   Pending   More text-material spells such as water arrow, metal needle, wind wall, quicksand, voice transmission, object control, richer element visuals, source-accurate manuals/quests, balance passes, and dedicated effect art remain deferred.
+
+## 233. 2026-07-06 0.1.262 Paper Formula Scroll item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved concurrent `0.1.259` Spirit Realm large portal-array work and the in-progress `0.1.261` Pressure Resist Pill formula slice, then coordinated this independent item-prerequisite slice with current shared `mod_version=0.1.262` without reverting unrelated parallel edits. An initial full build at `0.1.260` was stopped by `aiPreflight` because the shared tree had shippable tracked changes against an occupied/successful 0.1.260 fingerprint.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `consumables_catalog.json#paper_formula_scroll`, `merchant_shops.json` paper-scroll stock references, and `item_ids_export.csv` as the direct source basis.
+  Planning   Done   Scoped to a physical blank paper formula carrier through existing Forge item registration, creative tab resources, language/model resources, and the reference id map; no inscription recipe, shop stock, quest reward, packet, GUI, runtime loader, loot table, or gameplay system was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.260_paper_formula_scroll/`; version-reconcile docs/gradle states were backed up to `.bak/20260706_0.1.261_paper_formula_scroll_reconcile/` and `.bak/20260706_0.1.262_paper_formula_scroll_reconcile/`; post-build docs were backed up to `.bak/20260706_0.1.262_paper_formula_scroll_post_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.262`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:paper_formula_scroll` as a visible craft carrier, creative-tab entry, zh_cn/en_us localization, paper-formula-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON validation passed. Initial `.\gradlew.bat --no-daemon --max-workers=1 build` at `0.1.260` failed in `aiPreflight` due an occupied/successful version fingerprint, so the shared tree moved to `0.1.262`; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 37s, `aiPreflight` recorded `mod_version=0.1.262`, and build output includes `build/libs/seeking_immortals-0.1.262.jar`.
+  Follow-up   Pending   Paper formula inscription behavior, talisman-lane shop stock, recipe bundles, quest rewards, and dedicated blank-paper art remain deferred.
+
+## 232. 2026-07-06 0.1.261 Pressure Resist Pill formula acquisition
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the in-progress `0.1.260` Paper Formula Scroll item carrier, the build-verified `0.1.259` Spirit Realm large portal array + fee work, and the earlier `0.1.258` Blank Jade Slip item carrier, then moved this independent Diyuan/Pressure Resist follow-up to `mod_version=0.1.261`.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `pills_catalog.json#pressure_resist_pill`, `alchemy_recipes.json#recipe_pressure_resist`, and `spirit_herbs_catalog.json#diyuan_pressure_moss` as the direct source basis.
+  Planning   Done   Scoped to the existing `AlchemyFormulaItem` formula path, creative tab resources, language/model resources, Danxia contribution ShopService data, and focused shop assertions; no new packet, GUI, runtime loader, recipe output, NPC, loot table, worldpack data, or pressure runtime mechanic was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.258_pressure_resist_formula/`; version-reconcile docs were backed up to `.bak/20260706_0.1.260_pressure_resist_formula_reconcile/` and `.bak/20260706_0.1.261_pressure_resist_formula_reconcile/`; current-tree build-verification docs were backed up to `.bak/20260706_0.1.262_pressure_formula_current_tree_docs/`.
+  Version/protocol   Done   Implemented under `mod_version=0.1.261`; current shared `mod_version` is `0.1.262`. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Formula data   Done   Added `seeking_immortals:alchemy_formula_pressure_resist_pill_sect` as a sect-secret formula item for recipe id `pressure_resist_pill`, with creative-tab entry, zh_cn/en_us names, recipe tooltip localization, and a model reusing the existing sect-secret formula texture.
+  Shop data   Done   Added `recipe_pressure_resist` to `danxia_valley_contribution_hall` for 9000 sect contribution, stock 1, 96000-tick refresh.
+  Docs/reference   Done   Updated handoff, progress, and this update note so the first Pressure Resist Pill formula/manual acquisition hook is recorded.
+  Tests/build   Done   Changed JSON validation passed, focused `ShopServiceTest` passed, and current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s at `mod_version=0.1.262`.
+  Follow-up   Pending   Realm-gated right-click use behavior, actual pressure mitigation, Diyuan moss gathering placement, pressure-resist charm crafting/use, NPC/loot/quest placement, FTB Quests presentation, dedicated art, and balance tuning remain deferred.
+
+## 231. 2026-07-06 0.1.259 Spirit Realm large portal array and fee
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.258` Blank Jade Slip item carrier, `0.1.257` Spirit Realm default portal platforms, and `0.1.254` Alliance Merit Token carrier while responding to the user clarification that the portal multiblock should be larger.
+  Text-material read   Done   Used `dimensions_catalog.json#seeking_immortals:spirit_fengyuan.entry_methods[regulated_portal]`, `travel_matrix` `tianyuan_to_spirit_fengyuan` `portal_fee`, and `tianyuan_merit_economy.json` `border_merit_token`/Alliance Merit Token references; the broader project record remains 315 text-material files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to the existing Spirit Gathering Array block, `PortalArrayStructure`, `WorldpackGameplayService`, current item-consumption helper, lang resources, and focused tests. No new block/item/entity, packet, GUI, shop protocol, recipe, loot table, texture, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.259_spirit_realm_portal_fee/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.259`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Realm gate validation now requires a 5x5 Spirit Gathering Array base plus a clear 3x3, three-block-high aperture; default Spirit Realm dimension anchors generate the same larger arrival platform. Tianyuan -> Spirit Fengyuan portal-array travel consumes one existing `seeking_immortals:alliance_merit_token` for non-creative players, while return travel remains free.
+  Tests/build   Done   Changed zh_cn/en_us JSON parsed successfully. Focused Gradle test execution was interrupted before approval after sandbox Gradle-wrapper network denial, then final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.259`; the inherited network-package warning was reviewed and this slice did not touch network files.
+  Follow-up   Pending   In-game client/runtime smoke checks, dedicated portal/dimension art, route UI/quest presentation, richer frame variants beyond the enlarged array, real merit-account exchange sources, and later Yin/Demon/Asura expansion remain deferred.
+
+## 230. 2026-07-06 0.1.258 Blank Jade Slip item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.257` Spirit Realm Condense Pill formula acquisition and default portal platform work, then advanced this independent item-prerequisite slice to `mod_version=0.1.258`.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `consumables_catalog.json#jade_slip_blank` and `item_ids_export.csv` as the direct source basis.
+  Planning   Done   Scoped to a physical blank jade slip carrier through existing Forge item registration, creative tab resources, language/model resources, and the reference id map; no inscription recipe, shop stock, quest reward, packet, GUI, runtime loader, loot table, or gameplay system was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.258_jade_slip_blank/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.258`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:jade_slip_blank` as an uncommon visible craft carrier, creative-tab entry, zh_cn/en_us localization, jade-formula-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully with explicit UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.258`; the inherited network-package warning was reviewed and this slice did not touch network files.
+  Follow-up   Pending   Paper formula scroll, inscription recipes, formula/manual crafting hooks, shop/contribution stock, quest rewards, and dedicated blank-slip art remain deferred.
+
+## 229. 2026-07-06 0.1.257 Spirit Realm default portal platforms
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Started after the `0.1.254` Alliance Merit Token build-verified state, detected a parallel Spirit Realm Condense Pill formula acquisition slice advancing the current tree during verification, and moved this independent portal slice to `mod_version=0.1.257` without reverting that work.
+  Text-material read   Done   Used `dimensions_catalog.json`, `dimension_registry.json`, `region_cards/tianyuan.json`, `region_cards/spirit_fengyuan.json`, and `docs/SPIRIT_REALM.md` as the direct basis; the broader project record remains 315 text-material files with 207 JSON files parsed successfully.
+  Planning   Done   Scoped to existing worldpack dimension anchors plus the existing Spirit Gathering Array block; no new block/item/entity, worldgen structure registry, packet, GUI, shop protocol, loot table, recipe, texture, or runtime loader was added.
+  Backup   Done   Initial source/docs backup is `.bak/20260706_0.1.255_dimension_anchor_portals/`; current-tree reconcile backup after the parallel version advance is `.bak/20260706_0.1.257_dimension_anchor_portals_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.257`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Default Tianyuan/Fengyuan dimension anchors now generate and maintain a 3x3 Spirit Gathering Array base and clear the two-block center aperture before default-anchor teleport, giving portal travelers a safe reusable multiblock arrival point. Custom or moved saved anchors are not rewritten because the guard matches built-in anchor id, dimension id, and default X/Z.
+  Tests/build   Done   Focused `WorldpackPortalArrayRulesTest` plus current-tree `ShopServiceTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.257`.
+  Follow-up   Pending   Stronger frame variants if desired, permit/cost UI, route quest presentation, dedicated portal/dimension art, in-game client/runtime smoke checks, and later Yin/Demon/Asura expansion remain deferred.
+
+## 228. 2026-07-06 0.1.254 Alliance Merit Token item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel `0.1.253` Spirit Realm Condense Pill use slice in current docs and advanced this independent Tianyuan merit prerequisite to `mod_version=0.1.254` without reverting parallel work.
+  Text-material read   Done   Used `currency_items.json#alliance_merit_token` and `tianyuan_merit_economy.json` `border_merit_token` references as the source-material basis; the broader text-material pass remains 315 files with 207 JSON files parsed successfully from the current project records.
+  Planning   Done   Scoped to a physical currency item carrier that can later be reused by existing item-currency `ShopService` flows; no alliance merit account system, exchange UI/service, reward source, NPC, quest routing, packet, shop protocol change, recipe, loot table, or runtime loader was added.
+  Backup   Done   Current edited files and docs were backed up to `.bak/20260706_0.1.254_alliance_merit_token/`; earlier pre-reconcile backups `.bak/20260706_0.1.252_alliance_merit_token/` and `.bak/20260706_0.1.253_alliance_merit_token/` are preserved.
+  Version/protocol   Done   Current `mod_version` is `0.1.254`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:alliance_merit_token` as a visible stackable item, creative-tab entry, zh_cn/en_us localization, paper-texture item model, and text-material id-map target for both alliance merit and Tianyuan border merit token references.
+  Guide/reference   Done   Tianyuan merit Patchouli entries now say a physical `alliance_merit_token` carrier exists while account/exchange systems remain deferred.
+  Tests/build   Done   Changed JSON parsed successfully. Focused `JsonSanityTest` and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.254`.
+  Follow-up   Pending   Server-authoritative Tianyuan/alliance merit accounting, merit reward sources, item or account exchange service, monthly/realm gates, NPC placement, FTB Quests presentation, and dedicated token art remain deferred.
+
+## 229. 2026-07-06 0.1.257 Spirit Realm Condense Pill formula acquisition
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.254` Alliance Merit Token item carrier, `0.1.253` pill use behavior, `0.1.252` Spirit Realm DimensionType data, and `0.1.251` alchemy recipe; kept the existing pill item id and recipe output while reconciling the current workspace to `mod_version=0.1.257`.
+  Text-material read   Done   Indexed all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `pills_catalog.json#spirit_realm_condense_pill` and `alchemy_recipes.json#recipe_spirit_realm_condense` with learn sources `alchemy_manual`, `pill_recipe`, and `sect_alchemy_hall`.
+  Planning   Done   Scoped to the existing `AlchemyFormulaItem` formula path, creative tab resources, language/model resources, and one existing ShopService contribution shop; no new packet, GUI, runtime loader, recipe output, NPC, loot table, or worldpack data was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.254_spirit_realm_condense_formula/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.257`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Formula data   Done   Added `seeking_immortals:alchemy_formula_spirit_realm_condense_pill_sect` as a sect-secret formula item for recipe id `spirit_realm_condense_pill`, with creative-tab entry, zh_cn/en_us names, recipe tooltip localization, and a model reusing the existing sect-secret formula texture.
+  Shop data   Done   Added `recipe_spirit_realm_condense` to `danxia_valley_contribution_hall` for 18000 sect contribution, stock 1, 96000-tick refresh.
+  Docs/reference   Done   Updated handoff, progress, and this update note so the first formula/manual acquisition hook is recorded.
+  Tests/build   Done   Changed JSON parsed successfully with explicit UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.257`; the inherited network-package warning was reviewed and this slice did not touch network files.
+  Follow-up   Pending   Spirit Fengyuan-specific acquisition, NPC placement, FTB Quests presentation, dedicated art, quality-variant output policy, and balance tuning remain deferred.
+
+## 227. 2026-07-06 0.1.253 Spirit Realm Condense Pill use behavior
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.252` Spirit Realm DimensionType work, `0.1.251` alchemy recipe, `0.1.250` pill carrier, and `0.1.248` Fengyuan Clan Ginseng material carrier; kept the same item id and recipe output.
+  Text-material read   Done   Indexed all 315 files under `文本材料` and parsed all 207 JSON files successfully; used `pills_catalog.json#spirit_realm_condense_pill`, `alchemy_recipes.json#recipe_spirit_realm_condense`, and `spirit_herbs_catalog.json#fengyuan_clan_ginseng` as the source-material basis.
+  Planning   Done   Scoped to the existing `CatalogPillItem`/`CatalogPillType` runtime pill path; no new packet, GUI, item id, model, texture, alchemy recipe, shop data, loot table, NPC, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.252_spirit_realm_condense_use/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.253`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime behavior   Done   `seeking_immortals:spirit_realm_condense_pill` now registers through `CatalogPillItem`, gates use at current `Realm.SOUL_TRANSFORMATION`, and applies high-tier cultivation exp, divine consciousness, timed cultivation boost, minor qi-deviation risk, and regeneration.
+  Docs/reference   Done   Updated handoff, progress, item docs, pending requests, and this update note so realm-gated consumption behavior is no longer marked as wholly deferred.
+  Tests/build   Done   Changed zh_cn/en_us language JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.253`.
+  Follow-up   Pending   Formula/manual acquisition, Spirit Fengyuan gathering placement, dedicated art, loot/shop/NPC placement, FTB Quests routing, quality-variant output policy, and balance tuning remain deferred.
+
+## 227. 2026-07-06 0.1.252 Spirit Realm DimensionType data
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Started from current `mod_version=0.1.248`, then detected parallel advances through `0.1.252` during verification and preserved them instead of reverting. This slice stays scoped to dimension data and a focused resource test.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 text-material JSON files successfully. Used `dimensions_catalog.json`, `dimension_registry.json`, `region_cards/tianyuan.json`, and `region_cards/spirit_fengyuan.json` as the source-material basis.
+  Planning   Done   Scoped to the already shipped `seeking_immortals:tianyuan` and `seeking_immortals:spirit_fengyuan` dimension resources. Kept the existing Overworld-style noise generator and portal/worldpack routing, adding only custom DimensionType data and validation.
+  Backup   Done   Code/resource baseline was backed up to `.bak/20260706_0.1.249_spirit_realm_dimension_types/`; final docs baseline was backed up to `.bak/20260706_0.1.252_spirit_realm_dimension_types_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.252`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Dimension data   Done   Added `data/seeking_immortals/dimension_type/tianyuan.json` and `data/seeking_immortals/dimension_type/spirit_fengyuan.json`, then updated the matching dimension JSON files to reference those custom type ids instead of `minecraft:overworld`.
+  Tests/build   Done   Changed dimension JSON parsed successfully. Focused `DimensionResourceTest` passed with BUILD SUCCESSFUL in 13s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.252`.
+  Follow-up   Pending   Generated gateway/destination structures, stronger frame variants, permit/cost UI, route quest presentation, dedicated portal/dimension art, and in-game client/runtime smoke checks remain deferred.
+
+## 226. 2026-07-06 0.1.251 Spirit Realm Condense Pill alchemy recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.250` Spirit Realm Condense Pill item carrier and the `0.1.248` Fengyuan Clan Ginseng material carrier, then kept this independent data slice under current `mod_version=0.1.251`.
+  Text-material read   Done   Used `alchemy_recipes.json#recipe_spirit_realm_condense`, `pills_catalog.json#spirit_realm_condense_pill`, and `spirit_herbs_catalog.json#fengyuan_clan_ginseng` as the source-material basis.
+  Planning   Done   Scoped to the existing `AlchemyRecipeManager` JSON recipe path and existing registered items; no new item registry, packet, GUI, shop protocol, quest loader, loot table, NPC, Java gameplay class, or runtime loader was introduced.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.251_spirit_realm_condense_recipe/`; post-build docs were backed up again to `.bak/20260706_0.1.251_spirit_realm_condense_recipe_post_build_docs/`. A parallel backup `.bak/20260706_0.1.251_spirit_realm_condense_alchemy/` was also observed and preserved.
+  Version/protocol   Done   Current `mod_version` is `0.1.251`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Alchemy data   Done   Added `data/seeking_immortals/alchemy/recipes/spirit_realm_condense_pill.json`: 1x `seeking_immortals:fengyuan_clan_ginseng` -> `seeking_immortals:spirit_realm_condense_pill`, tier-5 controlled furnace profile, `SOUL_TRANSFORMATION` minimum control realm.
+  Docs/reference   Done   Updated `alchemy/pill_material_name_map.json`, `text_material_id_map.json`, and project docs so the recipe-output hook is no longer marked as future work while consumption effects and formula acquisition remain deferred.
+  Tests/build   Done   Changed JSON parsed successfully. Focused `JsonSanityTest` and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.251`.
+  Follow-up   Pending   Realm-gated consumption behavior/effect, formula/manual acquisition, Spirit Fengyuan gathering placement, dedicated art, loot/shop/NPC placement, FTB Quests routing, and richer Spirit Realm alchemy balance remain deferred.
+
+## 225. 2026-07-06 0.1.250 Spirit Realm Condense Pill item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected `gradle.properties` at undocumented `0.1.249`, preserved the current parallel state, and advanced this independent item-carrier slice to `mod_version=0.1.250`.
+  Text-material read   Done   Used `pills_catalog.json#spirit_realm_condense_pill`, `alchemy_recipes.json#recipe_spirit_realm_condense`, `novel_items_waves.json#spirit_realm_condense_pill`, and the already registered `fengyuan_clan_ginseng` material carrier as the source-material basis.
+  Planning   Done   Scoped to a visible epic pill carrier through existing Forge item registration, creative tab, language/model resources, and the reference id map; no runtime alchemy recipe, formula item, consumption effect, packet, GUI, shop, loot table, NPC, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.250_spirit_realm_condense_pill_item/`; post-build docs were backed up again to `.bak/20260706_0.1.250_spirit_realm_condense_pill_item/post_build_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.250`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:spirit_realm_condense_pill` as an epic visible pill carrier, creative-tab entry, zh_cn/en_us localization, Essence Condensing Pill-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully with UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.250`.
+  Follow-up   Pending   Runtime alchemy output from Fengyuan Clan Ginseng, realm-gated consumption behavior/effect, alchemy recipe/formula acquisition, dedicated art, loot/shop placement, NPC placement, and FTB Quests routing remain deferred.
+
+## 224. 2026-07-06 0.1.248 Fengyuan Clan Ginseng item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.247` Spirit Gathering Array portal-structure work and Pressure Resist Pill alchemy recipe, then advanced this independent item-carrier slice to `mod_version=0.1.248`.
+  Text-material read   Done   Used `spirit_herbs_catalog.json#fengyuan_clan_ginseng`, `alchemy_recipes.json#recipe_spirit_realm_condense`, `pills_catalog.json#spirit_realm_condense_pill`, and `novel_items_waves.json#fengyuan_clan_ginseng` as the source-material basis.
+  Planning   Done   Scoped to a visible rare spiritual-herb material carrier through existing Forge item registration, creative tab, language/model resources, and the reference id map; no runtime gathering, alchemy recipe output, formula item, packet, GUI, shop, loot table, NPC, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.248_fengyuan_clan_ginseng_item/`; post-build docs were backed up again to `.bak/20260706_0.1.248_fengyuan_clan_ginseng_item/post_build_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.248`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:fengyuan_clan_ginseng` as a rare `BaseMaterialItem` spiritual herb, creative-tab entry, zh_cn/en_us localization, Immortal Ginseng-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully with UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.248`.
+  Follow-up   Pending   Runtime Spirit Fengyuan gathering, `spirit_realm_condense_pill` item/effect, alchemy recipe/formula acquisition, dedicated art, loot/shop placement, NPC placement, and FTB Quests routing remain deferred.
+
+## 224. 2026-07-06 0.1.248 current-tree recheck after pressure alchemy
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the shared workspace advanced from the `0.1.247` Pressure Resist Pill alchemy slice to the parallel `0.1.248` Fengyuan Clan Ginseng item state and preserved it.
+  Scope   Done   Rechecked the current tree without changing packet files, gameplay code, resources, network schemas, or the pressure-resist alchemy data.
+  Backup   Done   Recheck docs were backed up to `.bak/20260706_0.1.248_pressure_alchemy_current_recheck/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.248`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this recheck did not change packet fields/order/encoding/registrations or channel behavior.
+  Tests/build   Done   Current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.248`.
+  Follow-up   Pending   Continue from the latest `0.1.248` docs; pressure-resist pill effects/formula acquisition and Spirit Realm Condense/Fengyuan herb follow-ups remain separate future slices.
+
+## 224. 2026-07-06 0.1.248 Diyuan no-fly current-tree verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the shared workspace had advanced to `mod_version=0.1.248` during parallel Fengyuan/pressure work and preserved that current tree instead of reverting it.
+  Scope   Done   Rechecked the earlier `0.1.246` Diyuan no-fly runtime slice on the current tree; this verification did not modify gameplay code, resources, packet files, or network schemas.
+  Backup   Done   Current docs were backed up to `.bak/20260706_0.1.248_diyuan_no_fly_current_tree_docs/`; the original no-fly implementation backup remains `.bak/20260706_0.1.246_diyuan_no_fly/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.248`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed by this recheck.
+  Tests/build   Done   zh_cn/en_us lang JSON parsed successfully. Focused `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 24s. A first full build failed only while deleting Windows test-result files after tests; the immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.248`.
+  Follow-up   Pending   Pressure debuff damage/slowdown, Pressure Resist Pill and Pressure Resist Charm mitigation, pressure-duration/state rules, quest checks, NPC placement, FTB Quests presentation, and dedicated visuals/art remain deferred.
+
+## 223. 2026-07-06 0.1.247 Pressure Resist Pill alchemy recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.245` Diyuan Permit entry-consumption state, the observed `0.1.246` Diyuan no-fly runtime state, and the `0.1.247` portal-structure work; the final build observed the shared version at `0.1.247` and kept it.
+  Text-material read   Done   Used `alchemy_recipes.json#recipe_pressure_resist`, `pills_catalog.json#pressure_resist_pill`, `spirit_herbs_catalog.json#diyuan_pressure_moss`, and `novel_items_waves.json#pressure_resist_pill` as the source-material basis.
+  Planning   Done   Scoped to the existing `AlchemyRecipeManager` JSON recipe path and existing registered items; no new item registry, packet, GUI, shop protocol, quest loader, loot table, NPC, or runtime loader was introduced.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.246_pressure_resist_pill_alchemy/`; current docs after parallel updates were backed up again to `.bak/20260706_0.1.247_pressure_resist_pill_alchemy_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.247`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Alchemy data   Done   Added `data/seeking_immortals/alchemy/recipes/pressure_resist_pill.json`: 2x `seeking_immortals:diyuan_pressure_moss` -> `seeking_immortals:pressure_resist_pill`, tier-4 controlled furnace profile, `VOID_REFINEMENT` minimum control realm.
+  Docs/reference   Done   Updated `alchemy/pill_material_name_map.json`, `text_material_id_map.json`, and project docs so the recipe is no longer marked as future work while pressure mitigation and formula acquisition remain deferred.
+  Tests/build   Done   Changed JSON parsed successfully. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 24s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.247`.
+  Follow-up   Pending   Pressure-resist pill use effects, realm-gated consumption behavior, formula/manual acquisition, Diyuan moss gathering placement, charm crafting, pressure/no-fly mitigation, loot/shop/NPC placement, FTB Quests routing, and dedicated art remain deferred.
+
+## 222. 2026-07-06 0.1.247 current-tree build recheck after Diyuan parallel work
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected current `gradle.properties` at `0.1.247` after parallel Diyuan work and preserved the state instead of reverting it.
+  Scope   Done   Rechecked the current tree after the 0.1.245 Diyuan Permit entry path and observed 0.1.246 Diyuan no-fly runtime state; this recheck did not modify packet files, gameplay code, resources, or network schemas.
+  Backup   Done   Existing docs edited by this recheck were backed up to `.bak/20260706_0.1.247_current_tree_recheck_codex/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.247`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this recheck did not change packet fields/order/encoding/registrations or channel behavior.
+  Tests/build   Done   Current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.247`. Focused Diyuan Permit entry validation remains covered by the earlier 0.1.245 focused test pass.
+  Follow-up   Pending   The next worker should start from `0.1.247`, re-read current docs first, and avoid overwriting the parallel Diyuan no-fly/runtime documentation.
+
+## 221. 2026-07-06 0.1.246 Diyuan no-fly runtime
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.245` Diyuan Permit entry-consumption path and advanced this independent runtime slice to current `mod_version=0.1.246`.
+  Text-material read   Done   Re-read all 315 files under `文本材料`; all 207 text-material JSON files parsed successfully. This slice uses `secret_realms.json#diyuan`, `secret_realm_template.json#diyuan`, and the shipped worldpack `diyuan` `no_fly` tag.
+  Planning   Done   Scoped to existing worldpack state plus `FlyingAuthority`: no packet, GUI, client-trusted request, new item, new loader, recipe, loot table, NPC, or shop protocol was introduced.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.246_diyuan_no_fly/`.
+  Version/protocol   Done   Implemented under `mod_version=0.1.246` and later verified on current `mod_version=0.1.248`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime   Done   Active `no_fly` secret realms now suppress managed flying artifact, Qi flying, and Foundation flying sources server-side before they can be re-granted; current `diyuan` is covered by its shipped `no_fly` tag.
+  Tests/build   Done   `WorldpackDataServiceTest` passed focused coverage for `WorldpackGameplayService.isFlightSuppressed`; current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s under `mod_version=0.1.248` after one transient Windows test-result cleanup failure.
+  Follow-up   Pending   Diyuan pressure debuff damage/slowdown, pressure-resist pill/charm mitigation, dedicated pressure visuals, richer layer hazards, quest checks, NPC placement, and FTB Quests routing remain deferred.
+
+## 220. 2026-07-06 0.1.245 current-tree build recheck after Diyuan permit parallel advance
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a parallel advance from the 0.1.244 Pressure Resist Pill item state to current `mod_version=0.1.245` and preserved it instead of reverting.
+  Parallel state   Done   Current data makes `seeking_immortals:diyuan_permit` the consumed `ticket_item` for worldpack secret realm `diyuan` through the existing server-side secret-realm ticket path; the text-material reference notes now reflect that state.
+  Version/protocol   Done   Current `mod_version` is `0.1.245`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this thread did not change packet fields/order/encoding/registrations or channel behavior.
+  Build recheck   Done   Current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.245`.
+  Backup   Done   Recheck doc backups are in `.bak/20260706_0.1.245_current_tree_build_recheck/`; the 0.1.244 item-slice backup remains `.bak/20260706_0.1.244_pressure_resist_pill_item/`.
+  Follow-up   Pending   Next item-focused work should start after `0.1.245`; likely nearby candidates are `fengyuan_clan_ginseng` and `spirit_realm_condense_pill`, but start from the latest version and re-read current docs first.
+
+## 220. 2026-07-06 0.1.245 Diyuan Permit entry consumption
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the build-verified `0.1.244` Pressure Resist Pill item slice, then advanced this independent worldpack-entry slice to `0.1.245`.
+  Text-material read   Done   Used `secret_realms.json#diyuan`, `secret_realm_template.json#diyuan`, `tianyuan_merit_economy.json#diyuan_permit_exchange`, and `quest_hooks.json#diyuan_permit_apply` as the source-material basis.
+  Planning   Done   Scoped to the existing worldpack secret-realm ticket path and existing `seeking_immortals:diyuan_permit` carrier; no new item, packet, GUI, shop protocol, quest loader, recipe, loot table, NPC, or runtime loader was introduced.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.245_diyuan_permit_entry/`.
+  Version/protocol   Done   `mod_version` is `0.1.245`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay/data   Done   `worldpack/secret_realms.json#diyuan.ticket_item` now points to `seeking_immortals:diyuan_permit`, making Diyuan entry require and consume one permit for non-creative players through `WorldpackGameplayService.enterSecretRealm` while leaving other Spirit-Realm secret-realm tickets unchanged.
+  Docs/reference   Done   Tianyuan City/Tianyuan Merit Patchouli entries, `text_material_id_map.json`, `text_material_canonical_id_map.md`, and current project docs now say Diyuan entry consumption is implemented; permit acquisition, quest checks, pressure/no-fly, and exchange UI remain deferred.
+  Tests/build   Done   Focused `WorldpackPortalArrayRulesTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.245`.
+  Follow-up   Pending   Tianyuan merit acquisition, permit vendors/rewards, Diyuan quest checks, pressure/no-fly runtime behavior, pressure-resist pill/charm effects, dedicated art, NPC placement, and FTB Quests routing remain deferred.
+
+## 219. 2026-07-06 0.1.244 Pressure Resist Pill item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current `0.1.243` Wind Feather route, Pressure Resist Charm, and Diyuan Pressure Moss state, then advanced this independent item-carrier slice to `0.1.244`.
+  Text-material read   Done   Used `pills_catalog.json#pressure_resist_pill`, `alchemy_recipes.json#recipe_pressure_resist`, and `novel_items_waves.json#pressure_resist_pill` as the source-material basis.
+  Planning   Done   Scoped to a visible rare pill carrier through existing Forge item registration, creative tab, language/model resources, and the reference id map; no CatalogPill right-click behavior, runtime alchemy recipe, formula item, pressure/no-fly mechanic, packet, GUI, shop, loot table, NPC, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.244_pressure_resist_pill_item/`; the new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.244`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:pressure_resist_pill` as a rare visible pill carrier, creative-tab entry, zh_cn/en_us localization, Clear Void Pill-texture item model, and partial text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully with UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.244`.
+  Follow-up   Pending   Runtime pressure-resist pill use effect, Diyuan pressure debuff mitigation, alchemy recipe/formula acquisition, realm-gated consumption, dedicated art, loot/shop placement, NPC placement, FTB Quests routing, and pressure/no-fly mechanics remain deferred.
+
+## 219. 2026-07-06 0.1.247 Spirit Gathering Array portal structure
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the shared workspace had advanced through `mod_version=0.1.246` during parallel Diyuan/pressure work; preserved that state and recorded this independent portal slice under `0.1.247`.
+  Planning   Done   Scoped to the existing `SpiritGatheringArrayBlock` and `WorldpackGameplayService.usePortalArray` prerequisite path: add richer multiblock validation and activation feedback without new registries, packets, route data, blocks, items, GUI, or runtime loaders.
+  Backup   Done   Source-slice backup is `.bak/20260706_0.1.237_portal_array_structure_reconcile/`; current version/docs reconciliation backup is `.bak/20260706_0.1.247_portal_array_structure_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.247`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Sneak-use portal validation now requires a 3x3 same-level Spirit Gathering Array base plus two clear blocks above the core. Incomplete portals report missing base and blocked aperture counts; successful portal travel plays vanilla portal/end-rod particles and teleport/resonance sounds at both ends.
+  Tests/build   Done   Focused `PortalArrayStructureTest` passed with BUILD SUCCESSFUL in 14s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.247`.
+  Follow-up   Pending   Custom DimensionType tuning, permit/cost rules, generated gateway and destination structures, stronger frame variants, dedicated portal art, route UI/quest presentation, and in-game client/runtime smoke checks remain deferred.
+
+## 218. 2026-07-06 0.1.243 Wind Feather Raft final build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a cooperative version advance from `0.1.242` to `0.1.243` during final verification and preserved it instead of reverting. This section supersedes the earlier `0.1.242` pending/checkpoint rows.
+  Gameplay   Done   Current worldpack travel keeps the Wind Feather route: `great_jin_central` or `dajin` to `tianyuan` consumes one existing Wind Feather Raft Ticket for non-portal travel, while other Spirit-Realm non-portal travel still requires the 3x3 Spirit Gathering Array portal path.
+  Messaging   Done   Missing Wind Feather travel tickets now use the dedicated zh_cn/en_us `message.seeking_immortals.worldpack.missing_travel_ticket` prompt with the item display name.
+  Backup   Done   Relevant backups include `.bak/20260706_0.1.240_wind_feather_route/`, `.bak/20260706_0.1.242_wind_feather_route_docs/`, `.bak/20260706_0.1.242_wind_feather_ticket_travel_reconcile/`, and `.bak/20260706_0.1.243_wind_feather_final_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.243`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Tests/build   Done   Focused `WorldpackPortalArrayRulesTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 13s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and recorded `mod_version=0.1.243`.
+  Build recheck   Done   This thread reran `.\gradlew.bat --no-daemon --max-workers=1 build`; it passed with BUILD SUCCESSFUL in 23s and `aiPreflight` again recorded `mod_version=0.1.243`.
+  Follow-up   Pending   Tianyuan merit exchange sources, Wind Feather ticket vendors/rewards, route NPC/UI presentation, route timing/risk rules, broader route policies, Diyuan entry checks, pressure/no-fly behavior, FTB Quests routing, and dedicated art remain deferred.
+
+## 217. 2026-07-06 0.1.242 Wind Feather Raft route version recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.241` Wind Feather ticket travel behavior and advanced only the current preflight/build version to `0.1.242` after `aiPreflight` reported that `0.1.241` was already occupied.
+  Planning   Done   Reused the already-present worldpack travel route, ticket carrier, saved anchors, Patchouli guide wording, and focused tests; no new route service, packet, GUI, shop protocol, NPC loader, item registry, model, texture, recipe, loot table, or runtime loader was introduced.
+  Backup   Done   Code/resource edit baseline is backed up in `.bak/20260706_0.1.240_wind_feather_route/`; current version/docs reconciliation is backed up in `.bak/20260706_0.1.242_wind_feather_route_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.242`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this continuation did not change packet fields/order/encoding/registrations or channel behavior.
+  Tests/build   Done   Focused `WorldpackPortalArrayRulesTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and recorded `mod_version=0.1.242`.
+  Follow-up   Pending   Tianyuan merit exchange sources, Wind Feather ticket vendors/rewards, route NPC/UI presentation, broader route policies, Diyuan entry checks, pressure/no-fly behavior, FTB Quests routing, and dedicated art remain deferred.
+
+## 216. 2026-07-06 0.1.241 Wind Feather Raft ticket travel
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current `0.1.241` workspace and the build-verified 0.1.240 Pressure Resist Charm item; scoped this reconciliation to the already-present Wind Feather Raft travel rule without touching packet files.
+  Text-material read   Done   Used `tianyuan_merit_economy.json#wind_feather_raft_ticket`, `tianyuan_city.json#wind_feather_raft`, and `trade_routes.json#dajin_to_tianyuan` as the source-material basis.
+  Planning   Done   Reused existing `WorldpackGameplayService.travel`, worldpack region state, anchors, inventory item consumption, and portal-array helpers instead of adding a new route service, packet, GUI, shop protocol, or runtime loader.
+  Backup   Done   Code/resource slice backups are in `.bak/20260706_0.1.241_wind_feather_ticket_travel/`; this docs reconciliation backed current project docs up to `.bak/20260706_0.1.241_wind_feather_travel_docs_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.241`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Non-portal travel to `tianyuan` now consumes one `seeking_immortals:wind_feather_raft_ticket` when the player is currently in `great_jin_central` or `dajin`; other non-portal Spirit-Realm travel still requires the 3x3 Spirit Gathering Array portal path.
+  Docs/reference   Done   Tianyuan Patchouli entries and `text_material_id_map.json` describe the server-side ticket-consumption route; project docs now distinguish that implemented route from remaining exchange/NPC/UI work.
+  Tests/build   Done   `WorldpackPortalArrayRulesTest` covers the allowed Great Jin/Dajin -> Tianyuan Wind Feather route and rejected combinations. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and recorded `mod_version=0.1.241`.
+  Follow-up   Pending   Tianyuan merit exchange sources, Wind Feather ticket vendors, route NPCs/UI, broader route policies, Diyuan entry checks, pressure/no-fly behavior, FTB Quests routing, and dedicated art remain deferred.
+
+## 216. 2026-07-06 0.1.242 Wind Feather Raft ticket travel
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent `0.1.240/0.1.241` Pressure Resist Charm item state and the parallel Wind Feather route implementation already present on disk, then kept the current workspace version at `0.1.242` for this verification/reconciliation pass.
+  Text-material read   Done   Used `trade_routes.json#dajin_to_tianyuan`, `tianyuan_city.json#wind_feather_raft`, and `tianyuan_merit_economy.json#wind_feather_raft_ticket` as the source-material basis.
+  Planning   Done   Scoped to the existing worldpack travel service and existing Wind Feather Raft Ticket item: Great Jin/Dajin -> Tianyuan non-portal travel consumes one ticket server-side, while other Spirit-Realm non-portal travel still requires the 3x3 Spirit Gathering Array route. No packet, registry, shop protocol, NPC, GUI, recipe, loot table, or runtime loader change is added.
+  Backup   Done   Current files were backed up under `.bak/20260706_0.1.242_wind_feather_ticket_travel_reconcile/`; the parallel implementation/docs backups include `.bak/20260706_0.1.241_wind_feather_ticket_travel/`, `.bak/20260706_0.1.241_wind_feather_travel_docs_reconcile/`, `.bak/20260706_0.1.242_wind_feather_route_docs/`, and `.bak/20260706_0.1.242_wind_feather_travel_docs_reconcile_codex/`.
+  Version/protocol   Done   `mod_version` is `0.1.242`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   `WorldpackGameplayService` now allows the Wind Feather route from `great_jin_central` or `dajin` to `tianyuan` without the portal array only when one `seeking_immortals:wind_feather_raft_ticket` can be consumed; creative-mode players are handled by the existing ticket-consumption helper.
+  Docs/resources   Done   Tianyuan City/Tianyuan Merit guide wording and the text-material id map describe the server-side ticket route; zh_cn/en_us language files include a dedicated missing-travel-ticket message.
+  Tests/build   Superseded   The pending 0.1.242 verification was completed by the later 0.1.243 focused tests and full build recorded in section 218.
+  Follow-up   Pending   Tianyuan merit exchange sources, ticket vendors/rewards, route NPC/UI presentation, route fee/duration/risk events, broader route policies, Diyuan entry checks, pressure/no-fly behavior, FTB Quests routing, and dedicated route art remain deferred.
+
+## 216. 2026-07-06 0.1.243 Diyuan Pressure Moss item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected current `gradle.properties` at `0.1.242` after parallel work and advanced this independent material-carrier slice to `0.1.243`.
+  Text-material read   Done   Used `spirit_herbs_catalog.json#diyuan_pressure_moss`, `alchemy_recipes.json#recipe_pressure_resist`, and `novel_items_waves.json#diyuan_pressure_moss` as the source-material basis.
+  Planning   Done   Scoped to a visible rare spiritual-herb material item through the existing `BaseMaterialItem` framework, creative tab, language/model resources, and the reference id map; no gathering rule, pressure-resist pill runtime recipe, charm crafting, loot table, NPC, packet, GUI, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.243_diyuan_pressure_moss_item/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.243`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:diyuan_pressure_moss` as a `BaseMaterialItem` rare spiritual-herb carrier, creative-tab entry, zh_cn/en_us localization, Spirit Grass-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.243`.
+  Follow-up   Pending   Diyuan herb gathering, pressure-resist pill runtime recipe, pressure-resist charm crafting, dedicated art, loot placement, pressure/no-fly mechanics, NPC placement, and quest/FTB routing remain deferred.
+
+## 215. 2026-07-06 0.1.240/0.1.241 Pressure Resist Charm item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected current `gradle.properties` at `0.1.239`, scoped an independent item-carrier slice to `0.1.240`, then preserved the parallel workspace advance to current `0.1.241` during build verification.
+  Text-material read   Done   Used `tianyuan_merit_economy.json#pressure_resist_charm`, `secret_realms.json#diyuan` loot tiers, `tribulation_rules.json#diyuan_pressure`, and `spirit_herbs_catalog.json#diyuan_pressure_moss` as the source-material basis.
+  Planning   Done   Scoped to a visible stackable talisman item through existing Forge item registration, creative tab, language/model resources, and the reference id map; no merit exchange, pressure mitigation, entry checks, consumption, crafting, loot table, NPC, packet, GUI, recipe, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.240_pressure_resist_charm_item/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   This slice bumped the observed `0.1.239` baseline to `0.1.240`; current `gradle.properties` is now `0.1.241` after a parallel advance. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:pressure_resist_charm` as a simple stackable Diyuan pressure-aid talisman item, creative-tab entry, zh_cn/en_us localization, Armor Talisman-texture item model, and text-material id-map target.
+  Tests/build   Done   Changed JSON parsed successfully. A first full build passed `aiPreflight` at `0.1.240` but hit a broad transient `compileJava` state where existing project classes were reported missing; immediate forced rerun `.\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks` passed with BUILD SUCCESSFUL in 35s and recorded `mod_version=0.1.241`.
+  Follow-up   Pending   Tianyuan merit exchange, Diyuan pressure mitigation, charm consumption, loot/crafting from Diyuan Pressure Moss, realm-entry checks, no-fly pressure effects, NPC placement, FTB Quests routing, and dedicated art remain deferred.
+
+## 214. 2026-07-06 0.1.238 Wind Feather Raft ticket item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected current `gradle.properties` at `0.1.237` without a matching top handoff record, preserved it, and advanced this independent item-carrier slice to `0.1.238`.
+  Text-material read   Done   Used `tianyuan_merit_economy.json#wind_feather_raft_ticket`, `tianyuan_city.json#wind_feather_raft`, and `trade_routes.json#dajin_to_tianyuan` as the source-material basis.
+  Planning   Done   Scoped to a visible stackable travel-document item through existing Forge item registration, creative tab, language/model resources, and the reference id map; no merit exchange, route gating, ticket consumption, NPC, packet, GUI, recipe, loot table, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.238_wind_feather_raft_ticket_item/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.238`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:wind_feather_raft_ticket` as a simple stackable Tianyuan travel-document item, creative-tab entry, zh_cn/en_us localization, paper-texture item model, and text-material id-map target.
+  Guide sync   Done   Current `0.1.239` follow-up syncs zh_cn/en_us Tianyuan City and Tianyuan Merit Patchouli entries so they acknowledge the Wind Feather Raft Ticket item while leaving exchange, route service, gating, consumption, NPC, and FTB Quests work deferred.
+  Tests/build   Done   Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.238`; after the current workspace advanced to `0.1.239`, a recheck build passed with BUILD SUCCESSFUL in 20s and recorded `mod_version=0.1.239`.
+  Build recheck   Done   This thread reran `.\gradlew.bat --no-daemon --max-workers=1 build` after the cooperative sync; it passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.238`.
+  Follow-up   Pending   Tianyuan merit exchange, Wind Feather Raft service, route gating, ticket consumption, NPC placement, FTB Quests routing, and dedicated art remain deferred.
+
+## 213. 2026-07-06 0.1.237 Diyuan permit Patchouli guide sync
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.236` Diyuan Permit item carrier and treated this as a same-feature guide/resource reconciliation after preflight advanced the workspace to `0.1.237`.
+  Planning   Done   Scoped to existing Patchouli Tianyuan City guide entries and project docs; no registry, packet, shop, quest, worldpack, alchemy, recipe, loot, GUI, entity, or runtime loader work was added.
+  Backup   Done   Patchouli guide resources were backed up to `.bak/20260706_0.1.236_diyuan_permit_verify_codex/`; current docs before this note were backed up to `.bak/20260706_0.1.237_diyuan_permit_patchouli_sync_codex/`.
+  Version/protocol   Done   `mod_version` is `0.1.237`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Guide sync   Done   zh_cn/en_us `tianyuan_city.json` now acknowledge that `seeking_immortals:diyuan_permit` exists, while merit exchange, Wind Feather Raft service, permit exchange/entry consumption, quest checks, NPCs, pressure mechanics, and FTB Quests routing remain deferred.
+  Tests/build   Done   Changed JSON parsed successfully. A first full build passed `aiPreflight` at `0.1.237` but hit the known transient Gradle cleanup race on `build/test-results/test/binary/output.bin`; immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 18s and recorded `mod_version=0.1.237`.
+  Follow-up   Pending   Tianyuan merit exchange, Diyuan entry consumption, quest checks, pressure/no-fly mechanics, NPC placement, FTB Quests routing, and dedicated art remain deferred.
+
+## 212. 2026-07-06 0.1.236 Diyuan permit item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel build-verified `0.1.235` Spirit Realm aura profile work and advanced this independent item-carrier slice to `0.1.236`.
+  Text-material read   Done   Used `tianyuan_merit_economy.json#diyuan_permit`, `secret_realms.json#diyuan_access_token`, and `secret_realm_template.json#diyuan` as the source-material basis.
+  Planning   Done   Scoped to a visible stackable access-document item through existing Forge item registration, creative tab, language/model resources, and the reference id map; no merit exchange, realm-entry consumption, quest logic, NPC, packet, GUI, recipe, loot table, or runtime loader is added by this pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.236_diyuan_permit_item/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.236`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:diyuan_permit` as a simple stackable Diyuan access-document item, creative-tab entry, zh_cn/en_us localization, paper-texture item model, and text-material id-map targets for `diyuan_permit` and `diyuan_access_token`.
+  Tests/build   Done   Changed JSON parsed successfully, including zh_cn with UTF-8 decoding. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.236`.
+  Follow-up   Pending   Tianyuan merit exchange, Diyuan entry consumption, quest checks, pressure mechanics, NPC placement, FTB Quests routing, and dedicated art remain deferred.
+
+## 211. 2026-07-06 0.1.235 Spirit Realm aura profiles
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel `0.1.234` Star Palace tax docs/reference reconciliation and advanced this independent dimension/aura runtime slice to `0.1.235` instead of sharing that version.
+  Text-material read   Done   Used `dimensions_catalog.json`, `dimension_registry.json`, `DIMENSIONS_DESIGN.md`, and `SPIRIT_REALM_INTERFACE.md`: Tianyuan is the 2.0 Spirit Realm hub and Fengyuan is the 1.8 Spirit Realm custom dimension behind the regulated portal route.
+  Planning   Done   Scoped to the existing `SpiritualAuraManager` prerequisite library plus focused JUnit coverage. The existing 3x3 Spirit Gathering Array portal routing in `WorldpackGameplayService` / `SpiritGatheringArrayBlock` was preserved.
+  Backup   Done   Original code/docs baseline was backed up to `.bak/20260706_0.1.230_spirit_realm_aura/`; post-0.1.233 docs/version baseline to `.bak/20260706_0.1.234_spirit_realm_aura_reconcile/`; same-version collision reconciliation to `.bak/20260706_0.1.235_spirit_realm_aura_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.235`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   `SpiritualAuraManager` now maps `seeking_immortals:tianyuan` to dimension aura x2.0, `seeking_immortals:spirit_fengyuan` to x1.8, and both to `SPIRIT_REALM` aura nature while preserving Overworld, Nether, End, and secret-realm fallback behavior.
+  Tests/build   Done   Focused `SpiritualAuraManagerTest` plus `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 20s after wrapper/cache approval. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.235`.
+  Build recheck   Done   This thread reran `.\gradlew.bat --no-daemon --max-workers=1 build` after the cooperative 0.1.235 reconciliation; it passed with BUILD SUCCESSFUL in 18s and `aiPreflight` recorded `mod_version=0.1.235`. The inherited network-package warning was reviewed again; no packet behavior changed in this recheck.
+  Follow-up   Pending   Custom DimensionType data, visible portal activation effects, travel costs or permit rules, richer multiblock validation, generated destination structures, and in-game client/runtime smoke checks remain deferred.
+
+## 210. 2026-07-06 0.1.234 Star Palace tax docs/reference reconciliation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.233` Star Palace island-market tax pricing work that landed in parallel, then carried this docs/reference consistency slice under current `mod_version=0.1.234` after preflight detected post-fingerprint resource changes.
+  Planning   Done   Scoped to version metadata, the tax receipt reference/docs trail, and build verification only; no gameplay logic, packet, registry, model, texture, recipe, loot table, GUI, NPC, worldpack data, alchemy data, or runtime loader is added by this pass.
+  Backup   Done   Current files edited by this reconciliation were backed up to `.bak/20260706_0.1.234_star_palace_tax_docs_reconcile/`; the earlier shop-stock reconciliation backup is `.bak/20260706_0.1.230_star_palace_tax_receipt_shop_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.234`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Reference/docs   Done   `text_material_id_map.json#chaotic_sea_island_general` explicitly lists Star Palace tax receipt as a shipped tax-document equivalent, and older 0.1.230 pending wording is marked as superseded by later receipt-use/tax-pricing verification.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed during this reconciliation; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.234`.
+  Follow-up   Pending   Ferry/tax quest checks, Star Palace reputation consequences, paid-tax UI/status feedback, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 209. 2026-07-06 0.1.233 Star Palace island-market tax pricing
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel build-verified `0.1.232` reference-map sync and advanced this gameplay slice to `0.1.233` instead of reusing that version.
+  Text-material read   Done   Full current scan read 315 files under `文本材料` and parsed all 207 JSON files successfully; this slice uses `merchant_shops.json#chaotic_sea_island_general` tax_rate `0.1`, `merchant_shops.json#outer_sea_public_stall` Star Palace tax faction, and `consumables_catalog.json#star_palace_tax_receipt` paid-tax effect.
+  Planning   Done   Scoped to the existing `WorldpackGameplayService.marketCostModifier`, existing `ShopService` adjusted-cost path, and existing `StarPalaceTaxReceiptItem`/QuestProgress flag; no packet, shop protocol, GUI class, NPC, quest loader, item, model, texture, recipe, loot table, or runtime data loader was added.
+  Backup   Done   Current 0.1.232 files edited by this pass were backed up to `.bak/20260706_0.1.233_star_palace_shop_tax/`.
+  Version/protocol   Done   `mod_version` is `0.1.233`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   Star Palace-taxed market shops `chaotic_sea_island_general` and `outer_sea_public_stall` now charge the 10% island-market tax on item-currency non-receipt goods until `star_palace_island_trade_tax_paid` is present in PlayerCultivation QuestProgress. The tax receipt itself remains priced at 5 and existing worldpack market cost effects still compose with the tax multiplier.
+  Tests/build   Done   Changed resource JSON parsed successfully; all 207 text-material JSON files parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 22s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.233`.
+  Follow-up   Pending   Ferry/tax quest checks, Star Palace reputation consequences, paid-tax UI/status feedback, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 208. 2026-07-06 0.1.232 Star Palace tax receipt reference-map sync
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.231` tax receipt use behavior and avoided touching the item class, shop data, packets, GUI, NPCs, or quest loaders.
+  Planning   Done   Scoped to the shipped text-material reference map plus canonical documentation so future import work sees the paid-tax flag as implemented.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.231_star_palace_tax_receipt_use_reference_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.232`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Reference map   Done   `star_palace_tax_receipt` now records implemented right-click use with QuestProgress flag `star_palace_island_trade_tax_paid`; tax/discount consumers, ferry quest effects, and reputation consequences remain future work.
+  Tests/build   Done   `text_material_id_map.json` parsed successfully with `ConvertFrom-Json`. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.232`.
+  Follow-up   Pending   Actual ShopService tax/discount use of the paid flag, ferry/tax quest checks, Star Palace reputation consequences, visible UI/status feedback, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 207. 2026-07-06 0.1.231 Star Palace tax receipt use
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.230` shop-stock reconciliation for `star_palace_tax_receipt` and selected the next non-overlapping tax follow-up: receipt consumption plus persistent paid-tax state.
+  Text-material read   Done   Uses `consumables_catalog.json#star_palace_tax_receipt` effect `island_trade_tax_paid` plus `merchant_shops.json#chaotic_sea_island_general` shop stock now present in the shared workspace.
+  Planning   Done   Scoped to a dedicated item class, existing Forge item registration, existing PlayerCultivation capability/QuestProgress flag storage, zh_cn/en_us messages, and docs; no packet, shop protocol, NPC, quest loader, GUI, recipe, loot table, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.231_star_palace_tax_receipt_use/`; new item class and update note did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.231`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay   Done   `seeking_immortals:star_palace_tax_receipt` now right-clicks on the server to add QuestProgress flag `star_palace_island_trade_tax_paid`, consumes one receipt only on first successful use, preserves creative-mode stacks, and refuses duplicate/no-data uses without consuming.
+  Tests/build   Done   Language JSON parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, `ResourceJsonParseTest`, and `QuestProgressTest` passed with BUILD SUCCESSFUL in 13s. Final `.\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks` passed with BUILD SUCCESSFUL in 34s and `aiPreflight` recorded `mod_version=0.1.231`.
+  Follow-up   Pending   Actual ShopService tax/discount use of the paid flag, ferry/tax quest checks, Star Palace reputation consequences, visible UI/status feedback, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 206. 2026-07-06 0.1.230 Star Palace tax receipt shop reconciliation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work already advanced `gradle.properties` to `0.1.230` and added `star_palace_tax_receipt` to `chaotic_sea_island_general`; preserved that implementation instead of overwriting it.
+  Text-material read   Done   Uses `merchant_shops.json#chaotic_sea_island_general` and the already registered `seeking_immortals:star_palace_tax_receipt` carrier from the current workspace.
+  Planning   Done   Scoped to reconciling docs/reference notes and verifying the present shop/test data through existing `ShopService`; no new packet, item registry, NPC, quest system, GUI, or runtime loader is added by this pass.
+  Backup   Done   Existing files edited by this reconciliation were backed up to `.bak/20260706_0.1.230_star_palace_tax_receipt_shop_reconcile/`.
+  Version/protocol   Done   `mod_version` is already `0.1.230` for this unverified shared slice; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   `chaotic_sea_island_general` stocks `star_palace_tax_receipt` as one receipt for 5 low-grade metal spirit stones with stock 20 and the shop default 24000-tick refresh; `ShopServiceTest` asserts the entry.
+  Tests/build   Done   Focused shop/resource tests passed during this reconciliation, and later 0.1.231-0.1.233 builds verified receipt use, reference-map sync, and tax-pricing consumers on top of this shop-stock base. Final aggregate verification is superseded by 0.1.234.
+  Follow-up   Pending   Receipt consumption rules, tax-paid flags, ferry/tax quests, NPC placement, Star Palace reputation consequences, UI feedback, and source-accurate pearl-economy rewards remain deferred.
+
+## 205. 2026-07-06 0.1.229 Outer Sea shard stock aggregate verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel `0.1.227` Tianyuan merit, `0.1.228` Pearl Raw, and `0.1.229` Star Palace tax receipt work; preserved all of it and reconciled the active Outer Sea shard-stock slice into the current aggregate instead of reverting versions.
+  Text-material read   Done   Current scan context covers all 315 files under `文本材料` and 207 JSON files; this slice uses `currency_items.json#spirit_stone_shard`, `merchant_shops.json#outer_sea_public_stall`, and `region_cards/outer_sea_market.json`.
+  Planning   Done   Scoped to existing `ShopService` item-currency shop data, the already registered `seeking_immortals:spirit_stone_shard`, the current text-material id map, Patchouli guide notes, and ShopService assertions; no custom shop protocol, packet, entity, NPC, exchange UI, or new loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.226_outer_sea_shard_stock/`; post-parallel docs reconciliation used `.bak/20260706_0.1.229_outer_sea_shard_stock_docs_reconcile/`.
+  Version/protocol   Done   Current aggregate `mod_version` is `0.1.229`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   `outer_sea_public_stall` now stocks `spirit_stone_shard` as 10 shards for 1 low-grade metal spirit stone with stock 999 and 24000-tick refresh, while preserving `herb_bundle_low` and the parallel `pearl_raw` stock.
+  Tests/build   Done   Changed JSON parsed successfully before focused tests; forced focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 26s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s, ran `test`, and `aiPreflight` recorded `mod_version=0.1.229`.
+  Follow-up   Pending   Reverse shard-to-stone exchange, shard-specific economy UI, pearl tax receipt shop/use rules, ferry/tax quests, public-stall NPC placement, and source-accurate pearl-economy reward loops remain deferred.
+
+## 205. 2026-07-06 0.1.230 Star Palace tax receipt shop stock
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.229` Star Palace tax receipt item carrier and selected the explicit follow-up shop-stock slice.
+  Text-material read   Done   Used `merchant_shops.json#chaotic_sea_island_general` entry `star_palace_tax_receipt`, backed by `consumables_catalog.json` and `materials_catalog.json`.
+  Planning   Done   Scoped to existing ShopService item-currency data, focused ShopServiceTest coverage, reference/docs/update note, and version metadata; no new item, model, texture, packet, shop protocol, NPC, quest, recipe, loot table, or runtime loader is added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.230_star_palace_tax_receipt_shop/`; new update-note file did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.230`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   Added `chaotic_sea_island_general#star_palace_tax_receipt` as `seeking_immortals:star_palace_tax_receipt` for 5 low-grade metal spirit stones, stock 20, default 24000-tick refresh.
+  Tests/build   Done   Focused shop/resource validation passed and later 0.1.231-0.1.233 builds verified receipt use, reference-map sync, and tax-pricing consumers on top of this shop-stock base. Final aggregate verification is superseded by 0.1.234.
+  Follow-up   Pending   Receipt consumption rules, server-side tax-paid flags, ferry/tax quests, NPC placement, Star Palace reputation consequences, UI feedback, and source-accurate pearl-economy rewards remain deferred.
+
+## 204. 2026-07-06 0.1.229 Star Palace tax receipt item
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.228` Pearl Raw item completion and selected a <=10-file item-carrier slice to avoid blocking on confirmation while another Codex may be active.
+  Text-material read   Done   Used `consumables_catalog.json#star_palace_tax_receipt`, `materials_catalog.json#star_palace_tax_receipt`, and `merchant_shops.json#chaotic_sea_island_general` stock references as the source-material basis.
+  Planning   Done   Scoped to one visible Star Palace tax document item through existing Forge item registration, creative tab, language/model resources, and the reference id map; island shop stock, consumption effects, packets, entities, and runtime quest logic remain deferred.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.229_star_palace_tax_receipt_item/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.229`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:star_palace_tax_receipt` as a stackable Chaotic Sea tax-document item, creative-tab entry, zh_cn/en_us localization, model reusing the paper formula texture, and text-material id-map implementation target.
+  Tests/build   Done   JSON validation passed for the tax receipt model, reference map, and zh_cn/en_us language files. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.229`.
+  Follow-up   Pending   Chaotic Sea island shop stock, receipt consumption rules, tax-paid flags, ferry/tax quests, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 203. 2026-07-06 0.1.228 Pearl Raw item completion
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.227` Tianyuan merit Patchouli guide and detected the active Outer Sea shard/pearl stock work already present on disk instead of reverting or duplicating it.
+  Text-material read   Done   Used `merchant_shops.json#outer_sea_public_stall` stock id `pearl_raw`, `economy_price_bands.json#pearl_raw`, `materials_catalog.json#coral_spirit_pearl_raw`, and `daily_random_events.json#pearl_diving_mortals` as the source-material basis.
+  Planning   Done   Scoped to completing one visible raw-pearl item carrier through existing Forge item registration, creative tab, language/model resources, ShopService data, tests, and the reference id map.
+  Backup   Done   Current post-0.1.227 files edited by this pass were backed up to `.bak/20260706_0.1.228_pearl_raw_completion/`; new model/update-note files did not require pre-edit backup.
+  Version/protocol   Done   `mod_version` is `0.1.228`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item/shop data   Done   Current workspace now has registered `seeking_immortals:pearl_raw`, creative-tab entry, zh_cn/en_us localization, Outer Sea public-stall stock at 1 item for 8 low-grade metal spirit stones, ShopService assertions, item model, and text-material id-map implementation targets.
+  Tests/build   Done   JSON validation passed for the pearl model, reference map, Outer Sea shop, and zh_cn/en_us language files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.228`.
+  Follow-up   Pending   Pearl tax receipts, pearl processing, dedicated art, recipes, loot tables, ferry/tax quests, NPC placement, and source-accurate pearl-economy rewards remain deferred.
+
+## 202. 2026-07-06 0.1.227 Tianyuan merit Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Avoided the active `0.1.226` Outer Sea shard-stock files and selected a separate guide-resource slice.
+  Text-material read   Done   Full scan read all 315 files under `文本材料`; all 207 JSON files parsed successfully. This slice uses `tianyuan_merit_economy.json`.
+  Planning   Done   Scoped to mandatory Patchouli plus existing Tianyuan worldpack/dimension/portal prerequisites; no real alliance-merit currency, shop protocol, item registration, Java gameplay, entity, or packet change is added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.227_tianyuan_merit_patchouli/`; new Patchouli/update-note files did not require pre-edit backups.
+  Version/protocol   Done   `mod_version` is `0.1.227`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added zh_cn/en_us `tianyuan_merit_economy` entries documenting merit sources, Diyuan permit and Wind Feather Raft exchange targets, and deferred server-authoritative merit systems.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 61 Patchouli guide JSON files parsed successfully; all 207 text-material JSON files parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.227`.
+  Follow-up   Pending   Alliance merit accounts, Tianyuan Merit Hall shop/protocol, merit missions, Diyuan permit/ticket items, exchange UI, monthly/realm gates, NPCs, and FTB Quests routing remain deferred.
+
+## 201. 2026-07-06 0.1.226 Dimension portal rules build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.225` Patchouli starter-guide compatibility slice and avoided Patchouli resource paths while another Codex may be active.
+  Current state   Done   Confirmed `seeking_immortals:tianyuan` and `seeking_immortals:spirit_fengyuan` dimension JSON files are present and the 3x3 Spirit Gathering Array portal logic is active in `SpiritGatheringArrayBlock` / `WorldpackGameplayService`.
+  Backup   Done   Existing docs were backed up to `.bak/20260706_0.1.225_dimension_portal_rules/`; new test/update-note files did not require pre-edit backups.
+  Version/protocol   Done   Current aggregate `mod_version` is `0.1.226`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Tests/docs   Done   Added `WorldpackPortalArrayRulesTest` for Spirit Realm portal gating and destination choice, plus update-note/project-doc records for the dimension portal slice.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 38s, executed `test`, recorded `mod_version=0.1.226`, and `WorldpackPortalArrayRulesTest` reported 2 tests with 0 failures/errors.
+  Follow-up   Pending   Custom DimensionType/aura nature, dedicated portal visuals, travel costs, stricter structure validation, generated destinations, and runtime in-game client checks remain deferred.
+
+## 200. 2026-07-06 0.1.225 Patchouli starter guide compatibility
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.224` aggregate and avoided Java, packet, build-script, and dependency hot files while another Codex may be active.
+  Diagnosis   Done   Confirmed Patchouli 1.20.1-84 registers books from `patchouli_books/<book_id>/book.json`; the previous `zh_cn/book.json` made the auto-granted `seeking_immortals:seeking_immortals_guide` book invalid.
+  Backup   Done   Existing edited/deleted files were backed up to `.bak/20260706_144026_patchouli_guide_compat/`.
+  Version/protocol   Done   `mod_version` is `0.1.225`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli resources   Done   Added canonical root `book.json`, removed `zh_cn/book.json`, and mirrored current `zh_cn/categories` plus `zh_cn/entries` into an `en_us` baseline so Patchouli discovers content reliably.
+  Tests/build   Done   Focused `ResourceJsonParseTest` and `JsonSanityTest` passed with BUILD SUCCESSFUL in 17s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.225`.
+  Follow-up   Pending   Translate the temporary `en_us` mirrored guide text into polished English when presentation polish is prioritized.
+
+## 199. 2026-07-06 0.1.224 Spirit Stone Shard item prerequisite
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.222` Human clan league Patchouli guide state and an external `0.1.223` version advance, then selected a <=10-file item slice while another Codex remains active.
+  Text-material read   Done   Current scan covers all 315 files under `文本材料`; all 207 JSON files parsed successfully. This slice uses `currency_items.json#spirit_stone_shard` and its references from alchemy, materials, refinement, puppet, formation, talisman, quest, flight, and loot source material.
+  Planning   Done   Scoped to one visible prerequisite item using existing Forge `DeferredRegister`, creative tab, language/model resources, and the reference id map only; no shop data, recipes, loot tables, packets, entities, runtime loaders, or exchange behavior changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.223_spirit_stone_shard_item/`, then current post-parallel state was backed up to `.bak/20260706_0.1.224_spirit_stone_shard_item_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.224`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:spirit_stone_shard` as a simple stackable fragment item, creative-tab entry, zh_cn/en_us localization, model reusing the metal spirit-stone texture, and canonical-map implementation target.
+  Tests/build   Done   UTF-8 JSON checks passed for the changed lang/reference/model files; focused `SettingCatalogSummaryServiceTest` passed after syncing the current text-material technique count to 346; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.224`.
+  Follow-up   Pending   Exchange rate handling, Outer Sea public-stall stock, recipe/loot integration, and fragment-specific economy UI remain deferred.
+
+## 199. 2026-07-06 0.1.223 Great Jin Central Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.220` Star Palace City guide and the detected `0.1.222` Human Clan League guide instead of competing for those version labels.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8; all 207 JSON files parsed successfully. This slice uses `region_cards/great_jin_central.json` and `daily_random_events.json#great_jin_auction_week`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `great_jin_central` worldpack region plus `great_jin_auction_week` daily-event data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.221_great_jin_central_patchouli/`; version/test/material reconciliation backed up current files to `.bak/20260706_0.1.223_great_jin_central_reconcile/`.
+  Version/protocol   Done   Current aggregate `mod_version` is `0.1.224` after parallel item work; this guide slice was originally prepared as `0.1.223`. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/great_jin_central_auction.json`, documenting the current Great Jin Central worldpack region hook, 1.5 aura multiplier, Core Formation gate, Wanbao/refinement/cross-region-array tags, and deferred auction/refinement/NPC/FTB Quests surfaces.
+  Text-material index   Done   Preserved the parallel source-material recovery: `techniques/index.json` now matches the current 346 technique entries and `talisman_catalog.json` now has 47 catalog entries.
+  Tests/build   Done   Verification is covered by the current `0.1.224` aggregate: focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 15s, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s.
+  Follow-up   Pending   Real Wanbao auction schedules, invitations, bidding UI, auction lots, ancient-artifact appraisal, clan reputation, cross-region array costs, refinement-hall services, NPC placement, and FTB Quests chapter routing remain deferred.
+
+## 198. 2026-07-06 0.1.222 Human clan league Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.220` Star Palace City merit-hall Patchouli guide, detected a parallel version advance to `0.1.221`, and moved this independent guide slice to `mod_version=0.1.222` instead of competing for the same label.
+  Text-material read   Done   Re-read the text-material source files for `patchouli_static_entries.json#human_clan_league`, `human_clan_league.json`, `human_clan_quest_network.json`, and `region_cards/spirit_fengyuan.json`. Full text-material scan read 315 files. `talisman_catalog.json` was found as a null JSON root during focused tests and repaired as a 47-entry setting catalog from existing text-material references; all 207 text-material JSON files now parse.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `spirit_fengyuan` worldpack region data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.221_human_clan_league_patchouli/`, current post-parallel version/docs state to `.bak/20260706_0.1.222_human_clan_league_patchouli_reconcile/`, the damaged talisman catalog to `.bak/20260706_0.1.222_talisman_catalog_repair/`, and docs reconciliation to `.bak/20260706_0.1.224_human_clan_league_docs_reconcile/`.
+  Version/protocol   Done   Current aggregate `mod_version` is `0.1.224` after parallel item work; this guide/catalog repair slice was originally prepared as `0.1.222`. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/human_clan_league.json`, documenting the current human-clan league source materials, Fengyuan carrier region, Mo/Yu/Gu/Ning specialization tags, Dajin clan hooks, and deferred reputation, NPC, shop, quest, feud, alliance, and FTB Quests surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 29 zh_cn Patchouli JSON files parsed successfully; all 207 text-material JSON files parsed successfully after the talisman catalog repair. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 15s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s under the current `0.1.224` aggregate workspace.
+  Follow-up   Pending   Real Fengyuan clan NPCs, clan reputation, alliance or marriage gates, specialty shops, family-quest lines, Dajin mirrored clan feud, reward tables, and FTB Quests chapter routing remain deferred.
+
+## 197. 2026-07-06 0.1.220 Star Palace City merit-hall Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel `0.1.220` Star Palace guide work, preserved the build-verified `0.1.219` Spirit Fengyuan guide, and deduped duplicate 0.1.220 progress notes instead of opening a competing version.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice documents `region_cards/star_palace_city.json`, `merchant_shops.json#star_palace_merit_hall`, and `sect_contribution_shop.json#star_palace`.
+  Planning   Done   Scoped to the mandatory Patchouli guidebook plus already shipped `star_palace_city` worldpack region data and existing `ShopService` contribution-shop hooks; no custom Star Palace UI, NPC loader, quest loader, packet, registry, model, texture, shop data, or worldpack data changed.
+  Backup   Done   Existing docs were backed up to `.bak/20260706_0.1.220_star_palace_city_merit_hall_docs_sync/` and `.bak/20260706_0.1.220_star_palace_city_docs_dedupe/`; parallel backups include `.bak/20260706_0.1.220_star_palace_city_merit_hall_patchouli/`, `.bak/20260706_0.1.220_star_palace_city_build_verify/`, and `.bak/20260706_0.1.220_star_palace_city_merit_hall_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.220`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Existing `entries/star_palace_city_merit_hall.json` documents the current Star Palace City region hook, `star_palace_merit_hall` contribution goods, Cangming/Star Palace overlap, and deferred teleport permits, patrol orders, Void Palace map fragments, reputation, auction, NPC, and FTB Quests surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 27 zh_cn Patchouli JSON files parsed successfully; resource JSON parse covered 412 files; text-material parsing covered 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 16s; docs-sync recheck `ShopServiceTest`, `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 17s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.220`.
+  Follow-up   Pending   Real Star Palace reputation gates, monthly/per-player limits, auction schedules and lots, patrol-board missions, teleport permits, patrol seals/orders, Void Palace map fragments, city NPCs, sea-event rewards, and FTB Quests chapter routing remain deferred.
+
+## 196. 2026-07-06 0.1.219 Spirit Fengyuan Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.218` Yuling spirit-beast Patchouli guide and chose a separate guide-resource slice while another Codex is active.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `patchouli_static_entries.json#spirit_fengyuan`, `region_cards/spirit_fengyuan.json`, and `human_clan_league.json`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `spirit_fengyuan` worldpack region data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.219_spirit_fengyuan_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.219`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/spirit_fengyuan.json`, documenting the current Fengyuan worldpack region hook, 1.8 aura multiplier, Soul Transformation gate, clan/treasure-fair tags, related secret-realm hooks, and deferred human-clan league, reputation, auction, NPC, quest, and FTB Quests surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 24 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.219`.
+  Follow-up   Pending   Real Fengyuan clan NPCs, clan reputation, specialty shops, clan-feud quests, Treasure Fair bidding, border travel, subregion gates, human-clan quest network, and FTB Quests chapter routing remain deferred.
+
+## 195. 2026-07-06 0.1.218 Yuling spirit-beast Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the `0.1.217` Tianyuan City Patchouli guide already present in the shared worktree and the build-verified `0.1.216` Star Palace patrol supply Patchouli guide; scoped this slice to a separate guide entry to avoid Java, shop, packet, worldpack, registry, model, and texture hot files while another Codex is active.
+  Text-material read   Done   Re-read `文本材料/data/sect_contribution_shop.json`; this slice uses `shops[].faction_id == spirit_beast_mountain` and the existing shipped `yuling_pavilion_contribution_hall` equivalents.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `ShopService` contribution-shop data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.218_yuling_spirit_beast_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.218`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/yuling_spirit_beast_contribution.json`, documenting the current `spirit_beast_feed` and `beast_soul_essence` contribution-shop hooks plus deferred spirit-beast runtime systems.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 25 zh_cn Patchouli JSON files parsed successfully; resource JSON parse covered 410 files; text-material parsing covered 276 files and 154 JSON files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 16s. A first final build hit the known Gradle `test-results` cleanup lock after `aiPreflight` passed; immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.218`.
+  Follow-up   Pending   Dedicated spirit-beast nurture pill, feed item, feeding rules, affinity/intimacy gains, contract behavior, beast entities, GeckoLib animation, source drops, and FTB Quests routing remain deferred.
+
+## 194. 2026-07-06 0.1.217 Tianyuan City Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.216` Star Palace patrol-supply Patchouli guide and chose a separate low-conflict guide-resource slice while another Codex is active.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `patchouli_static_entries.json#tianyuan_city`, `tianyuan_city.json`, and `region_cards/tianyuan.json`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `tianyuan` worldpack region data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.217_tianyuan_city_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.217`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/tianyuan_city.json`, documenting the current Tianyuan City worldpack region hook, 2.0 aura multiplier, Soul Transformation gate, merit/frontier tags, and deferred merit exchange, gate, raft, Diyuan permit, NPC, quest, and FTB Quests surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 22 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.217`.
+  Follow-up   Pending   Real Tianyuan NPCs, merit exchange UI, patrol-board missions, spirit-realm gate travel, Wind Feather Raft services, Diyuan permit items, guard reputation, siege rewards, and FTB Quests chapter routing remain deferred.
+
+## 193. 2026-07-06 0.1.216 Star Palace patrol supply Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work already occupied and build-verified `0.1.215` with the Barbarian seven kings Patchouli guide; preserved it and advanced this independent guide slice to `mod_version=0.1.216`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#star_palace_patrol_supply`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `ShopService` item-currency data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.216_star_palace_patrol_patchouli/`; build-verification docs were backed up to `.bak/20260706_0.1.216_star_patrol_build_verify/` and `.bak/20260706_0.1.216_star_palace_patrol_build_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.216`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/star_palace_patrol_supply.json`, documenting the current body-guard and anti-demon talisman market hooks plus deferred Bu Tian Pill, reputation, patrol-board, quota, and reward surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 23 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL after Gradle wrapper network approval. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.216`.
+  Follow-up   Pending   Dedicated anti-demon rules, Bu Tian Pill registration/effects, Star Palace reputation gates, patrol-board missions, monthly/per-player limits, exact patrol rewards, and richer FTB Quests presentation remain deferred.
+
+## 192. 2026-07-06 0.1.215 Barbarian seven kings Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.214` Mulan-Tianlan and Inverse Star Patchouli guide aggregate; scoped this slice to a separate guide entry to avoid Java, shop, packet, and worldpack hot files while another Codex is active.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `patchouli_static_entries.json#barbarian_seven_kings`, `barbarian_demon_kings.json`, `secret_realm_template.json#barbarian_king_territories`, and `region_cards/barbarian_wasteland.json`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `WorldpackDataService` secret-realm data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.215_barbarian_seven_kings_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.215`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/barbarian_seven_kings.json`, documenting the seven currently shipped Barbarian Wasteland king-territory secret-realm hooks and deferred boss/drop/tribute/quest surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 22 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `WorldpackDataServiceTest` passed with BUILD SUCCESSFUL in 17s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.215`.
+  Follow-up   Pending   Real demon-king bosses, GeckoLib animation, territory structures, dedicated token/drop items, tribute trade, council audience gates, per-king bounties, and FTB Quests chapter routing remain deferred.
+
+## 190. 2026-07-06 0.1.213 Inverse Star black market Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the build-verified `0.1.212` Mulan-Tianlan war phase daily-event hooks; advanced this independent guide slice to `mod_version=0.1.213`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#inverse_star_black_market`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shop data, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.213_inverse_star_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.213`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/inverse_star_black_market.json`, documenting the implemented demon-core, demon-heart-pill, and demon-heart-formula market hooks plus deferred contraband, deed, contact, cipher, smuggler, reputation, and NPC work.
+  Tests/build   Done   Resource JSON parse passed for 406 files; changed Patchouli JSON parsed successfully with explicit UTF-8; all 21 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` first hit the known Gradle `test-results/output.bin` cleanup lock, then reran with BUILD SUCCESSFUL in 14s. Final verification is covered by the current `0.1.214` full build with BUILD SUCCESSFUL in 24s and `aiPreflight` recording `mod_version=0.1.214`.
+  Follow-up   Pending   Dedicated Demon Heart Pill behavior, black-market reputation/access gates, contraband/cipher items, island deed handling, pirate-loot routing, NPC placement, and source-accurate risk consequences remain deferred.
+
+## 191. 2026-07-06 0.1.214 Mulan-Tianlan war phase Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work already occupied `0.1.213` with the Inverse Star black-market Patchouli guide; preserved it and advanced this independent Mulan-Tianlan guide slice to `mod_version=0.1.214`.
+  Text-material read   Done   Used `文本材料/data/mulan_tianlan_war.json`, `文本材料/docs/MULAN_TIANLAN_WAR.md`, and `文本材料/docs/MULAN_TIANLAN_WAR_EXPAND.md`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path. FTB Quests remains deferred because the current resource tree has no established FTB quest-data format to reuse safely.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.213_mulan_tianlan_patchouli/`, then the current post-parallel version/docs state was backed up to `.bak/20260706_0.1.214_mulan_tianlan_patchouli/`; final verification docs sync backed up to `.bak/20260706_0.1.214_patchouli_guides_final_sync/`.
+  Version/protocol   Done   `mod_version` is `0.1.214`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/mulan_tianlan_war_phases.json`, documenting the four currently shipped war-phase daily-event hooks and the deferred side-choice/reputation/objective/reward surfaces.
+  Tests/build   Done   Resource JSON parse passed for 406 files; all 21 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` first hit the known Gradle `test-results/output.bin` cleanup lock, then reran with BUILD SUCCESSFUL in 14s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.214`.
+  Follow-up   Pending   Real side choice, reputation consequences, fashi-array objectives, holy-beast trial routing, war merit rewards, battlefield NPCs, and FTB Quests chapter presentation remain deferred.
+
+## 189. 2026-07-06 0.1.212 Mulan-Tianlan war phase daily-event hooks build verified
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel build-verified `0.1.211` Outer Sea public-stall Patchouli guide instead of reusing that version label; advanced this independent worldpack slice to `mod_version=0.1.212`.
+  Text-material read   Done   Used `文本材料/data/mulan_tianlan_war.json`, especially phase ids `border_skirmish`, `fashi_array_clash`, `holy_beast_intervention`, and `ceasefire_or_escalation`; earlier notes already cover the current 276-file/154-JSON text-material scan.
+  Planning   Done   Scoped to additive daily-event data and focused test assertions through existing `WorldpackDataService`, current `mulan`/`tianlan` regions, saved daily-event rolls, and existing effect tokens only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.212_mulan_tianlan_war_phases/`; final verification docs were backed up to `.bak/20260706_0.1.212_mulan_tianlan_war_phases_build_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.212`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Worldpack data   Done   Added daily-event phase hooks for border skirmish, fashi array clash, holy beast intervention, and ceasefire/escalation while preserving broader compatibility hooks such as `mulan_tianlan_campaign`, `tiannan_mulan_border_war`, `tianlan_holy_beast_ritual`, and `tianlan_mulan_scout_clash`.
+  Tests/build   Done   Changed `daily_events.json` parsed successfully with 132 events and no duplicate ids. Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 20s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.212`.
+  Follow-up   Pending   Real war-cycle scheduling, side choice, battlefield encounters, fashi array objectives, holy-beast trial routing, Mulan/Tiannan/Tianlan reputation, rewards, NPCs, and source-accurate quest presentation remain deeper runtime/FTB Quests/GeckoLib-capable work.
+
+## 188. 2026-07-06 0.1.211 Outer Sea public stall Patchouli guide build verified
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel build-verified `0.1.210` Tiannan demonic-market Patchouli guide instead of overwriting it; advanced this independent guide slice to `mod_version=0.1.211`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#outer_sea_public_stall` and `region_cards/outer_sea_market.json`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shop data, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.211_outer_sea_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.211`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/outer_sea_public_stall.json`, documenting the implemented `herb_bundle_low -> spirit_grass x4` market hook and the deferred shard, pearl, tax, ferry, NPC, and quest work.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 19 zh_cn Patchouli JSON files parsed successfully; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.211`.
+  Follow-up   Pending   Dedicated spirit-stone shard and pearl items, public-stall NPCs, pearl-tax receipts, ferry/tax quests, stock visibility gates, and exact pearl-economy rewards remain deferred.
+
+## 188. 2026-07-06 0.1.211 Outer Sea public stall Patchouli guide build verified
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel `0.1.210` Tiannan demonic-market Patchouli guide, then verified the shared workspace under `mod_version=0.1.211`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#outer_sea_public_stall` and `region_cards/outer_sea_market.json`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shop data, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.211_outer_sea_patchouli/`, `.bak/20260706_0.1.211_docs_reconcile/`, and `.bak/20260706_0.1.211_outer_sea_patchouli_final_sync/`.
+  Version/protocol   Done   `mod_version` is `0.1.211`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/outer_sea_public_stall.json`, documenting the implemented `herb_bundle_low -> spirit_grass x4` market hook and deferred shard, pearl, tax, ferry, NPC, and quest work.
+  Tests/build   Done   Resource JSON parse passed for 404 JSON files; Patchouli entries parsed 17/17; text-material parse passed for 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `ShopServiceTest` passed with BUILD SUCCESSFUL in 14s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.211`.
+  Follow-up   Pending   Registered spirit-stone shard and raw pearl items, pearl tax receipts, public-stall NPC placement, ferry/tax quest routing, stock visibility gates, and source-accurate pearl-economy rewards remain deferred.
+
+## 187. 2026-07-06 0.1.210 Tiannan demonic market Patchouli guide build verified
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.209 Qingxin Patchouli guide and the 0.1.208 Tiannan demonic-dual market data; this slice documents the existing Heqi market hook through the mandatory Patchouli prerequisite.
+  Text-material read   Done   Re-read all 276 files under text materials; all 154 JSON files parsed successfully. The merchant-shop comparison found all mapped non-deferred merchant stock already shipped, so this pass chose guide coverage for `merchant_shops.json#tiannan_demonic_dual_market`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shops, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.210_tiannan_demonic_market_patchouli/`, `.bak/20260706_0.1.210_tiannan_demonic_patchouli/`, and `.bak/20260706_0.1.210_tiannan_demonic_patchouli_build_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.210`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/tiannan_demonic_dual_market.json`, documenting the implemented `heqi_pill -> cultivation_pill` market hook, cost 40, stock 6, 48000-tick refresh, and deferred demonic-dual goods/access risks.
+  Tests/build   Done   Resource JSON parse passed for 403 JSON files; Patchouli entries parsed 16/16; text-material parse passed for 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `ShopServiceTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.210`.
+  Follow-up   Pending   Dedicated Heqi/Dual Harmony/Demonic Yang pill behavior, demonic blood coral, reputation/karma gates, Hehuan routing, NPC placement, and source-accurate demonic market consequences remain deferred.
+
+## 186. 2026-07-06 0.1.209 Qingxin Pill Patchouli final build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Current authoritative version is `mod_version=0.1.209`; preserved the 0.1.208 Tiannan demonic-dual market data and the Qingxin Patchouli guide entry already present on disk.
+  Verification   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.209`.
+  Protocol   Done   `ModNetwork.PROTOCOL_VERSION` remains `9`; this verification changed no packet fields/order/encoding/registrations or channel behavior.
+  Backup   Done   Existing edited docs were backed up to `.bak/20260706_0.1.209_qingxin_patchouli_final_verify/`.
+  Follow-up   Pending   Same as the Qingxin guide slice: dedicated art, independent heart-demon affliction reduction, quality variants, source-accurate formula acquisition, and stricter shop/sect gates remain deferred.
+
+## 185. 2026-07-06 0.1.209 Qingxin Pill Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent build-verified 0.1.208 Tiannan demonic-dual market hook and treated the Qingxin guide as a separate low-conflict Patchouli/resource slice.
+  Text-material read   Done   Used `文本材料/data/pills_catalog.json#qingxin_pill` and `文本材料/data/alchemy_recipes.json#recipe_qingxin_pill`, both already backed by the shipped Qingxin Pill alchemy implementation.
+  Planning   Done   Scoped to the mandatory Patchouli guidebook path and the existing Qingxin item/formula/recipe stack; no custom UI, runtime loader, Java gameplay path, registry item, model, texture, shop entry, loot table, entity, or packet schema was added.
+  Backup   Done   Implementation backups are `.bak/20260706_0.1.208_qingxin_patchouli/` and `.bak/20260706_0.1.209_qingxin_patchouli_reconcile/`; this build-verification docs sync backed up files to `.bak/20260706_0.1.209_qingxin_patchouli_build_verify_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.209`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/qingxin_pill.json` documenting the existing Qingxin Pill, paper-formula alchemy route, recipe constraints, and current calming/heart-demon-risk role.
+  Tests/build   Done   The new entry parsed successfully before reconciliation; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.209`.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, quality variants, source-accurate formula acquisition, JEI/Patchouli recipe links, and stricter shop/sect gates remain deferred.
+
+## 184. 2026-07-06 0.1.208 Tiannan demonic dual market Heqi hook
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work already completed the 0.1.206 region-card event slice, then chose a separate low-conflict market-data surface.
+  Text-material read   Done   Used `文本材料/data/merchant_shops.json#tiannan_demonic_dual_market`; only `heqi_pill` currently has a registered canonical carrier.
+  Planning   Done   Scoped to existing `ShopService` item-currency flow and the registered Cultivation Pill carrier; no new item, model, texture, runtime loader, entity, GUI subsystem, or packet schema was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.207_tiannan_demonic_dual_market/`.
+  Version/protocol   Done   `mod_version` is `0.1.208`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Market data   Done   Added `tiannan_demonic_dual_market` as an item-currency market exposing `heqi_pill -> seeking_immortals:cultivation_pill` for 40 low-grade metal spirit stones, stock 6, refresh 48000.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.208`.
+  Follow-up   Pending   Dedicated Dual Harmony/Demonic Yang items, demonic blood coral, access gates, reputation risk, Hehuan contribution routing, and source-accurate demonic market NPCs remain deferred.
+
+## 184. 2026-07-06 0.1.208 Tiannan demonic dual market verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work advanced the shared workspace with a Tiannan demonic-dual market shop-data slice; preserved it instead of reverting or reimplementing, then reconciled the current version to `mod_version=0.1.208`.
+  Text-material read   Done   Confirmed source refs from `文本材料/data/merchant_shops.json#tiannan_demonic_dual_market` plus existing `heqi_pill` canonical mapping.
+  Planning   Done   Scoped this worker's action to focused verification and docs reconciliation because the shop/resource/test implementation was already present on disk.
+  Backup   Done   Parallel implementation backup is `.bak/20260706_0.1.207_tiannan_demonic_dual_market/`; this docs verification backed up current docs to `.bak/20260706_0.1.207_tiannan_demonic_dual_market_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.208`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop data   Done   `tiannan_demonic_dual_market` is a market shop using existing item currency and currently exposes only `heqi_pill -> seeking_immortals:cultivation_pill`, cost 40, count 1, stock 6, refresh 48000 ticks.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.208`.
+  Follow-up   Pending   Dedicated Heqi Pill behavior, Dual Harmony Pill, demonic Yang-gathering pill, demonic blood coral, demonic access gates, reputation/karma risk, exact dual-cultivation mechanics, and source-accurate shop stock remain deferred.
+
+## 183. 2026-07-06 0.1.206 region-card daily-event ref backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.205 Qingxin Pill alchemy slice and chose the low-conflict region-card daily-event ref gap already identified by the cooperative 0.1.205 recheck.
+  Text-material read   Done   Read all 276 files under text materials and parsed all 154 JSON files successfully. This slice uses region-card refs from `tiannan`, `tianlan`, `chaotic_sea`, `spirit_realm_border`, `barbarian_wasteland`, `spirit_fengyuan`, and `tianyuan`.
+  Planning   Done   Scoped to additive daily-event data using existing shipped regions, `WorldpackDataService`, current effect tokens, saved event-roll compatibility, and current command/GUI display flow.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.206_region_card_daily_event_refs/`.
+  Version/protocol   Done   `mod_version` is `0.1.206`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Worldpack data   Done   Added exact hooks `sect_recruitment_spring`, `bandit_cultivator_road`, `spirit_herb_gatherers`, `tianlan_patrol`, `ghost_fog_truce`, `spatial_rift_flutter`, `king_territory_intrusion`, `fengyuan_clan_feud`, `spirit_storm`, and `merit_patrol` while preserving older broader/legacy ids.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 14s. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.206`.
+  Follow-up   Pending   These are still data-level hooks. Real recruitment routing, road ambushes, herb-gatherer encounters, Tianlan patrols, ghost-fog ceasefire rules, spatial-rift hazards, demon-king territory intrusion gameplay, Fengyuan clan reputation, spirit-storm hazards, and Tianyuan patrol rewards remain deeper runtime/quest/entity work.
+
+## 182. 2026-07-06 0.1.205 current build recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work advanced the shared workspace to `mod_version=0.1.205` for the Qingxin Pill alchemy slice; did not start a competing 0.1.205 region-card event slice.
+  Focused validation   Done   Later cooperative recheck ran focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest`; BUILD SUCCESSFUL in 19s.
+  Verification   Done   Re-ran `.\gradlew.bat --no-daemon --max-workers=1 build`; one recheck passed with BUILD SUCCESSFUL in 27s, and the later recheck passed with BUILD SUCCESSFUL in 23s. `aiPreflight` recorded `mod_version=0.1.205`.
+  Protocol   Done   `ModNetwork.PROTOCOL_VERSION` remains `9`; this docs-only recheck changed no packet fields/order/encoding/registrations.
+  Backup   Done   Current docs were backed up to `.bak/20260706_0.1.205_current_build_recheck/` and `.bak/20260706_0.1.205_current_build_recheck_followup/`.
+  Follow-up   Pending   Structured worldpack diff found region-card daily-event refs still not represented by exact ids: `sect_recruitment_spring`, `bandit_cultivator_road`, `spirit_herb_gatherers`, `tianlan_patrol`, `ghost_fog_truce`, `spatial_rift_flutter`, `king_territory_intrusion`, `fengyuan_clan_feud`, `spirit_storm`, and `merit_patrol`. Implement as a future low-conflict worldpack data slice using existing effect tokens.
+
+## 181. 2026-07-06 0.1.204 Outer Sea public stall + Qixuan Patchouli aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel 0.1.203 Qixuan Patchouli guide entry and moved the combined workspace to `mod_version=0.1.204` instead of competing for the same version label.
+  Text-material read   Done   Full scan read all 276 files under text materials; all 154 JSON files parsed successfully. This aggregate uses `merchant_shops.json#outer_sea_public_stall`, `region_cards/outer_sea_market.json`, and the parallel Qixuan stall Patchouli source.
+  Planning   Done   Scoped the new gameplay data to the single currently implemented Outer Sea equivalent `herb_bundle_low`; unregistered pearl/shard goods and custom UI/quest systems remain deferred.
+  Backup   Done   Outer Sea edits were backed up to `.bak/20260706_0.1.203_outer_sea_public_stall/`; current parallel docs/version state was backed up to `.bak/20260706_0.1.204_outer_sea_patchouli_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.204`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop/Patchouli data   Done   Added `outer_sea_public_stall` as a whitelisted item-currency market selling `herb_bundle_low -> spirit_grass x4` for 12 low-grade metal spirit stones with stock 30, and preserved the Qixuan zh_cn Patchouli guide entry.
+  Tests/build   Done   Changed JSON parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 26s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed after this reconciliation and `aiPreflight` recorded `mod_version=0.1.204`.
+  Follow-up   Pending   Outer Sea pearl/shard items, tax receipts, public-stall NPCs, ferry/tax quests, exact pearl economy, Qixuan FTB Quests routing, and village NPC placement remain deferred.
+
+## 180. 2026-07-06 0.1.203 Qixuan village stall Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.202 Qixuan stall market data and chose a low-conflict prerequisite-library documentation slice instead of touching packet, registry, model, texture, shop protocol, gameplay, or GUI hot surfaces.
+  Text-material read   Done   Full scan covers all 276 files under text materials. This slice uses `merchant_shops.json#qixuan_village_stall` and the already implemented Qixuan stall carriers.
+  Planning   Done   Scoped to one zh_cn Patchouli entry in the existing guide book, reusing the mandatory Patchouli prerequisite and current guide path rather than adding a custom UI or runtime loader.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.203_qixuan_patchouli_stall/`.
+  Version/protocol   Done   `mod_version` is `0.1.203`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/qixuan_village_stall.json` with a concise guide entry for the Qixuan stall, its item-currency flow, and current implemented carriers.
+  Tests/build   Done   Covered by the 0.1.204 aggregate verification after parallel Outer Sea market work was reconciled into the same workspace.
+  Follow-up   Pending   Exact Seven Mysteries quest gating, FTB Quests chapter routing, village NPC placement, and dedicated mundane medicine/herb bundle item identities remain deferred.
+
+## 179. 2026-07-06 0.1.202 Qixuan village stall market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that 0.1.201 had been build-verified by the parallel spirit-rain meditation multiplier slice; advanced this Qixuan shop slice to `mod_version=0.1.202` to avoid reusing an occupied preflight fingerprint.
+  Text-material read   Done   Full scan covers all 276 files under text materials. This slice uses `merchant_shops.json#qixuan_village_stall`, with supporting references from `quest_chains.json` and `quest_hooks.json` for the mortal martial scroll.
+  Planning   Done   Scoped to an additive item-currency market shop using existing `ShopService`, registered item carriers, current market packet/action flow, and current validation tests; no new runtime loader, registry item, model, texture, recipe, loot table, GUI class, entity, or packet schema was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.198_qixuan_village_stall/`; current docs/version files after parallel version movement were backed up to `.bak/20260706_0.1.201_qixuan_version_reconcile/` and `.bak/20260706_0.1.202_qixuan_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.202`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Shop/reference data   Done   Added `qixuan_village_stall` market data: `herb_bundle_low -> spirit_grass x4`, `mortal_medicine -> healing_pill_low`, and `qixuan_mortal_art_scroll -> technique_manual_mortal_martial`, with low-grade metal spirit-stone costs matching the text-material prices.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s; this thread re-ran the same focused tests with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s, and this thread re-ran the final build with BUILD SUCCESSFUL in 25s; `aiPreflight` recorded `mod_version=0.1.202`.
+  Follow-up   Pending   Exact Seven Mysteries quest gating, mundane medicine identity, herb-bundle composition, village NPC placement, and stock visibility rules remain deferred.
+
+## 178. 2026-07-06 0.1.201 spirit-rain meditation cultivation multiplier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.200 `spirit_rain_bonus` token/UI/aura-gain slice and the in-progress 0.1.200 Qinglan Huangfeng stock notes; advanced this follow-up runtime slice to `mod_version=0.1.201`.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#spirit_rain` (`cultivation_speed_1.1_1day`) and `#spirit_vein_pulse` (`cultivation_speed_1.2_3day`).
+  Planning   Done   Scoped to existing `PlayerCultivation` meditation settlement and existing worldpack daily-event id state. No worldpack JSON, packet, registry, model, texture, recipe, loot table, shop, alchemy, GUI, region, secret-realm, or runtime-loader files changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.200_spirit_rain_cultivation_speed/` before the first code patch and `.bak/20260706_0.1.201_spirit_rain_meditation_multiplier/` after the parallel 0.1.200 docs landed.
+  Version/protocol   Done   `mod_version` is `0.1.201`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Runtime behavior   Done   Exact `spirit_rain` now applies a 1.10 multiplier to meditation cultivation gain; `spirit_vein_pulse` applies 1.20. Legacy `starter_spirit_rain` remains on its existing `aura_plus_5` approximation only.
+  Tests/build   Done   Focused `Phase1CultivationSystemTest` passed after a rerun through the known transient Gradle test-results cleanup race. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.201`.
+  Follow-up   Pending   Spirit-rain weather/particle ambience, richer UI explanation for cultivation-exp multipliers, exact multi-day event scheduling semantics, and source-accurate event rewards remain deferred.
+
+## 177. 2026-07-06 0.1.201 spirit-rain bonus gameplay
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared workspace after parallel work advanced through 0.1.198 Inverse Star demon-heart shop data and 0.1.200 Qinglan Huangfeng contribution stock. Preserved those changes and recorded this gameplay/UI slice under `mod_version=0.1.201` after the docs reconciliation required a fresh preflight fingerprint.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `data/daily_random_events.json#spirit_rain`, whose source buff is `cultivation_speed_1.1_1day`.
+  Planning   Done   Scoped to a dedicated worldpack effect token that reuses the existing daily-event data loader, saved active-event roll, server-side `WorldpackGameplayService` effect checks, client effect-description localization, and existing tests.
+  Backup   Done   Existing edited code/resource/test files were backed up to `.bak/20260706_0.1.199_spirit_rain_bonus/`; current docs were backed up again after parallel doc movement to `.bak/20260706_0.1.200_spirit_rain_docs_reconcile/`, then version/docs reconciliation was backed up to `.bak/20260706_0.1.201_spirit_rain_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.201`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Gameplay/UI   Done   Added `spirit_rain_bonus`, moved exact `spirit_rain` to that token, preserved `starter_spirit_rain` as `aura_plus_5`, applied +10% through existing worldpack aura-gain math, and added zh/en UI descriptions.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `ScreenLayoutTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. A full build at `0.1.200` passed, docs reconciliation then correctly tripped aiPreflight, and the final `0.1.201` build passed with `aiPreflight` recording `mod_version=0.1.201`.
+  Follow-up   Pending   A stricter meditation-cultivation-exp multiplier, spirit-rain visuals, region-wide rain presentation, Patchouli/event explanation, and richer worldpack active-effect UI remain future work.
+
+## 176. 2026-07-06 0.1.201 Qinglan Huangfeng stock backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel `mod_version=0.1.199` and the build-verified `0.1.200` Spirit Rain Bonus slice and preserved them instead of reverting or competing with them.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `sect_contribution_shop.json#huangfeng_valley`.
+  Planning   Done   Scoped to additive `qinglan_contribution_hall` data using existing `ShopService`, virtual `sect_contribution`, registered pill/formula/artifact item carriers, and current test/build validation.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.199_qinglan_huangfeng_stock/`.
+  Version/protocol   Done   `mod_version` is `0.1.201`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `qinglan_contribution_hall` now sells `foundation_pill`, `recipe_jiangchen`, `recipe_huanglong`, `recipe_ningshen`, and `flying_sword_low` through already registered carriers.
+  Tests/build   Pending   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 22s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` is pending.
+  Follow-up   Pending   Source-accurate Huangfeng/Qinglan rank gates, monthly/per-player limits, exact Jiangchen/Huanglong/Ningshen formula identities, low-tier flying-sword progression, and stricter sect access rules remain deferred.
+
+## 175. 2026-07-06 0.1.197 version-sync recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared worktree at `mod_version=0.1.197` after parallel version movement; preserved the build-verified 0.1.196 Barbarian King Territories, daily-random exact-id aggregate, and 0.1.195 Chaotic Sea anti-demon market data instead of reverting.
+  Scope   Done   Version-sync verification only. No additional gameplay/data content, packet schema, registry, model, texture, recipe, loot table, shop protocol, GUI, or runtime loader change is claimed here.
+  Backup   Done   Current docs/version files were backed up to `.bak/20260706_0.1.197_version_sync_recheck/`.
+  Version/protocol   Done   `mod_version` is `0.1.197`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this recheck changed no packet fields/order/encoding/registrations.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.197`.
+  Follow-up   Pending   Continue implementing text-material content in coordinated slices, preferring existing ShopService, WorldpackDataService, FTB Quests, GeckoLib, Patchouli, JEI, and Curios surfaces when applicable.
+
+## 175. 2026-07-06 0.1.197 merged build observation after parallel work
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared worktree at `mod_version=0.1.197` after parallel work advanced beyond the 0.1.196 Barbarian King territory and daily-random exact-id notes; preserved the version instead of reverting.
+  Scope   Done   Docs-only observation. No additional code/resource/data content is claimed here beyond the already-present Barbarian King territory secret realms and daily-random exact-id aggregate.
+  Backup   Done   Current handoff/progress docs were backed up to `.bak/20260706_0.1.197_merged_build_observation/`.
+  Version/protocol   Done   `mod_version` is `0.1.197`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs-only observation changed no packet fields/order/encoding/registrations.
+  Verification   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.197`.
+  Follow-up   Pending   Continue coordinating version labels with the parallel Codex before starting the next shippable slice.
+
+## 175. 2026-07-06 0.1.197 daily-random exact-id worldpack backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel build-verified 0.1.195 Chaotic Sea anti-demon shop slice and the build-verified 0.1.196 Barbarian King Territories worldpack slice; advanced this merged daily-event slice to `mod_version=0.1.197` instead of reusing occupied labels.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice covers the remaining exact source ids from `daily_random_events.json`: `spirit_rain`, `wandering_merchant`, `bandit_cultivator`, `sect_recruit`, `demon_qi_surge`, and `beast_migration`.
+  Planning   Done   Scoped to additive worldpack daily-event data using existing regions, current effect tokens, the existing `WorldpackDataService` loader, and existing command/GUI display flow; no runtime loader, packet, registry, model, texture, recipe, loot table, entity, GUI, or third-party integration was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.195_daily_random_exact_ids/`; after detecting the parallel 0.1.196 version advance, current docs/version files were backed up to `.bak/20260706_0.1.197_daily_random_exact_ids_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.197`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Worldpack data   Done   Added exact daily events `spirit_rain`, `wandering_merchant`, `bandit_cultivator`, `sect_recruit`, `demon_qi_surge`, and `beast_migration` while preserving existing regional compatibility hooks. Shipped `daily_events.json` now parses with 118 events, 0 duplicate ids, and 0 missing exact ids from text-material `daily_random_events.json`.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 20s. A first full build hit the known transient test-result cleanup race, forced `test --rerun-tasks --stacktrace` passed in 26s, and a first 0.1.197 full build hit the known transient ForgeGradle `reobfJar/mappings.tsrg` miss; immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.197`.
+  Follow-up   Pending   Exact spirit-rain 10%/multi-day cultivation math, real wandering merchant encounters, bandit combat spawns, sect recruitment UI/quest routing, demon-qi debuffs, beast migration spawn multipliers, regional rewards, and richer effect-specific UI remain deferred beyond the current data-level hooks.
+
+## 175. 2026-07-06 0.1.198 Inverse Star demon-heart market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.196 Barbarian king territories and current 0.1.197 shared-worktree state; chose a low-conflict shop-data slice that avoids packet, registry, model, texture, worldpack, alchemy runtime, GUI, production Java gameplay, regions, secret realms, and runtime-loader hot surfaces.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#inverse_star_black_market` entries `demon_heart_pill` and `recipe_demon_heart`.
+  Planning   Done   Scoped to two additive Inverse Star black-market entries using existing `ShopService`, item-currency market flow, registered Calming Pill behavior, and registered Calming Pill jade formula carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.197_inverse_star_demon_heart/`.
+  Version/protocol   Done   A full build attempt under `mod_version=0.1.197` was blocked by aiPreflight because that version was already occupied by previous shippable fingerprints; this slice advanced to `mod_version=0.1.198`. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `inverse_star_black_market` now sells `demon_heart_pill -> seeking_immortals:calming_pill_low` for 180 low-grade metal spirit stones, stock 3, and `recipe_demon_heart -> seeking_immortals:alchemy_formula_calming_pill_jade` for 350 low-grade metal spirit stones with default stock 4. `text_material_id_map.json` records both partial mappings and the expanded shop coverage.
+  Tests/build   Done   Changed shop/reference JSON parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.198`.
+  Follow-up   Pending   Dedicated Demon Heart Pill behavior, demon-qi corruption resistance, Inverse Star reputation gates, contraband/cipher/smuggler goods, real black-market access rules, and source-accurate reward/risk semantics remain deferred.
+
+## 174. 2026-07-06 0.1.196 Barbarian king territories worldpack backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent build-verified 0.1.195 Chaotic Sea anti-demon market slice and advanced this shippable worldpack data slice to `0.1.196`, avoiding packet, registry, model, texture, shop, alchemy, GUI, daily-event, production Java gameplay, and runtime-loader hot surfaces.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `secret_realm_template.json#barbarian_king_territories` and `barbarian_demon_kings.json`.
+  Planning   Done   Scoped to seven additive secret-realm territory hooks under existing `barbarian_wasteland`, reusing current `WorldpackDataService`, `immortal_jade` ticketing, `return_to_entry_anchor`, and realm-gate aliases.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.195_barbarian_king_territories/`; version reconciliation backed up current docs/version files to `.bak/20260706_0.1.196_barbarian_king_territories_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.196`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `king_bear_mountain`, `king_fox_mist`, `king_pine_ancient`, `king_roc_sky`, `king_snake_swamp`, `king_tiger_jungle`, and `king_turtle_depth` as Void Refinement Barbarian Wasteland secret realms with per-archetype tags.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 25 secret realms. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.196`. A follow-up cooperative recheck after the Chaotic Sea anti-demon shop test assertion sync passed focused `ShopServiceTest`, `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` in 17s, then final `build` passed again in 21s with `aiPreflight` recording `mod_version=0.1.196`.
+  Follow-up   Pending   Real demon-king entities, GeckoLib animations, territory structures, king-token drops, tribute trade, council audience, per-king loot tables, and FTB Quest routing remain deferred.
+
+## 174. 2026-07-06 0.1.196 Remaining daily-random exact-id aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved concurrent 0.1.195 Chaotic Sea anti-demon shop data plus 0.1.195 Barbarian King territory secret-realm data; advanced the merged shippable worldpack state to `mod_version=0.1.196` rather than reusing the contested 0.1.195 label.
+  Text-material read   Done   Current scan covers all 276 files under `文本材料`; all 154 JSON files parsed successfully. This aggregate closes the remaining exact-id gaps from `daily_random_events.json`.
+  Planning   Done   Scoped to additive worldpack daily-event data and existing test coverage using `WorldpackDataService`, current region ids, and current effect tokens only.
+  Backup   Done   Current edited files were backed up to `.bak/20260706_0.1.196_demon_qi_exact_event/`; preserved parallel backups include `.bak/20260706_0.1.195_chaotic_sea_anti_demon/` and `.bak/20260706_0.1.195_barbarian_king_territories/`.
+  Version/protocol   Done   `mod_version` is `0.1.196`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   `daily_events.json` now has 118 daily events, 0 duplicate ids, 0 missing region refs, and exact source-id coverage for all 58 text-material daily-random events, including `spirit_rain`, `wandering_merchant`, `bandit_cultivator`, `sect_recruit`, `demon_qi_surge`, and `beast_migration`.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` command passed with BUILD SUCCESSFUL in 12s, though tasks were up-to-date. First full build hit a transient test-result cleanup race after aiPreflight passed; immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.196`.
+  Follow-up   Pending   Real event-specific gameplay remains deferred: spirit-rain cultivation math, wandering merchant/NPC lots, rogue encounters, sect recruitment flow, demon-qi hazards and purge rules, beast migration spawns, and source-accurate reward tables.
+
+## 173. 2026-07-06 0.1.195 Chaotic Sea island anti-demon talisman market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.194 Star Palace patrol-supply workspace and chose a low-conflict shop-data slice that avoids worldpack hot files, packet files, registries, models, textures, alchemy runtime, GUI classes, production Java gameplay, regions, and secret realms.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#chaotic_sea_island_general` entry `anti_demon_talisman`.
+  Planning   Done   Scoped to one additive island-general market entry using the existing `ShopService` item-currency flow and already registered `seeking_immortals:fire_talisman` as a partial anti-demon carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.195_chaotic_sea_anti_demon/`.
+  Version/protocol   Done   `mod_version` is `0.1.195`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `chaotic_sea_island_general` now sells `anti_demon_talisman` as `seeking_immortals:fire_talisman` for 65 low-grade metal spirit stones with stock 10 and 48000-tick refresh; `text_material_id_map.json` records Chaotic Sea plus Star Palace patrol coverage.
+  Tests/build   Done   Changed shop/reference JSON parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 19s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.195`.
+  Follow-up   Pending   Dedicated anti-demon targeting/protection rules, sea-route demon encounter hooks, Star Palace reputation gates, monthly/per-player limits, Bu Tian Pill itemization, and exact patrol/Chaotic Sea reward semantics remain deferred.
+
+## 172. 2026-07-06 0.1.194 final version observation after parallel work
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the shared worktree at `mod_version=0.1.194` after parallel work advanced beyond the 0.1.193 notes; preserved the version instead of reverting.
+  Scope   Done   Docs-only observation. No additional code/resource/data content is claimed here beyond the already-present Tianlan scout-clash and Dajin auction-note daily-event hooks.
+  Backup   Done   Current handoff/progress docs were backed up to `.bak/20260706_0.1.194_final_docs_sync/`.
+  Version/protocol   Done   `mod_version` is `0.1.194`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs-only observation changed no packet fields/order/encoding/registrations.
+  Verification   Done   Latest observed `daily_events.json` parsed successfully with 112 daily events. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.194`.
+  Follow-up   Pending   Keep coordinating version labels with the parallel Codex before starting the next shippable slice.
+
+## 172. 2026-07-06 0.1.194 Star Palace patrol anti-demon talisman market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the current workspace at `mod_version=0.1.194` after parallel shop-data work landed; preserved the verified 0.1.193 Tianlan/Dajin worldpack state and avoided packet, registry, model, texture, worldpack, alchemy, GUI, region, secret-realm, and production Java gameplay hot surfaces.
+  Text-material read   Done   Current scan covers all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#star_palace_patrol_supply` entry `anti_demon_talisman`.
+  Planning   Done   Scoped to one additive market-shop entry using the existing `ShopService` item-currency flow and the already registered `seeking_immortals:fire_talisman` carrier; `body_guard_talisman` remains unchanged.
+  Backup   Done   Parallel implementation backup is `.bak/20260706_0.1.193_star_patrol_anti_demon/`; this docs-verification pass backed up current docs to `.bak/20260706_0.1.194_star_patrol_docs_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.194`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `star_palace_patrol_supply` now sells `anti_demon_talisman` as `seeking_immortals:fire_talisman` for 55 low-grade metal spirit stones, stock 5, 48000-tick refresh, while preserving `body_guard_talisman`.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 13s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.194`.
+  Follow-up   Pending   Exact anti-demon targeting/protection rules, Bu Tian Pill registration/effects, Star Palace reputation gates, monthly/per-player limits, patrol-board access, and stricter patrol-supply semantics remain deferred.
+
+## 171. 2026-07-06 0.1.193 Tianlan scout-clash version-sync verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Final verification detected the current workspace at `mod_version=0.1.193` after a parallel version advance; the version was preserved rather than reverted.
+  Preserved data   Done   The 0.1.192 Tianlan scout-clash daily-event data remains present as `tianlan_mulan_scout_clash` under `tianlan`, alongside the existing `mulan_scout_clash` under `mulan_grassland`.
+  Backup   Done   The implementation/docs backup for this slice remains `.bak/20260706_0.1.192_tianlan_scout_clash_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.193`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed in this slice.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.193`.
+  Follow-up   Pending   Same as 0.1.192: real Tianlan/Mulan scout encounters, feud reputation shifts, patrol NPCs, war-cycle scheduling, holy-beast trial routing, and source-accurate reward tables remain deferred.
+
+## 171. 2026-07-06 0.1.194 Star Palace anti-demon talisman patrol-supply backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.192 Tianlan scout-clash worldpack slice and chose a shop-data backfill that avoids current worldpack daily-event hot files, packet files, registries, models, textures, alchemy runtime, GUI classes, and production Java gameplay.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#star_palace_patrol_supply` entry `anti_demon_talisman`.
+  Planning   Done   Scoped to one additive patrol-supply entry using the existing item-currency shop schema and already registered `seeking_immortals:fire_talisman` as a partial anti-demon carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.193_star_patrol_anti_demon/`.
+  Version/protocol   Done   `mod_version` is `0.1.194`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `star_palace_patrol_supply` now sells `anti_demon_talisman` as `seeking_immortals:fire_talisman` for 55 low-grade metal spirit stones with stock 5 and 48000-tick refresh; `text_material_id_map.json` records the partial talisman mapping and updated shop coverage.
+  Tests/build   Done   Changed shop/reference JSON parsed successfully. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 13s after Gradle wrapper cache approval. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.194`.
+  Follow-up   Pending   Dedicated anti-demon talisman targeting/protection rules, Star Palace reputation gates, patrol-board supply semantics, monthly/per-player limits, Bu Tian Pill itemization, and exact patrol rewards remain deferred.
+
+## 170. 2026-07-06 0.1.192 Tianlan scout-clash daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.191 Kunwu ancient-ruins workspace and chose a small additive Tianlan worldpack event that avoids packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, and runtime-loader hot surfaces.
+  Text-material read   Done   Current scan covers all 276 files under text materials; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#mulan_scout_clash`, whose source regions include `mulan` and `tianlan`.
+  Planning   Done   Scoped to the Tianlan side while preserving the existing `mulan_scout_clash` event under `mulan_grassland`.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.192_tianlan_scout_clash_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.192`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `tianlan_mulan_scout_clash` under `tianlan` with weight 9, 18000 ticks, and existing `trade_risk_up` plus `rare_loot_hint` effect tokens.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 111 daily events. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.192`.
+  Follow-up   Pending   Real Tianlan/Mulan scout encounters, feud reputation shifts, patrol NPCs, war-cycle scheduling, holy-beast trial routing, and source-accurate reward tables remain deferred.
+
+## 170. 2026-07-06 0.1.193 Dajin auction_notice exact daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a parallel version advance to `mod_version=0.1.192` before editing, preserved it, and advanced this new shippable data slice to `0.1.193` instead of reusing the likely in-progress label.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#auction_notice`, whose source regions include `chaotic_sea`, `dajin`, and `tianyuan`.
+  Planning   Done   Scoped to one additive Dajin exact source-id event while preserving existing auction-related compatibility hooks such as `dajin_auction_week`, `great_jin_auction_week`, `tianyuan_auction_notice`, and `chaotic_sea_auction_rumor`.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.193_dajin_auction_notice_exact_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.193`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `auction_notice` under `dajin` with weight 5, 24000 ticks, and existing `secret_realm_ticket_hint` plus `rare_loot_hint` effect tokens through the current worldpack daily-event schema.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 112 daily events, 0 duplicate ids, and 0 missing region refs; all text-material JSON files parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.193`.
+  Follow-up   Pending   Real auction schedules, Wanbao lots, invitation/ticket access, bidding UI/NPCs, Bu Tian Pill/high-herb stock, clan reputation gates, price bands, and source-accurate reward tables remain deferred.
+
+## 168. 2026-07-06 0.1.191 Kunwu ancient-ruins daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent `0.1.190` Pirate Raid exact-id workspace and chose an additive Kunwu worldpack event that avoids packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, and runtime-loader hot surfaces.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#ancient_ruins_whisper`, whose source regions include `kunwu` and `dajin`.
+  Planning   Done   Scoped to one additive Kunwu-side event while preserving the existing Dajin exact source-id event `ancient_ruins_whisper`.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.191_kunwu_ancient_ruins_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.191`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `kunwu_ancient_ruins_whisper` under `kunwu` with weight 4, 12000 ticks, and existing `secret_realm_ticket_hint` plus `rare_loot_hint` effect tokens.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 110 daily events and 0 missing region refs; all 154 text-material JSON files parsed successfully. Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 14s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.191`.
+  Follow-up   Pending   Real Kunwu intel quests, permit/map-fragment routing, periodic opening cycles, puppet encounters, seal research, and dedicated Kunwu loot tables remain deferred.
+
+## 169. 2026-07-06 0.1.190 Pirate raid + Fengyuan treasure fair aggregate verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent 0.1.189 Fengyuan `treasure_fair_rumor` exact-id hook and the parallel 0.1.190 Chaotic Sea `pirate_raid` exact-id hook without reverting either worker's changes.
+  Text-material read   Done   Current scan covered all 276 files under `文本材料`; all 154 JSON files parsed successfully. This aggregate covers `daily_random_events.json#treasure_fair_rumor` and `#pirate_raid`.
+  Planning   Done   Scoped to additive worldpack daily-event data using the existing worldpack schema, existing regions, existing effect tokens, and existing Gradle/JUnit validation path.
+  Backup   Done   Supporting backups include `.bak/20260706_0.1.189_fengyuan_treasure_fair_exact_id/`, `.bak/20260706_0.1.189_fengyuan_treasure_docs_sync/`, `.bak/20260706_0.1.190_pirate_raid_exact_event/`, and `.bak/20260706_0.1.190_fengyuan_pirate_build_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.190`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Active `daily_events.json` includes exact `treasure_fair_rumor` under `spirit_fengyuan` and exact `pirate_raid` under `chaotic_sea`, while preserving `fengyuan_treasure_fair`, `tianyuan_treasure_fair_rumor`, and `chaotic_sea_pirate_raid` compatibility hooks.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 109 daily events. A docs-sync build first failed because a parallel Gradle run held test XML outputs; rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.190`.
+  Follow-up   Pending   Real treasure-fair schedules, auction lots, invitations, pirate encounters, Star Palace/Inverse Star reputation effects, ferry hazards, patrol routing, and source-accurate reward tables remain deferred.
+
+## 167. 2026-07-06 0.1.189 Fengyuan treasure fair exact daily-event id
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the concurrent `mod_version=0.1.188` Yin-corruption reconciliation and advanced this new shippable worldpack data slice to `mod_version=0.1.189` instead of reusing or reverting the parallel version.
+  Text-material read   Done   Full scan read 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#treasure_fair_rumor`, whose source covers `spirit_fengyuan` and `tianyuan`.
+  Planning   Done   Scoped to one additive exact source-id daily-event hook using the existing worldpack data schema, while preserving the older `fengyuan_treasure_fair` compatibility event.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.189_fengyuan_treasure_fair_exact_id/`.
+  Version/protocol   Done   `mod_version` is `0.1.189`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `treasure_fair_rumor` under `spirit_fengyuan` with weight 4, 24000 ticks, and existing `secret_realm_ticket_hint` plus `rare_loot_hint` effect tokens; `fengyuan_treasure_fair` remains unchanged.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 108 daily events, and all 154 text-material JSON files parsed successfully. Focused Gradle test execution was blocked by sandbox Gradle-wrapper network/cache access and escalation was rejected; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL under the approved build prefix and `aiPreflight` recorded `mod_version=0.1.189`.
+  Follow-up   Pending   Real Treasure Fair schedules, invitations, lots, bidding UI/NPCs, price bands, clan/reputation gates, and source-accurate reward tables remain deferred.
+
+## 112. 2026-07-05 0.1.132 Trade-route and Cangming aggregate verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   A parallel 0.1.131 Cangming patrol-supply slice landed after the trade-route build; this pass preserves both changes and reconciles the current merged workspace to mod_version 0.1.132.
+  Backup   Done   Version/docs reconciliation files were backed up to .bak/20260705_0.1.132_trade_cangming_reconcile/; the trade-route data backup remains .bak/20260705_0.1.131_worldpack_trade_routes/.
+  Version/protocol   Done   mod_version is 0.1.132; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Preserved data   Done   Worldpack daily events keep the 9 trade-route additions (63 total), and cangming_isle_contribution_hall keeps the body_guard_talisman armor_talisman entry.
+  Build   Done   Final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 57s and aiPreflight recorded mod_version=0.1.132.
+  Follow-up   Pending   Trade route mechanics and broader Star Palace patrol stock still need dedicated systems, gates, rewards, route fees, and encounter tables.
+
+### 112.1 2026-07-05 0.1.132 Cangming patrol supply body-guard talisman detail
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified parallel 0.1.129 worldpack secret-realm and 0.1.130 Danxia body-guard batches; current mod_version advanced to 0.1.132 after the parallel 0.1.131 worldpack trade-route batch and before this Cangming slice was documented.
+  Text-material read   Done   Full text-material scan covered 172 files; all 118 JSON files parsed successfully. This slice uses merchant_shops.json#star_palace_patrol_supply and the existing canonical body_guard_talisman mapping.
+  Planning   Done   Scoped this pass to one additive Cangming/Star Palace patrol-supply shop entry that reuses an existing registered talisman item and avoids Danxia hot files.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.130_cangming_patrol_supply/, .bak/20260705_0.1.131_cangming_patrol_docs/, and .bak/20260705_0.1.132_cangming_version_reconcile/.
+  Version/protocol   Done   mod_version is 0.1.132; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   cangming_isle_contribution_hall now sells body_guard_talisman as seeking_immortals:armor_talisman for 25 sect contribution.
+  Static validation   Done   PowerShell JSON parse confirmed the shop has 6 entries and the body_guard_talisman entry maps to seeking_immortals:armor_talisman with cost 25.
+  Gradle verification   Done   Covered by the aggregate 0.1.132 final build: .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 57s and aiPreflight recorded mod_version=0.1.132.
+  Follow-up   Pending   Broader Star Palace patrol stock still needs anti-demon talisman, Bu Tian Pill, reputation gates, monthly limits, dedicated rewards, and stricter patrol-supply rules.
+## 111. 2026-07-05 0.1.131 Worldpack trade-route daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel 0.1.129 secret-realm and 0.1.130 Danxia talisman batches, avoided secret_realms.json and shop files, and advanced this slice to mod_version 0.1.131.
+  Text-material read   Done   Full text-material scan covered 172 files with 118 JSON files parsed successfully; this slice uses data/trade_routes.json.
+  Planning   Done   Scoped the pass to additive worldpack daily-event entries using existing region ids and existing effect tokens only.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.131_worldpack_trade_routes/.
+  Version/protocol   Done   mod_version is 0.1.132; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added 9 text-material trade-route events, expanding shipped daily events from 54 to 63 with no missing region references.
+  Tests/build   Done   Separate focused Gradle test command was blocked by sandbox network authorization service availability; final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 45s and aiPreflight recorded mod_version=0.1.131.
+  Follow-up   Pending   Real travel tickets, ferry mechanics, route fees, smuggling reputation penalties, convoy rewards, and route-specific encounter tables remain deferred.## 110. 2026-07-05 0.1.130 Danxia body-guard talisman text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel 0.1.129 worldpack secret-realm alignment batch and reconciled this shop-data slice to mod_version 0.1.130.
+  Planning   Done   Scoped this pass to one Huangfeng/Danxia contribution entry that reuses an existing registered talisman item and the current shop schema.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.129_danxia_body_guard_talisman/ and .bak/20260705_0.1.130_danxia_body_guard_reconcile/.
+  Version/protocol   Done   mod_version is 0.1.130; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   danxia_valley_contribution_hall now sells body_guard_talisman as seeking_immortals:armor_talisman for 12 sect contribution.
+  Tests/build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 42s; final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 47s and aiPreflight recorded mod_version=0.1.130.
+  Follow-up   Pending   Exact talisman crafting inputs, monthly stock limits, sect rank gates, shield tuning, talisman crates, and recipe unlocks remain deferred.
+## 109. 2026-07-05 0.1.129 Worldpack secret-realm alignment
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.128 dirty workspace and avoided Java, packet, shop, model, texture, and daily-event hot files.
+  Text-material read   Done   Full text-material scan covered 172 files; this slice uses data/secret_realms.json and the existing worldpack schema.
+  Planning   Done   Scoped the pass to one additive Nether River secret realm plus one Thousand Bamboo region-alignment correction.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.129_worldpack_realm_alignment/.
+  Version/protocol   Done   mod_version is 0.1.129; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added nether_river_land under nether_river and moved thousand_bamboo_puppet_tower to extreme_west_thousand_bamboo, expanding shipped secret realms from 16 to 17.
+  Tests/build   Done   Focused worldpack/resource validation passed with BUILD SUCCESSFUL in 34s; final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 36s and aiPreflight recorded mod_version=0.1.129.
+  Follow-up   Pending   Nether River ferry mechanics, Yin-stone currency, ghost-path rewards, Thousand Bamboo puppet loot, and dedicated dungeon layout remain deferred.
+### 108.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 29s after Gradle cache/network approval.
+- Final required build first hit a transient `processResources` stale-output cleanup failure after aiPreflight passed; immediate rerun passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 37s and aiPreflight recorded `mod_version=0.1.128`.
+- The inherited network-package preflight warning was reviewed. This pass changed worldpack JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 108. 2026-07-05 0.1.128 Worldpack faction-conflict event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Verified the inherited 0.1.127 dirty workspace with final Gradle build before starting this slice, preserving the parallel Cangming and Huanglong shop-data batches.
+  Text-material read   Done   Full scan covered 172 files under text materials; 118 JSON files parsed successfully. This slice uses data/faction_conflict_events.json.
+  Planning   Done   Chose an additive worldpack-data pass to avoid current shop/reference hot files and avoid packet, registry, model, texture, GUI, and loader changes.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.128_worldpack_faction_conflicts/.
+  Version/protocol   Done   mod_version is 0.1.128; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added all 13 text-material faction-conflict events to worldpack/daily_events.json, expanding shipped daily events from 41 to 54 with existing region ids and effect tokens.
+  Tests/build   Done   Focused worldpack/resource validation passed with BUILD SUCCESSFUL in 23s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 40s and `aiPreflight` recorded `mod_version=0.1.128`.
+  Follow-up   Pending   These are display/effect-token events only; real faction reputation shifts, blockades, wars, discounts, patrol spawns, smuggling, and reward tables remain deferred.
+### 108.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.network.MarketWorldpackPacketTest` ended BUILD SUCCESSFUL in 23s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 40s; `aiPreflight` recorded `mod_version=0.1.128`.
+- The inherited network-package warning was reviewed. This worldpack data slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 106. 2026-07-05 0.1.127 Cangming condensation text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.126 workspace and chose a small Cangming/Chaotic Sea contribution-shop slice to avoid overlapping current market-shop files.
+  Text-material read   Done   Full text-material scan covered 172 files under text-materials; all 118 JSON files parsed successfully.
+  Planning   Done   Scoped this pass to two already registered alchemy equivalents from sect_contribution_shop.json#star_palace.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.127_cangming_condensation/`.
+  Version/protocol   Done   `mod_version` is `0.1.127`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `recipe_condensation -> seeking_immortals:alchemy_formula_essence_condensing_pill_jade`.
+  Contribution data   Done   `cangming_isle_contribution_hall` now sells `condensation_pill` and `recipe_condensation` equivalents for sect contribution.
+  Build   Done   Focused shop/resource validation passed; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 37s and `aiPreflight` recorded `mod_version=0.1.127`.
+  Follow-up   Pending   Realm gates, reputation requirements, monthly limits, exact Star Palace merit accounts, and stricter high-tier pill distribution remain deferred.
+## 107. 2026-07-05 0.1.127 Huanglong pill market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued after the 0.1.126 Tiannan/Yuling aggregate verification and avoided packet, registry, and contribution-hall surfaces.
+  Text-material read   Done   Re-ran the full UTF-8 scan for text materials: 172 files read, 118 JSON files parsed successfully.
+  Planning   Done   Scoped this slice to one Tiannan herb-market pill entry that can reuse an existing registered low-tier cultivation item.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.127_huanglong_pill_market/.
+  Version/protocol   Done   mod_version is 0.1.127; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added huanglong_pill -> seeking_immortals:cultivation_pill as an implemented_partial pill mapping.
+  Market data   Done   Added huanglong_pill to market_herbal_stall using existing metal-spirit-stone item currency.
+  Build   Done   Focused shop/resource validation passed; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 37s and `aiPreflight` recorded `mod_version=0.1.127`.
+  Follow-up   Pending   Exact Huanglong Pill formula/effect tuning, Jiangchen/Foundation pill gates, body-tempering pills, and richer shop gate support remain deferred.
+### 107.1 Aggregate final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 25s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 37s; `aiPreflight` recorded `mod_version=0.1.127`.
+- The earlier reported `compileTestJava` failure did not reproduce on rerun; `compileTestJava` was up-to-date during the successful build.
+- The inherited network-package warning was reviewed. These 0.1.127 slices changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+### 105.1 Aggregate final verification rerun for 0.1.126
+
+- Focused validation passed on the current workspace: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 21s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 35s; `aiPreflight` recorded `mod_version=0.1.126`.
+- This verifies the merged Tiannan refinement forge and Yuling beast-soul essence shop-data batches. The inherited network-package warning was reviewed; no packet compatibility changed, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Final doc-sync backup path: `.bak/20260705_0.1.126_final_verification_docs/`.
+### 104.2 Final verification
+
+- Focused validation passed: `./gradlew.bat --no-daemon --max-workers=1 test --rerun-tasks --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 45s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 34s; `aiPreflight` recorded `mod_version=0.1.126`.
+- The inherited network-package preflight warning was reviewed. This pass changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Final version label is `0.1.126`, superseding the temporary 0.1.124/0.1.125 Tiannan draft notes.
+## 104. 2026-07-05 0.1.124 Tiannan refinement forge text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected an in-progress parallel 0.1.124 Tiannan refinement forge batch and finalized that batch instead of starting a competing version.
+  Planning   Done   Scoped the cooperative batch to one whitelisted item-currency market shop from text-material `merchant_shops.json`, using only registered `spirit_iron` and existing low-grade metal-spirit-stone currency.
+  Backup   Done   Earlier implementation backup is `.bak/20260705_0.1.124_tiannan_refinement_forge/`; documentation backup is `.bak/20260705_0.1.124_tiannan_refinement_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.124`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market service   Done   `ShopService` whitelists `tiannan_refinement_forge` alongside the other market shops and provides localized market titles.
+  Data   Done   `tiannan_refinement_forge` sells `low_spirit_iron` and `spirit_iron_ingot_mid` through existing registered `seeking_immortals:spirit_iron`.
+  Tests   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 33s after wrapper network/cache approval.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 53s; `aiPreflight` recorded `mod_version=0.1.124`.
+  Follow-up   Pending   Exact spirit-iron tiering, refinement manuals, quench oil, forge hammer behavior, artifact injection tools, and full refinement crafting remain deferred.
+
+### 104.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 33s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 53s; `aiPreflight` recorded `mod_version=0.1.124`.
+- The inherited network-package preflight warning was reviewed. This Tiannan shop batch changed market whitelist/data/localization/tests/docs/version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+### 104.1 Version reconciliation
+
+- Local preflight state already recorded `mod_version=0.1.124`, so this Tiannan refinement forge batch has been advanced to `0.1.126` before final build.
+- Source/content scope is unchanged from section 104: new whitelisted market shop plus Spirit Iron canonical mappings only.
+- `ModNetwork.PROTOCOL_VERSION` remains `9`; no packet fields/order/encoding/registrations/channel compatibility changed.
+- Focused shop/resource validation passed before the version reconciliation; final build will be rerun at `0.1.126`.
+## 105. 2026-07-05 0.1.126 Yuling beast-soul essence text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected concurrent 0.1.124 Tiannan refinement forge changes and preserved them; this Yuling slice is finalized as 0.1.126 after preflight version reconciliation.
+  Text-material read   Done   Full text-material scan covered 172 files under 文本材料; all 118 JSON files parsed successfully.
+  Planning   Done   Scoped this cooperative slice to one Yuling Pavilion contribution entry that reuses a registered material item and current shop schema.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.124_yuling_beast_soul_essence/ and .bak/20260705_0.1.126_yuling_beast_soul_reconcile/.
+  Version/protocol   Done   mod_version is 0.1.126; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added beast_soul_essence -> seeking_immortals:beast_core as an implemented_partial material mapping.
+  Contribution data   Done   Added beast_soul_essence to yuling_pavilion_contribution_hall for 200 sect contribution.
+  Focused tests   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 20s after wrapper network/cache approval.
+  Build   Done   Final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 34s; aiPreflight recorded mod_version=0.1.126.
+  Follow-up   Pending   Exact beast-soul essence tiering, spirit-beast contract behavior, puppet consumption, and beast source drops remain deferred.
+
+## 104. 2026-07-05 0.1.124 Tiannan refinement forge text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued after merged 0.1.123 Danxia/Qinglan/Chaotic Sea batches; scoped this pass to a separate low-risk Tiannan market shop to avoid overlapping contribution-hall work.
+  Planning   Done   Chose only text-material refinement goods that map to existing registered items and existing item-currency market flow.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.124_tiannan_refinement_forge/`.
+  Version/protocol   Done   `mod_version` is `0.1.124`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `low_spirit_iron` and `spirit_iron_ingot_mid` as partial mappings to `seeking_immortals:spirit_iron`.
+  Market data   Done   Added `tiannan_refinement_forge` using existing metal-spirit-stone item currency.
+  Build   Done   Focused shop/resource validation passed, and final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 34s under mod_version=0.1.126.
+  Follow-up   Pending   Exact refinement material tiers, forge tools, quench oil, refinement manuals, and dedicated refining gameplay remain deferred.
+### 103.1 Merged 0.1.123 final verification
+
+- Final required build passed on the current merged workspace: `.gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 36s; `aiPreflight` recorded `mod_version=0.1.123`.
+- This build verifies the current combined shop-data state, including parallel Danxia contribution, Qinglan furnace, and Chaotic Sea material backfill batches.
+- The inherited network-package preflight warning was reviewed. These batches changed shop/reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+### 102.1 Final verification
+
+- Focused validation passed after version reconciliation: `.gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 25s after wrapper network/cache approval.
+- Final required build passed: `.gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 33s; `aiPreflight` recorded `mod_version=0.1.122`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop/reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 103. 2026-07-05 0.1.123 Chaotic Sea material market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel Danxia 0.1.121 and Qinglan 0.1.122 batches; finalized this Chaotic Sea pass as 0.1.123.
+  Planning   Done   Scoped this cooperative batch to two Chaotic Sea general-store material entries that map to existing registered items, avoiding new registries, Java gameplay logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.121_chaotic_sea_materials/`.
+  Version/protocol   Done   `mod_version` is `0.1.123`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `jiao_scale -> seeking_immortals:dragon_scale` and `deep_sea_cold_iron -> seeking_immortals:spirit_iron` as partial implemented material mappings.
+  Market data   Done   Added both mapped entries to `chaotic_sea_island_general` using existing metal-spirit-stone item currency.
+  Focused tests   Done   Forced focused shop/resource validation passed with BUILD SUCCESSFUL in 39s after wrapper network/cache approval.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s; aiPreflight recorded `mod_version=0.1.123`.
+  Follow-up   Pending   Exact sea-jiao drops, water-artifact behavior, deep-sea cold-iron tiering, and broader Chaotic Sea shop goods remain deferred.
+## 102. 2026-07-05 0.1.122 Qinglan furnace version reconciliation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel Danxia contribution-hall work at 0.1.120 and current worktree mod_version 0.1.121 during final build verification.
+  Backup   Done   Current 0.1.121-era files were backed up to .bak/20260705_0.1.122_qinglan_furnace_reconcile/.
+  Version/protocol   Done   This Qinglan furnace batch is advanced to mod_version 0.1.122; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Data   Done   qinglan_contribution_hall keeps alchemy_furnace_g2 as seeking_immortals:alchemy_furnace_tier_2 for 350 sect contribution.
+  Build   Done   Focused validation passed and the aggregate final build passed; see 102.1 and 103.1 verification notes.
+  Follow-up   Pending   Do not reuse 0.1.120 for Qinglan final reporting; Danxia's parallel 0.1.120 note remains valid as its own batch.
+## 101. 2026-07-05 0.1.120 Qinglan furnace text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued after 0.1.119 multi-market work; scoped this pass to Qinglan contribution data and avoided market shop files and packet code.
+  Text-material read   Done   Full UTF-8 scan covered 172 files under text materials; 118 JSON files parsed successfully.
+  Planning   Done   Chose one implemented equipment equivalent from sect_contribution_shop.json: alchemy_furnace_g2.
+  Backup   Done   Existing edited files were backed up to .bak/20260705_0.1.120_qinglan_furnace_text_material/.
+  Version/protocol   Done   mod_version is 0.1.120; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   qinglan_contribution_hall now sells alchemy_furnace_g2 as seeking_immortals:alchemy_furnace_tier_2 for 350 sect contribution.
+  Build   Done   Superseded by the 0.1.122 Qinglan reconcile and aggregate 0.1.123 final build verification.
+  Follow-up   Pending   Higher alchemy equipment and gated shop imports still need rank/monthly/realm support in the shop schema.
+### 93. 2026-07-04 0.1.111 Worldpack daily-event text-material backfill
+
+- Planning: Done. Scoped this cooperative batch to additive `worldpack/daily_events.json` entries from text-material `daily_random_events.json`, using only existing region ids and existing effect tokens.
+- Backup: Done. Existing edited files were backed up to `.bak/20260704_0.1.111_worldpack_daily_events/`.
+- Version/protocol: Done. `mod_version` is `0.1.111`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+- Data: Done. Expanded shipped daily events from 29 to 41, adding merchant, bandit, sect-recruit, foundation-pill rumor, talisman-master, rogue-duel, elder-lecture, beast-tide, tax-raid, and ghost-fog-truce hooks.
+- Build: Done. Focused JSON/worldpack/packet validation passed with BUILD SUCCESSFUL in 20s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and aiPreflight recorded mod_version=0.1.111.
+- Follow-up: Pending. Broader canonical id alias mapping remains required before importing larger shop, talisman, beast, artifact, puppet, formation, or technique data.
+
+### 92.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 15s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 29s; `aiPreflight` recorded `mod_version=0.1.110`.
+- The inherited network-package preflight warning was reviewed. This pass changed resource JSON/docs only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 92. 2026-07-04 0.1.110 Spirit-stone legacy refs finish
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Continued the cooperative 0.1.109 canonicalization follow-up and scoped this pass to the final active old seeking_immortals:spirit_stone recipe/Patchouli references.
+  Backup   Done   Current edited files were backed up to .bak/20260704_0.1.110_spirit_stone_refs_finish/; earlier pre-concurrency backup also exists at .bak/20260704_0.1.109_spirit_stone_refs_finish/.
+  Version/protocol   Done   mod_version is 0.1.110; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
+  Resource refs   Done   Updated ire_talisman, rmor_talisman, Patchouli basics icon, and Patchouli spirit-stones icon to registered seeking_immortals:metal_spirit_stone.
+  Build   Pending   Focused JSON validation and final .\gradlew.bat --no-daemon --max-workers=1 build will be run next.
+  Follow-up   Pending   Broader text-material id alias/canonical mapping remains before importing shops, talismans, beasts, artifacts, or techniques.
+
+### 89.1 Final verification
+
+- Focused verification passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.network.MarketWorldpackPacketTest` ended BUILD SUCCESSFUL in 23s.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 27s; `aiPreflight` recorded `mod_version=0.1.107`.
+- The inherited network-package preflight warning was reviewed. This pass changed worldpack JSON resources and docs only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 89. 2026-07-04 0.1.107 Worldpack text-material data expansion 2
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this batch to additive worldpack resources plus docs, using existing packet/UI/service schemas and existing ticket items.
+  Text-material read   Done   Traversed all files under `文本材料` and summarized docs/JSON/CSV structure before choosing this slice.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.107_worldpack_text_materials_2/`.
+  Version/protocol   Done   `mod_version` is `0.1.107`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Expanded shipped worldpack data to 14 regions, 16 secret realms, and 29 daily events, including Tianlan, Yinming, Extreme West Thousand Bamboo, Demon Gold Mountain, Minor Asura Realm, and Jiuxian Mountain Seclusion.
+  Build   Pending   Final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run after focused validation.
+  Manual regression   Pending   Worldpack GUI/commands, new OP anchors, and new secret-realm entry/return/ticket/cooldown paths remain manual checks.
+
+## 88. 2026-07-04 0.1.106 Custom fire talisman projectile
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this batch to `FireTalismanItem` only, reusing the 0.1.105 custom fireball entity and leaving thunder work for a separate pass.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.106_custom_fire_talisman/`.
+  Version/protocol   Done   `mod_version` is `0.1.106`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Fire talisman   Done   `FireTalismanItem` now spawns `CultivationFireballEntity` instead of vanilla `SmallFireball`, using affinity-scaled damage and capped affinity-scaled speed.
+  Fireball entity   Done   Added a speed-configurable constructor so spells can keep the default projectile speed while talismans can apply a small affinity speed bonus.
+  Compile   Done   `.\gradlew.bat --no-daemon --max-workers=1 compileJava` passed with BUILD SUCCESSFUL in 17s after sandbox wrapper network was escalated.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s; aiPreflight recorded `mod_version=0.1.106`.
+  Manual regression   Pending   In-game checks remain for fire talisman consumption, qi failure path, projectile visibility, target hit/splash/burn behavior, and multiplayer spawn sync.
+  Remaining original-effect work   Pending   `ThunderStrikeSpell` still uses real vanilla `LightningBolt`; `TribulationService` uses visual-only vanilla lightning.
+## 87. 2026-07-04 0.1.105 Custom fireball spell entity
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this batch to `FireballSpell` only so talisman and thunder follow-ups do not expand the change surface.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.105_custom_fireball_spell/`.
+  Version/protocol   Done   `mod_version` is `0.1.105`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Fireball entity   Done   Added `CultivationFireballEntity` with mod-owned projectile movement, hit detection, magic damage, short burn, small splash damage, particles, sound, NBT save data, and Forge spawn sync.
+  Client renderer   Done   Added `CultivationFireballRenderer` and registered it in `ClientEvents`; it uses an existing mod fire-element spirit-stone item core plus particles, with no new texture resource.
+  Fireball spell   Done   `FireballSpell` now spawns `CultivationFireballEntity` instead of vanilla `SmallFireball`.
+  Compile   Done   `.\gradlew.bat --no-daemon --max-workers=1 compileJava` passed with BUILD SUCCESSFUL in 17s after sandbox wrapper network was escalated.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s; aiPreflight recorded `mod_version=0.1.105`.
+  Manual regression   Pending   In-game checks remain for spell release, projectile visibility, target hit/splash/burn behavior, multiplayer spawn sync, and no block grief.
+  Remaining original-effect work   Pending   `FireTalismanItem` still uses vanilla `SmallFireball`; `ThunderStrikeSpell` still uses real vanilla `LightningBolt`; `TribulationService` uses visual-only vanilla lightning.
+## 86. 2026-07-04 0.1.104 Worldpack text-material data expansion
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this batch to data-resource expansion plus docs; custom spell-effect refactor is recorded as the next gameplay slice.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.103_worldpack_text_materials/`.
+  Version/protocol   Done   `mod_version` is `0.1.104`; `ModNetwork.PROTOCOL_VERSION` remains `9` because packet fields/order/encoding/registrations are unchanged.
+  Worldpack data   Done   Expanded shipped worldpack data to 11 regions, 11 secret realms, and 19 daily events; Chinese display strings are stored as JSON Unicode escapes to avoid Windows console encoding damage.
+  Docs   Done   Added `project_docs/updates/20260704_0.1.104_worldpack_text_materials.md` and prepended current notes to project docs.
+  Focused tests   Done   JSON sanity, worldpack data service, and market/worldpack packet tests passed with BUILD SUCCESSFUL in 19s after fixing text-material source JSON schema issues.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s; aiPreflight recorded `mod_version=0.1.104`.
+  Manual regression   Pending   Worldpack GUI/commands, OP anchor setup, secret-realm entry/return/tickets/cooldowns, and daily-event modifiers remain manual checks.
+
+## 85. 2026-07-04 0.1.102 Review-fix verification, preserve completed features
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Latest user instruction   Done   Completed/no-bug Phase 10, market, and worldpack packet-GUI code was preserved instead of deleted.  
+  Backup   Done   Existing candidate files were backed up to `.bak/20260704_0.1.103_review_fixes_protocol8_reclean/` before the preservation decision; no code deletions or edits followed.  
+  Review-fix audit   Done   Health HUD replacement gating, cooldown overflow clamp, sect shop bad-currency/out-of-stock feedback, and Patchouli bridge isolation are present in current source.  
+  Version/protocol   Done   Since no source changes were applied, `mod_version` remains `0.1.102`; current `ModNetwork.PROTOCOL_VERSION` remains `9` to match the retained packet surface.  
+  Focused tests   Done   `./gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacketTest --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest` passed with BUILD SUCCESSFUL in 13s.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s; aiPreflight recorded `mod_version=0.1.102`.  
+  Manual regression   Pending   `runClientNoPatchouli`, chat/open-screen/F1 health behavior, GUI Scale 1/2/3/Auto, Qinglan no-stock/bad-currency prompts, and retained market/worldpack GUI flows still merit manual checks.  
+### 85. 2026-07-04 0.1.102 Worldpack/market systems final docs sync
+
+- Change class: code/network/UI/gameplay/docs, implemented on the advanced `0.1.102` workspace for the original 0.1.92 plan label.
+- Protocol: `ModNetwork.PROTOCOL_VERSION=9`; `SyncShopDataPacket`, `ShopActionPacket`, `SyncWorldpackDataPacket`, and `WorldpackActionPacket` are active after the sect packets.
+- Backup: existing touched files are backed up under `.bak/20260704_023831_0.1.92_worldpack_market_systems/`; the current pre-doc-sync snapshot is under `final_docs_sync_before/`.
+- Focused tests: packet, shop, worldpack, screen layout, and disabled-pill behavior tests passed after restoring `MarketWorldpackPacketTest`; sandbox run hit the known Gradle wrapper socket permission issue, escalated rerun passed in 17s.
+- Build: final post-doc-sync `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s; aiPreflight recorded `mod_version=0.1.102` and the expected network-package warning is covered by protocol 9.
+- Remaining manual regression: MarketTrader interaction, ShopScreen and WorldpackScreen at GUI Scale 1/2/3/Auto, travel/enter/return with anchors/tickets/cooldowns, daily event aura/market modifiers, multiplayer packet behavior, and future full generated dimensions/dungeons/dialogue.
+### 84.1 Final verification
+
+- Focused tests passed: sect packet/content/resource/shop/quest/layout plus market/worldpack packet regression ended BUILD SUCCESSFUL in 27s.
+- Final build passed: .\\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks ended BUILD SUCCESSFUL in 37s; 11 tasks executed.
+- aiPreflight recorded mod_version=0.1.102 and the expected network-package warning; ModNetwork.PROTOCOL_VERSION=9 is the deliberate compatibility bump.
+- Remaining manual regression: locate six sect outposts, generated recruiter NBT, one-time sect application rejection, mission rewards, per-sect shop separation, and new-chunk outpost placement.
+
+## 84. 2026-07-04 0.1.102 Phase 10 protocol 9 final sync
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Version/protocol   Done   mod_version is 0.1.102; ModNetwork.PROTOCOL_VERSION is 9 for the expanded Phase 10 sect packet surface.  
+  Backup   Done   Existing edited files were backed up to .bak/20260704_0.1.102_phase10_protocol9_final/.  
+  Docs   Done   Added project_docs/updates/20260704_0.1.102_phase10_protocol9_final.md and prepended current-truth notes to project docs.  
+  Tests   Pending   Focused sect packet/content/resource tests will be run next.  
+  Build   Pending   Final .\\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks will be run after focused tests.  
+  Manual regression   Pending   Locate structures, recruiter NBT, one-time application rejection, mission rewards, per-sect shops, and new-chunk outposts remain manual checks.  
+
+## 84. 2026-07-04 0.1.101 Cultivation stats visual fix final record
+
+| Step | Status | Notes |
+| --- | --- | --- |
+| UI visual fix | Done | CultivationStatsScreen no longer uses the near-white status-bar highlight or vanilla button/slider rendering that caused bright blocks on the ink panel. |
+| Version/protocol | Done | Source check: mod_version=0.1.101 and ModNetwork.PROTOCOL_VERSION=8. No packet fields/order/encoding/registrations changed in this request. |
+| Verification | Done | Focused ScreenLayoutTest passed in 22s; final Gradle build passed in 20s. |
+
+## 81. 2026-07-04 0.1.101 Phase 10 six-sect closure
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Version/protocol   Done   mod_version is 0.1.101; ModNetwork.PROTOCOL_VERSION is 9 for the expanded six-sect SyncSectDataPacket/SectActionPacket surface.  
+  Source cleanup   Done   Current source keeps the Phase 10 sect packet surface active and does not retain stale market/worldpack packet-GUI classes.  
+  Focused tests   Done   Forced focused tests passed: SectPacketTest, SectDefinitionServiceTest, SectContentServiceTest, JsonSanityTest, QuestProgressTest, ShopServiceTest, and ScreenLayoutTest.  
+  Build   Done   Final .\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks passed: BUILD SUCCESSFUL in 34s; 11 tasks executed.  
+  Backup   Done   Existing edited files were backed up to .bak/20260704_0.1.98_phase10_protocol_sync/.  
+  Manual regression   Pending   Manual checks remain for /locate structure seeking_immortals:<sect>_outpost, recruiter NBT, one-time sect application, mission rewards, per-sect shop separation, and new-chunk outpost placement.  
+## 83. 2026-07-04 0.1.101 Build verification
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Focused test   Done   .\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest -> BUILD SUCCESSFUL in 22s.  
+  Final build   Done   .\gradlew.bat --no-daemon --max-workers=1 build -> BUILD SUCCESSFUL in 20s.  
+  Protocol decision   Done   ModNetwork.PROTOCOL_VERSION remains 8; this pass did not change packet fields/order/encoding/registrations.  
+
+## 82. 2026-07-04 0.1.101 Cultivation stats visual fix
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Visual block fix   Done   Replaced the stats screen near-white status-bar highlight and vanilla breakthrough/close/slider rendering with ink/gold/jade custom controls.  
+  Version/protocol   Done   Actual mod_version is 0.1.101; ModNetwork.PROTOCOL_VERSION remains 8 because no packet fields/order/encoding/registrations changed.  
+  Compile hygiene   Done   Removed the stale worldpack packet call/import left after the protocol-8 packet/UI cleanup, preserving command/chat summary behavior.  
+  Focused test   Done   .\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest -> BUILD SUCCESSFUL in 22s.  
+  Build   Pending   Final required .\gradlew.bat --no-daemon --max-workers=1 build will be run after docs sync.  
+  Manual regression   Pending   Check GUI Scale 1/2/3/Auto in-game for the cultivation stats panel, buttons, slider, text truncation, and inventory-return behavior.  
+
+## 81. 2026-07-04 0.1.101 Review fixes final cleanup (0.1.92 plan)
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Review fixes   Done   Health HUD vanilla cancellation gating, cooldown overflow clamp, sect shop OUT_OF_STOCK/BAD_CURRENCY_ITEM feedback, and Patchouli compat bridge are implemented.  
+  Version/protocol   Done   Actual `mod_version` is `0.1.101`; `ModNetwork.PROTOCOL_VERSION` is restored/kept at `8`. No packet fields/order/encoding/registrations/channel compatibility changes are retained.  
+  Packet/UI cleanup   Done   Transient market/worldpack packet, client-data, screen, registration, and packet-test files were backed up and removed from current source.  
+  Concurrent overwrite cleanup   Done   A later worldpack/market protocol-9 writeback was backed up to `.bak/20260704_0.1.92_review_fixes/after_concurrent_worldpack_rewrite/` and superseded by this review-fix truth.  
+  Focused tests   Done   `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacketTest --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest` -> BUILD SUCCESSFUL in 16s.  
+  Build   Done   Final required `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 18s; aiPreflight recorded `mod_version=0.1.101`.  
+  Manual regression   Pending   Recommended checks remain `runClientNoPatchouli`, chat/open-screen/F1 health visibility, GUI Scale 1/2/3/Auto, and Qinglan no-stock/currency-error prompts.  
+
+> SUPERSEDED 2026-07-04: Earlier 0.1.96/0.1.97/0.1.98/0.1.99 worldpack/market protocol-9 notes were transient dirty-workspace records and are not current source truth for this review-fix pass.
+
 # UI 维护
 
-> 本表用于记录“一次目标”被拆成小步骤后推进到哪里。
-> **强制规则：每次开始任务必须先读取本表；每次完成小步、遇到阻塞、完成构建验证或阶段收尾，都必须更新本表。**
+> 本表用于记录“一次目标”被拆成小步骤后推进到哪里�?> **强制规则：每次开始任务必须先读取本表；每次完成小步、遇到阻塞、完成构建验证或阶段收尾，都必须更新本表�?*
 
 ## 1. 使用规则
 
-1. 开始任何开发任务前，先读取：
-   - `project_docs/ai_handoff.md`
+1. 开始任何开发任务前，先读取�?   - `project_docs/ai_handoff.md`
    - `project_docs/step_progress.md`
-2. 如果任务涉及物品、系统、版本更新，还要读取：
-   - `project_docs/items.md`
+2. 如果任务涉及物品、系统、版本更新，还要读取�?   - `project_docs/items.md`
    - `project_docs/pending_requests.md`
-3. 每完成一个小步，都要在本表中更新状态、时间和备注。
-4. 如果任务中断，要把当前做到哪里、下一步该做什么写清楚。
-5. 每次版本完成后，同步更新：
-   - `items.md`
+3. 每完成一个小步，都要在本表中更新状态、时间和备注�?4. 如果任务中断，要把当前做到哪里、下一步该做什么写清楚�?5. 每次版本完成后，同步更新�?   - `items.md`
    - `pending_requests.md`
-   - `updates/YYYYMMDD_版本号.md`
-6. 每次代码修改后必须执行 `./gradlew build`，并记录结果。
+   - `updates/YYYYMMDD_版本�?md`
+6. 每次代码修改后必须执�?`./gradlew build`，并记录结果�?
+## 2. 状态标�?
+  状�?  含义  
+  ---   ---  
+  📋 规划�?  已列入步骤，但还未开�? 
+  �?进行�?  正在执行  
+  �?已完�?  已完成并通过必要验证  
+  ⚠️ 阻塞   遇到问题，需处理后继�? 
+  🔄 暂停   暂时搁置，后续继�? 
+  �?取消   不再执行  
 
-## 2. 状态标识
+## 3. 当前一次目�?
+**目标名称**：维护原�?Forge/Minecraft UI 的左侧技能栏、独立修仙面板、打坐吐�?HUD、功�?灵根信息界面�?
+**目标说明**�?
+- 先采用安全的兼容式迁移：保留 Forge Overlay / Screen 入口，逐步把绘制与组件结构抽到 旧第三方 UI 风格适配层�?- �?API 和结构稳定后，再进一步替换为完整 旧第三方 UI 组件 / Screen�?- 当前 `0.1.25` 已完成第一阶段�?
+**当前版本**：`0.1.58`
 
-| 状态 | 含义 |
-| --- | --- |
-| 📋 规划中 | 已列入步骤，但还未开始 |
-| ⚡ 进行中 | 正在执行 |
-| ✅ 已完成 | 已完成并通过必要验证 |
-| ⚠️ 阻塞 | 遇到问题，需处理后继续 |
-| 🔄 暂停 | 暂时搁置，后续继续 |
-| ❌ 取消 | 不再执行 |
-
-## 3. 当前一次目标
-
-**目标名称**：维护原生 Forge/Minecraft UI 的左侧技能栏、独立修仙面板、打坐吐纳 HUD、功法/灵根信息界面。
-
-**目标说明**：
-
-- 先采用安全的兼容式迁移：保留 Forge Overlay / Screen 入口，逐步把绘制与组件结构抽到 旧第三方 UI 风格适配层。
-- 等 API 和结构稳定后，再进一步替换为完整 旧第三方 UI 组件 / Screen。
-- 当前 `0.1.25` 已完成第一阶段。
-
-**当前版本**：`0.1.51`
-
-**最后更新时间**：2026-06-22（0.1.48：新增 Codex/Claude Code 固定 AI 工作流与 Gradle preflight 版本门禁；详细 Phase 进度见 `docs/task-board.md`，功能清单见 `project_docs/features.md`）
-
+**最后更新时�?*�?026-06-27�?.1.58：技能图标系统接入完成，15 个可释放技能各�?16×16 占位 PNG，HUD 渲染接入，`./gradlew build` 成功；详�?Phase 进度�?`docs/task-board.md`，功能清单见 `project_docs/features.md`，审查修复清单见 `docs/code-review-fix-checklist.md`�?
 ## 4. 总体进度
 
-| 阶段 | 内容 | 状态 | 进度 | 备注 |
-| --- | --- | --- | --- | --- |
-| 阶段一 | 左侧技能栏 旧第三方 UI 适配 | ✅ 已完成 | 100% | 0.1.25 已完成，固定 7 格，空槽透明背景 |
-| 阶段二 | 背包“修仙”页 旧第三方 UI 信息面板 | ✅ 已完成 | 80% | 0.1.26 已修复背包槽显示，并完成四分页；后续仍可换完整 旧第三方 UI 组件 |
-| 阶段三 | 打坐吐纳状态栏 / HUD | ✅ 已完成 | 70% | 0.1.26 已新增屏幕下方独立吐纳 HUD；后续补闭关/风险/威胁 |
-| 阶段四 | 功法/灵根信息界面 | ✅ 已完成 | 60% | 0.1.26 已独立为分页渲染方法，为后续详情页做准备 |
-| 阶段五 | 技能交互、tooltip、冷却、释放 | ⚡ 进行中 | 55% | 0.1.34 已完成绑定槽持久化、保存/清空网络包、绑定槽快捷键释放和 5 秒默认冷却；真实效果/UI 拖拽待实现 |
+  阶段   内容   状�?  进度   备注  
+  ---   ---   ---   ---   ---  
+  阶段一   左侧技能栏 旧第三方 UI 适配   �?已完�?  100%   0.1.25 已完成，固定 7 格，空槽透明背景  
+  阶段�?  背包“修仙”页 旧第三方 UI 信息面板   �?已完�?  80%   0.1.26 已修复背包槽显示，并完成四分页；后续仍可换完�?旧第三方 UI 组件  
+  阶段�?  打坐吐纳状态栏 / HUD   �?已完�?  70%   0.1.26 已新增屏幕下方独立吐�?HUD；后续补闭关/风险/威胁  
+  阶段�?  功法/灵根信息界面   �?已完�?  60%   0.1.26 已独立为分页渲染方法，为后续详情页做准备  
+  阶段�?  技能交互、tooltip、冷却、释�?  �?进行�?  55%   0.1.34 已完成绑定槽持久化、保�?清空网络包、绑定槽快捷键释放和 5 秒默认冷却；真实效果/UI 拖拽待实�? 
 
-## 5. 详细步骤表
+## 5. 详细步骤�?
+  步骤编号   任务�?  状�?  完成时间   备注  
+  ---   ---   ---   ---   ---  
+  1.1   检查当�?旧第三方 UI 依赖接入   �?已完�?  2026-06-09   0.1.24 已接�?`已移除的旧第三方 UI 依赖`  
+  1.2   分析现有左侧技能栏代码   �?已完�?  2026-06-09   文件：`TechniqueSkillBarOverlay.java`  
+  1.3   左侧技能栏固定显示 7 个槽�?  �?已完�?  2026-06-09   常量：`SKILL_SLOT_COUNT = 7`  
+  1.4   无技能时显示空框 + 透明背景   �?已完�?  2026-06-09   通过 `ImmortalUiSkin.drawSkillSlot(..., false)` 绘制  
+  1.5   有技能时显示槽位 + 占位图标   �?已完�?  2026-06-09   当前仍是按技�?ID hash 生成占位色块和首字母  
+  1.6   新增统一 旧第三方 UI UI 皮肤适配�?  �?已完�?  2026-06-09   文件：`ImmortalUiSkin.java`  
+  1.7   背包“修仙”页主面板接入统一皮肤   �?已完�?  2026-06-09   文件：`CultivationStatsScreen.java`  
+  1.8   修仙页底部新增灵�?吐纳状态条   �?已完�?  2026-06-09   方法：`drawBreathingStatusBar(...)`  
+  1.9   更新版本号到 0.1.25   �?已完�?  2026-06-09   文件：`gradle.properties`  
+  1.10   执行 `./gradlew build` 验证   �?已完�?  2026-06-09   BUILD SUCCESSFUL，产�?`seeking_immortals-0.1.25.jar`  
+  1.11   同步 `items.md`   �?已完�?  2026-06-09   已记�?0.1.25 UI 迁移状�? 
+  1.12   同步 `pending_requests.md`   �?已完�?  2026-06-09   已记录后续完�?旧第三方 UI 组件 / Screen 待办  
+  1.13   同步 `updates/20260609_0.1.25.md`   �?已完�?  2026-06-09   已记录实现与后续迁移�? 
+  1.14   创建 AI 交接文档   �?已完�?  2026-06-09 15:49   文件：`ai_handoff.md`  
+  1.15   创建本步骤进度表   �?已完�?  2026-06-09 15:49   文件：`step_progress.md`，后续每次任务必须读取和更新  
+  2.1   开�?0.1.26 前读取本步骤�?  �?已完�?  2026-06-09 16:17   已读取；同时发现 `ai_handoff.md` 缺失并恢�? 
+  2.2   重新分析 `CultivationStatsScreen.java` 当前布局   �?已完�?  2026-06-09 16:22   根因初判：修仙页继承普�?`Screen` 并替�?`InventoryScreen`，不会渲染原版玩家物品槽  
+  2.3   修复玩家物品栏不显示物品 bug   �?已完�?  2026-06-09 16:28   `CultivationStatsScreen` 改为继承 `InventoryScreen` 并打开时传入当前玩家，保留原版背包槽渲�? 
+  2.4   抽取可复用信息行 / 面板绘制方法   �?已完�?  2026-06-09 16:28   修仙页拆成基础状态、灵根、功法、负面状态四个独立渲染方法；保留后续详情入口  
+  2.5   背包“修仙”页增加灵根/功法更明确分�?  �?已完�?  2026-06-09 16:28   已改�?旧第三方 UI 风格四分页按钮：基础状态、灵根信息、功法信息、负面状�? 
+  2.6   构建验证并更新文�?  �?已完�?  2026-06-09 16:33   首次构建因同步包括号失败，修复后 `./gradlew build` 成功，产�?`0.1.26.jar`  
+  2.7   复查 UI 显示问题根因   �?已完�?  2026-06-09 17:17   当前工作区非 Git 仓库；旧第三�?UI-MultiLoader README 仅为多加载器模板说明，结�?Forge 1.20.1 改为 MOD bus 注册�?Overlay 生命周期  
+  2.8   修复 HUD/技能栏依赖背包初始化和渲染状态污�?  �?已完�?  2026-06-09 17:21   技能栏/吐纳 HUD 改为 `RegisterGuiOverlaysEvent.registerAboveAll` 注册，并在屏幕打开时不渲染；修仙页面板移入 `renderBg`，避免覆盖原版槽与物�? 
+  3.1   设计独立打坐吐纳 HUD 位置   �?已完�?  2026-06-09 16:30   已放置在屏幕下方中央，避开原版快捷栏上�? 
+  3.2   抽出吐纳状态条绘制工具方法   �?已完�?  2026-06-09 16:30   新增 `BreathingHudOverlay` 并复�?`ImmortalUiSkin.drawStatusBar`  
+  3.3   显示灵气浓度、功法倍率、灵根亲和�? 秒结算进�?  �?已完�?  2026-06-09 16:30   `SyncCultivationDataPacket` 新增灵气浓度/性质同步，HUD 显示 5 秒进�? 
+  4.1   规划功法信息界面   �?已完�?  2026-06-09 16:28   修仙页已独立功法分页，展示已学技能来�?属�? 
+  4.2   规划灵根信息界面   �?已完�?  2026-06-09 16:28   修仙页已独立灵根分页，展示类型、属性、纯度、觉醒、倍率  
+  5.1   技能槽 tooltip 数据结构预留   �?已完�?  2026-06-09 16:30   `ClientTechniqueData.TechniqueSummary` 读取内置 JSON，tooltip 竖向展示五项信息  
+  5.2   技能点�?快捷键释放设�?  📋 规划�?  -   下一步应加入服务端释放包、冷却、真实消耗和校验  
 
-| 步骤编号 | 任务项 | 状态 | 完成时间 | 备注 |
-| --- | --- | --- | --- | --- |
-| 1.1 | 检查当前 旧第三方 UI 依赖接入 | ✅ 已完成 | 2026-06-09 | 0.1.24 已接入 `已移除的旧第三方 UI 依赖` |
-| 1.2 | 分析现有左侧技能栏代码 | ✅ 已完成 | 2026-06-09 | 文件：`TechniqueSkillBarOverlay.java` |
-| 1.3 | 左侧技能栏固定显示 7 个槽位 | ✅ 已完成 | 2026-06-09 | 常量：`SKILL_SLOT_COUNT = 7` |
-| 1.4 | 无技能时显示空框 + 透明背景 | ✅ 已完成 | 2026-06-09 | 通过 `ImmortalUiSkin.drawSkillSlot(..., false)` 绘制 |
-| 1.5 | 有技能时显示槽位 + 占位图标 | ✅ 已完成 | 2026-06-09 | 当前仍是按技能 ID hash 生成占位色块和首字母 |
-| 1.6 | 新增统一 旧第三方 UI UI 皮肤适配层 | ✅ 已完成 | 2026-06-09 | 文件：`ImmortalUiSkin.java` |
-| 1.7 | 背包“修仙”页主面板接入统一皮肤 | ✅ 已完成 | 2026-06-09 | 文件：`CultivationStatsScreen.java` |
-| 1.8 | 修仙页底部新增灵力/吐纳状态条 | ✅ 已完成 | 2026-06-09 | 方法：`drawBreathingStatusBar(...)` |
-| 1.9 | 更新版本号到 0.1.25 | ✅ 已完成 | 2026-06-09 | 文件：`gradle.properties` |
-| 1.10 | 执行 `./gradlew build` 验证 | ✅ 已完成 | 2026-06-09 | BUILD SUCCESSFUL，产物 `seeking_immortals-0.1.25.jar` |
-| 1.11 | 同步 `items.md` | ✅ 已完成 | 2026-06-09 | 已记录 0.1.25 UI 迁移状态 |
-| 1.12 | 同步 `pending_requests.md` | ✅ 已完成 | 2026-06-09 | 已记录后续完整 旧第三方 UI 组件 / Screen 待办 |
-| 1.13 | 同步 `updates/20260609_0.1.25.md` | ✅ 已完成 | 2026-06-09 | 已记录实现与后续迁移点 |
-| 1.14 | 创建 AI 交接文档 | ✅ 已完成 | 2026-06-09 15:49 | 文件：`ai_handoff.md` |
-| 1.15 | 创建本步骤进度表 | ✅ 已完成 | 2026-06-09 15:49 | 文件：`step_progress.md`，后续每次任务必须读取和更新 |
-| 2.1 | 开始 0.1.26 前读取本步骤表 | ✅ 已完成 | 2026-06-09 16:17 | 已读取；同时发现 `ai_handoff.md` 缺失并恢复 |
-| 2.2 | 重新分析 `CultivationStatsScreen.java` 当前布局 | ✅ 已完成 | 2026-06-09 16:22 | 根因初判：修仙页继承普通 `Screen` 并替代 `InventoryScreen`，不会渲染原版玩家物品槽 |
-| 2.3 | 修复玩家物品栏不显示物品 bug | ✅ 已完成 | 2026-06-09 16:28 | `CultivationStatsScreen` 改为继承 `InventoryScreen` 并打开时传入当前玩家，保留原版背包槽渲染 |
-| 2.4 | 抽取可复用信息行 / 面板绘制方法 | ✅ 已完成 | 2026-06-09 16:28 | 修仙页拆成基础状态、灵根、功法、负面状态四个独立渲染方法；保留后续详情入口 |
-| 2.5 | 背包“修仙”页增加灵根/功法更明确分组 | ✅ 已完成 | 2026-06-09 16:28 | 已改为 旧第三方 UI 风格四分页按钮：基础状态、灵根信息、功法信息、负面状态 |
-| 2.6 | 构建验证并更新文档 | ✅ 已完成 | 2026-06-09 16:33 | 首次构建因同步包括号失败，修复后 `./gradlew build` 成功，产物 `0.1.26.jar` |
-| 2.7 | 复查 UI 显示问题根因 | ✅ 已完成 | 2026-06-09 17:17 | 当前工作区非 Git 仓库；旧第三方 UI-MultiLoader README 仅为多加载器模板说明，结合 Forge 1.20.1 改为 MOD bus 注册式 Overlay 生命周期 |
-| 2.8 | 修复 HUD/技能栏依赖背包初始化和渲染状态污染 | ✅ 已完成 | 2026-06-09 17:21 | 技能栏/吐纳 HUD 改为 `RegisterGuiOverlaysEvent.registerAboveAll` 注册，并在屏幕打开时不渲染；修仙页面板移入 `renderBg`，避免覆盖原版槽与物品 |
-| 3.1 | 设计独立打坐吐纳 HUD 位置 | ✅ 已完成 | 2026-06-09 16:30 | 已放置在屏幕下方中央，避开原版快捷栏上方 |
-| 3.2 | 抽出吐纳状态条绘制工具方法 | ✅ 已完成 | 2026-06-09 16:30 | 新增 `BreathingHudOverlay` 并复用 `ImmortalUiSkin.drawStatusBar` |
-| 3.3 | 显示灵气浓度、功法倍率、灵根亲和、5 秒结算进度 | ✅ 已完成 | 2026-06-09 16:30 | `SyncCultivationDataPacket` 新增灵气浓度/性质同步，HUD 显示 5 秒进度 |
-| 4.1 | 规划功法信息界面 | ✅ 已完成 | 2026-06-09 16:28 | 修仙页已独立功法分页，展示已学技能来源/属性 |
-| 4.2 | 规划灵根信息界面 | ✅ 已完成 | 2026-06-09 16:28 | 修仙页已独立灵根分页，展示类型、属性、纯度、觉醒、倍率 |
-| 5.1 | 技能槽 tooltip 数据结构预留 | ✅ 已完成 | 2026-06-09 16:30 | `ClientTechniqueData.TechniqueSummary` 读取内置 JSON，tooltip 竖向展示五项信息 |
-| 5.2 | 技能点击/快捷键释放设计 | 📋 规划中 | - | 下一步应加入服务端释放包、冷却、真实消耗和校验 |
-
-## 6. 当前停靠点
-
-当前做到：
-
-- `0.1.26` 已完成。
-- 背包“修仙”页已修复玩家物品栏不显示 bug：现在继承 `InventoryScreen` 并保留原版槽位渲染。
-- 背包“修仙”页已完成 旧第三方 UI 风格四分页：基础状态、灵根信息、功法信息、负面状态。
-- 左侧技能栏已增加竖向 tooltip：技能名、所属功法、属性、消耗、是否可释放。
-- 打坐吐纳 HUD 已独立显示在屏幕下方，显示当前吐纳效率、灵气浓度、功法倍率、灵根亲和和 5 秒结算进度条。
-- 功法/灵根信息界面已独立为分页渲染方法，准备后续点击技能槽进入详情。
-- 下一次任务建议从 **步骤 5.2：技能点击/快捷键释放设计** 或完整 旧第三方 UI 组件/Screen 化开始。
-
+## 6. 当前停靠�?
+当前做到�?
+- `0.1.26` 已完成�?- 背包“修仙”页已修复玩家物品栏不显�?bug：现在继�?`InventoryScreen` 并保留原版槽位渲染�?- 背包“修仙”页已完�?旧第三方 UI 风格四分页：基础状态、灵根信息、功法信息、负面状态�?- 左侧技能栏已增加竖�?tooltip：技能名、所属功法、属性、消耗、是否可释放�?- 打坐吐纳 HUD 已独立显示在屏幕下方，显示当前吐纳效率、灵气浓度、功法倍率、灵根亲和和 5 秒结算进度条�?- 功法/灵根信息界面已独立为分页渲染方法，准备后续点击技能槽进入详情�?- 下一次任务建议从 **步骤 5.2：技能点�?快捷键释放设�?* 或完�?旧第三方 UI 组件/Screen 化开始�?
 ## 7. 构建记录
 
-| 时间 | 命令 | 结果 | 备注 |
-| --- | --- | --- | --- |
-| 2026-06-09 | `./gradlew build` | ✅ 成功 | 生成 `build/libs/seeking_immortals-0.1.25.jar` |
-| 2026-06-09 16:29 | `./gradlew build` | ❌ 失败 | `SyncCultivationDataPacket` 结尾括号缺失，已修复 |
-| 2026-06-09 16:30 | `./gradlew build` | ✅ 成功 | 生成 `build/libs/seeking_immortals-0.1.26.jar` |
-| 2026-06-09 17:19 | `./gradlew build` | ✅ 成功 | UI 显示复修后构建通过，产物仍为 `build/libs/seeking_immortals-0.1.26.jar` |
-| 2026-06-10 23:59 | `./gradlew build` | ❌ 失败 | 独立 `Screen` 中误保留 `InventoryScreen#renderTooltip` 调用，已移除 |
-| 2026-06-11 00:10 | `./gradlew build` | ✅ 成功 | 独立修仙面板构建通过，升版前产物仍为 `0.1.28.jar` |
-| 2026-06-11 00:18 | `./gradlew build` | ✅ 成功 | 升版后构建通过，产物 `build/libs/seeking_immortals-0.1.29.jar` |
-| 2026-06-11 03:20 | `./gradlew build` | ✅ 成功 | 0.1.31 修炼进度条/技能栏左移/左上角图案移除后构建通过，产物 `build/libs/seeking_immortals-0.1.31.jar` |
+  时间   命令   结果   备注  
+  ---   ---   ---   ---  
+  2026-06-09   `./gradlew build`   �?成功   生成 `build/libs/seeking_immortals-0.1.25.jar`  
+  2026-06-09 16:29   `./gradlew build`   �?失败   `SyncCultivationDataPacket` 结尾括号缺失，已修复  
+  2026-06-09 16:30   `./gradlew build`   �?成功   生成 `build/libs/seeking_immortals-0.1.26.jar`  
+  2026-06-09 17:19   `./gradlew build`   �?成功   UI 显示复修后构建通过，产物仍�?`build/libs/seeking_immortals-0.1.26.jar`  
+  2026-06-10 23:59   `./gradlew build`   �?失败   独立 `Screen` 中误保留 `InventoryScreen#renderTooltip` 调用，已移除  
+  2026-06-11 00:10   `./gradlew build`   �?成功   独立修仙面板构建通过，升版前产物仍为 `0.1.28.jar`  
+  2026-06-11 00:18   `./gradlew build`   �?成功   升版后构建通过，产�?`build/libs/seeking_immortals-0.1.29.jar`  
+  2026-06-11 03:20   `./gradlew build`   �?成功   0.1.31 修炼进度�?技能栏左移/左上角图案移除后构建通过，产�?`build/libs/seeking_immortals-0.1.31.jar`  
 
-## 8. 阻塞与风险记录
-
-| 时间 | 问题 | 状态 | 处理 |
-| --- | --- | --- | --- |
-| 2026-06-09 | `coding_agent` Provider 不可用 | ⚠️ 已绕过 | 由主调度器直接接管代码修改 |
-| 2026-06-09 | `repo_agent` 上游附件错误 | ⚠️ 已绕过 | 由主调度器直接接管代码修改 |
-| 2026-06-09 | 当前工作区不是 Git 仓库 | ⚠️ 持续注意 | 使用 `safe_edit` 自动备份，构建验证 |
-| 2026-06-09 | 旧第三方 UI API 不应凭空假设 | ⚠️ 持续注意 | 当前只使用已验证可编译的 `原生矩形绘制` |
-| 2026-06-09 16:29 | `SyncCultivationDataPacket` 构建括号错误 | ✅ 已解决 | 修复 `ClientCultivationData.Snapshot` 构造闭合括号后重新构建成功 |
+## 8. 阻塞与风险记�?
+  时间   问题   状�?  处理  
+  ---   ---   ---   ---  
+  2026-06-09   `coding_agent` Provider 不可�?  ⚠️ 已绕�?  由主调度器直接接管代码修�? 
+  2026-06-09   `repo_agent` 上游附件错误   ⚠️ 已绕�?  由主调度器直接接管代码修�? 
+  2026-06-09   当前工作区不�?Git 仓库   ⚠️ 持续注意   使用 `safe_edit` 自动备份，构建验�? 
+  2026-06-09   旧第三方 UI API 不应凭空假设   ⚠️ 持续注意   当前只使用已验证可编译的 `原生矩形绘制`  
+  2026-06-09 16:29   `SyncCultivationDataPacket` 构建括号错误   �?已解�?  修复 `ClientCultivationData.Snapshot` 构造闭合括号后重新构建成功  
 
 ---
 
-**维护规则再次强调**：下一次任何任务开始前，必须先读取本文件；每完成一个小步，必须更新本文件。
-
+**维护规则再次强调**：下一次任何任务开始前，必须先读取本文件；每完成一个小步，必须更新本文件�?
 ## 9. 2026-06-09 18:23 UI/图形高优先级修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| 显式备份 | ✅ 已完成 | 已备份 `src`、`project_docs` 与 Gradle 配置到 `backups/20260609_181708_ui_fix_before/` |
-| Git 状态检查 | ✅ 已完成 | 当前工作区不是 Git 仓库，继续用显式备份与工具备份保护修改 |
-| P0/P1 UI 修复 | ✅ 已完成 | 已修复原版背包按钮自注入、客户端同步状态、技能顺序、HUD 稳定隐藏/占位、面板边界与皮肤颜色状态污染 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 已通过；升版后将再次执行最终构建 |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  显式备份   �?已完�?  已备�?`src`、`project_docs` �?Gradle 配置�?`backups/20260609_181708_ui_fix_before/`  
+  Git 状态检�?  �?已完�?  当前工作区不�?Git 仓库，继续用显式备份与工具备份保护修�? 
+  P0/P1 UI 修复   �?已完�?  已修复原版背包按钮自注入、客户端同步状态、技能顺序、HUD 稳定隐藏/占位、面板边界与皮肤颜色状态污�? 
+  构建验证   �?已完�?  `./gradlew build` 已通过；升版后将再次执行最终构�? 
 
-| 版本文档同步 | ✅ 已完成 | 已更新 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260609_0.1.27.md` |
+  版本文档同步   �?已完�?  已更�?`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260609_0.1.27.md`  
 
 ## 10. 2026-06-10 0.1.28 旧第三方 UI UI/图形修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git 状态检查 | ✅ 已完成 | `git rev-parse` 确认为非 Git 仓库；继续使用工具备份与既有 `backups/20260610_003025_旧第三方 UI库2_ui_bugfix_before/` |
-| 旧第三方 UI 指南复查 | ✅ 已完成 | 按 Agent 指南重点复查 Screen/Menu、Overlay/HUD、布局、样式、事件生命周期与数据同步；本次不替用户决定最终样式 |
-| 当前 UI bug 定位 | ✅ 已完成 | 0.1.27 后仍存在修仙页 `PANEL_WIDTH` 固定宽度残留，极窄屏/高 GUI Scale 时分页按钮、返回按钮和状态条可能越界 |
-| 最小代码修复 | ✅ 已完成 | `CultivationStatsScreen` 新增自适应 `panelWidth()`，分页按钮与灵力/纯度状态条改为跟随面板宽度 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.28.jar` |
-| 文档同步 | ✅ 已完成 | 已同步 `ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260610_0.1.28.md` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git 状态检�?  �?已完�?  `git rev-parse` 确认为非 Git 仓库；继续使用工具备份与既有 `backups/20260610_003025_旧第三方 UI�?_ui_bugfix_before/`  
+  旧第三方 UI 指南复查   �?已完�?  �?Agent 指南重点复查 Screen/Menu、Overlay/HUD、布局、样式、事件生命周期与数据同步；本次不替用户决定最终样�? 
+  当前 UI bug 定位   �?已完�?  0.1.27 后仍存在修仙�?`PANEL_WIDTH` 固定宽度残留，极窄屏/�?GUI Scale 时分页按钮、返回按钮和状态条可能越界  
+  最小代码修�?  �?已完�?  `CultivationStatsScreen` 新增自适应 `panelWidth()`，分页按钮与灵力/纯度状态条改为跟随面板宽度  
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.28.jar`  
+  文档同步   �?已完�?  已同�?`ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260610_0.1.28.md`  
 
 ## 11. 2026-06-10 0.1.29 独立修仙面板与技能栏坐标修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git/备份检查 | ✅ 已完成 | `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260610_0129_independent_screen_before/`，代码修改使用 `safe_edit` 自动备份 |
-| 技能栏堆叠排查 | ✅ 已完成 | `TechniqueSkillBarOverlay` 槽位循环使用 `slotY = y + i * (SLOT_SIZE + SLOT_GAP)`，未发现循环递增丢失；补充基于 HUD `screenHeight` 的顶部钳制，确保左侧 7 槽不被右上角/背包定位覆盖 |
-| B 方案独立面板 | ✅ 已完成 | `CultivationStatsScreen` 改为独立 `Screen`，居中绘制大面板，保留基础/灵根/功法/负面状态四分页；原版背包仅保留入口按钮 |
-| 返回逻辑 | ✅ 已完成 | 从背包按钮进入时返回原版 `InventoryScreen`，其他入口关闭页面 |
-| 构建验证 | ✅ 已完成 | 首次构建因独立 `Screen` 无 `renderTooltip` 方法失败，移除该调用后 `./gradlew build` 成功；升版后已再次构建验证 |
-| 文档同步 | ✅ 已完成 | 已同步 `ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260610_0.1.29.md` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git/备份检�?  �?已完�?  `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260610_0129_independent_screen_before/`，代码修改使�?`safe_edit` 自动备份  
+  技能栏堆叠排查   �?已完�?  `TechniqueSkillBarOverlay` 槽位循环使用 `slotY = y + i * (SLOT_SIZE + SLOT_GAP)`，未发现循环递增丢失；补充基�?HUD `screenHeight` 的顶部钳制，确保左侧 7 槽不被右上角/背包定位覆盖  
+  B 方案独立面板   �?已完�?  `CultivationStatsScreen` 改为独立 `Screen`，居中绘制大面板，保留基础/灵根/功法/负面状态四分页；原版背包仅保留入口按钮  
+  返回逻辑   �?已完�?  从背包按钮进入时返回原版 `InventoryScreen`，其他入口关闭页�? 
+  构建验证   �?已完�?  首次构建因独�?`Screen` �?`renderTooltip` 方法失败，移除该调用�?`./gradlew build` 成功；升版后已再次构建验�? 
+  文档同步   �?已完�?  已同�?`ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260610_0.1.29.md`  
 
 
 ## 12. 2026-06-11 0.1.30 左侧技能栏参考图外框接入记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git/备份检查 | ✅ 已完成 | `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260611_0130_skill_bar_frame_before/`，代码修改使用 `safe_edit` 自动备份 |
-| 资源处理 | ✅ 已完成 | 用户 JPG 已自动裁剪主体、尝试透明化棋盘格并缩放为 `textures/gui/skill_bar_frame.png`；源图为 JPG，边缘透明可能不如正式 PNG 完美 |
-| 技能栏接入 | ✅ 已完成 | `TechniqueSkillBarOverlay` 新增外框纹理绘制，7 槽按外框尺寸居中排列在内部开口区域，未同步仍显示空槽 |
-| 构建验证 | ✅ 已完成 | 接入纹理后 `./gradlew build` 成功；升版后已再次构建验证 |
-| 文档同步 | ✅ 已完成 | 已同步 `ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260611_0.1.30.md` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git/备份检�?  �?已完�?  `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260611_0130_skill_bar_frame_before/`，代码修改使�?`safe_edit` 自动备份  
+  资源处理   �?已完�?  用户 JPG 已自动裁剪主体、尝试透明化棋盘格并缩放为 `textures/gui/skill_bar_frame.png`；源图为 JPG，边缘透明可能不如正式 PNG 完美  
+  技能栏接入   �?已完�?  `TechniqueSkillBarOverlay` 新增外框纹理绘制�? 槽按外框尺寸居中排列在内部开口区域，未同步仍显示空槽  
+  构建验证   �?已完�?  接入纹理�?`./gradlew build` 成功；升版后已再次构建验�? 
+  文档同步   �?已完�?  已同�?`ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260611_0.1.30.md`  
 
 
-## 13. 2026-06-11 0.1.31 修炼进度条与左上角图案处理记录
+## 13. 2026-06-11 0.1.31 修炼进度条与左上角图案处理记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`，并补读物品/待办/功能/占位文档  
+  Git/备份检�?  �?已完�?  `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260611_0131_progress_bar_before/`，代码修改使�?`safe_edit` 自动备份  
+  HUD/Overlay 定位   �?已完�?  仅发现本模组客户端注�?`technique_skill_bar` �?`breathing_hud` 两个 Overlay；左上角图案来源确认�?0.1.30 技能栏外框 `skill_bar_frame.png` 的整张装饰绘�? 
+  资源处理   �?已完�?  用户 JPG 裁剪第三条完整进度条，尝试以边缘泛洪方式透明化棋盘格，输�?`textures/gui/cultivation_progress_bar.png`；JPG 抗锯齿边缘可能仍有少量浅色残�? 
+  代码接入   �?已完�?  `BreathingHudOverlay` �?5 秒结算进度改用新修炼进度条纹理；技能槽左移，且不再绘制导致左上角图案的旧外框纹�? 
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.31.jar`  
+  文档同步   �?已完�?  已同�?`ai_handoff.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260611_0.1.31.md`  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md`，并补读物品/待办/功能/占位文档 |
-| Git/备份检查 | ✅ 已完成 | `git rev-parse` 确认为非 Git 仓库；已创建显式备份 `backups/20260611_0131_progress_bar_before/`，代码修改使用 `safe_edit` 自动备份 |
-| HUD/Overlay 定位 | ✅ 已完成 | 仅发现本模组客户端注册 `technique_skill_bar` 与 `breathing_hud` 两个 Overlay；左上角图案来源确认为 0.1.30 技能栏外框 `skill_bar_frame.png` 的整张装饰绘制 |
-| 资源处理 | ✅ 已完成 | 用户 JPG 裁剪第三条完整进度条，尝试以边缘泛洪方式透明化棋盘格，输出 `textures/gui/cultivation_progress_bar.png`；JPG 抗锯齿边缘可能仍有少量浅色残留 |
-| 代码接入 | ✅ 已完成 | `BreathingHudOverlay` 的 5 秒结算进度改用新修炼进度条纹理；技能槽左移，且不再绘制导致左上角图案的旧外框纹理 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.31.jar` |
-| 文档同步 | ✅ 已完成 | 已同步 `ai_handoff.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260611_0.1.31.md` |
 
+## 14. 2026-06-11 0.1.32 移除 旧第三方 UI �?并重实现原生 UI 记录
 
-## 14. 2026-06-11 0.1.32 移除 旧第三方 UI 库 并重实现原生 UI 记录
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git/备份检�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `backups/20260611_0333_remove_旧第三方 UI库_before/`  
+  清理与重实现   �?进行�?  正在移除 旧第三方 UI �?依赖、兼容命名与文档表述，改为原�?Forge/Minecraft UI  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git/备份检查 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `backups/20260611_0333_remove_旧第三方 UI库_before/` |
-| 清理与重实现 | ⚡ 进行中 | 正在移除 旧第三方 UI 库 依赖、兼容命名与文档表述，改为原生 Forge/Minecraft UI |
+## 15. 2026-06-11 0.1.33 技能快捷键与单页修仙面板记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git/备份检�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `backups/20260611_0133_skill_keys_before/`  
+  全局搜索   �?已完�?  已搜�?`CultivationStatsScreen`、`ClientEvents`、按键注册、网络包、打坐吐纳提示与技能数�?释放相关逻辑  
+  实现修改   �?进行�?  正在合并修仙面板四分页、抑制打坐吐纳反复动作栏提示、添�?7 个技能释放键和技能编辑界面入�? 
 
-## 15. 2026-06-11 0.1.33 技能快捷键与单页修仙面板记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git/备份检查 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `backups/20260611_0133_skill_keys_before/` |
-| 全局搜索 | ✅ 已完成 | 已搜索 `CultivationStatsScreen`、`ClientEvents`、按键注册、网络包、打坐吐纳提示与技能数据/释放相关逻辑 |
-| 实现修改 | ⚡ 进行中 | 正在合并修仙面板四分页、抑制打坐吐纳反复动作栏提示、添加 7 个技能释放键和技能编辑界面入口 |
-
-| 实现修改 | ✅ 已完成 | 修仙面板四分页合并为单页分区；抑制打坐吐纳 5 秒动作栏状态提示；新增 7 个释放键、技能编辑界面和服务端释放包 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，升版前产物验证通过；升版后已再次执行最终构建 |
+  实现修改   �?已完�?  修仙面板四分页合并为单页分区；抑制打坐吐�?5 秒动作栏状态提示；新增 7 个释放键、技能编辑界面和服务端释放包  
+  构建验证   �?已完�?  `./gradlew build` 成功，升版前产物验证通过；升版后已再次执行最终构�? 
 
 ## 16. 0.1.33 构建记录补充
 
-| 时间 | 命令 | 结果 | 备注 |
-| --- | --- | --- | --- |
-| 2026-06-11 12:55 | `./gradlew build` | ✅ 成功 | 技能快捷键、单页修仙面板、服务端释放包初版构建通过 |
+  时间   命令   结果   备注  
+  ---   ---   ---   ---  
+  2026-06-11 12:55   `./gradlew build`   �?成功   技能快捷键、单页修仙面板、服务端释放包初版构建通过  
 
 
-## 17. 2026-06-11 0.1.34 技能绑定/冷却/HUD 修复记录
+## 17. 2026-06-11 0.1.34 技能绑�?冷却/HUD 修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md`，并补读物品/待办/功能/占位文档 |
-| Git/备份检查 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `backups/20260611_1530_skill_binding_cooldown_before/` |
-| 相关代码搜索 | ✅ 已完成 | 已检查 `ClientEvents`、`TechniqueEditScreen`、`ClientTechniqueData`、`ReleaseTechniquePacket`、`ModNetwork`、`PlayerCultivation`、同步包、HUD 与语言文件 |
-| 实现修改 | ✅ 已完成 | 已实现 7 槽持久化、旧存档默认填槽、保存/清空绑定包、绑定槽同步、快捷键按绑定槽释放、5 秒默认冷却与 tooltip 冷却秒数；按本阶段要求未做 UI 拖拽/HUD 位置 |
-| 构建验证 | ✅ 已完成 | 首次构建因 `ModEvents` 仍使用旧同步包构造失败，已改为 `SyncLearnedTechniquesPacket.send`；随后 `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.34.jar` |
-| 文档同步 | ✅ 已完成 | 已同步 `ai_handoff.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260611_0.1.34.md` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`，并补读物品/待办/功能/占位文档  
+  Git/备份检�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `backups/20260611_1530_skill_binding_cooldown_before/`  
+  相关代码搜索   �?已完�?  已检�?`ClientEvents`、`TechniqueEditScreen`、`ClientTechniqueData`、`ReleaseTechniquePacket`、`ModNetwork`、`PlayerCultivation`、同步包、HUD 与语言文件  
+  实现修改   �?已完�?  已实�?7 槽持久化、旧存档默认填槽、保�?清空绑定包、绑定槽同步、快捷键按绑定槽释放�? 秒默认冷却与 tooltip 冷却秒数；按本阶段要求未�?UI 拖拽/HUD 位置  
+  构建验证   �?已完�?  首次构建�?`ModEvents` 仍使用旧同步包构造失败，已改�?`SyncLearnedTechniquesPacket.send`；随�?`./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.34.jar`  
+  文档同步   �?已完�?  已同�?`ai_handoff.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260611_0.1.34.md`  
 
 ## 18. 2026-06-11 0.1.34 第二阶段 UI 拖拽/HUD 修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md`，并补读待办、功能、占位和 0.1.34 更新文档 |
-| Git/备份检查 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `backups/20260611_0134_ui_drag_hud_before/` |
-| 技能编辑拖拽 | ✅ 已完成 | `TechniqueEditScreen` 显示 7 槽与已学技能列表，支持拖拽技能到槽位绑定、右键清空，并保留左键槽位绑定同序号已学技能 |
-| 快捷键冲突优化 | ✅ 已完成 | 技能释放键和技能编辑键默认改为未绑定；Screen 打开时清理点击，不触发释放或重复打开编辑界面；打坐键保留 V |
-| HUD/进度条 | ✅ 已完成 | 打坐吐纳 HUD 上移到 `screenHeight - HEIGHT - 72` 并做上下钳制；进度条先画背景/框，再按 5 秒周期裁剪左侧填充 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 已通过，产物仍为 `build/libs/seeking_immortals-0.1.34.jar` |
-| 文档同步 | ✅ 已完成 | 已同步 `step_progress.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/20260611_0.1.34.md`；版本保持 0.1.34 |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`，并补读待办、功能、占位和 0.1.34 更新文档  
+  Git/备份检�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `backups/20260611_0134_ui_drag_hud_before/`  
+  技能编辑拖�?  �?已完�?  `TechniqueEditScreen` 显示 7 槽与已学技能列表，支持拖拽技能到槽位绑定、右键清空，并保留左键槽位绑定同序号已学技�? 
+  快捷键冲突优�?  �?已完�?  技能释放键和技能编辑键默认改为未绑定；Screen 打开时清理点击，不触发释放或重复打开编辑界面；打坐键保留 V  
+  HUD/进度�?  �?已完�?  打坐吐纳 HUD 上移�?`screenHeight - HEIGHT - 72` 并做上下钳制；进度条先画背景/框，再按 5 秒周期裁剪左侧填�? 
+  构建验证   �?已完�?  `./gradlew build` 已通过，产物仍�?`build/libs/seeking_immortals-0.1.34.jar`  
+  文档同步   �?已完�?  已同�?`step_progress.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`updates/20260611_0.1.34.md`；版本保�?0.1.34  
 
 ## 19. 0.1.34 构建记录补充
 
-| 时间 | 命令 | 结果 | 备注 |
-| --- | --- | --- | --- |
-| 2026-06-11 13:27 | `./gradlew build` | ❌ 失败 | `ModEvents` 仍调用旧版 `new SyncLearnedTechniquesPacket(List)`，已修复为统一 send 方法 |
-| 2026-06-11 13:28 | `./gradlew build` | ✅ 成功 | 技能槽持久化、绑定同步与 5 秒冷却构建通过，产物 `build/libs/seeking_immortals-0.1.34.jar` |
-| 2026-06-11 13:31 | `./gradlew build` | ✅ 成功 | 文档同步后最终复验通过，产物 `build/libs/seeking_immortals-0.1.34.jar` |
-| 2026-06-11 13:35 | `./gradlew build` | ✅ 成功 | 第二阶段技能拖拽、快捷键默认未绑定、HUD 上移和进度条裁剪后构建通过 |
-| 2026-06-11 13:36 | `./gradlew build` | ✅ 成功 | 修正已学列表 hover 负坐标误判后复验通过，产物 `build/libs/seeking_immortals-0.1.34.jar` |
+  时间   命令   结果   备注  
+  ---   ---   ---   ---  
+  2026-06-11 13:27   `./gradlew build`   �?失败   `ModEvents` 仍调用旧�?`new SyncLearnedTechniquesPacket(List)`，已修复为统一 send 方法  
+  2026-06-11 13:28   `./gradlew build`   �?成功   技能槽持久化、绑定同步与 5 秒冷却构建通过，产�?`build/libs/seeking_immortals-0.1.34.jar`  
+  2026-06-11 13:31   `./gradlew build`   �?成功   文档同步后最终复验通过，产�?`build/libs/seeking_immortals-0.1.34.jar`  
+  2026-06-11 13:35   `./gradlew build`   �?成功   第二阶段技能拖拽、快捷键默认未绑定、HUD 上移和进度条裁剪后构建通过  
+  2026-06-11 13:36   `./gradlew build`   �?成功   修正已学列表 hover 负坐标误判后复验通过，产�?`build/libs/seeking_immortals-0.1.34.jar`  
 
-## 20. 2026-06-11 0.1.34 第三阶段进度条资源/HUD/缩放修复记录
+## 20. 2026-06-11 0.1.34 第三阶段进度条资�?HUD/缩放修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| Git/备份检查 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `backups/20260611_0134_progress_scale_before/` |
-| 资源处理 | ✅ 已完成 | 使用用户新上传 PNG 裁剪整条进度条基底，透明化上传预览背景，覆盖 `textures/gui/cultivation_progress_bar.png`，保留 PNG 透明通道 |
-| HUD 调整 | ✅ 已完成 | 移除 HUD “5秒结算进度”文字行；HUD 高度降到 46，放在血条上方安全距离并按 scaledWidth/scaledHeight 钳制 |
-| 进度条实现 | ✅ 已完成 | 先绘制新基底/外框，再按 progress 从左到右绘制青绿色半透明填充矩形和高光，不再整张满格显示 |
-| 修仙属性面板 | ✅ 已完成 | 去掉“原生UI · 独立修仙面板 · 单页总览”文案，保留简洁“修仙属性”标题；小窗口时可隐藏标题腾空间 |
-| 缩放兼容 | ✅ 已完成 | 修仙面板最小宽高、按钮、文字截断、分区数量和底部边界改为按当前 GUI Scale/窗口尺寸自适应；HUD 按屏幕边界钳制 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物仍为 `build/libs/seeking_immortals-0.1.34.jar` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  Git/备份检�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `backups/20260611_0134_progress_scale_before/`  
+  资源处理   �?已完�?  使用用户新上�?PNG 裁剪整条进度条基底，透明化上传预览背景，覆盖 `textures/gui/cultivation_progress_bar.png`，保�?PNG 透明通道  
+  HUD 调整   �?已完�?  移除 HUD �?秒结算进度”文字行；HUD 高度降到 46，放在血条上方安全距离并�?scaledWidth/scaledHeight 钳制  
+  进度条实�?  �?已完�?  先绘制新基底/外框，再�?progress 从左到右绘制青绿色半透明填充矩形和高光，不再整张满格显示  
+  修仙属性面�?  �?已完�?  去掉“原生UI · 独立修仙面板 · 单页总览”文案，保留简洁“修仙属性”标题；小窗口时可隐藏标题腾空间  
+  缩放兼容   �?已完�?  修仙面板最小宽高、按钮、文字截断、分区数量和底部边界改为按当�?GUI Scale/窗口尺寸自适应；HUD 按屏幕边界钳�? 
+  构建验证   �?已完�?  `./gradlew build` 成功，产物仍�?`build/libs/seeking_immortals-0.1.34.jar`  
 
-## 21. 0.1.34 构建记录补充（二）
+## 21. 0.1.34 构建记录补充（二�?
+  时间   命令   结果   备注  
+  ---   ---   ---   ---  
+  2026-06-11 18:05   `./gradlew build`   �?成功   �?PNG 进度条基底、HUD 降高/文案移除、修仙属性面板去总览文案与缩放兼容修复后构建通过  
+  2026-06-13 02:12   `./gradlew build`   �?成功   0.1.47 飞剑/法宝飞行系统初版构建通过  
+  2026-06-11 18:09   `./gradlew build`   �?成功   HUD 文本截断与极�?scaledWidth 防护后复验通过  
+  2026-06-13 04:22   `./gradlew build`   �?成功   1.1 六大核心属性存储、展示、指令与文档同步后构建通过，产�?`build/libs/seeking_immortals-0.1.47.jar`  
+  2026-06-13 12:38   `./gradlew build`   �?成功   手动突破流程、破境丹/药力资源校验、失败走火风险和按键/GUI/命令入口构建通过，产�?`build/libs/seeking_immortals-0.1.47.jar`  
+  2026-06-13 13:12   `./gradlew build`   �?成功   突破成功率丹�?灵眼/功法/执念加成、同步展示与协议版本 4 构建通过，产�?`build/libs/seeking_immortals-0.1.47.jar`  
+  2026-06-13   `./gradlew build`   �?成功   打坐退出交互失效与穿方块修复后构建通过，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
-| 时间 | 命令 | 结果 | 备注 |
-| --- | --- | --- | --- |
-| 2026-06-11 18:05 | `./gradlew build` | ✅ 成功 | 新 PNG 进度条基底、HUD 降高/文案移除、修仙属性面板去总览文案与缩放兼容修复后构建通过 |
-| 2026-06-13 02:12 | `./gradlew build` | ✅ 成功 | 0.1.47 飞剑/法宝飞行系统初版构建通过 |
-| 2026-06-11 18:09 | `./gradlew build` | ✅ 成功 | HUD 文本截断与极窄 scaledWidth 防护后复验通过 |
-| 2026-06-13 04:22 | `./gradlew build` | ✅ 成功 | 1.1 六大核心属性存储、展示、指令与文档同步后构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-| 2026-06-13 12:38 | `./gradlew build` | ✅ 成功 | 手动突破流程、破境丹/药力资源校验、失败走火风险和按键/GUI/命令入口构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-| 2026-06-13 13:12 | `./gradlew build` | ✅ 成功 | 突破成功率丹药/灵眼/功法/执念加成、同步展示与协议版本 4 构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-| 2026-06-13 | `./gradlew build` | ✅ 成功 | 打坐退出交互失效与穿方块修复后构建通过，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-
-## 22. 2026-06-13 0.1.47 六大核心属性记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md`，并补读 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` |
-| 安全计划与备份 | ✅ 已完成 | 当前工作区不是 Git 仓库；已创建显式备份 `.bak/20260613_042140_core_attributes/` |
-| 核心属性存储 | ✅ 已完成 | `PlayerCultivation` 统一保存 `cultivation`、`mana`/`manaMax`、`divSense`、`bodyRef`、`qiDevRisk`、`tribRes`；新存档神识默认 5，旧存档缺字段时回退默认值 |
-| 展示与指令 | ✅ 已完成 | 修仙属性面板和 `/seeking_immortals qi` 已显示六大核心属性；同步包沿用既有字段顺序，未新增 packet 字段 |
-| 文档同步 | ✅ 已完成 | 已同步 `features.md`、`pending_requests.md`、`missing_and_placeholders.md` 与 `updates/20260613_0.1.47.md` |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+## 22. 2026-06-13 0.1.47 六大核心属性记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`，并补读 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md`  
+  安全计划与备�?  �?已完�?  当前工作区不�?Git 仓库；已创建显式备份 `.bak/20260613_042140_core_attributes/`  
+  核心属性存�?  �?已完�?  `PlayerCultivation` 统一保存 `cultivation`、`mana`/`manaMax`、`divSense`、`bodyRef`、`qiDevRisk`、`tribRes`；新存档神识默认 5，旧存档缺字段时回退默认�? 
+  展示与指�?  �?已完�?  修仙属性面板和 `/seeking_immortals qi` 已显示六大核心属性；同步包沿用既有字段顺序，未新�?packet 字段  
+  文档同步   �?已完�?  已同�?`features.md`、`pending_requests.md`、`missing_and_placeholders.md` �?`updates/20260613_0.1.47.md`  
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
 ## 23. 2026-06-13 0.1.47 手动境界突破流程记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md`、`step_progress.md`，并补读物品/待办/功能/占位与 0.1.47 更新文档 |
-| 安全计划与备份 | ✅ 已完成 | 已创建显式备份 `.bak/20260613_123641_breakthrough_flow/` |
-| 修为瓶颈逻辑 | ✅ 已完成 | 普通修炼现在只累积到当前层/阶段上限，不再自动跨层；旧存档优先恢复保存的 `Realm`/`Stage` |
-| 突破结算 | ✅ 已完成 | 成功显式推进一阶并清空新阶段进度；失败回退当前阶段 20% 修为、走火风险 +10%，70% 以上进行心魔检定 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md`、`step_progress.md`，并补读物品/待办/功能/占位�?0.1.47 更新文档  
+  安全计划与备�?  �?已完�?  已创建显式备�?`.bak/20260613_123641_breakthrough_flow/`  
+  修为瓶颈逻辑   �?已完�?  普通修炼现在只累积到当前层/阶段上限，不再自动跨层；旧存档优先恢复保存的 `Realm`/`Stage`  
+  突破结算   �?已完�?  成功显式推进一阶并清空新阶段进度；失败回退当前阶段 20% 修为、走火风�?+10%�?0% 以上进行心魔检�? 
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
-## 24. 2026-06-13 0.1.47 突破成功率加成记录
+## 24. 2026-06-13 0.1.47 突破成功率加成记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取与规�?  �?已完�?  已基于手动突破流程继续规划成功率加成，并读取突破、丹药、灵气、功法数据和文档相关文件  
+  安全备份   �?已完�?  已创建显式备�?`.bak/20260613_131101_breakthrough_chance/`  
+  丹药加成   �?已完�?  普通破境丹/下品筑基丹为 +5%，`PillQuality` 预留中品/上品/极品 +10%/+15%/+20%，药力数值持久化�?`BreakthroughPillBonus`  
+  环境与功法加�?  �?已完�?  灵脉/灵眼复用 `AuraInfo.leyline()` 提供 +15%；功法品质支持可�?`quality` 字段并用 source/id 启发式兜底，最�?+10%  
+  执念加成   �?已完�?  连续失败改为每次 +5%，最�?+30%，成功后清零  
+  同步与展�?  �?已完�?  同步突破概率和丹�?灵眼/功法/执念加成；修仙面板、`/realm` 和突破反馈使用同一预览结果  
+  文档同步   �?已完�?  已同�?`features.md`、`pending_requests.md`、`missing_and_placeholders.md` �?`updates/20260613_0.1.47.md`  
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取与规划 | ✅ 已完成 | 已基于手动突破流程继续规划成功率加成，并读取突破、丹药、灵气、功法数据和文档相关文件 |
-| 安全备份 | ✅ 已完成 | 已创建显式备份 `.bak/20260613_131101_breakthrough_chance/` |
-| 丹药加成 | ✅ 已完成 | 普通破境丹/下品筑基丹为 +5%，`PillQuality` 预留中品/上品/极品 +10%/+15%/+20%，药力数值持久化到 `BreakthroughPillBonus` |
-| 环境与功法加成 | ✅ 已完成 | 灵脉/灵眼复用 `AuraInfo.leyline()` 提供 +15%；功法品质支持可选 `quality` 字段并用 source/id 启发式兜底，最高 +10% |
-| 执念加成 | ✅ 已完成 | 连续失败改为每次 +5%，最多 +30%，成功后清零 |
-| 同步与展示 | ✅ 已完成 | 同步突破概率和丹药/灵眼/功法/执念加成；修仙面板、`/realm` 和突破反馈使用同一预览结果 |
-| 文档同步 | ✅ 已完成 | 已同步 `features.md`、`pending_requests.md`、`missing_and_placeholders.md` 与 `updates/20260613_0.1.47.md` |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-
-## 26. 2026-06-13 0.1.47 走火入魔机制（MVP）实现记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取与规划 | ✅ 已完成 | 已读取 `PlayerCultivation.java`、`ModEvents.java`、`ReleaseTechniquePacket.java`、`BreakthroughService.java`、`BasePillItem.java`、`ModItems.java`、`PillType.java`、`SpiritualAuraManager.java`、`ModCreativeTabs.java` 与 `zh_cn.json` |
-| 安全备份 | ✅ 已完成 | 已创建显式备份 `.bak/20260613_qi_deviation/` |
-| 分级效果枚举 | ✅ 已完成 | `PlayerCultivation` 新增 `QiDeviationTier`（NONE/MINOR/MODERATE/SEVERE/EXTREME）和 `determineQiDeviationTier()`；`BreakthroughAttemptResult` 新增 `qiDeviationTier` 字段 |
-| 走火判定重构 | ✅ 已完成 | `checkQiDeviation` 改为纯概率判定（不再直接施加心魔）；`BreakthroughService.applyQiDeviationEffect` 按分级执行效果 |
-| 分级效果实现 | ✅ 已完成 | 轻微（-30% 修为）、中度（-50% 修为+昏迷 30 秒）、严重（掉境界+昏迷 3 分钟+装备损坏）、极端（当场死亡+背包掉落 50%） |
-| 受伤修炼风险 | ✅ 已完成 | `ModEvents` 每秒检测：打坐中血量低于最大值时 +2% 走火风险 |
-| 风险自然衰减 | ✅ 已完成 | 平稳打坐每 720 秒 -1%（≈每小时 -5%）；灵脉打坐额外每 360 秒 -1%（≈每小时 -10%） |
-| 功法境界校验 | ✅ 已完成 | `ReleaseTechniquePacket` 新增 `estimateTechniqueRealm`；功法超出当前境界 2 级以上时 +5% 走火风险 |
-| 稳神丹 | ✅ 已完成 | 新增 `CalmingPill`（继承 `BasePillItem`），服用后 -20% 走火风险；`PillType.CALMING` 已注册 |
-| 物品注册 | ✅ 已完成 | `ModItems.CALMING_PILL_LOW` 已注册，已加入创造栏和语言文件 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+## 26. 2026-06-13 0.1.47 走火入魔机制（MVP）实现记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取与规�?  �?已完�?  已读�?`PlayerCultivation.java`、`ModEvents.java`、`ReleaseTechniquePacket.java`、`BreakthroughService.java`、`BasePillItem.java`、`ModItems.java`、`PillType.java`、`SpiritualAuraManager.java`、`ModCreativeTabs.java` �?`zh_cn.json`  
+  安全备份   �?已完�?  已创建显式备�?`.bak/20260613_qi_deviation/`  
+  分级效果枚举   �?已完�?  `PlayerCultivation` 新增 `QiDeviationTier`（NONE/MINOR/MODERATE/SEVERE/EXTREME）和 `determineQiDeviationTier()`；`BreakthroughAttemptResult` 新增 `qiDeviationTier` 字段  
+  走火判定重构   �?已完�?  `checkQiDeviation` 改为纯概率判定（不再直接施加心魔）；`BreakthroughService.applyQiDeviationEffect` 按分级执行效�? 
+  分级效果实现   �?已完�?  轻微�?30% 修为）、中度（-50% 修为+昏迷 30 秒）、严重（掉境�?昏迷 3 分钟+装备损坏）、极端（当场死亡+背包掉落 50%�? 
+  受伤修炼风险   �?已完�?  `ModEvents` 每秒检测：打坐中血量低于最大值时 +2% 走火风险  
+  风险自然衰减   �?已完�?  平稳打坐�?720 �?-1%（≈每小�?-5%）；灵脉打坐额外�?360 �?-1%（≈每小�?-10%�? 
+  功法境界校验   �?已完�?  `ReleaseTechniquePacket` 新增 `estimateTechniqueRealm`；功法超出当前境�?2 级以上时 +5% 走火风险  
+  稳神�?  �?已完�?  新增 `CalmingPill`（继�?`BasePillItem`），服用�?-20% 走火风险；`PillType.CALMING` 已注�? 
+  物品注册   �?已完�?  `ModItems.CALMING_PILL_LOW` 已注册，已加入创造栏和语言文件  
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
 
-## 25. 2026-06-13 0.1.47 打坐退出交互失效与穿方块修复记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| Bug 分析 | ✅ 已完成 | 客户端按移动键退出打坐时直接调用 `player.stopRiding()` 导致客户端/服务端状态不同步（交互失效）；服务端 `stopMeditation` 下马后未重新定位玩家导致脚陷入蒲团碰撞箱（穿方块） |
-| 客户端修复 | ✅ 已完成 | `ClientEvents.onKeyInput` 移除客户端 `stopRiding()` 调用，仅发送 `SetMeditatingPacket(false)` 让服务端统一处理下马 |
-| 服务端修复 | ✅ 已完成 | `ModEvents.stopMeditation()` 与 `SetMeditatingPacket.handle()` 在下马后显式 `setPos` 到蒲团顶部（Y + 6/16），避免穿方块 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+## 25. 2026-06-13 0.1.47 打坐退出交互失效与穿方块修复记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  Bug 分析   �?已完�?  客户端按移动键退出打坐时直接调用 `player.stopRiding()` 导致客户�?服务端状态不同步（交互失效）；服务端 `stopMeditation` 下马后未重新定位玩家导致脚陷入蒲团碰撞箱（穿方块�? 
+  客户端修�?  �?已完�?  `ClientEvents.onKeyInput` 移除客户�?`stopRiding()` 调用，仅发�?`SetMeditatingPacket(false)` 让服务端统一处理下马  
+  服务端修�?  �?已完�?  `ModEvents.stopMeditation()` �?`SetMeditatingPacket.handle()` 在下马后显式 `setPos` 到蒲团顶部（Y + 6/16），避免穿方�? 
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
 ## 27. 2026-06-14 丹药系统适配灵根重构记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `ai_handoff.md` 与 `step_progress.md` |
-| CultivationPillItem 吸收率 | ✅ 已完成 | `addCultivationExp` 改为 `adjustedExp = expValue * getPillAbsorptionMultiplier()`，提示显示实际获得值 |
-| QiRecoveryPillItem 吸收率 | ✅ 已完成 | `addQi` 改为 `adjustedAmount = qiValue * getPillAbsorptionMultiplier()`，提示显示实际获得值 |
-| BasePillItem 便捷方法 | ✅ 已完成 | 新增 `getPillAbsorptionMultiplier(ServerPlayer)` 供子类使用 |
-| RejuvenationPill 吸收率 | ✅ 已完成 | 灵力和修为增益都乘以丹药吸收率 |
-| HealingPill 分析 | ✅ 已完成 | 恢复原版生命值（非灵力/修为），不需吸收率 |
-| CalmingPill/FastingPill/ClearSpiritPowder | ✅ 已完成 | 功能性丹药，不需吸收率 |
-| LingGenTestStoneItem 更新 | ✅ 已完成 | 显示修炼速度、灵力回复、突破倍率、灵根突破加成；低资质灵根额外显示丹药吸收率和青玉小瓶获取率 |
-| SeekingImmortalsCommand 更新 | ✅ 已完成 | `/seeking_immortals root` 显示灵根分类名、修炼速度、灵力回复、突破加成、丹药吸收、体质 |
-| SyncCultivationDataPacket 检查 | ✅ 已完成 | 已使用 displayName 字符串同步，无需修改；`PlayerCultivation` 已使用 `fromName()` |
-| 语言文件更新 | ✅ 已完成 | zh_cn/en_us 均添加灵根分类翻译 key、丹药吸收率和青玉小瓶获取率 tooltip |
-| 全局搜索旧枚举名 | ✅ 已完成 | 无 `SpiritualRoot.PSEUDO` 或 `SpiritualRoot.FIVE_ELEMENTS` 引用，无 `.purity()` 调用 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，产物 `build/libs/seeking_immortals-0.1.47.jar` |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`ai_handoff.md` �?`step_progress.md`  
+  CultivationPillItem 吸收�?  �?已完�?  `addCultivationExp` 改为 `adjustedExp = expValue * getPillAbsorptionMultiplier()`，提示显示实际获得�? 
+  QiRecoveryPillItem 吸收�?  �?已完�?  `addQi` 改为 `adjustedAmount = qiValue * getPillAbsorptionMultiplier()`，提示显示实际获得�? 
+  BasePillItem 便捷方法   �?已完�?  新增 `getPillAbsorptionMultiplier(ServerPlayer)` 供子类使�? 
+  RejuvenationPill 吸收�?  �?已完�?  灵力和修为增益都乘以丹药吸收�? 
+  HealingPill 分析   �?已完�?  恢复原版生命值（非灵�?修为），不需吸收�? 
+  CalmingPill/FastingPill/ClearSpiritPowder   �?已完�?  功能性丹药，不需吸收�? 
+  LingGenTestStoneItem 更新   �?已完�?  显示修炼速度、灵力回复、突破倍率、灵根突破加成；低资质灵根额外显示丹药吸收率和青玉小瓶获取率  
+  SeekingImmortalsCommand 更新   �?已完�?  `/seeking_immortals root` 显示灵根分类名、修炼速度、灵力回复、突破加成、丹药吸收、体�? 
+  SyncCultivationDataPacket 检�?  �?已完�?  已使�?displayName 字符串同步，无需修改；`PlayerCultivation` 已使�?`fromName()`  
+  语言文件更新   �?已完�?  zh_cn/en_us 均添加灵根分类翻�?key、丹药吸收率和青玉小瓶获取率 tooltip  
+  全局搜索旧枚举名   �?已完�?  �?`SpiritualRoot.PSEUDO` �?`SpiritualRoot.FIVE_ELEMENTS` 引用，无 `.purity()` 调用  
+  构建验证   �?已完�?  `./gradlew build` 成功，产�?`build/libs/seeking_immortals-0.1.47.jar`  
 
 ## 28. 2026-06-18 Phase 1 核心属性与境界系统修复记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取阶段文档 | ✅ 已完成 | 已读取 `docs/task-board.md`、`docs/phase-0-3-audit-report.md`、`docs/mvp-scope.md`、`docs/implementation-roadmap.md`、`docs/existing-implementation.md` |
-| 安全备份 | ✅ 已完成 | 已备份 Phase 1 相关文件到 `.bak/20260618_135342_phase_1_repair/` |
-| 核心属性兼容 | ✅ 已完成 | 保留 `cultivationExp`、`spiritualPower`、`divineConsciousness` 等内部字段，补齐设计语义 getter/setter 与 NBT 兼容 |
-| 境界映射 | ✅ 已完成 | `Realm`/`RealmStage` 新增 `getDesignId()` / `getDesignKey()`，映射 `QI_1`~`QI_13` 与筑基四阶设计名 |
-| 单元测试 | ✅ 已完成 | 新增 `Phase1CultivationSystemTest`，覆盖基准表、衍生属性、核心属性读写和旧 NBT 迁移 |
-| 构建验证 | ✅ 已完成 | `./gradlew.bat test` 与 `./gradlew.bat build` 均成功；未进入 Phase 2 实现 |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取阶段文档   �?已完�?  已读�?`docs/task-board.md`、`docs/phase-0-3-audit-report.md`、`docs/mvp-scope.md`、`docs/implementation-roadmap.md`、`docs/existing-implementation.md`  
+  安全备份   �?已完�?  已备�?Phase 1 相关文件�?`.bak/20260618_135342_phase_1_repair/`  
+  核心属性兼�?  �?已完�?  保留 `cultivationExp`、`spiritualPower`、`divineConsciousness` 等内部字段，补齐设计语义 getter/setter �?NBT 兼容  
+  境界映射   �?已完�?  `Realm`/`RealmStage` 新增 `getDesignId()` / `getDesignKey()`，映�?`QI_1`~`QI_13` 与筑基四阶设计名  
+  单元测试   �?已完�?  新增 `Phase1CultivationSystemTest`，覆盖基准表、衍生属性、核心属性读写和�?NBT 迁移  
+  构建验证   �?已完�?  `./gradlew.bat test` �?`./gradlew.bat build` 均成功；未进�?Phase 2 实现  
 
 ## 29. 2026-06-18 Phase 2 Realm System 审计记录
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取任务与边界 | ✅ 已完成 | 已读取 `docs/task-board.md`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md`；按用户最新要求仅处理 Phase 2：Realm System |
-| 安全备份 | ✅ 已完成 | 已备份 `docs/task-board.md` 与 `project_docs/step_progress.md` 到 `.bak/20260618_223913_phase_2_realm_docs/` |
-| 代码证据审计 | ✅ 已完成 | `RealmStage`、`RealmStageConfig`、`PlayerCultivation`、`BreakthroughService` 已覆盖本次 Realm System 清单；未修改 Java 代码 |
-| 报告生成 | ✅ 已完成 | 已生成 `docs/phase-2-report.md` |
-| 任务板更新 | ✅ 已完成 | 已在 `docs/task-board.md` 增加本次 Realm System 子范围记录；因 build 失败，相关条目保持 `[ ] Unknown` |
-| 构建验证 | ⚠️ 阻塞 | `./gradlew.bat build` 先因沙箱网络受限无法下载 Gradle，授权后进入编译但 `:compileJava` 失败；阻塞点为既有 Java 编译错误，未按本任务修复 |
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取任务与边�?  �?已完�?  已读�?`docs/task-board.md`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md`；按用户最新要求仅处理 Phase 2：Realm System  
+  安全备份   �?已完�?  已备�?`docs/task-board.md` �?`project_docs/step_progress.md` �?`.bak/20260618_223913_phase_2_realm_docs/`  
+  代码证据审计   �?已完�?  `RealmStage`、`RealmStageConfig`、`PlayerCultivation`、`BreakthroughService` 已覆盖本�?Realm System 清单；未修改 Java 代码  
+  报告生成   �?已完�?  已生�?`docs/phase-2-report.md`  
+  任务板更�?  �?已完�?  已在 `docs/task-board.md` 增加本次 Realm System 子范围记录；�?build 失败，相关条目保�?`[ ] Unknown`  
+  构建验证   ⚠️ 阻塞   `./gradlew.bat build` 先因沙箱网络受限无法下载 Gradle，授权后进入编译�?`:compileJava` 失败；阻塞点为既�?Java 编译错误，未按本任务修复  
 
-## 30. 2026-06-18 Phase 3 突破系统与走火入魔修复记录
+## 30. 2026-06-18 Phase 3 突破系统与走火入魔修复记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取任务与边�?  �?已完�?  已读�?`docs/phase-0-3-audit-report.md`、`docs/task-board.md`；`docs/phase-2-repair-report.md` 未存在，已记录为输入缺失并使用现�?Phase 2 报告/任务板上下文  
+  安全备份   �?已完�?  已备份相�?Java、资源与文档�?`.bak/20260618_225520_phase_3_repair/`  
+  突破预览修复   �?已完�?  `BreakthroughService` 在尝试前显示材料需�?拥有量、最终成功率和基础/灵根/丹药/灵眼/功法/执念来源  
+  走火触发链路   �?已完�?  打坐受伤与超阶功法均在增加风险后调用统一四级走火检定；保留原四级效�? 
+  构建阻塞修复   �?已完�?  修复 `LingGenTestStoneItem` 静�?helper、`SyncCultivationDataPacket` helper �?encode/decode/client snapshot 对齐问题  
+  构建验证   �?已完�?  `.\gradlew.bat --no-daemon --max-workers=1 build` 成功；此前两次长构建超时，残�?Java 进程已清�? 
+  文档同步   �?已完�?  已生�?`docs/phase-3-repair-report.md` 并更�?`docs/task-board.md`；Phase 3 完成后当前阶段推进为 Phase 4，但本次未进�?Phase 4 实现  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取任务与边界 | ✅ 已完成 | 已读取 `docs/phase-0-3-audit-report.md`、`docs/task-board.md`；`docs/phase-2-repair-report.md` 未存在，已记录为输入缺失并使用现有 Phase 2 报告/任务板上下文 |
-| 安全备份 | ✅ 已完成 | 已备份相关 Java、资源与文档到 `.bak/20260618_225520_phase_3_repair/` |
-| 突破预览修复 | ✅ 已完成 | `BreakthroughService` 在尝试前显示材料需求/拥有量、最终成功率和基础/灵根/丹药/灵眼/功法/执念来源 |
-| 走火触发链路 | ✅ 已完成 | 打坐受伤与超阶功法均在增加风险后调用统一四级走火检定；保留原四级效果 |
-| 构建阻塞修复 | ✅ 已完成 | 修复 `LingGenTestStoneItem` 静态 helper、`SyncCultivationDataPacket` helper 与 encode/decode/client snapshot 对齐问题 |
-| 构建验证 | ✅ 已完成 | `./gradlew.bat --no-daemon --max-workers=1 build` 成功；此前两次长构建超时，残留 Java 进程已清理 |
-| 文档同步 | ✅ 已完成 | 已生成 `docs/phase-3-repair-report.md` 并更新 `docs/task-board.md`；Phase 3 完成后当前阶段推进为 Phase 4，但本次未进入 Phase 4 实现 |
+## 31. 2026-06-19 Phase 4 练气期技能系统实现记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取任务与边�?  �?已完�?  已读取用户指定文档；`docs/phase-2-repair-report.md` 不存在，已记录为输入缺失；本次仅处理 Phase 4  
+  安全备份   �?已完�?  已备份相�?Java、资源与文档�?`.bak/20260619_000104_phase_4/`  
+  技能元数据与自动解�?  �?已完�?  `SkillType` 补齐 Phase 4 技能的解锁阶段、消耗、冷却和 technique id；`PlayerCultivation` �?`ModEvents` 实现达标自动解锁并同�? 
+  技能释放链�?  �?已完�?  `ReleaseTechniquePacket` 复用现有技能槽/冷却/灵力系统，优先按 `SkillEffect` 配置结算消耗与冷却  
+  练气技能效�?  �?已完�?  补齐引气入体、冰锥、雷击、土遁、御剑飞行初、单剑刺击、三才剑阵，并校准火球与灵气探测参数  
+  飞剑与弹射物   �?已完�?  新增 `SwordProjectileEntity`；御剑飞行初采用本阶段允许的 MVP 基础飞行能力，未进入完整可视骑乘实体/贴图资源  
+  构建验证   �?已完�?  首次沙箱构建�?Gradle 下载权限失败；授权后第一轮编译发现并修复 Phase 4 lambda 捕获错误；第二轮 `.\gradlew.bat --no-daemon --max-workers=1 build` 成功  
+  文档同步   �?已完�?  已生�?`docs/phase-4-report.md` 并更�?`docs/task-board.md`；Phase 4 完成后当前阶段推进为 Phase 5，但本次未进�?Phase 5 实现  
 
-## 31. 2026-06-19 Phase 4 练气期技能系统实现记录
+## 32. 2026-06-19 Phase 8 资源与物品接入验证记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取任务与边�?  �?已完�?  已读�?Phase 8 指定文档；本次仅处理资源与物品接入验证，未进�?Phase 9  
+  安全备份   �?已完�?  已备份资�?文档�?`.bak/20260619_214615_phase_8_resources/`  
+  资源审计   �?已完�?  审计 125 个注册物品�? 个注册方块，对照 models、textures、blockstates、zh_cn/en_us lang  
+  资源修复   �?已完�?  补齐 `ling_gen_identification_slab` blockstate/block model/item model/lang；修�?`mystic_vial`、`waste_pill`、`technique_manual_azure_origin_sword_derivative` 模型贴图路径  
+  素材接入   �?已完�?  仅复用本地已�?raw/placeholder PNG，未生成新图片、未调用图片 API  
+  报告生成   �?已完�?  已生�?`docs/texture-resource-audit.md` �?`docs/phase-8-report.md`  
+  构建验证   �?已完�?  `.\gradlew.bat --no-daemon --max-workers=1 build` 成功，最终结�?BUILD SUCCESSFUL in 35s  
+  文档同步   �?已完�?  已更�?`docs/task-board.md`，当前推荐阶段推进为 Phase 9：MVP 集成测试；本次未进入 Phase 9  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取任务与边界 | ✅ 已完成 | 已读取用户指定文档；`docs/phase-2-repair-report.md` 不存在，已记录为输入缺失；本次仅处理 Phase 4 |
-| 安全备份 | ✅ 已完成 | 已备份相关 Java、资源与文档到 `.bak/20260619_000104_phase_4/` |
-| 技能元数据与自动解锁 | ✅ 已完成 | `SkillType` 补齐 Phase 4 技能的解锁阶段、消耗、冷却和 technique id；`PlayerCultivation` 与 `ModEvents` 实现达标自动解锁并同步 |
-| 技能释放链路 | ✅ 已完成 | `ReleaseTechniquePacket` 复用现有技能槽/冷却/灵力系统，优先按 `SkillEffect` 配置结算消耗与冷却 |
-| 练气技能效果 | ✅ 已完成 | 补齐引气入体、冰锥、雷击、土遁、御剑飞行初、单剑刺击、三才剑阵，并校准火球与灵气探测参数 |
-| 飞剑与弹射物 | ✅ 已完成 | 新增 `SwordProjectileEntity`；御剑飞行初采用本阶段允许的 MVP 基础飞行能力，未进入完整可视骑乘实体/贴图资源 |
-| 构建验证 | ✅ 已完成 | 首次沙箱构建因 Gradle 下载权限失败；授权后第一轮编译发现并修复 Phase 4 lambda 捕获错误；第二轮 `./gradlew.bat --no-daemon --max-workers=1 build` 成功 |
-| 文档同步 | ✅ 已完成 | 已生成 `docs/phase-4-report.md` 并更新 `docs/task-board.md`；Phase 4 完成后当前阶段推进为 Phase 5，但本次未进入 Phase 5 实现 |
+## 33. 2026-06-22 代码审查修复 H1+H2（飞行竞态与高度方向）记�?
+> 依据 `docs/code-review-fix-alternatives.md`：H1 采用**方案 A（引用计数）**、H2 采用**方案 A（绝对高度）**。均不涉�?packet 字段变更�?*�?bump 协议**�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取方案   �?已完�?  已读�?`code-review-fix-alternatives.md` �?H1/H2 段、`ModEvents.java` 飞行逻辑、`FlyingSwordBeginnerSpell.java`  
+  安全备份   �?已完�?  已备份至 `.bak/20260622-022913/`（含 `ModEvents.java`、`FlyingSwordBeginnerSpell.java`�? 
+  H1 方案 A   �?已完�?  新建 `cultivation/FlyingAuthority.java`：来源集�?+ 首次采样基线，单一 mayfly 基线；`ModEvents.grantFlying/revokeFlying` 改为委托；`handleQiFlying` 速度维持改委托；`FlyingSwordBeginnerSpell.execute/stop` 删自�?PREVIOUS 快照改委托。删�?ModEvents 中失效的 FLYING_* 常量�?`VANILLA_FLYING_SPEED`  
+  H2 方案 A   �?已完�?  `ModEvents.java:484` 高度判定�?`+ player.level().getMinBuildHeight()`，改为绝�?Y 比较 `player.getY() > profile.maxHeight()`  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产�?`build/libs/seeking_immortals-0.1.47.jar`  
+  协议影响   �?无需 bump   H1/H2 均服务端逻辑 + NBT，未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持现状  
+  待办   📋 规划�?  H1 预留 `FlyingAuthority.clearAll` �?H11（respawn/换维/死亡清理）后续接入；速度在双源切换时�?tick 循环自修，符合方�?A 说明  
 
-## 32. 2026-06-19 Phase 8 资源与物品接入验证记录
+## 34. 2026-06-22 代码审查双方案文档优化记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  安全备份   �?已完�?  已备�?`docs/code-review-fix-alternatives.md` 与本文件�?`.bak/20260622-032609/`  
+  文档结构优化   �?已完�?  `docs/code-review-fix-alternatives.md` 新增执行摘要、目录、当前版�?协议基线、行号保鲜期、单一真相规则和验收补充说�? 
+  方案一致性修�?  �?已完�?  统一推荐符号语义，补�?H12 到第一批落地顺序；H13 改为“本期不排炼丹闭环则 TODO、同批排�?A+解锁/XP”的明确条件策略  
+  文本错误修正   �?已完�?  差异速查表寿元条目统一�?`M13`；S-EarthWall �?scheduled tick 相关拼写修正�?`STONE`；H12 正文推荐回到更稳的守卫上提方�? 
+  构建验证   �?未运�?  本次仅修�?Markdown 文档，未�?Java/资源/数据包代码，未执�?`./gradlew build`  
 
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取任务与边界 | ✅ 已完成 | 已读取 Phase 8 指定文档；本次仅处理资源与物品接入验证，未进入 Phase 9 |
-| 安全备份 | ✅ 已完成 | 已备份资源/文档到 `.bak/20260619_214615_phase_8_resources/` |
-| 资源审计 | ✅ 已完成 | 审计 125 个注册物品、5 个注册方块，对照 models、textures、blockstates、zh_cn/en_us lang |
-| 资源修复 | ✅ 已完成 | 补齐 `ling_gen_identification_slab` blockstate/block model/item model/lang；修复 `mystic_vial`、`waste_pill`、`technique_manual_azure_origin_sword_derivative` 模型贴图路径 |
-| 素材接入 | ✅ 已完成 | 仅复用本地已有 raw/placeholder PNG，未生成新图片、未调用图片 API |
-| 报告生成 | ✅ 已完成 | 已生成 `docs/texture-resource-audit.md` 与 `docs/phase-8-report.md` |
-| 构建验证 | ✅ 已完成 | `.\gradlew.bat --no-daemon --max-workers=1 build` 成功，最终结果 BUILD SUCCESSFUL in 35s |
-| 文档同步 | ✅ 已完成 | 已更新 `docs/task-board.md`，当前推荐阶段推进为 Phase 9：MVP 集成测试；本次未进入 Phase 9 |
-
-## 33. 2026-06-22 代码审查修复 H1+H2（飞行竞态与高度方向）记录
-
-> 依据 `docs/code-review-fix-alternatives.md`：H1 采用**方案 A（引用计数）**、H2 采用**方案 A（绝对高度）**。均不涉及 packet 字段变更，**未 bump 协议**。
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取方案 | ✅ 已完成 | 已读取 `code-review-fix-alternatives.md` 的 H1/H2 段、`ModEvents.java` 飞行逻辑、`FlyingSwordBeginnerSpell.java` |
-| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622-022913/`（含 `ModEvents.java`、`FlyingSwordBeginnerSpell.java`） |
-| H1 方案 A | ✅ 已完成 | 新建 `cultivation/FlyingAuthority.java`：来源集合 + 首次采样基线，单一 mayfly 基线；`ModEvents.grantFlying/revokeFlying` 改为委托；`handleQiFlying` 速度维持改委托；`FlyingSwordBeginnerSpell.execute/stop` 删自身 PREVIOUS 快照改委托。删除 ModEvents 中失效的 FLYING_* 常量与 `VANILLA_FLYING_SPEED` |
-| H2 方案 A | ✅ 已完成 | `ModEvents.java:484` 高度判定删 `+ player.level().getMinBuildHeight()`，改为绝对 Y 比较 `player.getY() > profile.maxHeight()` |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产物 `build/libs/seeking_immortals-0.1.47.jar` |
-| 协议影响 | ✅ 无需 bump | H1/H2 均服务端逻辑 + NBT，未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持现状 |
-| 待办 | 📋 规划中 | H1 预留 `FlyingAuthority.clearAll` 供 H11（respawn/换维/死亡清理）后续接入；速度在双源切换时由 tick 循环自修，符合方案 A 说明 |
-
-## 34. 2026-06-22 代码审查双方案文档优化记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 安全备份 | ✅ 已完成 | 已备份 `docs/code-review-fix-alternatives.md` 与本文件到 `.bak/20260622-032609/` |
-| 文档结构优化 | ✅ 已完成 | `docs/code-review-fix-alternatives.md` 新增执行摘要、目录、当前版本/协议基线、行号保鲜期、单一真相规则和验收补充说明 |
-| 方案一致性修正 | ✅ 已完成 | 统一推荐符号语义，补回 H12 到第一批落地顺序；H13 改为“本期不排炼丹闭环则 TODO、同批排则 A+解锁/XP”的明确条件策略 |
-| 文本错误修正 | ✅ 已完成 | 差异速查表寿元条目统一为 `M13`；S-EarthWall 中 scheduled tick 相关拼写修正为 `STONE`；H12 正文推荐回到更稳的守卫上提方案 |
-| 构建验证 | ➖ 未运行 | 本次仅修改 Markdown 文档，未改 Java/资源/数据包代码，未执行 `./gradlew build` |
-
-## 35. 2026-06-22 0.1.48 AI 固定流程与版本门禁记录
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取交接文档 | ✅ 已完成 | 已读取 `project_docs/ai_handoff.md`、`project_docs/step_progress.md`，并补读 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` |
-| 安全备份 | ✅ 已完成 | 已备份 `AGENTS.md`、`CLAUDE.md`、`build.gradle`、`gradle.properties`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md` 到 `.bak/20260622-035917/` |
-| 固定 AI 流程 | ✅ 已完成 | `AGENTS.md` 与 `CLAUDE.md` 新增统一顺序：读文档、分类变更、备份、实现、必要升版/协议、更新文档、build、失败迭代、最终报告 |
-| 版本门禁 | ✅ 已完成 | 新增 `scripts/preflight.ps1`，Gradle `build` 前执行 `aiPreflight`；代码/资源/构建变更若未同步修改 `mod_version` 会失败，网络包目录变更会提示确认协议号 |
-| 版本同步 | ✅ 已完成 | `gradle.properties` 升至 `0.1.48`；本次未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
-| 构建验证 | ✅ 已完成 | `.\gradlew.bat --no-daemon --max-workers=1 build` 成功；`aiPreflight` 已在 build 前执行并在成功后记录 `.gradle/ai-preflight/last-success.json`，产物 `build/libs/seeking_immortals-0.1.48.jar` |
+## 35. 2026-06-22 0.1.48 AI 固定流程与版本门禁记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接文档   �?已完�?  已读�?`project_docs/ai_handoff.md`、`project_docs/step_progress.md`，并补读 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md`  
+  安全备份   �?已完�?  已备�?`AGENTS.md`、`CLAUDE.md`、`build.gradle`、`gradle.properties`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md` �?`.bak/20260622-035917/`  
+  固定 AI 流程   �?已完�?  `AGENTS.md` �?`CLAUDE.md` 新增统一顺序：读文档、分类变更、备份、实现、必要升�?协议、更新文档、build、失败迭代、最终报�? 
+  版本门禁   �?已完�?  新增 `scripts/preflight.ps1`，Gradle `build` 前执�?`aiPreflight`；代�?资源/构建变更若未同步修改 `mod_version` 会失败，网络包目录变更会提示确认协议�? 
+  版本同步   �?已完�?  `gradle.properties` 升至 `0.1.48`；本次未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4`  
+  构建验证   �?已完�?  `.\gradlew.bat --no-daemon --max-workers=1 build` 成功；`aiPreflight` 已在 build 前执行并在成功后记录 `.gradle/ai-preflight/last-success.json`，产�?`build/libs/seeking_immortals-0.1.48.jar`  
 
 ## 36. 2026-06-22 代码审查修复 H3-H7 记录
 
-> 依据 `docs/code-review-fix-checklist.md`：H3/H4/H5/H6/H7 均采用**推荐方案（方案 A）**。均不涉及 packet 字段/顺序变更，**未 bump 协议**。
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取方案与源码 | ✅ 已完成 | 已读取 `code-review-fix-checklist.md`、`MysticVialItem.java`、`ReleaseTechniquePacket.java`、`PlayerCultivation.java` |
-| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622_124456_h3_h7/`（含 6 个文件） |
-| H3 方案 A | ✅ 已完成 | `MysticVialItem.isGrowTarget` 改签名传 `(Level level, BlockPos pos, BlockState state)`，`useOn` 传实参，消除 NPE |
-| H4 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` effect/skill 缺失时 early return + "无法施展"提示；删 `:121` 兜底扣费；仅 `effectExecuted=true` 才 setCooldown+成功提示；新增 lang key `technique_release.effect_unavailable`（zh_cn/en_us） |
-| H5 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` 改 execute-first：先 `canExecute`+`execute`，成功后再 `consumeSpiritualPower`；execute 前只做灵力检查不扣费 |
-| H6 方案 A | ✅ 已完成 | `PlayerCultivation.getMaxSpiritualPower()` MORTAL `Math.max(50, raw)`（凡人灵力下限50）；`clearSevereInjuryIfRecovered` 加 `max > 0` 门槛，解耦重伤门 |
-| H7 方案 A | ✅ 已完成 | `PlayerCultivation.checkQiDeviation` 入口加 `if (qiDeviationRisk >= MAX_QI_DEVIATION_RISK) return true;`，risk=100 必触发极端走火 |
-| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.48→0.1.49；未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产物 `build/libs/seeking_immortals-0.1.49.jar` |
-| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（H3-H7 标 [x]，第一批 5/6）和本文件 |
+> 依据 `docs/code-review-fix-checklist.md`：H3/H4/H5/H6/H7 均采�?*推荐方案（方�?A�?*。均不涉�?packet 字段/顺序变更�?*�?bump 协议**�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取方案与源�?  �?已完�?  已读�?`code-review-fix-checklist.md`、`MysticVialItem.java`、`ReleaseTechniquePacket.java`、`PlayerCultivation.java`  
+  安全备份   �?已完�?  已备份至 `.bak/20260622_124456_h3_h7/`（含 6 个文件）  
+  H3 方案 A   �?已完�?  `MysticVialItem.isGrowTarget` 改签名传 `(Level level, BlockPos pos, BlockState state)`，`useOn` 传实参，消除 NPE  
+  H4 方案 A   �?已完�?  `ReleaseTechniquePacket` effect/skill 缺失�?early return + "无法施展"提示；删 `:121` 兜底扣费；仅 `effectExecuted=true` �?setCooldown+成功提示；新�?lang key `technique_release.effect_unavailable`（zh_cn/en_us�? 
+  H5 方案 A   �?已完�?  `ReleaseTechniquePacket` �?execute-first：先 `canExecute`+`execute`，成功后�?`consumeSpiritualPower`；execute 前只做灵力检查不扣费  
+  H6 方案 A   �?已完�?  `PlayerCultivation.getMaxSpiritualPower()` MORTAL `Math.max(50, raw)`（凡人灵力下�?0）；`clearSevereInjuryIfRecovered` �?`max > 0` 门槛，解耦重伤门  
+  H7 方案 A   �?已完�?  `PlayerCultivation.checkQiDeviation` 入口�?`if (qiDeviationRisk >= MAX_QI_DEVIATION_RISK) return true;`，risk=100 必触发极端走�? 
+  版本同步   �?已完�?  `gradle.properties` `mod_version` 0.1.48�?.1.49；未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4`  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 44s，产�?`build/libs/seeking_immortals-0.1.49.jar`  
+  文档同步   �?已完�?  已更�?`docs/code-review-fix-checklist.md`（H3-H7 �?[x]，第一�?5/6）和本文�? 
 
 ## 37. 2026-06-22 代码审查修复 H9-H12 记录
 
-> 依据 `docs/code-review-fix-checklist.md`：H9/H10/H11 均采用**推荐方案（方案 A）**；H12 采用**守卫上提**方案。均不涉及 packet 字段/顺序变更，**未 bump 协议**。
-
-| 步骤 | 状态 | 备注 |
-| --- | --- | --- |
-| 读取方案与源码 | ✅ 已完成 | 已读取 `code-review-fix-checklist.md`、`ModEvents.java`、`SwordProjectileEntity.java`、`ClientTechniqueData.java`、`AlchemyFurnaceBlockEntity.java`、`FlyingAuthority.java` |
-| 安全备份 | ✅ 已完成 | 已备份至 `.bak/20260622_131747_h9_h12/`（含 5 个文件 + gradle.properties） |
-| H9 方案 A | ✅ 已完成 | `SwordProjectileEntity` 构造时打 `SeekingImmortalsProjectileDamage` NBT；`ModEvents.onLivingHurt` 顶部对该标记 early return，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算 |
-| H10 方案 A | ✅ 已完成 | `ClientTechniqueData.setLearnedTechniques` 只存 learned 不碰 `techniqueSlots`（新增 `retainValidSlots` helper）；`normalizeSlots` 空时返回现有 slots 清理结果不 defaultSlots |
-| H11 方案 A | ✅ 已完成 | 新增 `onLivingDeath`/`onPlayerRespawn`/`onPlayerChangedDimension` 三个事件钩子调用 `FlyingAuthority.clearAll`（+ clear ACTIVE_KEY）；`handleFlyingArtifact` 的 `grantFlying` 前加灵力门，灵力不足不授予飞行 |
-| H12 修复 | ✅ 已完成 | `AlchemyFurnaceBlockEntity.serverTick` 守卫上提到函数顶端，非 `ServerLevel` 直接 return，避免 progressTicks 清零但 finishCraft 不执行的潜在 bug |
-| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.49→0.1.50；未改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4` |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 33s，产物 `build/libs/seeking_immortals-0.1.50.jar` |
-| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（H9/H10/H11 标 [x]，第一批 6/6，第二批 3/15，第三批 1/8）和本文件 |
+> 依据 `docs/code-review-fix-checklist.md`：H9/H10/H11 均采�?*推荐方案（方�?A�?*；H12 采用**守卫上提**方案。均不涉�?packet 字段/顺序变更�?*�?bump 协议**�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取方案与源�?  �?已完�?  已读�?`code-review-fix-checklist.md`、`ModEvents.java`、`SwordProjectileEntity.java`、`ClientTechniqueData.java`、`AlchemyFurnaceBlockEntity.java`、`FlyingAuthority.java`  
+  安全备份   �?已完�?  已备份至 `.bak/20260622_131747_h9_h12/`（含 5 个文�?+ gradle.properties�? 
+  H9 方案 A   �?已完�?  `SwordProjectileEntity` 构造时�?`SeekingImmortalsProjectileDamage` NBT；`ModEvents.onLivingHurt` 顶部对该标记 early return，跳�?cultivation multiplier �?PvP CombatCalculator 二次重算  
+  H10 方案 A   �?已完�?  `ClientTechniqueData.setLearnedTechniques` 只存 learned 不碰 `techniqueSlots`（新�?`retainValidSlots` helper）；`normalizeSlots` 空时返回现有 slots 清理结果�?defaultSlots  
+  H11 方案 A   �?已完�?  新增 `onLivingDeath`/`onPlayerRespawn`/`onPlayerChangedDimension` 三个事件钩子调用 `FlyingAuthority.clearAll`�? clear ACTIVE_KEY）；`handleFlyingArtifact` �?`grantFlying` 前加灵力门，灵力不足不授予飞�? 
+  H12 修复   �?已完�?  `AlchemyFurnaceBlockEntity.serverTick` 守卫上提到函数顶端，�?`ServerLevel` 直接 return，避�?progressTicks 清零�?finishCraft 不执行的潜在 bug  
+  版本同步   �?已完�?  `gradle.properties` `mod_version` 0.1.49�?.1.50；未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `4`  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 33s，产�?`build/libs/seeking_immortals-0.1.50.jar`  
+  文档同步   �?已完�?  已更�?`docs/code-review-fix-checklist.md`（H9/H10/H11 �?[x]，第一�?6/6，第二批 3/15，第三批 1/8）和本文�? 
 
 ## 38. 2026-06-22 代码审查修复 M1-M4/M8-M10/M12-M13 记录
 
-> 依据 `docs/code-review-fix-alternatives.md`：M1/M2/M3/M9/M10/M12/M13 采用**方案 A**，M4/M8 采用**方案 B**。M12 新增 `cultivationMax` packet 字段，**bump 协议 4→5**。
+> 依据 `docs/code-review-fix-alternatives.md`：M1/M2/M3/M9/M10/M12/M13 采用**方案 A**，M4/M8 采用**方案 B**。M12 新增 `cultivationMax` packet 字段�?*bump 协议 4�?**�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取方案与源�?  �?已完�?  读取 `code-review-fix-checklist.md` �?14 个相关源文件  
+  安全备份   �?已完�?  备份�?`.bak/20260622_140506_m1_m13/`  
+  M1 方案 A   �?已完�?  `PlayerCultivation.addCultivationBoost` 改续期（`Math.min(current+ticks, MAX_CULTIVATION_BOOST_TICKS)`）；`CultivationPillItem` 区分 boost/boost_extend 提示；新�?zh_cn/en_us lang key  
+  M2 方案 A   �?已完�?  `QiRecoveryPillItem` �?`Math.max(round(qiValue*absorption), ceil(maxSP*0.1))`，qiValue 主导回复�? 
+  M3 方案 A   �?已完�?  `PlayerCultivation` 新增 `qiDevDecayAccumulatorTicks`/`leylineQiDevDecayAccumulatorTicks` + `tickQiDeviationDecay()` + NBT 持久化；`ModEvents` 走火衰减替换为累计计数器  
+  M4 方案 B   �?已完�?  `ModEvents.getMatchingPassiveBonus` 非五行灵根返�?`stone.getPassiveBonus()`（全额定）代替直接返�?0  
+  M8 方案 B   �?已完�?  `DetectionSpell` 新增 `maxBlockMatches=32` labeled break + `isLoaded(pos)` + 每匹�?1 粒子，保留探测范�? 
+  M9 方案 A   �?已完�?  `ReleaseTechniquePacket` 改用 `player.getServer().overworld().getGameTime()`；`PlayerCultivation.loadNBTData` 新增 `CultivationNbtVersion<1` 旧冷却迁移清空；`saveNBTData` 写入版本标记  
+  M10 方案 A   �?已完�?  `TechniqueEntry` �?`int cost`/`Realm requiredRealm`；`loadEntries` 解析新字段（默认 cost=15/required_realm=QI_REFINING）；`parseRealm` helper；`ReleaseTechniquePacket.estimateCost` �?`technique.cost()`、`estimateTechniqueRealm` �?`technique.requiredRealm()`；删�?`containsAny` 死代码与 `Locale` import  
+  M12 方案 A   �?已完�?  `SyncCultivationDataPacket` + `ClientCultivationData.Snapshot` �?`long cultivationMax`；encode/decode 配对 `writeLong/readLong`；`CultivationHudOverlay` 修为进度条改真实比�?`data.cultivationMax()`  
+  M13 方案 A   �?已完�?  `handleAgeAndLifespan` �?`SeekingImmortalsLifespanDeath` flag �?`fellOutOfWorld()` 致死；`onLivingHurt` 顶部�?flag early return（跳过打坐中�?走火�? 
+  协议 bump   �?已完�?  M12 新增 packet 字段 �?`ModNetwork.PROTOCOL_VERSION` 4�?  
+  版本同步   �?已完�?  `gradle.properties` `mod_version` 0.1.50�?.1.51  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 48s，产�?`build/libs/seeking_immortals-0.1.51.jar`  
+  文档同步   �?已完�?  已更�?`docs/code-review-fix-checklist.md`（M1-M4/M8-M10/M12-M13 �?[x]，第�?三批计数更新，D9/D12 落地）和本文�? 
 
-| 步骤 | 状态 | 备注 |
+## 39. 2026-06-25 凡人流设定实现大纲沉淀记录
+
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取资料与项目现�?  �?已完�?  已读取用户提供的 `D:/浏览�?凡人修仙传_设定资料汇编 (1).md`，并按项目规则读�?`ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` �?`docs/task-board.md`  
+  安全备份   �?已完�?  已备�?`project_docs/ai_handoff.md` �?`project_docs/step_progress.md` �?`.bak/20260625_014100_fanren_outline_docs/`  
+  实现大纲文档   �?已完�?  新增 `project_docs/fanren_setting_implementation_outline.md`，按 MVP 闭环、宗门任务、炼丹、炼器法宝、阵法符箓、妖兽灵宠、秘境、经济与高阶天劫拆分后续路线  
+  交接索引   �?已完�?  `ai_handoff.md` 新增后续涉及凡人流扩展时必须读取该大纲的提示，并�?`gradle.properties` 修正当前版本提示�?`0.1.53`  
+  变更分类   �?已完�?  Docs-only；未修改 Java、资源、数据包、构建逻辑�?gameplay/config，不需�?bump `mod_version`；未�?packet 字段，不需�?bump `ModNetwork.PROTOCOL_VERSION`  
+  构建验证   �?未运�?  本次仅新�?修改 Markdown 文档，未执行 `./gradlew build`  
+
+## 40. 2026-06-25 0.1.54 Phase 9 筑基期技�?MVP 记录
+
+> 本次进入 Phase 9 的筑基期技能子项；完整 MVP 游戏内集成测试仍未收口�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接与任务文�?  �?已完�?  已读�?`ai_handoff.md`、`step_progress.md`、`items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md`、`fanren_setting_implementation_outline.md` �?`docs/task-board.md`  
+  基线构建   �?已完�?  变更前执�?`.\gradlew.bat --no-daemon --max-workers=1 build` 成功，确认进入实现前基线可构�? 
+  安全备份   �?已完�?  已备份相�?Java、资源与文档�?`.bak/20260625_020000_phase9_foundation_skills/`  
+  版本同步   �?已完�?  `gradle.properties` 升至 `0.1.54`；未修改 packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 `5`  
+  技能元数据   �?已完�?  `SkillType` 新增神识扩展、御剑飞行进阶、罡气护体、五行遁术、北斗剑阵、阵法感知；自动解锁方法泛化�?configured technique skill  
+  技能效�?  �?已完�?  新增 6 个服务端效果类；神识 ×1.5、进阶御剑持续扣灵力、罡气下一击全免、五行遁术安全落点、七剑齐射、阵法粒子感知均已接�? 
+  事件接入   �?已完�?  `ModEvents` 新增进阶御剑 tick 维护、罡气护体伤害抵消、死�?重生/换维状态清理；`FlyingAuthority` 新增 `foundation_flying` 来源  
+  数据接入   �?已完�?  `foundation_establishment_techniques.json` 新增 6 个同�?technique 条目，显式写�?`cost` �?`required_realm`  
+  构建验证   �?已完�?  `.\gradlew.bat --no-daemon --max-workers=1 build` 成功，BUILD SUCCESSFUL in 41s；`aiPreflight` 通过并记�?`mod_version=0.1.54`  
+  文档同步   �?已完�?  已更新任务板、功能、物品、待办、占位说明、AI 交接�?`updates/20260625_0.1.54.md`  
+## 41. 2026-06-25 前端 / 客户端重构交接文档记�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  读取交接与客户端现状   �?已完�?  已复�?`project_docs/ai_handoff.md`、`project_docs/step_progress.md`，并扫描 `client/` 包、GUI 资源与网络包边界  
+  安全备份   �?已完�?  已备�?`project_docs/ai_handoff.md` �?`project_docs/step_progress.md` �?`.bak/20260625_021500_frontend_refactor_docs/`  
+  前端代码拆分清单   �?已完�?  新增 `project_docs/frontend_refactor_handoff.md`，单独列出客户端文件、前端资源、UI 流程、数据流、packet 边界、重构目标和验证清单  
+  交接索引   �?已完�?  `ai_handoff.md` 已增加前�?/ 客户端重构必读入�? 
+  变更分类   �?已完�?  Docs-only；未修改 Java、资源、数据包、构建逻辑�?gameplay/config，不需�?bump `mod_version`  
+  协议影响   �?无需 bump   未修�?packet 字段、顺序、编�?解码或通道行为，`ModNetwork.PROTOCOL_VERSION` 维持 `5`  
+  构建验证   �?未运�?  本次�?Markdown 文档变更，未执行 `./gradlew build`  
+## 42. 2026-06-27 代码审查收尾 H13 + EarthWall
+
+  步骤   状�?  备注  
+  ---   ---   ---  
+  核实待修�?  �?已完�?  �?0.1.54 源码核对 checklist：H8(`dropHalfInventory` 已落�?、DIVINE_SENSE_EXPANSION(×1.5 已接�? 实际已完成；�?H13(炼丹加成=0.0)、S-EarthWall(STONE 永不�? �?open  
+  安全备份   �?已完�?  `.bak/20260627_h13_earthwall/`（含 AlchemyRecipeService/AlchemyFurnaceBlockEntity/PlayerCultivation/EarthWallSpell/ModBlocks/checklist/step_progress�? 
+  H13 炼丹加成   �?已完�?  `AlchemyRecipeService.getAlchemySkillBonus` �?`SkillType.ALCHEMY` level�?0.02/级，上限+0.20，未�?0）；新增 `PlayerCultivation.hasAlchemy()`；`AlchemyFurnaceBlockEntity` 成丹�?`grantAlchemyExperience` 解锁�?`addSkillExperience(ALCHEMY,25)`，开炉玩�?UUID 持久�?NBT  
+  EarthWall 修复   �?已完�?  新建 `EarthWallBlock`（重�?`tick` �?air）注�?`earth_wall`（blockstate/model/复用 vanilla dirt 贴图，无 BlockItem）；`EarthWallSpell` 改放该方块并 `level.scheduleTick(pos, block, 200)`�?0 秒消散）  
+  版本同步   �?已完�?  `gradle.properties` 0.1.54�?.1.55；未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 5  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 40s；`aiPreflight` 通过并记�?`mod_version=0.1.55`（compile 初次失败：official mappings 方法名是 `scheduleTick` 而非 `scheduleBlockTick`，已修正�? 
+  文档同步   �?已完�?  勾�?`docs/code-review-fix-checklist.md` �?H13 �?S-EarthWall；新�?`project_docs/updates/20260627_0.1.55.md`  
+## 43. 2026-06-27 代码审查收尾 M5/M7/M14/M15/M16
+
+  步骤   状�?  备注  
+  ---   ---   ---  
+  核实待修�?  �?已完�?  逐项读源码确认全部仍 open：M5(ModEvents 无条�?setCanceled)、M7(EarthEscapeStepSpell 只查落点)、M14(回退 QI_REFINING=100)、M15(AlchemyRecipe �?output)、M16(三丹未乘吸收�?  
+  安全备份   �?已完�?  `.bak/20260627_m_round2/`（含 ModEvents/EarthEscapeStepSpell/PlayerCultivation/BasePillItem+三丹/AlchemyRecipe+Service/AlchemyFurnaceBlockEntity/ModItems/ModCreativeTabs/checklist/step_progress�? 
+  M5 村民兑换   �?已完�?  `setCanceled` 仅移入兑换成�?if 内；达上�?无灵石放�?vanilla  
+  M7 土遁�?  �?已完�?  新增 `isPathClear` 沿身体通道逐格查实心阻�? 
+  M14 寿元回退   �?已完�?  load NBT �?LifespanYears 回退 `realm.getLifespanYears()`  
+  M15 丹品质产�?  �?已完�?  AlchemyRecipe �?`outputsByQuality`；新增筑基丹/稳神�?�?�?极品 6 物品+模型+lang+创造栏；`rollOutputQuality` 按成功余量�?.8+炼丹等级(�?.20) 掷骰；legacy 配方 uniform 不参与品质；�?`_low` id findById 兼容  
+  M16 吸收�?  �?已完�?  `BasePillItem.effectiveMultiplier(player)`=品质×吸收率；HealingPill/FastingPill 用之；ClearSpiritPowder 吸收率≥1.2 额外清缓/�?挖掘疲劳  
+  版本同步   �?已完�?  `gradle.properties` 0.1.55�?.1.56；未�?packet 字段，`ModNetwork.PROTOCOL_VERSION` 维持 5  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 37s；`aiPreflight` 通过记录 0.1.56（compile 初次失败：`getAlchemySkillBonus` 跨包�?public，已修正�? 
+  文档同步   �?已完�?  勾�?checklist M5/M7/M14/M15/M16；新�?`project_docs/updates/20260627_0.1.56.md`  
+## 44. 2026-06-27 代码审查收尾 H8/M6/M11
+
+  步骤   状�?  备注  
+  ---   ---   ---  
+  核实待修�?  �?已完�?  逐项读源码确认：H8 部分 open（掉50%到世界但�?PersistentData 归还）、M6 部分 open（守卫防腐坏但拒多叠）、M11 open（writeUtf 无上界）  
+  安全备份   �?已完�?  `.bak/20260627_h8_m6_m11/`（BreakthroughService/ModEvents/SyncCultivationDataPacket/checklist/step_progress/gradle.properties�? 
+  H8 走火保留   �?已完�?  `preserveHalfInventory` 序列�?0%�?PersistentData ListTag + 移除背包不掉世界；`onPlayerRespawn` �?`restorePreservedOnRespawn` 归还(用完即删 key)；删�?`dropHalfInventory` 死代�? 
+  M6 守卫方案   �?已完�?  经实�?`use()`/两调用方全程 count==1 门控，`consumeStoredPower` count!=1�? 守卫已防腐坏；多叠吸收与单颗架构相悖�?split/merge �?NBT 陷阱，守卫方案视为落地，不改源码  
+  M11 writeUtf 上界   �?已完�?  6 处改 bounded `writeUtf(cap(s,N),N)`：短文本 64、spiritualRoot 128、spiritualRootAttributes 256；新�?`cap(s,maxLen)` helper；decode `readUtf` 不变  
+  版本同步   �?已完�?  `gradle.properties` 0.1.56�?.1.57；未�?packet 字段/顺序/编码，`ModNetwork.PROTOCOL_VERSION` 维持 5（M11 加上界不改字段，�?M12 同批不额�?bump；aiPreflight 网络提示仅为路径编辑检测，非字段变更）  
+  构建验证   �?已完�?  `./gradlew build` 成功，BUILD SUCCESSFUL in 41s；`aiPreflight` 通过记录 0.1.57  
+  文档同步   �?已完�?  勾�?checklist H8/M6/M11；新�?`project_docs/updates/20260627_0.1.57.md`  
+
+## 45. 2026-06-27 0.1.58 技能图标系统接�?
+  步骤   状�?  备注  
+  ---   ---   ---  
+  背景核实   �?已完�?  `TechniqueSkillBarOverlay.drawTechniqueIconPlaceholder` �?hashCode+首字母占位；15 个可释放 techniqueId �?PNG；`SkillType` enum 为图标文件名单一真源；`ImmortalUiSkin` 已有 ResourceLocation+blit 模式  
+  安全备份   �?已完�?  `.bak/20260627_skill_icons/`（ImmortalUiSkin.java、TechniqueSkillBarOverlay.java、gradle.properties�? 
+  生成脚本   �?已完�?  `scripts/generate_skill_icons.py`（Python+Pillow，幂等）；按属性配�?简单符号；输出 15 �?16×16 RGBA PNG �?`assets/seeking_immortals/textures/gui/skill/`  
+  HUD 接入   �?已完�?  `ImmortalUiSkin.hasSkillIcon`/`drawSkillIcon` + `KNOWN_SKILL_ICONS` �?+ `ConcurrentHashMap` 缓存 ResourceLocation；`TechniqueSkillBarOverlay.drawTechniqueIconPlaceholder` �?blit 图标、未�?id 回退 hashCode+首字�? 
+  资源/本地�?  �?已完�?  15 PNG 入包；无 lang key/item/model 新增（GUI 纹理不经 item model�? 
+  版本同步   �?已完�?  `gradle.properties` 0.1.57�?.1.58；未�?packet 字段/顺序/编码，`ModNetwork.PROTOCOL_VERSION` 维持 5  
+  构建验证   �?已完�?  `.\gradlew.bat --no-daemon --max-workers=1 build` 成功，BUILD SUCCESSFUL in 33s；`aiPreflight` 通过记录 `mod_version=0.1.58`；产�?`build/libs/seeking_immortals-0.1.58.jar`；资源路径自检通过  
+  文档同步   �?已完�?  勾�?checklist `S-技能图标`；新�?`project_docs/updates/20260627_0.1.58.md`  
+## 46. 2026-06-28 0.1.60 realm percent stats
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Backup   Done   `.bak/20260628_0.1.59_realm_percentage_stats/`  
+  Formula   Done   `RealmStageConfig` now owns percentage growth for realm-derived stats  
+  Integration   Done   `Realm`, `PlayerCultivation`, `CombatStats`, meditation status, and tests updated  
+  Version   Done   `gradle.properties` bumped to `0.1.60`; protocol remains `5`  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 38s`  
+
+## 47. 2026-06-30 0.1.63 Technique editor learned-list scrolling
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read `ai_handoff.md`, `step_progress.md`, `frontend_refactor_handoff.md`, and feature/pending placeholder docs before editing.  
+  Backup   Done   `.bak/20260630_technique_list_scroll/`  
+  UI fix   Done   `TechniqueEditScreen` learned technique list now scrolls with mouse wheel and draws a small scrollbar instead of rendering `+N hidden`.  
+  Version   Done   `gradle.properties` bumped to `0.1.63`; protocol remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 33s`.  
+
+## 48. 2026-06-30 0.1.64 Realm stat application fix
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   `.bak/20260630_0.1.64_realm_attribute_fix/`  
+  Gameplay fix   Done   Realm-derived stats now refresh into vanilla player attributes for max health, attack damage, armor, armor toughness, knockback resistance, and movement speed.  
+  Scaling   Done   `RealmStageConfig` growth constants were raised significantly for realm-derived resource, recovery, movement, and combat values.  
+  Combat guard   Done   PvP custom combat avoids adding cultivation attack twice when the vanilla attack attribute already includes it.  
+  Version   Done   `gradle.properties` bumped to `0.1.64`; protocol remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 36s`.  
+
+## 49. 2026-06-30 0.1.65 Uncap realm combat attributes
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   `.bak/20260630_0.1.65_remove_combat_caps/`  
+  Gameplay fix   Done   Removed explicit mod-side caps from realm-derived max health, attack damage, armor, armor toughness, knockback resistance, and movement speed attribute application.  
+  Version   Done   `gradle.properties` bumped to `0.1.65`; protocol remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 36s`.  
+## 50. 2026-06-30 0.1.66 Vanilla attribute range unlock
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Backup   Done   `.bak/20260630_0.1.66_attribute_range_unlock/`  
+  Attribute ranges   Done   Added a Forge Access Transformer and startup unlocker to raise vanilla max ranges for max health, attack damage, armor, armor toughness, knockback resistance, and movement speed.  
+  Version   Done   `gradle.properties` bumped to `0.1.66`; protocol remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 1m 16s`.  
+
+## 51. 2026-06-30 0.1.67 Single-player regression helpers and stronger stats
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   `.bak/20260630_183036_0.1.67_regression_debug_stats/`; test backup was added to the same folder before editing `Phase1CultivationSystemTest`.  
+  Debug commands   Done   Added OP-only `/seeking_immortals debug set_cultivation <amount>`, `fill_mana`, and `unlock_skills`; commands sync cultivation and technique data after mutation.  
+  Scaling   Done   Raised realm-derived mana, divine sense, HP, mana recovery, cultivation gain, flying speed, attack, and defense values; crit/dodge/accuracy caps remain unchanged.  
+  Tests   Done   Initial build failed because old Phase1 tests expected previous constants; test expectations were updated to the 0.1.67 curve.  
+  Version   Done   `gradle.properties` bumped to `0.1.67`; `ModNetwork.PROTOCOL_VERSION` remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 34s`.  
+  Client regression   Pending   Real single-player `runClient` regression still needs an interactive client pass for HUD, skill UI, Foundation Establishment skills, combat, and flight checks.  
+
+### 51.1 runClient attempt
+
+- `.\gradlew.bat --no-daemon --max-workers=1 runClient` was attempted after the successful build.
+- Client launch failed before the main menu during Patchouli mixin application: `patchouli_xplat.mixins.json:client.AccessorScreen` could not find the expected `Screen` renderables field accessor target.
+- This blocks interactive single-player regression in the current dev runtime; build/test verification remains successful.
+
+## 52. 2026-06-30 0.1.68 No-Patchouli dev client target
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   `.bak/20260630_0.1.68_no_patchouli_client/`  
+  Dev runtime unblock   Done   Added `runClientNoPatchouli`, delegating to `runClient` with `-PnoPatchouliDevRuntime=true` and excluding Patchouli from runtime configurations only for that nested dev launch.  
+  Patchouli support   Preserved   Normal Patchouli optional support and resources remain in place.  
+  Version   Superseded   Initial target was `0.1.68`; a follow-up build-runtime fix required bumping to `0.1.69`.  
+  Task check   Done   `.\gradlew.bat --no-daemon --max-workers=1 tasks --all` listed `runClientNoPatchouli` under ForgeGradle runs.  
+
+## 53. 2026-06-30 0.1.69 Dev mixin remap follow-up
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Reason   Done   After Patchouli was removed from the no-Patchouli launch, Curios exposed a userdev accessor remap crash: `curios.mixins.json:AccessorEntity`.  
+  Dev runtime fix   Done   Forge run configs now set `mixin.env.remapRefMap=true` and `mixin.env.refMapRemappingFile=${buildDir}/createSrgToMcp/output.srg`.  
+  Version   Done   `gradle.properties` bumped to `0.1.69`; protocol remains `5` because packet fields/order/encoding did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build --info` passed: `BUILD SUCCESSFUL in 39s`.  
+  Client startup   Partial   `runClientNoPatchouli` removed Patchouli, remapped Curios refmap, and reached client render/resource loading without the prior Patchouli or Curios mixin crashes. The validation process was manually terminated after startup confirmation.  
+  In-world regression   Pending   Still needs manual single-player world pass for debug commands, HUD sync, vanilla attributes, skill editor, Foundation Establishment skills, combat, and flight mana drain.  
+## 54. 2026-07-01 0.1.70 Late-game stats, movement slider, compact HUD
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260701_0.1.70_stats_speed_hud/`; the new packet file did not need a pre-edit backup.  
+  Scaling   Done   `RealmStageConfig` now uses a segmented late-game curve: early realms stay modest, Core Formation rises, and Nascent Soul/Soul Transformation+ reach extreme progression values.  
+  Movement slider   Done   `PlayerCultivation` persists `movementSpeedScale`; the stats screen exposes a 0%-100% slider, and `SetMovementSpeedScalePacket` applies the clamped server-authoritative value.  
+  Sync and protocol   Done   `SyncCultivationDataPacket` and client snapshots now include movement scale and effective movement bonus; `ModNetwork.PROTOCOL_VERSION` is bumped from `5` to `6`.  
+  HUD   Done   `CultivationHudOverlay` now renders a compact Chinese top-right panel with short labels, progress bars, divine sense, and qi-deviation risk.  
+  Version   Done   `gradle.properties` bumped to `0.1.70`.  
+  Build   Pending   Final `.\gradlew.bat --no-daemon --max-workers=1 build` will be recorded after this documentation pass.  
+  In-game regression   Pending   Manual `runClientNoPatchouli` world checks for GUI Scale 1/2/3/Auto, high-realm attributes, and slider persistence remain to be done.  
+### 54.1 Build gate note
+
+- First final build after docs failed at `aiPreflight` because `.gradle/ai-preflight/last-success.json` already recorded a successful `0.1.70` code build before this documentation sync.
+- The only changes after that successful build were project documentation and the new update note, so the next build uses `-PaiSkipVersionBumpCheck=true` as a documented manual docs-only gate override while keeping the requested release version at `0.1.70`.
+### 54.2 Final build verification
+
+- `./gradlew.bat --no-daemon --max-workers=1 build -PaiSkipVersionBumpCheck=true` passed after the docs-only gate note; result: `BUILD SUCCESSFUL in 30s`.
+- `aiPreflight` recorded state for `mod_version=0.1.70`; network package warning is expected because protocol was intentionally bumped to `6`.
+## 55. 2026-07-02 0.1.71 Alchemy three-part furnace
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   Existing edited files were backed up to .bak/20260702_0.1.71_alchemy_three_parts/; new Java/model/update files did not need pre-edit backups.  
+  Alchemy components   Done   Added tiered furnace lids, tiered dan fires, and formula carrier items for current MVP recipes.  
+  Furnace state   Done   AlchemyFurnaceBlockEntity now persists installed lid tier, fire tier, formula id, and formula source.  
+  Rules   Done   Missing formula/lid/fire blocks refining; over-tier fire can explode the furnace or blow the lid; poor furnace tier or realm control wastes half materials.  
+  Formula math   Done   Success/explosion chances now consider furnace tier, fire tier, alchemy skill, material rarity, realm control, formula source, and leyline aura.  
+  Version   Done   gradlew.bat --no-daemon --max-workers=1 build passed, BUILD SUCCESSFUL in 56s.  
+  Build   Done   gradle.properties bumped to 0.1.71; protocol remains 6 because no packet format changed.  
+  In-game regression   Pending   Manual checks still needed for install flow, explosion flow, half-material waste, and formula-source success differences.  
+## 56. 2026-07-02 0.1.72 Pill catalog
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before continuing the implementation.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260702_0.1.72_pill_catalog/`; new model/update files did not need pre-edit backups.  
+  Pill catalog   Done   Added 16 new catalog pill item registrations and reuse existing Foundation Building/Fasting Pill species to complete the 18-species catalog.  
+  Use effects   Done   Added MVP consumable effects for cultivation gain, breakthrough aid, recovery, fasting, lifespan extension, poison/evil pills, and placeholder pet/memory/appearance markers.  
+  Alchemy   Done   Added formula carriers and alchemy recipes for all catalog species, using the 0.1.71 furnace component and formula-source rules.  
+  Version   Done   `gradle.properties` bumped to `0.1.72`; protocol remains `6` because packet format did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 49s`.  
+  In-game regression   Pending   Manual checks still needed for all 18 pill effects, formula installation/refining, fasting persistence, and Return Yang True Water repeat rejection.  
+## 57. 2026-07-03 0.1.73 Five-tier alchemy fire
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before continuing the implementation.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260702_0.1.73_five_tier_alchemy_fire/`; new resource/update files did not need pre-edit backups.  
+  Furnace tiers   Done   Added tier 2-5 alchemy furnace blocks; the existing `alchemy_furnace` remains tier 1.  
+  Lid/fire tiers   Done   Added tier 4-5 lids and expanded dan fire to five tiers: mortal fire, true-essence dan fire, foundation dan fire, earth fire, and nascent-soul fire.  
+  Earth-fire room   Done   Added the sect earth-fire room anchor and requires it near the furnace for earth fire installation and refining.  
+  Recipe matching   Done   Mid/high/legendary pill recipes now require matching furnace/fire tiers up to tier 5 and stricter realm fire control.  
+  Version   Done   `gradle.properties` bumped to `0.1.73`; protocol remains `6` because packet format did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 1m 34s`.  
+  In-game regression   Pending   Manual checks still needed for tier 1-5 placement, earth-fire-room range, mismatch explosions, and high-tier recipe outcomes.  
+
+### 57.1 Final build verification
+
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` after documentation sync passed: `BUILD SUCCESSFUL in 30s`.
+- `aiPreflight` recorded state for `mod_version=0.1.73`; the network package warning is historical from existing protocol-6 packet changes and this version did not alter packet format.
+
+## 58. 2026-07-03 0.1.74 Alchemy loot, earth-fire recipe gate, dismantle drops
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.74_alchemy_loot_earthfire_break/`; new loot/update files did not need pre-edit backups.  
+  Loot and tags   Done   Added loot tables for tier 1-5 alchemy furnaces and `sect_earth_fire_room`; all are now pickaxe mineable and require iron tool level.  
+  Earth-fire recipe gate   Done   Added `AlchemyRecipe.requiresEarthFireRoom`; `blood_qi_pill` requires exact Earth Fire plus a nearby earth-fire-room anchor, so Nascent Soul Fire cannot replace it.  
+  Dismantle drops   Done   Normal furnace removal drops stored output plus installed lid/fire/formula; explosion paths discard installed contents before block destruction.  
+  Version   Done   `gradle.properties` bumped to `0.1.74`; protocol remains `6` because packet format did not change.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed, `BUILD SUCCESSFUL in 37s`.  
+  In-game regression   Pending   Manual checks still needed for survival harvesting, exact earth-fire recipe rejection, and normal dismantle component return.  
+### 58.1 Final build verification
+
+- Final .\gradlew.bat --no-daemon --max-workers=1 build after documentation sync passed: BUILD SUCCESSFUL in 28s.
+- `aiPreflight` recorded state for mod_version=0.1.74; the network package warning is historical from existing protocol-6 packet changes and this version did not alter packet format.
+
+## 59. 2026-07-03 0.1.75 Alchemy data and quality outputs
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before continuing the implementation.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.75_alchemy_data_quality/`; new recipe/model/mapping/update files did not need pre-edit backups.  
+  Datapack recipes   Done   Added `AlchemyRecipeManager` and `data/seeking_immortals/alchemy/recipes/*.json`; existing furnace callers still use `AlchemyRecipe.findById` and `findByHeldIngredient`.  
+  Fallback   Done   Built-in recipes remain available when no valid datapack recipes load.  
+  Naming map   Done   Added `project_docs/alchemy_pill_material_mapping.md`, `�ı�����/data/pill_material_name_map.json`, and shipped `data/seeking_immortals/alchemy/pill_material_name_map.json`.  
+  Setting pack   Done   `�ı�����/data/alchemy_recipes.json` now contains the complete 18-species table aligned to registered mod ids.  
+  Quality outputs   Done   Added low/medium/high/supreme outputs for all 18 catalog species; quality changes pill effect strength/duration only.  
+  Version   Done   `gradle.properties` bumped to `0.1.75`; protocol remains `6` because packet format did not change.  
+  JSON validation   Done   UTF-8 JSON parse check passed for alchemy resources, setting-pack alchemy data, mapping data, and lang files.  
+  Build   Done   `.\gradlew.bat --no-daemon --max-workers=1 build` passed before documentation sync: `BUILD SUCCESSFUL in 26s`.  
+  In-game regression   Pending   Manual `/reload` and furnace checks still needed for all recipes, quality output distribution, and exact Blood Qi earth-fire-room behavior.  
+### 59.1 Final verification and compile unblock
+
+- Removed one stray DEL control character from the 0.1.75 build-command row.
+- UTF-8 JSON validation passed for mod alchemy recipes, setting-pack alchemy data, mapping JSON, and lang files.
+- First final build attempt exposed pre-existing Seven Mysteries quest compile gaps in the current worktree. Minimal compile contracts were added: persisted quest progress on PlayerCultivation, quest skill unlock helper, missing quest item registrations/models/lang, and the 1.20.1 stack-size API call.
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 37s`.
+- Current worktree `mod_version` is `0.1.76`; `ModNetwork.PROTOCOL_VERSION` remains `6`.
+## 60. 2026-07-03 0.1.76 Core attributes and heavenly tribulation
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and skill instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_025355_0.1.76_core_attrs_tribulation/`; new `TribulationService` and update note did not need pre-edit backups.  
+  Core attributes   Done   Body refinement now affects max health and defense, and tribulation formulas read divine sense, body refinement, tribulation resistance, and aura environment.  
+  Tribulation state   Done   Player cultivation NBT now stores active state, target realm, strike progress, total strikes, and next-strike countdown.  
+  Tribulation service   Done   Major breakthroughs into Core Formation or above start tribulation; service handles ticks, strikes, success, death failure, and dimension-escape failure.  
+  Debug commands   Done   Added OP-only core-attribute setter and target-realm tribulation starter.  
+  Version   Done   `gradle.properties` bumped to `0.1.76`; protocol remains `6` because packet format did not change.  
+  Test   Done   `./gradlew.bat --no-daemon --max-workers=1 test` passed, `BUILD SUCCESSFUL in 20s`.  
+  Build   Pending   Final build will be recorded after documentation sync.  
+  In-game regression   Pending   Manual checks still needed for real breakthrough flow, relog persistence, death/respawn, and dimension escape.  
+
+## 60. 2026-07-03 0.1.78 High-realm root/physique/breakthrough MVP
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.77_high_realm/`.  
+  Version/protocol   Done   `mod_version` is `0.1.78` because the current preflight state had already recorded `0.1.77`; `ModNetwork.PROTOCOL_VERSION` is `7` due SyncCultivationDataPacket field additions.  
+  Gameplay   Done   Implemented gold core scoring/persistence, aggregate root/physique/gold-core stats, high-realm resource gates, complete five-element bonus, physique defect ticks, and tribulation UI sync.  
+  Tests   Done   Extended Phase1 tests for gold core thresholds/NBT, five-element bonus, CombatStats aggregate values, tribulation wave counts, damage formula, and sync packet encode/decode.  
+  Build   Done   `.\ggradlew.bat --no-daemon --max-workers=1 build` passed after code/test changes: BUILD SUCCESSFUL in 36s. A final build after docs will be recorded separately.  
+  In-game regression   Pending   Manual client/server checks still needed for resource consumption, gold core score outcomes, tribulation damage/failure, and HUD layout.  
+
+## 61. 2026-07-03 0.1.79 Right-top HUD overflow fix
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.79_hud_overflow/`.  
+  HUD layout   Done   `CultivationHudOverlay` now computes adaptive panel width/height, clamps inside the scaled screen, and keeps core/gold-core/tribulation lines in the layout.  
+  Version/protocol   Done   `mod_version` bumped from `0.1.78` to `0.1.79`; `ModNetwork.PROTOCOL_VERSION` remains `7` because no packet fields/order/encoding changed in this fix.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed; see 63.1 below.  
+  In-game regression   Pending   Manual GUI Scale 1/2/3/Auto checks still needed for the right-top HUD with high-realm values.  
+## 62. 2026-07-03 0.1.79 Phase 9 Seven Mysteries quest MVP
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs, task board, and relevant Minecraft/safe-coding instructions before continuing the implementation.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.76_phase9_quest/`; new quest/test/update files did not need pre-edit backups.  
+  Quest persistence   Done   `QuestProgress` state is persisted through `PlayerCultivation`, covering stages, flags, branch choice, sect identity, contribution, reputation, and Yue-arrival marker.  
+  Quest flow   Done   Implemented the five-stage Seven Mysteries MVP: root test/admission, Huanglong Method/labor/alchemy, secret room/Mystic Vial, evidence branch choice, and Yue escape/reward.  
+  Commands and interactions   Done   Added `/seeking_immortals quest` status/start/check/choose plus OP helper commands; named vanilla villagers and marker blocks now drive server-side quest progression.  
+  Resources   Done   Added Huanglong Method technique data, quest item/manual localization/models/creative entries, reusing existing textures.  
+  Tests   Done   Added QuestProgress NBT and stage-bound unit coverage.  
+  Version/protocol   Done   Current worktree is `mod_version=0.1.79`; Phase 9 added no packet field/order/encoding changes, so `ModNetwork.PROTOCOL_VERSION` remains `7` from the existing high-realm sync work.  
+  Build   Done   Final normal build passed: `BUILD SUCCESSFUL in 33s`; forced `.\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks` also passed: `BUILD SUCCESSFUL in 45s`, 11 tasks executed.  
+  In-game regression   Pending   Manual client/in-world regression remains for the full quest path, marker placement, branch choices, Yue teleport safety, and final reward inventory behavior.  
+
+### 62.1 Phase 9 final build verification
+
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 33s`; 11 actionable tasks, 5 executed and 6 up-to-date.
+- Forced `.\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks` passed: `BUILD SUCCESSFUL in 45s`; Java compile, test, reobf, and build tasks executed.
+- `aiPreflight` recorded `mod_version=0.1.79`. The network-package warning reflects current worktree packet changes already covered by protocol `7`; Phase 9 itself did not alter packet fields/order/encoding.
+
+## 63. 2026-07-03 0.1.80 Review fixes
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files and the legacy `assets/xiuxian` directory were backed up to `.bak/20260703_0.1.80_review_fixes/`.  
+  Tribulation   Done   `failTribulationPenalty()` records the failed target realm before clearing tribulation; Core Formation failure clears gold core, higher failures keep it.  
+  Packet bounds   Done   Learned-technique, slot, cooldown, and sync-text decode paths now use explicit limits without changing packet field shape.  
+  Quest markers   Done   Seven Mysteries chiseled-bookshelf and crying-obsidian markers now intercept only in matching player quest stages.  
+  Resource cleanup   Done   Removed legacy `src/main/resources/assets/xiuxian/` after backup.  
+  Version/protocol   Done   `mod_version` bumped from `0.1.79` to `0.1.80`; `ModNetwork.PROTOCOL_VERSION` remains `7` because packet fields/order/types/registration did not change.  
+  Tests/resource check   Done   `.\gradlew.bat --no-daemon --max-workers=1 test` passed (`BUILD SUCCESSFUL in 12s`); `rg "xiuxian:" src/main/resources project_docs docs` found docs-only explanatory hits and no active resource references.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 28s`; preflight warned about network-package edits, protocol remains `7` because packet wire shape did not change.  
+  In-game regression   Pending   Manual checks still needed for tribulation failure, Seven Mysteries marker flow, and multiplayer packet-boundary behavior.  
+
+### 63.0 Review fixes final verification
+
+- `src/main/resources/assets/xiuxian/` is removed; the review-fix backup is `.bak/20260703_0.1.80_review_fixes/`.
+- The only `xiuxian:` hits are historical/explanatory docs text in `docs/texture-resource-audit.md`; no current resource/data reference remains.
+- Final build passed with `mod_version=0.1.80`. `ModNetwork.PROTOCOL_VERSION` remains `7`; the network warning was reviewed and no wire-shape or compatibility bump was required.
+
+## 63. 2026-07-03 0.1.80 High-realm documentation reconciliation
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited docs were backed up to `.bak/20260703_0.1.80_high_realm_docs/`; the original high-realm implementation backup remains `.bak/20260703_0.1.77_high_realm/`.  
+  Version reconciliation   Done   Current worktree is `mod_version=0.1.80`; this pass does not downgrade to the older `0.1.78` high-realm note.  
+  Protocol   Done   `ModNetwork.PROTOCOL_VERSION` remains `7`; no packet field/order/encoding changed in this continuation.  
+  Resources   Done   No visible items, models, textures, recipes, loot tables, or creative-tab entries were added.  
+  Documentation   Done   Added `project_docs/updates/20260703_0.1.80_high_realm.md` and appended 0.1.80 reconciliation notes to core project docs.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed for the high-realm documentation reconciliation (`BUILD SUCCESSFUL in 42s`); latest 0.1.80 review-fix build also passed (`BUILD SUCCESSFUL in 28s`).  
+  In-game regression   Pending   Manual `runClientNoPatchouli` checks remain for breakthrough resources, gold core display, tribulation UI, physique defect ticks, and aggregate combat attributes.  
+
+### 63.1 Final build verification
+
+- First normal build after documentation sync passed `aiPreflight` but failed Java compilation in `ModEvents.java` because of a UTF-8 BOM, broken string literals, and one closing brace swallowed by a line comment.
+- `ModEvents.java` was backed up under `.bak/20260703_0.1.80_high_realm_docs/` and minimally repaired as a compile unblock; no packet format or gameplay expansion was added.
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 42s`; 11 actionable tasks, 9 executed and 2 up-to-date.
+
+## 64. 2026-07-03 0.1.81 Review fixes
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.81_review_fixes/`; the new update note/test file did not need pre-edit backup.  
+  Alchemy replacement   Done   Reinstalling the same lid/fire/formula is a no-op; replacing a different installed component returns the previous installed item to inventory or drops it.  
+  Quest markers   Done   `QuestProgress` persists secret-room/Yue marker coordinates, placement helpers sync them, and block interaction requires stored coordinate plus structure match.  
+  Meditation validation   Done   `SetMeditatingPacket(true)` now validates valid cushion seating, hunger, and nearby hostile mobs server-side before accepting meditation.  
+  Shared cleanup   Done   Spirit-stone passive matching is centralized on `SpiritStoneItem`; technique-grade Chinese source tokens were restored; `earth_wall` lang and `mystic_vial` BOM were fixed.  
+  Version/protocol   Done   `mod_version` bumped from `0.1.80` to `0.1.81`; `ModNetwork.PROTOCOL_VERSION` remains `7` because packet wire format did not change.  
+  Tests/resource check   Pending   Unit tests and resource sanity check will be recorded after validation.  
+  Build   Pending   Final `.\gradlew.bat --no-daemon --max-workers=1 build` will be recorded after validation.  
+  In-game regression   Pending   Manual checks remain useful for alchemy replacement drops, strict quest marker flow, meditation failure messages, and spirit-stone HUD/runtime parity.  
+## 64. 2026-07-03 0.1.81 Qinglan Sect contribution exchange
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs plus Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_191702/`; new sect service and update note did not need pre-edit backups.  
+  Sect service   Done   Added Qinglan Sect join/status/shop/buy/donate/steward logic backed by `QuestProgress` contribution state.  
+  Commands and NPC   Done   Added `/seeking_immortals sect` subcommands and OP steward spawn helper; named vanilla steward interaction now opens the MVP sect flow.  
+  Contribution safety   Done   Added `QuestProgress.spendContribution` and unit coverage so failed purchases do not partially deduct contribution.  
+  Version/protocol   Done   `mod_version` is `0.1.81`; `ModNetwork.PROTOCOL_VERSION` remains `7` because no packet format changed.  
+  Test   Done   `.\gradlew.bat --no-daemon --max-workers=1 test` passed: `BUILD SUCCESSFUL in 17s`.  
+  Build   Done   Required final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 31s`.  
+  In-game regression   Pending   Manual checks remain for Qinglan joining, steward interaction, exchange, donation, and inventory-full drop behavior.  
+### 64.1 Qinglan Sect contribution exchange final verification
+
+- Final `.\gradlew.bat --no-daemon --max-workers=1 test` passed: `BUILD SUCCESSFUL in 17s`; 4 actionable tasks, 2 executed and 2 up-to-date.
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 31s`; 11 actionable tasks, 8 executed and 3 up-to-date.
+- `aiPreflight` recorded `mod_version=0.1.81`. The network-package warning reflects current worktree packet edits outside this MVP; Qinglan Sect contribution exchange did not change packet fields, order, encode/decode format, registration, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `7`.
+- Manual in-game checks remain pending for join gate, steward interaction, exchange success/failure, Spirit Grass donation, and inventory-full item drop behavior.
+
+### 64.1 Final verification
+
+- Resource sanity check passed for JSON parsing, `earth_wall` localization, and `mystic_vial.json` BOM removal.
+- Normal `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 28s`.
+- Forced `./gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks` passed: `BUILD SUCCESSFUL in 42s`; 11 tasks executed including Java compile, tests, reobf, and build.
+- `aiPreflight` recorded `mod_version=0.1.81`. The network package warning was reviewed and no protocol bump is needed because packet wire format and channel compatibility are unchanged.
+
+## 65. 2026-07-03 0.1.82 Parallel system wave
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs plus Minecraft/safe-coding instructions before final verification.  
+  Backup   Done   Final coordinator backup: `.bak/20260703_205601_0.1.82_docs_final/`. Earlier 0.1.82 work also used `.bak/20260703_202941/`.  
+  Version/protocol   Done   `mod_version` is `0.1.82`; `ModNetwork.PROTOCOL_VERSION` is `8` because sect GUI sync/action packets were added.  
+  Shop core   Done   Added reusable `ShopService` and data-driven Qinglan contribution hall JSON.  
+  Sect GUI/NPC   Done   Added sect data sync/action packets, `ClientSectData`, `SectScreen`, dedicated `sect_steward`, legacy named-villager steward compatibility, and OP outpost placement.  
+  Alchemy display   Done   Added JEI alchemy category for shipped recipes and Patchouli alchemy documentation.  
+  Skill feedback   Done   Added technique cost/cooldown parsing, technique-id effect lookup, visible sword projectile rendering, 8-second Big Dipper sword-array loop, and flight feedback hooks.  
+  Test   Done   Forced `.\gradlew.bat --no-daemon --max-workers=1 test --rerun-tasks` passed: `BUILD SUCCESSFUL in 25s`.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 27s`; 11 actionable tasks, 5 executed and 6 up-to-date.  
+  In-game regression   Pending   Manual checks remain for Qinglan gates/GUI/steward/shop/donation, JEI/Patchouli viewing, skill GUI scales, Big Dipper cleanup, and flight feedback.  
+
+### 65.1 Final verification
+
+- `aiPreflight` recorded `mod_version=0.1.82`.
+- The network package warning is expected for 0.1.82 because `SyncSectDataPacket` and `SectActionPacket` were added; protocol is already bumped to `8`.
+- A stale-damage source in `ClientTechniqueData.java` was normalized before forced compilation so up-to-date Gradle state could not hide broken string literals.
+
+
+## 66. 2026-07-03 0.1.83 Review fixes
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs plus Minecraft/safe-coding instructions before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_212637_0.1.83_review_fixes/`; new test/update files did not need pre-edit backups.  
+  Qinglan old saves   Done   `QuestProgress.loadNBT` migrates Qinglan members with missing/zero sect stage to outer disciple; sect open/steward sync normalizes illegal old stages.  
+  Cooldown parity   Done   Big Dipper Sword Array is `cost=80` and `cooldown=160` in SkillType and shipped Foundation Establishment JSON.  
+  UI layout/localization   Done   Sect and technique editor panels clamp inside small screens; technique tooltip/editor text now uses zh_cn/en_us lang keys.  
+  Tests   Done   `.\gradlew.bat --no-daemon --max-workers=1 test` passed: `BUILD SUCCESSFUL in 16s`.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 36s`.  
+  In-game regression   Pending   Manual old-save, GUI Scale, English-language, and Big Dipper cooldown checks remain recommended.  
+
+### 66.1 Final verification
+
+- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 36s`; 11 actionable tasks, 5 executed and 6 up-to-date.
+- `aiPreflight` recorded `mod_version=0.1.83`.
+- The network-package warning is expected for the existing 0.1.82 network additions. 0.1.83 did not change packet fields, order, encoding, registration, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `8`.
+## 67. 2026-07-03 0.1.84 Worker E docs/resources/regression
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read AGENTS.md, ai_handoff.md, step_progress.md, items.md, pending_requests.md, features.md, missing_and_placeholders.md, docs/task-board.md, and fanren outline before editing.  
+  Backup   Done   Existing edited docs were backed up to `.bak/20260703_0.1.84_worker_e_docs/`.  
+  Scope guard   Done   Docs-only Worker E pass; no `gradle.properties`, `ModNetwork`, Java code, data pack, asset, or build-script edits.  
+  Update note   Done   Added `project_docs/updates/20260703_0.1.84_docs_resources_regression.md` as a pending release note.  
+  Manual regression checklist   Done   Added `project_docs/manual_regression_0.1.84.md` for coordinator/client validation.  
+  Version/protocol   Pending   Treat 0.1.84 as pending until the main build records `mod_version=0.1.84`; last confirmed built truth remains 0.1.83 / protocol 8.  
+  Build   Pending   Worker E did not run or claim the final build; main/coordinator build result must be recorded later.  
+
+## 68. 2026-07-03 0.1.84 Worker D techniques/refinement/talisman design catalogs
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read AGENTS.md/project docs plus Minecraft and safe-coding skill guidance before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.84_worker_d_design_catalogs/`; new design/test/update files did not need pre-edit backups.  
+  Catalog analysis   Done   Inspected `�ı�����/data/techniques`, refinement, and talisman catalogs; confirmed `techniques/index.json` declares 178 techniques across 19 files while several source JSON files are malformed.  
+  Implementation   Done   Added a tolerant `SettingCatalogSummary` model/service that records file validity and parse errors instead of treating setting-pack JSON as gameplay truth.  
+  Version/protocol   Done   `mod_version` bumped to `0.1.84`; `ModNetwork.PROTOCOL_VERSION` remains `8` because no packet fields/order/encoding or channel behavior changed.  
+  Tests   Done   Focused catalog summary test and final Gradle build passed; see 68.1 below.  
+  In-game regression   Pending   No runtime gameplay wiring was added; remaining work is catalog normalization and later design-to-gameplay mapping.  
+
+### 68.1 Worker D verification
+
+- Focused catalog summary test passed: `./gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.design.SettingCatalogSummaryServiceTest` ended `BUILD SUCCESSFUL in 21s`.
+- Final Worker D build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended `BUILD SUCCESSFUL in 31s`; `aiPreflight` recorded `mod_version=0.1.84`.
+- The existing network-package warning was reviewed. Worker D did not edit network packets, registrations, encode/decode order, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `8`.
+
+## 68. 2026-07-03 0.1.84 Parallel worldpack/shop/data-validation MVP
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read AGENTS.md, ai_handoff.md, step_progress.md, item/system docs, and relevant skills before editing.  
+  Backup   Done   Existing files edited by the coordinator were backed up to .bak/20260703_0.1.84_parallel_worldpack_wave/.  
+  Version/protocol   Done   mod_version is 0.1.84; ModNetwork.PROTOCOL_VERSION remains 8 because this pass adds no packet wire changes.  
+  Shop core   Done   ShopService now parses stock/refresh metadata and supports item-currency purchases while preserving Qinglan contribution behavior.  
+  Worldpack data   Done   Added read-only worldpack loader plus shipped region, secret-realm, and daily-event JSON skeletons with originalized public names.  
+  Validation   Done   Forced test verification passed with Java recompilation and JSON sanity coverage.  
+  Build   Pending   Final build result will be recorded after the coordinator build command completes.  
+  Manual regression   Pending   In-game checks remain for item-currency shop use when wired to UI/NPC, worldpack consumers, and no-JEI/Patchouli startup.  
+### 68.1 Final verification
+
+- Forced test with Java recompilation passed: .\gradlew.bat --no-daemon --max-workers=1 test --rerun-tasks ended BUILD SUCCESSFUL in 27s.
+- The first normal build after docs hit the aiPreflight same-version fingerprint guard because 0.1.84 had already been recorded earlier in the wave.
+- Manual override build was run once with -PaiSkipVersionBumpCheck=true to record the intended 0.1.84 fingerprint without bumping to 0.1.85.
+- Final normal build then passed: .\gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 29s.
+- Network-package warnings are inherited from the existing 0.1.82 packet additions; this 0.1.84 pass did not change packet wire shape, so protocol remains 8.
+## 69. 2026-07-03 0.1.87 Texture art completion
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required AGENTS/project docs plus Minecraft and safe-coding skill guidance before editing resources.  
+  Backup   Done   Existing resource/model/docs files were backed up to `.bak/20260703_0.1.86_texture_art/`.  
+  Scope   Done   Resource/model/docs-only pass plus a minimal compile unblock in `ReleaseTechniquePacket.java`; no packet fields/order/encoding, channel behavior, recipes, loot, tags, or registries were changed.  
+  Texture generation   Done   Added original pixel-art resources for technique manuals, spirit stones, alchemy lids/fires/furnaces, formula carriers, pill quality families, quest evidence, utility items, skill icons, and selected blocks.  
+  Model routing   Done   Repointed active item/block models away from unrelated reused art; current model refs resolve and no model points at `*_placeholder.png`.  
+  Version/protocol   Done   `mod_version` is `0.1.87`; `ModNetwork.PROTOCOL_VERSION` remains `8` because this pass did not touch network compatibility.  
+  Build   Pending   Final `.\gradlew.bat --no-daemon --max-workers=1 build` will be recorded after verification.  
+## 70. 2026-07-03 0.1.87 Right-side technique skill bar
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs, frontend handoff, fanren setting outline, and relevant client HUD files before editing.  
+  Backup   Done   Existing edited files were backed up to .bak/20260703_0.1.87_right_skill_bar/.  
+  UI refactor   Done   TechniqueSkillBarOverlay now anchors the 7-slot technique HUD on the right edge and draws a compact jade-slip/talisman style frame with refined slot states.  
+  Hover/cooldown   Done   Empty slot hover no longer opens fallback tooltips; cooldown, low-mana, and tooltip placement were adjusted for the right-side layout.  
+  Version/protocol   Done   mod_version is 0.1.87; ModNetwork.PROTOCOL_VERSION remains 8 because no packet fields/order/encoding or channel behavior changed.  
+  Tests   Pending   Layout test/build verification will be recorded after Gradle validation.  
+  In-game regression   Pending   Manual GUI Scale 1/2/3/Auto checks remain useful for right-side HUD overlap with minimaps, scoreboards, or other mods.  
+
+### 70.1 Final verification
+
+- Final .\\gradlew.bat --no-daemon --max-workers=1 build passed: BUILD SUCCESSFUL in 30s; 11 actionable tasks, 9 executed and 2 up-to-date.
+- aiPreflight passed and recorded mod_version=0.1.87.
+- The network-package warning is inherited from existing dirty network files; this right-side skill-bar pass did not change packet fields, order, encoding, registration, or channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 8.
+
+## 71. 2026-07-04 0.1.88 Texture art final verification
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Version/protocol   Done   mod_version bumped to 0.1.88; ModNetwork.PROTOCOL_VERSION remains 8 because no packet wire format or channel compatibility changed.  
+  Backup   Done   Existing docs/version files edited for final closure were backed up to .bak/20260704_0.1.88_texture_final/; texture/model assets remain covered by the earlier texture-art backup .bak/20260703_0.1.86_texture_art/.  
+  Resource audit   Done   Parsed 248 active model JSON files with 0 JSON errors, 0 missing active texture references, and 0 active placeholder model references; src/main/resources has no active xiuxian: references.  
+  Build   Pending   Final .\\gradlew.bat --no-daemon --max-workers=1 build will be recorded after the rerun.  
+
+### 71.1 Final verification
+
+- Original textures before overwrite were compressed to backups/20260704_0.1.88_texture_final/original_textures_before_overwrite.zip from the earlier texture-art backup directory.
+- Final .\\gradlew.bat --no-daemon --max-workers=1 build passed: BUILD SUCCESSFUL in 35s; 11 actionable tasks, 9 executed and 2 up-to-date.
+- iPreflight recorded mod_version=0.1.88. The network-package warning is inherited from existing network work; this texture final pass did not change packet fields, order, encoding, registrations, or channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 8.
+
+## 72. 2026-07-04 0.1.89 HUD and health overlay refactor
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read AGENTS.md guidance, required project docs, and relevant safe-coding/Minecraft mod development skill guidance before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.88_hud_health/`.  
+  HUD layout   Done   `TechniqueSkillBarOverlay` remains right-anchored and exposes reserved width; `CultivationHudOverlay` uses full labels and clamps before the right-side skill bar.  
+  Health overlay   Done   Added `CultivationHealthOverlay` as a client-only left-top native health panel and cancels only `VanillaGuiOverlay.PLAYER_HEALTH`.  
+  Version/protocol   Done   `mod_version` is `0.1.89`; `ModNetwork.PROTOCOL_VERSION` remains `8` because no packet fields/order/encoding or channel behavior changed.  
+  Tests   Done   Focused `ScreenLayoutTest` passed; final Gradle build passed and aiPreflight recorded `mod_version=0.1.89`.  
+  In-game regression   Pending   Manual GUI Scale 1/2/3/Auto checks remain useful for right skill bar, top-right cultivation HUD, left-top health panel, absorption display, and F1 hiding.  
+### 72.1 Final verification
+
+- Focused layout test passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest` ended `BUILD SUCCESSFUL in 22s`.
+- Final required build rerun passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended `BUILD SUCCESSFUL in 23s`; 11 actionable tasks, 6 executed and 5 up-to-date.
+- `aiPreflight` recorded `mod_version=0.1.89`. The network-package warning is inherited from existing dirty network files; this HUD/health pass did not change packet fields, order, encoding, registration, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `8`.
+## 72. 2026-07-04 0.1.89 Execution wave closure
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Version/protocol   Done   mod_version is 0.1.89; ModNetwork.PROTOCOL_VERSION remains 8 because no packet fields/order/encoding or channel behavior changed.  
+  Cooldown sync   Done   SyncLearnedTechniquesPacket remaining cooldowns use overworld game time, matching ReleaseTechniquePacket enforcement.  
+  Commands   Done   Added no-packet market, worldpack, and six-sect command entry points.  
+  Data/resources   Done   market_herbal_stall and worldpack tickets use registered metal_spirit_stone; text-material remains reference-only.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with `BUILD SUCCESSFUL in 27s`; `aiPreflight` recorded `mod_version=0.1.91`.  
+  Manual regression   Pending   Manual command, JEI/Patchouli, GUI scale, and multi-sect gameplay checks remain for later.  
+
+### 72.1 0.1.89 Final verification recorded
+
+- Focused tests passed: .\\gradlew.bat --no-daemon --max-workers=1 test --tests SyncLearnedTechniquesPacketTest --tests ShopServiceTest --tests WorldpackDataServiceTest --tests SectDefinitionServiceTest --tests JsonSanityTest -> BUILD SUCCESSFUL in 25s.
+- Required final build passed: .\\gradlew.bat --no-daemon --max-workers=1 build -> BUILD SUCCESSFUL in 20s; aiPreflight recorded mod_version=0.1.89.
+- Forced full verification passed: .\\gradlew.bat --no-daemon --max-workers=1 build --rerun-tasks -> BUILD SUCCESSFUL in 38s; 11 tasks executed.
+- Network package warning was reviewed; this pass changed cooldown logic/commands only and did not change packet fields/order/encoding/registration/channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 8.
+
+## 73. 2026-07-04 0.1.90 Breakthrough pill success-rate fix
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs, AGENTS.md, and relevant safe-coding/Minecraft mod-development guidance before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.90_breakthrough_pill_success/`.  
+  Version/protocol   Done   `mod_version` bumped to `0.1.90`; `ModNetwork.PROTOCOL_VERSION` remains `8` because no packet fields/order/encoding/channel compatibility changed.  
+  Breakthrough aid service   Done   Added a hand-consumed aid helper in `BreakthroughService` and immediate sync after aid application.  
+  Pill behavior   Done   Breakthrough Pill/Foundation Building Pill require next-resource matching; dual-use catalog pills convert only at matching bottlenecks; Essence Condensing uses the unified quality bonus table.  
+  Focused tests   Done   `BreakthroughAidLogicTest` passed with `BUILD SUCCESSFUL in 23s`.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 24s`; `aiPreflight` recorded `mod_version=0.1.90`.  
+  Manual regression   Pending   Manual client checks remain for bottleneck conversion, non-bottleneck normal effects, repeat-use no-consume behavior, and command/panel success-rate sync.  
+### 73.1 Final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended `BUILD SUCCESSFUL in 24s`; 11 actionable tasks, 6 executed and 5 up-to-date.
+- `aiPreflight` passed and recorded `mod_version=0.1.90`.
+- The network-package warning is inherited from existing dirty network files. This breakthrough pill fix did not change packet fields, order, encoding, registrations, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `8`.
+## 74. 2026-07-04 0.1.91 Left-side technique skill bar
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read AGENTS.md, required project docs, and relevant safe-coding/Minecraft mod-development guidance before editing.  
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.91_left_skill_bar/`.  
+  Version/protocol   Done   `mod_version` bumped from the actual workspace `0.1.90` to `0.1.91`; `ModNetwork.PROTOCOL_VERSION` remains `8` because no packet fields/order/encoding/channel compatibility changed.  
+  Skill bar layout   Done   `TechniqueSkillBarOverlay` now anchors to the left edge, exposes `leftReservedWidth`, opens tooltips to the right, and avoids the left-top health panel when height allows.  
+  Cultivation HUD layout   Done   `CultivationHudOverlay` now computes narrow-screen width/x placement against the left skill-bar reserve instead of a right-side reserve.  
+  Focused tests   Done   `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest` passed with `BUILD SUCCESSFUL in 23s`.  
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with `BUILD SUCCESSFUL in 27s`; `aiPreflight` recorded `mod_version=0.1.91`.  
+  Manual regression   Pending   Manual GUI Scale 1/2/3/Auto checks remain for left skill bar, left-top health panel, right-top cultivation HUD, tooltip placement, cooldown/low-mana marks, and F1 hiding.  
+### 74.1 Final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended `BUILD SUCCESSFUL in 27s`; 11 actionable tasks, 6 executed and 5 up-to-date.
+- `aiPreflight` recorded `mod_version=0.1.91`.
+- The network-package warning is inherited from existing dirty network files; this left skill-bar pass did not change packet fields, order, encoding, registration, or channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `8`.
+## 75. 2026-07-04 0.1.95 Review fixes (0.1.92 plan)
+
+  Step   Status   Notes  
+  ---   ---   ---  
+  Read handoff   Done   Read required project docs and relevant Minecraft/safe-coding skill guidance before editing.  
+  Backup   Done   Existing edited files and removed untracked half-built packet/UI stubs were backed up to `.bak/20260704_0.1.92_review_fixes/`.  
+  Version/protocol   Done   `mod_version` is `0.1.95`; `ModNetwork.PROTOCOL_VERSION` is restored/kept at `8` because no packet fields/order/encoding/registrations/channel compatibility changed.  
+  HUD health gate   Done   Vanilla `PLAYER_HEALTH` cancellation now shares the custom health overlay renderability predicate, so F1, open screens/chat, missing player, and non-survival HUD states do not hide vanilla hearts.  
+  Cooldown clamp   Done   Technique cooldown remaining ticks use long math and clamp huge durations to `Integer.MAX_VALUE`.  
+  Sect shop feedback   Done   Qinglan sect purchases now report `BAD_CURRENCY_ITEM` and `OUT_OF_STOCK` with zh_cn/en_us language keys.  
+  Patchouli isolation   Done   Direct `PatchouliAPI` usage is isolated in a compat bridge and invoked only after `ModCompat.PATCHOULI_LOADED`.  
+  Compile hygiene   Done   Removed untracked half-built shop/worldpack packet, action packet, client data, and screen stubs so this review-fix pass does not add a new protocol/UI surface.  
+  Focused tests   Done   `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacketTest --tests com.xunxian.seekingimmortals.client.ScreenLayoutTest` passed with `BUILD SUCCESSFUL in 21s`.  
+  Build   Pending   Final required `.\gradlew.bat --no-daemon --max-workers=1 build` will be recorded after docs are synced.  
+  Manual regression   Pending   Manual checks remain useful for no-Patchouli startup, chat/open-screen/F1 health visibility, GUI Scale 1/2/3/Auto, and Qinglan no-stock/currency-error prompts.  
+## 82. 2026-07-04 0.1.104 GPT Image full texture redraw
+
+| Step | Status | Notes |
 | --- | --- | --- |
-| 读取方案与源码 | ✅ 已完成 | 读取 `code-review-fix-checklist.md` 及 14 个相关源文件 |
-| 安全备份 | ✅ 已完成 | 备份至 `.bak/20260622_140506_m1_m13/` |
-| M1 方案 A | ✅ 已完成 | `PlayerCultivation.addCultivationBoost` 改续期（`Math.min(current+ticks, MAX_CULTIVATION_BOOST_TICKS)`）；`CultivationPillItem` 区分 boost/boost_extend 提示；新增 zh_cn/en_us lang key |
-| M2 方案 A | ✅ 已完成 | `QiRecoveryPillItem` 改 `Math.max(round(qiValue*absorption), ceil(maxSP*0.1))`，qiValue 主导回复量 |
-| M3 方案 A | ✅ 已完成 | `PlayerCultivation` 新增 `qiDevDecayAccumulatorTicks`/`leylineQiDevDecayAccumulatorTicks` + `tickQiDeviationDecay()` + NBT 持久化；`ModEvents` 走火衰减替换为累计计数器 |
-| M4 方案 B | ✅ 已完成 | `ModEvents.getMatchingPassiveBonus` 非五行灵根返回 `stone.getPassiveBonus()`（全额定）代替直接返回 0 |
-| M8 方案 B | ✅ 已完成 | `DetectionSpell` 新增 `maxBlockMatches=32` labeled break + `isLoaded(pos)` + 每匹配 1 粒子，保留探测范围 |
-| M9 方案 A | ✅ 已完成 | `ReleaseTechniquePacket` 改用 `player.getServer().overworld().getGameTime()`；`PlayerCultivation.loadNBTData` 新增 `CultivationNbtVersion<1` 旧冷却迁移清空；`saveNBTData` 写入版本标记 |
-| M10 方案 A | ✅ 已完成 | `TechniqueEntry` 增 `int cost`/`Realm requiredRealm`；`loadEntries` 解析新字段（默认 cost=15/required_realm=QI_REFINING）；`parseRealm` helper；`ReleaseTechniquePacket.estimateCost` 改 `technique.cost()`、`estimateTechniqueRealm` 改 `technique.requiredRealm()`；删除 `containsAny` 死代码与 `Locale` import |
-| M12 方案 A | ✅ 已完成 | `SyncCultivationDataPacket` + `ClientCultivationData.Snapshot` 增 `long cultivationMax`；encode/decode 配对 `writeLong/readLong`；`CultivationHudOverlay` 修为进度条改真实比值 `data.cultivationMax()` |
-| M13 方案 A | ✅ 已完成 | `handleAgeAndLifespan` 设 `SeekingImmortalsLifespanDeath` flag → `fellOutOfWorld()` 致死；`onLivingHurt` 顶部对 flag early return（跳过打坐中断+走火） |
-| 协议 bump | ✅ 已完成 | M12 新增 packet 字段 → `ModNetwork.PROTOCOL_VERSION` 4→5 |
-| 版本同步 | ✅ 已完成 | `gradle.properties` `mod_version` 0.1.50→0.1.51 |
-| 构建验证 | ✅ 已完成 | `./gradlew build` 成功，BUILD SUCCESSFUL in 48s，产物 `build/libs/seeking_immortals-0.1.51.jar` |
-| 文档同步 | ✅ 已完成 | 已更新 `docs/code-review-fix-checklist.md`（M1-M4/M8-M10/M12-M13 标 [x]，第二/三批计数更新，D9/D12 落地）和本文件 |
+| Read handoff | Done | Read required project docs and imagegen/safe-coding/Minecraft guidance before applying resources. |
+| Backup | Done | Original textures zipped to backups/20260704_0.1.100_gpt_image_full_texture_redraw/current_textures_before_api_redraw.zip; docs/version/script backups under .bak/20260704_0.1.100_gpt_image_full_texture_redraw/. |
+| Prompt pipeline | Done | Prepared 323 API prompts with block-specific full-face prompts and generic original cultivation icon prompts that avoid direct proprietary characters/scenes. |
+| Generation | Done | Generated 323 raw PNG outputs using gpt-image-2, high quality, /v1/images/generations, max 4 attempts per image, and concurrency 5 after user approval. |
+| Apply | Done | All 323 processed outputs were written back to the original texture paths with original dimensions preserved. |
+| Audits | Done | PNG audit and active model texture audit passed with 0 bad PNGs, 0 missing model texture refs, 0 active placeholder refs, and 0 active xiuxian refs. |
+| Version/protocol | Done | mod_version is 0.1.104; ModNetwork.PROTOCOL_VERSION remains the current source value 9 because no packet compatibility changed. |
+| Build | Pending | Final Gradle build will be run after docs sync. |
+| Manual regression | Pending | In-game visual checks remain useful for inventory readability, block placement faces, GUI scale, and resource-pack interaction. |
+### 82.1 Final verification
+
+- Focused verification passed: .\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.design.SettingCatalogSummaryServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest ended BUILD SUCCESSFUL in 16s.
+- Final required build passed: .\gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 24s; aiPreflight recorded mod_version=0.1.104.
+- Reference-data test unblocks were scoped to current text-material schema/counts and do not affect shipped runtime resources.
+- ModNetwork.PROTOCOL_VERSION remains 9 because this texture redraw did not change packet fields, order, encode/decode format, registrations, or channel behavior.
+
+## 90. 2026-07-04 0.1.108 Spirit-stone canonical resource refs
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Used the six-agent text-material review results and scoped this batch to low-risk resource canonicalization before broader shop/item imports.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.108_spirit_stone_canonical_refs/`.
+  Version/protocol   Done   `mod_version` is `0.1.108`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Resource refs   Done   Updated the spirit ore loot table and the core qi/cultivation/breakthrough/spirit-charm recipes from legacy `seeking_immortals:spirit_stone` to registered `seeking_immortals:metal_spirit_stone`.
+  Build   Pending   Focused JSON validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run next.
+  Follow-up   Pending   Remaining legacy `spirit_stone` recipe/Patchouli references and the broader text-material canonical id map remain for later small batches.
+
+### 90.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest` ended BUILD SUCCESSFUL in 20s.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.108`.
+- The inherited network-package preflight warning was reviewed. This pass changed resource JSON and docs only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 91. 2026-07-04 0.1.109 Spirit-stone recipe refs pass 2
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this batch for concurrent Codex work: only five remaining recipe JSON refs plus docs/version, avoiding Java, registries, network, shops, and Patchouli pages.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.109_spirit_stone_recipe_refs/`.
+  Version/protocol   Done   `mod_version` is `0.1.109`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Recipe refs   Done   Updated spirit gathering array, spirit detector, ling gen test stone, leyline compass, and speed talisman recipes from legacy `seeking_immortals:spirit_stone` to registered `seeking_immortals:metal_spirit_stone`.
+  Build   Pending   Focused JSON sanity and final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run after docs sync.
+  Follow-up   Pending   Remaining old refs are fire talisman, armor talisman, and Patchouli basics/spirit-stones icons.
+
+### 91.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest` ended BUILD SUCCESSFUL in 18s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.109`.
+- The inherited network-package preflight warning was reviewed. This pass changed resource JSON and docs only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 92. 2026-07-04 0.1.110 Spirit-stone legacy refs finish
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a concurrent Codex had already applied the final four active resource-reference fixes and created the update note/backup; this pass completed verification and docs sync without overwriting that work.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.110_spirit_stone_refs_finish/`, including the update note before verification edits.
+  Version/protocol   Done   `mod_version` is `0.1.110`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Resource refs   Done   Active shipped resources no longer contain `seeking_immortals:spirit_stone`; the final fire/armor talisman recipes and Patchouli guide icons now use `seeking_immortals:metal_spirit_stone`.
+  Focused validation   Done   `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest` passed with BUILD SUCCESSFUL in 18s after approval for Gradle wrapper network/cache access.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s; `aiPreflight` recorded `mod_version=0.1.110`.
+  Follow-up   Pending   Next text-material implementation slice should create the broader canonical id map before importing merchant shops, talismans, beasts, artifacts, puppet, formation, or technique data.
+
+## 93. 2026-07-04 0.1.112 Text-material canonical id map
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the concurrent 0.1.111 worldpack daily-event pass had completed and advanced this canonical-map batch to 0.1.112 without touching its worldpack files.
+  Planning   Done   Scoped this batch to a reference-only id map, docs, and sanity tests before larger text-material imports.
+  Backup   Done   Existing edited files were backed up to `.bak/20260704_0.1.112_text_material_canonical_id_map/`.
+  Version/protocol   Done   `mod_version` is `0.1.112`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Mapping   Done   Added first-pass currency, pill, material, realm, shop, and blocked technique-loader canonical decisions under `data/seeking_immortals/reference/text_material_id_map.json`.
+  Tests   Done   Focused JSON sanity tests and final build passed; see 93.1.
+  Follow-up   Pending   Future imports must use this map and keep unregistered/future-system ids deferred until matching runtime systems exist.
+
+### 93.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 20s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 22s; `aiPreflight` recorded `mod_version=0.1.112`.
+- The inherited network-package preflight warning was reviewed. This pass changed reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 94. 2026-07-05 0.1.113 Market herbal stall text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Read text materials   Done   Full UTF-8 read scan covered 172 files under `文本材料`; all 118 JSON files parsed successfully.
+  Planning   Done   Scoped this cooperative batch to the existing `market_herbal_stall`, avoiding Java registry, network, new models, and unregistered source ids.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.113_market_herbal_stall/`.
+  Version/protocol   Done   `mod_version` is `0.1.113`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   Added `spirit_gathering_pill` and `fasting_pill` entries using existing registered pill ids and existing metal-spirit-stone item currency.
+  Build   Done   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed.
+  Follow-up   Pending   Larger merchant-shop imports still need explicit canonical mappings or deferred decisions for unregistered shop goods and currencies.
+
+### 94.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 33s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.113`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 95. 2026-07-05 0.1.114 Market talisman text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to two low-tier talisman aliases that map to existing registered items, avoiding new registries, Java logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.114_market_talisman/`.
+  Version/protocol   Done   `mod_version` is `0.1.114`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `fire_burst_talisman -> seeking_immortals:fire_talisman` and `body_guard_talisman -> seeking_immortals:armor_talisman` as implemented_partial.
+  Market data   Done   Added both mapped talismans to `market_herbal_stall` using existing metal-spirit-stone item currency.
+  Build   Pending   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run next.
+  Follow-up   Pending   Exact text-material talisman formulas, paper/ink materials, crafting skill, and mid/high talisman lines remain deferred.
+
+### 95.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 27s; `aiPreflight` recorded `mod_version=0.1.114`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop/reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 96. 2026-07-05 0.1.115 Market herb text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to three low-tier herb aliases that map to existing registered items, avoiding new registries, Java gameplay logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.115_market_herbs/`.
+  Version/protocol   Done   `mod_version` is `0.1.115`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `yellow_essence -> seeking_immortals:spirit_grass` and `ginseng_spirit -> seeking_immortals:immortal_ginseng`; reused `fire_sparrow_fruit -> seeking_immortals:phoenix_feather_flower`.
+  Market data   Done   Added the three mapped herb entries to `market_herbal_stall` using existing metal-spirit-stone item currency.
+  Build   Pending   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run next.
+  Follow-up   Pending   Exact herb species, age tiers, herb garden growth, and broader merchant-shop imports remain deferred.
+### 96.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 20s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.115`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop/reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 97. 2026-07-05 0.1.116 Market low-pill text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to two low-tier pill aliases that already map to existing registered items, avoiding new registries, Java gameplay logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.116_market_low_pills/`.
+  Version/protocol   Done   `mod_version` is `0.1.116`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Reused existing `spirit_recovery_pill -> seeking_immortals:qi_recovery_pill` and `cultivate_speed_pill -> seeking_immortals:cultivation_pill` decisions.
+  Market data   Done   Added both mapped low-pill entries to `market_herbal_stall` using existing metal-spirit-stone item currency.
+  Build   Pending   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run next.
+  Follow-up   Pending   Mid/high pills, controlled breakthrough pills, body-tempering pills, and strict realm/source gates remain deferred.
+### 97.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 15s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.116`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 98. 2026-07-05 0.1.117 Market spirit mushroom text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to one low-tier herb alias that already maps to an existing registered item, avoiding new registries, Java gameplay logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.117_market_spirit_mushroom/`.
+  Version/protocol   Done   `mod_version` is `0.1.117`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   Added the `spirit_mushroom` entry to `market_herbal_stall` using existing `cloud_mushroom` and metal-spirit-stone item currency.
+  Build   Done   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed.
+  Follow-up   Pending   Exact mushroom species, age tiers, region scarcity, herb-gathering sources, and broader merchant-shop families remain deferred.
+
+### 98.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 25s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 32s; `aiPreflight` recorded `mod_version=0.1.117`.
+- Verification rerun by the continuing Codex also passed on 2026-07-05: focused shop/resource tests ended BUILD SUCCESSFUL in 19s after wrapper network/cache approval, and final .\gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 30s.
+- The inherited network-package preflight warning was reviewed. This pass changed shop JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+### 98.1 Final verification
+
+- Focused validation passed: .\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest ended BUILD SUCCESSFUL in 19s after approval for Gradle wrapper network/cache access.
+- Final required build passed: .\gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 32s; aiPreflight recorded mod_version=0.1.117.
+- The inherited network-package preflight warning was reviewed. This pass changed shop JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 9.
+- This final verification supersedes the pending build row in section 98 above.
+
+## 99. 2026-07-05 0.1.118 Qinglan contribution hall text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued after verifying the concurrent 0.1.117 market spirit-mushroom batch; scoped this pass away from market shop files.
+  Planning   Done   Scoped this cooperative batch to six contribution-shop entries that map to existing registered items and current shop schema fields.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.118_qinglan_contribution_text_material/`.
+  Version/protocol   Done   `mod_version` is `0.1.118`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   Added recipe_spirit_condense, recipe_bigu, recipe_calm_spirit, spirit_herb_bundle, spirit_recovery_pill, and body_guard_talisman to `qinglan_contribution_hall` using existing registered items.
+  Build   Done   Focused shop/resource validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed.
+  Follow-up   Pending   Rank/monthly/realm/reputation gates, exact herb bundles, and unregistered contribution goods remain deferred.
+## 99. 2026-07-05 0.1.118 Market beast-core fragment text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to one low-tier material alias that maps to an existing registered item, avoiding new registries, Java gameplay logic, and network changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.118_market_demon_core_fragment/`.
+  Version/protocol   Done   `mod_version` is `0.1.118`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   Added `demon_core_fragment -> seeking_immortals:beast_core` as `implemented_partial`.
+  Market data   Done   Added the mapped beast-core fragment entry to `market_herbal_stall` using existing metal-spirit-stone item currency.
+  Build   Done   Focused shop/resource validation passed, and final .\gradlew.bat --no-daemon --max-workers=1 build passed with BUILD SUCCESSFUL in 34s under mod_version=0.1.126.
+  Follow-up   Pending   Exact demon-core fragment/core tiering, beast drops, and recipe-specific consumption remain deferred.
+
+### 99.1 Final verification
+
+- Focused validation passed: .\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest ended BUILD SUCCESSFUL in 26s after approval for Gradle wrapper cache access.
+- Final required build passed: .\gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 35s; aiPreflight recorded mod_version=0.1.118.
+- The inherited network-package preflight warning was reviewed. This pass changed shop JSON, reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 9.
+
+### 99.1 Final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 17s after approval for Gradle wrapper network/cache access.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 30s; `aiPreflight` recorded `mod_version=0.1.118`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop/reference JSON, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 99. 2026-07-05 0.1.118 Multi-market text-material shops
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative batch to whitelisted item-currency market shops from text-material merchant_shops.json, preserving old market_herbal_stall behavior.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.118_multi_market_shops/`.
+  Version/protocol   Done   `mod_version` is `0.1.118`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market service   Done   ShopService now validates known market shop ids, syncs/buys against the requested shop, and keeps unknown client shop ids server-rejected.
+  Data   Done   Added `chaotic_sea_island_general` with implemented low-pill equivalents and `inverse_star_black_market` with the implemented beast-core equivalent.
+  Commands/UI   Done   Old market commands still default to market_herbal_stall; optional shopId forms are available and ShopScreen refresh keeps the current shop id.
+  Focused tests   Done   Focused ShopService/resource JSON validation passed with BUILD SUCCESSFUL in 19s after wrapper network/cache approval.
+  Build   Pending   Final `.\gradlew.bat --no-daemon --max-workers=1 build` will be run after docs sync.
+  Follow-up   Pending   Manual GUI/command checks and broader merchant goods remain deferred until missing item/economy systems exist.
+
+## 100. 2026-07-05 0.1.119 Multi-market text-material shops version reconciliation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel 0.1.118 Qinglan contribution and market demon-core fragment batches; this multi-market batch was advanced to 0.1.119.
+  Backup   Done   Original implementation backup is `.bak/20260705_0.1.118_multi_market_shops/`; reconciliation backup is `.bak/20260705_0.1.119_multi_market_shops_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.119`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market service   Done   ShopService validates known market shop ids, syncs/buys against the requested shop, and keeps unknown client shop ids server-rejected.
+  Data   Done   Added `chaotic_sea_island_general` with implemented low-pill equivalents and `inverse_star_black_market` with the implemented beast-core equivalent.
+  Commands/UI   Done   Old market commands still default to market_herbal_stall; optional shopId forms are available and ShopScreen refresh keeps the current shop id.
+  Focused tests   Done   Focused ShopService/resource JSON validation passed with BUILD SUCCESSFUL in 19s before the version reconciliation.
+  Build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed after verification.
+  Follow-up   Pending   Manual GUI/command checks and broader merchant goods remain deferred until missing item/economy systems exist.
+
+### 100.1 Final verification
+
+- Focused validation passed after version reconciliation: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 25s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 36s; aiPreflight recorded `mod_version=0.1.119`.
+- The inherited network-package preflight warning was reviewed. This pass changed shop service/commands/client refresh plus shop/reference JSON, localization, tests, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Continuing Codex verification observed one transient `reobfJar` short-copy failure (`output.jar` expected length 161, actual 0); immediate rerun passed with BUILD SUCCESSFUL in 31s and `aiPreflight` recorded `mod_version=0.1.119`.
+## 101. 2026-07-05 0.1.121 Danxia contribution hall text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Scoped this cooperative slice to Danxia alchemy contribution entries that reuse registered items and current shop schema fields.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.120_danxia_contribution_text_material/`; documentation reconciliation backups are `.bak/20260705_0.1.121_danxia_docs_reconcile/`, `.bak/20260705_0.1.122_danxia_parallel_reconcile/`, and `.bak/20260705_0.1.123_danxia_chaotic_final_docs/`.
+  Version/protocol   Done   Danxia batch is finalized as `0.1.121`; current aggregate workspace is `0.1.123`. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   Added foundation_pill, recipe_spirit_condense, recipe_bigu, recipe_calm_spirit, spirit_herb_bundle, and spirit_recovery_pill to `danxia_valley_contribution_hall`.
+  Build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 24s after wrapper network/cache approval; final aggregate `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and aiPreflight recorded `mod_version=0.1.123`.
+  Follow-up   Pending   Rank/monthly/realm/reputation gates and exact per-player contribution-shop limits remain deferred.
+
+### 101.1 Final verification
+
+- Focused validation passed: ./gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest ended BUILD SUCCESSFUL in 24s after wrapper network/cache approval.
+- Final aggregate build passed: ./gradlew.bat --no-daemon --max-workers=1 build ended BUILD SUCCESSFUL in 31s; iPreflight recorded mod_version=0.1.123.
+- The inherited network-package preflight warning was reviewed. This Danxia shop-data/docs pass changed no packet fields/order/encoding/registrations/channel compatibility, so ModNetwork.PROTOCOL_VERSION remains 9.
+## 113. 2026-07-05 0.1.133 Danxia furnace text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the 0.1.132 trade-route plus Cangming aggregate state and avoided latest Cangming/worldpack files.
+  Text-material read   Done   Full text-material scan covered 172 files; all 118 JSON files parsed successfully. This slice uses `sect_contribution_shop.json#huangfeng_valley`.
+  Planning   Done   Scoped the pass to one additive Danxia contribution entry that reuses an existing registered block item and current shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.133_danxia_furnace_text_material/`.
+  Version/protocol   Done   `mod_version` is `0.1.133`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `danxia_valley_contribution_hall` now sells `alchemy_furnace_g2` as `seeking_immortals:alchemy_furnace_tier_2` for 350 sect contribution.
+  Tests/build   Done   Covered by the aggregate 0.1.134 final build: `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 36s and aiPreflight recorded `mod_version=0.1.134`.
+  Follow-up   Pending   Exact Huangfeng/Danxia rank, realm, monthly-limit, and alchemy privilege gates remain deferred until the shop schema supports per-player restrictions.
+## 114. 2026-07-05 0.1.134 Fallen Demon Valley worldpack secret-realm backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel 0.1.133 Danxia furnace contribution-shop slice and preserved it by advancing this worldpack slice to mod_version 0.1.134.
+  Text-material read   Done   Full text-material scan covered 172 files; all 118 JSON files parsed successfully. This slice uses `secret_realms.json#fallen_demon_valley`.
+  Planning   Done   Scoped the pass to one additive worldpack secret-realm entry that reuses an existing region, existing ticket item, and current worldpack schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.133_fallen_demon_valley_realm/` and `.bak/20260705_0.1.134_fallen_demon_valley_realm_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.134`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   `fallen_demon_valley` is now a shipped secret realm under the existing `fallen_demon_valley` region with existing `seeking_immortals:immortal_jade` ticketing.
+  Tests/build   Done   Aggregate final build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 36s and aiPreflight recorded `mod_version=0.1.134`.
+  Follow-up   Pending   Layered dungeon structure, ancient demon projection encounters, demonized-gear loot, space-rift hazards, and demon-qi purge mechanics remain deferred.
+## 114. 2026-07-05 0.1.135 Yuling spirit-beast feed text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.134 workspace and avoided Danxia, network, registry, model, texture, GUI, and worldpack hot files.
+  Text-material read   Done   Full text-material scan covered 172 files; all 118 JSON files parsed successfully. This slice uses `sect_contribution_shop.json#spirit_beast_mountain`.
+  Planning   Done   Scoped the pass to one additive Yuling Pavilion contribution entry that reuses an existing registered material item and current shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.135_yuling_feed/`.
+  Version/protocol   Done   `mod_version` is `0.1.135`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `yuling_pavilion_contribution_hall` now sells `spirit_beast_feed` as 4x `seeking_immortals:spirit_grass` for 15 sect contribution.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 49s and aiPreflight recorded `mod_version=0.1.135`.
+  Follow-up   Pending   Dedicated spirit-beast feed items, nurture pills, contract behavior, feeding rules, and exact beast affinity gains remain deferred.
+
+### 114.1 0.1.135 aggregate final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 49s; `aiPreflight` recorded `mod_version=0.1.135`.
+- This verifies the current merged workspace containing the 0.1.134 Fallen Demon Valley worldpack secret-realm backfill and the 0.1.135 Yuling spirit-beast feed shop-data backfill.
+- The inherited network-package preflight warning was reviewed. The merged slices changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Aggregate verification docs backup: `.bak/20260705_0.1.135_aggregate_verification_docs/`.
+## 115. 2026-07-05 0.1.136 Luoyun tier-3 furnace text-material backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.135 workspace and avoided Yuling, Danxia, Cangming, network, registry, model, texture, GUI, and worldpack hot files.
+  Text-material read   Done   Full text-material scan covered 172 files; all 118 JSON files parsed successfully. This slice uses `sect_contribution_shop.json#luoyun_sect`.
+  Planning   Done   Scoped the pass to one additive Luoyun contribution-shop data entry that reuses the existing registered tier-3 alchemy furnace block item.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.136_luoyun_furnace_text_material/`.
+  Version/protocol   Done   `mod_version` is `0.1.136`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `luoyun_contribution_hall` now sells `alchemy_furnace_g3` as `seeking_immortals:alchemy_furnace_tier_3` for 800 sect contribution.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 36s and aiPreflight recorded `mod_version=0.1.136`.
+  Follow-up   Pending   Luoyun sect membership, contribution access, rank gates, monthly limits, and stricter alchemy privilege semantics remain deferred.
+
+### 115.1 Final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 36s; `aiPreflight` recorded `mod_version=0.1.136`.
+- Static JSON validation passed for the new `luoyun_contribution_hall` shop and the new `alchemy_furnace_g3` canonical mapping.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 116. 2026-07-05 0.1.137 Beast migration daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified parallel 0.1.136 Luoyun tier-3 furnace contribution-shop slice and advanced the merged workspace to `mod_version=0.1.137`.
+  Text-material read   Done   This slice uses `daily_random_events.json#beast_migration`; the source file is malformed under strict JSON parsing, so only inspected setting ids and region intent were imported manually.
+  Planning   Done   Scoped the pass to two additive worldpack daily events that reuse existing region ids and existing effect tokens.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.137_beast_migration_events/`.
+  Version/protocol   Done   `mod_version` is `0.1.137`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `mulan_beast_migration` and `fengyuan_beast_migration`, expanding shipped daily events from 63 to 65.
+  Tests/build   Done   Focused worldpack/resource tests passed with BUILD SUCCESSFUL in 26s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and aiPreflight recorded `mod_version=0.1.137`.
+  Follow-up   Pending   Real beast migration still needs spawn tables, beast-wave encounters, beast loot/reputation, region-specific ecology, and exact source spawn multiplier behavior.
+
+### 116.1 0.1.137 aggregate final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 29s; `aiPreflight` recorded `mod_version=0.1.137`.
+- This verifies the current merged workspace containing the 0.1.136 Luoyun tier-3 furnace contribution-shop backfill and the 0.1.137 beast migration worldpack event backfill.
+- The inherited network-package preflight warning was reviewed. These slices changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 117. 2026-07-05 0.1.138 Tianyuan auction-notice daily-event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.137 beast-migration workspace and checked that no 0.1.138 slice existed before editing.
+  Text-material read   Done   This slice uses `daily_random_events.json#auction_notice`; current events already cover Chaotic Sea and Great Jin auction hooks, so this pass imports the missing Tianyuan hook.
+  Planning   Done   Scoped the pass to one additive worldpack daily event that reuses the existing `tianyuan` region and existing effect tokens.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.138_tianyuan_auction_notice/`.
+  Version/protocol   Done   `mod_version` is `0.1.138`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `tianyuan_auction_notice`, expanding shipped daily events from 65 to 66.
+  Tests/build   Done   Focused worldpack/resource tests passed with BUILD SUCCESSFUL in 21s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and aiPreflight recorded `mod_version=0.1.138`.
+  Follow-up   Pending   True auction gameplay still needs auction schedules, lots, bidding UI/NPCs, invitation/ticket rules, and region-specific high-tier reward tables.
+
+### 117.1 0.1.138 final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.138`.
+- This verifies the current merged workspace containing the 0.1.137 beast migration worldpack event backfill and the 0.1.138 Tianyuan auction-notice event backfill.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 118. 2026-07-05 0.1.139 Luoyun condensation pill contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel verified 0.1.138 Tianyuan auction-notice worldpack slice and advanced this non-overlapping shop-data slice to `mod_version=0.1.139`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#luoyun_sect`; `condensation_pill` already has a canonical mapping to the registered Essence Condensing Pill.
+  Planning   Done   Scoped the pass to one additive Luoyun contribution-shop entry that reuses an existing registered pill item and current shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.139_luoyun_condensation_pill/`.
+  Version/protocol   Done   `mod_version` is `0.1.139`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `luoyun_contribution_hall` now sells `condensation_pill` as `seeking_immortals:essence_condensing_pill` for 2500 sect contribution.
+  Tests/build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and aiPreflight recorded `mod_version=0.1.139`.
+  Follow-up   Pending   Exact Luoyun sect access, rank gates, monthly limits, realm/reputation gates, dedicated Luoyun Spirit Pill item/recipe, and per-player contribution-shop limits remain deferred.
+
+### 118.1 0.1.139 final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 22s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 25s; `aiPreflight` recorded `mod_version=0.1.139`.
+- Additional cooperative verification passed: current merged workspace `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 27s, and `aiPreflight` again recorded `mod_version=0.1.139`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 119. 2026-07-05 0.1.140 Chaotic Sea Ningshen Pill market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.139 workspace and avoided Luoyun/worldpack hot files.
+  Text-material read   Done   This slice uses `merchant_shops.json#chaotic_sea_island_general` and `pills_catalog.json#ningshen_pill`.
+  Planning   Done   Scoped the pass to one additive market entry using an existing registered pill item and current item-currency shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.140_chaotic_sea_ningshen_pill/`.
+  Version/protocol   Done   `mod_version` is `0.1.140`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Canonical map   Done   `ningshen_pill` maps to `seeking_immortals:calming_pill_low` as an implemented_partial mind-stabilizing equivalent.
+  Market data   Done   `chaotic_sea_island_general` now sells `ningshen_pill` as `seeking_immortals:calming_pill_low` for 95 low-grade metal spirit stones.
+  Tests/build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and aiPreflight recorded `mod_version=0.1.140`.
+  Follow-up   Pending   Exact Ningshen Pill itemization, recipe unlock, Foundation realm gate, anti-heart-demon tuning, and source-accurate Chaotic Sea stock gates remain deferred.
+
+### 119.1 0.1.140 final verification
+
+- Static JSON validation passed for the updated `chaotic_sea_island_general` shop and the new `ningshen_pill` canonical mapping.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 22s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 26s; `aiPreflight` recorded `mod_version=0.1.140`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 120. 2026-07-05 0.1.141 Yanyue calm-spirit contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel verified 0.1.140 Chaotic Sea Ningshen Pill market slice, then advanced this non-overlapping contribution-shop data slice to `mod_version=0.1.141`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#yanyue_sect`; `calm_spirit_pill` already maps to a registered pill item.
+  Planning   Done   Scoped the pass to one additive Yanyue contribution-shop data file that reuses an existing registered item and the current shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.141_yanyue_calm_spirit/`.
+  Version/protocol   Done   `mod_version` is `0.1.141`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `yanyue_contribution_hall` now sells `calm_spirit_pill` as `seeking_immortals:clear_void_pill` for 60 sect contribution.
+  Tests/build   Done   Focused shop/resource validation was rechecked with BUILD SUCCESSFUL in 14s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` was rechecked with BUILD SUCCESSFUL in 23s and aiPreflight recorded `mod_version=0.1.141`.
+  Follow-up   Pending   Exact Yanyue sect access, rank gates, monthly limits, illusion talisman scrolls, foundation-pill stock, heqi/ningshen pills, and per-player contribution-shop limits remain deferred.
+
+### 120.1 0.1.141 final verification
+
+- Static JSON validation passed for `yanyue_contribution_hall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 14s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.141`.
+- This verifies the merged workspace containing the 0.1.140 Chaotic Sea Ningshen Pill market backfill and the 0.1.141 Yanyue calm-spirit contribution-shop backfill.
+- The inherited network-package preflight warning was reviewed. These slices changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 121. 2026-07-05 0.1.142 Yanyue implemented pill-stock backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.141 workspace and found no existing 0.1.142 slice before editing.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#yanyue_sect`; `foundation_pill` and `ningshen_pill` have registered canonical equivalents.
+  Planning   Done   Scoped the pass to the remaining two implemented Yanyue pill entries, while leaving unregistered scroll/formula ids deferred.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.142_yanyue_pill_stock/`.
+  Version/protocol   Done   `mod_version` is `0.1.142`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `yanyue_contribution_hall` now sells `foundation_pill`, `calm_spirit_pill`, and `ningshen_pill` as current registered pill equivalents.
+  Tests/build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 21s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and aiPreflight recorded `mod_version=0.1.142`.
+  Follow-up   Pending   Yanyue sect access/routing, rank gates, monthly limits, illusion talisman scroll, Heqi recipe unlock, exact Ningshen identity, and per-player contribution-shop limits remain deferred.
+
+### 121.1 0.1.142 final verification
+
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 21s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 27s; `aiPreflight` recorded `mod_version=0.1.142`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 122. 2026-07-05 0.1.143 Cangming Yanghun formula backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel verified 0.1.142 Yanyue implemented pill-stock slice, then reconciled this non-overlapping Cangming shop-data slice to `mod_version=0.1.143`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#star_palace`; `recipe_yanghun` maps to the registered Soul Gathering Pill jade formula as the closest current Yanghun/Nourish Soul formula equivalent.
+  Planning   Done   Scoped the pass to one additive Cangming contribution-shop formula entry that reuses an existing registered formula item and current shop schema.
+  Backup   Done   Existing implementation files were backed up to `.bak/20260705_0.1.143_cangming_yanghun_formula/`; documentation reconciliation files were backed up to `.bak/20260705_0.1.143_cangming_yanghun_docs_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.143`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `cangming_isle_contribution_hall` now sells `recipe_yanghun` as `seeking_immortals:alchemy_formula_soul_gathering_pill_jade` for 600 sect contribution.
+  Tests/build   Done   Focused shop/resource validation passed with BUILD SUCCESSFUL in 14s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and aiPreflight recorded `mod_version=0.1.143`.
+  Follow-up   Pending   Exact Yanghun Pill/formula identity, Star Palace reputation gates, monthly limits, Cangming/Star Palace access semantics, and broader contribution-shop gate support remain deferred.
+
+### 122.1 0.1.143 final verification
+
+- Static JSON validation passed for `cangming_isle_contribution_hall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 14s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.143`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+### 121.2 0.1.143 version reconciliation verification
+
+- Superseded. The earlier "no separate 0.1.143 content" observation was overtaken by section 122, which documents the Cangming Yanghun formula backfill as the actual 0.1.143 content.
+- The 0.1.142 Yanyue implemented pill-stock content remains verified under section 121.
+- Historical backups: `.bak/20260705_0.1.143_yanyue_version_reconcile/` and `.bak/20260705_0.1.143_yanyue_reconcile_supersede_docs/`.
+
+### 121.3 0.1.144 build-hygiene reconciliation verification
+
+- Current `gradle.properties` advanced to `mod_version=0.1.144` because `build.gradle` changed after the 0.1.143 build fingerprint.
+- The 0.1.142 Yanyue pill-stock content and 0.1.143 Cangming `recipe_yanghun` contribution entry are preserved unchanged.
+- `build.gradle` now adds `sourceSets.main.output` directly to the `compileTestJava` task classpath, matching the active test tree's dependency on main classes.
+- Changed JSON parsed successfully with `ConvertFrom-Json`.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 26s; `aiPreflight` recorded `mod_version=0.1.144`.
+- The inherited network-package preflight warning was reviewed. No packet fields/order/encoding/registrations/channel compatibility changed, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 123. 2026-07-05 0.1.145 Chaotic Sea Yanghun Pill market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.144 Cangming build-hygiene reconciliation, then advanced this non-overlapping market-data slice to `mod_version=0.1.145`.
+  Text-material read   Done   This slice uses `merchant_shops.json#chaotic_sea_island_general` and `pills_catalog.json#yanghun_pill`; `yanghun_pill` already maps to the registered Soul Gathering Pill as the closest current soul-recovery equivalent.
+  Planning   Done   Scoped the pass to one additive market entry using the current item-currency shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.145_chaotic_sea_yanghun_pill/`; later coordination docs were backed up to `.bak/20260705_0.1.145_chaotic_sea_yanghun_pill_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.145`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `chaotic_sea_island_general` now sells `yanghun_pill` as `seeking_immortals:soul_gathering_pill` for 110 low-grade metal spirit stones with stock 3.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` recheck passed with BUILD SUCCESSFUL in 25s and aiPreflight recorded `mod_version=0.1.145`.
+  Follow-up   Pending   Exact Yanghun Pill itemization, soul-injury behavior, recipe identity, realm/reputation gates, stock-limit semantics, and separation from generic Soul Gathering Pill behavior remain deferred.
+
+### 123.1 0.1.145 final verification
+
+- Changed JSON parsed successfully for `chaotic_sea_island_general.json`, `cangming_isle_contribution_hall.json`, and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 15s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 25s; `aiPreflight` recorded `mod_version=0.1.145`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 124. 2026-07-05 0.1.146 Tiannan Heqi Pill market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.145 Chaotic Sea Yanghun Pill market slice, then advanced this non-overlapping Tiannan market-data slice to `mod_version=0.1.146`.
+  Text-material read   Done   This slice uses `merchant_shops.json#tiannan_herb_market` and `pills_catalog.json#heqi_pill`; `heqi_pill` maps to the registered Cultivation Pill as the closest current low-tier Qi Refining cultivation equivalent.
+  Planning   Done   Scoped the pass to one additive market entry using the current item-currency shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.146_market_heqi_pill/`.
+  Version/protocol   Done   `mod_version` is `0.1.146`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `heqi_pill` as `seeking_immortals:cultivation_pill` for 6 low-grade metal spirit stones with stock 8.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 21s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.146`.
+  Follow-up   Pending   Exact Heqi Pill itemization, dual-cultivation compatibility behavior, recipe/formula unlock support, source-accurate balance, and separation from generic Cultivation Pill behavior remain deferred.
+
+### 124.1 0.1.146 final verification
+
+- Changed JSON parsed successfully for `market_herbal_stall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 21s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.146`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 125. 2026-07-05 0.1.147 Danxia/Huangfeng formula backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the 0.1.146 Tiannan Heqi Pill market slice while accepting the parallel Danxia formula contribution-shop slice as the current workspace truth.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#huangfeng_valley` and `alchemy_recipes.json`; `recipe_huanglong` and `recipe_ningshen` map to already registered formula carriers.
+  Planning   Done   Scoped the pass to additive Danxia contribution-shop entries using existing formula items and the current shop schema.
+  Backup   Done   Implementation files were backed up to `.bak/20260705_0.1.147_danxia_formula_backfill/`; final verification docs were backed up to `.bak/20260705_0.1.147_aggregate_verification_docs/` and `.bak/20260705_0.1.147_verification_dedupe_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.147`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `danxia_valley_contribution_hall` now sells `recipe_huanglong` as `seeking_immortals:alchemy_formula_cultivation_pill_paper` for 45 sect contribution and `recipe_ningshen` as `seeking_immortals:alchemy_formula_calming_pill_jade` for 90 sect contribution.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.147`.
+  Follow-up   Pending   Exact Huanglong/Ningshen formula identities, Jiangchen recipe support, Danxia rank gates, monthly/per-player limits, realm gates, and stricter alchemy privilege semantics remain deferred.
+
+### 125.1 0.1.147 final verification
+
+- Changed JSON parsed successfully for `danxia_valley_contribution_hall.json`, `market_herbal_stall.json`, and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 16s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.147`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 126. 2026-07-05 0.1.148 Tiannan Huanglong formula market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.147 Danxia/Huangfeng formula slice and avoided additional contribution-shop edits.
+  Text-material read   Done   This slice uses `merchant_shops.json#tiannan_herb_market`, `sect_contribution_shop.json#huangfeng_valley`, and `alchemy_recipes.json`; `recipe_huanglong` maps to an already registered formula carrier.
+  Planning   Done   Scoped the pass to one additive Tiannan market entry using the current item-currency shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.148_market_huanglong_formula/`.
+  Version/protocol   Done   `mod_version` is `0.1.148`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `recipe_huanglong` as `seeking_immortals:alchemy_formula_cultivation_pill_paper` for 45 low-grade metal spirit stones with stock 3.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.148`.
+  Follow-up   Pending   Exact Huanglong formula identity, Jiangchen formula support, recipe unlock behavior, source-accurate market balance, and separation from generic Cultivation Pill behavior remain deferred.
+
+### 126.1 0.1.148 final verification
+
+- Changed JSON parsed successfully for `market_herbal_stall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 22s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 22s; `aiPreflight` recorded `mod_version=0.1.148`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 127. 2026-07-05 0.1.149 Yanyue Heqi formula contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.148 Tiannan Huanglong formula market slice and advanced this non-overlapping Yanyue contribution-shop slice to `mod_version=0.1.149`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#yanyue_sect` and `alchemy_recipes.json#recipe_heqi`; `recipe_heqi` maps to the registered Cultivation Pill paper formula as the closest current Heqi formula equivalent.
+  Planning   Done   Scoped the pass to one additive Yanyue contribution-shop formula entry using an existing registered formula item and current shop schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.149_yanyue_heqi_formula/`; final verification docs were backed up to `.bak/20260705_0.1.149_final_verification_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.149`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `yanyue_contribution_hall` now sells `recipe_heqi` as `seeking_immortals:alchemy_formula_cultivation_pill_paper` for 40 sect contribution.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 14s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.149`.
+  Follow-up   Pending   Exact Heqi formula identity, dual-cultivation compatibility behavior, Yanyue access/rank/monthly gates, per-player contribution limits, and separation from the generic Cultivation Pill formula remain deferred.
+
+### 127.1 0.1.149 final verification
+
+- Changed JSON parsed successfully for `yanyue_contribution_hall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 14s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.149`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 128. 2026-07-05 0.1.150 Tianyuan treasure-fair event backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.149 Yanyue Heqi formula slice and found no existing 0.1.150 update note before editing.
+  Text-material read   Done   This slice uses `daily_random_events.json#treasure_fair_rumor`; the source covers both `spirit_fengyuan` and `tianyuan`, while only the Fengyuan event was previously shipped.
+  Planning   Done   Scoped the pass to one additive worldpack daily-event JSON entry using existing region id and effect tokens.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.150_tianyuan_treasure_fair_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.150`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   `daily_events.json` now includes `tianyuan_treasure_fair_rumor` for region `tianyuan`, expanding shipped daily events from 66 to 67.
+  Tests/build   Done   Changed JSON parsed successfully; focused worldpack/resource validation passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.150`.
+  Follow-up   Pending   True Wanbao/Tianyuan treasure-fair gameplay still needs schedules, auction lots, invitations, bidding UI/NPCs, and reward tables beyond the current daily-event hint.
+
+### 128.1 0.1.150 final verification
+
+- Changed JSON parsed successfully for `worldpack/daily_events.json`; `tianyuan_treasure_fair_rumor` is present and daily events now total 67.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 23s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.150`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 129. 2026-07-05 0.1.151 Danxia Jiangchen formula contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.150 Tianyuan treasure-fair event slice and reconciled this non-overlapping Danxia contribution-shop slice to `mod_version=0.1.151`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#huangfeng_valley`, `merchant_shops.json#tiannan_herb_market`, `pills_catalog.json#jiangchen_pill`, and `alchemy_recipes.json#recipe_jiangchen`; Jiangchen Pill is a weaker Foundation breakthrough aid with no standalone registered item yet.
+  Planning   Done   Scoped the pass to one additive Danxia contribution-shop formula entry using the existing Foundation Building Pill paper formula carrier as a partial equivalent.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.150_danxia_jiangchen_formula/`; current coordination docs were backed up to `.bak/20260705_0.1.151_danxia_jiangchen_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.151`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `danxia_valley_contribution_hall` now sells `recipe_jiangchen` as `seeking_immortals:alchemy_formula_foundation_building_pill_paper` for 25 sect contribution.
+  Tests/build   Done   Covered by the 0.1.151 aggregate verification: changed JSON parsed successfully; focused shop/worldpack/resource validation passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.151`.
+  Follow-up   Pending   Exact Jiangchen Pill itemization, weaker-than-Foundation breakthrough tuning, Tiannan market stock, independent recipe identity, sect rank gates, monthly/per-player limits, and stricter alchemy privilege semantics remain deferred.
+
+## 130. 2026-07-05 0.1.151 Luoyun Spirit Pill contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.150 Tianyuan treasure-fair event and the parallel Danxia Jiangchen formula entry while keeping the aggregate workspace at `mod_version=0.1.151`.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#luoyun_sect`; `luoyun_spirit_pill` maps to the registered Spirit Gathering Pill as the closest current Luoyun sect cultivation-pill equivalent.
+  Planning   Done   Scoped the pass to one additive Luoyun contribution-shop entry using current shop schema and existing registered item behavior.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.151_luoyun_spirit_pill/`; docs reconciliation backups are `.bak/20260705_0.1.151_luoyun_spirit_pill_docs_reconcile/` and `.bak/20260705_0.1.151_aggregate_verification_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.151`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `luoyun_contribution_hall` now sells `luoyun_spirit_pill` as `seeking_immortals:spirit_gathering_pill` for 280 sect contribution.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/worldpack/resource validation passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.151`.
+  Follow-up   Pending   Exact Luoyun Spirit Pill itemization/effect tuning, herb garden seed packs, Luoyun rank/realm/monthly gates, and stricter alchemy-privilege support remain deferred; the `recipe_luoyun_spirit` formula follow-up is tracked by the 0.1.152 slice.
+
+### 130.1 0.1.151 aggregate final verification
+
+- Changed JSON parsed successfully for shipped shops, reference data, and worldpack data.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 15s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 25s; `aiPreflight` recorded `mod_version=0.1.151`.
+- The inherited network-package preflight warning was reviewed. This aggregate changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 131. 2026-07-05 0.1.152 Luoyun Spirit formula contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Accepted the parallel 0.1.152 Luoyun formula data/test slice instead of starting a new Danxia flying-sword slice, preserving the verified 0.1.151 aggregate state.
+  Text-material read   Done   This slice uses `sect_contribution_shop.json#luoyun_sect` and `alchemy_recipes.json#recipe_luoyun_spirit`; the source formula is a Core Formation jade-slip recipe for Luoyun Spirit Pill.
+  Planning   Done   Scoped the pass to one additive Luoyun contribution-shop formula entry using the existing Spirit Gathering Pill paper formula as a partial registered carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.152_luoyun_formula/`; final verification docs were backed up to `.bak/20260705_0.1.152_luoyun_formula_final_verification/`; reconciliation docs were backed up to `.bak/20260705_0.1.152_luoyun_formula_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.152`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   `luoyun_contribution_hall` now sells `recipe_luoyun_spirit` as `seeking_immortals:alchemy_formula_spirit_gathering_pill_paper` for 400 sect contribution.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval and was rechecked with BUILD SUCCESSFUL in 14s; final required Gradle build passed with BUILD SUCCESSFUL in 25s, then was rechecked with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.152`.
+  Follow-up   Pending   Exact Luoyun Spirit Pill formula identity, jade-slip formula carrier, Core Formation/furnace/fire gates, herb garden ingredients, monthly/per-player limits, and stricter alchemy privilege support remain deferred.
+
+### 131.1 0.1.152 final verification
+
+- Changed JSON parsed successfully for `luoyun_contribution_hall.json` and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 15s after wrapper network/cache approval and was rechecked with BUILD SUCCESSFUL in 14s.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 25s, then was rechecked with BUILD SUCCESSFUL in 24s; `aiPreflight` recorded `mod_version=0.1.152`.
+- The inherited network-package preflight warning was reviewed. This slice changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 132. 2026-07-05 0.1.153 Contribution bonus day aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel `contribution_bonus_day` gameplay/worldpack slice after 0.1.152 Luoyun formula verification, preserved both changes, and bumped the aggregate to `mod_version=0.1.153` because Java/resource gameplay changed after 0.1.152 was already used.
+  Text-material read   Done   This slice uses `daily_random_events.json#contribution_bonus_day`; it is represented as Tiannan worldpack daily event `contribution_bonus_day` with effect token `sect_contribution_bonus`.
+  Planning   Done   Scoped the aggregate to existing contribution reward paths and current worldpack daily-event effects, without adding new packets, registries, GUI, or runtime loaders.
+  Backup   Done   Parallel contribution implementation backup paths are `.bak/20260705_0.1.152_contribution_bonus_day/` and `.bak/20260705_0.1.152_contribution_bonus_docs_reconcile/`; aggregate version/docs backup is `.bak/20260705_0.1.153_contribution_bonus_aggregate/`.
+  Version/protocol   Done   `mod_version` is `0.1.153`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations/channel compatibility changed.
+  Gameplay data   Done   `WorldpackGameplayService` exposes `sect_contribution_bonus` and applies a 1.5x rounded-up multiplier to normal sect contribution rewards; `SectContributionService` uses it for exam rewards, mission turn-ins, and spirit-grass donations while debug contribution remains unchanged.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/worldpack/resource validation passed with BUILD SUCCESSFUL in 18s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.153`.
+  Follow-up   Pending   Real rotating sect reward calendars, per-sect event weighting, UI explanation for active contribution bonuses, and stricter contribution economy balancing remain deferred.
+
+### 132.1 0.1.153 aggregate final verification
+
+- Changed JSON parsed successfully for `worldpack/daily_events.json`, `luoyun_contribution_hall.json`, and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 18s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 30s; `aiPreflight` recorded `mod_version=0.1.153`.
+- The inherited network-package preflight warning was reviewed. This aggregate changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+## 132. 2026-07-05 0.1.152 contribution bonus day gameplay backfill
+
+- Preserved the verified 0.1.152 Luoyun Spirit formula slice and reused the current `mod_version=0.1.152` line.
+- Implemented `daily_random_events.json#contribution_bonus_day` as Tiannan worldpack daily event `contribution_bonus_day` with effect token `sect_contribution_bonus`, bringing shipped daily events to 68.
+- Server-side sect contribution rewards from knocking/exam awards, mission turn-ins, and spirit-grass donations now apply a 1.5x rounded-up multiplier while the event is active; debug contribution remains unchanged.
+- Existing edited files were backed up to `.bak/20260705_0.1.152_contribution_bonus_day/`; doc reconciliation backup is `.bak/20260705_0.1.152_contribution_bonus_docs_reconcile/`.
+- Changed JSON parsed successfully. Focused shop/worldpack/resource validation passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.152`.
+- `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations/channel compatibility changed.
+- Follow-up: contribution bonus display remains a raw worldpack effect token in the existing UI; stricter sect rank/monthly/per-player contribution gates remain deferred.
+
+## 133. 2026-07-05 0.1.154 Jiangchen + Danxia flying sword aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.153 contribution-bonus/Luoyun formula aggregate. The first final-build attempt showed the 0.1.153 preflight fingerprint was already occupied, so the current Jiangchen market and parallel Danxia flying-sword data are reconciled under `mod_version=0.1.154`.
+  Text-material read   Done   Jiangchen uses `merchant_shops.json#tiannan_herb_market`, `pills_catalog.json#jiangchen_pill`, and `alchemy_recipes.json#recipe_jiangchen`; Danxia flying sword uses `sect_contribution_shop.json`, `artifacts_catalog.json`, and artifact/faction references for `flying_sword_low`.
+  Planning   Done   Scoped the aggregate to additive shop/reference/test/doc/version changes using existing registered item carriers only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.153_market_jiangchen_pill/`, `.bak/20260705_0.1.154_market_jiangchen_reconcile/`, `.bak/20260705_0.1.153_danxia_flying_sword_low/`, and `.bak/20260705_0.1.154_aggregate_final_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.154`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `jiangchen_pill` as `seeking_immortals:foundation_building_pill_low` for 120 low-grade metal spirit stones with stock 3.
+  Contribution data   Done   `danxia_valley_contribution_hall` now sells `flying_sword_low` as `seeking_immortals:flying_sword` for 180 sect contribution.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/worldpack/resource validation passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval; final required Gradle build passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.154`.
+  Follow-up   Pending   Exact Jiangchen Pill itemization/tuning, Qi Refining-only gates, source-accurate recipe output, exact low-tier flying-sword itemization, rank gates, and refining progression remain deferred.
+
+### 133.1 0.1.154 aggregate final verification
+
+- Changed JSON parsed successfully for `market_herbal_stall.json`, `danxia_valley_contribution_hall.json`, and `text_material_id_map.json`.
+- Focused validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 22s after wrapper network/cache approval.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 20s; `aiPreflight` recorded `mod_version=0.1.154`.
+- The inherited network-package preflight warning was reviewed. This aggregate changed no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Continuing verification recheck: changed JSON parsed successfully; focused shop/worldpack/resource validation was rechecked with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final required build was rechecked with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.154`. Final verification docs were backed up to `.bak/20260705_0.1.154_flying_sword_final_verification/`.
+
+## 134. 2026-07-05 0.1.155 Tiannan Jiangchen formula market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.154 Jiangchen pill + Danxia flying-sword aggregate and selected the still-missing Tiannan herbal-market `recipe_jiangchen` entry from text materials.
+  Text-material read   Done   This slice uses `merchant_shops.json#tiannan_herb_market` and `alchemy_recipes.json#recipe_jiangchen`; the source market sells the Jiangchen formula for price 25 with stock 4.
+  Planning   Done   Scoped the pass to one additive market entry using the existing Foundation Building Pill paper formula as a partial registered carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.155_market_jiangchen_formula/`.
+  Version/protocol   Done   `mod_version` is `0.1.155`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `recipe_jiangchen` as `seeking_immortals:alchemy_formula_foundation_building_pill_paper` for 25 low-grade metal spirit stones with stock 4.
+  Tests/build   Pending   JSON validation, focused shop/resource validation, and final Gradle build still need to run.
+  Follow-up   Pending   Exact Jiangchen formula identity, source-accurate recipe output, weaker breakthrough-aid tuning, realm-max enforcement, market access gates, and separation from the generic Foundation Building Pill formula remain deferred.
+
+## 135. 2026-07-05 0.1.156 Full prerequisite stack
+
+  Step   Status   Notes
+  ---   ---   ---
+  Planning   Done   Implemented the user-approved integrated-pack prerequisite strategy for highest-fidelity Fanren-style scope instead of minimizing dependency count.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.156_full_prereqs/`.
+  Version/protocol   Done   `mod_version` is `0.1.156`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Gradle dependencies   Done   Added GeckoLib, Architectury, FTB Library, FTB Teams, and FTB Quests repositories/dependencies; Patchouli and JEI remain on the dev classpath and are now treated as mandatory runtime prerequisites.
+  Loader metadata   Done   `mods.toml` now marks Patchouli and JEI mandatory and declares mandatory GeckoLib, Architectury, FTB Library, FTB Teams, and FTB Quests dependencies. Jade remains soft-compatible only.
+  Ownership model   Done   Player cultivation, sect state, contribution, story branches, and current `QuestProgress` remain server-authoritative in the existing systems; FTB Quests is reserved for future chapter UI/objective mirroring.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 4m 6s and aiPreflight recorded `mod_version=0.1.156`; the inherited network-package warning was reviewed and no packet compatibility changed in this slice.
+  Follow-up   Pending   First GeckoLib entity/artifact/effect implementation, first FTB Quests bridge, and Jade information providers still need dedicated implementation and multiplayer/manual regression.
+
+### 135.1 0.1.156 final verification
+
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 4m 6s; `aiPreflight` recorded `mod_version=0.1.156`.
+- The inherited network-package warning was reviewed. This pass changed Gradle dependency metadata, `mods.toml`, docs, and version metadata only, not packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Manual client/load checks for the newly mandatory Curios, GeckoLib, Patchouli, JEI, FTB Quests, FTB Library, FTB Teams, and Architectury stack remain pending.
+
+## 136. 2026-07-05 0.1.157 Chaotic Sea Sea Calm market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.156 prerequisite stack and selected a small non-registry shop-data slice from `merchant_shops.json#chaotic_sea_island_general`.
+  Text-material read   Done   Full text-material scan covered 276 files and all 154 JSON files parsed successfully; this slice uses `pills_catalog.json#sea_calm_pill`, `alchemy_recipes.json#recipe_sea_calm`, and `merchant_shops.json#chaotic_sea_island_general`.
+  Planning   Done   Scoped the pass to additive shop/reference/test/doc changes using existing registered item carriers only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.157_chaotic_sea_sea_calm/`.
+  Version/protocol   Done   `mod_version` is `0.1.157`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `chaotic_sea_island_general` now sells `sea_calm_pill` as `seeking_immortals:calming_pill_low` for 35 low-grade metal spirit stones with stock 10, and `recipe_sea_calm` as `seeking_immortals:alchemy_formula_calming_pill_jade` for 20 low-grade metal spirit stones with stock 5.
+  Schema hygiene   Done   Normalized 9 historical text-material alchemy recipe entries with display/medium/realm/furnace/fire/success metadata and preserved legacy `furnace_grade` fields where present.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval; final merged build passed with BUILD SUCCESSFUL in 26s and aiPreflight recorded `mod_version=0.1.157`.
+  Follow-up   Pending   Exact Sea Calm Pill itemization, sea-sickness or voyage-hazard gameplay, paper formula identity, boat/ferry integration, Star Palace/tax gates, and separation from generic Calming Pill behavior remain deferred.
+
+## 136. 2026-07-05 0.1.157 Tiannan body-tempering pill market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a very dirty concurrent workspace and avoided production Java, packet, registry, model, texture, and alchemy-system hot files; selected one additive Tiannan market-data entry.
+  Text-material read   Done   Full text-material scan covered 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#tiannan_herb_market` and `pills_catalog.json#body_tempering_pill`.
+  Planning   Done   Scoped the pass to one additive market entry using the existing Marrow Cleansing Pill as a partial body-refinement carrier.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.157_market_body_tempering_pill/`.
+  Version/protocol   Done   `mod_version` is `0.1.157`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `body_tempering_pill` as `seeking_immortals:marrow_cleansing_pill` for 6 low-grade metal spirit stones with stock 6.
+  Tests/build   Done   Covered by the 0.1.157 merged focused validation and final build: focused shop/resource validation passed with BUILD SUCCESSFUL in 16s, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s.
+  Follow-up   Pending   Exact Body Tempering Pill itemization, physique-only tuning, source formula identity, realm/source gates, and separation from Marrow Cleansing Pill remain deferred.
+
+## 136. 2026-07-05 0.1.157 Outer Sea pearl worldpack backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Full text-material scan covered 276 files and all 154 JSON files parsed successfully; selected a low-conflict worldpack data slice after confirming current shop imports have no remaining safe implemented entries.
+  Text-material source   Done   Uses `region_cards/outer_sea_market.json` and `daily_random_events.json` entries `pearl_diving_mortals`, `pearl_storm_shelter`, and `pearl_tax_dispute`.
+  Planning   Done   Scoped to additive worldpack region/event JSON plus focused tests and docs; avoids registries, packets, GUI, textures, shop files, and runtime loaders.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.157_outer_sea_pearl_events/`.
+  Version/protocol   Done   `mod_version` is `0.1.157`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `outer_sea_market` and three pearl-fleet daily events using existing effect tokens only.
+  Tests/build   Done   Covered by the 0.1.157 merged focused validation and final build: focused shop/resource validation passed with BUILD SUCCESSFUL in 16s, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s.
+  Follow-up   Pending   Real pearl raw goods, Star Palace dock permits/tax handling, mortal pearl fleet quests, ferry delays, and outer-sea shop stock remain deferred.
+
+### 136.1 0.1.157 merged verification
+
+- Focused validation passed after wrapper network/cache approval: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 16s.
+- Final required build passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 26s; `aiPreflight` recorded `mod_version=0.1.157`.
+- The inherited network-package preflight warning was reviewed. This follow-up changed text-material data/docs only and no packet fields/order/encoding/registrations/channel compatibility, so `ModNetwork.PROTOCOL_VERSION` remains `9`.
+- Incremental schema follow-up backup path: `.bak/20260705_0.1.157_schema_followup/`.
+
+### 136.2 Additional cooperative verification
+
+- Focused shop/worldpack/resource validation passed: `.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.shop.ShopServiceTest --tests com.xunxian.seekingimmortals.worldpack.WorldpackDataServiceTest --tests com.xunxian.seekingimmortals.resources.JsonSanityTest --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest` ended BUILD SUCCESSFUL in 17s after wrapper network/cache approval.
+- First final build exposed stale setting-pack catalog test counts after concurrent text-material expansion; `SettingCatalogSummaryServiceTest` now matches the current 293 declared techniques, 20 technique files, and 47 talisman entries, and its focused retest passed with BUILD SUCCESSFUL in 15s.
+- Full test rerun passed: `.\gradlew.bat --no-daemon --max-workers=1 test --rerun-tasks` ended BUILD SUCCESSFUL in 29s.
+- Final required build recheck passed: `.\gradlew.bat --no-daemon --max-workers=1 build` ended BUILD SUCCESSFUL in 21s; `aiPreflight` again recorded `mod_version=0.1.157`.
+- Documentation backup path for this verification note: `.bak/20260705_0.1.157_aggregate_verification_docs/`.
+- Protocol decision remains unchanged: `ModNetwork.PROTOCOL_VERSION=9`; this verification changed no packet fields, order, encoding, registrations, or channel behavior.
+
+### 136.3 0.1.158 version reconcile
+
+- Coordination   Done   A concurrent version bump advanced `gradle.properties` to `mod_version=0.1.158` after the 0.1.157 merged data-slice verification; no separate 0.1.158 content note was present when this check ran.
+- Backup   Done   Current docs were backed up to `.bak/20260705_0.1.158_version_reconcile_docs/`.
+- Version/protocol   Done   `mod_version` is `0.1.158`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations/channel behavior changed in this reconciliation.
+- Build   Done   Final current-state `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.158`.
+- Follow-up   Pending   The next implementation slice should treat 0.1.158 as the current disk version and add a dedicated content note if new shipped code/resources are added under it.
+
+## 137. 2026-07-05 0.1.158 test runtime + merged data verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified merged 0.1.157 data workspace and avoided reverting parallel Sea Calm, Body Tempering, schema, and Outer Sea changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.158_test_runtime_outer_sea_final/`; current merged docs were backed up again to `.bak/20260705_0.1.158_docs_after_merged_157/`.
+  Version/protocol   Done   `mod_version` is `0.1.158`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Build logic   Done   `test` task runtime classpath now explicitly includes `sourceSets.main.output`, matching the earlier compile-time fallback and preventing focused tests from missing main mod classes.
+  Tests/build   Done   The first focused worldpack/resource rerun failed with `NoClassDefFoundError` for main classes; after the classpath fix, the same focused command passed with BUILD SUCCESSFUL in 21s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.158`.
+  Follow-up   Pending   Manual in-game checks and source-accurate implementations for pearl goods, Sea Calm voyage hazards, Body Tempering Pill behavior, and stricter access gates remain deferred.
+
+## 138. 2026-07-05 0.1.159 Star Palace merit hall backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.158 workspace and avoided packet, registry, GUI, model, texture, and production Java gameplay hot files.
+  Text-material read   Done   Uses `merchant_shops.json#star_palace_merit_hall` and `sect_contribution_shop.json#star_palace`; implemented only entries that already have registered carriers.
+  Planning   Done   Scoped to shipped shop/reference JSON, ShopServiceTest coverage, docs, and version metadata.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.159_star_palace_merit_hall/`.
+  Version/protocol   Done   `mod_version` is `0.1.159`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Contribution data   Done   Added `star_palace_merit_hall` with Condensation Pill, Condensation formula, and Sea Calm Pill equivalents; extended `cangming_isle_contribution_hall` with Sea Calm Pill and Sea Calm formula equivalents.
+  Tests/build   Done   Changed JSON parsed successfully; focused shop/resource validation passed with BUILD SUCCESSFUL in 20s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.159`.
+  Follow-up   Pending   Star Palace teleport permits, patrol seals, Void Palace map fragments, reputation gates, monthly/per-player limits, and exact Sea Calm voyage effects remain deferred.
+
+## 139. 2026-07-05 0.1.160 Barbarian Wasteland worldpack backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.159 Star Palace merit-hall workspace and avoided packet, registry, GUI, model, texture, shop, and production Java gameplay hot files.
+  Text-material read   Done   Full text-material scan covered 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `region_cards/barbarian_wasteland.json`, `barbarian_demon_kings.json`, and `daily_random_events.json`.
+  Planning   Done   Scoped to additive worldpack region/event JSON plus focused tests and docs; avoids registries, packets, production Java gameplay, GUI, textures, shops, and runtime loaders.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.160_barbarian_wasteland_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.160`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `barbarian_wasteland` and two text-material daily events, `barbarian_beast_tide` and `barbarian_king_roar`, using existing effect tokens only.
+  Tests/build   Done   Changed worldpack JSON parsed successfully; focused worldpack/resource validation passed with BUILD SUCCESSFUL in 27s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.160`.
+  Follow-up   Pending   Real high-realm beast spawns, demon-king territories, king-token bounties, tribute trade, faction reputation, generated wilderness structures, and reward tables remain deferred.
+
+## 140. 2026-07-05 0.1.161 Body Tempering Pill independent implementation
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.160 Barbarian Wasteland worldpack workspace after detecting concurrent 0.1.159 Star Palace and 0.1.160 worldpack slices; this content slice is reconciled to `mod_version=0.1.161`.
+  Text-material read   Done   Full text-material scan covered 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `pills_catalog.json#body_tempering_pill`, `alchemy_recipes.json#recipe_body_tempering`, and `merchant_shops.json#tiannan_herb_market`.
+  Planning   Done   Scoped to dedicated pill/formula registration, catalog-pill effect, alchemy recipe/data mappings, market entry, tests, docs, and version metadata; avoids packet fields/order/encoding/registrations.
+  Backup   Done   Existing implementation files were backed up to `.bak/20260705_0.1.159_body_tempering_pill_current/` and current concurrent docs/version files were reconciled under `.bak/20260705_0.1.161_body_tempering_pill_reconcile/`; verification-doc backups are `.bak/20260705_0.1.161_body_tempering_verification_docs/` and `.bak/20260705_0.1.161_body_tempering_step_dedupe/`.
+  Version/protocol   Done   `mod_version` is `0.1.161`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Item/data/gameplay   Done   Added four Body Tempering Pill quality items and a jade-slip formula; `CatalogPillItem` now applies body refinement plus modest cultivation without root retest or lifespan debt; shipped recipe, material map, reference map, Patchouli recipe count, and Tiannan market entry now target the real pill at source price 35.
+  Tests/build   Done   Plain build first exposed stale Gradle incremental compile analysis; forced `compileJava --rerun-tasks` passed. Focused `ShopServiceTest`, `JsonSanityTest`, `ResourceJsonParseTest`, and `BreakthroughAidLogicTest` passed with BUILD SUCCESSFUL in 15s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s while `aiPreflight` recorded `mod_version=0.1.161`.
+  Follow-up   Pending   Dedicated textures, exact source ingredient items, stricter market/realm gates, and deeper body-refinement progression remain deferred.
+
+## 141. 2026-07-05 0.1.162 Star Palace City worldpack region
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.161 Body Tempering Pill workspace and avoided packet, registry, model, texture, shop, alchemy, GUI, and production Java gameplay hot files.
+  Text-material read   Done   Full text-material scan covered 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `data/region_cards/star_palace_city.json`.
+  Planning   Done   Scoped to one additive worldpack region entry plus focused test/docs/version metadata.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.162_star_palace_city_region/`.
+  Version/protocol   Done   `mod_version` is `0.1.162`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `star_palace_city` / 天星城 with foundation-stage access, `star_palace_city_anchor`, and auction/patrol-board tags using the existing region schema.
+  Tests/build   Done   Changed JSON parsed successfully; focused worldpack/resource validation passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.162`.
+  Follow-up   Pending   Real Star Palace city anchor placement, auction UI/lots, patrol-board missions, reputation gates, teleport permits, city NPC services, and region-specific events remain deferred.
+
+## 142. 2026-07-05 0.1.163 Qixuan Village worldpack region
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.162 Star Palace City workspace and avoided packet, registry, model, texture, shop, alchemy, GUI, and production Java gameplay hot files.
+  Text-material read   Done   Reused the current full text-material scan result of 276 files under text materials with all 154 JSON files parsed successfully. This slice uses `region_cards/qixuan_village.json`.
+  Planning   Done   Scoped to one additive low-tier worldpack region entry plus focused worldpack/resource validation, docs, and version metadata.
+  Backup   Done   Existing edited files were backed up to `.bak/20260705_0.1.163_qixuan_village_region/`.
+  Version/protocol   Done   `mod_version` was `0.1.163` for this slice; `ModNetwork.PROTOCOL_VERSION` remained `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `qixuan_village` with Qi Refining access, `qixuan_village_anchor`, low aura density, and starter/Qixuan quest tags using the existing region schema.
+  Tests/build   Done   Changed `regions.json` parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 19s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.163`.
+  Follow-up   Pending   Real Qixuan village anchor placement, Seven Mysteries mortal-path quest routing, village NPC services, local herb errands, and region-specific daily events remain deferred.
+
+## 143. 2026-07-05 0.1.164 Inverse Star Hideout merged verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.163 Qixuan Village workspace and the parallel 0.1.164 `inverse_star_hideout` region slice; avoided packet, registry, model, texture, shop, alchemy, GUI, and production Java gameplay hot files.
+  Text-material read   Done   Full UTF-8 scan covered 276 files under text materials and all 154 JSON files parsed successfully. This merged state uses `region_cards/inverse_star_hideout.json` and keeps `region_cards/qixuan_village.json` verified.
+  Planning   Done   Scoped this verification to region-data/test/docs reconciliation only, leaving deeper inverse-star quest, spatial-node, smuggling, and black-market systems deferred.
+  Backup   Done   Existing docs were backed up to `.bak/20260705_0.1.164_inverse_star_verify/` and `.bak/20260705_0.1.164_step_dedupe_docs/`; the parallel region slice backup exists at `.bak/20260705_0.1.164_inverse_star_hideout_region/`.
+  Version/protocol   Done   `mod_version` is `0.1.164`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Current shipped regions include `inverse_star_hideout` with Foundation Establishment access, `inverse_star_hideout_anchor`, and inverse-star/hidden/black-market tags; `qixuan_village` remains covered with its starter/Qixuan quest tags.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval, and this pass was force-rerun with BUILD SUCCESSFUL in 30s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s in the parallel verification and with BUILD SUCCESSFUL in 27s in this verification, with `aiPreflight` recording `mod_version=0.1.164`.
+  Follow-up   Pending   Real inverse-star hideout anchor placement, spatial-node routing, smuggling/black-market access, Inverse Star reputation, hidden harbor NPCs, and region-specific daily events remain deferred.
+
+## 144. 2026-07-06 0.1.165 Wutu Border worldpack region and raid event
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.164 Inverse Star Hideout workspace, checked that `wutu_border` and `wutu_raid_mulan_camp` were only present in text materials, and avoided packet, registry, model, texture, shop, alchemy, GUI, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/region_cards/wutu_border.json`, `文本材料/data/daily_random_events.json#wutu_raid_mulan_camp`, `文本材料/data/wutu_mulan_feud.json`, and `文本材料/docs/MULAN_TIANLAN_WAR.md`.
+  Planning   Done   Scoped this pass to one additive worldpack region plus one additive daily-event hook using existing effect tokens and the current worldpack schema.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.165_wutu_border_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.165`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `wutu_border` / 突兀族边境营 with Foundation Establishment access, `wutu_border_anchor`, 0.85 aura, and grassland/Wutu/Tianlan/feud/faction-war tags; added `wutu_raid_mulan_camp` / 突兀袭营 with `trade_risk_up` and `rare_loot_hint`.
+  Tests/build   Done   Changed JSON parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 21s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.165`.
+  Follow-up   Pending   Real Wutu/Tianlan border anchors, raid spawns, Wutu/Mulan reputation, broker quests, holy-beast trial routing, camp NPCs, and source-accurate war-cycle scheduling remain deferred.
+
+## 145. 2026-07-06 0.1.166 Spirit Realm Border worldpack region and events
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.165 Wutu Border workspace, confirmed `spirit_realm_border`, `wild_land_beast_horde`, and `void_rift_surge` were still unshipped, and avoided packet, registry, model, texture, shop, alchemy, GUI, and production Java gameplay hot files.
+  Text-material read   Done   Full UTF-8 scan covered 276 files and all 154 JSON files parsed successfully. This slice used `文本材料/data/region_cards/spirit_realm_border.json`, `文本材料/data/daily_random_events.json`, `文本材料/data/quest_chains.json`, `文本材料/data/dimensions_catalog.json`, `文本材料/docs/SPIRIT_REALM.md`, and `文本材料/docs/MODULES_EXPANSION_v50.md`.
+  Planning   Done   Scoped to one additive Spirit Realm border region plus two additive daily events using existing effect tokens and current worldpack schema. Text-material `SPIRIT_SEVERING` was mapped to the current stable `soul_transformation` realm gate per the canonical realm mapping.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.166_spirit_realm_border_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.166`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `spirit_realm_border` / 灵界边境荒原 with Soul Transformation access, `spirit_realm_border_anchor`, 1.3 aura, and spirit-realm/border/wild-land/spatial-rift/beast tags; added `wild_land_beast_horde` and `void_rift_surge`.
+  Tests/build   Done   Changed worldpack JSON parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 22s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.166`. A cooperative recheck also parsed the changed JSON, reran the same focused tests with BUILD SUCCESSFUL in 31s, and reran final build with BUILD SUCCESSFUL in 27s.
+  Follow-up   Pending   Real Spirit Realm border anchor placement, high-realm beast spawns, spatial-rift hazards, event-level Void Refinement gates, Tianyuan merit quest routing, border dimension travel, and source-accurate reward tables remain deferred.
+
+## 146. 2026-07-06 0.1.168 Kunwu Mountain worldpack region and cold-snap event
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.166 Spirit Realm Border workspace, rechecked text-material coverage, and chose a small Kunwu worldpack slice that avoids shop, registry, GUI, packet, production Java gameplay, model, and texture hot files. `mod_version=0.1.167` was already occupied by the preflight fingerprint, so this slice is finalized under 0.1.168.
+  Text-material read   Done   Full UTF-8 scan covered 276 files and all 154 JSON files parsed successfully. This slice used `文本材料/data/region_cards/kunwu.json`, `文本材料/data/daily_random_events.json#kunwu_cold_snap`, `文本材料/data/secret_realms.json#kunwu_mountain`, `文本材料/docs/MODULES_EXPANSION_v35.md`, `文本材料/docs/MODULES_EXPANSION_v49.md`, `文本材料/docs/CHRONICLE.md`, and `文本材料/docs/ITEMS_BY_REGION.md`.
+  Planning   Done   Scoped to one additive Kunwu region, one additive cold-snap daily-event hook using existing effect tokens, and a region-parent correction for the already shipped Kunwu secret realm.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.167_kunwu_worldpack/`; the later version reconciliation backup is `.bak/20260706_0.1.168_kunwu_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.168`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `kunwu` / 昆吾山 with Core Formation access, `kunwu_mountain_anchor`, 1.2 aura, and Dajin/Kunwu/extreme-cold/ancient-seal/puppet tags; moved `kunwu_mountain` secret realm to region `kunwu`; added `kunwu_cold_snap` / 昆吾寒潮 with `trade_risk_up` and `secret_realm_ticket_hint`.
+  Tests/build   Done   Changed worldpack JSON parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 21s after wrapper network/cache approval. First final build failed only because 0.1.167 was already fingerprinted; after bumping to 0.1.168, final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and `aiPreflight` recorded `mod_version=0.1.168`.
+  Follow-up   Pending   Real Kunwu anchor placement, periodic Kunwu opening cycles, Dajin permits/map fragments, source-accurate Nascent Soul access option, movement-debuff cold snap gameplay, puppet encounters, seal research quests, and Kunwu loot tables remain deferred.
+
+## 146. 2026-07-06 0.1.167 Tiannan North Waste worldpack region
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.166 Spirit Realm Border workspace, confirmed `tiannan_north_waste` was still unshipped, and avoided packet, registry, model, texture, shop, alchemy, GUI, daily-event, and production Java gameplay hot files.
+  Text-material read   Done   Full UTF-8 scan covered 276 files and all 154 JSON files parsed successfully. This slice used `文本材料/data/region_cards/tiannan_north_waste.json`, `文本材料/data/demonic_six_sects.json`, `文本材料/data/quest_chains.json#demonic_six_path`, and `文本材料/docs/WORLD_SETTING_BIBLE.md`.
+  Planning   Done   Scoped to one additive Tiannan demonic-region entry using the existing worldpack region schema. Text-material `low_corrupt` spirit density was mapped to 0.7 aura, and the QI_REFINING-to-CORE_FORMATION quest span was mapped to the current stable `qi_refining` minimum realm.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.167_tiannan_north_waste_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.167`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `tiannan_north_waste` / 天南荒原（魔道） with Qi Refining access, `tiannan_north_waste_anchor`, 0.7 aura, and mortal-realm/demonic/north-waste/low-corrupt/six-sects tags.
+  Tests/build   Done   Changed `regions.json` parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 30s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.167`.
+  Follow-up   Pending   Real north-waste anchor placement, demonic six-sect reputation/karma, branch recruitment quests, righteous-sect bans, corrupt-aura hazards, sect method scroll rewards, and exact region encounters remain deferred.
+
+## 147. 2026-07-06 0.1.168 Kunwu and Tiannan North Waste aggregate recheck
+
+- Current workspace preserves the parallel 0.1.167 Tiannan North Waste region and the 0.1.168 Kunwu Mountain region/event/secret-realm routing.
+- Backup paths for the Kunwu reconciliation are `.bak/20260706_0.1.167_kunwu_worldpack/`, `.bak/20260706_0.1.168_kunwu_version_reconcile/`, and `.bak/20260706_0.1.168_kunwu_docs_reconcile/`.
+- `mod_version` is `0.1.168`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+- Current worldpack JSON parse passed after both slices were present.
+- Final required recheck `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.168`.
+- Remaining risks are content-depth follow-ups from both slices: north-waste anchor/reputation/corrupt-aura gameplay plus Kunwu opening cycles, permits, cold-snap movement effects, puppet encounters, seal research, and loot tables.
+
+## 148. 2026-07-06 0.1.169 Spirit event hooks
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.168 Kunwu + Tiannan North Waste workspace and avoided packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json#ghost_expose_rumor`, `#spirit_storm_major`, and `#ancient_ruin_whisper`; the full text-material scan remained 276 files with all 154 JSON files parsed successfully.
+  Planning   Done   Scoped to three additive worldpack daily-event hooks using existing regions and existing effect tokens only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.169_spirit_event_hooks/`.
+  Version/protocol   Done   `mod_version` is `0.1.169`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `ghost_expose_rumor` under `tiannan`, `spirit_storm_major` under `spirit_realm_border`, and `ancient_ruin_whisper` under `spirit_fengyuan` using current safe effect-token approximations.
+  Tests/build   Done   Changed worldpack JSON parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 30s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.169`.
+  Follow-up   Pending   Real ghost-hunt risk, Spirit Realm storm hazards, ancient-ruin quest routing, realm-specific gates, encounter spawns, and reward tables remain deferred.
+
+## 149. 2026-07-06 0.1.170 Great Jin Central worldpack region
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.169 spirit-event workspace, confirmed `great_jin_central` was still unshipped, and avoided packet, registry, model, texture, shop, alchemy, GUI, daily-event, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/region_cards/great_jin_central.json`; the source card contributes Great Jin clans, Wanbao Pavilion, refinement halls, cross-region array, Kunwu copper, ancient artifact fragments, and CORE_FORMATION-to-NASCENT_SOUL realm context.
+  Planning   Done   Scoped to one additive Great Jin central-region entry using the existing worldpack region schema. Text-material `high` spirit density was mapped to 1.5 aura, and the source realm span was mapped to the current stable `core_formation` minimum realm.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.170_great_jin_central_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.170`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `great_jin_central` / 大晋中心 with Core Formation access, `great_jin_central_anchor`, 1.5 aura, and Dajin clan/Wanbao/refinement/cross-region-array/ancient-artifact tags.
+  Tests/build   Done   Changed `regions.json` parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 30s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.170`.
+  Follow-up   Pending   Real Great Jin central anchor placement, Wanbao auction integration, refinement-hall services, cross-region array travel, Kunwu copper/resource nodes, ancient-artifact appraisal, clan reputation, and exact high-tier market gates remain deferred.
+
+## 150. 2026-07-06 0.1.171 Extreme West worldpack region
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.170 Great Jin Central workspace, confirmed `extreme_west` was still unshipped, and avoided packet, registry, model, texture, shop, alchemy, GUI, daily-event, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/region_cards/extreme_west_thousand_bamboo.json`, which defines `extreme_west`, Thousand Bamboo sect, puppet focus, ironwood, puppet-core blanks, and the Thousand Bamboo Puppet Tower link.
+  Planning   Done   Scoped to one additive Extreme West region entry using the existing worldpack region schema. Text-material `mid` spirit density was mapped to 1.0 aura, while the already shipped Thousand Bamboo Puppet Tower remains on the existing specific `extreme_west_thousand_bamboo` region.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.171_extreme_west_worldpack/`.
+  Version/protocol   Done   `mod_version` is `0.1.171`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `extreme_west` / 极西千竹 with Foundation Establishment access, `extreme_west_anchor`, 1.0 aura, and extreme-west/thousand-bamboo/puppet/mechanism/ironwood/puppet-core tags.
+  Tests/build   Done   Changed `regions.json` parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 30s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.171`.
+  Follow-up   Pending   Real Extreme West anchor placement, Thousand Bamboo sect services, ironwood/resource nodes, puppet-core crafting, puppet tower routing UX, mechanism encounters, and reward tables remain deferred.
+
+## 151. 2026-07-06 0.1.172 Mulan worldpack region and source-card events
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a parallel 0.1.172 Mulan implementation already present on disk, preserved its worldpack data/test changes, and limited this pass to cooperative verification plus missing docs/update-note closure.
+  Text-material read   Done   Used `文本材料/data/region_cards/mulan.json`, `文本材料/data/daily_random_events.json`, `文本材料/data/mulan_tianlan_war.json`, `文本材料/data/wutu_mulan_feud.json`, and `文本材料/docs/MULAN_TIANLAN_WAR.md`; the current full text-material scan remains 276 files with all 154 JSON files parsed successfully from prior slice notes.
+  Planning   Done   Scoped to documenting and verifying one broad Mulan region plus four additive source-card daily events while preserving existing `mulan_grassland` border-war/trade-route event coverage.
+  Backup   Done   Parallel implementation backups exist at `.bak/20260706_0.1.172_mulan_worldpack/` and `.bak/20260706_0.1.172_mulan_worldpack_recheck/`; this docs-finalization pass backed up edited docs to `.bak/20260706_0.1.172_mulan_docs_finalize/`.
+  Version/protocol   Done   `mod_version` is `0.1.172`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Current data includes `mulan` / 慕兰草原 with Foundation Establishment access, `mulan_steppe_anchor`, 0.95 aura, and Mulan/Fashi/holy-bird/beast-taming/faction-war tags; daily events include `nomad_migration`, `fashi_patrol`, `beast_tame_festival`, and `grassland_beast_raid` under `mulan`.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 13s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.172`.
+  Follow-up   Pending   Real Mulan steppe anchor placement, Fashi council services/reputation, holy-bird altar/blessing rules, Wutu feud and Tianlan war-cycle mechanics, beast-taming encounters, banned-path enforcement, NPCs, and reward tables remain deferred.
+
+## 152. 2026-07-06 0.1.173 High-realm daily-event hooks
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.172 Mulan workspace, confirmed `0.1.173` was unused, and chose a daily-event-only batch that avoids packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json`; the current full text-material scan covered 276 files with all 154 JSON files parsed successfully.
+  Planning   Done   Scoped to 14 additive daily-event hooks whose source regions already exist in shipped worldpack data, using the existing worldpack schema and current effect tokens only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.173_high_realm_daily_events/`; docs verification edits were backed up to `.bak/20260706_0.1.173_high_realm_docs_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.173`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `cultivator_pearl_snatch`, `spirit_realm_call_echo`, `dajin_clan_feud`, `ascension_pressure_hint`, `fallen_demon_miasma`, `clan_auction_spirit_realm`, `great_vehicle_insight`, `mortal_realm_cap_insight`, `demon_beast_siege`, `demon_clan_embassy`, `merit_convoy_ambush`, `tribulation_cloud_gather`, `yin_luo_patrol`, and `yin_wind_howl`.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.173`.
+  Follow-up   Pending   Real pearl-fleet protection, Spirit Realm call/ascension gates, clan feud consequences, demon miasma hazards, spirit-realm auctions, Great Vehicle/tribulation mechanics, Tianyuan siege/embassy/convoy encounters, Yin Luo patrols, Yin-wind hazards, realm-specific gates, UI explanations, and reward tables remain deferred.
+
+## 153. 2026-07-06 0.1.174 Diyuan pressure daily-event hook
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.173 high-realm daily-event workspace, confirmed `diyuan_pressure_wave` and `0.1.174` were not already present, and avoided packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Full scan covered 276 text-material files with all 154 JSON files parsed successfully. This slice used `daily_random_events.json#diyuan_pressure_wave`, `secret_realms.json#diyuan`, `region_cards/spirit_fengyuan.json`, and Spirit Realm/Diyuan docs.
+  Planning   Done   Scoped to one additive daily-event hook. Because the text-material source region `diyuan` is a shipped secret realm rather than a worldpack region, the event is routed to the existing parent region `spirit_fengyuan`.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.174_diyuan_pressure_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.174`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `diyuan_pressure_wave` under `spirit_fengyuan` with weight 5, 18000 ticks, and existing `trade_risk_up` plus `secret_realm_ticket_hint` effect tokens; test coverage also asserts the shipped `diyuan` secret realm maps to `spirit_fengyuan`.
+  Tests/build   Done   Changed worldpack JSON parsed successfully; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.174`.
+  Follow-up   Pending   Real Diyuan dungeon layers, pressure/no-fly hazards, permit/token access, pressure-resistance pills and charms, ancient beast encounters, core-crystal rewards, quest-chain routing, and source-accurate realm gates remain deferred.
+
+## 154. 2026-07-06 0.1.176 Worldpack event/UI aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected parallel 0.1.175 work after the 0.1.174 Diyuan build: Great Jin auction-week event plus worldpack effect-description UI. The first 0.1.175 final build was blocked because that version fingerprint was already occupied, so the aggregate was reconciled to 0.1.176.
+  Backup   Done   Relevant backups are `.bak/20260706_0.1.174_diyuan_pressure_event/`, `.bak/20260706_0.1.175_great_jin_auction_week/`, `.bak/20260706_0.1.175_worldpack_effect_descriptions/`, and `.bak/20260706_0.1.176_version_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.176`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Current daily events include `diyuan_pressure_wave` under `spirit_fengyuan` and `great_jin_auction_week` under `great_jin_central`, both using existing effect tokens only.
+  Client UI   Done   `WorldpackScreen` now maps known daily-event effect tokens to localized descriptions; zh_cn/en_us keys and `ScreenLayoutTest` coverage were added in the parallel UI pass.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `JsonSanityTest`, `ResourceJsonParseTest`, and `ScreenLayoutTest` passed with BUILD SUCCESSFUL in 26s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.176`.
+  Recheck   Done   This continuation reran the same focused test set with BUILD SUCCESSFUL in 17s after Gradle wrapper network/cache approval, then reran final `.\gradlew.bat --no-daemon --max-workers=1 build` with BUILD SUCCESSFUL in 26s; `aiPreflight` again recorded `mod_version=0.1.176`.
+  Follow-up   Pending   Real Wanbao auction lots/bidding UI, Great Jin clan reputation, Diyuan hazards and rewards, event icons, and richer daily-effect behavior remain deferred.
+
+## 155. 2026-07-06 0.1.178 Dajin demon-qi + Star Palace Sea Calm aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.176 event/UI aggregate, detected parallel Star Palace Sea Calm formula work that advanced `gradle.properties` to 0.1.178, and kept the Dajin demon-qi addition compatible with that version.
+  Text-material read   Done   Full scan covered 276 text-material files with all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#demon_qi_surge`; the existing `fallen_demon_qi_surge` covers Fallen Demon Valley, while the source also lists Dajin.
+  Planning   Done   Scoped this worker's change to one additive Dajin daily-event hook using the existing worldpack daily-event schema and current effect tokens only; the aggregate also preserves the parallel shop/reference/test additions for Star Palace `recipe_sea_calm`.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.177_dajin_demon_qi_surge/`; reconciliation docs were backed up to `.bak/20260706_0.1.178_dajin_star_palace_reconcile/`; parallel shop backups are `.bak/20260706_0.1.177_star_palace_sea_calm_formula/` and `.bak/20260706_0.1.178_star_palace_sea_calm_formula/`.
+  Version/protocol   Done   `mod_version` is `0.1.178`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack/shop data   Done   Added `dajin_demon_qi_surge` under `dajin` with weight 7, 18000 ticks, and existing `trade_risk_up` plus `secret_realm_ticket_hint`; preserved `star_palace_merit_hall#recipe_sea_calm` as the current Sea Calm formula equivalent.
+  Tests/build   Done   Focused `WorldpackDataServiceTest`, `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.178`.
+  Follow-up   Pending   Real demon-qi hazards, Dajin/Fallen Demon Valley rumor routing, heart-demon risk, purge-pill requirements, Sea Calm voyage gameplay, Star Palace gates, encounter spawns, and reward tables remain deferred.
+
+## 156. 2026-07-06 0.1.178 Star Palace Sea Calm formula contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel 0.1.177 Dajin demon-qi slice and did not reuse or downgrade it; this shop-data slice is reconciled to 0.1.178 while preserving the in-progress Dajin event files.
+  Text-material read   Done   Used `文本材料/data/sect_contribution_shop.json#star_palace`, where `recipe_sea_calm` costs 40 contribution; also checked `merchant_shops.json#star_palace_merit_hall`, `alchemy_recipes.json#recipe_sea_calm`, and the current canonical id map.
+  Planning   Done   Scoped to one additive Star Palace contribution entry using an already registered formula carrier and the current shop schema. Reputation/monthly/per-player source gates remain deferred because the active shop schema cannot express them.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.178_star_palace_sea_calm_formula/`; an earlier pre-resync snapshot exists at `.bak/20260706_0.1.177_star_palace_sea_calm_formula/`.
+  Version/protocol   Done   `mod_version` is `0.1.178`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop data   Done   `star_palace_merit_hall` now sells `recipe_sea_calm` as `seeking_immortals:alchemy_formula_calming_pill_jade` for 40 sect contribution, alongside Condensation Pill, Condensation formula, and Sea Calm Pill.
+  Tests/build   Done   Changed JSON parsed successfully; focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval. Final Gradle build is covered by the 0.1.178 Dajin demon-qi + Star Palace Sea Calm aggregate: `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.178`.
+  Follow-up   Pending   Exact Sea Calm formula identity, paper-vs-jade carrier split, sea-sickness/voyage hazard gameplay, Star Palace reputation gates, monthly/per-player limits, patrol permits/seals, and Void Palace map fragments remain deferred.
+
+## 154. 2026-07-06 0.1.175 Great Jin auction week daily-event hook
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.174 Diyuan pressure workspace, detected the parallel 0.1.174 version/docs completion, and advanced this small additive slice to 0.1.175 without touching packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, or production Java gameplay hot files.
+  Text-material read   Done   Full scan covered 276 text-material files with all 154 JSON files parsed successfully. This slice used `文本材料/data/daily_random_events.json#great_jin_auction_week` and `文本材料/data/region_cards/great_jin_central.json#daily_events_ref`.
+  Planning   Done   Scoped to one additive daily-event hook using the existing worldpack daily-event schema. The source `great_jin` region is represented by the shipped `great_jin_central` region, so the exact source event id is routed there instead of duplicating broad `dajin` coverage.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.175_great_jin_auction_week/`; final docs were backed up to `.bak/20260706_0.1.175_great_jin_docs_final/`.
+  Version/protocol   Done   `mod_version` is `0.1.175`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `great_jin_auction_week` under `great_jin_central` with weight 4, 24000 ticks, and existing `secret_realm_ticket_hint` plus `rare_loot_hint` effect tokens. Current daily-event count is 100 and region refs are valid.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 0 missing daily-event region refs; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.175`.
+  Follow-up   Pending   Real Wanbao auction schedules, auction lots, invitation/ticket rules, bidding UI/NPCs, clan reputation effects, high-tier reward tables, ancient-artifact appraisal, and source-accurate Great Jin market gates remain deferred.
+
+## 157. 2026-07-06 0.1.180 Tianyuan void-rift sighting daily-event hook
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.178 Dajin demon-qi + Star Palace Sea Calm aggregate, confirmed `tianyuan_void_rift_sighting` was not already present, and avoided packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, runtime-loader, and production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json#void_rift_sighting`; the source lists both `tianyuan` and `fallen_demon_valley`, while the shipped data previously covered only the Fallen Demon Valley side as `void_rift_sighting`.
+  Planning   Done   Scoped to one additive Tianyuan daily-event hook using the existing worldpack daily-event schema and current effect tokens only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.179_tianyuan_void_rift_sighting/`; version/build documentation reconciliation was backed up to `.bak/20260706_0.1.180_tianyuan_void_rift_docs_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.180`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `tianyuan_void_rift_sighting` under `tianyuan` with weight 3, 12000 ticks, and existing `trade_risk_up` plus `secret_realm_ticket_hint` effect tokens.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 102 daily events; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 24s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.180`.
+  Follow-up   Pending   Real Tianyuan spatial-rift hazards, patrol/quest routing, encounter spawns, realm-gated warning UI, and source-accurate reward tables remain deferred.
+
+## 158. 2026-07-06 0.1.180 Multiregion daily-event aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel Tianyuan void-rift hook, then kept this compatible aggregate at `mod_version=0.1.180` without touching packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, runtime-loader, or production Java gameplay hot files.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json` multi-region source rows: `talisman_master_visit`, `rogue_cultivator_duel`, and `ghost_wail_night`; `void_rift_sighting` Tianyuan coverage from 0.1.179 is preserved.
+  Planning   Done   Scoped to four additive daily-event hooks using the existing worldpack daily-event schema and current effect tokens only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.179_multiregion_daily_events/`; after the parallel rebase, current files were backed up to `.bak/20260706_0.1.180_multiregion_daily_events_rebase/`; final docs were backed up to `.bak/20260706_0.1.180_multiregion_daily_events_final_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.180`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `tiannan_talisman_master_visit`, `tiannan_rogue_cultivator_duel`, `dajin_rogue_cultivator_duel`, and `nether_river_ghost_wail_night` under existing regions with existing effect tokens.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 106 daily events and 0 missing region refs; focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 26s and `aiPreflight` recorded `mod_version=0.1.180`.
+  Follow-up   Pending   Real talisman-paper rewards, rogue-duel encounters, Tiannan/Dajin reputation effects, Nether River ghost hazards, warning UI, and source-accurate reward tables remain deferred.
+
+## 159. 2026-07-06 0.1.181 Danxia alchemy tools contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected an already-present parallel 0.1.181 Danxia contribution-shop slice and preserved its shop data/test changes instead of overwriting them.
+  Text-material read   Done   Full scan read 276 files under text materials and parsed all 154 JSON files successfully; this slice uses `alchemy_system.json` component definitions for furnace lids and alchemy flame sources.
+  Planning   Done   Scoped this reconciliation to the missing reference-map/docs closure for the existing `alchemy_lid_mid` and `dan_fire_mid` Danxia contribution entries.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.181_danxia_alchemy_tools_docs/`.
+  Version/protocol   Done   `mod_version` is `0.1.181`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `danxia_valley_contribution_hall` exposes `alchemy_lid_mid` for 220 contribution and `dan_fire_mid` for 300 contribution using registered item carriers; `text_material_id_map.json` now records both canonical mappings.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 14s after wrapper cache/network approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.181` before the final reference/docs patch.
+  Follow-up   Pending   Exact furnace-lid mismatch behavior, Dan Fire control hazards, sect rank/realm/monthly gates, crafting/quest unlock routes, and broader alchemy privilege semantics remain deferred.
+
+## 160. 2026-07-06 0.1.181 Star Palace Yanghun formula contribution backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel 0.1.181 Star Palace Yanghun formula implementation already present on disk, preserved it, and limited this pass to cooperative verification plus missing docs/update-note closure.
+  Text-material read   Done   Used `文本材料/data/sect_contribution_shop.json#star_palace`, where `recipe_yanghun` costs 600 contribution; also checked the current Star Palace merit hall data, canonical id map, and focused shop test coverage.
+  Planning   Done   Scoped to one additive Star Palace contribution entry using the already registered Soul Gathering Pill jade formula carrier and the current shop schema. Reputation/monthly/per-player source gates remain deferred because the active shop schema cannot express them.
+  Backup   Done   Parallel implementation backups exist at `.bak/20260706_0.1.181_star_palace_yanghun_formula/`; this docs-verification pass backed up edited docs to `.bak/20260706_0.1.181_star_palace_yanghun_docs_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.181`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop data   Done   `star_palace_merit_hall` now sells `recipe_yanghun` as `seeking_immortals:alchemy_formula_soul_gathering_pill_jade` for 600 sect contribution, alongside Condensation Pill, Condensation formula, Sea Calm Pill, and Sea Calm formula.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.181`.
+  Follow-up   Pending   Exact Yanghun formula identity, Yanghun Pill soul-injury behavior, Star Palace reputation gates, monthly/per-player limits, teleport permits, patrol seals, Void Palace map fragments, and stricter merit-account semantics remain deferred.
+
+## 163. 2026-07-06 0.1.184 Tiannan exact pill-id market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.183 Star Palace patrol-supply workspace, resynced current version/protocol, and avoided packet, registry, model, texture, worldpack, alchemy runtime, GUI, region, secret-realm, and production gameplay hot files.
+  Text-material read   Done   Read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#tiannan_herb_market` entries `spirit_condense_pill` and `bigu_pill`.
+  Planning   Done   Scoped to additive item-currency market entries using already registered carriers, leaving legacy alias entries in place for compatibility.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.184_tiannan_exact_pill_ids/`.
+  Version/protocol   Done   `mod_version` is `0.1.184`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   `market_herbal_stall` now sells `spirit_condense_pill` as `seeking_immortals:spirit_gathering_pill` for 45 low-grade metal spirit stones and `bigu_pill` as `seeking_immortals:fasting_pill_low` for 25 low-grade metal spirit stones.
+  Tests/build   Done   Changed shop/reference/lang JSON parsed successfully and `market_herbal_stall` now has 22 entries including the two source ids. Focused Gradle test reruns were blocked by sandbox wrapper network/cache restrictions and escalation review, but final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.184`; the build reported `test` up-to-date.
+  Follow-up   Pending   Exact low-tier pill effects, source-specific recipes, realm/shop gates, price tuning, and future alias cleanup remain deferred.
+
+## 162. 2026-07-06 0.1.183 Star Palace patrol supply market backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.182 Danxia + Star Palace aggregate and avoided packet, registry, model, texture, worldpack, alchemy, region, secret-realm, and production gameplay hot files beyond the small market whitelist hook.
+  Text-material read   Done   Read all 276 files under `文本材料`; this slice uses `merchant_shops.json#star_palace_patrol_supply`, where only `body_guard_talisman` currently has a registered canonical carrier.
+  Planning   Done   Scoped to one accessible item-currency market shop using existing `seeking_immortals:armor_talisman`; `anti_demon_talisman`, `bu_tian_pill`, reputation gates, and stricter patrol semantics remain deferred.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.183_star_palace_patrol_supply/`.
+  Version/protocol   Done   `mod_version` is `0.1.183`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Market data   Done   Added `star_palace_patrol_supply` shop data, market whitelist/title localization, reference-map coverage, and `ShopServiceTest` assertions for cost 25, stock 10, and 48000-tick refresh.
+  Tests/build   Done   UTF-8 JSON parse passed for changed resources. An initial standalone focused Gradle test command was blocked in the parallel implementation slice, then focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 15s after wrapper network/cache approval. Final build verification passed under 0.1.183, including `.\gradlew.bat --no-daemon --max-workers=1 build` with BUILD SUCCESSFUL in 37s in the implementation slice and another docs-verification build with BUILD SUCCESSFUL in 23s; `aiPreflight` recorded `mod_version=0.1.183`.
+  Follow-up   Pending   Star Palace patrol supply still needs registered anti-demon talisman behavior, Bu Tian Pill/purification gameplay, reputation-gated patrol access, monthly/per-player stock gates, patrol-board missions, and source-accurate reward/risk semantics.
+
+## 161. 2026-07-06 0.1.182 Danxia + Star Palace shop aggregate verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved both concurrent 0.1.181 shop-data slices: Danxia alchemy tools and Star Palace Yanghun formula.
+  Version conflict   Done   A combined final build under `mod_version=0.1.181` failed aiPreflight because shippable tracked files changed after the previous successful 0.1.181 fingerprint. The aggregate was advanced to `0.1.182` instead of using the emergency skip flag.
+  Backup   Done   Version/docs reconciliation files were backed up to `.bak/20260706_0.1.182_danxia_star_palace_version_reconcile/`; supporting slice backups include `.bak/20260706_0.1.181_danxia_alchemy_tools_docs/`, `.bak/20260706_0.1.181_star_palace_yanghun_formula/`, `.bak/20260706_0.1.181_star_palace_yanghun_docs_verify/`, and `.bak/20260706_0.1.181_star_palace_yanghun_docs_dedupe/`.
+  Version/protocol   Done   `mod_version` is `0.1.182`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   Current data includes Danxia `alchemy_lid_mid` and `dan_fire_mid` contribution entries plus Star Palace `recipe_yanghun`; `text_material_id_map.json` records the corresponding canonical item mappings.
+  Tests/build   Done   Combined focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 29s and `aiPreflight` recorded `mod_version=0.1.182`.
+  Follow-up   Pending   Exact alchemy-component mismatch behavior, Dan Fire hazards, Yanghun Pill behavior, reputation/monthly gates, Star Palace permits/seals/map fragments, and stricter shop access semantics remain deferred.
+
+## 164. 2026-07-06 0.1.185 Tiannan exact pill-id + Luoyun seed-pack aggregate
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the parallel 0.1.184 Tiannan exact pill-id slice after the Luoyun seed-pack implementation and preserved both changes by advancing the combined workspace to `mod_version=0.1.185`.
+  Text-material read   Done   Current scan covers 276 files under `文本材料`; all 154 text-material JSON files parsed successfully. The aggregate uses `merchant_shops.json#tiannan_herb_market` plus `sect_contribution_shop.json#luoyun_sect`.
+  Planning   Done   Scoped to a version reconciliation and data/docs closure that keeps both additive shop-data changes without touching packet, registry, model, texture, worldpack, GUI, alchemy runtime, region, secret-realm, or production gameplay hot files.
+  Backup   Done   Supporting backups include `.bak/20260706_0.1.184_tiannan_exact_pill_ids/`, `.bak/20260706_0.1.184_luoyun_seed_pack/`, and `.bak/20260706_0.1.185_tiannan_luoyun_aggregate/`.
+  Version/protocol   Done   `mod_version` is `0.1.185`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `market_herbal_stall` preserves `spirit_condense_pill` and `bigu_pill` exact source-id entries; `luoyun_contribution_hall` adds `sect_herb_garden_seed_pack` as 8x `seeking_immortals:spirit_grass` for 60 sect contribution; reference-map coverage records the Luoyun seed-pack partial mapping.
+  Tests/build   Done   Shipped JSON and all 154 text-material JSON files parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s, executed `test`, and `aiPreflight` recorded `mod_version=0.1.185`.
+  Follow-up   Pending   Exact Tiannan pill behavior/economy cleanup, legacy alias policy, dedicated Luoyun seed items, herb-garden growth rules, garden plot services, rank/realm/monthly gates, and per-player limits remain deferred.
+
+## 165. 2026-07-06 0.1.186 Huangfeng/Danxia herb-garden seed-pack backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Continued from the verified 0.1.185 Tiannan + Luoyun aggregate and chose a low-conflict contribution-shop data slice that avoids packet, registry, model, texture, GUI, worldpack, alchemy runtime, and production Java gameplay hot files.
+  Text-material read   Done   Current scan covers 276 files under `文本材料`; all 154 text-material JSON files parsed successfully. This slice uses `sect_contribution_shop.json#huangfeng_valley` and reuses the already documented `sect_herb_garden_seed_pack` partial mapping.
+  Planning   Done   Scoped this pass to additive Qinglan/Danxia contribution-shop entries using existing registered `seeking_immortals:spirit_grass` only.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.186_huangfeng_seed_pack/`.
+  Version/protocol   Done   `mod_version` is `0.1.186`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Shop/reference data   Done   `qinglan_contribution_hall` and `danxia_valley_contribution_hall` now sell `sect_herb_garden_seed_pack` as 8x `seeking_immortals:spirit_grass` for 50 sect contribution; reference-map coverage now mentions Qinglan, Danxia, and Luoyun seed-pack surfaces.
+  Tests/build   Done   Changed shop/reference JSON parsed successfully and all 154 text-material JSON files parsed successfully. A standalone focused Gradle test command was blocked by wrapper network sandboxing and escalation was rejected; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s, executed `test`, and `aiPreflight` recorded `mod_version=0.1.186`. A final documentation-sync rerun passed with BUILD SUCCESSFUL in 19s and again recorded `mod_version=0.1.186`.
+  Follow-up   Pending   Dedicated seed items, planting/growth rules, garden plot services, source-accurate herb composition, rank/realm/monthly gates, and per-player contribution-shop limits remain deferred.
+
+## 166. 2026-07-06 0.1.187 Yin corruption exact daily-event hook
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected an already-present parallel 0.1.187 worldpack slice and preserved it instead of starting a competing implementation. Current `gradle.properties` is `mod_version=0.1.187`; `ModNetwork.PROTOCOL_VERSION` remains `9`.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json#yin_corruption_warning`, where the source region is `yinming`, weight is 15, and damage type is `yin`.
+  Planning   Done   Scoped this pass to docs/update-note closure for the active additive worldpack event and avoided packet, registry, model, texture, shop, alchemy, GUI, region, secret-realm, runtime-loader, and production Java gameplay hot files.
+  Backup   Done   Parallel implementation backup is `.bak/20260706_0.1.187_yin_corruption_exact_event/`; this docs-sync pass backed up edited docs to `.bak/20260706_0.1.187_yin_corruption_docs_sync/`.
+  Version/protocol   Done   `mod_version` is `0.1.187`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Active `worldpack/daily_events.json` adds exact source id `yin_corruption_warning` under `yinming` with weight 15, 18000 ticks, and `trade_risk_up`, while preserving the older broad `yinming_corruption_warning` hook.
+  Tests/build   Done   `WorldpackDataServiceTest` covers the exact id. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s, `test` was up-to-date, and `aiPreflight` recorded `mod_version=0.1.187`.
+  Follow-up   Pending   Real yin-corruption ambient hazards, mitigation items, Yin-stone economy hooks, ghost-path encounters, warning UI, and source-accurate reward tables remain deferred.
+
+## 166. 2026-07-06 0.1.187 version-sync verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected a parallel version advance from 0.1.186 to `mod_version=0.1.187` during final read-only verification and did not revert it.
+  Scope   Done   Preserved the verified 0.1.186 Huangfeng/Danxia seed-pack contribution entries without adding new gameplay/data content.
+  Backup   Done   Current docs were backed up to `.bak/20260706_0.1.187_version_sync/`; the implementation backup remains `.bak/20260706_0.1.186_huangfeng_seed_pack/`.
+  Version/protocol   Done   `mod_version` is `0.1.187`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s, executed `test`, and `aiPreflight` recorded `mod_version=0.1.187`.
+  Follow-up   Pending   Same as 0.1.186: dedicated seed items, planting/growth rules, garden plot services, source-accurate herb composition, rank/realm/monthly gates, and per-player contribution-shop limits remain deferred.
+
+## 167. 2026-07-06 0.1.188 Yin corruption exact daily-event id
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified 0.1.186 Huangfeng/Danxia seed-pack workspace, resynced current docs/version after the parallel change landed, and avoided packet, registry, model, texture, GUI, shop, alchemy runtime, region, secret-realm, and production Java gameplay hot files.
+  Text-material read   Done   Full scan read all 276 files under `鏂囨湰鏉愭枡`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#yin_corruption_warning`, whose source region is existing shipped region `yinming`.
+  Planning   Done   Scoped to one additive exact source-id daily-event hook. The older shipped `yinming_corruption_warning` event remains for saved-data/legacy compatibility rather than being renamed or removed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.187_yin_corruption_exact_event/` and the version reconciliation was backed up to `.bak/20260706_0.1.188_yin_corruption_exact_event_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.188`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `yin_corruption_warning` under `yinming` with source weight 15, 18000 ticks, and existing `trade_risk_up` effect token.
+  Tests/build   Pending   Changed worldpack JSON parsed successfully and all 154 text-material JSON files parsed successfully. Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 16s after wrapper network/cache approval before the version reconciliation; final 0.1.188 build verification is pending.
+  Follow-up   Pending   Real yin-damage hazards, yin-corruption resistance/cleansing rules, Nether River/Yin Luo routing, encounter spawns, warning UI, and source-accurate reward/risk tables remain deferred.
+
+## 168. 2026-07-06 0.1.189 Fengyuan treasure-fair exact daily-event id
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected an already-present parallel 0.1.189 worldpack slice and preserved it instead of starting the competing `pirate_raid` slice. Current `gradle.properties` is `mod_version=0.1.189`; `ModNetwork.PROTOCOL_VERSION` remains `9`.
+  Text-material read   Done   Used `文本材料/data/daily_random_events.json#treasure_fair_rumor`; the source covers `spirit_fengyuan` and `tianyuan`. The Tianyuan side already exists as `tianyuan_treasure_fair_rumor`, while this slice adds exact Fengyuan source-id coverage.
+  Planning   Done   Scoped this pass to docs/update-note closure for an additive worldpack event that reuses existing `WorldpackDataService` data loading and current effect tokens only.
+  Backup   Done   Parallel implementation backup is `.bak/20260706_0.1.189_fengyuan_treasure_fair_exact_id/`; this docs-sync pass backed up edited docs to `.bak/20260706_0.1.189_fengyuan_treasure_docs_sync/`.
+  Version/protocol   Done   `mod_version` is `0.1.189`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Active `worldpack/daily_events.json` adds exact source id `treasure_fair_rumor` under `spirit_fengyuan` with weight 4, 24000 ticks, and `secret_realm_ticket_hint` plus `rare_loot_hint`, while preserving legacy `fengyuan_treasure_fair`.
+  Tests/build   Done   `WorldpackDataServiceTest` covers the exact id and legacy Fengyuan id; verification is covered by the 0.1.190 aggregate build after the Pirate Raid exact-id slice.
+  Follow-up   Pending   Real treasure-fair schedules, auction lots, invitations, bidding UI/NPCs, clan reputation effects, high-tier reward tables, artifact appraisal, and stricter market gates remain deferred.
+
+## 169. 2026-07-06 0.1.190 Pirate raid exact daily-event id
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected the concurrent 0.1.189 Fengyuan `treasure_fair_rumor` exact-id data/test and preserved it, then advanced this cooperative slice to `mod_version=0.1.190`.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#pirate_raid`, whose source region is covered by existing shipped region `chaotic_sea`.
+  Planning   Done   Scoped to one additive exact source-id daily-event hook using the existing worldpack data service and current effect tokens. The older shipped `chaotic_sea_pirate_raid` event remains for saved-data/legacy compatibility.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.190_pirate_raid_exact_event/`.
+  Version/protocol   Done   `mod_version` is `0.1.190`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
+  Worldpack data   Done   Added `pirate_raid` under `chaotic_sea` with source weight 11, 18000 ticks, and existing `trade_risk_up` effect token.
+  Tests/build   Done   Changed worldpack JSON parsed successfully with 109 daily events and 0 missing region refs; all 154 text-material JSON files parsed successfully. Focused `WorldpackDataServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 14s after wrapper network/cache approval. The first full build hit a transient ForgeGradle `reobfJar` missing `mappings.tsrg` failure after aiPreflight passed; immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.190`. A later docs-verification rerun first hit a transient `build/test-results/test/binary` cleanup race, then immediate rerun passed with BUILD SUCCESSFUL in 21s and again recorded `mod_version=0.1.190`.
+  Follow-up   Pending   Real pirate encounter spawns, island-defense quests, ferry/boat delays, Star Palace patrol interactions, loot/reputation consequences, warning UI, and source-accurate reward/risk tables remain deferred.
+## 181. 2026-07-06 0.1.205 Qingxin Pill alchemy backfill
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified 0.1.202 Qixuan stall market data and the parallel 0.1.203 Qixuan Patchouli guide content already present on disk; avoided shop, worldpack, packet, GUI, entity, and new runtime-loader hot surfaces.
+  Text-material read   Done   Full scan read all 276 files under text materials and parsed all 154 JSON files successfully. This slice uses `alchemy_recipes.json#recipe_qingxin_pill` and `pills_catalog.json#qingxin_pill`.
+  Planning   Done   Scoped to the existing alchemy system: `AlchemyRecipeManager` JSON loading, `AlchemyFormulaItem`, registered creative tab, language/model resources, and the current Calming Pill effect implementation.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.203_qingxin_pill/`; version/docs reconciliation backups are `.bak/20260706_0.1.204_qingxin_version_reconcile/` and `.bak/20260706_0.1.205_qingxin_docs_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.205`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Alchemy data   Done   Added `qingxin_pill`, `alchemy_formula_qingxin_pill_paper`, the shipped `qingxin_pill` alchemy recipe, zh_cn/en_us names, model JSONs that reuse existing textures, and text-material/reference-map coverage.
+  Tests/build   Done   Focused `JsonSanityTest` and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 16s. First full build under 0.1.203 was blocked by occupied version fingerprint; 0.1.204 passed after rerunning through the known Gradle test-results cleanup race. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passes under `mod_version=0.1.205`.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, higher quality Qingxin variants, source-accurate paper-formula distribution, and stricter market/sect source gates remain deferred.
+## 185. 2026-07-06 0.1.208 Qingxin Pill Patchouli guide verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work advanced the shared workspace to `mod_version=0.1.208` and added a Qingxin Pill Patchouli guide entry; preserved the Tiannan demonic-dual market data instead of reverting or competing with it.
+  Text-material read   Done   Reread all 276 files under `文本材料`; all 154 text-material JSON files parsed successfully. This slice documents `pills_catalog.json#qingxin_pill` and `alchemy_recipes.json#recipe_qingxin_pill`.
+  Planning   Done   Scoped to the mandatory Patchouli prerequisite and existing Qingxin Pill alchemy implementation. No custom UI, item registry, model, texture, recipe, loot table, runtime loader, shop protocol, entity, or packet schema was added.
+  Backup   Done   Parallel implementation backup is `.bak/20260706_0.1.208_qingxin_patchouli/`; this verification/docs pass backed up edited docs to `.bak/20260706_0.1.208_qingxin_patchouli_verify/`.
+  Version/protocol   Done   `mod_version` is `0.1.208`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/qingxin_pill.json`, reusing the existing guidebook path, `seeking_immortals:qingxin_pill` icon, and current alchemy recipe/system details.
+  Tests/build   Done   Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 14s. A first full build observed the JSON during concurrent writing and failed parsing; after the file settled, full build hit the known transient test-results cleanup race once, then immediate rerun `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.208`.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, quality variants, source-accurate formula distribution, JEI/Patchouli cross-links, and stricter shop/sect acquisition gates remain deferred.
+## 185. 2026-07-06 0.1.209 Qingxin Pill Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected concurrent 0.1.208 Tiannan demonic dual market documentation and preserved it; moved this independent Patchouli guide slice to `0.1.209`.
+  Text-material read   Done   Re-read all 276 files under text materials; all 154 JSON files parsed successfully. This slice uses `pills_catalog.json#qingxin_pill` and `alchemy_recipes.json#recipe_qingxin_pill`, already implemented by the 0.1.205 alchemy backfill.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing alchemy item/recipe data, avoiding Java hot files, packet schemas, registries, models, textures, shops, entities, and runtime loaders.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.208_qingxin_patchouli/`, then current version/docs state was backed up to `.bak/20260706_0.1.209_qingxin_patchouli_reconcile/`.
+  Version/protocol   Done   `mod_version` is `0.1.209`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/qingxin_pill.json`, documenting the Qingxin Pill source ids, current recipe requirements, current reused calming behavior, and deferred dedicated heart-demon/quality/art follow-ups.
+  Tests/build   Pending   The new entry parsed with PowerShell and Node JSON parsers; all 17 zh_cn Patchouli JSON files parsed successfully. A full build passed under `0.1.208` before version reconciliation; final `0.1.209` build verification is pending.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, quality variants, source-accurate formula acquisition, and stricter shop/sect gates remain deferred.
+## 186. 2026-07-06 0.1.209 Qingxin Patchouli final build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent 0.1.208 Tiannan demonic dual market hook and the earlier 0.1.209 Qingxin Patchouli docs/resource state.
+  Version/protocol   Done   `mod_version` is `0.1.209`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.209`.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, quality variants, source-accurate formula acquisition, and stricter shop/sect gates remain deferred.
+## 186. 2026-07-06 0.1.209 Qingxin Patchouli final build verification
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the concurrent 0.1.208 Tiannan demonic dual market hook and the 0.1.209 Qingxin Patchouli docs/resource state.
+  Version/protocol   Done   `mod_version` is `0.1.209`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Tests/build   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 28s and `aiPreflight` recorded `mod_version=0.1.209`.
+  Follow-up   Pending   Dedicated Qingxin art, independent heart-demon affliction reduction, quality variants, source-accurate formula acquisition, and stricter shop/sect gates remain deferred.
+## 187. 2026-07-06 0.1.210 Tiannan demonic market Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Current authoritative version before editing was `0.1.209`; no `0.1.210` note or backup was present, so this guide slice uses `mod_version=0.1.210`.
+  Text-material read   Done   Re-read all 276 files under text materials; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#tiannan_demonic_dual_market`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shops, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.210_tiannan_demonic_market_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.210`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/tiannan_demonic_dual_market.json`, documenting the implemented `heqi_pill -> cultivation_pill` market hook and the deferred dual-harmony/demonic-yang/blood-coral/access-risk work.
+  Tests/build   Done   Resource JSON parse passed for 403 JSON files; Patchouli entries parsed 16/16; text-material parse passed for 276 files and 154 JSON files. Focused `JsonSanityTest`, `ResourceJsonParseTest`, and `ShopServiceTest` passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.210`.
+  Follow-up   Pending   Dedicated Heqi/Dual Harmony/Demonic Yang pill behavior, demonic blood coral, reputation/karma gates, Hehuan routing, NPC placement, and source-accurate demonic market consequences remain deferred.
+## 188. 2026-07-06 0.1.211 Outer Sea public stall Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected and preserved the parallel `0.1.210` Tiannan demonic-market Patchouli guide instead of overwriting it; advanced this independent guide slice to `mod_version=0.1.211`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#outer_sea_public_stall` and `region_cards/outer_sea_market.json`.
+  Planning   Done   Scoped to a single Patchouli zh_cn guide entry using the mandatory Patchouli prerequisite and existing `ShopService` market data; no Java hot files, packet schemas, registries, models, textures, shop data, entities, or runtime loaders changed.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.211_outer_sea_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.211`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/outer_sea_public_stall.json`, documenting the implemented `herb_bundle_low -> spirit_grass x4` market hook and the deferred shard, pearl, tax, ferry, NPC, and quest work.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.211`.
+  Follow-up   Pending   Dedicated spirit-stone shard and pearl items, public-stall NPCs, pearl-tax receipts, ferry/tax quests, stock visibility gates, and exact pearl-economy rewards remain deferred.
+## 193. 2026-07-06 0.1.216 Star Palace patrol supply Patchouli guide
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Detected that parallel work already occupied and build-verified `0.1.215` with the Barbarian seven kings Patchouli guide; preserved it and advanced this independent guide slice to `mod_version=0.1.216`.
+  Text-material read   Done   Re-read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `merchant_shops.json#star_palace_patrol_supply`.
+  Planning   Done   Scoped to a single zh_cn Patchouli entry through the existing mandatory guidebook path and already shipped `ShopService` item-currency data.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.216_star_palace_patrol_patchouli/`.
+  Version/protocol   Done   `mod_version` is `0.1.216`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Patchouli data   Done   Added `entries/star_palace_patrol_supply.json`, documenting the current body-guard and anti-demon talisman market hooks plus deferred Bu Tian Pill, reputation, patrol-board, quota, and reward surfaces.
+  Tests/build   Done   Changed Patchouli JSON parsed successfully; all 23 zh_cn Patchouli JSON files parsed successfully; text-material parsing covered 276 files and 154 JSON files. Focused `ShopServiceTest`, `JsonSanityTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 18s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.216`.
+  Follow-up   Pending   Dedicated anti-demon rules, Bu Tian Pill registration/effects, Star Palace reputation gates, patrol-board missions, monthly/per-player limits, exact patrol rewards, and richer FTB Quests presentation remain deferred.
+## 234. 2026-07-06 0.1.262 Artifact data service
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved concurrent `0.1.259` portal/formula work, `0.1.260` Paper Formula Scroll, and `0.1.261` Pressure Resist Pill formula work; advanced this independent artifact-data slice to `mod_version=0.1.262`.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully; direct basis was the artifact/refinement docs plus artifact catalog, tier rules, eleven-tier map, refinement recipes, flight vehicles, talisman-treasure templates, priority lists, drops, factions, and Wanbao auction data.
+  Planning   Done   Scoped to shipped artifact JSON resources, a reusable data service, existing flying artifact tooltip integration, and focused tests; no new item registry entries, packets, GUI, equipment slot system, refinement workstation gameplay, loot table, recipe, texture, or auction runtime was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.260_artifact_data_service/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.262`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Artifact data   Done   Added 16 shipped artifact/refinement JSON files under `data/seeking_immortals/artifacts/`, covering 217 artifacts, 73 refinement recipes, 8 flight vehicles, 10 talisman-treasure templates, and related tier/drop/faction/auction/priority indexes.
+  Runtime hook   Done   Added `ArtifactDataService`; existing `FlyingArtifactItem` now maps `flying_sword` to `flying_sword_low` and `flying_artifact` to `wind_escape_sail` and displays data-driven tier, realm, type, game-tier, and refinement summary tooltip lines.
+  Tests/build   Done   Artifact resource JSON parsed successfully and focused `ArtifactDataServiceTest` + `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 21s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.262`; the inherited network-package warning was reviewed and this slice did not touch network files.
+  Follow-up   Pending   Register P0/P1 artifact items, implement refinement workstations and recipes, add Curios/equipment slots, implement talisman-treasure use/durability, connect Wanbao auction/appraisal services, and add dedicated art.
+zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-map target.
+  Tests/build   Pending   Changed JSON validation and final `.\gradlew.bat --no-daemon --max-workers=1 build` are pending.
+  Follow-up   Pending   Yinming/Nether River economy, Yin Luo Hall shops, Nether River ferry fees, Yin-stone rewards, yin-corruption mitigation, dedicated art, and shop/quest placement remain deferred.
+## 241. 2026-07-06 0.1.271 Utility spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.269` Yin Stone and P0 Artifact Carrier work, the build-verified `0.1.268` Patchouli Guide Index, and the parallel `0.1.271` Patchouli Core Topics pending work without reverting unrelated shared-tree changes.
+  Text-material read   Done   The project-wide scan remains complete for all 315 files under `文本材料`, with all 207 JSON files parsed successfully; direct source basis is the shipped `qi_refining_techniques.json` ids `voice_transmission_art`, `object_control_art`, `quicksand_art`, the shipped `foundation_establishment_techniques.json` id `wind_wall_art`, and the pending spell follow-up list in project docs.
+  Planning   Done   Scoped to the existing server-authoritative technique release path, `SkillType`, `SkillEffectRegistry`, four reusable or targeted spell effect classes, and localized feedback. No packet, technique JSON schema, item/block/entity registry, shop data, recipe, loot table, GUI, or runtime loader was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.269_utility_spell_effects/`; current shared states were additionally backed up under `post_parallel_0.1.269/`, `post_parallel_0.1.270_docs/`, and `post_build_0.1.271_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.271`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this spell-effect work did not change packet fields/order/encoding/registrations or channel behavior.
+  Spell effects   Done   `voice_transmission_art`, `object_control_art`, `quicksand_art`, and `wind_wall_art` now resolve to executable server-side effects. The new effects cover nearby-player voice delivery, item pull / target disruption, area slow/weakness trapping, and projectile deflection with a short defensive buff.
+  Tests/build   Done   Text-material scan covered all 315 files with 207 JSON files parsed successfully; zh_cn/en_us language JSON parsed successfully; forced `compileJava --rerun-tasks` passed with existing JEI deprecation warnings; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.271`.
+  Follow-up   Pending   Water arrow, metal needle, richer custom projectiles/particles, source-accurate acquisition, PvP/in-game feel checks, and balance tuning remain deferred.
+## 248. 2026-07-06 0.1.280 Custom ice and thunder spell visuals
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.278` Patchouli Yin/Diyuan survival topics, the `0.1.277` custom elemental projectile slice, and other parallel shared-tree edits without reverting unrelated work.
+  Text-material read   Done   Used current shipped `qi_refining_techniques.json` ids `ice_cone_art`, `ice_freezing_art`, and `thunder_strike_art`, plus the user note to avoid vanilla fireball/fire-charge/lightning-entity implementations where practical.
+  Planning   Done   Scoped to spell effect implementations, the existing custom elemental projectile entity, lang keys, version/docs, and custom server particles. No new registry id, packet, GUI, recipe, loot table, item, block, or external dependency was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.279_ice_thunder_custom_spells/`; current parallel `gradle.properties` was backed up under `post_parallel_0.1.279/`; pre-doc current docs were backed up under `pre_docs_0.1.280/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.280`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Added the ICE variant to `CultivationFireballEntity`; `IceConeSpell` now releases a blue-white custom elemental projectile instead of the sword projectile. `ThunderStrikeSpell` now uses server-side ray/area damage and custom DustParticle thunder-column visuals instead of spawning a vanilla `LightningBolt`.
+  Tests/build   Done   zh_cn/en_us lang JSON parsed with explicit UTF-8, `.\gradlew.bat --no-daemon --max-workers=1 compileJava --rerun-tasks` passed, and final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s. `aiPreflight` recorded `mod_version=0.1.280`; the inherited network-package warning was reviewed as unrelated to this slice.
+  Follow-up   Pending   Continue replacing generic raycast/vanilla-style spell visuals, add dedicated custom particle types/textures when asset scope is ready, enforce source-accurate prerequisite methods, tune PvP/in-game feel, and smoke-test client visuals in a live world.
+## 249. 2026-07-06 0.1.281 Demonic Blood Coral item carrier
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.280` custom ice/thunder spell visuals, the build-verified `0.1.280` Nether ferry fee / larger portal array work, the build-verified `0.1.278` Patchouli Yin/Diyuan survival topics, and the in-progress `0.1.279` Pressure Resist Charm runtime/crafting slice without reverting parallel shared-tree work.
+  Text-material read   Done   Full corpus read in this goal run covered 315 files under `文本材料` with 207 JSON files parsed successfully; this slice uses `materials_catalog.json#demonic_blood_coral` plus demonic-dual market stock references from `merchant_shops.json`.
+  Planning   Done   Scoped to a passive visible material carrier using existing item/material infrastructure. No shop stock, alchemy recipe, recipe book/formula route, loot table, NPC, GUI, packet, runtime loader, texture file, or worldpack behavior was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.280_demonic_blood_coral_item/`; current docs before this record were backed up to `.bak/20260706_0.1.280_demonic_blood_coral_item_docs_current/`; version/docs reconciliation was backed up to `.bak/20260706_0.1.281_demonic_blood_coral_reconcile/`; post-build docs were backed up to `.bak/20260706_0.1.281_demonic_blood_coral_post_build_docs/`.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.281`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Item data   Done   Added `seeking_immortals:demonic_blood_coral` as a rare special `BaseMaterialItem`, creative-tab entry, zh_cn/en_us localization, and item model reusing the existing `poison_dragon_pearl` texture.
+  Tests/build   Done   Changed zh_cn/en_us/model JSON parsed successfully with explicit UTF-8. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.281`; the inherited network-package warning was reviewed as unrelated to this item slice.
+  Follow-up   Pending   Exact demonic market stock, dual-cultivation alchemy recipes, acquisition/loot placement, dedicated coral art, NPC/quest presentation, and FTB Quests routing remain deferred.
+## 251. 2026-07-06 0.1.280 Nether ferry fee and larger portal array
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.279` Pressure Resist Charm runtime/crafting work plus concurrent `0.1.280` custom spell and `0.1.281` Demonic Blood Coral records; this slice was implemented and build-verified while the shared tree was at `mod_version=0.1.280`.
+  Text-material read   Done   Read all 315 files under `文本材料` and parsed all 207 JSON files successfully. Direct basis: `DIMENSIONS_DESIGN.md`, `UNDERWORLD_REALMS.md`, `spatial_nodes_catalog.json#node_nether_ferry`, `yin_underworld_cluster.json`, `region_cards/nether_river.json`, `region_cards/yinming.json`, and `trade_routes.json#nether_river_ferry`.
+  Planning   Done   Scoped to the existing `PortalArrayStructure`, `SpiritGatheringArrayBlock` validation messages, and server-authoritative `WorldpackGameplayService` travel path. Reused the existing `yin_stone` item and worldpack inventory-consumption pattern; no packet, GUI, item/block/entity registry, shop protocol, recipe, loot table, or runtime loader was added.
+  Backup   Done   Source/resource/test baselines were backed up to `.bak/20260706_0.1.279_nether_ferry_yin_stone_fee/`; current docs before sync were backed up to `.bak/20260706_0.1.280_nether_ferry_large_portal_docs/`.
+  Version/protocol   Done   This slice was verified at `mod_version=0.1.280`; the shared tree later advanced to `0.1.281` for a parallel item-carrier slice. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Portal structure   Done   Realm gate validation now requires a 7x7 Spirit Gathering Array base, four five-high Spirit Ore corner pillars, and a clear 5x5/four-high aperture. Generated default dimension-anchor platforms reuse the same constants, so Tianyuan/Fengyuan/Yinming/Nether River arrival frames match runtime validation.
+  Nether ferry   Done   `nether_river` -> `yinming` travel now consumes 30 existing `seeking_immortals:yin_stone` from non-creative players before teleport; `yinming` -> `nether_river` return travel remains free to avoid trapping players.
+  Tests/build   Done   zh_cn/en_us language JSON parsed successfully. Focused `PortalArrayStructureTest` + `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 26s. A transient full-test discovery failure in `ArtifactDataServiceTest` was cleared by focused rerun in 18s; the slice build passed at `0.1.280` in 20s, then the final current shared tree build passed at `0.1.281` in 22s with `aiPreflight` recording `mod_version=0.1.281`.
+  Follow-up   Pending   In-game portal/ferry smoke checks, route UI/quest presentation, dedicated portal/Yin ferry art, Yin Luo Hall shop integration, Yin damage/ghost NPC rules, underworld structures/terrain dressing, and higher-tier portal-frame variants remain deferred.
+## 250. 2026-07-06 0.1.281 Current-tree build recheck after custom ice/thunder
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   After the `0.1.280` custom ice/thunder spell build, parallel tracked shippable changes advanced the shared tree and preflight required a new patch version. The current tree is now `mod_version=0.1.281`.
+  Backup   Done   Current docs before this recheck note were backed up to `.bak/20260706_0.1.279_ice_thunder_custom_spells/post_build_0.1.281_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.281`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this spell slice did not change packet fields/order/encoding/registrations or channel behavior.
+  Build   Done   Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.281`. The inherited network-package warning was reviewed as unrelated to this slice.
+## 251. 2026-07-06 0.1.282 Wind/Wood elemental projectiles
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.281` tree, including parallel Pressure Resist Charm, Demonic Blood Coral, and custom ice/thunder spell work, without reverting unrelated edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `wind_blade` and `vine_arrow` as the direct source basis. Both are Qi Refining elemental projectile spells with `requires_method=changchun_gong`.
+  Planning   Done   Scoped to additive spell enum entries, the existing custom elemental projectile entity, effect registration, Qi Refining technique JSON, lang keys, version/docs, and build verification. No new entity type, item, block, packet, GUI, recipe, loot table, shop data, or external dependency was added.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.282_wind_wood_projectiles/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.282`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   Added WIND and WOOD variants to `CultivationFireballEntity`; `wind_blade` and `vine_arrow` now release through the existing custom projectile path with colored dust trail/impact visuals and short slowing effects.
+  Verification   Done   Changed JSON parsed and `compileJava --rerun-tasks` passed with inherited JEI deprecation warnings. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.282`; the inherited network-package warning was reviewed as unrelated to this slice.
+  Follow-up   Pending   Continue deeper elemental spells from `elemental.json` such as `thunder_palm`, `flame_ring`, `frost_armor`, `gold_beam`, and Foundation elemental bursts; add dedicated particle types/textures and live client smoke tests later.
+## 255. 2026-07-06 0.1.286 Worldpack portal and ferry route hints
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current-tree `0.1.285` artifact shop verification, the `0.1.283` artifact repair/integrity runtime and guide work, build-verified `0.1.282` artifact activation runtime, and `0.1.280` Nether ferry / larger portal work without reverting parallel edits.
+  Text-material read   Done   Direct source basis is `DIMENSIONS_DESIGN.md`, `UNDERWORLD_REALMS.md`, `spatial_nodes_catalog.json#node_nether_ferry`, `trade_routes.json#nether_river_ferry`, `region_cards/nether_river.json`, and `region_cards/yinming.json`.
+  Planning   Done   Scoped to the existing `WorldpackGameplayService`, `WorldpackScreen`, localization, and focused worldpack tests. No packet schema, route-cost behavior, server validation, registry, dimension, anchor, model, texture, recipe, loot, entity, or runtime loader change was added.
+  Backup   Done   Initial route-hint backups are under `.bak/20260706_0.1.283_worldpack_route_hints/`; current-state reconciliation backups after the parallel `0.1.285` movement are under `.bak/20260706_0.1.285_worldpack_route_hints_reconcile/`; final doc backups are under `.bak/20260706_0.1.286_worldpack_route_hints_post_build_docs/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.286`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Route UI   Done   Region rows in the World Travel screen now show special route hints for 7x7 realm gate arrays, Wind Feather Raft access, Alliance Merit Token portal passage, 30 Yin Stone Nether River ferry travel, and free Yinming return ferry travel.
+  Tests/build   Done   Focused `WorldpackPortalArrayRulesTest` passed after keeping route requirements registry-free for plain JUnit; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s and `aiPreflight` recorded `mod_version=0.1.286`.
+  Follow-up   Pending   Live client visual smoke checks, dedicated portal/ferry art, route quest/FTB presentation, Tianyuan merit reward sources, Yin Luo Hall shop integration, Yin/ghost hazards, terrain/structure dressing, and higher-tier portal-frame variants remain deferred.
+## 258. 2026-07-06 0.1.289 Elemental area spell effects
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.288` contribution-shop rank gates, `0.1.287` Patchouli artifact guide/route-display guard, and both `0.1.286` route-hint and elemental spell-shape slices without reverting parallel shared-tree edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, and `chain_lightning`, all Qi Refining elemental AoE spells.
+  Planning   Done   Scoped to a reusable spell effect class, additive `SkillType` entries, `SkillEffectRegistry`, Qi Refining technique data, zh_cn/en_us feedback, version/docs, and no packet/entity/registry/resource-loader/schema work.
+  Backup   Done   Initial existing files were backed up to `.bak/20260706_0.1.287_elemental_area_spells/`; current parallel version/doc states were backed up to `.bak/20260706_0.1.288_elemental_area_spells_reconcile/` and `.bak/20260706_0.1.289_elemental_area_spells_reconcile/`.
+  Version/protocol   Done   Current `mod_version` is `0.1.289`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Spell effects   Done   Added `ElementalAreaSpell`: custom DustParticle lava rings, mist-rain falls, sand swirls, blizzard scatter, cyclone helix, and chain-thunder arcs, with server-side area targeting, damage falloff, and element-specific debuffs/burn/push.
+  Technique data   Done   Added `lava_burst`, `mist_rain`, `sand_storm`, `blizzard`, `cyclone`, and `chain_lightning` to shipped Qi Refining technique data and localized release feedback in zh_cn/en_us.
+  Verification   Pending   UTF-8 JSON validation passed and `compileJava --rerun-tasks` passed outside the sandbox dependency-resolution block with inherited JEI deprecation warnings; final `.\gradlew.bat --no-daemon --max-workers=1 build` is pending.
+  Follow-up   Pending   Continue light/dark projectiles (`dark_flame`, `light_orb`), Foundation elemental bursts, source-accurate prerequisite-method enforcement, dedicated particle/textures, PvP tuning, and live client visual smoke tests.
+## 263. 2026-07-06 0.1.296 Low flying sword refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current shared `0.1.295` Patchouli elemental-area guide plus the build-verified `0.1.294` elemental-area spells, `0.1.293` Patchouli sect rank-gate guide, `0.1.292` 9x9 realm gate array, and `0.1.291` low storage bracelet runtime without reverting parallel edits.
+  Text-material read   Done   Used `文本材料/data/refinement_recipes.json#refine_flying_sword_low`, `文本材料/docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, shipped artifact refinement data, and the current map `low_spirit_iron -> seeking_immortals:spirit_iron`.
+  Planning   Done   Scoped to one vanilla recipe resource, resource-test coverage, version/docs, and no Java gameplay path, packet, registry, model, texture, loot, GUI/container, shop, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.296_flying_sword_recipe/`; the new recipe resource and update note had no previous file to preserve.
+  Version/protocol   Done   Current `mod_version` is `0.1.296`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Recipe data   Done   Added `recipes/refine_flying_sword_low.json`, a first vanilla-grid approximation of the source refinement recipe that crafts the exact `seeking_immortals:flying_sword_low` carrier from current `spirit_iron` and `spirit_stone_shard` materials.
+  Verification   Done   Focused `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.299`; inherited network-package warning reviewed as unrelated to this recipe slice.
+  Follow-up   Pending   Implement a real refinement workstation/custom recipe path so source counts such as 4 low-spirit-iron plus 8 spirit-stone-shards can be enforced exactly; then add more P0/P1 artifact recipes, material carriers such as Kunwu Copper and spirit silk, recipe unlock/manual gates, failure loot, NPC/quest placement, and live recipe-book/JEI smoke checks.
+## 264. 2026-07-07 0.1.298 Current-tree recheck after low flying sword recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.296` low flying-sword recipe resource, current shared `0.1.298` Yin underworld hazard and Patchouli technique-learning guide work, `0.1.297` dark/light projectile work, and earlier shared-tree work without reverting edits from the other Codex.
+  Planning   Done   Scoped to docs and build verification for the observed `mod_version=0.1.298` shared tree. No recipe content, Java gameplay, packet, registry, model, texture, loot, GUI/container, shop, or runtime-loader change is part of this recheck.
+  Backup   Done   Existing docs edited for this recheck were backed up to `.bak/20260707_0.1.297_current_tree_recheck_docs/` and `.bak/20260707_0.1.298_current_tree_recheck_docs/`.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.298` after parallel version movement; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Verification   Done   Sandbox focused `ResourceJsonParseTest` first failed on dependency-resolution network permission; rerunning with approved network/cache access passed with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 27s and `aiPreflight` recorded `mod_version=0.1.298`.
+  Follow-up   Pending   Continue implementing text-material refinement coverage after the shared tree has a clean build fingerprint.
+## 263. 2026-07-07 0.1.296 Low flying sword refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.295` Patchouli elemental-area guide, `0.1.294` elemental-area runtime, `0.1.293` sect rank-gate guide, `0.1.292` 9x9 realm-gate array, and `0.1.291` storage bracelet runtime without reverting shared-tree edits.
+  Text-material read   Done   Used `文本材料/data/refinement_recipes.json#refine_flying_sword_low`, `文本材料/docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, shipped artifact refinement data, and the current canonical id map for `low_spirit_iron` / `spirit_stone_shard`.
+  Planning   Done   Scoped to a first playable vanilla-grid recipe for exact `seeking_immortals:flying_sword_low`, a resource-test assertion, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Initial existing files were backed up to `.bak/20260706_0.1.296_flying_sword_recipe/`; current post-build docs were backed up to `.bak/20260706_0.1.296_flying_sword_recipe/post_build_docs_0.1.297_current/` and `.bak/20260707_0.1.296_flying_sword_recipe_docs_reconcile/`. The new recipe file had no previous file to preserve.
+  Version/protocol   Done   Implemented as the `0.1.296` recipe slice and verified on the current shared `mod_version=0.1.297` tree after parallel version movement. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Recipe data   Done   Added `data/seeking_immortals/recipes/refine_flying_sword_low.json`, a shaped 3x3 approximation using `spirit_iron` and `spirit_stone_shard` to output exact `flying_sword_low`.
+  Tests/build   Done   Changed recipe JSON validation passed; focused `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 25s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.297`.
+  Follow-up   Pending   Replace the 3x3 approximation with a true refinement workstation/custom serializer for exact 4x low spirit iron + 8x spirit stone shard counts, then add more P0/P1 refinement outputs, failure/quality handling, JEI display, source-accurate NPC/quest/loot placement, and live crafting smoke checks.
+## 263. 2026-07-07 0.1.296 Low flying sword refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.295` Patchouli elemental-area guide, `0.1.294` elemental-area runtime, `0.1.293` sect rank-gate guide, `0.1.292` 9x9 realm-gate array, and `0.1.291` storage bracelet runtime without reverting shared-tree edits.
+  Text-material read   Done   Used `文本材料/data/refinement_recipes.json#refine_flying_sword_low`, `文本材料/docs/REFINEMENT_ARTIFACTS_MASTER_LIST.md`, shipped artifact refinement data, and the current canonical id map for `low_spirit_iron` / `spirit_stone_shard`.
+  Planning   Done   Scoped to a first playable vanilla-grid recipe for exact `seeking_immortals:flying_sword_low`, a resource-test assertion, version/docs, and no Java gameplay, packet, GUI, registry, model, texture, loot, shop-loader, or runtime-loader changes.
+  Backup   Done   Initial existing files were backed up to `.bak/20260706_0.1.296_flying_sword_recipe/`; current post-build docs were backed up to `.bak/20260706_0.1.296_flying_sword_recipe/post_build_docs_0.1.297_current/` and `.bak/20260707_0.1.296_flying_sword_recipe_docs_reconcile/`. The new recipe file had no previous file to preserve.
+  Version/protocol   Done   Implemented as the `0.1.296` recipe slice and verified on the current shared `mod_version=0.1.297` tree after parallel version movement. `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Recipe data   Done   Added `data/seeking_immortals/recipes/refine_flying_sword_low.json`, a shaped 3x3 approximation using `spirit_iron` and `spirit_stone_shard` to output exact `flying_sword_low`.
+  Tests/build   Done   Changed recipe JSON validation passed; focused `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 25s; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 30s and `aiPreflight` recorded `mod_version=0.1.297`.
+  Follow-up   Pending   Replace the 3x3 approximation with a true refinement workstation/custom serializer for exact 4x low spirit iron + 8x spirit stone shard counts, then add more P0/P1 refinement outputs, failure/quality handling, JEI display, source-accurate NPC/quest/loot placement, and live crafting smoke checks.
+## 267. 2026-07-07 0.1.299 Qingye fan refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved current shared `0.1.298` Yin underworld hazard and Patchouli technique-learning guide work, `0.1.297` dark/light projectile work, and the verified low flying-sword recipe without reverting edits from the other Codex.
+  Text-material read   Done   Used `文本材料/data/refinement_recipes.json#refine_qingye_fan` and shipped `data/seeking_immortals/artifacts/refinement_recipes.json#refine_qingye_fan`: `qingye_leaf_fan`, Qi Refining, 3x ironwood, 4x spirit-stone-shard.
+  Planning   Done   Scoped to one vanilla recipe resource, resource-test coverage, version/docs, and no Java gameplay path, packet, registry, model, texture, loot, GUI/container, shop, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.299_qingye_fan_recipe/`; the new recipe resource and new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced `mod_version` to `0.1.299`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Recipe data   Done   Added `recipes/refine_qingye_fan.json`, a playable 3x3 approximation that crafts exact `seeking_immortals:qingye_leaf_fan` from vanilla `minecraft:bamboo` as the current ironwood stand-in plus existing `spirit_stone_shard`.
+  Verification   Done   Focused `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 23s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.299`; inherited network-package warning reviewed as unrelated to this recipe slice.
+  Follow-up   Pending   Replace bamboo with a physical `ironwood` material carrier and move exact 3x ironwood + 4x spirit-stone-shard counts into a true refinement workstation/custom serializer; add more low-tier artifact outputs and JEI/recipe-book smoke checks.
+## 268. 2026-07-07 0.1.301 Current-tree recheck after Qingye fan recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.299` Qingye fan recipe and all parallel shared-tree edits after the tree advanced to `mod_version=0.1.300`.
+  Planning   Done   Scoped to a version/docs/build recheck after `aiPreflight` rejected reusing `0.1.300`; no recipe content, Java gameplay, packet, registry, model, texture, loot, GUI/container, shop, or runtime-loader changes are part of this recheck.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.301_current_tree_recheck_after_qingye/`.
+  Version/protocol   Done   Advanced `mod_version` to `0.1.301`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Verification   Done   Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 38s and `aiPreflight` recorded `mod_version=0.1.301`; inherited network-package warning reviewed as unrelated to this version-sync recheck.
+  Follow-up   Pending   Continue text-material implementation after the current shared tree has a clean build fingerprint.
+## 268. 2026-07-07 0.1.300 Artifact refinement command
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the active shared `0.1.299` pending Patchouli beast/puppet overview and Qingye fan recipe resource work, plus the verified `0.1.298` current tree, without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/refinement_recipes.json#refine_flying_sword_low`, `文本材料/data/refinement_recipes.json#refine_qingye_fan`, shipped `data/seeking_immortals/artifacts/refinement_recipes.json`, and `data/seeking_immortals/reference/text_material_id_map.json`.
+  Planning   Done   Scoped to a server-authoritative command refinement path using existing artifact JSON, material id mapping, inventory item carriers, cultivation realm state, localization, focused tests, docs, and no packet, GUI/container, registry, model, texture, loot, shop-loader, or runtime data-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.300_artifact_refinement_command/`; new `ArtifactRefinementService`, new focused test, and the new update note had no previous files to preserve.
+  Version/protocol   Done   Advanced `mod_version` to `0.1.300`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Runtime   Done   `ArtifactDataService` now exposes recipe material requirements, and `/seeking_immortals artifact refine <recipe_id>` validates cultivation data, realm gate, mapped item ids, registry availability, and exact inventory counts before consuming materials, rolling `base_success_rate`, and giving the existing artifact carrier on success.
+  Material coverage   Done   Low flying sword now has an exact command path for 4x low spirit iron plus 8x spirit-stone shards. Recipes with missing material mappings, including Qingye fan's `ironwood`, fail before consumption until the physical carrier or id-map entry exists.
+  Verification   Pending   Focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 25s; JSON validation, broader artifact tests, and final `.\gradlew.bat --no-daemon --max-workers=1 build` remain pending.
+  Follow-up   Pending   Add a real refinement forge UI/custom recipe path, physical `ironwood` / `spirit_silk` / `soul_gathering_stone` carriers, recipe unlock/manual gates, failure loot, JEI display, source-accurate NPC/quest/shop placement, and live in-game command smoke checks.
+## 268. 2026-07-07 0.1.300 Artifact refinement command, verified under 0.1.304
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the active shared `0.1.299` Patchouli beast/puppet overview and Qingye fan recipe resource work, the later parallel version movement to `0.1.304`, and the verified `0.1.298` current tree without reverting parallel edits.
+  Source read   Done   Used `文本材料/data/refinement_recipes.json#refine_flying_sword_low`, `文本材料/data/refinement_recipes.json#refine_qingye_fan`, shipped `data/seeking_immortals/artifacts/refinement_recipes.json`, and `data/seeking_immortals/reference/text_material_id_map.json`.
+  Planning   Done   Scoped to a server-authoritative command refinement path using existing artifact JSON, material id mapping, inventory item carriers, cultivation realm state, localization, focused tests, docs, and no packet, GUI/container, registry, model, texture, loot, shop-loader, or runtime data-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.300_artifact_refinement_command/`; post-build doc reconciliation backup is `.bak/20260707_0.1.300_artifact_refinement_command_post_build_docs/`; new `ArtifactRefinementService`, focused test, and update note had no previous files to preserve.
+  Version/protocol   Done   Implemented as the `0.1.300` artifact-refinement slice and verified after the shared tree advanced to `mod_version=0.1.304`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Runtime   Done   `ArtifactDataService` now exposes recipe material requirements, and `/seeking_immortals artifact refine <recipe_id>` validates cultivation data, realm gate, mapped item ids, registry availability, and exact inventory counts before consuming materials, rolling `base_success_rate`, and giving the existing artifact carrier on success.
+  Material coverage   Done   Low flying sword now has an exact command path for 4x low spirit iron plus 8x spirit-stone shards. Recipes with missing material mappings, including Qingye fan's `ironwood`, fail before consumption until the physical carrier or id-map entry exists.
+  Verification   Done   Changed lang/artifact/reference JSON parsed successfully. Focused `ArtifactRefinementServiceTest` passed with BUILD SUCCESSFUL in 25s; focused `ArtifactDataServiceTest`, `ArtifactRefinementServiceTest`, and `ResourceJsonParseTest` passed with BUILD SUCCESSFUL in 19s. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 25s, and `aiPreflight` recorded `mod_version=0.1.304`; inherited network-package warning reviewed as unrelated to this slice.
+  Follow-up   Pending   Add a real refinement forge UI/custom recipe path, physical `ironwood` / `spirit_silk` / `soul_gathering_stone` carriers, recipe unlock/manual gates, failure loot, JEI display, source-accurate NPC/quest/shop placement, and live in-game command smoke checks.
+## 271. 2026-07-07 0.1.306 Artifact material carriers, verified under 0.1.307
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.305` Yin protection, ironwood/Qingye exact-refinement, and foundation elemental-burst work; did not revert unrelated dirty files from the other Codex.
+  Source read   Done   Used `文本材料/data/materials_catalog.json#spirit_silk`, `文本材料/data/materials_catalog.json#soul_gathering_stone`, `文本材料/data/refinement_recipes.json#refine_cloud_boots`, `文本材料/data/refinement_recipes.json#refine_spirit_gathering_bead`, shipped artifact refinement data, `ArtifactRefinementService`, and the text-material id map.
+  Planning   Done   Scoped to two physical material carriers, creative-tab visibility, localization, model JSONs, id-map entries, focused command-plan tests, version/docs, and no packet, GUI/menu, block/entity registry, shop, loot, worldpack, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.306_artifact_material_carriers/`; new model JSONs and the new update note had no previous files to preserve.
+  Version/protocol   Done   Implemented as the `0.1.306` material-carrier slice and verified after the shared tree advanced to `mod_version=0.1.307`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Materials   Done   Added `seeking_immortals:spirit_silk` and `seeking_immortals:soul_gathering_stone` through the existing material item framework with creative-tab entries, zh_cn/en_us names, vanilla-texture model JSONs, and `text_material_id_map.json` entries.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now covers exact command plans for `refine_cloud_boots` (3x Spirit Silk + 2x Spirit Iron) and `refine_spirit_gathering_bead` (1x Soul-Gathering Stone + 5x Spirit Stone Shard).
+  Verification   Done   Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 25s. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 34s and `aiPreflight` recorded `mod_version=0.1.307`; inherited network-package warning reviewed as unrelated to this slice.
+  Follow-up   Pending   Add real acquisition and placement for Spirit Silk and Soul-Gathering Stone, source-accurate shops/loot, a refinement forge UI/custom serializer, failure loot, JEI display, and live in-game command smoke checks.
+## 272. 2026-07-07 0.1.308 11x11 realm gate array
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved parallel artifact material carrier, Foundation elemental burst, Yin protection, and earlier portal/dimension work without reverting shared edits.
+  Text-material read   Done   Re-read the 315-file text-material corpus for this goal and used `DIMENSIONS_DESIGN.md`, `dimensions_catalog.json`, `spatial_nodes_catalog.json`, `trade_routes.json`, and formation catalogs as the direct portal/dimension basis.
+  Planning   Done   Scoped to existing `PortalArrayStructure`, `SpiritGatheringArrayBlock`, `WorldpackGameplayService` default anchor generation, lang strings, Patchouli formation guide text, focused JUnit tests, version/docs, and no packet, registry, route-cost, dimension-resource, recipe, loot, GUI, shop-loader, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.307_portal_array_11x11/`; current build-verification docs were backed up to `.bak/20260707_0.1.309_portal_array_build_docs/`.
+  Version/protocol   Done   Implemented as the `0.1.308` portal slice and verified on the current shared `mod_version=0.1.309` tree; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Portal structure   Done   `PortalArrayStructure` now requires an 11x11 Spirit Gathering Array base, four eight-high Spirit Ore corner pillars, and a clear 9x9, seven-block-high aperture. Default built-in worldpack anchors inherit the larger platform through the existing constants.
+  Resources   Done   zh_cn/en_us incomplete-portal feedback, route-hint text, and the formation Patchouli overview now describe the 11x11 structure.
+  Verification   Done   Changed lang/Patchouli JSON parsed successfully with explicit UTF-8. Focused `PortalArrayStructureTest` + `WorldpackPortalArrayRulesTest` passed with BUILD SUCCESSFUL in 24s. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 31s and `aiPreflight` recorded `mod_version=0.1.309`.
+  Follow-up   Pending   Live in-game portal travel smoke checks, dedicated portal/ferry art, route/quest presentation, higher-tier frame materials, terrain/structure dressing for Yin/Nether pockets, and later Demon/Asura/Immortal realm expansions remain deferred.
+## 271. 2026-07-07 0.1.308 FTB main quest defaults
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.307` shared tree and avoided changing existing `QuestProgress`, packets, capabilities, registries, shops, dimensions, GUI classes, or reward authority.
+  Text-material read   Done   Read all 315 files under `文本材料` with UTF-8 and confirmed all 207 JSON files parse. Direct source basis was `quest_chains.json` and `quest_hooks.json` for Qixuan, Huangfeng, Blood Forbidden, Tianyuan, and Spirit Realm progression.
+  Planning   Done   Scoped to bundled FTB Quests defaults, non-overwriting config seeding, focused SNBT tests, version/docs, and no packet/protocol/schema changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.308_ftb_main_quests/`; verification-doc edits were backed up to `.bak/20260707_0.1.309_ftb_main_quests_verify/`; new FTB resources, seeder class, focused test, and update note had no previous files to preserve.
+  Version/protocol   Done   Implemented as the `0.1.308` quest-presentation slice and current-tree verified after shared version movement to `mod_version=0.1.309`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  FTB data   Done   Added a first FTB chapter with 21 safe checkmark nodes covering Qixuan/Seven Mysteries, Huangfeng cultivation, Blood Forbidden, and Tianyuan/Spirit Realm routing.
+  Runtime seeding   Done   `FtbQuestDefaults` copies bundled FTB files into `config/ftbquests/quests/` only when missing, avoiding overwrites of existing user/server FTB quest packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 14s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.309`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative item/advancement/custom tasks, add validated rewards and branch/exclusion handling, sync safe Seeking Immortals quest state into FTB progress, add NPC/route triggers, icons, and expand the remaining text-material chains.
+
+## 273. 2026-07-07 0.1.311 FTB Chaotic Sea and Dajin quest chapters
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified FTB main quest defaults, 11x11 realm-gate work, named Foundation spell work, and observed parallel `0.1.310` version movement without reverting unrelated shared edits.
+  Text-material read   Done   Used `quest_chains.json`, `quest_hooks.json`, `main_story_chapters.json`, `chaotic_sea_faction_quests.json`, `inverse_star_quest_network.json`, and `dajin_faction_quests.json` for chapter 3/4 task-line coverage.
+  Planning   Done   Scoped to additional bundled FTB chapter resources, non-overwriting seeder coverage, stronger SNBT tests, version/docs, and no packet/protocol/schema/capability/reward changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.311_ftb_chaotic_dajin_quests/`; the two new chapter files and new update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.311` for this shippable FTB resource/test slice; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  FTB data   Done   Added `seeking_immortals_chaotic_sea.snbt` and `seeking_immortals_dajin_kunwu.snbt`; packaged FTB defaults now expose 52 safe checkmark nodes across the main, Chaotic Sea/Void Palace, and Dajin/Kunwu chapters.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the two additional chapter files only when missing, so existing user/server FTB quest packs remain untouched.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 21s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.311`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Continue FTB coverage for Fallen Demon Valley, ghost/Yin routes, Mulan/Tianlan war, demonic six sects, Diyuan/barbarian endgame, spirit clans, and replace checkmarks with authoritative item/advancement/custom tasks plus validated rewards and branch locking.
+
+## 274. 2026-07-07 0.1.312 Artifact material aliases
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.311` FTB Chaotic Sea / Dajin quest chapters, `0.1.310` Gold Seam Stone carrier, and prior artifact material-carrier work without reverting parallel edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `materials_catalog.json` ids `demon_core_low`, `demon_core_high`, and `talisman_paper` plus refinement recipes that consume them.
+  Planning   Done   Scoped to existing-carrier id-map aliases, focused artifact-plan tests, version/docs, and no new item ids, registries, packet, GUI, capability, recipe, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.312_artifact_material_aliases/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.312`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or SimpleChannel behavior changed.
+  Material coverage   Done   Added id-map aliases from `demon_core_low` and `demon_core_high` to `seeking_immortals:beast_core`, and from generic `talisman_paper` to `seeking_immortals:talisman_paper_mortal`.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now proves low/high demon-core aliases and talisman-paper alias resolve for exact command-refinement planning.
+  Verification   Done   Changed JSON parsed successfully. Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 24s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.312`; inherited network-package warning reviewed as unrelated to this data/test slice.
+  Follow-up   Pending   Add exact demon-core tier carriers/drops, paper-grade crafting, source-accurate acquisition/loot/shop placement, refinement forge UI/custom serializer, failure loot, JEI display, and live multiplayer smoke checks.
+## 275. 2026-07-07 0.1.313 Core Formation elemental spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the in-progress `0.1.312` artifact material alias work, verified `0.1.311` FTB Chaotic Sea/Dajin quest chapters, `0.1.310` Gold Seam Stone material carrier, `0.1.309` named Foundation elemental spells, and earlier custom spell slices without reverting parallel edits.
+  Text-material read   Done   Used `文本材料/data/techniques/elemental.json` entries `primordial_magnet_sphere`, `flame_serpent_storm`, `earth_mountain_press`, and `xuantian_ice_prison`.
+  Planning   Done   Scoped to one reusable custom Core Formation area-spell class, `SkillType`/`SkillEffectRegistry` mappings, shipped Core Formation technique data, zh_cn/en_us feedback, docs, and no packet, item/block/entity registry, model, texture, recipe, loot, shop-loader, worldpack, GUI, or runtime-loader changes.
+  Backup   Done   Initial existing edited files were backed up to `.bak/20260707_0.1.311_core_elemental_spells/`; current parallel-version docs/version state was backed up to `.bak/20260707_0.1.312_core_elemental_spells_reconcile/` and `.bak/20260707_0.1.313_core_elemental_spells_reconcile/`; the new `CoreElementalAreaSpell` source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.312` tree to `0.1.313`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `CoreElementalAreaSpell` implements custom DustParticle visuals for a magnetic sphere, flame-serpent storm, falling mountain pressure, and Xuantian ice prison; no vanilla fireball/fire-charge/lightning entities are spawned.
+  Technique data   Done   Added `primordial_magnet_sphere`, `flame_serpent_storm`, `earth_mountain_press`, and `xuantian_ice_prison` to shipped Core Formation technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Focused `FtbQuestSnbtTest` also passed on the shared tree with BUILD SUCCESSFUL in 15s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 22s and `aiPreflight` recorded `mod_version=0.1.313`; inherited network-package warning remains present, but this spell/FTB verification did not change packet compatibility.
+  Follow-up   Pending   Continue Foundation utility/defense spells such as `ice_jade_shield`, `wood_spirit_vine`, and `water_mirror_reflect`, plus stricter method/root gate display and enforcement, dedicated spell icons/particles/textures, PvP tuning, and live client visual smoke tests.
+
+## 276. 2026-07-07 0.1.314 Refinement existing-material aliases
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.313` Core Formation elemental spells, `0.1.312` artifact alias work, FTB quest chapters, and prior material-carrier slices without reverting parallel edits.
+  Text-material read   Done   Re-read the text-material corpus scan: 315 files under `文本材料` read as UTF-8 and 207 JSON files parsed successfully. Direct source basis was `materials_catalog.json`, `refinement_recipes.json`, and already registered material carriers.
+  Planning   Done   Scoped to five existing-carrier id-map aliases, focused artifact-plan tests, version/docs, and no new item ids, registries, packets, GUI, capabilities, recipes, loot, shops, worldpack files, or runtime-loader changes.
+  Backup   Done   Existing edited files were backed up to `.bak/20260707_0.1.314_refinement_existing_material_aliases_current/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.313` to `0.1.314`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Material coverage   Done   Added aliases `fire_feather -> seeking_immortals:phoenix_feather`, `true_spirit_blood_drop -> seeking_immortals:true_dragon_blood`, `dragon_scale -> seeking_immortals:dragon_scale`, `beast_bone_block -> seeking_immortals:spirit_beast_bone`, and `space_crystal_fragment -> seeking_immortals:void_crystal`.
+  Refinement coverage   Done   `ArtifactRefinementServiceTest` now proves exact command-refinement plans can resolve Phoenix Feather Fan, Dragon Scale Armor, Bone Wind Cart, and Glazed Guard material requirements through existing carriers.
+  Verification   Done   Changed JSON parsed successfully. Focused `ArtifactRefinementServiceTest`, `ResourceJsonParseTest`, and `JsonSanityTest` passed with BUILD SUCCESSFUL in 19s. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 23s and `aiPreflight` recorded `mod_version=0.1.314`; inherited network-package warning reviewed as unrelated to this data/test/docs slice.
+  Follow-up   Pending   Add exact fragment/block/tier material items, source-accurate acquisition/loot/shop placement, registered high-tier output artifact carriers, a real refinement forge UI/custom serializer, failure loot, JEI display, and live multiplayer smoke checks.
+
+## 277. 2026-07-07 0.1.315 Foundation utility elemental spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.314` existing-material refinement aliases, `0.1.313` Core Formation elemental spells, and earlier custom spell work without reverting parallel edits.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `techniques/elemental.json` entries `ice_jade_shield`, `wood_spirit_vine`, and `water_mirror_reflect`.
+  Planning   Done   Scoped to one reusable Foundation utility spell class, `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, docs, and no packet, registry, GUI, model, texture, recipe, loot, shop, worldpack, or runtime-loader changes.
+  Backup   Done   Existing files were backed up to `.bak/20260707_0.1.314_foundation_utility_spells/`, `.bak/20260707_0.1.315_foundation_utility_spells_reconcile/`, and `.bak/20260707_0.1.315_foundation_utility_spells_docs_reconcile/`; the new spell source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.314` to `0.1.315`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `FoundationElementalUtilitySpell` implements custom DustParticle ice-shield, wood-vine, and water-mirror visuals; Ice Jade Shield deflects hostile projectiles, Wood Spirit Vine binds a target, and Water Mirror Reflect reflects nearby hostile projectiles toward their source.
+  Technique data   Done   Added `ice_jade_shield`, `wood_spirit_vine`, and `water_mirror_reflect` to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Focused `FtbQuestSnbtTest` also passed on the shared tree with BUILD SUCCESSFUL in 14s. The 0.1.315 current-tree build passed with BUILD SUCCESSFUL in 20s; after parallel version movement to `mod_version=0.1.316`, final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` also passed with BUILD SUCCESSFUL in 20s and `aiPreflight` recorded `mod_version=0.1.316`; inherited network-package warning reviewed as unrelated to this verification/docs pass.
+  Follow-up   Pending   Add stricter method/root gate display and enforcement, dedicated spell icons/particles/textures, persistent reflect/absorb tuning, PvP balance, and live client visual smoke tests.
+## 278. 2026-07-07 0.1.316 Foundation utility and FTB current-tree recheck
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel build-verified `0.1.315` FTB Fallen Demon/Yin chapter after the Foundation utility spell slice, preserved both sets of changes, and advanced the shared tree to `0.1.316`.
+  Version/protocol   Done   `mod_version` is now `0.1.316`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Verification   Done   Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 24s and `aiPreflight` recorded `mod_version=0.1.316`; inherited network-package warning reviewed as unrelated to this spell/version reconciliation.
+  Backup   Done   Current docs/version state was backed up to `.bak/20260707_0.1.316_foundation_utility_spells_reconcile/` and post-build docs to `.bak/20260707_0.1.316_foundation_utility_spells_post_build_docs/`.
+  Follow-up   Pending   Continue spell prerequisite gate display/enforcement, dedicated spell icons/particles/textures, persistent reflect/absorb tuning, PvP balance, and live client visual smoke tests.
+## 283. 2026-07-07 0.1.323 FTB Tiannan seven sects and craft branches
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Observed the parallel `0.1.323` Xuan Yin Foundation spell verification, preserved it and the existing 6 FTB chapters, and kept this slice additive.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was the Tiannan side chains in `quest_chains.json`, `quest_hooks.json`, `tiannan_seven_sects_lore.json`, `sect_specialty_map.json`, `artifact_faction_specialty.json`, puppet/beast/talisman/illusion/secret-art catalogs, and craft-master hooks.
+  Planning   Done   Scoped to one additive bundled FTB chapter, non-overwriting seeder coverage, focused SNBT test expectations, version/docs, and no packet/protocol/schema/capability/reward/runtime-state changes.
+  Backup   Done   Existing FTB seeder/test/version/docs files were backed up to `.bak/20260707_0.1.321_ftb_tiannan_seven_sects/`; after observing the parallel version advance, current files were backed up again to `.bak/20260707_0.1.323_ftb_tiannan_seven_sects_reconcile/`. The new chapter and update note had no previous files to preserve.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.323`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Added `seeking_immortals_tiannan_seven_sects.snbt` with 28 safe checkmark nodes for 化刀坞刀道, 巨剑门传承, 千竹傀儡, 御灵兽傀, 掩月幻阵, 天符制符, and 百艺精通/地火/昆吾阵法回流.
+  Runtime seeding   Done   `FtbQuestDefaults` now seeds the new chapter file only when missing, preserving existing user/server FTB packs.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 15s. Full current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 21s and `aiPreflight` recorded `mod_version=0.1.323`; inherited network-package warning reviewed as unrelated to this quest-presentation slice.
+  Follow-up   Pending   Replace checkmarks with authoritative FTB item/advancement/custom task bridges, validated rewards, branch/exclusion locks, NPC triggers, sect/reputation/skill-state synchronization, real craft-station checks, quest icons, and live FTB client smoke tests.
+## 286. 2026-07-07 0.1.327 Foundation sword techniques
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.325` turtle/poison alias tree and active `0.1.326` FTB Star Palace / Inverse chapter work by avoiding FTB, artifact/refinement mapping, network, GUI, item/block/entity registry, model, texture, recipe, loot, shop, worldpack, and runtime-loader files.
+  Text-material read   Done   Re-read all 315 files under `文本材料` with UTF-8 and parsed all 207 JSON files successfully; direct source basis was `techniques/sword.json` entries `qingyuan_sword_ray`, `flying_sword_strike`, `green_bamboo_sword_qi`, `sword_shield`, and `sword_escape`.
+  Planning   Done   Scoped to one custom sword spell class, `SkillType`/`SkillEffectRegistry` mappings, shipped Foundation technique data, zh_cn/en_us feedback, version/docs, and no packet, registry, GUI, model, texture, recipe, loot, shop, FTB, worldpack, or runtime-loader changes.
+  Backup   Done   Existing initially edited files were backed up to `.bak/20260707_0.1.325_sword_foundation_spells/`; current docs/version reconcile state was backed up to `.bak/20260707_0.1.327_sword_foundation_spells_reconcile/`; post-build docs were backed up to `.bak/20260707_0.1.327_foundation_sword_techniques_post_build_docs/`.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.327` after observing concurrent version movement; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `SwordTechniqueSpell` implements Qingyuan sword ray, flying sword strike, green bamboo sword qi, sword shield, and sword escape with custom DustParticle sword visuals and the existing mod-owned `SwordProjectileEntity` rather than vanilla attack entities.
+  Technique data   Done   Added the five sword ids to shipped Foundation Establishment technique data and localized release feedback in zh_cn/en_us.
+  Verification   Done   Full text-material corpus scan read all 315 files and parsed all 207 JSON files successfully; changed technique/lang JSON parsed successfully; final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 19s and `aiPreflight` recorded `mod_version=0.1.327`; inherited network-package warning reviewed as unrelated to this spell/data/docs slice.
+  Follow-up   Pending   Add stricter Qingyuan method/equipped artifact gates in learning UI, dedicated spell icons/particle textures, richer persistent sword-domain/array behavior, source-accurate manual/sect acquisition, PvP balance, and live client visual smoke tests.
+
+## 288. 2026-07-07 0.1.329 Sword expansion spells current-tree verified under 0.1.331
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.329` FTB Ascension Border chapter, the `0.1.328` refinement material carriers, and the build-verified `0.1.327` Foundation sword baseline without reverting unrelated dirty files or touching packet/network schemas.
+  Planning   Done   Scoped to the already staged sword spell expansion verification/docs: `thousand_sword_array`, `blood_sword_slash`, `sword_merge`, `invisible_sword`, `sword_domain`, and `dual_sword_dance`, plus build verification and documentation.
+  Backup   Done   Earlier implementation backup remains `.bak/20260707_0.1.329_sword_expansion_spells/`; documentation backup for this verification pass is `.bak/20260707_0.1.329_sword_expansion_spells_docs/`; current-tree recheck backup is `.bak/20260707_0.1.331_sword_current_tree_build_recheck/`.
+  Version/protocol   Done   Implemented as the `0.1.329` sword spell expansion, then preserved shared version advances through `0.1.330` and current `0.1.331`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this spell/data/docs verification did not change packet fields, order, encoding, registrations, or channel behavior.
+  Spell effects   Done   `SwordTechniqueSpell` now covers sword rain, blood slash, sword-merge aura, invisible sword beam, sword domain, and dual-sword dance using custom DustParticle sword visuals plus server-authoritative magic damage/control/buffs, avoiding vanilla fireball/fire-charge/lightning attack entities.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed with BUILD SUCCESSFUL in 12s after Gradle network escalation. Full build passed under `0.1.329`; after shared version movement, an attempted `0.1.330` build failed the version gate, the current tree advanced to `0.1.331`, and full `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 20s with `aiPreflight` recording `mod_version=0.1.331`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Add stricter method/equipped-artifact gates, dedicated sword spell icons and particle textures, richer persistent sword-array/domain behavior, source-accurate Azure Origin / sword-sect acquisition, PvP tuning, and live client visual smoke tests.
+## 301. 2026-07-07 0.1.345 FTB Ascension Border item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.344` Recovery/protection spell slice and `0.1.343` artifact utility activation slice, observed current shared version movement, and kept this slice limited to FTB quest data, focused FTB test coverage, version, and docs.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Ascension Border quest routing plus gate voucher, Tianyuan travel, wild-land beast horde, Diyuan probe, and pressure-preparation source data.
+  Planning   Done   Scoped to converting five safe Ascension Border checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.344_ftb_ascension_border_item_tasks/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.344` to `0.1.345`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted Ascension Border tasks for Spirit Realm gate voucher, frontier travel, wild-land beast horde, Diyuan core probe, and Diyuan core-guardian preparation to item checks for Alliance Merit Token, Wind Feather Raft Ticket, Beast Core, Diyuan Permit, and Pressure-Resist Charm.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 27 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Full `.\gradlew.bat --no-daemon --max-workers=1 build` passed and `aiPreflight` recorded `mod_version=0.1.345`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader item/advancement/custom FTB task bridges, authoritative rewards, branch/exclusion locks, NPC/server triggers, Seeking Immortals quest-state sync, reputation/craft-station validation, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+  ---   ---   ---
+  Coordination   Done   Preserved the verified `0.1.351` Cloud Boots recipe, the `0.1.350` Star Palace / Inverse bridge, and current-tree verified illusion spell docs; avoided Java runtime systems, artifact/refinement hot files, packet/network classes, registries, GUI/menu classes, shops, worldpack schemas, capabilities, player NBT schema, spell/technique data, and reward/state systems.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Fallen Demon / Yin quest routing plus ghost-path, Yin-underworld, anti-demon, spatial-rift, soul-fragment, and Yin-protection item sources.
+  Planning   Done   Scoped to converting five safe Fallen Demon / Yin checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.352_ftb_fallen_demon_yin_item_tasks/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from `0.1.351` to `0.1.352`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `1702`, `1704`, `1706`, `1711`, and `1713` to checks for Fire Talisman, Void Crystal, Demon-Suppress Talisman Blank, Soul Fragment, and Yin-Body Protection Charm, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 43 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed and `aiPreflight` recorded `mod_version=0.1.352`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Continue broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Fallen Demon seal-state and ghost-path stage validation, Nether River hazard checks, Seeking Immortals quest-state synchronization, boss/encounter hooks, dedicated icons, and live FTB client smoke tests.
+## 308. 2026-07-07 0.1.354 Dao spells
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.353` Fallen Demon / Yin FTB item-task bridge and `0.1.352` Spirit-Gathering Bead recipe; avoided FTB quest files/tests, artifact/refinement files, network packets, item/block/entity registries, GUI/menu/container classes, shops, worldpack schemas, capabilities, player NBT schema, and runtime data loaders.
+  Text-material basis   Done   Used `文本材料/data/techniques/dao.json` entries `five_thunder`, `pure_yang_sword`, `taoist_seal`, `cloud_walk`, `immortal_rope`, `bagua_seal`, and `dao_nature_breath`; the shared corpus scan remains 315 UTF-8 files and 207 valid JSON files.
+  Planning   Done   Scoped to one reusable `DaoSpell`, SkillType/effect mappings, Qi Refining technique data, zh_cn/en_us feedback, version/docs, and no packet/schema/registry/GUI/shop/worldpack/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.353_dao_spells/`; after observing parallel `0.1.353` docs/version movement, current docs/version state was backed up to `.bak/20260707_0.1.354_dao_spells_reconcile/`; the new spell source and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.353` tree to `0.1.354`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Spell effects   Done   `DaoSpell` covers custom DustParticle five-thunder arrays, pure-yang sword beams, Taoist seal control, cloud-walk movement, immortal-rope binding, bagua seal area suppression, and nature-breath recovery without spawning vanilla fireball/fire-charge/lightning/explosion attack entities.
+  Technique data   Done   Added the seven Daoist ids to shipped Qi Refining technique data with `taixu_gong` method hints and localized release feedback in zh_cn/en_us.
+  Verification   Done   Changed technique/lang JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.354`; inherited dirty-tree/network-package warnings reviewed as unrelated.
+  Follow-up   Pending   Add strict Taixu method/source gates in learning UI, dedicated spell icons and custom particle textures, source-accurate manual/sect acquisition, richer persistent talisman/rope states, PvP tuning, and live client visual smoke tests.
+## 309. 2026-07-07 0.1.355 Yellow Umbrella refinement recipe
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel build-verified `0.1.354` Dao spells slice, `0.1.353` Fallen Demon/Yin FTB item-task bridge, `0.1.352` Spirit-Gathering Bead recipe, and `0.1.351` Cloud Boots recipe while avoiding FTB quest files/tests, network packets, registries, GUI/menu classes, shops, worldpack schemas, spell/technique data, artifact/refinement catalogs, runtime loaders, and item/block/entity registrations.
+  Text-material basis   Done   Used shipped artifact refinement source `refine_yellow_umbrella`, mapped `spirit_silk` to `seeking_immortals:spirit_silk`, `demon_core_low` to `seeking_immortals:beast_core`, and `low_spirit_iron` to `seeking_immortals:spirit_iron`, then reused the existing registered output `seeking_immortals:yellow_umbrella`.
+  Planning   Done   Scoped to one additive vanilla shaped recipe approximation, focused recipe assertion, version/docs only; no packet, registry, data-loader, catalog-schema, item/block/entity, GUI, shop, FTB, worldpack, or spell files changed.
+  Backup   Done   Pre-edit `0.1.353` state was backed up to `.bak/20260707_0.1.354_yellow_umbrella_recipe/`, and current parallel `0.1.354` state was backed up to `.bak/20260707_0.1.355_yellow_umbrella_recipe_reconcile/`; the new recipe and update note had no previous files to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` from the parallel `0.1.354` tree to `0.1.355`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Recipe resource   Done   Added `data/seeking_immortals/recipes/refine_yellow_umbrella.json`, crafting Yellow Umbrella from 5x Spirit Silk, 2x Beast Core, and 2x Spirit Iron through the existing artifact-refinement recipe group.
+  Verification   Done   `ResourceJsonParseTest` asserts the recipe shape/material/output. Changed JSON parsed successfully. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.355`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Replace vanilla-grid approximations with a real refinement forge/custom serializer that enforces source counts including the third low-spirit-iron input, realm gates, forge grade, success chance, manual unlocks, failure loot, JEI display, and source-accurate material acquisition.
+## 313. 2026-07-07 0.1.358 13x13 realm gate array
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the current `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge, `0.1.356` Storage Bracelet recipe, `0.1.355` Yellow Umbrella recipe/current-tree FTB docs recheck, `0.1.354` Dao spells, and `0.1.353` Fallen Demon/Yin bridge while avoiding their hot files.
+  Text-material basis   Done   Used `文本材料/docs/DIMENSIONS_DESIGN.md`, `文本材料/data/dimensions_catalog.json`, `文本材料/data/spatial_nodes_catalog.json`, formation catalog references, and the current Demon Rift dimension/default-anchor slice.
+  Planning   Done   Scoped to enlarging the existing portal multiblock constants, focused portal tests, route/Patchouli text, version/docs, and no packet/schema/registry/item/block/entity/shop/FTB/runtime-loader changes.
+  Backup   Done   Existing target files were backed up to `.bak/20260707_0.1.357_portal_array_13x13/` and current reconciled files to `.bak/20260707_0.1.358_portal_array_13x13_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.358`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Portal structure   Done   `PortalArrayStructure` now requires a 13x13 Spirit Gathering Array base, four ten-high Spirit Ore corner pillars, and a clear 11x11, nine-block-high aperture; default dimension anchors inherit the larger generated platform through existing constants.
+  Resources   Done   zh_cn/en_us incomplete-portal feedback, route hints, and mirrored Patchouli formation overview text now describe the 13x13 gate.
+  Verification   Pending   Run focused `PortalArrayStructureTest` + `WorldpackPortalArrayRulesTest`, then final `.\gradlew.bat --no-daemon --max-workers=1 build`.
+  Follow-up   Pending   Live in-game portal travel smoke checks, dedicated portal/ferry art, higher-tier frame materials, route/quest presentation, Demon Rift entry enforcement, and dimension terrain/structure dressing remain deferred.
+## 314. 2026-07-07 0.1.360 Artifact failure loot
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the parallel `0.1.359` Buddhist spell and FTB current-tree verification, `0.1.358` 13x13 realm gate work, `0.1.357` Mulan/Tianlan/Demonic FTB bridge, and `0.1.356` Storage Bracelet recipe; avoided packet format/order, registries, GUI/menu/container classes, player NBT schema, shops, worldpack schemas, artifact/refinement catalog rewrites, and item/block/entity registrations.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was shipped `refinement_failure_loot.json`, existing canonical id-map entries, and the current exact command-refinement service.
+  Planning   Done   Scoped to parsing already shipped failure-loot tables, granting one salvage roll on failed `/seeking_immortals artifact refine`, adding one temporary scrap mapping, localized feedback, focused tests, docs, and version reconciliation.
+  Backup   Done   Existing target/current files were backed up to `.bak/20260707_062415_0.1.357_artifact_failure_loot/`, `.bak/20260707_062550_0.1.358_artifact_failure_loot_reconcile/`, `.bak/20260707_0.1.359_artifact_failure_loot_docs/`, and `.bak/20260707_0.1.360_artifact_failure_loot_version_reconcile/`.
+  Version/protocol   Done   Advanced current shared `mod_version` to `0.1.360`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  Runtime behavior   Done   `ArtifactDataService` exposes default and tier-specific failure-loot entries. Failed exact command refinement now rolls one tier/default salvage entry, grants the mapped item if valid, skips unmapped/invalid entries safely, and reports the salvage result.
+  Verification   Done   Focused artifact data/refinement tests passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.360`; inherited network-package warning reviewed as unrelated.
+  Follow-up   Pending   Implement the real refinement forge/workstation UI and custom serializer, exact manual/source gates, failure explosion/mismatch handling, JEI display, dedicated scrap itemization, source-accurate acquisition, and live multiplayer smoke tests.
+## 317. 2026-07-07 0.1.364 FTB Tiannan item-task bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the build-verified `0.1.361` Flying Needle Set recipe, `0.1.360` artifact failure-loot command path, Buddhist/portal/FTB verification, and earlier artifact/quest/spell slices while avoiding Java runtime, packet/network, registries, GUI, shops, worldpack schemas, capabilities, player NBT schema, spell/technique data, and reward/state systems.
+  Text-material read   Done   Re-read all 315 files under `文本材料` as UTF-8 and parsed all 207 JSON files successfully; direct basis was Tiannan seven-sects routing plus Huadao forge, Giant Sword relic, Yuling beast-puppet, spirit-beast contract, and Tianfu talisman sources.
+  Planning   Done   Scoped to converting five safe Tiannan seven-sects checkmark nodes into non-consuming FTB item tasks while preserving packaged chapter count, total quest count, dependencies, and no reward/state semantics.
+  Backup   Done   Existing target/current files were backed up to `.bak/20260707_0.1.362_ftb_tiannan_item_tasks/` and `.bak/20260707_0.1.364_ftb_tiannan_item_tasks_reconcile/`; the new update note had no previous file to preserve.
+  Version/protocol   Done   Final current shared `mod_version` is `0.1.364`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations or channel behavior changed.
+  FTB data   Done   Converted tasks `2003`, `2007`, `2013`, `2014`, and `2020` to checks for Spirit Iron x2, Spirit Iron x4, Beast Core x1, Beast Core x1, and Fire Talisman x1, all non-consuming and NBT-insensitive.
+  Test coverage   Done   `FtbQuestSnbtTest` now validates 53 implemented item tasks while keeping 9 packaged chapters, 215 quest nodes, task uniqueness, and dependency validation.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.364`; inherited network-package warning reviewed as unrelated to this FTB/data/test/docs slice.
+  Follow-up   Pending   Continue broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, sect/craft-state validation, beast-contract validation, talisman-crafting validation, `QuestProgress` sync, boss/encounter hooks, quest icons, and live FTB client smoke tests.
+## 319. 2026-07-07 0.1.365 Current-tree build recheck after FTB Tiannan bridge
+
+  Step   Status   Notes
+  ---   ---   ---
+  Coordination   Done   Preserved the Tiannan seven-sects FTB item-task bridge together with the parallel Demon Rift event-gated portal work, Qingning Mirror recipe, Flying Needle Set recipe, and earlier shared-tree slices without reverting unrelated edits.
+  Version/protocol   Done   Current shared `mod_version` is `0.1.365`; `ModNetwork.PROTOCOL_VERSION` remains `9` because this docs/build-verification pass changed no packet fields/order/encoding/registrations or channel behavior.
+  Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
+  Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
+  Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.

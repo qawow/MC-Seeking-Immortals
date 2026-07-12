@@ -9,7 +9,7 @@ public class HealingPill extends BasePillItem {
 
     @Override
     protected boolean consumePill(ServerPlayer player) {
-        double multiplier = getQuality().getEffectMultiplier();
+        double multiplier = effectiveMultiplier(player);
         float healAmount = (float)(4.0 * multiplier);
 
         player.heal(healAmount);

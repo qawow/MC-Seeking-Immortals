@@ -1,0 +1,24 @@
+{
+  "schema_version": 2,
+  "id": "barbarian_wasteland",
+  "display": "蛮荒之地",
+  "parent_region": "spirit_fengyuan",
+  "spirit_density": 1.4,
+  "realm_min": "VOID_REFINING",
+  "factions": [
+    "barbarian_council"
+  ],
+  "kings_ref": "barbarian_demon_kings.json",
+  "daily_events": [
+    "barbarian_beast_tide",
+    "king_territory_intrusion"
+  ],
+  "disasters": [
+    "ancient_beast_awaken"
+  ],
+  "banned_paths_note": "无阵法掩护易遭妖王追杀",
+  "quest_hooks": [
+    "barbarian_border_contact",
+    "barbarian_king_token_hunt"
+  ]
+}

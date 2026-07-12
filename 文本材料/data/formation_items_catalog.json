@@ -1,0 +1,207 @@
+{
+  "schema_version": 2,
+  "description": "便携阵盘、阵旗等可放置/消耗物，效果见 formation_catalog",
+  "items": [
+    {
+      "id": "portable_spirit_gather_disk",
+      "display": "聚灵阵盘（便携）",
+      "formation_id": "spirit_gather",
+      "grade": "basic",
+      "uses": 10,
+      "place_block": "spirit_gathering_array",
+      "setting": {
+        "lore": "聚灵阵盘（便携）",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "portable_illusion_maze_flag",
+      "display": "迷踪阵旗",
+      "formation_id": "illusion_maze",
+      "grade": "basic",
+      "uses": 5,
+      "setting": {
+        "lore": "迷踪阵旗",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "portable_kill_sword_disk",
+      "display": "杀阵盘",
+      "formation_id": "kill_sword",
+      "grade": "mid",
+      "uses": 3,
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "杀阵盘",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "portable_defense_wall_disk",
+      "display": "守阵盘",
+      "formation_id": "defense_wall",
+      "grade": "basic",
+      "uses": 8,
+      "setting": {
+        "lore": "守阵盘",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "teleport_array_core",
+      "display": "传送阵核心",
+      "formation_id": "teleport_array",
+      "grade": "mid",
+      "consumable": false,
+      "fuel": "spirit_stone_shard",
+      "setting": {
+        "lore": "传送阵核心",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "thunder_array_stake",
+      "display": "引雷阵桩",
+      "formation_id": "thunder_tribulation_array",
+      "grade": "high",
+      "uses": 1,
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "引雷阵桩",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "array_blueprint_scroll",
+      "display": "阵图残卷",
+      "category": "manual",
+      "unlocks": [
+        "illusion_maze",
+        "defense_wall"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "阵图残卷",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "nine_dragon_flame_array_disk",
+      "display": "九龙火阵盘（仿）",
+      "formation_id": "nine_dragon_flame_barrier",
+      "grade": "high",
+      "uses": 1,
+      "realm_min": "CORE_FORMATION",
+      "note": "仿古宝九龙神火罩的一次性阵盘",
+      "setting": {
+        "lore": "九龙火阵盘（仿）",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "portable_seal_disk",
+      "display": "封禁阵盘",
+      "formation_id": "seal_barrier",
+      "grade": "mid",
+      "uses": 4,
+      "realm_min": "FOUNDATION",
+      "note": "阵法宗门常用便携封阵",
+      "setting": {
+        "lore": "封禁阵盘",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "spirit_gather_flag_set",
+      "display": "聚灵阵旗组",
+      "formation_id": "spirit_gather",
+      "grade": "basic",
+      "uses": 12,
+      "consumable_partial": true,
+      "setting": {
+        "lore": "聚灵阵旗组",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "nine_palace_disk",
+      "display": "九宫阵盘",
+      "tier": "high",
+      "setting": {
+        "lore": "九宫阵盘",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "spirit_gather_flag",
+      "display": "聚灵阵旗",
+      "tier": "mid",
+      "setting": {
+        "lore": "聚灵阵旗",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    },
+    {
+      "id": "kill_array_core",
+      "display": "杀阵核心",
+      "tier": "legendary",
+      "setting": {
+        "lore": "杀阵核心",
+        "source_file": "formation_items_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "formation_items_catalog.json"
+      }
+    }
+  ]
+}

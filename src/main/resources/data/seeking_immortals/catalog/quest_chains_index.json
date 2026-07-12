@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "chains": [
+    {
+      "id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "chapter_1_sect",
+      "rewards_finale": [
+        "core_earth_fire",
+        "contribution_rank_inner"
+      ]
+    },
+    {
+      "id": "chaotic_sea_politics",
+      "display": "乱星海势力线",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 6,
+      "main_chapter_ref": "chapter_3_chaotic_sea",
+      "rewards_finale": []
+    },
+    {
+      "id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线",
+      "region": "mulan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "ghost_path",
+      "display": "鬼道线",
+      "region": "",
+      "realm_span": "",
+      "step_count": 6,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "yin_soul_stage",
+        "ghost_nether_art_full_page"
+      ]
+    },
+    {
+      "id": "high_realm_endgame",
+      "display": "高境界终局",
+      "region": "",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "spirit_realm_rise",
+      "display": "灵界上升线",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "step_count": 6,
+      "main_chapter_ref": "chapter_6_spirit_realm",
+      "rewards_finale": []
+    },
+    {
+      "id": "craft_master",
+      "display": "百艺精通",
+      "region": "",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "dajin_kunwu_line",
+      "display": "大晋昆吾线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "kunwu_seal_fragment",
+        "ancient_treasure_appraisal_lens"
+      ]
+    },
+    {
+      "id": "ancient_demon_line",
+      "display": "古魔封印线",
+      "region": "tiannan",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "seal_reinforcement_token",
+        "anti_demon_talisman_bulk"
+      ]
+    },
+    {
+      "id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "qixuan_mortal_art_scroll",
+        "spirit_stone_shard"
+      ]
+    },
+    {
+      "id": "huadao_blade_path",
+      "display": "化刀坞刀道",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "huadao_blade_intent_page"
+      ]
+    },
+    {
+      "id": "giant_sword_gate_path",
+      "display": "巨剑门传承",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "silver_giant_sword_blueprint",
+        "giant_sword_art"
+      ]
+    },
+    {
+      "id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "dayan_art_scroll",
+        "puppet_core_blank_bulk"
+      ]
+    },
+    {
+      "id": "yuling_puppet_path",
+      "display": "御灵兽傀线",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "yuling_beast_puppet_art",
+        "beast_puppet_core"
+      ]
+    },
+    {
+      "id": "dajin_clan_line",
+      "display": "大晋世家线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "dajin_clan_ancestor_art",
+        "clan_seal_token"
+      ]
+    },
+    {
+      "id": "demonic_six_path",
+      "display": "魔道六宗线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ]
+    },
+    {
+      "id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线",
+      "region": "yin_underworld",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "yin_protect_talisman_bulk",
+        "nether_river_map"
+      ]
+    },
+    {
+      "id": "barbarian_kings_line",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "barbarian_king_token",
+        "ancient_beast_core"
+      ]
+    },
+    {
+      "id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "spirit_clan_grand_token",
+        "specialty_item_bundle"
+      ]
+    },
+    {
+      "id": "star_palace_internal_politics",
+      "display": "星宫派系线",
+      "region": "chaotic_sea",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "mulan_war_campaign",
+      "display": "慕兰天澜战役",
+      "region": "mulan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 6,
+      "main_chapter_ref": "chapter_1_sect",
+      "rewards_finale": [
+        "war_campaign_token",
+        "rep_faction_major"
+      ]
+    },
+    {
+      "id": "mulan_fashi_path",
+      "display": "慕兰法士道途",
+      "region": "mulan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "tianlan_defense_line",
+      "display": "天澜御兽线",
+      "region": "tianlan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "wutu_mulan_feud_line",
+      "display": "突兀慕兰世仇",
+      "region": "mulan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "fallen_demon_expedition",
+      "display": "坠魔谷探谷",
+      "region": "fallen_demon_valley",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "dajin_wanbao_route",
+      "display": "大晋商路",
+      "region": "dajin",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "yin_luo_ghost_sect",
+      "display": "阴罗殿线",
+      "region": "yinming",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山",
+      "region": "kunwu",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "kunwu_seal_fragment",
+        "kunwu_puppet_core"
+      ]
+    },
+    {
+      "id": "tianyuan_merit_path",
+      "display": "天渊功勋线",
+      "region": "tianyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "spirit_realm_border",
+      "display": "灵界边境",
+      "region": "spirit_realm_border",
+      "realm_span": "",
+      "step_count": 2,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道",
+      "region": "",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "fengyuan_explorer",
+      "display": "风元探索",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "human_clan_neutral_intro",
+      "display": "世家引荐",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 2,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "clan_array_mo_line",
+      "display": "莫家阵法线",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "clan_refinement_yu_line",
+      "display": "俞家炼器线",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "clan_talisman_ning_line",
+      "display": "宁家符箓线",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "human_clan_league_hub",
+      "display": "世家联盟总线",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途",
+      "region": "",
+      "realm_span": [
+        "VOID_REFINING",
+        "TRIBULATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "diyuan_depth_delve",
+      "display": "地渊深层",
+      "region": "diyuan",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界",
+      "region": "",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "inverse_star_recruit",
+      "display": "逆星入盟",
+      "region": "chaotic_sea",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "inverse_star_smuggle_arc",
+      "display": "走私补给线",
+      "region": "chaotic_sea",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "inverse_star_void_heist",
+      "display": "虚天情报战",
+      "region": "chaotic_sea",
+      "realm_span": "",
+      "step_count": 3,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙",
+      "region": "chaotic_sea",
+      "realm_span": "",
+      "step_count": 5,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门",
+      "region": "",
+      "realm_span": "",
+      "step_count": 0,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役",
+      "region": "mulan_border",
+      "realm_span": "",
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链",
+      "region": "",
+      "realm_span": "",
+      "step_count": 0,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置",
+      "region": "",
+      "realm_span": "",
+      "step_count": 0,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "chain_tianyuan_enlist",
+      "display": "天渊城服役",
+      "region": "spirit_world",
+      "realm_span": "",
+      "step_count": 0,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "blood_forbidden_campaign",
+      "display": "血色禁地历练",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "step_count": 6,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "foundation_pill_material",
+        "blood_forbidden_herb",
+        "contribution_rank_inner"
+      ]
+    },
+    {
+      "id": "void_palace_campaign",
+      "display": "虚天殿探宝",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 6,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "void_key_fragment",
+        "void_palace_cold_jade",
+        "ancient_spirit_treasure_shard"
+      ]
+    },
+    {
+      "id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘",
+      "region": "fallen_demon_valley",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "chapter_5_deity_transformation",
+      "rewards_finale": [
+        "demon_qi_purge_pill",
+        "space_rift_compass",
+        "fallen_demon_chest"
+      ]
+    },
+    {
+      "id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝",
+      "region": "kunwu",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "chapter_4_great_jin",
+      "rewards_finale": [
+        "kunwu_core_ore",
+        "kunwu_puppet_core",
+        "kunwu_seal_fragment"
+      ]
+    },
+    {
+      "id": "nether_river_campaign",
+      "display": "冥河之地行",
+      "region": "nether_river",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "soul_gathering_stone",
+        "ghost_cultivation_manual",
+        "nether_river_chest"
+      ]
+    },
+    {
+      "id": "diyuan_campaign",
+      "display": "地渊探脉",
+      "region": "diyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_FUSION"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "chapter_6_spirit_realm",
+      "rewards_finale": [
+        "spirit_vein_shard",
+        "diyuan_core_crystal",
+        "pressure_resist_charm"
+      ]
+    },
+    {
+      "id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "step_count": 5,
+      "main_chapter_ref": "",
+      "rewards_finale": []
+    },
+    {
+      "id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "yanyue_inner_token",
+        "illusion_manual_fragment"
+      ]
+    },
+    {
+      "id": "tianfu_talisman_path",
+      "display": "天符门制符线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "talisman_master_seal",
+        "high_talisman_recipe_scroll"
+      ]
+    },
+    {
+      "id": "demonic_six_expanded",
+      "display": "魔道六宗深入线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "step_count": 4,
+      "main_chapter_ref": "",
+      "rewards_finale": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ]
+    }
+  ]
+}

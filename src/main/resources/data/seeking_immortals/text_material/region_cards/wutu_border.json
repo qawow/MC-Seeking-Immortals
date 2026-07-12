@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "wutu_border",
+  "display": "突兀族边境营",
+  "parent_region": "mulan",
+  "factions": [
+    "wutu_clan_generic"
+  ],
+  "spirit_density": 0.85,
+  "daily_events": [
+    "wutu_raid_mulan_camp",
+    "nomad_migration"
+  ],
+  "feud_ref": "wutu_mulan_feud.json",
+  "hostile_to": [
+    "mulan_fashi_council"
+  ],
+  "quest_hooks": [
+    "wutu_scout_contact",
+    "feud_truce_broker"
+  ]
+}

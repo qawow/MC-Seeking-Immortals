@@ -1,0 +1,253 @@
+{
+  "schema_version": 5,
+  "school": "dao",
+  "techniques": [
+    {
+      "id": "five_thunder",
+      "display": "五雷正法",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 25,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "thunder",
+        "damage_base": 50,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "五雷正法：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "五雷正法：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "pure_yang_sword",
+      "display": "纯阳剑气",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 21,
+      "source": "通用",
+      "effect": {
+        "type": "beam",
+        "element": "yang",
+        "damage_base": 42,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "纯阳剑气：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "纯阳剑气：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "taoist_seal",
+      "display": "道家法印",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 28,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "道家法印：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "道家法印：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "cloud_walk",
+      "display": "云游步",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "云游步：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "云游步：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "immortal_rope",
+      "display": "捆仙绳术",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 16,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 33,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "捆仙绳术：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "捆仙绳术：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "bagua_seal",
+      "display": "八卦印",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 22,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "八卦印：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "八卦印：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    },
+    {
+      "id": "dao_nature_breath",
+      "display": "自然吐纳",
+      "school": "dao",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "description": "自然吐纳：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "spirit_cost_base": 10,
+      "effect": {
+        "type": "beam",
+        "element": null,
+        "damage_base": 25,
+        "tags": [
+          "dao"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "taixu_gong",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "自然吐纳：dao法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "taixu_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "taixu_gong"
+        ]
+      }
+    }
+  ]
+}

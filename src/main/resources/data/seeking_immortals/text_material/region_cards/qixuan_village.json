@@ -1,0 +1,15 @@
+{
+  "schema_version": 2,
+  "id": "qixuan_village",
+  "display": "七玄门周边",
+  "parent_region": "tiannan",
+  "factions": [
+    "qixuan_men"
+  ],
+  "spirit_density": "low",
+  "note": "凡人村落与衰落小派",
+  "quest_chains": [
+    "qixuan_mortal_path"
+  ],
+  "chronicle": "K10_qixuan_decline"
+}

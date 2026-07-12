@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "vehicles": [
+    {
+      "id": "spirit_boat_low",
+      "display": "低阶灵舟",
+      "realm_min": "QI_REFINING",
+      "speed": 1.0,
+      "fuel": "spirit_stone_shard",
+      "carrier_item": "seeking_immortals:flying_artifact",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 1
+    },
+    {
+      "id": "spirit_boat_mid",
+      "display": "中阶灵舟",
+      "realm_min": "FOUNDATION",
+      "speed": 1.5,
+      "fuel": "spirit_stone",
+      "carrier_item": "seeking_immortals:flying_artifact",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 2
+    },
+    {
+      "id": "chaotic_sea_ferry",
+      "display": "乱星海渡船",
+      "realm_min": "QI_REFINING",
+      "speed": 1.2,
+      "fuel": "seeking_immortals:spirit_stone_shard",
+      "carrier_item": "seeking_immortals:wind_feather_raft_ticket",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 3
+    },
+    {
+      "id": "cloud_sedan",
+      "display": "云轿",
+      "realm_min": "CORE_FORMATION",
+      "speed": 2.0,
+      "fuel": "seeking_immortals:immortal_jade",
+      "carrier_item": "seeking_immortals:flying_artifact",
+      "fuel_item": "seeking_immortals:immortal_jade",
+      "fuel_count": 1
+    },
+    {
+      "id": "wind_feather_raft",
+      "display": "风羽筏",
+      "realm_min": "FOUNDATION",
+      "speed": 1.8,
+      "fuel": "seeking_immortals:spirit_stone_shard",
+      "carrier_item": "seeking_immortals:wind_feather_raft_ticket",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 1
+    },
+    {
+      "id": "bone_wind_cart_vehicle",
+      "display": "御风车",
+      "realm_min": "FOUNDATION",
+      "speed": 1.6,
+      "fuel": "seeking_immortals:soul_fragment",
+      "carrier_item": "seeking_immortals:flying_artifact",
+      "fuel_item": "seeking_immortals:soul_fragment",
+      "fuel_count": 1
+    },
+    {
+      "id": "spirit_boat_chaotic_sea",
+      "display": "乱星海灵舟",
+      "realm_min": "FOUNDATION",
+      "speed": 0,
+      "fuel": "seeking_immortals:spirit_stone_shard",
+      "carrier_item": "seeking_immortals:flying_artifact",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 2
+    },
+    {
+      "id": "teleport_array_ticket",
+      "display": "传送阵令牌",
+      "realm_min": "FOUNDATION",
+      "speed": 0,
+      "fuel": "seeking_immortals:spirit_stone_shard",
+      "carrier_item": "seeking_immortals:teleport_array_pedestal",
+      "fuel_item": "seeking_immortals:spirit_stone_shard",
+      "fuel_count": 5
+    }
+  ]
+}

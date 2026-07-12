@@ -1,0 +1,133 @@
+{
+  "schema_version": 2,
+  "vehicles": [
+    {
+      "id": "spirit_boat_low",
+      "display": "低阶灵舟",
+      "tier": "low",
+      "speed": 1.0,
+      "realm_min": "QI_REFINING",
+      "fuel": "spirit_stone_shard",
+      "setting": {
+        "lore": "低阶灵舟"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "spirit_boat_mid",
+      "display": "中阶灵舟",
+      "tier": "mid",
+      "speed": 1.5,
+      "realm_min": "FOUNDATION",
+      "fuel": "spirit_stone",
+      "setting": {
+        "lore": "中阶灵舟"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_ferry",
+      "display": "乱星海渡船",
+      "tier": "mid",
+      "speed": 1.2,
+      "realm_min": "QI_REFINING",
+      "region": "chaotic_sea",
+      "cost_spirit_stones": 20,
+      "setting": {
+        "lore": "乱星海渡船"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "cloud_sedan",
+      "display": "云轿",
+      "tier": "high",
+      "speed": 2.0,
+      "realm_min": "CORE_FORMATION",
+      "note": "无需灵兽牵引",
+      "setting": {
+        "lore": "云轿"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "wind_feather_raft",
+      "display": "风羽筏",
+      "tier": "mid",
+      "speed": 1.8,
+      "realm_min": "FOUNDATION",
+      "faction": "feiling",
+      "region": "spirit_realm",
+      "setting": {
+        "lore": "风羽筏"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "bone_wind_cart_vehicle",
+      "display": "御风车",
+      "tier": "mid",
+      "speed": 1.6,
+      "realm_min": "FOUNDATION",
+      "note": "兽骨炼制，无需灵兽牵引",
+      "setting": {
+        "lore": "御风车"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "spirit_boat_chaotic_sea",
+      "display": "乱星海灵舟",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "跨海域必备，需灵石驱动。"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "teleport_array_ticket",
+      "display": "传送阵令牌",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "一次性或往返传送凭证。"
+      },
+      "learn_requirements": {
+        "operate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ],
+  "boots_ref": [
+    "cloud_boots",
+    "black_boots"
+  ]
+}

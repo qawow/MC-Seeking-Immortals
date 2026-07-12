@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "boss_extra_loot_index.json",
+  "primary_key": "entries",
+  "entries": [
+    {
+      "id": "0",
+      "display": "0"
+    },
+    {
+      "id": "1",
+      "display": "1"
+    },
+    {
+      "id": "2",
+      "display": "2"
+    }
+  ]
+}

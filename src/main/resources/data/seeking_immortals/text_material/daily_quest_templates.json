@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "source": "汇编§18 结构优先；扩充方向R 支线生成器",
+  "templates": [
+    {
+      "id": "gather_spirit_herb",
+      "display": "采集灵草",
+      "type": "gather",
+      "regions_weight": {
+        "tiannan": 12,
+        "mulan": 6,
+        "chaotic_sea": 5,
+        "dajin": 4
+      },
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "rewards": [
+        "herb_bundle",
+        "contribution_minor"
+      ],
+      "setting": {
+        "lore": "宗门与坊市常年收购年限灵草，品质随区域灵脉变化。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "escort_convoy",
+      "display": "护送车队",
+      "type": "escort",
+      "regions_weight": {
+        "tiannan_border": 10,
+        "mulan": 8,
+        "chaotic_sea": 7
+      },
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "rewards": [
+        "spirit_stone_mid",
+        "rep_faction_minor"
+      ],
+      "setting": {
+        "lore": "战时补给与商路护送是赚取灵石与声望的稳定途径。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "slay_beast_bounty",
+      "display": "灭妖悬赏",
+      "type": "combat",
+      "regions_weight": {
+        "tiannan": 9,
+        "barbarian_wasteland": 8,
+        "chaotic_sea": 6
+      },
+      "beast_tier_max": 6,
+      "rewards": [
+        "beast_material",
+        "bounty_token"
+      ],
+      "setting": {
+        "lore": "妖兽阶位对应十三级体系，高阶赏金需结丹以上组队。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "break_formation_node",
+      "display": "破阵节点",
+      "type": "formation",
+      "regions_weight": {
+        "mulan": 12,
+        "tiannan_border": 6
+      },
+      "war_ref": "mulan_tianlan_war.json",
+      "rewards": [
+        "array_break_token",
+        "war_merit_huangfeng"
+      ],
+      "setting": {
+        "lore": "慕兰战役以破阵与守阵为阶段目标，非刷胜率活动。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "FOUNDATION",
+          "war_phase": "fashi_array_clash"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_courier",
+      "display": "逆星暗递",
+      "type": "stealth",
+      "regions_weight": {
+        "chaotic_sea": 14
+      },
+      "faction": "inverse_star_alliance",
+      "rewards": [
+        "stolen_jade_slip_chance",
+        "inverse_rep"
+      ],
+      "risk": {
+        "star_palace_patrol": 0.25
+      },
+      "setting": {
+        "lore": "乱星海逆星盟走私禁制玉简，星宫格杀勿论。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "FOUNDATION",
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "star_palace_tax_audit",
+      "display": "星宫稽征",
+      "type": "faction",
+      "regions_weight": {
+        "chaotic_sea": 11
+      },
+      "faction": "star_palace",
+      "rewards": [
+        "island_permit",
+        "contribution_star"
+      ],
+      "setting": {
+        "lore": "星宫维持乱星海秩序：登记、征税、清剿逆星。"
+      },
+      "learn_requirements": {
+        "accept": {
+          "realm_min": "FOUNDATION",
+          "branch": "loyalist"
+        }
+      }
+    }
+  ]
+}

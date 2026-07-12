@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "ghost_sect_ban_rules.json",
+  "primary_key": "detection_tags",
+  "entries": [
+    {
+      "id": "yin_qi_aura",
+      "display": "yin_qi_aura"
+    },
+    {
+      "id": "ghost_path_active",
+      "display": "ghost_path_active"
+    },
+    {
+      "id": "failed_hide_talisman",
+      "display": "failed_hide_talisman"
+    }
+  ]
+}

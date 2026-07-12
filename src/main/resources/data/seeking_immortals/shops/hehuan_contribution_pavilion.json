@@ -1,0 +1,37 @@
+{
+  "id": "hehuan_contribution_pavilion",
+  "currency": "item",
+  "currency_item": "seeking_immortals:alliance_merit_token",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 1,
+      "stock": 5
+    },
+    {
+      "id": "chaos_gold",
+      "item": "seeking_immortals:chaos_gold",
+      "count": 1,
+      "cost": 2,
+      "stock": 3
+    },
+    {
+      "id": "demon_suppress_blank",
+      "item": "seeking_immortals:demon_suppress_talisman_blank",
+      "count": 1,
+      "cost": 1,
+      "stock": 6
+    },
+    {
+      "id": "true_dragon_blood",
+      "item": "seeking_immortals:true_dragon_blood",
+      "count": 1,
+      "cost": 2,
+      "stock": 3
+    }
+  ]
+}

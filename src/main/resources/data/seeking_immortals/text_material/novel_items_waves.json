@@ -1,0 +1,2761 @@
+{
+  "schema_version": 2,
+  "note": "凡人修仙传通用物品全量种子；主角绑定化名见 artifacts note",
+  "pills": [
+    {
+      "id": "jiangying_pill",
+      "display": "降尘丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "降尘丹"
+      }
+    },
+    {
+      "id": "huanglong_pill",
+      "display": "黄龙丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "黄龙丹"
+      }
+    },
+    {
+      "id": "heqi_pill",
+      "display": "合气丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "合气丹"
+      }
+    },
+    {
+      "id": "ningshen_pill",
+      "display": "凝神丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "凝神丹"
+      }
+    },
+    {
+      "id": "yanghun_pill",
+      "display": "养魂丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "养魂丹"
+      }
+    },
+    {
+      "id": "xiyu_pill",
+      "display": "洗髓丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "洗髓丹"
+      }
+    },
+    {
+      "id": "huanti_pill",
+      "display": "淬体丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "淬体丹"
+      }
+    },
+    {
+      "id": "huanxue_pill",
+      "display": "换血丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "换血丹"
+      }
+    },
+    {
+      "id": "juling_pill",
+      "display": "聚灵丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "聚灵丹"
+      }
+    },
+    {
+      "id": "ningjin_pill",
+      "display": "凝金丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "凝金丹"
+      }
+    },
+    {
+      "id": "jiedan_pill",
+      "display": "结丹丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "结丹丹"
+      }
+    },
+    {
+      "id": "ningying_pill",
+      "display": "凝婴丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "凝婴丹"
+      }
+    },
+    {
+      "id": "huashen_pill",
+      "display": "化神丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "化神丹"
+      }
+    },
+    {
+      "id": "dujie_pill",
+      "display": "渡劫丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "渡劫丹"
+      }
+    },
+    {
+      "id": "tihu_pill",
+      "display": "替魂丹",
+      "category": "special",
+      "setting": {
+        "lore": "替魂丹"
+      }
+    },
+    {
+      "id": "dingyan_pill",
+      "display": "定颜丹",
+      "category": "special",
+      "setting": {
+        "lore": "定颜丹"
+      }
+    },
+    {
+      "id": "wangchen_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "setting": {
+        "lore": "忘尘丹"
+      }
+    },
+    {
+      "id": "jingxin_pill",
+      "display": "静心丸",
+      "category": "recovery",
+      "setting": {
+        "lore": "静心丸"
+      }
+    },
+    {
+      "id": "jieqi_pill",
+      "display": "解气丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "解气丹"
+      }
+    },
+    {
+      "id": "yangyuan_pill",
+      "display": "养元丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "养元丹"
+      }
+    },
+    {
+      "id": "huiyuan_pill",
+      "display": "回元丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "回元丹"
+      }
+    },
+    {
+      "id": "huichun_pill",
+      "display": "回春丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "回春丹"
+      }
+    },
+    {
+      "id": "qingxin_pill",
+      "display": "清心丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "清心丹"
+      }
+    },
+    {
+      "id": "biyu_pill",
+      "display": "碧玉丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "碧玉丹"
+      }
+    },
+    {
+      "id": "xuanbing_pill",
+      "display": "玄冰丹",
+      "category": "special",
+      "setting": {
+        "lore": "玄冰丹"
+      }
+    },
+    {
+      "id": "lieyan_pill",
+      "display": "烈焰丹",
+      "category": "special",
+      "setting": {
+        "lore": "烈焰丹"
+      }
+    },
+    {
+      "id": "juyuan_pill",
+      "display": "聚元丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "聚元丹"
+      }
+    },
+    {
+      "id": "longhu_pill",
+      "display": "龙虎丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "龙虎丹"
+      }
+    },
+    {
+      "id": "wuxing_pill",
+      "display": "五行丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "五行丹"
+      }
+    },
+    {
+      "id": "xueying_pill",
+      "display": "血影丹",
+      "category": "poison",
+      "setting": {
+        "lore": "血影丹"
+      }
+    },
+    {
+      "id": "tianling_pill",
+      "display": "天灵丹",
+      "category": "legendary",
+      "setting": {
+        "lore": "天灵丹"
+      }
+    },
+    {
+      "id": "anti_poison_pill",
+      "display": "解毒丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "解毒丹"
+      }
+    },
+    {
+      "id": "beast_taming_pill",
+      "display": "驭兽丹",
+      "category": "special",
+      "setting": {
+        "lore": "驭兽丹"
+      }
+    },
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "category": "special",
+      "setting": {
+        "lore": "辟谷丹"
+      }
+    },
+    {
+      "id": "foundation_pill",
+      "display": "筑基丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "筑基丹"
+      }
+    },
+    {
+      "id": "condensation_pill",
+      "display": "凝元丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "凝元丹"
+      }
+    },
+    {
+      "id": "soul_gathering_pill",
+      "display": "聚魂丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "聚魂丹"
+      }
+    },
+    {
+      "id": "bone_marrow_pill",
+      "display": "洗髓丸",
+      "category": "cultivation",
+      "setting": {
+        "lore": "洗髓丸"
+      }
+    },
+    {
+      "id": "calm_spirit_pill",
+      "display": "宁神丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "宁神丹"
+      }
+    },
+    {
+      "id": "blood_qi_pill",
+      "display": "血气丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "血气丹"
+      }
+    },
+    {
+      "id": "marrow_extract_pill",
+      "display": "骨髓丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "骨髓丹"
+      }
+    },
+    {
+      "id": "soul_break_pill",
+      "display": "破魂丹",
+      "category": "poison",
+      "setting": {
+        "lore": "破魂丹"
+      }
+    },
+    {
+      "id": "bu_tian_pill",
+      "display": "补天丹",
+      "category": "legendary",
+      "setting": {
+        "lore": "补天丹"
+      }
+    },
+    {
+      "id": "ninghun_dan",
+      "display": "凝魂丹",
+      "category": "recovery",
+      "setting": {
+        "lore": "凝魂丹"
+      }
+    },
+    {
+      "id": "spirit_condense_minor",
+      "display": "小凝元丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "小凝元丹"
+      }
+    },
+    {
+      "id": "huoyuan_pill",
+      "display": "火元丹",
+      "category": "special",
+      "setting": {
+        "lore": "火元丹"
+      }
+    },
+    {
+      "id": "longevity_fruit_pill",
+      "display": "延寿果丹",
+      "category": "special",
+      "setting": {
+        "lore": "延寿果丹"
+      }
+    },
+    {
+      "id": "forget_dust_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "setting": {
+        "lore": "忘尘丹"
+      }
+    },
+    {
+      "id": "yin_yang_pill",
+      "display": "阴阳丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "阴阳丹"
+      }
+    },
+    {
+      "id": "golden_core_pill",
+      "display": "金丹丸",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "金丹丸"
+      }
+    },
+    {
+      "id": "nascent_soul_pill",
+      "display": "婴变丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "婴变丹"
+      }
+    },
+    {
+      "id": "body_refine_pill",
+      "display": "炼体丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "炼体丹"
+      }
+    },
+    {
+      "id": "meridian_open_pill",
+      "display": "通脉丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "通脉丹"
+      }
+    },
+    {
+      "id": "spirit_seed_pill",
+      "display": "灵种丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "灵种丹"
+      }
+    },
+    {
+      "id": "ghost_cultivate_pill",
+      "display": "炼鬼丹",
+      "category": "poison",
+      "setting": {
+        "lore": "炼鬼丹"
+      }
+    },
+    {
+      "id": "demonic_blood_pill",
+      "display": "魔血丹",
+      "category": "poison",
+      "setting": {
+        "lore": "魔血丹"
+      }
+    },
+    {
+      "id": "hehuan_pill",
+      "display": "合欢丹",
+      "category": "special",
+      "setting": {
+        "lore": "合欢丹"
+      }
+    },
+    {
+      "id": "illusion_pill",
+      "display": "幻心丹",
+      "category": "special",
+      "setting": {
+        "lore": "幻心丹"
+      }
+    },
+    {
+      "id": "tribulation_guard_pill",
+      "display": "护劫丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "护劫丹"
+      }
+    },
+    {
+      "id": "void_condense_pill",
+      "display": "炼虚丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "炼虚丹"
+      }
+    },
+    {
+      "id": "spirit_severing_pill",
+      "display": "炼神丹",
+      "category": "breakthrough",
+      "setting": {
+        "lore": "炼神丹"
+      }
+    },
+    {
+      "id": "pressure_resist_pill",
+      "display": "抗压丹",
+      "category": "special",
+      "setting": {
+        "lore": "抗压丹"
+      }
+    },
+    {
+      "id": "spirit_realm_condense_pill",
+      "display": "灵界凝元丹",
+      "category": "legendary",
+      "setting": {
+        "lore": "灵界凝元丹"
+      }
+    },
+    {
+      "id": "star_sea_pill",
+      "display": "星海丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "星海丹"
+      }
+    },
+    {
+      "id": "mulan_wind_pill",
+      "display": "慕兰风灵丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "慕兰风灵丹"
+      }
+    },
+    {
+      "id": "barbarian_strength_pill",
+      "display": "蛮力丹",
+      "category": "cultivation",
+      "setting": {
+        "lore": "蛮力丹"
+      }
+    },
+    {
+      "id": "diyuan_adapt_pill",
+      "display": "地渊适应丹",
+      "category": "special",
+      "setting": {
+        "lore": "地渊适应丹"
+      }
+    },
+    {
+      "id": "tianyuan_merit_pill",
+      "display": "天渊功勋丹",
+      "category": "special",
+      "setting": {
+        "lore": "天渊功勋丹"
+      }
+    },
+    {
+      "id": "ghost_gate_pill",
+      "display": "鬼灵门阴丹",
+      "category": "poison",
+      "setting": {
+        "lore": "鬼灵门阴丹"
+      }
+    },
+    {
+      "id": "poison_insect_pill",
+      "display": "毒虫丸",
+      "category": "poison",
+      "setting": {
+        "lore": "毒虫丸"
+      }
+    },
+    {
+      "id": "blood_curse_pill",
+      "display": "血咒丹",
+      "category": "poison",
+      "setting": {
+        "lore": "血咒丹"
+      }
+    },
+    {
+      "id": "fox_illusion_pill",
+      "display": "天狐幻丹",
+      "category": "special",
+      "setting": {
+        "lore": "天狐幻丹"
+      }
+    }
+  ],
+  "herbs": [
+    {
+      "id": "yellow_essence_grass",
+      "display": "黄精草",
+      "tier": "common",
+      "setting": {
+        "lore": "黄精草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "blood_ginseng",
+      "display": "血参",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "血参"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_mushroom",
+      "display": "灵菇",
+      "tier": "common",
+      "setting": {
+        "lore": "灵菇"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "seven_rain_lotus",
+      "display": "七霞莲",
+      "tier": "legendary",
+      "setting": {
+        "lore": "七霞莲"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "thousand_year_ginseng",
+      "display": "千年人参",
+      "tier": "rare",
+      "setting": {
+        "lore": "千年人参"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "lingzhi_thousand_year",
+      "display": "千年灵芝",
+      "tier": "rare",
+      "setting": {
+        "lore": "千年灵芝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_lotus",
+      "display": "冰莲",
+      "tier": "rare",
+      "setting": {
+        "lore": "冰莲"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_heart_herb",
+      "display": "火心草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "火心草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_sky_grass",
+      "display": "虚天灵草",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚天灵草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_marrow_root",
+      "display": "灵髓根",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵髓根"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "golden_silk_flower",
+      "display": "金蚕花",
+      "tier": "rare",
+      "setting": {
+        "lore": "金蚕花"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_moon_orchid",
+      "display": "阴月兰",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴月兰"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yang_sun_fruit",
+      "display": "阳日果",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "阳日果"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "purple_bamboo_shoot",
+      "display": "紫竹笋",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "紫竹笋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_sea_coral_herb",
+      "display": "星海珊瑚草",
+      "tier": "rare",
+      "setting": {
+        "lore": "星海珊瑚草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "barbarian_beast_lichen",
+      "display": "蛮荒兽苔",
+      "tier": "rare",
+      "setting": {
+        "lore": "蛮荒兽苔"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "golden_thunder_bamboo",
+      "display": "金雷竹",
+      "tier": "legendary",
+      "setting": {
+        "lore": "金雷竹"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_nourish_wood",
+      "display": "养魂木",
+      "tier": "legendary",
+      "setting": {
+        "lore": "养魂木"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "cold_jade_herb",
+      "display": "寒玉草",
+      "tier": "rare",
+      "setting": {
+        "lore": "寒玉草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ghost_yin_herb",
+      "display": "阴魂草",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴魂草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_blood_flower",
+      "display": "魔血花",
+      "tier": "rare",
+      "setting": {
+        "lore": "魔血花"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_spirit_grass",
+      "display": "风灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "风灵草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "earth_marrow_herb",
+      "display": "地髓草",
+      "tier": "rare",
+      "setting": {
+        "lore": "地髓草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_spirit_fruit",
+      "display": "火灵果",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "火灵果"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "water_moon_lily",
+      "display": "水月莲",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "水月莲"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "metal_spirit_vine",
+      "display": "金灵藤",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "金灵藤"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wood_spirit_root",
+      "display": "木灵根",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "木灵根"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fallen_demon_herb",
+      "display": "坠魔草",
+      "tier": "legendary",
+      "setting": {
+        "lore": "坠魔草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "display": "禁地血草",
+      "tier": "rare",
+      "setting": {
+        "lore": "禁地血草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yinming_mist_orchid",
+      "display": "阴冥雾兰",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴冥雾兰"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "chaotic_sea_kelp",
+      "display": "乱星海藻",
+      "tier": "common",
+      "setting": {
+        "lore": "乱星海藻"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fengyuan_clan_ginseng",
+      "display": "风元世家参",
+      "tier": "rare",
+      "setting": {
+        "lore": "风元世家参"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "diyuan_pressure_moss",
+      "display": "地渊重压苔",
+      "tier": "rare",
+      "setting": {
+        "lore": "地渊重压苔"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wild_land_spirit_sand",
+      "display": "荒原灵砂",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "荒原灵砂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "tiannan_fire_grass",
+      "display": "天南火灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "天南火灵草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "dajin_spirit_rice",
+      "display": "大晋灵稻",
+      "tier": "common",
+      "setting": {
+        "lore": "大晋灵稻"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mulan_spirit_grass",
+      "display": "慕兰灵草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "慕兰灵草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ghost_marsh_weed",
+      "display": "鬼沼阴藻",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "鬼沼阴藻"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ancient_ruin_moss",
+      "display": "废墟古苔",
+      "tier": "rare",
+      "setting": {
+        "lore": "废墟古苔"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_vein_grass",
+      "display": "灵脉草",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵脉草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_core_herb",
+      "display": "妖丹伴生草",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖丹伴生草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "tribulation_thunder_herb",
+      "display": "劫雷草",
+      "tier": "legendary",
+      "setting": {
+        "lore": "劫雷草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "materials": [
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "tier": "common",
+      "setting": {
+        "lore": "下品灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_mid",
+      "display": "中品灵石",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "中品灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_high",
+      "display": "上品灵石",
+      "tier": "rare",
+      "setting": {
+        "lore": "上品灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_top",
+      "display": "极品灵石",
+      "tier": "legendary",
+      "setting": {
+        "lore": "极品灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_key_fragment",
+      "display": "虚天钥碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚天钥碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "xuanbing_crystal",
+      "display": "玄冰晶",
+      "tier": "rare",
+      "setting": {
+        "lore": "玄冰晶"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "lieyan_iron_sand",
+      "display": "烈焰铁砂",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "烈焰铁砂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_iron_ingot",
+      "display": "灵铁锭",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵铁锭"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "gold_silver_ore_spirit",
+      "display": "金银灵矿",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "金银灵矿"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_core_low",
+      "display": "低阶妖丹",
+      "tier": "common",
+      "setting": {
+        "lore": "低阶妖丹"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_core_mid",
+      "display": "中阶妖丹",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "中阶妖丹"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_core_high",
+      "display": "高阶妖丹",
+      "tier": "rare",
+      "setting": {
+        "lore": "高阶妖丹"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_hide_thick",
+      "display": "厚兽皮",
+      "tier": "common",
+      "setting": {
+        "lore": "厚兽皮"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_bone_marrow",
+      "display": "兽骨髓",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "兽骨髓"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_crystal_shard",
+      "display": "魂晶碎片",
+      "tier": "rare",
+      "setting": {
+        "lore": "魂晶碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "space_rift_silk",
+      "display": "裂隙丝",
+      "tier": "legendary",
+      "setting": {
+        "lore": "裂隙丝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ancient_spirit_treasure_shard",
+      "display": "古宝残片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "古宝残片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_treasure_essence",
+      "display": "灵宝精华",
+      "tier": "legendary",
+      "setting": {
+        "lore": "灵宝精华"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "talisman_paper_high",
+      "display": "高阶符纸",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "高阶符纸"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "talisman_ink_spirit",
+      "display": "灵墨",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵墨"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "puppet_core_spirit",
+      "display": "傀儡灵核",
+      "tier": "rare",
+      "setting": {
+        "lore": "傀儡灵核"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "formation_flag_jade",
+      "display": "阵旗玉",
+      "tier": "rare",
+      "setting": {
+        "lore": "阵旗玉"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "cold_jade_raw",
+      "display": "寒玉原石",
+      "tier": "rare",
+      "setting": {
+        "lore": "寒玉原石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mulan_spirit_sand",
+      "display": "慕兰灵砂",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "慕兰灵砂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_metal_essence",
+      "display": "阴金精",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴金精"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "refine_copper",
+      "display": "精铜",
+      "tier": "common",
+      "setting": {
+        "lore": "精铜"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mystic_silver",
+      "display": "秘银",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "秘银"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "gold_essence",
+      "display": "金精",
+      "tier": "rare",
+      "setting": {
+        "lore": "金精"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "silver_essence",
+      "display": "银精",
+      "tier": "rare",
+      "setting": {
+        "lore": "银精"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "dark_iron",
+      "display": "玄铁",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "玄铁"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_iron",
+      "display": "星辰铁",
+      "tier": "rare",
+      "setting": {
+        "lore": "星辰铁"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_tendon",
+      "display": "妖兽筋",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽筋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_fang",
+      "display": "妖兽牙",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽牙"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_scale",
+      "display": "妖兽鳞",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽鳞"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_blood_concentrate",
+      "display": "妖血凝",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖血凝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_wood_chip",
+      "display": "养魂木片",
+      "tier": "rare",
+      "setting": {
+        "lore": "养魂木片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_jade_raw",
+      "display": "养魂玉胚",
+      "tier": "rare",
+      "setting": {
+        "lore": "养魂玉胚"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_bone",
+      "display": "魔骨",
+      "tier": "rare",
+      "setting": {
+        "lore": "魔骨"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ghost_silk",
+      "display": "阴蚕丝",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴蚕丝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "thunder_bamboo_fiber",
+      "display": "雷竹纤维",
+      "tier": "rare",
+      "setting": {
+        "lore": "雷竹纤维"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_crystal",
+      "display": "虚空晶",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚空晶"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_sand_refined",
+      "display": "精炼灵砂",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "精炼灵砂"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "array_core_fragment",
+      "display": "阵芯碎片",
+      "tier": "rare",
+      "setting": {
+        "lore": "阵芯碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mirror_glass_spirit",
+      "display": "灵镜玻",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵镜玻"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flying_sword_blank",
+      "display": "剑胚",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "剑胚"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "shield_plate_spirit",
+      "display": "灵盾板",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵盾板"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "bell_bronze_spirit",
+      "display": "灵钟铜",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵钟铜"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "rope_silk_spirit",
+      "display": "缚灵丝",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "缚灵丝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "bag_skin_space",
+      "display": "储物袋皮",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "储物袋皮"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ring_metal_spirit",
+      "display": "戒灵金",
+      "tier": "rare",
+      "setting": {
+        "lore": "戒灵金"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "pearl_sea_spirit",
+      "display": "海珠",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "海珠"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "coral_spirit_stone",
+      "display": "珊瑚灵石",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "珊瑚灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "turtle_shell_spirit",
+      "display": "灵龟壳",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵龟壳"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "snake_gall_spirit",
+      "display": "灵蛇胆",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵蛇胆"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "gold_devour_beetle_shell",
+      "display": "噬金虫壳",
+      "tier": "legendary",
+      "setting": {
+        "lore": "噬金虫壳"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_cry_beast_essence",
+      "display": "啼魂兽精",
+      "tier": "legendary",
+      "setting": {
+        "lore": "啼魂兽精"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "primordial_magnet_ore",
+      "display": "元磁矿",
+      "tier": "legendary",
+      "setting": {
+        "lore": "元磁矿"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "rivers_mountains_pearl_shard",
+      "display": "山河珠碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "山河珠碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_nurture_vase_shard",
+      "display": "灵润青瓶碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "灵润青瓶碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "八灵尺碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_sky_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚天鼎碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "green_bamboo_spirit",
+      "display": "青竹灵",
+      "tier": "rare",
+      "setting": {
+        "lore": "青竹灵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "flying_sword_low",
+      "display": "低阶飞剑",
+      "tier": "low",
+      "type": "flying_sword",
+      "game_tier": 2,
+      "setting": {
+        "lore": "低阶飞剑"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flying_sword_mid",
+      "display": "中阶飞剑",
+      "tier": "mid",
+      "type": "flying_sword",
+      "game_tier": 4,
+      "setting": {
+        "lore": "中阶飞剑"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flying_sword_high",
+      "display": "高阶飞剑",
+      "tier": "high",
+      "type": "flying_sword",
+      "game_tier": 6,
+      "setting": {
+        "lore": "高阶飞剑"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flying_sword_top",
+      "display": "顶阶飞剑",
+      "tier": "high",
+      "type": "flying_sword",
+      "game_tier": 8,
+      "setting": {
+        "lore": "顶阶飞剑"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yellow_umbrella",
+      "display": "黄罗伞",
+      "tier": "mid",
+      "type": "defense",
+      "game_tier": 4,
+      "setting": {
+        "lore": "黄罗伞"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "black_turtle_shield",
+      "display": "玄龟盾",
+      "tier": "mid",
+      "type": "defense",
+      "game_tier": 4,
+      "setting": {
+        "lore": "玄龟盾"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_cloud_fan",
+      "display": "火云扇",
+      "tier": "high",
+      "type": "attack",
+      "game_tier": 6,
+      "setting": {
+        "lore": "火云扇"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_silk_ribbon",
+      "display": "冰蚕丝带",
+      "tier": "mid",
+      "type": "control",
+      "game_tier": 5,
+      "setting": {
+        "lore": "冰蚕丝带"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_devouring_banner",
+      "display": "摄魂幡",
+      "tier": "high",
+      "type": "soul",
+      "game_tier": 7,
+      "setting": {
+        "lore": "摄魂幡"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "purple_gold_bowl",
+      "display": "紫金钵",
+      "tier": "ancient_treasure",
+      "type": "capture",
+      "game_tier": 9,
+      "setting": {
+        "lore": "紫金钵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_refining_pot",
+      "display": "炼虚鼎（仿）",
+      "tier": "ancient_treasure",
+      "type": "refinement",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "炼虚鼎（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "bamboo_spirit_sword_set",
+      "display": "青竹灵剑阵（仿）",
+      "tier": "spirit_treasure",
+      "type": "flying_sword",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "青竹灵剑阵（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_chasing_boat",
+      "display": "逐星舟",
+      "tier": "high",
+      "type": "vehicle",
+      "game_tier": 7,
+      "setting": {
+        "lore": "逐星舟"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_thunder_raft",
+      "display": "风雷筏",
+      "tier": "high",
+      "type": "vehicle",
+      "game_tier": 7,
+      "setting": {
+        "lore": "风雷筏"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "golden_armor_talisman_treasure",
+      "display": "金刚符宝",
+      "tier": "mid",
+      "type": "talisman_treasure",
+      "game_tier": 5,
+      "setting": {
+        "lore": "金刚符宝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "illusion_mirror_disk",
+      "display": "幻镜盘",
+      "tier": "high",
+      "type": "illusion",
+      "game_tier": 6,
+      "setting": {
+        "lore": "幻镜盘"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_soul_bell",
+      "display": "镇兽钟",
+      "tier": "mid",
+      "type": "beast_control",
+      "game_tier": 5,
+      "setting": {
+        "lore": "镇兽钟"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "space_storage_ring_low",
+      "display": "低阶储物戒",
+      "tier": "low",
+      "type": "storage",
+      "game_tier": 2,
+      "setting": {
+        "lore": "低阶储物戒"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "space_storage_ring_high",
+      "display": "高阶储物戒",
+      "tier": "high",
+      "type": "storage",
+      "game_tier": 6,
+      "setting": {
+        "lore": "高阶储物戒"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "xuanguang_mirror",
+      "display": "玄光镜",
+      "tier": "ancient_treasure",
+      "type": "soul_attack",
+      "game_tier": 10,
+      "setting": {
+        "lore": "玄光镜"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "xuanhuang_mirror",
+      "display": "玄黄镜",
+      "tier": "ancient_treasure",
+      "type": "defense",
+      "game_tier": 10,
+      "setting": {
+        "lore": "玄黄镜"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑（仿）",
+      "tier": "high",
+      "type": "flying_sword",
+      "game_tier": 6,
+      "note": "合规化名",
+      "setting": {
+        "lore": "青竹灵云剑（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demon_ward_thunder_pearl",
+      "display": "辟邪神雷珠（仿）",
+      "tier": "spirit_treasure",
+      "type": "thunder",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "辟邪神雷珠（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_nurture_green_vase",
+      "display": "灵润青瓶（仿）",
+      "tier": "spirit_treasure",
+      "type": "spirit_liquid",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "灵润青瓶（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_sky_cauldron_replica",
+      "display": "虚天鼎（仿）",
+      "tier": "ancient_treasure",
+      "type": "refinement",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "虚天鼎（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "eight_spirit_ruler_replica",
+      "display": "八灵尺（仿）",
+      "tier": "spirit_treasure",
+      "type": "ruler",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "八灵尺（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "primordial_magnet_peak_shard",
+      "display": "元磁山核碎片",
+      "tier": "legendary",
+      "type": "magnet",
+      "game_tier": 12,
+      "setting": {
+        "lore": "元磁山核碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "rivers_mountains_pearl_replica",
+      "display": "山河珠（仿）",
+      "tier": "spirit_treasure",
+      "type": "world",
+      "game_tier": 11,
+      "note": "合规化名",
+      "setting": {
+        "lore": "山河珠（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "gold_devour_beetle_nest",
+      "display": "噬金虫巢（仿）",
+      "tier": "ancient_treasure",
+      "type": "swarm",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "噬金虫巢（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_cry_beast_token",
+      "display": "啼魂兽牌（仿）",
+      "tier": "ancient_treasure",
+      "type": "soul",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "啼魂兽牌（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "flat_mirror_treasure",
+      "display": "平镜古宝",
+      "tier": "ancient_treasure",
+      "type": "mirror",
+      "game_tier": 9,
+      "setting": {
+        "lore": "平镜古宝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "nine_dragon_cauldron_replica",
+      "display": "九龙神火罩（仿）",
+      "tier": "ancient_treasure",
+      "type": "fire",
+      "game_tier": 10,
+      "note": "合规化名",
+      "setting": {
+        "lore": "九龙神火罩（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_fire_wheels",
+      "display": "风火轮",
+      "tier": "high",
+      "type": "vehicle",
+      "game_tier": 7,
+      "setting": {
+        "lore": "风火轮"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_yang_disk",
+      "display": "阴阳盘",
+      "tier": "high",
+      "type": "formation",
+      "game_tier": 6,
+      "setting": {
+        "lore": "阴阳盘"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "blood_demon_blade",
+      "display": "血魔刀",
+      "tier": "high",
+      "type": "attack",
+      "game_tier": 7,
+      "setting": {
+        "lore": "血魔刀"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ghost_capturing_chain",
+      "display": "缚鬼链",
+      "tier": "mid",
+      "type": "soul",
+      "game_tier": 5,
+      "setting": {
+        "lore": "缚鬼链"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "turtle_puppet_shell",
+      "display": "玄龟傀儡壳",
+      "tier": "high",
+      "type": "puppet",
+      "game_tier": 7,
+      "setting": {
+        "lore": "玄龟傀儡壳"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "silver_moon_disk",
+      "display": "银月盘",
+      "tier": "ancient_treasure",
+      "type": "attack",
+      "game_tier": 9,
+      "setting": {
+        "lore": "银月盘"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "heaven_covering_silk",
+      "display": "遮天绫",
+      "tier": "high",
+      "type": "control",
+      "game_tier": 8,
+      "setting": {
+        "lore": "遮天绫"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_beast_bag",
+      "display": "灵兽袋",
+      "tier": "mid",
+      "type": "beast",
+      "game_tier": 5,
+      "setting": {
+        "lore": "灵兽袋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "sound_attack_bell",
+      "display": "音攻钟",
+      "tier": "high",
+      "type": "sound",
+      "game_tier": 7,
+      "setting": {
+        "lore": "音攻钟"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_spear_treasure",
+      "display": "火矛宝",
+      "tier": "mid",
+      "type": "attack",
+      "game_tier": 5,
+      "setting": {
+        "lore": "火矛宝"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_needle_set",
+      "display": "冰针套",
+      "tier": "mid",
+      "type": "attack",
+      "game_tier": 5,
+      "setting": {
+        "lore": "冰针套"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wood_staff_spirit",
+      "display": "灵木杖",
+      "tier": "low",
+      "type": "attack",
+      "game_tier": 3,
+      "setting": {
+        "lore": "灵木杖"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "metal_dagger_spirit",
+      "display": "灵匕",
+      "tier": "low",
+      "type": "attack",
+      "game_tier": 3,
+      "setting": {
+        "lore": "灵匕"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "talismans": [
+    {
+      "id": "fireball_talisman",
+      "display": "火球符",
+      "tier": "low",
+      "setting": {
+        "lore": "火球符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_shard_talisman",
+      "display": "冰锥符",
+      "tier": "low",
+      "setting": {
+        "lore": "冰锥符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "golden_armor_talisman",
+      "display": "金刚符",
+      "tier": "mid",
+      "setting": {
+        "lore": "金刚符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "escape_talisman",
+      "display": "遁逃符",
+      "tier": "mid",
+      "setting": {
+        "lore": "遁逃符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "thunder_talisman",
+      "display": "雷击符",
+      "tier": "mid",
+      "setting": {
+        "lore": "雷击符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wind_blade_talisman",
+      "display": "风刃符",
+      "tier": "low",
+      "setting": {
+        "lore": "风刃符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "earth_wall_talisman",
+      "display": "土墙符",
+      "tier": "low",
+      "setting": {
+        "lore": "土墙符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "illusion_talisman",
+      "display": "迷踪符",
+      "tier": "mid",
+      "setting": {
+        "lore": "迷踪符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "soul_lock_talisman",
+      "display": "锁魂符",
+      "tier": "high",
+      "setting": {
+        "lore": "锁魂符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_escape_talisman",
+      "display": "破空遁符",
+      "tier": "high",
+      "setting": {
+        "lore": "破空遁符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_contract_talisman",
+      "display": "灵兽契约符",
+      "tier": "mid",
+      "setting": {
+        "lore": "灵兽契约符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_palace_patrol_talisman",
+      "display": "星宫巡海符",
+      "tier": "mid",
+      "setting": {
+        "lore": "星宫巡海符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "teleport_talisman_chaotic_sea",
+      "display": "乱星海传送符",
+      "tier": "high",
+      "setting": {
+        "lore": "乱星海传送符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "inverse_star_cipher_talisman",
+      "display": "逆星暗号符",
+      "tier": "mid",
+      "setting": {
+        "lore": "逆星暗号符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "bu_tian_talisman",
+      "display": "补天符",
+      "tier": "legendary",
+      "setting": {
+        "lore": "补天符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_chain_talisman",
+      "display": "缚灵符",
+      "tier": "mid",
+      "setting": {
+        "lore": "缚灵符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_seal_talisman",
+      "display": "火封符",
+      "tier": "mid",
+      "setting": {
+        "lore": "火封符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ice_prison_talisman",
+      "display": "冰囚符",
+      "tier": "mid",
+      "setting": {
+        "lore": "冰囚符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "lightning_strike_talisman",
+      "display": "天雷符",
+      "tier": "high",
+      "setting": {
+        "lore": "天雷符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "earth_escape_talisman",
+      "display": "土遁符",
+      "tier": "mid",
+      "setting": {
+        "lore": "土遁符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wood_bind_talisman",
+      "display": "木缚符",
+      "tier": "low",
+      "setting": {
+        "lore": "木缚符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "metal_blade_talisman",
+      "display": "金刃符",
+      "tier": "low",
+      "setting": {
+        "lore": "金刃符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "water_shield_talisman",
+      "display": "水盾符",
+      "tier": "low",
+      "setting": {
+        "lore": "水盾符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_soul_talisman",
+      "display": "阴魂符",
+      "tier": "high",
+      "setting": {
+        "lore": "阴魂符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yang_flame_talisman",
+      "display": "阳焰符",
+      "tier": "mid",
+      "setting": {
+        "lore": "阳焰符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_palace_key_talisman",
+      "display": "虚天引路符",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚天引路符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "tribulation_ward_talisman",
+      "display": "护劫符",
+      "tier": "high",
+      "setting": {
+        "lore": "护劫符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "consumables": [
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "category": "currency",
+      "setting": {
+        "lore": "下品灵石"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_mid_bulk",
+      "display": "中品灵石袋",
+      "category": "currency",
+      "setting": {
+        "lore": "中品灵石袋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_stone_high_bulk",
+      "display": "上品灵石袋",
+      "category": "currency",
+      "setting": {
+        "lore": "上品灵石袋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "display": "聚灵阵盘",
+      "category": "formation_consumable",
+      "setting": {
+        "lore": "聚灵阵盘"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_feed_spirit",
+      "display": "灵兽饵",
+      "category": "beast",
+      "setting": {
+        "lore": "灵兽饵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "storage_bag_low",
+      "display": "低阶储物袋",
+      "category": "storage",
+      "setting": {
+        "lore": "低阶储物袋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "storage_bag_high",
+      "display": "高阶储物袋",
+      "category": "storage",
+      "setting": {
+        "lore": "高阶储物袋"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "spirit_water_flask",
+      "display": "灵泉瓶",
+      "category": "recovery",
+      "setting": {
+        "lore": "灵泉瓶"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "healing_salve",
+      "display": "疗伤膏",
+      "category": "recovery",
+      "setting": {
+        "lore": "疗伤膏"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "poison_antidote_pack",
+      "display": "解毒包",
+      "category": "recovery",
+      "setting": {
+        "lore": "解毒包"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "smoke_bomb_spirit",
+      "display": "迷烟弹",
+      "category": "special",
+      "setting": {
+        "lore": "迷烟弹"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "sound_beacon",
+      "display": "传音符",
+      "category": "special",
+      "setting": {
+        "lore": "传音符"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "chaotic_sea_faction_war.json",
+  "primary_key": "phases",
+  "entries": [
+    {
+      "id": "phase_outer_sea_register",
+      "display": "外海登记与征税"
+    },
+    {
+      "id": "phase_inverse_recruit",
+      "display": "逆星暗线"
+    },
+    {
+      "id": "phase_patrol_clash",
+      "display": "巡防与伏击"
+    },
+    {
+      "id": "phase_void_palace_stakes",
+      "display": "虚天殿筹码"
+    },
+    {
+      "id": "phase_internal_star_palace",
+      "display": "星宫派系"
+    }
+  ]
+}

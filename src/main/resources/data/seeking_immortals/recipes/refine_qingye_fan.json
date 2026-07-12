@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "BSS",
+    "B  ",
+    "BSS"
+  ],
+  "key": {
+    "B": {
+      "item": "seeking_immortals:ironwood"
+    },
+    "S": {
+      "item": "seeking_immortals:spirit_stone_shard"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:qingye_leaf_fan",
+    "count": 1
+  }
+}

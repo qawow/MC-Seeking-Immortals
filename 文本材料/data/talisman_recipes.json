@@ -1,0 +1,830 @@
+{
+  "schema_version": 3,
+  "craft_station": "talisman_table",
+  "rules_ref": "talisman_catalog.json#craft_rules",
+  "paper_grade_map_ref": "talisman_materials_catalog.json",
+  "recipes": [
+    {
+      "id": "craft_mirage_heart",
+      "talisman_id": "mirage_heart_talisman",
+      "display": "幻心符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "mirage_sand",
+          "count": 1
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 1
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "幻心符"
+      }
+    },
+    {
+      "id": "craft_soul_scatter",
+      "talisman_id": "soul_scatter_talisman",
+      "display": "散魂符",
+      "paper_grade": "high_spirit",
+      "paper_item_id": "talisman_paper_high",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 2
+        },
+        {
+          "id": "soul_moss",
+          "count": 2
+        }
+      ],
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.45,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "散魂符"
+      }
+    },
+    {
+      "id": "craft_fire_burst",
+      "talisman_id": "fire_burst_talisman",
+      "display": "爆炎符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 1
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 1
+        },
+        {
+          "id": "fire_feather",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.75,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "爆炎符"
+      }
+    },
+    {
+      "id": "craft_ice_seal",
+      "talisman_id": "ice_seal_talisman",
+      "display": "冰封符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 1
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 1
+        },
+        {
+          "id": "hundred_year_ice",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.72,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "冰封符"
+      }
+    },
+    {
+      "id": "craft_body_guard",
+      "talisman_id": "body_guard_talisman",
+      "display": "护体符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "spirit_plant_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 2
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.78,
+      "yield": 3,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "护体符"
+      }
+    },
+    {
+      "id": "craft_spirit_fix",
+      "talisman_id": "spirit_fix_talisman",
+      "display": "定神符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "spirit_plant_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 1
+        },
+        {
+          "id": "soul_moss",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.8,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "定神符"
+      }
+    },
+    {
+      "id": "craft_escape_heaven",
+      "talisman_id": "escape_heaven_talisman",
+      "display": "遁天符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 3
+        },
+        {
+          "id": "spirit_silk",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 5
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "遁天符"
+      }
+    },
+    {
+      "id": "craft_anti_demon",
+      "talisman_id": "anti_demon_talisman",
+      "display": "驱魔符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "thunder_stone",
+          "count": 1
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.6,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "驱魔符"
+      }
+    },
+    {
+      "id": "craft_illusion_dispel",
+      "talisman_id": "illusion_dispel_talisman",
+      "display": "破幻符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.58,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "破幻符"
+      }
+    },
+    {
+      "id": "craft_thunder",
+      "talisman_id": "thunder_talisman",
+      "display": "雷霄符",
+      "paper_grade": "high_spirit",
+      "paper_item_id": "talisman_paper_high",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 3
+        },
+        {
+          "id": "thunder_stone",
+          "count": 2
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.45,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "雷霄符"
+      }
+    },
+    {
+      "id": "craft_ghost_hide",
+      "talisman_id": "ghost_hide_talisman",
+      "display": "敛魂符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 1
+        },
+        {
+          "id": "ghost_wood",
+          "count": 1
+        },
+        {
+          "id": "yin_essence_ore",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.65,
+      "yield": 2,
+      "path": "ghost",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "敛魂符"
+      }
+    },
+    {
+      "id": "craft_yin_protect",
+      "talisman_id": "yin_protect_talisman",
+      "display": "阴灵护符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "spirit_plant_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "nether_bone_grass",
+          "count": 2
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.52,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "阴灵护符"
+      }
+    },
+    {
+      "id": "craft_soul_lock",
+      "talisman_id": "soul_lock_talisman",
+      "display": "锁魂符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 1
+        },
+        {
+          "id": "yin_essence_ore",
+          "count": 1
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.48,
+      "yield": 1,
+      "karma": "yin",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "锁魂符"
+      }
+    },
+    {
+      "id": "craft_teleport_array",
+      "talisman_id": "teleport_array_talisman",
+      "display": "传送符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 4
+        },
+        {
+          "id": "space_crystal",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 10
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.4,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "传送符"
+      }
+    },
+    {
+      "id": "craft_beast_contract",
+      "talisman_id": "beast_contract_talisman",
+      "display": "御兽契符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "beast_blood_vial",
+          "count": 2
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.55,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "御兽契符"
+      }
+    },
+    {
+      "id": "craft_space_anchor",
+      "talisman_id": "space_anchor_talisman",
+      "display": "定空符",
+      "paper_grade": "high_spirit",
+      "paper_item_id": "talisman_paper_high",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 3
+        },
+        {
+          "id": "space_crystal",
+          "count": 2
+        }
+      ],
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.38,
+      "yield": 1,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "定空符"
+      }
+    },
+    {
+      "id": "craft_wind_blade",
+      "talisman_id": "wind_blade_talisman",
+      "display": "风刃符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "beast_blood_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 1
+        },
+        {
+          "id": "wind_sage_grass",
+          "count": 2
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.74,
+      "yield": 3,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "风刃符"
+      }
+    },
+    {
+      "id": "craft_earth_wall",
+      "talisman_id": "earth_wall_talisman",
+      "display": "土墙符",
+      "paper_grade": "low_spirit",
+      "paper_item_id": "talisman_paper",
+      "ink": "spirit_plant_ink",
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 2
+        },
+        {
+          "id": "earth_spine_root",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.76,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "土墙符"
+      }
+    },
+    {
+      "id": "craft_spirit_chain",
+      "talisman_id": "spirit_chain_talisman",
+      "display": "缚灵符",
+      "paper_grade": "mid_spirit",
+      "paper_item_id": "talisman_paper_mid",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 2
+        },
+        {
+          "id": "star_moon_grass",
+          "count": 1
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.5,
+      "yield": 2,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "缚灵符"
+      }
+    },
+    {
+      "id": "craft_three_pure_thunder",
+      "talisman_id": "three_pure_thunder_talisman",
+      "display": "三清雷霄符",
+      "paper_grade": "high_spirit",
+      "paper_item_id": "talisman_paper_high",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 5
+        },
+        {
+          "id": "thunder_essence_lotus",
+          "count": 1
+        },
+        {
+          "id": "thunder_stone",
+          "count": 3
+        }
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "base_success_rate": 0.15,
+      "yield": 1,
+      "rarity": "legendary",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "三清雷霄符"
+      }
+    },
+    {
+      "id": "craft_life_save",
+      "talisman_id": "life_save_talisman",
+      "display": "替身符",
+      "paper_grade": "high_spirit",
+      "paper_item_id": "talisman_paper_high",
+      "ink": "essence_herb_ink",
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 6
+        },
+        {
+          "id": "phoenix_tail_fern",
+          "count": 1
+        },
+        {
+          "id": "soul_gathering_stone",
+          "count": 2
+        }
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "base_success_rate": 0.1,
+      "yield": 1,
+      "rarity": "legendary",
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "NASCENT_SOUL",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "替身符"
+      }
+    },
+    {
+      "id": "recipe_invisibility_talisman",
+      "talisman_id": "invisibility_talisman",
+      "paper_grade": "low_spirit",
+      "ink": "beast_blood_ink",
+      "base_success_rate": 0.65,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_invisibility_talisman"
+      }
+    },
+    {
+      "id": "recipe_binding_talisman",
+      "talisman_id": "binding_talisman",
+      "paper_grade": "low_spirit",
+      "ink": "beast_blood_ink",
+      "base_success_rate": 0.65,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_binding_talisman"
+      }
+    },
+    {
+      "id": "recipe_gold_armor_talisman",
+      "talisman_id": "gold_armor_talisman",
+      "paper_grade": "low_spirit",
+      "ink": "beast_blood_ink",
+      "base_success_rate": 0.65,
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "manual",
+            "sect_talisman_hall"
+          ],
+          "note": "需丹方/符方与丹炉或符笔品阶匹配。"
+        }
+      },
+      "setting": {
+        "lore": "recipe_gold_armor_talisman"
+      }
+    }
+  ]
+}

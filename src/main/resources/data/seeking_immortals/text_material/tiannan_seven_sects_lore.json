@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "source": "汇编 越国七派格局；专精标签为结构向映射",
+  "chronicle_ref": "K1_seven_sects",
+  "region": "tiannan",
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "specialty_tags": ["alchemy", "pill_trade", "herb_garden"],
+      "lore": "丹药与灵草见长，外门多丹童杂役；与掩月宗资源竞合，对魔道六宗敌对。",
+      "quest_chain_ref": "huangfeng_cultivation_path",
+      "secret_realm_ref": "blood_forbidden"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "specialty_tags": ["illusion", "dual_cultivation", "formation"],
+      "lore": "七派之首，女修为主；媚术幻阵双修，阵法副修。入门试炼重神识与心性。",
+      "quest_chain_ref": "yanyue_illusion_path",
+      "secret_realm_ref": "seven_meridian_cave"
+    },
+    {
+      "id": "tianfu_gate",
+      "display": "天符门",
+      "specialty_tags": ["talisman"],
+      "lore": "制符专精，符箓三品结构对应技能解锁；符纸灵墨自产。",
+      "skill_tree_ref": "tianfu_talisman",
+      "talisman_grade_ref": "talisman_catalog.json#three_grade_tiers"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "specialty_tags": ["artifact_refining", "defense"],
+      "lore": "炼器守御，外门炼器基础诀；法器胚体与护体符并重。",
+      "method_ref": "artifact_refining_basic"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜寺",
+      "specialty_tags": ["buddhist", "body"],
+      "lore": "佛修一脉，炼体与降魔；慕兰大战前线支柱之一。",
+      "quest_chain_ref": "mulan_tianlan_war",
+      "secret_realm_ref": "tianlan_secret_grotto"
+    },
+    {
+      "id": "lingyun_sect",
+      "display": "灵云宗",
+      "specialty_tags": ["sword", "movement"],
+      "lore": "剑修与遁术并修，七派中攻伐凌厉。",
+      "note": "结构向命名，与汇编剑修标签对齐"
+    },
+    {
+      "id": "qingyan_sect",
+      "display": "青岩宗",
+      "specialty_tags": ["earth", "defense"],
+      "lore": "土属性防御与阵石矿脉，常协防边境。",
+      "note": "结构向命名"
+    }
+  ],
+  "shared_trials": {
+    "seven_meridian_cave": {
+      "display": "七脉试炼洞",
+      "open_condition": "七派外门大比资格",
+      "environment_rules": "禁私斗、限时通关、按脉系分岔",
+      "layered_exploration": "识脉厅→试炼廊→内门推荐碑",
+      "rare_drops": ["contribution_token", "low_pill", "inner_recommendation_slip"]
+    }
+  }
+}

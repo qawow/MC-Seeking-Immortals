@@ -1,0 +1,16 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    { "item": "seeking_immortals:soul_gathering_stone" },
+    { "item": "seeking_immortals:spirit_stone_shard" },
+    { "item": "seeking_immortals:spirit_stone_shard" },
+    { "item": "seeking_immortals:spirit_stone_shard" },
+    { "item": "seeking_immortals:spirit_stone_shard" },
+    { "item": "seeking_immortals:spirit_stone_shard" }
+  ],
+  "result": { "item": "seeking_immortals:spirit_gathering_bead", "count": 1 },
+  "success_rate": 0.75,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 1
+}

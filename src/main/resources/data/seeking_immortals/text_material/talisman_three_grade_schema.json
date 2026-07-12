@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source": "汇编 符箓低/中/高（三品）结构",
+  "grades": [
+    {
+      "id": "low",
+      "display": "低阶符箓",
+      "realm_typical": "QI_REFINING",
+      "paper_grade": "low_spirit",
+      "brush_tier": 1,
+      "note": "一次性消耗，战力低于符宝。"
+    },
+    {
+      "id": "mid",
+      "display": "中阶符箓",
+      "realm_typical": "FOUNDATION",
+      "paper_grade": "mid_spirit",
+      "brush_tier": 2
+    },
+    {
+      "id": "high",
+      "display": "高阶符箓",
+      "realm_typical": "CORE_FORMATION",
+      "paper_grade": "high_spirit",
+      "brush_tier": 3
+    },
+    {
+      "id": "ancient",
+      "display": "古符/秘符",
+      "realm_typical": "NASCENT_SOUL",
+      "note": "结构占位，非三品主链；近符宝者见 artifact_eleven_tier_map tier6-7"
+    }
+  ],
+  "unlock_rule": "学会制符配方后解锁同名或映射的 talisman 系法术",
+  "catalog_ref": "talisman_catalog.json",
+  "techniques_ref": "techniques/talisman.json",
+  "skill_tree_ref": "skill_trees.json#talisman_tianfu"
+}

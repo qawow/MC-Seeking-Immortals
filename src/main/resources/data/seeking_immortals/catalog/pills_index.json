@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "pills": [
+    {
+      "id": "bigu_pill",
+      "display": "辟谷丹",
+      "realm_min": "",
+      "effect": "no_food_24h"
+    },
+    {
+      "id": "foundation_pill",
+      "display": "筑基丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "condensation_pill",
+      "display": "凝元丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huoyuan_pill",
+      "display": "火元丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "soul_gathering_pill",
+      "display": "聚魂丹",
+      "realm_min": "",
+      "effect": "restore_spirit_30pct"
+    },
+    {
+      "id": "bone_marrow_pill",
+      "display": "洗髓丸",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "forget_dust_pill",
+      "display": "忘尘丹",
+      "realm_min": "",
+      "effect": "erase_memory_12h"
+    },
+    {
+      "id": "calm_spirit_pill",
+      "display": "清虚丹",
+      "realm_min": "",
+      "effect": "pet_mind_clarity"
+    },
+    {
+      "id": "longevity_fruit_pill",
+      "display": "长生丹",
+      "realm_min": "",
+      "effect": "max_lifespan_plus"
+    },
+    {
+      "id": "dingyan_pill",
+      "display": "定颜丹",
+      "realm_min": "",
+      "effect": "freeze_appearance"
+    },
+    {
+      "id": "blood_qi_pill",
+      "display": "血气丹",
+      "realm_min": "SPIRIT_SEVERANCE",
+      "effect": "lifespan_plus_decades"
+    },
+    {
+      "id": "huiyang_true_water",
+      "display": "回阳真水",
+      "realm_min": "",
+      "effect": "lifespan_quarter_once"
+    },
+    {
+      "id": "marrow_extract_pill",
+      "display": "抽髓丸",
+      "realm_min": "",
+      "effect": "power_now_lifespan_debt"
+    },
+    {
+      "id": "soul_break_pill",
+      "display": "断魂丹",
+      "realm_min": "",
+      "effect": "lethal_silent"
+    },
+    {
+      "id": "poison_dragon_pearl",
+      "display": "毒龙珠",
+      "realm_min": "",
+      "effect": "force_power_side_effect"
+    },
+    {
+      "id": "marrow_repair_pill",
+      "display": "修髓丹",
+      "realm_min": "",
+      "effect": "save_life_self_damage"
+    },
+    {
+      "id": "spirit_condense_pill",
+      "display": "聚灵丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ice_fire_pill",
+      "display": "冰火丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "bu_tian_pill",
+      "display": "补天丹",
+      "realm_min": "",
+      "effect": "spirit_root_purify"
+    },
+    {
+      "id": "nascent_soul_pill",
+      "display": "培婴丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "display": "回灵丹",
+      "realm_min": "",
+      "effect": "restore_mana_50pct"
+    },
+    {
+      "id": "body_tempering_pill",
+      "display": "淬体丹",
+      "realm_min": "QI_REFINING",
+      "effect": "physique_plus"
+    },
+    {
+      "id": "demon_suppress_pill",
+      "display": "镇魔丹",
+      "realm_min": "FOUNDATION",
+      "effect": "suppress_demon_qi_24h"
+    },
+    {
+      "id": "antidote_pill",
+      "display": "解毒丹",
+      "realm_min": "",
+      "effect": "clear_poison"
+    },
+    {
+      "id": "mana_shield_pill",
+      "display": "护灵丹",
+      "realm_min": "",
+      "effect": "temp_mana_shield"
+    },
+    {
+      "id": "beast_taming_pill",
+      "display": "驭兽丹",
+      "realm_min": "QI_REFINING",
+      "effect": "beast_contract_bonus"
+    },
+    {
+      "id": "cultivate_speed_pill",
+      "display": "凝气丹",
+      "realm_min": "",
+      "effect": "cultivation_speed_1h"
+    },
+    {
+      "id": "jiangchen_pill",
+      "display": "降尘丹",
+      "realm_min": "",
+      "effect": "foundation_breakthrough_bonus"
+    },
+    {
+      "id": "huanglong_pill",
+      "display": "黄龙丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "heqi_pill",
+      "display": "合气丹",
+      "realm_min": "",
+      "effect": "dual_cultivation_compatible"
+    },
+    {
+      "id": "ningshen_pill",
+      "display": "凝神丹",
+      "realm_min": "FOUNDATION",
+      "effect": "calm_inner_demon"
+    },
+    {
+      "id": "yanghun_pill",
+      "display": "养魂丹",
+      "realm_min": "FOUNDATION",
+      "effect": "restore_soul_minor"
+    },
+    {
+      "id": "sea_calm_pill",
+      "display": "定海丹",
+      "realm_min": "QI_REFINING",
+      "effect": "sea_sickness_immune"
+    },
+    {
+      "id": "demon_heart_pill",
+      "display": "镇心丹",
+      "realm_min": "FOUNDATION",
+      "effect": "resist_demon_qi_corruption"
+    },
+    {
+      "id": "snow_lotus_pill",
+      "display": "雪莲丹",
+      "realm_min": "FOUNDATION",
+      "effect": "clear_cold_poison"
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "realm_min": "CORE_FORMATION",
+      "effect": "reduce_demon_qi_stack"
+    },
+    {
+      "id": "yin_ward_pill",
+      "display": "护阴丹",
+      "realm_min": "FOUNDATION",
+      "effect": "yin_damage_resist_24h"
+    },
+    {
+      "id": "tianyuan_spirit_pill",
+      "display": "天渊聚灵丹",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": "cultivation_speed_tianyuan"
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "display": "避雷丹",
+      "realm_min": "NASCENT_SOUL",
+      "effect": "tribulation_lightning_reduce"
+    },
+    {
+      "id": "heart_guard_pill",
+      "display": "守心丹",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": "heart_demon_resist"
+    },
+    {
+      "id": "demon_gold_body_pill",
+      "display": "魔金锻体丹",
+      "realm_min": "VOID_REFINEMENT",
+      "effect": "demon_body_temper"
+    },
+    {
+      "id": "asura_mind_pill",
+      "display": "修罗定念丹",
+      "realm_min": "BODY_INTEGRATION",
+      "effect": "killing_intent_control"
+    },
+    {
+      "id": "luoyun_spirit_pill",
+      "display": "落云聚元丹",
+      "realm_min": "CORE_FORMATION",
+      "effect": ""
+    },
+    {
+      "id": "dual_harmony_pill",
+      "display": "合欢丹",
+      "realm_min": "FOUNDATION",
+      "effect": "dual_cultivation_bonus"
+    },
+    {
+      "id": "demonic_yang_gather_pill",
+      "display": "采阳丹",
+      "realm_min": "FOUNDATION",
+      "effect": "demonic_dual_cultivation"
+    },
+    {
+      "id": "great_vehicle_ascension_aid_pill",
+      "display": "大乘护劫丹",
+      "realm_min": "GREAT_VEHICLE",
+      "effect": "ascension_tribulation_aid"
+    },
+    {
+      "id": "spirit_beast_nurture_pill",
+      "display": "灵兽育灵丹",
+      "realm_min": "QI_REFINING",
+      "effect": "pet_growth"
+    },
+    {
+      "id": "solid_essence_pill",
+      "display": "固元丹",
+      "realm_min": "FOUNDATION",
+      "effect": "stabilize_foundation"
+    },
+    {
+      "id": "spirit_recovery_pill_high",
+      "display": "回灵丹（中）",
+      "realm_min": "FOUNDATION",
+      "effect": "restore_mana"
+    },
+    {
+      "id": "demon_expel_pill",
+      "display": "驱魔丹",
+      "realm_min": "FOUNDATION",
+      "effect": "purge_demon_qi"
+    },
+    {
+      "id": "longevity_wine_pill",
+      "display": "延寿丹",
+      "realm_min": "CORE_FORMATION",
+      "effect": "lifespan_small"
+    },
+    {
+      "id": "blood_essence_pill",
+      "display": "血精丹",
+      "realm_min": "FOUNDATION",
+      "effect": "blood_cultivation_boost"
+    },
+    {
+      "id": "mulan_wind_pill",
+      "display": "风行丹",
+      "realm_min": "QI_REFINING",
+      "effect": "movement_speed"
+    },
+    {
+      "id": "chaotic_sea_antidote",
+      "display": "海毒解丹",
+      "realm_min": "QI_REFINING",
+      "effect": "sea_poison_cure"
+    },
+    {
+      "id": "pressure_resist_pill",
+      "display": "抗压丹",
+      "realm_min": "VOID_REFINING",
+      "effect": ""
+    },
+    {
+      "id": "spirit_realm_condense_pill",
+      "display": "灵界凝元丹",
+      "realm_min": "SPIRIT_SEVERING",
+      "effect": ""
+    },
+    {
+      "id": "jiedan_pill",
+      "display": "结丹丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ningyuan_pill",
+      "display": "凝元丹（外海）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huashen_pill",
+      "display": "化神丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ninghun_dan",
+      "display": "凝魂丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "yangyuan_pill",
+      "display": "养元丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huichun_pill",
+      "display": "回春丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "qingxin_pill",
+      "display": "清心丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "biyu_pill",
+      "display": "碧玉丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "xuanbing_pill",
+      "display": "玄冰丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "lieyan_pill",
+      "display": "烈焰丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "juyuan_pill",
+      "display": "聚元丹",
+      "realm_min": "FOUNDATION",
+      "effect": ""
+    },
+    {
+      "id": "tihu_pill",
+      "display": "替魂丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "dujie_pill",
+      "display": "渡劫丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "longhu_pill",
+      "display": "龙虎丹",
+      "realm_min": "CORE_FORMATION",
+      "effect": ""
+    },
+    {
+      "id": "xueying_pill",
+      "display": "血影丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "wuxing_pill",
+      "display": "五行丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "tianling_pill",
+      "display": "天灵丹",
+      "realm_min": "SPIRIT_SEVERING",
+      "effect": ""
+    },
+    {
+      "id": "spirit_condense_minor",
+      "display": "小凝元丹",
+      "realm_min": "FOUNDATION",
+      "effect": ""
+    },
+    {
+      "id": "anti_poison_pill",
+      "display": "解毒丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "jiangying_pill",
+      "display": "降尘丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "xiyu_pill",
+      "display": "洗髓丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huanti_pill",
+      "display": "淬体丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huanxue_pill",
+      "display": "换血丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "juling_pill",
+      "display": "聚灵丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ningjin_pill",
+      "display": "凝金丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ningying_pill",
+      "display": "凝婴丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "wangchen_pill",
+      "display": "忘尘丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "jingxin_pill",
+      "display": "静心丸",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "jieqi_pill",
+      "display": "解气丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "huiyuan_pill",
+      "display": "回元丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "yin_yang_pill",
+      "display": "阴阳丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "golden_core_pill",
+      "display": "金丹丸",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "body_refine_pill",
+      "display": "炼体丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "meridian_open_pill",
+      "display": "通脉丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_seed_pill",
+      "display": "灵种丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ghost_cultivate_pill",
+      "display": "炼鬼丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "demonic_blood_pill",
+      "display": "魔血丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "hehuan_pill",
+      "display": "合欢丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "illusion_pill",
+      "display": "幻心丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "tribulation_guard_pill",
+      "display": "护劫丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "void_condense_pill",
+      "display": "炼虚丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "spirit_severing_pill",
+      "display": "炼神丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "star_sea_pill",
+      "display": "星海丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "barbarian_strength_pill",
+      "display": "蛮力丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "diyuan_adapt_pill",
+      "display": "地渊适应丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "tianyuan_merit_pill",
+      "display": "天渊功勋丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "ghost_gate_pill",
+      "display": "鬼灵门阴丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "poison_insect_pill",
+      "display": "毒虫丸",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "blood_curse_pill",
+      "display": "血咒丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "fox_illusion_pill",
+      "display": "天狐幻丹",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_qi_refining",
+      "display": "QI_REFINING辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_foundation",
+      "display": "FOUNDATION辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_core_formation",
+      "display": "CORE_FORMATION辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_nascent_soul",
+      "display": "NASCENT_SOUL辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_deity_transformation",
+      "display": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_void_refining",
+      "display": "VOID_REFINING辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_great_vehicle",
+      "display": "GREAT_VEHICLE辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    },
+    {
+      "id": "cultivation_aid_spirit_severing",
+      "display": "SPIRIT_SEVERING辅修丹（通称）",
+      "realm_min": "",
+      "effect": ""
+    }
+  ]
+}

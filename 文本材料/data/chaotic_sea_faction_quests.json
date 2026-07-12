@@ -1,0 +1,43 @@
+{
+  "schema_version": 2,
+  "region": "chaotic_sea",
+  "hubs": [
+    {
+      "id": "hub_outer_dock_register",
+      "display": "外海岛登记处",
+      "faction": "star_palace",
+      "lore": "星宫执法队登记岛税与通行令，逆星走私多避此港。",
+      "hooks": ["hook_star_palace_register", "star_palace_dock_permit"]
+    },
+    {
+      "id": "hub_black_market_cipher",
+      "display": "黑市密语点",
+      "faction": "inverse_star_alliance",
+      "lore": "逆星盟接头暗号，密语试炼后开放走私与破坏任务。",
+      "hooks": ["inverse_star_contact", "inverse_star_cipher_trial"]
+    },
+    {
+      "id": "hub_merchant_league_wharf",
+      "display": "商盟中转码头",
+      "faction": "chaotic_sea_merchant_league",
+      "lore": "中立换货与航海补给，可接双边倒卖情报支线。",
+      "hooks": ["merchant_smuggle_run", "void_palace_intel_sell"]
+    },
+    {
+      "id": "hub_abyss_rift_outpost",
+      "display": "深渊前哨",
+      "lore": "九阶深渊蛟出没，星宫清剿与逆星夺材任务交叉。",
+      "secret_realm_ref": "chaotic_sea_abyss_rift",
+      "hooks": ["abyss_jiao_bounty", "inverse_star_void_heist"]
+    }
+  ],
+  "lore_compendium_ref": "chaotic_sea_lore_compendium.json",
+  "inverse_star_quest_network_ref": "inverse_star_quest_network.json",
+  "star_palace_internal_ref": "star_palace_internal_factions.json",
+  "dimension_registry_ref": "dimension_registry.json",
+  "star_palace_branch_quests": [
+    "star_palace_enforcement_patrol",
+    "star_palace_commerce_license",
+    "star_palace_council_mediation"
+  ]
+}

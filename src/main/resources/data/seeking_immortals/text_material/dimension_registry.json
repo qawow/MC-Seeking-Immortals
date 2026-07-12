@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "mod_id": "seeking_immortals",
+  "source": "dimensions_catalog.json → MC 维度注册",
+  "dimensions": [
+    {
+      "registry_id": "seeking_immortals:mortal_world",
+      "display": "人界",
+      "minecraft": {
+        "type": "overworld",
+        "default": true
+      },
+      "cosmology": "mortal_realm",
+      "featured_regions": [
+        "tiannan",
+        "chaotic_sea",
+        "mulan",
+        "great_jin"
+      ],
+      "quest_hub_ref": "tiannan_faction_quests.json"
+    },
+    {
+      "registry_id": "seeking_immortals:tianyuan",
+      "display": "天渊城",
+      "minecraft": {
+        "type": "custom",
+        "loader": "dimension_type_tianyuan"
+      },
+      "cosmology": "spirit_realm",
+      "entry_realm_min": "DEITY_TRANSFORMATION",
+      "quest_hub_ref": "tianyuan_daily_events.json",
+      "merit_ref": "tianyuan_merit_economy.json"
+    },
+    {
+      "registry_id": "seeking_immortals:nether_river_pocket",
+      "display": "冥河秘境",
+      "minecraft": {
+        "type": "pocket",
+        "parent": "seeking_immortals:mortal_world"
+      },
+      "region": "nether_river",
+      "entry_realm_min": "FOUNDATION",
+      "tribulation_delay_ref": "tribulation_items.json#nether_river_shield_zone"
+    },
+    {
+      "registry_id": "seeking_immortals:secret_realm_instance",
+      "display": "秘境实例",
+      "minecraft": {
+        "type": "instanced"
+      },
+      "template_ref": "secret_realm_template.json",
+      "loot_ref": "artifact_realm_drops.json"
+    },
+    {
+      "registry_id": "seeking_immortals:yin_underworld",
+      "display": "阴司集群",
+      "minecraft": {
+        "type": "pocket",
+        "parent": "seeking_immortals:mortal_world"
+      },
+      "cosmology": "yin_underworld_cluster",
+      "quest_ref": "yinming_quests.json"
+    }
+  ],
+  "travel_gates": [
+    {
+      "from": "tiannan",
+      "to": "chaotic_sea",
+      "method": "teleport_array",
+      "cost_band": "travel_ticket"
+    },
+    {
+      "from": "mortal_world",
+      "to": "tianyuan",
+      "method": "ascension",
+      "gate_id": "mortal_to_tianyuan"
+    }
+  ],
+  "catalog_ref": "dimensions_catalog.json"
+}

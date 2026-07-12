@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §15–§16 灵石四级 + 三层经济",
+  "disclaimer": "兑换比 1:100 为结构默认；拍卖价为量级范例，非原著精确数",
+  "canonical_unit": "low_spirit_stone",
+  "ladder_ref": "spirit_stone_ladder.json",
+  "exchange": {
+    "ratio_per_tier": 100,
+    "chain": ["low", "mid", "high", "peak"],
+    "item_ids": {
+      "low": "low_spirit_stone",
+      "mid": "mid_spirit_stone",
+      "high": "high_spirit_stone",
+      "peak": "top_spirit_stone"
+    },
+    "low_equiv_multiplier": {
+      "low": 1,
+      "mid": 100,
+      "high": 10000,
+      "peak": 1000000
+    },
+    "black_market_low_discount": 0.9,
+    "high_to_low_reluctance": true
+  },
+  "three_layer_economy": [
+    {
+      "layer": "daily_market",
+      "display": "坊市/商铺",
+      "currencies": ["low", "mid"],
+      "refs": ["economy_price_bands.json", "merchant_shops.json"]
+    },
+    {
+      "layer": "realm_gear_pricing",
+      "display": "法器符箓丹药按段位",
+      "currencies": ["low", "mid", "high"],
+      "refs": ["economy_value_bands.json", "artifact_eleven_tier_map.json"]
+    },
+    {
+      "layer": "auction_house",
+      "display": "拍卖行单独结算",
+      "currencies": ["low", "mid", "high", "peak"],
+      "refs": ["economy_auction_bands.json"],
+      "note": "顶级拍品不冲垮日常物价"
+    }
+  ],
+  "sect_stipend_low_stone_per_month": {
+    "disclaimer": "外门月例量级参考汇编§16",
+    "outer_disciple_QI": { "typical": 8, "range": [3, 15] },
+    "inner_disciple_QI": { "typical": 25, "range": [15, 40] },
+    "foundation_elder_assist": { "typical": 80, "range": [40, 150] },
+    "core_formation_station": { "typical": 500, "range": [200, 1200], "currency_mix": ["low", "mid"] }
+  },
+  "price_anchors_low_stone": {
+    "talisman_low_shop": { "min": 1, "max": 50, "ref_band": "talisman_low" },
+    "talisman_mid_master": { "min": 100, "max": 1000, "ref_band": "talisman_mid" },
+    "low_artifact_fair": { "min": 10, "max": 80 },
+    "mid_artifact_fair": { "min": 80, "max": 400 },
+    "top_artifact_fair_low_equiv": { "min": 1500, "max": 3000, "note": "顶阶法器约千余下品量级" },
+    "thousand_year_herb_vs_fine_artifact": "roughly_equal_low_equiv_1500_3000",
+    "foundation_pill_auction": { "min": 800, "max": 5000 },
+    "peak_talisman_three_thunder": "no_market_price"
+  },
+  "auction_canon_examples": [
+    { "id": "deity_cultivation_pills_x3", "low_stone_equiv": 600000, "source": "汇编六十万灵石范例" },
+    { "id": "ancient_beast_scale_finale", "low_stone_equiv": 35000000, "extras": ["ten_thousand_year_herb"] }
+  ],
+  "utility_functions": {
+    "to_low_equiv": "amount * exchange.low_equiv_multiplier[tier]",
+    "split_payment": "优先扣 peak→high→mid→low 或按拍场 settlement 列表"
+  },
+  "crossref": [
+    "currency_items.json",
+    "economy_tiers.json",
+    "economy_reference_magnitudes.json",
+    "economy_price_bands.json",
+    "economy_shop_price_guidance.json",
+    "economy_contribution_exchange.json",
+    "tianyuan_merit_economy.json"
+  ]
+}

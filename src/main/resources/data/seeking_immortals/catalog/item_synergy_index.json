@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "source": "item_synergy.json",
+  "primary_key": "synergies",
+  "entries": [
+    {
+      "id": "0",
+      "display": "0"
+    },
+    {
+      "id": "1",
+      "display": "1"
+    },
+    {
+      "id": "2",
+      "display": "2"
+    },
+    {
+      "id": "3",
+      "display": "3"
+    },
+    {
+      "id": "4",
+      "display": "4"
+    },
+    {
+      "id": "5",
+      "display": "5"
+    },
+    {
+      "id": "6",
+      "display": "6"
+    },
+    {
+      "id": "7",
+      "display": "7"
+    },
+    {
+      "id": "8",
+      "display": "8"
+    },
+    {
+      "id": "9",
+      "display": "9"
+    },
+    {
+      "id": "10",
+      "display": "10"
+    },
+    {
+      "id": "11",
+      "display": "11"
+    },
+    {
+      "id": "12",
+      "display": "12"
+    },
+    {
+      "id": "13",
+      "display": "13"
+    },
+    {
+      "id": "14",
+      "display": "14"
+    },
+    {
+      "id": "15",
+      "display": "15"
+    },
+    {
+      "id": "16",
+      "display": "16"
+    },
+    {
+      "id": "17",
+      "display": "17"
+    },
+    {
+      "id": "18",
+      "display": "18"
+    },
+    {
+      "id": "19",
+      "display": "19"
+    },
+    {
+      "id": "20",
+      "display": "20"
+    },
+    {
+      "id": "21",
+      "display": "21"
+    }
+  ]
+}

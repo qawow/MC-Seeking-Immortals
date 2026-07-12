@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "description": "地区表与主目录 id 不一致时的别名，导入模组时统一用 canonical",
+  "aliases": [
+    {
+      "alias": "yellow_essence_grass",
+      "canonical": "yellow_essence",
+      "source": "items_by_region.tiannan",
+      "setting": {
+        "lore": "yellow_essence_grass",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "alias": "kunwu_spirit_copper",
+      "canonical": "kunwu_copper",
+      "source": "items_by_region.dajin",
+      "setting": {
+        "lore": "kunwu_spirit_copper",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "alias": "sea_soul_grass_herb",
+      "canonical": "sea_soul_grass",
+      "source": "spirit_herbs_catalog",
+      "setting": {
+        "lore": "sea_soul_grass_herb",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "alias": "coral_spirit_pearl_raw",
+      "canonical": "coral_spirit_pearl",
+      "note": "原珠加工为成品珠",
+      "setting": {
+        "lore": "coral_spirit_pearl_raw",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    },
+    {
+      "alias": "yellow_palm_fan",
+      "canonical": "yellow_umbrella",
+      "note": "地区名仿伞",
+      "setting": {
+        "lore": "yellow_palm_fan",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      }
+    }
+  ]
+}

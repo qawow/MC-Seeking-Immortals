@@ -1,0 +1,1455 @@
+{
+  "schema_version": 2,
+  "source_doc": "docs/CHRONICLE.md",
+  "calendar": {
+    "name": "道历",
+    "name_en": "Dao Calendar",
+    "epoch_label": "诸宗立约",
+    "default_world_year": 12960,
+    "player_entry_year": 12960,
+    "era_phases": [
+      {
+        "id": "mengmei",
+        "display": "一纪·蒙昧",
+        "year_start_approx": null,
+        "year_end_approx": -500000
+      },
+      {
+        "id": "shanggu",
+        "display": "二纪·上古鼎盛",
+        "year_start_approx": -80000,
+        "year_end_approx": -30000
+      },
+      {
+        "id": "fengmo",
+        "display": "三纪·封魔劫",
+        "year_start_approx": -30000,
+        "year_end_approx": -25000
+      },
+      {
+        "id": "zhuguo",
+        "display": "四纪·诸国争霸",
+        "year_start_approx": -20000,
+        "year_end_approx": -5000
+      },
+      {
+        "id": "lingshuai",
+        "display": "五纪·灵衰与飞升路",
+        "year_start_approx": -5000,
+        "year_end_approx": null
+      }
+    ]
+  },
+  "events": [
+    {
+      "id": "M1_five_realms",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": null,
+      "title": "五界分立",
+      "summary": "人界、灵界、阴司、上古魔界、仙界规则固化。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [],
+      "lore_tags": [
+        "cosmology"
+      ],
+      "setting": {
+        "lore": "人界、灵界、阴司、上古魔界、仙界规则固化。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "M2_true_spirit_fall",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": -1000000,
+      "title": "真灵陨落纪",
+      "summary": "真灵强者陨落，身躯化冥河、广寒残片等秘境。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "true_spirit_altar"
+      ],
+      "lore_tags": [
+        "true_spirit"
+      ],
+      "setting": {
+        "lore": "真灵强者陨落，身躯化冥河、广寒残片等秘境。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "M3_xiaolu_realm",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": -200000,
+      "title": "修罗界崩",
+      "summary": "修罗界崩溃，碎片偶现为小修罗界。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "xiaoxiulu_realm"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "修罗界崩溃，碎片偶现为小修罗界。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "M4_holy_bird_mulan",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": -120000,
+      "title": "圣禽临凡",
+      "summary": "青孔雀一脉被慕兰兽族供奉之始。",
+      "regions": [
+        "mulan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "mulan_beast_god_rep"
+      ],
+      "lore_tags": [
+        "holy_bird"
+      ],
+      "setting": {
+        "lore": "青孔雀一脉被慕兰兽族供奉之始。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "M5_tianlan_oath",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": -120000,
+      "title": "天澜圣兽约",
+      "summary": "突兀族立圣兽之印，与慕兰世仇并立约。",
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "tianlan_temple_oath"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "突兀族立圣兽之印，与慕兰世仇并立约。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "A1_kunwu_peak",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -70000,
+      "title": "昆吾灵山鼎盛",
+      "summary": "人界第一灵山，道佛儒魔并修。",
+      "regions": [
+        "dajin"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "region_dajin_kunwu"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "era": "ancient",
+        "lore": "坤吴山立，人界大晋阵道圣地。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "region": "dajin",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "A2_stone_puppet",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -60000,
+      "title": "石灵傀儡术兴盛",
+      "summary": "妖魄封石像，上古傀儡高峰。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "stone_spirit_blueprint"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "妖魄封石像，上古傀儡高峰。",
+        "era": "shanggu"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "A3_dayan_sage",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -55000,
+      "title": "千竹祖师悟衍",
+      "summary": "大衍神君创大衍诀与机关傀儡术。",
+      "regions": [
+        "qianzhu"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "dayan_questline"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "大衍神君创大衍诀与傀儡术，千竹教渊源。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "quest_any": [
+            "dayan_ruin_probe"
+          ]
+        }
+      }
+    },
+    {
+      "id": "A4_void_palace_built",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -50000,
+      "title": "虚天殿建成",
+      "summary": "乱星海上古修士建玉殿沉入虚空。",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "cycle_void_palace"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "乱星海上古修士建玉殿沉入虚空。",
+        "era": "shanggu"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "A5_blood_forbidden_hermits",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -40000,
+      "title": "血色禁地隐居潮",
+      "summary": "越国古修入禁地闭关坐化。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "cycle_blood_forbidden"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "越国古修入禁地闭关坐化。",
+        "era": "shanggu"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "A6_first_demon_war_kunwu",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -32000,
+      "title": "人魔大战（第一次）",
+      "summary": "昆吾山与魔族大军交锋，灵山受损。",
+      "regions": [
+        "dajin"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "kunwu_seal_loosen"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "昆吾山与魔族大军交锋，灵山受损。",
+        "era": "shanggu"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "A7_peiying_formula_peak",
+      "type": "historical",
+      "era": "shanggu",
+      "year_approx": -30000,
+      "title": "培婴丹方鼎盛",
+      "summary": "化神辅助丹方后随宗灭失传。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "auction_archaeology"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "化神辅助丹方后随宗灭失传。",
+        "era": "shanggu"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D1_demon_invasion",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -29800,
+      "title": "上古魔界裂隙大开",
+      "summary": "古魔侵入人界，上界协助封印。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [
+        "realm_cap_spirit_transformation_early",
+        "demon_corruption_zones"
+      ],
+      "mod_hooks": [
+        "main_lore_demon"
+      ],
+      "lore_tags": [
+        "ancient_demon",
+        "seal_array"
+      ],
+      "setting": {
+        "lore": "古魔侵入人界，上界协助封印。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D2_spirit_vein_damage",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -29500,
+      "title": "灵气脉络伤损",
+      "summary": "灵脉被魔气污染，环境永久劣化。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [
+        "spirit_density_penalty_regions"
+      ],
+      "mod_hooks": [],
+      "lore_tags": [],
+      "setting": {
+        "lore": "灵脉被魔气污染，环境永久劣化。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D3_realm_cap_fall",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -28500,
+      "title": "化神上限跌落",
+      "summary": "人界难达化神中后期。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [
+        "realm_cap_spirit_transformation_early"
+      ],
+      "mod_hooks": [
+        "ascension_guidance"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "人界难达化神中后期。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D4_zhuimo_valley",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -28000,
+      "title": "坠魔谷战役",
+      "summary": "魔修大能设阵互战形成坠魔谷。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "secret_realm_zhuimo"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "魔修大能设阵互战形成坠魔谷。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D5_seal_treaty",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -27500,
+      "title": "封魔阵立约",
+      "summary": "封印主要裂隙，非全部。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "main_demon_remnant"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "封印主要裂隙，非全部。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D6_mojin_mountain",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -27000,
+      "title": "魔金山脉形成",
+      "summary": "始祖魔修自爆，魔气山脉。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "dynamic_demon_mountain"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "始祖魔修自爆，魔气山脉。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "D7_demonization_spread",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": -26000,
+      "title": "魔化神通入人间",
+      "summary": "古魔残党可魔化法宝与修士。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "cursed_gear_system"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "古魔残党可魔化法宝与修士。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K1_seven_sects",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -15000,
+      "title": "越国七派立宗",
+      "summary": "黄枫谷、掩月宗等格局形成。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "sect_reputation"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "天南七派格局确立，黄枫谷等为支柱。"
+      },
+      "learn_requirements": {}
+    },
+    {
+      "id": "K2_six_demon_sects",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -12000,
+      "title": "魔道六宗北迁",
+      "summary": "天罗国魔宗与正教对峙。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "demon_sect_quests"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "天罗国魔宗与正教对峙。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K3_mulan_tianlan_war_1",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -10000,
+      "title": "慕兰突兀千年战（第一期）",
+      "summary": "圣印立约重申。",
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "faction_war_daily"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "圣印立约重申。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K4_star_palace",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -8000,
+      "title": "乱星海星宫建立",
+      "summary": "征收灵石庇护。",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "region_chaotic_sea_rules"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "征收灵石庇护。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K5_inverse_star",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -3000,
+      "title": "逆星盟成形",
+      "summary": "黑市繁荣。",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "black_market"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "黑市繁荣。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K6_dajin_clans",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -3500,
+      "title": "大晋世家崛起",
+      "summary": "真灵世家把持南疆。",
+      "regions": [
+        "dajin"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "bloodline_marriage"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "真灵世家把持南疆。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K7_nine_nation_alliance",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -1800,
+      "title": "九国盟组建",
+      "summary": "联合抗魔。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "cross_nation_quest"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "联合抗魔。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K8_luoyun_sect",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -1200,
+      "title": "天道盟与落云宗",
+      "summary": "炼丹著称。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "alchemy_sanctuary"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "炼丹著称。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K9_mulan_tianlan_escalation",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -300,
+      "title": "慕兰突兀战烈度升级",
+      "summary": "法士出征、天澜圣殿。",
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "player_faction_war"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "法士出征、天澜圣殿。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "K10_qixuan_decline",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -200,
+      "title": "七玄门衰微",
+      "summary": "江湖门派，粗浅长春功。",
+      "regions": [
+        "tiannan"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "starter_village"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "江湖门派，粗浅长春功。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P1_spirit_depletion_debate",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": -5000,
+      "title": "灵脉枯竭论起",
+      "summary": "筑基丹限制外流。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [
+        "economy_scarcity"
+      ],
+      "mod_hooks": [],
+      "lore_tags": [],
+      "setting": {
+        "lore": "筑基丹限制外流。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P2_spirit_transformation_rare",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": -3000,
+      "title": "化神修士绝迹人间",
+      "summary": "多赴灵界或坐化。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "npc_realm_cap"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "多赴灵界或坐化。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P3_smuggle_ascension",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": -1500,
+      "title": "偷渡灵界盛行",
+      "summary": "空间裂缝高风险。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "alternate_ascension"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "空间裂缝高风险。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P4_tianyuan_open",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "天渊城仍通人界",
+      "summary": "灵界人族据点修炼加倍。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "post_ascension_hub"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "灵界人族据点修炼加倍。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P5_present_era",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": 12960,
+      "title": "当前纪年",
+      "summary": "世界现在。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "world_year_default"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "世界现在。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P6_void_palace_next",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": 13050,
+      "title": "虚天殿下次浮现（预测）",
+      "summary": "距默认今+90年。",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "calendar_ui"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "距默认今+90年。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "P7_player_entry",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": 12960,
+      "title": "玩家入场",
+      "summary": "记名弟子/散修入场。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "character_creation"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "记名弟子/散修入场。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L1_tianyuan_founded",
+      "type": "historical",
+      "era": "zhuguo",
+      "year_approx": -20000,
+      "title": "天渊城开城",
+      "summary": "人妖共守前哨。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "spirit_entry_quest"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "人妖共守前哨。",
+        "era": "zhuguo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L2_treasure_fair",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "万宝大会定例",
+      "summary": "每千年一届。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "cycle_treasure_fair"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "每千年一届。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L3_diyuan",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "地渊分层勘探",
+      "summary": "飞灵族腹地地下城。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "spirit_dungeon_diyuan"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "飞灵族腹地地下城。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L4_minghe",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "冥河之地",
+      "summary": "蜉蝣族秘境，鬼物。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "ghost_path"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "蜉蝣族秘境，鬼物。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L5_guanghai",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "广寒界断续现世",
+      "summary": "需广寒令，灵气×10。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "top_secret_realm"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "需广寒令，灵气×10。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L6_human_weak_northwest",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": null,
+      "title": "人族西北弱势",
+      "summary": "风元大陆边角。",
+      "regions": [
+        "spirit_realm"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [],
+      "lore_tags": [],
+      "setting": {
+        "lore": "风元大陆边角。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "Y1_yinsi_realm",
+      "type": "historical",
+      "era": "mengmei",
+      "year_approx": null,
+      "title": "阴司之界",
+      "summary": "亡魂归处，连冥河秘境。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "ghost_cultivator"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "亡魂归处，连冥河秘境。",
+        "era": "mengmei"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "Y2_ancient_demon_realm",
+      "type": "historical",
+      "era": "fengmo",
+      "year_approx": null,
+      "title": "上古魔界未灭",
+      "summary": "封魔后仍渗透。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [],
+      "mod_hooks": [
+        "endgame_rift"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "封魔后仍渗透。",
+        "era": "fengmo"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "Y3_demon_remnant_awaken",
+      "type": "historical",
+      "era": "lingshuai",
+      "year_approx": 12900,
+      "title": "古魔余孽苏醒暗流",
+      "summary": "玩家时代危机。",
+      "regions": [
+        "global"
+      ],
+      "gameplay_effects": [
+        "world_crisis_flag"
+      ],
+      "mod_hooks": [
+        "main_chapter_5"
+      ],
+      "lore_tags": [],
+      "setting": {
+        "lore": "玩家时代危机。",
+        "era": "lingshuai"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "cycle_blood_forbidden",
+      "type": "cyclic",
+      "title": "血色禁地衰弱期",
+      "summary": "风禁衰弱，筑基以下可入五日。",
+      "period_years": 5,
+      "duration_days": 5,
+      "anchor_year": 0,
+      "last_occurrence_year": 12958,
+      "next_occurrence_year": 12963,
+      "regions": [
+        "tiannan"
+      ],
+      "mod_hooks": [
+        "cycle_blood_forbidden"
+      ],
+      "setting": {
+        "lore": "风禁衰弱，筑基以下可入五日。",
+        "era": "history"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "cycle_void_palace",
+      "type": "cyclic",
+      "title": "虚天殿浮现",
+      "summary": "乱星海第一秘境。",
+      "period_years": 300,
+      "duration_days": 90,
+      "anchor_year": -50000,
+      "last_occurrence_year": 12750,
+      "next_occurrence_year": 13050,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "mod_hooks": [
+        "cycle_void_palace"
+      ],
+      "setting": {
+        "lore": "乱星海第一秘境。",
+        "era": "history"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "cycle_treasure_fair",
+      "type": "cyclic",
+      "title": "万宝大会",
+      "summary": "九仙山拍卖。",
+      "period_years": 1000,
+      "duration_days": 30,
+      "anchor_year": 0,
+      "last_occurrence_year": 12200,
+      "next_occurrence_year": 13200,
+      "regions": [
+        "spirit_realm"
+      ],
+      "mod_hooks": [
+        "cycle_treasure_fair"
+      ],
+      "setting": {
+        "lore": "九仙山拍卖。",
+        "era": "history"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "mulan_tianlan_war_minor",
+      "type": "cyclic",
+      "title": "慕兰突兀边境冲突",
+      "summary": "小规模阵营事件。",
+      "period_years": 12,
+      "duration_days": 7,
+      "anchor_year": 0,
+      "last_occurrence_year": 12952,
+      "next_occurrence_year": 12964,
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "mod_hooks": [
+        "mulan_tianlan_war_minor"
+      ],
+      "setting": {
+        "lore": "小规模阵营事件。",
+        "era": "history"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "E_mulan_invasion_wave",
+      "display": "慕兰入侵波次",
+      "era": "human_realm",
+      "cycle": "cycle_mulan_invasion",
+      "note": "法士大军压境天南",
+      "setting": {
+        "lore": "",
+        "era": "human_realm"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "E_tianlan_saint_beast",
+      "display": "天澜圣兽出世",
+      "era": "human_realm",
+      "region": "tianlan",
+      "setting": {
+        "lore": "",
+        "era": "human_realm"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "E_void_palace_cycle",
+      "display": "虚天殿周期开启",
+      "era": "human_realm",
+      "cycle": "cycle_void_palace",
+      "setting": {
+        "lore": "",
+        "era": "human_realm"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "E_ancient_demon_seal_weak",
+      "display": "古魔封印松动",
+      "era": "human_realm",
+      "effect": "nascent_soul_cap_pressure",
+      "setting": {
+        "lore": "",
+        "era": "human_realm"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "L3_void_realm_cultivation_norm",
+      "era": "spirit_realm",
+      "summary": "灵界炼虚常态：地渊与荒原争资源",
+      "regions": [
+        "diyuan",
+        "wild_land"
+      ],
+      "tags": [
+        "VOID_REFINING"
+      ],
+      "setting": {
+        "lore": "灵界炼虚常态：地渊与荒原争资源",
+        "era": "spirit_realm"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "E_mortal_cap_enforcement",
+      "era": "post_ancient_demon",
+      "summary": "人界天道压制促飞升灵界",
+      "tags": [
+        "DEITY_TRANSFORMATION",
+        "ascension"
+      ],
+      "setting": {
+        "lore": "人界天道压制促飞升灵界",
+        "era": "post_ancient_demon"
+      },
+      "learn_requirements": {
+        "discover": {
+          "note": "剧情/探索解锁编年史条目。"
+        }
+      }
+    },
+    {
+      "id": "B_buddhist_dajin_spread",
+      "display": "大晋佛修北传",
+      "era": "history",
+      "summary": "佛修与道门并存，诛魔卫道。",
+      "setting": {
+        "lore": "大晋特色势力线。"
+      },
+      "learn_requirements": {
+        "discover": {
+          "region": "dajin"
+        }
+      }
+    }
+  ],
+  "notable_figures": [
+    {
+      "id": "dayan_sage",
+      "name": "大衍神君",
+      "year_approx": -55000,
+      "note": "创千竹教傀儡术"
+    },
+    {
+      "id": "seal_saints",
+      "name": "封魔诸圣",
+      "year_approx": -27500,
+      "note": "集体封印，无单一主角"
+    },
+    {
+      "id": "nine_nation_alliance",
+      "name": "九国盟",
+      "year_approx": -1800,
+      "note": "抗魔联盟"
+    },
+    {
+      "id": "qixuan_men",
+      "name": "七玄门",
+      "year_approx": -200,
+      "note": "新手江湖门派"
+    },
+    {
+      "id": "player",
+      "name": "入道者（玩家）",
+      "year_approx": 12960,
+      "note": "创角默认年"
+    }
+  ],
+  "tbd": [
+    {
+      "id": "T1",
+      "question": "古魔入侵精确战争年数",
+      "resolution": "保持约五百年，不精确"
+    },
+    {
+      "id": "T2",
+      "question": "道历0与现实对应",
+      "resolution": "无，纯虚构"
+    },
+    {
+      "id": "T3",
+      "question": "各派创派精确年",
+      "resolution": "按需再填"
+    },
+    {
+      "id": "T4",
+      "question": "境界名与模组对齐",
+      "resolution": "见 WORLD_SETTING_BIBLE 对照表"
+    }
+  ]
+}

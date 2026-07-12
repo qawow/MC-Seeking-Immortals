@@ -1,0 +1,438 @@
+{
+  "schema_version": 10,
+  "source": "汇编 五界 + 飞升链；模组 P0 维度落地表",
+  "design_note": "保留界层结构；入境门槛用境界/任务/道具类型，不写精确概率",
+  "cosmology_five_realms": [
+    {
+      "id": "mortal_realm",
+      "display": "人界",
+      "playable": true,
+      "setting": {
+        "lore": "人界：天南、大晋、乱星海海域皆属此界，化神后受界面压制。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "note": "位面穿越需境界与机缘。"
+        }
+      }
+    },
+    {
+      "id": "spirit_realm",
+      "display": "灵界",
+      "playable": true,
+      "setting": {
+        "lore": "灵界：天渊城、风元大陆等；灵气与妖兽阶位高于人界。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "note": "位面穿越需境界与机缘。"
+        }
+      }
+    },
+    {
+      "id": "yin_underworld_cluster",
+      "display": "阴司之界",
+      "playable": "partial",
+      "note": "冥河等秘境集群，非完整独立主维度",
+      "data_ref": "yin_underworld_cluster.json",
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "阴司集群：冥河、阴冥非完整主界，秘境式进入。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "note": "位面穿越需境界与机缘。"
+        }
+      }
+    },
+    {
+      "id": "ancient_demon_realm",
+      "display": "上古魔界",
+      "playable": "event",
+      "note": "裂隙/终局，非常驻沙盒",
+      "setting": {
+        "lore": "上古魔界：裂隙事件，非常驻。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "note": "位面穿越需境界与机缘。"
+        }
+      }
+    },
+    {
+      "id": "immortal_realm",
+      "display": "仙界",
+      "playable": false,
+      "note": "远期 DLC",
+      "setting": {
+        "lore": "仙界：大乘飞升占位。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "note": "位面穿越需境界与机缘。"
+        }
+      }
+    },
+    {
+      "id": "spirit_world_interface",
+      "display": "灵界界面节点",
+      "parent": "spirit_world",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "化神后期可寻界面裂缝，飞升或偷渡灵界。"
+      },
+      "learn_requirements": {
+        "traverse": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "items_any": [
+            "ascension_talisman",
+            "space_node_key"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tianyuan_city_district",
+      "display": "天渊城",
+      "parent": "spirit_world",
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "人妖两族前线，灵气浓郁，修炼速度约为外界一倍。"
+      },
+      "learn_requirements": {
+        "reside": {
+          "race_any": [
+            "human",
+            "demon",
+            "hybrid"
+          ],
+          "reputation_min": "tianyuan_registered"
+        }
+      }
+    },
+    {
+      "id": "yin_underworld_gate",
+      "display": "阴司入口",
+      "parent": "yin_realm",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "鬼道修士与阴罗殿势力交汇。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "path_any": [
+            "ghost_cultivator",
+            "yin_luo_quest"
+          ]
+        }
+      }
+    }
+  ],
+  "dimensions": [
+    {
+      "dimension_id": "seeking_immortals:mortal_world",
+      "display": "人界（主世界）",
+      "cosmology": "mortal_realm",
+      "minecraft_layer": "overworld",
+      "is_default_spawn": true,
+      "realm_cap": "DEITY_TRANSFORMATION",
+      "realm_cap_note": "古魔劫后人界化神上限约初期，见 chronicle E_ancient_demon_seal_weak",
+      "spirit_density": "normal",
+      "region_cards_ref": "region_cards/",
+      "subdimensions": [
+        {
+          "id": "seeking_immortals:nether_river_pocket",
+          "type": "pocket",
+          "parent_region": "nether_river",
+          "realm_min": "FOUNDATION"
+        },
+        {
+          "id": "seeking_immortals:secret_realm_instance",
+          "type": "instanced",
+          "template_ref": "secret_realm_template.json"
+        }
+      ],
+      "featured_regions": [
+        "chaotic_sea",
+        "tiannan",
+        "mulan",
+        "great_jin"
+      ],
+      "realm_cap_detail": {
+        "cap": "DEITY_TRANSFORMATION",
+        "overflow_events": [
+          "mortal_realm_cap_insight",
+          "ascension_pressure_hint",
+          "spirit_realm_call_echo"
+        ],
+        "remedy_tags": [
+          "ascension",
+          "spirit_realm_gate"
+        ]
+      },
+      "setting": {
+        "lore": "主世界 Overworld；人界全境与秘境父维默认。"
+      }
+    },
+    {
+      "dimension_id": "seeking_immortals:tianyuan",
+      "display": "天渊城",
+      "cosmology": "spirit_realm",
+      "minecraft_layer": "custom",
+      "role": "ascension_hub_and_garrison",
+      "realm_min_entry": "DEITY_TRANSFORMATION",
+      "entry_methods": [
+        {
+          "type": "ascension",
+          "gate_id": "mortal_to_tianyuan",
+          "one_way": true,
+          "trigger": "DEITY_TRANSFORMATION_peak + tribulation_success"
+        },
+        {
+          "type": "admin_debug",
+          "enabled": false
+        },
+        {
+          "type": "smuggle",
+          "chronicle": "P3_smuggle_ascension",
+          "risk": "high",
+          "not_recommended": true
+        }
+      ],
+      "cultivation_multiplier": 2.0,
+      "region_card_ref": "region_cards/tianyuan.json",
+      "interface_ref": "spirit_realm_interface.json#tianyuan_city",
+      "spirit_density_mult": 2.0,
+      "factions": [
+        "tianyuan_city",
+        "renzu_lingjie",
+        "yaozu_border"
+      ],
+      "economy_ref": "economy_contribution_exchange.json#tianyuan",
+      "hub_city": "tianyuan_city.json",
+      "cultivation_rate_note": "天渊城等区域双倍修炼结构",
+      "subdimensions": [
+        {
+          "id": "spirit_fengyuan",
+          "display": "风元大陆",
+          "region_card": "region_cards/spirit_fengyuan.json",
+          "realm_span": [
+            "SPIRIT_SEVERING",
+            "GREAT_VEHICLE"
+          ]
+        },
+        {
+          "id": "barbarian_wasteland",
+          "display": "蛮荒",
+          "parent": "spirit_fengyuan",
+          "realm_min": "VOID_REFINING"
+        },
+        {
+          "id": "tianyuan",
+          "display": "天渊城",
+          "hub": "tianyuan_city.json",
+          "cultivation_rate_tag": 2.0
+        },
+        {
+          "id": "spirit_realm_border",
+          "display": "灵界边境",
+          "region_card": "region_cards/spirit_realm_border.json"
+        },
+        {
+          "id": "diyuan",
+          "display": "地渊",
+          "secret_realm": "diyuan",
+          "realm_min": "VOID_REFINING"
+        },
+        {
+          "id": "wild_land",
+          "display": "荒原",
+          "region_card": "region_cards/spirit_realm_border.json",
+          "note": "与天渊边境相连"
+        }
+      ],
+      "setting": {
+        "lore": "飞升落点；修炼约 2× 结构倍率。"
+      }
+    },
+    {
+      "dimension_id": "seeking_immortals:spirit_fengyuan",
+      "display": "灵界·风元大陆",
+      "cosmology": "spirit_realm",
+      "minecraft_layer": "custom",
+      "realm_min_entry": "VOID_REFINEMENT",
+      "entry_methods": [
+        {
+          "type": "regulated_portal",
+          "gate_id": "tianyuan_to_spirit_fengyuan",
+          "from_dimension": "seeking_immortals:tianyuan",
+          "fee_contribution": 500,
+          "faction": "tianyuan_garrison"
+        },
+        {
+          "type": "space_rift",
+          "risk": "high",
+          "items_help": [
+            "space_anchor_talisman"
+          ]
+        }
+      ],
+      "realm_cap": "GREAT_VEHICLE",
+      "region_card_ref": "region_cards/spirit_fengyuan.json",
+      "landmarks": [
+        "diyuan",
+        "jiuxian_mount",
+        "guanghan",
+        "demon_gold_mountain",
+        "minor_asura"
+      ],
+      "featured_regions": [
+        "spirit_fengyuan",
+        "diyuan_edge"
+      ],
+      "hub_city": "tianyuan_city.json",
+      "cultivation_rate_note": "天渊城等区域双倍修炼结构",
+      "setting": {
+        "lore": "风元大陆；炼虚后内容。"
+      }
+    },
+    {
+      "dimension_id": "seeking_immortals:yin_ming_pocket",
+      "display": "冥河界域",
+      "cosmology": "yin_underworld_cluster",
+      "minecraft_layer": "pocket",
+      "realm_min_entry": "FOUNDATION",
+      "entry_methods": [
+        {
+          "type": "portal",
+          "location": "nether_river_entrance",
+          "currency": "yin_stone"
+        },
+        {
+          "type": "death_state",
+          "path": "ghost_cultivation_path"
+        }
+      ],
+      "path_ref": "ghost_cultivation_path.json",
+      "secret_realm_ref": "nether_river_land",
+      "setting": {
+        "lore": "冥河口袋界；筑基或鬼道。"
+      }
+    },
+    {
+      "dimension_id": "seeking_immortals:demon_rift",
+      "display": "魔界裂隙（临时）",
+      "cosmology": "ancient_demon_realm",
+      "minecraft_layer": "instanced",
+      "realm_min_entry": "NASCENT_SOUL",
+      "entry_methods": [
+        {
+          "type": "world_event",
+          "event_id": "ancient_demon_seal_breach"
+        },
+        {
+          "type": "secret_realm",
+          "link": "fallen_demon_valley"
+        },
+        {
+          "type": "secret_realm",
+          "link": "fallen_demon_valley",
+          "realm_min": "NASCENT_SOUL"
+        }
+      ],
+      "duration": "event_bound",
+      "loot_bias": [
+        "demonized_gear",
+        "space_rift_shard"
+      ],
+      "chronicle_refs": [
+        "E_ancient_demon_seal_weak"
+      ],
+      "duration_rules": "封印削弱时开放",
+      "setting": {
+        "lore": "魔界裂隙副本；事件开放。"
+      }
+    },
+    {
+      "dimension_id": "seeking_immortals:immortal_realm",
+      "display": "仙界",
+      "cosmology": "immortal_realm",
+      "minecraft_layer": "reserved",
+      "playable": false,
+      "realm_min_entry": "GREAT_VEHICLE_peak",
+      "entry_methods": [
+        {
+          "type": "ascension",
+          "from": "spirit_realm",
+          "trigger": "great_vehicle_tribulation_success"
+        }
+      ],
+      "note": "远期 DLC；当前仅数据占位",
+      "setting": {
+        "lore": "仙界占位 DLC。"
+      }
+    }
+  ],
+  "travel_matrix": [
+    {
+      "from": "seeking_immortals:mortal_world",
+      "to": "seeking_immortals:tianyuan",
+      "allowed": "ascension_only",
+      "gate": "mortal_to_tianyuan"
+    },
+    {
+      "from": "seeking_immortals:tianyuan",
+      "to": "seeking_immortals:mortal_world",
+      "allowed": "avatar_descent_clone",
+      "realm_min": "VOID_REFINEMENT",
+      "ref": "avatar_descent"
+    },
+    {
+      "from": "seeking_immortals:tianyuan",
+      "to": "seeking_immortals:spirit_fengyuan",
+      "allowed": "portal_fee",
+      "gate": "tianyuan_to_spirit_fengyuan"
+    },
+    {
+      "from": "seeking_immortals:mortal_world",
+      "to": "seeking_immortals:yin_ming_pocket",
+      "allowed": "portal_or_ghost_path"
+    },
+    {
+      "from": "seeking_immortals:mortal_world",
+      "to": "seeking_immortals:demon_rift",
+      "allowed": "event_only"
+    }
+  ],
+  "instanced_secret_realms": {
+    "handler": "secret_realm_instance",
+    "template_ref": "secret_realm_template.json",
+    "catalog_ref": "secret_realms.json",
+    "parent_dimension_default": "seeking_immortals:mortal_world",
+    "spirit_realm_parents": [
+      "seeking_immortals:spirit_fengyuan"
+    ]
+  },
+  "forge_registration": {
+    "note": "每个 dimension_id 对应 DimensionType + 入境 Portal/飞升触发器",
+    "priority": [
+      "seeking_immortals:mortal_world",
+      "seeking_immortals:tianyuan",
+      "seeking_immortals:spirit_fengyuan"
+    ]
+  },
+  "crossref": [
+    "spirit_realm_interface.json",
+    "cultivation_progression.json",
+    "ghost_cultivation_path.json",
+    "secret_realms.json"
+  ],
+  "ascension_flow_ref": "ascension_flow.json",
+  "yin_cluster_ref": "yin_underworld_cluster.json",
+  "spatial_nodes_ref": "spatial_nodes_catalog.json",
+  "dajin_factions_ref": "dajin_factions.json",
+  "dimension_registry_ref": "dimension_registry.json"
+}

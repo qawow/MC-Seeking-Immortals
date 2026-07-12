@@ -1,0 +1,1449 @@
+{
+  "schema_version": 5,
+  "events": [
+    {
+      "id": "wandering_merchant",
+      "display": "行商路过",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "weight": 10,
+      "rewards": [
+        "random_low_artifact",
+        "herb_bundle"
+      ],
+      "setting": {
+        "lore": "天南官道偶有行商兜售低阶符箓与灵草，价格随宗门距离浮动。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bandit_cultivator",
+      "display": "散修劫道",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "weight": 8,
+      "combat_tier": 2,
+      "setting": {
+        "lore": "散修劫道在灵脉稀薄处高发，败者常被搜魂夺宝。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_rain",
+      "display": "灵雨",
+      "regions": [
+        "*"
+      ],
+      "weight": 3,
+      "buff": "cultivation_speed_1.1_1day",
+      "setting": {
+        "lore": "灵雨骤降可催熟灵田，修士借雨吐纳一日可抵寻常数日。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "*"
+          ]
+        }
+      }
+    },
+    {
+      "id": "auction_notice",
+      "display": "拍卖预告",
+      "regions": [
+        "chaotic_sea",
+        "dajin",
+        "tianyuan"
+      ],
+      "weight": 5,
+      "hooks": [
+        "bu_tian_pill",
+        "high_herb"
+      ],
+      "setting": {
+        "lore": "坊市将开小型拍卖，筑基以上修士可入场竞价。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "chaotic_sea",
+            "dajin",
+            "tianyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sect_recruit",
+      "display": "宗门招新",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 6,
+      "factions": [
+        "huangfeng_valley",
+        "yanyue_sect"
+      ],
+      "setting": {
+        "lore": "宗门外门招新，测灵根与心性为入门门槛。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_boat",
+      "display": "冥河渡船",
+      "regions": [
+        "nether_river"
+      ],
+      "weight": 12,
+      "cost_yin_stone": 30,
+      "setting": {
+        "lore": "冥河虚影渡船现于江面，鬼修传闻可借船入阴罗外围。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "nether_river"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_qi_surge",
+      "display": "魔气涌动",
+      "regions": [
+        "fallen_demon_valley",
+        "dajin"
+      ],
+      "weight": 7,
+      "debuff": "demon_qi_tick",
+      "setting": {
+        "lore": "魔气潮汐自坠魔谷方向涌来，低阶修士需避其锋芒。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "fallen_demon_valley",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_migration",
+      "display": "兽潮前兆",
+      "regions": [
+        "mulan",
+        "spirit_fengyuan"
+      ],
+      "weight": 4,
+      "spawn_multiplier": 1.3,
+      "setting": {
+        "lore": "妖兽迁徙过境，猎妖队与散修常尾随取利。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "mulan",
+            "spirit_fengyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_scout_clash",
+      "display": "斥候遭遇",
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "weight": 9,
+      "faction_war": true,
+      "setting": {
+        "lore": "慕兰斥候与天南巡逻队在边境丘陵遭遇，多为炼气—筑基小规模交锋。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "mulan",
+            "tianlan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pirate_raid",
+      "display": "海盗袭岛",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "weight": 11,
+      "inverse_star_chance": 0.2,
+      "setting": {
+        "lore": "乱星海海盗劫掠商船，星宫巡逻与逆星暗线皆可能介入。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_ruins_whisper",
+      "display": "古迹低鸣",
+      "regions": [
+        "kunwu",
+        "dajin"
+      ],
+      "weight": 4,
+      "quest_hook": "kunwu_intel",
+      "setting": {
+        "lore": "上古遗迹传出低语，神识不足者易生心魔。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "kunwu",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_corruption_warning",
+      "display": "阴煞侵体",
+      "regions": [
+        "yinming"
+      ],
+      "weight": 15,
+      "damage_type": "yin",
+      "setting": {
+        "lore": "阴煞浓度升高，鬼道修士受益，正道需备辟邪物。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "yinming"
+          ]
+        }
+      }
+    },
+    {
+      "id": "foundation_pill_rumor",
+      "display": "筑基丹流言",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 7,
+      "hooks": [
+        "huangfeng_entry",
+        "auction_notice"
+      ],
+      "setting": {
+        "lore": "坊市传闻有筑基丹私下流通，真伪需炼丹师辨。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "talisman_master_visit",
+      "display": "符师云游",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "weight": 5,
+      "rewards": [
+        "talisman_paper_bundle"
+      ],
+      "faction": "qingxu_gate",
+      "setting": {
+        "lore": "制符师路过村落，可委托绘制低阶护身符。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_vein_pulse",
+      "display": "灵脉微涌",
+      "regions": [
+        "*"
+      ],
+      "weight": 2,
+      "buff": "cultivation_speed_1.2_3day",
+      "setting": {
+        "lore": "灵脉短暂涌动，当日修炼效率略增。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "*"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rogue_cultivator_duel",
+      "display": "散修约战",
+      "regions": [
+        "tiannan",
+        "chaotic_sea",
+        "dajin"
+      ],
+      "weight": 6,
+      "combat_tier": 3,
+      "rewards": [
+        "random_mid_artifact_chance"
+      ],
+      "setting": {
+        "lore": "散修以斗法立威或夺宝，天南与乱星海皆常见，败者往往身死道消。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "chaotic_sea",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sect_elder_lecture",
+      "display": "长老讲道",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 4,
+      "buff": "breakthrough_chance_small",
+      "factions": [
+        "huangfeng_valley",
+        "yanyue_sect",
+        "spirit_beast_mountain"
+      ],
+      "setting": {
+        "lore": "宗门长老开坛讲道，外门弟子可悟一丝修炼关窍。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_rift_sighting",
+      "display": "空间裂隙目击",
+      "regions": [
+        "tianyuan",
+        "fallen_demon_valley"
+      ],
+      "weight": 3,
+      "quest_hook": "fallen_demon_scout",
+      "setting": {
+        "lore": "空间裂隙在天渊边境与坠魔谷周边偶现，误入者九死一生。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tianyuan",
+            "fallen_demon_valley"
+          ]
+        }
+      }
+    },
+    {
+      "id": "treasure_fair_rumor",
+      "display": "万宝大会传闻",
+      "regions": [
+        "spirit_fengyuan",
+        "tianyuan"
+      ],
+      "weight": 4,
+      "hooks": [
+        "treasure_fair_invite"
+      ],
+      "setting": {
+        "lore": "灵界万宝大会将开，高阶材料与古宝残片或现拍卖场。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "spirit_fengyuan",
+            "tianyuan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_wail_night",
+      "display": "夜哭鬼啸",
+      "regions": [
+        "nether_river",
+        "yinming"
+      ],
+      "weight": 10,
+      "path": "ghost_cultivator",
+      "spawn": "yin_wraith",
+      "setting": {
+        "lore": "冥河阴雾之夜鬼啸四起，鬼修受益，正道需备辟邪符。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "nether_river",
+            "yinming"
+          ]
+        }
+      }
+    },
+    {
+      "id": "contribution_bonus_day",
+      "display": "宗门赏功日",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 3,
+      "buff": "contribution_gain_1.5_1day",
+      "setting": {
+        "lore": "宗门赏功日，完成契约任务贡献点结算加成。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tiannan_herb_price_spike",
+      "region": "tiannan",
+      "weight": 8,
+      "effect": "herb_shop_price_x1.3",
+      "display": "坊市灵草涨价",
+      "setting": {
+        "lore": "坊市灵草因战事或灵雨短缺涨价，炼丹师囤货。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_pirate_raid",
+      "region": "chaotic_sea",
+      "weight": 6,
+      "effect": "ferry_cost_double",
+      "display": "海盗袭船",
+      "setting": {
+        "lore": "海盗劫商船，星宫巡逻与逆星走私线皆可能被卷入。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_wind_storm",
+      "region": "mulan",
+      "weight": 7,
+      "effect": "movement_debuff_outdoor",
+      "display": "草原罡风",
+      "setting": {
+        "lore": "草原罡风裹挟沙砾，法士借风势施术威力上升。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_forbidden_rumor",
+      "region": "tiannan",
+      "weight": 3,
+      "effect": "quest_hint_blood_forbidden",
+      "display": "血色禁地将开传闻",
+      "setting": {
+        "lore": "血色禁地入口封印松动传闻再起，宗门开始分配筑基弟子名额。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "great_jin_auction_week",
+      "region": "great_jin",
+      "weight": 4,
+      "effect": "auction_active",
+      "display": "万宝楼拍卖周",
+      "setting": {
+        "lore": "大晋万宝楼周拍，结丹以上修士方可竞价珍稀丹方。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nether_river_fog",
+      "region": "nether_river",
+      "weight": 5,
+      "effect": "yin_damage_ambient",
+      "display": "冥河雾灾",
+      "setting": {
+        "lore": "冥河大雾封渡，鬼船票价翻倍，敛魂符走俏。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_beast_tide",
+      "region": "chaotic_sea",
+      "weight": 5,
+      "display": "兽潮袭岛",
+      "effects": {
+        "spawn_beast_wave": true,
+        "star_palace_patrol_bonus": true
+      },
+      "setting": {
+        "lore": "星海兽潮袭岛，猎妖队与宗门驻岛修士联合御敌。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_ghost_fog_truce",
+      "region": "chaotic_sea",
+      "weight": 3,
+      "display": "鬼雾暂休战",
+      "effects": {
+        "pvp_disabled_factions": [
+          "star_palace",
+          "inverse_star_alliance"
+        ],
+        "duration_days": 3
+      },
+      "setting": {
+        "lore": "鬼雾笼罩航线，星宫与海盗暂休战，走私暗涌。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_tax_raid",
+      "region": "chaotic_sea",
+      "weight": 4,
+      "display": "星宫查税",
+      "effects": {
+        "tax_mult": 1.2,
+        "inverse_star_smuggle_chance": 0.3
+      },
+      "setting": {
+        "lore": "星宫执法队查税缉私，逆星盟成员需隐匿行踪。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_auction_rumor",
+      "region": "chaotic_sea",
+      "weight": 4,
+      "display": "岛拍传闻",
+      "effects": {
+        "quest_hint": "void_palace_key"
+      },
+      "setting": {
+        "lore": "某岛将开黑拍，来源不明的古宝碎片或将露面。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dajin_clan_feud",
+      "region": "dajin",
+      "weight": 4,
+      "display": "世家械斗",
+      "effects": {
+        "pvp_local": true
+      },
+      "setting": {
+        "lore": "大晋修仙世家因矿脉与婚盟械斗，散修慎入。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_cold_snap",
+      "region": "kunwu",
+      "weight": 3,
+      "display": "昆吾寒潮",
+      "effects": {
+        "movement_debuff": true
+      },
+      "setting": {
+        "lore": "昆吾山寒潮加剧，傀儡与寒禁对低阶修士杀伤极大。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "barbarian_beast_tide",
+      "region": "barbarian_wasteland",
+      "weight": 4,
+      "display": "兽潮过境",
+      "effects": {
+        "spawn_elite": true
+      },
+      "setting": {
+        "lore": "蛮荒兽潮过境，空间裂缝附近妖王气息压迫。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_wind_howl",
+      "region": "yinming",
+      "weight": 5,
+      "display": "阴风怒号",
+      "path": "ghost_cultivator",
+      "setting": {
+        "lore": "阴冥之地阴风怒号，鬼道修炼效率略升。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pearl_diving_mortals",
+      "region": "outer_sea_market",
+      "display": "凡人采珠船出海",
+      "weight": 6,
+      "effects": {
+        "shop_pearl_raw_stock": true
+      },
+      "setting": {
+        "lore": "外海凡人采珠船出海，修士劫珠传闻伴随风暴季。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pearl_storm_shelter",
+      "region": "outer_sea_market",
+      "display": "风暴避港",
+      "weight": 3,
+      "effects": {
+        "ferry_delay": true
+      },
+      "setting": {
+        "lore": "风暴迫港，采珠船与商船争泊位，岛主抽税。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pearl_tax_dispute",
+      "region": "outer_sea_market",
+      "display": "采珠税争执",
+      "weight": 4,
+      "factions": [
+        "star_palace",
+        "mortal_pearl_fleet"
+      ],
+      "setting": {
+        "lore": "采珠税与岛主分成争执，易引发修士与凡人冲突。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cultivator_pearl_snatch",
+      "region": "chaotic_sea",
+      "display": "修士劫珠传闻",
+      "weight": 3,
+      "effects": {
+        "quest_hint": "protect_mortal_fleet"
+      },
+      "setting": {
+        "lore": "高阶海珠可辅炼体，散修劫珠案在乱星海屡禁不止。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wutu_raid_mulan_camp",
+      "region": "wutu_border",
+      "display": "突兀袭营",
+      "weight": 5,
+      "setting": {
+        "lore": "突兀族夜袭慕兰营地，世仇与粮草争夺交织。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fallen_demon_miasma",
+      "region": "fallen_demon_valley",
+      "display": "坠魔谷魔雾",
+      "weight": 4,
+      "effects": {
+        "demonization_risk_tag": true
+      },
+      "setting": {
+        "lore": "坠魔谷魔雾外溢，心魔与魔化风险升高。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_luo_patrol",
+      "region": "yinming",
+      "display": "阴罗殿巡魂",
+      "weight": 3,
+      "setting": {
+        "lore": "阴罗殿巡魂使过境，野鬼与散修鬼修需避其锋芒。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_beast_siege",
+      "region": "tianyuan",
+      "display": "兽潮攻城",
+      "weight": 5,
+      "setting": {
+        "lore": "天渊城兽潮攻城，功勋与军需兑换翻倍。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wild_land_beast_horde",
+      "region": "spirit_realm_border",
+      "display": "荒原兽群",
+      "weight": 6,
+      "setting": {
+        "lore": "灵界边境荒原兽群迁徙，猎杀可换边境功勋。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_expose_rumor",
+      "region": "tiannan",
+      "display": "鬼修踪迹传闻",
+      "weight": 2,
+      "effects": {
+        "ghost_hunt_risk": true
+      },
+      "setting": {
+        "lore": "天南某坊市传闻鬼修现身，正道宗门暗中搜捕。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_rift_surge",
+      "region": "spirit_realm_border",
+      "display": "虚空裂隙涌动",
+      "weight": 4,
+      "realm_min": "VOID_REFINING",
+      "effects": {
+        "spatial_damage_risk": true
+      },
+      "setting": {
+        "lore": "灵界边境虚空裂隙涌动，炼虚修士方敢近前探查。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "great_vehicle_insight",
+      "region": "spirit_fengyuan",
+      "display": "大道感悟异象",
+      "weight": 3,
+      "realm_min": "GREAT_VEHICLE",
+      "effects": {
+        "cultivation_buff_tag": true
+      },
+      "setting": {
+        "lore": "大乘修士讲道余韵引动天地，旁听者或悟一丝大道。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tribulation_cloud_gather",
+      "region": "tianyuan",
+      "display": "天劫云聚",
+      "weight": 2,
+      "realm_min": "TRIBULATION",
+      "effects": {
+        "tribulation_prep_event": true
+      },
+      "setting": {
+        "lore": "天劫云聚，方圆千里修士避劫远遁。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "diyuan_pressure_wave",
+      "region": "diyuan",
+      "display": "地渊重压波",
+      "weight": 5,
+      "realm_min": "VOID_REFINING",
+      "setting": {
+        "lore": "地渊重压波外传，未持许可者神识受损。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "barbarian_king_roar",
+      "region": "barbarian_wasteland",
+      "display": "妖王远啸",
+      "weight": 4,
+      "realm_min": "VOID_REFINING",
+      "quest_hook": "king_territory_intrusion",
+      "setting": {
+        "lore": "蛮荒妖王远啸，低阶修士气血翻腾。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "clan_auction_spirit_realm",
+      "region": "spirit_fengyuan",
+      "display": "世家灵界拍卖",
+      "weight": 3,
+      "realm_min": "SPIRIT_SEVERING",
+      "setting": {
+        "lore": "灵界世家拍卖灵石矿份额与古修遗物。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_clan_embassy",
+      "region": "tianyuan",
+      "display": "妖族使馆纠纷",
+      "weight": 3,
+      "setting": {
+        "lore": "天渊妖族使馆与城主府摩擦，任务多涉外交功勋。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_storm_major",
+      "region": "wild_land",
+      "display": "荒原灵暴",
+      "weight": 4,
+      "realm_min": "SPIRIT_SEVERING",
+      "setting": {
+        "lore": "荒原灵暴席卷，灵舟停航数日。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_ruin_whisper",
+      "region": "spirit_fengyuan",
+      "display": "上古废墟低语",
+      "weight": 2,
+      "quest_hook": "ancient_ruin_explore",
+      "setting": {
+        "lore": "上古废墟传出道韵低语，需稳固心神方可探查。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "merit_convoy_ambush",
+      "region": "tianyuan",
+      "display": "功勋车队遇袭",
+      "weight": 5,
+      "rewards_tag": "merit_points",
+      "setting": {
+        "lore": "天渊功勋车队遇袭，魔族探子与逆星余孽皆可疑。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mortal_realm_cap_insight",
+      "region": "tiannan",
+      "display": "化神瓶颈感悟",
+      "weight": 3,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "化神修士闭关感悟偶泄天机，同阶可借境参悟。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ascension_pressure_hint",
+      "region": "dajin",
+      "display": "飞升压力暗涌",
+      "weight": 2,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "人界灵气稀薄，化神巅峰感飞升压力，需备渡劫之物。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_call_echo",
+      "region": "chaotic_sea",
+      "display": "灵界共鸣",
+      "weight": 2,
+      "realm_min": "DEITY_TRANSFORMATION",
+      "quest_hook": "ascension_gate_rumor",
+      "setting": {
+        "lore": "灵界共鸣偶现乱星海，预示飞升通道或天渊征召。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_spirit_rain_tiannan",
+      "display": "天南灵雨",
+      "weight": 8,
+      "regions": [
+        "tiannan"
+      ],
+      "effects": [
+        "herb_growth_boost"
+      ],
+      "lore": "灵雨过后低阶灵草萌发。",
+      "setting": {
+        "lore": "天南灵雨润泽灵田，当日吐纳效率略增。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_demonic_scout",
+      "display": "魔道探子",
+      "weight": 6,
+      "regions": [
+        "tiannan"
+      ],
+      "faction_trigger": "demonic_alliance",
+      "effects": [
+        "random_ambush_low"
+      ],
+      "lore": "正魔边境摩擦。",
+      "setting": {
+        "lore": "魔道探子潜入天南坊市，宗门暗哨加强盘查。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_auction_rumor",
+      "display": "万宝楼拍卖传闻",
+      "weight": 5,
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "effects": [
+        "auction_preview"
+      ],
+      "lore": "稀有法宝将现于拍卖。",
+      "setting": {
+        "lore": "万宝楼将拍筑基丹与低阶古宝，需备足灵石。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_sea_beast_migration",
+      "display": "海兽迁徙",
+      "weight": 7,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "effects": [
+        "sea_spawn_boost"
+      ],
+      "lore": "乱星海航线风险上升。",
+      "setting": {
+        "lore": "海兽迁徙改变航线，猎妖队尾随取丹。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_herb_merchant_caravan",
+      "display": "灵药商队",
+      "weight": 9,
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "effects": [
+        "shop_herb_discount"
+      ],
+      "lore": "跨域商队短暂停留。",
+      "setting": {
+        "lore": "灵药商队求护卫，报酬为灵草或折扣丹药。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "dajin"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_tribulation_omen",
+      "display": "天劫异象",
+      "weight": 3,
+      "regions": [
+        "any"
+      ],
+      "realm_min": "CORE_FORMATION",
+      "effects": [
+        "tribulation_pressure"
+      ],
+      "lore": "突破者众，天地灵气躁动。",
+      "setting": {
+        "lore": "突破者众，天地灵气躁动。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "any"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_clan_recruit",
+      "display": "家族招揽",
+      "weight": 6,
+      "regions": [
+        "tiannan"
+      ],
+      "effects": [
+        "clan_quest_offer"
+      ],
+      "lore": "修仙家族广纳外姓修士。",
+      "setting": {
+        "lore": "修仙家族招揽外姓天才，赐丹换忠诚。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "evt_spirit_mine_dispute",
+      "display": "灵矿争执",
+      "weight": 5,
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "effects": [
+        "faction_conflict_minor"
+      ],
+      "lore": "小型宗门与散修争矿。",
+      "setting": {
+        "lore": "灵矿脉权争执，易演变为宗门与世家冲突。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan",
+            "chaotic_sea"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_border_patrol",
+      "display": "边境巡哨",
+      "regions": [
+        "mulan",
+        "tiannan_border"
+      ],
+      "weight": 9,
+      "faction_war": "mulan_tianlan",
+      "war_phase": "border_skirmish",
+      "rewards": [
+        "war_scout_token",
+        "low_grade_spirit_stone"
+      ],
+      "setting": {
+        "lore": "联军或慕兰法士编队在边境轮值，遭遇战可积累战役贡献。",
+        "structure": "战役阶段非胜率"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "mulan",
+            "tiannan_border"
+          ],
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "mulan_soul_array_supply",
+      "display": "护阵供灵",
+      "regions": [
+        "mulan"
+      ],
+      "weight": 7,
+      "faction_war": "mulan_tianlan",
+      "war_phase": "fashi_array_clash",
+      "mechanics": [
+        "soul_burn_risk_tag"
+      ],
+      "rewards": [
+        "array_core_fragment",
+        "fashi_art_fragment"
+      ],
+      "setting": {
+        "lore": "慕兰法士大阵需持续灌注灵力，过度抽取有燃魂之险；破阵方为战役目标。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "mulan"
+          ],
+          "realm_min": "FOUNDATION",
+          "role_any": [
+            "array_guard",
+            "array_breaker"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tiannan_war_merit_muster",
+      "display": "天南战勋集结",
+      "regions": [
+        "tiannan",
+        "tiannan_border"
+      ],
+      "weight": 8,
+      "faction_war": "mulan_tianlan",
+      "rewards": [
+        "war_merit_huangfeng",
+        "anti_fashi_talisman"
+      ],
+      "setting": {
+        "lore": "黄枫、燕乐等宗门动员弟子赴边境，战勋可换地火室与丹方权限。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "regions": [
+            "tiannan"
+          ],
+          "realm_min": "QI_REFINING",
+          "faction_any": [
+            "tiannan_alliance"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ceasefire_envoy_rumor",
+      "display": "停战使者传闻",
+      "regions": [
+        "mulan",
+        "tiannan"
+      ],
+      "weight": 4,
+      "chronicle_hooks": [
+        "tianlan_oath",
+        "K9_mulan_tianlan_escalation"
+      ],
+      "setting": {
+        "lore": "双方元婴层面试探停战，地面修士仍可能遭遇突袭；结构为阶段分支非单一结局。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "open_sky_tribulation_omen",
+      "display": "天象异变",
+      "region": "any",
+      "weight": 0.4,
+      "setting": {
+        "lore": "方圆百里雷云聚集，疑有人渡大劫或妖兽化形小劫；非密境内方可观劫。"
+      },
+      "tags": [
+        "tribulation",
+        "ambient"
+      ]
+    }
+  ],
+  "pools": {
+    "spirit_realm_void_great": {
+      "realm_span": [
+        "VOID_REFINING",
+        "GREAT_VEHICLE",
+        "TRIBULATION"
+      ],
+      "regions": [
+        "spirit_fengyuan",
+        "barbarian_wasteland",
+        "tianyuan",
+        "spirit_realm_border",
+        "diyuan"
+      ],
+      "events": []
+    }
+  }
+}

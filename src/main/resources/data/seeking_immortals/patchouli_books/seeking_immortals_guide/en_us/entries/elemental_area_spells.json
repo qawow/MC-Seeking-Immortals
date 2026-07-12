@@ -1,0 +1,28 @@
+{
+  "name": "Elemental Area Spells",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_charm",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Source Basis",
+      "text": "This page follows 文本材料/data/techniques/elemental.json entries lava_burst, mist_rain, sand_storm, blizzard, cyclone, and chain_lightning. The current implementation reuses technique data, the seven-slot release flow, and ElementalAreaSpell without adding spell entities, GUI, packet format changes, or a runtime loader."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Release Rules",
+      "text": "All six spells are Qi Refining elemental area spells. After learning them from the Changchun Gong appendix or a manual slip, bind them to a technique slot. The server still validates learned state, slot bounds, spiritual power cost, and cooldown; the client only sends a release intent. The impact point follows the caster's sight line, and targets in the area take distance-falloff magic damage."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Six Effects",
+      "text": "Lava Burst: fire-earth impact that burns and weakens.$(br)Mist Rain: water mist that clears fire, slows, and weakens.$(br)Sand Storm: dust control with heavy slow and brief blindness.$(br)Blizzard: cold area slow plus mining/action fatigue.$(br)Cyclone: wind control with slow, weakness, and an upward push.$(br)Chain Lightning: custom thunder arcs that slow and weaken."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Still Deferred",
+      "text": "Light Orb and Dark Flame remain in the later projectile pass. Source-accurate method prerequisites and root gates are mostly represented in learning data for now and still need stricter validation and display. Dedicated particle types, textures, PvP feel, live multiplayer visual checks, and higher-realm elemental bursts are also deferred."
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "schema_version": 5,
+  "school": "xuan_yin",
+  "techniques": [
+    {
+      "id": "soul_devouring_cloud",
+      "display": "噬魂云",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "aoe_dot",
+        "element": "yin",
+        "damage_base": 6,
+        "tags": []
+      },
+      "tier": "spell",
+      "path_required": "ghost_cultivator",
+      "requires_method": "ghost_nether_art",
+      "description": "噬魂云：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "cast_type": "sustained",
+        "target": "area",
+        "karma": "yin",
+        "lore": "玄阴一脉噬魂阴云。",
+        "counter": [
+          "buddhist_light"
+        ]
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "ghost_nether_art"
+        ]
+      }
+    },
+    {
+      "id": "corpse_explosion",
+      "display": "尸爆",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 40,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "尸爆：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "尸爆：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "yin_soul_chain",
+      "display": "阴魂链",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 28,
+        "tags": []
+      },
+      "tier": "spell",
+      "path_required": "ghost_cultivator",
+      "requires_method": "ghost_nether_art",
+      "description": "阴魂链：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阴魂链：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "ghost_nether_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "ghost_nether_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_corruption",
+      "display": "污血术",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "dot",
+        "element": "yin",
+        "damage_base": 15,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "污血术：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "污血术：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "corpse_armor",
+      "display": "炼尸甲",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "炼尸甲：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "炼尸甲：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "underworld_flame",
+      "display": "幽冥火",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 19,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 38,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "幽冥火：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "幽冥火：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "yin_corrosion",
+      "display": "阴蚀",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 9,
+      "source": "通用",
+      "effect": {
+        "type": "dot",
+        "element": "yin",
+        "damage_base": 18,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "阴蚀：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阴蚀：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "ghost_king_summon",
+      "display": "鬼王召",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "summon",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "鬼王召：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "鬼王召：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "soul_banner",
+      "display": "招魂",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 11,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 22,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "招魂：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "招魂：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "id": "soul_anchor_rite",
+      "display": "魂锚仪式",
+      "school": "xuan_yin",
+      "tier": "utility",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 25,
+      "path_required": "ghost_cultivator",
+      "requires_items": [
+        "soul_gathering_stone"
+      ],
+      "effect": {
+        "type": "buff",
+        "element": "yin",
+        "tags": [
+          "stage_soul_anchor"
+        ]
+      },
+      "description": "魂锚仪式：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "魂锚仪式：xuan_yin法术，需境界 FOUNDATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "FOUNDATION"
+      }
+    },
+    {
+      "id": "yin_soul_burst",
+      "display": "阴婴爆散",
+      "school": "xuan_yin",
+      "tier": "secret",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "path_required": "ghost_cultivator",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 80,
+        "tags": [
+          "high_risk"
+        ]
+      },
+      "description": "阴婴爆散：xuan_yin神通，需境界 NASCENT_SOUL 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "ritual",
+        "target": "battlefield",
+        "lore": "阴婴爆散：xuan_yin神通，需境界 NASCENT_SOUL 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "secret_inheritance",
+          "ruin",
+          "tribulation"
+        ],
+        "realm_min_override_strict": true,
+        "realm_min": "NASCENT_SOUL"
+      }
+    },
+    {
+      "id": "poluo_soul_pull",
+      "display": "夺魂牵引",
+      "school": "xuan_yin",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "path_required": "ghost_cultivator",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "tags": [
+          "soul"
+        ]
+      },
+      "description": "夺魂牵引：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "requires_method": "xuan_yin_art",
+      "setting": {
+        "combat_style": "魔道阴术",
+        "karma": "demonic",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "夺魂牵引：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "xuan_yin_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ]
+      }
+    }
+  ],
+  "method_gate": {
+    "ghost_nether_art": "冥河鬼修诀",
+    "xuan_yin_art": "玄阴诀（魔道分支，非鬼修专属）"
+  }
+}

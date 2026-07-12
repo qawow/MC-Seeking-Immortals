@@ -1,0 +1,13 @@
+{
+  "schema_version": 2,
+  "id": "inverse_star_hideout",
+  "display": "逆星暗港",
+  "parent_region": "chaotic_sea",
+  "faction": "inverse_star_alliance",
+  "spatial_node": "node_inverse_star_hideout",
+  "hidden": true,
+  "quest_hooks": [
+    "inverse_star_contact",
+    "stolen_jade_slip"
+  ]
+}

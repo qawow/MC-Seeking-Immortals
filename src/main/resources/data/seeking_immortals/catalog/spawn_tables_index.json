@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "tables": [
+    {
+      "id": "mulan_border",
+      "display": "mulan_border",
+      "entry_count": 2
+    },
+    {
+      "id": "spawn_blood_forbidden_cycle",
+      "display": "血色禁地周期刷怪",
+      "entry_count": 0
+    },
+    {
+      "id": "spawn_chaotic_sea_shallows",
+      "display": "乱星海浅海",
+      "entry_count": 0
+    },
+    {
+      "id": "spawn_kunwu_puppet_hall",
+      "display": "坤吴傀儡殿",
+      "entry_count": 0
+    },
+    {
+      "id": "spawn_mulan_wind_riders",
+      "display": "慕兰风骑",
+      "entry_count": 0
+    }
+  ]
+}

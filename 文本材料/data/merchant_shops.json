@@ -1,0 +1,1683 @@
+{
+  "schema_version": 4,
+  "shops": [
+    {
+      "id": "huangfeng_contribution_hall",
+      "display": "黄枫谷贡献堂",
+      "region": "tiannan",
+      "faction": "huangfeng_valley",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#huangfeng_valley",
+      "npc_archetype": "elder_alchemist",
+      "setting": {
+        "lore": "黄枫谷贡献堂"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "sect_contribution"
+        }
+      }
+    },
+    {
+      "id": "tiannan_herb_market",
+      "display": "天南坊市灵草摊",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "stock": [
+        {
+          "item": "yellow_essence",
+          "price": 15,
+          "stock": 20
+        },
+        {
+          "item": "ginseng_spirit",
+          "price": 28,
+          "stock": 12
+        },
+        {
+          "item": "spirit_mushroom",
+          "price": 8,
+          "stock": 30
+        },
+        {
+          "item": "spirit_condense_pill",
+          "price": 45,
+          "stock": 5
+        },
+        {
+          "item": "bigu_pill",
+          "price": 25,
+          "stock": 8
+        },
+        {
+          "item": "body_tempering_pill",
+          "price": 35,
+          "stock": 6
+        },
+        {
+          "item": "talisman_paper_mortal",
+          "price": 1,
+          "stock": 80
+        },
+        {
+          "item": "talisman_paper",
+          "price": 3,
+          "stock": 50
+        },
+        {
+          "item": "talisman_paper_mid",
+          "price": 12,
+          "stock": 20
+        },
+        {
+          "item": "beast_blood_ink",
+          "price": 8,
+          "stock": 15
+        },
+        {
+          "item": "paper_formula_scroll",
+          "price": 5,
+          "stock": 20
+        },
+        {
+          "item": "body_guard_talisman",
+          "price": 18,
+          "stock": 15
+        },
+        {
+          "item": "fire_burst_talisman",
+          "price": 22,
+          "stock": 10
+        },
+        {
+          "item": "demon_core_fragment",
+          "price": 12,
+          "stock": 25
+        },
+        {
+          "item": "jiangchen_pill",
+          "price": 120,
+          "stock": 3,
+          "realm_max": "QI_REFINING"
+        },
+        {
+          "item": "huanglong_pill",
+          "price": 55,
+          "stock": 6
+        },
+        {
+          "item": "heqi_pill",
+          "price": 40,
+          "stock": 8
+        },
+        {
+          "item": "storage_pouch_low",
+          "price": 150,
+          "stock": 2
+        },
+        {
+          "item": "recipe_jiangchen",
+          "price": 25,
+          "stock": 4
+        },
+        {
+          "item": "recipe_huanglong",
+          "price": 45,
+          "stock": 3
+        }
+      ],
+      "refresh": "daily",
+      "setting": {
+        "lore": "天南坊市灵草摊"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "luoyun_contribution_hall",
+      "display": "落云宗贡献殿",
+      "region": "tiannan",
+      "faction": "luoyun_sect",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#luoyun_sect",
+      "npc_archetype": "master_alchemist",
+      "faction_tag": "alchemy_strong",
+      "setting": {
+        "lore": "落云宗贡献殿"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "sect_contribution"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_island_general",
+      "display": "乱星海岛杂货",
+      "region": "chaotic_sea",
+      "currency": "low_spirit_stone",
+      "tax_rate": 0.1,
+      "tax_faction": "star_palace",
+      "stock": [
+        {
+          "item": "spirit_boat_ticket",
+          "price": 20
+        },
+        {
+          "item": "sea_soul_grass",
+          "price": 35
+        },
+        {
+          "item": "jiao_scale",
+          "price": 55,
+          "stock": 8
+        },
+        {
+          "item": "deep_sea_cold_iron",
+          "price": 90,
+          "stock": 4
+        },
+        {
+          "item": "coral_spirit_pearl_raw",
+          "price": 200,
+          "stock": 2
+        },
+        {
+          "item": "spirit_recovery_pill",
+          "price": 50,
+          "stock": 6
+        },
+        {
+          "item": "soul_gathering_pill",
+          "price": 75,
+          "stock": 4
+        },
+        {
+          "item": "escape_heaven_talisman",
+          "price": 120,
+          "realm_min": "FOUNDATION"
+        },
+        {
+          "item": "anti_demon_talisman",
+          "price": 65,
+          "stock": 10
+        },
+        {
+          "item": "auction_invitation",
+          "price": 30,
+          "stock": 5
+        },
+        {
+          "item": "ningshen_pill",
+          "price": 95,
+          "stock": 4
+        },
+        {
+          "item": "yanghun_pill",
+          "price": 110,
+          "stock": 3
+        },
+        {
+          "item": "sea_calm_pill",
+          "price": 35,
+          "stock": 10
+        },
+        {
+          "item": "recipe_sea_calm",
+          "price": 20,
+          "stock": 5
+        },
+        {
+          "item": "star_palace_tax_receipt",
+          "price": 5,
+          "stock": 20
+        }
+      ],
+      "setting": {
+        "lore": "乱星海岛杂货"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "chaotic_sea",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_black_market",
+      "display": "逆星盟黑市",
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "currency": "low_spirit_stone",
+      "reputation_gate": {
+        "star_palace": -15
+      },
+      "stock": [
+        {
+          "item": "stolen_jade_slip",
+          "price": 800,
+          "type": "quest_hook"
+        },
+        {
+          "item": "demon_core_mid",
+          "price": 90
+        },
+        {
+          "item": "island_deed_gray",
+          "price": 500
+        },
+        {
+          "item": "contraband_spirit_stone",
+          "price": 1,
+          "stock": 999,
+          "note": "1下品等价脏钱"
+        },
+        {
+          "item": "pirate_loot_bundle",
+          "price": 80
+        },
+        {
+          "item": "inverse_star_contact_token",
+          "price": 200,
+          "type": "quest_hook"
+        },
+        {
+          "item": "demon_heart_pill",
+          "price": 180,
+          "stock": 3
+        },
+        {
+          "item": "recipe_demon_heart",
+          "price": 350
+        },
+        {
+          "item": "inverse_star_cipher_token",
+          "price": 150,
+          "stock": 5
+        },
+        {
+          "item": "inverse_star_smuggler_pack",
+          "price": 120,
+          "stock": 8
+        }
+      ],
+      "setting": {
+        "lore": "逆星盟黑市"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "chaotic_sea",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "dajin_wanbao_pavilion",
+      "display": "大晋万宝阁",
+      "region": "dajin",
+      "currency": "mid_spirit_stone",
+      "auction": true,
+      "stock_tier": "high",
+      "stock_samples": [
+        "snow_lotus",
+        "refinement_blueprint",
+        "ancient_artifact_fragment",
+        "snow_lotus_pill",
+        "wanbao_auction_lot_tag",
+        "refinement_manual_mid"
+      ],
+      "auction_lot_table": "wanbao_auction_lot_pool",
+      "setting": {
+        "lore": "大晋万宝阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "dajin",
+          "currency": "mid_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "nether_ferry_vendor",
+      "display": "冥河渡夫",
+      "region": "nether_river",
+      "currency": "yin_stone",
+      "stock": [
+        {
+          "item": "ghost_hide_talisman",
+          "price": 25
+        },
+        {
+          "item": "yin_protect_talisman",
+          "price": 40
+        },
+        {
+          "item": "ferry_pass",
+          "price": 30
+        },
+        {
+          "item": "yin_ward_pill",
+          "price": 45
+        },
+        {
+          "item": "yin_body_protection_charm",
+          "price": 22
+        },
+        {
+          "item": "nether_ferry_coin",
+          "price": 30
+        }
+      ],
+      "setting": {
+        "lore": "冥河渡夫"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "nether_river",
+          "currency": "yin_stone"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_merit_exchange",
+      "display": "天渊功勋殿",
+      "region": "tianyuan",
+      "currency": "alliance_merit",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "stock": [
+        {
+          "item": "void_marrow",
+          "price": 2000
+        },
+        {
+          "item": "wind_feather_raft_blueprint",
+          "price": 5000
+        },
+        {
+          "item": "spirit_realm_gate_pass",
+          "price": 800
+        },
+        {
+          "item": "tianyuan_spirit_pill",
+          "price": 120
+        },
+        {
+          "item": "recipe_tianyuan_spirit",
+          "price": 800
+        },
+        {
+          "item": "demon_qi_purge_pill",
+          "price": 350
+        },
+        {
+          "item": "border_merit_token",
+          "price": 100
+        },
+        {
+          "item": "great_vehicle_ascension_aid_pill",
+          "price": 12000
+        },
+        {
+          "item": "tribulation_aid_item",
+          "price": 6000
+        },
+        {
+          "item": "demon_tide_scout_report",
+          "price": 50,
+          "stock": 20
+        }
+      ],
+      "setting": {
+        "lore": "天渊功勋殿"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tianyuan",
+          "currency": "alliance_merit"
+        }
+      }
+    },
+    {
+      "id": "fengyuan_clan_auction",
+      "display": "风元氏族拍卖行",
+      "region": "spirit_fengyuan",
+      "currency": "high_spirit_stone",
+      "cycle_bind": "cycle_treasure_fair",
+      "stock_tier": "spirit_realm",
+      "stock_samples": [
+        "fengyuan_spirit_fruit",
+        "spatial_law_fragment",
+        "moon_essence"
+      ],
+      "setting": {
+        "lore": "风元氏族拍卖行"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "high_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "mulan_fashi_supply",
+      "display": "慕兰法士物资站",
+      "region": "mulan",
+      "faction": "mulan_council",
+      "currency": "war_contribution",
+      "stock": [
+        {
+          "item": "mulan_spirit_sand",
+          "price": 20
+        },
+        {
+          "item": "fashi_array_manual",
+          "price": 400
+        },
+        {
+          "item": "mulan_fashi_charge_pack",
+          "price": 35,
+          "stock": 15
+        },
+        {
+          "item": "wind_sage_grass",
+          "price": 12,
+          "stock": 25
+        }
+      ],
+      "setting": {
+        "lore": "慕兰法士物资站"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "mulan",
+          "currency": "war_contribution"
+        }
+      }
+    },
+    {
+      "id": "tiannan_puppet_lane",
+      "display": "天南傀儡巷",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "faction_tag": "puppet_strong",
+      "stock": [
+        {
+          "item": "puppet_core_blank",
+          "price": 80,
+          "stock": 5
+        },
+        {
+          "item": "puppet_command_talisman",
+          "price": 45,
+          "stock": 10
+        },
+        {
+          "item": "puppet_repair_kit",
+          "price": 25,
+          "stock": 15
+        },
+        {
+          "item": "giant_ape_puppet_blueprint",
+          "price": 200,
+          "stock": 1
+        },
+        {
+          "item": "ironwood",
+          "price": 10,
+          "stock": 30
+        }
+      ],
+      "setting": {
+        "lore": "天南傀儡巷"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "tiannan_formation_lane",
+      "display": "天南阵法坊",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "faction_tag": "formation_strong",
+      "stock": [
+        {
+          "item": "array_spirit_sand_bag",
+          "price": 18,
+          "stock": 20
+        },
+        {
+          "item": "formation_jade_stake",
+          "price": 35,
+          "stock": 10
+        },
+        {
+          "item": "portable_spirit_gather_disk",
+          "price": 120,
+          "stock": 3
+        },
+        {
+          "item": "portable_defense_wall_disk",
+          "price": 90,
+          "stock": 4
+        },
+        {
+          "item": "array_blueprint_scroll",
+          "price": 150,
+          "stock": 2
+        }
+      ],
+      "setting": {
+        "lore": "天南阵法坊"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "tiannan_talisman_lane",
+      "display": "天南制符阁",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "faction_tag": "talisman_strong",
+      "stock": [
+        {
+          "item": "talisman_paper_mortal",
+          "price": 1,
+          "stock": 100
+        },
+        {
+          "item": "talisman_paper",
+          "price": 3,
+          "stock": 50
+        },
+        {
+          "item": "talisman_paper_mid",
+          "price": 12,
+          "stock": 20
+        },
+        {
+          "item": "beast_blood_ink",
+          "price": 8,
+          "stock": 15
+        },
+        {
+          "item": "spirit_plant_ink",
+          "price": 6,
+          "stock": 20
+        },
+        {
+          "item": "paper_formula_scroll",
+          "price": 5,
+          "stock": 20
+        }
+      ],
+      "setting": {
+        "lore": "天南制符阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "tiannan_demonic_dual_market",
+      "display": "天南魔市（双修货）",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "alignment": "demonic",
+      "faction_tag": "demonic_dual_cultivation",
+      "realm_min": "FOUNDATION",
+      "stock": [
+        {
+          "item": "dual_harmony_pill",
+          "price": 90,
+          "stock": 5
+        },
+        {
+          "item": "demonic_yang_gather_pill",
+          "price": 120,
+          "stock": 3
+        },
+        {
+          "item": "demonic_blood_coral",
+          "price": 65,
+          "stock": 8
+        },
+        {
+          "item": "heqi_pill",
+          "price": 40,
+          "stock": 6
+        }
+      ],
+      "reputation_risk": {
+        "righteous_sect": -5
+      },
+      "setting": {
+        "lore": "天南魔市（双修货）"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "hehuan_contribution_pavilion",
+      "display": "合欢宗贡献楼",
+      "region": "tiannan",
+      "faction": "hehuan_sect",
+      "currency": "sect_contribution",
+      "alignment": "demonic",
+      "faction_tag": "demonic_dual_cultivation",
+      "stock": [
+        {
+          "item": "dual_harmony_pill",
+          "price": 70,
+          "stock": 8
+        },
+        {
+          "item": "demonic_yang_gather_pill",
+          "price": 95,
+          "stock": 5
+        },
+        {
+          "item": "demonic_blood_coral",
+          "price": 55,
+          "stock": 10
+        },
+        {
+          "item": "recipe_dual_harmony",
+          "price": 300,
+          "stock": 2
+        },
+        {
+          "item": "yanyue_incense_bundle",
+          "price": 15,
+          "stock": 20
+        }
+      ],
+      "setting": {
+        "lore": "合欢宗贡献楼"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "sect_contribution"
+        }
+      }
+    },
+    {
+      "id": "tiannan_refinement_forge",
+      "display": "天南炼器坊",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "faction_tag": "refinement_strong",
+      "stock": [
+        {
+          "item": "refinement_manual_low",
+          "price": 150,
+          "stock": 3
+        },
+        {
+          "item": "refinement_quench_oil",
+          "price": 28,
+          "stock": 15
+        },
+        {
+          "item": "spirit_iron_ingot_mid",
+          "price": 45,
+          "stock": 12
+        },
+        {
+          "item": "artifact_spirit_injection_needle",
+          "price": 180,
+          "stock": 2
+        },
+        {
+          "item": "low_spirit_iron",
+          "price": 8,
+          "stock": 40
+        },
+        {
+          "item": "refinement_forge_hammer",
+          "price": 35,
+          "stock": 8
+        }
+      ],
+      "setting": {
+        "lore": "天南炼器坊"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "star_palace_merit_hall",
+      "display": "星宫功勋殿",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "currency": "sect_contribution",
+      "faction_tag": "governance",
+      "stock": [
+        {
+          "item": "chaotic_sea_teleport_permit",
+          "price": 200,
+          "stock": 5
+        },
+        {
+          "item": "condensation_pill",
+          "price": 8000,
+          "stock": 1
+        },
+        {
+          "item": "recipe_condensation",
+          "price": 1200,
+          "stock": 2
+        },
+        {
+          "item": "star_palace_patrol_seal",
+          "price": 50,
+          "stock": 10
+        },
+        {
+          "item": "sea_calm_pill",
+          "price": 80,
+          "stock": 15
+        }
+      ],
+      "setting": {
+        "lore": "星宫功勋殿"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "chaotic_sea",
+          "currency": "sect_contribution"
+        }
+      }
+    },
+    {
+      "id": "star_palace_patrol_supply",
+      "display": "星宫巡防补给",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "reputation_gate": {
+        "star_palace": 100
+      },
+      "stock": [
+        {
+          "item": "body_guard_talisman",
+          "price": 25,
+          "stock": 10
+        },
+        {
+          "item": "anti_demon_talisman",
+          "price": 55,
+          "stock": 5
+        },
+        {
+          "item": "bu_tian_pill",
+          "price": 500,
+          "stock": 1,
+          "note": "配额制"
+        }
+      ],
+      "setting": {
+        "lore": "星宫巡防补给"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "chaotic_sea",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "qixuan_village_stall",
+      "display": "七玄村货摊",
+      "region": "tiannan",
+      "stock": [
+        {
+          "item": "herb_bundle_low",
+          "price": 8,
+          "stock": 20
+        },
+        {
+          "item": "mortal_medicine",
+          "price": 3,
+          "stock": 50
+        },
+        {
+          "item": "qixuan_mortal_art_scroll",
+          "price": 100,
+          "stock": 1,
+          "note": "入门后可见"
+        }
+      ],
+      "setting": {
+        "lore": "七玄村货摊"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "qianzhu_puppet_hall",
+      "display": "千竹傀儡堂",
+      "faction": "qianzhu_sect",
+      "region": "tiannan",
+      "currency": "contribution",
+      "stock": [
+        {
+          "item": "puppet_core_blank",
+          "price": 40,
+          "stock": 10
+        },
+        {
+          "item": "ironwood",
+          "price": 15,
+          "stock": 20
+        },
+        {
+          "item": "basic_wood_puppet_blueprint",
+          "price": 120,
+          "stock": 3
+        }
+      ],
+      "setting": {
+        "lore": "千竹傀儡堂"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "contribution"
+        }
+      }
+    },
+    {
+      "id": "pirate_black_market_outer_sea",
+      "display": "外海黑市",
+      "region": "chaotic_sea",
+      "faction": "pirate_scatter",
+      "alignment": "neutral",
+      "currency": "spirit_stone",
+      "access": {
+        "any_of": [
+          "inverse_star_rep_50",
+          "bribe_guard",
+          "pirate_loot_turnin"
+        ]
+      },
+      "stock": [
+        {
+          "item": "pirate_loot_bundle",
+          "price": 45,
+          "stock": 8
+        },
+        {
+          "item": "demon_core_low",
+          "price": 120,
+          "stock": 3,
+          "note": "来源不明"
+        },
+        {
+          "item": "stolen_jade_slip",
+          "price": 200,
+          "stock": 2,
+          "rep_inverse_star": 100
+        },
+        {
+          "item": "chaotic_sea_teleport_permit",
+          "price": 350,
+          "stock": 1,
+          "illegal": true
+        },
+        {
+          "item": "void_palace_map_fragment",
+          "price": 800,
+          "stock": 1,
+          "realm_min": "NASCENT_SOUL"
+        }
+      ],
+      "risk_events": [
+        "star_palace_raid_chance",
+        "price_spike"
+      ],
+      "setting": {
+        "lore": "外海黑市"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "chaotic_sea",
+          "currency": "spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "outer_sea_public_stall",
+      "display": "外海公开摊位",
+      "region": "outer_sea_market",
+      "currency": "spirit_stone",
+      "tax_faction": "star_palace",
+      "stock": [
+        {
+          "item": "spirit_stone_shard",
+          "price": 1,
+          "stock": 999
+        },
+        {
+          "item": "herb_bundle_low",
+          "price": 12,
+          "stock": 30
+        },
+        {
+          "item": "pearl_raw",
+          "price": 8,
+          "stock": 50
+        }
+      ],
+      "setting": {
+        "lore": "外海公开摊位"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "outer_sea_market",
+          "currency": "spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_tianhu_exchange",
+      "display": "天狐族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "tianhu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "illusion_pearl",
+      "stock": [
+        {
+          "item": "illusion_pearl",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_tianhu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "illusion_trial",
+        "illusion_pearl_trade",
+        "fox_illusion_maze"
+      ],
+      "setting": {
+        "lore": "天狐族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_shuyao_exchange",
+      "display": "树妖族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shuyao",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "ancient_wood_core",
+      "stock": [
+        {
+          "item": "ancient_wood_core",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_shuyao"
+        }
+      ],
+      "quest_hooks_ref": [
+        "forest_oath",
+        "ancient_wood_core_donate",
+        "root_network_repair"
+      ],
+      "setting": {
+        "lore": "树妖族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_shiren_exchange",
+      "display": "石人族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shiren",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "spirit_stone_vein_map",
+      "stock": [
+        {
+          "item": "spirit_stone_vein_map",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_shiren"
+        }
+      ],
+      "quest_hooks_ref": [
+        "vein_guard_patrol",
+        "spirit_stone_vein_map_quest",
+        "stone_heart_awakening"
+      ],
+      "setting": {
+        "lore": "石人族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_feiling_exchange",
+      "display": "飞灵族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "feiling",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "wind_feather",
+      "stock": [
+        {
+          "item": "wind_feather",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_feiling"
+        }
+      ],
+      "quest_hooks_ref": [
+        "wind_hunt_race",
+        "wind_feather_craft_order",
+        "sky_feather_raid"
+      ],
+      "setting": {
+        "lore": "飞灵族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_jinyi_exchange",
+      "display": "金翼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "jinyi",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "gold_wing_plate",
+      "stock": [
+        {
+          "item": "gold_wing_plate",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_jinyi"
+        }
+      ],
+      "quest_hooks_ref": [
+        "wing_plate_forge",
+        "aerial_duel",
+        "gold_wing_array_drill"
+      ],
+      "setting": {
+        "lore": "金翼族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_yaksha_exchange",
+      "display": "夜叉族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "yaksha",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "yaksha_blood",
+      "stock": [
+        {
+          "item": "yaksha_blood",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_yaksha"
+        }
+      ],
+      "quest_hooks_ref": [
+        "blood_rite_contract",
+        "yaksha_blood_exchange",
+        "night_battle_trial"
+      ],
+      "setting": {
+        "lore": "夜叉族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_tianyuan_city_exchange",
+      "display": "天渊城特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "tianyuan_city",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "border_merit_token",
+      "stock": [
+        {
+          "item": "border_merit_token",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_tianyuan_city"
+        },
+        {
+          "item": "border_merit_token",
+          "price": 80,
+          "stock": 10
+        }
+      ],
+      "quest_hooks_ref": [
+        "tianyuan_enlist",
+        "demon_hunt_weekly",
+        "border_wall_reinforce"
+      ],
+      "setting": {
+        "lore": "天渊城特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_langzu_exchange",
+      "display": "狼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "langzu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "moon_fang",
+      "stock": [
+        {
+          "item": "moon_fang",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_langzu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "moon_hunt",
+        "moon_fang_tribute",
+        "moon_howl_ritual"
+      ],
+      "setting": {
+        "lore": "狼族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_zhizu_exchange",
+      "display": "蛛族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "zhizu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "soul_silk",
+      "stock": [
+        {
+          "item": "soul_silk",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_zhizu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "silk_trap_clear",
+        "soul_silk_weave"
+      ],
+      "setting": {
+        "lore": "蛛族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_shezu_exchange",
+      "display": "蛇族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shezu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "venom_sac_refined",
+      "stock": [
+        {
+          "item": "venom_sac_refined",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_shezu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "venom_sac_delivery",
+        "poison_swamp_escort",
+        "venom_sac_refine"
+      ],
+      "setting": {
+        "lore": "蛇族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_xiongzu_exchange",
+      "display": "熊族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "xiongzu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "bear_totem",
+      "stock": [
+        {
+          "item": "bear_totem",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_xiongzu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "totem_guard",
+        "bear_totem_bless"
+      ],
+      "setting": {
+        "lore": "熊族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_huzhu_exchange",
+      "display": "虎族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "huzhu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "tiger_bone_talisman",
+      "stock": [
+        {
+          "item": "tiger_bone_talisman",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_huzhu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "tiger_territory_mark",
+        "tiger_bone_talisman_craft"
+      ],
+      "setting": {
+        "lore": "虎族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_yuzu_exchange",
+      "display": "鱼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "yuzu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "deep_pearl",
+      "stock": [
+        {
+          "item": "deep_pearl",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_yuzu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "deep_pearl_dive",
+        "water_court_permit"
+      ],
+      "setting": {
+        "lore": "鱼族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_niaozu_exchange",
+      "display": "鸟族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "niaozu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "sky_plume",
+      "stock": [
+        {
+          "item": "sky_plume",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_niaozu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "sky_plume_courier",
+        "air_island_relay"
+      ],
+      "setting": {
+        "lore": "鸟族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_guizu_exchange",
+      "display": "龟族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "guizu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "turtle_shell_array",
+      "stock": [
+        {
+          "item": "turtle_shell_array",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_guizu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "longevity_array_repair",
+        "turtle_shell_array_scroll",
+        "turtle_shell_array"
+      ],
+      "setting": {
+        "lore": "龟族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_shouzu_exchange",
+      "display": "兽族（泛）特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shouzu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "beast_contract",
+      "stock": [
+        {
+          "item": "beast_contract",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_shouzu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "mixed_tribe_mediation",
+        "beast_contract_witness"
+      ],
+      "setting": {
+        "lore": "兽族（泛）特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_mozu_exchange",
+      "display": "魔族支系特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "mozu",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "demon_blood_crystal",
+      "stock": [
+        {
+          "item": "demon_blood_crystal",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_mozu"
+        }
+      ],
+      "quest_hooks_ref": [
+        "border_raid_repulse",
+        "demon_blood_crystal_turnin",
+        "demon_blood_oath"
+      ],
+      "setting": {
+        "lore": "魔族支系特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_renzu_lingjie_exchange",
+      "display": "灵界人族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "renzu_lingjie",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "ascension_token",
+      "stock": [
+        {
+          "item": "ascension_token",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_renzu_lingjie"
+        }
+      ],
+      "quest_hooks_ref": [
+        "ascension_token_verify",
+        "human_enclave_tax"
+      ],
+      "setting": {
+        "lore": "灵界人族特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_barbarian_council_exchange",
+      "display": "蛮荒妖王议会特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "barbarian_council",
+      "currency": "spirit_stone_mid",
+      "specialty_item": "barbarian_king_token",
+      "stock": [
+        {
+          "item": "barbarian_king_token",
+          "price": 120,
+          "stock": 5,
+          "requires_rep": "rep_barbarian_council"
+        }
+      ],
+      "quest_hooks_ref": [
+        "clan_generic_tribute"
+      ],
+      "setting": {
+        "lore": "蛮荒妖王议会特产阁"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "spirit_fengyuan",
+          "currency": "spirit_stone_mid"
+        }
+      }
+    },
+    {
+      "id": "wanbao_auction_house_tiannan",
+      "display": "万宝楼（天南分会）",
+      "region": "tiannan",
+      "currency": "low_spirit_stone",
+      "services": [
+        "auction",
+        "appraisal"
+      ],
+      "npc_archetype": "wanbao_auctioneer",
+      "setting": {
+        "lore": "天南最大商会之一，拍卖古宝残片与稀有丹药。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "tiannan",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_black_market",
+      "display": "乱星海黑市",
+      "region": "chaotic_sea",
+      "currency": "low_spirit_stone",
+      "faction_ban": [
+        "star_palace_strict"
+      ],
+      "setting": {
+        "lore": "逆星盟势力渗透，走私禁品。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "realm_min": "FOUNDATION",
+          "reputation_any": [
+            "inverse_star_friendly",
+            "smuggler_contact"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dajin_spirit_stone_bank",
+      "display": "大晋灵石庄",
+      "region": "dajin",
+      "currency": "low_spirit_stone",
+      "services": [
+        "exchange",
+        "storage"
+      ],
+      "setting": {
+        "lore": "灵石兑换与保管，费率随品阶上升。"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "dajin",
+          "currency": "low_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "kunwu_array_material_shop",
+      "display": "坤吴阵材铺",
+      "region": "dajin",
+      "currency": "mid_spirit_stone",
+      "faction": "kunwu_lineage",
+      "stock_hint": [
+        "formation_scroll",
+        "array_core"
+      ],
+      "setting": {
+        "lore": "坤吴阵材铺"
+      },
+      "learn_requirements": {
+        "trade": {
+          "region": "dajin",
+          "currency": "mid_spirit_stone"
+        }
+      }
+    },
+    {
+      "id": "yin_luo_ghost_trade",
+      "display": "阴罗鬼市",
+      "region": "yin_underworld",
+      "currency": "yin_pearl",
+      "learn_requirements": {
+        "enter": {
+          "path_any": [
+            "ghost_cultivator",
+            "yin_luo_quest"
+          ]
+        },
+        "trade": {
+          "region": "yin_underworld",
+          "currency": "yin_pearl"
+        }
+      },
+      "setting": {
+        "lore": "阴罗鬼市"
+      }
+    }
+  ],
+  "economy_ref": "economy_spirit_stone_master.json",
+  "economy_price_bands_ref": "economy_price_bands.json",
+  "economy_shop_guidance_ref": "economy_shop_price_guidance.json",
+  "spirit_eighteen_shops_note": "每族一兑换点，价档为结构量级非原著精确价；日常摊价应对齐 master 中 price_anchors"
+}

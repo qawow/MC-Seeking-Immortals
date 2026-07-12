@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "refinement_system.json",
+  "primary_key": "success_factors",
+  "entries": [
+    {
+      "id": "forge_grade",
+      "display": "forge_grade"
+    },
+    {
+      "id": "refinement_skill",
+      "display": "refinement_skill"
+    },
+    {
+      "id": "material_quality",
+      "display": "material_quality"
+    },
+    {
+      "id": "realm_control",
+      "display": "realm_control"
+    },
+    {
+      "id": "manual_unlock",
+      "display": "manual_unlock"
+    }
+  ]
+}

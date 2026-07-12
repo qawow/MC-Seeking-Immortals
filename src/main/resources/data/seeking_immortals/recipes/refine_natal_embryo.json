@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "KKK",
+    "KBT",
+    "KK "
+  ],
+  "key": {
+    "K": {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    "B": {
+      "item": "seeking_immortals:beast_core"
+    },
+    "T": {
+      "item": "seeking_immortals:true_dragon_blood"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:natal_artifact_embryo",
+    "count": 1
+  },
+  "show_notification": true
+}

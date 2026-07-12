@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "SSS",
+    " I ",
+    " I "
+  ],
+  "key": {
+    "I": {
+      "item": "seeking_immortals:spirit_iron"
+    },
+    "S": {
+      "item": "seeking_immortals:spirit_silk"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:cloud_boots",
+    "count": 1
+  }
+}

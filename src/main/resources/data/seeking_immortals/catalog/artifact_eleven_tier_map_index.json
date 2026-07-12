@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source": "artifact_eleven_tier_map.json",
+  "primary_key": "game_tiers",
+  "entries": [
+    {
+      "id": "0",
+      "display": "凡器"
+    },
+    {
+      "id": "1",
+      "display": "低阶法器"
+    },
+    {
+      "id": "2",
+      "display": "中阶法器"
+    },
+    {
+      "id": "3",
+      "display": "高阶法器"
+    },
+    {
+      "id": "4",
+      "display": "顶阶法器"
+    },
+    {
+      "id": "5",
+      "display": "低阶法宝"
+    },
+    {
+      "id": "6",
+      "display": "中阶法宝"
+    },
+    {
+      "id": "7",
+      "display": "高阶法宝"
+    },
+    {
+      "id": "8",
+      "display": "顶阶法宝/本命"
+    },
+    {
+      "id": "9",
+      "display": "古宝"
+    },
+    {
+      "id": "10",
+      "display": "灵宝"
+    }
+  ]
+}

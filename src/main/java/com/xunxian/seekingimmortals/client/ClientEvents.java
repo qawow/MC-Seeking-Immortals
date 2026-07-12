@@ -12,6 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.renderer.entity.VillagerRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
@@ -19,7 +20,13 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import com.xunxian.seekingimmortals.registry.ModMenus;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.event.ScreenEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +43,21 @@ public final class ClientEvents {
             "key.seeking_immortals.open_technique_edit",
             InputConstants.Type.KEYSYM,
             InputConstants.UNKNOWN.getValue(),
+            "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_CULTIVATION_STATS_KEY = new KeyMapping(
+            "key.seeking_immortals.open_cultivation_stats",
+            InputConstants.Type.KEYSYM,
+            InputConstants.UNKNOWN.getValue(),
+            "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_MEDITATION_KEY = new KeyMapping(
+            "key.seeking_immortals.open_meditation",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_B,
+            "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_QUEST_TRACKER_KEY = new KeyMapping(
+            "key.seeking_immortals.open_quest_tracker",
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_J,
             "key.categories.seeking_immortals");
     public static final KeyMapping BREAKTHROUGH_KEY = new KeyMapping(
             "key.seeking_immortals.breakthrough",
@@ -62,10 +84,22 @@ public final class ClientEvents {
                 "key.categories.seeking_immortals");
     }
 
+
+    @SubscribeEvent
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            MenuScreens.register(ModMenus.ALCHEMY_FURNACE.get(), AlchemyFurnaceScreen::new);
+            MenuScreens.register(ModMenus.STORAGE_BRACELET.get(), StorageBraceletScreenMenu::new);
+        });
+    }
+
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
         event.register(MEDITATE_KEY);
         event.register(OPEN_TECHNIQUE_EDIT_KEY);
+        event.register(OPEN_CULTIVATION_STATS_KEY);
+        event.register(OPEN_MEDITATION_KEY);
+        event.register(OPEN_QUEST_TRACKER_KEY);
         event.register(BREAKTHROUGH_KEY);
         for (KeyMapping keyMapping : RELEASE_TECHNIQUE_KEYS) {
             event.register(keyMapping);
@@ -74,6 +108,7 @@ public final class ClientEvents {
 
     @SubscribeEvent
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAboveAll("cultivation_health", CultivationHealthOverlay::renderOverlay);
         event.registerAboveAll("technique_skill_bar", TechniqueSkillBarOverlay::renderOverlay);
         event.registerAboveAll("breathing_hud", BreathingHudOverlay::renderOverlay);
         event.registerAboveAll("cultivation_hud", CultivationHudOverlay::renderOverlay);
@@ -82,12 +117,27 @@ public final class ClientEvents {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.CUSHION_SEAT.get(), EmptyEntityRenderer::new);
-        event.registerEntityRenderer(ModEntities.SWORD_PROJECTILE.get(), EmptyEntityRenderer::new);
+        event.registerEntityRenderer(ModEntities.SWORD_PROJECTILE.get(), SwordProjectileRenderer::new);
+        event.registerEntityRenderer(ModEntities.CULTIVATION_FIREBALL.get(), CultivationFireballRenderer::new);
+        event.registerEntityRenderer(ModEntities.SECT_STEWARD.get(), VillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.MARKET_TRADER.get(), VillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.SUMMONED_SERVITOR.get(), SummonedServitorRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPIRIT_BOAT.get(), EmptyEntityRenderer::new);
     }
 
     @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
     public static final class ForgeClientEvents {
         private ForgeClientEvents() {}
+
+        @SubscribeEvent
+        public static void onRenderGuiOverlayPre(RenderGuiOverlayEvent.Pre event) {
+            Minecraft minecraft = Minecraft.getInstance();
+            if (event.getOverlay().id().equals(VanillaGuiOverlay.PLAYER_HEALTH.id())
+                    && minecraft.gui instanceof ForgeGui forgeGui
+                    && CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(forgeGui)) {
+                event.setCanceled(true);
+            }
+        }
 
         @SubscribeEvent
         public static void onKeyInput(InputEvent.Key event) {
@@ -109,6 +159,22 @@ public final class ClientEvents {
             }
             while (BREAKTHROUGH_KEY.consumeClick()) {
                 ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket());
+            }
+            while (OPEN_CULTIVATION_STATS_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    minecraft.setScreen(new CultivationStatsScreen(player, false));
+                }
+            }
+            while (OPEN_MEDITATION_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    minecraft.setScreen(new MeditationScreen());
+                }
+            }
+            while (OPEN_QUEST_TRACKER_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    com.xunxian.seekingimmortals.network.ModNetwork.CHANNEL.sendToServer(
+                            new com.xunxian.seekingimmortals.network.QuestTrackerActionPacket("sync"));
+                }
             }
             for (int i = 0; i < RELEASE_TECHNIQUE_KEYS.length; i++) {
                 while (RELEASE_TECHNIQUE_KEYS[i].consumeClick()) {
@@ -151,11 +217,18 @@ public final class ClientEvents {
         private static void resetClientSyncState() {
             ClientCultivationData.reset();
             ClientTechniqueData.reset();
+            ClientSectData.reset();
+            ClientShopData.reset();
+            ClientWorldpackData.reset();
+            ClientQuestTrackerData.reset();
         }
 
         private static void drainTechniqueKeyClicks() {
             MEDITATE_KEY.consumeClick();
             OPEN_TECHNIQUE_EDIT_KEY.consumeClick();
+            OPEN_CULTIVATION_STATS_KEY.consumeClick();
+            OPEN_MEDITATION_KEY.consumeClick();
+            OPEN_QUEST_TRACKER_KEY.consumeClick();
             BREAKTHROUGH_KEY.consumeClick();
             for (KeyMapping keyMapping : RELEASE_TECHNIQUE_KEYS) {
                 keyMapping.consumeClick();
@@ -178,3 +251,4 @@ public final class ClientEvents {
         }
     }
 }
+

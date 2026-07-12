@@ -1,0 +1,38 @@
+{
+  "name": "Technique Learning Gates",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:technique_manual_common",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Source Basis",
+      "text": "This page follows 文本材料/data/novel_cultivation_learn_requirements_waves.json, cultivation_methods.json, manuals_catalog.json, and the techniques/ data files. The current implementation reuses technique manuals, TechniqueDataManager, the seven-slot release flow, and Patchouli guidance without adding a separate learning UI, quest loader, or network packet."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Gate Types",
+      "text": "The source material layers learning gates: realm_min and realm_max_learn define realm windows; prerequisite_methods and layers_required define method prerequisites; spirit_roots records required, bonus, or forbidden roots; faction, relation, reputation, karma, items_suggested, and divine_sense_min cover sect access, reputation, karmic risk, items, and divine-sense requirements."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Runtime",
+      "text": "Registered technique manuals learn techniques by source from current data-pack entries, with server-side attribute matching against the player's spiritual roots. Only learned techniques can be bound to the seven slots. Release still checks slot bounds, learned state, cooldown, spiritual power, registered effects, and executable state on the server. Far over-tier techniques currently add qi-deviation risk."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Limits",
+      "text": "Sect rank, contribution source, reputation, item costs, method layers, gender affinity, forbidden physiques, and divine-sense thresholds mostly remain in the text material and guide layer for now rather than strict learning gates. They should later plug into server-authoritative quest, sect, reputation, item, and method-layer checks."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Examples",
+      "text": "Changchun Gong is a Qi Refining wood starter tied to Huangfeng outer disciples or a master grant. Qingyuan Sword Art favors metal/wood, expects Foundation Establishment, completed Changchun Gong, and inner-hall or contribution access. Xuan Yin Art is a demonic yin route with righteous-reputation and forbidden-physique risks. Refinement, puppet, and ghost manuals are usually jade-slip or secret-realm unlocks."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Next Steps",
+      "text": "Future slices should turn these gates into play: preview locked reasons before learning, consume specific manuals or items, check sect stage and reputation, validate prerequisite method layers, display root-affinity multipliers, and keep failure feedback on the server-authoritative path."
+    }
+  ]
+}

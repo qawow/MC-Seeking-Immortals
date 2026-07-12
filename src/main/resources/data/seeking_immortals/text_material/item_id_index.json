@@ -1,0 +1,48 @@
+{
+  "schema_version": 4,
+  "description": "全物品 id 快查（丹/材/草/宝/符/消/傀部件/阵物），供模组 lang 与注册生成",
+  "counts": {
+    "pills": 114,
+    "alchemy_formulas": 46,
+    "artifacts": 217,
+    "talismans": 47,
+    "talisman_recipes": 21,
+    "refinement_recipes": 24,
+    "manuals": 19,
+    "currency_items": 9,
+    "spirit_herbs": 19,
+    "materials": 214,
+    "consumables": 55,
+    "formation_items": 10,
+    "puppet_parts": 12,
+    "beasts": 32,
+    "herbs": 75
+  },
+  "files": {
+    "pills": "pills_catalog.json",
+    "recipes_alchemy": "alchemy_recipes.json",
+    "recipes_talisman": "talisman_recipes.json",
+    "recipes_refinement": "refinement_recipes.json",
+    "artifacts": "artifacts_catalog.json",
+    "talismans": "talisman_catalog.json",
+    "herbs": "spirit_herbs_catalog.json",
+    "materials": "materials_catalog.json",
+    "consumables": "consumables_catalog.json",
+    "formation_items": "formation_items_catalog.json",
+    "puppet_parts": "puppet_parts_catalog.json",
+    "loot_boss": "boss_loot_tables.json",
+    "loot_beast": "beast_loot_tiers.json"
+  },
+  "expansion_log": [
+    "v13",
+    "v14",
+    "v15",
+    "v16",
+    "v21",
+    "v57_novel_complete",
+    "v58_novel_all"
+  ],
+  "patchouli_book": "patchouli_item_book.json",
+  "forge_registry": "forge_registry/items_registry_draft.json",
+  "manifest_ref": "data_manifest.json"
+}

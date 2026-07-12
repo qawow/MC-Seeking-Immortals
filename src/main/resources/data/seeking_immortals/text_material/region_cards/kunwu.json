@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "kunwu",
+  "display": "昆吾山",
+  "parent_region": "dajin",
+  "secret_realm": "kunwu_mountain",
+  "spirit_density": 1.2,
+  "climate": "extreme_cold",
+  "factions": [
+    "dajin_clans_generic"
+  ],
+  "daily_events": [
+    "kunwu_cold_snap"
+  ],
+  "chronicle_refs": [
+    "A1_kunwu_peak",
+    "A6_first_demon_war_kunwu"
+  ]
+}

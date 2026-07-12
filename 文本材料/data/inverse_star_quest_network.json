@@ -1,0 +1,137 @@
+{
+  "schema_version": 3,
+  "faction": "inverse_star_alliance",
+  "display": "逆星盟任务网",
+  "source": "汇编9.7 与星宫对立、黑市",
+  "rival": "star_palace",
+  "reputation_lock": {
+    "star_palace_below": -50,
+    "inverse_star_min_join": 0
+  },
+  "chains": [
+    {
+      "id": "inverse_star_recruit",
+      "display": "逆星入盟",
+      "steps": [
+        "inverse_star_contact_rumor",
+        "inverse_star_cipher_trial",
+        "inverse_star_oath"
+      ],
+      "setting": {
+        "lore": "逆星入盟"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_smuggle_arc",
+      "display": "走私补给线",
+      "steps": [
+        "inverse_star_smuggler_pack",
+        "star_palace_patrol_dodge",
+        "void_palace_intel_sell"
+      ],
+      "setting": {
+        "lore": "走私补给线"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_void_heist",
+      "display": "虚天情报战",
+      "steps": [
+        "void_key_fragment_rumor",
+        "inverse_star_black_market_buy",
+        "star_palace_spy_expose_optional"
+      ],
+      "setting": {
+        "lore": "虚天情报战"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙",
+      "steps": [
+        "star_palace_patrol_quest",
+        "inverse_star_ambush_event",
+        "chaotic_sea_neutral_ending_optional"
+      ],
+      "setting": {
+        "lore": "星宫逆星对峙"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_assassination_bounty",
+      "display": "星宫执法悬赏",
+      "steps": [
+        "star_palace_wanted_poster",
+        "inverse_star_mark_smuggle",
+        "collect_black_market_reward"
+      ],
+      "rewards": {
+        "rep_inverse_star": 40,
+        "loot_tag": "stolen_jade_slip"
+      },
+      "setting": {
+        "lore": "逆星黑市承接星宫通缉，风险与声望并存。"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "CORE_FORMATION"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_array_sabotage",
+      "display": "传送阵破坏",
+      "steps": [
+        "scout_teleport_array_node",
+        "inverse_star_sabotage_kit",
+        "escape_patrol_window"
+      ],
+      "rewards": {
+        "rep_inverse_star": 60,
+        "unlock": "smuggle_routes_tier2"
+      },
+      "setting": {
+        "lore": "削弱星宫内海通行，走私线获利。"
+      },
+      "learn_requirements": {
+        "participate": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ],
+  "daily_hooks": [
+    "inverse_star_smuggle_chance",
+    "star_palace_enforcement_raid"
+  ],
+  "shop_ref": "inverse_star_black_market",
+  "skill_trees": [
+    "inverse_star",
+    "inverse_star_covert"
+  ],
+  "chronicle": [
+    "K5_inverse_star"
+  ],
+  "dimension_registry_ref": "dimension_registry.json",
+  "region": "chaotic_sea"
+}

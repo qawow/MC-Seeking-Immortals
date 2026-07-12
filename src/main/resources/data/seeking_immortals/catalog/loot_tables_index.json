@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "tables": [
+    {
+      "id": "refinement_fail_default",
+      "display": "refinement_fail_default",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_low",
+      "display": "refinement_fail_low",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_mid",
+      "display": "refinement_fail_mid",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_high",
+      "display": "refinement_fail_high",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_ancient",
+      "display": "refinement_fail_ancient",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_spirit",
+      "display": "refinement_fail_spirit",
+      "entry_count": 2
+    },
+    {
+      "id": "refinement_fail_puppet",
+      "display": "refinement_fail_puppet",
+      "entry_count": 2
+    },
+    {
+      "id": "talisman_crate_low",
+      "display": "talisman_crate_low",
+      "entry_count": 4
+    },
+    {
+      "id": "talisman_crate_mid",
+      "display": "talisman_crate_mid",
+      "entry_count": 4
+    },
+    {
+      "id": "talisman_crate_high",
+      "display": "talisman_crate_high",
+      "entry_count": 3
+    },
+    {
+      "id": "recipe_scroll_random_low",
+      "display": "recipe_scroll_random_low",
+      "entry_count": 3
+    },
+    {
+      "id": "blood_forbidden_chest",
+      "display": "blood_forbidden_chest",
+      "entry_count": 7
+    },
+    {
+      "id": "void_palace_layer_chest",
+      "display": "void_palace_layer_chest",
+      "entry_count": 7
+    },
+    {
+      "id": "inverse_star_contraband",
+      "display": "inverse_star_contraband",
+      "entry_count": 5
+    },
+    {
+      "id": "wanbao_auction_lot_pool",
+      "display": "wanbao_auction_lot_pool",
+      "entry_count": 6
+    },
+    {
+      "id": "fallen_demon_chest",
+      "display": "fallen_demon_chest",
+      "entry_count": 6
+    },
+    {
+      "id": "kunwu_layer_chest",
+      "display": "kunwu_layer_chest",
+      "entry_count": 6
+    },
+    {
+      "id": "nether_river_chest",
+      "display": "nether_river_chest",
+      "entry_count": 5
+    },
+    {
+      "id": "guanghan_chest",
+      "display": "guanghan_chest",
+      "entry_count": 4
+    },
+    {
+      "id": "demon_gold_chest",
+      "display": "demon_gold_chest",
+      "entry_count": 5
+    },
+    {
+      "id": "asura_trial_chest",
+      "display": "asura_trial_chest",
+      "entry_count": 4
+    },
+    {
+      "id": "diyuan_layer_chest",
+      "display": "diyuan_layer_chest",
+      "entry_count": 5
+    },
+    {
+      "id": "jiuxian_peak_chest",
+      "display": "jiuxian_peak_chest",
+      "entry_count": 5
+    },
+    {
+      "id": "inverse_star_smuggler_loot",
+      "display": "inverse_star_smuggler_loot",
+      "entry_count": 6
+    },
+    {
+      "id": "tianyuan_patrol_chest",
+      "display": "tianyuan_patrol_chest",
+      "entry_count": 5
+    }
+  ]
+}

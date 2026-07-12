@@ -1,0 +1,60 @@
+{
+  "id": "cangming_isle_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "leyline_compass",
+      "item": "seeking_immortals:leyline_compass",
+      "count": 1,
+      "cost": 140
+    },
+    {
+      "id": "water_spirit_stone_mid",
+      "item": "seeking_immortals:water_spirit_stone_mid",
+      "count": 1,
+      "cost": 90
+    },
+    {
+      "id": "chaotic_star_sea_manual",
+      "item": "seeking_immortals:technique_manual_chaotic_star_sea",
+      "count": 1,
+      "cost": 360
+    },
+    {
+      "id": "condensation_pill",
+      "item": "seeking_immortals:essence_condensing_pill",
+      "count": 1,
+      "cost": 8000
+    },
+    {
+      "id": "recipe_condensation",
+      "item": "seeking_immortals:alchemy_formula_essence_condensing_pill_jade",
+      "count": 1,
+      "cost": 2500
+    },
+    {
+      "id": "recipe_yanghun",
+      "item": "seeking_immortals:alchemy_formula_soul_gathering_pill_jade",
+      "count": 1,
+      "cost": 600
+    },
+    {
+      "id": "body_guard_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 25
+    },
+    {
+      "id": "sea_calm_pill",
+      "item": "seeking_immortals:calming_pill_low",
+      "count": 1,
+      "cost": 80
+    },
+    {
+      "id": "recipe_sea_calm",
+      "item": "seeking_immortals:alchemy_formula_calming_pill_jade",
+      "count": 1,
+      "cost": 40
+    }
+  ]
+}

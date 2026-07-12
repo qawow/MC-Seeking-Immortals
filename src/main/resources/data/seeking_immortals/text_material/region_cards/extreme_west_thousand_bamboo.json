@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "extreme_west",
+  "display": "极西千竹",
+  "spirit_density": "mid",
+  "factions": [
+    "thousand_bamboo_sect"
+  ],
+  "secret_realms": [
+    "thousand_bamboo_puppet_tower"
+  ],
+  "specialty_resources": [
+    "ironwood",
+    "puppet_core_blank"
+  ],
+  "cultivation_note": "傀儡与机关为主流"
+}

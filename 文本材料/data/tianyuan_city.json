@@ -1,0 +1,34 @@
+{
+  "schema_version": 2,
+  "id": "tianyuan_city",
+  "display": "天渊城",
+  "parent_cosmology": "spirit_realm",
+  "source": "汇编9.7 人妖两族聚集；修炼速度约为外界两倍（结构倍率非精确数值）",
+  "cultivation_modifier": {
+    "spirit_density_tag": "tianyuan_high",
+    "cultivation_rate_multiplier": 2.0,
+    "note": "游戏化结构倍率"
+  },
+  "factions": [
+    "tianyuan_guard_generic",
+    "human_alliance_generic",
+    "demon_clan_generic"
+  ],
+  "currency": "merit_points",
+  "services": [
+    "spirit_realm_gate",
+    "wind_feather_raft",
+    "diyuan_permit_broker"
+  ],
+  "border_zones": [
+    "wild_land_frontier",
+    "demon_beast_wave_line"
+  ],
+  "chronicle_refs": [
+    "L1_tianyuan_founded",
+    "P4_tianyuan_open"
+  ],
+  "spatial_node": "node_tianyuan_gate",
+  "merit_economy_ref": "tianyuan_merit_economy.json",
+  "daily_events_ref": "tianyuan_daily_events.json"
+}

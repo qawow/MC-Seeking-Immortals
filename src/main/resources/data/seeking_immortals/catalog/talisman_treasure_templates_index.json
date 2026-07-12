@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "source": "talisman_treasure_templates.json",
+  "primary_key": "templates",
+  "entries": [
+    {
+      "id": "gold_light_brick",
+      "display": "金光砖符宝"
+    },
+    {
+      "id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝"
+    },
+    {
+      "id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝"
+    },
+    {
+      "id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝"
+    },
+    {
+      "id": "nascent_soul_talisman_treasure",
+      "display": "元婴符宝（模板）"
+    },
+    {
+      "id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝"
+    },
+    {
+      "id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝"
+    },
+    {
+      "id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝"
+    },
+    {
+      "id": "thunder_pearl_talisman",
+      "display": "天雷子"
+    },
+    {
+      "id": "talisman_treasure_flat_mountain",
+      "display": "平山印符宝"
+    }
+  ]
+}

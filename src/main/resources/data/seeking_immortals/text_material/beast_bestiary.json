@@ -1,0 +1,2316 @@
+{
+  "schema_version": 7,
+  "source": "汇编 11.6 + 14.1-14.4 + cultivation-mod-knowledge/beasts-and-bosses.md",
+  "tier_table": [
+    {
+      "tier": 1,
+      "realm_equiv": "QI_REFINING",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "一阶：炼气初，外门试炼与低阶材料主产。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "一阶妖兽",
+      "loot_band": "1-4",
+      "example_beast_ids": [
+        "twin_pupil_rat",
+        "red_leopard_beast"
+      ]
+    },
+    {
+      "tier": 2,
+      "realm_equiv": "FOUNDATION_EARLY",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "二阶：炼气中，山林常见。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "二阶",
+      "loot_band": "1-4",
+      "example_beast_ids": [
+        "fire_horn_deer",
+        "wind_screech_hawk",
+        "scent_spirit_beast",
+        "flame_salamander"
+      ]
+    },
+    {
+      "tier": 3,
+      "realm_equiv": "FOUNDATION_MID",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "三阶：炼气后，河泽与低阶妖丹。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "三阶",
+      "loot_band": "1-4",
+      "example_beast_ids": [
+        "giant_centipede",
+        "ink_flood_dragon",
+        "heart_bore_worm",
+        "cloud_silk_spider"
+      ]
+    },
+    {
+      "tier": 4,
+      "realm_equiv": "FOUNDATION_LATE",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "四阶：炼气顶，筑基前试炼标靶。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "四阶",
+      "loot_band": "1-4",
+      "example_beast_ids": [
+        "fire_crow",
+        "green_vine_demon",
+        "mystic_water_turtle",
+        "thunder_horn_tiger"
+      ]
+    },
+    {
+      "tier": 5,
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "五阶：筑基初，内门猎妖任务。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "五阶",
+      "loot_band": "5-8",
+      "example_beast_ids": [
+        "demon_core_bear",
+        "gold_devour_beetle",
+        "three_tailed_fox"
+      ]
+    },
+    {
+      "tier": 6,
+      "realm_equiv": "CORE_FORMATION_MID",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "六阶：筑基中，坊市妖丹流通。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "六阶",
+      "loot_band": "5-8",
+      "example_beast_ids": [
+        "baby_carp_demon",
+        "ice_soul_serpent",
+        "spirit_fox",
+        "soul_weeping_beast"
+      ]
+    },
+    {
+      "tier": 7,
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "七阶：筑基后至结丹前，海域与秘境边缘。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "七阶",
+      "loot_band": "5-8",
+      "example_beast_ids": [
+        "shape_shift_trial_beast",
+        "thunder_jiao",
+        "mountain_giant_ape"
+      ]
+    },
+    {
+      "tier": 8,
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "八阶：结丹期对手，需法宝配合。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "八阶",
+      "loot_band": "5-8",
+      "example_beast_ids": [
+        "silver_wing_yaksha",
+        "phantom_flame_moth",
+        "blood_jiao"
+      ]
+    },
+    {
+      "tier": 9,
+      "realm_equiv": "NASCENT_SOUL_MID",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "九阶：结丹顶至元婴前，禁地守卫级。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "九阶",
+      "loot_band": "9-13",
+      "example_beast_ids": [
+        "wind_split_beast",
+        "earth_armor_dragon",
+        "ice_phoenix_chick"
+      ]
+    },
+    {
+      "tier": 10,
+      "realm_equiv": "NASCENT_SOUL_LATE",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "十阶：元婴级妖兽，乱星海深海与古地。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "十阶",
+      "loot_band": "9-13",
+      "example_beast_ids": [
+        "fire_jiao_adult",
+        "suanni_beast",
+        "void_mantis"
+      ]
+    },
+    {
+      "tier": 11,
+      "realm_equiv": "SPIRIT_TRANSFORMATION_EARLY",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "十一阶：元婴顶至化神前，大晋/昆吾级。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "十一阶",
+      "loot_band": "9-13",
+      "example_beast_ids": [
+        "four_ear_gold_ape",
+        "gold_body_moon_corpse"
+      ]
+    },
+    {
+      "tier": 12,
+      "realm_equiv": "SPIRIT_TRANSFORMATION_MID",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "十二阶：化神级古兽，灵界边境。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "十二阶",
+      "loot_band": "9-13",
+      "example_beast_ids": [
+        "six_wing_frost_centipede",
+        "leopard_qilin_beast"
+      ]
+    },
+    {
+      "tier": 13,
+      "realm_equiv": "SPIRIT_TRANSFORMATION_LATE",
+      "has_demon_core_from": 5,
+      "shape_shift_tribulation_at": 7,
+      "setting": {
+        "lore": "十三阶：顶阶妖王，圣禽/妖王远啸级，非必胜。",
+        "ref": "beast_bestiary.json"
+      },
+      "learn_requirements": {
+        "note": "实现/索引向条目。"
+      },
+      "display": "十三阶",
+      "loot_band": "9-13",
+      "example_beast_ids": [
+        "mirage_sand_beast",
+        "sky_tiger_beast",
+        "holy_peacock"
+      ]
+    }
+  ],
+  "beasts": [
+    {
+      "id": "twin_pupil_rat",
+      "display": "双瞳鼠",
+      "tier": 1,
+      "tier_sub": "初",
+      "realm_equiv": "QI_REFINING",
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "summary": "双瞳看穿迷雾，喜灵浓处筑窝。",
+      "drops": [
+        "beast_fur_low",
+        "spirit_dust"
+      ],
+      "tame_difficulty": "hard",
+      "skills": [
+        "see_through_mist"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:twin_pupil_rat",
+      "pet_capable": true,
+      "shape_shift_eligible": false,
+      "beast_tier": 1,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "scout_pet",
+        "combat_style": "辅助探路",
+        "lore": "双瞳可穿迷雾，修士常欲擒为灵宠。",
+        "habitat": "灵脉洞窟",
+        "weakness": [
+          "fire_noise"
+        ]
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "QI_REFINING",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "ritual": "blood_contract_minor",
+          "success_base": 0.15,
+          "note": "幼体或重伤时成功率上升。"
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "red_leopard_beast",
+      "display": "红狸兽",
+      "tier": 1,
+      "tier_sub": "中",
+      "realm_equiv": "QI_REFINING",
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "summary": "敏捷、嗅觉超常。",
+      "drops": [
+        "beast_hide_low"
+      ],
+      "tame_difficulty": "medium",
+      "skills": [],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:red_leopard_beast",
+      "pet_capable": true,
+      "shape_shift_eligible": false,
+      "beast_tier": 1,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "敏捷、嗅觉超常。",
+        "lore": "敏捷、嗅觉超常。",
+        "habitat": "tiannan,forest",
+        "beast_tier": 1,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "QI_REFINING",
+          "items": [
+            "spirit_beast_bridle",
+            "beast_taming_pill_low"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "ritual": "blood_contract_minor",
+          "success_base": 0.25
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "fire_horn_deer",
+      "display": "炙角鹿",
+      "tier": 2,
+      "tier_sub": "初",
+      "realm_equiv": "FOUNDATION_EARLY",
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "hills"
+      ],
+      "summary": "火红独角。",
+      "drops": [
+        "beast_horn_fire",
+        "beast_meat"
+      ],
+      "tame_difficulty": "medium",
+      "skills": [],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:fire_horn_deer",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 2,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "火红独角。",
+        "lore": "火红独角。",
+        "habitat": "tiannan,hills",
+        "beast_tier": 2,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "wind_screech_hawk",
+      "display": "风啸鹰",
+      "tier": 2,
+      "tier_sub": "中",
+      "realm_equiv": "FOUNDATION_EARLY",
+      "element": "wind",
+      "regions": [
+        "tiannan",
+        "mulan"
+      ],
+      "summary": "驯养放哨侦察。",
+      "drops": [
+        "feather_wind",
+        "beast_bone"
+      ],
+      "tame_difficulty": "easy",
+      "skills": [
+        "scout_alarm"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:wind_screech_hawk",
+      "pet_capable": true,
+      "shape_shift_eligible": false,
+      "beast_tier": 2,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "aerial_scout",
+        "combat_style": "风刃俯冲",
+        "lore": "高空巡猎，难驯。"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "items": [
+            "spirit_beast_bridle",
+            "wind_feather_bait"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "ritual": "blood_contract",
+          "success_base": 0.12,
+          "note": "需飞行遁术配合擒获。"
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "scent_spirit_beast",
+      "display": "嗅灵兽",
+      "tier": 2,
+      "tier_sub": "上",
+      "realm_equiv": "FOUNDATION_EARLY",
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "sect"
+      ],
+      "summary": "查违禁物品。",
+      "drops": [
+        "beast_fur_mid"
+      ],
+      "tame_difficulty": "easy",
+      "skills": [
+        "detect_contraband"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:scent_spirit_beast",
+      "pet_capable": true,
+      "shape_shift_eligible": false,
+      "beast_tier": 2,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "tracker",
+        "combat_style": "嗅探灵药",
+        "lore": "对灵草灵药气味极敏感。",
+        "habitat": "药园山林"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic",
+            "luoyun_dan_dao"
+          ],
+          "success_base": 0.2,
+          "note": "常以灵药诱捕。"
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "giant_centipede",
+      "display": "巨型蜈蚣",
+      "tier": 3,
+      "tier_sub": "初",
+      "realm_equiv": "FOUNDATION_MID",
+      "element": "poison",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "summary": "黑色甲壳。",
+      "drops": [
+        "chitin",
+        "venom_sac"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "poison_bite"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:giant_centipede",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 3,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "黑色甲壳。",
+        "lore": "黑色甲壳。",
+        "habitat": "tiannan,caves",
+        "beast_tier": 3,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "ink_flood_dragon",
+      "display": "墨蛟",
+      "tier": 3,
+      "tier_sub": "中",
+      "realm_equiv": "FOUNDATION_MID",
+      "element": "water",
+      "regions": [
+        "tiannan",
+        "river"
+      ],
+      "summary": "低阶蛟形。",
+      "drops": [
+        "scale_water",
+        "demon_core_fragment"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "water_spit"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:ink_flood_dragon",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 3,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "低阶蛟形。",
+        "lore": "低阶蛟形。",
+        "habitat": "tiannan,river",
+        "beast_tier": 3,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "heart_bore_worm",
+      "display": "钻心虫",
+      "tier": 3,
+      "tier_sub": "上",
+      "realm_equiv": "FOUNDATION_MID",
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "demonic"
+      ],
+      "summary": "沿血脉钻心。",
+      "drops": [
+        "yin_silk"
+      ],
+      "tame_difficulty": "none",
+      "skills": [],
+      "special_flags": [
+        "ignore_armor_partial"
+      ],
+      "entity_id_hint": "seeking_immortals:heart_bore_worm",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 3,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "沿血脉钻心。",
+        "lore": "沿血脉钻心。",
+        "habitat": "tiannan,demonic",
+        "beast_tier": 3,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "fire_crow",
+      "display": "火鸦",
+      "tier": 4,
+      "tier_sub": "初",
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "volcano"
+      ],
+      "summary": "火属性远程。",
+      "drops": [
+        "feather_fire",
+        "beast_core_t4"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "fire_ball"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:fire_crow",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 4,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "火属性远程。",
+        "lore": "火属性远程。",
+        "habitat": "tiannan,volcano",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "green_vine_demon",
+      "display": "青木妖藤",
+      "tier": 4,
+      "tier_sub": "中",
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "jungle"
+      ],
+      "summary": "束缚毒回血。",
+      "drops": [
+        "vine_fiber",
+        "wood_essence"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "bind",
+        "poison",
+        "regen"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:green_vine_demon",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 4,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "束缚毒回血。",
+        "lore": "束缚毒回血。",
+        "habitat": "tiannan,jungle",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "mystic_water_turtle",
+      "display": "玄水龟",
+      "tier": 4,
+      "tier_sub": "上",
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "water",
+      "regions": [
+        "chaotic_sea",
+        "tiannan"
+      ],
+      "summary": "高防水系控制。",
+      "drops": [
+        "turtle_shell",
+        "water_pearl"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "shell_defense",
+        "slow"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:mystic_water_turtle",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 4,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "高防水系控制。",
+        "lore": "高防水系控制。",
+        "habitat": "chaotic_sea,tiannan",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "thunder_horn_tiger",
+      "display": "雷角虎",
+      "tier": 4,
+      "tier_sub": "上",
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "thunder",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "冲锋雷击。",
+      "drops": [
+        "tiger_bone",
+        "thunder_horn"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "charge",
+        "thunder_strike"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:thunder_horn_tiger",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 4,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "冲锋雷击。",
+        "lore": "冲锋雷击。",
+        "habitat": "tiannan",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "demon_core_bear",
+      "display": "妖丹熊",
+      "tier": 5,
+      "tier_sub": "初",
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "element": "earth",
+      "regions": [
+        "tiannan",
+        "mountain"
+      ],
+      "summary": "结丹初，体内结妖丹。",
+      "drops": [
+        "demon_core_low",
+        "bear_gall"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "slam"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:demon_core_bear",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 5,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "结丹初，体内结妖丹。",
+        "lore": "结丹初，体内结妖丹。",
+        "habitat": "tiannan,mountain",
+        "beast_tier": 5,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "CORE_FORMATION",
+          "items": [
+            "spirit_beast_bridle_high",
+            "demon_suppress_chain"
+          ],
+          "success_base": 0.06
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "baby_carp_demon",
+      "display": "婴鲤兽",
+      "tier": 6,
+      "tier_sub": "中",
+      "realm_equiv": "CORE_FORMATION_MID",
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "summary": "娃娃脸鱼尾，水罡神雷。",
+      "drops": [
+        "demon_core_mid",
+        "carp_scale"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "water_thunder_bolt"
+      ],
+      "special_flags": [
+        "humanoid_face"
+      ],
+      "entity_id_hint": "seeking_immortals:baby_carp_demon",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 6,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "娃娃脸鱼尾，水罡神雷。",
+        "lore": "娃娃脸鱼尾，水罡神雷。",
+        "habitat": "chaotic_sea",
+        "beast_tier": 6,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "ice_soul_serpent",
+      "display": "冰魄蛇",
+      "tier": 6,
+      "tier_sub": "中",
+      "realm_equiv": "CORE_FORMATION_MID",
+      "element": "ice",
+      "regions": [
+        "tiannan",
+        "snow"
+      ],
+      "summary": "冰冻毒。",
+      "drops": [
+        "ice_fang",
+        "serpent_skin"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "freeze",
+        "poison"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:ice_soul_serpent",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 6,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "冰冻毒。",
+        "lore": "冰冻毒。",
+        "habitat": "tiannan,snow",
+        "beast_tier": 6,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "spirit_fox",
+      "display": "灵狐",
+      "tier": 6,
+      "tier_sub": "上",
+      "realm_equiv": "CORE_FORMATION_MID",
+      "element": "illusion",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "summary": "幻术闪避可驯服。",
+      "drops": [
+        "fox_tail",
+        "illusion_core"
+      ],
+      "tame_difficulty": "hard",
+      "skills": [
+        "illusion",
+        "dodge"
+      ],
+      "special_flags": [],
+      "entity_id_hint": "seeking_immortals:spirit_fox",
+      "pet_capable": true,
+      "shape_shift_eligible": false,
+      "beast_tier": 6,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "illusion_support",
+        "combat_style": "幻术干扰",
+        "lore": "灵狐一脉，化形后智力接近人族。",
+        "shape_shift_note": "七阶后面临化形天劫"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "CORE_FORMATION",
+          "items": [
+            "spirit_beast_bridle_high",
+            "illusion_suppress_talisman"
+          ],
+          "method_any": [
+            "beast_taming_advanced"
+          ],
+          "ritual": "blood_contract",
+          "success_base": 0.08,
+          "cannot_tame_if": [
+            "demonic_karma_extreme"
+          ]
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "shape_shift_trial_beast",
+      "display": "化形试炼兽",
+      "tier": 7,
+      "tier_sub": "上",
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "element": "mixed",
+      "regions": [
+        "global"
+      ],
+      "summary": "七级渡劫化形模板。",
+      "drops": [
+        "demon_core_high",
+        "shape_shift_scroll"
+      ],
+      "tame_difficulty": "none",
+      "skills": [],
+      "special_flags": [
+        "tribulation_lightning_weakness",
+        "shape_shift_on_success",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:shape_shift_trial_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 7,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "七级渡劫化形模板。",
+        "lore": "七级渡劫化形模板。",
+        "habitat": "global",
+        "beast_tier": 7,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "thunder_jiao",
+      "display": "雷劫蛟",
+      "tier": 7,
+      "tier_sub": "顶",
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "element": "thunder",
+      "regions": [
+        "chaotic_sea",
+        "storm"
+      ],
+      "summary": "雷暴秘境Boss雏形。",
+      "drops": [
+        "jiao_horn",
+        "thunder_demon_core"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "thunder_ball",
+        "summon_tribulation_lightning"
+      ],
+      "special_flags": [
+        "boss_phases_3",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:thunder_jiao",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 7,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "boss": true,
+      "extra_loot": [
+        {
+          "item": "talisman_crate_mid",
+          "chance": 0.22,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "thunder_stone",
+          "chance": 0.35,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "role": "boss_beast",
+        "combat_style": "雷水双系",
+        "lore": "蛟类化龙前躯，雷劫伴生。"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "tame_allowed": false,
+          "note": "凶蛟仅可击杀取材料，不可常规驯为灵宠。"
+        }
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "silver_wing_yaksha",
+      "display": "银翅夜叉",
+      "tier": 8,
+      "tier_sub": "初",
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "zhuimo"
+      ],
+      "summary": "炼尸/妖 hybrid，风土遁幻术。",
+      "drops": [
+        "corpse_marrow",
+        "silver_wing"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "wind_escape",
+        "earth_escape",
+        "illusion"
+      ],
+      "special_flags": [
+        "corpse_refined_material",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:silver_wing_yaksha",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 8,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "炼尸/妖 hybrid，风土遁幻术。",
+        "lore": "炼尸/妖 hybrid，风土遁幻术。",
+        "habitat": "tiannan,zhuimo",
+        "beast_tier": 8,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "wind_split_beast",
+      "display": "裂风兽",
+      "tier": 9,
+      "tier_sub": "中",
+      "realm_equiv": "NASCENT_SOUL_MID",
+      "element": "wind",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "summary": "妖王级，学人族技术。",
+      "drops": [
+        "wind_core",
+        "beast_king_token"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "wind_blade",
+        "tactical_ai"
+      ],
+      "special_flags": [
+        "elite",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:wind_split_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 9,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "妖王级，学人族技术。",
+        "lore": "妖王级，学人族技术。",
+        "habitat": "chaotic_sea",
+        "beast_tier": 9,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "earth_armor_dragon",
+      "display": "土甲龙",
+      "tier": 9,
+      "tier_sub": "中",
+      "realm_equiv": "NASCENT_SOUL_MID",
+      "element": "earth",
+      "regions": [
+        "dajin",
+        "caves"
+      ],
+      "summary": "寻宝天赋。",
+      "drops": [
+        "dragon_scale_earth",
+        "treasure_sense_buff"
+      ],
+      "tame_difficulty": "quest_only",
+      "skills": [
+        "armor_up",
+        "treasure_sense"
+      ],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:earth_armor_dragon",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 9,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "寻宝天赋。",
+        "lore": "寻宝天赋。",
+        "habitat": "dajin,caves",
+        "beast_tier": 9,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "fire_jiao_adult",
+      "display": "离火蛟",
+      "tier": 10,
+      "tier_sub": "后",
+      "realm_equiv": "NASCENT_SOUL_LATE",
+      "element": "fire",
+      "regions": [
+        "chaotic_sea",
+        "ocean"
+      ],
+      "summary": "海域蛟龙。",
+      "drops": [
+        "jiao_blood",
+        "demon_core_peak"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "fire_domain"
+      ],
+      "special_flags": [
+        "boss",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:fire_jiao_adult",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 10,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "海域蛟龙。",
+        "lore": "海域蛟龙。",
+        "habitat": "chaotic_sea,ocean",
+        "beast_tier": 10,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "suanni_beast",
+      "display": "狻猊兽",
+      "tier": 10,
+      "tier_sub": "顶",
+      "realm_equiv": "NASCENT_SOUL_LATE",
+      "element": "fire",
+      "regions": [
+        "dajin"
+      ],
+      "summary": "上古兽形。",
+      "drops": [
+        "suanni_mane",
+        "ancient_blood"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "flame_roar"
+      ],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:suanni_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 10,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "上古兽形。",
+        "lore": "上古兽形。",
+        "habitat": "dajin",
+        "beast_tier": 10,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "four_ear_gold_ape",
+      "display": "四耳金猿",
+      "tier": 11,
+      "tier_sub": "初",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_EARLY",
+      "element": "metal",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "summary": "金黄巨猴凶恶。",
+      "drops": [
+        "ape_bone",
+        "gold_fur"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "berserk",
+        "sonic_shout"
+      ],
+      "special_flags": [
+        "boss",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:four_ear_gold_ape",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 11,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "金黄巨猴凶恶。",
+        "lore": "金黄巨猴凶恶。",
+        "habitat": "dajin,kunwu",
+        "beast_tier": 11,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "gold_body_moon_corpse",
+      "display": "金身月尸",
+      "tier": 11,
+      "tier_sub": "中",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_EARLY",
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "人界顶阶炼尸，金遁。",
+      "drops": [
+        "moon_corpse_core"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "gold_escape"
+      ],
+      "special_flags": [
+        "corpse_only",
+        "spirit_transformation_equiv",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:gold_body_moon_corpse",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 11,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "人界顶阶炼尸，金遁。",
+        "lore": "人界顶阶炼尸，金遁。",
+        "habitat": "tiannan",
+        "beast_tier": 11,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣",
+      "tier": 12,
+      "tier_sub": "中",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_MID",
+      "element": "ice",
+      "regions": [
+        "spirit_realm",
+        "ancient"
+      ],
+      "summary": "冰龙血统灵虫。",
+      "drops": [
+        "frost_wing",
+        "true_dragon_blood_trace"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "frost_breath_100li",
+        "extreme_speed"
+      ],
+      "special_flags": [
+        "boss",
+        "swarm_phases",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:six_wing_frost_centipede",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 12,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "冰龙血统灵虫。",
+        "lore": "冰龙血统灵虫。",
+        "habitat": "spirit_realm,ancient",
+        "beast_tier": 12,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "leopard_qilin_beast",
+      "display": "豹麟兽",
+      "tier": 12,
+      "tier_sub": "上",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_MID",
+      "element": "mixed",
+      "regions": [
+        "spirit_realm"
+      ],
+      "summary": "麒麟血脉，元婴实力幼体。",
+      "drops": [
+        "qilin_blood",
+        "beast_soul"
+      ],
+      "tame_difficulty": "legendary",
+      "skills": [
+        "pounce",
+        "wild_rage"
+      ],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:leopard_qilin_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 12,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "麒麟血脉，元婴实力幼体。",
+        "lore": "麒麟血脉，元婴实力幼体。",
+        "habitat": "spirit_realm",
+        "beast_tier": 12,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "mirage_sand_beast",
+      "display": "蜃兽",
+      "tier": 13,
+      "tier_sub": "初",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_LATE",
+      "element": "illusion",
+      "regions": [
+        "chaotic_sea",
+        "desert"
+      ],
+      "summary": "双蛇首蛙身，幻化。",
+      "drops": [
+        "mirage_pearl",
+        "illusion_true_essence"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "mass_illusion",
+        "super_strength"
+      ],
+      "special_flags": [
+        "boss",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:mirage_sand_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 13,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_high",
+          "chance": 0.12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "mirage_sand",
+          "chance": 0.4,
+          "count": [
+            2,
+            5
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "双蛇首蛙身，幻化。",
+        "lore": "双蛇首蛙身，幻化。",
+        "habitat": "chaotic_sea,desert",
+        "beast_tier": 13,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "sky_tiger_beast",
+      "display": "天虎兽",
+      "tier": 13,
+      "tier_sub": "中",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_LATE",
+      "element": "earth_wind",
+      "regions": [
+        "mulan"
+      ],
+      "summary": "土风法术瞬移。",
+      "drops": [
+        "sky_tiger_wing",
+        "mulan_spirit_feather"
+      ],
+      "tame_difficulty": "faction_mulan",
+      "skills": [
+        "earth_wind_spell",
+        "blink"
+      ],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:sky_tiger_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 13,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "土风法术瞬移。",
+        "lore": "土风法术瞬移。",
+        "habitat": "mulan",
+        "beast_tier": 13,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "holy_peacock",
+      "display": "圣禽（青孔雀）",
+      "tier": 13,
+      "tier_sub": "顶",
+      "realm_equiv": "SPIRIT_TRANSFORMATION_LATE",
+      "element": "fire",
+      "regions": [
+        "mulan",
+        "spirit_realm"
+      ],
+      "summary": "慕兰供奉，妖火。",
+      "drops": [
+        "holy_bird_plume",
+        "peacock_true_fire"
+      ],
+      "tame_difficulty": "none",
+      "skills": [
+        "demon_fire_storm"
+      ],
+      "special_flags": [
+        "faction_quest_only",
+        "not_kill_reputation_loss",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:holy_peacock",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 13,
+      "loot_band": "9-13",
+      "loot_table_ref": "beast_loot_tiers.json#9-13",
+      "extra_loot": [
+        {
+          "item": "talisman_crate_low",
+          "chance": 0.08,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "慕兰供奉，妖火。",
+        "lore": "慕兰供奉，妖火。",
+        "habitat": "mulan,spirit_realm",
+        "beast_tier": 13,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "soul_weep_beast",
+      "display": "泣魂兽",
+      "tier": 4,
+      "tier_sub": "阴",
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "yin",
+      "regions": [
+        "nether_river"
+      ],
+      "summary": "冥河阴兽，啼哭可乱人心神，常伴尸气。",
+      "drops": [
+        "soul_moss",
+        "yin_coffin_nail",
+        "beast_blood_vial"
+      ],
+      "tame_difficulty": "very_hard",
+      "skills": [
+        "soul_weep",
+        "yin_mist"
+      ],
+      "special_flags": [
+        "undead_affinity"
+      ],
+      "entity_id_hint": "seeking_immortals:soul_weep_beast",
+      "pet_capable": false,
+      "shape_shift_eligible": false,
+      "beast_tier": 4,
+      "loot_band": "1-4",
+      "loot_table_ref": "beast_loot_tiers.json#1-4",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "冥河阴兽，啼哭可乱人心神，常伴尸气。",
+        "lore": "冥河阴兽，啼哭可乱人心神，常伴尸气。",
+        "habitat": "nether_river",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "phantom_flame_moth",
+      "display": "幻焰蛾",
+      "tier": 8,
+      "tier_sub": "魔",
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "element": "fire",
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "summary": "堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。",
+      "drops": [
+        "fire_feather",
+        "demon_core_mid",
+        "beast_soul_essence"
+      ],
+      "tame_difficulty": "hard",
+      "skills": [
+        "phantom_flame_swarm",
+        "illusion_dust"
+      ],
+      "special_flags": [
+        "swarm",
+        "shape_shift_minor_tribulation"
+      ],
+      "entity_id_hint": "seeking_immortals:phantom_flame_moth",
+      "pet_capable": false,
+      "shape_shift_eligible": true,
+      "beast_tier": 8,
+      "loot_band": "5-8",
+      "loot_table_ref": "beast_loot_tiers.json#5-8",
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。",
+        "lore": "堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。",
+        "habitat": "fallen_demon_valley",
+        "beast_tier": 8,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "gold_devour_beetle",
+      "display": "噬金虫",
+      "tier": 5,
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "element": "metal",
+      "regions": [
+        "chaotic_sea",
+        "spirit_world"
+      ],
+      "summary": "啃噬五金法宝灵光，群居奇虫。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "skills": [
+        "devour_artifact_spirit"
+      ],
+      "special_flags": [
+        "swarm",
+        "compliance_fanren"
+      ],
+      "shape_shift_eligible": false,
+      "drops": [
+        "gold_devour_larva",
+        "beetle_shell"
+      ],
+      "setting": {
+        "role": "artifact_counter",
+        "combat_style": "虫群啃宝",
+        "lore": "天下奇虫，专噬五金之精。",
+        "limitations": [
+          "需虫巢与灵食培育"
+        ],
+        "compliance": "噬金虫仿"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "CORE_FORMATION",
+          "items": [
+            "gold_devour_beetle_nest",
+            "spirit_beast_bridle_high"
+          ],
+          "method_any": [
+            "beast_taming_advanced"
+          ],
+          "quests": [
+            "beetle_nest_quest"
+          ],
+          "ritual": "queen_bond",
+          "success_base": 0.05,
+          "compliance": "噬金虫仿",
+          "note": "认虫后需持续喂养灵矿。"
+        }
+      },
+      "beast_tier": 5,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "soul_weeping_beast",
+      "display": "啼魂兽",
+      "tier": 6,
+      "realm_equiv": "CORE_FORMATION_MID",
+      "element": "yin",
+      "regions": [
+        "demonic_ruins"
+      ],
+      "summary": "尖啸伤魂，对鬼物克制极强。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "skills": [
+        "soul_shriek"
+      ],
+      "special_flags": [
+        "soul_attack",
+        "compliance_fanren"
+      ],
+      "shape_shift_eligible": false,
+      "drops": [],
+      "setting": {
+        "role": "anti_ghost",
+        "combat_style": "神魂尖啸",
+        "lore": "对阴魂鬼物有天然克制。",
+        "compliance": "啼魂兽仿"
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "CORE_FORMATION",
+          "items": [
+            "soul_calm_bead"
+          ],
+          "method_any": [
+            "beast_taming_advanced"
+          ],
+          "ritual": "soul_acknowledge",
+          "success_base": 0.03,
+          "compliance": "啼魂兽仿",
+          "note": "多为机缘认主而非野外驯服。"
+        }
+      },
+      "beast_tier": 6,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "mountain_giant_ape",
+      "display": "山岳巨猿",
+      "tier": 7,
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "element": "earth",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "summary": "力大无穷，可化形前兆。",
+      "pet_capable": false,
+      "tame_difficulty": "impossible",
+      "skills": [
+        "smash"
+      ],
+      "shape_shift_eligible": true,
+      "drops": [],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "力大无穷，可化形前兆。",
+        "lore": "力大无穷，可化形前兆。",
+        "habitat": "barbarian_wasteland",
+        "beast_tier": 7,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "beast_tier": 7,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "blood_jiao",
+      "display": "血蛟",
+      "tier": 8,
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "summary": "海域凶蛟，妖丹珍贵。",
+      "pet_capable": false,
+      "drops": [
+        "jiao_scale",
+        "demon_core_high"
+      ],
+      "skills": [],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "shape_shift_eligible": true,
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "海域凶蛟，妖丹珍贵。",
+        "lore": "海域凶蛟，妖丹珍贵。",
+        "habitat": "chaotic_sea",
+        "beast_tier": 8,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "beast_tier": 8,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "three_tailed_fox",
+      "display": "三尾妖狐",
+      "tier": 5,
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "element": "illusion",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "擅幻术，灵狐一脉。",
+      "pet_capable": true,
+      "tame_difficulty": "very_hard",
+      "skills": [
+        "illusion_tail"
+      ],
+      "shape_shift_eligible": true,
+      "drops": [],
+      "special_flags": [],
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "擅幻术，灵狐一脉。",
+        "lore": "擅幻术，灵狐一脉。",
+        "habitat": "tiannan",
+        "beast_tier": 5,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "ritual": "blood_contract",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "success_base": 0.19999999999999998,
+          "note": "精血认主；高阶妖兽需高阶御兽诀与镇兽法宝。"
+        }
+      },
+      "beast_tier": 5,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "iron_lion_beast",
+      "display": "铁甲狮兽",
+      "tier": 4,
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "体修型妖兽，皮糙肉厚。",
+      "pet_capable": true,
+      "tame_difficulty": "hard",
+      "skills": [],
+      "drops": [],
+      "special_flags": [],
+      "shape_shift_eligible": false,
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "体修型妖兽，皮糙肉厚。",
+        "lore": "体修型妖兽，皮糙肉厚。",
+        "habitat": "tiannan",
+        "beast_tier": 4,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "ritual": "blood_contract",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "success_base": 0.22999999999999998,
+          "note": "精血认主；高阶妖兽需高阶御兽诀与镇兽法宝。"
+        }
+      },
+      "beast_tier": 4,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "cloud_silk_spider",
+      "display": "云丝蛛",
+      "tier": 3,
+      "realm_equiv": "FOUNDATION_MID",
+      "element": "wood",
+      "regions": [
+        "caves"
+      ],
+      "summary": "吐丝缚敌，可炼蛛丝材料。",
+      "pet_capable": true,
+      "tame_difficulty": "medium",
+      "drops": [
+        "spirit_silk"
+      ],
+      "skills": [],
+      "special_flags": [],
+      "shape_shift_eligible": false,
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "吐丝缚敌，可炼蛛丝材料。",
+        "lore": "吐丝缚敌，可炼蛛丝材料。",
+        "habitat": "caves",
+        "beast_tier": 3,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "ritual": "blood_contract",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "success_base": 0.26,
+          "note": "精血认主；高阶妖兽需高阶御兽诀与镇兽法宝。"
+        }
+      },
+      "beast_tier": 3,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "flame_salamander",
+      "display": "火蜥兽",
+      "tier": 2,
+      "realm_equiv": "FOUNDATION_EARLY",
+      "element": "fire",
+      "regions": [
+        "volcano"
+      ],
+      "summary": "火系低阶妖兽，内丹可入药。",
+      "pet_capable": true,
+      "tame_difficulty": "medium",
+      "skills": [],
+      "drops": [],
+      "special_flags": [],
+      "shape_shift_eligible": false,
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "火系低阶妖兽，内丹可入药。",
+        "lore": "火系低阶妖兽，内丹可入药。",
+        "habitat": "volcano",
+        "beast_tier": 2,
+        "shape_shift_eligible": false
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "ritual": "blood_contract",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "success_base": 0.29,
+          "note": "精血认主；高阶妖兽需高阶御兽诀与镇兽法宝。"
+        }
+      },
+      "beast_tier": 2,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "ice_phoenix_chick",
+      "display": "冰凤幼禽",
+      "tier": 9,
+      "realm_equiv": "NASCENT_SOUL_MID",
+      "element": "ice",
+      "regions": [
+        "polar"
+      ],
+      "summary": "灵界珍禽幼体，极难驯服。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "special_flags": [
+        "spirit_bird",
+        "shape_shift_minor_tribulation"
+      ],
+      "skills": [],
+      "drops": [],
+      "shape_shift_eligible": true,
+      "setting": {
+        "role": "spirit_pet_candidate",
+        "combat_style": "灵界珍禽幼体，极难驯服。",
+        "lore": "灵界珍禽幼体，极难驯服。",
+        "habitat": "polar",
+        "beast_tier": 9,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_requirements": {
+          "realm_min": "FOUNDATION",
+          "ritual": "blood_contract",
+          "items": [
+            "spirit_beast_bridle"
+          ],
+          "method_any": [
+            "beast_taming_basic"
+          ],
+          "success_base": 0.07999999999999996,
+          "note": "精血认主；高阶妖兽需高阶御兽诀与镇兽法宝。"
+        }
+      },
+      "beast_tier": 9,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    },
+    {
+      "id": "void_mantis",
+      "display": "虚空螳螂",
+      "tier": 10,
+      "realm_equiv": "NASCENT_SOUL_LATE",
+      "element": "void",
+      "regions": [
+        "spirit_world"
+      ],
+      "summary": "灵界虫族，前肢如刃。",
+      "pet_capable": false,
+      "skills": [],
+      "drops": [],
+      "special_flags": [
+        "shape_shift_minor_tribulation"
+      ],
+      "shape_shift_eligible": true,
+      "setting": {
+        "role": "wild_beast",
+        "combat_style": "灵界虫族，前肢如刃。",
+        "lore": "灵界虫族，前肢如刃。",
+        "habitat": "spirit_world",
+        "beast_tier": 10,
+        "shape_shift_eligible": true
+      },
+      "learn_requirements": {
+        "tame_allowed": false,
+        "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+      },
+      "beast_tier": 10,
+      "thirteen_tier_map_ref": "beast_thirteen_tier_map.json"
+    }
+  ],
+  "spirit_pets": [
+    {
+      "id": "gold_devouring_beetle",
+      "display": "噬金虫",
+      "tier_min": 3,
+      "tier_max": 12,
+      "type": "spirit_insect_swarm",
+      "element": "metal",
+      "summary": "金属克星虫群，王可化形。",
+      "tame": "alchemy_hatch",
+      "evolution": "gold_devouring_beetle_king"
+    },
+    {
+      "id": "soul_weep_beast",
+      "display": "啼魂兽",
+      "tier": 8,
+      "type": "soul_pet",
+      "element": "yin",
+      "summary": "吸魂噬鬼，猿形巨口。",
+      "tame": "demonic_ritual",
+      "skills": [
+        "soul_absorb"
+      ]
+    },
+    {
+      "id": "musk_orchid_beast",
+      "display": "麝兰兽",
+      "tier": 2,
+      "type": "support_pet",
+      "element": "wood",
+      "summary": "安神定魂气味。",
+      "tame": "easy",
+      "skills": [
+        "calm_mind"
+      ]
+    },
+    {
+      "id": "phantom_flame_moth",
+      "display": "幻焰蛾",
+      "tier": 4,
+      "type": "spirit_insect",
+      "element": "illusion",
+      "summary": "短隐身幻化。",
+      "tame": "medium",
+      "skills": [
+        "short_invisibility"
+      ]
+    },
+    {
+      "id": "iron_wood_great_ape_puppet",
+      "display": "巨猿傀儡（战兽级）",
+      "tier": 2,
+      "type": "puppet_not_beast",
+      "note": "归类见 puppet_definitions"
+    }
+  ],
+  "drop_tables_ref": {
+    "demon_core_low": "tier>=5",
+    "demon_core_mid": "tier>=6",
+    "demon_core_high": "tier>=7",
+    "true_spirit_material": "tier>=11 or special_flag"
+  },
+  "spawn_rules": {
+    "region_weight": "见各 beast.regions",
+    "disaster_bonus": {
+      "chaotic_sea_beast_tide": 1.5,
+      "mulan_grassland_raid": 1.2
+    }
+  },
+  "thirteen_tier_ref": "beast_thirteen_tier_map.json",
+  "tier_table_note": "tier 1-13 与汇编妖兽十三级一致；beast_tier 字段与 tier 同义",
+  "pet_taming_ref": "beast_taming_basic + spirit_beast_bridle",
+  "tribulation_notes": {
+    "shape_shift": {
+      "tier": "minor",
+      "ref": "tribulation_tier_schema.json#minor",
+      "at_grade": 7,
+      "lore": "七级以上妖兽化形常遇小劫结构。"
+    }
+  },
+  "beast_tier_schema_ref": "beast_tier_schema.json"
+}

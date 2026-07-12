@@ -1,0 +1,265 @@
+{
+  id: "1000000000000002",
+  filename: "seeking_immortals_chaotic_sea",
+  title: "寻仙问道：乱星海与虚天殿",
+  subtitle: ["源自 quest_chains.json、quest_hooks.json、chaotic_sea_faction_quests.json 与 inverse_star_quest_network.json。"],
+  default_quest_shape: "circle",
+  default_hide_dependency_lines: false,
+  progression_mode: "linear",
+  quests: [
+    {
+      id: "1000000000000501",
+      title: "外海航路",
+      subtitle: "买舟远渡",
+      x: 0.0d,
+      y: 0.0d,
+      description: [
+        "来源：main_story_chapters#chapter_3_chaotic_sea / chaotic_sea_ferry_escort。",
+        "筑基后远渡乱星海，先把灵舟、航路和外海补给作为新章节入口。当前 FTB 物品任务检查 1 张风羽舟票且不消耗。"
+      ],
+      dependencies: ["1000000000000306"],
+      tags: ["seeking_immortals", "chaotic_sea", "chapter_3_chaotic_sea"],
+      tasks: [{id: "1000000000001501", type: "item", title: "持有远渡舟票", item: "seeking_immortals:wind_feather_raft_ticket", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000502",
+      title: "岛民登记",
+      subtitle: "星宫外海登记",
+      x: 2.0d,
+      y: 0.0d,
+      description: [
+        "来源：chaotic_sea_faction_quests#hub_outer_dock_register / hook_star_palace_register。",
+        "星宫执法队登记岛税与通行令；后续可接入通行令、税务和声望任务。当前 FTB 物品任务检查 1 枚海灵原珠且不消耗。"
+      ],
+      dependencies: ["1000000000000501"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace"],
+      tasks: [{id: "1000000000001502", type: "item", title: "持有海灵原珠", item: "seeking_immortals:pearl_raw", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000503",
+      title: "星宫巡防",
+      subtitle: "执法清剿",
+      x: 4.0d,
+      y: -1.0d,
+      description: [
+        "来源：chaotic_sea_politics / star_palace_patrol / star_palace_patrol_quest。",
+        "忠于星宫时，巡防、清剿海盗和维护岛税秩序构成正线任务。当前 FTB 物品任务检查 1 张星宫税契且不消耗。"
+      ],
+      dependencies: ["1000000000000502"],
+      tags: ["seeking_immortals", "chaotic_sea", "star_palace", "branch_loyalist"],
+      tasks: [{id: "1000000000001503", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000504",
+      title: "逆星接触",
+      subtitle: "黑市密语点",
+      x: 4.0d,
+      y: 1.0d,
+      description: [
+        "来源：inverse_star_quest_network#inverse_star_recruit / inverse_star_contact_rumor。",
+        "接触逆星盟会压低星宫关系；现阶段只展示分支，不执行声望后果。"
+      ],
+      dependencies: ["1000000000000502"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "branch_rebel"],
+      tasks: [{id: "1000000000001504", type: "checkmark", title: "听取逆星暗号"}]
+    },
+    {
+      id: "1000000000000505",
+      title: "密语试炼",
+      subtitle: "逆星暗号",
+      x: 6.0d,
+      y: 1.0d,
+      description: [
+        "来源：inverse_star_cipher_trial。",
+        "黑市密语试炼作为入盟前置，后续可替换为 NPC 对话或自定义任务条件。当前 FTB 物品任务检查 1 枚空白玉简且不消耗，作为暗号记录载体。"
+      ],
+      dependencies: ["1000000000000504"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star"],
+      tasks: [{id: "1000000000001505", type: "item", title: "持有密语玉简", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000506",
+      title: "逆星盟誓",
+      subtitle: "入盟选择",
+      x: 8.0d,
+      y: 1.0d,
+      description: [
+        "来源：inverse_star_oath。",
+        "逆星入盟在源设定中会改变阵营关系；当前 FTB 节点只做可见路线标记。"
+      ],
+      dependencies: ["1000000000000505"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star"],
+      tasks: [{id: "1000000000001506", type: "checkmark", title: "立下逆星盟誓"}]
+    },
+    {
+      id: "1000000000000507",
+      title: "走私补给线",
+      subtitle: "逆星补给",
+      x: 10.0d,
+      y: 1.0d,
+      description: [
+        "来源：inverse_star_smuggle_arc / inverse_star_smuggler_pack。",
+        "走私补给线承接黑市物资、巡防躲避与虚天情报买卖。当前 FTB 物品任务检查 1 枚妖兽内丹且不消耗，作为黑市补给筹码。"
+      ],
+      dependencies: ["1000000000000506"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle"],
+      tasks: [{id: "1000000000001507", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000508",
+      title: "避开星宫巡查",
+      subtitle: "巡防窗口",
+      x: 12.0d,
+      y: 1.0d,
+      description: [
+        "来源：star_palace_patrol_dodge。",
+        "表达逆星线的潜行与热度风险；后续可接入时间窗、巡逻 NPC 或热度状态。"
+      ],
+      dependencies: ["1000000000000507"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle"],
+      tasks: [{id: "1000000000001508", type: "checkmark", title: "绕开巡防"}]
+    },
+    {
+      id: "1000000000000509",
+      title: "虚天情报买卖",
+      subtitle: "商盟中转",
+      x: 14.0d,
+      y: 1.0d,
+      description: [
+        "来源：void_palace_intel_sell / hub_merchant_league_wharf。",
+        "中立商盟码头可倒卖虚天殿消息，为后续钥碎片线提供旁路入口。当前 FTB 物品任务检查 2 枚海灵原珠且不消耗。"
+      ],
+      dependencies: ["1000000000000508"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "void_palace"],
+      tasks: [{id: "1000000000001509", type: "item", title: "持有情报换货珠", item: "seeking_immortals:pearl_raw", count: 2L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000510",
+      title: "虚天周期预告",
+      subtitle: "三百年一现",
+      x: 6.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_palace_campaign / void_palace_cycle_notice / void_key_fragment_rumor。",
+        "虚天殿三百年周期、空间异象和钥碎片传闻在此合流。"
+      ],
+      dependencies: ["1000000000000503", "1000000000000509"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
+      tasks: [{id: "1000000000001510", type: "checkmark", title: "记录虚天异象"}]
+    },
+    {
+      id: "1000000000000511",
+      title: "搜集虚天钥碎片",
+      subtitle: "入殿前置",
+      x: 8.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_key_fragment_hunt。",
+        "钥碎片散落于遗迹与海兽巢；后续可替换为物品收集或秘境进度任务。当前 FTB 物品任务检查 1 块虚空结晶且不消耗，作为虚天钥碎片代理。"
+      ],
+      dependencies: ["1000000000000510"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
+      tasks: [{id: "1000000000001511", type: "item", title: "持有虚天钥碎片", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000512",
+      title: "外殿傀儡战",
+      subtitle: "虚天外殿",
+      x: 10.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_palace_outer_hall。",
+        "外殿以傀儡战和空间法则试探玩家，暂以安全勾选节点呈现。"
+      ],
+      dependencies: ["1000000000000511"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "puppet_design"],
+      tasks: [{id: "1000000000001512", type: "checkmark", title: "突破虚天外殿"}]
+    },
+    {
+      id: "1000000000000513",
+      title: "灵药园采集",
+      subtitle: "虚天灵药园",
+      x: 12.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_palace_herb_garden。",
+        "灵药园用于串联高阶药材、古宝碎片和秘境采集节奏。"
+      ],
+      dependencies: ["1000000000000512"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "alchemy"],
+      tasks: [{id: "1000000000001513", type: "checkmark", title: "完成灵药园采集"}]
+    },
+    {
+      id: "1000000000000514",
+      title: "寒玉殿极寒",
+      subtitle: "极寒层",
+      x: 14.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_palace_cold_jade_hall。",
+        "寒玉殿对应极寒环境和寒玉资源；后续可接入冷抗、场景伤害或材料掉落。当前 FTB 物品任务检查 2 块寒玉且不消耗。"
+      ],
+      dependencies: ["1000000000000513"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
+      tasks: [{id: "1000000000001514", type: "item", title: "持有寒玉", item: "seeking_immortals:cold_jade", count: 2L, consume_items: false, match_nbt: false}]
+    },
+    {
+      id: "1000000000000515",
+      title: "核心宝库",
+      subtitle: "虚天殿终章",
+      x: 16.0d,
+      y: 3.0d,
+      description: [
+        "来源：void_palace_treasury。",
+        "核心宝库是乱星海秘境线的终点，源设定奖励：void_key_fragment、void_palace_cold_jade、ancient_spirit_treasure_shard。"
+      ],
+      dependencies: ["1000000000000514"],
+      tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign", "boss_design"],
+      tasks: [{id: "1000000000001515", type: "checkmark", title: "开启核心宝库"}]
+    },
+    {
+      id: "1000000000000516",
+      title: "星宫逆星对峙",
+      subtitle: "阵营冲突",
+      x: 6.0d,
+      y: -3.0d,
+      description: [
+        "来源：chaotic_sea_civil_war。",
+        "星宫巡防与逆星伏击互斥；当前只展示冲突入口，不写入阵营锁或声望状态。"
+      ],
+      dependencies: ["1000000000000503", "1000000000000506"],
+      tags: ["seeking_immortals", "chaotic_sea", "branch_design"],
+      tasks: [{id: "1000000000001516", type: "checkmark", title: "确认对峙局势"}]
+    },
+    {
+      id: "1000000000000517",
+      title: "逆星伏击",
+      subtitle: "可选反击",
+      x: 8.0d,
+      y: -3.0d,
+      optional: true,
+      description: [
+        "来源：inverse_star_ambush_event。",
+        "逆星伏击是反星宫可选战斗节点，后续可接入战斗、热度和黑市奖励。"
+      ],
+      dependencies: ["1000000000000516"],
+      tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "optional"],
+      tasks: [{id: "1000000000001517", type: "checkmark", title: "完成逆星伏击"}]
+    },
+    {
+      id: "1000000000000518",
+      title: "乱星海中立",
+      subtitle: "可选收束",
+      x: 10.0d,
+      y: -3.0d,
+      optional: true,
+      description: [
+        "来源：chaotic_sea_neutral_ending_optional。",
+        "为不押注星宫或逆星的玩家保留中立收束空间；真实分支排斥留待后续。"
+      ],
+      dependencies: ["1000000000000516"],
+      tags: ["seeking_immortals", "chaotic_sea", "optional"],
+      tasks: [{id: "1000000000001518", type: "checkmark", title: "保留中立身份"}]
+    }
+  ]
+}

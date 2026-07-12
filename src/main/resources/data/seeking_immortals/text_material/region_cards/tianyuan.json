@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "tianyuan",
+  "display": "天渊城",
+  "parent_region": "spirit_realm",
+  "spirit_density": 2.0,
+  "density_note": "相对人界基准的结构倍率",
+  "factions": [
+    "tianyuan_guard_generic"
+  ],
+  "daily_events": [
+    "demon_beast_siege",
+    "merit_patrol"
+  ],
+  "secret_realms": [
+    "diyuan"
+  ],
+  "quest_chains": [
+    "tianyuan_merit_path",
+    "spirit_realm_border"
+  ],
+  "tianyuan_ref": "tianyuan_city.json"
+}

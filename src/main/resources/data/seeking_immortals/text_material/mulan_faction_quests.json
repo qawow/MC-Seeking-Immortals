@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "region": "mulan",
+  "war_ref": "mulan_tianlan_war.json",
+  "factions": [
+    "mulan_fashi_council",
+    "tiannan_alliance"
+  ],
+  "chains": [
+    {
+      "id": "mulan_scout_clash",
+      "display": "草原斥候",
+      "steps": [
+        "mulan_border_ride",
+        "fashi_spirit_skirmish",
+        "loot_war_token"
+      ],
+      "setting": {
+        "lore": "慕兰法士游骑与天南斥候遭遇战。"
+      }
+    },
+    {
+      "id": "fashi_soul_array_battle",
+      "display": "法士护族阵",
+      "steps": [
+        "array_core_guard",
+        "tiannan_break_in_attempt",
+        "array_repair_or_sabotage"
+      ],
+      "setting": {
+        "lore": "慕兰护族大阵与天南破阵博弈。"
+      }
+    },
+    {
+      "id": "holy_bird_blessing_quest",
+      "display": "圣禽祈福",
+      "optional": true,
+      "steps": [
+        "holy_bird_omen",
+        "tribal_offering",
+        "morale_buff_or_truce_hint"
+      ],
+      "setting": {
+        "lore": "圣禽临凡影响士气，非强制主线。"
+      }
+    }
+  ],
+  "dimension_registry_ref": "dimension_registry.json"
+}

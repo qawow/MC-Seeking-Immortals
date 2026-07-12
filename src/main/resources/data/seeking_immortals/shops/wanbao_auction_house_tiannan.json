@@ -1,0 +1,37 @@
+{
+  "id": "wanbao_auction_house_tiannan",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "immortal_jade",
+      "item": "seeking_immortals:immortal_jade",
+      "count": 1,
+      "cost": 1,
+      "stock": 6
+    },
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 2,
+      "stock": 4
+    },
+    {
+      "id": "cold_jade",
+      "item": "seeking_immortals:cold_jade",
+      "count": 2,
+      "cost": 1,
+      "stock": 8
+    },
+    {
+      "id": "star_meteorite",
+      "item": "seeking_immortals:star_meteorite",
+      "count": 1,
+      "cost": 2,
+      "stock": 4
+    }
+  ]
+}

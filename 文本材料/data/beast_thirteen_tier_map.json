@@ -1,0 +1,297 @@
+{
+  "schema_version": 4,
+  "source": "汇编 妖兽十三级体系；与 beast_bestiary.tier、beast_loot_tiers 对齐",
+  "disclaimer": "阶位为结构分类，战力数值可重平衡",
+  "tiers": [
+    {
+      "tier": 1,
+      "display": "一阶妖兽",
+      "realm_equiv": "QI_REFINING_EARLY",
+      "loot_band": "1-4",
+      "examples": [
+        "spirit_rat",
+        "low_serpent"
+      ],
+      "setting": {
+        "lore": "一阶：炼气初，外门试炼与低阶材料主产。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "twin_pupil_rat",
+        "red_leopard_beast"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 2,
+      "display": "二阶",
+      "realm_equiv": "QI_REFINING_MID",
+      "loot_band": "1-4",
+      "setting": {
+        "lore": "二阶：炼气中，山林常见。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "fire_horn_deer",
+        "wind_screech_hawk",
+        "scent_spirit_beast",
+        "flame_salamander"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 3,
+      "display": "三阶",
+      "realm_equiv": "QI_REFINING_LATE",
+      "loot_band": "1-4",
+      "setting": {
+        "lore": "三阶：炼气后，河泽与低阶妖丹。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "giant_centipede",
+        "ink_flood_dragon",
+        "heart_bore_worm",
+        "cloud_silk_spider"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 4,
+      "display": "四阶",
+      "realm_equiv": "QI_REFINING_PEAK",
+      "loot_band": "1-4",
+      "note": "炼气顶，常作筑基前试炼",
+      "setting": {
+        "lore": "四阶：炼气顶，筑基前试炼标靶。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "fire_crow",
+        "green_vine_demon",
+        "mystic_water_turtle",
+        "thunder_horn_tiger",
+        "soul_weep_beast"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 5,
+      "display": "五阶",
+      "realm_equiv": "FOUNDATION_EARLY",
+      "loot_band": "5-8",
+      "setting": {
+        "lore": "五阶：筑基初，内门猎妖任务。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "demon_core_bear",
+        "gold_devour_beetle",
+        "three_tailed_fox"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 6,
+      "display": "六阶",
+      "realm_equiv": "FOUNDATION_MID",
+      "loot_band": "5-8",
+      "setting": {
+        "lore": "六阶：筑基中，坊市妖丹流通。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "baby_carp_demon",
+        "ice_soul_serpent",
+        "spirit_fox",
+        "soul_weeping_beast"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 7,
+      "display": "七阶",
+      "realm_equiv": "FOUNDATION_LATE",
+      "loot_band": "5-8",
+      "examples": [
+        "iron_ape",
+        "giant_ape_puppet_equiv"
+      ],
+      "setting": {
+        "lore": "七阶：筑基后至结丹前，海域与秘境边缘。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "shape_shift_trial_beast",
+        "thunder_jiao",
+        "mountain_giant_ape"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 8,
+      "display": "八阶",
+      "realm_equiv": "FOUNDATION_PEAK",
+      "loot_band": "5-8",
+      "examples": [
+        "sea_jiao_young"
+      ],
+      "setting": {
+        "lore": "八阶：结丹期对手，需法宝配合。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "silver_wing_yaksha",
+        "phantom_flame_moth",
+        "blood_jiao"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 9,
+      "display": "九阶",
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "loot_band": "9-13",
+      "setting": {
+        "lore": "九阶：结丹顶至元婴前，禁地守卫级。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "wind_split_beast",
+        "earth_armor_dragon",
+        "ice_phoenix_chick"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 10,
+      "display": "十阶",
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "loot_band": "9-13",
+      "setting": {
+        "lore": "十阶：元婴级妖兽，乱星海深海与古地。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "fire_jiao_adult",
+        "suanni_beast",
+        "void_mantis"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 11,
+      "display": "十一阶",
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "loot_band": "9-13",
+      "examples": [
+        "ancient_turtle",
+        "true_spirit_bloodline_beasts"
+      ],
+      "setting": {
+        "lore": "十一阶：元婴顶至化神前，大晋/昆吾级。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "four_ear_gold_ape",
+        "gold_body_moon_corpse"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 12,
+      "display": "十二阶",
+      "realm_equiv": "NASCENT_SOUL",
+      "loot_band": "9-13",
+      "setting": {
+        "lore": "十二阶：化神级古兽，灵界边境。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "six_wing_frost_centipede",
+        "leopard_qilin_beast"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    },
+    {
+      "tier": 13,
+      "display": "十三阶",
+      "realm_equiv": "SPIRIT_TRANSFORMATION",
+      "loot_band": "9-13",
+      "note": "真灵级、灵界凶兽",
+      "setting": {
+        "lore": "十三阶：顶阶妖王，圣禽/妖王远啸级，非必胜。",
+        "source_file": "beast_thirteen_tier_map.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_thirteen_tier_map.json"
+      },
+      "example_beast_ids": [
+        "mirage_sand_beast",
+        "sky_tiger_beast",
+        "holy_peacock"
+      ],
+      "beast_tier_schema_ref": "beast_tier_schema.json"
+    }
+  ],
+  "loot_band_ref": "beast_loot_tiers.json",
+  "beast_id_examples": {
+    "tier_7": [
+      "iron_ape",
+      "stone_armor_beast"
+    ],
+    "tier_11": [
+      "void_turtle",
+      "thunder_jiao_adult"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "source": "faction_conflict_events.json",
+  "primary_key": "events",
+  "entries": [
+    {
+      "id": "huangfeng_yanyue_rivalry",
+      "display": "天南两宗摩擦"
+    },
+    {
+      "id": "star_palace_inverse_war",
+      "display": "星宫清剿逆星"
+    },
+    {
+      "id": "mulan_tianlan_campaign",
+      "display": "慕兰天澜大战"
+    },
+    {
+      "id": "human_demon_alliance_council",
+      "display": "天渊两族议和"
+    },
+    {
+      "id": "feiling_border_skirmish",
+      "display": "飞灵边境冲突"
+    },
+    {
+      "id": "qingxu_talisman_embargo",
+      "display": "清虚符材禁运"
+    },
+    {
+      "id": "dajin_clan_auction_rival",
+      "display": "世家拍卖争标"
+    },
+    {
+      "id": "tiannan_mulan_border_war",
+      "display": "天南慕兰边境战"
+    },
+    {
+      "id": "tianlan_holy_beast_ritual",
+      "display": "天澜圣兽祭"
+    },
+    {
+      "id": "mulan_smuggle_caravan",
+      "display": "慕兰走私商队"
+    },
+    {
+      "id": "seven_sects_joint_defense",
+      "display": "七派联防令"
+    },
+    {
+      "id": "chaotic_sea_blockade",
+      "display": "星宫封锁暗礁"
+    },
+    {
+      "id": "inverse_star_raid_tax",
+      "display": "逆星劫税船"
+    },
+    {
+      "id": "ancient_demon_seal_breach",
+      "display": "古魔封印松动"
+    },
+    {
+      "id": "chaotic_sea_patrol_clash",
+      "display": "星宫巡海遇袭"
+    },
+    {
+      "id": "void_palace_cycle_open",
+      "display": "虚天殿开启"
+    },
+    {
+      "id": "mulan_tianlan_war_outbreak",
+      "display": "慕兰天澜战事爆发"
+    },
+    {
+      "id": "conflict_zhengmo_border_skirmish",
+      "display": "正魔边境冲突"
+    },
+    {
+      "id": "conflict_mulan_invasion_wave",
+      "display": "慕兰法士入侵"
+    },
+    {
+      "id": "conflict_star_palace_raid",
+      "display": "星宫清剿逆星"
+    },
+    {
+      "id": "conflict_clan_vs_sect_mine",
+      "display": "家族夺矿"
+    }
+  ]
+}

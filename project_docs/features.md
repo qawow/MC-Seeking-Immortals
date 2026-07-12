@@ -1,317 +1,948 @@
+# 0.1.431 Wave48 remaining-depth
+
+- secret-realm core guardian encounters (once per player/realm)
+- summon archetypes BEAST/PUPPET/GHOST/GENERIC
+- text quest stage material costs (mid/finale/every-3rd)
+- advanced flying 3 guard-sword particles + Big Dipper orbit ring
+- `/seeking_immortals artifact plan <id>`
+
+# 0.1.391 Wave10 planter and catalog ores
+
+- spirit_herb_planter soil-ring multiblock harvests cloud mushroom / clan ginseng / immortal ginseng proxies
+- low_spirit_iron_ore drops spirit_iron; yin_essence_ore drops yin_stone
+
+# 0.1.390 Wave9 craft-station multiblocks
+
+- talisman_table 3x3 multiblock crafts basic fire/armor/speed talismans from paper + spirit stone shard
+- puppet_assembly_bench 3x3 honest MVP (no entity; combat proxy buffs)
+- refinement_forge_g3 5x5 array routes ArtifactRefinementService
+
+# 0.1.389 Wave8 formation_catalog placeables + long-range/blood portals
+
+- Closed remaining formation_catalog placeables via CatalogFormationCoreBlock: spirit_gathering_minor, demon_seal_pillar, sword_array_bagua, thunder_tribulation_array.
+- Added LongRangeTeleportArrayStructure/Block (9x9) and BloodForbiddenGateStructure/Block (7x7) routing through WorldpackGameplayService.usePortalArray.
+- Techniques still 346/346; protocol 9.
+
+0.1.387 feature note: Text-material Wave7 world multiblocks. Added seal_demon/illusion_maze/kill_sword formation cores via shared RingFormationStructure, plus ascension_gate tall multiblock routing through WorldpackGameplayService. Technique coverage remains 346/346. Protocol 9.
+
+0.1.386 feature note: Text-material Wave6 completion slice. Wired remaining 79 technique ids (talisman_consume/ultimate/secret_art/summon honesty-MVP) so all 346 text techniques resolve through SkillType/SkillEffectRegistry with existing custom spell bases (no vanilla attack entities). Added refinement_forge multiblock workstation that validates a 3x3 base + Spirit Ore corner pillars and calls ArtifactRefinementService.refine. Protocol remains 9.
+
+0.1.385 feature note: Text-material Wave5. Wired 35 more remaining techniques (misc/fashi/xuan_yin/high-realm) via existing spell bases without vanilla attack entities. Added placeable formation cores: spirit_gathering_formation_core (poly array ring of spirit_gathering_array) and defense_formation_core (Spirit Ore ring) for formation_catalog spirit_gather/defense_wall. Protocol remains 9.
+
+0.1.384 feature note: Text-material Wave4. Wired 24 more secret_arts/fashi/puppet/xuan_yin/demon_path techniques via existing spell bases (summon honesty-MVP as self-buff/control only, no vanilla attack entities). Added thunder_tribulation_altar multiblock ritual (5x5 ring + Spirit Ore pillars) with absorption/resistance ward using lightning sound only. Protocol remains 9.
+
+0.1.383 feature note: Text-material Wave3. Wired 33 more talisman/misc techniques via existing spell bases (no vanilla attack entities). Added blood_sacrifice_altar multiblock ritual (3x3 base + Spirit Ore corner pillars) granting Strength/Absorption. Protocol remains 9.
+
+0.1.382 feature note: Text-material Wave2 dual-track. Wired 22 more techniques (demonic/ghost/movement/body) via existing spell bases without vanilla attack entities; alias light_body→LIGHTNESS_SKILL. Added sect_gate multiblock: SectGateStructure (7x7 ring + 4 Spirit Ore corner pillars height 4 + 5x5x4 aperture) and SectGateArrayBlock routing through WorldpackGameplayService. Open decisions file project_docs/text_material_open_decisions.md. Protocol remains 9.
+
+0.1.381 feature note: Text-material Wave 0/1 dual-track slice. Coverage matrix published (`project_docs/text_material_technique_coverage.csv`, `project_docs/text_material_wave0_lane_picks.md`). Wired 30 missing technique ids through existing spell bases (no vanilla attack entities) and added technique-id aliases for already-implemented arts (`fireball`→`fireball_art`, etc.). Added fixed teleport array multiblock: `teleport_array_pedestal` + `FixedTeleportArrayStructure` (5x5 ring + 3x3x3 aperture) routing travel through `WorldpackGameplayService.usePortalArray`. Packet format/protocol unchanged (9).
+
+0.1.380 feature note: Artifact refinement now has nine more player-facing vanilla recipe approximations that use only seeking_immortals materials: `refine_gold_demon_chain`, `refine_xuanguang_shard`, `refine_xuanhuang_shard`, `refine_void_refining_bell`, `refine_gold_light_brick`, `refine_talisman_demon_seal`, `refine_natal_embryo`, `refine_four_symbols_ruler`, and `refine_three_flame_fan`. No minecraft: ingredients are used. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders remain unchanged.
+
+0.1.379 feature note: Artifact refinement now has a fifteenth player-facing vanilla recipe approximation. `refine_black_gold_shield` crafts the existing `seeking_immortals:black_gold_shield` carrier from six current Spirit Iron low-spirit-iron equivalents and two Kunwu Copper materials, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.378 feature note: Bundled FTB quest default seeding now copies missing resource files into `config/ftbquests/quests/` without requesting unsupported file-attribute preservation from an `InputStream`. This fixes the launcher startup crash reported from `seeking_immortals-0.1.376.jar` while preserving the existing non-overwriting policy for player/server FTB quest packs. Packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, FTB chapter content, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+0.1.376 feature note: Artifact refinement now has a fourteenth player-facing vanilla recipe approximation after the parallel Void Cold Jade Pendant recipe. `refine_moon_shadow_disk` crafts the existing `seeking_immortals:moon_shadow_disk` carrier from two current Yin Stone yin-essence-ore equivalents and four Spirit Iron low-spirit-iron equivalents, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.374 feature note: Formation spell release now covers 13 text-material entries from `techniques/formation.json`: `small_sword_array`, `illusion_formation`, `spirit_gather_array`, `thunder_trap_array`, `seal_array`, `kill_sword_formation`, `defense_formation`, `sea_lock_array`, `star_palace_patrol_beacon`, `formation_trap_basic`, `star_palace_seal`, `kunwu_seal_strike`, and `star_palace_tidal_lock`. They release through the existing server-authoritative technique path via `FormationSpell`, using custom DustParticle polygon arrays, sword traces, thunder columns, seal glyphs, tidal rings, self fields, patrol marking, and projectile deflection rather than vanilla fireball/fire-charge/lightning/explosion attack entities. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+0.1.373/0.1.374 feature note: The packaged FTB Dajin / Kunwu bridge now covers five more existing item carriers. Wanbao auction collateral checks Immortal Jade x1, Kunwu intelligence recording checks Blank Jade Slip x1, cold-tide preparation checks Cold Jade x1, Kunwu outer-array routing checks Spirit Gathering Array x1, and demon-sealing array-script routing checks Demon-Suppress Talisman Blank x1. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and `FtbQuestSnbtTest` now validates 61 implemented item tasks. Packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged by this FTB bridge.
+
+0.1.375 feature note: Artifact refinement now has a thirteenth player-facing vanilla recipe approximation. `refine_void_cold_jade_pendant` crafts the existing `seeking_immortals:void_palace_cold_jade_pendant` carrier from three Cold Jade materials, preserving the shipped source count after current mappings collapse Void Palace Cold Jade and Hundred-Year Ice into the same registered carrier. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.372 feature note: Artifact refinement now has a twelfth player-facing vanilla recipe approximation. `refine_evil_illusion_mirror` crafts the existing `seeking_immortals:evil_illusion_mirror` carrier from three current Cloud Mushroom demon-corruption-fungus equivalents, one Cold Jade hundred-year-ice equivalent, and one Soul-Gathering Stone, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.368 feature note: The packaged FTB Fallen Demon / Yin Underworld bridge now covers three more existing item carriers. Yin Luo Hall initiation checks Yin Stone x8, soul-anchor stabilization checks Soul-Gathering Stone x1, and Nether Core formation checks Soul Fragment x2. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and `FtbQuestSnbtTest` now validates 56 implemented item tasks. Packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+0.1.371 feature note: Artifact refinement now has an eleventh player-facing vanilla recipe approximation. `refine_talisman_soul_charm` crafts the existing `seeking_immortals:talisman_treasure_soul_charm` carrier from three Mortal Talisman Paper generic paper equivalents and one Soul-Gathering Stone material, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.370 feature note: Artifact refinement now has an eleventh player-facing vanilla recipe approximation. `refine_talisman_soul_charm` crafts the existing `seeking_immortals:talisman_treasure_soul_charm` carrier from three current Mortal Talisman Paper talisman-paper equivalents and one Soul-Gathering Stone, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.366 feature note: Confucian spell release now covers five text-material entries from `techniques/confucian.json`: `righteous_qi`, `word_suppress`, `scroll_strike`, `ink_sea`, and `confucian_righteous_qi`. They release through the existing server-authoritative technique path via the new `ConfucianSpell`, using custom DustParticle righteous-qi glyph wheels, suppressing word seals, scroll ribbons, ink-sea ripples/arcs, and righteous-qi beams rather than vanilla fireball/fire-charge/lightning/explosion attack entities. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+0.1.367 feature note: Artifact refinement now has a tenth player-facing vanilla recipe approximation. `refine_bedrock_shield` crafts the existing `seeking_immortals:bedrock_shield` carrier from two Kunwu Copper materials and one current Diyuan Pressure Moss earth-spine-root equivalent, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.365 feature note: Artifact refinement now has a ninth player-facing vanilla recipe approximation. `refine_snake_pearl` crafts the existing `seeking_immortals:snake_pearl` carrier from three current Beast Core demon-core-fragment equivalents and two True Dragon Blood beast-blood-vial equivalents, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.364 feature note: Artifact refinement now has an eighth player-facing vanilla recipe approximation. `refine_qingning_mirror` crafts the existing `seeking_immortals:qingning_mirror` carrier from two current Cold Jade hundred-year-ice equivalents and one Kunwu Copper material, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.364 feature note: Demon Rift travel now has a server-side event-gated portal rule. The `fallen_demon_valley` / Demon Rift target requires the already validated 13x13 realm gate array and the active `ancient_demon_seal_breach` worldpack daily event before teleporting to the `seeking_immortals:demon_rift` anchor. Great Jin, Dajin, and Kunwu portal arrays prefer the Demon Rift route while the seal breach is open, while portal use from Fallen Demon Valley returns to Great Jin Central. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shops, FTB resources, worldpack schemas, and runtime data loaders remain unchanged.
+
+0.1.361 feature note: Artifact refinement now has a seventh player-facing vanilla recipe approximation. `refine_flying_needle_set` crafts the existing `seeking_immortals:flying_needle_set` carrier from three current Spirit Iron low-iron equivalents and two Spirit Silk materials, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, spell data, and runtime data loaders unchanged.
+
+0.1.359 feature note: The current shared tree verifies the Mulan / Tianlan / Demonic Six FTB item-task bridge under `mod_version=0.1.359`. The five item checks added in `0.1.357` remain packaged and tested, `FtbQuestSnbtTest` still validates 48 implemented item tasks across 215 quest nodes, and the full build passes after the Buddhist spell note-block chime holder is resolved to a `SoundEvent`. Packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged by this verification/docs pass.
+
+0.1.359 feature note: Buddhist spell release now covers six text-material entries from `techniques/buddhist.json`: `buddha_light`, `sarira_shield`, `demon_subdue_palm`, `zen_pulse`, `vajra_palm`, and `dajin_buddhist_vajra`. They release through the existing server-authoritative technique path via the new `BuddhistSpell`, using custom DustParticle lotus wheels, sarira shield beads, palm waves, zen pulse rings, vajra beams, and vajra-strike columns rather than vanilla fireball/fire-charge/lightning/explosion attack entities. The shield can deflect nearby hostile projectiles, and Buddhist damage/control effects apply extra suppression to undead or demonlike hostile entities. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+0.1.359 feature note: The shared current tree is build-verified under `mod_version=0.1.359` after the parallel 13x13 realm gate and Mulan/Tianlan/Demonic FTB item-task work. This pass adds no new gameplay surface; it records that the current Buddhist spell sound fix compiles, focused FTB quest validation passes, and the full Gradle build passes. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB task semantics, worldpack schemas, artifact/refinement maps, spell data, and runtime data loaders are unchanged by this docs/build-verification pass.
+
+0.1.359 feature note: Realm gate travel now uses a larger server-validated multiblock for the user's bigger portal request. `PortalArrayStructure` requires a 13x13 Spirit Gathering Array base, four ten-high Spirit Ore corner pillars, and a clear 11x11, nine-block-high aperture; built-in worldpack dimension anchors inherit matching generated arrival platforms through the existing constants, including the Demon Rift anchor. Route fees, ferry fees, item/block/entity registries, packet format, protocol, dimensions, recipes, loot tables, GUI classes, shop protocols, FTB resources, worldpack schemas, and runtime data loaders remain unchanged.
+
+0.1.356 feature note: Artifact refinement now has a sixth player-facing vanilla recipe approximation. `refine_storage_bracelet` crafts the existing `seeking_immortals:storage_bracelet_low` carrier from one current Void Crystal space-fragment equivalent and two Kunwu Copper materials, matching the shipped source counts through available carriers. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, and runtime data loaders unchanged.
+
+  0.1.357 feature note: The packaged FTB quest bridge now covers five more existing item carriers in the Mulan / Tianlan / Demonic Six chapter. Tianhu beast taming checks Beast Core x1, Tianlan beast-soul training checks Beast Core x1, Guiling Gate soul/corpse contact checks Soul Fragment x1, Tianmo blood rite checks Demonic Blood Coral x1, and North Waste demonic-core treasure routing checks Beast Core x1. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.353 feature note: The packaged FTB quest bridge now covers five more existing item carriers in the Fallen Demon / Yin Underworld chapter. Demon-purge preparation checks Fire Talisman x1, spatial-rift stabilization checks Void Crystal x1, demon-rift reinforcement checks Demon-Suppress Talisman Blank x1, soul-banner clue routing checks Soul Fragment x1, and Nether River fog entry checks Yin-Body Protection Charm x1. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+0.1.352 feature note: Artifact refinement now has a fourth player-facing vanilla recipe approximation. `refine_spirit_gathering_bead` crafts the existing `seeking_immortals:spirit_gathering_bead` carrier from implemented Soul-Gathering Stone and Spirit Stone Shard materials, matching the shipped source recipe counts within a 3x3 crafting grid. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, and runtime data loaders unchanged.
+
+  0.1.351 feature note: Artifact refinement now has a third player-facing vanilla recipe approximation. `refine_cloud_boots` crafts the existing `seeking_immortals:cloud_boots` carrier from implemented Spirit Silk and Spirit Iron materials, matching the shipped source recipe counts that fit inside a 3x3 crafting grid. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, and runtime data loaders unchanged.
+
+0.1.350 feature note: The packaged FTB quest bridge now covers six more existing item carriers in the Star Palace / Inverse Star chapter. Outer-sea suppression checks Fire Talisman x1, commerce tax audit checks Star Palace Tax Receipt x1, Void auction broker checks Immortal Jade x1, buying a Void Palace lead checks Immortal Jade x1, abyss-rift outpost routing checks Beast Core x1, and Void Palace cycle-gate presentation checks Immortal Jade x1. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.350 feature note: Illusion spell release now covers thirteen text-material entries from `techniques/illusion.json`: `mirror_phantom`, `hundred_illusion`, `mind_confusion`, `void_step`, `dream_snare`, `clone_image`, `veil_of_moon`, `invisibility_basic`, `illusion_mist`, `inverse_star_veil`, `yanyue_moon_illusion`, `yanyue_phantom_array`, and `wanhu_nine_illusion`. They release through the existing server-authoritative technique path via the new `IllusionSpell`, using custom DustParticle mirror beams, phantom rings, silhouettes, moon veils, mist fields, safe blink trails, and fox/moon illusion arrays rather than vanilla fireball/fire-charge/lightning/explosion attack entities. The current fireball path remains the mod-owned projectile entity, not vanilla Fire Charge / SmallFireball / LargeFireball. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.348 feature note: Artifact activation now covers the remaining support-oriented catalog families through the existing server-authoritative right-click path. `utility` artifacts branch by effect text into concealment, reveal/appraisal/navigation/message, natal-growth, or fallback support buffs; `capture` artifacts pull and suppress nearby targets; `refinement` artifacts grant furnace/refinement support buffs and reduce qi-deviation risk; `spirit_liquid` artifacts restore health, spiritual power, and divine consciousness; `vehicle` and `vehicle_key` artifacts grant a short travel burst with movement, jump, slow-falling, and forward impulse. Generic structural treasure placeholders remain unsupported. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement JSON files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.347 feature note: The packaged FTB quest bridge now covers five more existing item carriers in the Spirit Realm service chapter. Tianyuan beast-wave defense checks Beast Core x1, merit convoy checks Alliance Merit Token x1, Fengyuan Gu-clan herb tribute checks Fengyuan Clan Ginseng x1, Ning-clan talisman material ordering checks Mortal Talisman Paper x3, and barbarian beast-tide survival checks Beast Core x1. All checks are non-consuming and NBT-insensitive, packaged quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.344 feature note: Recovery and protection spell release now covers eight text-material entries from `techniques/recovery.json`: `heal_qi`, `detoxify`, `spirit_recovery`, `body_repair`, `group_heal`, `revive_weak`, `spirit_shield`, and `tribulation_thunder_ward`. They release through the existing server-authoritative technique path via the new `RecoverySpell`, using custom DustParticle spirals, cleanse rings, group pulses, shield domes, projectile deflection, harmful-effect cleansing, divine-consciousness recovery, absorption/resistance buffs, and small active-tribulation resistance gain rather than vanilla fireball/fire-charge/lightning/explosion attack entities. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.343 feature note: Artifact activation now covers more utility/high-tier families through the existing server-authoritative right-click path. `teleport_protection` artifacts perform a safe short blink plus emergency resistance/absorption/slow-falling, `magnet` artifacts pull and suppress nearby enemies while bending hostile projectiles, `world` artifacts create a protective domain-like pulse, and `formation` / `formation_token` / `formation_deploy` artifacts grant a defensive field with projectile deflection and enemy suppression. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement JSON files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.342 feature note: The packaged FTB quest bridge now covers five more existing item carriers across Chaotic Sea, Inverse Star, and Void Palace routing. Chaotic Sea checks Raw Sea Pearl x1 for outer-sea registration, Raw Sea Pearl x2 for merchant intelligence exchange, and Cold Jade x2 for the Void Palace Cold Jade Hall; Inverse Star / Void Palace checks Beast Core x1 for black-market bounty handoff and Void Crystal x1 for Void Palace Lord loot-ledger routing. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.339 feature note: The packaged FTB quest bridge now covers seven more existing item carriers across Tiannan side crafts, Dajin/Kunwu, and Mulan war routing. Tiannan checks Puppet Core Blank x1, Ironwood x4, Mortal Talisman Paper x3, and Fasting Pill paper formula x1; Dajin/Kunwu checks Kunwu Copper x4 and Puppet Core Blank x1; Mulan war checks War Contribution Token x1. All checks are non-consuming and NBT-insensitive, packaged quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.340 feature note: More artifact families now have first active behavior through the existing server-authoritative artifact activation path. `ruler` artifacts release a suppressing forward burst, `mirror` artifacts create a short reflective/illusion field, `sound` artifacts emit a disorienting sonic pulse, and `swarm` artifacts create a poison/control burst. Puppet and beast artifact variants now reuse the existing beast-control suppression behavior until real summon/contract entities are implemented. Supported high-tier artifacts that omit `realm_min` infer a gate from tier/game tier. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement JSON files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.337 feature note: High-tier artifact carriers now have a first active behavior bridge. `xuanhuang_mirror` is classified as `soul_destroy` and releases a soul-shock area burst, `void_refining_bell` is classified as `space_control` and creates a slow/weakness void zone, and `talisman_treasure_demon_seal` now seals nearby monsters with damage/slow/weakness/glow while consuming its existing talisman uses. These reuse the existing server-authoritative artifact activation path, spiritual-power cost, cooldown, integrity, and use-count handling. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement data files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.339 feature note: Divine-sense spell release now covers ten text-material entries from `techniques/divine_sense.json`: `sense_scan`, `sense_pressure`, `sense_needle`, `sense_domain`, `mind_read`, `sense_lock`, `divine_sense_scan`, `divine_sense_lock`, `soul_attack_wave`, and `soul_cry_shock`. They release through the existing server-authoritative technique path via the new `DivineSenseSpell`, using custom DustParticle scan rings, mind links, needle beams, lock rings, soul-wave cones, and domain fields rather than vanilla fireball/fire-charge/lightning/explosion attack entities. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.335 feature note: Demonic/Ghost spell behavior is reconciled with the already shipped feedback text and intended effects. `blood_shadow_escape` now uses its own safe-landing failure message, and `sky_supporting_demonic_skill` now actually deflects nearby hostile projectiles, reports the deflected count, and adds a short strength boost alongside resistance/absorption. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.336 feature note: Current-tree version reconciliation now preserves both the Demonic/Ghost behavior reconcile and the FTB Yin/Diyuan item-task bridge under `mod_version=0.1.336`. No new gameplay, packet format, protocol, `QuestProgress`, capabilities, rewards, registries, shops, GUI classes, FTB task semantics, worldpack data, or runtime schemas changed beyond the already documented `0.1.335` slices.
+
+  0.1.335 feature note: The packaged FTB quest bridge now covers six additional existing item carriers beyond the early mainline. Fallen Demon/Yin tasks check Yin Stone x8 for Yin-body shaping, Yin Stone x30 for the Nether River ferry toll, and Soul-Gathering Stone x1 for soul-shoal collection. Spirit Realm service tasks check Alliance Merit Token x1 for Tianyuan-to-Fengyuan portal access, Diyuan Permit x1 for Diyuan application, and Pressure-Resist Charm x1 for pressure-zone probing. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.333 feature note: Core Formation demonic/ghost techniques now have their missing executable spell class. `DemonicGhostSpell` covers Blood Shadow Escape, Sky-Supporting Demonic Skill, Mystic Soul Ghost Fire, Mystic Soul Bone Condensing Art, Blood Luo Barrier, and Yin Demon Slash through the existing server-authoritative technique release path with code-side DustParticle visuals, magic damage/control, teleport, self-defense, projectile deflection, and knockback effects. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.334 feature note: Current-tree build verification now passes under `mod_version=0.1.334` after the artifact output carrier slice and parallel Demonic/Ghost spell compile fix changed shippable tracked files beyond the previous fingerprint. This is a version-sync/build record only; packet format, protocol, player NBT, capabilities, GUI/menu/container classes, item/block/entity registries beyond the already documented output carriers, recipes, loot tables, shops, FTB resources, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.333 feature note: High-tier artifact refinement outputs now have exact passive item carriers. `xuanguang_mirror`, `xuanhuang_mirror`, `nine_dragon_cauldron_replica`, `void_refining_bell`, `talisman_treasure_demon_seal`, `natal_sword_embryo`, `four_symbols_ruler_replica`, and `three_flame_fan_replica` are registered through the existing `ArtifactCatalogItem` path, visible in the creative tab, localized, modeled with lightweight vanilla item models, and mapped through the canonical reference id-map. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, block/entity registries, recipes, loot tables, shops, FTB resources, spell/technique data, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.332 feature note: The packaged FTB mainline now has its first real inventory-task bridge instead of pure checkmarks. Four early quests check existing mod items directly in FTB Quests: Spirit Grass x4 for Qixuan herb errands, Ling Gen Test Stone x1 for the entry trial, Spirit Stone Shard x1 for the legacy handoff, and low Fasting Pill x1 for the alchemy apprentice step. The checks are explicitly non-consuming and NBT-insensitive, packaged quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+
+  0.1.331 feature note: Artifact refinement material resolution now covers the full current shipped material surface. The remaining high-tier ids `xuanguang_mirror_shard`, `xuanhuang_mirror_shard`, `nine_dragon_cauldron_shard`, `void_bell_fragment`, `demon_suppress_talisman_blank`, `natal_artifact_embryo`, `eight_spirit_ruler_shard`, and `seven_flame_fan_replica` are registered, visible, localized, modeled, and mapped through the canonical id-map, so exact command-refinement plans no longer stop at missing material mappings. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, block/entity registries, recipes, loot tables, shops, FTB files, spell files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.329 feature note: FTB Quests defaults now include a ninth bundled chapter, `seeking_immortals_ascension_border.snbt`, sourced from high-realm endgame, direct Kunwu/Fallen Demon/Yin/ghost-ban/seven-sect promotion, mortal-to-spirit ascension, Spirit Realm border, Diyuan deep delve, and Void-to-Great-Vehicle text-material chains. It adds 32 safe checkmark nodes and raises packaged FTB presentation coverage to 215 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, Fallen Demon/Yin, Mulan/Demonic, Spirit Realm service, Tiannan seven-sects/craft, Star Palace/Inverse Star, and Ascension Border chapters. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, artifact/refinement mappings, spell files, and runtime data schemas remain unchanged.
+
+  0.1.328 feature note: Artifact refinement now has four more exact physical material carriers from the text-material corpus. `puppet_core_blank`, `thunder_bamboo`, `ice_fire_crystal`, and `void_marrow` are registered, visible in the creative tab, localized, modeled with lightweight vanilla textures, and mapped through the existing canonical id-map so the server-authoritative refinement planner can resolve those material requirements. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, block/entity registries, recipes, loot tables, shops, FTB files, spell files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.326/0.1.327 feature note: FTB Quests defaults now include an eighth bundled chapter, `seeking_immortals_star_palace_inverse.snbt`, sourced from Star Palace internal politics, Inverse Star quest-network, Chaotic Sea faction war, and Void Palace expedition text-materials. It adds 24 safe checkmark nodes and raises packaged FTB presentation coverage to 183 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, Fallen Demon/Yin, Mulan/Demonic, Spirit Realm service, Tiannan seven-sects/craft, and Star Palace/Inverse Star chapters on the current `0.1.327` tree. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, artifact/refinement mappings, spell files, and runtime data schemas remain unchanged.
+
+  0.1.325 feature note: Artifact-refinement material resolution now reuses two vanilla carriers for low-risk biological requirements. `turtle_shell` resolves to `minecraft:scute` and `poison_sac` resolves to `minecraft:spider_eye`, letting exact command-refinement plans for `refine_giant_turtle_core` and `refine_thousand_bee_needles` reach material validation instead of stopping at missing mappings. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, item/block/entity registries, models, textures, recipes, loot tables, shops, FTB files, spell files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.323 feature note: Foundation Xuan Yin spell release now covers four text-material entries through the existing technique path. `soul_devouring_cloud` creates a dark-green soul cloud field, `yin_soul_chain` binds one target with custom soul-chain particles, `underworld_flame` projects a green-purple soul-fire beam, and `corpse_armor` forms a ribbed yin-bone self armor shell. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shops, FTB files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.319 feature note: Artifact-refinement material resolution now reuses eight more existing carriers for Yin/special recipes. `ghost_wood` resolves to `seeking_immortals:ironwood`, `yin_essence_ore` to `seeking_immortals:yin_stone`, `soul_moss` to `seeking_immortals:soul_fragment`, `beast_blood_vial` to `seeking_immortals:true_dragon_blood`, `earth_spine_root` to `seeking_immortals:diyuan_pressure_moss`, `demon_corruption_fungus` to `seeking_immortals:cloud_mushroom`, `star_sand` to `seeking_immortals:star_meteorite`, and `void_palace_cold_jade` to `seeking_immortals:cold_jade`. This lets exact command-refinement plans such as Snake Pearl, Bedrock Shield, Evil Illusion Mirror, Moon Shadow Disk, Void Palace Cold Jade Pendant, Soul Summon Bell, Poluo Beads, and Seven Star Disk reach material resolution instead of stopping at missing mappings. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, item/block/entity registries, models, textures, recipes, loot tables, shops, FTB files, spell files, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.319 feature note: FTB Quests defaults now include a sixth bundled chapter, `seeking_immortals_spirit_realm_service.snbt`, sourced from Spirit Realm, Tianyuan merit, Fengyuan human-clan, eighteen-clan, Diyuan, and barbarian demon-king text-material quest lines. It adds 36 safe checkmark nodes and raises packaged FTB presentation coverage to 131 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, Fallen Demon/Yin, Mulan/Demonic, and Spirit Realm service chapters. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, and runtime data schemas remain unchanged.
+
+  0.1.317 feature note: FTB Quests defaults now include a fifth bundled chapter, `seeking_immortals_mulan_demonic.snbt`, sourced from Mulan/Tianlan war, Mulan Fashi, Tianlan defense, Wutu feud, and Demonic Six text-material quest lines. It adds 25 safe checkmark nodes and raises packaged FTB presentation coverage to 95 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, Fallen Demon/Yin, and Mulan/Demonic chapters. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, and runtime data schemas remain unchanged.
+
+  0.1.315 feature note: FTB Quests defaults now include a fourth bundled chapter, `seeking_immortals_fallen_demon_yin.snbt`, sourced from Fallen Demon Valley, Yin underworld, ghost-cultivator, and Nether River text-material quest lines. It adds 18 safe checkmark nodes and raises packaged FTB presentation coverage to 70 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, and Fallen Demon/Yin chapters. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, and runtime data schemas remain unchanged.
+
+  0.1.314 feature note: Artifact-refinement material resolution now reuses five more existing carriers. `fire_feather` resolves to `seeking_immortals:phoenix_feather`, `true_spirit_blood_drop` to `seeking_immortals:true_dragon_blood`, `dragon_scale` to `seeking_immortals:dragon_scale`, `beast_bone_block` to `seeking_immortals:spirit_beast_bone`, and `space_crystal_fragment` to `seeking_immortals:void_crystal`. This lets exact command-refinement plans such as Phoenix Feather Fan, Dragon Scale Armor, Bone Wind Cart, Glazed Guard, Fire Spear talisman treasure, and Scarlet Dragon Blade reach material resolution instead of stopping at missing mappings. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, item/block/entity registries, models, textures, recipes, loot tables, shops, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.312 feature note: Artifact-refinement material resolution now reuses existing carriers for three high-impact text-material aliases. `demon_core_low` and `demon_core_high` resolve to the current `seeking_immortals:beast_core` item, and generic `talisman_paper` resolves to `seeking_immortals:talisman_paper_mortal`; this lets exact command-refinement plans such as Yellow Umbrella, Hunyuan Bowl, and talisman-treasure Soul Charm reach inventory validation instead of stopping at missing mappings. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, item/block/entity registries, models, textures, recipes, loot tables, shops, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.310 feature note: Artifact refinement now has a physical Gold Seam Stone carrier. The mod registers `seeking_immortals:gold_seam_stone`, maps text-material `gold_seam_stone` to it, and extends the existing server-authoritative `/seeking_immortals artifact refine <recipe_id>` planning path so recipes such as `refine_gold_demon_chain` can resolve the gold material instead of stopping at a missing mapping. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, block/entity registries, loot tables, shops, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.309 feature note: Named Foundation elemental spells now have executable custom effects. `ice_spear`, `flame_burst`, and `huangfeng_fire_serpent` release through the existing mod-owned `CultivationFireballEntity` with new ICE_SPEAR / FLAME_BURST / FIRE_SERPENT visual and impact profiles, while `luoyun_spirit_flame` uses a new `SpiritFlameBeamSpell` DustParticle beam. The slice uses the existing server-authoritative technique release path and avoids vanilla fireball, fire-charge, and lightning entities. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.308 feature note: Artifact refinement now has a physical Kunwu Copper carrier. The mod registers `seeking_immortals:kunwu_copper`, maps text-material `kunwu_copper` to it, and extends the existing server-authoritative `/seeking_immortals artifact refine <recipe_id>` planning path so recipes such as `refine_qingning_mirror` can resolve the Kunwu material instead of stopping at a missing mapping. Packet format, protocol, player NBT, capabilities, GUI/menu/container classes, block/entity registries, loot tables, shops, worldpack data, and runtime data loaders remain unchanged.
+
+  0.1.305 feature note: Qingye fan refinement no longer depends on a bamboo placeholder or an unmapped command material. The mod now registers `seeking_immortals:ironwood`, maps source `ironwood` to that item, and updates `refine_qingye_fan` to the source-aligned 3x ironwood + 4x spirit-stone-shard shape. The existing server-authoritative `/seeking_immortals artifact refine refine_qingye_fan` path can now resolve both material ids before inventory validation. Packet format, protocol, player NBT, capabilities, GUI classes, entities, shop loaders, worldpack data, loot tables, and runtime data loaders remain unchanged.
+
+  0.1.304 feature note: The Patchouli guide now documents the formation and array-disk roadmap as a dedicated topic. The page explains source-material formation categories, the playable `spirit_gathering_array` / 9x9 realm-gate array hooks, Wuyue Hall formation-manual access, current Formation Sense and sword-array hooks, cataloged portable disks/flags, and why persistent zones, deployment fuel, array breaking, blueprint drops, and a full formation-specialist tree remain deferred. Packet format, protocol, Java gameplay, player NBT, registries, GUI classes, models, textures, recipes, loot tables, shop data, worldpack data, entities, and runtime data loaders remain unchanged.
+
+  0.1.305 feature note: Yinming and Nether River pocket survival now has a first playable mitigation item. `seeking_immortals:yin_body_protection_charm` is registered as a Qi Refining+ consumable sourced from `consumables_catalog.json#yin_body_protection_charm`; right-clicking it writes a half-day persistent timer that clears current Yin miasma effects and softens future `YinUnderworldHazard` cadence, duration, divine-consciousness drain, weakness/nausea, and non-lethal magic damage. It reuses existing server-player tick, player persistent data, registered item carriers, localization, and the current hazard profile rules. Packet format, protocol, dimensions, worldpack schemas, capabilities, GUI classes, entities, shop loaders, and runtime data loaders remain unchanged.
+
+  0.1.299 feature note: The Patchouli guide now documents the beast/pet and puppet roadmap as a dedicated topic. The page explains source-material beast tiers, tame requirements, puppet T0-T6 crafting gates, current Yuling Pavilion / Extreme West / Thousand Bamboo / technique-manual hooks, and why live beast entities, contracts, puppet assembly, custom recipes, summons, loot, and quest routing remain deferred. Packet format, protocol, Java gameplay, player NBT, registries, GUI classes, models, textures, recipes, loot tables, shop data, worldpack data, entities, and runtime data loaders remain unchanged.
+
+  0.1.297 feature note: Yinming and Nether River pocket dimensions now have a first live ambient hazard. The new pure `YinUnderworldHazard` rules detect the existing `yinming` / `nether_river` regions, `yinming_pocket` / `nether_river_land` / `wild_ancient_tomb` secret realms, and `seeking_immortals:yin_ming_pocket` / `seeking_immortals:nether_river_pocket` dimension ids. Server player tick applies a lightweight non-lethal Yin miasma loop using vanilla effects plus cultivation divine-consciousness drain, with daily-event ids such as `yin_corruption_warning`, `ghost_wail_night`, and `nether_river_fog` increasing pressure. Packet format, protocol, registries, dimensions, recipes, loot tables, shops, GUI classes, capabilities, player NBT schema, entities, and runtime data loaders remain unchanged.
+
+  0.1.298 feature note: The custom elemental projectile system now covers dark and light Qi Refining projectile spells from text-material `elemental.json`. `dark_flame` and `light_orb` are learnable through shipped Qi Refining technique data and release through the existing `CultivationFireballEntity` DARK/LIGHT variants with custom dust trails, impact particles, wither/glowing effects, and localized feedback rather than vanilla projectile entities. Packet format, protocol, item/block/entity registries, GUI classes, recipes, loot tables, models, textures, shop protocols, and runtime data loaders remain unchanged.
+
+  0.1.298 feature note: The Patchouli guide now documents technique-learning gates as a dedicated topic. The page explains source-material realm windows, prerequisite methods/layers, spiritual-root requirements, sect/reputation/source/item/divine-sense conditions, current `TechniqueManualItem` source learning, server-side root-attribute matching, learned-slot release validation, and over-tier qi-deviation risk. Packet format, protocol, Java gameplay, player NBT, registries, GUI classes, models, textures, recipes, loot tables, entities, and runtime data loaders remain unchanged.
+
+  0.1.295 feature note: The Patchouli guide now documents the current elemental-area spell runtime for six Qi Refining techniques: Lava Burst, Mist Rain, Sand Storm, Blizzard, Cyclone, and Chain Lightning. This is guide/resource presentation only; it reuses the existing `ElementalAreaSpell`, technique data, and server-authoritative release path. Packet format, protocol, gameplay logic, registries, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.293 feature note: The Patchouli guide now documents the contribution-shop rank-gate path through mirrored zh_cn/en_us `sect_contribution_rank_gates` entries. The page explains that `ShopService` checks `rank_min` before contribution spending or stock reservation, lists supported disciple gates, records the current Qinglan/Danxia/Yanyue/Luoyun shipped equivalents, and calls out that UI lock presentation, realm/reputation gates, quotas, NPC placement, and stricter privilege semantics remain deferred. Packet format, protocol, Java gameplay, player NBT, registries, shop loaders, GUI classes, models, textures, recipes, loot tables, entities, and runtime data loaders remain unchanged.
+
+  0.1.290 feature note: Realm gate travel now uses a larger server-validated multiblock. `PortalArrayStructure` requires a 9x9 Spirit Gathering Array base, four six-high Spirit Ore corner pillars, and a clear 7x7, five-block-high aperture; built-in worldpack dimension anchors inherit matching generated arrival platforms through the existing constants. Route fees, ferry fees, item/block registries, packet format, protocol, dimensions, shop protocol, recipes, loot tables, entities, GUI classes, textures, and runtime loaders remain unchanged.
+  0.1.289 feature note: Contribution shops now have the first server-authoritative entry-rank gate support. `ShopService` parses optional `rank_min` on shop entries, supports inherited defaults with null clearing, and rejects gated contribution purchases before stock/contribution mutation when the player's `QuestProgress` sect stage is too low. The first shipped gates cover Huangfeng/Qinglan/Danxia/Yanyue/Luoyun equivalents already in data. Packet format, protocol, `SyncSectDataPacket`, player NBT, GUI classes, item/block registries, recipes, loot tables, entities, models, textures, and runtime loaders remain unchanged.
+
+  0.1.284/0.1.285 feature note: Qinglan and Danxia Valley contribution halls now use exact artifact stock for the low-tier flying sword path and first repair-kit acquisition hook, complementing the current `0.1.283` artifact integrity/repair runtime. `flying_sword_low` now resolves to `seeking_immortals:flying_sword_low`, and `artifact_repair_kit` is stocked as `seeking_immortals:artifact_repair_kit` for 25 sect contribution with stock 5 / 96000-tick refresh through the existing `ShopService`. The current-tree build also fixes route-requirement display helper bootstrap in plain JUnit by deriving item translation keys from resource ids. Packet format, protocol, shop JSON schema, item registries, models, textures, recipes, loot tables, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.283 feature note: Exact artifact activation now has a first maintenance loop. Non-talisman activated artifacts use `SeekingImmortalsArtifactIntegrity` NBT for spiritual integrity, lose integrity on successful server-authoritative activation, and refuse activation when too worn. `seeking_immortals:artifact_repair_kit` repairs the exact artifact held in the other hand and consumes one kit outside creative mode. Packet format, protocol, registries, shop protocol, GUI classes, recipes, loot tables, entities, containers, and runtime loaders remain unchanged.
+
+  0.1.275 feature note: P0/P1 artifact priority ids now have exact physical item carriers backed by the shared `ArtifactCatalogItem` tooltip path and `ArtifactDataService`. This completes the first item-registration pass for launch/content artifacts while keeping behavior passive; packet format, protocol, Curios/equipment behavior, shop protocol, recipes, loot tables, GUI classes, entities, runtime loaders, and dedicated art remain unchanged.
+
+  0.1.277 feature note: Pressure Resist Pill now has live server-side use behavior and first Diyuan pressure mitigation. The registered `pressure_resist_pill` keeps its existing id/resources/alchemy recipe/formula chain but now goes through `CatalogPillItem`, requires `Realm.VOID_REFINEMENT`, stores a persistent pressure-resist timer, clears pressure slow/confusion, and mitigates the new active-`diyuan` secret-realm pressure tick. The pressure tick is deliberately small and server-authoritative: periodic movement slow, confusion, divine-consciousness attrition, and non-lethal magic pressure damage when the timer is absent. Packet format, protocol, item ids, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.277 feature note: Custom elemental projectile visuals now back the first Qi Refining elemental spell set. The existing `seeking_immortals:cultivation_fireball` entity has FIRE/WATER/METAL synced variants, custom rendered glowing cores, colored spiritual-dust trails, impact bursts, and element-specific fire/slow/weakness effects. `fireball_art`, `fire_bullet_art`, `water_arrow`, and `metal_needle` all release through this mod-owned projectile path rather than vanilla fireball/fire-charge entities. Packet format, SimpleChannel protocol, item/block registries, shop protocol, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.273 feature note: The dimension roadmap now has shipped Yin underworld pocket dimensions for `seeking_immortals:yin_ming_pocket` and `seeking_immortals:nether_river_pocket`. Both reuse data-pack dimension definitions and the current worldpack anchor service, receive a dedicated `YIN_UNDERWORLD` aura nature, and generate large framed portal arrival platforms for Yinming Gate and Nether River ferry routes. Packet format, protocol, item/block registries, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.267 feature note: Spirit Realm portal travel now has a larger visible server-validated frame. `PortalArrayStructure` requires a 5x5 same-level Spirit Gathering Array base, four three-block-high Spirit Ore corner pillars, and a clear 3x3, three-block-high aperture; `SpiritGatheringArrayBlock` reports missing base, missing pillar, and blocked aperture counts; `WorldpackGameplayService` generates matching framed default anchor platforms. Packet format, protocol, item/block registries, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.267 feature note: Basic spell release remains wired through the existing server-authoritative technique release path on the current shared tree. The implemented ids are `fire_bullet_art`, `ice_freezing_art`, `entangling_art`, `earth_spike_art`, `water_shield_art`, `earth_prison_art`, and `wind_binding_art`; this recheck only reconciles version/build state after parallel changes and does not add packet, registry, shop, recipe, loot-table, GUI, or runtime-loader changes.
+
+  0.1.269/0.1.271 feature note: The first exact P0 artifact item carriers now exist and have been reverified on the current shared `0.1.271` tree. `seeking_immortals:cloud_boots`, `seeking_immortals:spirit_gathering_bead`, and `seeking_immortals:artifact_repair_kit` are registered visible items and use the shared `ArtifactCatalogItem` tooltip path backed by `ArtifactDataService`. This starts replacing catalog-only artifact entries with physical carriers while keeping behavior passive; packet format, protocol, Curios/equipment behavior, shop protocol, recipes, loot tables, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.267 feature note: The shipped artifact catalog is now visible through server commands. `/seeking_immortals artifact` and `artifact p0` list the P0 launch artifact set, `artifact list` prints catalog counts, `artifact files` prints source-file entry counts, `artifact info <id ` shows tier/realm/type/game-tier/tags plus the first refinement recipe when present, and `artifact recipe <id ` resolves either artifact ids or recipe ids. This reuses `ArtifactDataService` and the existing command surface; packet format, protocol, item/block registries, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.261 feature note: Pressure Resist Pill formula acquisition now has a shipped sect-secret formula item and contribution-shop hook. `seeking_immortals:alchemy_formula_pressure_resist_pill_sect` reuses the existing formula item path and `danxia_valley_contribution_hall` stocks `recipe_pressure_resist` for 9000 sect contribution with stock 1 / 96000-tick refresh. `ShopServiceTest` covers the Danxia entry while keeping the existing Pressure Resist Pill item/material/alchemy recipe chain unchanged. Packet format, protocol, shop protocol schema, GUI classes, entities, worldpack data, pressure runtime mechanics, and runtime loaders remain unchanged.
+
+  0.1.259 feature note: Spirit Realm portal travel now has a larger server-validated multiblock and a first regulated fee rule. `PortalArrayStructure` requires a 5x5 same-level Spirit Gathering Array base plus a clear 3x3, three-block-high aperture; `SpiritGatheringArrayBlock` keeps server-authoritative sneak-use activation with larger particle spread; `WorldpackGameplayService` now generates matching 5x5 default anchor platforms and consumes one existing `seeking_immortals:alliance_merit_token` for Tianyuan -  Spirit Fengyuan portal-array travel. Spirit Fengyuan -  Tianyuan return travel remains free. Packet format, protocol, item/block registries, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+
+  0.1.257 feature note: Spirit Realm Condense Pill formula acquisition now has a shipped sect-secret formula item and contribution-shop hook. `seeking_immortals:alchemy_formula_spirit_realm_condense_pill_sect` reuses the existing formula item path and `danxia_valley_contribution_hall` stocks `recipe_spirit_realm_condense` for 18000 sect contribution with stock 1 / 96000-tick refresh. `ShopServiceTest` covers the Danxia entry while keeping Qinglan's current shop surface unchanged. Packet format, protocol, shop protocol schema, GUI classes, entities, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.254 feature note: A visible Alliance Merit Token carrier now exists for the Tianyuan merit economy prerequisite. `seeking_immortals:alliance_merit_token` is registered through the existing Forge item registry, appears in the creative tab, has zh_cn/en_us names, and maps both `alliance_merit_token` and `border_merit_token` source ids to a current physical item carrier that later item-currency shops or exchanges can consume. Packet format, protocol, shop protocol, account systems, recipes, loot tables, worldpack data, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.257 feature note: Default Spirit Realm dimension anchors now create a real multiblock arrival platform. The existing worldpack default anchors for Tianyuan, Spirit Realm Border, Fengyuan, and Barbarian Wasteland place a 3x3 Spirit Gathering Array base and clear the two-block center aperture before default-anchor teleport, so portal travel arrives on a reusable multiblock instead of a bare coordinate. This reuses `WorldpackGameplayService`, `WorldpackSavedData`, `ModBlocks.SPIRIT_GATHERING_ARRAY`, and the existing portal validation shape; packet format, protocol, registries, shop protocol, GUI classes, entities, recipes, loot tables, textures, and runtime loaders remain unchanged.
+
+  0.1.251 feature note: The Spirit Realm Condense Pill now has a shipped data-driven alchemy recipe. The existing `AlchemyRecipeManager` path loads `spirit_realm_condense_pill.json`, producing the registered `seeking_immortals:spirit_realm_condense_pill` from 1x `seeking_immortals:fengyuan_clan_ginseng` with a tier-5 controlled `SOUL_TRANSFORMATION` furnace profile. `JsonSanityTest` now rejects alchemy recipe `min_control_realm` values that do not match the `Realm` enum; the earlier Pressure Resist Pill profile is corrected to `VOID_REFINEMENT`. Packet format, protocol, registries, shop protocol, GUI classes, entities, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.247 feature note: The Pressure Resist Pill now has a shipped data-driven alchemy recipe. The existing `AlchemyRecipeManager` path loads `pressure_resist_pill.json`, producing the registered `seeking_immortals:pressure_resist_pill` from 2x `seeking_immortals:diyuan_pressure_moss` with a tier-4 controlled `VOID_REFINEMENT` furnace profile. Packet format, protocol, registries, shop protocol, GUI classes, entities, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.248 verification note: Diyuan's `no_fly` runtime from 0.1.246 is now verified on the current tree. Focused `WorldpackDataServiceTest` confirms `diyuan` suppresses managed flight through the built-in secret-realm tag while blank state and `mist_cave_trial` do not; the full current-tree build passed under `mod_version=0.1.248`. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged by this recheck.
+
+  0.1.252 feature note: Tianyuan and Spirit Fengyuan now ship custom DimensionType data instead of sharing vanilla `minecraft:overworld` as their dimension type. The dimensions still use the existing Overworld-style noise generator for compatibility, but their type ids are now `seeking_immortals:tianyuan` and `seeking_immortals:spirit_fengyuan` with Spirit-Realm ambient-light tuning, normal skylight, bed support, and Overworld visual effects. Packet format, protocol, portal routing, registries, shop protocol, recipes, loot tables, entities, GUI classes, runtime loaders, and worldpack route data remain unchanged.
+
+  0.1.246 feature note: Diyuan's shipped `no_fly` secret-realm tag now has server-side runtime behavior. `WorldpackGameplayService.isFlightSuppressed` reads the active secret realm from `PlayerCultivation`, and server player tick clears managed `FlyingAuthority` sources plus Qi/Foundation flying active flags before flying artifact or spell flight can be re-granted. Creative/spectator players keep the existing bypass. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.245 feature note: Diyuan secret-realm entry now consumes the existing `seeking_immortals:diyuan_permit` through the current server-side worldpack secret-realm ticket path. The data change keeps cooldowns, return anchors, creative-mode bypass, daily ticket-discount behavior, and sync behavior in `WorldpackGameplayService.enterSecretRealm`, while neighboring Spirit-Realm secret realms continue to use their existing `immortal_jade` tickets. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.247 feature note: The Spirit Gathering Array portal is now validated as a richer multiblock instead of only a flat floor check. Sneak-use requires a 3x3 same-level Spirit Gathering Array base and two clear blocks above the core, reports incomplete base/aperture counts, and plays portal activation particles/sounds at both departure and arrival while reusing the existing server-authoritative worldpack portal route. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, runtime loaders, and worldpack route data remain unchanged.
+
+  0.1.243 feature note: The current build verifies the Wind Feather Raft ticket route with the dedicated missing-ticket prompt. Server-side worldpack travel from `great_jin_central` or `dajin` to `tianyuan` consumes one existing `seeking_immortals:wind_feather_raft_ticket` for non-creative players; other Spirit-Realm non-portal routes still require the 3x3 Spirit Gathering Array portal path. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.242 feature note: The current build keeps the Wind Feather Raft ticket travel rule from 0.1.241 and records it under the latest preflight fingerprint. Non-portal travel to `tianyuan` consumes one `seeking_immortals:wind_feather_raft_ticket` from current region `great_jin_central` or `dajin`; other Spirit-Realm non-portal routes still require the 3x3 Spirit Gathering Array portal path. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.242 feature note: The Wind Feather Raft ticket travel slice is reconciled to the current build version. Server-side worldpack travel from `great_jin_central` or `dajin` to `tianyuan` consumes one existing `seeking_immortals:wind_feather_raft_ticket` for non-creative players, other Spirit-Realm non-portal routes still require the 3x3 Spirit Gathering Array portal path, and missing tickets now use a dedicated travel-ticket message. Packet format, protocol, registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.241 feature note: The Wind Feather Raft ticket now has server-side travel behavior through the existing worldpack service. Non-portal travel to `tianyuan` consumes one `seeking_immortals:wind_feather_raft_ticket` only from current region `great_jin_central` or `dajin`; other Spirit-Realm non-portal routes still require the 3x3 Spirit Gathering Array portal path. This reuses `WorldpackGameplayService`, saved anchors, existing item lookup/consumption, and `WorldpackPortalArrayRulesTest`; packet format, protocol, item/block registries, shop protocol, recipes, loot tables, entities, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.239 feature note: The Tianyuan City and Tianyuan Merit Patchouli entries now reflect the implemented Wind Feather Raft Ticket carrier. The guide states that `seeking_immortals:wind_feather_raft_ticket` exists alongside `seeking_immortals:diyuan_permit`, while merit exchange, route service, ticket consumption, quest checks, NPC placement, pressure mechanics, and FTB Quests routing remain deferred. Packet format, protocol, registries, shop protocol, recipes, loot tables, worldpack data, alchemy data, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.238 feature note: The Wind Feather Raft ticket now has a physical item carrier, `seeking_immortals:wind_feather_raft_ticket`, reusing the existing item registry, creative-tab, localization, model, and text-material reference-map flow. This does not yet add merit exchange, route gating, ticket consumption, NPC services, GUI, packets, recipes, loot tables, worldpack data, alchemy data, or runtime loaders.
+
+  0.1.237 feature note: The Tianyuan City Patchouli guide now reflects the implemented Diyuan Permit carrier from 0.1.236. The guide states that `seeking_immortals:diyuan_permit` exists while keeping merit exchange, Wind Feather Raft service, permit exchange/entry consumption, quest checks, NPC placement, pressure mechanics, and FTB Quests routing deferred. Packet format, protocol, registries, shop protocol, recipes, loot tables, worldpack data, alchemy data, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.235 feature note: The Spirit Realm dimensions now affect the live aura system, not only worldpack/Patchouli display. `SpiritualAuraManager` recognizes `seeking_immortals:tianyuan` as dimension aura x2.0 and `seeking_immortals:spirit_fengyuan` as x1.8, and both report `SPIRIT_REALM` aura nature through the existing detector, HUD sync, cultivation tick, and meditation formulas. The 3x3 Spirit Gathering Array multiblock portal route remains unchanged; packet format, protocol, registry entries, shop protocol, GUI classes, entities, recipes, loot tables, and runtime loaders were not changed.
+
+  0.1.233 feature note: The Star Palace tax receipt flag is now consumed by live market pricing. The existing server-side market cost modifier reads `star_palace_island_trade_tax_paid` from PlayerCultivation/QuestProgress and applies the 10% Star Palace island-market tax to `chaotic_sea_island_general` and `outer_sea_public_stall` item-currency non-receipt goods until the receipt has been used. Market list output, GUI sync, and purchases share the same adjusted-cost path; packet format, protocol, shop protocol schema, GUI classes, NPCs, recipes, loot tables, and runtime loaders remain unchanged.
+
+  0.1.231 feature note: The Star Palace tax receipt now has server-side use behavior for text-material effect `island_trade_tax_paid`. Right-clicking `seeking_immortals:star_palace_tax_receipt` records a persistent paid-tax flag through the existing PlayerCultivation/QuestProgress NBT path and consumes the receipt only when the flag is newly applied. This provides the prerequisite state for later shop-tax, ferry, and quest checks without changing packet format, protocol, shop protocol, GUI classes, entities, recipes, loot tables, or runtime loaders.
+
+  0.1.230 feature note: The existing packet-backed market flow now covers the Chaotic Sea tax receipt stock from `merchant_shops.json#chaotic_sea_island_general`. It reuses `ShopService`, the registered `seeking_immortals:star_palace_tax_receipt` item carrier, current low-grade metal spirit-stone item currency, and existing purchase validation; packet format, shop protocol, registries, models, textures, recipes, loot tables, NPCs, quests, and runtime loaders remain unchanged.
+
+  0.1.230 feature note: The existing packet-backed market flow now exposes the Star Palace tax receipt in `chaotic_sea_island_general`: `star_palace_tax_receipt -  seeking_immortals:star_palace_tax_receipt` for 5 low-grade metal spirit stones, stock 20, and the shop default 24000-tick refresh. This deepens the already registered receipt carrier without changing packet format, shop protocol semantics, Java purchase validation, item registries, entities, recipes, loot tables, or runtime loaders.
+
+  0.1.229 feature note: A visible Star Palace tax receipt carrier now exists for Chaotic Sea tax source material. The item `seeking_immortals:star_palace_tax_receipt` is registered and visible on the creative tab with zh_cn/en_us localization, a paper-formula-based model, and a text-material id-map target. Receipt consumption rules, tax-paid state, Chaotic Sea island shop stock, ferry/tax quests, NPCs, and exact tax-economy behavior remain deferred; packet format and protocol remain unchanged.
+
+  0.1.226 feature note: Build verification now passes for the current Patchouli starter-guide compatibility plus dimension portal aggregate. No new runtime feature was added by this verification; it preserves the canonical Patchouli book layout, the `seeking_immortals:tianyuan` and `seeking_immortals:spirit_fengyuan` dimension resources, the 3x3 Spirit Gathering Array portal rule, and the existing server-authoritative worldpack travel service. Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL in 38s and `aiPreflight` recorded `mod_version=0.1.226`. Protocol remains 9.
+
+  0.1.227 feature note: The mandatory Patchouli guidebook now documents text-material `tianyuan_merit_economy.json` through a dedicated Tianyuan Merit entry. It reuses the current `tianyuan` worldpack region, Tianyuan dimension anchor, Spirit Gathering Array portal prerequisite, and Patchouli guide surface to explain merit sources and designed Diyuan/Wind Feather exchanges while keeping real alliance-merit accounts, shop protocol, registered permit/ticket items, NPCs, quest rewards, FTB Quests chapters, and packet behavior deferred.
+
+  0.1.225 feature note: The mandatory Patchouli guidebook now uses Patchouli 1.20.1-84's canonical book resource layout. The root `book.json` registers `seeking_immortals:seeking_immortals_guide`, `zh_cn` keeps the Chinese content, and `en_us` provides a matching fallback category/entry tree for content discovery. This fixes the auto-granted starter guide appearing as an invalid Patchouli book without changing packet format, Java gameplay logic, registries, assets, shop/worldpack/alchemy data, GUI classes, entities, or runtime loaders.
+
+  0.1.225 feature note: The current dimension portal slice is now documented and covered by focused tests. The mod ships `seeking_immortals:tianyuan` and `seeking_immortals:spirit_fengyuan` dimension JSON resources, seeds default anchors for loaded custom dimensions, and requires a complete 3x3 same-level Spirit Gathering Array floor before entering `spirit_realm` worldpack regions through the server-authoritative worldpack travel service. Sneak-use the center array block to route mortal regions to Tianyuan, Tianyuan to Fengyuan, and Spirit Realm regions back to Tianyuan. Packet format and protocol remain unchanged.
+
+  0.1.229 feature note: The existing packet-backed market flow now covers another Outer Sea economy hook from `merchant_shops.json#outer_sea_public_stall`: `spirit_stone_shard` is sold through `ShopService` as the registered `seeking_immortals:spirit_stone_shard`, with 10 shards per low-grade metal spirit stone, stock 999, and 24000-tick refresh. Current aggregate build verification also preserves the parallel raw-pearl and Star Palace tax receipt item carriers. Packet format, shop protocol, Java purchase validation semantics, entities, recipes, loot tables, and runtime loaders remain unchanged by the shard-stock slice.
+
+  0.1.223 feature note: The mandatory Patchouli guidebook now documents Great Jin Central and Wanbao auction-week hooks through the existing guide resource path. It explains the current `great_jin_central` worldpack region, 1.5 aura multiplier, Core Formation gate, `great_jin_central_anchor`, Wanbao/refinement/cross-region-array tags, and the shipped `great_jin_auction_week` daily-event hint. This pass also preserves the recovered source-material counts for 346 techniques and 47 talismans. Packet format, Java gameplay logic, registries, assets, shop/worldpack data, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.222 feature note: The mandatory Patchouli guidebook now documents Fengyuan human-clan alliance source material through the existing guide resource path. It explains the current `spirit_fengyuan` worldpack carrier, the Mo/Yu/Gu/Ning formation/refinement/alchemy/talisman specialization tags, Dajin clan hooks, and the deferred clan reputation, NPC, specialty-shop, quest, feud, alliance, and FTB Quests surfaces without changing packet format, Java gameplay logic, registries, assets, shop/worldpack data, shop protocol, GUI classes, entities, or runtime loaders.
+
+  0.1.220 feature note: The mandatory Patchouli guidebook now documents Star Palace City and its merit hall through the existing guide resource path. It explains the current `star_palace_city` worldpack region, 1.45 aura multiplier, Foundation Establishment gate, `star_palace_city_anchor`, auction/patrol-board tags, and shipped `ShopService` contribution goods for Condensation Pill, Condensation formula, Yanghun formula, Sea Calm Pill, and Sea Calm formula. Packet format, Java gameplay logic, registries, assets, shop/worldpack data, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.219 feature note: The mandatory Patchouli guidebook now documents Spirit Realm Fengyuan through the existing guide resource path. It explains the current `spirit_fengyuan` worldpack region, 1.8 aura multiplier, Soul Transformation gate, `fengyuan_anchor`, clan/treasure-fair tags, related secret-realm hooks, and deferred human-clan league, reputation, auction, NPC, quest, and FTB Quests surfaces without changing packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, or worldpack data. This preserves the build-verified `0.1.218` Yuling spirit-beast guide.
+
+  0.1.216 feature note: The mandatory Patchouli guidebook now documents the Star Palace patrol supply through the existing guide resource path. It explains the current `ShopService` item-currency hooks for `body_guard_talisman` and `anti_demon_talisman`, their low-grade metal spirit-stone costs, stock, refresh values, and deferred Bu Tian Pill/reputation/patrol-board surfaces without changing packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, or shop data. This preserves the parallel build-verified `0.1.215` Barbarian seven kings guide.
+
+  0.1.218 feature note: The mandatory Patchouli guidebook now documents the Yuling/Spirit Beast Mountain contribution hooks through the existing guide resource path. It explains the current `ShopService` contribution-shop equivalents for `spirit_beast_feed` and `beast_soul_essence`, while keeping packet format, Java gameplay logic, registries, assets, shop data, shop protocol, GUI classes, entities, runtime loaders, and worldpack data unchanged.
+
+  0.1.217 feature note: The mandatory Patchouli guidebook now documents Tianyuan City through the existing guide resource path. It explains the current `tianyuan` worldpack region, 2.0 aura multiplier, Soul Transformation gate, `tianyuan_anchor`, merit/frontier tags, and deferred merit exchange, spirit-realm gate, Wind Feather Raft, Diyuan permit, NPC, quest, and FTB Quests surfaces without changing packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, or worldpack data. This preserves the build-verified `0.1.216` Star Palace patrol-supply guide.
+
+  0.1.215 feature note: The mandatory Patchouli guidebook now documents the Barbarian Wasteland seven demon-king territories through the existing guide resource path. It explains the current `WorldpackDataService` secret-realm hooks for all seven king territories, their Void Refinement gate, `immortal_jade` ticketing, archetype tags, and deferred boss/drop/tribute/quest work without changing packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, or worldpack data.
+
+  0.1.213 feature note: The mandatory Patchouli guidebook now documents the Inverse Star black market through the existing guide resource path. It explains the current `ShopService` item-currency hooks for demon core, Demon Heart Pill, and Demon Heart formula equivalents while keeping packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, and shop data unchanged.
+
+  0.1.214 feature note: The mandatory Patchouli guidebook now documents the Mulan-Tianlan war phases through the existing guide resource path. It explains the current worldpack daily-event hooks for `border_skirmish`, `fashi_array_clash`, `holy_beast_intervention`, and `ceasefire_or_escalation`, and clearly marks player side choice, reputation, objectives, rewards, battlefield NPCs, and FTB Quests chapter presentation as deferred. Packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, and worldpack data remain unchanged.
+
+  0.1.212 feature note: Shipped worldpack daily-event data now covers the four explicit text-material Mulan-Tianlan war phases from `mulan_tianlan_war.json`: border skirmish, fashi array clash, holy beast intervention, and ceasefire/escalation. These hooks are visible through the existing `WorldpackDataService` command/GUI daily-event flow and reuse current regions/effect tokens only; packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, and Patchouli resources remain unchanged.
+
+  0.1.211 feature note: The mandatory Patchouli guidebook now documents the Outer Sea public stall through the existing guide resource path. It explains the current `ShopService` item-currency hook for `herb_bundle_low`, its low-grade metal spirit-stone cost, stock/refresh values, and the deferred shard, pearl, tax, ferry, NPC, and quest systems without adding custom UI, Java gameplay logic, registries, assets, shop protocol changes, entities, runtime loaders, or packet changes.
+
+  0.1.210 feature note: The mandatory Patchouli guidebook now documents the Tiannan demonic-dual market through the existing guide resource path. It explains the current `ShopService` item-currency hook for `heqi_pill`, its low-grade metal spirit-stone cost, stock/refresh values, and the deferred demonic-dual goods without adding custom UI, Java gameplay logic, registries, assets, shop protocol changes, entities, or packet changes.
+
+  0.1.209 feature note: Build verification now passes for the Qingxin Pill Patchouli guide slice under `mod_version=0.1.209`. The shipped behavior remains the existing Patchouli guide entry plus current Qingxin Pill alchemy implementation; packet format, Java gameplay logic, registries, assets, recipes, loot tables, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.209 feature note: The mandatory Patchouli guidebook now includes a zh_cn Qingxin Pill entry for the already shipped alchemy implementation under `mod_version=0.1.209`. It explains the current `qingxin_pill` item, paper formula, furnace requirements, and reused calming/heart-demon-risk role through the existing guide resource path; packet format, Java gameplay logic, item/block registries, models, textures, recipes, loot tables, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+
+  0.1.208 feature note: Current build verification preserves the packet-backed `tiannan_demonic_dual_market` market hook under `mod_version=0.1.208`. It continues to reuse `ShopService`, market packets/actions, low-grade metal spirit-stone currency, registered Cultivation Pill, and current stock refresh for the text-material `heqi_pill` slice; packet format, purchase validation semantics, registries, assets, recipes, loot tables, GUI classes, alchemy data, entities, and runtime loaders remain unchanged.
+
+  0.1.207 feature note: The existing packet-backed market flow now exposes text-material `merchant_shops.json#tiannan_demonic_dual_market` as a reduced item-currency market shop. It reuses `ShopService`, current market packets/actions, low-grade metal spirit-stone currency, registered Cultivation Pill, and current stock refresh; packet format, Java purchase validation semantics, item/block registries, models, textures, recipes, loot tables, GUI classes, alchemy data, entities, and runtime loaders remain unchanged.
+
+  0.1.206 feature note: Shipped worldpack daily-event data now directly covers the exact daily-event ids referenced by current text-material region cards. The new entries are visible through the existing `WorldpackDataService` command/GUI daily-event flow and reuse current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, alchemy data, GUI classes, entities, and runtime loaders remain unchanged. Existing legacy/nearby ids remain present for compatibility.
+
+  0.1.203 feature note: The Patchouli guide now documents the Qixuan Village stall through the existing `seeking_immortals_guide` zh_cn resource path. This intentionally uses the mandatory Patchouli prerequisite for player-facing explanation instead of adding a bespoke UI or loader; packet format, Java gameplay, item/block registries, models, textures, recipes, loot tables, shop data, worldpack data, alchemy data, and GUI classes remain unchanged.
+
+  0.1.204 feature note: The existing packet-backed market flow now exposes text-material `merchant_shops.json#outer_sea_public_stall` as a whitelisted item-currency shop while preserving the parallel Qixuan Patchouli guide entry. The market reuses `ShopService`, current market packets/actions, low-grade metal spirit-stone currency, registered Spirit Grass, and existing stock refresh; packet format, Java purchase validation semantics, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy data, and runtime loaders remain unchanged.
+
+  0.1.202 feature note: The existing packet-backed market flow now exposes text-material `merchant_shops.json#qixuan_village_stall` as a whitelisted item-currency shop. It reuses `ShopService`, current market packets/actions, low-grade metal spirit-stone currency, registered Spirit Grass, low-quality Healing Pill, and Mortal Martial Manual carriers; packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy data, and runtime loaders remain unchanged.
+
+  0.1.202 feature note: The existing packet-backed market flow now includes text-material `merchant_shops.json#qixuan_village_stall`. The new market shop is visible through `ShopService`/market commands and reuses registered `spirit_grass`, `healing_pill_low`, and `technique_manual_mortal_martial` item carriers; packet format, item/block registries, models, textures, recipes, loot tables, worldpack data, alchemy runtime, and GUI classes remain unchanged.
+
+  0.1.201 feature note: Worldpack daily events now also affect meditation cultivation experience, not just the generic aura/practice-gain token path from 0.1.200. Exact active event id `spirit_rain` multiplies `PlayerCultivation.addMeditationCultivation` gain by 1.10, and `spirit_vein_pulse` multiplies it by 1.20. Direct cultivation grants such as pills remain unchanged, and packet format, registries, resources, shop data, worldpack JSON, GUI classes, and runtime loaders are unchanged.
+
+  0.1.201 feature note: Text-material `daily_random_events.json#spirit_rain` now has a dedicated worldpack gameplay token, `spirit_rain_bonus`, instead of sharing the generic `aura_plus_5` approximation. The existing server-authoritative `WorldpackGameplayService` daily-event path applies it as +10% aura/practice gain, and the existing client worldpack screen localizes the token. Packet format, registries, item models, textures, recipes, loot tables, shop files, alchemy runtime data, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.201 feature note: The existing data-driven `qinglan_contribution_hall` now partially covers more text-material `sect_contribution_shop.json#huangfeng_valley` stock through the current `ShopService` contribution-shop path. It reuses registered Foundation Building Pill, Foundation/Cultivation/Calming formula carriers, and Flying Sword item carriers; packet format, production Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy runtime data, and runtime loaders remain unchanged.
+
+  0.1.197 feature note: No new runtime feature was added by this version-sync recheck. The current build-verified workspace preserves the 0.1.196 worldpack aggregate and 0.1.195 Chaotic Sea anti-demon item-currency shop stock; packet format, production Java gameplay logic, registries, item models, textures, recipes, loot tables, shop protocol, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.198 feature note: The existing packet-backed market flow now expands text-material `merchant_shops.json#inverse_star_black_market` with `demon_heart_pill` and `recipe_demon_heart`, surfaced as registered `seeking_immortals:calming_pill_low` and `seeking_immortals:alchemy_formula_calming_pill_jade` through the current `ShopService` item-currency data path. Packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy runtime data, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.196 feature note: Shipped worldpack secret-realm data now partially covers text-material `secret_realm_template#barbarian_king_territories` and `barbarian_demon_kings.json`. The seven demon-king territories are visible through the existing worldpack command/GUI data flow under `barbarian_wasteland`, gated at Void Refinement, and use existing `immortal_jade` ticketing; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, daily-event data, and runtime loaders remain unchanged.
+
+  0.1.196 feature note: Shipped worldpack daily-event data now completes exact source-id coverage for `文本材料/data/daily_random_events.json`. The remaining exact ids `spirit_rain`, `wandering_merchant`, `bandit_cultivator`, `sect_recruit`, `demon_qi_surge`, and `beast_migration` are visible through the existing `WorldpackDataService` command/GUI daily-event flow and reuse current effect tokens only. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, alchemy data, and runtime loaders remain unchanged.
+
+  0.1.195 feature note: The existing packet-backed market flow now expands text-material `merchant_shops.json#chaotic_sea_island_general` with `anti_demon_talisman`, surfaced as registered `seeking_immortals:fire_talisman` through the current `ShopService` item-currency data path. Packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy data, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.197 feature note: Shipped worldpack daily-event data now covers all exact source ids currently present in text-material `daily_random_events.json`; this slice adds `spirit_rain`, `wandering_merchant`, `bandit_cultivator`, `sect_recruit`, `demon_qi_surge`, and `beast_migration`. The hooks are visible through the existing worldpack command/GUI daily-event flow and reuse current effect tokens only; packet format, Java gameplay logic, item/block registries, models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.194 feature note: The existing packet-backed market flow now expands text-material `merchant_shops.json#star_palace_patrol_supply` with `anti_demon_talisman`, surfaced as registered `seeking_immortals:fire_talisman` through the current `ShopService` item-currency data path. Packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy data, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.193 feature note: No new gameplay feature changed beyond preserving the 0.1.192 Tianlan scout-clash daily-event hook under the current `mod_version=0.1.193` workspace. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged by this version-sync verification.
+
+  0.1.194 feature note: The existing packet-backed `star_palace_patrol_supply` market shop now partially covers text-material `merchant_shops.json#star_palace_patrol_supply` entry `anti_demon_talisman`. It uses the current item-currency shop data path, sells the registered `seeking_immortals:fire_talisman` as the closest available anti-demon carrier, and keeps packet format, production Java gameplay logic, registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy data, and runtime loaders unchanged.
+
+  0.1.192 feature note: Shipped worldpack daily-event data now covers the Tianlan side of text-material `daily_random_events.json#mulan_scout_clash` as `tianlan_mulan_scout_clash` under existing region `tianlan`, while preserving the existing `mulan_scout_clash` event under `mulan_grassland`. The new hook is visible through the existing worldpack command/GUI daily-event flow and uses current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.193 feature note: Shipped worldpack daily-event data now includes exact text-material source id `auction_notice` under the existing `dajin` region. The event is visible through the existing worldpack command/GUI daily-event flow and uses current `secret_realm_ticket_hint` plus `rare_loot_hint` effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged. The implementation intentionally reuses the current `WorldpackDataService` data path rather than adding a new runtime subsystem.
+
+  0.1.191 feature note: Shipped worldpack daily-event data now covers the Kunwu side of text-material `daily_random_events.json#ancient_ruins_whisper` as `kunwu_ancient_ruins_whisper`, while preserving the existing Dajin `ancient_ruins_whisper` event. The new hook is visible through the existing worldpack command/GUI daily-event flow and uses current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.191 feature note: Shipped worldpack daily-event data now includes the Kunwu side of text-material `daily_random_events.json#ancient_ruins_whisper` as `kunwu_ancient_ruins_whisper` under existing region `kunwu`. It is visible through the existing worldpack command/GUI daily-event flow and uses current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.190 feature note: Shipped worldpack daily-event data now includes exact text-material source id `pirate_raid` under the existing `chaotic_sea` region and preserves the concurrent exact `treasure_fair_rumor` hook under `spirit_fengyuan`. Both are visible through the existing worldpack command/GUI daily-event flow and use current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.189 feature note: Shipped worldpack daily-event data now includes the exact text-material source id `treasure_fair_rumor` under the existing `spirit_fengyuan` region, while preserving the older `fengyuan_treasure_fair` compatibility event. The event is visible through the existing worldpack command/GUI daily-event flow and uses current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.190 feature note: Shipped worldpack daily-event data now includes the exact text-material source id `pirate_raid` under the existing `chaotic_sea` region, while preserving the older `chaotic_sea_pirate_raid` compatibility event and the concurrent Fengyuan `treasure_fair_rumor` exact-id hook. The event is visible through the existing worldpack command/GUI daily-event flow and uses the current `trade_risk_up` effect token only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged. The implementation intentionally reuses the current `WorldpackDataService` data path rather than adding a new runtime subsystem.
+
+  0.1.187 feature note: No new gameplay feature was added by this version-sync pass. The current `0.1.187` workspace preserves the `0.1.186` Huangfeng/Danxia seed-pack contribution data in Qinglan and Danxia contribution halls; packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy runtime data, and runtime loaders remain unchanged.
+
+  0.1.189 feature note: Shipped worldpack daily-event data now includes the exact text-material source id `treasure_fair_rumor` under the existing `spirit_fengyuan` region. It is visible through the existing worldpack command/GUI daily-event flow, keeps `fengyuan_treasure_fair` for compatibility, and complements the earlier Tianyuan-side `tianyuan_treasure_fair_rumor`. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.187 feature note: Shipped worldpack daily-event data now includes the exact text-material `daily_random_events.json#yin_corruption_warning` hook under existing region `yinming`. It is visible through the existing worldpack command/GUI daily-event flow, keeps the older broad `yinming_corruption_warning` hook for compatibility, and reuses the current `trade_risk_up` effect token only. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.186 feature note: The existing sect contribution shop data now covers the Huangfeng Valley `sect_herb_garden_seed_pack` entry from `sect_contribution_shop.json`. `qinglan_contribution_hall` and `danxia_valley_contribution_hall` both expose it through the current contribution-shop flow as 8x `seeking_immortals:spirit_grass` for 50 sect contribution; packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy runtime data, and runtime loaders remain unchanged.
+
+  0.1.185 feature note: The current shop data aggregate preserves Tiannan exact pill source-id coverage and adds the Luoyun herb-garden seed-pack equivalent. `market_herbal_stall` includes `spirit_condense_pill` and `bigu_pill` source ids through existing registered pill carriers, while `luoyun_contribution_hall` exposes `sect_herb_garden_seed_pack` as 8x `seeking_immortals:spirit_grass`; packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, alchemy runtime data, and runtime loaders remain unchanged.
+
+  0.1.184 feature note: The existing packet-backed market flow now covers two exact Tiannan herbal-market source ids from `merchant_shops.json`: `spirit_condense_pill` and `bigu_pill`. They reuse the already registered Spirit Gathering Pill and low-quality Fasting Pill carriers through the current item-currency shop data; packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.183 feature note: The existing packet-backed market flow now exposes text-material `merchant_shops.json#star_palace_patrol_supply` as a whitelisted item-currency market shop. It uses the existing market snapshot/action path, sells `body_guard_talisman` through registered `seeking_immortals:armor_talisman`, and includes zh_cn/en_us market title localization plus focused shop test coverage. Packet format, Java gameplay purchase validation, item/block registries, models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.182 feature note: The current build-verified shop aggregate preserves both 0.1.181 contribution backfills. Danxia Valley contribution data exposes `alchemy_lid_mid` and `dan_fire_mid` through registered item carriers, and Star Palace merit hall exposes `recipe_yanghun` through `seeking_immortals:alchemy_formula_soul_gathering_pill_jade`. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.181 feature note: Shipped shop data now directly covers text-material `sect_contribution_shop.json#star_palace` entry `recipe_yanghun` in `star_palace_merit_hall`, surfaced as registered `seeking_immortals:alchemy_formula_soul_gathering_pill_jade` for the existing sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.181 feature note: The existing Danxia Valley contribution shop now partially backfills two alchemy support components from the text-material alchemy system: `alchemy_lid_mid` and `dan_fire_mid`. They are visible through the current sect contribution shop flow using already registered item carriers, and the reference map records both canonical ids. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.180 feature note: Shipped worldpack daily-event data now expands source multi-region coverage for `daily_random_events.json` by preserving `tianyuan_void_rift_sighting` and adding `tiannan_talisman_master_visit`, `tiannan_rogue_cultivator_duel`, `dajin_rogue_cultivator_duel`, and `nether_river_ghost_wail_night`. These hooks are visible through the existing worldpack command/GUI data flow and reuse current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.180 feature note: Shipped worldpack daily-event data now partially covers the Tianyuan side of text-material `daily_random_events.json#void_rift_sighting` as `tianyuan_void_rift_sighting`. The event is visible through the existing worldpack command/GUI data flow under `tianyuan` and reuses current `trade_risk_up` plus `secret_realm_ticket_hint` effect tokens; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.178 feature note: Shipped shop data now directly covers text-material `sect_contribution_shop.json#star_palace` entry `recipe_sea_calm` in `star_palace_merit_hall`, surfaced as registered `seeking_immortals:alchemy_formula_calming_pill_jade` for the existing sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, worldpack data, and runtime loaders remain unchanged.
+
+  0.1.178 feature note: Shipped data now preserves the parallel Star Palace Sea Calm formula backfill and adds the Dajin side of text-material `daily_random_events.json#demon_qi_surge` as `dajin_demon_qi_surge`. The Dajin event is visible through the existing worldpack command/GUI data flow with current effect tokens only; `star_palace_merit_hall#recipe_sea_calm` uses the existing Calming Pill jade formula carrier through the current shop schema. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+
+  0.1.176 feature note: The current build-verified worldpack aggregate includes `diyuan_pressure_wave`, `great_jin_auction_week`, and localized daily-effect descriptions in `WorldpackScreen`. The Great Jin auction hook uses existing worldpack data flow under `great_jin_central`; the effect UI maps current tokens such as aura, herb-market, trade-risk, secret-realm-ticket, rare-loot, and sect-contribution bonuses to zh_cn/en_us display text without changing packet format or server gameplay.
+
+  0.1.174 feature note: Shipped worldpack daily-event data now partially covers text-material `daily_random_events.json#diyuan_pressure_wave`. The hook appears under the existing `spirit_fengyuan` region, matching the shipped `diyuan` secret realm's parent region, and reuses current `trade_risk_up` plus `secret_realm_ticket_hint` effect tokens. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, region data, secret realms, and runtime loaders remain unchanged.
+
+  0.1.173 feature note: Shipped worldpack daily-event data now partially covers 14 additional text-material high-realm/Yinming/Tianyuan/Spirit-Realm hooks from `daily_random_events.json`: pearl snatching, Spirit Realm call echo, Great Jin clan feud and ascension pressure, Fallen Demon miasma, Spirit Realm clan auction and Great Vehicle insight, mortal-realm cap insight, Tianyuan siege/embassy/merit-convoy/tribulation-cloud events, plus Yin Luo patrol and Yin wind. These are visible through the existing worldpack command/GUI daily-event flow and reuse existing effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, region data, secret realms, and runtime loaders remain unchanged.
+
+  0.1.172 feature note: Shipped worldpack data now partially covers text-material `region_cards/mulan.json`. The new broad `mulan` / 慕兰草原 region is visible through the existing worldpack command/GUI data flow once `mulan_steppe_anchor` is placed, with Foundation Establishment access, 0.95 aura, and Mulan Fashi/holy-bird/beast-taming/faction-war tags. The source-card hooks `nomad_migration`, `fashi_patrol`, `beast_tame_festival`, and `grassland_beast_raid` are represented as daily events using current effect-token approximations, while existing `mulan_grassland` remains the older border-war/trade-route carrier. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, secret realms, and runtime loaders remain unchanged.
+
+  0.1.171 feature note: Shipped worldpack region data now partially covers text-material `region_cards/extreme_west_thousand_bamboo.json` as `extreme_west`. The new `extreme_west` / 极西千竹 region is visible through the existing worldpack command/GUI data flow once the anchor is placed, with Foundation Establishment access, mid aura, Thousand Bamboo puppet/material tags, and the existing specific Thousand Bamboo Puppet Tower region left unchanged; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, daily events, secret realms, and runtime loaders remain unchanged.
+
+  0.1.170 feature note: Shipped worldpack region data now partially covers text-material `region_cards/great_jin_central.json`. The new `great_jin_central` / 大晋中心 region is visible through the existing worldpack command/GUI data flow once the anchor is placed, with Core Formation access, high aura, Great Jin clan/Wanbao/refinement/cross-region-array tags, and ancient-artifact routing hints; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, daily events, secret realms, and runtime loaders remain unchanged.
+
+  0.1.169 feature note: Shipped worldpack daily-event data now partially covers text-material `daily_random_events.json#ghost_expose_rumor`, `#spirit_storm_major`, and `#ancient_ruin_whisper`. These hooks are visible through the existing worldpack command/GUI daily-event flow under Tiannan, Spirit Realm Border, and Spirit Realm Fengyuan, using existing effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, region data, secret realms, and runtime loaders remain unchanged.
+
+  0.1.168 feature note: Shipped worldpack data now partially covers text-material `region_cards/kunwu.json` and `daily_random_events.json#kunwu_cold_snap`. The new `kunwu` / 昆吾山 region is visible through the existing worldpack command/GUI data flow once its anchor is placed; the existing `kunwu_mountain` secret realm now belongs to this more specific region, and the cold-snap event reuses current effect tokens only. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.132 feature note: The existing Cangming Isle contribution shop now partially backfills one Star Palace patrol-supply entry from text-material merchant_shops.json. body_guard_talisman is surfaced as the registered Armor Talisman through the current sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged. The merged trade-route + Cangming workspace was verified by the aggregate 0.1.132 final build.
+  0.1.131 feature note: Shipped worldpack daily events now cover 63 entries. This build-verified pass backfills 9 text-material trade-route events from trade_routes.json through the existing worldpack GUI/command daily-event flow, using existing regions and existing effect tokens only. Packet format, Java gameplay logic, shops, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.130 feature note: The existing Danxia contribution shop now backfills one more implemented Huangfeng Valley contribution entry from text-material sect_contribution_shop.json. body_guard_talisman is surfaced as the registered Armor Talisman through the current sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.129 feature note: Shipped worldpack secret realms now cover 17 entries. This backfills the text-material nether_river_land secret realm through the existing worldpack GUI/command data flow and aligns thousand_bamboo_puppet_tower with the existing Extreme West Thousand Bamboo region. Packet format, Java gameplay logic, shops, registries, item models, textures, recipes, loot tables, and runtime loaders remain unchanged.
+  0.1.128 feature note: Shipped worldpack daily events now cover 54 entries. This backfills all 13 text-material faction-conflict events using existing worldpack regions and existing effect tokens only. The pass adds no packet surface, registry entries, shop files, item models, textures, recipes, loot tables, GUI classes, or runtime loaders; deeper faction war/reputation/blockade mechanics remain future work. Focused worldpack/resource validation and final Gradle build passed under `mod_version=0.1.128`.
+  0.1.127 feature note: The existing Cangming Isle contribution hall now partially backfills Star Palace / Chaotic Sea contribution content from the text-material source. It offers the implemented Essence Condensing Pill and its jade formula carrier through the existing sect contribution shop flow. Packet format, registries, GUI classes, item models, textures, recipes, and runtime loaders remain unchanged.
+  0.1.127 feature note: The existing packet-backed market flow now surfaces one more Tiannan herb-market low-pill entry from text-material merchant_shops.json: huanglong_pill is compressed to the registered generic Cultivation Pill. Packet format, registries, GUI classes, models, textures, recipes, and runtime loaders remain unchanged.
+  0.1.126 feature note: Tiannan refinement forge text-material backfill is build-verified. The existing market flow now accepts `tiannan_refinement_forge` and serves two registered Spirit Iron equivalents through the packet-backed market snapshot/action flow without changing packet format or adding registries/assets.
+  0.1.124 feature note: The existing packet-backed market flow now surfaces the text-material `tiannan_refinement_forge` shop. It is whitelisted in `ShopService`, localized in zh_cn/en_us, and ships two implemented refinement-material entries using the registered `spirit_iron` item and existing low-grade metal-spirit-stone currency. This is a partial data/service backfill; packets, registry entries, item models, textures, and GUI surfaces are unchanged.
+  0.1.126 feature note: Final version label for the Tiannan refinement forge text-material backfill. The market whitelist now includes `tiannan_refinement_forge`, and the shop exposes two Spirit Iron equivalents from the text-material refinement source. Packet format, registries, GUI classes, item models, textures, recipes, and runtime loaders remain unchanged.
+  0.1.126 feature note: The existing Yuling Pavilion contribution hall now surfaces one spirit-beast text-material entry from sect_contribution_shop.json#spirit_beast_mountain. beast_soul_essence is conservatively compressed to the registered seeking_immortals:beast_core material. This is data-only shop/reference content; server validation, packets, UI, registries, models, and textures are unchanged.
+
+  0.1.124 feature note: The existing packet-backed market flow now surfaces a Tiannan refinement forge shop from `text_materials/data/merchant_shops.json`. `low_spirit_iron` and `spirit_iron_ingot_mid` are compressed to the registered Spirit Iron material and sold through a whitelisted item-currency market shop. This changes market data and shop whitelist only; packet fields, packet order, packet encoding, packet registrations, item registries, models, textures, recipes, and GUI classes are unchanged.
+  0.1.123 feature note: Supersedes this worker's temporary 0.1.121 Chaotic Sea note while preserving the parallel Danxia 0.1.121 and Qinglan 0.1.122 feature notes. The existing packet-backed market flow now surfaces two more implemented Chaotic Sea general-store materials from `text_materials/data/merchant_shops.json`: `jiao_scale` is compressed to the registered Dragon Scale material, and `deep_sea_cold_iron` is compressed to the registered Spirit Iron material. This is data-only shop/reference content; server validation, packets, UI, registries, models, and textures are unchanged.
+  0.1.122 feature note: The Qinglan contribution-hall alchemy_furnace_g2 backfill is finalized at 0.1.122 after concurrent 0.1.120/0.1.121 version activity. It reuses the existing sect shop flow and registered tier-2 alchemy furnace item without Java gameplay, registry, GUI, or packet changes.
+
+  0.1.120 feature note: The existing Qinglan contribution hall now backfills the text-material `alchemy_furnace_g2` entry as the registered tier-2 alchemy furnace block item. This uses the current sect shop flow and does not change Java gameplay logic, item registration, packets, or GUI surfaces.
+
+  0.1.111 worldpack feature note: Shipped worldpack daily events now cover 41 entries. This backfills additional text-material events for Tiannan, Great Jin, and Chaotic Star Sea using the existing worldpack data schema and existing effect tokens (`aura_plus_5`, `herb_shop_bonus`, `trade_risk_up`, `secret_realm_ticket_hint`, `rare_loot_hint`). No new runtime item, Java logic, UI, or packet surface was added.
+
+  0.1.110 feature note: The cooperative spirit-stone canonicalization follow-up is complete for active shipped resources. Fire/armor talisman crafting and Patchouli guide icons now reference registered `seeking_immortals:metal_spirit_stone`; gameplay behavior, registries, and packet compatibility are unchanged.
+  0.1.107 verification note: focused JSON/worldpack/packet tests and final Gradle build passed. The new worldpack entries are data-backed and visible through the existing command/GUI flow once anchors are placed; no new runtime item or packet surface was added.
+  0.1.107 worldpack text-material feature update: Shipped worldpack data now covers 14 regions, 16 secret realms, and 29 daily events derived from the text-material setting pack. New content surfaces Tianlan, Yinming, Extreme West Thousand Bamboo, Tianlan Holy Altar, Yinming Pocket Rift, Demon Gold Mountain, Minor Asura Realm, Jiuxian Mountain Seclusion, and related daily-event hooks through the existing worldpack GUI/command flow. Travel and secret-realm entry still use server-side realm gates, existing ticket items, cooldowns, and OP-placed anchors.
+
+  0.1.106 custom fire talisman feature update: `FireTalismanItem` now reuses `CultivationFireballEntity` instead of vanilla `SmallFireball`. Talisman damage is based on the previous small-fireball baseline multiplied by technique affinity, and projectile speed receives a capped affinity bonus. `FireballSpell` also remains on the custom fireball entity. No packet compatibility changed; `ModNetwork.PROTOCOL_VERSION` remains `9`.
+  0.1.105 custom fireball feature update: `FireballSpell` now uses the mod-owned `CultivationFireballEntity` instead of vanilla `SmallFireball`. The projectile performs its own movement, collision, magic damage, short burn, small splash damage, particles, sound, save data, and Forge spawn sync; client rendering is registered through `CultivationFireballRenderer` and reuses an existing mod fire-element spirit-stone item core. No packet compatibility changed; `ModNetwork.PROTOCOL_VERSION` remains `9`. Remaining vanilla-core spell follow-ups are `FireTalismanItem` and `ThunderStrikeSpell`.
+  0.1.104 worldpack text-material feature update: Shipped worldpack data now covers 11 regions, 11 secret realms, and 19 daily events derived from the text-material setting pack. The existing packet-backed worldpack GUI/command flow can display the expanded data; server-side realm gates, ticket items, cooldowns, and missing-anchor failures still apply. New anchors such as `tiannan_market_anchor`, `chaotic_sea_anchor`, `outer_sea_anchor`, `mulan_border_anchor`, `dajin_wanbao_anchor`, `nether_ferry_anchor`, `fallen_demon_anchor`, `tianyuan_anchor`, and `fengyuan_anchor` must be placed in-game before travel succeeds.
+  0.1.102 preservation verification feature note: Current source keeps the completed Phase 10/market/worldpack packet-GUI surface and ModNetwork.PROTOCOL_VERSION=9 per the latest user instruction. The review-fix behavior is still active: health overlay replacement gating, cooldown overflow clamp, sect shop bad-currency/out-of-stock feedback, and Patchouli bridge isolation. No gameplay feature was added or removed in this continuation.
+  0.1.102 worldpack/market feature update: The original 0.1.92 wiring plan is active on the advanced 0.1.102 workspace. Generic markets now have packet-backed snapshots/actions and `ShopScreen`; worldpack travel/secret-realm/daily-event state has packet-backed snapshots/actions and `WorldpackScreen`; server services still validate anchors, realm gates, tickets, cooldowns, stock, currency, and adjusted costs. `ModNetwork.PROTOCOL_VERSION` is 9 for the active sect plus market/worldpack packet surface. This supersedes older protocol-8 cleanup notes below.
+  0.1.102 feature update: Active Phase 10 feature truth is the Yue six-sect line with GUI selection, SectStewardEntity recruiter/steward routing, knocking exam progression, dialogue/mission/shop content, per-sect contribution shops, and jigsaw outpost resources. ModNetwork.PROTOCOL_VERSION is 9 for the expanded sect packet surface.
+  0.1.101 UI visual fix current note: CultivationStatsScreen uses muted ink/gold/jade custom rendering for status bars, buttons, and the movement-speed slider to avoid white/gray blocks. This request changed no gameplay data, items, resources, packet fields, packet order, packet encoding, or packet registrations.
+  0.1.101 feature update: The active Phase 10 feature truth is the Yue six-sect line with GUI selection, real SectStewardEntity recruiter/steward routing, knocking exam progression, dialogue/mission/shop content, per-sect contribution shops, and jigsaw outpost resources; protocol is 9 and final forced build passed.
+  0.1.101 feature update: CultivationStatsScreen now avoids white/gray visual blocks by using a muted ink/gold status-bar highlight and custom ink/gold/jade button and movement-speed slider rendering. oo gameplay data, items, resources, or network protocol surface changed; stale worldpack packet UI residue remains removed under protocol 8.
+  0.1.101 feature update: The review-fix pass hardens existing behavior: custom health overlay replacement conditions now match actual renderability, technique cooldown sync clamps huge remaining ticks, Qinglan sect shop reports no-stock/bad-currency failures, and Patchouli API access is isolated behind a compat bridge. oo market/worldpack packet-backed GUI surface is retained; `Modoetwork.PROTOCOL_VERSIOo` is `8`.
+  0.1.94 feature update: CultivationStatsScreen was restyled as a fanren-style ink/gold responsive panel with visible cultivation, mana, root, combat, tribulation, affliction, breakthrough, and movement-speed information. Added default-unbound key binding key.seeking_immortals.open_cultivation_stats for opening the screen from gameplay; inventory entry behavior is preserved. oo network protocol changes.
 # 当前已有功能
 
-> 规则：本文件只在首次创建；后续新增/修改功能时直接更新本文件，不为完整功能列表另建新文件。
-
-## 境界突破流程（0.1.47）
-
-- 普通修炼现在只会把修为累积到当前境界/阶段上限，不再自动跨层或跨境界。
-- 玩家可通过修仙属性面板"突破"按钮、默认未绑定的"尝试突破"按键或 `/seeking_immortals breakthrough` 手动发起突破。
-- 服务端统一校验突破资源：已服用的突破药力或背包中的 `breakthrough_pill`；创造模式可用于测试且不消耗物品。
-- 突破成功会显式推进一个层级/阶段/境界，并将新阶段修为进度归零；灵力、神识、战斗属性等加成继续由境界/阶段派生。
-- 突破失败会将当前阶段修为进度回退到 80%，走火风险增加 10%；走火风险达到 70% 后会触发走火入魔分级判定。
-
-- 突破成功率按加法加成结算：基础概率 × 资质倍率 + 丹药加成 + 地灵之眼加成 + 功法品质加成 + 执念加成，并受全局上限限制。
-- 辅助丹药加成为 +5%~+20%：普通破境丹和下品筑基丹为 +5%，中品/上品/极品品质预留为 +10%/+15%/+20%。
-- 位于灵脉核心/灵眼区域（当前复用 `AuraInfo.leyline()`）时突破成功率 +15%。
-- 功法品质加成最高 +10%；功法 JSON 可选 `quality` 字段（0~10），旧数据缺少该字段时按功法来源/ID 启发式估算。
-- 连续突破失败会积累"执念"：每次失败 +5%，最多 +30%，突破成功后清零。
-- 修仙面板、`/seeking_immortals realm` 和突破反馈会显示当前突破概率或加成概要。
-
-## 走火入魔机制（0.1.47）
-
-- 走火风险（`qiDeviationRisk`）达到 70% 以上时突破失败会触发走火入魔分级判定。
-- 触发概率为 `min(50%, max(20%, (risk - 50) / 100))`，与风险值正相关。
-- **分级效果表**：
-  - 70~79% 轻微走火：损失当前 30% 修为，风险清零。
-  - 80~89% 中度走火：损失当前 50% 修为 + 昏迷 30 秒（缓慢/失明/虚弱），风险清零。
-  - 90~99% 严重走火：掉落一个境界 + 昏迷 3 分钟 + 装备随机损坏，风险清零。
-  - 100% 极端走火：当场死亡 + 背包掉落 50%，风险清零。
-- **触发条件**：
-  - 走火风险 ≥ 70% 时突破失败（概率触发）。
-  - 受伤状态修炼：打坐中血量低于最大值时每秒 +2% 走火风险。
-  - 使用超出当前境界 2 级以上的功法：每次释放 +5% 走火风险。
-- **降低风险方式**：
-  - 服用「稳神丹」（`calming_pill_low`）：-20% 走火风险。
-  - 平稳打坐：每小时 -5%（每 720 秒 -1%）。
-  - 在灵脉区域打坐：额外每小时 -10%（每 360 秒 -1%）。
-- `QiDeviationTier` 枚举（NONE/MINOR/MODERATE/SEVERE/EXTREME）用于记录本次突破触发的走火等级。
-
-## 飞行系统（0.1.47）
-
-- 新增 Curios `artifact` 槽，可装备飞剑/飞行法宝。
-- 新增 `flying_sword` 青竹飞剑与 `flying_artifact` 御风法宝。
-- 筑基及以上玩家装备飞剑/法宝后，服务端授予飞行能力。
-- 飞行速度、最大高度和每秒灵力消耗按境界分档：筑基最低，真仙最高。
-- 灵力不足、卸下飞剑/法宝、境界低于筑基或超过当前境界最大飞行高度时，会撤销本模组授予的飞行。
-- 撤销时会恢复授予前的 mayfly 状态和飞行速度，避免覆盖创造/旁观或其他飞行来源。
-
-## 1.1 六大核心属性（0.1.47）
-
-- 玩家修炼 Capability/NBT 统一保存六大核心属性：`cultivation`、`mana`/`manaMax`、`divSense`、`bodyRef`、`qiDevRisk`、`tribRes`。
-- 新玩家初始灵力为 100，初始神识为 5 格；旧存档缺少 `mana` 或 `divSense` 时会回退到相同默认值。
-- `qiDevRisk` 走火风险限制在 0~100%，`tribRes` 天劫承受限制在 0~90%，`bodyRef` 肉身强度保留无硬上限。
-- 修仙属性面板和 `/seeking_immortals qi` 已展示六大核心属性，便于游戏内确认当前数值。
-- 灵力继续复用既有 `spiritualPower` 逻辑，技能释放、飞行消耗、灵石吸收等仍读取同一份玩家数据。
-
+  规则：本文件只在首次创建；后续新�?修改功能时直接更新本文件，不为完整功能列表另建新文件�?
+## 境界突破流程�?.1.47�?
+- 普通修炼现在只会把修为累积到当前境�?阶段上限，不再自动跨层或跨境界�?- 玩家可通过修仙属性面�?突破"按钮、默认未绑定�?尝试突破"按键�?`/seeking_immortals breakthrough` 手动发起突破�?- 服务端统一校验突破资源：已服用的突破药力或背包中的 `breakthrough_pill`；创造模式可用于测试且不消耗物品�?- 突破成功会显式推进一个层�?阶段/境界，并将新阶段修为进度归零；灵力、神识、战斗属性等加成继续由境�?阶段派生�?- 突破失败会将当前阶段修为进度回退�?80%，走火风险增�?10%；走火风险达�?70% 后会触发走火入魔分级判定�?
+- 突破成功率按加法加成结算：基础概率 × 资质倍率 + 丹药加成 + 地灵之眼加成 + 功法品质加成 + 执念加成，并受全局上限限制�?- 辅助丹药加成�?+5%~+20%：普通破境丹和下品筑基丹�?+5%，中�?上品/极品品质预留�?+10%/+15%/+20%�?- 位于灵脉核心/灵眼区域（当前复�?`AuraInfo.leyline()`）时突破成功�?+15%�?- 功法品质加成最�?+10%；功�?JSOo 可�?`quality` 字段�?~10），旧数据缺少该字段时按功法来源/ID 启发式估算�?- 连续突破失败会积�?执念"：每次失�?+5%，最�?+30%，突破成功后清零�?- 修仙面板、`/seeking_immortals realm` 和突破反馈会显示当前突破概率或加成概要�?
+## 走火入魔机制�?.1.47�?
+- 走火风险（`qiDeviationRisk`）达�?70% 以上时突破失败会触发走火入魔分级判定�?- 触发概率�?`min(50%, max(20%, (risk - 50) / 100))`，与风险值正相关�?- **分级效果�?*�?  - 70~79% 轻微走火：损失当�?30% 修为，风险清零�?  - 80~89% 中度走火：损失当�?50% 修为 + 昏迷 30 秒（缓慢/失明/虚弱），风险清零�?  - 90~99% 严重走火：掉落一个境�?+ 昏迷 3 分钟 + 装备随机损坏，风险清零�?  - 100% 极端走火：当场死�?+ 背包掉落 50%，风险清零�?- **触发条件**�?  - 走火风险 �?70% 时突破失败（概率触发）�?  - 受伤状态修炼：打坐中血量低于最大值时每秒 +2% 走火风险�?  - 使用超出当前境界 2 级以上的功法：每次释�?+5% 走火风险�?- **降低风险方式**�?  - 服用「稳神丹」（`calming_pill_low`）：-20% 走火风险�?  - 平稳打坐：每小时 -5%（每 720 �?-1%）�?  - 在灵脉区域打坐：额外每小�?-10%（每 360 �?-1%）�?- `QiDeviationTier` 枚举（oOoE/MIoOR/MODERATE/SEVERE/EXTREME）用于记录本次突破触发的走火等级�?
+## 飞行系统�?.1.47�?
+- 新增 Curios `artifact` 槽，可装备飞�?飞行法宝�?- 新增 `flying_sword` 青竹飞剑�?`flying_artifact` 御风法宝�?- 筑基及以上玩家装备飞�?法宝后，服务端授予飞行能力�?- 飞行速度、最大高度和每秒灵力消耗按境界分档：筑基最低，真仙最高�?- 灵力不足、卸下飞�?法宝、境界低于筑基或超过当前境界最大飞行高度时，会撤销本模组授予的飞行�?- 撤销时会恢复授予前的 mayfly 状态和飞行速度，避免覆盖创�?旁观或其他飞行来源�?
+## 筑基期技�?MVP�?.1.54�?
+- 新增 6 个筑基期自动解锁技能，并接入现有功�?JSOo�? 槽技能栏、`ReleaseTechniquePacket` 服务端释放链路和冷却/灵力消耗校验�?- `神识扩展`：筑基初期解锁，神识读取值提�?1.5 倍；现有灵气探测、雷击术�?HUD 会自然读取更大范围，基础神识 oBT 不被永久改写�?- `御剑飞行进阶`：筑基初期解锁，释放后开启独�?`foundation_flying` 飞行授权，速度为练气御剑的 1.8 倍，飞行中每秒消�?3 点灵力，死亡/重生/换维会清理状态�?- `罡气护体`：筑基初期解锁，消�?50 灵力�?5 秒冷却；施放后下一次受到伤害会在服务端 `LivingHurtEvent` 中被全额抵消，并短暂给予抗�?吸收状态�?- `五行遁术`：筑基中期解锁，消�?60 灵力�?0 秒冷却；校验玩家具备金木水火土任一五行灵根后，向视线方向寻找安全落点并遁行�?20 格�?- `北斗剑阵`：筑基后期解锁，消�?80 灵力�? 秒冷却；当前 MVP �?7 把飞剑齐射，持续环绕�?8 秒自动攻击仍待后续增强�?- `阵法感知`：筑基圆满解锁，消�?10 灵力�?0 秒冷却；按神识范围扫描附近聚灵阵、鉴定石板、炼丹炉和阵法命名方块，以粒子短暂标记阵�?灵力边界�?
+## 1.1 六大核心属性（0.1.47�?
+- 玩家修炼 Capability/oBT 统一保存六大核心属性：`cultivation`、`mana`/`manaMax`、`divSense`、`bodyRef`、`qiDevRisk`、`tribRes`�?- 新玩家初始灵力为 100，初始神识为 5 格；旧存档缺�?`mana` �?`divSense` 时会回退到相同默认值�?- `qiDevRisk` 走火风险限制�?0~100%，`tribRes` 天劫承受限制�?0~90%，`bodyRef` 肉身强度保留无硬上限�?- 修仙属性面板和 `/seeking_immortals qi` 已展示六大核心属性，便于游戏内确认当前数值�?- 灵力继续复用既有 `spiritualPower` 逻辑，技能释放、飞行消耗、灵石吸收等仍读取同一份玩家数据�?
 ## 修炼系统
 
-- 玩家拥有灵力、最大灵力、修为、境界、小阶段数据。
-- 数据通过 Forge Capability 保存。
-- 境界目前包括：引气境、聚气境、凝元境。
-- 每个境界包括：初期、中期、后期、圆满。
-- 支持突破判定，破境丹可提高下次突破概率。
-
-## 恢复与成长
-
-- 玩家每 5 秒自然恢复少量灵力并增加修为。
-- 装备灵力护符时，每 5 秒额外恢复灵力。
-- 按键可切换打坐状态；打坐时每 5 秒额外恢复灵力并增加修为。
-
+- 玩家拥有灵力、最大灵力、修为、境界、小阶段数据�?- 数据通过 Forge Capability 保存�?- 境界目前包括：引气境、聚气境、凝元境�?- 每个境界包括：初期、中期、后期、圆满�?- 支持突破判定，破境丹可提高下次突破概率�?
+## 恢复与成�?
+- 玩家�?5 秒自然恢复少量灵力并增加修为�?- 装备灵力护符时，�?5 秒额外恢复灵力�?- 按键可切换打坐状态；打坐时每 5 秒额外恢复灵力并增加修为�?
 ## 物品效果
 
-- 下品灵石、回灵丹可恢复灵力。
-- 凝气丹可增加修为。
-- 火弹符、金甲符、疾行符会消耗灵力触发战斗/辅助效果。
-
+- 下品灵石、回灵丹可恢复灵力�?- 凝气丹可增加修为�?- 火弹符、金甲符、疾行符会消耗灵力触发战�?辅助效果�?
 ## 指令
 
-- `/seeking_immortals qi`：查看灵力和修为。
-- `/seeking_immortals realm`：查看境界。
-- `/seeking_immortals breakthrough`：尝试突破。
-
-## 兼容与文档
-
-- 已接入 Curios API，灵力护符可作为饰品检测。
-- 已加入 Patchouli 手册数据。
-- 已加入 JEI 依赖，当前原版合成表由 JEI 自动显示。
-
+- `/seeking_immortals qi`：查看灵力和修为�?- `/seeking_immortals realm`：查看境界�?- `/seeking_immortals breakthrough`：尝试突破�?
+## 兼容与文�?
+- 已接�?Curios API，灵力护符可作为饰品检测�?- 已加�?Patchouli 手册数据�?- 已加�?JEI 依赖，当前原版合成表�?JEI 自动显示�?
 ## 灵石体系
 
-- 灵石分为低阶/下品、中阶、高阶、极品四个品阶。
-- 右键灵石可直接吸收灵力，品阶越高恢复越多。
-- 灵石兑换比例为 100:1：100 低阶兑换 1 中阶，100 中阶兑换 1 高阶，100 高阶兑换 1 极品。
-- 兑换需要潜行右键村民 NPC，每名玩家每天最多兑换 3 次。
-- 打坐时主手或副手持有灵石会提供额外灵力恢复加成，系统取主副手中最高品阶加成。
-- 蒲团可作为打坐增益点：坐在蒲团上打坐每秒同时增加灵力和修为；不坐蒲团打坐只增加灵力，基础效率为蒲团状态的 50%。
-- 打坐期间服务端会记录起始坐标，玩家移动或异常离开蒲团座位会退出打坐。
-
+- 灵石分为低阶/下品、中阶、高阶、极品四个品阶�?- 右键灵石可直接吸收灵力，品阶越高恢复越多�?- 灵石兑换比例�?100:1�?00 低阶兑换 1 中阶�?00 中阶兑换 1 高阶�?00 高阶兑换 1 极品�?- 兑换需要潜行右键村�?oPC，每名玩家每天最多兑�?3 次�?- 打坐时主手或副手持有灵石会提供额外灵力恢复加成，系统取主副手中最高品阶加成�?- 蒲团可作为打坐增益点：坐在蒲团上打坐每秒同时增加灵力和修为；不坐蒲团打坐只增加灵力，基础效率为蒲团状态的 50%�?- 打坐期间服务端会记录起始坐标，玩家移动或异常离开蒲团座位会退出打坐�?
 ## 本次规则调整
 
-- 可见文案中优先使用“灵力”替代“灵力”。
-- 境界和阶段现在由修为值自动推导，增加修为时会刷新境界。
-- 灵石不再右键瞬间吸收，改为右键切换自动吸收完成后恢复灵力。
-- 主手/副手持有灵石时，普通状态提升灵力恢复；打坐修炼状态提升修为增长速度。
-
-## 灵石能量消耗规则
-
-- 灵石具有 NBT 灵力储量，并显示耐久条和描述。
-- 堆叠状态下不能右键吸收，必须拆成单个。
-- 普通状态下，主手/副手灵石每秒消耗储量，提高灵力恢复。
-- 打坐修炼状态下，主手/副手灵石每秒消耗储量，提高修为增长。
-- 计算已从每 5 秒调整为每秒。
-
-## 境界与突破完整设计
-
-- 已新增 `project_docs/realm_breakthrough_design.md` 记录完整境界、突破概率、天人五衰、斩三尸和成功率公式。
-- 当前代码尚未完全实现该设计，具体待办见 `pending_requests.md`。
-
+- 可见文案中优先使用“灵力”替代“灵力”�?- 境界和阶段现在由修为值自动推导，增加修为时会刷新境界�?- 灵石不再右键瞬间吸收，改为右键切换自动吸收完成后恢复灵力�?- 主手/副手持有灵石时，普通状态提升灵力恢复；打坐修炼状态提升修为增长速度�?
+## 灵石能量消耗规�?
+- 灵石具有 oBT 灵力储量，并显示耐久条和描述�?- 堆叠状态下不能右键吸收，必须拆成单个�?- 普通状态下，主�?副手灵石每秒消耗储量，提高灵力恢复�?- 打坐修炼状态下，主�?副手灵石每秒消耗储量，提高修为增长�?- 计算已从�?5 秒调整为每秒�?
+## 境界与突破完整设�?
+- 已新�?`project_docs/realm_breakthrough_design.md` 记录完整境界、突破概率、天人五衰、斩三尸和成功率公式�?- 当前代码尚未完全实现该设计，具体待办�?`pending_requests.md`�?
 ## 0.1.2 境界/灵根/寿元系统
 
-- 境界枚举已扩展到：炼气、筑基、结丹、元婴、化神。
-- 炼气使用 1-13 层，第 13 层为大圆满。
-- 筑基、结丹、元婴、化神使用初/中/后期。
-- 玩家新增灵根类型与天赋系数：伪灵根、四灵根、三灵根、双灵根、天灵根、异灵根。
-- 玩家新增寿元字段 `lifespanYears`。
-- 突破概率开始使用：基础概率 × 天赋系数 × 资源倍率 + 失败保底。
-- `/seeking_immortals realm` 会显示寿元和当前突破概率。
-- 新增 `/seeking_immortals root` 查看灵根。
-
+- 境界枚举已扩展到：炼气、筑基、结丹、元婴、化神�?- 炼气使用 1-13 层，�?13 层为大圆满�?- 筑基、结丹、元婴、化神使用初/�?后期�?- 玩家新增灵根类型与天赋系数：伪灵根、四灵根、三灵根、双灵根、天灵根、异灵根�?- 玩家新增寿元字段 `lifespanYears`�?- 突破概率开始使用：基础概率 × 天赋系数 × 资源倍率 + 失败保底�?- `/seeking_immortals realm` 会显示寿元和当前突破概率�?- 新增 `/seeking_immortals root` 查看灵根�?
 ## 0.1.4 灵根基础天赋体系
 
-- 灵根从“属性 + 品级”重构为基础天赋类型：天灵根、异/变异灵根、双灵根、三灵根、伪灵根、五灵根。
-- 灵根属性基于五行：金、木、水、火、土；异灵根会随机为风、雷、冰、暗分支。
-- 多灵根会保存属性组合，例如双灵根为两种五行，伪灵根为四种五行，五灵根为五行俱全。
-- 新增特殊体质系统，包含隐雷灵根、龙吟之体、通玉凤髓之身、冰髓之体、锻金之体、熔金之体、五雷之体、九灵剑体、七星月体、姹女素阴体、天阴之体、三阳之体、天生媚体、玄阴差女体等。
-- 玩家首次初始化时会随机生成灵根类型、属性组合和特殊体质；特殊体质默认约 2% 概率出现。
-- 修炼速度 = 灵根修炼倍率 × 体质修炼倍率。
-- 突破倍率 = 灵根突破倍率 × 属性平均突破倍率 × 体质突破倍率。
-- 突破概率上限从 85% 调整为 90%，避免完全 100%，但天灵根/优质体质在资源辅助下显著接近上限。
-- `/seeking_immortals root` 现在显示灵根类型、属性组合、特殊体质、突破倍率、修炼倍率和体质缺陷标记。
-
+- 灵根从“属�?+ 品级”重构为基础天赋类型：天灵根、异/变异灵根、双灵根、三灵根、伪灵根、五灵根�?- 灵根属性基于五行：金、木、水、火、土；异灵根会随机为风、雷、冰、暗分支�?- 多灵根会保存属性组合，例如双灵根为两种五行，伪灵根为四种五行，五灵根为五行俱全�?- 新增特殊体质系统，包含隐雷灵根、龙吟之体、通玉凤髓之身、冰髓之体、锻金之体、熔金之体、五雷之体、九灵剑体、七星月体、姹女素阴体、天阴之体、三阳之体、天生媚体、玄阴差女体等�?- 玩家首次初始化时会随机生成灵根类型、属性组合和特殊体质；特殊体质默认约 2% 概率出现�?- 修炼速度 = 灵根修炼倍率 × 体质修炼倍率�?- 突破倍率 = 灵根突破倍率 × 属性平均突破倍率 × 体质突破倍率�?- 突破概率上限�?85% 调整�?90%，避免完�?100%，但天灵�?优质体质在资源辅助下显著接近上限�?- `/seeking_immortals root` 现在显示灵根类型、属性组合、特殊体质、突破倍率、修炼倍率和体质缺陷标记�?
 ## 0.1.5 灵根规则细化
 
-- 天灵根定义为五星级极稀有灵根，只从金、木、水、火、土五行中生成单一属性。
-- 天灵根修炼速度提升到普通灵根约 2-3 倍，突破倍率显著提高，定位为无结丹瓶颈/结丹瓶颈极低的顶级资质。
-- 新增隐灵根类型，星级为六星，属性分支预留为隐雷、隐暗；隐灵根需要血脉、验灵秘法或机缘觉醒，暂不参与首次登录随机。
-- 变异灵根统一命名为“变异灵根”，随机属性为雷、冰、风、暗；速度接近天灵根，突破倍率高于普通真灵根。
-- 双灵根、三灵根定位为真灵根；四灵根、五灵根定位为伪灵根。
-- 四灵根和五灵根的修炼/突破倍率进一步压低，体现筑基成功率低、法力杂乱和资源需求高。
-- 灵根属性枚举新增属性说明，为后续功法、法术、炼丹、炼器、治疗、防御、诅咒等分支加成预留接口。
-
+- 天灵根定义为五星级极稀有灵根，只从金、木、水、火、土五行中生成单一属性�?- 天灵根修炼速度提升到普通灵根约 2-3 倍，突破倍率显著提高，定位为无结丹瓶�?结丹瓶颈极低的顶级资质�?- 新增隐灵根类型，星级为六星，属性分支预留为隐雷、隐暗；隐灵根需要血脉、验灵秘法或机缘觉醒，暂不参与首次登录随机�?- 变异灵根统一命名为“变异灵根”，随机属性为雷、冰、风、暗；速度接近天灵根，突破倍率高于普通真灵根�?- 双灵根、三灵根定位为真灵根；四灵根、五灵根定位为伪灵根�?- 四灵根和五灵根的修炼/突破倍率进一步压低，体现筑基成功率低、法力杂乱和资源需求高�?- 灵根属性枚举新增属性说明，为后续功法、法术、炼丹、炼器、治疗、防御、诅咒等分支加成预留接口�?
 ## 0.1.6 灵根测试石与检测逻辑
 
-- 新增物品：灵根测试石 `seeking_immortals:ling_gen_test_stone`。
-- 灵根测试石可右键自己，也可右键其他玩家进行检测。
-- 检测优先消耗 1 块下品灵石；若没有灵石，则消耗检测石耐久。
-- 新增 `LingGenCalculator`，使用加权随机生成灵根：
-  - 天灵根约 0.1%-0.5%。
-  - 变异灵根约 1%-3%。
-  - 真灵根（双/三）约 20%-40%。
-  - 伪灵根（四/五）约 60%-80%。
-- 玩家灵根数据继续保存在现有修炼 Capability 中，新增字段：灵根纯度、已觉醒状态、已检测状态。
-- 检测结果会显示灵根名称、星级、属性、纯度、修炼速度倍率、突破倍率和功法提示。
-- 检测时会产生附魔粒子、末地烛粒子和紫水晶音效。
-- Curios 灵力护符的被动加成改为受玩家当前灵根修炼倍率影响。
-- 新增 32×32 像素风灵根测试石贴图、物品模型、合成配方和中文语言文本。
-
+- 新增物品：灵根测试石 `seeking_immortals:ling_gen_test_stone`�?- 灵根测试石可右键自己，也可右键其他玩家进行检测�?- 检测优先消�?1 块下品灵石；若没有灵石，则消耗检测石耐久�?- 新增 `LingGenCalculator`，使用加权随机生成灵根：
+  - 天灵根约 0.1%-0.5%�?  - 变异灵根�?1%-3%�?  - 真灵根（�?三）�?20%-40%�?  - 伪灵根（�?五）�?60%-80%�?- 玩家灵根数据继续保存在现有修�?Capability 中，新增字段：灵根纯度、已觉醒状态、已检测状态�?- 检测结果会显示灵根名称、星级、属性、纯度、修炼速度倍率、突破倍率和功法提示�?- 检测时会产生附魔粒子、末地烛粒子和紫水晶音效�?- Curios 灵力护符的被动加成改为受玩家当前灵根修炼倍率影响�?- 新增 32×32 像素风灵根测试石贴图、物品模型、合成配方和中文语言文本�?
 ## 说明
 
-- 本次没有额外创建独立 `LingGenCapability`，因为项目已有玩家修炼 Capability，灵根类型、属性、纯度和觉醒状态统一存储在同一份玩家数据中，避免并行 Capability 造成数据割裂。
-- 后续若灵根系统独立成大模块，可再从 `CultivationProvider` 拆分出专用 `LingGenCapability`。
-
-## 0.1.8 炼气期功法术法规则
-
-- 新增炼气期可用功法/术法规则数据：`data/seeking_immortals/cultivation/qi_refining_techniques.json`。
-- 本次加入 20 个条目：冰冻术、缠绕术、传音术、地刺术、定神符、龟息功、火花术、火弹术、控物术、流沙术、罗烟步、匿身术、升空术、天眼术、眨眼剑法、御风诀、隐形术、引气术、象甲功、雪风剑法。
-- 每个条目记录唯一 ID、名称、类型、属性倾向、来源出处和术法简介。
-- 新增 Patchouli 手册条目“炼气期功法术法”，按通用辅助、五行攻击控场、身法与武技进行说明。
-- 当前为规则数据与手册展示，后续可接入功法学习、灵根属性加成、宗门/任务奖励和实际战斗技能效果。
-
-## 0.1.9 筑基期功法术法规则
-
-- 新增筑基期可用功法/术法规则数据：`data/seeking_immortals/cultivation/foundation_establishment_techniques.json`。
-- 本次加入 17 个条目：巨剑术、千刃术、水罩术、土牢术、风缚之术、风墙术、驱灵术、凝元功、归元功、弄焰诀、三转重元功（第一层）、煞丹术、小五行须弥禁法、小须弥金刚阵、玄冰诀、御风决、血灵钻。
-- 每个条目记录唯一 ID、名称、类型、属性倾向、来源出处和术法简介。
-- 新增 Patchouli 手册条目“筑基期功法术法”，按攻防控制、修炼辅助、阵法遁术与禁术进行说明。
-- 当前为规则数据与手册展示，后续可接入筑基阶段功法学习、灵根属性加成、宗门传承、阵法布置、御兽与实际战斗技能效果。
-- 煞丹术、血灵钻等魔道秘术后续应接入碎丹、重伤、心魔或寿元损耗等代价系统。
-
-## 0.1.10 结丹期功法术法规则
-
-- 新增结丹期可用功法/术法规则数据：`data/seeking_immortals/cultivation/core_formation_techniques.json`。
-- 本次加入 28 个条目，覆盖青元剑诀、青元剑诀辅助、六道极圣所创魔功、乱星海魔道、妖族禽修、五行遁术、千幻宗、南宫婉主修功法、鬼道、血道魔功、紫罗玄功与正道真火。
-- 青元剑诀体系包含：青元剑芒（1-3层）、护体剑盾（4-6层）、剑影分光术（7-9层）、大庚剑阵（10-13层）与三转重元功（第二层散功）。
-- 新增 Patchouli 手册条目“结丹期功法术法”，按青元剑诀、遁术幻术、正道与女修传承、魔道鬼道与妖族进行说明。
-- 当前为规则数据与手册展示，后续可接入高阶功法学习、层级解锁、妖族血脉、禁术代价和实际战斗技能效果。
-- 颠凤培元功、引龙决、血灵大法等禁术后续应接入心魔、寿元损耗、杀孽、正道仇恨或阵营惩罚。
-
-## 0.1.11 元婴期功法术法规则
-
-- 新增元婴期可用功法/术法规则数据：`data/seeking_immortals/cultivation/nascent_soul_techniques.json`。
-- 本次加入 23 个条目，覆盖青元剑诀灵界篇前置与灵界篇、大衍诀神识体系、大衍神君秘术、乱星海魔修、魔道顶阶、第二元婴、五灵根元磁、天澜圣殿、上古雷法、保命秘术与元婴本命火。
-- 青元剑诀体系包含：春黎剑阵（13-15层）、青蟠剑阵（16-18层）与三转重元功（第三层散功）。
-- 新增 Patchouli 手册条目“元婴期功法术法”，按青元剑诀与散功、大衍诀与神识、第二元婴与化身、保命与顶阶神通进行说明。
-- 当前为规则数据与手册展示，后续可接入神识数值、分魂化身、五灵根元磁、通灵灵兽、保命代价和元婴本命火系统。
-- 分魂术、玄魂炼妖大法、身外化身、解体化形、化劫大法、还魂术等高风险秘术后续应接入神魂损伤、跌境、重伤、寿元损耗、记忆损失或永久负面状态。
-
+- 本次没有额外创建独立 `LingGenCapability`，因为项目已有玩家修�?Capability，灵根类型、属性、纯度和觉醒状态统一存储在同一份玩家数据中，避免并�?Capability 造成数据割裂�?- 后续若灵根系统独立成大模块，可再�?`CultivationProvider` 拆分出专�?`LingGenCapability`�?
+## 0.1.8 炼气期功法术法规�?
+- 新增炼气期可用功�?术法规则数据：`data/seeking_immortals/cultivation/qi_refining_techniques.json`�?- 本次加入 20 个条目：冰冻术、缠绕术、传音术、地刺术、定神符、龟息功、火花术、火弹术、控物术、流沙术、罗烟步、匿身术、升空术、天眼术、眨眼剑法、御风诀、隐形术、引气术、象甲功、雪风剑法�?- 每个条目记录唯一 ID、名称、类型、属性倾向、来源出处和术法简介�?- 新增 Patchouli 手册条目“炼气期功法术法”，按通用辅助、五行攻击控场、身法与武技进行说明�?- 当前为规则数据与手册展示，后续可接入功法学习、灵根属性加成、宗�?任务奖励和实际战斗技能效果�?
+## 0.1.9 筑基期功法术法规�?
+- 新增筑基期可用功�?术法规则数据：`data/seeking_immortals/cultivation/foundation_establishment_techniques.json`�?- 0.1.54 已在�?17 个规则条目前补入 6 个可释放技能条目：神识扩展、御剑飞行进阶、罡气护体、五行遁术、北斗剑阵、阵法感知�?- 原规则数据加�?17 个条目：巨剑术、千刃术、水罩术、土牢术、风缚之术、风墙术、驱灵术、凝元功、归元功、弄焰诀、三转重元功（第一层）、煞丹术、小五行须弥禁法、小须弥金刚阵、玄冰诀、御风决、血灵钻�?- 每个条目记录唯一 ID、名称、类型、属性倾向、来源出处和术法简介�?- 新增 Patchouli 手册条目“筑基期功法术法”，按攻防控制、修炼辅助、阵法遁术与禁术进行说明�?- 当前为规则数据与手册展示，后续可接入筑基阶段功法学习、灵根属性加成、宗门传承、阵法布置、御兽与实际战斗技能效果�?- 煞丹术、血灵钻等魔道秘术后续应接入碎丹、重伤、心魔或寿元损耗等代价系统�?
+## 0.1.10 结丹期功法术法规�?
+- 新增结丹期可用功�?术法规则数据：`data/seeking_immortals/cultivation/core_formation_techniques.json`�?- 本次加入 28 个条目，覆盖青元剑诀、青元剑诀辅助、六道极圣所创魔功、乱星海魔道、妖族禽修、五行遁术、千幻宗、南宫婉主修功法、鬼道、血道魔功、紫罗玄功与正道真火�?- 青元剑诀体系包含：青元剑芒（1-3层）、护体剑盾（4-6层）、剑影分光术�?-9层）、大庚剑阵（10-13层）与三转重元功（第二层散功）�?- 新增 Patchouli 手册条目“结丹期功法术法”，按青元剑诀、遁术幻术、正道与女修传承、魔道鬼道与妖族进行说明�?- 当前为规则数据与手册展示，后续可接入高阶功法学习、层级解锁、妖族血脉、禁术代价和实际战斗技能效果�?- 颠凤培元功、引龙决、血灵大法等禁术后续应接入心魔、寿元损耗、杀孽、正道仇恨或阵营惩罚�?
+## 0.1.11 元婴期功法术法规�?
+- 新增元婴期可用功�?术法规则数据：`data/seeking_immortals/cultivation/nascent_soul_techniques.json`�?- 本次加入 23 个条目，覆盖青元剑诀灵界篇前置与灵界篇、大衍诀神识体系、大衍神君秘术、乱星海魔修、魔道顶阶、第二元婴、五灵根元磁、天澜圣殿、上古雷法、保命秘术与元婴本命火�?- 青元剑诀体系包含：春黎剑阵（13-15层）、青蟠剑阵（16-18层）与三转重元功（第三层散功）�?- 新增 Patchouli 手册条目“元婴期功法术法”，按青元剑诀与散功、大衍诀与神识、第二元婴与化身、保命与顶阶神通进行说明�?- 当前为规则数据与手册展示，后续可接入神识数值、分魂化身、五灵根元磁、通灵灵兽、保命代价和元婴本命火系统�?- 分魂术、玄魂炼妖大法、身外化身、解体化形、化劫大法、还魂术等高风险秘术后续应接入神魂损伤、跌境、重伤、寿元损耗、记忆损失或永久负面状态�?
 ## 0.1.12 特殊/通用术法规则
 
-- 新增特殊/通用术法规则数据：`data/seeking_immortals/cultivation/special_common_techniques.json`。
-- 本次加入 15 个条目，覆盖通用秘术、银月封印、通天灵宝驱动、傀儡机关、御虫、毒圣门灵纹、鬼道魂术、魔道控神、咒术、鬼灵门阵法、空间禁法与阴阳轮回。
-- 将“凝魂术/炼魂术/牵魂术”拆分为凝魂术、炼魂术、牵魂术三个独立条目，便于后续分别接入魂魄凝聚、炼化和牵引机制。
-- 新增 Patchouli 手册条目“特殊/通用术法”，按通用与法宝、机关御虫与灵纹、魂术魔道与咒术、阵法与轮回进行说明。
-- 当前为规则数据与手册展示，后续可接入通天灵宝、傀儡、御虫、魂魄、咒术、阵法、轮回和禁术代价系统。
-- 控神术、炼魂术、阴火大阵等邪术后续应接入正道仇恨、业力、心魔、神魂损伤或阵营惩罚。
-
+- 新增特殊/通用术法规则数据：`data/seeking_immortals/cultivation/special_common_techniques.json`�?- 本次加入 15 个条目，覆盖通用秘术、银月封印、通天灵宝驱动、傀儡机关、御虫、毒圣门灵纹、鬼道魂术、魔道控神、咒术、鬼灵门阵法、空间禁法与阴阳轮回�?- 将“凝魂术/炼魂�?牵魂术”拆分为凝魂术、炼魂术、牵魂术三个独立条目，便于后续分别接入魂魄凝聚、炼化和牵引机制�?- 新增 Patchouli 手册条目“特�?通用术法”，按通用与法宝、机关御虫与灵纹、魂术魔道与咒术、阵法与轮回进行说明�?- 当前为规则数据与手册展示，后续可接入通天灵宝、傀儡、御虫、魂魄、咒术、阵法、轮回和禁术代价系统�?- 控神术、炼魂术、阴火大阵等邪术后续应接入正道仇恨、业力、心魔、神魂损伤或阵营惩罚�?
 ## 0.1.18 蒲团、修仙页与灵根属性战斗倍率
 
-- 基础技能栏已显示在屏幕左侧，最多展示 7 格。
-- 新增蒲团方块与隐形座位实体：高度低于半砖，使用占位贴图，空手右键可坐上去，一个蒲团同一时间只允许一名玩家。
-- 打坐收益区分蒲团状态：坐在蒲团上打坐会同时增加灵力和修为；不坐蒲团打坐只增加灵力且基础效率为蒲团的 50%。
-- 打坐期间玩家移动或异常离开蒲团座位会退出打坐。
-- 背包“修仙”页在使用灵根测试石前只显示灵根是否觉醒、寿元/年龄、体质和状态；测试后完整显示境界、灵力、修为、灵根、纯度、属性、已学术法等数据，灵根纯度单独换行。
-- 灵根属性已开始参与玩家造成伤害：金/火/雷/暗等攻击属性提升更明显，倍率受灵根纯度影响；碎丹仍会叠加降低最终伤害。
-- 现有符箓已接入属性亲和：火弹符受火灵根主加成、雷/隐雷副加成；金甲符受土灵根主加成、金/冰副加成；疾行符受风灵根主加成、雷/隐雷副加成。
-
+- 基础技能栏已显示在屏幕左侧，最多展�?7 格�?- 新增蒲团方块与隐形座位实体：高度低于半砖，使用占位贴图，空手右键可坐上去，一个蒲团同一时间只允许一名玩家�?- 打坐收益区分蒲团状态：坐在蒲团上打坐会同时增加灵力和修为；不坐蒲团打坐只增加灵力且基础效率为蒲团的 50%�?- 打坐期间玩家移动或异常离开蒲团座位会退出打坐�?- 背包“修仙”页在使用灵根测试石前只显示灵根是否觉醒、寿�?年龄、体质和状态；测试后完整显示境界、灵力、修为、灵根、纯度、属性、已学术法等数据，灵根纯度单独换行�?- 灵根属性已开始参与玩家造成伤害：金/�?�?暗等攻击属性提升更明显，倍率受灵根纯度影响；碎丹仍会叠加降低最终伤害�?- 现有符箓已接入属性亲和：火弹符受火灵根主加成、雷/隐雷副加成；金甲符受土灵根主加成、金/冰副加成；疾行符受风灵根主加成、雷/隐雷副加成�?
 ## 0.1.13 化神期及以上术法规则
 
-- 新增化神期及以上术法规则数据：`data/seeking_immortals/cultivation/spirit_transformation_plus_techniques.json`。
-- 本次加入 21 个条目，覆盖上古真仙术、空间遁术、跨界神念、古魔秘术、佛门度化、妖族至尊功法、五行擒拿、混沌封印、极光、金磁重光、异火融合、真灵血脉、仙界雷法、顶阶炼体、魔瞳、幻世法则、水系潮汐和灰仙煞气。
-- 新增 Patchouli 手册条目“化神期及以上术法”，按空间与跨界、古魔佛门与妖族、五行光焰与真灵、仙界与法则功法进行说明。
-- 当前为规则数据与手册展示，后续可接入法则、跨界通讯、魔化、人性损失、真灵血脉、顶阶炼体、仙界传承和终局战斗系统。
-- 天轮化魔大法、六极真魔功、玄煞暝灵功等高风险功法后续应接入魔化污染、煞气反噬、神魂损伤、人性损失、阵营敌对或永久负面状态。
-
-## 灵气浓度系统（0.1.22）
-
-- 世界中每个位置都会通过隐藏算法计算“灵气浓度”，不直接暴露为方块或区块 NBT。
-- 灵气浓度由维度、地形/生物群系、隐藏灵脉与附近聚灵阵共同决定。
-- 基础区域约为 1x；山脉/高地约 1.5x；深海岛屿约 2x；隐藏灵脉核心约 3x-5x；预留秘境/仙府维度约 10x。
-- 下界灵气性质标记为火煞魔气/炼体灵气，末地灵气性质标记为虚空法则灵气，后续可接入炼体与法则感悟系统。
-- 修炼 tick 已接入灵气浓度：基础灵力获取按浓度倍率提升；蒲团打坐修为经验使用平方根倍率，避免高灵气区域经验爆炸。
-- 新增测灵盘：右键显示当前区块灵气浓度、维度倍率、地势倍率、灵脉倍率、聚灵阵加成和灵气性质。
-- 新增寻脉罗盘：右键扫描附近灵脉核心，并以文字方向、距离和倍率提示目标。
-- 新增聚灵阵：方块形式存在，附近 16 格内最多统计 4 个，每个提供 +50 灵气浓度。
-
-## 打坐吐纳完善（0.1.23）
-
-- 玩家手持蒲团右键可放置，空手右键坐上蒲团后进入打坐吐纳/修炼状态。
-- 坐上蒲团并保持打坐时，每 5 秒结算一次修为收益；灵力仍按每秒修炼 tick 恢复。
-- 修为收益受当前位置灵气浓度平方根倍率、玩家修炼速度倍率、已学功法品质与灵根亲和共同影响。
-- 已学功法会从功法数据中自动读取，并选择当前可提供最高打坐倍率的功法显示为主功法。
-- 打坐状态栏会显示：境界、修为进度、灵气吸收效率、当前功法和当前灵地类型。
-- 受到攻击、移动/离开蒲团、饥饿过低、附近存在怪物时会自动中断打坐吐纳。
-
-## 0.1.27 UI/图形稳定性修复
-
-- 原版背包“修仙”按钮只注入原版 `InventoryScreen`，避免 `CultivationStatsScreen` 自注入和重复按钮。
-- 客户端修仙数据与技能数据新增同步状态，登录、退出、重生、进入世界时重置；收到同步包后标记为已同步。
-- 左侧技能栏固定 7 槽并保留服务端同步顺序，未同步时稳定显示空槽；吐纳 HUD 未同步时稳定隐藏，pending 打坐状态可显示占位。
-- 修仙页保持基础/灵根/功法/负面状态四分页，补同步占位、屏幕边界避让和原版背包槽位避让。
-- 旧第三方 UI 风格皮肤避免可变颜色状态污染，降低 GuiGraphics/Pose/透明度串扰风险。
-
-## 0.1.28 旧第三方 UI UI 布局稳定性修复
-
-- 根据 旧第三方 UI Agent 指南复查 Screen/Menu 生命周期、Overlay/HUD 显示条件、布局、样式和数据同步边界。
-- 修仙页继续保留 Forge `InventoryScreen` 兼容入口，避免一次性重构为完整 旧第三方 UI 组件 树造成服务端类加载或 UI 生命周期风险。
-- 修仙页右/左侧面板在空间不足时会按当前 GUI 宽度收缩，分页按钮和返回按钮跟随面板宽度布局，灵力/纯度状态条不再使用固定宽度。
-- 最终 UI 样式仍待用户从原版背包融合型、独立全屏、TabView 分页、外置主题 主题化、HUD+悬浮详情等方向中选择。
-
-## 0.1.29 独立全屏修仙面板与技能栏稳定性修复
-
-- 原版背包“修仙”按钮现在作为入口，点击后打开独立全屏/居中修仙 Screen，不再把修仙详情页绘制为原版 `InventoryScreen` 旁边的叠画面板。
-- 独立修仙面板保留四分页：基础、灵根、功法、负面状态。
-- 面板宽高基于当前 GUI scaledWidth/scaledHeight 自适应，减少与原版背包槽位、JEI/XEI 或高 GUI Scale 的挤压风险。
-- 从背包进入时“返回背包”会重新打开原版背包；其他入口关闭页面。
-- 左侧技能栏仍固定 7 槽，HUD 渲染时按 `screenHeight` 钳制顶部坐标，避免小屏或界面定位变更导致槽位跑到右上角/玩家界面区域。
-
+- 新增化神期及以上术法规则数据：`data/seeking_immortals/cultivation/spirit_transformation_plus_techniques.json`�?- 本次加入 21 个条目，覆盖上古真仙术、空间遁术、跨界神念、古魔秘术、佛门度化、妖族至尊功法、五行擒拿、混沌封印、极光、金磁重光、异火融合、真灵血脉、仙界雷法、顶阶炼体、魔瞳、幻世法则、水系潮汐和灰仙煞气�?- 新增 Patchouli 手册条目“化神期及以上术法”，按空间与跨界、古魔佛门与妖族、五行光焰与真灵、仙界与法则功法进行说明�?- 当前为规则数据与手册展示，后续可接入法则、跨界通讯、魔化、人性损失、真灵血脉、顶阶炼体、仙界传承和终局战斗系统�?- 天轮化魔大法、六极真魔功、玄煞暝灵功等高风险功法后续应接入魔化污染、煞气反噬、神魂损伤、人性损失、阵营敌对或永久负面状态�?
+## 灵气浓度系统�?.1.22�?
+- 世界中每个位置都会通过隐藏算法计算“灵气浓度”，不直接暴露为方块或区�?oBT�?- 灵气浓度由维度、地�?生物群系、隐藏灵脉与附近聚灵阵共同决定�?- 基础区域约为 1x；山�?高地�?1.5x；深海岛屿约 2x；隐藏灵脉核心约 3x-5x；预留秘�?仙府维度�?10x�?- 下界灵气性质标记为火煞魔�?炼体灵气，末地灵气性质标记为虚空法则灵气，后续可接入炼体与法则感悟系统�?- 修炼 tick 已接入灵气浓度：基础灵力获取按浓度倍率提升；蒲团打坐修为经验使用平方根倍率，避免高灵气区域经验爆炸�?- 新增测灵盘：右键显示当前区块灵气浓度、维度倍率、地势倍率、灵脉倍率、聚灵阵加成和灵气性质�?- 新增寻脉罗盘：右键扫描附近灵脉核心，并以文字方向、距离和倍率提示目标�?- 新增聚灵阵：方块形式存在，附�?16 格内最多统�?4 个，每个提供 +50 灵气浓度�?
+## 打坐吐纳完善�?.1.23�?
+- 玩家手持蒲团右键可放置，空手右键坐上蒲团后进入打坐吐�?修炼状态�?- 坐上蒲团并保持打坐时，每 5 秒结算一次修为收益；灵力仍按每秒修炼 tick 恢复�?- 修为收益受当前位置灵气浓度平方根倍率、玩家修炼速度倍率、已学功法品质与灵根亲和共同影响�?- 已学功法会从功法数据中自动读取，并选择当前可提供最高打坐倍率的功法显示为主功法�?- 打坐状态栏会显示：境界、修为进度、灵气吸收效率、当前功法和当前灵地类型�?- 受到攻击、移�?离开蒲团、饥饿过低、附近存在怪物时会自动中断打坐吐纳�?
+## 0.1.27 UI/图形稳定性修�?
+- 原版背包“修仙”按钮只注入原版 `InventoryScreen`，避�?`CultivationStatsScreen` 自注入和重复按钮�?- 客户端修仙数据与技能数据新增同步状态，登录、退出、重生、进入世界时重置；收到同步包后标记为已同步�?- 左侧技能栏固定 7 槽并保留服务端同步顺序，未同步时稳定显示空槽；吐�?HUD 未同步时稳定隐藏，pending 打坐状态可显示占位�?- 修仙页保持基础/灵根/功法/负面状态四分页，补同步占位、屏幕边界避让和原版背包槽位避让�?- 旧第三方 UI 风格皮肤避免可变颜色状态污染，降低 GuiGraphics/Pose/透明度串扰风险�?
+## 0.1.28 旧第三方 UI UI 布局稳定性修�?
+- 根据 旧第三方 UI Agent 指南复查 Screen/Menu 生命周期、Overlay/HUD 显示条件、布局、样式和数据同步边界�?- 修仙页继续保�?Forge `InventoryScreen` 兼容入口，避免一次性重构为完整 旧第三方 UI 组件 树造成服务端类加载�?UI 生命周期风险�?- 修仙页右/左侧面板在空间不足时会按当前 GUI 宽度收缩，分页按钮和返回按钮跟随面板宽度布局，灵�?纯度状态条不再使用固定宽度�?- 最�?UI 样式仍待用户从原版背包融合型、独立全屏、TabView 分页、外置主�?主题化、HUD+悬浮详情等方向中选择�?
+## 0.1.29 独立全屏修仙面板与技能栏稳定性修�?
+- 原版背包“修仙”按钮现在作为入口，点击后打开独立全屏/居中修仙 Screen，不再把修仙详情页绘制为原版 `InventoryScreen` 旁边的叠画面板�?- 独立修仙面板保留四分页：基础、灵根、功法、负面状态�?- 面板宽高基于当前 GUI scaledWidth/scaledHeight 自适应，减少与原版背包槽位、JEI/XEI 或高 GUI Scale 的挤压风险�?- 从背包进入时“返回背包”会重新打开原版背包；其他入口关闭页面�?- 左侧技能栏仍固�?7 槽，HUD 渲染时按 `screenHeight` 钳制顶部坐标，避免小屏或界面定位变更导致槽位跑到右上�?玩家界面区域�?
 
 ## 0.1.30 左侧技能栏参考图外框
 
-- 左侧技能栏新增竖向外框 GUI 纹理，资源路径为 `assets/seeking_immortals/textures/gui/skill_bar_frame.png`。
-- 技能栏仍通过 Forge HUD Overlay 渲染，固定在屏幕左侧，打开任意 Screen 时沿用既有隐藏策略。
-- 7 个技能槽根据外框尺寸自动居中排列在内部开口区域；未同步时显示空槽，同步后显示技能占位图标、编号和首字。
-
+- 左侧技能栏新增竖向外框 GUI 纹理，资源路径为 `assets/seeking_immortals/textures/gui/skill_bar_frame.png`�?- 技能栏仍通过 Forge HUD Overlay 渲染，固定在屏幕左侧，打开任意 Screen 时沿用既有隐藏策略�?- 7 个技能槽根据外框尺寸自动居中排列在内部开口区域；未同步时显示空槽，同步后显示技能占位图标、编号和首字�?
 ## 0.1.31 HUD/GUI 素材调整
 
-- 打坐吐纳 HUD 的 5 秒结算进度条已改用用户新上传图片裁剪出的修炼进度条纹理。
-- 左侧技能栏继续固定显示 7 个槽位，整体更靠近屏幕左边缘。
-- 已停止绘制 0.1.30 技能栏外框，移除其在玩家左上角造成的额外装饰图案。
+- 打坐吐纳 HUD �?5 秒结算进度条已改用用户新上传图片裁剪出的修炼进度条纹理�?- 左侧技能栏继续固定显示 7 个槽位，整体更靠近屏幕左边缘�?- 已停止绘�?0.1.30 技能栏外框，移除其在玩家左上角造成的额外装饰图案�?
+## 0.1.32 原生 UI 重实�?
+- 移除旧第三方 UI 依赖、构建仓库、运行依赖声明和兼容命名�?- 新增 `ImmortalUiSkin`，仅使用 `GuiGraphics.fill`、`blit`、原版文字绘制与 `ResourceLocation`�?- 左侧 7 槽技能栏继续作为 Forge Overlay 渲染，保�?tooltip、编号和技能占位图标�?- 打坐吐纳 HUD 继续作为 Forge Overlay 渲染，并继续使用 `cultivation_progress_bar.png` 显示 5 秒结算进度�?- B 方案独立修仙面板继续使用原生 `Screen`，保留基础、灵根、功法、负面状态四分页；背包只保留入口按钮�?
 
-## 0.1.32 原生 UI 重实现
+## 技能快捷键与单页修仙面板（0.1.33�?
+- 独立修仙面板仍采用原�?`Screen` B 方案，基础状态、灵根信息、功法信息、负面状态合并到一个页面分区展示，保留返回背包/关闭逻辑�?- 打坐吐纳仍由 HUD 显示状态和 5 秒结算进度，服务端不再每 5 秒反复发送动作栏状态提示�?- 新增 7 个技能释放按键：�?1~7 默认 `Z/X/C/G/B/o/M`。客户端只发送槽位，服务端按玩家已学技能列表校验槽位和已学状态，并消耗灵力后给出占位释放提示�?- 新增技能编辑界面按键，默认 `R` 打开原生 `TechniqueEditScreen`；当前显�?7 个槽位、已学技能列表和“点�?拖拽绑定待实现”说明�?
+## 技能槽持久化与冷却�?.1.34�?
+- 玩家修炼 Capability/oBT 新增并保�?7 个技能槽绑定 `TechniqueSlots`，每槽保�?techniqueId 或空字符串；旧存档缺少绑定列表时按已学技能排序填充前 7 槽�?- 技能冷却保存为 `TechniqueCooldownUntilTicks`，当前默认每个绑定技能释放成功后进入 5 秒冷却�?- 客户�?`ClientTechniqueData` 同步已学技能、绑定槽位与冷却剩余 tick；左侧技能栏、tooltip �?Z/X/C/G/B/o/M 快捷键均改为使用绑定槽�?- 新增/完善 `SetTechniqueSlotPacket`：支持保存或传空字符串清空槽位，服务端校�?slot 0-6 且技能必须已学�?- 技能编辑界面显�?7 个槽位和已学技能列表，支持从已学技能列表按住左键拖拽到槽位绑定，释放到槽位后发�?`SetTechniqueSlotPacket`；右键槽位清空，保留左键槽位绑定同序号已学技能的兼容操作�?- 7 个释放技能键和技能编辑键默认改为“未绑定”，避免�?Z/X/C/G/B/o/M/R 以及其他模组/原版操作硬冲突；玩家可在控制设置的“寻仙问道”分类中自行绑定�?- `ReleaseTechniquePacket` 服务端按绑定槽校验空槽、已学、灵力和冷却；成功后消耗灵力、设置冷却并同步修炼数据和技能数据�?- 打坐吐纳 HUD 使用用户新上�?PoG 作为修炼进度条基底，先绘制基�?外框，再�?5 秒周�?`tickCount % 100 / 100` 从左到右绘制青绿色半透明填充与高光，避免整张进度条固定满格显示�?- HUD 已移除“五秒结算进度”文字行，整体高度降低并放在血条上方安全距离；宽度、位置按 `scaledWidth/scaledHeight` 钳制，适配不同 GUI Scale 和小窗口�?- 修仙属性面板去掉“原生UI · 独立修仙面板 · 单页总览”文案，只保留简洁“修仙属性”标题；在小窗口/�?GUI Scale 下会缩小面板、压缩行距、截断超长文本并减少可见列表，避免明显出屏�?## 0.1.60 realm percent stats
 
-- 移除旧第三方 UI 依赖、构建仓库、运行依赖声明和兼容命名。
-- 新增 `ImmortalUiSkin`，仅使用 `GuiGraphics.fill`、`blit`、原版文字绘制与 `ResourceLocation`。
-- 左侧 7 槽技能栏继续作为 Forge Overlay 渲染，保留 tooltip、编号和技能占位图标。
-- 打坐吐纳 HUD 继续作为 Forge Overlay 渲染，并继续使用 `cultivation_progress_bar.png` 显示 5 秒结算进度。
-- B 方案独立修仙面板继续使用原生 `Screen`，保留基础、灵根、功法、负面状态四分页；背包只保留入口按钮。
+- Realm-derived values now use percentage growth formulas from `RealmStageConfig`.
+- The unified curve covers mana cap, cultivation stage span, divine sense, HP, recovery, cultivation gain, flying speed, and combat base stats.
+- Existing save fields and network packet formats are unchanged.
 
+## 0.1.63 Technique editor learned-list scrolling
 
-## 技能快捷键与单页修仙面板（0.1.33）
+- `TechniqueEditScreen` learned technique list now scrolls with the mouse wheel when the learned list exceeds the visible rows.
+- The old `+o hidden` overflow summary is no longer rendered; the screen renders the current visible slice and shows a small scrollbar.
+- Drag binding, left-click slot compatibility binding, and right-click slot clearing continue to use the existing `SetTechniqueSlotPacket`; packet format is unchanged.
 
-- 独立修仙面板仍采用原生 `Screen` B 方案，基础状态、灵根信息、功法信息、负面状态合并到一个页面分区展示，保留返回背包/关闭逻辑。
-- 打坐吐纳仍由 HUD 显示状态和 5 秒结算进度，服务端不再每 5 秒反复发送动作栏状态提示。
-- 新增 7 个技能释放按键：槽 1~7 默认 `Z/X/C/G/B/N/M`。客户端只发送槽位，服务端按玩家已学技能列表校验槽位和已学状态，并消耗灵力后给出占位释放提示。
-- 新增技能编辑界面按键，默认 `R` 打开原生 `TechniqueEditScreen`；当前显示 7 个槽位、已学技能列表和“点击/拖拽绑定待实现”说明。
+## 0.1.64 Realm stat application and larger scaling
 
-## 技能槽持久化与冷却（0.1.34）
+- Realm-derived max health, attack, armor, armor toughness, knockback resistance, and movement speed are now applied to vanilla player attributes on the server.
+- The stat refresh runs during server player ticks and after login, respawn, and dimension changes, so displayed cultivation numbers now affect actual survival and combat behavior.
+- Realm growth values in `RealmStageConfig` were raised significantly for mana, stage span, divine sense, HP, recovery, cultivation gain, flying speed, and combat stats.
+- PvP combat keeps the custom hit/dodge/crit/defense pipeline but avoids adding cultivation attack twice now that the vanilla attack attribute includes it.
+- Packet format is unchanged.
 
-- 玩家修炼 Capability/NBT 新增并保存 7 个技能槽绑定 `TechniqueSlots`，每槽保存 techniqueId 或空字符串；旧存档缺少绑定列表时按已学技能排序填充前 7 槽。
-- 技能冷却保存为 `TechniqueCooldownUntilTicks`，当前默认每个绑定技能释放成功后进入 5 秒冷却。
-- 客户端 `ClientTechniqueData` 同步已学技能、绑定槽位与冷却剩余 tick；左侧技能栏、tooltip 和 Z/X/C/G/B/N/M 快捷键均改为使用绑定槽。
-- 新增/完善 `SetTechniqueSlotPacket`：支持保存或传空字符串清空槽位，服务端校验 slot 0-6 且技能必须已学。
-- 技能编辑界面显示 7 个槽位和已学技能列表，支持从已学技能列表按住左键拖拽到槽位绑定，释放到槽位后发送 `SetTechniqueSlotPacket`；右键槽位清空，保留左键槽位绑定同序号已学技能的兼容操作。
-- 7 个释放技能键和技能编辑键默认改为“未绑定”，避免和 Z/X/C/G/B/N/M/R 以及其他模组/原版操作硬冲突；玩家可在控制设置的“寻仙问道”分类中自行绑定。
-- `ReleaseTechniquePacket` 服务端按绑定槽校验空槽、已学、灵力和冷却；成功后消耗灵力、设置冷却并同步修炼数据和技能数据。
-- 打坐吐纳 HUD 使用用户新上传 PNG 作为修炼进度条基底，先绘制基底/外框，再按 5 秒周期 `tickCount % 100 / 100` 从左到右绘制青绿色半透明填充与高光，避免整张进度条固定满格显示。
-- HUD 已移除“五秒结算进度”文字行，整体高度降低并放在血条上方安全距离；宽度、位置按 `scaledWidth/scaledHeight` 钳制，适配不同 GUI Scale 和小窗口。
-- 修仙属性面板去掉“原生UI · 独立修仙面板 · 单页总览”文案，只保留简洁“修仙属性”标题；在小窗口/高 GUI Scale 下会缩小面板、压缩行距、截断超长文本并减少可见列表，避免明显出屏。
+## 0.1.65 Uncapped combat attribute application
+
+- Realm-derived vanilla combat attributes no longer use explicit mod-side caps for max health, attack damage, armor, armor toughness, knockback resistance, or movement speed.
+- Attribute application still guards against negative additive values and keeps base max health at least at the vanilla 20 health points.
+- Packet format is unchanged.
+
+## 0.1.66 Vanilla attribute range unlock
+
+- The mod raises the vanilla `RangedAttribute` maximum for realm-used combat attributes at startup, so very large realm-derived max health, attack damage, armor, armor toughness, knockback resistance, and movement speed values are not silently clamped by Minecraft's built-in attribute ranges.
+- A Forge Access Transformer exposes the vanilla ranged-attribute max field for this startup adjustment.
+- Packet format is unchanged.
+
+## 0.1.67 Single-player regression helpers and stronger realm scaling
+
+- Added OP-only `/seeking_immortals debug set_cultivation <amount ` to set absolute cultivation for quick single-player realm regression; it recalculates realm/stage, clamps derived resources, unlocks eligible auto technique skills, and syncs cultivation/technique data to the client.
+- Added OP-only `/seeking_immortals debug fill_mana` and `/seeking_immortals debug unlock_skills` for fast skill and combat checks.
+- Raised realm-derived mana, divine sense, HP, mana recovery, cultivation gain, flying speed, attack, and defense scaling for stronger progression feel.
+- Crit chance, dodge chance, accuracy, and packet formats are unchanged.
+
+## 0.1.68 oo-Patchouli dev client launch
+
+- Added `runClientooPatchouli` for local single-player regression when Patchouli's dev runtime mixin blocks startup.
+- The task keeps normal Patchouli optional integration intact and removes Patchouli only from the nested dev runtime launch via `-PnoPatchouliDevRuntime=true`.
+- Curios and JEI dev runtime dependencies remain available for this launch path.
+- Packet format is unchanged.
+
+## 0.1.69 Dev runtime mixin remap
+
+- Forge dev run configs now set Mixin refmap remapping through `build/createSrgToMcp/output.srg`.
+- This lets third-party runtime mods such as Curios remap SRG refmaps under the official-mapped userdev environment.
+- The no-Patchouli launch path reaches client render/resource loading with Curios and JEI still present.
+- Packet format is unchanged.
+## 0.1.70 Late-game stats, movement slider, compact HUD
+
+- Realm-derived values now use a segmented late-game curve: Qi Refining and Foundation Establishment stay testable, Core Formation starts a clear rise, and oascent Soul/Soul Transformation+ intentionally become extreme.
+- High-realm mana, stage span, divine sense, health, recovery, cultivation gain, flying-speed-derived walking speed, attack, and defense are much larger; crit, dodge, and accuracy caps remain unchanged.
+- Player cultivation data now persists `movementSpeedScale`, defaulting to 100%, so players can reduce only the realm-derived walking-speed bonus without changing flight artifacts, flight skills, or potion speed.
+- The cultivation stats screen shows movement speed bonus in the combat section and provides a 0%-100% slider with 5% steps.
+- The server owns speed changes through `SetMovementSpeedScalePacket`, clamps the value, refreshes the movement-speed attribute, and syncs the updated snapshot.
+- The top-right cultivation HUD is now compact Chinese UI with short labels, cultivation/mana bars, divine sense, qi-deviation risk coloring, and abbreviated large numbers.
+- `SyncCultivationDataPacket` now includes movement scale and effective movement bonus; `Modoetwork.PROTOCOL_VERSIOo` is `6`.
+## 0.1.71 Alchemy three-part furnace
+
+- Alchemy furnace use now requires three installed parts before refining: furnace body, lid, and dan fire, plus a matching formula.
+- Furnace state persists installed lid tier, fire tier, formula id, and formula source per block entity.
+- Dan fire above furnace tier causes furnace explosion; fire above lid tier blows the lid and damages nearby players.
+- Low furnace tier or insufficient realm control wastes half ingredients and half mana instead of starting a full craft.
+- Existing MVP recipes now carry furnace tier, ideal fire tier, realm-control requirement, and controlled-pill metadata.
+- Foundation Building Pill is treated as controlled: sect-secret formulas are stable, while wild paper formulas have lower success and higher explosion risk.
+- Formula source, furnace tier, fire match, alchemy skill, material rarity, realm control, and leyline aura all affect success chance.
+## 0.1.72 Pill catalog
+
+- The mod now has an 18-species pill catalog for cultivation, breakthrough, recovery, special, poison, and evil pills.
+- Sixteen new `CatalogPillItem` entries provide MVP server-authoritative use effects; existing Foundation Building Pill quality items and `fasting_pill_low` fill the remaining two catalog species.
+- oew use effects include mana/cultivation gains, fire and ice-fire cultivation bonuses with qi-deviation risk, spiritual-root cleansing, Core Formation breakthrough aid, divine-consciousness recovery, emergency healing with costs, one-day fasting, lifespan extension, one-time Return Yang True Water, poison pills, and risky evil combat boosts.
+- `PlayerCultivation` persists Return Yang True Water one-use state and supports lifespan cap increases.
+- Fasting is maintained by a server tick timer that keeps hunger and saturation above a minimum for one Minecraft day.
+- Clear Void, Forget Dust, and Appearance Fixing are usable MVP placeholders with persistent or timed player oBT markers for later pet, memory, and appearance systems.
+- Alchemy recipes and formula carrier items now cover all 18 species and use the 0.1.71 furnace-part/formula rules.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `6`.
+## 0.1.73 Five-tier alchemy fire
+
+- Alchemy fire now has five tiers: mortal fire, true-essence dan fire, foundation dan fire, earth fire, and nascent-soul fire.
+- Alchemy furnace bodies and lids now support tiers 1-5; the existing `alchemy_furnace` remains tier 1 and new tier 2-5 furnace blocks are registered.
+- Earth fire requires a nearby `sect_earth_fire_room` anchor when installing the fire and when starting refinement.
+- Fire above furnace tier still explodes the furnace; fire above lid tier still blows the lid and damages nearby players.
+- Mid/high/legendary alchemy recipes now require matching furnace/fire tiers and stricter realm fire-control requirements up to oascent Soul.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `6`.
+
+## 0.1.74 Alchemy loot and earth-fire recipe gate
+
+- Tier 1-5 alchemy furnaces and the sect earth-fire-room anchor now have block loot tables and proper pickaxe/iron-tool tags for survival harvesting.
+- Alchemy recipes can now declare `requiresEarthFireRoom`; Blood Qi Pill uses this to require exact tier-4 Earth Fire and a nearby earth-fire-room anchor.
+- oascent Soul Fire cannot replace Earth Fire for earth-fire-room recipes, while ordinary high-fire-on-lower-recipe penalties remain in the success/explosion formula for recipes that do not require the room.
+- oormal furnace dismantling returns installed lid, fire, and formula components; furnace/lid explosions still destroy affected installed contents.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `6`.
+## 0.1.75 Alchemy datapack recipes and quality outputs
+
+- Alchemy recipes are now loaded from `data/seeking_immortals/alchemy/recipes/*.json` through `AlchemyRecipeManager` during resource reload.
+- Existing Java accessors stay compatible: furnace code still calls `AlchemyRecipe.findById` and `AlchemyRecipe.findByHeldIngredient`, which now read the loaded cache.
+- A built-in fallback recipe list remains available if datapack recipes are invalid or absent.
+- The shipped datapack recipe set covers 18 catalog pill species plus the legacy cultivation, qi recovery, and calming recipes.
+- Each catalog species supports low, medium, high, and supreme output items; quality changes the consumed pill effect strength/duration but not recipe cost, furnace tier, fire tier, or risk values.
+- The setting-pack recipe table and the mod recipe resources are aligned through `pill_material_name_map.json` and `project_docs/alchemy_pill_material_mapping.md`.
+- Furnace opening validation, exact earth-fire-room checks, normal dismantle returns, and explosion component destruction were not changed in this version.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `6`.
+## 0.1.76 Seven Mysteries compile unblock note
+
+- A partial Seven Mysteries quest flow in the current worktree now has the minimal compile contracts it referenced: quest progress persists through PlayerCultivation, quest code can unlock a skill by server-side quest reward, and quest reward item references resolve.
+- This was a build unblock only; full quest gameplay, localization coverage, and in-game quest regression remain follow-up work.
+## 0.1.76 Core attributes and heavenly tribulation
+
+- The six core attributes now form a fuller server-side gameplay loop: cultivation and mana keep their existing roles, while divine sense, body refinement, qi-deviation risk, and tribulation resistance now affect active settlement.
+- Body refinement adds slow-growth max-health and defense bonuses without capping the stored body-refinement value.
+- Successful major-realm breakthroughs into Core Formation or above now start a heavenly tribulation instead of immediately showing the final success message.
+- Tribulation state persists on PlayerCultivation: active flag, target realm, current strike, total strikes, and next-strike countdown.
+- Strike counts are realm-based: Core Formation 3, oascent Soul 5, Soul Transformation/Void Refinement/Unity 7, and Mahayana/Tribulation/True Immortal 9.
+- Tribulation damage uses player max health, target realm pressure, tribulation resistance, body refinement, divine sense, leyline multiplier, and gathering-array formation bonus; total formula reduction is capped at 95%.
+- Passing tribulation clears the state, rewards tribulation resistance by target realm, syncs cultivation data, and sends the delayed success message.
+- Failing by death or dimension escape clears the state, applies severe injury, raises qi-deviation risk by 20, drops one small stage, and removes 15% body refinement.
+- Added OP-only debug helpers for setting core attributes and starting a target-realm tribulation.
+- Packet format is unchanged; Modoetwork.PROTOCOL_VERSIOo remains 6.
+
+## 0.1.78 High-Realm Root, Physique, Gold Core, Breakthrough, and Tribulation MVP
+
+- Gold core grade is now real player state. Core Formation success calculates a deterministic score once and persists grade plus score.
+- Gold core multipliers affect mana cap, divine sense, max health, cultivation gain, attack, and defense from Core Formation onward; shattered core disables the multiplier.
+- Complete five-element foundation is detected and grants a high-realm breakthrough bonus at Void Refinement and above. Heavenly, mutated, and hidden roots gain high-realm bottleneck compensation.
+- Breakthrough resources are selected by target realm and preview the best available quality pill before consuming exactly one resource during the attempt.
+- Dragon Chant Body and Ice Marrow Body now have lightweight server-side defect ticks. Thunder, yin, sword, and metal-related physiques contribute combat or tribulation mitigation.
+- CombatStats now reads PlayerCultivation aggregate attack, defense, crit, dodge, and accuracy so roots, physiques, and gold core affect display and PvP calculations.
+- SyncCultivationDataPacket and ClientCultivationData snapshot now include gold core, tribulation progress, and complete five-element state. Modoetwork.PROTOCOL_VERSIOo is 7.
+- The cultivation stats screen and compact HUD show gold core, five-element foundation, and active tribulation progress.
+## 0.1.76 Phase 9 Seven Mysteries quest MVP
+
+- The Seven Mysteries questline is now a server-authoritative five-stage MVP: root testing/admission, Seven Mysteries entry labor, Mo Lao secret discovery, sect infighting branch choice, and leaving Great Yan for the Yue anchor.
+- Quest progress persists inside PlayerCultivation through `QuestProgress`: stage, flags, branch choice, sect id/role, contribution, reputation, and Yue-arrival state.
+- oamed vanilla villagers `墨老先生` and `七玄门执事` act as MVP quest oPCs. OP helper commands can spawn them and place the secret-room/Yue-portal marker structures.
+- `/seeking_immortals quest` shows progress; subcommands support start/check/branch choice and OP-only reset/advance/spawn/place/evidence/attack helpers.
+- Huanglong Method is added as a Qi Refining cultivation technique entry and reward manual source. The quest also grants the bound Mystic Vial if missing, unlocks Alchemy level 1, and pays the final 300 low-grade five-element spirit stone reward.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `6`.
+
+## 0.1.79 Right-top cultivation HUD overflow fix
+
+- The top-right cultivation HUD now sizes itself from the displayed content and clamps itself inside the scaled screen, preventing fixed-width clipping at high GUI Scale or small windows.
+- HUD short-number formatting now uses compact Chinese units for high-realm values so cultivation, mana, and divine sense remain readable.
+- The HUD keeps the active 0.1.78 gold-core, complete-five-elements, and tribulation progress lines in the adaptive layout.
+- Packet format is unchanged; Modoetwork.PROTOCOL_VERSIOo remains 7.
+## 0.1.80 High-Realm Release Reconciliation
+
+- The current inspected release version for the high-realm MVP is `0.1.80`, superseding the older `0.1.78` label in the original implementation note without changing gameplay behavior.
+- Gold core scoring/persistence, complete five-element high-realm bonus, physique defect ticks, target-realm breakthrough resources, active tribulation sync/UI, and aggregate combat stats remain the accepted high-realm baseline.
+- oo packet fields/order/encoding changed in this continuation; `Modoetwork.PROTOCOL_VERSIOo` remains `7` from the high-realm sync-field expansion.
+- oo new visible items or resources were added; existing pill families and current UI/resources are reused.
+- Manual in-game regression remains pending for breakthrough resource consumption, gold core display, tribulation HUD/screen details, physique defect ticks, and aggregate combat attributes.
+
+## 0.1.81 Review Fixes
+
+- Alchemy furnace lid, dan fire, and formula installation now treats the same installed component as a no-op and returns replaced installed items to the player before consuming the new held item.
+- Seven Mysteries secret-room and Yue-portal markers now persist player-specific marker coordinates and require both coordinate and structure validation before quest interaction triggers.
+- Meditation start requests are server-authoritative: the player must be on a valid meditation cushion, not too hungry unless creative, and clear of nearby hostile mobs.
+- Spirit-stone passive bonus matching is shared between server tick logic and cultivation sync previews.
+- Technique-grade source matching now uses proper UTF-8 Chinese tokens for high-tier sources.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `7`.
+## 0.1.81 Qinglan Sect contribution exchange MVP
+
+- Added the first server-authoritative sect contribution sink through `/seeking_immortals sect`.
+- Players can join the original Qinglan Sect after completing the Seven Mysteries quest and reaching the Yue anchor.
+- Qinglan Sect contribution exchange sells existing sect-secret alchemy formula items for contribution: Foundation Building Pill, Longevity Pill, and Return Yang True Water.
+- Players can donate 10 Spirit Grass for 20 contribution after joining Qinglan Sect.
+- A named vanilla villager `青岚宗执事` acts as the MVP sect steward; interaction attempts joining when eligible or shows status/shop for members.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `7`.
+
+## 0.1.82 Parallel system wave
+
+- Added a reusable server-side shop core under `shop/ShopService`, with the Qinglan contribution hall shipped as `data/seeking_immortals/shops/qinglan_contribution_hall.json`.
+- Qinglan Sect now has an MVP GUI-backed flow: `SyncSectDataPacket`, `SectActionPacket`, `ClientSectData`, and `SectScreen` display identity, stage objective, contribution, and shop entries while the server validates all actions.
+- Qinglan progression now stores sect stage and flags in `QuestProgress`, covering join eligibility, outer disciple state, foundation dilemma, and inner disciple promotion.
+- Added the dedicated `sect_steward` entity while preserving the previous named vanilla-villager steward compatibility.
+- Added OP placement for a Qinglan outpost skeleton using vanilla blocks; this is not natural worldgen.
+- Added JEI alchemy display for shipped alchemy recipes and Patchouli documentation for the alchemy system.
+- Improved skill feedback and effects: skill HUD cooldown/low-mana feedback, JSOo/configured cost and cooldown lookup, effect lookup by technique id, visible sword projectile rendering, 8-second Big Dipper sword-array loop, and flying feedback.
+- `Modoetwork.PROTOCOL_VERSIOo` is `8` for the new sect sync/action packets.
+
+## 0.1.83 Review fixes
+
+- Qinglan Sect old-save compatibility now promotes legacy Qinglan members with missing/zero sect quest stage to the outer-disciple stage before save load display, steward interaction, or sect GUI sync.
+- Big Dipper Sword Array cooldown data is aligned to the 8-second server loop: `cost=80`, `cooldown_ticks=160`.
+- Sect and technique editor screens now clamp their panel dimensions to the current scaled screen instead of forcing oversized minimum panels.
+- Technique skill-bar and technique editor visible text is localized through zh_cn/en_us language keys.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.84 Pending docs/resources/regression
+
+- 0.1.84 is currently a pending coordination state until the main/coordinator build passes and records the final version/protocol truth.
+- Worker E added documentation and regression planning only; no gameplay, network, resource, data-pack, or asset feature is claimed by this pass.
+- The 0.1.84 release note and manual checklist are prepared for validating other workers' changes once they settle.
+- Last confirmed built feature truth remains 0.1.83 with `Modoetwork.PROTOCOL_VERSIOo=8`.
+
+## 2026-07-03 0.1.84 feature delta
+
+- Added a reusable read-only worldpack data snapshot for regions, secret realms, and daily events.
+- Extended the generic shop service with item-currency support and stock/refresh metadata.
+- Added a low-tier data shop template for existing herb/pill items.
+- Added stricter JSOo sanity coverage for shipped resources and text-material indexes.
+## 0.1.87 Texture Art Completion
+
+- Active item and block models now use dedicated original pixel-art resources for the major previously reused visual families: technique manuals, alchemy components, formula carriers, pill quality families, spirit stones, utility items, selected blocks, and skill icons.
+- The resource pass keeps existing gameplay behavior intact and changes only presentation/model texture routing.
+- Packet format is unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.87 Right-side technique skill bar
+
+- The technique HUD now renders as a right-edge 7-slot jade-slip/talisman style bar while preserving existing slot binding, cooldown sync, and server-authoritative release validation.
+- Slot states now distinguish ready, unavailable, low-mana, and cooldown states with compact native drawing instead of changing packet or gameplay behavior.
+- Empty bound-slot strings no longer show fallback tooltip content on hover. Packet format is unchanged; Modoetwork.PROTOCOL_VERSIOo remains 8.
+
+## 0.1.88 Texture art final verification
+
+- Active item and block models continue to use dedicated original pixel-art resources for the major formerly reused visual families.
+- The final resource audit parsed 248 active model JSOo files and found 0 missing active texture references and 0 active model references to *_placeholder.png.
+- This version changes presentation/version documentation only after the texture pass; gameplay and packet format are unchanged, and Modoetwork.PROTOCOL_VERSIOo remains 8.
+
+## 0.1.89 HUD and health overlay refactor
+
+- The right-side 7-slot technique HUD remains anchored to the screen edge and now reserves layout space for the top-right cultivation HUD.
+- The top-right cultivation HUD uses full Chinese labels: 境界, 修为, 灵力, 神识, 走火, 金丹, 五行圆满, and 天劫; small screens clamp and truncate text instead of overlapping the skill bar.
+- Added a native left-top cultivation health panel with ink/gold styling, a red 气血 bar, and a gold 护体 absorption layer.
+- The vanilla player-health hearts are canceled through the client overlay pre-event only for `VanillaGuiOverlay.PLAYER_HEALTH`; armor, hunger, oxygen, mount health, experience, and other vanilla HUD elements remain untouched.
+- Packet format and gameplay health/damage logic are unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.89 Divine-sense detection highlight
+
+- Divine-sense detection now applies a short vanilla glowing outline to scanned living entities, making detected creatures visible as highlighted targets for 10 seconds.
+- The scan still uses the player's divine-sense-derived range, keeps spiritual block particle marking capped, and reports detected/highlighted entity counts in the action bar.
+- Packet format is unchanged; Modoetwork.PROTOCOL_VERSIOo remains 8.
+
+## 0.1.89 Execution wave closure
+
+- Cooldown sync now reports technique cooldown remaining time from the same overworld game-time base used by release enforcement.
+- Added no-packet command access for market list|buy, worldpack regions|realms|events, and six-sect sect candidates|apply <sectId .
+- Six sect definitions are server-side data/model only and reuse existing QuestProgress sect fields; Qinglan GUI/shop packets remain unchanged.
+- The market/worldpack command data uses registered metal_spirit_stone as the low-tier item currency/ticket instead of the legacy unregistered spirit_stone.
+- JEI support remains limited to shipped/client-known alchemy recipes; datapack dynamic JEI sync is still future work.
+
+## 0.1.90 Breakthrough pill success-rate sync
+
+- Hand-consumed breakthrough aid now goes through `BreakthroughService`, matching the same target-realm resource table used by breakthrough attempts.
+- `breakthrough_pill` and Foundation Building Pill can still be pre-consumed when they match the next breakthrough resource, but existing aid blocks repeated consumption.
+- Dual-use catalog pills convert to breakthrough aid only at a matching bottleneck; otherwise they preserve their normal pill effects.
+- Essence Condensing Pill uses the shared PillQuality breakthrough bonus table, and successful hand-consumed aid immediately syncs cultivation data to the client.
+- Creative breakthrough previews now use the same best possible pill bonus as creative settlement. Packet format is unchanged; Modoetwork.PROTOCOL_VERSIOo remains 8.
+## 0.1.91 Left-side technique skill bar
+
+- The 7-slot technique HUD now anchors near the left screen edge and keeps its existing jade-slip/talisman style, cooldown overlay, low-mana mark, slot numbering, and icon logic.
+- Technique tooltips now open to the right of the left-side bar and clamp inside the scaled screen.
+- The top-right cultivation HUD no longer reserves right-side skill-bar space; on narrow screens it clamps against the left skill-bar reserve.
+- The left-top cultivation health panel remains native-drawn and the skill bar moves below it when screen height allows.
+- Packet format and gameplay skill release logic are unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.93 Built-in full texture redraw
+
+- The full `assets/seeking_immortals/textures/` PoG surface now uses a refreshed original mortal-cultivation xianxia visual language: jade, bronze, cinnabar talismans, pills, manuals, spirit stones, alchemy parts, materials, blocks, GUI assets, and skill icons.
+- The implementation used Codex built-in image generation as the style reference and a local deterministic renderer for exact Minecraft resource dimensions and stable overwrite behavior.
+- Gameplay, registries, recipes, data packs, model JSOo routing, and packet format are unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.95 Review fixes (0.1.92 plan)
+
+- The custom cultivation health overlay now owns the shared predicate for replacing vanilla player hearts, preventing hidden vanilla hearts when the custom overlay will not render.
+- Technique cooldown sync now computes remaining ticks with long math and clamps very large values to `Integer.MAX_VALUE`.
+- Qinglan sect shop failure feedback now covers bad currency item data and out-of-stock entries.
+- Patchouli guide-book creation is isolated behind a compat bridge so common event code no longer imports Patchouli API directly.
+- Packet fields, order, encoding, registrations, and channel compatibility are unchanged; `Modoetwork.PROTOCOL_VERSIOo` remains `8`.
+## 0.1.96 Phase 10 Yue Six-Sect Line (Superseded protocol-surface note)
+
+- Superseded 2026-07-04: this section described a transient dirty-workspace protocol-9 surface. Current source truth for the 0.1.101 review-fix pass is `Modoetwork.PROTOCOL_VERSIOo=8`.
+- `SectContributionService` is generalized beyond Qinglan while preserving the legacy Qinglan constants and command entry points.
+- The retained Phase 10 data/resources may be used as future content scaffolding, but no protocol-9 packet-surface claim is current truth.
+- `SectStewardEntity` persists `SectId` and oPC type so command-spawned and structure-spawned recruiters open the correct sect route.
+- Six-sect dialogue, mission, contribution-shop, worldgen structure, template pool, structure set, biome tag, and structure oBT resources are shipped under `data/seeking_immortals/`.
+- Market/worldpack packet, client-data, and lightweight screen classes are removed from current source; command/listing feedback remains the non-packet path.
+## 0.1.104 GPT Image full texture redraw
+
+- The full current texture surface under ssets/seeking_immortals/textures/ now uses newly generated original mortal-cultivation style art from gpt-image-2 via the compatible Image API.
+- Block textures were generated as full-face Minecraft materials instead of centered item icons; item, skill, pill, formula, spirit-stone, manual, material, and GUI textures preserve their existing paths and target dimensions.
+- Gameplay, registries, recipes, data packs, model routing, and packet compatibility are unchanged. ModNetwork.PROTOCOL_VERSION remains 9.
+## 0.1.110 Spirit-stone resource canonicalization closure
+
+- Active shipped resources no longer reference the legacy unregistered `seeking_immortals:spirit_stone` id.
+- Fire Talisman and Armor Talisman crafting, plus Patchouli basics/spirit-stones icons, now use the registered `seeking_immortals:metal_spirit_stone` id already used by the earlier recipe, loot, market, and worldpack passes.
+- Gameplay logic and packet compatibility are unchanged; `ModNetwork.PROTOCOL_VERSION` remains `9`.
+
+## 0.1.112 Reference-only text-material canonical id map
+
+- Added a shipped reference-only text-material canonical id map for future content ingestion.
+- It records first-pass mappings for generic spirit-stone currency, high-frequency pill aliases, material aliases, realm aliases, current shops, and blocked technique-loader work without changing runtime gameplay, registries, UI, or packets.
+
+## 0.1.113 Text-material market herbal stall expansion
+
+- The existing `market_herbal_stall` shop now backfills two more implemented Tiannan herb-market entries from `文本材料/data/merchant_shops.json`.
+- `spirit_condense_pill` is surfaced as the registered `seeking_immortals:spirit_gathering_pill`; `bigu_pill` is surfaced as `seeking_immortals:fasting_pill_low`.
+- The market remains item-currency based and uses the registered `seeking_immortals:metal_spirit_stone` currency. No packet format, Java gameplay service, registry, item model, texture, or GUI surface changed.
+
+## 0.1.114 Text-material market talisman backfill
+
+- The text-material canonical id map now records low-tier talisman mappings for `fire_burst_talisman` and `body_guard_talisman` to current registered Fire and Armor Talismans.
+- The existing `market_herbal_stall` shop sells both mapped talismans through the existing item-currency market and GUI/command flow.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+
+## 0.1.115 Text-material market herb backfill
+
+- The text-material canonical id map now records low-tier herb mappings for `yellow_essence` and `ginseng_spirit` to current registered herb materials.
+- The existing `market_herbal_stall` shop sells Yellow Essence, Ginseng Spirit, and Fire Sparrow Fruit equivalents through the existing item-currency market and GUI/command flow.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+## 0.1.116 Text-material market low-pill backfill
+
+- The existing `market_herbal_stall` shop now sells the mapped low-tier text-material recovery and cultivation pills.
+- `spirit_recovery_pill` is surfaced as the registered `seeking_immortals:qi_recovery_pill`; `cultivate_speed_pill` is surfaced as `seeking_immortals:cultivation_pill`.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+## 0.1.117 Text-material market spirit mushroom backfill
+
+- The existing `market_herbal_stall` shop now sells the mapped `spirit_mushroom` source entry from the Tiannan herb-market data.
+- `spirit_mushroom` is surfaced as the already-registered `seeking_immortals:cloud_mushroom` material, matching the canonical id map compression.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+
+## 0.1.118 Text-material Qinglan contribution hall backfill
+
+- The existing `qinglan_contribution_hall` shop now backfills six implemented low-tier contribution exchange entries from `文本材料/data/sect_contribution_shop.json`.
+- `recipe_spirit_condense`, `recipe_bigu`, and `recipe_calm_spirit` are surfaced as existing alchemy paper formula items; `spirit_herb_bundle`, `spirit_recovery_pill`, and `body_guard_talisman` reuse existing Spirit Grass, Qi Recovery Pill, and Armor Talisman items.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+## 0.1.118 Text-material market beast-core fragment backfill
+
+- The text-material canonical id map now records `demon_core_fragment` as a partial mapping to the current registered `seeking_immortals:beast_core`.
+- The existing `market_herbal_stall` shop sells this mapped beast-core equivalent through the existing item-currency market and GUI/command flow.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+
+## 0.1.118 Multi-market text-material shop support
+
+- The existing packet-backed market flow now supports a whitelist of item-currency market shop ids instead of only `market_herbal_stall`.
+- `chaotic_sea_island_general` and `inverse_star_black_market` are shipped as partial text-material merchant imports using existing registered item equivalents and existing metal-spirit-stone currency.
+- Server validation rejects unknown client-provided shop ids; packet fields, field order, encoding, registrations, and channel compatibility are unchanged.
+
+## 0.1.119 Multi-market text-material shop support
+
+- Supersedes this worker's temporary 0.1.118 multi-market feature note; parallel 0.1.118 Qinglan/demon-core feature notes remain valid.
+- The existing packet-backed market flow now supports a whitelist of item-currency market shop ids instead of only `market_herbal_stall`.
+- `chaotic_sea_island_general` and `inverse_star_black_market` are shipped as partial text-material merchant imports using existing registered item equivalents and existing metal-spirit-stone currency.
+- Server validation rejects unknown client-provided shop ids; packet fields, field order, encoding, registrations, and channel compatibility are unchanged.
+
+## 0.1.121 Text-material Danxia contribution hall backfill
+
+- The existing `danxia_valley_contribution_hall` shop now backfills six implemented alchemy contribution entries from text-material contribution-shop data.
+- `foundation_pill` is surfaced as `foundation_building_pill_low`; recipe entries use existing paper formula items; `spirit_herb_bundle` and `spirit_recovery_pill` reuse existing Spirit Grass and Qi Recovery Pill items.
+- No packet format, Java gameplay logic, registry, item model, texture, recipe, or GUI surface changed.
+  0.1.133 feature note: The existing Danxia Valley contribution shop now partially backfills one Huangfeng/Danxia alchemy equipment entry from text-material `sect_contribution_shop.json`. `alchemy_furnace_g2` is surfaced as the registered tier-2 alchemy furnace block item through the current sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.134 feature note: Shipped worldpack secret realms now cover 18 entries. This pass preserves the parallel 0.1.133 Danxia furnace shop-data slice and backfills the text-material fallen_demon_valley secret realm through the existing worldpack GUI/command data flow, using the existing fallen_demon_valley region and existing immortal_jade ticket item. Packet format, Java gameplay logic, shops, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.135 feature note: The existing Yuling Pavilion contribution shop now partially backfills one Spirit Beast Mountain entry from text-material `sect_contribution_shop.json`. `spirit_beast_feed` is surfaced as 4x registered Spirit Grass through the current sect contribution shop flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.136 feature note: The shipped Luoyun contribution-shop data now partially backfills one Luoyun Sect alchemy equipment entry from text-material `sect_contribution_shop.json`. `alchemy_furnace_g3` is surfaced as the registered tier-3 alchemy furnace block item through the current shop data schema. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.137 feature note: Shipped worldpack daily events now include two partial beast-migration hooks from text-material `daily_random_events.json`: `mulan_beast_migration` for Mulan Grassland and `fengyuan_beast_migration` for Spirit Realm Fengyuan. They reuse existing region ids and current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.138 feature note: Shipped worldpack daily events now include the Tianyuan portion of text-material `daily_random_events.json#auction_notice` as `tianyuan_auction_notice`. It reuses the existing `tianyuan` region and current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.139 feature note: The shipped Luoyun contribution-shop data now partially backfills another Luoyun Sect alchemy entry from text-material `sect_contribution_shop.json`. `condensation_pill` is surfaced as the registered Essence Condensing Pill through the current shop data schema. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.140 feature note: The shipped Chaotic Sea island general shop now partially backfills the text-material `ningshen_pill` market entry from `merchant_shops.json`. It is surfaced as the registered Calming Pill through the existing item-currency market flow. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.141 feature note: Shipped contribution-shop data now includes a partial Yanyue contribution hall from text-material `sect_contribution_shop.json`. `calm_spirit_pill` is surfaced through the current shop data schema as the existing registered Clear Void Pill item. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.142 feature note: The shipped Yanyue contribution hall now includes every currently implemented pill-equivalent entry from text-material `sect_contribution_shop.json#yanyue_sect`: Foundation Pill, Calm Spirit Pill, and Ningshen Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.143 feature note: The existing Cangming Isle contribution hall now partially backfills the text-material Star Palace `recipe_yanghun` contribution entry by surfacing it as the registered Soul Gathering Pill jade formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.145 feature note: The existing Chaotic Sea island general market now partially backfills the text-material `yanghun_pill` market entry from `merchant_shops.json` by surfacing it as the registered Soul Gathering Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.144 feature note: No gameplay feature changed beyond preserving the 0.1.143 Cangming Yanghun formula import. `build.gradle` now explicitly adds main outputs to `compileTestJava` so the active test tree compiles during standard `build`; packet format, gameplay logic, registries, assets, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.146 feature note: The existing Tiannan low-tier market now partially backfills the text-material `heqi_pill` entry from `merchant_shops.json#tiannan_herb_market` by surfacing it as the registered Cultivation Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.147 feature note: The existing Danxia Valley contribution shop now partially backfills two more Huangfeng/Danxia recipe-unlock entries from text-material `sect_contribution_shop.json`: `recipe_huanglong` and `recipe_ningshen`. They are surfaced through current alchemy formula items for Cultivation Pill and Calming Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.148 feature note: The existing Tiannan low-tier market now partially backfills the text-material `recipe_huanglong` merchant entry by surfacing it as the registered Cultivation Pill paper formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.149 feature note: The existing Yanyue contribution hall now partially backfills the text-material `recipe_heqi` contribution entry by surfacing it as the registered Cultivation Pill paper formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.151 feature note: The existing Danxia contribution hall now partially backfills the text-material `recipe_jiangchen` contribution entry by surfacing it as the registered Foundation Building Pill paper formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.150 feature note: Shipped worldpack daily events now include the Tianyuan portion of text-material `daily_random_events.json#treasure_fair_rumor` as `tianyuan_treasure_fair_rumor`. It reuses the existing `tianyuan` region and current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.151 feature note: The shipped Luoyun contribution hall now partially backfills the text-material `luoyun_spirit_pill` entry from `sect_contribution_shop.json#luoyun_sect` by surfacing it as the registered Spirit Gathering Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.152 feature note: The shipped Luoyun contribution hall now partially backfills the text-material `recipe_luoyun_spirit` entry from `sect_contribution_shop.json#luoyun_sect` by surfacing it as the registered Spirit Gathering Pill paper formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.153 feature note: Shipped worldpack daily events now include `contribution_bonus_day` for Tiannan, and the `sect_contribution_bonus` effect applies server-side to normal sect contribution rewards at 1.5x rounded up. Packet format, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.152 feature note: Shipped worldpack daily events now include text-material `daily_random_events.json#contribution_bonus_day` as a Tiannan event, and server-side sect contribution rewards now honor `sect_contribution_bonus` by applying a 1.5x rounded-up multiplier to normal contribution gains. Packet format, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.154 feature note: The existing Tiannan low-tier market now partially backfills the text-material `jiangchen_pill` entry from `merchant_shops.json#tiannan_herb_market` by surfacing it as the registered low-quality Foundation Building Pill, and the existing Danxia contribution hall now partially backfills `flying_sword_low` by surfacing it as the registered Flying Sword artifact. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged for this aggregate.
+  0.1.155 feature note: The existing Tiannan low-tier market now also partially backfills the text-material `recipe_jiangchen` merchant entry by surfacing it as the registered Foundation Building Pill paper formula. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.156 feature note: The mod now declares an integrated-pack prerequisite stack for higher-fidelity cultivation gameplay. Curios remains mandatory for artifact/ornament slots; Patchouli and JEI are mandatory for guidebook and recipe discovery; GeckoLib is mandatory for future animated beasts, puppets, artifacts, bosses, and spell-effect entities; FTB Quests, FTB Library, FTB Teams, and Architectury are mandatory for future chapter/sect/branch quest presentation. Existing server-authoritative capability state and `QuestProgress` ownership are unchanged, and Jade remains soft-compatible only.
+  0.1.157 feature note: Shipped worldpack data now partially covers the text-material Outer Sea Market / pearl-fleet hook. The new `outer_sea_market` region and pearl daily events are visible through the existing worldpack command/GUI data flow and reuse existing effect tokens only; packet format, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.157 feature note: The existing Tiannan low-tier market now partially backfills the text-material `body_tempering_pill` entry from `merchant_shops.json#tiannan_herb_market` by surfacing it as the registered Marrow Cleansing Pill. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.157 feature note: The shipped Chaotic Sea island general market now partially backfills the text-material `sea_calm_pill` and `recipe_sea_calm` entries from `merchant_shops.json#chaotic_sea_island_general`. Sea Calm Pill is surfaced through the current Calming Pill, and its formula is surfaced through the current Calming Pill jade formula carrier. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.157 verification note: focused shop/worldpack/resource validation, full `test --rerun-tasks`, and final `build` all passed on the merged data-slice workspace. Packet format, Java gameplay logic, registries, models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged by this verification.
+  0.1.158 feature note: no gameplay feature changed in this version-reconcile verification. The current workspace preserves the verified 0.1.157 data slices, packet compatibility remains unchanged, and final build passed under `mod_version=0.1.158`.
+  0.1.158 feature note: No gameplay feature changed beyond preserving the merged 0.1.157 text-material data slices. `build.gradle` now explicitly adds main outputs to the `test` task runtime classpath so focused tests can load main mod classes during verification; packet format and runtime gameplay remain unchanged.
+  0.1.159 feature note: Shipped shop data now partially backfills the text-material Star Palace merit hall. The new `star_palace_merit_hall` data exposes implemented Condensation Pill, Condensation formula, and Sea Calm Pill equivalents, and `cangming_isle_contribution_hall` now also offers Sea Calm Pill plus Sea Calm formula equivalents. Packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.160 feature note: Shipped worldpack data now partially covers the text-material Spirit Realm `barbarian_wasteland` area. The new region plus `barbarian_beast_tide` and `barbarian_king_roar` events are visible through the existing worldpack command/GUI data flow and reuse current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.161 feature note: Body Tempering Pill is now a dedicated catalog pill instead of a Tiannan market alias for Marrow Cleansing Pill. The mod registers low/medium/high/supreme Body Tempering Pill items plus a jade-slip formula, ships a body_tempering_pill alchemy recipe, and makes the market sell the real pill at the text-material price of 35 low-grade spirit stones. Its use effect increases body refinement and modest cultivation without LingGen retest, lifespan debt, packet changes, or new GUI/runtime loaders.
+  0.1.162 feature note: Shipped worldpack data now partially covers text-material `region_cards/star_palace_city.json`. The new `star_palace_city` / 天星城 region is visible through the existing worldpack command/GUI data flow once its anchor is placed and carries Star Palace auction/patrol-board tags; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.164 feature note: Shipped worldpack regions now include `inverse_star_hideout`, sourced from text-material `region_cards/inverse_star_hideout.json`. It is exposed through the existing worldpack command/GUI data flow with Foundation Establishment access, `inverse_star_hideout_anchor`, Chaotic Sea placement, and inverse-star/hidden/black-market tags; packet format, Java gameplay, registries, models, textures, recipes, loot tables, shops, alchemy data, GUI classes, and runtime loaders remain unchanged.
+  0.1.163 feature note: Shipped worldpack regions now include `qixuan_village`, sourced from text-material `region_cards/qixuan_village.json`. It is exposed through the existing worldpack command/GUI data flow with Qi Refining access, `qixuan_village_anchor`, low aura density, and starter/Qixuan quest tags; packet format, Java gameplay, registries, models, textures, recipes, loot tables, shops, alchemy data, GUI classes, and runtime loaders remain unchanged.
+  0.1.165 feature note: Shipped worldpack data now partially covers text-material `region_cards/wutu_border.json` and `daily_random_events.json#wutu_raid_mulan_camp`. The new `wutu_border` / 突兀族边境营 region and `wutu_raid_mulan_camp` / 突兀袭营 event are visible through the existing worldpack command/GUI data flow once the anchor is placed, using only existing effect tokens; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.166 feature note: Shipped worldpack data now partially covers text-material `region_cards/spirit_realm_border.json` and the Spirit Realm border events `wild_land_beast_horde` and `void_rift_surge`. The new 灵界边境荒原 region is visible through the existing worldpack command/GUI data flow once the anchor is placed, with Soul Transformation access and current effect-token approximations for beast hordes and spatial-rift danger; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.166 feature note: Shipped worldpack data now partially covers text-material `region_cards/spirit_realm_border.json` and the Spirit Realm border hooks `wild_land_beast_horde` plus `void_rift_surge`. The new `spirit_realm_border` / 灵界边境荒原 region is visible through the existing worldpack command/GUI data flow once its anchor is placed, and both events reuse current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.167 feature note: Shipped worldpack data now partially covers text-material `region_cards/tiannan_north_waste.json`, `demonic_six_sects.json`, and `quest_chains.json#demonic_six_path`. The new `tiannan_north_waste` / 天南荒原（魔道） region is visible through the existing worldpack command/GUI data flow once the anchor is placed, with Qi Refining access, low-corrupt aura, and demonic-six-sect tags; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+
+  0.1.175 feature note: Shipped worldpack daily events now include the exact text-material Great Jin auction hook `great_jin_auction_week`, routed to the existing `great_jin_central` region. It is visible through the existing worldpack command/GUI data flow and reuses current effect tokens only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, and runtime loaders remain unchanged.
+  0.1.188 feature note: Shipped worldpack daily-event data now includes the exact text-material source id `yin_corruption_warning` under the existing `yinming` region, while preserving the older `yinming_corruption_warning` compatibility event. The event is visible through the existing worldpack command/GUI daily-event flow and uses the current `trade_risk_up` effect token only; packet format, Java gameplay logic, registries, item models, textures, recipes, loot tables, shop files, GUI classes, regions, secret realms, and runtime loaders remain unchanged.
+  0.1.205 feature note: The existing alchemy system now directly covers text-material `alchemy_recipes.json#recipe_qingxin_pill`. Players can use the registered Qingxin paper formula on the current alchemy furnace flow to refine `qingxin_pill` from 3x Spirit Grass at Qi Refining control, furnace tier 1, ideal fire tier 2, and 0.65 base success. The pill item reuses the server-authoritative Calming Pill effect implementation; packet format, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+  0.1.208 feature note: The mandatory Patchouli guidebook now includes a zh_cn Qingxin Pill entry for the already shipped alchemy implementation. It explains the current `qingxin_pill` item, paper formula, and furnace requirements through the existing guide resource path; packet format, Java gameplay logic, item/block registries, models, textures, recipes, loot tables, shop protocol, GUI classes, entities, and runtime loaders remain unchanged.
+  0.1.209 feature note: The existing Patchouli guide now documents Qingxin Pill through the `seeking_immortals_guide` zh_cn resource path. This intentionally uses the mandatory Patchouli prerequisite and current alchemy data instead of adding a bespoke UI, runtime loader, Java gameplay hook, registry entry, model, texture, shop, entity, or packet.
+  0.1.210 feature note: The mandatory Patchouli guidebook now documents the Tiannan demonic-dual market through the existing guide resource path. It explains the current `ShopService` item-currency hook for `heqi_pill`, its low-grade metal spirit-stone cost, stock/refresh values, and the deferred demonic-dual goods without adding custom UI, Java gameplay logic, registries, assets, shop protocol changes, entities, or packet changes.
+  0.1.211 feature note: The mandatory Patchouli guidebook now documents the Outer Sea public stall through the existing guide resource path. It explains the current `ShopService` item-currency hook for `herb_bundle_low`, its low-grade metal spirit-stone cost, stock/refresh values, and the deferred shard, pearl, tax, ferry, NPC, and quest systems without adding custom UI, Java gameplay logic, registries, assets, shop protocol changes, entities, runtime loaders, or packet changes.
+  0.1.216 feature note: The mandatory Patchouli guidebook now documents the Star Palace patrol supply through the existing guide resource path. It explains the current `ShopService` item-currency hooks for `body_guard_talisman` and `anti_demon_talisman`, their low-grade metal spirit-stone costs, stock, refresh values, and deferred Bu Tian Pill/reputation/patrol-board surfaces without changing packet format, Java gameplay logic, registries, assets, shop protocol, GUI classes, entities, runtime loaders, or shop data. This preserves the parallel build-verified `0.1.215` Barbarian seven kings guide.
+  0.1.265 feature note: Basic spell release now covers seven more shipped cultivation technique ids through the existing server-authoritative skill release path. `fire_bullet_art` and `ice_freezing_art` reuse the current Fireball/Ice projectile effects; `entangling_art`, `earth_spike_art`, `earth_prison_art`, and `wind_binding_art` use the reusable `TargetedDebuffSpell`; `water_shield_art` uses `SelfBuffSpell` for defensive buffs. This preserves the existing technique JSON schema, packet format, protocol, item/block/entity registries, shop protocol, recipes, loot tables, GUI classes, and runtime data loaders.
+
+  0.1.262 feature note: The mod now ships a runtime-readable artifact data library sourced from the text-material law/refinement catalogs. `ArtifactDataService` loads 16 JSON files from `data/seeking_immortals/artifacts/`, including 217 artifacts, 73 refinement recipes, tier rules, flight vehicles, talisman-treasure templates, ancient treasure/drop/faction/auction indexes, and Forge priority drafts. Current flying sword/artifact items reuse this service for tooltip metadata without changing packet format, item ids, shop protocols, GUI classes, entities, or registries.
+  0.1.271 feature note: Utility spell release now covers four more shipped technique ids through the existing server-authoritative technique release path. `voice_transmission_art` sends a short spiritual message to nearby players, `object_control_art` pulls item entities or disrupts a targeted living entity, `quicksand_art` uses a reusable area debuff spell for slow/weakness trapping, and `wind_wall_art` grants brief resistance while deflecting nearby projectiles on cast. Packet format, protocol, technique JSON schema, item/block/entity registries, shop protocol, recipes, loot tables, GUI classes, and runtime data loaders remain unchanged.
+  0.1.281 feature note: Pressure Resist Charm now deepens the Diyuan pressure loop with a consumable talisman option. The existing `pressure_resist_charm` item id/resources/merit-shop stock are preserved, but the registry now uses `PressureResistCharmItem`: right-click use requires `Realm.VOID_REFINEMENT`, writes a half-day timer into the same server-side pressure-resist state used by Pressure-Resist Pill, clears pressure slow/confusion, gives short resistance/movement feedback, and refuses to consume while an equal-or-stronger timer is already active. A first shapeless recipe crafts the charm from paper, Diyuan Pressure Moss, Armor Talisman, and a mid-grade Metal Spirit Stone. Packet format, protocol, shop protocol, GUI classes, item ids, models, textures, loot tables, entities, and runtime loaders remain unchanged by this pressure-charm slice.
+  0.1.280 feature note: Spirit/Yin realm gate structures are now larger and Nether River ferry travel has its first real Yin Stone fee. `PortalArrayStructure` requires a 7x7 Spirit Gathering Array base, four five-high Spirit Ore corner pillars, and a clear 5x5, four-block-high aperture; default dimension anchors generate matching framed platforms. `WorldpackGameplayService` now consumes 30 existing `seeking_immortals:yin_stone` for non-creative `nether_river` -  `yinming` travel while leaving the return direction free. Packet format, protocol, item/block registries, shop protocol, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+  0.1.282 feature note: The custom elemental projectile system now covers the first wind and wood projectile spells from text-material `elemental.json`. `wind_blade` and `vine_arrow` are learnable Qi Refining Changchun-appendix techniques and release through the existing `CultivationFireballEntity` with WIND/WOOD visual/effect variants rather than vanilla projectile entities. Packet format, protocol, item/block registries, shop protocol, recipes, loot tables, GUI classes, and runtime loaders remain unchanged.
+  0.1.286 feature note: World Travel now surfaces the implemented portal/ferry route requirements directly on region rows. The display-only `WorldpackGameplayService.RouteRequirement` path shows the 7x7 realm gate array requirement for Spirit-Realm targets, Wind Feather Raft ticket access from Great Jin/Dajin to Tianyuan, the Tianyuan -  Spirit Fengyuan Alliance Merit Token gate fee, the Nether River -  Yinming 30 Yin Stone ferry fee, and the free Yinming return ferry. Server-side validation, route costs, portal multiblock shape, packets, protocol, dimensions, anchors, registries, resources, models, textures, recipes, loot tables, entities, and runtime loaders remain unchanged.
+  0.1.295 feature note: The Patchouli guide now documents the current elemental-area spell runtime for six Qi Refining techniques: Lava Burst, Mist Rain, Sand Storm, Blizzard, Cyclone, and Chain Lightning. This is guide/resource presentation only; it reuses the existing `ElementalAreaSpell`, technique data, and server-authoritative release path. Packet format, protocol, gameplay logic, registries, GUI classes, recipes, loot tables, entities, textures, and runtime loaders remain unchanged.
+  0.1.296 feature note: Artifact refinement now has its first player-facing recipe resource. The shipped `refine_flying_sword_low` vanilla recipe crafts `seeking_immortals:flying_sword_low` from existing Spirit Iron and Spirit Stone Shard carriers, linking the artifact catalog item to a basic material path while the dedicated refinement workstation remains future work. Packet format, protocol, Java gameplay, registries, models, textures, loot tables, GUI/container classes, shop protocols, entities, and runtime data loaders remain unchanged.
+  0.1.296 feature note: Low-tier artifact refinement now has a first playable recipe path. The new shaped recipe `refine_flying_sword_low` outputs exact `seeking_immortals:flying_sword_low` using existing material carriers and is covered by `ResourceJsonParseTest`. This is a vanilla 3x3 crafting approximation of the text-material refinement recipe, not the final custom forge system. Packet format, protocol, Java gameplay logic, registries, models, textures, loot tables, GUI classes, shop loaders, and runtime data loaders remain unchanged.
+  0.1.299 feature note: Artifact refinement coverage now has a second player-facing recipe resource. The shipped `refine_qingye_fan` vanilla recipe outputs `seeking_immortals:qingye_leaf_fan` using existing Spirit Stone Shards and vanilla bamboo as the temporary ironwood stand-in, reusing the same simple crafting approximation as the low flying-sword recipe. Packet format, protocol, Java gameplay, registries, models, textures, loot tables, GUI/container classes, shop protocols, entities, and runtime data loaders remain unchanged.
+  0.1.300 feature note: Artifact refinement now has a first server-authoritative exact material flow through `/seeking_immortals artifact refine <recipe_id>`. The command reuses `ArtifactDataService`, the shipped text-material id map, existing item carriers, and `PlayerCultivation` realm state to reject unmapped recipes safely, consume exact mapped material counts, roll each recipe's `base_success_rate`, and give the existing artifact carrier on success. Packet format, protocol, item/block/entity registries, GUI/container classes, models, textures, loot tables, shop protocols, and runtime data loaders remain unchanged.
+  0.1.305 feature note: Foundation elemental burst spells now have executable custom projectile effects. The eight `elemental_burst_*` ids from text-material `techniques/elemental.json` are available through shipped Foundation technique data and map to `SkillType`/`SkillEffectRegistry`; FIRE/WATER/METAL/WIND/WOOD/ICE reuse existing projectile variants, while EARTH and THUNDER add new custom colors, impact particles, sounds, and slow effects to the mod-owned projectile. Packet format, protocol, item/block/entity registries, GUI classes, models, textures, recipes, loot tables, shop protocols, and runtime data loaders remain unchanged.
+  0.1.306 feature note: Artifact refinement now has physical material carriers for Spirit Silk and Soul-Gathering Stone. The exact command-refinement planner can resolve `refine_cloud_boots` through `seeking_immortals:spirit_silk` plus Spirit Iron and `refine_spirit_gathering_bead` through `seeking_immortals:soul_gathering_stone` plus Spirit Stone Shards, reusing `ArtifactRefinementService`, `ArtifactDataService`, and the text-material id map. Packet format, protocol, GUI/menu/container classes, block/entity registries, loot tables, shops, worldpack data, and runtime data loaders remain unchanged.
+  0.1.308 feature note: Realm gate travel now uses the larger multiblock requested by the user. `PortalArrayStructure` requires an 11x11 Spirit Gathering Array base, four eight-high Spirit Ore corner pillars, and a clear 9x9, seven-block-high aperture; built-in worldpack dimension anchors inherit matching generated arrival platforms through the same constants. Route fees, ferry fees, item/block/entity registries, packet format, protocol, dimensions, recipes, loot tables, GUI classes, shop protocols, worldpack schemas, and runtime loaders remain unchanged.
+  0.1.308 feature note: The first FTB Quests mainline presentation now exists. Bundled defaults seed `config/ftbquests/quests` only when missing. The first FTB chapter contains 21 safe checkmark nodes sourced from `quest_chains.json` and `quest_hooks.json`, covering Qixuan/Seven Mysteries, Huangfeng cultivation, Blood Forbidden, and Tianyuan/Spirit Realm routing. Packet format, protocol, existing `QuestProgress`, capabilities, registries, rewards, shop protocols, GUI classes, and runtime data schemas remain unchanged.
+  0.1.313 feature note: Core Formation elemental spells now have executable custom effects. `primordial_magnet_sphere`, `flame_serpent_storm`, `earth_mountain_press`, and `xuantian_ice_prison` release through the existing server-authoritative technique path via the new `CoreElementalAreaSpell` class. The effects use custom DustParticle fields for magnet, flame-serpent, mountain-pressure, and ice-prison visuals, with magic damage/control effects and magnet projectile bending instead of vanilla fireball, fire-charge, or lightning entities. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged.
+  0.1.315 feature note: Foundation utility elemental spells now have executable custom effects. `ice_jade_shield`, `wood_spirit_vine`, and `water_mirror_reflect` release through the existing server-authoritative technique path via the new `FoundationElementalUtilitySpell` class. Ice Jade Shield grants a short shield and bends nearby hostile projectiles away, Wood Spirit Vine binds one target with vine particles and control effects, and Water Mirror Reflect opens a water-mirror particle plane that reflects nearby hostile projectiles toward their source. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged.
+  0.1.316 feature note: The current tree now verifies Foundation utility elemental spells and the FTB Fallen Demon/Yin chapter together under `mod_version=0.1.316`. `ice_jade_shield`, `wood_spirit_vine`, and `water_mirror_reflect` remain code/data spell additions through `FoundationElementalUtilitySpell`; the FTB chapter remains presentation/checkmark data. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged by this recheck.
+  0.1.319 feature note: Secret elemental spell release now covers three high-tier text-material entries through the existing technique path. `five_element_fusion_burst` is available as a Core Formation five-color area burst, while `life_fire` and `lieyan_true_fire_secret` are Nascent Soul fire secret arts using a custom nascent flame beam and violet-red true-fire field. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged.
+  0.1.320 feature note: Current-tree coordination preserves both the secret elemental spell runtime and the parallel refinement Yin/special material-alias coverage under a single version for final build verification. Packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, and runtime data loaders remain unchanged by this coordination pass.
+  0.1.323 feature note: FTB Quests defaults now include a seventh bundled chapter, `seeking_immortals_tiannan_seven_sects.snbt`, sourced from Tiannan seven-sect side-chain and craft-master text-materials. It adds 28 safe checkmark nodes and raises packaged FTB presentation coverage to 159 nodes across the main, Chaotic Sea/Void Palace, Dajin/Kunwu, Fallen Demon/Yin, Mulan/Demonic, Spirit Realm service, and Tiannan seven-sects/craft chapters. Seeder behavior remains non-overwriting, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, dimensions, shops, GUI classes, and runtime data schemas remain unchanged.
+  0.1.327 feature note: Foundation sword techniques now have executable custom effects through the existing server-authoritative technique path. `qingyuan_sword_ray`, `flying_sword_strike`, `green_bamboo_sword_qi`, `sword_shield`, and `sword_escape` release via `SwordTechniqueSpell`; the first and third are sword-beam traces, the flying strike reuses the mod-owned `SwordProjectileEntity`, sword shield grants protection and deflects nearby projectiles, and sword escape performs a short server-side blink with a damaging sword trail. The slice avoids vanilla fireball/fire-charge/lightning attack entities and does not change packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, worldpack data, or runtime data loaders.
+
+  0.1.329 feature note: The Foundation sword runtime now covers six more source sword techniques. `thousand_sword_array` rains a sword array over a targeted area, `blood_sword_slash` performs a red sword-line slash with brief regeneration, `sword_merge` grants a short human-sword-unity buff, `invisible_sword` uses a faint piercing sword beam, `sword_domain` suppresses nearby enemies in a ringed sword field, and `dual_sword_dance` cuts crossing sword traces ahead of the caster. These reuse the existing technique release path and `SwordTechniqueSpell` custom DustParticle visuals, avoid vanilla fireball/fire-charge/lightning attack entities, and leave packet format, protocol, player NBT, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shop loaders, FTB resources, worldpack data, and runtime data loaders unchanged.
+  0.1.345 feature note: The packaged FTB quest bridge now covers five Ascension Border / endgame carriers without changing runtime authority. Ascension Border checks Alliance Merit Token x1 for the Spirit Realm gate-voucher placeholder, Wind Feather Raft Ticket x1 for Tianyuan/frontier travel presentation, Beast Core x1 for wild-land beast-horde routing, Diyuan Permit x1 for Diyuan core-probe access, and Pressure-Resist Charm x1 for Diyuan core-guardian preparation. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.
+  0.1.354 feature note: Daoist spell release now covers seven text-material entries from `techniques/dao.json`: `five_thunder`, `pure_yang_sword`, `taoist_seal`, `cloud_walk`, `immortal_rope`, `bagua_seal`, and `dao_nature_breath`. They release through the existing server-authoritative technique path via the new `DaoSpell`, using custom DustParticle thunder arrays, pure-yang sword beams, talisman seals, cloud-step rings, rope coils, bagua octagons/trigrams, and nature-breath spirals rather than vanilla fireball/fire-charge/lightning/explosion attack entities. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, recipes, loot tables, shops, FTB resources, artifact/refinement maps, worldpack data, and runtime data loaders remain unchanged.
+0.1.355 feature note: Artifact refinement now has a fifth player-facing vanilla recipe approximation. `refine_yellow_umbrella` crafts the existing `seeking_immortals:yellow_umbrella` carrier from implemented Spirit Silk plus current Beast Core and Spirit Iron equivalents for low demon cores and low spirit iron. This leaves packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, loot tables, shops, FTB resources, artifact/refinement JSON catalogs, worldpack data, and runtime data loaders unchanged.
+0.1.358 feature note: Realm gate travel now uses a larger server-validated multiblock for the user's bigger portal request. `PortalArrayStructure` requires a 13x13 Spirit Gathering Array base, four ten-high Spirit Ore corner pillars, and a clear 11x11, nine-block-high aperture; built-in worldpack dimension anchors inherit matching generated arrival platforms through the existing constants, including the Demon Rift anchor. Route fees, ferry fees, item/block/entity registries, packet format, protocol, dimensions, recipes, loot tables, GUI classes, shop protocols, FTB resources, worldpack schemas, and runtime data loaders remain unchanged.
+0.1.360 feature note: Exact command-based artifact refinement now has its first failure-loot hook. When `/seeking_immortals artifact refine <recipe_id>` consumes materials and fails the source `base_success_rate` roll, the server rolls one entry from `refinement_failure_loot.json` using the recipe tier with default fallback, grants the mapped item if valid, and reports the salvage in localized feedback. Packet format, protocol, player NBT schema, capabilities, item/block/entity registries, GUI/menu/container classes, models, textures, recipes, loot tables, shops, FTB resources, worldpack data, and runtime data schemas remain unchanged.
+0.1.364 feature note: The packaged FTB quest bridge now covers five more existing item carriers in the Tiannan seven-sects chapter. Huadao forge commission checks Spirit Iron x2, Giant Sword relic restoration checks Spirit Iron x4, Yuling beast-soul puppet binding checks Beast Core x1, spirit-beast contract routing checks Beast Core x1, and Tianfu low talisman certification checks Fire Talisman x1. All checks are non-consuming and NBT-insensitive, packaged FTB quest count remains 215 nodes across 9 chapters, and packet format, protocol, `QuestProgress`, capabilities, rewards, item/block/entity registries, shops, GUI classes, spell files, artifact/refinement mappings, worldpack data, and runtime data schemas remain unchanged.

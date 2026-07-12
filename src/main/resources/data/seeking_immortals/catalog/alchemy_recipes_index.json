@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "recipes": [
+    {
+      "id": "recipe_bigu",
+      "display": "辟谷丹方",
+      "output": "bigu_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.75
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "display": "聚灵丹方",
+      "output": "spirit_condense_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 1,
+      "success_rate": 0.65
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "display": "清虚丹方",
+      "output": "calm_spirit_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 1,
+      "success_rate": 0.7
+    },
+    {
+      "id": "recipe_huoyuan",
+      "display": "火元丹方",
+      "output": "huoyuan_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.6
+    },
+    {
+      "id": "recipe_ice_fire",
+      "display": "冰火丹方",
+      "output": "ice_fire_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 3,
+      "success_rate": 0.45
+    },
+    {
+      "id": "recipe_bone_marrow",
+      "display": "洗髓丸方",
+      "output": "bone_marrow_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.5
+    },
+    {
+      "id": "recipe_soul_gathering",
+      "display": "聚魂丹方",
+      "output": "soul_gathering_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_foundation",
+      "display": "筑基丹方（残卷）",
+      "output": "foundation_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 3,
+      "success_rate": 0.35
+    },
+    {
+      "id": "recipe_forget_dust",
+      "display": "忘尘丹方",
+      "output": "forget_dust_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.65
+    },
+    {
+      "id": "recipe_dingyan",
+      "display": "定颜丹方",
+      "output": "dingyan_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.68
+    },
+    {
+      "id": "recipe_marrow_repair",
+      "display": "修髓丹方",
+      "output": "marrow_repair_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.52
+    },
+    {
+      "id": "recipe_marrow_extract",
+      "display": "抽髓丸方",
+      "output": "marrow_extract_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.4
+    },
+    {
+      "id": "recipe_soul_break",
+      "display": "断魂丹方",
+      "output": "soul_break_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.38
+    },
+    {
+      "id": "recipe_poison_dragon",
+      "display": "毒龙珠方",
+      "output": "poison_dragon_pearl",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 3,
+      "success_rate": 0.3
+    },
+    {
+      "id": "recipe_condensation",
+      "display": "凝元丹方",
+      "output": "condensation_pill",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 2,
+      "success_rate": 0.4
+    },
+    {
+      "id": "recipe_longevity_fruit",
+      "display": "长生丹方",
+      "output": "longevity_fruit_pill",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 3,
+      "success_rate": 0.22
+    },
+    {
+      "id": "recipe_blood_qi",
+      "display": "血气丹方",
+      "output": "blood_qi_pill",
+      "realm_min": "SPIRIT_SEVERANCE",
+      "material_count": 3,
+      "success_rate": 0.25
+    },
+    {
+      "id": "recipe_huiyang",
+      "display": "回阳真水方",
+      "output": "huiyang_true_water",
+      "realm_min": "NASCENT_SOUL",
+      "material_count": 3,
+      "success_rate": 0.12
+    },
+    {
+      "id": "recipe_bu_tian",
+      "display": "补天丹方",
+      "output": "bu_tian_pill",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 3,
+      "success_rate": 0.15
+    },
+    {
+      "id": "recipe_spirit_recovery",
+      "display": "回灵丹方",
+      "output": "spirit_recovery_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.72
+    },
+    {
+      "id": "recipe_body_tempering",
+      "display": "淬体丹方",
+      "output": "body_tempering_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.62
+    },
+    {
+      "id": "recipe_demon_suppress",
+      "display": "镇魔丹方",
+      "output": "demon_suppress_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.48
+    },
+    {
+      "id": "recipe_nascent_soul",
+      "display": "培婴丹方（残篇）",
+      "output": "nascent_soul_pill",
+      "realm_min": "NASCENT_SOUL",
+      "material_count": 3,
+      "success_rate": 0.1
+    },
+    {
+      "id": "recipe_antidote",
+      "display": "解毒丹方",
+      "output": "antidote_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.82
+    },
+    {
+      "id": "recipe_mana_shield",
+      "display": "护灵丹方",
+      "output": "mana_shield_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.58
+    },
+    {
+      "id": "recipe_beast_taming",
+      "display": "驭兽丹方",
+      "output": "beast_taming_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.7
+    },
+    {
+      "id": "recipe_foundation_break",
+      "display": "筑基丹方（破境篇）",
+      "output": "foundation_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 3,
+      "success_rate": 0.45
+    },
+    {
+      "id": "recipe_jiangchen",
+      "display": "降尘丹方",
+      "output": "jiangchen_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.65
+    },
+    {
+      "id": "recipe_huanglong",
+      "display": "黄龙丹方",
+      "output": "huanglong_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.58
+    },
+    {
+      "id": "recipe_heqi",
+      "display": "合气丹方",
+      "output": "heqi_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.7
+    },
+    {
+      "id": "recipe_ningshen",
+      "display": "凝神丹方",
+      "output": "ningshen_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.52
+    },
+    {
+      "id": "recipe_yanghun",
+      "display": "养魂丹方",
+      "output": "yanghun_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.48
+    },
+    {
+      "id": "recipe_sea_calm",
+      "display": "定海丹方",
+      "output": "sea_calm_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.75
+    },
+    {
+      "id": "recipe_demon_heart",
+      "display": "镇心丹方",
+      "output": "demon_heart_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.5
+    },
+    {
+      "id": "recipe_snow_lotus",
+      "display": "雪莲丹方",
+      "output": "snow_lotus_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_demon_qi_purge",
+      "display": "驱魔丹方",
+      "output": "demon_qi_purge_pill",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 2,
+      "success_rate": 0.42
+    },
+    {
+      "id": "recipe_yin_ward",
+      "display": "护阴丹方",
+      "output": "yin_ward_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_tianyuan_spirit",
+      "display": "天渊聚灵丹方",
+      "output": "tianyuan_spirit_pill",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "material_count": 2,
+      "success_rate": 0.35
+    },
+    {
+      "id": "recipe_thunder_soothing",
+      "display": "避雷丹方",
+      "output": "thunder_soothing_pill",
+      "realm_min": "NASCENT_SOUL",
+      "material_count": 2,
+      "success_rate": 0.35
+    },
+    {
+      "id": "recipe_heart_guard",
+      "display": "守心丹方",
+      "output": "heart_guard_pill",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "material_count": 2,
+      "success_rate": 0.28
+    },
+    {
+      "id": "recipe_demon_gold_body",
+      "display": "魔金锻体丹方",
+      "output": "demon_gold_body_pill",
+      "realm_min": "VOID_REFINEMENT",
+      "material_count": 2,
+      "success_rate": 0.22
+    },
+    {
+      "id": "recipe_asura_mind",
+      "display": "修罗定念丹方",
+      "output": "asura_mind_pill",
+      "realm_min": "BODY_INTEGRATION",
+      "material_count": 2,
+      "success_rate": 0.25
+    },
+    {
+      "id": "recipe_luoyun_spirit",
+      "display": "落云聚元丹方",
+      "output": "luoyun_spirit_pill",
+      "realm_min": "CORE_FORMATION",
+      "material_count": 3,
+      "success_rate": 0.48
+    },
+    {
+      "id": "recipe_dual_harmony",
+      "display": "合欢丹方",
+      "output": "dual_harmony_pill",
+      "realm_min": "FOUNDATION",
+      "material_count": 2,
+      "success_rate": 0.5
+    },
+    {
+      "id": "recipe_great_vehicle_ascension_aid",
+      "display": "大乘护劫丹方",
+      "output": "great_vehicle_ascension_aid_pill",
+      "realm_min": "GREAT_VEHICLE",
+      "material_count": 2,
+      "success_rate": 0.15
+    },
+    {
+      "id": "recipe_spirit_beast_nurture",
+      "display": "灵兽育灵丹方",
+      "output": "spirit_beast_nurture_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.6
+    },
+    {
+      "id": "recipe_solid_essence_pill",
+      "display": "solid_essence_pill",
+      "output": "solid_essence_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_demon_expel_pill",
+      "display": "demon_expel_pill",
+      "output": "demon_expel_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_mulan_wind_pill",
+      "display": "mulan_wind_pill",
+      "output": "mulan_wind_pill",
+      "realm_min": "QI_REFINING",
+      "material_count": 2,
+      "success_rate": 0.55
+    },
+    {
+      "id": "recipe_pressure_resist",
+      "display": "recipe_pressure_resist",
+      "output": "pressure_resist_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    },
+    {
+      "id": "recipe_spirit_realm_condense",
+      "display": "recipe_spirit_realm_condense",
+      "output": "spirit_realm_condense_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    },
+    {
+      "id": "recipe_jiedan_pill",
+      "display": "recipe_jiedan_pill",
+      "output": "jiedan_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    },
+    {
+      "id": "recipe_yangyuan_pill",
+      "display": "recipe_yangyuan_pill",
+      "output": "yangyuan_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    },
+    {
+      "id": "recipe_qingxin_pill",
+      "display": "recipe_qingxin_pill",
+      "output": "qingxin_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    },
+    {
+      "id": "recipe_anti_poison_pill",
+      "display": "recipe_anti_poison_pill",
+      "output": "anti_poison_pill",
+      "realm_min": "",
+      "material_count": 1,
+      "success_rate": 0
+    }
+  ]
+}

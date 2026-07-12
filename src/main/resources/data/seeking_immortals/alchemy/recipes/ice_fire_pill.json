@@ -1,0 +1,34 @@
+{
+  "id": "ice_fire_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.ice_fire_pill",
+  "output_items": {
+    "low": "seeking_immortals:ice_fire_pill",
+    "medium": "seeking_immortals:ice_fire_pill_mid",
+    "high": "seeking_immortals:ice_fire_pill_high",
+    "supreme": "seeking_immortals:ice_fire_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 34,
+  "cook_ticks": 600,
+  "success_rate": 0.62,
+  "explosion_chance": 0.08,
+  "required_furnace_tier": 3,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:phoenix_feather_flower",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:cold_jade",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:fire_element_spirit_stone",
+      "count": 1
+    }
+  ]
+}

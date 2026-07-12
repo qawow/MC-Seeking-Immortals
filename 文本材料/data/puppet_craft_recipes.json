@@ -1,0 +1,262 @@
+{
+  "schema_version": 3,
+  "craft_station": "puppet_assembly_bench",
+  "definitions_ref": "puppet_definitions.json",
+  "parts_ref": "puppet_parts_catalog.json",
+  "recipes": [
+    {
+      "id": "assemble_basic_wood",
+      "puppet_id": "basic_wood_puppet",
+      "display": "木人傀儡",
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 2
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 3
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.85,
+      "requires_method": "qianzhu_puppet_art",
+      "quest_unlock": "qianzhu_puppet_apprentice",
+      "setting": {
+        "lore": "木人傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "assemble_giant_ape",
+      "puppet_id": "giant_ape_puppet",
+      "display": "巨猿傀儡",
+      "materials": [
+        {
+          "id": "ironwood",
+          "count": 8
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.7,
+      "note": "汇编二级傀儡·铁木",
+      "requires_method": "dayan_art",
+      "setting": {
+        "lore": "巨猿傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "assemble_giant_turtle",
+      "puppet_id": "giant_turtle_puppet",
+      "display": "巨龟傀儡",
+      "materials": [
+        {
+          "id": "giant_turtle_puppet_core",
+          "count": 1
+        },
+        {
+          "id": "turtle_shell",
+          "count": 2
+        },
+        {
+          "id": "ironwood",
+          "count": 4
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "note": "远战防御型",
+      "requires_method": "dayan_art",
+      "setting": {
+        "lore": "巨龟傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "assemble_stone_spirit",
+      "puppet_id": "stone_spirit_puppet",
+      "display": "石灵傀儡",
+      "materials": [
+        {
+          "id": "stone_spirit_core",
+          "count": 1
+        },
+        {
+          "id": "beast_soul_essence",
+          "count": 1
+        },
+        {
+          "id": "ironwood",
+          "count": 4
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.35,
+      "manual_required": "manual_ancient_puppet_method",
+      "setting": {
+        "lore": "石灵傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "upgrade_hunyuan_core",
+      "puppet_id": "hunyuan_bowl_core_puppet",
+      "display": "混元核心改造",
+      "materials": [
+        {
+          "id": "stone_spirit_puppet",
+          "count": 1,
+          "consume_entity": true
+        },
+        {
+          "id": "hunyuan_bowl",
+          "count": 1
+        }
+      ],
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.25,
+      "type": "upgrade",
+      "setting": {
+        "lore": "混元核心改造"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "CORE_FORMATION",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "assemble_stone_guard",
+      "puppet_id": "stone_guard_puppet",
+      "display": "石卫傀儡",
+      "materials": [
+        {
+          "id": "low_spirit_iron",
+          "count": 6
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone",
+          "count": 2
+        }
+      ],
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.75,
+      "setting": {
+        "lore": "石卫傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "QI_REFINING",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    },
+    {
+      "id": "assemble_fire_spear",
+      "puppet_id": "fire_spear_puppet",
+      "display": "火矛傀儡",
+      "materials": [
+        {
+          "id": "fire_feather",
+          "count": 3
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        },
+        {
+          "id": "ironwood",
+          "count": 4
+        }
+      ],
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.6,
+      "setting": {
+        "lore": "火矛傀儡"
+      },
+      "learn_requirements": {
+        "craft": {
+          "realm_min": "FOUNDATION",
+          "learn_source": [
+            "qianzhu_teach",
+            "puppet_manual"
+          ]
+        }
+      }
+    }
+  ],
+  "assembly_note": "汇编：部件+核心+神识操控；成功率仅模组参考，主门槛为realm_min与dayan_art",
+  "faction_loops": {
+    "qianzhu_sect": {
+      "chain": "qianzhu_puppet_path",
+      "method": "qianzhu_puppet_art",
+      "secret_realm": "thousand_bamboo_puppet_tower"
+    },
+    "yuling_sect_secret": {
+      "chain": "yuling_puppet_path",
+      "link": "spirit_beast_mountain",
+      "method": "yuling_beast_puppet_art"
+    },
+    "dayan": {
+      "method": "dayan_art",
+      "upgrade": "dayan_true_solution",
+      "chronicle": "A3_dayan_sage"
+    }
+  }
+}

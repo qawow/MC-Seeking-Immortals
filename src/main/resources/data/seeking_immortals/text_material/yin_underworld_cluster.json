@@ -1,0 +1,94 @@
+{
+  "schema_version": 3,
+  "cosmology_id": "yin_underworld_cluster",
+  "display": "阴司之界（集群）",
+  "design_note": "汇编五界：非完整主维度，由阴冥+冥河秘境与口袋维组成",
+  "regions": [
+    {
+      "id": "yinming",
+      "display": "阴冥之地",
+      "realm_min": "QI_REFINING",
+      "path": "ghost_cultivator_entry",
+      "currency": "yin_stone",
+      "setting": {
+        "lore": "阴冥之地，鬼修入门，阴石流通。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "path": "ghost_cultivator",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    },
+    {
+      "id": "nether_river",
+      "display": "冥河",
+      "realm_min": "FOUNDATION",
+      "secret_realm": "nether_river_land",
+      "ferry_vendor": "nether_ferry_vendor",
+      "setting": {
+        "lore": "冥河摆渡，秘境入口，阴属性天劫可减伤。"
+      },
+      "learn_requirements": {
+        "enter": {
+          "realm_min": "FOUNDATION",
+          "quest": "ghost_path"
+        }
+      }
+    }
+  ],
+  "pocket_dimensions": [
+    {
+      "id": "seeking_immortals:nether_river_pocket",
+      "parent": "nether_river",
+      "realm_min": "FOUNDATION"
+    }
+  ],
+  "loops": {
+    "ghost_path_ref": "ghost_cultivation_path.json",
+    "quest_chain": "ghost_path",
+    "tribulation_shelter": {
+      "item": "nether_river_shield_zone",
+      "realm": "nether_river_land",
+      "note": "阴属性天劫减伤区（结构效果）"
+    }
+  },
+  "environment_global": [
+    "daylight_debuff_ghost",
+    "pure_yang_damage_bonus"
+  ],
+  "chronicle_hooks": [
+    "yinming_escape"
+  ],
+  "factions": [
+    {
+      "id": "yin_luo_hall",
+      "display": "阴罗殿",
+      "archetype": "ghost_demonic_sect",
+      "specialty": [
+        "ghost_art",
+        "soul_banner",
+        "yin_material"
+      ],
+      "region": "yinming",
+      "alignment": "evil",
+      "note": "阴司侧魔道宗门 archetype，非主角绑定"
+    }
+  ],
+  "quest_chains": [
+    "ghost_path",
+    "yin_luo_initiation"
+  ],
+  "setting": {
+    "lore": "阴司之界（集群）",
+    "design_note": "汇编五界：非完整主维度，由阴冥+冥河秘境与口袋维组成"
+  },
+  "learn_requirements": {
+    "enter": {
+      "path_any": [
+        "ghost_cultivator",
+        "yin_luo_quest"
+      ]
+    }
+  }
+}

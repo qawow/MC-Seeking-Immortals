@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "region": "chaotic_sea",
+  "source": "汇编9.7 星宫秩序与逆星割据；纪年 K4/K5",
+  "factions_ref": "chaotic_sea_factions.json",
+  "phases": [
+    {
+      "id": "phase_outer_sea_register",
+      "display": "外海登记与征税",
+      "chronicle_refs": [
+        "K4_star_palace"
+      ],
+      "hooks": [
+        "hook_star_palace_register",
+        "star_palace_dock_permit"
+      ],
+      "setting": {
+        "lore": "星宫双圣名义维持秩序，执法队查税缉私。"
+      }
+    },
+    {
+      "id": "phase_inverse_recruit",
+      "display": "逆星暗线",
+      "chronicle_refs": [
+        "K5_inverse_star"
+      ],
+      "hooks": [
+        "inverse_star_contact",
+        "inverse_star_cipher_trial",
+        "inverse_star_oath"
+      ],
+      "setting": {
+        "lore": "逆星盟以黑市与走私对抗星宫，入盟需密语试炼。"
+      }
+    },
+    {
+      "id": "phase_patrol_clash",
+      "display": "巡防与伏击",
+      "hooks": [
+        "star_palace_patrol",
+        "inverse_star_ambush_event",
+        "pirate_bounty"
+      ],
+      "setting": {
+        "lore": "外海海盗劫掠，星宫巡逻与逆星策应并存，无必胜阵营战。"
+      }
+    },
+    {
+      "id": "phase_void_palace_stakes",
+      "display": "虚天殿筹码",
+      "hooks": [
+        "void_palace_key",
+        "inverse_star_void_heist",
+        "void_palace_intel_sell"
+      ],
+      "optional": true,
+      "setting": {
+        "lore": "虚天殿钥与情报成为双方争夺焦点，可中立倒卖。"
+      }
+    },
+    {
+      "id": "phase_internal_star_palace",
+      "display": "星宫派系",
+      "quest_chain_ref": "star_palace_internal_politics",
+      "optional": true,
+      "setting": {
+        "lore": "执法派与贸易派内斗，玩家可择支线立场。"
+      }
+    }
+  ],
+  "reputation_rules": {
+    "star_palace": "rep_star_palace",
+    "inverse_star_alliance": "rep_inverse_star",
+    "mutual_exclusion_below": -50
+  }
+}

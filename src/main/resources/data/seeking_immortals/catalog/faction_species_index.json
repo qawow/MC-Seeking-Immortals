@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "source": "faction_species.json",
+  "primary_key": "spirit_realm_factions",
+  "entries": [
+    {
+      "id": "tianhu",
+      "display": "天狐族"
+    },
+    {
+      "id": "shuyao",
+      "display": "树妖族"
+    },
+    {
+      "id": "shiren",
+      "display": "石人族"
+    },
+    {
+      "id": "feiling",
+      "display": "飞灵族"
+    },
+    {
+      "id": "jinyi",
+      "display": "金翼族"
+    },
+    {
+      "id": "yaksha",
+      "display": "夜叉族"
+    },
+    {
+      "id": "tianyuan_city",
+      "display": "天渊城"
+    },
+    {
+      "id": "langzu",
+      "display": "狼族"
+    },
+    {
+      "id": "zhizu",
+      "display": "蛛族"
+    },
+    {
+      "id": "shezu",
+      "display": "蛇族"
+    },
+    {
+      "id": "xiongzu",
+      "display": "熊族"
+    },
+    {
+      "id": "huzhu",
+      "display": "虎族"
+    },
+    {
+      "id": "yuzu",
+      "display": "鱼族"
+    },
+    {
+      "id": "niaozu",
+      "display": "鸟族"
+    },
+    {
+      "id": "guizu",
+      "display": "龟族"
+    },
+    {
+      "id": "shouzu",
+      "display": "兽族（泛）"
+    },
+    {
+      "id": "mozu",
+      "display": "魔族支系"
+    },
+    {
+      "id": "renzu_lingjie",
+      "display": "灵界人族"
+    },
+    {
+      "id": "barbarian_council",
+      "display": "蛮荒妖王议会"
+    },
+    {
+      "id": "spirit_cloud_mountain",
+      "display": "云梦山灵族"
+    },
+    {
+      "id": "human_spirit_alliance",
+      "display": "人族联军"
+    }
+  ]
+}

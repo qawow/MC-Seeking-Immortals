@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "source": "文本材料 array-root wrapped for JsonSanity object requirement",
+  "entries": [
+    {
+      "task_id": "787bf69f",
+      "item_id": "condensation_pill",
+      "display": "凝元丹",
+      "status": "done"
+    },
+    {
+      "task_id": "5d2957ef",
+      "item_id": "foundation_pill",
+      "display": "筑基丹",
+      "status": "done"
+    },
+    {
+      "task_id": "516bd7f9",
+      "item_id": "bigu_pill",
+      "display": "辟谷丹",
+      "status": "done"
+    },
+    {
+      "task_id": "dc066f73",
+      "item_id": "bu_tian_pill",
+      "display": "补天丹",
+      "status": "done"
+    },
+    {
+      "task_id": "74da8368",
+      "item_id": "spirit_recovery_pill",
+      "display": "回灵丹",
+      "status": "done"
+    },
+    {
+      "task_id": "e429ab85",
+      "item_id": "antidote_pill",
+      "display": "解毒丹",
+      "status": "done"
+    },
+    {
+      "task_id": "96beeab9",
+      "item_id": "body_tempering_pill",
+      "display": "淬体丹",
+      "status": "pending"
+    },
+    {
+      "task_id": "96d9f4e0",
+      "item_id": "demon_heart_pill",
+      "display": "妖心丹",
+      "status": "pending"
+    },
+    {
+      "task_id": "2a3e959e",
+      "item_id": "dual_harmony_pill",
+      "display": "合欢丹",
+      "status": "pending"
+    },
+    {
+      "task_id": "296f0da3",
+      "item_id": "tianyuan_spirit_pill",
+      "display": "天渊养灵丹",
+      "status": "pending"
+    },
+    {
+      "task_id": "23349d9f",
+      "item_id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "status": "pending"
+    },
+    {
+      "task_id": "9b6aadd2",
+      "item_id": "snow_lotus_pill",
+      "display": "雪莲丹",
+      "status": "pending"
+    }
+  ]
+}

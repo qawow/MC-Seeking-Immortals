@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "refinement_failure_loot.json",
+  "primary_key": "default",
+  "entries": [
+    {
+      "id": "scrap_spirit_iron",
+      "display": "scrap_spirit_iron"
+    },
+    {
+      "id": "spirit_stone_shard",
+      "display": "spirit_stone_shard"
+    }
+  ]
+}

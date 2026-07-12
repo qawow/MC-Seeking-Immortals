@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "source": "refine_manual_index.json",
+  "primary_key": "recipes",
+  "entries": [
+    {
+      "id": "refine_flying_sword_low",
+      "display": "低阶飞剑"
+    },
+    {
+      "id": "refine_cloud_boots",
+      "display": "踏云靴"
+    },
+    {
+      "id": "refine_spirit_gathering_bead",
+      "display": "定神珠"
+    },
+    {
+      "id": "refine_yellow_umbrella",
+      "display": "黄罗伞"
+    },
+    {
+      "id": "refine_black_boots",
+      "display": "乌靴"
+    },
+    {
+      "id": "refine_qingning_mirror",
+      "display": "青凝镜"
+    },
+    {
+      "id": "refine_green_bamboo_sword",
+      "display": "青竹灵云剑（仿）"
+    },
+    {
+      "id": "refine_gold_demon_chain",
+      "display": "金蚨子母刃"
+    },
+    {
+      "id": "refine_hunyuan_bowl",
+      "display": "混元钵"
+    },
+    {
+      "id": "refine_xuanguang_shard",
+      "display": "玄光镜（残片重铸）"
+    },
+    {
+      "id": "refine_soul_summon_bell",
+      "display": "引魂钟"
+    },
+    {
+      "id": "refine_soul_gathering_bowl",
+      "display": "聚魂钵"
+    },
+    {
+      "id": "refine_poluo_beads",
+      "display": "婆罗珠"
+    },
+    {
+      "id": "refine_snake_pearl",
+      "display": "蛇珠"
+    },
+    {
+      "id": "refine_potian_shovel",
+      "display": "破天锹"
+    },
+    {
+      "id": "refine_bedrock_shield",
+      "display": "磐石盾"
+    },
+    {
+      "id": "refine_peerless_knives",
+      "display": "无双飞刀"
+    },
+    {
+      "id": "refine_flat_crown_replica",
+      "display": "平山冠（仿）"
+    },
+    {
+      "id": "refine_evil_illusion_mirror",
+      "display": "邪幻镜"
+    },
+    {
+      "id": "refine_giant_ape_token",
+      "display": "巨猿傀儡符"
+    },
+    {
+      "id": "refine_xuanhuang_shard",
+      "display": "玄黄镜（残片重铸）"
+    },
+    {
+      "id": "refine_nine_dragon_replica",
+      "display": "九龙神火罩（仿）"
+    },
+    {
+      "id": "refine_void_refining_bell",
+      "display": "炼虚钟"
+    },
+    {
+      "id": "refine_giant_turtle_core",
+      "display": "巨龟傀儡核心"
+    },
+    {
+      "id": "refine_qingye_fan",
+      "display": "青叶法器"
+    },
+    {
+      "id": "refine_huangsi_robe",
+      "display": "黄丝衫"
+    },
+    {
+      "id": "refine_silver_giant_sword",
+      "display": "银色巨剑"
+    },
+    {
+      "id": "refine_azure_rope_net",
+      "display": "青索网"
+    },
+    {
+      "id": "refine_fire_rain_needles",
+      "display": "火雨针"
+    },
+    {
+      "id": "refine_thousand_bee_needles",
+      "display": "千蜂针"
+    },
+    {
+      "id": "refine_gold_light_brick",
+      "display": "金光砖符宝"
+    },
+    {
+      "id": "refine_storage_bracelet",
+      "display": "储物镯"
+    },
+    {
+      "id": "refine_beast_taming_whip",
+      "display": "御兽鞭"
+    },
+    {
+      "id": "refine_lieyang_sword",
+      "display": "烈阳剑"
+    },
+    {
+      "id": "refine_lengyue_blade",
+      "display": "冷月刀"
+    },
+    {
+      "id": "refine_black_gold_shield",
+      "display": "乌金盾"
+    },
+    {
+      "id": "refine_dark_iron_ring",
+      "display": "玄铁环"
+    },
+    {
+      "id": "refine_soul_capturing_bell",
+      "display": "摄魂铃"
+    },
+    {
+      "id": "refine_green_bamboo_leaf_sword",
+      "display": "竹叶剑"
+    },
+    {
+      "id": "refine_flying_needle_set",
+      "display": "飞针匣"
+    },
+    {
+      "id": "refine_wind_escape_sail",
+      "display": "风遁帆"
+    },
+    {
+      "id": "refine_talisman_thunder_rod",
+      "display": "霹雳神雷符宝"
+    },
+    {
+      "id": "refine_talisman_golden_wheel",
+      "display": "金轮符宝"
+    },
+    {
+      "id": "refine_talisman_demon_seal",
+      "display": "封魔符宝"
+    },
+    {
+      "id": "refine_fire_crow_fan",
+      "display": "火鸦扇"
+    },
+    {
+      "id": "refine_natal_embryo",
+      "display": "本命法宝胚"
+    },
+    {
+      "id": "refine_spirit_beast_bridle",
+      "display": "御兽环"
+    },
+    {
+      "id": "refine_beast_soul_bell",
+      "display": "兽魂铃"
+    },
+    {
+      "id": "refine_demon_ape_armor",
+      "display": "铁猿甲"
+    },
+    {
+      "id": "refine_silver_spirit_mirror",
+      "display": "银灵镜"
+    },
+    {
+      "id": "refine_moon_shadow_disk",
+      "display": "月影轮"
+    },
+    {
+      "id": "refine_seven_star_disk",
+      "display": "七星盘"
+    },
+    {
+      "id": "refine_phoenix_feather_fan",
+      "display": "凤羽扇"
+    },
+    {
+      "id": "refine_dragon_scale_armor",
+      "display": "龙鳞甲"
+    },
+    {
+      "id": "refine_talisman_fire_spear",
+      "display": "火蛟矛符宝"
+    },
+    {
+      "id": "refine_talisman_ice_shield",
+      "display": "玄冰盾符宝"
+    },
+    {
+      "id": "refine_talisman_soul_charm",
+      "display": "定魂符宝"
+    },
+    {
+      "id": "refine_void_cold_jade_pendant",
+      "display": "寒玉佩"
+    },
+    {
+      "id": "refine_ice_fire_orb",
+      "display": "冰火珠"
+    }
+  ]
+}

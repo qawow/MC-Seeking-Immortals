@@ -1,0 +1,179 @@
+{
+  "schema_version": 5,
+  "path_id": "ghost_cultivator",
+  "display": "鬼修道途",
+  "unlock": [
+    "death_state",
+    "yinming_escape",
+    "xuan_yin_manual_fragment"
+  ],
+  "regions_primary": [
+    "yinming",
+    "nether_river"
+  ],
+  "currency_alt": "yin_stone",
+  "karma": {
+    "type": "yin_weight",
+    "tribulation_mod": "demon_qi_penalty_light",
+    "sect_ban": [
+      "huangfeng_valley",
+      "tianlan_temple"
+    ]
+  },
+  "stages": [
+    {
+      "id": "yin_body",
+      "display": "阴体凝形",
+      "realm_equiv": "QI_REFINING",
+      "requires": [
+        "ghost_hide_talisman"
+      ],
+      "setting": {
+        "lore": "阴体凝形"
+      },
+      "learn_requirements": {
+        "advance": {
+          "path": "ghost",
+          "note": "鬼道与正道功法冲突，叛宗风险。"
+        }
+      }
+    },
+    {
+      "id": "soul_anchor",
+      "display": "魂锚稳固",
+      "realm_equiv": "FOUNDATION",
+      "requires": [
+        "soul_gathering_stone"
+      ],
+      "setting": {
+        "lore": "魂锚稳固"
+      },
+      "learn_requirements": {
+        "advance": {
+          "path": "ghost",
+          "note": "鬼道与正道功法冲突，叛宗风险。"
+        }
+      }
+    },
+    {
+      "id": "nether_core",
+      "display": "冥核结成",
+      "realm_equiv": "CORE_FORMATION",
+      "location": "nether_river_land",
+      "setting": {
+        "lore": "冥核结成"
+      },
+      "learn_requirements": {
+        "advance": {
+          "path": "ghost",
+          "note": "鬼道与正道功法冲突，叛宗风险。"
+        }
+      }
+    },
+    {
+      "id": "yin_soul",
+      "display": "阴婴",
+      "realm_equiv": "NASCENT_SOUL",
+      "boss_gate": "nether_river_guardian",
+      "setting": {
+        "lore": "阴婴"
+      },
+      "learn_requirements": {
+        "advance": {
+          "path": "ghost",
+          "note": "鬼道与正道功法冲突，叛宗风险。"
+        }
+      }
+    }
+  ],
+  "techniques_school": "xuan_yin",
+  "techniques_required": [
+    "soul_devouring_cloud",
+    "yin_soul_chain"
+  ],
+  "artifacts_synergy": [
+    "soul_gathering_bowl",
+    "poluo_beads",
+    "soul_summon_bell"
+  ],
+  "quest_chain": "ghost_path",
+  "forbidden": {
+    "daylight_debuff": true,
+    "pure_yang_damage_mult": 1.5
+  },
+  "ascension_note": "鬼修飞升极难；多数止步人界或转修他道",
+  "dimension_entry": "seeking_immortals:yin_ming_pocket",
+  "synergy_items": [
+    "yin_protect_talisman",
+    "ghost_hide_talisman",
+    "poluo_beads"
+  ],
+  "loop": {
+    "entry_hook": "yinming_escape",
+    "currency_loop": [
+      "yin_stone from nether mobs/ferry quests",
+      "yin_stone shop nether_ferry_vendor"
+    ],
+    "stage_quests": {
+      "yin_body": "hook_ghost_yin_body",
+      "soul_anchor": "hook_ghost_soul_anchor",
+      "nether_core": "hook_ghost_nether_core",
+      "yin_soul": "nether_river_guardian"
+    },
+    "secret_realm": "nether_river_land",
+    "drops_ref": "boss_loot_tables#nether_river_guardian",
+    "craft_ref": [
+      "talisman_recipes yin/ghost",
+      "alchemy_recipes ghost_face"
+    ]
+  },
+  "techniques_by_stage": {
+    "yin_body": [
+      "yin_body_condense"
+    ],
+    "soul_anchor": [
+      "soul_anchor_rite",
+      "soul_devouring_cloud"
+    ],
+    "nether_core": [
+      "nether_core_form",
+      "yin_soul_chain"
+    ],
+    "yin_soul": [
+      "yin_soul_burst",
+      "ghost_walk"
+    ]
+  },
+  "sect_ban_consequences": {
+    "on_detected": {
+      "huangfeng_valley": {
+        "rep": -80,
+        "action": "expel_or_bounty"
+      },
+      "yanyue_sect": {
+        "rep": -60
+      },
+      "tianlan_temple": {
+        "rep": -50
+      },
+      "star_palace": {
+        "rep": -40
+      }
+    },
+    "quest_blocks": [
+      "huangfeng_entry",
+      "tianlan_oath_renew",
+      "star_palace_patrol"
+    ],
+    "shop_denied": [
+      "huangfeng_contribution_hall",
+      "tianlan_beast_market"
+    ],
+    "tribunal_event": "righteous_sect_ghost_hunt",
+    "mitigation": [
+      "ghost_hide_talisman",
+      "yin_luo_hall_cover",
+      "neutral_merchant_disguise"
+    ]
+  }
+}

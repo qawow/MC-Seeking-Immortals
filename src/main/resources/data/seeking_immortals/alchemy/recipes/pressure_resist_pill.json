@@ -1,0 +1,26 @@
+{
+  "id": "pressure_resist_pill",
+  "display_translation": "item.seeking_immortals.pressure_resist_pill",
+  "output_items": {
+    "low": "seeking_immortals:pressure_resist_pill",
+    "medium": "seeking_immortals:pressure_resist_pill",
+    "high": "seeking_immortals:pressure_resist_pill",
+    "supreme": "seeking_immortals:pressure_resist_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 96,
+  "cook_ticks": 1200,
+  "success_rate": 0.35,
+  "explosion_chance": 0.12,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "VOID_REFINEMENT",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:diyuan_pressure_moss",
+      "count": 2
+    }
+  ]
+}

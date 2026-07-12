@@ -1,0 +1,192 @@
+{
+  "schema_version": 4,
+  "items": [
+    {
+      "id": "three_pure_thunder_talisman",
+      "display": "三清雷霄符",
+      "effect": "reduce_tribulation_damage",
+      "magnitude": 0.25,
+      "setting": {
+        "lore": "三清雷霄符"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "thunder_ward_sign",
+      "display": "御雷签",
+      "effect": "reduce_tribulation_damage",
+      "magnitude": 0.15,
+      "setting": {
+        "lore": "御雷签"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "nether_river_shield_zone",
+      "display": "冥河屏蔽区",
+      "type": "environment",
+      "effect": "delay_tribulation",
+      "location": "nether_river_land",
+      "setting": {
+        "lore": "冥河屏蔽区"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "five_elements_mountain_array",
+      "display": "元合五极山阵",
+      "type": "formation",
+      "effect": "reduce_tribulation_damage",
+      "magnitude": 0.35,
+      "realm_min": "VOID_REFINEMENT",
+      "setting": {
+        "lore": "元合五极山阵"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "demon_qi_penalty",
+      "display": "煞气加雷",
+      "type": "debuff",
+      "effect": "increase_tribulation_damage",
+      "magnitude": 0.1,
+      "source": "demonic_karma",
+      "setting": {
+        "lore": "煞气加雷"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "beast_tribulation_bonus",
+      "display": "妖修雷劫",
+      "type": "race_mod",
+      "effect": "increase_tribulation_damage",
+      "magnitude": 0.15,
+      "race": "demon_cultivator",
+      "setting": {
+        "lore": "妖修雷劫"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "display": "避雷丹",
+      "type": "consumable",
+      "effect": "reduce_tribulation_damage",
+      "magnitude": 0.12,
+      "tier": "minor",
+      "setting": {
+        "lore": "避雷丹"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "heart_guard_pill",
+      "display": "守心丹",
+      "type": "consumable",
+      "effect": "heart_demon_mitigate",
+      "magnitude": 0.2,
+      "tier": "major",
+      "setting": {
+        "lore": "守心丹"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_guard_talisman",
+      "display": "天渊护身符",
+      "effect": "tribulation_mitigate_light",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "source": "tianyuan_merit_shop",
+      "setting": {
+        "lore": "天渊护身符"
+      },
+      "learn_requirements": {
+        "use": {
+          "note": "天劫小/大/仙结构；物品在对应劫种使用。",
+          "tribulation_ref": "tribulation_rules.json",
+          "tribulation_tier_schema_ref": "tribulation_tier_schema.json"
+        }
+      }
+    }
+  ],
+  "tier_ladder": [
+    {
+      "tier": "minor",
+      "display": "小雷劫",
+      "typical_realm": "NASCENT_SOUL",
+      "items": [
+        "thunder_ward_sign",
+        "thunder_soothing_pill",
+        "tribulation_ward_charm"
+      ]
+    },
+    {
+      "tier": "major",
+      "display": "大天劫",
+      "typical_realm": "DEITY_TRANSFORMATION",
+      "items": [
+        "three_pure_thunder_talisman",
+        "heart_guard_pill",
+        "five_elements_mountain_array"
+      ]
+    },
+    {
+      "tier": "ascension",
+      "display": "飞升仙劫",
+      "typical_realm": "GREAT_VEHICLE",
+      "items": [
+        "life_save_talisman",
+        "thunder_soothing_pill"
+      ]
+    }
+  ]
+}

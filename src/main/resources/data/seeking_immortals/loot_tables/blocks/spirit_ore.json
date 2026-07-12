@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "seeking_immortals:spirit_stone",
+          "name": "seeking_immortals:metal_spirit_stone",
           "functions": [
             {
               "function": "minecraft:set_count",

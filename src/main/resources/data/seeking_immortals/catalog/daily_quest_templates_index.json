@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "daily_quest_templates.json",
+  "primary_key": "templates",
+  "entries": [
+    {
+      "id": "gather_spirit_herb",
+      "display": "采集灵草"
+    },
+    {
+      "id": "escort_convoy",
+      "display": "护送车队"
+    },
+    {
+      "id": "slay_beast_bounty",
+      "display": "灭妖悬赏"
+    },
+    {
+      "id": "break_formation_node",
+      "display": "破阵节点"
+    },
+    {
+      "id": "inverse_star_courier",
+      "display": "逆星暗递"
+    },
+    {
+      "id": "star_palace_tax_audit",
+      "display": "星宫稽征"
+    }
+  ]
+}

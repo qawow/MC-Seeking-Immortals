@@ -126,6 +126,8 @@ public class SpiritStoneItem extends Item {
 
     public static int consumeStoredPower(ItemStack stack, int amount) {
         if (!(stack.getItem() instanceof SpiritStoneItem)) return 0;
+        // M6: 防御多叠 NBT 污染——仅允许单颗操作
+        if (stack.getCount() != 1) return 0;
         int current = getStoredPower(stack);
         int drained = Math.min(current, Math.max(0, amount));
         stack.getOrCreateTag().putInt(STORED_POWER_TAG, current - drained);
@@ -138,6 +140,11 @@ public class SpiritStoneItem extends Item {
     public static int getAvailablePassiveBonus(ItemStack stack) {
         if (stack.getCount() != 1 || !(stack.getItem() instanceof SpiritStoneItem stone) || getStoredPower(stack) <= 0) return 0;
         return stone.getPassiveBonus();
+    }
+
+    public static int getMatchingPassiveBonus(ItemStack stack, @Nullable SpiritualRootAttribute requiredAttribute) {
+        if (stack.getCount() != 1 || !(stack.getItem() instanceof SpiritStoneItem stone) || getStoredPower(stack) <= 0) return 0;
+        return SpiritStonePassiveBonus.matchesAttribute(stone.getAttribute(), requiredAttribute) ? stone.getPassiveBonus() : 0;
     }
 
     public static int getAbsorbPerSecond(ItemStack stack) {

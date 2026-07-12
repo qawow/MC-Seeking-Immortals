@@ -1,0 +1,150 @@
+{
+  "schema_version": 4,
+  "disclaimer": "汇编§16 为量级参考，非官方定价；模组须按产出重平衡",
+  "unit": "low_spirit_stone",
+  "magnitude_bands": {
+    "mortal_life": {
+      "min": 1,
+      "max": 50,
+      "examples": [
+        "凡人一年口粮",
+        "低阶符纸"
+      ]
+    },
+    "qi_refining_gear": {
+      "min": 20,
+      "max": 500,
+      "examples": [
+        "下品法器",
+        "炼气丹药一瓶"
+      ]
+    },
+    "foundation_breakthrough": {
+      "min": 800,
+      "max": 5000,
+      "examples": [
+        "筑基丹拍卖",
+        "血色禁地材料包"
+      ]
+    },
+    "core_formation": {
+      "min": 3000,
+      "max": 30000,
+      "examples": [
+        "结丹丹方",
+        "中阶古宝残片"
+      ]
+    },
+    "nascent_soul": {
+      "min": 50000,
+      "max": 500000,
+      "examples": [
+        "坠魔谷魔化装",
+        "大挪移令"
+      ]
+    },
+    "auction_legendary": {
+      "min": 100000,
+      "max": null,
+      "note": "乱星海/大晋/天渊城拍卖行"
+    }
+  },
+  "mod_suggested_defaults": {
+    "spirit_boat_chaotic_sea": 20,
+    "island_teleport_array": 50,
+    "sect_contribution_foundation_pill": 1200,
+    "low_flying_sword_shop": 80,
+    "talisman_fire_burst": 15,
+    "herb_yellow_essence_50y": 120
+  },
+  "exchange": "economy_tiers.json",
+  "monthly_income_by_realm": {
+    "disclaimer": "汇编§16 量级参考；外门任务+坊市折中值，非官方定价",
+    "unit": "low_spirit_stone_per_month",
+    "QI_REFINING": {
+      "typical": 15,
+      "range": [
+        5,
+        40
+      ],
+      "sources": [
+        "外门采药",
+        "护送",
+        "低阶符箓"
+      ]
+    },
+    "FOUNDATION": {
+      "typical": 120,
+      "range": [
+        40,
+        300
+      ],
+      "sources": [
+        "宗门任务",
+        "猎妖",
+        "炼丹副业"
+      ]
+    },
+    "CORE_FORMATION": {
+      "typical": 800,
+      "range": [
+        200,
+        2000
+      ],
+      "sources": [
+        "驻岛/驻宗",
+        "拍卖捡漏",
+        "秘境材料"
+      ]
+    },
+    "NASCENT_SOUL": {
+      "typical": 5000,
+      "range": [
+        1500,
+        15000
+      ],
+      "sources": [
+        "乱星海贸易",
+        "大晋世家委托"
+      ]
+    },
+    "DEITY_TRANSFORMATION": {
+      "typical": 30000,
+      "range": [
+        8000,
+        100000
+      ],
+      "sources": [
+        "人界顶阶资源垄断",
+        "秘境独占期"
+      ]
+    }
+  },
+  "price_anchors_vs_income": {
+    "foundation_breakthrough_pill_auction": {
+      "magnitude_band": "foundation_breakthrough",
+      "months_saved_QI_peak": 24
+    },
+    "low_flying_sword_shop": {
+      "cost": 80,
+      "months_QI_REFINING": 5
+    },
+    "spirit_boat_chaotic_sea": {
+      "cost": 20,
+      "note": "入星海门槛一次性"
+    }
+  },
+  "spirit_stone_ladder_ref": "spirit_stone_ladder.json",
+  "auction_examples": [
+    {
+      "display": "化神修为丹三瓶",
+      "low_stone_equiv": 600000
+    },
+    {
+      "display": "古兽鳞片压轴",
+      "low_stone_equiv": 35000000,
+      "extras": "万年灵草若干"
+    }
+  ],
+  "economy_master_ref": "economy_spirit_stone_master.json"
+}

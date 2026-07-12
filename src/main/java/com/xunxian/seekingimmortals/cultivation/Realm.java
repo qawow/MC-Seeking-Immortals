@@ -33,10 +33,10 @@ public enum Realm {
     public String getDisplayName() { return displayName; }
     public String getDesignId() { return designId; }
     public String getDesignKey() { return designId; }
-    public int getBaseMaxSpiritualPower() { return baseMaxSpiritualPower; }
-    public int getBaseMaxQi() { return baseMaxSpiritualPower; }
-    public int getStageExpSpan() { return stageExpSpan; }
-    public int getExpToNextStage() { return stageExpSpan; }
+    public int getBaseMaxSpiritualPower() { return RealmStageConfig.getManaBase(this); }
+    public int getBaseMaxQi() { return getBaseMaxSpiritualPower(); }
+    public int getStageExpSpan() { return RealmStageConfig.getStageExpSpan(this); }
+    public int getExpToNextStage() { return getStageExpSpan(); }
     public int getLifespanYears() { return lifespanYears; }
     public boolean isLayerBased() { return layerBased; }
     public boolean isPhase1Realm() { return this == QI_REFINING || this == FOUNDATION_ESTABLISHMENT; }

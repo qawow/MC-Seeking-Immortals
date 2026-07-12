@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "v73 坠魔昆吾+副职日循环+宗门专精",
+  "new_chains": [
+    "fallen_demon_campaign",
+    "kunwu_mountain_campaign"
+  ],
+  "craft_loop_ids": [
+    "alchemy_daily_huangfeng",
+    "refinement_daily_forge",
+    "talisman_daily_sect",
+    "formation_daily_array"
+  ],
+  "stats_snapshot": {
+    "alchemy_rules_lore": 4,
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "main_chapters_patched": true,
+    "craft_loops": 4,
+    "sect_specialty": 6,
+    "hooks_added": 10
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "source": "v72 主线章节+秘境任务链+经济锚点",
+  "chapter_ids": [
+    "chapter_0_mortal",
+    "chapter_1_sect",
+    "chapter_2_foundation_secret",
+    "chapter_3_chaotic_sea",
+    "chapter_4_great_jin",
+    "chapter_5_deity_transformation",
+    "chapter_6_spirit_realm"
+  ],
+  "new_quest_chains": [
+    "blood_forbidden_campaign",
+    "void_palace_campaign"
+  ],
+  "stats_snapshot": {
+    "daily_lore_v72": 48,
+    "main_chapters": 7,
+    "quest_chains_added": 2,
+    "secret_realms_patched": 2,
+    "economy_income_realms": 6,
+    "ascension_lore": 5
+  }
+}

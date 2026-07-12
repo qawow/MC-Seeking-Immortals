@@ -1,0 +1,485 @@
+{
+  "schema_version": 11,
+  "school": "illusion",
+  "techniques": [
+    {
+      "id": "mirror_phantom",
+      "display": "镜影术",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "illusion",
+        "damage_base": 10,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "yanyue_illusion_art",
+      "description": "镜影术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "镜影术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_illusion_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_illusion_art"
+        ]
+      }
+    },
+    {
+      "id": "hundred_illusion",
+      "display": "百幻术",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 17,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "illusion",
+        "damage_base": 35,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "百幻术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "百幻术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "mind_confusion",
+      "display": "迷心术",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 9,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "illusion",
+        "damage_base": 18,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "yanyue_illusion_art",
+      "description": "迷心术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "迷心术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_illusion_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_illusion_art"
+        ]
+      }
+    },
+    {
+      "id": "void_step",
+      "display": "虚步",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 11,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "illusion",
+        "damage_base": 22,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "虚步：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "虚步：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "dream_snare",
+      "display": "梦缚",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 13,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "illusion",
+        "damage_base": 26,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "梦缚：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "梦缚：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "clone_image",
+      "display": "分身幻影",
+      "school": "illusion",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "summon",
+        "element": "illusion",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "分身幻影：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "分身幻影：illusion法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "yanyue_phantom_array",
+      "display": "掩月幻阵",
+      "school": "illusion",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "yanyue_illusion_art",
+      "spirit_cost_base": 38,
+      "effect": {
+        "type": "aoe",
+        "element": "illusion",
+        "tags": [
+          "array"
+        ]
+      },
+      "description": "掩月幻阵：illusion神通，需境界 CORE_FORMATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "ritual",
+        "target": "battlefield",
+        "lore": "掩月幻阵：illusion神通，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "yanyue_illusion_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "secret_inheritance",
+          "ruin",
+          "tribulation"
+        ],
+        "realm_min_override_strict": true,
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "yanyue_illusion_art"
+        ],
+        "prerequisite_mode": "all"
+      }
+    },
+    {
+      "id": "veil_of_moon",
+      "display": "月纱障",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "requires_method": "yanyue_illusion_art",
+      "spirit_cost_base": 20,
+      "effect": {
+        "type": "buff",
+        "element": "illusion",
+        "tags": [
+          "stealth"
+        ]
+      },
+      "description": "月纱障：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "月纱障：illusion法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "yanyue_illusion_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "yanyue_illusion_art"
+        ]
+      }
+    },
+    {
+      "id": "invisibility_basic",
+      "display": "隐匿术",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "隐匿术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "illusion",
+          "stealth"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "隐匿术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "illusion_mist",
+      "display": "幻雾术",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "幻雾术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "illusion",
+          "stealth"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "幻雾术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "inverse_star_veil",
+      "display": "逆星匿形",
+      "school": "illusion",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "description": "逆星匿形：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "illusion",
+          "stealth"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "yanyue_gong",
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "逆星匿形：illusion法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "yanyue_moon_illusion",
+      "display": "掩月幻身",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "requires_method": "yanyue_gong",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "stealth",
+          "illusion"
+        ]
+      },
+      "description": "掩月宗幻术，短暂隐匿身形。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "掩月宗幻术，短暂隐匿身形。",
+        "requires_method": "yanyue_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "yanyue_gong"
+        ]
+      }
+    },
+    {
+      "id": "wanhu_nine_illusion",
+      "display": "九尾幻境",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "wanhu_phantom_art",
+      "effect": {
+        "type": "aoe",
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "多重重影乱敌判断。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 26,
+      "setting": {
+        "combat_style": "幻术隐匿",
+        "cast_bias": "debuff_buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "多重重影乱敌判断。",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "wanhu_phantom_art"
+        ]
+      }
+    }
+  ],
+  "method_gate": {
+    "yanyue_illusion_art": "掩月幻心诀"
+  }
+}

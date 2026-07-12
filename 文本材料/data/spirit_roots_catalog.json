@@ -1,0 +1,120 @@
+{
+  "schema_version": 2,
+  "source": "汇编 灵根体系 + 灵界人造补缺",
+  "generation": {
+    "mortal_awakening_chance": 0.08,
+    "multi_root_weights": {
+      "single": 0.55,
+      "dual": 0.28,
+      "triple": 0.12,
+      "mutant": 0.05
+    }
+  },
+  "elements": [
+    "metal",
+    "wood",
+    "water",
+    "fire",
+    "earth",
+    "wind",
+    "thunder",
+    "ice",
+    "yin",
+    "yang"
+  ],
+  "grades": [
+    {
+      "id": "inferior",
+      "display": "下品",
+      "cultivation_mult": 0.7,
+      "setting": {
+        "lore": "下品"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "note": "灵根决定功法属性解锁。"
+        }
+      }
+    },
+    {
+      "id": "common",
+      "display": "凡品",
+      "cultivation_mult": 1.0,
+      "setting": {
+        "lore": "凡品"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "note": "灵根决定功法属性解锁。"
+        }
+      }
+    },
+    {
+      "id": "superior",
+      "display": "上品",
+      "cultivation_mult": 1.25,
+      "setting": {
+        "lore": "上品"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "note": "灵根决定功法属性解锁。"
+        }
+      }
+    },
+    {
+      "id": "heavenly",
+      "display": "天灵根（单属）",
+      "cultivation_mult": 1.6,
+      "single_element_only": true,
+      "setting": {
+        "lore": "天灵根，单系极致，各大派争抢。"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "sect_recruit_priority": true
+        }
+      }
+    },
+    {
+      "id": "variant",
+      "display": "变异灵根",
+      "cultivation_mult": 1.45,
+      "examples": [
+        "ice_thunder",
+        "yin_yang"
+      ],
+      "setting": {
+        "lore": "变异灵根"
+      },
+      "learn_requirements": {
+        "cultivate": {
+          "note": "灵根决定功法属性解锁。"
+        }
+      }
+    }
+  ],
+  "spirit_realm_artificial": [
+    {
+      "id": "pill_spirit_root",
+      "display": "丹灵根",
+      "use": "assist_void_refinement_breakthrough",
+      "side_effect": "lifespan_debt_minor"
+    },
+    {
+      "id": "artifact_spirit_root",
+      "display": "器灵根",
+      "use": "assist_void_refinement_breakthrough",
+      "side_effect": "binding_artifact_required"
+    }
+  ],
+  "synergy": {
+    "element_match_technique": 1.15,
+    "element_conflict": 0.85,
+    "constitution_stack_cap_ref": "constitution_catalog.json#stack_cap_note"
+  },
+  "purify_items": [
+    "spirit_root_purify_pill",
+    "ancient_herb_combo"
+  ]
+}

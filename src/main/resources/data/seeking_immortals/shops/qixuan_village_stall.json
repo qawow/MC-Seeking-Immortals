@@ -1,0 +1,29 @@
+{
+  "id": "qixuan_village_stall",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "herb_bundle_low",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4,
+      "cost": 8,
+      "stock": 20
+    },
+    {
+      "id": "mortal_medicine",
+      "item": "seeking_immortals:healing_pill_low",
+      "count": 1,
+      "cost": 3,
+      "stock": 50
+    },
+    {
+      "id": "qixuan_mortal_art_scroll",
+      "item": "seeking_immortals:technique_manual_mortal_martial",
+      "count": 1,
+      "cost": 100,
+      "stock": 1
+    }
+  ]
+}

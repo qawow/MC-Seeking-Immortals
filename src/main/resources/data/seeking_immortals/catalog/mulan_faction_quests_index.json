@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "mulan_faction_quests.json",
+  "primary_key": "chains",
+  "entries": [
+    {
+      "id": "mulan_scout_clash",
+      "display": "草原斥候"
+    },
+    {
+      "id": "fashi_soul_array_battle",
+      "display": "法士护族阵"
+    },
+    {
+      "id": "holy_bird_blessing_quest",
+      "display": "圣禽祈福"
+    }
+  ]
+}

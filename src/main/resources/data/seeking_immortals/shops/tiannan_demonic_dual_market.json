@@ -1,0 +1,17 @@
+{
+  "id": "tiannan_demonic_dual_market",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 6,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "heqi_pill",
+      "item": "seeking_immortals:cultivation_pill",
+      "count": 1,
+      "cost": 40,
+      "stock": 6,
+      "refresh_ticks": 48000
+    }
+  ]
+}

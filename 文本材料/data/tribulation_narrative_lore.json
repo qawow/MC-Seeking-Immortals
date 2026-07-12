@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §15 天劫小/大/仙三级结构；叙事层补充",
+  "disclaimer": "具体波数见 tribulation_rules.json，此处为原著向叙事",
+  "tier_schema_ref": "tribulation_tier_schema.json",
+  "rules_ref": "tribulation_rules.json",
+  "items_ref": "tribulation_items.json",
+  "tiers": [
+    {
+      "id": "minor",
+      "display": "小劫",
+      "novel_tone": "天威初显，尚有一线生机；失败多跌境或重伤，少直陨。",
+      "human_cultivator": [
+        {
+          "hook": "元婴小境界",
+          "rule_id": "minor_soul_trial",
+          "lore": "元婴凝实过程中的神魂试炼，心魔与雷光交织，属小劫范畴。"
+        }
+      ],
+      "beast_cultivator": [
+        {
+          "hook": "七阶化形",
+          "rule_id": "beast_shape_shift_minor",
+          "lore": "七阶妖兽欲化人形，须渡小劫；败则难化形或跌阶，与人修元婴小劫同级结构。"
+        }
+      ],
+      "prep_items_tags": ["定神丹", "护魂符", "避雷阵盘（低阶）"]
+    },
+    {
+      "id": "major",
+      "display": "大劫",
+      "novel_tone": "天地反噬，生死一线；化神起心魔与雷劫并重，越高阶雷层越厚。",
+      "breakthroughs": [
+        {
+          "realm": "DEITY_TRANSFORMATION",
+          "rule_id": "heart_demon_or_thunder",
+          "lore": "化神大劫：心魔劫与雷劫二选一或交替，败则身陨或入魔概率叙事。"
+        },
+        {
+          "realm": "VOID_REFINEMENT",
+          "rule_id": "void_thunder",
+          "lore": "炼虚雷劫：虚空风雷，需肉身与法宝同扛，灵界地渊近处雷层+1环境叙事。"
+        },
+        {
+          "realm": "BODY_INTEGRATION",
+          "rule_id": "body_soul_dual",
+          "lore": "合体双劫：肉身与元神须同过阈值，双劫并行。"
+        },
+        {
+          "realm": "GREAT_VEHICLE",
+          "rule_id": "great_ascension_thunder",
+          "lore": "大乘天劫：寿元与根基同赌，败则重伤燃寿。"
+        }
+      ],
+      "prep_items_tags": ["避雷珠", "护体法宝", "清心丹", "天渊功勋护劫阵（一次）"]
+    },
+    {
+      "id": "immortal",
+      "display": "仙劫",
+      "novel_tone": "九霄雷海，渡则飞升灵界，败则形神俱灭；人间最后大坎。",
+      "breakthroughs": [
+        {
+          "realm": "TRIBULATION_LAND",
+          "rule_id": "final_ascension",
+          "lore": "飞升仙劫：二十七重雷势为模组结构，原著强调不可轻渡。"
+        },
+        {
+          "realm": "TRIBULATION",
+          "rule_id": "gv_ascension_pre",
+          "lore": "飞升前兆劫：灵界大乘圆满后空间撕裂前奏，属仙劫前奏结构。"
+        }
+      ],
+      "prep_items_tags": ["飞升符", "镇雷古宝", "灵石海量备劫"]
+    }
+  ],
+  "environment_lore": {
+    "open_sky": "须露天引雷，秘境幻阵类禁渡（见 tribulation_rules.environment）",
+    "delay_zones": "冥河、天渊内阵等可延缓一次，非免劫",
+    "spirit_realm": "灵界荒野心魔加重；蛮荒妖王远啸可触发骚扰事件叙事"
+  },
+  "crossref_cultivation": "cultivation_progression.json 小境界突破可挂接 minor；大境界挂接 major"
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "seeking_immortals:cangming_isle_outpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 60,
+    "separation": 22,
+    "salt": 10391006
+  }
+}

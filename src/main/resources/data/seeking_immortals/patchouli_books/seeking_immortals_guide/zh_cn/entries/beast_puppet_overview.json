@@ -1,0 +1,38 @@
+{
+  "name": "灵兽与傀儡",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:spirit_beast_bridle",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "两条路线",
+      "text": "本页对应 beast_bestiary.json、BEAST_PUPPET_v63.md、puppet_definitions.json 与 puppet_craft_recipes.json。文本材料明确区分两套系统：灵兽是驯服/伙伴关系，核心是精血认主；傀儡是装备/合成产物，核心是图纸、材料、神识和功法。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "灵兽阶位",
+      "text": "妖兽表按一至十三阶映射修士境界，五阶起常见妖丹，七阶以上开始关联化形小劫。当前模组已有 beast_core、spirit_beast_bone、spirit_beast_bridle、beast_taming_whip 等载体，以及御灵阁贡献供给；真实灵兽实体、亲密度、成长和掉落生态仍未落地。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "驯服门槛",
+      "text": "tame_requirements 常用 realm_min、items、method_any、ritual、success_base、quests 与 tame_allowed。低阶如双瞳鼠可用御兽环和御兽基础诀尝试；风啸鹰需要筑基与飞行配合；噬金虫和啼魂兽偏机缘认主；凶蛟、巨猿等多标记为不可常规驯服。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "傀儡制作",
+      "text": "傀儡定义按 T0-T6 进阶，从木人傀儡、巨猿傀儡、巨龟傀儡到石灵傀儡、混元核心改造和灵界级原型。制作门槛通常包含 realm_min、qianzhu_puppet_art 或 dayan_art、图纸/核心、divine_sense_min 与 quest_unlock。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前入口",
+      "text": "当前可见入口包括御灵阁商店、极西千竹区域、千竹机关塔秘境、御灵/千竹/大衍相关手册，以及已加载的功法数据：驱灵术、傀儡机关术、大衍诀与灵兽共生类术法。它们多是数据和学习入口，不会直接生成灵兽或傀儡战斗单位。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "后续实现",
+      "text": "后续应优先复用现有 ShopService、TechniqueManualItem、ArtifactDataService、世界包秘境和 GeckoLib/FTB Quests 前置库。待补内容包括灵兽实体与 AI、契约/亲密度、御兽环消耗、傀儡装配台、自定义配方、傀儡实体/召唤物、维修燃料、掉落表和任务引导。"
+    }
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "schema_version": 4,
+  "source": "汇编 11.7 + 14.4 傀儡体系补全",
+  "tiers": [
+    {
+      "tier": "T0",
+      "realm_equiv": "QI_REFINING",
+      "examples": [
+        "basic_wood_puppet",
+        "quhun_iron_puppet"
+      ],
+      "fuel": "spirit_stone_shard",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T1",
+      "realm_equiv": "FOUNDATION_EARLY",
+      "examples": [
+        "giant_ape_puppet"
+      ],
+      "material": "ironwood",
+      "attack": "melee_tier1",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T2",
+      "realm_equiv": "FOUNDATION_MID",
+      "examples": [
+        "giant_turtle_puppet"
+      ],
+      "attack": "ranged_thunder_fireball",
+      "defense": "high",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T3",
+      "realm_equiv": "FOUNDATION_LATE",
+      "examples": [
+        "stone_spirit_puppet"
+      ],
+      "special": "ancient_puppet_method",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T4",
+      "realm_equiv": "CORE_FORMATION",
+      "examples": [
+        "hunyuan_bowl_core_puppet"
+      ],
+      "special": "artifact_hybrid",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T5",
+      "realm_equiv": "NASCENT_SOUL",
+      "examples": [
+        "dayan_grade_puppet"
+      ],
+      "requires": "dayan_true_solution",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    },
+    {
+      "tier": "T6",
+      "realm_equiv": "SPIRIT_TRANSFORMATION",
+      "examples": [
+        "immortal_puppet_prototype"
+      ],
+      "note": "灵界级",
+      "setting": {
+        "lore": "",
+        "ref": "puppet_definitions.json"
+      },
+      "learn_requirements": {
+        "craft": {
+          "method": "qianzhu_puppet_art"
+        }
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "basic_wood_puppet",
+      "display": "木人傀儡（基础）",
+      "tier": "T0",
+      "hp_base": 30,
+      "damage": 6,
+      "craft_materials": [
+        {
+          "id": "ironwood",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 3
+        }
+      ],
+      "repair_materials": [
+        {
+          "id": "ironwood",
+          "count": 1
+        }
+      ],
+      "note": "入门款，可批量制作",
+      "setting": {
+        "role": "melee_grunt",
+        "control": "direct",
+        "lore": "千竹教入门木傀，行动迟缓。",
+        "fuel": "spirit_stone_shard",
+        "maintenance": "低"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "qianzhu_puppet_art"
+          ],
+          "learn_source": [
+            "qianzhu_sect",
+            "quest_qianzhu_puppet_apprentice",
+            "puppet_craft_recipes.json"
+          ],
+          "items_blueprint": [
+            "giant_ape_puppet_blueprint"
+          ],
+          "note": "千竹教基础木傀图纸。",
+          "quests": [
+            "qianzhu_puppet_apprentice"
+          ]
+        }
+      }
+    },
+    {
+      "id": "giant_ape_puppet",
+      "display": "巨猿傀儡",
+      "tier": "T1",
+      "entity_id_hint": "seeking_immortals:giant_ape_puppet",
+      "hp_base": 80,
+      "damage": 18,
+      "craft_materials": [
+        {
+          "id": "ironwood",
+          "count": 8
+        },
+        {
+          "id": "demon_core_low",
+          "count": 1
+        }
+      ],
+      "repair_materials": [
+        "ironwood",
+        "spirit_stone_shard"
+      ],
+      "setting": {
+        "role": "melee_elite",
+        "control": "dayan_divine_thread",
+        "lore": "铁木巨猿，近战力道。",
+        "material_lore": "铁木+低阶妖丹"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "prerequisite_mode": "any_one",
+          "learn_source": [
+            "giant_ape_puppet_blueprint",
+            "dayan_ruin",
+            "puppet_craft_recipes.json"
+          ],
+          "divine_sense_min": "average"
+        }
+      }
+    },
+    {
+      "id": "giant_turtle_puppet",
+      "display": "巨龟傀儡",
+      "tier": "T2",
+      "entity_id_hint": "seeking_immortals:giant_turtle_puppet",
+      "hp_base": 200,
+      "skills": [
+        "thunder_fireball"
+      ],
+      "defense": "ranged_tank",
+      "craft_materials": [
+        {
+          "id": "ironwood",
+          "count": 6
+        },
+        {
+          "id": "turtle_shell",
+          "count": 2
+        },
+        {
+          "id": "demon_core_mid",
+          "count": 1
+        }
+      ],
+      "repair_materials": [
+        {
+          "id": "turtle_shell",
+          "count": 1
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "note": "汇编：远战防御型，可喷雷火球",
+      "setting": {
+        "role": "ranged_tank",
+        "control": "dayan_divine_thread",
+        "lore": "龟甲傀儡喷吐雷火。",
+        "skills_lore": [
+          "thunder_fireball"
+        ]
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "FOUNDATION",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "learn_source": [
+            "giant_turtle_puppet_core_manual",
+            "puppet_craft_recipes.json"
+          ],
+          "items_required": [
+            "giant_turtle_puppet_core"
+          ]
+        }
+      }
+    },
+    {
+      "id": "stone_spirit_puppet",
+      "display": "石灵傀儡",
+      "tier": "T3",
+      "entity_id_hint": "seeking_immortals:stone_spirit_puppet",
+      "hp_base": 350,
+      "special": "beast_soul_injected",
+      "chronicle_ref": "A3_dayan_sage",
+      "setting": {
+        "role": "siege",
+        "control": "ancient_array",
+        "lore": "石灵封妖魄，上古傀儡术高峰。",
+        "special": "beast_soul_injected"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "FOUNDATION",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "learn_source": [
+            "ancient_puppet_method",
+            "puppet_craft_recipes.json"
+          ],
+          "quests": [
+            "stone_puppet_chronicle"
+          ],
+          "items_required": [
+            "stone_spirit_core",
+            "beast_soul_essence"
+          ],
+          "note": "需上古傀儡术与妖魄封石。"
+        }
+      }
+    },
+    {
+      "id": "hunyuan_bowl_core_puppet",
+      "display": "混元傀儡（改造）",
+      "tier": "T4",
+      "hp_base": 400,
+      "damage": 35,
+      "core_artifact": "hunyuan_bowl",
+      "source": "upgrade_from_T3",
+      "note": "以混元钵替换原有核心",
+      "setting": {
+        "role": "hybrid_artifact",
+        "control": "dayan_divine_thread",
+        "lore": "混元钵为核的改造傀。",
+        "upgrade_from": "stone_spirit_puppet"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "CORE_FORMATION",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "items_required": [
+            "hunyuan_bowl"
+          ],
+          "prerequisite_puppet": [
+            "stone_spirit_puppet"
+          ],
+          "note": "以混元钵替换核心升级。",
+          "learn_source": [
+            "puppet_craft_recipes.json"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quhun_iron_puppet",
+      "display": "曲魂铁傀",
+      "tier": "T0",
+      "entity_id_hint": "seeking_immortals:quhun_iron_puppet",
+      "hp_base": 60,
+      "damage": 12,
+      "control_artifact": "soul_summon_bell",
+      "source": "xuan_yin_line",
+      "setting": {
+        "role": "assassin_grunt",
+        "control": "soul_summon_bell",
+        "lore": "玄阴一脉铁傀，引魂钟驱使。",
+        "faction": "xuan_yin"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "xuan_yin_art"
+          ],
+          "items_required": [
+            "soul_summon_bell"
+          ],
+          "learn_source": [
+            "xuan_yin_line"
+          ],
+          "note": "非大衍体系，靠引魂钟控傀。"
+        }
+      }
+    },
+    {
+      "id": "stone_guard_puppet",
+      "display": "石卫傀儡",
+      "tier": "T1",
+      "hp_base": 120,
+      "damage": 10,
+      "note": "古修洞府守卫",
+      "craft_materials": [
+        {
+          "id": "spirit_stone",
+          "count": 2
+        },
+        {
+          "id": "low_spirit_iron",
+          "count": 4
+        }
+      ],
+      "setting": {
+        "role": "puppet_unit",
+        "control": "dayan_divine_thread",
+        "lore": "古修洞府守卫",
+        "tier": "T1",
+        "realm_equiv": "FOUNDATION_EARLY",
+        "maintenance": "spirit_stone_fuel"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "QI_REFINING",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "learn_source": [
+            "puppet_craft_recipes",
+            "blueprint",
+            "puppet_craft_recipes.json"
+          ],
+          "divine_sense_min": "basic",
+          "note": "需傀儡术功法与图纸/配方；大衍诀为高阶前置。"
+        }
+      }
+    },
+    {
+      "id": "fire_spear_puppet",
+      "display": "火矛傀儡",
+      "tier": "T2",
+      "hp_base": 70,
+      "damage": 22,
+      "note": "千竹教远程型",
+      "craft_materials": [
+        {
+          "id": "fire_feather",
+          "count": 2
+        },
+        {
+          "id": "puppet_core_blank",
+          "count": 1
+        }
+      ],
+      "setting": {
+        "role": "puppet_unit",
+        "control": "dayan_divine_thread",
+        "lore": "千竹教远程型",
+        "tier": "T2",
+        "realm_equiv": "FOUNDATION_MID",
+        "maintenance": "spirit_stone_fuel"
+      },
+      "learn_requirements": {
+        "craft_learn": {
+          "realm_min": "FOUNDATION",
+          "prerequisite_methods": [
+            "dayan_art"
+          ],
+          "learn_source": [
+            "puppet_craft_recipes",
+            "blueprint",
+            "puppet_craft_recipes.json"
+          ],
+          "divine_sense_min": "average",
+          "note": "需傀儡术功法与图纸/配方；大衍诀为高阶前置。"
+        }
+      }
+    }
+  ],
+  "upgrade_tree": {
+    "basic_wood_puppet": {
+      "upgrades_to": "giant_ape_puppet",
+      "cost": {
+        "ironwood": 6,
+        "demon_core_low": 1
+      }
+    },
+    "giant_ape_puppet": {
+      "upgrades_to": "giant_turtle_puppet",
+      "cost": {
+        "turtle_shell": 2,
+        "demon_core_mid": 1
+      }
+    },
+    "giant_turtle_puppet": {
+      "upgrades_to": "stone_spirit_puppet",
+      "cost": {
+        "beast_soul": 1,
+        "ancient_manual": 1
+      }
+    },
+    "stone_spirit_puppet": {
+      "upgrades_to": "hunyuan_bowl_core_puppet",
+      "cost": {
+        "hunyuan_bowl": 1
+      }
+    }
+  },
+  "control_methods_ref": [
+    "dayan_art",
+    "qianzhu_puppet_art",
+    "soul_summon_bell"
+  ]
+}

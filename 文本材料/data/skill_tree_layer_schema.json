@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "source": "汇编 §7 功法与法术体系 + §18 三层技能树",
+  "layers": [
+    {
+      "id": "method",
+      "display": "功法",
+      "role": "主线天赋/职业方向；决定属性门槛与可学法术池",
+      "data_ref": "cultivation_methods.json",
+      "unlock": "manual_learn_or_sect_grant"
+    },
+    {
+      "id": "spell",
+      "display": "法术",
+      "role": "主动战斗与辅助技能；须习得对应功法",
+      "data_ref": "techniques/*.json tier=spell",
+      "unlock": "requires_method + realm_min"
+    },
+    {
+      "id": "secret",
+      "display": "神通/秘术",
+      "role": "高阶终极技能；结丹后常见门槛",
+      "data_ref": "techniques/*.json tier=secret + secret_arts.json",
+      "unlock": "requires_method + realm_min(CORE_FORMATION+)"
+    }
+  ],
+  "spirit_root_gate": {
+    "note": "灵根属性作为解锁对应属性功法的硬性前置（见 spiritual_roots.json）",
+    "ref": "cultivation_methods.json#element_requirement"
+  },
+  "four_craft_professions": {
+    "note": "阵/丹/器/符四大热门职业可映射为副职树或功法支线",
+    "refs": [
+      "craft_daily_loops.json",
+      "sect_specialty_map.json"
+    ]
+  },
+  "sect_map_ref": "sect_specialty_map.json"
+}

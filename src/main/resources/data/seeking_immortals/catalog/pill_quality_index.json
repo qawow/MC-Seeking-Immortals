@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "pill_quality.json",
+  "primary_key": "tiers",
+  "entries": [
+    {
+      "id": "inferior",
+      "display": "下品"
+    },
+    {
+      "id": "standard",
+      "display": "中品"
+    },
+    {
+      "id": "superior",
+      "display": "上品"
+    },
+    {
+      "id": "peerless",
+      "display": "极品"
+    }
+  ]
+}

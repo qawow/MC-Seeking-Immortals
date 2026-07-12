@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "chaotic_sea_faction_quests.json",
+  "primary_key": "hubs",
+  "entries": [
+    {
+      "id": "hub_outer_dock_register",
+      "display": "外海岛登记处"
+    },
+    {
+      "id": "hub_black_market_cipher",
+      "display": "黑市密语点"
+    },
+    {
+      "id": "hub_merchant_league_wharf",
+      "display": "商盟中转码头"
+    },
+    {
+      "id": "hub_abyss_rift_outpost",
+      "display": "深渊前哨"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {
+      "id": "node_tiannan_huangfeng",
+      "display": "黄枫谷传送阵",
+      "type": "fixed_teleport_array",
+      "region": "tiannan",
+      "requires": [
+        "sect_permit_or_contribution"
+      ],
+      "cost_spirit_stone": 20
+    },
+    {
+      "id": "node_chaotic_sea_hub",
+      "display": "乱星海传送枢纽",
+      "type": "fixed_teleport_array",
+      "region": "chaotic_sea",
+      "requires": [
+        "chaotic_sea_teleport_permit"
+      ],
+      "cost_spirit_stone": 80
+    },
+    {
+      "id": "node_dajin_wanbao",
+      "display": "大晋万宝传送",
+      "type": "sect_gate",
+      "region": "dajin",
+      "requires": [
+        "auction_invite_or_reputation"
+      ],
+      "cost_spirit_stone": 50
+    },
+    {
+      "id": "node_mulan_steppe",
+      "display": "慕兰草原驿站",
+      "type": "fixed_teleport_array",
+      "region": "mulan",
+      "requires": [
+        "mulan_pass_or_war_truce"
+      ],
+      "cost_spirit_stone": 30
+    },
+    {
+      "id": "node_fallen_demon_rift",
+      "display": "坠魔谷裂隙节点",
+      "type": "ancient_rift",
+      "region": "fallen_demon_valley",
+      "requires": [
+        "realm_NASCENT_SOUL",
+        "seal_weak_event"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_void_sighting",
+      "display": "虚空裂缝目击点",
+      "type": "ancient_rift",
+      "region": "barbarian_wasteland",
+      "requires": [
+        "space_rift_compass"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "gate_mortal_to_tianyuan",
+      "display": "飞升天门",
+      "type": "ascension_gate",
+      "region": "",
+      "requires": [
+        "DEITY_TRANSFORMATION_peak",
+        "tribulation_success"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "gate_tianyuan_to_fengyuan",
+      "display": "天渊界门",
+      "type": "sect_gate",
+      "region": "tianyuan",
+      "requires": [
+        "border_merit_token",
+        "VOID_REFINEMENT_permit"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_nether_ferry",
+      "display": "冥河渡口",
+      "type": "pocket_gate",
+      "region": "nether_river",
+      "requires": [
+        "yin_stone",
+        "ferry_pass"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_star_palace",
+      "display": "星宫天星城阵枢",
+      "type": "sect_gate",
+      "region": "chaotic_sea",
+      "requires": [
+        "rep_star_palace_neutral",
+        "chaotic_sea_teleport_permit"
+      ],
+      "cost_spirit_stone": 60
+    },
+    {
+      "id": "node_inverse_star_hideout",
+      "display": "逆星盟暗港",
+      "type": "hidden_rift",
+      "region": "chaotic_sea",
+      "requires": [
+        "inverse_star_contact_or_smuggle"
+      ],
+      "cost_spirit_stone": 40
+    },
+    {
+      "id": "node_void_palace_gate",
+      "display": "虚天殿周期入口",
+      "type": "cycle_gate",
+      "region": "chaotic_sea",
+      "requires": [
+        "void_palace_key_fragment",
+        "cycle_void_palace_open"
+      ],
+      "cost_spirit_stone": 200
+    },
+    {
+      "id": "node_tiannan_border",
+      "display": "天南边境驿",
+      "type": "fixed_teleport_array",
+      "region": "tiannan",
+      "requires": [],
+      "cost_spirit_stone": 15
+    },
+    {
+      "id": "node_yanyue",
+      "display": "掩月宗阵",
+      "type": "fixed_teleport_array",
+      "region": "tiannan",
+      "requires": [
+        "sect_yanyue"
+      ],
+      "cost_spirit_stone": 25
+    },
+    {
+      "id": "node_qingxu",
+      "display": "清虚门阵",
+      "type": "fixed_teleport_array",
+      "region": "tiannan",
+      "requires": [
+        "sect_qingxu"
+      ],
+      "cost_spirit_stone": 25
+    },
+    {
+      "id": "node_north_ridge",
+      "display": "山岳熊王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_mist_valley",
+      "display": "迷雾狐王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_ancient_forest",
+      "display": "古松妖王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_sky_cliff",
+      "display": "鹏王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_venom_swamp",
+      "display": "沼泽蛇王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_green_jungle",
+      "display": "丛林虎王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_deep_lake",
+      "display": "玄龟妖王界碑",
+      "type": "king_territory",
+      "region": "barbarian_wasteland",
+      "requires": [],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_tiannan_to_chaotic_sea",
+      "display": "天南传送节点—乱星海",
+      "type": "",
+      "region": "tiannan",
+      "requires": [
+        "{\"realm_min\": \"FOUNDATION\", \"cost_spirit_stone\": 500}"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_spirit_world_rift",
+      "display": "灵界裂缝节点",
+      "type": "",
+      "region": "human_realm_edge",
+      "requires": [
+        "{\"realm_min\": \"DEITY_TRANSFORMATION\"}"
+      ],
+      "cost_spirit_stone": 0
+    },
+    {
+      "id": "node_tianyuan_gate",
+      "display": "天渊城门阵",
+      "type": "",
+      "region": "spirit_world",
+      "requires": [
+        "{\"realm_min\": \"VOID_REFINING\", \"registration\": true}"
+      ],
+      "cost_spirit_stone": 0
+    }
+  ]
+}

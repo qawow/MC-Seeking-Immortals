@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "path_id": "ghost_cultivator",
+  "display": "鬼修道途",
+  "stages": [
+    {
+      "id": "yin_body",
+      "display": "阴体凝形"
+    },
+    {
+      "id": "soul_anchor",
+      "display": "魂锚稳固"
+    },
+    {
+      "id": "nether_core",
+      "display": "冥核结成"
+    },
+    {
+      "id": "yin_soul",
+      "display": "阴婴"
+    }
+  ]
+}

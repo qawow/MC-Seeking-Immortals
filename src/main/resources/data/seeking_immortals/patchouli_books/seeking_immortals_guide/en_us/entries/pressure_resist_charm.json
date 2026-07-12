@@ -1,0 +1,28 @@
+{
+  "name": "Pressure-Resist Charm",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:pressure_resist_charm",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Source Role",
+      "text": "This entry maps tianyuan_merit_economy.json#pressure_resist_charm, secret_realms.json#diyuan, spirit_herbs_catalog.json#diyuan_pressure_moss, and tribulation_rules.json#diyuan_pressure. The charm is the short-duration talisman route for Diyuan pressure survival."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Use",
+      "text": "seeking_immortals:pressure_resist_charm can now be used with right click at Void Refinement or higher. It writes half a day of pressure-resist time, clears pressure slowness and nausea, and grants brief resistance plus movement feedback. It refuses to waste a charm when enough timer already remains."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Crafting",
+      "text": "The first shapeless recipe uses paper, seeking_immortals:diyuan_pressure_moss, seeking_immortals:armor_talisman, and a mid-grade metal spirit stone. The Tianyuan Merit Exchange also keeps its 200 alliance_merit_token purchase path."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Pill Relation",
+      "text": "Pressure-Resist Pills provide a longer base timer; the charm is an emergency warding pattern. Both use the same server-side pressure-resist state and both block the current Diyuan pressure loop. Future slices still need Diyuan gathering, loot placement, quest routing, dedicated visuals, and deeper pressure rules."
+    }
+  ]
+}

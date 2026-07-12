@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "stats_snapshot": {
+    "talisman_grade_filled": 21,
+    "dajin_factions": 5,
+    "sects_added": 4,
+    "chains_added": 1,
+    "hooks_added": 3,
+    "dimension_lore_patched": 11
+  }
+}

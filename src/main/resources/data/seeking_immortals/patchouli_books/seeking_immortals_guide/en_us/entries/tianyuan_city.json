@@ -1,0 +1,28 @@
+﻿{
+    "name":  "天渊城",
+    "category":  "seeking_immortals:basics",
+    "icon":  "seeking_immortals:immortal_jade",
+    "sortnum":  20,
+    "pages":  [
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "灵界门户",
+                      "text":  "本条目对应文本材料 patchouli_static_entries.json#tianyuan_city、tianyuan_city.json 与 region_cards/tianyuan.json。当前世界包已接入 tianyuan 区域，门槛为化神，旅行锚点为 tianyuan_anchor。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "当前数据",
+                      "text":  "天渊城在世界包中拥有 2.0 灵气倍率，并带有 spirit_realm、frontier、merit 标签。文本材料中的人妖两族共守、灵界通道、风雷舟和地渊许可中介目前只作为指南说明与后续任务钩子保留。"
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "功勋与地渊",
+                      "text":  "The text materials group merit_points, tianyuan_merit_path, spirit_realm_gate, wind_feather_raft, and diyuan_permit_broker under Tianyuan. The current build provides seeking_immortals:diyuan_permit and seeking_immortals:wind_feather_raft_ticket; server-side travel from Great Jin Central or Dajin to Tianyuan consumes one Wind Feather Raft Ticket, and Diyuan secret-realm entry consumes one Diyuan Permit. Merit exchange sources and quest checks remain future work."
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "延后内容",
+                      "text":  "Real Tianyuan NPCs, merit exchange UI, patrol missions, broader cross-realm routes, Diyuan permit acquisition, Wind Feather ticket vendors, city-defense rewards, and FTB Quests chapters remain deferred. This page documents the shipped worldpack region, Diyuan Permit entry cost, Wind Feather Raft Ticket route, and source-material goals."
+                  }
+              ]
+}

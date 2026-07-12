@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "source": "模组成丹品质；药效系数对齐灵根品质思路，非汇编精确数值",
+  "tiers": [
+    {
+      "id": "inferior",
+      "display": "下品",
+      "effect_mult": 0.7,
+      "trade_mult": 0.6,
+      "setting": {
+        "lore": "下品",
+        "source_file": "pill_quality.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "pill_quality.json"
+      }
+    },
+    {
+      "id": "standard",
+      "display": "中品",
+      "effect_mult": 1.0,
+      "trade_mult": 1.0,
+      "setting": {
+        "lore": "中品",
+        "source_file": "pill_quality.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "pill_quality.json"
+      }
+    },
+    {
+      "id": "superior",
+      "display": "上品",
+      "effect_mult": 1.25,
+      "trade_mult": 1.5,
+      "setting": {
+        "lore": "上品",
+        "source_file": "pill_quality.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "pill_quality.json"
+      }
+    },
+    {
+      "id": "peerless",
+      "display": "极品",
+      "effect_mult": 1.5,
+      "trade_mult": 2.5,
+      "setting": {
+        "lore": "极品",
+        "source_file": "pill_quality.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "pill_quality.json"
+      }
+    }
+  ],
+  "roll_factors": [
+    "base_success_rate",
+    "herb_age_tier",
+    "furnace_match",
+    "alchemy_skill",
+    "realm_control"
+  ],
+  "notes": "成丹时掷品质；炸炉或失败不产生丹药。管控丹（筑基丹等）品质影响突破加成而非流通价。"
+}

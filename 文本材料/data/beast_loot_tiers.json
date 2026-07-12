@@ -1,0 +1,139 @@
+{
+  "schema_version": 4,
+  "disclaimer": "妖兽阶位通用掉落，与 beast_bestiary tier 及 beast_thirteen_tier_map 对齐",
+  "tiers": [
+    {
+      "tier_range": "1-4",
+      "drops": [
+        {
+          "item": "demon_core_low",
+          "chance": 0.35,
+          "count": [
+            0,
+            1
+          ]
+        },
+        {
+          "item": "beast_blood_vial",
+          "chance": 0.4,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "demon_core_fragment",
+          "chance": 0.25,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "beast_meat_jerky",
+          "chance": 0.15,
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "",
+        "source_file": "beast_loot_tiers.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_loot_tiers.json"
+      }
+    },
+    {
+      "tier_range": "5-8",
+      "drops": [
+        {
+          "item": "demon_core_mid",
+          "chance": 0.45,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "beast_blood_vial",
+          "chance": 0.5,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "beast_soul_essence",
+          "chance": 0.08,
+          "count": 1
+        },
+        {
+          "item": "jiao_scale",
+          "chance": 0.05,
+          "tier_tag": "jiao",
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "",
+        "source_file": "beast_loot_tiers.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_loot_tiers.json"
+      }
+    },
+    {
+      "tier_range": "9-13",
+      "drops": [
+        {
+          "item": "demon_core_high",
+          "chance": 0.4,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "beast_soul_essence",
+          "chance": 0.2,
+          "count": 1
+        },
+        {
+          "item": "true_spirit_blood_drop",
+          "chance": 0.03,
+          "count": 1
+        },
+        {
+          "item": "ancient_beast_core",
+          "chance": 0.06,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": "",
+        "source_file": "beast_loot_tiers.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "beast_loot_tiers.json"
+      }
+    }
+  ],
+  "thirteen_tier_ref": "beast_thirteen_tier_map.json",
+  "boss_extra_loot_ref": "boss_extra_loot_index.json",
+  "crossref": [
+    "spawn_tables.json",
+    "materials_catalog.json",
+    "beast_thirteen_tier_map.json",
+    "boss_extra_loot_index.json"
+  ],
+  "beast_tier_schema_ref": "beast_tier_schema.json"
+}

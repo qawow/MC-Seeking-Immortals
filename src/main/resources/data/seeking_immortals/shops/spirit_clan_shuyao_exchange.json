@@ -1,0 +1,37 @@
+{
+  "id": "spirit_clan_shuyao_exchange",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "beast_core",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 4,
+      "stock": 10
+    },
+    {
+      "id": "spirit_beast_bone",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 1,
+      "cost": 5,
+      "stock": 8
+    },
+    {
+      "id": "phoenix_feather",
+      "item": "seeking_immortals:phoenix_feather",
+      "count": 1,
+      "cost": 8,
+      "stock": 4
+    },
+    {
+      "id": "soul_fragment",
+      "item": "seeking_immortals:soul_fragment",
+      "count": 1,
+      "cost": 6,
+      "stock": 6
+    }
+  ]
+}

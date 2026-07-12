@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "MMM",
+    " C ",
+    " G "
+  ],
+  "key": {
+    "C": {
+      "item": "seeking_immortals:cold_jade"
+    },
+    "G": {
+      "item": "seeking_immortals:soul_gathering_stone"
+    },
+    "M": {
+      "item": "seeking_immortals:cloud_mushroom"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:evil_illusion_mirror",
+    "count": 1
+  },
+  "show_notification": true
+}

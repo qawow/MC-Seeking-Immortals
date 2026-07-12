@@ -1,0 +1,729 @@
+{
+  "schema_version": 7,
+  "crossref": [
+    "worldgen_biomes.json",
+    "item_id_aliases.json",
+    "materials_catalog.json"
+  ],
+  "regions": [
+    {
+      "id": "tiannan",
+      "display": "天南",
+      "herbs": [
+        {
+          "id": "yellow_essence_grass",
+          "display": "黄精草",
+          "rarity": "common"
+        },
+        {
+          "id": "blood_ginseng",
+          "display": "血参",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "spirit_mushroom",
+          "display": "灵菇",
+          "rarity": "common"
+        }
+      ],
+      "ores": [
+        {
+          "id": "low_spirit_iron",
+          "display": "低阶灵铁",
+          "rarity": "common"
+        }
+      ],
+      "materials": [
+        {
+          "id": "demon_core_fragment",
+          "display": "妖丹碎片",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "sect_herb_garden_seed_pack",
+          "display": "宗门药园种子包",
+          "rarity": "regional"
+        },
+        {
+          "id": "refinement_quench_oil",
+          "display": "淬器灵油",
+          "rarity": "regional"
+        },
+        {
+          "id": "puppet_core_blank",
+          "display": "傀儡灵核（空）",
+          "rarity": "regional"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "yellow_palm_fan",
+          "display": "黄罗伞（仿）",
+          "rarity": "rare"
+        },
+        {
+          "id": "qingye_leaf_fan",
+          "display": "青叶法器",
+          "rarity": "common"
+        },
+        {
+          "id": "huangsi_robe_artifact",
+          "display": "黄丝衫",
+          "rarity": "common"
+        },
+        {
+          "id": "flying_sword_low",
+          "display": "低阶飞剑",
+          "rarity": "common"
+        }
+      ],
+      "pills": [
+        {
+          "id": "jiangchen_pill",
+          "display": "降尘丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "huanglong_pill",
+          "display": "黄龙丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "heqi_pill",
+          "display": "合气丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "luoyun_spirit_pill",
+          "display": "落云聚元丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "dual_harmony_pill",
+          "display": "合欢丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "body_tempering_pill",
+          "display": "淬体丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "spirit_beast_nurture_pill",
+          "display": "灵兽育灵丹",
+          "rarity": "regional"
+        }
+      ],
+      "merchant_shops": [
+        "tiannan_puppet_lane",
+        "tiannan_formation_lane",
+        "tiannan_talisman_lane",
+        "tiannan_refinement_forge",
+        "luoyun_contribution_hall"
+      ],
+      "merchant_shop_labels": [
+        {
+          "id": "tiannan_puppet_lane",
+          "display": "天南傀儡巷"
+        },
+        {
+          "id": "tiannan_formation_lane",
+          "display": "天南阵法坊"
+        },
+        {
+          "id": "tiannan_talisman_lane",
+          "display": "天南制符阁"
+        },
+        {
+          "id": "tiannan_refinement_forge",
+          "display": "天南炼器坊"
+        },
+        {
+          "id": "luoyun_contribution_hall",
+          "display": "落云宗贡献殿"
+        }
+      ],
+      "setting": {
+        "lore": "天南"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea",
+      "display": "乱星海",
+      "herbs": [
+        {
+          "id": "sea_soul_grass",
+          "display": "海魂草",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "coral_spirit_pearl",
+          "display": "珊瑚灵珠",
+          "rarity": "rare"
+        },
+        {
+          "id": "sea_coral_herb",
+          "display": "sea_coral_herb",
+          "rarity": "uncommon"
+        }
+      ],
+      "ores": [
+        {
+          "id": "deep_sea_cold_iron",
+          "display": "深海寒铁",
+          "rarity": "rare"
+        }
+      ],
+      "pills": [
+        {
+          "id": "bu_tian_pill",
+          "display": "补天丹",
+          "rarity": "legendary"
+        },
+        {
+          "id": "sea_calm_pill",
+          "display": "定海丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "condensation_pill",
+          "display": "凝元丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "chaotic_sea_antidote",
+          "display": "chaotic_sea_antidote",
+          "rarity": "uncommon"
+        }
+      ],
+      "materials": [
+        {
+          "id": "jiao_scale",
+          "display": "蛟鳞",
+          "rarity": "rare"
+        },
+        {
+          "id": "void_palace_cold_jade",
+          "display": "虚天寒玉",
+          "rarity": "regional"
+        },
+        {
+          "id": "contraband_spirit_stone",
+          "display": "来路不明灵石",
+          "rarity": "regional"
+        },
+        {
+          "id": "deep_sea_cold_iron",
+          "display": "深海寒铁",
+          "rarity": "regional"
+        },
+        {
+          "id": "star_palace_merit_plaque",
+          "display": "星宫功勋牌",
+          "rarity": "regional"
+        },
+        {
+          "id": "chaotic_sea_teleport_permit",
+          "display": "乱星海传送许可",
+          "rarity": "regional"
+        }
+      ],
+      "secret_realm_drops": [
+        "void_palace_layer_chest",
+        "void_key"
+      ],
+      "merchant_shops": [
+        "star_palace_merit_hall"
+      ],
+      "merchant_shop_labels": [
+        {
+          "id": "star_palace_merit_hall",
+          "display": "星宫功勋殿"
+        }
+      ],
+      "loot_tables": [
+        "inverse_star_smuggler_loot"
+      ],
+      "artifacts": [
+        {
+          "id": "star_palace_standard_sword",
+          "display": "星宫制式飞剑",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "reverse_star_assassin_blade",
+          "display": "逆星刺刃",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "void_heaven_ruler_shard",
+          "display": "虚天尺碎片",
+          "rarity": "legendary"
+        },
+        {
+          "id": "void_palace_chain",
+          "display": "镇海链",
+          "rarity": "rare"
+        },
+        {
+          "id": "gold_demon_chain",
+          "display": "金蚨子母刃",
+          "rarity": "rare"
+        }
+      ],
+      "setting": {
+        "lore": "乱星海"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "chaotic_sea"
+        }
+      }
+    },
+    {
+      "id": "dajin",
+      "display": "大晋",
+      "herbs": [
+        {
+          "id": "thousand_year_ganoderma",
+          "display": "千年灵芝",
+          "rarity": "rare"
+        },
+        {
+          "id": "snow_lotus",
+          "display": "雪莲花",
+          "rarity": "regional"
+        }
+      ],
+      "ores": [
+        {
+          "id": "kunwu_spirit_copper",
+          "display": "昆吾灵铜",
+          "rarity": "epic"
+        },
+        {
+          "id": "gold_seam_stone",
+          "display": "金精石",
+          "rarity": "rare"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": "xuanguang_mirror_shard",
+          "display": "玄光镜残片",
+          "rarity": "epic"
+        }
+      ],
+      "materials": [
+        {
+          "id": "true_spirit_blood_drop",
+          "display": "真灵血滴",
+          "rarity": "legendary"
+        },
+        {
+          "id": "wanbao_auction_lot_tag",
+          "display": "万宝阁拍品签",
+          "rarity": "regional"
+        }
+      ],
+      "pills": [
+        {
+          "id": "snow_lotus_pill",
+          "display": "雪莲丹",
+          "rarity": "regional"
+        }
+      ],
+      "setting": {
+        "lore": "大晋"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "dajin"
+        }
+      }
+    },
+    {
+      "id": "kunwu",
+      "display": "昆吾山",
+      "herbs": [
+        {
+          "id": "kunwu_ice_lotus",
+          "display": "昆吾冰莲",
+          "rarity": "epic"
+        }
+      ],
+      "ores": [
+        {
+          "id": "kunwu_core_ore",
+          "display": "昆吾山核矿",
+          "rarity": "legendary"
+        }
+      ],
+      "materials": [
+        {
+          "id": "ancient_demon_seal_fragment",
+          "display": "古魔封印残片",
+          "rarity": "epic"
+        },
+        {
+          "id": "spatial_crystal",
+          "display": "空间晶石",
+          "rarity": "rare"
+        }
+      ],
+      "setting": {
+        "lore": "昆吾山"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "kunwu"
+        }
+      }
+    },
+    {
+      "id": "mulan",
+      "display": "慕兰草原",
+      "herbs": [
+        {
+          "id": "wind_sage_grass",
+          "display": "风灵草",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "wind_herb",
+          "display": "wind_herb",
+          "rarity": "uncommon"
+        }
+      ],
+      "materials": [
+        {
+          "id": "sky_tiger_claw",
+          "display": "天虎爪",
+          "rarity": "epic"
+        },
+        {
+          "id": "holy_bird_plume",
+          "display": "圣禽翎羽",
+          "rarity": "legendary",
+          "quest_only": true
+        },
+        {
+          "id": "mulan_fashi_charge_pack",
+          "display": "法士灵术充能包",
+          "rarity": "regional"
+        },
+        {
+          "id": "mulan_spirit_sand",
+          "display": "慕兰灵砂",
+          "rarity": "regional"
+        },
+        {
+          "id": "beast_hide",
+          "display": "beast_hide",
+          "rarity": "uncommon"
+        }
+      ],
+      "pills": [
+        {
+          "id": "mulan_wind_pill",
+          "display": "mulan_wind_pill",
+          "rarity": "uncommon"
+        }
+      ],
+      "talismans": [
+        {
+          "id": "wind_blade_talisman",
+          "display": "wind_blade_talisman",
+          "rarity": "uncommon"
+        }
+      ],
+      "setting": {
+        "lore": "慕兰草原"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "mulan"
+        }
+      }
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display": "灵界风元大陆",
+      "herbs": [
+        {
+          "id": "boundary_marrow_grass",
+          "display": "界河髓草",
+          "rarity": "rare"
+        }
+      ],
+      "ores": [
+        {
+          "id": "spirit_realm_sand",
+          "display": "灵砂",
+          "rarity": "uncommon"
+        }
+      ],
+      "materials": [
+        {
+          "id": "demon_general_core",
+          "display": "魔将魔核",
+          "rarity": "epic"
+        },
+        {
+          "id": "fengyuan_spirit_fruit",
+          "display": "风元灵果",
+          "rarity": "regional"
+        },
+        {
+          "id": "diyuan_marrow_grass",
+          "display": "地渊髓草",
+          "rarity": "regional"
+        },
+        {
+          "id": "earth_spine_root",
+          "display": "地龙根",
+          "rarity": "regional"
+        }
+      ],
+      "secret_realm_drops": [
+        "diyuan_layer_chest",
+        "demon_gold_chest",
+        "asura_trial_chest",
+        "guanghan_chest",
+        "jiuxian_peak_chest"
+      ],
+      "setting": {
+        "lore": "灵界风元大陆"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "spirit_fengyuan"
+        }
+      }
+    },
+    {
+      "id": "nether_river",
+      "display": "冥河",
+      "biome_ref": "seeking_immortals:nether_river_mist",
+      "herbs": [
+        {
+          "id": "nether_bone_grass",
+          "display": "冥骨草",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "nether_mist_flower",
+          "display": "nether_mist_flower",
+          "rarity": "uncommon"
+        }
+      ],
+      "ores": [
+        {
+          "id": "yin_essence_ore",
+          "display": "阴元矿",
+          "rarity": "common"
+        }
+      ],
+      "consumables": [
+        {
+          "id": "ferry_pass",
+          "display": "冥河渡票",
+          "rarity": "common"
+        },
+        {
+          "id": "yin_body_protection_charm",
+          "display": "避阴符",
+          "rarity": "regional"
+        },
+        {
+          "id": "nether_ferry_coin",
+          "display": "冥河渡币",
+          "rarity": "regional"
+        }
+      ],
+      "talismans": [
+        {
+          "id": "ghost_hide_talisman",
+          "display": "敛魂符",
+          "rarity": "uncommon"
+        }
+      ],
+      "setting": {
+        "lore": "冥河"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "nether_river"
+        }
+      }
+    },
+    {
+      "id": "yinming",
+      "display": "阴冥之地",
+      "biome_ref": "seeking_immortals:yinming_wasteland",
+      "herbs": [
+        {
+          "id": "ghost_face_mushroom",
+          "display": "鬼面菇",
+          "rarity": "rare"
+        }
+      ],
+      "materials": [
+        {
+          "id": "ghost_wood",
+          "display": "阴木",
+          "rarity": "uncommon"
+        },
+        {
+          "id": "yin_corruption_crystal",
+          "display": "阴煞晶",
+          "rarity": "regional"
+        }
+      ],
+      "pills": [
+        {
+          "id": "yin_ward_pill",
+          "display": "护阴丹",
+          "rarity": "regional"
+        }
+      ],
+      "setting": {
+        "lore": "阴冥之地"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "yinming"
+        }
+      }
+    },
+    {
+      "id": "fallen_demon_valley",
+      "display": "坠魔谷",
+      "biome_ref": "seeking_immortals:fallen_demon_canyon",
+      "herbs": [
+        {
+          "id": "blood_lotus",
+          "display": "血莲",
+          "rarity": "epic"
+        }
+      ],
+      "materials": [
+        {
+          "id": "demon_corruption_fungus",
+          "display": "魔化菌",
+          "rarity": "uncommon"
+        }
+      ],
+      "setting": {
+        "lore": "坠魔谷"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "fallen_demon_valley"
+        }
+      }
+    },
+    {
+      "id": "tianyuan",
+      "display": "天渊",
+      "biome_ref": "seeking_immortals:tianyuan_rift",
+      "materials": [
+        {
+          "id": "void_marrow",
+          "display": "虚空髓",
+          "rarity": "legendary"
+        },
+        {
+          "id": "tianyuan_merit_token",
+          "display": "天渊功勋牌",
+          "rarity": "regional"
+        },
+        {
+          "id": "tribulation_aid_item",
+          "display": "渡劫辅助灵物",
+          "rarity": "regional"
+        },
+        {
+          "id": "border_merit_token",
+          "display": "边境功勋令",
+          "rarity": "regional"
+        },
+        {
+          "id": "demon_tide_scout_report",
+          "display": "魔潮侦察简",
+          "rarity": "regional"
+        }
+      ],
+      "consumables": [
+        {
+          "id": "spirit_realm_gate_pass",
+          "display": "灵界通行符",
+          "rarity": "epic",
+          "quest_only": true
+        }
+      ],
+      "pills": [
+        {
+          "id": "tianyuan_spirit_pill",
+          "display": "天渊聚灵丹",
+          "rarity": "regional"
+        },
+        {
+          "id": "great_vehicle_ascension_aid_pill",
+          "display": "大乘护劫丹",
+          "rarity": "regional"
+        }
+      ],
+      "loot_tables": [
+        "tianyuan_patrol_chest"
+      ],
+      "setting": {
+        "lore": "天渊"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "tianyuan"
+        }
+      }
+    },
+    {
+      "id": "region_barbarian_wasteland",
+      "display": "大晋蛮荒",
+      "loot_bias": [
+        "ancient_fragment",
+        "space_rift_shard"
+      ],
+      "setting": {
+        "lore": "上古遗迹与空间裂缝。"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "region_barbarian_wasteland"
+        }
+      }
+    },
+    {
+      "id": "region_tianyuan",
+      "display": "天渊城周边",
+      "loot_bias": [
+        "spirit_world_herb",
+        "demon_core_high"
+      ],
+      "setting": {
+        "lore": "灵界前线，灵气浓郁。"
+      },
+      "learn_requirements": {
+        "loot": {
+          "region": "region_tianyuan"
+        }
+      }
+    }
+  ],
+  "note_v35": "Indexed v29-v34 expansion items by region; display names resolve via item_id_index",
+  "display_resolve": "v36 batch from catalogs"
+}

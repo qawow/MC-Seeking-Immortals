@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "source": "ancient_treasure_index.json",
+  "primary_key": "entries",
+  "entries": [
+    {
+      "id": "xuanguang_mirror",
+      "display": "xuanguang_mirror"
+    },
+    {
+      "id": "xuanhuang_mirror",
+      "display": "xuanhuang_mirror"
+    },
+    {
+      "id": "black_moon_ruler",
+      "display": "black_moon_ruler"
+    },
+    {
+      "id": "green_copper_bell",
+      "display": "green_copper_bell"
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "xuanguang_mirror_shard"
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "display": "xuanhuang_mirror_shard"
+    },
+    {
+      "id": "void_heaven_ruler_shard",
+      "display": "void_heaven_ruler_shard"
+    },
+    {
+      "id": "ancient_sea_halberd_shard",
+      "display": "ancient_sea_halberd_shard"
+    },
+    {
+      "id": "ancient_forest_disk_shard",
+      "display": "ancient_forest_disk_shard"
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "eight_spirit_ruler_shard"
+    },
+    {
+      "id": "black_wind_flag_fragment",
+      "display": "black_wind_flag_fragment"
+    },
+    {
+      "id": "nine_dragon_cauldron_replica",
+      "display": "nine_dragon_cauldron_replica"
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "display": "nine_dragon_cauldron_shard"
+    },
+    {
+      "id": "kunwu_seal_fragment",
+      "display": "kunwu_seal_fragment"
+    }
+  ]
+}

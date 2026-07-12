@@ -1,0 +1,30 @@
+{
+  "id": "qi_recovery_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.qi_recovery_pill",
+  "output_items": {
+    "low": "seeking_immortals:qi_recovery_pill",
+    "medium": "seeking_immortals:qi_recovery_pill",
+    "high": "seeking_immortals:qi_recovery_pill",
+    "supreme": "seeking_immortals:qi_recovery_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 400,
+  "success_rate": 0.82,
+  "explosion_chance": 0.03,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "MORTAL",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 2
+    }
+  ]
+}

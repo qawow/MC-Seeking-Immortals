@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.quest.QuestService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -55,7 +56,7 @@ public class LingGenTestStoneItem extends Item {
     }
 
     public static void testPlayer(ServerLevel level, Player user, Player target, ItemStack stack, boolean consumeUse, boolean showTargetNotice) {
-        if (stack != null && getRemainingUses(stack) <= 0 && !user.getAbilities().instabuild) {
+        if (consumeUse && stack != null && getRemainingUses(stack) <= 0 && !user.getAbilities().instabuild) {
             user.displayClientMessage(Component.translatable("message.seeking_immortals.ling_gen_test_stone.depleted"), true);
             return;
         }
@@ -69,6 +70,7 @@ public class LingGenTestStoneItem extends Item {
             if (target instanceof ServerPlayer targetServerPlayer) {
                 SyncCultivationDataPacket.send(targetServerPlayer, cultivation);
                 grantMysticVialForLowTalent(level, targetServerPlayer, cultivation);
+                QuestService.onRootTested(targetServerPlayer);
             }
             playEffects(level, target);
             if (consumeUse && stack != null) {

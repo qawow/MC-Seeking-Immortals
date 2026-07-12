@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qinglan_spirit_grass",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_spirit_grass.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 10,
+      "reward_contribution": 20,
+      "min_stage": 2
+    },
+    {
+      "id": "qinglan_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 6,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "qinglan_immortal_ginseng",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_immortal_ginseng.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_ginseng",
+      "target": 2,
+      "reward_contribution": 80,
+      "min_stage": 3
+    }
+  ]
+}

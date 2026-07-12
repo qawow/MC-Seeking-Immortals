@@ -1,0 +1,1201 @@
+{
+  "schema_version": 2,
+  "tables": {
+    "refinement_fail_default": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "scrap_spirit_iron",
+          "weight": 40,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "spirit_stone_shard",
+          "weight": 30,
+          "count": [
+            1,
+            3
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_default"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_default"
+        }
+      }
+    },
+    "refinement_fail_low": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "low_spirit_iron",
+          "weight": 50,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "scrap_spirit_iron",
+          "weight": 25,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_low"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_low"
+        }
+      }
+    },
+    "refinement_fail_mid": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "scrap_spirit_iron",
+          "weight": 35,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "demon_core_fragment",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_mid"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_mid"
+        }
+      }
+    },
+    "refinement_fail_high": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "kunwu_copper",
+          "weight": 20,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_core_fragment",
+          "weight": 25,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_high"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_high"
+        }
+      }
+    },
+    "refinement_fail_ancient": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "spirit_stone_mid",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "scrap_spirit_iron",
+          "weight": 5,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_ancient"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_ancient"
+        }
+      }
+    },
+    "refinement_fail_spirit": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "void_marrow",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "space_crystal",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_spirit"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_spirit"
+        }
+      }
+    },
+    "refinement_fail_puppet": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "ironwood",
+          "weight": 45,
+          "count": [
+            2,
+            4
+          ]
+        },
+        {
+          "item": "puppet_core_blank",
+          "weight": 10,
+          "count": [
+            0,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 refinement_fail_puppet"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "refinement_fail_puppet"
+        }
+      }
+    },
+    "talisman_crate_low": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "fire_burst_talisman",
+          "weight": 25,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "body_guard_talisman",
+          "weight": 30,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "ice_seal_talisman",
+          "weight": 20,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "talisman_paper",
+          "weight": 15,
+          "count": [
+            2,
+            5
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 talisman_crate_low"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "talisman_crate_low"
+        }
+      }
+    },
+    "talisman_crate_mid": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "escape_heaven_talisman",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "illusion_dispel_talisman",
+          "weight": 18,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "anti_demon_talisman",
+          "weight": 20,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "talisman_paper_mid",
+          "weight": 25,
+          "count": [
+            1,
+            3
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 talisman_crate_mid"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "talisman_crate_mid"
+        }
+      }
+    },
+    "talisman_crate_high": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "thunder_talisman",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "space_anchor_talisman",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "talisman_paper_high",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 talisman_crate_high"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "talisman_crate_high"
+        }
+      }
+    },
+    "recipe_scroll_random_low": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "recipe_spirit_condense",
+          "weight": 30,
+          "count": 1
+        },
+        {
+          "item": "recipe_bigu",
+          "weight": 25,
+          "count": 1
+        },
+        {
+          "item": "recipe_refine_flying_sword",
+          "weight": 15,
+          "count": 1
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 recipe_scroll_random_low"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "recipe_scroll_random_low"
+        }
+      }
+    },
+    "blood_forbidden_chest": {
+      "rolls": 3,
+      "pools": [
+        {
+          "item": "blood_forbidden_herb",
+          "weight": 35,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "demon_core_low",
+          "weight": 25,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "low_spirit_stone",
+          "weight": 30,
+          "count": [
+            5,
+            20
+          ]
+        },
+        {
+          "item": "ancient_cultivator_relic",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "jiangchen_pill",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "storage_pouch_low",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "recipe_jiangchen",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 blood_forbidden_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "blood_forbidden_chest"
+        }
+      }
+    },
+    "void_palace_layer_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "void_palace_cold_jade",
+          "weight": 28,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "void_palace_spirit_pearl",
+          "weight": 6,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "ice_fire_crystal",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "mid_spirit_stone",
+          "weight": 25,
+          "count": [
+            2,
+            8
+          ]
+        },
+        {
+          "item": "void_palace_map_fragment",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "void_key",
+          "weight": 3,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "talisman_crate_high",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 void_palace_layer_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "void_palace_layer_chest"
+        }
+      }
+    },
+    "inverse_star_contraband": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "contraband_spirit_stone",
+          "weight": 40,
+          "count": [
+            10,
+            50
+          ]
+        },
+        {
+          "item": "stolen_jade_slip",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_core_mid",
+          "weight": 20,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "pirate_loot_bundle",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "recipe_condensation",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 inverse_star_contraband"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "inverse_star_contraband"
+        }
+      }
+    },
+    "wanbao_auction_lot_pool": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "snow_lotus",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "ancient_artifact_fragment",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "refinement_manual_mid",
+          "weight": 18,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "condensation_pill",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "bu_tian_pill",
+          "weight": 2,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "high_spirit_stone",
+          "weight": 15,
+          "count": [
+            1,
+            3
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 wanbao_auction_lot_pool"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "wanbao_auction_lot_pool"
+        }
+      }
+    },
+    "fallen_demon_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "space_rift_shard",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demonized_weapon_scrap",
+          "weight": 25,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "ancient_demon_fragment",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_qi_purge_pill",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_heart_pill",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "high_spirit_stone",
+          "weight": 5,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 fallen_demon_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "fallen_demon_chest"
+        }
+      }
+    },
+    "kunwu_layer_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "kunwu_core_ore",
+          "weight": 18,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "kunwu_puppet_core",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "kunwu_copper",
+          "weight": 30,
+          "count": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "space_crystal",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "kunwu_map_scroll",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "ancient_demon_seal_fragment",
+          "weight": 6,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 kunwu_layer_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "kunwu_layer_chest"
+        }
+      }
+    },
+    "nether_river_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "yin_essence_ore",
+          "weight": 28,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "soul_gathering_stone",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "ghost_wood",
+          "weight": 25,
+          "count": [
+            2,
+            4
+          ]
+        },
+        {
+          "item": "yin_ward_pill",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "ghost_cultivation_manual",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 nether_river_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "nether_river_chest"
+        }
+      }
+    },
+    "guanghan_chest": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "moon_essence",
+          "weight": 35,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "spatial_law_fragment",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "hundred_year_ice",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "high_spirit_stone",
+          "weight": 15,
+          "count": [
+            1,
+            3
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 guanghan_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "guanghan_chest"
+        }
+      }
+    },
+    "demon_gold_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "demon_gold_ore",
+          "weight": 30,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "holy_demon_blood",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "ancient_demon_fragment",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_gold_body_pill",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "high_spirit_stone",
+          "weight": 12,
+          "count": [
+            2,
+            5
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 demon_gold_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "demon_gold_chest"
+        }
+      }
+    },
+    "asura_trial_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "killing_intent_crystal",
+          "weight": 25,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "asura_armor_scrap",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "asura_mind_pill",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "trial_merit",
+          "weight": 15,
+          "count": [
+            5,
+            20
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 asura_trial_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "asura_trial_chest"
+        }
+      }
+    },
+    "diyuan_layer_chest": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "earth_spine_root",
+          "weight": 22,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "diyuan_marrow_grass",
+          "weight": 18,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "ancient_beast_core",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "spatial_law_fragment",
+          "weight": 3,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "void_marrow",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 diyuan_layer_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "diyuan_layer_chest"
+        }
+      }
+    },
+    "jiuxian_peak_chest": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "high_order_manual_fragment",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "tribulation_aid_item",
+          "weight": 18,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "great_vehicle_ascension_aid_pill",
+          "weight": 5,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "heart_guard_pill",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "void_marrow",
+          "weight": 15,
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 jiuxian_peak_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "jiuxian_peak_chest"
+        }
+      }
+    },
+    "inverse_star_smuggler_loot": {
+      "rolls": 2,
+      "pools": [
+        {
+          "item": "contraband_spirit_stone",
+          "weight": 35,
+          "count": [
+            5,
+            30
+          ]
+        },
+        {
+          "item": "stolen_jade_slip",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_core_mid",
+          "weight": 20,
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "item": "inverse_star_cipher_token",
+          "weight": 10,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "recipe_condensation",
+          "weight": 3,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "pirate_loot_bundle",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 inverse_star_smuggler_loot"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "inverse_star_smuggler_loot"
+        }
+      }
+    },
+    "tianyuan_patrol_chest": {
+      "rolls": 1,
+      "pools": [
+        {
+          "item": "border_merit_token",
+          "weight": 25,
+          "count": [
+            1,
+            3
+          ]
+        },
+        {
+          "item": "tianyuan_merit_token",
+          "weight": 20,
+          "count": [
+            5,
+            15
+          ]
+        },
+        {
+          "item": "demon_qi_purge_pill",
+          "weight": 12,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "void_marrow",
+          "weight": 8,
+          "count": [
+            1,
+            1
+          ]
+        },
+        {
+          "item": "demon_tide_scout_report",
+          "weight": 15,
+          "count": [
+            1,
+            1
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "掉落表 tianyuan_patrol_chest"
+      },
+      "learn_requirements": {
+        "drop": {
+          "table_id": "tianyuan_patrol_chest"
+        }
+      }
+    }
+  },
+  "recipe_tier_to_table": {
+    "low": "refinement_fail_low",
+    "mid": "refinement_fail_mid",
+    "high": "refinement_fail_high",
+    "ancient_treasure": "refinement_fail_ancient",
+    "spirit_treasure": "refinement_fail_spirit",
+    "puppet": "refinement_fail_puppet"
+  },
+  "crossref": [
+    "refinement_failure_loot.json",
+    "refinement_recipes.json"
+  ],
+  "artifact_drops_extension": {
+    "cultivator_loot_mid": [
+      {
+        "id": "qingye_leaf_fan",
+        "weight": 8
+      },
+      {
+        "id": "storage_bracelet_low",
+        "weight": 5
+      },
+      {
+        "id": "aura_conceal_cloth",
+        "weight": 3
+      }
+    ],
+    "secret_realm_ancient": [
+      {
+        "id": "void_heaven_ruler_shard",
+        "weight": 2
+      },
+      {
+        "id": "xuanhuang_mirror_shard",
+        "weight": 1
+      }
+    ],
+    "chaotic_sea_elite": [
+      {
+        "id": "silver_giant_sword",
+        "weight": 4
+      },
+      {
+        "id": "fire_cloud_banner",
+        "weight": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,575 @@
+{
+  "schema_version": 8,
+  "school": "sword",
+  "techniques": [
+    {
+      "id": "qingyuan_sword_ray",
+      "display": "青元剑芒",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "通用",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 45,
+        "tags": []
+      },
+      "requires_method": "qingyuan_sword_art",
+      "tier": "spell",
+      "description": "青元剑芒：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "cast_type": "instant",
+        "target": "single",
+        "range": "long",
+        "needs_artifact": "flying_sword",
+        "lore": "青元剑诀标志剑芒。",
+        "synergy": [
+          "flying_sword_strike"
+        ]
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ],
+        "items_required": [
+          {
+            "id": "flying_sword_low",
+            "equipped": true
+          }
+        ],
+        "learn_source": [
+          "qingyuan_manual"
+        ]
+      }
+    },
+    {
+      "id": "flying_sword_strike",
+      "display": "御剑斩",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 19,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 38,
+        "tags": []
+      },
+      "requires_method": "qingyuan_sword_art",
+      "tier": "spell",
+      "description": "御剑斩：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "御剑斩：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "green_bamboo_sword_qi",
+      "display": "青竹剑气",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "beam",
+        "element": "wood",
+        "damage_base": 40,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "青竹剑气：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "青竹剑气：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "sword_shield",
+      "display": "剑盾",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "metal",
+        "damage_base": 25,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "剑盾：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "剑盾：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "thousand_sword_array",
+      "display": "万剑阵",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 40,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 80,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "万剑阵：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "万剑阵：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "sword_escape",
+      "display": "剑遁",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 15,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "metal",
+        "damage_base": 30,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "剑遁：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "剑遁：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "blood_sword_slash",
+      "display": "血影剑斩",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 25,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "metal",
+        "damage_base": 50,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "血影剑斩：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "血影剑斩：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "sword_merge",
+      "display": "人剑合一",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "人剑合一：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "人剑合一：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "invisible_sword",
+      "display": "无形剑",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 26,
+      "source": "通用",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 52,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "无形剑：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "无形剑：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "sword_domain",
+      "display": "剑域",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 35,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 70,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "剑域：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "剑域：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "dual_sword_dance",
+      "display": "双剑舞",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "通用",
+      "effect": {
+        "type": "melee",
+        "element": "metal",
+        "damage_base": 48,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "qingyuan_sword_art",
+      "description": "双剑舞：sword法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "双剑舞：sword法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ]
+      }
+    },
+    {
+      "id": "star_sword_array",
+      "display": "天星剑阵",
+      "school": "sword",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "star_palace_art",
+      "spirit_cost_base": 35,
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "tags": [
+          "array_sword"
+        ]
+      },
+      "description": "天星剑阵：sword神通，需境界 CORE_FORMATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "ritual",
+        "target": "battlefield",
+        "lore": "天星剑阵：sword神通，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "star_palace_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "secret_inheritance",
+          "ruin",
+          "tribulation"
+        ],
+        "realm_min_override_strict": true,
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "star_palace_art"
+        ],
+        "prerequisite_mode": "all"
+      }
+    },
+    {
+      "id": "sword_formation_basic",
+      "display": "小剑阵",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "metal",
+      "description": "小剑阵：sword法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 49,
+        "tags": [
+          "sword"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "qingyuan_sword_art",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "小剑阵：sword法术，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art",
+        "element": "metal"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "metal"
+          ]
+        }
+      }
+    },
+    {
+      "id": "green_bamboo_sword_ray",
+      "display": "青竹剑芒（仿）",
+      "school": "sword",
+      "tier": "spell",
+      "realm_min": "CORE_FORMATION",
+      "element": "wood",
+      "note": "合规化名",
+      "description": "青竹剑芒（仿）：sword法术，需境界 CORE_FORMATION 以上方可施展。",
+      "spirit_cost_base": 26,
+      "effect": {
+        "type": "beam",
+        "element": "wood",
+        "damage_base": 49,
+        "tags": [
+          "sword"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "qingyuan_sword_art",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "青竹剑芒（仿）：sword法术，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "qingyuan_sword_art",
+        "element": "wood"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "qingyuan_sword_art"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "wood"
+          ]
+        }
+      }
+    },
+    {
+      "id": "metal_sword_finger",
+      "display": "金剑指",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "requires_method": "jinxuan_gong",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 40
+      },
+      "description": "金灵力凝指剑。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "剑芒御器",
+        "cast_bias": "beam_projectile",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金灵力凝指剑。",
+        "requires_method": "jinxuan_gong"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "jinxuan_gong"
+        ]
+      }
+    }
+  ],
+  "method_gate": {
+    "qingyuan_sword_art": "青元剑诀解锁青元系剑术"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "source": "dajin_righteous_demon_border.json",
+  "primary_key": "daily_event_ids",
+  "entries": [
+    {
+      "id": "dajin_righteous_demon_skirmish",
+      "display": "dajin_righteous_demon_skirmish"
+    }
+  ]
+}

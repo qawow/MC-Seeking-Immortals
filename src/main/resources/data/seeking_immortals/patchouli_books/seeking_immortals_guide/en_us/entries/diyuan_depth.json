@@ -1,0 +1,28 @@
+{
+  "name": "地渊深层",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:diyuan_permit",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "风元地渊",
+      "text": "本页对应 secret_realms.json#diyuan 与天渊/风元相关材料。地渊属于灵界风元大陆下的高阶秘境，文本门槛为炼虚以上、天渊功勋或风元许可，并关联 diyuan_access_token。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前入口",
+      "text": "当前版本已经有 seeking_immortals:diyuan_permit，并且世界包地渊入口会在服务端消耗地渊令。地渊还带 no_fly 规则：非创造/旁观玩家在秘境内会被压制飞行来源。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "六层结构",
+      "text": "文本材料将地渊写成六层探索：裂隙口、浅层矿脉、中层回廊、深层重压带、地渊核心、古脉节点。环境包含灵气紊乱、重压 debuff、高阶妖兽与空间褶皱。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "奖励与后续",
+      "text": "设计奖励包括古兽内丹、地脊根、空间法则碎片、地渊宝箱、灵脉碎片、古兽材料、地渊核心晶和抗压符。当前只实现了部分入口、禁飞和抗压链条，地渊分层、压力伤害、妖兽、采集和任务仍待后续。"
+    }
+  ]
+}

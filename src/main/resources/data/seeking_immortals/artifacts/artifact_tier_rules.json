@@ -1,0 +1,119 @@
+{
+  "schema_version": 3,
+  "tiers": [
+    {
+      "id": "low",
+      "display": "法器（低阶）",
+      "realm_typical": "QI_REFINING",
+      "refine_cost_band": "low_stone_10_50",
+      "durability": "normal",
+      "setting": {
+        "lore": "法器（低阶）",
+        "source_file": "artifact_tier_rules.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_tier_rules.json"
+      }
+    },
+    {
+      "id": "mid",
+      "display": "法器（中阶）",
+      "realm_typical": "FOUNDATION",
+      "refine_cost_band": "low_stone_80_300",
+      "special": [
+        "element_affinity_bonus"
+      ],
+      "setting": {
+        "lore": "法器（中阶）",
+        "source_file": "artifact_tier_rules.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_tier_rules.json"
+      }
+    },
+    {
+      "id": "high",
+      "display": "法宝",
+      "realm_typical": "CORE_FORMATION",
+      "refine_cost_band": "mid_stone_5_30",
+      "requires": [
+        "core_material",
+        "refinement_manual"
+      ],
+      "setting": {
+        "lore": "法宝",
+        "source_file": "artifact_tier_rules.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_tier_rules.json"
+      }
+    },
+    {
+      "id": "ancient_treasure",
+      "display": "古宝",
+      "realm_typical": "NASCENT_SOUL",
+      "refine_cost_band": "auction_only",
+      "binds_soul": "optional",
+      "note": "不可批量炼制",
+      "setting": {
+        "lore": "古宝",
+        "source_file": "artifact_tier_rules.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_tier_rules.json"
+      }
+    },
+    {
+      "id": "spirit_treasure",
+      "display": "灵宝",
+      "realm_typical": "VOID_REFINEMENT",
+      "realm_layer": "spirit_realm",
+      "laws": [
+        "space",
+        "time_fragment"
+      ],
+      "setting": {
+        "lore": "灵宝",
+        "source_file": "artifact_tier_rules.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_tier_rules.json"
+      }
+    }
+  ],
+  "natal_artifact": {
+    "display": "本命法宝",
+    "realm_min": "CORE_FORMATION",
+    "cultivate_in_body": true,
+    "growth": "spirit_nourish_daily",
+    "death_on_destroy": "severe_soul_injury",
+    "forbidden_clone": "one_natal_per_cultivator"
+  },
+  "refinement_pipeline": [
+    "materials_catalog",
+    "formation_catalog.refinement_array",
+    "cultivation_methods"
+  ],
+  "compliance": "高度绑定主角的专属古宝请用 fragment/shard 或仿制品名，见 artifacts_catalog.note",
+  "crossref": "artifacts_catalog.json",
+  "eleven_tier_ref": "artifact_eleven_tier_map.json",
+  "realm_power_scale": {
+    "below_realm_min": 0.25,
+    "at_realm_min": 0.7,
+    "two_major_above": 1.0
+  },
+  "talisman_treasure_vs_fulu": "符宝近法宝；符箓为低阶一次性消耗，见 talisman_catalog",
+  "eleven_tier_count": 11,
+  "game_tier_range": [
+    1,
+    11
+  ],
+  "setting": {
+    "lore": "五档 mod_tier 映射十一级结构，数值可重平衡。"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 3,
+  "id": "dajin",
+  "display": "大晋",
+  "spirit_density": 1.15,
+  "factions": [
+    "dajin_clans_generic",
+    "wanbao_pavilion_generic"
+  ],
+  "specialty": [
+    "refinement",
+    "auction",
+    "clan_politics"
+  ],
+  "trade_route": "dajin_wanbao_spine",
+  "chronicle_refs": [
+    "K6_dajin_clans",
+    "region_dajin_kunwu"
+  ],
+  "secret_realms": [
+    "kunwu_mountain_generic"
+  ],
+  "spatial_node": "node_dajin_wanbao",
+  "factions_ref": "dajin_factions.json",
+  "border_ref": "dajin_righteous_demon_border.json"
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "chapters": [
+    {
+      "id": "chapter_0_mortal",
+      "display": "凡人入世",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "summary": "七玄门式入门弧：凡人求仙、测灵根、入外门。"
+    },
+    {
+      "id": "chapter_1_sect",
+      "display": "宗门修行",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "summary": "黄枫谷式外门：采药、丹童、贡献点换资源。"
+    },
+    {
+      "id": "chapter_2_foundation_secret",
+      "display": "筑基秘境",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "summary": "血色禁地五年/十年周期开放，名额有限，内层妖兽狂暴。"
+    },
+    {
+      "id": "chapter_3_chaotic_sea",
+      "display": "乱星海",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "summary": "入星海需舟与身份，星宫征税清剿逆星。"
+    },
+    {
+      "id": "chapter_4_great_jin",
+      "display": "大晋纵横",
+      "region": "dajin",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "summary": "大晋世家与蛮荒并存，虚天殿三百年一现。"
+    },
+    {
+      "id": "chapter_5_deity_transformation",
+      "display": "化神天劫",
+      "region": "tiannan",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "summary": "人界顶阶突破走天劫小/大结构，非刷概率。"
+    },
+    {
+      "id": "chapter_6_spirit_realm",
+      "display": "灵界飞升",
+      "region": "tianyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "summary": "飞升天渊登记，灵气倍率与功勋换资源。"
+    }
+  ]
+}

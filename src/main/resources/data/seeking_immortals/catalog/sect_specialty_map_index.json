@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source": "sect_specialty_map.json",
+  "primary_key": "sects",
+  "entries": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗"
+    },
+    {
+      "id": "lingfu_sect",
+      "display": "灵符宗"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟"
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰法士"
+    },
+    {
+      "id": "wanbao_pavilion",
+      "display": "万宝楼"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗"
+    },
+    {
+      "id": "yinluo_hall",
+      "display": "阴罗殿"
+    },
+    {
+      "id": "taizhen_gate",
+      "display": "太真门"
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山"
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门"
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞"
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门"
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门"
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门"
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗"
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗"
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗"
+    },
+    {
+      "id": "qianzhu_sect",
+      "display": "千竹教"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡"
+    },
+    {
+      "id": "chaotic_sea_merchant_league",
+      "display": "乱星海商盟"
+    },
+    {
+      "id": "penglai_sect",
+      "display": "蓬莱派"
+    },
+    {
+      "id": "demon_gate_outer",
+      "display": "外海魔宫"
+    }
+  ]
+}

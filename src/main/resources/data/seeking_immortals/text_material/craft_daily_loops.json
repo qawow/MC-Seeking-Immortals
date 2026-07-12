@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §6 炼丹 §7 炼器 §8 符箓；扩充方向 I/K 副职与日循环",
+  "loops": [
+    {
+      "id": "alchemy_daily_huangfeng",
+      "display": "黄枫丹房日课",
+      "craft": "alchemy",
+      "faction": "huangfeng_valley",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        "gather_herbs",
+        "tend_furnace",
+        "brew_low_pill",
+        "turn_in_contribution"
+      ],
+      "recipe_refs": [
+        "alchemy_recipes.json#huangfeng_loop"
+      ],
+      "components": [
+        "alchemy_furnace",
+        "alchemy_lid",
+        "alchemy_flame"
+      ],
+      "risks": [
+        "grade_mismatch_explosion"
+      ],
+      "rewards": [
+        "contribution_minor",
+        "pill_quality_roll"
+      ],
+      "setting": {
+        "lore": "炉+盖+火三件套；高火低炉必炸，神识不足控火则废丹。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "hook": "alchemy_apprentice"
+        }
+      }
+    },
+    {
+      "id": "refinement_daily_forge",
+      "display": "炼器坊日课",
+      "craft": "refinement",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        "smelt_ore",
+        "temper_blank",
+        "inscribe_array",
+        "appraise_artifact"
+      ],
+      "crossref": [
+        "refinement_recipes.json",
+        "refinement_system.json"
+      ],
+      "rewards": [
+        "low_artifact_blank",
+        "forge_merit"
+      ],
+      "setting": {
+        "lore": "炼器品阶与境界、地火、阵纹匹配；炸炉产出废料可回收。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "FOUNDATION",
+          "hook": "refinement_apprentice"
+        }
+      }
+    },
+    {
+      "id": "talisman_daily_sect",
+      "display": "制符堂日课",
+      "craft": "talisman",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": [
+        "grind_ink",
+        "cut_paper",
+        "draw_talisman",
+        "charge_spirit"
+      ],
+      "grades": [
+        "low",
+        "mid",
+        "high"
+      ],
+      "rewards": [
+        "talisman_fire_burst",
+        "contribution_minor"
+      ],
+      "setting": {
+        "lore": "符箓三等级结构；符纸、灵墨、神识定成品阶，急用可买坊市符。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "QI_REFINING",
+          "hook": "talisman_apprentice"
+        }
+      }
+    },
+    {
+      "id": "formation_daily_array",
+      "display": "阵法学徒日课",
+      "craft": "formation",
+      "faction": "yanyue_sect",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "steps": [
+        "survey_nodes",
+        "place_flags",
+        "test_array",
+        "repair_break"
+      ],
+      "rewards": [
+        "formation_flag_low",
+        "array_merit"
+      ],
+      "setting": {
+        "lore": "燕乐宗阵法专精：布阵节点、破阵演练，战时与慕兰法士大阵对撞。"
+      },
+      "learn_requirements": {
+        "start": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ]
+}

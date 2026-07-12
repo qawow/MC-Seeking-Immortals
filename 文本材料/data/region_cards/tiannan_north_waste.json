@@ -1,0 +1,11 @@
+{
+  "schema_version": 2,
+  "id": "tiannan_north_waste",
+  "display": "天南荒原（魔道）",
+  "parent_region": "tiannan",
+  "factions_ref": "demonic_six_sects.json",
+  "spirit_density": "low_corrupt",
+  "quest_chains": [
+    "demonic_six_path"
+  ]
+}

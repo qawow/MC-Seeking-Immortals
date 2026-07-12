@@ -1,0 +1,603 @@
+{
+  "schema_version": 2,
+  "source": "汇编§14灵宠+§11.7傀儡+认主精血",
+  "new_beasts": [
+    {
+      "id": "gold_devour_beetle",
+      "display": "噬金虫",
+      "tier": 5,
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "element": "metal",
+      "regions": [
+        "chaotic_sea",
+        "spirit_world"
+      ],
+      "summary": "啃噬五金法宝灵光，群居奇虫。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "skills": [
+        "devour_artifact_spirit"
+      ],
+      "special_flags": [
+        "swarm",
+        "compliance_fanren"
+      ],
+      "shape_shift_eligible": false,
+      "drops": [
+        "gold_devour_larva",
+        "beetle_shell"
+      ],
+      "setting": {
+        "lore": "噬金虫"
+      }
+    },
+    {
+      "id": "soul_weeping_beast",
+      "display": "啼魂兽",
+      "tier": 6,
+      "realm_equiv": "CORE_FORMATION_MID",
+      "element": "yin",
+      "regions": [
+        "demonic_ruins"
+      ],
+      "summary": "尖啸伤魂，对鬼物克制极强。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "skills": [
+        "soul_shriek"
+      ],
+      "special_flags": [
+        "soul_attack",
+        "compliance_fanren"
+      ],
+      "shape_shift_eligible": false,
+      "setting": {
+        "lore": "啼魂兽"
+      }
+    },
+    {
+      "id": "mountain_giant_ape",
+      "display": "山岳巨猿",
+      "tier": 7,
+      "realm_equiv": "CORE_FORMATION_LATE",
+      "element": "earth",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "summary": "力大无穷，可化形前兆。",
+      "pet_capable": false,
+      "tame_difficulty": "impossible",
+      "skills": [
+        "smash"
+      ],
+      "shape_shift_eligible": true,
+      "setting": {
+        "lore": "山岳巨猿"
+      }
+    },
+    {
+      "id": "blood_jiao",
+      "display": "血蛟",
+      "tier": 8,
+      "realm_equiv": "NASCENT_SOUL_EARLY",
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "summary": "海域凶蛟，妖丹珍贵。",
+      "pet_capable": false,
+      "drops": [
+        "jiao_scale",
+        "demon_core_high"
+      ],
+      "setting": {
+        "lore": "血蛟"
+      }
+    },
+    {
+      "id": "three_tailed_fox",
+      "display": "三尾妖狐",
+      "tier": 5,
+      "realm_equiv": "CORE_FORMATION_EARLY",
+      "element": "illusion",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "擅幻术，灵狐一脉。",
+      "pet_capable": true,
+      "tame_difficulty": "very_hard",
+      "skills": [
+        "illusion_tail"
+      ],
+      "shape_shift_eligible": true,
+      "setting": {
+        "lore": "三尾妖狐"
+      }
+    },
+    {
+      "id": "iron_lion_beast",
+      "display": "铁甲狮兽",
+      "tier": 4,
+      "realm_equiv": "FOUNDATION_LATE",
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "summary": "体修型妖兽，皮糙肉厚。",
+      "pet_capable": true,
+      "tame_difficulty": "hard",
+      "setting": {
+        "lore": "铁甲狮兽"
+      }
+    },
+    {
+      "id": "cloud_silk_spider",
+      "display": "云丝蛛",
+      "tier": 3,
+      "realm_equiv": "FOUNDATION_MID",
+      "element": "wood",
+      "regions": [
+        "caves"
+      ],
+      "summary": "吐丝缚敌，可炼蛛丝材料。",
+      "pet_capable": true,
+      "tame_difficulty": "medium",
+      "drops": [
+        "spirit_silk"
+      ],
+      "setting": {
+        "lore": "云丝蛛"
+      }
+    },
+    {
+      "id": "flame_salamander",
+      "display": "火蜥兽",
+      "tier": 2,
+      "realm_equiv": "FOUNDATION_EARLY",
+      "element": "fire",
+      "regions": [
+        "volcano"
+      ],
+      "summary": "火系低阶妖兽，内丹可入药。",
+      "pet_capable": true,
+      "tame_difficulty": "medium",
+      "setting": {
+        "lore": "火蜥兽"
+      }
+    },
+    {
+      "id": "ice_phoenix_chick",
+      "display": "冰凤幼禽",
+      "tier": 9,
+      "realm_equiv": "NASCENT_SOUL_MID",
+      "element": "ice",
+      "regions": [
+        "polar"
+      ],
+      "summary": "灵界珍禽幼体，极难驯服。",
+      "pet_capable": true,
+      "tame_difficulty": "legendary",
+      "special_flags": [
+        "spirit_bird"
+      ],
+      "setting": {
+        "lore": "冰凤幼禽"
+      }
+    },
+    {
+      "id": "void_mantis",
+      "display": "虚空螳螂",
+      "tier": 10,
+      "realm_equiv": "NASCENT_SOUL_LATE",
+      "element": "void",
+      "regions": [
+        "spirit_world"
+      ],
+      "summary": "灵界虫族，前肢如刃。",
+      "pet_capable": false,
+      "setting": {
+        "lore": "虚空螳螂"
+      }
+    }
+  ],
+  "beast_setting": {
+    "twin_pupil_rat": {
+      "role": "scout_pet",
+      "combat_style": "辅助探路",
+      "lore": "双瞳可穿迷雾，修士常欲擒为灵宠。",
+      "habitat": "灵脉洞窟",
+      "weakness": [
+        "fire_noise"
+      ]
+    },
+    "scent_spirit_beast": {
+      "role": "tracker",
+      "combat_style": "嗅探灵药",
+      "lore": "对灵草灵药气味极敏感。",
+      "habitat": "药园山林"
+    },
+    "spirit_fox": {
+      "role": "illusion_support",
+      "combat_style": "幻术干扰",
+      "lore": "灵狐一脉，化形后智力接近人族。",
+      "shape_shift_note": "七阶后面临化形天劫"
+    },
+    "gold_devour_beetle": {
+      "role": "artifact_counter",
+      "combat_style": "虫群啃宝",
+      "lore": "天下奇虫，专噬五金之精。",
+      "limitations": [
+        "需虫巢与灵食培育"
+      ],
+      "compliance": "噬金虫仿"
+    },
+    "soul_weeping_beast": {
+      "role": "anti_ghost",
+      "combat_style": "神魂尖啸",
+      "lore": "对阴魂鬼物有天然克制。",
+      "compliance": "啼魂兽仿"
+    },
+    "thunder_jiao": {
+      "role": "boss_beast",
+      "combat_style": "雷水双系",
+      "lore": "蛟类化龙前躯，雷劫伴生。"
+    },
+    "wind_screech_hawk": {
+      "role": "aerial_scout",
+      "combat_style": "风刃俯冲",
+      "lore": "高空巡猎，难驯。"
+    }
+  },
+  "beast_learn": {
+    "twin_pupil_rat": {
+      "tame_requirements": {
+        "realm_min": "QI_REFINING",
+        "items": [
+          "spirit_beast_bridle"
+        ],
+        "method_any": [
+          "beast_taming_basic"
+        ],
+        "ritual": "blood_contract_minor",
+        "success_base": 0.15,
+        "note": "幼体或重伤时成功率上升。"
+      }
+    },
+    "red_leopard_beast": {
+      "tame_requirements": {
+        "realm_min": "QI_REFINING",
+        "items": [
+          "spirit_beast_bridle",
+          "beast_taming_pill_low"
+        ],
+        "method_any": [
+          "beast_taming_basic"
+        ],
+        "ritual": "blood_contract_minor",
+        "success_base": 0.25
+      }
+    },
+    "wind_screech_hawk": {
+      "tame_requirements": {
+        "realm_min": "FOUNDATION",
+        "items": [
+          "spirit_beast_bridle",
+          "wind_feather_bait"
+        ],
+        "method_any": [
+          "beast_taming_basic"
+        ],
+        "ritual": "blood_contract",
+        "success_base": 0.12,
+        "note": "需飞行遁术配合擒获。"
+      }
+    },
+    "scent_spirit_beast": {
+      "tame_requirements": {
+        "realm_min": "FOUNDATION",
+        "items": [
+          "spirit_beast_bridle"
+        ],
+        "method_any": [
+          "beast_taming_basic",
+          "luoyun_dan_dao"
+        ],
+        "success_base": 0.2,
+        "note": "常以灵药诱捕。"
+      }
+    },
+    "spirit_fox": {
+      "tame_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "items": [
+          "spirit_beast_bridle_high",
+          "illusion_suppress_talisman"
+        ],
+        "method_any": [
+          "beast_taming_advanced"
+        ],
+        "ritual": "blood_contract",
+        "success_base": 0.08,
+        "cannot_tame_if": [
+          "demonic_karma_extreme"
+        ]
+      }
+    },
+    "gold_devour_beetle": {
+      "tame_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "items": [
+          "gold_devour_beetle_nest",
+          "spirit_beast_bridle_high"
+        ],
+        "method_any": [
+          "beast_taming_advanced"
+        ],
+        "quests": [
+          "beetle_nest_quest"
+        ],
+        "ritual": "queen_bond",
+        "success_base": 0.05,
+        "compliance": "噬金虫仿",
+        "note": "认虫后需持续喂养灵矿。"
+      }
+    },
+    "soul_weeping_beast": {
+      "tame_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "items": [
+          "soul_calm_bead"
+        ],
+        "method_any": [
+          "beast_taming_advanced"
+        ],
+        "ritual": "soul_acknowledge",
+        "success_base": 0.03,
+        "compliance": "啼魂兽仿",
+        "note": "多为机缘认主而非野外驯服。"
+      }
+    },
+    "thunder_jiao": {
+      "tame_requirements": {
+        "tame_allowed": false,
+        "note": "凶蛟仅可击杀取材料，不可常规驯为灵宠。"
+      }
+    },
+    "demon_core_bear": {
+      "tame_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "items": [
+          "spirit_beast_bridle_high",
+          "demon_suppress_chain"
+        ],
+        "success_base": 0.06
+      }
+    }
+  },
+  "puppet_setting": {
+    "basic_wood_puppet": {
+      "role": "melee_grunt",
+      "control": "direct",
+      "lore": "千竹教入门木傀，行动迟缓。",
+      "fuel": "spirit_stone_shard",
+      "maintenance": "低"
+    },
+    "giant_ape_puppet": {
+      "role": "melee_elite",
+      "control": "dayan_divine_thread",
+      "lore": "铁木巨猿，近战力道。",
+      "material_lore": "铁木+低阶妖丹"
+    },
+    "giant_turtle_puppet": {
+      "role": "ranged_tank",
+      "control": "dayan_divine_thread",
+      "lore": "龟甲傀儡喷吐雷火。",
+      "skills_lore": [
+        "thunder_fireball"
+      ]
+    },
+    "stone_spirit_puppet": {
+      "role": "siege",
+      "control": "ancient_array",
+      "lore": "石灵封妖魄，上古傀儡术高峰。",
+      "special": "beast_soul_injected"
+    },
+    "quhun_iron_puppet": {
+      "role": "assassin_grunt",
+      "control": "soul_summon_bell",
+      "lore": "玄阴一脉铁傀，引魂钟驱使。",
+      "faction": "xuan_yin"
+    },
+    "hunyuan_bowl_core_puppet": {
+      "role": "hybrid_artifact",
+      "control": "dayan_divine_thread",
+      "lore": "混元钵为核的改造傀。",
+      "upgrade_from": "stone_spirit_puppet"
+    }
+  },
+  "puppet_learn": {
+    "basic_wood_puppet": {
+      "craft_learn": {
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "qianzhu_puppet_art"
+        ],
+        "learn_source": [
+          "qianzhu_sect",
+          "quest_qianzhu_puppet_apprentice"
+        ],
+        "items_blueprint": [
+          "giant_ape_puppet_blueprint"
+        ],
+        "note": "千竹教基础木傀图纸。"
+      }
+    },
+    "giant_ape_puppet": {
+      "craft_learn": {
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "dayan_art",
+          "qianzhu_puppet_art"
+        ],
+        "prerequisite_mode": "any_one",
+        "learn_source": [
+          "giant_ape_puppet_blueprint",
+          "dayan_ruin"
+        ],
+        "divine_sense_min": "average"
+      }
+    },
+    "giant_turtle_puppet": {
+      "craft_learn": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "dayan_art"
+        ],
+        "learn_source": [
+          "giant_turtle_puppet_core_manual"
+        ],
+        "items_required": [
+          "giant_turtle_puppet_core"
+        ]
+      }
+    },
+    "stone_spirit_puppet": {
+      "craft_learn": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "dayan_art"
+        ],
+        "learn_source": [
+          "ancient_puppet_method"
+        ],
+        "quests": [
+          "stone_puppet_chronicle"
+        ],
+        "items_required": [
+          "stone_spirit_core",
+          "beast_soul_essence"
+        ],
+        "note": "需上古傀儡术与妖魄封石。"
+      }
+    },
+    "quhun_iron_puppet": {
+      "craft_learn": {
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "xuan_yin_art"
+        ],
+        "items_required": [
+          "soul_summon_bell"
+        ],
+        "learn_source": [
+          "xuan_yin_line"
+        ],
+        "note": "非大衍体系，靠引魂钟控傀。"
+      }
+    },
+    "hunyuan_bowl_core_puppet": {
+      "craft_learn": {
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "dayan_art"
+        ],
+        "items_required": [
+          "hunyuan_bowl"
+        ],
+        "prerequisite_puppet": [
+          "stone_spirit_puppet"
+        ],
+        "note": "以混元钵替换核心升级。"
+      }
+    },
+    "dayan_grade_puppet": {
+      "craft_learn": {
+        "realm_min": "NASCENT_SOUL",
+        "prerequisite_methods": [
+          "dayan_art"
+        ],
+        "items_required": [
+          "dayan_solution_fragment"
+        ],
+        "learn_source": [
+          "dayan_true_solution"
+        ],
+        "note": "大衍神君遗泽高阶傀。"
+      }
+    }
+  },
+  "new_methods": [
+    {
+      "id": "qianzhu_puppet_art",
+      "display": "千竹傀儡诀",
+      "path": "puppet",
+      "realm_min": "QI_REFINING",
+      "faction": "qianzhu_sect",
+      "source": "qianzhu_teach",
+      "description": "千竹教傀儡术入门：木傀、机括、低阶驱策；高阶需转大衍诀。",
+      "unlocks_techniques_school": "puppet",
+      "setting": {
+        "lore": "千竹傀儡诀"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "beast_taming_basic",
+      "display": "御兽基础诀",
+      "path": "beast_taming",
+      "realm_min": "QI_REFINING",
+      "description": "散修与宗门共用的驯兽入门：精血认主、御兽环、灵兽袋。",
+      "learn_requirements": {
+        "learn_source": [
+          "market_slip",
+          "huangfeng_beast_hall"
+        ],
+        "realm_min": "QI_REFINING"
+      },
+      "setting": {
+        "lore": "御兽基础诀"
+      }
+    }
+  ],
+  "default_beast_tame": {
+    "pet_capable_true": {
+      "ritual": "blood_contract",
+      "items": [
+        "spirit_beast_bridle"
+      ],
+      "realm_min_by_tier": {
+        "1": "QI_REFINING",
+        "2": "QI_REFINING",
+        "3": "FOUNDATION",
+        "4": "FOUNDATION",
+        "5": "CORE_FORMATION",
+        "6": "CORE_FORMATION",
+        "7": "NASCENT_SOUL"
+      }
+    },
+    "pet_capable_false": {
+      "tame_allowed": false,
+      "note": "该妖兽不可驯为灵宠，仅可猎杀取材。"
+    }
+  },
+  "default_puppet_craft_learn": {
+    "realm_min_by_tier": {
+      "T0": "QI_REFINING",
+      "T1": "QI_REFINING",
+      "T2": "FOUNDATION",
+      "T3": "FOUNDATION",
+      "T4": "CORE_FORMATION",
+      "T5": "NASCENT_SOUL",
+      "T6": "VOID_REFINING"
+    },
+    "prerequisite_methods_default": [
+      "dayan_art"
+    ],
+    "learn_source_default": [
+      "puppet_craft_recipes",
+      "blueprint"
+    ]
+  }
+}

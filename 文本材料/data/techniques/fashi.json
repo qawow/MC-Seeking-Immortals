@@ -1,0 +1,556 @@
+{
+  "schema_version": 9,
+  "school": "fashi_spirit_art",
+  "techniques": [
+    {
+      "id": "spirit_art_wind_blade",
+      "display": "风刃灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "慕兰传承",
+      "effect": {
+        "type": "projectile",
+        "element": "wind",
+        "damage_base": 14,
+        "tags": []
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "风刃灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "风刃灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_earth_wall",
+      "display": "土墙灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "慕兰传承",
+      "effect": {
+        "type": "buff",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": []
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "土墙灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "土墙灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_holy_light",
+      "display": "圣光灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 17,
+      "source": "慕兰传承",
+      "effect": {
+        "type": "heal",
+        "element": "yang",
+        "damage_base": 35,
+        "tags": []
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "圣光灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "圣光灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_beast_call",
+      "display": "唤兽灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "慕兰传承",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": []
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "唤兽灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "唤兽灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_thunder",
+      "display": "雷灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 11,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "thunder",
+        "damage_base": 22,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "雷灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "雷灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_art_heal",
+      "display": "愈灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "通用",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 30,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "愈灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "愈灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_art_sand_storm",
+      "display": "风沙灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "慕兰神师",
+      "effect": {
+        "type": "aoe",
+        "element": "earth_wind",
+        "damage_base": 22
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "风沙灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "风沙灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_holy_beast_call",
+      "display": "圣兽唤灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 25,
+      "source": "天澜圣殿",
+      "effect": {
+        "type": "summon",
+        "element": "beast",
+        "damage_base": 0
+      },
+      "race_affinity": [
+        "tianlan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "tianlan_holy_beast_art",
+      "faction_required": "tianlan_temple",
+      "description": "圣兽唤灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "圣兽唤灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianlan_holy_beast_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianlan_holy_beast_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_wind_ride",
+      "display": "御风灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "慕兰传承",
+      "effect": {
+        "type": "buff",
+        "element": "wind",
+        "tags": [
+          "movement"
+        ]
+      },
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "tier": "spell",
+      "requires_method": "mulan_wind_spirit_art",
+      "race_required": "mulan_fashi",
+      "race_override_quest": "mulan_side",
+      "description": "御风灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "御风灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_art_lightning_palm",
+      "display": "雷掌灵术",
+      "school": "fashi_spirit_art",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "法士高阶",
+      "effect": {
+        "type": "strike",
+        "element": "thunder",
+        "damage_base": 45
+      },
+      "tier": "spell",
+      "description": "雷掌灵术：fashi_spirit_art法术，需境界 CORE_FORMATION 以上方可施展。",
+      "setting": {
+        "combat_style": "杂学秘术",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "雷掌灵术：fashi_spirit_art法术，需境界 CORE_FORMATION 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "CORE_FORMATION"
+      }
+    },
+    {
+      "id": "mulan_wind_blade",
+      "display": "慕兰风刃",
+      "school": "fashi",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "wind",
+      "description": "慕兰风刃：fashi法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": "wind",
+        "damage_base": 37,
+        "tags": [
+          "fashi"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "mulan_wind_spirit_art",
+      "setting": {
+        "cast_type": "instant",
+        "target": "single",
+        "cultivation_type": "fashi",
+        "lore": "慕兰法士风刃，借外界灵气。",
+        "region_bonus": "mulan_plains"
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ],
+        "race_required": "mulan_fashi"
+      }
+    },
+    {
+      "id": "mulan_earth_wall",
+      "display": "慕兰土墙",
+      "school": "fashi",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "element": "earth",
+      "description": "慕兰土墙：fashi法术，需境界 FOUNDATION 以上方可施展。",
+      "spirit_cost_base": 18,
+      "effect": {
+        "type": "beam",
+        "element": "earth",
+        "damage_base": 37,
+        "tags": [
+          "fashi"
+        ]
+      },
+      "source": "凡人向扩充",
+      "requires_method": "mulan_wind_spirit_art",
+      "setting": {
+        "cultivation_type": "fashi",
+        "combat_style": "借天地灵气施法",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "慕兰土墙：fashi法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "mulan_wind_spirit_art",
+        "element": "earth"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "mulan_wind_spirit_art"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "earth"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_fengyuan_wind_wall",
+      "display": "风元风墙",
+      "school": "fashi",
+      "element": "wind",
+      "realm_min": "FOUNDATION",
+      "requires_method": "spirit_art_mulan",
+      "effect": {
+        "type": "wall",
+        "tags": [
+          "wind"
+        ]
+      },
+      "description": "风灵化墙挡术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "cultivation_type": "fashi",
+        "combat_style": "借天地灵气施法",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "风灵化墙挡术法。",
+        "requires_method": "spirit_art_mulan",
+        "element": "wind"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "spirit_art_mulan"
+        ],
+        "spirit_roots": {
+          "bonus": [
+            "wind"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_art_holy_feather_guard",
+      "display": "圣羽护体",
+      "school": "fashi_spirit_art",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 35,
+      "source": "圣禽祭祀",
+      "tier": "secret",
+      "requires_method": "mulan_holy_beast_art",
+      "effect": {
+        "type": "buff_self",
+        "element": "spirit",
+        "damage_base": 0,
+        "tags": [
+          "holy_beast"
+        ]
+      },
+      "setting": {
+        "lore": "借圣禽血脉加持的护体灵术，需慕兰声望与祭祀资格。",
+        "chronicle": "M4_holy_bird_mulan"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "rep_mulan_min": 30,
+          "prerequisite_methods": [
+            "mulan_holy_beast_art"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_art_array_anchor",
+      "display": "阵眼定灵",
+      "school": "fashi_spirit_art",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 28,
+      "source": "慕兰护族大阵",
+      "tier": "spell",
+      "requires_method": "mulan_array_spirit_art",
+      "effect": {
+        "type": "buff_zone",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "array"
+        ]
+      },
+      "setting": {
+        "lore": "法士镇守阵眼，与天南剑阵对撞时决定破阵进度。"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "prerequisite_methods": [
+            "mulan_array_spirit_art"
+          ]
+        }
+      }
+    }
+  ],
+  "race_gate_note": "慕兰灵术需法士种族或投诚任务"
+}

@@ -1,0 +1,167 @@
+{
+  "schema_version": 3,
+  "unit": "low_spirit_stone",
+  "disclaimer": "量级带，非强制定价；validate_shop_prices.py 用于 WARN",
+  "bands": {
+    "herb_common": {
+      "min": 5,
+      "max": 40
+    },
+    "herb_uncommon": {
+      "min": 25,
+      "max": 120
+    },
+    "herb_rare": {
+      "min": 80,
+      "max": 400
+    },
+    "pill_qi": {
+      "min": 20,
+      "max": 80
+    },
+    "pill_foundation": {
+      "min": 200,
+      "max": 2000
+    },
+    "talisman_low": {
+      "min": 10,
+      "max": 50
+    },
+    "talisman_mid": {
+      "min": 40,
+      "max": 200
+    },
+    "material_fragment": {
+      "min": 8,
+      "max": 30
+    },
+    "ore_rare": {
+      "min": 60,
+      "max": 250
+    },
+    "travel_ticket": {
+      "min": 15,
+      "max": 80
+    },
+    "paper_craft": {
+      "min": 2,
+      "max": 15
+    },
+    "contribution_equiv_low_stone": {
+      "note": "贡献堂用贡献点，此处仅坊市灵石价"
+    },
+    "sea_calm_pill": {
+      "band": "low_pill",
+      "suggested": 35
+    },
+    "snow_lotus": {
+      "band": "dajin_herb",
+      "suggested": 120
+    },
+    "mulan_fashi_charge_pack": {
+      "band": "war_supply",
+      "suggested": 35
+    },
+    "contraband_spirit_stone": {
+      "band": "black_market",
+      "suggested": 0.9,
+      "note": "相对下品灵石折价"
+    },
+    "pearl_raw": {
+      "low_spirit_stone_min": 5,
+      "max": 15
+    }
+  },
+  "item_overrides": {
+    "yellow_essence": {
+      "band": "herb_common",
+      "suggested": 15
+    },
+    "ginseng_spirit": {
+      "band": "herb_uncommon",
+      "suggested": 28
+    },
+    "spirit_mushroom": {
+      "band": "herb_common",
+      "suggested": 8
+    },
+    "fire_burst_talisman": {
+      "band": "talisman_low",
+      "suggested": 22
+    },
+    "body_guard_talisman": {
+      "band": "talisman_low",
+      "suggested": 18
+    },
+    "talisman_paper": {
+      "band": "paper_craft",
+      "suggested": 3
+    },
+    "talisman_paper_mid": {
+      "band": "paper_craft",
+      "suggested": 12
+    },
+    "talisman_paper_high": {
+      "band": "paper_craft",
+      "suggested": 35
+    },
+    "talisman_paper_mortal": {
+      "band": "paper_craft",
+      "suggested": 1
+    },
+    "beast_soul_essence": {
+      "band": "material_fragment",
+      "suggested": 45
+    },
+    "hundred_year_ice": {
+      "band": "herb_uncommon",
+      "suggested": 40
+    },
+    "fire_feather": {
+      "band": "herb_uncommon",
+      "suggested": 22
+    },
+    "soul_moss": {
+      "band": "herb_common",
+      "suggested": 12
+    },
+    "foundation_pill": {
+      "band": "pill_foundation",
+      "suggested": 1200
+    },
+    "spirit_boat_ticket": {
+      "band": "travel_ticket",
+      "suggested": 20
+    },
+    "jiao_scale": {
+      "band": "ore_rare",
+      "suggested": 55
+    },
+    "deep_sea_cold_iron": {
+      "band": "ore_rare",
+      "suggested": 90
+    },
+    "coral_spirit_pearl_raw": {
+      "band": "herb_rare",
+      "suggested": 200
+    },
+    "escape_heaven_talisman": {
+      "band": "talisman_mid",
+      "suggested": 120
+    },
+    "demon_core_fragment": {
+      "band": "material_fragment",
+      "suggested": 12
+    }
+  },
+  "magnitudes_ref": "economy_reference_magnitudes.json",
+  "artifacts": {
+    "low_artifact": "10-80_low_spirit_stone",
+    "mid_artifact": "80-400",
+    "high_artifact": "5-50_mid_stone",
+    "talisman_treasure": "auction",
+    "ancient_shard": "quest_only"
+  },
+  "spirit_stone_ladder_ref": "spirit_stone_ladder.json",
+  "economy_master_ref": "economy_spirit_stone_master.json"
+}

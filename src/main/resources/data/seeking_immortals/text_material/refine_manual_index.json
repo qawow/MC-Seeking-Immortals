@@ -1,0 +1,950 @@
+{
+  "schema_version": 2,
+  "recipe_count": 59,
+  "recipes": [
+    {
+      "recipe_id": "refine_flying_sword_low",
+      "artifact_id": "flying_sword_low",
+      "display": "低阶飞剑",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "低阶飞剑",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_cloud_boots",
+      "artifact_id": "cloud_boots",
+      "display": "踏云靴",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "踏云靴",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_spirit_gathering_bead",
+      "artifact_id": "spirit_gathering_bead",
+      "display": "定神珠",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "定神珠",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_yellow_umbrella",
+      "artifact_id": "yellow_umbrella",
+      "display": "黄罗伞",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "黄罗伞",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_black_boots",
+      "artifact_id": "black_boots",
+      "display": "乌靴",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "乌靴",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_qingning_mirror",
+      "artifact_id": "qingning_mirror",
+      "display": "青凝镜",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "青凝镜",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_green_bamboo_sword",
+      "artifact_id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑（仿）",
+      "forge_grade": 3,
+      "manual_id": "refinement_manual_high",
+      "manual_known": true,
+      "setting": {
+        "lore": "青竹灵云剑（仿）",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_gold_demon_chain",
+      "artifact_id": "gold_demon_chain",
+      "display": "金蚨子母刃",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "金蚨子母刃",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_hunyuan_bowl",
+      "artifact_id": "hunyuan_bowl",
+      "display": "混元钵",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "混元钵",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_xuanguang_shard",
+      "artifact_id": "xuanguang_mirror",
+      "display": "玄光镜（残片重铸）",
+      "forge_grade": 5,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "玄光镜（残片重铸）",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_soul_summon_bell",
+      "artifact_id": "soul_summon_bell",
+      "display": "引魂钟",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "引魂钟",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_soul_gathering_bowl",
+      "artifact_id": "soul_gathering_bowl",
+      "display": "聚魂钵",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "聚魂钵",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_poluo_beads",
+      "artifact_id": "poluo_beads",
+      "display": "婆罗珠",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "婆罗珠",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_snake_pearl",
+      "artifact_id": "snake_pearl",
+      "display": "蛇珠",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "蛇珠",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_potian_shovel",
+      "artifact_id": "potian_shovel",
+      "display": "破天锹",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "破天锹",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_bedrock_shield",
+      "artifact_id": "bedrock_shield",
+      "display": "磐石盾",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "磐石盾",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_peerless_knives",
+      "artifact_id": "peerless_flying_knives",
+      "display": "无双飞刀",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "无双飞刀",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_flat_crown_replica",
+      "artifact_id": "flat_crown_replica",
+      "display": "平山冠（仿）",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "平山冠（仿）",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_evil_illusion_mirror",
+      "artifact_id": "evil_illusion_mirror",
+      "display": "邪幻镜",
+      "forge_grade": 3,
+      "manual_id": "refinement_manual_high",
+      "manual_known": true,
+      "setting": {
+        "lore": "邪幻镜",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_giant_ape_token",
+      "artifact_id": "giant_ape_puppet_token",
+      "display": "巨猿傀儡符",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "巨猿傀儡符",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_xuanhuang_shard",
+      "artifact_id": "xuanhuang_mirror",
+      "display": "玄黄镜（残片重铸）",
+      "forge_grade": 5,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "玄黄镜（残片重铸）",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_nine_dragon_replica",
+      "artifact_id": "nine_dragon_cauldron_replica",
+      "display": "九龙神火罩（仿）",
+      "forge_grade": 5,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "九龙神火罩（仿）",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_void_refining_bell",
+      "artifact_id": "void_refining_bell",
+      "display": "炼虚钟",
+      "forge_grade": 6,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "炼虚钟",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_giant_turtle_core",
+      "artifact_id": "giant_turtle_puppet_core",
+      "display": "巨龟傀儡核心",
+      "forge_grade": 3,
+      "manual_id": "refinement_manual_high",
+      "manual_known": true,
+      "setting": {
+        "lore": "巨龟傀儡核心",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_qingye_fan",
+      "artifact_id": "qingye_leaf_fan",
+      "display": "青叶法器",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "青叶法器",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_huangsi_robe",
+      "artifact_id": "huangsi_robe_artifact",
+      "display": "黄丝衫",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "黄丝衫",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_silver_giant_sword",
+      "artifact_id": "silver_giant_sword",
+      "display": "银色巨剑",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "银色巨剑",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_azure_rope_net",
+      "artifact_id": "azure_rope_net",
+      "display": "青索网",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "青索网",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_fire_rain_needles",
+      "artifact_id": "fire_rain_needles",
+      "display": "火雨针",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "火雨针",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_thousand_bee_needles",
+      "artifact_id": "thousand_bee_needles",
+      "display": "千蜂针",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "千蜂针",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_gold_light_brick",
+      "artifact_id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "金光砖符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_storage_bracelet",
+      "artifact_id": "storage_bracelet_low",
+      "display": "储物镯",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "储物镯",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_beast_taming_whip",
+      "artifact_id": "beast_taming_whip",
+      "display": "御兽鞭",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "御兽鞭",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_lieyang_sword",
+      "artifact_id": "lieyang_short_sword",
+      "display": "烈阳剑",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "烈阳剑",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_lengyue_blade",
+      "artifact_id": "lengyue_blade",
+      "display": "冷月刀",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "冷月刀",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_black_gold_shield",
+      "artifact_id": "black_gold_shield",
+      "display": "乌金盾",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "乌金盾",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_dark_iron_ring",
+      "artifact_id": "dark_iron_ring",
+      "display": "玄铁环",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "玄铁环",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_soul_capturing_bell",
+      "artifact_id": "soul_capturing_bell",
+      "display": "摄魂铃",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "摄魂铃",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_green_bamboo_leaf_sword",
+      "artifact_id": "green_bamboo_leaf_sword",
+      "display": "竹叶剑",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "竹叶剑",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_flying_needle_set",
+      "artifact_id": "flying_needle_set",
+      "display": "飞针匣",
+      "forge_grade": 1,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "飞针匣",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_wind_escape_sail",
+      "artifact_id": "wind_escape_sail",
+      "display": "风遁帆",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "风遁帆",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_thunder_rod",
+      "artifact_id": "talisman_treasure_thunder_rod",
+      "display": "霹雳神雷符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "霹雳神雷符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_golden_wheel",
+      "artifact_id": "talisman_treasure_golden_wheel",
+      "display": "金轮符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "金轮符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_demon_seal",
+      "artifact_id": "talisman_treasure_demon_seal",
+      "display": "封魔符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "封魔符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_fire_crow_fan",
+      "artifact_id": "fire_crow_fan",
+      "display": "火鸦扇",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "火鸦扇",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_natal_embryo",
+      "artifact_id": "natal_artifact_embryo",
+      "display": "本命法宝胚",
+      "forge_grade": 5,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "本命法宝胚",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_spirit_beast_bridle",
+      "artifact_id": "spirit_beast_bridle",
+      "display": "御兽环",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "御兽环",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_beast_soul_bell",
+      "artifact_id": "beast_soul_bell",
+      "display": "兽魂铃",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "兽魂铃",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_demon_ape_armor",
+      "artifact_id": "demon_ape_armor",
+      "display": "铁猿甲",
+      "forge_grade": 3,
+      "manual_id": "refinement_manual_high",
+      "manual_known": true,
+      "setting": {
+        "lore": "铁猿甲",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_silver_spirit_mirror",
+      "artifact_id": "silver_spirit_mirror",
+      "display": "银灵镜",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "银灵镜",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_moon_shadow_disk",
+      "artifact_id": "moon_shadow_disk",
+      "display": "月影轮",
+      "forge_grade": 2,
+      "manual_id": "refinement_manual_low",
+      "manual_known": true,
+      "setting": {
+        "lore": "月影轮",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_seven_star_disk",
+      "artifact_id": "seven_star_disk",
+      "display": "七星盘",
+      "forge_grade": 3,
+      "manual_id": "refinement_manual_high",
+      "manual_known": true,
+      "setting": {
+        "lore": "七星盘",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_phoenix_feather_fan",
+      "artifact_id": "phoenix_feather_fan",
+      "display": "凤羽扇",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "凤羽扇",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_dragon_scale_armor",
+      "artifact_id": "dragon_scale_armor",
+      "display": "龙鳞甲",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "龙鳞甲",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_fire_spear",
+      "artifact_id": "talisman_treasure_fire_spear",
+      "display": "火蛟矛符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "火蛟矛符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_ice_shield",
+      "artifact_id": "talisman_treasure_ice_shield",
+      "display": "玄冰盾符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "玄冰盾符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_talisman_soul_charm",
+      "artifact_id": "talisman_treasure_soul_charm",
+      "display": "定魂符宝",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "定魂符宝",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_void_cold_jade_pendant",
+      "artifact_id": "void_palace_cold_jade_pendant",
+      "display": "寒玉佩",
+      "forge_grade": 4,
+      "manual_id": "refinement_manual_high",
+      "manual_known": false,
+      "setting": {
+        "lore": "寒玉佩",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    },
+    {
+      "recipe_id": "refine_ice_fire_orb",
+      "artifact_id": "ice_fire_dual_orb",
+      "display": "冰火珠",
+      "forge_grade": 5,
+      "manual_id": "refinement_manual_ancient",
+      "manual_known": false,
+      "setting": {
+        "lore": "冰火珠",
+        "source_file": "refine_manual_index.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "refine_manual_index.json"
+      }
+    }
+  ]
+}

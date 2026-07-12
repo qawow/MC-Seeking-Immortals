@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "region": "tianyuan",
+  "events": [
+    {
+      "id": "tianyuan_merit_double_day",
+      "display": "军功加倍日",
+      "effect": "merit_mult_2",
+      "setting": {
+        "lore": "城主府犒军，边境任务功勋翻倍。"
+      }
+    },
+    {
+      "id": "tianyuan_spirit_rain",
+      "display": "天渊灵雨",
+      "effect": "cultivation_buff_minor",
+      "setting": {
+        "lore": "灵气浓度本高于外界，灵雨再益一日吐纳。"
+      }
+    },
+    {
+      "id": "tianyuan_demon_envoy",
+      "display": "妖族使者入城",
+      "effect": "quest_hint_demon_embassy",
+      "setting": {
+        "lore": "人妖两族共治摩擦，外交任务开放。"
+      }
+    },
+    {
+      "id": "tianyuan_convoy_call",
+      "display": "征召护卫队",
+      "effect": "quest_merit_convoy",
+      "setting": {
+        "lore": "物资车队赴荒原，易遭魔族与兽群伏击。"
+      }
+    },
+    {
+      "id": "tianyuan_diyuan_quota",
+      "display": "地渊名额放榜",
+      "effect": "quest_hint_diyuan_permit",
+      "setting": {
+        "lore": "功勋达标者可申领地渊令，炼虚以上。"
+      }
+    }
+  ]
+}

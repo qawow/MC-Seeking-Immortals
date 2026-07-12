@@ -1,0 +1,177 @@
+{
+  "id": "market_herbal_stall",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_grass_bundle",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 3,
+      "cost": 1,
+      "stock": 24
+    },
+    {
+      "id": "cloud_mushroom",
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 1,
+      "cost": 2,
+      "stock": 8
+    },
+    {
+      "id": "spirit_mushroom",
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 1,
+      "cost": 2,
+      "stock": 30
+    },
+    {
+      "id": "clear_spirit_powder",
+      "item": "seeking_immortals:clear_spirit_powder_low",
+      "count": 1,
+      "cost": 4,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "spirit_gathering_pill",
+      "item": "seeking_immortals:spirit_gathering_pill",
+      "count": 1,
+      "cost": 6,
+      "stock": 5,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "spirit_condense_pill",
+      "item": "seeking_immortals:spirit_gathering_pill",
+      "count": 1,
+      "cost": 45,
+      "stock": 5,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "fasting_pill",
+      "item": "seeking_immortals:fasting_pill_low",
+      "count": 1,
+      "cost": 4,
+      "stock": 8
+    },
+    {
+      "id": "bigu_pill",
+      "item": "seeking_immortals:fasting_pill_low",
+      "count": 1,
+      "cost": 25,
+      "stock": 8
+    },
+    {
+      "id": "fire_burst_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 8,
+      "stock": 10
+    },
+    {
+      "id": "body_guard_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 7,
+      "stock": 12
+    },
+    {
+      "id": "demon_core_fragment",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 5,
+      "stock": 10,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "jiangchen_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 120,
+      "stock": 3,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "recipe_jiangchen",
+      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+      "count": 1,
+      "cost": 25,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "yellow_essence",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 1,
+      "cost": 3,
+      "stock": 20
+    },
+    {
+      "id": "ginseng_spirit",
+      "item": "seeking_immortals:immortal_ginseng",
+      "count": 1,
+      "cost": 9,
+      "stock": 4,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "fire_sparrow_fruit",
+      "item": "seeking_immortals:phoenix_feather_flower",
+      "count": 1,
+      "cost": 10,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 6,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "cultivate_speed_pill",
+      "item": "seeking_immortals:cultivation_pill",
+      "count": 1,
+      "cost": 7,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "body_tempering_pill",
+      "item": "seeking_immortals:body_tempering_pill",
+      "count": 1,
+      "cost": 35,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "huanglong_pill",
+      "item": "seeking_immortals:cultivation_pill",
+      "count": 1,
+      "cost": 8,
+      "stock": 6,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "recipe_huanglong",
+      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "count": 1,
+      "cost": 45,
+      "stock": 3,
+      "refresh_ticks": 48000
+    },
+    {
+      "id": "heqi_pill",
+      "item": "seeking_immortals:cultivation_pill",
+      "count": 1,
+      "cost": 6,
+      "stock": 8,
+      "refresh_ticks": 48000
+    }
+  ]
+}

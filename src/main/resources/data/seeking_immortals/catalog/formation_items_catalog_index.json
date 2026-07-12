@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "source": "formation_items_catalog.json",
+  "primary_key": "items",
+  "entries": [
+    {
+      "id": "portable_spirit_gather_disk",
+      "display": "聚灵阵盘（便携）"
+    },
+    {
+      "id": "portable_illusion_maze_flag",
+      "display": "迷踪阵旗"
+    },
+    {
+      "id": "portable_kill_sword_disk",
+      "display": "杀阵盘"
+    },
+    {
+      "id": "portable_defense_wall_disk",
+      "display": "守阵盘"
+    },
+    {
+      "id": "teleport_array_core",
+      "display": "传送阵核心"
+    },
+    {
+      "id": "thunder_array_stake",
+      "display": "引雷阵桩"
+    },
+    {
+      "id": "array_blueprint_scroll",
+      "display": "阵图残卷"
+    },
+    {
+      "id": "nine_dragon_flame_array_disk",
+      "display": "九龙火阵盘（仿）"
+    },
+    {
+      "id": "portable_seal_disk",
+      "display": "封禁阵盘"
+    },
+    {
+      "id": "spirit_gather_flag_set",
+      "display": "聚灵阵旗组"
+    },
+    {
+      "id": "nine_palace_disk",
+      "display": "九宫阵盘"
+    },
+    {
+      "id": "spirit_gather_flag",
+      "display": "聚灵阵旗"
+    },
+    {
+      "id": "kill_array_core",
+      "display": "杀阵核心"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "source": "talisman_catalog.json",
+  "primary_key": "talismans",
+  "entries": [
+    {
+      "id": "anti_demon_talisman",
+      "display": "驱魔符"
+    },
+    {
+      "id": "beast_contract_talisman",
+      "display": "御兽契符"
+    },
+    {
+      "id": "body_guard_talisman",
+      "display": "护体符"
+    },
+    {
+      "id": "earth_wall_talisman",
+      "display": "土墙符"
+    },
+    {
+      "id": "escape_heaven_talisman",
+      "display": "遁天符"
+    },
+    {
+      "id": "fire_burst_talisman",
+      "display": "爆炎符"
+    },
+    {
+      "id": "ghost_hide_talisman",
+      "display": "敛魂符"
+    },
+    {
+      "id": "ice_seal_talisman",
+      "display": "冰封符"
+    },
+    {
+      "id": "illusion_dispel_talisman",
+      "display": "破幻符"
+    },
+    {
+      "id": "life_save_talisman",
+      "display": "替身符"
+    },
+    {
+      "id": "soul_lock_talisman",
+      "display": "锁魂符"
+    },
+    {
+      "id": "space_anchor_talisman",
+      "display": "定空符"
+    },
+    {
+      "id": "spirit_chain_talisman",
+      "display": "缚灵符"
+    },
+    {
+      "id": "spirit_fix_talisman",
+      "display": "定神符"
+    },
+    {
+      "id": "teleport_array_talisman",
+      "display": "传送符"
+    },
+    {
+      "id": "three_pure_thunder_talisman",
+      "display": "三清雷霄符"
+    },
+    {
+      "id": "thunder_talisman",
+      "display": "雷霄符"
+    },
+    {
+      "id": "wind_blade_talisman",
+      "display": "风刃符"
+    },
+    {
+      "id": "yin_protect_talisman",
+      "display": "阴灵护符"
+    },
+    {
+      "id": "mirage_heart_talisman",
+      "display": "幻心符"
+    },
+    {
+      "id": "soul_scatter_talisman",
+      "display": "散魂符"
+    },
+    {
+      "id": "invisibility_talisman",
+      "display": "匿形符"
+    },
+    {
+      "id": "binding_talisman",
+      "display": "定身符"
+    },
+    {
+      "id": "gold_armor_talisman",
+      "display": "金甲符"
+    },
+    {
+      "id": "spirit_gather_talisman",
+      "display": "聚灵符"
+    },
+    {
+      "id": "illusion_talisman",
+      "display": "迷踪符"
+    },
+    {
+      "id": "star_palace_patrol_talisman",
+      "display": "星宫巡海符"
+    },
+    {
+      "id": "golden_armor_talisman",
+      "display": "金刚符"
+    },
+    {
+      "id": "inverse_star_cipher_talisman",
+      "display": "逆星暗号符"
+    },
+    {
+      "id": "bu_tian_talisman",
+      "display": "补天符"
+    },
+    {
+      "id": "wood_bind_talisman",
+      "display": "木缚符"
+    },
+    {
+      "id": "metal_blade_talisman",
+      "display": "金刃符"
+    },
+    {
+      "id": "void_palace_key_talisman",
+      "display": "虚天引路符"
+    },
+    {
+      "id": "talisman_wooden_ox",
+      "display": "木牛符"
+    },
+    {
+      "id": "earth_escape_talisman",
+      "display": "土遁符"
+    },
+    {
+      "id": "golden_light_talisman",
+      "display": "金光符"
+    },
+    {
+      "id": "high_body_guard_talisman",
+      "display": "高阶护体符"
+    },
+    {
+      "id": "one_way_teleport_talisman",
+      "display": "单向传送符"
+    },
+    {
+      "id": "fire_talisman",
+      "display": "烈火符"
+    },
+    {
+      "id": "ice_talisman",
+      "display": "寒冰符"
+    },
+    {
+      "id": "teleport_talisman",
+      "display": "遁天符术"
+    },
+    {
+      "id": "spirit_shield_talisman",
+      "display": "护体符术"
+    },
+    {
+      "id": "explosion_talisman",
+      "display": "爆炎符术"
+    },
+    {
+      "id": "wind_talisman",
+      "display": "神行符"
+    },
+    {
+      "id": "seal_talisman",
+      "display": "定身符术"
+    },
+    {
+      "id": "ghost_talisman",
+      "display": "驱鬼符"
+    },
+    {
+      "id": "tianfu_golden_chain",
+      "display": "天符金链"
+    }
+  ]
+}

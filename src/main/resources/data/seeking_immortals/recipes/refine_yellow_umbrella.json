@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "SSS",
+    "SCS",
+    "ICI"
+  ],
+  "key": {
+    "C": {
+      "item": "seeking_immortals:beast_core"
+    },
+    "I": {
+      "item": "seeking_immortals:spirit_iron"
+    },
+    "S": {
+      "item": "seeking_immortals:spirit_silk"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:yellow_umbrella",
+    "count": 1
+  }
+}

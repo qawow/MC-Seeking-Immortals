@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "methods": [
+    {
+      "id": "changchun_gong",
+      "display": "长春功",
+      "realm_min": "",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "qingyuan_sword_art",
+      "display": "青元剑诀",
+      "realm_min": "FOUNDATION",
+      "school": "sword",
+      "attribute": ""
+    },
+    {
+      "id": "xuan_yin_art",
+      "display": "玄阴诀",
+      "realm_min": "FOUNDATION",
+      "school": "xuan_yin",
+      "attribute": ""
+    },
+    {
+      "id": "dayan_art",
+      "display": "大衍诀",
+      "realm_min": "FOUNDATION",
+      "school": "puppet",
+      "attribute": ""
+    },
+    {
+      "id": "lieyan_gong",
+      "display": "烈焰功",
+      "realm_min": "QI_REFINING",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "beast_transformation_art",
+      "display": "妖修化形诀",
+      "realm_min": "CORE_FORMATION",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "ghost_nether_art",
+      "display": "冥河鬼修诀",
+      "realm_min": "FOUNDATION",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "spirit_art_mulan",
+      "display": "慕兰灵术总纲",
+      "realm_min": "QI_REFINING",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "star_palace_art",
+      "display": "星宫镇海诀",
+      "realm_min": "FOUNDATION",
+      "school": "formation",
+      "attribute": ""
+    },
+    {
+      "id": "inverse_star_art",
+      "display": "逆星秘典",
+      "realm_min": "FOUNDATION",
+      "school": "covert",
+      "attribute": ""
+    },
+    {
+      "id": "tianfu_spirit_scripture",
+      "display": "天符灵经",
+      "realm_min": "QI_REFINING",
+      "school": "talisman",
+      "attribute": ""
+    },
+    {
+      "id": "yanyue_cycle_art",
+      "display": "素女轮回功（仿）",
+      "realm_min": "FOUNDATION",
+      "school": "dual_cultivation",
+      "attribute": ""
+    },
+    {
+      "id": "lingshou_beast_mind_art",
+      "display": "驭兽心法",
+      "realm_min": "QI_REFINING",
+      "school": "beast",
+      "attribute": ""
+    },
+    {
+      "id": "qingxu_pure_tao_art",
+      "display": "清虚玄功",
+      "realm_min": "QI_REFINING",
+      "school": "tao",
+      "attribute": ""
+    },
+    {
+      "id": "huadao_blade_intent",
+      "display": "化刀诀",
+      "realm_min": "QI_REFINING",
+      "school": "blade",
+      "attribute": ""
+    },
+    {
+      "id": "mulan_wind_spirit_art",
+      "display": "天风灵诀",
+      "realm_min": "FOUNDATION",
+      "school": "fashi",
+      "attribute": ""
+    },
+    {
+      "id": "tianlan_holy_beast_art",
+      "display": "天澜圣兽诀",
+      "realm_min": "QI_REFINING",
+      "school": "beast_spirit",
+      "attribute": ""
+    },
+    {
+      "id": "tiannan_border_guard_art",
+      "display": "天南守边诀",
+      "realm_min": "FOUNDATION",
+      "school": "defense",
+      "attribute": ""
+    },
+    {
+      "id": "chaotic_sea_nav_art",
+      "display": "星海御浪诀",
+      "realm_min": "FOUNDATION",
+      "school": "water",
+      "attribute": ""
+    },
+    {
+      "id": "demonic_blood_art_generic",
+      "display": "血煞功（魔道）",
+      "realm_min": "FOUNDATION",
+      "school": "demonic",
+      "attribute": ""
+    },
+    {
+      "id": "star_palace_sea_art",
+      "display": "镇海诀",
+      "realm_min": "FOUNDATION",
+      "school": "water",
+      "attribute": ""
+    },
+    {
+      "id": "inverse_star_shadow_art",
+      "display": "逆星潜行诀",
+      "realm_min": "FOUNDATION",
+      "school": "stealth",
+      "attribute": ""
+    },
+    {
+      "id": "dajin_clan_ancestor_art",
+      "display": "世家祖传诀",
+      "realm_min": "QI_REFINING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "kunwu_ice_guard_art",
+      "display": "昆吾寒罡诀",
+      "realm_min": "CORE_FORMATION",
+      "school": "ice",
+      "attribute": ""
+    },
+    {
+      "id": "yanyue_illusion_art",
+      "display": "掩月幻心诀",
+      "realm_min": "",
+      "school": "illusion",
+      "attribute": ""
+    },
+    {
+      "id": "huangfeng_alchemy_scripture",
+      "display": "黄枫丹经",
+      "realm_min": "QI_REFINING",
+      "school": "alchemy",
+      "attribute": ""
+    },
+    {
+      "id": "qixuan_mortal_art",
+      "display": "七玄凡诀",
+      "realm_min": "QI_REFINING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "giant_sword_art",
+      "display": "巨剑诀",
+      "realm_min": "QI_REFINING",
+      "school": "metal",
+      "attribute": ""
+    },
+    {
+      "id": "qixuan_azure_pearl_art",
+      "display": "青珠诀",
+      "realm_min": "QI_REFINING",
+      "school": "water",
+      "attribute": ""
+    },
+    {
+      "id": "qianzhu_puppet_art",
+      "display": "千竹傀儡术",
+      "realm_min": "QI_REFINING",
+      "school": "puppet",
+      "attribute": ""
+    },
+    {
+      "id": "yuling_beast_puppet_art",
+      "display": "御灵兽傀诀",
+      "realm_min": "FOUNDATION",
+      "school": "puppet",
+      "attribute": ""
+    },
+    {
+      "id": "dayan_true_solution",
+      "display": "大衍真解",
+      "realm_min": "CORE_FORMATION",
+      "school": "puppet",
+      "attribute": ""
+    },
+    {
+      "id": "guiling_soul_art",
+      "display": "鬼灵摄魂诀",
+      "realm_min": "FOUNDATION",
+      "school": "ghost",
+      "attribute": ""
+    },
+    {
+      "id": "hehuan_mind_art",
+      "display": "合欢媚心诀",
+      "realm_min": "FOUNDATION",
+      "school": "dual",
+      "attribute": ""
+    },
+    {
+      "id": "tianmo_body_art",
+      "display": "天魔炼体诀",
+      "realm_min": "FOUNDATION",
+      "school": "body",
+      "attribute": ""
+    },
+    {
+      "id": "qingluo_poison_art",
+      "display": "青罗毒经",
+      "realm_min": "FOUNDATION",
+      "school": "poison",
+      "attribute": ""
+    },
+    {
+      "id": "wanhu_phantom_art",
+      "display": "万狐幻形诀",
+      "realm_min": "FOUNDATION",
+      "school": "illusion",
+      "attribute": ""
+    },
+    {
+      "id": "xuewu_blood_art",
+      "display": "血巫咒经",
+      "realm_min": "FOUNDATION",
+      "school": "blood",
+      "attribute": ""
+    },
+    {
+      "id": "tianlan_beast_soul_art",
+      "display": "天澜御兽诀",
+      "realm_min": "QI_REFINING",
+      "school": "beast",
+      "attribute": ""
+    },
+    {
+      "id": "yin_luo_ghost_art",
+      "display": "阴罗鬼诀",
+      "realm_min": "QI_REFINING",
+      "school": "ghost",
+      "attribute": ""
+    },
+    {
+      "id": "taixu_gong",
+      "display": "太虚功",
+      "realm_min": "",
+      "school": "dao",
+      "attribute": ""
+    },
+    {
+      "id": "jinxuan_gong",
+      "display": "金玄功",
+      "realm_min": "",
+      "school": "metal",
+      "attribute": ""
+    },
+    {
+      "id": "muyuan_gong",
+      "display": "木元功",
+      "realm_min": "",
+      "school": "wood",
+      "attribute": ""
+    },
+    {
+      "id": "shuiyuan_gong",
+      "display": "水元功",
+      "realm_min": "",
+      "school": "water",
+      "attribute": ""
+    },
+    {
+      "id": "huoyuan_gong",
+      "display": "火元功",
+      "realm_min": "",
+      "school": "fire",
+      "attribute": ""
+    },
+    {
+      "id": "tuyuan_gong",
+      "display": "土元功",
+      "realm_min": "",
+      "school": "earth",
+      "attribute": ""
+    },
+    {
+      "id": "qingmu_gong",
+      "display": "青木诀",
+      "realm_min": "FOUNDATION",
+      "school": "wood",
+      "attribute": ""
+    },
+    {
+      "id": "lieyan_zhenjing",
+      "display": "烈焰真经",
+      "realm_min": "FOUNDATION",
+      "school": "fire",
+      "attribute": ""
+    },
+    {
+      "id": "xuanbing_zhenjing",
+      "display": "玄冰真经",
+      "realm_min": "FOUNDATION",
+      "school": "ice",
+      "attribute": ""
+    },
+    {
+      "id": "jinyi_gong",
+      "display": "金翼功",
+      "realm_min": "FOUNDATION",
+      "school": "metal",
+      "attribute": ""
+    },
+    {
+      "id": "yanyue_gong",
+      "display": "掩月诀",
+      "realm_min": "FOUNDATION",
+      "school": "illusion",
+      "attribute": ""
+    },
+    {
+      "id": "luoyun_dan_dao",
+      "display": "落云丹道诀",
+      "realm_min": "FOUNDATION",
+      "school": "alchemy",
+      "attribute": ""
+    },
+    {
+      "id": "tianfu_scripture",
+      "display": "天符灵诀",
+      "realm_min": "FOUNDATION",
+      "school": "talisman",
+      "attribute": ""
+    },
+    {
+      "id": "tiannan_seven_sect_base",
+      "display": "天南七派基础功",
+      "realm_min": "",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "dajin_buddhist_base",
+      "display": "大晋佛修基础",
+      "realm_min": "",
+      "school": "buddhist",
+      "attribute": ""
+    },
+    {
+      "id": "void_refining_scripture",
+      "display": "炼虚真经",
+      "realm_min": "VOID_REFINING",
+      "school": "void",
+      "attribute": ""
+    },
+    {
+      "id": "great_vehicle_dao",
+      "display": "大乘道典",
+      "realm_min": "GREAT_VEHICLE",
+      "school": "dao",
+      "attribute": ""
+    },
+    {
+      "id": "spirit_severing_art",
+      "display": "炼神诀",
+      "realm_min": "SPIRIT_SEVERING",
+      "school": "spirit",
+      "attribute": ""
+    },
+    {
+      "id": "barbarian_body_art",
+      "display": "蛮荒炼体诀",
+      "realm_min": "VOID_REFINING",
+      "school": "body",
+      "attribute": ""
+    },
+    {
+      "id": "tianyuan_guard_art",
+      "display": "天渊守城诀",
+      "realm_min": "SPIRIT_SEVERING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "fallen_demon_art",
+      "display": "坠魔功",
+      "realm_min": "NASCENT_SOUL",
+      "school": "demonic",
+      "attribute": ""
+    },
+    {
+      "id": "blood_demon_art",
+      "display": "血魔功",
+      "realm_min": "CORE_FORMATION",
+      "school": "demonic",
+      "attribute": ""
+    },
+    {
+      "id": "xuantian_ice_art",
+      "display": "玄天冰魄功",
+      "realm_min": "CORE_FORMATION",
+      "school": "ice",
+      "attribute": ""
+    },
+    {
+      "id": "wudang_sword_art",
+      "display": "武当剑诀（仿）",
+      "realm_min": "FOUNDATION",
+      "school": "sword",
+      "attribute": ""
+    },
+    {
+      "id": "nangong_wangzu_art",
+      "display": "南宫王族秘传（仿）",
+      "realm_min": "CORE_FORMATION",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "lingzu_pearl_art",
+      "display": "灵族凝珠诀",
+      "realm_min": "SPIRIT_SEVERING",
+      "school": "spirit",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_qi_refining",
+      "display": "QI_REFINING通修诀（通称）",
+      "realm_min": "QI_REFINING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_foundation",
+      "display": "FOUNDATION通修诀（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_core_formation",
+      "display": "CORE_FORMATION通修诀（通称）",
+      "realm_min": "CORE_FORMATION",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_nascent_soul",
+      "display": "NASCENT_SOUL通修诀（通称）",
+      "realm_min": "NASCENT_SOUL",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_deity_transformation",
+      "display": "DEITY_TRANSFORMATION通修诀（通称）",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_void_refining",
+      "display": "VOID_REFINING通修诀（通称）",
+      "realm_min": "VOID_REFINING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_great_vehicle",
+      "display": "GREAT_VEHICLE通修诀（通称）",
+      "realm_min": "GREAT_VEHICLE",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "generic_cultivation_spirit_severing",
+      "display": "SPIRIT_SEVERING通修诀（通称）",
+      "realm_min": "SPIRIT_SEVERING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_sword",
+      "display": "sword专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "sword",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_body",
+      "display": "body专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "body",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_talisman",
+      "display": "talisman专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "talisman",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_formation",
+      "display": "formation专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "formation",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_puppet",
+      "display": "puppet专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "puppet",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_alchemy",
+      "display": "alchemy专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "alchemy",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_ghost",
+      "display": "ghost专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "ghost",
+      "attribute": ""
+    },
+    {
+      "id": "sect_specialty_demonic",
+      "display": "demonic专精入门（通称）",
+      "realm_min": "FOUNDATION",
+      "school": "demonic",
+      "attribute": ""
+    },
+    {
+      "id": "kunwu_seal_art",
+      "display": "坤吴印诀",
+      "realm_min": "FOUNDATION",
+      "school": "formation",
+      "attribute": ""
+    },
+    {
+      "id": "lingwu_sect_art",
+      "display": "灵武门炼体诀",
+      "realm_min": "FOUNDATION",
+      "school": "body",
+      "attribute": ""
+    },
+    {
+      "id": "juvenile_sect_art",
+      "display": "幼童门心法",
+      "realm_min": "QI_REFINING",
+      "school": "mixed",
+      "attribute": ""
+    },
+    {
+      "id": "huangjin_sect_art",
+      "display": "皇金宗金罡诀",
+      "realm_min": "FOUNDATION",
+      "school": "metal",
+      "attribute": ""
+    },
+    {
+      "id": "taiyi_sect_art",
+      "display": "太一门太玄功",
+      "realm_min": "FOUNDATION",
+      "school": "dao",
+      "attribute": ""
+    },
+    {
+      "id": "beast_taming_basic",
+      "display": "御兽基础诀",
+      "realm_min": "QI_REFINING",
+      "school": "beast_taming",
+      "attribute": ""
+    },
+    {
+      "id": "buddhist_vajra_body_art",
+      "display": "金刚诀",
+      "realm_min": "QI_REFINING",
+      "school": "",
+      "attribute": ""
+    },
+    {
+      "id": "artifact_refining_basic",
+      "display": "炼器基础诀",
+      "realm_min": "",
+      "school": "artifact_craft",
+      "attribute": ""
+    },
+    {
+      "id": "treasure_appraisal_art",
+      "display": "鉴宝诀",
+      "realm_min": "",
+      "school": "treasure_trade",
+      "attribute": ""
+    }
+  ]
+}

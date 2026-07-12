@@ -1,0 +1,792 @@
+{
+  "schema_version": 2,
+  "source": "汇编§9宗门§13秘境§14体质§16经济",
+  "secret_realms_new": [
+    {
+      "id": "wild_ancient_ruins",
+      "display": "蛮荒上古遗迹",
+      "realm_min": "CORE_FORMATION",
+      "layers": 4,
+      "open_condition": "空间裂缝不定期；结丹+",
+      "environment_rules": "上古禁制残存、妖兽横行",
+      "layered_exploration": "外围废墟→地宫→祭坛",
+      "bosses": [
+        "ruin_stone_guardian"
+      ],
+      "loot_tiers": [
+        "ancient_manual_fragment",
+        "spirit_herb_high",
+        "low_spirit_iron"
+      ],
+      "region": "barbarian_wasteland",
+      "notes": "大晋蛮荒常见机缘与凶险并存。",
+      "setting": {
+        "lore": "蛮荒上古遗迹"
+      }
+    },
+    {
+      "id": "tianlan_secret_grotto",
+      "display": "天澜秘境",
+      "realm_min": "FOUNDATION",
+      "layers": 3,
+      "open_condition": "慕兰大战期间或战后残阵",
+      "environment_rules": "法士禁制、灵气紊乱",
+      "region": "mulan_border",
+      "bosses": [
+        "mulan_fashi_captain"
+      ],
+      "loot_tiers": [
+        "wind_spirit_stone",
+        "mulan_talisman_scroll"
+      ],
+      "setting": {
+        "lore": "天澜秘境"
+      }
+    },
+    {
+      "id": "chaotic_sea_abyss_rift",
+      "display": "乱星海深渊裂隙",
+      "realm_min": "NASCENT_SOUL",
+      "layers": 5,
+      "open_condition": "潮汐与星象；元婴+",
+      "environment_rules": "海压、暗流、高阶海兽",
+      "region": "chaotic_sea",
+      "bosses": [
+        "abyss_jiao"
+      ],
+      "loot_tiers": [
+        "sea_demon_core",
+        "void_pearl"
+      ],
+      "setting": {
+        "lore": "乱星海深渊裂隙"
+      }
+    },
+    {
+      "id": "spirit_grass_valley",
+      "display": "灵缈园（残片）",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "layers": 3,
+      "open_condition": "灵界空间节点；化神+",
+      "environment_rules": "时间流速异常、灵药自生",
+      "region": "spirit_world",
+      "loot_tiers": [
+        "ten_thousand_year_herb",
+        "spirit_grass_seed"
+      ],
+      "setting": {
+        "lore": "灵缈园（残片）"
+      }
+    },
+    {
+      "id": "yin_mountain_catacomb",
+      "display": "阴罗冢",
+      "realm_min": "FOUNDATION",
+      "layers": 4,
+      "open_condition": "阴司势力或鬼道任务",
+      "environment_rules": "阴气浓郁、鬼物滋生",
+      "region": "yin_underworld",
+      "bosses": [
+        "yin_corpses_general"
+      ],
+      "loot_tiers": [
+        "ghost_cultivation_manual",
+        "yin_pearl"
+      ],
+      "setting": {
+        "lore": "阴罗冢"
+      }
+    },
+    {
+      "id": "seven_meridian_cave",
+      "display": "七脉试炼洞",
+      "realm_min": "QI_REFINING",
+      "layers": 2,
+      "open_condition": "七派外门大比资格",
+      "environment_rules": "禁斗、限时",
+      "region": "tiannan",
+      "loot_tiers": [
+        "contribution_token",
+        "low_pill"
+      ],
+      "setting": {
+        "lore": "七脉试炼洞"
+      }
+    }
+  ],
+  "daily_events_new": [
+    {
+      "id": "evt_spirit_rain_tiannan",
+      "display": "天南灵雨",
+      "weight": 8,
+      "regions": [
+        "tiannan"
+      ],
+      "effects": [
+        "herb_growth_boost"
+      ],
+      "lore": "灵雨过后低阶灵草萌发。",
+      "setting": {
+        "lore": "天南灵雨"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_demonic_scout",
+      "display": "魔道探子",
+      "weight": 6,
+      "regions": [
+        "tiannan"
+      ],
+      "faction_trigger": "demonic_alliance",
+      "effects": [
+        "random_ambush_low"
+      ],
+      "lore": "正魔边境摩擦。",
+      "setting": {
+        "lore": "魔道探子"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_auction_rumor",
+      "display": "万宝楼拍卖传闻",
+      "weight": 5,
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "effects": [
+        "auction_preview"
+      ],
+      "lore": "稀有法宝将现于拍卖。",
+      "setting": {
+        "lore": "万宝楼拍卖传闻"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_sea_beast_migration",
+      "display": "海兽迁徙",
+      "weight": 7,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "effects": [
+        "sea_spawn_boost"
+      ],
+      "lore": "乱星海航线风险上升。",
+      "setting": {
+        "lore": "海兽迁徙"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_herb_merchant_caravan",
+      "display": "灵药商队",
+      "weight": 9,
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "effects": [
+        "shop_herb_discount"
+      ],
+      "lore": "跨域商队短暂停留。",
+      "setting": {
+        "lore": "灵药商队"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_tribulation_omen",
+      "display": "天劫异象",
+      "weight": 3,
+      "regions": [
+        "any"
+      ],
+      "realm_min": "CORE_FORMATION",
+      "effects": [
+        "tribulation_pressure"
+      ],
+      "lore": "突破者众，天地灵气躁动。",
+      "setting": {
+        "lore": "天劫异象"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_clan_recruit",
+      "display": "家族招揽",
+      "weight": 6,
+      "regions": [
+        "tiannan"
+      ],
+      "effects": [
+        "clan_quest_offer"
+      ],
+      "lore": "修仙家族广纳外姓修士。",
+      "setting": {
+        "lore": "家族招揽"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "evt_spirit_mine_dispute",
+      "display": "灵矿争执",
+      "weight": 5,
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "effects": [
+        "faction_conflict_minor"
+      ],
+      "lore": "小型宗门与散修争矿。",
+      "setting": {
+        "lore": "灵矿争执"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "quest_hooks_new": [
+    {
+      "id": "hook_seven_sect_trial",
+      "display": "七派入门试炼",
+      "faction": "tiannan_seven",
+      "realm_max": "QI_REFINING",
+      "rewards": [
+        "outer_disciple_token"
+      ],
+      "steps": [
+        "测灵根",
+        "心魔镜",
+        "斗法台"
+      ],
+      "setting": {
+        "lore": "七派入门试炼"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_luoyun_alchemy_apprentice",
+      "display": "落云丹堂学徒",
+      "faction": "luoyun_sect",
+      "realm_min": "QI_REFINING",
+      "rewards": [
+        "alchemy_manual_low"
+      ],
+      "setting": {
+        "lore": "落云丹堂学徒"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_tianfu_talisman_exam",
+      "display": "天符制符考核",
+      "faction": "tianfu_sect",
+      "realm_min": "FOUNDATION",
+      "rewards": [
+        "talisman_recipe_mid"
+      ],
+      "setting": {
+        "lore": "天符制符考核"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_star_palace_register",
+      "display": "星宫登记",
+      "faction": "star_palace",
+      "realm_min": "FOUNDATION",
+      "region": "chaotic_sea",
+      "rewards": [
+        "sea_pass"
+      ],
+      "setting": {
+        "lore": "星宫登记"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_inverse_star_contact",
+      "display": "逆星暗线",
+      "faction": "inverse_star_alliance",
+      "realm_min": "FOUNDATION",
+      "reputation_conflict": "star_palace",
+      "rewards": [
+        "smuggle_route"
+      ],
+      "setting": {
+        "lore": "逆星暗线"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_kunwu_array_study",
+      "display": "坤吴阵学",
+      "faction": "kunwu_lineage",
+      "region": "dajin",
+      "realm_min": "FOUNDATION",
+      "rewards": [
+        "formation_scroll_mid"
+      ],
+      "setting": {
+        "lore": "坤吴阵学"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_blood_forbidden_ticket",
+      "display": "血色禁地名额",
+      "realm_min": "FOUNDATION",
+      "items_required": [
+        "blood_forbidden_token"
+      ],
+      "rewards": [
+        "realm_entry_blood"
+      ],
+      "setting": {
+        "lore": "血色禁地名额"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_void_palace_key_hunt",
+      "display": "虚天钥碎片",
+      "realm_min": "CORE_FORMATION",
+      "rewards": [
+        "void_key_fragment"
+      ],
+      "setting": {
+        "lore": "虚天钥碎片"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_dayan_ruin_probe",
+      "display": "大衍遗迹探查",
+      "realm_min": "FOUNDATION",
+      "rewards": [
+        "dayan_fragment_chance"
+      ],
+      "setting": {
+        "lore": "大衍遗迹探查"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "hook_spirit_beast_capture",
+      "display": "灵兽山驯兽委托",
+      "faction": "spirit_beast_mountain",
+      "rewards": [
+        "beast_taming_manual",
+        "spirit_beast_bridle"
+      ],
+      "setting": {
+        "lore": "灵兽山驯兽委托"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "sect_setting_patches": {
+    "huangfeng_valley": {
+      "setting": {
+        "lore": "天南七派之一，丹药与交易见长，黄枫药园闻名。",
+        "join_requirements": {
+          "spirit_root": "any",
+          "age_max": 30,
+          "test": "heart_demon_mirror"
+        },
+        "services": [
+          "pill_shop",
+          "scripture_outer"
+        ],
+        "conflict_with": [
+          "demonic_six"
+        ]
+      },
+      "learn_requirements": {
+        "outer_disciple": {
+          "realm_max": "QI_REFINING",
+          "contribution": 0
+        },
+        "inner_disciple": {
+          "realm_min": "FOUNDATION",
+          "contribution": 500
+        }
+      }
+    },
+    "luoyun_sect": {
+      "setting": {
+        "lore": "炼丹强宗，丹堂与灵田并重。",
+        "specialty_tags": [
+          "alchemy_primary"
+        ]
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "QI_REFINING",
+          "spirit_roots_bonus": [
+            "wood",
+            "fire"
+          ]
+        }
+      }
+    },
+    "tianfu_sect": {
+      "setting": {
+        "lore": "制符立派，符箓产量冠绝天南。",
+        "specialty_tags": [
+          "talisman_primary"
+        ]
+      },
+      "learn_requirements": {
+        "disciple": {
+          "divine_sense_min": "average"
+        }
+      }
+    },
+    "spirit_beast_mountain": {
+      "setting": {
+        "lore": "御兽与炼器辅助并重。",
+        "specialty_tags": [
+          "beast_taming"
+        ]
+      },
+      "learn_requirements": {
+        "disciple": {
+          "method_suggested": "beast_taming_basic"
+        }
+      }
+    },
+    "star_palace": {
+      "setting": {
+        "lore": "乱星海秩序中枢，登记修士与征收灵石。",
+        "region": "chaotic_sea"
+      },
+      "learn_requirements": {
+        "register": {
+          "realm_min": "QI_REFINING",
+          "fee_spirit_stone": 10
+        }
+      }
+    },
+    "inverse_star_alliance": {
+      "setting": {
+        "lore": "反星宫割据，走私与破禁。",
+        "cannot_join_if": [
+          "star_palace_elite"
+        ]
+      }
+    },
+    "qianzhu_teach": {
+      "setting": {
+        "lore": "千竹教傀儡术传承地。",
+        "specialty_tags": [
+          "puppet_entry"
+        ]
+      },
+      "learn_requirements": {
+        "apprentice": {
+          "quest": "qianzhu_puppet_apprentice"
+        }
+      }
+    }
+  },
+  "constitutions_new": [
+    {
+      "id": "spirit_body_mild",
+      "display": "灵体（弱）",
+      "grade": "rare",
+      "effects": {
+        "cultivation_speed": 1.1,
+        "note": "略快于常人，非顶级灵体。"
+      },
+      "setting": {
+        "lore": "灵体（弱）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "fire_spirit_root_variant",
+      "display": "变异火灵根",
+      "grade": "epic",
+      "effects": {
+        "fire_arts_bonus": 1.25,
+        "forbidden_water_major": true
+      },
+      "setting": {
+        "lore": "变异火灵根"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "sword_intent_body",
+      "display": "剑意灵躯",
+      "grade": "legendary",
+      "effects": {
+        "sword_damage_bonus": 1.3,
+        "requires_path": "sword"
+      },
+      "setting": {
+        "lore": "剑意灵躯"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "yin_yang_unbalanced",
+      "display": "阴阳不调",
+      "grade": "curse",
+      "effects": {
+        "breakthrough_penalty": 0.9,
+        "dual_cultivation_bonus": 1.2
+      },
+      "setting": {
+        "lore": "阴阳不调"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "herbs_new": [
+    {
+      "id": "blood_forbidden_orchid",
+      "display": "禁地血兰",
+      "tier": 3,
+      "regions": [
+        "blood_forbidden"
+      ],
+      "use": [
+        "pill",
+        "alchemy"
+      ],
+      "lore": "血色禁地特有，筑基丹辅药。",
+      "setting": {
+        "lore": "禁地血兰"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "chaotic_sea_coral_moss",
+      "display": "珊瑚灵苔",
+      "tier": 4,
+      "regions": [
+        "chaotic_sea"
+      ],
+      "use": [
+        "refinement",
+        "pill"
+      ],
+      "setting": {
+        "lore": "珊瑚灵苔"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "kunwu_ice_lotus",
+      "display": "坤吴冰莲",
+      "tier": 5,
+      "regions": [
+        "kunwu"
+      ],
+      "use": [
+        "ice_arts",
+        "breakthrough_aid"
+      ],
+      "setting": {
+        "lore": "坤吴冰莲"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "ten_thousand_year_ginseng_spirit",
+      "display": "万年参灵",
+      "tier": 6,
+      "regions": [
+        "spirit_world",
+        "secret_realms"
+      ],
+      "use": [
+        "longevity_pill",
+        "spirit_recovery"
+      ],
+      "setting": {
+        "lore": "万年参灵"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "mulan_sand_grass",
+      "display": "慕兰沙灵草",
+      "tier": 3,
+      "regions": [
+        "mulan_plains"
+      ],
+      "use": [
+        "fashi_support"
+      ],
+      "setting": {
+        "lore": "慕兰沙灵草"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "npc_archetypes_new": [
+    {
+      "id": "sect_elder_alchemy",
+      "display": "丹堂长老",
+      "lines": [
+        "丹道一途，火候为先。",
+        "贡献不足，秘传不可换。"
+      ],
+      "faction_affinity": [
+        "luoyun_sect",
+        "huangfeng_valley"
+      ],
+      "setting": {
+        "lore": "丹堂长老"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "star_palace_enforcer",
+      "display": "星宫执法",
+      "lines": [
+        "未登记者，不得入岛坊市。",
+        "逆星盟余孽，格杀勿论。"
+      ],
+      "faction_affinity": [
+        "star_palace"
+      ],
+      "setting": {
+        "lore": "星宫执法"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "demonic_ambassador",
+      "display": "魔道使者",
+      "lines": [
+        "正道伪善，不如入我魔宗。",
+        "血祭之事，休要外传。"
+      ],
+      "faction_affinity": [
+        "demonic_six"
+      ],
+      "setting": {
+        "lore": "魔道使者"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "wanbao_auctioneer",
+      "display": "万宝拍卖师",
+      "lines": [
+        "价高者得，灵石为凭。",
+        "今日压轴，古宝残片一件。"
+      ],
+      "services": [
+        "auction"
+      ],
+      "setting": {
+        "lore": "万宝拍卖师"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "barbarian_guide",
+      "display": "蛮荒向导",
+      "lines": [
+        "深处空间裂缝，结丹以下莫入。",
+        "上古遗迹，九死一生。"
+      ],
+      "region": [
+        "barbarian_wasteland"
+      ],
+      "setting": {
+        "lore": "蛮荒向导"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ],
+  "economy_patches": {
+    "contribution_items_add": [
+      {
+        "id": "sect_scripture_exchange_token",
+        "display": "藏经兑换令",
+        "tier": "rare",
+        "use": "unlock_inner_manual"
+      },
+      {
+        "id": "blood_forbidden_entry_scar",
+        "display": "禁地入场疤记",
+        "tier": "event",
+        "use": "realm_entry_blood"
+      }
+    ]
+  }
+}

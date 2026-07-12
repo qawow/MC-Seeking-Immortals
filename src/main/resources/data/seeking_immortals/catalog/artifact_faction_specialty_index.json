@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "artifact_faction_specialty.json",
+  "primary_key": "factions",
+  "entries": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗"
+    },
+    {
+      "id": "lingshou_mountain",
+      "display": "灵兽山"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫"
+    },
+    {
+      "id": "reverse_star_alliance",
+      "display": "逆星盟"
+    },
+    {
+      "id": "refinement_hall_generic",
+      "display": "炼器殿（通用）"
+    }
+  ]
+}

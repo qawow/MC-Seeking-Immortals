@@ -1,0 +1,30 @@
+{
+  "id": "soul_gathering_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.soul_gathering_pill",
+  "output_items": {
+    "low": "seeking_immortals:soul_gathering_pill",
+    "medium": "seeking_immortals:soul_gathering_pill_mid",
+    "high": "seeking_immortals:soul_gathering_pill_high",
+    "supreme": "seeking_immortals:soul_gathering_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 28,
+  "cook_ticks": 480,
+  "success_rate": 0.74,
+  "explosion_chance": 0.03,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:soul_fragment",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 2
+    }
+  ]
+}

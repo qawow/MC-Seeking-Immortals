@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "note": "从 artifacts_catalog 筛选 Forge 首批注册：可炼或可购、境界分布合理",
+  "priority_tiers": ["P0_launch", "P1_content", "P2_late"],
+  "P0_launch": [
+    "flying_sword_low", "cloud_boots", "spirit_gathering_bead", "yellow_umbrella",
+    "qingye_leaf_fan", "storage_bracelet_low", "snake_pearl", "flying_needle_set",
+    "black_gold_shield", "bedrock_shield", "artifact_repair_kit"
+  ],
+  "P1_content": [
+    "silver_giant_sword", "gold_demon_chain", "evil_illusion_mirror", "qingning_mirror",
+    "gold_light_brick", "beast_taming_whip", "spirit_beast_bridle", "wind_escape_sail",
+    "moon_shadow_disk", "talisman_treasure_soul_charm", "void_palace_cold_jade_pendant"
+  ],
+  "P2_late": [
+    "xuanguang_mirror", "xuanhuang_mirror", "nine_dragon_cauldron_replica",
+    "natal_artifact_embryo", "natal_sword_embryo", "void_refining_bell",
+    "seven_flame_fan_replica", "thunder_pearl_talisman"
+  ],
+  "texture_rule": "one_png_per_item_id under assets/textures/item/",
+  "compliance_skip_for_public": [
+    "vermillion_bird_ring"
+  ]
+}

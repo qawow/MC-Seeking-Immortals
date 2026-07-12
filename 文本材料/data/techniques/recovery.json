@@ -1,0 +1,254 @@
+{
+  "schema_version": 5,
+  "school": "recovery",
+  "techniques": [
+    {
+      "id": "heal_qi",
+      "display": "回气术",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "通用",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 30,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "回气术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "回气术：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "detoxify",
+      "display": "解毒术",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "cleanse",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "解毒术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "解毒术：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_recovery",
+      "display": "凝神术",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "heal_spirit",
+        "element": "neutral",
+        "damage_base": 25,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "凝神术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "凝神术：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "body_repair",
+      "display": "疗伤术",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 20,
+      "source": "通用",
+      "effect": {
+        "type": "heal",
+        "element": "water",
+        "damage_base": 40,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "疗伤术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "疗伤术：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "group_heal",
+      "display": "群体疗伤",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 25,
+      "source": "通用",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 50,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "群体疗伤：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "群体疗伤：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "revive_weak",
+      "display": "续命术",
+      "school": "recovery",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "续命术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "续命术：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "spirit_shield",
+      "display": "灵力护罩",
+      "school": "recovery",
+      "tier": "spell",
+      "realm_min": "QI_REFINING",
+      "description": "灵力护罩：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "spirit_cost_base": 10,
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "defense"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灵力护罩：recovery法术，需境界 QI_REFINING 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "QI_REFINING"
+      }
+    },
+    {
+      "id": "tribulation_thunder_ward",
+      "display": "护劫雷罩",
+      "school": "recovery",
+      "tier": "spell",
+      "realm_min": "NASCENT_SOUL",
+      "description": "护劫雷罩：recovery法术，需境界 NASCENT_SOUL 以上方可施展。",
+      "spirit_cost_base": 34,
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "defense"
+        ]
+      },
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "护体疗伤",
+        "cast_bias": "buff",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "护劫雷罩：recovery法术，需境界 NASCENT_SOUL 以上方可施展。"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "requires_method_if_set",
+        "realm_min": "NASCENT_SOUL"
+      }
+    }
+  ]
+}

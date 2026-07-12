@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "unit": "low_spirit_stone",
+  "bands": [
+    {
+      "id": "herb_common",
+      "min": 5,
+      "max": 40,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "herb_uncommon",
+      "min": 25,
+      "max": 120,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "herb_rare",
+      "min": 80,
+      "max": 400,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "pill_qi",
+      "min": 20,
+      "max": 80,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "pill_foundation",
+      "min": 200,
+      "max": 2000,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "talisman_low",
+      "min": 10,
+      "max": 50,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "talisman_mid",
+      "min": 40,
+      "max": 200,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "material_fragment",
+      "min": 8,
+      "max": 30,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "ore_rare",
+      "min": 60,
+      "max": 250,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "travel_ticket",
+      "min": 15,
+      "max": 80,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "paper_craft",
+      "min": 2,
+      "max": 15,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    },
+    {
+      "id": "contribution_equiv_low_stone",
+      "min": 0,
+      "max": 0,
+      "suggested": 0,
+      "band": "",
+      "note": "贡献堂用贡献点，此处仅坊市灵石价"
+    },
+    {
+      "id": "sea_calm_pill",
+      "min": 0,
+      "max": 0,
+      "suggested": 35,
+      "band": "low_pill",
+      "note": ""
+    },
+    {
+      "id": "snow_lotus",
+      "min": 0,
+      "max": 0,
+      "suggested": 120,
+      "band": "dajin_herb",
+      "note": ""
+    },
+    {
+      "id": "mulan_fashi_charge_pack",
+      "min": 0,
+      "max": 0,
+      "suggested": 35,
+      "band": "war_supply",
+      "note": ""
+    },
+    {
+      "id": "contraband_spirit_stone",
+      "min": 0,
+      "max": 0,
+      "suggested": 0.9,
+      "band": "black_market",
+      "note": "相对下品灵石折价"
+    },
+    {
+      "id": "pearl_raw",
+      "min": 0,
+      "max": 15,
+      "suggested": 0,
+      "band": "",
+      "note": ""
+    }
+  ]
+}

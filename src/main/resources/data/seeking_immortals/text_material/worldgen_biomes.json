@@ -1,0 +1,168 @@
+{
+  "schema_version": 2,
+  "description": "地区 region_id 与模组生物群系 id 映射，供掉落/商人/采集对齐",
+  "biomes": [
+    {
+      "id": "seeking_immortals:tiannan_forest",
+      "region": "tiannan",
+      "display": "天南灵林",
+      "loot_table_ref": "beast_loot_tiers#1-4",
+      "setting": {
+        "lore": "天南灵林"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:tiannan_forest"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:tiannan_volcano",
+      "region": "tiannan",
+      "display": "天南火脉",
+      "herbs": [
+        "fire_feather_spawn"
+      ],
+      "setting": {
+        "lore": "天南火脉"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:tiannan_volcano"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:chaotic_sea_shallow",
+      "region": "chaotic_sea",
+      "display": "乱星海浅海",
+      "setting": {
+        "lore": "乱星海浅海"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:chaotic_sea_shallow"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:chaotic_sea_abyss",
+      "region": "chaotic_sea",
+      "display": "乱星海深渊",
+      "boss_hint": "chaotic_sea_jiao_lord",
+      "setting": {
+        "lore": "乱星海深渊"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:chaotic_sea_abyss"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:dajin_plateau",
+      "region": "dajin",
+      "display": "大晋高原",
+      "setting": {
+        "lore": "大晋高原"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:dajin_plateau"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:kunwu_frozen_peak",
+      "region": "kunwu",
+      "display": "昆吾雪峰",
+      "setting": {
+        "lore": "昆吾雪峰"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:kunwu_frozen_peak"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:mulan_grassland",
+      "region": "mulan",
+      "display": "慕兰草原",
+      "setting": {
+        "lore": "慕兰草原"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:mulan_grassland"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:nether_river_mist",
+      "region": "nether_river",
+      "display": "冥河雾岸",
+      "setting": {
+        "lore": "冥河雾岸"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:nether_river_mist"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:yinming_wasteland",
+      "region": "yinming",
+      "display": "阴冥荒原",
+      "setting": {
+        "lore": "阴冥荒原"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:yinming_wasteland"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:fallen_demon_canyon",
+      "region": "fallen_demon_valley",
+      "display": "坠魔谷",
+      "setting": {
+        "lore": "坠魔谷"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:fallen_demon_canyon"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:spirit_fengyuan_border",
+      "region": "spirit_fengyuan",
+      "display": "风元边境",
+      "setting": {
+        "lore": "风元边境"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:spirit_fengyuan_border"
+        }
+      }
+    },
+    {
+      "id": "seeking_immortals:tianyuan_rift",
+      "region": "tianyuan",
+      "display": "天渊裂隙",
+      "setting": {
+        "lore": "天渊裂隙"
+      },
+      "learn_requirements": {
+        "spawn": {
+          "biome": "seeking_immortals:tianyuan_rift"
+        }
+      }
+    }
+  ],
+  "items_by_region_ref": "items_by_region.json"
+}

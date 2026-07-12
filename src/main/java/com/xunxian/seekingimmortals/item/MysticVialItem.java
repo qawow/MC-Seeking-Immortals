@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
 import com.xunxian.seekingimmortals.cultivation.VialGrade;
+import com.xunxian.seekingimmortals.quest.QuestService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -89,6 +90,9 @@ public class MysticVialItem extends Item {
         serverLevel.sendParticles(net.minecraft.core.particles.ParticleTypes.END_ROD,
                 pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 12, 0.3D, 0.3D, 0.3D, 0.02D);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.mystic_vial.used", getCharges(stack), getMaxCharges(stack)), true);
+        if (player instanceof ServerPlayer serverPlayer) {
+            QuestService.onMysticVialUsed(serverPlayer);
+        }
         return InteractionResult.CONSUME;
     }
 

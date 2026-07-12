@@ -1,0 +1,28 @@
+﻿{
+    "name":  "Tianyuan Merit",
+    "category":  "seeking_immortals:basics",
+    "icon":  "seeking_immortals:immortal_jade",
+    "sortnum":  21,
+    "pages":  [
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "Merit Sources",
+                      "text":  "This entry documents text material tianyuan_merit_economy.json through the existing Tianyuan worldpack region, Spirit Realm portal rules, and Patchouli guide. The source lists wild-land hunts, beast-wave defense, merit convoy escort, and demon embassy work as major merit sources."
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "Exchange Catalog",
+                      "text":  "The design catalog includes high-grade spirit stones, pressure-resistance charms, Diyuan permits, and Wind Feather Raft tickets. The Diyuan permit costs 1200 merit and expects Void Refinement as the minimum realm. The current mod now uses alliance_merit_token as the item currency for the first Tianyuan Merit Exchange."
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "Current Scope",
+                      "text":  "The playable prerequisite surface is Tianyuan, its dimension anchor, the Spirit Gathering Array portal rule, Wind Feather Raft Ticket travel, Diyuan Permit entry, and a ShopService item-currency exchange: high-grade spirit stone for 50 tokens, pressure-resist charm for 200, raft ticket for 300, and Diyuan permit for 1200. Purchases stay server-validated."
+                  },
+                  {
+                      "type":  "patchouli:text",
+                      "title":  "Next Work",
+                      "text":  "The full Tianyuan merit system still needs server-authoritative alliance merit accounts, merit missions, exchange UI, monthly and realm gates, Diyuan quest checks, NPC services, and FTB Quests chapter routing. This is only the first item-currency exchange entry point."
+                  }
+              ]
+}

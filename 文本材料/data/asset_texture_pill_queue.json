@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "rule": "one_image_per_item_id, transparent_background",
+  "prompt_suffix": "see scripts/prepare_mc_item_texture.py PILL_PROMPT_SUFFIX",
+  "priority_order": [
+    "condensation_pill",
+    "foundation_pill",
+    "bigu_pill",
+    "bu_tian_pill",
+    "spirit_recovery_pill",
+    "antidote_pill",
+    "body_tempering_pill",
+    "demon_heart_pill",
+    "dual_harmony_pill",
+    "tianyuan_spirit_pill",
+    "demon_qi_purge_pill",
+    "great_vehicle_ascension_aid_pill",
+    "snow_lotus_pill",
+    "huoyuan_pill",
+    "soul_gathering_pill",
+    "bone_marrow_pill",
+    "dingyan_pill",
+    "longevity_fruit_pill",
+    "nascent_soul_pill",
+    "spirit_condense_pill"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source": "economy_value_bands.json",
+  "primary_key": "bands",
+  "entries": [
+    {
+      "id": "pill_qi_refining",
+      "display": "pill_qi_refining"
+    },
+    {
+      "id": "pill_foundation",
+      "display": "pill_foundation"
+    },
+    {
+      "id": "artifact_low",
+      "display": "artifact_low"
+    },
+    {
+      "id": "artifact_mid",
+      "display": "artifact_mid"
+    },
+    {
+      "id": "artifact_high",
+      "display": "artifact_high"
+    },
+    {
+      "id": "ancient_treasure",
+      "display": "ancient_treasure"
+    },
+    {
+      "id": "manual_refine_low",
+      "display": "manual_refine_low"
+    },
+    {
+      "id": "herb_common",
+      "display": "herb_common"
+    },
+    {
+      "id": "talisman_low",
+      "display": "talisman_low"
+    },
+    {
+      "id": "talisman_mid",
+      "display": "talisman_mid"
+    },
+    {
+      "id": "talisman_high",
+      "display": "talisman_high"
+    },
+    {
+      "id": "sect_stipend_qi_outer",
+      "display": "sect_stipend_qi_outer"
+    },
+    {
+      "id": "talisman_basic_shop",
+      "display": "talisman_basic_shop"
+    },
+    {
+      "id": "artifact_fine_threshold",
+      "display": "artifact_fine_threshold"
+    },
+    {
+      "id": "artifact_top_tier",
+      "display": "artifact_top_tier"
+    },
+    {
+      "id": "auction_deity_pill",
+      "display": "auction_deity_pill"
+    }
+  ]
+}

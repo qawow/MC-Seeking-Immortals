@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "v71 慕兰日常+日循环模板+乱星海政治术法",
+  "daily_quest_template_ids": [
+    "gather_spirit_herb",
+    "escort_convoy",
+    "slay_beast_bounty",
+    "break_formation_node",
+    "inverse_star_courier",
+    "star_palace_tax_audit"
+  ],
+  "mulan_daily_new": [
+    "mulan_border_patrol",
+    "mulan_soul_array_supply",
+    "tiannan_war_merit_muster",
+    "ceasefire_envoy_rumor"
+  ],
+  "technique_seeds": [
+    "spirit_art_sand_storm",
+    "spirit_art_holy_feather_guard",
+    "spirit_art_array_anchor",
+    "inverse_star_veil",
+    "star_palace_seal_burst"
+  ],
+  "stats_snapshot": {
+    "daily_lore_patched": 17,
+    "daily_events_added": 4,
+    "daily_quest_templates": 6,
+    "mulan_war_patched": true,
+    "quest_chains_lore": 4,
+    "faction_lore": 3,
+    "techniques_added": 4,
+    "technique_total": 297
+  }
+}

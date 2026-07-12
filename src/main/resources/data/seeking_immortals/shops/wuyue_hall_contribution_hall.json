@@ -1,0 +1,24 @@
+{
+  "id": "wuyue_hall_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "formation_manual",
+      "item": "seeking_immortals:technique_manual_formation",
+      "count": 1,
+      "cost": 180
+    },
+    {
+      "id": "earth_spirit_stone_mid",
+      "item": "seeking_immortals:earth_spirit_stone_mid",
+      "count": 1,
+      "cost": 90
+    },
+    {
+      "id": "earth_fire_room",
+      "item": "seeking_immortals:sect_earth_fire_room",
+      "count": 1,
+      "cost": 420
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "kunwu_array_material_shop",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 20,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 4,
+      "cost": 1,
+      "stock": 30
+    },
+    {
+      "id": "spirit_grass",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 3,
+      "cost": 2,
+      "stock": 20
+    },
+    {
+      "id": "fire_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 5,
+      "stock": 10
+    },
+    {
+      "id": "armor_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 5,
+      "stock": 10
+    }
+  ]
+}

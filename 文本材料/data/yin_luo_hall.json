@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "id": "yin_luo_hall",
+  "display": "阴罗殿",
+  "parent_cosmology": "yin_underworld_cluster",
+  "methods": [
+    "yin_luo_ghost_art"
+  ],
+  "currency": "yin_stone",
+  "reputation_tiers": [
+    {
+      "min": 0,
+      "title": "游魂客",
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "reputation": {
+          "tier_id": null
+        }
+      }
+    },
+    {
+      "min": 200,
+      "title": "殿外弟子",
+      "perks": [
+        "soul_banner_craft"
+      ],
+      "setting": {
+        "lore": ""
+      },
+      "learn_requirements": {
+        "reputation": {
+          "tier_id": null
+        }
+      }
+    }
+  ],
+  "enemy_tags": [
+    "righteous_sect",
+    "pure_yang_cultivator"
+  ],
+  "loot_focus": [
+    "yin_jade",
+    "soul_banner_fragment",
+    "ghost_core"
+  ],
+  "setting": {
+    "lore": "阴罗殿，鬼道与冥河势力枢纽。"
+  }
+}

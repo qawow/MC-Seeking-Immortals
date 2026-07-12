@@ -1,0 +1,34 @@
+{
+  "id": "essence_condensing_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.essence_condensing_pill",
+  "output_items": {
+    "low": "seeking_immortals:essence_condensing_pill",
+    "medium": "seeking_immortals:essence_condensing_pill_mid",
+    "high": "seeking_immortals:essence_condensing_pill_high",
+    "supreme": "seeking_immortals:essence_condensing_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 60,
+  "cook_ticks": 1000,
+  "success_rate": 0.52,
+  "explosion_chance": 0.08,
+  "required_furnace_tier": 3,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:phoenix_feather_flower",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:dragon_blood_grass",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:star_meteorite",
+      "count": 1
+    }
+  ]
+}

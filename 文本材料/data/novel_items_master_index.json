@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "source": "凡人修仙传_设定资料汇编 §18 结构优先",
+  "compliance": "通用名词可复用；主角强绑定道具已化名（仿/灵云剑阵/炼虚鼎等）",
+  "batch_v57": {
+    "pills": 19,
+    "herbs": 12,
+    "materials": 17,
+    "artifacts": 15,
+    "consumables": 10
+  },
+  "totals": {
+    "pills": 114,
+    "herbs": 75,
+    "materials": 214,
+    "artifacts": 217,
+    "talismans": 47,
+    "consumables": 55
+  },
+  "categories_covered": [
+    "灵石四级",
+    "丹药品质档",
+    "符箓三阶",
+    "法宝十一级结构",
+    "妖兽材料",
+    "阵法物",
+    "傀儡部件(见各 catalog)"
+  ],
+  "batch_v57b": {
+    "talismans_added": 0,
+    "talisman_total": 29
+  },
+  "full_merge_v58": {
+    "pills_wave": 31,
+    "herbs_wave": 26,
+    "materials_wave": 41,
+    "artifacts_wave": 22,
+    "talismans_wave": 18,
+    "consumables_wave": 7,
+    "pills_struct": 8,
+    "herbs_struct": 10,
+    "materials_struct": 24,
+    "artifacts_struct": 11
+  },
+  "coverage": {
+    "named_novel_seed": "novel_items_waves.json",
+    "structural_tiers": {
+      "beast_material_tiers": 13,
+      "artifact_grade_generic": 11,
+      "realm_cultivation_aid_pills": 8,
+      "region_herb_placeholders": 10
+    },
+    "compliance": "通用名词可复用；主角强绑定道具已化名（仿/灵云剑阵/炼虚鼎等）"
+  }
+}

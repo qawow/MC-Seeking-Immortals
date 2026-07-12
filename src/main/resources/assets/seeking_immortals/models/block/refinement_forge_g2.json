@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "seeking_immortals:block/refinement_forge_g2",
+    "top": "seeking_immortals:block/refinement_forge_g2",
+    "side": "seeking_immortals:block/refinement_forge_g2"
+  }
+}

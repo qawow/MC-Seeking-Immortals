@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "regions": [
+    {
+      "id": "qinglan_mountains",
+      "display_zh": "\u9752\u5c9a\u5c71\u5883",
+      "display_en": "Qinglan Mountains",
+      "aura_multiplier": 1.15,
+      "min_realm": "qi_refining",
+      "travel_anchor": "qinglan_outpost",
+      "tags": ["sect", "starter", "herbs"]
+    },
+    {
+      "id": "tiannan",
+      "display_zh": "\u5929\u5357\u8bf8\u56fd",
+      "display_en": "Tiannan Realms",
+      "aura_multiplier": 1.0,
+      "min_realm": "qi_refining",
+      "travel_anchor": "tiannan_market_anchor",
+      "tags": ["mortal_realm", "market", "sects", "herbs"]
+    },
+    {
+      "id": "tiannan_north_waste",
+      "display_zh": "\u5929\u5357\u8352\u539f\uff08\u9b54\u9053\uff09",
+      "display_en": "Tiannan North Waste",
+      "aura_multiplier": 0.7,
+      "min_realm": "qi_refining",
+      "travel_anchor": "tiannan_north_waste_anchor",
+      "tags": ["mortal_realm", "demonic", "north_waste", "low_corrupt", "six_sects"]
+    },
+    {
+      "id": "qixuan_village",
+      "display_zh": "\u4e03\u7384\u95e8\u5468\u8fb9",
+      "display_en": "Seven Mysteries Outskirts",
+      "aura_multiplier": 0.75,
+      "min_realm": "qi_refining",
+      "travel_anchor": "qixuan_village_anchor",
+      "tags": ["mortal", "starter", "qixuan", "quest"]
+    },
+    {
+      "id": "yueling_mist_valley",
+      "display_zh": "\u8d8a\u5cad\u96fe\u8c37",
+      "display_en": "Yueling Mist Valley",
+      "aura_multiplier": 1.35,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "yue_anchor",
+      "tags": ["yue", "mist", "secret_realm"]
+    },
+    {
+      "id": "chaotic_sea",
+      "display_zh": "\u4e71\u661f\u6d77",
+      "display_en": "Chaotic Star Sea",
+      "aura_multiplier": 1.15,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "chaotic_sea_anchor",
+      "tags": ["sea", "trade", "auction", "pirates"]
+    },
+    {
+      "id": "star_palace_city",
+      "display_zh": "\u5929\u661f\u57ce",
+      "display_en": "Star Palace City",
+      "aura_multiplier": 1.45,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "star_palace_city_anchor",
+      "tags": ["sea", "star_palace", "auction", "patrol_board"]
+    },
+    {
+      "id": "inverse_star_hideout",
+      "display_zh": "\u9006\u661f\u6697\u6e2f",
+      "display_en": "Inverse Star Hidden Harbor",
+      "aura_multiplier": 1.25,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "inverse_star_hideout_anchor",
+      "tags": ["sea", "inverse_star", "hidden", "black_market"]
+    },
+    {
+      "id": "cangming_outer_sea",
+      "display_zh": "\u6ca7\u6e9f\u5916\u6d77",
+      "display_en": "Cangming Outer Sea",
+      "aura_multiplier": 1.8,
+      "min_realm": "core_formation",
+      "travel_anchor": "outer_sea_anchor",
+      "tags": ["sea", "trade", "danger"]
+    },
+    {
+      "id": "outer_sea_market",
+      "display_zh": "\u5916\u6d77\u574a\u5e02",
+      "display_en": "Outer Sea Market",
+      "aura_multiplier": 1.2,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "outer_sea_market_anchor",
+      "tags": ["sea", "market", "pearl", "star_palace_tax"]
+    },
+    {
+      "id": "mulan_grassland",
+      "display_zh": "\u6155\u5170\u8349\u539f",
+      "display_en": "Mulan Grassland",
+      "aura_multiplier": 0.95,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "mulan_border_anchor",
+      "tags": ["grassland", "faction_war", "beasts"]
+    },
+    {
+      "id": "mulan",
+      "display_zh": "\u6155\u5170\u8349\u539f",
+      "display_en": "Mulan Steppe",
+      "aura_multiplier": 0.95,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "mulan_steppe_anchor",
+      "tags": ["grassland", "mulan", "fashi", "holy_bird", "beast_taming", "faction_war"]
+    },
+    {
+      "id": "wutu_border",
+      "display_zh": "\u7a81\u5140\u65cf\u8fb9\u5883\u8425",
+      "display_en": "Wutu Border Camp",
+      "aura_multiplier": 0.85,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "wutu_border_anchor",
+      "tags": ["grassland", "wutu", "tianlan", "feud", "faction_war"]
+    },
+    {
+      "id": "dajin",
+      "display_zh": "\u5927\u664b\u4e2d\u571f",
+      "display_en": "Great Jin Heartland",
+      "aura_multiplier": 1.15,
+      "min_realm": "core_formation",
+      "travel_anchor": "dajin_wanbao_anchor",
+      "tags": ["auction", "ruins", "high_market"]
+    },
+    {
+      "id": "great_jin_central",
+      "display_zh": "\u5927\u664b\u4e2d\u5fc3",
+      "display_en": "Great Jin Central",
+      "aura_multiplier": 1.5,
+      "min_realm": "core_formation",
+      "travel_anchor": "great_jin_central_anchor",
+      "tags": ["dajin", "great_jin_clans", "wanbao_pavilion", "refinement_halls", "cross_region_array", "ancient_artifact"]
+    },
+    {
+      "id": "kunwu",
+      "display_zh": "\u6606\u543e\u5c71",
+      "display_en": "Kunwu Mountain",
+      "aura_multiplier": 1.2,
+      "min_realm": "core_formation",
+      "travel_anchor": "kunwu_mountain_anchor",
+      "tags": ["dajin", "kunwu", "extreme_cold", "ancient_seal", "puppet"]
+    },
+    {
+      "id": "nether_river",
+      "display_zh": "\u51a5\u6cb3\u4e4b\u5730",
+      "display_en": "Nether River Land",
+      "aura_multiplier": 0.85,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "nether_ferry_anchor",
+      "tags": ["yin", "ghost_path", "ferry"]
+    },
+    {
+      "id": "fallen_demon_valley",
+      "display_zh": "\u5760\u9b54\u8c37",
+      "display_en": "Fallen Demon Valley",
+      "aura_multiplier": 1.1,
+      "min_realm": "nascent_soul",
+      "travel_anchor": "fallen_demon_anchor",
+      "tags": ["demon_qi", "spatial_rift", "high_risk", "ancient_demon", "demon_rift"]
+    },
+    {
+      "id": "tianyuan",
+      "display_zh": "\u5929\u6e0a\u57ce",
+      "display_en": "Tianyuan City",
+      "aura_multiplier": 2.0,
+      "min_realm": "soul_transformation",
+      "travel_anchor": "tianyuan_anchor",
+      "tags": ["spirit_realm", "frontier", "merit"]
+    },
+    {
+      "id": "spirit_realm_border",
+      "display_zh": "\u7075\u754c\u8fb9\u5883\u8352\u539f",
+      "display_en": "Spirit Realm Border Wilds",
+      "aura_multiplier": 1.3,
+      "min_realm": "soul_transformation",
+      "travel_anchor": "spirit_realm_border_anchor",
+      "tags": ["spirit_realm", "border", "wild_land", "spatial_rift", "beasts"]
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display_zh": "\u7075\u754c\u98ce\u5143\u5927\u9646",
+      "display_en": "Spirit Realm Fengyuan",
+      "aura_multiplier": 1.8,
+      "min_realm": "soul_transformation",
+      "travel_anchor": "fengyuan_anchor",
+      "tags": ["spirit_realm", "clans", "treasure_fair"]
+    },
+    {
+      "id": "barbarian_wasteland",
+      "display_zh": "\u86ee\u8352\u4e4b\u5730",
+      "display_en": "Barbarian Wasteland",
+      "aura_multiplier": 1.4,
+      "min_realm": "void_refinement",
+      "travel_anchor": "barbarian_wasteland_anchor",
+      "tags": ["spirit_realm", "beasts", "barbarian", "demon_kings"]
+    },
+    {
+      "id": "tianlan",
+      "display_zh": "\u7a81\u5140\u8349\u539f",
+      "display_en": "Tianlan Grassland",
+      "aura_multiplier": 0.98,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "tianlan_border_anchor",
+      "tags": ["grassland", "fashi", "faction_war"]
+    },
+    {
+      "id": "yinming",
+      "display_zh": "\u9634\u51a5\u4e4b\u5730",
+      "display_en": "Yinming Land",
+      "aura_multiplier": 0.7,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "yinming_gate_anchor",
+      "tags": ["yin", "underworld", "ghost_path"]
+    },
+    {
+      "id": "extreme_west",
+      "display_zh": "\u6781\u897f\u5343\u7af9",
+      "display_en": "Extreme West Thousand Bamboo",
+      "aura_multiplier": 1.0,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "extreme_west_anchor",
+      "tags": ["extreme_west", "thousand_bamboo", "puppet", "mechanism", "ironwood", "puppet_core_blank"]
+    },
+    {
+      "id": "extreme_west_thousand_bamboo",
+      "display_zh": "\u6781\u897f\u5343\u7af9\u5883",
+      "display_en": "Extreme West Thousand Bamboo",
+      "aura_multiplier": 0.9,
+      "min_realm": "foundation_establishment",
+      "travel_anchor": "thousand_bamboo_anchor",
+      "tags": ["puppet", "formation", "mechanism"]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "economy_spirit_stone_master.json",
+  "primary_key": "price_anchors_low_stone",
+  "entries": [
+    {
+      "id": "talisman_low_shop",
+      "display": "talisman_low_shop"
+    },
+    {
+      "id": "talisman_mid_master",
+      "display": "talisman_mid_master"
+    },
+    {
+      "id": "low_artifact_fair",
+      "display": "low_artifact_fair"
+    },
+    {
+      "id": "mid_artifact_fair",
+      "display": "mid_artifact_fair"
+    },
+    {
+      "id": "top_artifact_fair_low_equiv",
+      "display": "top_artifact_fair_low_equiv"
+    },
+    {
+      "id": "thousand_year_herb_vs_fine_artifact",
+      "display": "roughly_equal_low_equiv_1500_3000"
+    },
+    {
+      "id": "foundation_pill_auction",
+      "display": "foundation_pill_auction"
+    },
+    {
+      "id": "peak_talisman_three_thunder",
+      "display": "no_market_price"
+    }
+  ]
+}

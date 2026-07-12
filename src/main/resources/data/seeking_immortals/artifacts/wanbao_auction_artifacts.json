@@ -1,0 +1,165 @@
+{
+  "schema_version": 2,
+  "source": "万宝楼/大晋拍卖：顶阶法器、符宝、古宝碎片，价高者得",
+  "currency": [
+    "low_spirit_stone",
+    "mid_spirit_stone",
+    "auction_credit"
+  ],
+  "wanbao_pavilion_stock": [
+    {
+      "artifact_id": "gold_demon_chain",
+      "display": "金蚨子母刃",
+      "price_band": "mid_stone_15_40",
+      "realm_gate": "CORE_FORMATION",
+      "setting": {
+        "lore": "金蚨子母刃"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "silver_giant_sword",
+      "display": "银色巨剑",
+      "price_band": "low_stone_300_800",
+      "realm_gate": "FOUNDATION",
+      "setting": {
+        "lore": "银色巨剑"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "evil_illusion_mirror",
+      "display": "邪幻镜",
+      "price_band": "mid_stone_8_20",
+      "realm_gate": "FOUNDATION",
+      "setting": {
+        "lore": "邪幻镜"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "gold_light_brick",
+      "display": "金光砖符宝",
+      "price_band": "auction_only",
+      "realm_gate": "FOUNDATION",
+      "setting": {
+        "lore": "金光砖符宝"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "storage_bracelet_low",
+      "display": "储物镯（低阶）",
+      "price_band": "low_stone_80_200",
+      "realm_gate": "QI_REFINING",
+      "setting": {
+        "lore": "储物镯（低阶）"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "ancient_treasure_appraisal_lens",
+      "display": "鉴宝瞳镜",
+      "price_band": "low_stone_150_400",
+      "realm_gate": "FOUNDATION",
+      "setting": {
+        "lore": "鉴宝瞳镜"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "artifact_id": "wanbao_pavilion_coupon",
+      "display": "万宝楼鉴宝券",
+      "price_band": "low_stone_30",
+      "realm_gate": "QI_REFINING",
+      "setting": {
+        "lore": "万宝楼鉴宝券"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "auction_ancient_artifact_shard",
+      "display": "古宝残片（拍卖）",
+      "setting": {
+        "lore": "万宝楼压轴常见品。"
+      },
+      "learn_requirements": {
+        "bid": {
+          "realm_min": "FOUNDATION",
+          "currency": "low_spirit_stone"
+        }
+      }
+    }
+  ],
+  "great_jin_auction_lots": [
+    {
+      "artifact_id": "xuanguang_mirror_shard",
+      "lot_tier": "legendary",
+      "start_bid_mid_stone": 200
+    },
+    {
+      "artifact_id": "black_moon_ruler",
+      "lot_tier": "legendary",
+      "start_bid_mid_stone": 500
+    },
+    {
+      "artifact_id": "talisman_treasure_thunder_rod",
+      "lot_tier": "rare",
+      "start_bid_mid_stone": 80
+    },
+    {
+      "artifact_id": "phoenix_feather_fan",
+      "lot_tier": "rare",
+      "start_bid_mid_stone": 120
+    },
+    {
+      "artifact_id": "natal_artifact_embryo",
+      "lot_tier": "epic",
+      "start_bid_mid_stone": 300
+    },
+    {
+      "artifact_id": "eight_spirit_ruler_shard",
+      "lot_tier": "mythic",
+      "start_bid_mid_stone": 800,
+      "spirit_realm_only": true
+    }
+  ],
+  "identify_service": {
+    "item": "wanbao_pavilion_coupon",
+    "fallback_cost_low_stone": 50,
+    "reveals": [
+      "tier",
+      "game_tier",
+      "realm_min",
+      "natal_capable"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "功法学习门槛",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:technique_manual_common",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "来源",
+      "text": "本页对应 文本材料/data/novel_cultivation_learn_requirements_waves.json、cultivation_methods.json、manuals_catalog.json 与 techniques/ 下的学习条件。当前版本复用功法传承卷轴、TechniqueDataManager、七槽释放路径和 Patchouli 手册，不新增独立学习 UI、任务加载器或网络包。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "门槛类型",
+      "text": "文本材料把学习门槛分成多层：realm_min/realm_max_learn 控制境界；prerequisite_methods 与 layers_required 表示前置功法和层数；spirit_roots 记录必需、加成或禁忌灵根；faction、relation、reputation、karma、items_suggested、divine_sense_min 则对应宗门、声望、因果、物品和神识要求。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前实现",
+      "text": "已注册的传承卷轴会按 source 学习当前数据包中的术法，并在服务端根据术法 attribute 与玩家灵根属性做匹配。已学术法才能放入 7 个技能槽；释放时服务端校验槽位、已学状态、冷却、灵力、已注册效果和可执行状态。高出当前境界过多的术法目前会增加走火风险。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前边界",
+      "text": "宗门身份、贡献来源、声望、物品消耗、功法层数、性别倾向、禁忌体质和神识阈值目前主要保留在文本材料与说明中，尚未全部作为学习硬门槛。手册因此先把它们作为路线提示，后续应接入服务端任务、宗门、声望、物品和功法层数校验。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "例子",
+      "text": "长春功是炼气期木属性入门，黄枫谷外门或师承来源更合理；青元剑诀偏金/木，文本要求筑基、长春功圆满、内门或贡献来源；玄阴诀属于魔道阴属性路线，会牵涉正道声望和禁忌体质；炼器、傀儡、鬼修等手册则多以玉简研读和秘境/宗门来源解锁。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "后续方向",
+      "text": "后续切片应把这些门槛拆进真实玩法：学习前预览锁定原因、消耗指定手册或物品、检查宗门阶段和声望、校验前置功法层数、显示灵根适配倍率，并把失败反馈保持在服务端权威路径。"
+    }
+  ]
+}

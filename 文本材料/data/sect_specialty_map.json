@@ -1,0 +1,423 @@
+{
+  "schema_version": 4,
+  "source": "汇编 §9 宗门主修方向标签 → 阵营专精",
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "specialty": "alchemy",
+      "secondary": [
+        "sword",
+        "herb"
+      ],
+      "craft_loop_ref": "alchemy_daily_huangfeng",
+      "setting": {
+        "lore": "天南炼丹强宗，地火室与丹方贡献兑换。"
+      },
+      "skill_tree_ref": "alchemy_huangfeng",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "specialty": "illusion",
+      "secondary": [
+        "dual_cultivation",
+        "formation"
+      ],
+      "craft_loop_ref": "formation_daily_array",
+      "setting": {
+        "lore": "天南七派之首，女修为主；媚术幻阵双修，阵法副修，与黄枫谷竞合。"
+      },
+      "region": "tiannan",
+      "skill_tree_ref": "illusion_yanyue",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "lingfu_sect",
+      "display": "灵符宗",
+      "specialty": "talisman",
+      "craft_loop_ref": "talisman_daily_sect",
+      "setting": {
+        "lore": "制符专精，符箓三品结构对应技能解锁。"
+      },
+      "skill_tree_ref": "talisman_tianfu",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "specialty": "order_enforcement",
+      "secondary": [
+        "array",
+        "treasure"
+      ],
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "乱星海秩序：登记、征税、清剿逆星。"
+      },
+      "skill_tree_ref": "star_palace_sea",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "specialty": "stealth_smuggle",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "与星宫对立，走私禁制与暗杀悬赏。"
+      },
+      "skill_tree_ref": "inverse_star_covert",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰法士",
+      "specialty": "fashi_spirit_art",
+      "region": "mulan",
+      "craft_loop_ref": null,
+      "setting": {
+        "lore": "草原法士灵术与护族大阵，圣禽线独立。"
+      },
+      "skill_tree_ref": "fashi_mulan",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "wanbao_pavilion",
+      "display": "万宝楼",
+      "specialty": "auction_treasure",
+      "region": "dajin",
+      "craft_loop_ref": null,
+      "setting": {
+        "lore": "大晋拍卖与情报，正魔中立交易。"
+      },
+      "skill_tree_ref": "tree_wanbao_treasure_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "specialty": "dual_cultivation",
+      "region": "dajin",
+      "setting": {
+        "lore": "魔道双修专精，媚术道途。"
+      },
+      "skill_tree_ref": "hehuan_dual",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "yinluo_hall",
+      "display": "阴罗殿",
+      "specialty": "ghost_demon",
+      "region": "dajin",
+      "setting": {
+        "lore": "鬼道魔宗，与冥河线联动。"
+      },
+      "skill_tree_ref": "yin_luo_ghost",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "taizhen_gate",
+      "display": "太真门",
+      "specialty": "sword_formation",
+      "region": "dajin",
+      "setting": {
+        "lore": "正道剑阵大派标签。"
+      },
+      "skill_tree_ref": "tree_wudang_sword_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "specialty": "alchemy",
+      "region": "tiannan",
+      "setting": {
+        "lore": "天南顶阶丹宗，与黄枫谷竞合。"
+      },
+      "skill_tree_ref": "tree_luoyun_dan_dao",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "specialty": "beast_taming",
+      "region": "tiannan",
+      "setting": {
+        "lore": "驭兽与灵兽材料。"
+      },
+      "skill_tree_ref": "beast_lingshou",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "specialty": "formation",
+      "region": "tiannan",
+      "setting": {
+        "lore": "道术与基础阵法。"
+      },
+      "skill_tree_ref": "tree_qingxu_pure_tao_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "specialty": "blade",
+      "region": "tiannan",
+      "setting": {
+        "lore": "刀道体修标签。"
+      },
+      "skill_tree_ref": "blade_huadao",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "specialty": "sword",
+      "region": "tiannan",
+      "setting": {
+        "lore": "巨剑法器专精。"
+      },
+      "skill_tree_ref": "blade_giant_sword",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "specialty": "ghost_poison",
+      "region": "tiannan",
+      "setting": {
+        "lore": "鬼道与毒术魔宗。"
+      },
+      "skill_tree_ref": "ghost_xuan_yin",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "specialty": "fire_demonic",
+      "region": "tiannan",
+      "setting": {
+        "lore": "魔道火系。"
+      },
+      "skill_tree_ref": "fire_lieyan",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "specialty": "assassination",
+      "region": "tiannan",
+      "setting": {
+        "lore": "暗杀悬赏。"
+      },
+      "skill_tree_ref": "tree_blood_demon_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "specialty": "beast_taming",
+      "region": "tiannan",
+      "setting": {
+        "lore": "御灵与兽魂。"
+      },
+      "skill_tree_ref": "puppet_yuling",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "specialty": "illusion",
+      "region": "tiannan",
+      "setting": {
+        "lore": "幻术迷阵。"
+      },
+      "skill_tree_ref": "wanhu_phantom",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "qianzhu_sect",
+      "display": "千竹教",
+      "specialty": "puppet",
+      "region": "tiannan",
+      "setting": {
+        "lore": "傀儡与符箓辅助。"
+      },
+      "skill_tree_ref": "puppet_qianzhu",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "specialty": "artifact_defense",
+      "region": "tiannan",
+      "setting": {
+        "lore": "防御法器炼制。"
+      },
+      "skill_tree_ref": "tree_sect_specialty_artifact",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "chaotic_sea_merchant_league",
+      "display": "乱星海商盟",
+      "specialty": "trade_smuggle",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "中立贸易，星宫与逆星夹缝。"
+      },
+      "skill_tree_ref": "tree_chaotic_sea_nav_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "penglai_sect",
+      "display": "蓬莱派",
+      "specialty": "sword_water",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "乱星海剑修大派标签。"
+      },
+      "skill_tree_ref": "sword_qingyuan",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    },
+    {
+      "id": "demon_gate_outer",
+      "display": "外海魔宫",
+      "specialty": "demonic_sea",
+      "region": "chaotic_sea",
+      "setting": {
+        "lore": "外海魔道据点。"
+      },
+      "skill_tree_ref": "tree_fallen_demon_art",
+      "skill_tree_layers": [
+        "method",
+        "spell",
+        "secret"
+      ],
+      "layer_schema_ref": "skill_tree_layer_schema.json"
+    }
+  ],
+  "dajin_factions_ref": "dajin_factions.json",
+  "skill_tree_master_ref": "skill_trees.json"
+}

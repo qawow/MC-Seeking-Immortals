@@ -1,0 +1,140 @@
+{
+  "schema_version": 2,
+  "source": "汇编 9.x 宗门专精 → 可炼/可兑换法宝倾向（非独占）",
+  "factions": [
+    {
+      "faction_id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "specialty": "alchemy",
+      "artifact_bias": [
+        "utility",
+        "anti_illusion",
+        "defense"
+      ],
+      "shop_artifacts": [
+        "spirit_gathering_bead",
+        "flying_sword_low",
+        "storage_bracelet_low"
+      ],
+      "setting": {
+        "lore": "黄枫谷",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    },
+    {
+      "faction_id": "yanyue_sect",
+      "display": "掩月宗",
+      "specialty": "dual_cultivation_illusion",
+      "artifact_bias": [
+        "illusion",
+        "control",
+        "yin"
+      ],
+      "shop_artifacts": [
+        "evil_illusion_mirror",
+        "dual_harmony_pill",
+        "ice_silk_net"
+      ],
+      "setting": {
+        "lore": "掩月宗",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    },
+    {
+      "faction_id": "lingshou_mountain",
+      "display": "灵兽山",
+      "specialty": "beast_taming",
+      "artifact_bias": [
+        "beast_control",
+        "offense"
+      ],
+      "shop_artifacts": [
+        "beast_taming_whip",
+        "spirit_beast_bridle",
+        "beast_soul_bell"
+      ],
+      "setting": {
+        "lore": "灵兽山",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    },
+    {
+      "faction_id": "star_palace",
+      "display": "星宫",
+      "specialty": "order_chaotic_sea",
+      "artifact_bias": [
+        "flying_sword",
+        "defense"
+      ],
+      "shop_artifacts": [
+        "star_palace_standard_sword",
+        "yellow_umbrella",
+        "spirit_boat_model"
+      ],
+      "setting": {
+        "lore": "星宫",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    },
+    {
+      "faction_id": "reverse_star_alliance",
+      "display": "逆星盟",
+      "specialty": "assassination",
+      "artifact_bias": [
+        "offense",
+        "stealth"
+      ],
+      "shop_artifacts": [
+        "reverse_star_assassin_blade",
+        "stealth_cloak_artifact",
+        "blood_drinking_hook"
+      ],
+      "setting": {
+        "lore": "逆星盟",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    },
+    {
+      "faction_id": "refinement_hall_generic",
+      "display": "炼器殿（通用）",
+      "specialty": "refinement",
+      "artifact_bias": [
+        "flying_sword",
+        "defense",
+        "formation_deploy"
+      ],
+      "craft_bonus_materials": [
+        "kunwu_copper",
+        "refinement_quench_oil"
+      ],
+      "setting": {
+        "lore": "炼器殿（通用）",
+        "source_file": "artifact_faction_specialty.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "artifact_faction_specialty.json"
+      }
+    }
+  ]
+}

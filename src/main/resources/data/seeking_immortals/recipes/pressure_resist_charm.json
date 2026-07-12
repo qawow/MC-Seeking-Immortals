@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "seeking_immortals:diyuan_pressure_moss"
+    },
+    {
+      "item": "seeking_immortals:armor_talisman"
+    },
+    {
+      "item": "seeking_immortals:metal_spirit_stone_mid"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:pressure_resist_charm",
+    "count": 1
+  }
+}

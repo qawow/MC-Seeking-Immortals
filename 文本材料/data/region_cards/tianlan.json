@@ -1,0 +1,19 @@
+{
+  "schema_version": 2,
+  "id": "tianlan",
+  "display": "天澜草原边境",
+  "parent_region": "mulan",
+  "factions": [
+    "tianlan_temple"
+  ],
+  "holy_beast": "tianlan_beast_generic",
+  "war_ref": "mulan_tianlan_war.json",
+  "chronicle_refs": [
+    "M5_tianlan_oath",
+    "K3_mulan_tianlan_war_1"
+  ],
+  "daily_events": [
+    "mulan_scout_clash",
+    "tianlan_patrol"
+  ]
+}

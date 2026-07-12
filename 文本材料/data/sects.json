@@ -1,0 +1,817 @@
+{
+  "schema_version": 6,
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "alchemy_mid",
+        "pill_trade"
+      ],
+      "join_realm_max": "core_formation",
+      "reputation_id": "sect_huangfeng",
+      "shop_tier": 2,
+      "technique_sources": [
+        "黄枫谷"
+      ],
+      "forbidden_paths": [
+        "demonic_core"
+      ],
+      "chronicle_anchor": "K1_seven_sects",
+      "setting": {
+        "lore": "天南七派之一，丹药与交易见长，黄枫药园闻名。",
+        "join_requirements": {
+          "spirit_root": "any",
+          "age_max": 30,
+          "test": "heart_demon_mirror"
+        },
+        "services": [
+          "pill_shop",
+          "scripture_outer"
+        ],
+        "conflict_with": [
+          "demonic_six"
+        ]
+      },
+      "learn_requirements": {
+        "outer_disciple": {
+          "realm_max": "QI_REFINING",
+          "contribution": 0
+        },
+        "inner_disciple": {
+          "realm_min": "FOUNDATION",
+          "contribution": 500
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#huangfeng_valley"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "dual_cultivation",
+        "body_refining",
+        "illusion"
+      ],
+      "join_realm_max": "core_formation",
+      "reputation_id": "sect_yanyue",
+      "shop_tier": 3,
+      "technique_sources": [
+        "掩月宗"
+      ],
+      "note": "七派之首，女修为主",
+      "archetype": "illusion_array",
+      "skill_tree_ref": "illusion",
+      "methods": [
+        "yanyue_illusion_art"
+      ],
+      "setting": {
+        "lore": "掩月宗：dual_cultivation,body_refining,illusion",
+        "specialty_tags": [
+          "dual_cultivation",
+          "body_refining",
+          "illusion"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#yanyue_sect"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "beast_taming",
+        "refinement_support"
+      ],
+      "reputation_id": "sect_lingshou",
+      "shop_tier": 2,
+      "technique_sources": [
+        "灵兽山"
+      ],
+      "linked_sect": "yuling_sect_secret",
+      "archetype": "beast_tamer",
+      "skill_tree_ref": "beast_lingshou",
+      "methods": [
+        "lingshou_beast_mind_art"
+      ],
+      "setting": {
+        "lore": "御兽与炼器辅助并重。",
+        "specialty_tags": [
+          "beast_taming"
+        ]
+      },
+      "learn_requirements": {
+        "disciple": {
+          "method_suggested": "beast_taming_basic"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#spirit_beast_mountain"
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "tao_spells",
+        "formation_basic"
+      ],
+      "reputation_id": "sect_qingxu",
+      "shop_tier": 2,
+      "technique_sources": [
+        "清虚门"
+      ],
+      "archetype": "talisman_specialist",
+      "methods": [
+        "tianfu_spirit_scripture"
+      ],
+      "setting": {
+        "lore": "清虚门：tao_spells,formation_basic",
+        "specialty_tags": [
+          "tao_spells",
+          "formation_basic"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#qingxu_gate"
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "blade"
+      ],
+      "reputation_id": "sect_huadao",
+      "shop_tier": 1,
+      "archetype": "blade_forge",
+      "methods": [
+        "huadao_blade_intent"
+      ],
+      "quest_chain": "huadao_blade_path",
+      "setting": {
+        "lore": "化刀坞：blade",
+        "specialty_tags": [
+          "blade"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#huadao_wu"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "defense_artifacts"
+      ],
+      "reputation_id": "sect_tianque",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "天阙堡：defense_artifacts",
+        "specialty_tags": [
+          "defense_artifacts"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#tianque_fort"
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "sword"
+      ],
+      "reputation_id": "sect_jujian",
+      "shop_tier": 1,
+      "archetype": "heavy_sword",
+      "methods": [
+        "giant_sword_art"
+      ],
+      "quest_chain": "giant_sword_gate_path",
+      "setting": {
+        "lore": "巨剑门：sword",
+        "specialty_tags": [
+          "sword"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#giant_sword_gate"
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "specialty": [
+        "starter"
+      ],
+      "is_mortal_martial": true,
+      "reputation_id": "sect_qixuan",
+      "shop_tier": 0,
+      "technique_sources": [
+        "长春功"
+      ],
+      "chronicle_anchor": "K10_qixuan_decline",
+      "archetype": "declining_sect",
+      "methods": [
+        "qixuan_mortal_art",
+        "qixuan_azure_pearl_art"
+      ],
+      "quest_chain": "qixuan_mortal_path",
+      "setting": {
+        "lore": "七玄门：starter",
+        "specialty_tags": [
+          "starter"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "neutral",
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "ghost",
+        "poison"
+      ],
+      "reputation_id": "sect_guiling",
+      "shop_tier": 2,
+      "technique_sources": [
+        "鬼灵门"
+      ],
+      "weak_tier": true,
+      "setting": {
+        "lore": "鬼灵门：ghost,poison",
+        "specialty_tags": [
+          "ghost",
+          "poison"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#ghost_spirit_gate"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "dual_cultivation",
+        "illusion"
+      ],
+      "reputation_id": "sect_hehuan",
+      "shop_tier": 3,
+      "technique_sources": [
+        "合欢宗"
+      ],
+      "setting": {
+        "lore": "合欢宗：dual_cultivation,illusion",
+        "specialty_tags": [
+          "dual_cultivation",
+          "illusion"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#hehuan_sect"
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "fire_demonic"
+      ],
+      "reputation_id": "sect_moyan",
+      "shop_tier": 2,
+      "setting": {
+        "lore": "魔焰门：fire_demonic",
+        "specialty_tags": [
+          "fire_demonic"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#moyan_gate"
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "assassination"
+      ],
+      "reputation_id": "sect_tiansha",
+      "shop_tier": 2,
+      "setting": {
+        "lore": "天煞宗：assassination",
+        "specialty_tags": [
+          "assassination"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#tiansha_sect"
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "beast_taming",
+        "soul"
+      ],
+      "reputation_id": "sect_yuling",
+      "shop_tier": 2,
+      "setting": {
+        "lore": "御灵宗：beast_taming,soul",
+        "specialty_tags": [
+          "beast_taming",
+          "soul"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#yuling_sect"
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "specialty": [
+        "illusion"
+      ],
+      "reputation_id": "sect_qianhuan",
+      "shop_tier": 2,
+      "setting": {
+        "lore": "千幻宗：illusion",
+        "specialty_tags": [
+          "illusion"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#qianhuan_sect"
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "alchemy_top"
+      ],
+      "reputation_id": "sect_luoyun",
+      "shop_tier": 4,
+      "chronicle_anchor": "K8_luoyun_sect",
+      "setting": {
+        "lore": "炼丹强宗，丹堂与灵田并重。",
+        "specialty_tags": [
+          "alchemy_primary"
+        ]
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "QI_REFINING",
+          "spirit_roots_bonus": [
+            "wood",
+            "fire"
+          ]
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#luoyun_sect"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "specialty": [
+        "governance",
+        "teleport_hubs",
+        "order_enforcement",
+        "artifact_standard"
+      ],
+      "reputation_id": "faction_star_palace",
+      "shop_tier": 4,
+      "chronicle_anchor": "K4_star_palace",
+      "setting": {
+        "lore": "乱星海秩序中枢，登记修士与征收灵石。",
+        "region": "chaotic_sea"
+      },
+      "learn_requirements": {
+        "register": {
+          "realm_min": "QI_REFINING",
+          "fee_spirit_stone": 10
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#star_palace"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "specialty": [
+        "black_market"
+      ],
+      "reputation_id": "faction_inverse_star",
+      "shop_tier": 3,
+      "chronicle_anchor": "K5_inverse_star",
+      "setting": {
+        "lore": "反星宫割据，走私与破禁。",
+        "cannot_join_if": [
+          "star_palace_elite"
+        ]
+      },
+      "learn_requirements": {},
+      "specialty_ref": "sect_specialty_map.json#inverse_star_alliance"
+    },
+    {
+      "id": "qianzhu_teach",
+      "display": "千竹教",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "specialty": [
+        "puppet",
+        "formation_trap"
+      ],
+      "reputation_id": "sect_qianzhu",
+      "shop_tier": 3,
+      "technique_sources": [
+        "大衍诀"
+      ],
+      "chronicle_anchor": "A3_dayan_sage",
+      "setting": {
+        "lore": "千竹教傀儡术传承地。",
+        "specialty_tags": [
+          "puppet_entry"
+        ]
+      },
+      "learn_requirements": {
+        "apprentice": {
+          "quest": "qianzhu_puppet_apprentice"
+        }
+      }
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰神师府",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "specialty": [
+        "spirit_art_fashi"
+      ],
+      "reputation_id": "faction_mulan",
+      "shop_tier": 2,
+      "race_affinity": [
+        "mulan_fashi"
+      ],
+      "setting": {
+        "lore": "慕兰神师府：spirit_art_fashi",
+        "specialty_tags": [
+          "spirit_art_fashi"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "tribal_faith",
+          "region": "mulan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#mulan_fashi_council"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "specialty": [
+        "holy_beast_oath"
+      ],
+      "reputation_id": "faction_tianlan",
+      "shop_tier": 2,
+      "race_affinity": [
+        "human_cultivator"
+      ],
+      "setting": {
+        "lore": "天澜圣殿：holy_beast_oath",
+        "specialty_tags": [
+          "holy_beast_oath"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "tribal_faith",
+          "region": "tianlan"
+        }
+      }
+    },
+    {
+      "id": "qianzhu_sect",
+      "display": "千竹教",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "specialty": [
+        "puppet",
+        "talisman_support"
+      ],
+      "archetype": "puppet_sect",
+      "methods": [
+        "qianzhu_puppet_art"
+      ],
+      "quest_chain": "qianzhu_puppet_path",
+      "secret_realm": "thousand_bamboo_puppet_tower",
+      "chronicle_anchor": "A3_dayan_sage",
+      "reputation_id": "sect_qianzhu",
+      "shop_tier": 2,
+      "setting": {
+        "lore": "千竹教：puppet,talisman_support",
+        "specialty_tags": [
+          "puppet",
+          "talisman_support"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "righteous",
+          "region": "tiannan"
+        }
+      },
+      "specialty_ref": "sect_specialty_map.json#qianzhu_sect"
+    },
+    {
+      "id": "yuling_sect_secret",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "specialty": [
+        "beast_puppet",
+        "hidden"
+      ],
+      "archetype": "beast_puppet",
+      "methods": [
+        "yuling_beast_puppet_art"
+      ],
+      "linked_sect": "spirit_beast_mountain",
+      "quest_chain": "yuling_puppet_path",
+      "reputation_id": "sect_yuling",
+      "note": "明面式微，兽傀秘传",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "御灵宗：beast_puppet,hidden",
+        "specialty_tags": [
+          "beast_puppet",
+          "hidden"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "neutral",
+          "region": "tiannan"
+        }
+      }
+    },
+    {
+      "id": "guiling_gate",
+      "display": "鬼灵门",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "specialty": [
+        "摄魂",
+        "炼尸",
+        "阴火"
+      ],
+      "archetype": "soul_corpse",
+      "methods": [
+        "xuan_yin_art",
+        "guiling_soul_art"
+      ],
+      "reputation_id": "sect_guiling_gate",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "鬼灵门：摄魂,炼尸,阴火",
+        "specialty_tags": [
+          "摄魂",
+          "炼尸",
+          "阴火"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "specialty": [
+        "魔体",
+        "狂战",
+        "血祭"
+      ],
+      "archetype": "demon_body",
+      "methods": [
+        "tianmo_body_art"
+      ],
+      "reputation_id": "sect_tianmo",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "天魔宗：魔体,狂战,血祭",
+        "specialty_tags": [
+          "魔体",
+          "狂战",
+          "血祭"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "specialty": [
+        "毒术",
+        "虫傀"
+      ],
+      "archetype": "poison_insect",
+      "methods": [
+        "qingluo_poison_art"
+      ],
+      "reputation_id": "sect_qingluo",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "青罗宗：毒术,虫傀",
+        "specialty_tags": [
+          "毒术",
+          "虫傀"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "specialty": [
+        "幻术",
+        "妖狐"
+      ],
+      "archetype": "illusion_beast",
+      "methods": [
+        "wanhu_phantom_art"
+      ],
+      "reputation_id": "sect_wanhu",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "万狐宗：幻术,妖狐",
+        "specialty_tags": [
+          "幻术",
+          "妖狐"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "specialty": [
+        "血咒",
+        "巫术"
+      ],
+      "archetype": "blood_curse",
+      "methods": [
+        "xuewu_blood_art"
+      ],
+      "reputation_id": "sect_xuewu",
+      "shop_tier": 1,
+      "setting": {
+        "lore": "血巫教：血咒,巫术",
+        "specialty_tags": [
+          "血咒",
+          "巫术"
+        ]
+      },
+      "learn_requirements": {
+        "join": {
+          "alignment": "demonic",
+          "region": "tiannan_north_waste"
+        }
+      }
+    },
+    {
+      "id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "specialty": [
+        "body_refining",
+        "purify_demon"
+      ],
+      "setting": {
+        "lore": "诛魔与炼体，不主炼丹。"
+      },
+      "learn_requirements": {
+        "join": {
+          "karma_max": "demonic",
+          "realm_min": "QI_REFINING"
+        }
+      }
+    }
+  ],
+  "demonic_six_ref": "demonic_six_sects.json"
+}

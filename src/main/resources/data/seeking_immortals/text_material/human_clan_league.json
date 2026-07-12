@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "id": "human_clan_league_generic",
+  "display": "风元人族世家联盟",
+  "region": "spirit_fengyuan",
+  "source": "汇编9 功能定位差异：炼丹/炼器/阵法/制符世家原型",
+  "clans": [
+    {
+      "id": "clan_array_mo",
+      "display": "莫家（阵法）",
+      "specialty": "formation",
+      "specialty_item": "array_disk_fragment",
+      "rep_id": "rep_clan_array",
+      "setting": {
+        "lore": "莫家（阵法）"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": null,
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    },
+    {
+      "id": "clan_refinement_yu",
+      "display": "俞家（炼器）",
+      "specialty": "refinement",
+      "specialty_item": "spirit_ore_bundle",
+      "rep_id": "rep_clan_refine",
+      "setting": {
+        "lore": "俞家（炼器）"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": null,
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    },
+    {
+      "id": "clan_alchemy_gu",
+      "display": "谷家（炼丹）",
+      "specialty": "alchemy",
+      "specialty_item": "spirit_pill_voucher",
+      "rep_id": "rep_clan_alchemy",
+      "setting": {
+        "lore": "谷家（炼丹）"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": null,
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    },
+    {
+      "id": "clan_talisman_ning",
+      "display": "宁家（制符）",
+      "specialty": "talisman",
+      "specialty_item": "talisman_blank_high",
+      "rep_id": "rep_clan_talisman",
+      "setting": {
+        "lore": "宁家（制符）"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": null,
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    },
+    {
+      "id": "ye_clan",
+      "display": "叶家",
+      "region": "dajin",
+      "specialty": [
+        "commerce",
+        "array"
+      ],
+      "setting": {
+        "lore": "大晋世家，商路与阵法。"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": "dajin",
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    },
+    {
+      "id": "nan_clan",
+      "display": "南陇侯世家",
+      "region": "dajin",
+      "specialty": [
+        "alchemy",
+        "politics"
+      ],
+      "setting": {
+        "lore": "大晋诸侯与丹道势力。"
+      },
+      "learn_requirements": {
+        "join": {
+          "region": "dajin",
+          "note": "家族外姓修士需盟约或联姻。"
+        }
+      }
+    }
+  ],
+  "politics_tags": [
+    "clan_feud",
+    "marriage_alliance",
+    "merit_auction"
+  ],
+  "quest_network_ref": "human_clan_quest_network.json"
+}

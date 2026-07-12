@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "source": "汇编 §11 符箓三等级结构（低/中/高）；符宝另见 artifact_tier_rules",
+  "grades": [
+    {
+      "id": "low",
+      "display": "低阶符箓",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "paper_max": "low_spirit",
+      "note": "一次性消耗，坊市常备。"
+    },
+    {
+      "id": "mid",
+      "display": "中阶符箓",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "paper_max": "mid_spirit",
+      "note": "需制符宗门或世家传承。"
+    },
+    {
+      "id": "high",
+      "display": "高阶符箓",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "paper_max": "high_spirit",
+      "note": "神识与灵墨品阶决定成品。"
+    },
+    {
+      "id": "ancient",
+      "display": "古符/符宝雏形",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "paper_max": "high_spirit",
+      "note": "稀有，近法宝一次性或多次。"
+    }
+  ],
+  "realm_infer_grade": {
+    "QI_REFINING": "low",
+    "FOUNDATION": "mid",
+    "CORE_FORMATION": "high",
+    "NASCENT_SOUL": "high",
+    "DEITY_TRANSFORMATION": "ancient"
+  }
+}

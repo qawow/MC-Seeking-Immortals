@@ -1,0 +1,85 @@
+{
+  "schema_version": 3,
+  "source": "汇编 飞升链；结构门槛非概率",
+  "stages": [
+    {
+      "id": "mortal_peak",
+      "realm": "DEITY_TRANSFORMATION",
+      "sub": "peak",
+      "requires": [
+        "tribulation_success"
+      ],
+      "setting": {
+        "lore": "人界化神巅峰，天劫通过后感应飞升通道。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "note": "飞升链阶段条件。"
+        }
+      }
+    },
+    {
+      "id": "ascension_channel",
+      "gate": "mortal_to_tianyuan",
+      "one_way": true,
+      "alt": "P3_smuggle_ascension",
+      "setting": {
+        "lore": "飞升通道单向，偷渡走 P3_smuggle_ascension 分支。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "note": "飞升链阶段条件。"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_garrison",
+      "dimension": "seeking_immortals:tianyuan",
+      "merit": "border_merit_token",
+      "spirit_density_mult": 2.0,
+      "setting": {
+        "lore": "天渊城登记，灵气浓度约为人界数倍，功勋换资源。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "note": "飞升链阶段条件。"
+        }
+      }
+    },
+    {
+      "id": "spirit_fengyuan",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "entry_from": "tianyuan_permit",
+      "setting": {
+        "lore": "灵界风元大陆，需炼虚以上与入境许可。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "note": "飞升链阶段条件。"
+        }
+      }
+    },
+    {
+      "id": "great_vehicle_ascension",
+      "realm": "GREAT_VEHICLE",
+      "tribulation": "great_ascension_thunder",
+      "to_immortal": "DLC",
+      "setting": {
+        "lore": "大乘飞升仙界，仙劫结构对应 DLC。"
+      },
+      "learn_requirements": {
+        "trigger": {
+          "note": "飞升链阶段条件。"
+        }
+      }
+    }
+  ],
+  "quest_chain_ref": "spirit_realm_rise",
+  "chronicle_refs": [
+    "P4_tianyuan_open",
+    "L1_tianyuan_founded",
+    "P3_smuggle_ascension"
+  ],
+  "main_chapter_ref": "chapter_6_spirit_realm"
+}

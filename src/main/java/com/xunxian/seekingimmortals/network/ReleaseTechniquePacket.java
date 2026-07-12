@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.skill.TalismanConsumePolicy;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffectRegistry;
@@ -83,7 +84,10 @@ public record ReleaseTechniquePacket(int slot) {
 
                 if (techniqueOpt.isPresent()) {
                     var technique = techniqueOpt.get();
-                    SkillType skillType = SkillEffectRegistry.byDisplayName(technique.name());
+                    SkillType skillType = SkillEffectRegistry.byTechniqueId(technique.id());
+                    if (skillType == null) {
+                        skillType = SkillEffectRegistry.byDisplayName(technique.name());
+                    }
                     SkillEffect effect = skillType == null ? null : SkillEffectRegistry.get(skillType);
                     CultivationSkill skill = skillType == null ? null : cultivation.getSkill(skillType);
                     // H4: effect 未注册或未解锁 → 拒绝释放，不扣费不冷却
@@ -104,6 +108,11 @@ public record ReleaseTechniquePacket(int slot) {
                     // H5: 只检查不扣，execute 成功后才扣
                     if (cultivation.getSpiritualPower() < cost) {
                         player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
+                        SyncCultivationDataPacket.send(player, cultivation);
+                        return;
+                    }
+                    // Soft talisman_consume policy for CAST_* / *talisman* techniques.
+                    if (!TalismanConsumePolicy.tryConsume(player, technique.id(), skillType)) {
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
                     }

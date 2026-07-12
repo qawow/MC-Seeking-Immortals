@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "seeking_immortals_artifact_refinement",
+  "pattern": [
+    "III",
+    "K K",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "seeking_immortals:spirit_iron"
+    },
+    "K": {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:black_gold_shield",
+    "count": 1
+  },
+  "show_notification": true
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "artifact_realm_drops.json",
+  "primary_key": "barbarian_king_territories",
+  "entries": [
+    {
+      "id": "king_bear_mountain",
+      "display": "king_bear_mountain"
+    },
+    {
+      "id": "king_fox_mist",
+      "display": "king_fox_mist"
+    },
+    {
+      "id": "king_pine_ancient",
+      "display": "king_pine_ancient"
+    },
+    {
+      "id": "king_roc_sky",
+      "display": "king_roc_sky"
+    },
+    {
+      "id": "king_snake_swamp",
+      "display": "king_snake_swamp"
+    },
+    {
+      "id": "king_tiger_jungle",
+      "display": "king_tiger_jungle"
+    },
+    {
+      "id": "king_turtle_depth",
+      "display": "king_turtle_depth"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "marrow_repair_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.marrow_repair_pill",
+  "output_items": {
+    "low": "seeking_immortals:marrow_repair_pill",
+    "medium": "seeking_immortals:marrow_repair_pill_mid",
+    "high": "seeking_immortals:marrow_repair_pill_high",
+    "supreme": "seeking_immortals:marrow_repair_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 38,
+  "cook_ticks": 680,
+  "success_rate": 0.64,
+  "explosion_chance": 0.06,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:true_dragon_blood",
+      "count": 1
+    }
+  ]
+}

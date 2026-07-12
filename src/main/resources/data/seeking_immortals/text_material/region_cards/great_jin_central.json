@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "great_jin_central",
+  "display": "大晋中心",
+  "climate": "temperate_high_spirit",
+  "spirit_density": "high",
+  "factions": [
+    "great_jin_clans",
+    "wanbao_pavilion",
+    "refinement_halls"
+  ],
+  "portals": [
+    "cross_region_array"
+  ],
+  "daily_events_ref": "great_jin_auction_week",
+  "specialty_resources": [
+    "kunwu_copper",
+    "ancient_artifact_fragment"
+  ],
+  "cultivation_note": "元婴化神聚集，拍卖与古宝鉴定为核心经济",
+  "realm_typical": "CORE_FORMATION_to_NASCENT_SOUL"
+}

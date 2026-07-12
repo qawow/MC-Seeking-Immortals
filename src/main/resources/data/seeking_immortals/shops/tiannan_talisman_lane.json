@@ -1,0 +1,51 @@
+{
+  "id": "tiannan_talisman_lane",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "stock": 24,
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "talisman_paper",
+      "item": "seeking_immortals:talisman_paper_mortal",
+      "count": 4,
+      "cost": 2,
+      "stock": 32
+    },
+    {
+      "id": "fire_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 6,
+      "stock": 12
+    },
+    {
+      "id": "armor_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 6,
+      "stock": 12
+    },
+    {
+      "id": "speed_talisman",
+      "item": "seeking_immortals:speed_talisman",
+      "count": 1,
+      "cost": 6,
+      "stock": 12
+    },
+    {
+      "id": "demon_suppress_blank",
+      "item": "seeking_immortals:demon_suppress_talisman_blank",
+      "count": 1,
+      "cost": 8,
+      "stock": 8
+    },
+    {
+      "id": "yin_protection_charm",
+      "item": "seeking_immortals:yin_body_protection_charm",
+      "count": 1,
+      "cost": 10,
+      "stock": 6
+    }
+  ]
+}

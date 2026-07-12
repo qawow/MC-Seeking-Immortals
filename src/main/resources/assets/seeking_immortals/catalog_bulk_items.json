@@ -1,0 +1,5219 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "ancient_forest_disk_shard",
+      "category": "artifact",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_forest_disk_shard"
+    },
+    {
+      "id": "ancient_sea_halberd_shard",
+      "category": "artifact",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_sea_halberd_shard"
+    },
+    {
+      "id": "ancient_treasure_appraisal_lens",
+      "category": "artifact",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_treasure_appraisal_lens"
+    },
+    {
+      "id": "artifact_spirit_awakening_incense",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for artifact_spirit_awakening_incense"
+    },
+    {
+      "id": "auction_sealed_hammer",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for auction_sealed_hammer"
+    },
+    {
+      "id": "aura_conceal_cloth",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for aura_conceal_cloth"
+    },
+    {
+      "id": "bamboo_spirit_sword_set",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for bamboo_spirit_sword_set"
+    },
+    {
+      "id": "bixie_blade",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for bixie_blade"
+    },
+    {
+      "id": "black_moon_ruler",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for black_moon_ruler"
+    },
+    {
+      "id": "black_turtle_shield",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for black_turtle_shield"
+    },
+    {
+      "id": "black_wind_flag_fragment",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for black_wind_flag_fragment"
+    },
+    {
+      "id": "blood_demon_blade",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for blood_demon_blade"
+    },
+    {
+      "id": "blood_drinking_hook",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for blood_drinking_hook"
+    },
+    {
+      "id": "blood_jade_shield",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for blood_jade_shield"
+    },
+    {
+      "id": "blood_thunder_pearl",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for blood_thunder_pearl"
+    },
+    {
+      "id": "celestial_silk_armor",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for celestial_silk_armor"
+    },
+    {
+      "id": "chaotic_sea_navigation_compass",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for chaotic_sea_navigation_compass"
+    },
+    {
+      "id": "cloud_sedan_token",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for cloud_sedan_token"
+    },
+    {
+      "id": "copper_bell_charm",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for copper_bell_charm"
+    },
+    {
+      "id": "demon_blood_saber",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_blood_saber"
+    },
+    {
+      "id": "demon_dragon_blade_blank",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_dragon_blade_blank"
+    },
+    {
+      "id": "demon_refining_pot",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_refining_pot"
+    },
+    {
+      "id": "demon_subduing_staff",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_subduing_staff"
+    },
+    {
+      "id": "demon_suppress_tower_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_suppress_tower_replica"
+    },
+    {
+      "id": "demon_ward_thunder_pearl",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_ward_thunder_pearl"
+    },
+    {
+      "id": "demon_wind_flag_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_wind_flag_replica"
+    },
+    {
+      "id": "demonized_ancient_sword",
+      "category": "artifact",
+      "rarity": "epic",
+      "description": "Catalog carrier for demonized_ancient_sword"
+    },
+    {
+      "id": "dual_element_ring",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for dual_element_ring"
+    },
+    {
+      "id": "eight_spirit_ruler_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for eight_spirit_ruler_replica"
+    },
+    {
+      "id": "evil_mirage_mirror_shard",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for evil_mirage_mirror_shard"
+    },
+    {
+      "id": "falling_star_ring",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for falling_star_ring"
+    },
+    {
+      "id": "fire_cloud_banner",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for fire_cloud_banner"
+    },
+    {
+      "id": "fire_cloud_fan",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for fire_cloud_fan"
+    },
+    {
+      "id": "fire_spear_treasure",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for fire_spear_treasure"
+    },
+    {
+      "id": "five_element_orb",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for five_element_orb"
+    },
+    {
+      "id": "flat_crown",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flat_crown"
+    },
+    {
+      "id": "flat_mirror_treasure",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flat_mirror_treasure"
+    },
+    {
+      "id": "flat_mountain_seal_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flat_mountain_seal_replica"
+    },
+    {
+      "id": "flying_sword_high",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flying_sword_high"
+    },
+    {
+      "id": "flying_sword_mid",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flying_sword_mid"
+    },
+    {
+      "id": "flying_sword_top",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for flying_sword_top"
+    },
+    {
+      "id": "forbidden_demon_ring_set",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for forbidden_demon_ring_set"
+    },
+    {
+      "id": "generic_treasure_grade_1",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_1"
+    },
+    {
+      "id": "generic_treasure_grade_10",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_10"
+    },
+    {
+      "id": "generic_treasure_grade_11",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_11"
+    },
+    {
+      "id": "generic_treasure_grade_2",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_2"
+    },
+    {
+      "id": "generic_treasure_grade_3",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_3"
+    },
+    {
+      "id": "generic_treasure_grade_4",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_4"
+    },
+    {
+      "id": "generic_treasure_grade_5",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_5"
+    },
+    {
+      "id": "generic_treasure_grade_6",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_6"
+    },
+    {
+      "id": "generic_treasure_grade_7",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_7"
+    },
+    {
+      "id": "generic_treasure_grade_8",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_8"
+    },
+    {
+      "id": "generic_treasure_grade_9",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for generic_treasure_grade_9"
+    },
+    {
+      "id": "ghost_capturing_chain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for ghost_capturing_chain"
+    },
+    {
+      "id": "giant_sword_gate_relic",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for giant_sword_gate_relic"
+    },
+    {
+      "id": "gold_devour_beetle_nest",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for gold_devour_beetle_nest"
+    },
+    {
+      "id": "golden_armor_talisman_treasure",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for golden_armor_talisman_treasure"
+    },
+    {
+      "id": "great_shift_token",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for great_shift_token"
+    },
+    {
+      "id": "great_shift_token_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for great_shift_token_replica"
+    },
+    {
+      "id": "great_vehicle_vajra_replica",
+      "category": "artifact",
+      "rarity": "epic",
+      "description": "Catalog carrier for great_vehicle_vajra_replica"
+    },
+    {
+      "id": "green_copper_bell",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for green_copper_bell"
+    },
+    {
+      "id": "heaven_covering_silk",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for heaven_covering_silk"
+    },
+    {
+      "id": "ice_needle_set",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for ice_needle_set"
+    },
+    {
+      "id": "ice_silk_net",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for ice_silk_net"
+    },
+    {
+      "id": "ice_silk_ribbon",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for ice_silk_ribbon"
+    },
+    {
+      "id": "illusion_mirror_disk",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for illusion_mirror_disk"
+    },
+    {
+      "id": "illusion_transform_clay",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for illusion_transform_clay"
+    },
+    {
+      "id": "iron_bone_claw",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for iron_bone_claw"
+    },
+    {
+      "id": "iron_chain_sickle",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for iron_chain_sickle"
+    },
+    {
+      "id": "jade_law_seal",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for jade_law_seal"
+    },
+    {
+      "id": "jade_ruyi_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for jade_ruyi_replica"
+    },
+    {
+      "id": "kunwu_seal_fragment",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for kunwu_seal_fragment"
+    },
+    {
+      "id": "metal_dagger_spirit",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for metal_dagger_spirit"
+    },
+    {
+      "id": "mirror_space_scroll",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for mirror_space_scroll"
+    },
+    {
+      "id": "mixed_element_bowl_low",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for mixed_element_bowl_low"
+    },
+    {
+      "id": "mixed_element_disk_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for mixed_element_disk_replica"
+    },
+    {
+      "id": "mixed_element_ruler_low",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for mixed_element_ruler_low"
+    },
+    {
+      "id": "montain_five_friends_token",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for montain_five_friends_token"
+    },
+    {
+      "id": "nascent_soul_talisman_treasure",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for nascent_soul_talisman_treasure"
+    },
+    {
+      "id": "nine_dragon_barrier_token",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for nine_dragon_barrier_token"
+    },
+    {
+      "id": "primordial_magnet_peak_shard",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for primordial_magnet_peak_shard"
+    },
+    {
+      "id": "purple_fire_bead",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for purple_fire_bead"
+    },
+    {
+      "id": "purple_gold_bowl",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for purple_gold_bowl"
+    },
+    {
+      "id": "quhun_iron_puppet",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for quhun_iron_puppet"
+    },
+    {
+      "id": "reverse_star_assassin_blade",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for reverse_star_assassin_blade"
+    },
+    {
+      "id": "rivers_mountains_pearl_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for rivers_mountains_pearl_replica"
+    },
+    {
+      "id": "silver_moon_disk",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for silver_moon_disk"
+    },
+    {
+      "id": "silver_moon_wolf",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for silver_moon_wolf"
+    },
+    {
+      "id": "six_ding_armor_talisman",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for six_ding_armor_talisman"
+    },
+    {
+      "id": "sky_bracelet_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for sky_bracelet_replica"
+    },
+    {
+      "id": "sky_cleaver_axe",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for sky_cleaver_axe"
+    },
+    {
+      "id": "soul_cry_beast_token",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_cry_beast_token"
+    },
+    {
+      "id": "soul_devouring_banner",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_devouring_banner"
+    },
+    {
+      "id": "soul_devouring_chain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_devouring_chain"
+    },
+    {
+      "id": "soul_lock_chain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_lock_chain"
+    },
+    {
+      "id": "soul_refining_banner",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_refining_banner"
+    },
+    {
+      "id": "soul_scattering_mirror_shard",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_scattering_mirror_shard"
+    },
+    {
+      "id": "sound_attack_bell",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for sound_attack_bell"
+    },
+    {
+      "id": "space_storage_ring_high",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for space_storage_ring_high"
+    },
+    {
+      "id": "space_storage_ring_low",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for space_storage_ring_low"
+    },
+    {
+      "id": "spirit_beast_bag",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_beast_bag"
+    },
+    {
+      "id": "spirit_boat_model",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_boat_model"
+    },
+    {
+      "id": "spirit_lamp",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_lamp"
+    },
+    {
+      "id": "spirit_nourish_silk",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_nourish_silk"
+    },
+    {
+      "id": "spirit_nurture_green_vase",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_nurture_green_vase"
+    },
+    {
+      "id": "spirit_repelling_mirror",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_repelling_mirror"
+    },
+    {
+      "id": "spirit_sand_hourglass",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_sand_hourglass"
+    },
+    {
+      "id": "spirit_talisman_vessel",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_talisman_vessel"
+    },
+    {
+      "id": "star_chasing_boat",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for star_chasing_boat"
+    },
+    {
+      "id": "star_palace_cipher_talisman",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for star_palace_cipher_talisman"
+    },
+    {
+      "id": "star_palace_standard_sword",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for star_palace_standard_sword"
+    },
+    {
+      "id": "stealth_cloak_artifact",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for stealth_cloak_artifact"
+    },
+    {
+      "id": "sun_essence_stone_inlay",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for sun_essence_stone_inlay"
+    },
+    {
+      "id": "talisman_treasure_flat_mountain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for talisman_treasure_flat_mountain"
+    },
+    {
+      "id": "thunder_dragon_horn",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for thunder_dragon_horn"
+    },
+    {
+      "id": "thunder_palm_artifact",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for thunder_palm_artifact"
+    },
+    {
+      "id": "tianyuan_border_talisman_artifact",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for tianyuan_border_talisman_artifact"
+    },
+    {
+      "id": "tortoise_shell_shield",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for tortoise_shell_shield"
+    },
+    {
+      "id": "turtle_puppet_shell",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for turtle_puppet_shell"
+    },
+    {
+      "id": "two_luminaries_shuttle",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for two_luminaries_shuttle"
+    },
+    {
+      "id": "vermillion_bird_ring",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for vermillion_bird_ring"
+    },
+    {
+      "id": "void_heaven_cauldron_shard",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_heaven_cauldron_shard"
+    },
+    {
+      "id": "void_heaven_ruler_shard",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_heaven_ruler_shard"
+    },
+    {
+      "id": "void_key",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_key"
+    },
+    {
+      "id": "void_palace_chain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_palace_chain"
+    },
+    {
+      "id": "void_refining_pot",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_refining_pot"
+    },
+    {
+      "id": "void_sky_cauldron_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_sky_cauldron_replica"
+    },
+    {
+      "id": "wanbao_pavilion_coupon",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for wanbao_pavilion_coupon"
+    },
+    {
+      "id": "whirlpool_pearl",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for whirlpool_pearl"
+    },
+    {
+      "id": "wind_fire_wheels",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for wind_fire_wheels"
+    },
+    {
+      "id": "wind_thunder_raft",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for wind_thunder_raft"
+    },
+    {
+      "id": "wood_spirit_staff",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for wood_spirit_staff"
+    },
+    {
+      "id": "wood_staff_spirit",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for wood_staff_spirit"
+    },
+    {
+      "id": "yellow_demon_banner",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for yellow_demon_banner"
+    },
+    {
+      "id": "yin_yang_disk",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for yin_yang_disk"
+    },
+    {
+      "id": "yuan_yang_veil_replica",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for yuan_yang_veil_replica"
+    },
+    {
+      "id": "anti_poison_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for anti_poison_pill"
+    },
+    {
+      "id": "antidote_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for antidote_pill"
+    },
+    {
+      "id": "asura_mind_pill",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for asura_mind_pill"
+    },
+    {
+      "id": "barbarian_strength_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_strength_pill"
+    },
+    {
+      "id": "beast_taming_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_taming_pill"
+    },
+    {
+      "id": "bigu_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bigu_pill"
+    },
+    {
+      "id": "biyu_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for biyu_pill"
+    },
+    {
+      "id": "blood_curse_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for blood_curse_pill"
+    },
+    {
+      "id": "blood_essence_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for blood_essence_pill"
+    },
+    {
+      "id": "body_refine_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for body_refine_pill"
+    },
+    {
+      "id": "bone_marrow_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bone_marrow_pill"
+    },
+    {
+      "id": "bu_tian_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bu_tian_pill"
+    },
+    {
+      "id": "calm_spirit_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for calm_spirit_pill"
+    },
+    {
+      "id": "chaotic_sea_antidote",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for chaotic_sea_antidote"
+    },
+    {
+      "id": "condensation_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for condensation_pill"
+    },
+    {
+      "id": "cultivate_speed_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivate_speed_pill"
+    },
+    {
+      "id": "cultivation_aid_core_formation",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_core_formation"
+    },
+    {
+      "id": "cultivation_aid_deity_transformation",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_deity_transformation"
+    },
+    {
+      "id": "cultivation_aid_foundation",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_foundation"
+    },
+    {
+      "id": "cultivation_aid_great_vehicle",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for cultivation_aid_great_vehicle"
+    },
+    {
+      "id": "cultivation_aid_nascent_soul",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_nascent_soul"
+    },
+    {
+      "id": "cultivation_aid_qi_refining",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_qi_refining"
+    },
+    {
+      "id": "cultivation_aid_spirit_severing",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_spirit_severing"
+    },
+    {
+      "id": "cultivation_aid_void_refining",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for cultivation_aid_void_refining"
+    },
+    {
+      "id": "demon_expel_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_expel_pill"
+    },
+    {
+      "id": "demon_gold_body_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_gold_body_pill"
+    },
+    {
+      "id": "demon_heart_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_heart_pill"
+    },
+    {
+      "id": "demon_qi_purge_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_qi_purge_pill"
+    },
+    {
+      "id": "demon_suppress_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_suppress_pill"
+    },
+    {
+      "id": "demonic_blood_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demonic_blood_pill"
+    },
+    {
+      "id": "demonic_yang_gather_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demonic_yang_gather_pill"
+    },
+    {
+      "id": "dingyan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for dingyan_pill"
+    },
+    {
+      "id": "diyuan_adapt_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for diyuan_adapt_pill"
+    },
+    {
+      "id": "dual_harmony_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for dual_harmony_pill"
+    },
+    {
+      "id": "dujie_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for dujie_pill"
+    },
+    {
+      "id": "foundation_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for foundation_pill"
+    },
+    {
+      "id": "fox_illusion_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fox_illusion_pill"
+    },
+    {
+      "id": "ghost_cultivate_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ghost_cultivate_pill"
+    },
+    {
+      "id": "ghost_gate_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ghost_gate_pill"
+    },
+    {
+      "id": "golden_core_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for golden_core_pill"
+    },
+    {
+      "id": "great_vehicle_ascension_aid_pill",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for great_vehicle_ascension_aid_pill"
+    },
+    {
+      "id": "heart_guard_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for heart_guard_pill"
+    },
+    {
+      "id": "hehuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for hehuan_pill"
+    },
+    {
+      "id": "heqi_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for heqi_pill"
+    },
+    {
+      "id": "huanglong_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huanglong_pill"
+    },
+    {
+      "id": "huanti_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huanti_pill"
+    },
+    {
+      "id": "huanxue_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huanxue_pill"
+    },
+    {
+      "id": "huashen_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huashen_pill"
+    },
+    {
+      "id": "huichun_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huichun_pill"
+    },
+    {
+      "id": "huiyang_true_water",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for huiyang_true_water"
+    },
+    {
+      "id": "huiyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huiyuan_pill"
+    },
+    {
+      "id": "huoyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for huoyuan_pill"
+    },
+    {
+      "id": "illusion_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for illusion_pill"
+    },
+    {
+      "id": "jiangchen_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jiangchen_pill"
+    },
+    {
+      "id": "jiangying_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jiangying_pill"
+    },
+    {
+      "id": "jiedan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jiedan_pill"
+    },
+    {
+      "id": "jieqi_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jieqi_pill"
+    },
+    {
+      "id": "jingxin_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jingxin_pill"
+    },
+    {
+      "id": "juling_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for juling_pill"
+    },
+    {
+      "id": "juyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for juyuan_pill"
+    },
+    {
+      "id": "lieyan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for lieyan_pill"
+    },
+    {
+      "id": "longevity_fruit_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for longevity_fruit_pill"
+    },
+    {
+      "id": "longevity_wine_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for longevity_wine_pill"
+    },
+    {
+      "id": "longhu_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for longhu_pill"
+    },
+    {
+      "id": "luoyun_spirit_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for luoyun_spirit_pill"
+    },
+    {
+      "id": "mana_shield_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mana_shield_pill"
+    },
+    {
+      "id": "marrow_extract_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for marrow_extract_pill"
+    },
+    {
+      "id": "meridian_open_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for meridian_open_pill"
+    },
+    {
+      "id": "mulan_wind_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mulan_wind_pill"
+    },
+    {
+      "id": "nascent_soul_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for nascent_soul_pill"
+    },
+    {
+      "id": "ninghun_dan",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ninghun_dan"
+    },
+    {
+      "id": "ningjin_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ningjin_pill"
+    },
+    {
+      "id": "ningshen_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ningshen_pill"
+    },
+    {
+      "id": "ningying_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ningying_pill"
+    },
+    {
+      "id": "ningyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ningyuan_pill"
+    },
+    {
+      "id": "poison_insect_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for poison_insect_pill"
+    },
+    {
+      "id": "recipe_anti_poison_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_anti_poison_pill"
+    },
+    {
+      "id": "recipe_antidote",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_antidote"
+    },
+    {
+      "id": "recipe_asura_mind",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for recipe_asura_mind"
+    },
+    {
+      "id": "recipe_beast_taming",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_beast_taming"
+    },
+    {
+      "id": "recipe_bigu",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_bigu"
+    },
+    {
+      "id": "recipe_blood_qi",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_blood_qi"
+    },
+    {
+      "id": "recipe_body_tempering",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_body_tempering"
+    },
+    {
+      "id": "recipe_bone_marrow",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_bone_marrow"
+    },
+    {
+      "id": "recipe_calm_spirit",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_calm_spirit"
+    },
+    {
+      "id": "recipe_condensation",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_condensation"
+    },
+    {
+      "id": "recipe_demon_expel_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_demon_expel_pill"
+    },
+    {
+      "id": "recipe_demon_gold_body",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_demon_gold_body"
+    },
+    {
+      "id": "recipe_demon_heart",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_demon_heart"
+    },
+    {
+      "id": "recipe_demon_qi_purge",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_demon_qi_purge"
+    },
+    {
+      "id": "recipe_demon_suppress",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_demon_suppress"
+    },
+    {
+      "id": "recipe_dingyan",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_dingyan"
+    },
+    {
+      "id": "recipe_dual_harmony",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_dual_harmony"
+    },
+    {
+      "id": "recipe_forget_dust",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_forget_dust"
+    },
+    {
+      "id": "recipe_foundation_break",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_foundation_break"
+    },
+    {
+      "id": "recipe_great_vehicle_ascension_aid",
+      "category": "pill",
+      "rarity": "epic",
+      "description": "Catalog carrier for recipe_great_vehicle_ascension_aid"
+    },
+    {
+      "id": "recipe_heart_guard",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_heart_guard"
+    },
+    {
+      "id": "recipe_heqi",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_heqi"
+    },
+    {
+      "id": "recipe_huanglong",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_huanglong"
+    },
+    {
+      "id": "recipe_huiyang",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_huiyang"
+    },
+    {
+      "id": "recipe_huoyuan",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_huoyuan"
+    },
+    {
+      "id": "recipe_ice_fire",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_ice_fire"
+    },
+    {
+      "id": "recipe_jiangchen",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_jiangchen"
+    },
+    {
+      "id": "recipe_jiedan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_jiedan_pill"
+    },
+    {
+      "id": "recipe_longevity_fruit",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_longevity_fruit"
+    },
+    {
+      "id": "recipe_luoyun_spirit",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_luoyun_spirit"
+    },
+    {
+      "id": "recipe_mana_shield",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_mana_shield"
+    },
+    {
+      "id": "recipe_marrow_extract",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_marrow_extract"
+    },
+    {
+      "id": "recipe_marrow_repair",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_marrow_repair"
+    },
+    {
+      "id": "recipe_mulan_wind_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_mulan_wind_pill"
+    },
+    {
+      "id": "recipe_nascent_soul",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_nascent_soul"
+    },
+    {
+      "id": "recipe_ningshen",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_ningshen"
+    },
+    {
+      "id": "recipe_poison_dragon",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_poison_dragon"
+    },
+    {
+      "id": "recipe_pressure_resist",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_pressure_resist"
+    },
+    {
+      "id": "recipe_qingxin_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_qingxin_pill"
+    },
+    {
+      "id": "recipe_sea_calm",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_sea_calm"
+    },
+    {
+      "id": "recipe_snow_lotus",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_snow_lotus"
+    },
+    {
+      "id": "recipe_solid_essence_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_solid_essence_pill"
+    },
+    {
+      "id": "recipe_soul_break",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_soul_break"
+    },
+    {
+      "id": "recipe_soul_gathering",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_soul_gathering"
+    },
+    {
+      "id": "recipe_spirit_beast_nurture",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_spirit_beast_nurture"
+    },
+    {
+      "id": "recipe_spirit_condense",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_spirit_condense"
+    },
+    {
+      "id": "recipe_spirit_realm_condense",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_spirit_realm_condense"
+    },
+    {
+      "id": "recipe_spirit_recovery",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_spirit_recovery"
+    },
+    {
+      "id": "recipe_thunder_soothing",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_thunder_soothing"
+    },
+    {
+      "id": "recipe_tianyuan_spirit",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_tianyuan_spirit"
+    },
+    {
+      "id": "recipe_yanghun",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_yanghun"
+    },
+    {
+      "id": "recipe_yangyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_yangyuan_pill"
+    },
+    {
+      "id": "recipe_yin_ward",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for recipe_yin_ward"
+    },
+    {
+      "id": "sea_calm_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sea_calm_pill"
+    },
+    {
+      "id": "snow_lotus_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for snow_lotus_pill"
+    },
+    {
+      "id": "solid_essence_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for solid_essence_pill"
+    },
+    {
+      "id": "soul_break_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for soul_break_pill"
+    },
+    {
+      "id": "spirit_beast_nurture_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_beast_nurture_pill"
+    },
+    {
+      "id": "spirit_condense_minor",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_condense_minor"
+    },
+    {
+      "id": "spirit_condense_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_condense_pill"
+    },
+    {
+      "id": "spirit_recovery_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_recovery_pill"
+    },
+    {
+      "id": "spirit_recovery_pill_high",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_recovery_pill_high"
+    },
+    {
+      "id": "spirit_seed_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_seed_pill"
+    },
+    {
+      "id": "spirit_severing_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_severing_pill"
+    },
+    {
+      "id": "star_sea_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for star_sea_pill"
+    },
+    {
+      "id": "thunder_soothing_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for thunder_soothing_pill"
+    },
+    {
+      "id": "tianling_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tianling_pill"
+    },
+    {
+      "id": "tianyuan_merit_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tianyuan_merit_pill"
+    },
+    {
+      "id": "tianyuan_spirit_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tianyuan_spirit_pill"
+    },
+    {
+      "id": "tihu_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tihu_pill"
+    },
+    {
+      "id": "tribulation_guard_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tribulation_guard_pill"
+    },
+    {
+      "id": "void_condense_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for void_condense_pill"
+    },
+    {
+      "id": "wangchen_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wangchen_pill"
+    },
+    {
+      "id": "wuxing_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wuxing_pill"
+    },
+    {
+      "id": "xiyu_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for xiyu_pill"
+    },
+    {
+      "id": "xuanbing_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for xuanbing_pill"
+    },
+    {
+      "id": "xueying_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for xueying_pill"
+    },
+    {
+      "id": "yanghun_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yanghun_pill"
+    },
+    {
+      "id": "yangyuan_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yangyuan_pill"
+    },
+    {
+      "id": "yin_ward_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yin_ward_pill"
+    },
+    {
+      "id": "yin_yang_pill",
+      "category": "pill",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yin_yang_pill"
+    },
+    {
+      "id": "anti_demon_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for anti_demon_talisman"
+    },
+    {
+      "id": "beast_contract_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_contract_talisman"
+    },
+    {
+      "id": "binding_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for binding_talisman"
+    },
+    {
+      "id": "body_guard_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for body_guard_talisman"
+    },
+    {
+      "id": "earth_wall_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for earth_wall_talisman"
+    },
+    {
+      "id": "escape_heaven_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for escape_heaven_talisman"
+    },
+    {
+      "id": "fire_burst_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for fire_burst_talisman"
+    },
+    {
+      "id": "ghost_hide_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for ghost_hide_talisman"
+    },
+    {
+      "id": "ginseng_spirit",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for ginseng_spirit"
+    },
+    {
+      "id": "gold_armor_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for gold_armor_talisman"
+    },
+    {
+      "id": "ice_seal_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for ice_seal_talisman"
+    },
+    {
+      "id": "illusion_dispel_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for illusion_dispel_talisman"
+    },
+    {
+      "id": "invisibility_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for invisibility_talisman"
+    },
+    {
+      "id": "life_save_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for life_save_talisman"
+    },
+    {
+      "id": "mirage_heart_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for mirage_heart_talisman"
+    },
+    {
+      "id": "mirage_sand",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for mirage_sand"
+    },
+    {
+      "id": "nether_bone_grass",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for nether_bone_grass"
+    },
+    {
+      "id": "phoenix_tail_fern",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for phoenix_tail_fern"
+    },
+    {
+      "id": "recipe_binding_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for recipe_binding_talisman"
+    },
+    {
+      "id": "recipe_gold_armor_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for recipe_gold_armor_talisman"
+    },
+    {
+      "id": "recipe_invisibility_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for recipe_invisibility_talisman"
+    },
+    {
+      "id": "soul_lock_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_lock_talisman"
+    },
+    {
+      "id": "soul_scatter_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_scatter_talisman"
+    },
+    {
+      "id": "space_anchor_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for space_anchor_talisman"
+    },
+    {
+      "id": "spirit_chain_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_chain_talisman"
+    },
+    {
+      "id": "spirit_fix_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_fix_talisman"
+    },
+    {
+      "id": "star_moon_grass",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for star_moon_grass"
+    },
+    {
+      "id": "talisman_paper",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_paper"
+    },
+    {
+      "id": "talisman_paper_high",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_paper_high"
+    },
+    {
+      "id": "talisman_paper_mid",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_paper_mid"
+    },
+    {
+      "id": "teleport_array_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for teleport_array_talisman"
+    },
+    {
+      "id": "three_pure_thunder_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for three_pure_thunder_talisman"
+    },
+    {
+      "id": "thunder_essence_lotus",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_essence_lotus"
+    },
+    {
+      "id": "thunder_stone",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_stone"
+    },
+    {
+      "id": "thunder_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_talisman"
+    },
+    {
+      "id": "wind_blade_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for wind_blade_talisman"
+    },
+    {
+      "id": "wind_sage_grass",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for wind_sage_grass"
+    },
+    {
+      "id": "yin_protect_talisman",
+      "category": "talisman",
+      "rarity": "common",
+      "description": "Catalog carrier for yin_protect_talisman"
+    },
+    {
+      "id": "ancient_beast_core",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_beast_core"
+    },
+    {
+      "id": "ancient_cultivator_relic",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_cultivator_relic"
+    },
+    {
+      "id": "ancient_demon_fragment",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_demon_fragment"
+    },
+    {
+      "id": "ancient_demon_seal_fragment",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_demon_seal_fragment"
+    },
+    {
+      "id": "ancient_ruin_chest",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_ruin_chest"
+    },
+    {
+      "id": "ancient_spirit_treasure_shard",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_spirit_treasure_shard"
+    },
+    {
+      "id": "array_core_fragment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for array_core_fragment"
+    },
+    {
+      "id": "array_disk_fragment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for array_disk_fragment"
+    },
+    {
+      "id": "array_spirit_sand_bag",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for array_spirit_sand_bag"
+    },
+    {
+      "id": "artifact_spirit_injection_needle",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for artifact_spirit_injection_needle"
+    },
+    {
+      "id": "asura_armor_scrap",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for asura_armor_scrap"
+    },
+    {
+      "id": "bag_skin_space",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for bag_skin_space"
+    },
+    {
+      "id": "barbarian_king_token_bear",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for barbarian_king_token_bear"
+    },
+    {
+      "id": "bear_king_pelt",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for bear_king_pelt"
+    },
+    {
+      "id": "beast_blood_concentrate",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_blood_concentrate"
+    },
+    {
+      "id": "beast_blood_ink",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_blood_ink"
+    },
+    {
+      "id": "beast_bone_marrow",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_bone_marrow"
+    },
+    {
+      "id": "beast_fang",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_fang"
+    },
+    {
+      "id": "beast_hide_thick",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_hide_thick"
+    },
+    {
+      "id": "beast_material_tier_1",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_1"
+    },
+    {
+      "id": "beast_material_tier_10",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_10"
+    },
+    {
+      "id": "beast_material_tier_11",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_11"
+    },
+    {
+      "id": "beast_material_tier_12",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_12"
+    },
+    {
+      "id": "beast_material_tier_13",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_13"
+    },
+    {
+      "id": "beast_material_tier_2",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_2"
+    },
+    {
+      "id": "beast_material_tier_3",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_3"
+    },
+    {
+      "id": "beast_material_tier_4",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_4"
+    },
+    {
+      "id": "beast_material_tier_5",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_5"
+    },
+    {
+      "id": "beast_material_tier_6",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_6"
+    },
+    {
+      "id": "beast_material_tier_7",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_7"
+    },
+    {
+      "id": "beast_material_tier_8",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_8"
+    },
+    {
+      "id": "beast_material_tier_9",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_material_tier_9"
+    },
+    {
+      "id": "beast_meat_raw",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_meat_raw"
+    },
+    {
+      "id": "beast_scale",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_scale"
+    },
+    {
+      "id": "beast_tendon",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_tendon"
+    },
+    {
+      "id": "bell_bronze_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for bell_bronze_spirit"
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for blood_forbidden_herb"
+    },
+    {
+      "id": "blood_ginseng",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for blood_ginseng"
+    },
+    {
+      "id": "body_tempering_ointment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for body_tempering_ointment"
+    },
+    {
+      "id": "boundary_marrow_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for boundary_marrow_grass"
+    },
+    {
+      "id": "clan_guest_pass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for clan_guest_pass"
+    },
+    {
+      "id": "cold_jade_raw",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for cold_jade_raw"
+    },
+    {
+      "id": "contraband_spirit_stone",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for contraband_spirit_stone"
+    },
+    {
+      "id": "coral_spirit_pearl",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for coral_spirit_pearl"
+    },
+    {
+      "id": "coral_spirit_pearl_raw",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for coral_spirit_pearl_raw"
+    },
+    {
+      "id": "coral_spirit_stone",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for coral_spirit_stone"
+    },
+    {
+      "id": "dark_iron",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for dark_iron"
+    },
+    {
+      "id": "demon_bone",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_bone"
+    },
+    {
+      "id": "demon_general_core",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_general_core"
+    },
+    {
+      "id": "demon_gold_ore",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_gold_ore"
+    },
+    {
+      "id": "demon_qi_sample",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_qi_sample"
+    },
+    {
+      "id": "demon_tide_scout_report",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_tide_scout_report"
+    },
+    {
+      "id": "demonized_weapon_scrap",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demonized_weapon_scrap"
+    },
+    {
+      "id": "diyuan_marrow_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for diyuan_marrow_grass"
+    },
+    {
+      "id": "essence_herb_ink",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for essence_herb_ink"
+    },
+    {
+      "id": "fengyuan_spirit_fruit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for fengyuan_spirit_fruit"
+    },
+    {
+      "id": "fire_sparrow_fruit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for fire_sparrow_fruit"
+    },
+    {
+      "id": "flying_sword_blank",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for flying_sword_blank"
+    },
+    {
+      "id": "forge_hammer_low",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for forge_hammer_low"
+    },
+    {
+      "id": "formation_flag_jade",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for formation_flag_jade"
+    },
+    {
+      "id": "formation_jade_stake",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for formation_jade_stake"
+    },
+    {
+      "id": "ghost_face_mushroom",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ghost_face_mushroom"
+    },
+    {
+      "id": "ghost_silk",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ghost_silk"
+    },
+    {
+      "id": "gold_devour_beetle_shell",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for gold_devour_beetle_shell"
+    },
+    {
+      "id": "gold_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for gold_essence"
+    },
+    {
+      "id": "gold_silver_ore_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for gold_silver_ore_spirit"
+    },
+    {
+      "id": "green_bamboo_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for green_bamboo_spirit"
+    },
+    {
+      "id": "green_bamboo_spirit_wood",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for green_bamboo_spirit_wood"
+    },
+    {
+      "id": "herb_bundle_low",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for herb_bundle_low"
+    },
+    {
+      "id": "high_order_manual_fragment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for high_order_manual_fragment"
+    },
+    {
+      "id": "holy_bird_plume",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for holy_bird_plume"
+    },
+    {
+      "id": "holy_demon_blood",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for holy_demon_blood"
+    },
+    {
+      "id": "hunyuan_bowl_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for hunyuan_bowl_shard"
+    },
+    {
+      "id": "inverse_star_cipher_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for inverse_star_cipher_token"
+    },
+    {
+      "id": "inverse_star_contact_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for inverse_star_contact_token"
+    },
+    {
+      "id": "iron_sword_mortal",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for iron_sword_mortal"
+    },
+    {
+      "id": "ironwood_heart",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ironwood_heart"
+    },
+    {
+      "id": "ironwood_log",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ironwood_log"
+    },
+    {
+      "id": "island_deed_gray",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for island_deed_gray"
+    },
+    {
+      "id": "jiuxian_seclusion_permit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for jiuxian_seclusion_permit"
+    },
+    {
+      "id": "killing_intent_crystal",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for killing_intent_crystal"
+    },
+    {
+      "id": "kunwu_core_ore",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_core_ore"
+    },
+    {
+      "id": "kunwu_permit_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_permit_token"
+    },
+    {
+      "id": "kunwu_puppet_core",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_puppet_core"
+    },
+    {
+      "id": "kunwu_seal_tag",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_seal_tag"
+    },
+    {
+      "id": "lieyan_iron_sand",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for lieyan_iron_sand"
+    },
+    {
+      "id": "luoyun_pill_cauldron_rent_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for luoyun_pill_cauldron_rent_token"
+    },
+    {
+      "id": "mirror_glass_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mirror_glass_spirit"
+    },
+    {
+      "id": "moon_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for moon_essence"
+    },
+    {
+      "id": "mulan_fashi_charge_pack",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mulan_fashi_charge_pack"
+    },
+    {
+      "id": "mulan_spirit_sand",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mulan_spirit_sand"
+    },
+    {
+      "id": "mulan_war_merit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mulan_war_merit"
+    },
+    {
+      "id": "mystic_silver",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mystic_silver"
+    },
+    {
+      "id": "nether_ferry_coin",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for nether_ferry_coin"
+    },
+    {
+      "id": "nether_ferry_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for nether_ferry_token"
+    },
+    {
+      "id": "pearl_sea_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for pearl_sea_spirit"
+    },
+    {
+      "id": "primordial_magnet_ore",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for primordial_magnet_ore"
+    },
+    {
+      "id": "puppet_command_talisman",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for puppet_command_talisman"
+    },
+    {
+      "id": "puppet_core_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for puppet_core_spirit"
+    },
+    {
+      "id": "refine_copper",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refine_copper"
+    },
+    {
+      "id": "refinement_ingot_grade_1",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_1"
+    },
+    {
+      "id": "refinement_ingot_grade_10",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_10"
+    },
+    {
+      "id": "refinement_ingot_grade_11",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_11"
+    },
+    {
+      "id": "refinement_ingot_grade_2",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_2"
+    },
+    {
+      "id": "refinement_ingot_grade_3",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_3"
+    },
+    {
+      "id": "refinement_ingot_grade_4",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_4"
+    },
+    {
+      "id": "refinement_ingot_grade_5",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_5"
+    },
+    {
+      "id": "refinement_ingot_grade_6",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_6"
+    },
+    {
+      "id": "refinement_ingot_grade_7",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_7"
+    },
+    {
+      "id": "refinement_ingot_grade_8",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_8"
+    },
+    {
+      "id": "refinement_ingot_grade_9",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_ingot_grade_9"
+    },
+    {
+      "id": "refinement_quench_oil",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for refinement_quench_oil"
+    },
+    {
+      "id": "ring_metal_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ring_metal_spirit"
+    },
+    {
+      "id": "rivers_mountains_pearl_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for rivers_mountains_pearl_shard"
+    },
+    {
+      "id": "roc_feather_bundle",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for roc_feather_bundle"
+    },
+    {
+      "id": "rope_silk_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for rope_silk_spirit"
+    },
+    {
+      "id": "sea_soul_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for sea_soul_grass"
+    },
+    {
+      "id": "sect_herb_garden_seed_pack",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for sect_herb_garden_seed_pack"
+    },
+    {
+      "id": "shield_plate_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for shield_plate_spirit"
+    },
+    {
+      "id": "silver_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for silver_essence"
+    },
+    {
+      "id": "sky_tiger_claw",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for sky_tiger_claw"
+    },
+    {
+      "id": "snake_gall_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for snake_gall_spirit"
+    },
+    {
+      "id": "snow_lotus_ref",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for snow_lotus_ref"
+    },
+    {
+      "id": "soul_cry_beast_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_cry_beast_essence"
+    },
+    {
+      "id": "soul_crystal_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_crystal_shard"
+    },
+    {
+      "id": "soul_hooking_bell_blank",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_hooking_bell_blank"
+    },
+    {
+      "id": "soul_jade_raw",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_jade_raw"
+    },
+    {
+      "id": "soul_wood_chip",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_wood_chip"
+    },
+    {
+      "id": "space_rift_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for space_rift_shard"
+    },
+    {
+      "id": "space_rift_silk",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for space_rift_silk"
+    },
+    {
+      "id": "spatial_law_fragment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spatial_law_fragment"
+    },
+    {
+      "id": "spirit_bamboo_shoot",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_bamboo_shoot"
+    },
+    {
+      "id": "spirit_clan_stamp_book",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_clan_stamp_book"
+    },
+    {
+      "id": "spirit_herb_bundle",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_herb_bundle"
+    },
+    {
+      "id": "spirit_iron_ingot",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_iron_ingot"
+    },
+    {
+      "id": "spirit_mushroom",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_mushroom"
+    },
+    {
+      "id": "spirit_nurture_vase_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_nurture_vase_shard"
+    },
+    {
+      "id": "spirit_ore_bundle",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_ore_bundle"
+    },
+    {
+      "id": "spirit_plant_ink",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_plant_ink"
+    },
+    {
+      "id": "spirit_realm_gate_pass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_realm_gate_pass"
+    },
+    {
+      "id": "spirit_realm_sand",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_realm_sand"
+    },
+    {
+      "id": "spirit_sand_refined",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_sand_refined"
+    },
+    {
+      "id": "spirit_stone_high",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_high"
+    },
+    {
+      "id": "spirit_stone_low",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_low"
+    },
+    {
+      "id": "spirit_stone_mid",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_mid"
+    },
+    {
+      "id": "spirit_stone_top",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_top"
+    },
+    {
+      "id": "spirit_treasure_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_treasure_essence"
+    },
+    {
+      "id": "star_iron",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for star_iron"
+    },
+    {
+      "id": "star_palace_merit_plaque",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for star_palace_merit_plaque"
+    },
+    {
+      "id": "star_palace_patrol_order",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for star_palace_patrol_order"
+    },
+    {
+      "id": "talisman_ink_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_ink_spirit"
+    },
+    {
+      "id": "talisman_paper_low",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_paper_low"
+    },
+    {
+      "id": "thousand_year_ganoderma",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for thousand_year_ganoderma"
+    },
+    {
+      "id": "thunder_bamboo_fiber",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_bamboo_fiber"
+    },
+    {
+      "id": "tianlan_holy_feather",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tianlan_holy_feather"
+    },
+    {
+      "id": "tianyuan_garrison_ration",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tianyuan_garrison_ration"
+    },
+    {
+      "id": "tianyuan_merit_token",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tianyuan_merit_token"
+    },
+    {
+      "id": "trial_merit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for trial_merit"
+    },
+    {
+      "id": "tribulation_aid_item",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tribulation_aid_item"
+    },
+    {
+      "id": "turtle_shell_spirit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for turtle_shell_spirit"
+    },
+    {
+      "id": "void_key_fragment",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for void_key_fragment"
+    },
+    {
+      "id": "void_palace_spirit_pearl",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for void_palace_spirit_pearl"
+    },
+    {
+      "id": "void_sky_cauldron_shard",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for void_sky_cauldron_shard"
+    },
+    {
+      "id": "wanbao_auction_lot_tag",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wanbao_auction_lot_tag"
+    },
+    {
+      "id": "wild_land_map",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wild_land_map"
+    },
+    {
+      "id": "xuanbing_crystal",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for xuanbing_crystal"
+    },
+    {
+      "id": "yellow_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yellow_essence"
+    },
+    {
+      "id": "yin_corruption_crystal",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yin_corruption_crystal"
+    },
+    {
+      "id": "yin_metal_essence",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yin_metal_essence"
+    },
+    {
+      "id": "auction_invitation",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for auction_invitation"
+    },
+    {
+      "id": "beast_feed_spirit",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_feed_spirit"
+    },
+    {
+      "id": "beast_meat_jerky",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_meat_jerky"
+    },
+    {
+      "id": "detox_minor_pill",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for detox_minor_pill"
+    },
+    {
+      "id": "diyuan_access_token",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for diyuan_access_token"
+    },
+    {
+      "id": "escape_talisman",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for escape_talisman"
+    },
+    {
+      "id": "fallen_demon_scout_report",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for fallen_demon_scout_report"
+    },
+    {
+      "id": "fireball_talisman",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for fireball_talisman"
+    },
+    {
+      "id": "golden_armor_talisman",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for golden_armor_talisman"
+    },
+    {
+      "id": "healing_salve",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for healing_salve"
+    },
+    {
+      "id": "ice_shard_talisman",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for ice_shard_talisman"
+    },
+    {
+      "id": "inverse_star_smuggler_pack",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for inverse_star_smuggler_pack"
+    },
+    {
+      "id": "kunwu_map_scroll",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_map_scroll"
+    },
+    {
+      "id": "low_spirit_stone_pouch",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for low_spirit_stone_pouch"
+    },
+    {
+      "id": "major_thunder_array_token",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for major_thunder_array_token"
+    },
+    {
+      "id": "minor_thunder_ward_charm",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for minor_thunder_ward_charm"
+    },
+    {
+      "id": "mortal_medicine",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for mortal_medicine"
+    },
+    {
+      "id": "nascent_soul_escape_charm",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for nascent_soul_escape_charm"
+    },
+    {
+      "id": "pirate_loot_bundle",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for pirate_loot_bundle"
+    },
+    {
+      "id": "poison_antidote_pack",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for poison_antidote_pack"
+    },
+    {
+      "id": "recipe_scroll_bundle",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for recipe_scroll_bundle"
+    },
+    {
+      "id": "sect_identity_token",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for sect_identity_token"
+    },
+    {
+      "id": "smoke_bomb_spirit",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for smoke_bomb_spirit"
+    },
+    {
+      "id": "sound_beacon",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for sound_beacon"
+    },
+    {
+      "id": "spirit_beast_feed",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_beast_feed"
+    },
+    {
+      "id": "spirit_boat_ticket",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_boat_ticket"
+    },
+    {
+      "id": "spirit_garden_fertilizer",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_garden_fertilizer"
+    },
+    {
+      "id": "spirit_gathering_array_disk",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_gathering_array_disk"
+    },
+    {
+      "id": "spirit_rice_bowl",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_rice_bowl"
+    },
+    {
+      "id": "spirit_root_test_stone",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_root_test_stone"
+    },
+    {
+      "id": "spirit_sand_pouch",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_sand_pouch"
+    },
+    {
+      "id": "spirit_stone_high_bulk",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_high_bulk"
+    },
+    {
+      "id": "spirit_stone_mid_bulk",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_mid_bulk"
+    },
+    {
+      "id": "spirit_stone_pouch_sealed",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_stone_pouch_sealed"
+    },
+    {
+      "id": "spirit_water_flask",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_water_flask"
+    },
+    {
+      "id": "spirit_wine_jar",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_wine_jar"
+    },
+    {
+      "id": "star_palace_patrol_seal",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for star_palace_patrol_seal"
+    },
+    {
+      "id": "storage_bag_high",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for storage_bag_high"
+    },
+    {
+      "id": "storage_bag_low",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for storage_bag_low"
+    },
+    {
+      "id": "storage_pouch_low",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for storage_pouch_low"
+    },
+    {
+      "id": "storage_pouch_mid",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for storage_pouch_mid"
+    },
+    {
+      "id": "talisman_crate_high",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_crate_high"
+    },
+    {
+      "id": "talisman_crate_low",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_crate_low"
+    },
+    {
+      "id": "talisman_crate_mid",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_crate_mid"
+    },
+    {
+      "id": "talisman_ink_bottle",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for talisman_ink_bottle"
+    },
+    {
+      "id": "teleport_talisman_chaotic_sea",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for teleport_talisman_chaotic_sea"
+    },
+    {
+      "id": "tribulation_ward_charm",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for tribulation_ward_charm"
+    },
+    {
+      "id": "void_palace_map_fragment",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for void_palace_map_fragment"
+    },
+    {
+      "id": "wind_feather_raft_blueprint",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for wind_feather_raft_blueprint"
+    },
+    {
+      "id": "yanyue_incense_bundle",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for yanyue_incense_bundle"
+    },
+    {
+      "id": "yin_coffin_nail",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for yin_coffin_nail"
+    },
+    {
+      "id": "high_spirit_stone",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for high_spirit_stone"
+    },
+    {
+      "id": "low_spirit_stone",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for low_spirit_stone"
+    },
+    {
+      "id": "mid_spirit_stone",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mid_spirit_stone"
+    },
+    {
+      "id": "spirit_stone",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_stone"
+    },
+    {
+      "id": "top_spirit_stone",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for top_spirit_stone"
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "category": "equipment",
+      "rarity": "common",
+      "description": "Catalog carrier for alchemy_furnace_g2"
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "category": "equipment",
+      "rarity": "common",
+      "description": "Catalog carrier for alchemy_furnace_g3"
+    },
+    {
+      "id": "qixuan_mortal_art_scroll",
+      "category": "manual",
+      "rarity": "common",
+      "description": "Catalog carrier for qixuan_mortal_art_scroll"
+    },
+    {
+      "id": "ancient_ruin_moss",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_ruin_moss"
+    },
+    {
+      "id": "anti_demon_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for anti_demon_herb"
+    },
+    {
+      "id": "barbarian_beast_lichen",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for barbarian_beast_lichen"
+    },
+    {
+      "id": "beast_core_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for beast_core_herb"
+    },
+    {
+      "id": "blood_forbidden_orchid",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for blood_forbidden_orchid"
+    },
+    {
+      "id": "blood_lotus",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for blood_lotus"
+    },
+    {
+      "id": "bu_tian_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bu_tian_talisman"
+    },
+    {
+      "id": "chaotic_sea_coral_moss",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for chaotic_sea_coral_moss"
+    },
+    {
+      "id": "chaotic_sea_kelp",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for chaotic_sea_kelp"
+    },
+    {
+      "id": "cold_jade_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for cold_jade_herb"
+    },
+    {
+      "id": "dajin_spirit_rice",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for dajin_spirit_rice"
+    },
+    {
+      "id": "demon_blood_flower",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for demon_blood_flower"
+    },
+    {
+      "id": "earth_escape_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for earth_escape_talisman"
+    },
+    {
+      "id": "earth_marrow_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for earth_marrow_herb"
+    },
+    {
+      "id": "explosion_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for explosion_talisman"
+    },
+    {
+      "id": "fallen_demon_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for fallen_demon_herb"
+    },
+    {
+      "id": "fire_heart_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for fire_heart_herb"
+    },
+    {
+      "id": "fire_spirit_fruit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for fire_spirit_fruit"
+    },
+    {
+      "id": "frost_moon_flower",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for frost_moon_flower"
+    },
+    {
+      "id": "ghost_marsh_weed",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ghost_marsh_weed"
+    },
+    {
+      "id": "ghost_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ghost_talisman"
+    },
+    {
+      "id": "ghost_yin_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ghost_yin_herb"
+    },
+    {
+      "id": "giant_ape_puppet_blueprint",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for giant_ape_puppet_blueprint"
+    },
+    {
+      "id": "giant_turtle_shell_blank",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for giant_turtle_shell_blank"
+    },
+    {
+      "id": "giant_turtle_shell_plate",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for giant_turtle_shell_plate"
+    },
+    {
+      "id": "golden_light_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for golden_light_talisman"
+    },
+    {
+      "id": "golden_silk_flower",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for golden_silk_flower"
+    },
+    {
+      "id": "golden_thunder_bamboo",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for golden_thunder_bamboo"
+    },
+    {
+      "id": "high_body_guard_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for high_body_guard_talisman"
+    },
+    {
+      "id": "ice_lotus",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ice_lotus"
+    },
+    {
+      "id": "ice_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ice_talisman"
+    },
+    {
+      "id": "illusion_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for illusion_talisman"
+    },
+    {
+      "id": "inverse_star_cipher_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for inverse_star_cipher_talisman"
+    },
+    {
+      "id": "ironwood_frame",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for ironwood_frame"
+    },
+    {
+      "id": "kill_array_core",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for kill_array_core"
+    },
+    {
+      "id": "kunwu_copper_ore",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_copper_ore"
+    },
+    {
+      "id": "kunwu_fire_moss",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_fire_moss"
+    },
+    {
+      "id": "kunwu_ice_lotus",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for kunwu_ice_lotus"
+    },
+    {
+      "id": "lingzhi_thousand_year",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for lingzhi_thousand_year"
+    },
+    {
+      "id": "metal_blade_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for metal_blade_talisman"
+    },
+    {
+      "id": "metal_spirit_vine",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for metal_spirit_vine"
+    },
+    {
+      "id": "mulan_sand_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mulan_sand_grass"
+    },
+    {
+      "id": "mulan_spirit_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for mulan_spirit_grass"
+    },
+    {
+      "id": "nether_mist_flower",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for nether_mist_flower"
+    },
+    {
+      "id": "nine_dragon_flame_array_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for nine_dragon_flame_array_disk"
+    },
+    {
+      "id": "nine_palace_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for nine_palace_disk"
+    },
+    {
+      "id": "one_way_teleport_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for one_way_teleport_talisman"
+    },
+    {
+      "id": "portable_defense_wall_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for portable_defense_wall_disk"
+    },
+    {
+      "id": "portable_illusion_maze_flag",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for portable_illusion_maze_flag"
+    },
+    {
+      "id": "portable_kill_sword_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for portable_kill_sword_disk"
+    },
+    {
+      "id": "portable_seal_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for portable_seal_disk"
+    },
+    {
+      "id": "portable_spirit_gather_disk",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for portable_spirit_gather_disk"
+    },
+    {
+      "id": "puppet_array_core",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for puppet_array_core"
+    },
+    {
+      "id": "puppet_joint_bearing",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for puppet_joint_bearing"
+    },
+    {
+      "id": "puppet_limb_iron",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for puppet_limb_iron"
+    },
+    {
+      "id": "puppet_repair_kit",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for puppet_repair_kit"
+    },
+    {
+      "id": "purple_bamboo_shoot",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for purple_bamboo_shoot"
+    },
+    {
+      "id": "purple_ganoderma",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for purple_ganoderma"
+    },
+    {
+      "id": "refinement_forge_hammer",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for refinement_forge_hammer"
+    },
+    {
+      "id": "region_spirit_herb_barbarian_wasteland",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_barbarian_wasteland"
+    },
+    {
+      "id": "region_spirit_herb_chaotic_sea",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_chaotic_sea"
+    },
+    {
+      "id": "region_spirit_herb_dajin",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_dajin"
+    },
+    {
+      "id": "region_spirit_herb_diyuan",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_diyuan"
+    },
+    {
+      "id": "region_spirit_herb_fallen_demon",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_fallen_demon"
+    },
+    {
+      "id": "region_spirit_herb_mulan",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_mulan"
+    },
+    {
+      "id": "region_spirit_herb_spirit_fengyuan",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_spirit_fengyuan"
+    },
+    {
+      "id": "region_spirit_herb_tiannan",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_tiannan"
+    },
+    {
+      "id": "region_spirit_herb_tianyuan",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_tianyuan"
+    },
+    {
+      "id": "region_spirit_herb_yinming",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for region_spirit_herb_yinming"
+    },
+    {
+      "id": "sea_coral_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for sea_coral_herb"
+    },
+    {
+      "id": "seal_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for seal_talisman"
+    },
+    {
+      "id": "sect_contribution_token",
+      "category": "consumable",
+      "rarity": "common",
+      "description": "Catalog carrier for sect_contribution_token"
+    },
+    {
+      "id": "seven_rain_lotus",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for seven_rain_lotus"
+    },
+    {
+      "id": "snow_lotus",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for snow_lotus"
+    },
+    {
+      "id": "soul_nourish_wood",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for soul_nourish_wood"
+    },
+    {
+      "id": "spirit_gather_flag",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_gather_flag"
+    },
+    {
+      "id": "spirit_gather_flag_set",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_gather_flag_set"
+    },
+    {
+      "id": "spirit_gather_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_gather_talisman"
+    },
+    {
+      "id": "spirit_herb_common",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_herb_common"
+    },
+    {
+      "id": "spirit_marrow_root",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_marrow_root"
+    },
+    {
+      "id": "spirit_shield_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_shield_talisman"
+    },
+    {
+      "id": "spirit_vein_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for spirit_vein_grass"
+    },
+    {
+      "id": "star_palace_patrol_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for star_palace_patrol_talisman"
+    },
+    {
+      "id": "star_sea_coral_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for star_sea_coral_herb"
+    },
+    {
+      "id": "stone_spirit_core",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for stone_spirit_core"
+    },
+    {
+      "id": "talisman_paper_spirit_realm",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for talisman_paper_spirit_realm"
+    },
+    {
+      "id": "talisman_wooden_ox",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for talisman_wooden_ox"
+    },
+    {
+      "id": "teleport_array_core",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for teleport_array_core"
+    },
+    {
+      "id": "teleport_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for teleport_talisman"
+    },
+    {
+      "id": "ten_thousand_year_ginseng_spirit",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ten_thousand_year_ginseng_spirit"
+    },
+    {
+      "id": "thousand_year_ginseng",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for thousand_year_ginseng"
+    },
+    {
+      "id": "thunder_array_stake",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for thunder_array_stake"
+    },
+    {
+      "id": "thunder_fire_orb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_fire_orb"
+    },
+    {
+      "id": "thunder_ward_sign",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for thunder_ward_sign"
+    },
+    {
+      "id": "tianfu_golden_chain",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tianfu_golden_chain"
+    },
+    {
+      "id": "tiannan_fire_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tiannan_fire_grass"
+    },
+    {
+      "id": "tianyuan_guard_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tianyuan_guard_talisman"
+    },
+    {
+      "id": "tribulation_thunder_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for tribulation_thunder_herb"
+    },
+    {
+      "id": "turtle_plating",
+      "category": "artifact",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for turtle_plating"
+    },
+    {
+      "id": "void_marrow_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for void_marrow_herb"
+    },
+    {
+      "id": "void_palace_key_talisman",
+      "category": "talisman",
+      "rarity": "epic",
+      "description": "Catalog carrier for void_palace_key_talisman"
+    },
+    {
+      "id": "void_sky_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for void_sky_grass"
+    },
+    {
+      "id": "water_moon_lily",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for water_moon_lily"
+    },
+    {
+      "id": "wild_land_spirit_sand",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wild_land_spirit_sand"
+    },
+    {
+      "id": "wind_herb",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wind_herb"
+    },
+    {
+      "id": "wind_spirit_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wind_spirit_grass"
+    },
+    {
+      "id": "wind_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wind_talisman"
+    },
+    {
+      "id": "wood_bind_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wood_bind_talisman"
+    },
+    {
+      "id": "wood_spirit_root",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for wood_spirit_root"
+    },
+    {
+      "id": "yang_sun_fruit",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yang_sun_fruit"
+    },
+    {
+      "id": "yellow_essence_grass",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yellow_essence_grass"
+    },
+    {
+      "id": "yin_moon_orchid",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yin_moon_orchid"
+    },
+    {
+      "id": "yin_talisman_paper",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yin_talisman_paper"
+    },
+    {
+      "id": "yinming_mist_orchid",
+      "category": "material",
+      "rarity": "common",
+      "description": "Catalog carrier for yinming_mist_orchid"
+    },
+    {
+      "id": "void_escape_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for void_escape_talisman"
+    },
+    {
+      "id": "fire_seal_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fire_seal_talisman"
+    },
+    {
+      "id": "ice_prison_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ice_prison_talisman"
+    },
+    {
+      "id": "lightning_strike_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for lightning_strike_talisman"
+    },
+    {
+      "id": "water_shield_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for water_shield_talisman"
+    },
+    {
+      "id": "yin_soul_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yin_soul_talisman"
+    },
+    {
+      "id": "yang_flame_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yang_flame_talisman"
+    },
+    {
+      "id": "tribulation_ward_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tribulation_ward_talisman"
+    },
+    {
+      "id": "ancient_wood_core",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ancient_wood_core"
+    },
+    {
+      "id": "ascension_token",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ascension_token"
+    },
+    {
+      "id": "barbarian_king_token",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token"
+    },
+    {
+      "id": "basic_wood_puppet_blueprint",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for basic_wood_puppet_blueprint"
+    },
+    {
+      "id": "bear_totem",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bear_totem"
+    },
+    {
+      "id": "beast_contract",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_contract"
+    },
+    {
+      "id": "deep_pearl",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for deep_pearl"
+    },
+    {
+      "id": "demon_blood_crystal",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demon_blood_crystal"
+    },
+    {
+      "id": "gold_wing_plate",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for gold_wing_plate"
+    },
+    {
+      "id": "illusion_pearl",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for illusion_pearl"
+    },
+    {
+      "id": "moon_fang",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for moon_fang"
+    },
+    {
+      "id": "sky_plume",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sky_plume"
+    },
+    {
+      "id": "soul_silk",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for soul_silk"
+    },
+    {
+      "id": "spirit_stone_vein_map",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_stone_vein_map"
+    },
+    {
+      "id": "tiger_bone_talisman",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tiger_bone_talisman"
+    },
+    {
+      "id": "turtle_shell_array",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for turtle_shell_array"
+    },
+    {
+      "id": "venom_sac_refined",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for venom_sac_refined"
+    },
+    {
+      "id": "yaksha_blood",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yaksha_blood"
+    },
+    {
+      "id": "spirit_boat_low",
+      "category": "equipment",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_boat_low"
+    },
+    {
+      "id": "spirit_boat_mid",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_boat_mid"
+    },
+    {
+      "id": "chaotic_sea_ferry",
+      "category": "equipment",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for chaotic_sea_ferry"
+    },
+    {
+      "id": "cloud_sedan",
+      "category": "equipment",
+      "rarity": "epic",
+      "description": "Catalog carrier for cloud_sedan"
+    },
+    {
+      "id": "wind_feather_raft",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for wind_feather_raft"
+    },
+    {
+      "id": "bone_wind_cart_vehicle",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for bone_wind_cart_vehicle"
+    },
+    {
+      "id": "spirit_boat_chaotic_sea",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_boat_chaotic_sea"
+    },
+    {
+      "id": "teleport_array_ticket",
+      "category": "access_item",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for teleport_array_ticket"
+    },
+    {
+      "id": "basic_wood_puppet",
+      "category": "equipment",
+      "rarity": "common",
+      "description": "Catalog carrier for basic_wood_puppet"
+    },
+    {
+      "id": "giant_ape_puppet",
+      "category": "equipment",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for giant_ape_puppet"
+    },
+    {
+      "id": "giant_turtle_puppet",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for giant_turtle_puppet"
+    },
+    {
+      "id": "stone_spirit_puppet",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for stone_spirit_puppet"
+    },
+    {
+      "id": "hunyuan_bowl_core_puppet",
+      "category": "equipment",
+      "rarity": "epic",
+      "description": "Catalog carrier for hunyuan_bowl_core_puppet"
+    },
+    {
+      "id": "stone_guard_puppet",
+      "category": "equipment",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for stone_guard_puppet"
+    },
+    {
+      "id": "fire_spear_puppet",
+      "category": "equipment",
+      "rarity": "rare",
+      "description": "Catalog carrier for fire_spear_puppet"
+    },
+    {
+      "id": "refinement_anvil",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for refinement_anvil"
+    },
+    {
+      "id": "refinement_bellows",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for refinement_bellows"
+    },
+    {
+      "id": "refinement_manual_high",
+      "category": "manual",
+      "rarity": "epic",
+      "description": "Catalog carrier for refinement_manual_high"
+    },
+    {
+      "id": "formation_flag_mid",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for formation_flag_mid"
+    },
+    {
+      "id": "spirit_herb_rare",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_herb_rare"
+    },
+    {
+      "id": "ancient_artifact_fragment",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for ancient_artifact_fragment"
+    },
+    {
+      "id": "dayan_fragment",
+      "category": "material",
+      "rarity": "epic",
+      "description": "Catalog carrier for dayan_fragment"
+    },
+    {
+      "id": "manual_ancient_puppet_method",
+      "category": "manual",
+      "rarity": "epic",
+      "description": "Catalog carrier for manual_ancient_puppet_method"
+    },
+    {
+      "id": "alchemy_manual_low",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for alchemy_manual_low"
+    },
+    {
+      "id": "ancient_blood",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ancient_blood"
+    },
+    {
+      "id": "ancient_pine_resin",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ancient_pine_resin"
+    },
+    {
+      "id": "anti_fashi_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for anti_fashi_talisman"
+    },
+    {
+      "id": "ape_bone",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for ape_bone"
+    },
+    {
+      "id": "appearance_lock_pill",
+      "category": "pill",
+      "rarity": "rare",
+      "description": "Catalog carrier for appearance_lock_pill"
+    },
+    {
+      "id": "array_break_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for array_break_token"
+    },
+    {
+      "id": "artifact_identify_scroll",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for artifact_identify_scroll"
+    },
+    {
+      "id": "ascension_map_fragment",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for ascension_map_fragment"
+    },
+    {
+      "id": "auction_lot_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for auction_lot_token"
+    },
+    {
+      "id": "barbarian_king_token_fox",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_fox"
+    },
+    {
+      "id": "barbarian_king_token_pine",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_pine"
+    },
+    {
+      "id": "barbarian_king_token_roc",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_roc"
+    },
+    {
+      "id": "barbarian_king_token_snake",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_snake"
+    },
+    {
+      "id": "barbarian_king_token_tiger",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_tiger"
+    },
+    {
+      "id": "barbarian_king_token_turtle",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_king_token_turtle"
+    },
+    {
+      "id": "barbarian_map",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_map"
+    },
+    {
+      "id": "barbarian_survival_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_survival_token"
+    },
+    {
+      "id": "barbarian_trade_pact",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for barbarian_trade_pact"
+    },
+    {
+      "id": "bear_gall",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bear_gall"
+    },
+    {
+      "id": "beast_contract_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_contract_token"
+    },
+    {
+      "id": "beast_core_t4",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for beast_core_t4"
+    },
+    {
+      "id": "beast_fur_low",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_fur_low"
+    },
+    {
+      "id": "beast_fur_mid",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_fur_mid"
+    },
+    {
+      "id": "beast_horn_fire",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_horn_fire"
+    },
+    {
+      "id": "beast_king_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_king_token"
+    },
+    {
+      "id": "beast_meat",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_meat"
+    },
+    {
+      "id": "beast_puppet_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for beast_puppet_core"
+    },
+    {
+      "id": "beast_soul",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beast_soul"
+    },
+    {
+      "id": "beast_taming_manual",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for beast_taming_manual"
+    },
+    {
+      "id": "beast_taming_pill_low",
+      "category": "pill",
+      "rarity": "rare",
+      "description": "Catalog carrier for beast_taming_pill_low"
+    },
+    {
+      "id": "beetle_shell",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for beetle_shell"
+    },
+    {
+      "id": "black_market_credit",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for black_market_credit"
+    },
+    {
+      "id": "black_market_vip",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for black_market_vip"
+    },
+    {
+      "id": "bounty_tag",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bounty_tag"
+    },
+    {
+      "id": "bounty_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for bounty_token"
+    },
+    {
+      "id": "carp_scale",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for carp_scale"
+    },
+    {
+      "id": "chitin",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for chitin"
+    },
+    {
+      "id": "corpse_marrow",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for corpse_marrow"
+    },
+    {
+      "id": "dajin_clan_ancestor_art_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for dajin_clan_ancestor_art_page"
+    },
+    {
+      "id": "dayan_art_scroll",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for dayan_art_scroll"
+    },
+    {
+      "id": "defense_array_plate",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for defense_array_plate"
+    },
+    {
+      "id": "demon_core_peak",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_core_peak"
+    },
+    {
+      "id": "demon_suppress_chain",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for demon_suppress_chain"
+    },
+    {
+      "id": "demonic_karma_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for demonic_karma_token"
+    },
+    {
+      "id": "demonic_manual_low",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for demonic_manual_low"
+    },
+    {
+      "id": "diyuan_core_crystal",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for diyuan_core_crystal"
+    },
+    {
+      "id": "dragon_scale_earth",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for dragon_scale_earth"
+    },
+    {
+      "id": "earth_spirit_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for earth_spirit_core"
+    },
+    {
+      "id": "fashi_art_fragment",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for fashi_art_fragment"
+    },
+    {
+      "id": "fashi_soul_crystal",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fashi_soul_crystal"
+    },
+    {
+      "id": "feather_fire",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for feather_fire"
+    },
+    {
+      "id": "feather_wind",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for feather_wind"
+    },
+    {
+      "id": "fengyuan_map",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fengyuan_map"
+    },
+    {
+      "id": "formation_flag_low",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for formation_flag_low"
+    },
+    {
+      "id": "formation_scroll_mid",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for formation_scroll_mid"
+    },
+    {
+      "id": "fox_mist_pearl",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fox_mist_pearl"
+    },
+    {
+      "id": "fox_tail",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for fox_tail"
+    },
+    {
+      "id": "frost_wing",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for frost_wing"
+    },
+    {
+      "id": "ghost_cultivation_fragment",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for ghost_cultivation_fragment"
+    },
+    {
+      "id": "gold_devour_larva",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for gold_devour_larva"
+    },
+    {
+      "id": "gold_fur",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for gold_fur"
+    },
+    {
+      "id": "guiling_soul_art_fragment",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for guiling_soul_art_fragment"
+    },
+    {
+      "id": "holy_feather_black_market",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for holy_feather_black_market"
+    },
+    {
+      "id": "huadao_blade_intent_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for huadao_blade_intent_page"
+    },
+    {
+      "id": "hunt_trophy_fang",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for hunt_trophy_fang"
+    },
+    {
+      "id": "ice_fang",
+      "category": "artifact",
+      "rarity": "rare",
+      "description": "Catalog carrier for ice_fang"
+    },
+    {
+      "id": "illusion_cloak_shard",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for illusion_cloak_shard"
+    },
+    {
+      "id": "illusion_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for illusion_core"
+    },
+    {
+      "id": "illusion_scroll",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for illusion_scroll"
+    },
+    {
+      "id": "illusion_suppress_talisman",
+      "category": "talisman",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for illusion_suppress_talisman"
+    },
+    {
+      "id": "illusion_true_essence",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for illusion_true_essence"
+    },
+    {
+      "id": "inverse_star_art_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for inverse_star_art_page"
+    },
+    {
+      "id": "inverse_star_cipher",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for inverse_star_cipher"
+    },
+    {
+      "id": "island_permit",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for island_permit"
+    },
+    {
+      "id": "island_tax_rate_tag",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for island_tax_rate_tag"
+    },
+    {
+      "id": "island_teleport_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for island_teleport_token"
+    },
+    {
+      "id": "jiao_blood",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jiao_blood"
+    },
+    {
+      "id": "jiao_horn",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for jiao_horn"
+    },
+    {
+      "id": "kunwu_map_fragment",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for kunwu_map_fragment"
+    },
+    {
+      "id": "low_artifact_blank",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for low_artifact_blank"
+    },
+    {
+      "id": "marrow_drain_pill",
+      "category": "pill",
+      "rarity": "rare",
+      "description": "Catalog carrier for marrow_drain_pill"
+    },
+    {
+      "id": "mirage_pearl",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mirage_pearl"
+    },
+    {
+      "id": "moon_corpse_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for moon_corpse_core"
+    },
+    {
+      "id": "mortal_quest_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mortal_quest_token"
+    },
+    {
+      "id": "mulan_pass_or_truce_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mulan_pass_or_truce_token"
+    },
+    {
+      "id": "mulan_spirit_feather",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mulan_spirit_feather"
+    },
+    {
+      "id": "mulan_spoil",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for mulan_spoil"
+    },
+    {
+      "id": "mulan_wind_spirit_art_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for mulan_wind_spirit_art_page"
+    },
+    {
+      "id": "outer_disciple_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for outer_disciple_token"
+    },
+    {
+      "id": "peacock_true_fire",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for peacock_true_fire"
+    },
+    {
+      "id": "pearl_raw_bulk",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for pearl_raw_bulk"
+    },
+    {
+      "id": "poison_sac_bulk",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for poison_sac_bulk"
+    },
+    {
+      "id": "qilin_blood",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for qilin_blood"
+    },
+    {
+      "id": "qingxu_pill",
+      "category": "pill",
+      "rarity": "rare",
+      "description": "Catalog carrier for qingxu_pill"
+    },
+    {
+      "id": "qixuan_azure_pearl_art_fragment",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for qixuan_azure_pearl_art_fragment"
+    },
+    {
+      "id": "realm_entry_blood",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for realm_entry_blood"
+    },
+    {
+      "id": "refine_material_mid",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for refine_material_mid"
+    },
+    {
+      "id": "refinement_material_high",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for refinement_material_high"
+    },
+    {
+      "id": "scale_water",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for scale_water"
+    },
+    {
+      "id": "sea_pass",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sea_pass"
+    },
+    {
+      "id": "seal_reinforcement_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for seal_reinforcement_token"
+    },
+    {
+      "id": "sect_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sect_token"
+    },
+    {
+      "id": "serpent_skin",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for serpent_skin"
+    },
+    {
+      "id": "shape_shift_scroll",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for shape_shift_scroll"
+    },
+    {
+      "id": "silver_giant_sword_blueprint",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for silver_giant_sword_blueprint"
+    },
+    {
+      "id": "silver_wing",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for silver_wing"
+    },
+    {
+      "id": "sky_tiger_beast_contract",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sky_tiger_beast_contract"
+    },
+    {
+      "id": "sky_tiger_wing",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for sky_tiger_wing"
+    },
+    {
+      "id": "snake_king_gall",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for snake_king_gall"
+    },
+    {
+      "id": "soul_banner_fragment",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for soul_banner_fragment"
+    },
+    {
+      "id": "soul_calm_bead",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for soul_calm_bead"
+    },
+    {
+      "id": "spirit_dust",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_dust"
+    },
+    {
+      "id": "spirit_pet_contract",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_pet_contract"
+    },
+    {
+      "id": "spirit_pill_voucher",
+      "category": "pill",
+      "rarity": "rare",
+      "description": "Catalog carrier for spirit_pill_voucher"
+    },
+    {
+      "id": "spirit_realm_gate_voucher",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_realm_gate_voucher"
+    },
+    {
+      "id": "spirit_sand",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for spirit_sand"
+    },
+    {
+      "id": "suanni_mane",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for suanni_mane"
+    },
+    {
+      "id": "talisman_paper_bundle",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for talisman_paper_bundle"
+    },
+    {
+      "id": "talisman_recipe",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for talisman_recipe"
+    },
+    {
+      "id": "talisman_recipe_high_bundle",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for talisman_recipe_high_bundle"
+    },
+    {
+      "id": "talisman_recipe_mid",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for talisman_recipe_mid"
+    },
+    {
+      "id": "talisman_skill_xp_tag",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for talisman_skill_xp_tag"
+    },
+    {
+      "id": "tax_waiver_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tax_waiver_token"
+    },
+    {
+      "id": "teleport_array_license",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for teleport_array_license"
+    },
+    {
+      "id": "thunder_demon_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for thunder_demon_core"
+    },
+    {
+      "id": "tianmo_body_art_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for tianmo_body_art_page"
+    },
+    {
+      "id": "tiger_bone",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tiger_bone"
+    },
+    {
+      "id": "tiger_king_bone",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for tiger_king_bone"
+    },
+    {
+      "id": "truce_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for truce_token"
+    },
+    {
+      "id": "turtle_king_shell",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for turtle_king_shell"
+    },
+    {
+      "id": "vine_fiber",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for vine_fiber"
+    },
+    {
+      "id": "void_palace_intel_scroll",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for void_palace_intel_scroll"
+    },
+    {
+      "id": "war_campaign_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for war_campaign_token"
+    },
+    {
+      "id": "war_scout_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for war_scout_token"
+    },
+    {
+      "id": "water_pearl",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for water_pearl"
+    },
+    {
+      "id": "wind_core",
+      "category": "material",
+      "rarity": "rare",
+      "description": "Catalog carrier for wind_core"
+    },
+    {
+      "id": "wind_feather_bait",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wind_feather_bait"
+    },
+    {
+      "id": "wind_sky_crystal",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wind_sky_crystal"
+    },
+    {
+      "id": "wood_array_seed",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wood_array_seed"
+    },
+    {
+      "id": "wood_essence",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wood_essence"
+    },
+    {
+      "id": "wutu_wolf_pelt",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for wutu_wolf_pelt"
+    },
+    {
+      "id": "yin_luo_ghost_art_page",
+      "category": "manual",
+      "rarity": "rare",
+      "description": "Catalog carrier for yin_luo_ghost_art_page"
+    },
+    {
+      "id": "yin_silk",
+      "category": "material",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yin_silk"
+    },
+    {
+      "id": "yuling_contact_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for yuling_contact_token"
+    },
+    {
+      "id": "manual_qingyuan_sword_inner",
+      "category": "manual",
+      "rarity": "epic",
+      "description": "Catalog carrier for manual_qingyuan_sword_inner"
+    },
+    {
+      "id": "trade_discount_token",
+      "category": "currency",
+      "rarity": "uncommon",
+      "description": "Catalog carrier for trade_discount_token"
+    }
+  ]
+}

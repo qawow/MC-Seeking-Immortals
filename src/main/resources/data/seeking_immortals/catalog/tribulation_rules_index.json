@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "tribulation_rules.json",
+  "primary_key": "types",
+  "entries": [
+    {
+      "id": "minor_soul_trial",
+      "display": "元婴小劫"
+    },
+    {
+      "id": "heart_demon_or_thunder",
+      "display": "化神心魔/雷劫"
+    },
+    {
+      "id": "void_thunder",
+      "display": "炼虚雷劫"
+    },
+    {
+      "id": "body_soul_dual",
+      "display": "合体双劫"
+    },
+    {
+      "id": "great_ascension_thunder",
+      "display": "大乘天劫"
+    },
+    {
+      "id": "final_ascension",
+      "display": "飞升仙劫"
+    },
+    {
+      "id": "beast_shape_shift_minor",
+      "display": "妖兽化形小劫"
+    }
+  ]
+}

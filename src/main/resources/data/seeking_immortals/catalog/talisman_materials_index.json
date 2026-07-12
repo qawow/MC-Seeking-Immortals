@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {
+      "id": "talisman_paper_mortal",
+      "display": "凡符纸",
+      "grade": "mortal"
+    },
+    {
+      "id": "talisman_paper",
+      "display": "下品灵符纸",
+      "grade": "low_spirit"
+    },
+    {
+      "id": "talisman_paper_mid",
+      "display": "中品灵符纸",
+      "grade": "mid_spirit"
+    },
+    {
+      "id": "talisman_paper_high",
+      "display": "上品灵符纸",
+      "grade": "high_spirit"
+    },
+    {
+      "id": "yin_talisman_paper",
+      "display": "阴符纸",
+      "grade": "low_spirit"
+    },
+    {
+      "id": "talisman_paper_spirit_realm",
+      "display": "灵界符纸",
+      "grade": "high_spirit"
+    }
+  ]
+}

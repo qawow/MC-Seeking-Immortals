@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:talisman_paper_mortal"
+    },
+    {
+      "item": "seeking_immortals:yin_stone"
+    },
+    {
+      "item": "seeking_immortals:soul_fragment"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:yin_body_protection_charm",
+    "count": 1
+  }
+}

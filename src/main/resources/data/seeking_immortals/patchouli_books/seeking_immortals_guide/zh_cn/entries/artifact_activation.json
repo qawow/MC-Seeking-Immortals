@@ -1,0 +1,38 @@
+{
+  "name": "法宝激活",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:flying_sword_low",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "设定来源",
+      "text": "本页对应 ARTIFACTS_FANREN.md、ARTIFACTS_AND_PILLS.md、ARTIFACT_ELEVEN_TIERS.md、REFINEMENT_ARTIFACTS_MASTER_LIST.md、artifact_tier_rules.json、forge_artifact_priority.json 与 talisman_treasure_templates.json。当前先说明 P0/P1 法宝载体的第一版右键激活。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前用法",
+      "text": "已接入 ArtifactCatalogItem 的精确法宝载体可直接右键尝试激活。服务端会校验最低境界、灵力消耗、物品冷却、符宝剩余次数与法宝灵性完整度；成功后同步修仙数据。储物镯（低阶）拥有 8 格 NBT 储物：潜行右键收纳另一手物品，普通右键取出最近收纳物。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "效果族",
+      "text": "movement 法宝给移速、跳跃与缓降；defense 法宝给抗性和吸收；anti_illusion 与 soul_stabilize 清理混乱、失明、虚弱、中毒并补少量神识；offense、poison、soul_attack、control、yin、thunder 等会发射自定义灵力弹；illusion 会隐身并扰乱附近目标；beast_control 会压制附近怪物。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "符宝与修补",
+      "text": "符宝按 talisman_treasure_templates.json 走有限次数路线，默认多为 3 次；金光砖符宝等偏攻击，定魂符宝偏定魂与削弱。法宝修补匣右键时需要另一只手持待修法宝，会消耗灵力并修复灵性完整度，修补匣本身会被消耗。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "飞行与装备",
+      "text": "Curios 法宝槽现在识别精确飞行载体：seeking_immortals:flying_sword_low、silver_giant_sword、wind_escape_sail 与 cloud_boots。它们仍会受地渊等 no_fly 场景压制，飞行授权由服务端统一管理。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "仍待补全",
+      "text": "炼器台/修复台流程、万宝楼拍卖鉴宝、秘境/宗门/商店/任务投放、专属美术、图形化储物界面和实战平衡仍是后续切片。当前手册描述已经可直接互动的激活、符宝次数、修补匣、低阶储物镯和飞行载体。"
+    }
+  ]
+}

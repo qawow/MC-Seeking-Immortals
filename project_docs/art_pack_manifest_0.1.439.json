@@ -1,0 +1,32 @@
+{
+  "wave": "0.1.439",
+  "item_textures_created": 143,
+  "block_textures_created": 35,
+  "portraits": [
+    "portrait_default.png",
+    "portrait_mo_lao.png",
+    "portrait_mulan.png",
+    "portrait_yinluo.png",
+    "portrait_star_broker.png",
+    "portrait_kunwu.png"
+  ],
+  "servitor_textures": [
+    "summoned_servitor.png",
+    "summoned_servitor_beast.png",
+    "summoned_servitor_puppet.png",
+    "summoned_servitor_ghost.png"
+  ],
+  "biomes": [
+    "secret_mist_cave",
+    "secret_blood_forbidden",
+    "secret_void_palace",
+    "secret_fallen_demon"
+  ],
+  "sounds": [
+    "dialogue_greeting",
+    "dialogue_advance",
+    "dialogue_branch",
+    "dialogue_npc_mo_lao",
+    "dialogue_npc_guide"
+  ]
+}

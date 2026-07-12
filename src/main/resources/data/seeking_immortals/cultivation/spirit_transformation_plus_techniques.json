@@ -170,6 +170,146 @@
       "attribute": "灰仙/煞气/仙窍",
       "source": "灰仙传承",
       "summary": "灰仙独有的修炼方法，以煞气冲击仙窍来提升修为，虽然危险但效果显著。"
+    },
+    {
+      "id": "tianyuan_joint_array",
+      "name": "天渊合阵",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 40,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "天渊合阵范围压制（高阶阵法术）"
+    },
+    {
+      "id": "barbarian_roar",
+      "name": "蛮荒咆哮",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "蛮荒咆哮"
+    },
+    {
+      "id": "void_rift_slash",
+      "name": "裂隙斩",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "裂隙斩"
+    },
+    {
+      "id": "great_vehicle_palm",
+      "name": "大乘神掌",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "大乘神掌"
+    },
+    {
+      "id": "deity_transformation_domain",
+      "name": "化神领域",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "化神领域"
+    },
+    {
+      "id": "lingzu_pearl_barrage",
+      "name": "灵珠连射",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "灵珠连射"
+    },
+    {
+      "id": "star_palace_heaven_seal",
+      "name": "星宫天印",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 92,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "ultimate:星宫天印"
+    },
+    {
+      "id": "void_refining_domain",
+      "name": "炼虚领域",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 110,
+      "required_realm": "VOID_REFINEMENT",
+      "summary": "ultimate:炼虚领域"
+    },
+    {
+      "id": "great_vehicle_dharma_body",
+      "name": "法相天地",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 127,
+      "required_realm": "MAHAYANA",
+      "summary": "ultimate:法相天地"
+    },
+    {
+      "id": "spirit_severing_flash",
+      "name": "炼神一闪",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 145,
+      "required_realm": "UNITY",
+      "summary": "ultimate:炼神一闪"
+    },
+    {
+      "id": "void_palace_heaven_earth",
+      "name": "天地阴阳大挪移（仿）",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 92,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "ultimate:天地阴阳大挪移（仿）"
+    },
+    {
+      "id": "true_immortal_sword_art",
+      "name": "真灵剑诀（仿）",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 145,
+      "required_realm": "UNITY",
+      "summary": "ultimate:真灵剑诀（仿）"
+    },
+    {
+      "id": "tianmo_demon_body_secret",
+      "name": "天魔真身",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "secret_art:天魔真身"
+    },
+    {
+      "id": "tianyuan_boundary_break",
+      "name": "界壁裂隙",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "SOUL_TRANSFORMATION",
+      "summary": "secret_art:界壁裂隙"
     }
   ]
 }

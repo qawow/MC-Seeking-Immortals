@@ -1,0 +1,5086 @@
+{
+  "schema_version": 7,
+  "materials": [
+    {
+      "id": "ironwood",
+      "display": "铁木",
+      "use": [
+        "puppet_T1"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "铁木",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_shard",
+      "display": "灵石碎片",
+      "use": [
+        "fuel",
+        "array"
+      ],
+      "tier": "low",
+      "setting": {
+        "lore": "灵石碎片",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_core_low",
+      "display": "低阶妖丹",
+      "use": [
+        "alchemy",
+        "array",
+        "puppet_core"
+      ],
+      "from": "beast_tier_1_4",
+      "setting": {
+        "lore": "低阶妖丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_core_mid",
+      "display": "中阶妖丹",
+      "use": [
+        "condensation_pill",
+        "refinement"
+      ],
+      "from": "beast_tier_5_8",
+      "setting": {
+        "lore": "中阶妖丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_core_high",
+      "display": "高阶妖丹",
+      "use": [
+        "nascent_pill",
+        "artifact_forge"
+      ],
+      "from": "beast_tier_9+",
+      "setting": {
+        "lore": "高阶妖丹",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_copper",
+      "display": "昆吾灵铜",
+      "use": [
+        "artifact_forge"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "昆吾灵铜",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "space_crystal",
+      "display": "空间晶石",
+      "use": [
+        "teleport_array"
+      ],
+      "regions": [
+        "kunwu",
+        "void_palace"
+      ],
+      "setting": {
+        "lore": "空间晶石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sea_soul_grass",
+      "display": "海魂草",
+      "use": [
+        "soul_pill"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "海魂草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "turtle_shell",
+      "display": "龟甲",
+      "use": [
+        "puppet_repair",
+        "armor"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "龟甲",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_spirit_sand",
+      "display": "慕兰灵砂",
+      "use": [
+        "fashi_array"
+      ],
+      "regions": [
+        "mulan"
+      ],
+      "setting": {
+        "lore": "慕兰灵砂",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tianlan_holy_feather",
+      "display": "圣禽翎羽",
+      "use": [
+        "fashi_ultimate"
+      ],
+      "regions": [
+        "tianlan"
+      ],
+      "setting": {
+        "lore": "圣禽翎羽",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_marrow",
+      "display": "虚空髓",
+      "use": [
+        "void_refinement"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "setting": {
+        "lore": "虚空髓",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_demon_fragment",
+      "display": "古魔残片",
+      "use": [
+        "seal_research",
+        "demon_pill"
+      ],
+      "risk": "demon_qi",
+      "regions": [
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "古魔残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_essence_ore",
+      "display": "阴晶矿",
+      "use": [
+        "ghost_refinement",
+        "yin_artifact"
+      ],
+      "regions": [
+        "yinming",
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "阴晶矿",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_gathering_stone",
+      "display": "聚魂石",
+      "use": [
+        "soul_pill",
+        "nether_river_key"
+      ],
+      "regions": [
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "聚魂石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_wood",
+      "display": "鬼木",
+      "use": [
+        "yin_puppet",
+        "coffin"
+      ],
+      "regions": [
+        "yinming"
+      ],
+      "setting": {
+        "lore": "鬼木",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "talisman_paper",
+      "display": "符纸",
+      "use": [
+        "talisman_craft"
+      ],
+      "tier": "low",
+      "setting": {
+        "lore": "符纸",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_blood_vial",
+      "display": "妖兽血",
+      "use": [
+        "talisman_ink",
+        "refinement"
+      ],
+      "from": "beast",
+      "setting": {
+        "lore": "妖兽血",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_silk",
+      "display": "灵蚕丝",
+      "use": [
+        "robe",
+        "talisman_base"
+      ],
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "setting": {
+        "lore": "灵蚕丝",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fire_feather",
+      "display": "火羽",
+      "use": [
+        "fire_talisman",
+        "yang_artifact"
+      ],
+      "regions": [
+        "tiannan_volcano"
+      ],
+      "setting": {
+        "lore": "火羽",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thunder_stone",
+      "display": "雷鸣石",
+      "use": [
+        "tribulation_array",
+        "thunder_talisman"
+      ],
+      "regions": [
+        "chaotic_sea_storm"
+      ],
+      "setting": {
+        "lore": "雷鸣石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hundred_year_ice",
+      "display": "百年寒冰",
+      "use": [
+        "yin_pill_preserve",
+        "ice_artifact"
+      ],
+      "regions": [
+        "yinming",
+        "dajin_north"
+      ],
+      "setting": {
+        "lore": "百年寒冰",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_soul_essence",
+      "display": "妖兽精魄",
+      "use": [
+        "puppet_T3",
+        "beast_contract"
+      ],
+      "from": "beast_tier_5+",
+      "setting": {
+        "lore": "妖兽精魄",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thousand_year_ganoderma",
+      "display": "千年灵芝",
+      "use": [
+        "lifespan_pill",
+        "recovery"
+      ],
+      "regions": [
+        "dajin"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "千年灵芝",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "coral_spirit_pearl",
+      "display": "珊瑚灵珠",
+      "use": [
+        "bu_tian_pill",
+        "water_affinity"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "珊瑚灵珠",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "true_spirit_blood_drop",
+      "display": "真灵血滴",
+      "use": [
+        "bloodline_pill",
+        "blood_qi_pill"
+      ],
+      "regions": [
+        "dajin"
+      ],
+      "rarity": "legendary",
+      "setting": {
+        "lore": "真灵血滴",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "low_spirit_iron",
+      "display": "低阶灵铁",
+      "use": [
+        "forging_low"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "tier": "low",
+      "setting": {
+        "lore": "低阶炼器灵铁，炼气—筑基常用。",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft": "refinement"
+        }
+      }
+    },
+    {
+      "id": "deep_sea_cold_iron",
+      "display": "深海寒铁",
+      "use": [
+        "forging_water"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "深海寒铁",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gold_seam_stone",
+      "display": "金精石",
+      "use": [
+        "metal_artifact"
+      ],
+      "regions": [
+        "dajin"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "金精石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "jiao_scale",
+      "display": "蛟鳞",
+      "use": [
+        "armor",
+        "water_artifact"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "蛟鳞",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wind_sage_grass",
+      "display": "风灵草",
+      "use": [
+        "fashi_spirit_art"
+      ],
+      "regions": [
+        "mulan"
+      ],
+      "setting": {
+        "lore": "风灵草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_ginseng",
+      "display": "血参",
+      "use": [
+        "recovery_pill"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "note": "同灵参系，地区名血参",
+      "setting": {
+        "lore": "血参",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜残片",
+      "use": [
+        "ancient_forge",
+        "soul_attack"
+      ],
+      "regions": [
+        "dajin"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "玄光镜残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_manual_low",
+      "display": "炼器入门篇",
+      "use": [
+        "unlock_forge_tier_1"
+      ],
+      "category": "manual",
+      "setting": {
+        "lore": "炼器入门篇",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_manual_mid",
+      "display": "炼器真解（中篇）",
+      "use": [
+        "unlock_forge_tier_3"
+      ],
+      "category": "manual",
+      "rarity": "rare",
+      "setting": {
+        "lore": "炼器真解（中篇）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_blood_ink",
+      "display": "妖血墨",
+      "use": [
+        "talisman_craft"
+      ],
+      "craft_from": [
+        "beast_blood_vial",
+        "spirit_stone_shard"
+      ],
+      "setting": {
+        "lore": "妖血墨",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_plant_ink",
+      "display": "灵草墨",
+      "use": [
+        "talisman_craft"
+      ],
+      "craft_from": [
+        "ginseng_spirit",
+        "purple_ganoderma"
+      ],
+      "setting": {
+        "lore": "灵草墨",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "essence_herb_ink",
+      "display": "精魄墨",
+      "use": [
+        "talisman_craft_high"
+      ],
+      "craft_from": [
+        "star_moon_grass",
+        "beast_blood_vial"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "精魄墨",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_core_fragment",
+      "display": "妖丹碎片",
+      "use": [
+        "alchemy_low",
+        "array"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "tier": "low",
+      "setting": {
+        "lore": "妖丹碎片",
+        "tier": "low"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "coral_spirit_pearl_raw",
+      "display": "珊瑚灵珠（原珠）",
+      "use": [
+        "bu_tian_pill",
+        "water_artifact"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "珊瑚灵珠（原珠）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_cultivation_manual",
+      "display": "阴灵鬼修录",
+      "category": "manual",
+      "use": [
+        "unlock_ghost_path"
+      ],
+      "regions": [
+        "nether_river"
+      ],
+      "setting": {
+        "lore": "阴灵鬼修录",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fashi_array_manual",
+      "display": "慕兰法阵要诀",
+      "category": "manual",
+      "faction": "mulan_council",
+      "setting": {
+        "lore": "慕兰法阵要诀",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "trial_merit",
+      "display": "试炼功勋",
+      "category": "currency",
+      "binds": "asura_trial",
+      "setting": {
+        "lore": "试炼功勋",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "island_deed_gray",
+      "display": "灰岛地契",
+      "category": "quest",
+      "use": [
+        "claim_island"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "setting": {
+        "lore": "灰岛地契",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_gate_pass",
+      "display": "灵界通行符",
+      "category": "quest",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "setting": {
+        "lore": "灵界通行符",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_core_ore",
+      "display": "昆吾山核矿",
+      "use": [
+        "spatial_artifact"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "rarity": "legendary",
+      "setting": {
+        "lore": "昆吾山核矿",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_demon_seal_fragment",
+      "display": "古魔封印残片",
+      "use": [
+        "demon_seal_quest"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "古魔封印残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sky_tiger_claw",
+      "display": "天虎爪",
+      "use": [
+        "beast_refine",
+        "mulan_quest"
+      ],
+      "regions": [
+        "mulan"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "天虎爪",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "holy_bird_plume",
+      "display": "圣禽翎羽",
+      "use": [
+        "blessing"
+      ],
+      "regions": [
+        "mulan"
+      ],
+      "rarity": "legendary",
+      "quest_only": true,
+      "setting": {
+        "lore": "圣禽翎羽",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "boundary_marrow_grass",
+      "display": "界河髓草",
+      "use": [
+        "void_refinement_pill"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "界河髓草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_realm_sand",
+      "display": "灵界灵砂",
+      "use": [
+        "array",
+        "fashi"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "灵界灵砂",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_general_core",
+      "display": "魔将魔核",
+      "use": [
+        "demon_path"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "魔将魔核",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_meat_raw",
+      "display": "妖兽鲜肉",
+      "use": [
+        "food",
+        "jerky_craft"
+      ],
+      "from": "beast",
+      "setting": {
+        "lore": "妖兽鲜肉",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ironwood_log",
+      "display": "铁木",
+      "use": [
+        "puppet",
+        "forge"
+      ],
+      "regions": [
+        "tiannan",
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "铁木",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_soul_essence",
+      "display": "妖兽精魄",
+      "use": [
+        "puppet_stone_spirit",
+        "soul_craft"
+      ],
+      "from": "beast_boss",
+      "rarity": "rare",
+      "setting": {
+        "lore": "妖兽精魄",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hundred_year_ice",
+      "display": "百年寒玉",
+      "use": [
+        "talisman",
+        "ice_pill"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "百年寒玉",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fire_feather",
+      "display": "火羽",
+      "use": [
+        "talisman",
+        "forge"
+      ],
+      "from": "fire_bird",
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "火羽",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_moss",
+      "display": "定魂苔",
+      "use": [
+        "talisman",
+        "soul_pill"
+      ],
+      "regions": [
+        "nether_river"
+      ],
+      "rarity": "common",
+      "setting": {
+        "lore": "定魂苔",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_beast_core",
+      "display": "上古妖核",
+      "use": [
+        "refinement_high",
+        "secret_realm"
+      ],
+      "from": "beast_tier_9_13",
+      "rarity": "epic",
+      "setting": {
+        "lore": "上古妖核",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜残片",
+      "use": [
+        "refine_xuanguang_shard"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "玄光镜残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "display": "玄黄镜残片",
+      "use": [
+        "refine_xuanhuang_shard"
+      ],
+      "regions": [
+        "dajin",
+        "secret_realm"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "玄黄镜残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "display": "九龙罩残片",
+      "use": [
+        "refine_nine_dragon_replica"
+      ],
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "九龙罩残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_bell_fragment",
+      "display": "炼虚钟碎片",
+      "use": [
+        "refine_void_refining_bell"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "rarity": "legendary",
+      "realm_layer": "spirit_realm",
+      "setting": {
+        "lore": "炼虚钟碎片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "scrap_spirit_iron",
+      "display": "灵铁碎屑",
+      "use": [
+        "refinement_salvage",
+        "recycle"
+      ],
+      "from": "refinement_fail",
+      "rarity": "common",
+      "setting": {
+        "lore": "灵铁碎屑",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mirage_sand",
+      "display": "幻沙",
+      "use": [
+        "talisman_mirage",
+        "refinement_mirror"
+      ],
+      "regions": [
+        "mulan",
+        "tiannan"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "幻沙",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hunyuan_bowl_shard",
+      "display": "混元钵残片",
+      "use": [
+        "refinement_hunyuan_bowl",
+        "puppet_core_upgrade"
+      ],
+      "rarity": "epic",
+      "note": "汇编混元钵向炼器材料",
+      "setting": {
+        "lore": "混元钵残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ironwood_heart",
+      "display": "铁木芯",
+      "use": [
+        "puppet_giant_ape"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "铁木芯",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "iron_sword_mortal",
+      "display": "凡铁剑",
+      "use": [
+        "mortal_gear"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "common",
+      "note": "game_tier 1 凡器示例",
+      "setting": {
+        "lore": "凡铁剑",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "display": "禁地血参",
+      "use": [
+        "jiangchen_pill",
+        "blood_forbidden_alchemy"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "uncommon",
+      "note": "血色禁地古修洞府常见灵药",
+      "setting": {
+        "lore": "禁地血参",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_cultivator_relic",
+      "display": "古修遗物",
+      "use": [
+        "loot",
+        "recipe_unlock_chance"
+      ],
+      "regions": [
+        "blood_forbidden"
+      ],
+      "rarity": "rare",
+      "note": "禁地坐化修士储物袋中偶得",
+      "setting": {
+        "lore": "古修遗物",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "green_bamboo_spirit_wood",
+      "display": "青竹灵木",
+      "use": [
+        "sword_forge",
+        "talisman_rod"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "rare",
+      "note": "灵木类炼器材料，剑修宗门常用",
+      "setting": {
+        "lore": "青竹灵木",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_bamboo_shoot",
+      "display": "灵竹笋",
+      "use": [
+        "cultivation_pill"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "common",
+      "setting": {
+        "lore": "灵竹笋",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_palace_cold_jade",
+      "display": "虚天寒玉",
+      "use": [
+        "void_palace_craft",
+        "ice_artifact"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "虚天寒玉",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_palace_spirit_pearl",
+      "display": "虚天灵珠",
+      "use": [
+        "void_key_craft",
+        "array"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "虚天灵珠",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_fire_crystal",
+      "display": "冰火晶",
+      "use": [
+        "void_palace_boss_loot"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "冰火晶",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "contraband_spirit_stone",
+      "display": "来路不明灵石",
+      "category": "currency",
+      "use": [
+        "black_market"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "rarity": "common",
+      "setting": {
+        "lore": "来路不明灵石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_palace_patrol_order",
+      "display": "星宫巡防令",
+      "category": "quest",
+      "use": [
+        "star_palace_quest"
+      ],
+      "faction": "star_palace",
+      "non_trade": true,
+      "setting": {
+        "lore": "星宫巡防令",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "inverse_star_contact_token",
+      "display": "逆星盟信物",
+      "category": "quest",
+      "use": [
+        "inverse_star_quest"
+      ],
+      "faction": "inverse_star_alliance",
+      "reputation": {
+        "star_palace": -15
+      },
+      "setting": {
+        "lore": "逆星盟信物",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mulan_fashi_charge_pack",
+      "display": "法士灵术充能包",
+      "use": [
+        "fashi_spirit_art_refill"
+      ],
+      "regions": [
+        "mulan"
+      ],
+      "craft_from": [
+        "mulan_spirit_sand",
+        "wind_sage_grass"
+      ],
+      "setting": {
+        "lore": "法士灵术充能包",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wanbao_auction_lot_tag",
+      "display": "万宝阁拍品签",
+      "category": "quest",
+      "use": [
+        "auction_bid"
+      ],
+      "regions": [
+        "dajin"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "万宝阁拍品签",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "space_rift_shard",
+      "display": "空间裂隙碎片",
+      "use": [
+        "teleport_array",
+        "spatial_artifact"
+      ],
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "rarity": "epic",
+      "note": "坠魔谷空间撕裂环境产出",
+      "setting": {
+        "lore": "空间裂隙碎片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demonized_weapon_scrap",
+      "display": "魔化兵器残片",
+      "use": [
+        "salvage",
+        "demon_path"
+      ],
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "魔化兵器残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_puppet_core",
+      "display": "昆吾傀儡核心",
+      "use": [
+        "puppet_high",
+        "kunwu_craft"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "昆吾傀儡核心",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "kunwu_seal_tag",
+      "display": "昆吾封魔签",
+      "category": "quest",
+      "use": [
+        "kunwu_seal_quest"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "昆吾封魔签",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_corruption_crystal",
+      "display": "阴煞晶",
+      "use": [
+        "yin_artifact",
+        "ghost_array"
+      ],
+      "regions": [
+        "yinming"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "阴煞晶",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "nether_ferry_coin",
+      "display": "冥河渡币",
+      "category": "currency",
+      "use": [
+        "nether_ferry"
+      ],
+      "regions": [
+        "nether_river"
+      ],
+      "note": "对应阴石/渡船消耗",
+      "setting": {
+        "lore": "冥河渡币",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tianyuan_merit_token",
+      "display": "天渊功勋牌",
+      "category": "currency",
+      "use": [
+        "tianyuan_exchange"
+      ],
+      "regions": [
+        "tianyuan"
+      ],
+      "binds": "alliance_merit",
+      "setting": {
+        "lore": "天渊功勋牌",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "snow_lotus_ref",
+      "display": "雪莲（灵草）",
+      "use": [
+        "snow_lotus_pill"
+      ],
+      "ref": "spirit_herbs_catalog#snow_lotus",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "note": "炼制引用 spirit_herbs snow_lotus",
+      "setting": {
+        "lore": "雪莲（灵草）",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "moon_essence",
+      "display": "月华精",
+      "use": [
+        "guanghan_craft",
+        "yin_yang_pill"
+      ],
+      "regions": [
+        "guanghan_realm"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "月华精",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spatial_law_fragment",
+      "display": "空间法则残片",
+      "use": [
+        "spatial_artifact",
+        "array_high"
+      ],
+      "regions": [
+        "guanghan_realm",
+        "void_palace"
+      ],
+      "rarity": "legendary",
+      "note": "法则向材料，非具体古宝",
+      "setting": {
+        "lore": "空间法则残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "puppet_command_talisman",
+      "display": "御傀符",
+      "use": [
+        "puppet_control"
+      ],
+      "regions": [
+        "tiannan",
+        "kunwu"
+      ],
+      "craft_from": [
+        "talisman_paper_mid",
+        "beast_soul_essence"
+      ],
+      "setting": {
+        "lore": "御傀符",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_hooking_bell_blank",
+      "display": "引魂钟胚",
+      "use": [
+        "puppet_soul_bind"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "rare",
+      "note": "炼傀控魂向，汇编引魂钟结构",
+      "setting": {
+        "lore": "引魂钟胚",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "fengyuan_spirit_fruit",
+      "display": "风元灵果",
+      "use": [
+        "spirit_realm_cultivation"
+      ],
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "风元灵果",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "diyuan_marrow_grass",
+      "display": "地渊髓草",
+      "use": [
+        "void_refinement_pill"
+      ],
+      "regions": [
+        "diyuan"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "地渊髓草",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_gold_ore",
+      "display": "魔金矿石",
+      "use": [
+        "demon_refinement",
+        "demon_armor"
+      ],
+      "regions": [
+        "demon_gold_mountain"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "魔金矿石",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "holy_demon_blood",
+      "display": "圣魔之血",
+      "use": [
+        "demon_body_pill",
+        "demon_path"
+      ],
+      "regions": [
+        "demon_gold_mountain"
+      ],
+      "rarity": "legendary",
+      "note": "魔道炼体向材料，非主角专属",
+      "setting": {
+        "lore": "圣魔之血",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "killing_intent_crystal",
+      "display": "杀意晶",
+      "use": [
+        "asura_cultivation",
+        "weapon_temper"
+      ],
+      "regions": [
+        "minor_asura_realm"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "杀意晶",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "asura_armor_scrap",
+      "display": "修罗甲残片",
+      "use": [
+        "armor_salvage"
+      ],
+      "regions": [
+        "minor_asura_realm"
+      ],
+      "rarity": "rare",
+      "setting": {
+        "lore": "修罗甲残片",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "earth_spine_root",
+      "display": "地渊脊根",
+      "use": [
+        "void_refinement_pill",
+        "array_earth"
+      ],
+      "regions": [
+        "diyuan"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "地渊脊根",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "array_spirit_sand_bag",
+      "display": "阵灵砂袋",
+      "use": [
+        "formation_fuel"
+      ],
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "craft_from": [
+        "spirit_sand_pouch",
+        "spirit_stone_shard"
+      ],
+      "setting": {
+        "lore": "阵灵砂袋",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "formation_jade_stake",
+      "display": "阵玉桩",
+      "use": [
+        "formation_anchor"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "阵玉桩",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sect_herb_garden_seed_pack",
+      "display": "宗门药园种子包",
+      "use": [
+        "spirit_garden_plant"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "craft_yield": [
+        "spirit_mushroom",
+        "yellow_essence"
+      ],
+      "setting": {
+        "lore": "宗门药园种子包",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "luoyun_pill_cauldron_rent_token",
+      "display": "落云丹炉租用牌",
+      "category": "quest",
+      "use": [
+        "alchemy_station_luoyun"
+      ],
+      "faction": "luoyun_sect",
+      "setting": {
+        "lore": "落云丹炉租用牌",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "jiuxian_seclusion_permit",
+      "display": "九仙闭关许可",
+      "category": "quest",
+      "binds": "jiuxian_seclusion",
+      "realm_min": "GREAT_VEHICLE",
+      "non_trade": true,
+      "setting": {
+        "lore": "九仙闭关许可",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "GREAT_VEHICLE",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "high_order_manual_fragment",
+      "display": "高阶功法残页",
+      "use": [
+        "manual_combine"
+      ],
+      "regions": [
+        "jiuxian_seclusion"
+      ],
+      "rarity": "legendary",
+      "setting": {
+        "lore": "高阶功法残页",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tribulation_aid_item",
+      "display": "渡劫辅助灵物",
+      "use": [
+        "tribulation_consumable"
+      ],
+      "regions": [
+        "jiuxian_seclusion",
+        "tianyuan"
+      ],
+      "rarity": "epic",
+      "setting": {
+        "lore": "渡劫辅助灵物",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demonic_blood_coral",
+      "display": "魔血珊瑚",
+      "use": [
+        "demonic_pill",
+        "dual_cultivation"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "alignment": "demonic",
+      "rarity": "rare",
+      "setting": {
+        "lore": "魔血珊瑚",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_quench_oil",
+      "display": "淬器灵油",
+      "use": [
+        "refinement_finish"
+      ],
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "rarity": "uncommon",
+      "setting": {
+        "lore": "淬器灵油",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_iron_ingot_mid",
+      "display": "中品灵铁锭",
+      "use": [
+        "refinement_mid"
+      ],
+      "craft_from": [
+        "low_spirit_iron",
+        "spirit_stone_shard"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "中品灵铁锭",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "artifact_spirit_injection_needle",
+      "display": "注灵针",
+      "use": [
+        "artifact_spirit_infuse"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "rarity": "rare",
+      "note": "炼器宗门注灵工序工具",
+      "setting": {
+        "lore": "注灵针",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_palace_merit_plaque",
+      "display": "星宫功勋牌",
+      "category": "currency",
+      "use": [
+        "star_palace_exchange"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "faction": "star_palace",
+      "setting": {
+        "lore": "星宫功勋牌",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "display": "星宫税契",
+      "category": "quest",
+      "use": [
+        "chaotic_sea_trade_tax"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "note": "乱星海商路征税凭证",
+      "setting": {
+        "lore": "星宫税契",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "chaotic_sea_teleport_permit",
+      "display": "乱星海传送许可",
+      "category": "quest",
+      "use": [
+        "teleport_hub"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "faction": "star_palace",
+      "setting": {
+        "lore": "乱星海传送许可",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "inverse_star_cipher_token",
+      "display": "逆星暗语牌",
+      "category": "quest",
+      "use": [
+        "inverse_star_contact"
+      ],
+      "regions": [
+        "chaotic_sea"
+      ],
+      "faction": "inverse_star_alliance",
+      "non_trade": true,
+      "setting": {
+        "lore": "逆星暗语牌",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "body_tempering_ointment",
+      "display": "锻体膏",
+      "use": [
+        "body_refining"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "craft_from": [
+        "beast_blood_ink",
+        "yellow_essence"
+      ],
+      "setting": {
+        "lore": "锻体膏",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "border_merit_token",
+      "display": "边境功勋令",
+      "category": "currency",
+      "use": [
+        "tianyuan_merit"
+      ],
+      "regions": [
+        "tianyuan"
+      ],
+      "faction": "tianyuan_city",
+      "note": "人妖两族共防魔潮功勋，修炼环境加成见 faction_species",
+      "setting": {
+        "lore": "边境功勋令",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_tide_scout_report",
+      "display": "魔潮侦察简",
+      "category": "quest",
+      "use": [
+        "tianyuan_demon_contract"
+      ],
+      "regions": [
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "魔潮侦察简",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "tianyuan_garrison_ration",
+      "display": "天渊驻军营粮",
+      "category": "consumable_ref",
+      "use": [
+        "spirit_recovery"
+      ],
+      "regions": [
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "天渊驻军营粮",
+        "tier": null
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "geng_gold_inlay",
+      "display": "庚精镶件",
+      "tier": "high",
+      "use": "artifact_socket_sharp",
+      "rarity": "rare",
+      "setting": {
+        "lore": "庚精镶件",
+        "tier": "high"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "sun_essence_stone_inlay",
+      "display": "太阳精石镶件",
+      "tier": "high",
+      "use": "artifact_socket_fire",
+      "rarity": "rare",
+      "setting": {
+        "lore": "太阳精石镶件",
+        "tier": "high"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "illusion_transform_clay",
+      "display": "化形泥",
+      "tier": "epic",
+      "use": "artifact_self_repair",
+      "rarity": "epic",
+      "setting": {
+        "lore": "化形泥",
+        "tier": "epic"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_bone_block",
+      "display": "兽骨块",
+      "tier": "mid",
+      "use": "refinement_flight",
+      "rarity": "common",
+      "setting": {
+        "lore": "兽骨块",
+        "tier": "mid"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_heaven_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "tier": "legendary",
+      "use": "spirit_treasure_craft",
+      "rarity": "legendary",
+      "setting": {
+        "lore": "虚天鼎碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bear_king_pelt",
+      "display": "熊王皮",
+      "tier": "legendary",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "source": "king_bear_mountain",
+      "setting": {
+        "lore": "熊王皮",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "roc_feather_bundle",
+      "display": "鹏羽束",
+      "tier": "legendary",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "setting": {
+        "lore": "鹏羽束",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "barbarian_king_token_bear",
+      "display": "熊王信物",
+      "tier": "rare",
+      "tags": [
+        "barbarian_token"
+      ],
+      "setting": {
+        "lore": "熊王信物",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "array_disk_fragment",
+      "display": "阵盘残片",
+      "tier": "rare",
+      "regions": [
+        "spirit_fengyuan"
+      ],
+      "setting": {
+        "lore": "阵盘残片",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_ore_bundle",
+      "display": "灵矿捆",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵矿捆",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "clan_guest_pass",
+      "display": "世家客卿牌",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "世家客卿牌",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_clan_stamp_book",
+      "display": "十八族印谱",
+      "tier": "rare",
+      "setting": {
+        "lore": "十八族印谱",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "wild_land_map",
+      "display": "荒原舆图",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "荒原舆图",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_ruin_chest",
+      "display": "废墟秘匣",
+      "tier": "rare",
+      "setting": {
+        "lore": "废墟秘匣",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_key_fragment",
+      "display": "虚天钥碎片",
+      "tier": "legendary",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "tags": [
+        "void_palace"
+      ],
+      "setting": {
+        "lore": "虚天钥碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "xuanbing_crystal",
+      "display": "玄冰晶",
+      "tier": "rare",
+      "element": "ice",
+      "setting": {
+        "lore": "玄冰晶",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "lieyan_iron_sand",
+      "display": "烈焰铁砂",
+      "tier": "uncommon",
+      "element": "fire",
+      "setting": {
+        "lore": "烈焰铁砂",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_iron_ingot",
+      "display": "灵铁锭",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵铁锭",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gold_silver_ore_spirit",
+      "display": "金银灵矿",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "金银灵矿",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_hide_thick",
+      "display": "厚兽皮",
+      "tier": "common",
+      "setting": {
+        "lore": "厚兽皮",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_bone_marrow",
+      "display": "兽骨髓",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "兽骨髓",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_crystal_shard",
+      "display": "魂晶碎片",
+      "tier": "rare",
+      "setting": {
+        "lore": "魂晶碎片",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "space_rift_silk",
+      "display": "裂隙丝",
+      "tier": "legendary",
+      "tags": [
+        "spatial"
+      ],
+      "setting": {
+        "lore": "裂隙丝",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ancient_spirit_treasure_shard",
+      "display": "古宝残片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "古宝残片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_treasure_essence",
+      "display": "灵宝精华",
+      "tier": "legendary",
+      "setting": {
+        "lore": "灵宝精华",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "talisman_paper_high",
+      "display": "高阶符纸",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "高阶符纸",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "talisman_ink_spirit",
+      "display": "灵墨",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵墨",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "puppet_core_spirit",
+      "display": "傀儡灵核",
+      "tier": "rare",
+      "tags": [
+        "puppet"
+      ],
+      "setting": {
+        "lore": "傀儡灵核",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "formation_flag_jade",
+      "display": "阵旗玉",
+      "tier": "rare",
+      "tags": [
+        "formation"
+      ],
+      "setting": {
+        "lore": "阵旗玉",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "cold_jade_raw",
+      "display": "寒玉原石",
+      "tier": "rare",
+      "regions": [
+        "void_palace"
+      ],
+      "setting": {
+        "lore": "寒玉原石",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "yin_metal_essence",
+      "display": "阴金精",
+      "tier": "rare",
+      "school": "ghost",
+      "setting": {
+        "lore": "阴金精",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "tier": "common",
+      "setting": {
+        "lore": "下品灵石，流通基本单位。",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "trade": {
+          "currency_tier": "low"
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_mid",
+      "display": "中品灵石",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "中品灵石",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_high",
+      "display": "上品灵石",
+      "tier": "rare",
+      "setting": {
+        "lore": "上品灵石",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_stone_top",
+      "display": "极品灵石",
+      "tier": "legendary",
+      "setting": {
+        "lore": "极品灵石",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refine_copper",
+      "display": "精铜",
+      "tier": "common",
+      "setting": {
+        "lore": "精铜",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mystic_silver",
+      "display": "秘银",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "秘银",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gold_essence",
+      "display": "金精",
+      "tier": "rare",
+      "setting": {
+        "lore": "金精",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "silver_essence",
+      "display": "银精",
+      "tier": "rare",
+      "setting": {
+        "lore": "银精",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "dark_iron",
+      "display": "玄铁",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "玄铁",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "star_iron",
+      "display": "星辰铁",
+      "tier": "rare",
+      "setting": {
+        "lore": "星辰铁",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_tendon",
+      "display": "妖兽筋",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽筋",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_fang",
+      "display": "妖兽牙",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽牙",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_scale",
+      "display": "妖兽鳞",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖兽鳞",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_blood_concentrate",
+      "display": "妖血凝",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "妖血凝",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_wood_chip",
+      "display": "养魂木片",
+      "tier": "rare",
+      "setting": {
+        "lore": "养魂木片",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_jade_raw",
+      "display": "养魂玉胚",
+      "tier": "rare",
+      "setting": {
+        "lore": "养魂玉胚",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_bone",
+      "display": "魔骨",
+      "tier": "rare",
+      "setting": {
+        "lore": "魔骨",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ghost_silk",
+      "display": "阴蚕丝",
+      "tier": "rare",
+      "setting": {
+        "lore": "阴蚕丝",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "thunder_bamboo_fiber",
+      "display": "雷竹纤维",
+      "tier": "rare",
+      "setting": {
+        "lore": "雷竹纤维",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_crystal",
+      "display": "虚空晶",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚空晶",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_sand_refined",
+      "display": "精炼灵砂",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "精炼灵砂",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "array_core_fragment",
+      "display": "阵芯碎片",
+      "tier": "rare",
+      "setting": {
+        "lore": "阵芯碎片",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "mirror_glass_spirit",
+      "display": "灵镜玻",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵镜玻",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "flying_sword_blank",
+      "display": "剑胚",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "剑胚",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "shield_plate_spirit",
+      "display": "灵盾板",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "灵盾板",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bell_bronze_spirit",
+      "display": "灵钟铜",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵钟铜",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rope_silk_spirit",
+      "display": "缚灵丝",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "缚灵丝",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "bag_skin_space",
+      "display": "储物袋皮",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "储物袋皮",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ring_metal_spirit",
+      "display": "戒灵金",
+      "tier": "rare",
+      "setting": {
+        "lore": "戒灵金",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pearl_sea_spirit",
+      "display": "海珠",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "海珠",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "coral_spirit_stone",
+      "display": "珊瑚灵石",
+      "tier": "uncommon",
+      "setting": {
+        "lore": "珊瑚灵石",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "turtle_shell_spirit",
+      "display": "灵龟壳",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵龟壳",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "snake_gall_spirit",
+      "display": "灵蛇胆",
+      "tier": "rare",
+      "setting": {
+        "lore": "灵蛇胆",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "gold_devour_beetle_shell",
+      "display": "噬金虫壳",
+      "tier": "legendary",
+      "setting": {
+        "lore": "噬金虫壳",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "soul_cry_beast_essence",
+      "display": "啼魂兽精",
+      "tier": "legendary",
+      "setting": {
+        "lore": "啼魂兽精",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "primordial_magnet_ore",
+      "display": "元磁矿",
+      "tier": "legendary",
+      "setting": {
+        "lore": "元磁矿",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rivers_mountains_pearl_shard",
+      "display": "山河珠碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "山河珠碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "spirit_nurture_vase_shard",
+      "display": "灵润青瓶碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "灵润青瓶碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "八灵尺碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "void_sky_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "tier": "legendary",
+      "setting": {
+        "lore": "虚天鼎碎片",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "green_bamboo_spirit",
+      "display": "青竹灵",
+      "tier": "rare",
+      "setting": {
+        "lore": "青竹灵",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_1",
+      "display": "1阶妖兽材料",
+      "tier": "common",
+      "tags": [
+        "beast_tier",
+        "tier_1"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "1阶妖兽材料",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_2",
+      "display": "2阶妖兽材料",
+      "tier": "common",
+      "tags": [
+        "beast_tier",
+        "tier_2"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "2阶妖兽材料",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_3",
+      "display": "3阶妖兽材料",
+      "tier": "common",
+      "tags": [
+        "beast_tier",
+        "tier_3"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "3阶妖兽材料",
+        "tier": "common"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_4",
+      "display": "4阶妖兽材料",
+      "tier": "uncommon",
+      "tags": [
+        "beast_tier",
+        "tier_4"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "4阶妖兽材料",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_5",
+      "display": "5阶妖兽材料",
+      "tier": "uncommon",
+      "tags": [
+        "beast_tier",
+        "tier_5"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "5阶妖兽材料",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_6",
+      "display": "6阶妖兽材料",
+      "tier": "uncommon",
+      "tags": [
+        "beast_tier",
+        "tier_6"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "6阶妖兽材料",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_7",
+      "display": "7阶妖兽材料",
+      "tier": "uncommon",
+      "tags": [
+        "beast_tier",
+        "tier_7"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "7阶妖兽材料",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_8",
+      "display": "8阶妖兽材料",
+      "tier": "rare",
+      "tags": [
+        "beast_tier",
+        "tier_8"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "8阶妖兽材料",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_9",
+      "display": "9阶妖兽材料",
+      "tier": "rare",
+      "tags": [
+        "beast_tier",
+        "tier_9"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "9阶妖兽材料",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_10",
+      "display": "10阶妖兽材料",
+      "tier": "rare",
+      "tags": [
+        "beast_tier",
+        "tier_10"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "10阶妖兽材料",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_11",
+      "display": "11阶妖兽材料",
+      "tier": "legendary",
+      "tags": [
+        "beast_tier",
+        "tier_11"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "11阶妖兽材料",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_12",
+      "display": "12阶妖兽材料",
+      "tier": "legendary",
+      "tags": [
+        "beast_tier",
+        "tier_12"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "12阶妖兽材料",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "beast_material_tier_13",
+      "display": "13阶妖兽材料",
+      "tier": "legendary",
+      "tags": [
+        "beast_tier",
+        "tier_13"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "13阶妖兽材料",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_1",
+      "display": "1级炼器胚",
+      "tier": "uncommon",
+      "tags": [
+        "refinement_grade",
+        "grade_1"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "1级炼器胚",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_2",
+      "display": "2级炼器胚",
+      "tier": "uncommon",
+      "tags": [
+        "refinement_grade",
+        "grade_2"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "2级炼器胚",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_3",
+      "display": "3级炼器胚",
+      "tier": "uncommon",
+      "tags": [
+        "refinement_grade",
+        "grade_3"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "3级炼器胚",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_4",
+      "display": "4级炼器胚",
+      "tier": "uncommon",
+      "tags": [
+        "refinement_grade",
+        "grade_4"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "4级炼器胚",
+        "tier": "uncommon"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_5",
+      "display": "5级炼器胚",
+      "tier": "rare",
+      "tags": [
+        "refinement_grade",
+        "grade_5"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "5级炼器胚",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_6",
+      "display": "6级炼器胚",
+      "tier": "rare",
+      "tags": [
+        "refinement_grade",
+        "grade_6"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "6级炼器胚",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_7",
+      "display": "7级炼器胚",
+      "tier": "rare",
+      "tags": [
+        "refinement_grade",
+        "grade_7"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "7级炼器胚",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_8",
+      "display": "8级炼器胚",
+      "tier": "rare",
+      "tags": [
+        "refinement_grade",
+        "grade_8"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "8级炼器胚",
+        "tier": "rare"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_9",
+      "display": "9级炼器胚",
+      "tier": "legendary",
+      "tags": [
+        "refinement_grade",
+        "grade_9"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "9级炼器胚",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_10",
+      "display": "10级炼器胚",
+      "tier": "legendary",
+      "tags": [
+        "refinement_grade",
+        "grade_10"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "10级炼器胚",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "refinement_ingot_grade_11",
+      "display": "11级炼器胚",
+      "tier": "legendary",
+      "tags": [
+        "refinement_grade",
+        "grade_11"
+      ],
+      "structural": true,
+      "setting": {
+        "lore": "11级炼器胚",
+        "tier": "legendary"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft_any": [
+            "alchemy",
+            "refinement",
+            "talisman"
+          ]
+        }
+      }
+    },
+    {
+      "id": "demon_qi_sample",
+      "display": "魔气样本",
+      "use": [
+        "alchemy",
+        "purge_research"
+      ],
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "setting": {
+        "lore": "坠魔谷采集，炼制驱魔丹辅材。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "NASCENT_SOUL"
+        }
+      }
+    },
+    {
+      "id": "kunwu_permit_token",
+      "display": "昆吾入山令",
+      "use": [
+        "quest",
+        "secret_realm"
+      ],
+      "regions": [
+        "kunwu"
+      ],
+      "setting": {
+        "lore": "大晋许可，寒潮期入昆吾必备。"
+      }
+    },
+    {
+      "id": "talisman_paper_low",
+      "display": "低阶符纸",
+      "use": [
+        "talisman"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "tier": "low",
+      "setting": {
+        "lore": "制符三品结构之下品载体。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "QI_REFINING",
+          "craft": "talisman"
+        }
+      }
+    },
+    {
+      "id": "forge_hammer_low",
+      "display": "炼器小锤",
+      "use": [
+        "refinement"
+      ],
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "炼器坊学徒用具，铭刻阵纹前置。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "FOUNDATION",
+          "craft": "refinement"
+        }
+      }
+    },
+    {
+      "id": "nether_ferry_token",
+      "display": "冥河渡票",
+      "use": [
+        "travel",
+        "secret_realm"
+      ],
+      "regions": [
+        "nether_river",
+        "yinming"
+      ],
+      "setting": {
+        "lore": "冥河鬼船渡费凭证，雾灾时溢价。"
+      }
+    },
+    {
+      "id": "diyuan_permit",
+      "display": "地渊令",
+      "use": [
+        "quest",
+        "secret_realm"
+      ],
+      "regions": [
+        "diyuan",
+        "tianyuan"
+      ],
+      "setting": {
+        "lore": "天渊功勋兑换，炼虚方可申领。"
+      },
+      "learn_requirements": {
+        "use": {
+          "realm_min": "VOID_REFINEMENT"
+        }
+      }
+    },
+    {
+      "id": "mulan_war_merit",
+      "display": "边战功勋",
+      "use": [
+        "currency",
+        "faction_rep"
+      ],
+      "regions": [
+        "mulan",
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "慕兰天南战役结算，换丹药与宗门贡献。"
+      }
+    }
+  ]
+}

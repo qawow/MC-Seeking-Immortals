@@ -1,0 +1,1331 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {
+      "id": "ironwood",
+      "display": "铁木",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_stone_shard",
+      "display": "灵石碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "demon_core_low",
+      "display": "低阶妖丹",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "demon_core_mid",
+      "display": "中阶妖丹",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "demon_core_high",
+      "display": "高阶妖丹",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "kunwu_copper",
+      "display": "昆吾灵铜",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "space_crystal",
+      "display": "空间晶石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "sea_soul_grass",
+      "display": "海魂草",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "turtle_shell",
+      "display": "龟甲",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "mulan_spirit_sand",
+      "display": "慕兰灵砂",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "tianlan_holy_feather",
+      "display": "圣禽翎羽",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "void_marrow",
+      "display": "虚空髓",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ancient_demon_fragment",
+      "display": "古魔残片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "yin_essence_ore",
+      "display": "阴晶矿",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_gathering_stone",
+      "display": "聚魂石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ghost_wood",
+      "display": "鬼木",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "talisman_paper",
+      "display": "符纸",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_blood_vial",
+      "display": "妖兽血",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_silk",
+      "display": "灵蚕丝",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "fire_feather",
+      "display": "火羽",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "thunder_stone",
+      "display": "雷鸣石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "hundred_year_ice",
+      "display": "百年寒冰",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_soul_essence",
+      "display": "妖兽精魄",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "thousand_year_ganoderma",
+      "display": "千年灵芝",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "coral_spirit_pearl",
+      "display": "珊瑚灵珠",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "true_spirit_blood_drop",
+      "display": "真灵血滴",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "low_spirit_iron",
+      "display": "低阶灵铁",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "deep_sea_cold_iron",
+      "display": "深海寒铁",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "gold_seam_stone",
+      "display": "金精石",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "jiao_scale",
+      "display": "蛟鳞",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "wind_sage_grass",
+      "display": "风灵草",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "blood_ginseng",
+      "display": "血参",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜残片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "refinement_manual_low",
+      "display": "炼器入门篇",
+      "category": "manual",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_manual_mid",
+      "display": "炼器真解（中篇）",
+      "category": "manual",
+      "rarity": "rare"
+    },
+    {
+      "id": "beast_blood_ink",
+      "display": "妖血墨",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_plant_ink",
+      "display": "灵草墨",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "essence_herb_ink",
+      "display": "精魄墨",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "demon_core_fragment",
+      "display": "妖丹碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "coral_spirit_pearl_raw",
+      "display": "珊瑚灵珠（原珠）",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ghost_cultivation_manual",
+      "display": "阴灵鬼修录",
+      "category": "manual",
+      "rarity": ""
+    },
+    {
+      "id": "fashi_array_manual",
+      "display": "慕兰法阵要诀",
+      "category": "manual",
+      "rarity": ""
+    },
+    {
+      "id": "trial_merit",
+      "display": "试炼功勋",
+      "category": "currency",
+      "rarity": ""
+    },
+    {
+      "id": "island_deed_gray",
+      "display": "灰岛地契",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_realm_gate_pass",
+      "display": "灵界通行符",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "kunwu_core_ore",
+      "display": "昆吾山核矿",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "ancient_demon_seal_fragment",
+      "display": "古魔封印残片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "sky_tiger_claw",
+      "display": "天虎爪",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "holy_bird_plume",
+      "display": "圣禽翎羽",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "boundary_marrow_grass",
+      "display": "界河髓草",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "spirit_realm_sand",
+      "display": "灵界灵砂",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "demon_general_core",
+      "display": "魔将魔核",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "beast_meat_raw",
+      "display": "妖兽鲜肉",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ironwood_log",
+      "display": "铁木",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_soul_essence",
+      "display": "妖兽精魄",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "hundred_year_ice",
+      "display": "百年寒玉",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "fire_feather",
+      "display": "火羽",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "soul_moss",
+      "display": "定魂苔",
+      "category": "",
+      "rarity": "common"
+    },
+    {
+      "id": "ancient_beast_core",
+      "display": "上古妖核",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "xuanguang_mirror_shard",
+      "display": "玄光镜残片",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "xuanhuang_mirror_shard",
+      "display": "玄黄镜残片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "nine_dragon_cauldron_shard",
+      "display": "九龙罩残片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "void_bell_fragment",
+      "display": "炼虚钟碎片",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "scrap_spirit_iron",
+      "display": "灵铁碎屑",
+      "category": "",
+      "rarity": "common"
+    },
+    {
+      "id": "mirage_sand",
+      "display": "幻沙",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "hunyuan_bowl_shard",
+      "display": "混元钵残片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "ironwood_heart",
+      "display": "铁木芯",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "iron_sword_mortal",
+      "display": "凡铁剑",
+      "category": "",
+      "rarity": "common"
+    },
+    {
+      "id": "blood_forbidden_herb",
+      "display": "禁地血参",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "ancient_cultivator_relic",
+      "display": "古修遗物",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "green_bamboo_spirit_wood",
+      "display": "青竹灵木",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "spirit_bamboo_shoot",
+      "display": "灵竹笋",
+      "category": "",
+      "rarity": "common"
+    },
+    {
+      "id": "void_palace_cold_jade",
+      "display": "虚天寒玉",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "void_palace_spirit_pearl",
+      "display": "虚天灵珠",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "ice_fire_crystal",
+      "display": "冰火晶",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "contraband_spirit_stone",
+      "display": "来路不明灵石",
+      "category": "currency",
+      "rarity": "common"
+    },
+    {
+      "id": "star_palace_patrol_order",
+      "display": "星宫巡防令",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "inverse_star_contact_token",
+      "display": "逆星盟信物",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "mulan_fashi_charge_pack",
+      "display": "法士灵术充能包",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "wanbao_auction_lot_tag",
+      "display": "万宝阁拍品签",
+      "category": "quest",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "space_rift_shard",
+      "display": "空间裂隙碎片",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "demonized_weapon_scrap",
+      "display": "魔化兵器残片",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "kunwu_puppet_core",
+      "display": "昆吾傀儡核心",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "kunwu_seal_tag",
+      "display": "昆吾封魔签",
+      "category": "quest",
+      "rarity": "rare"
+    },
+    {
+      "id": "yin_corruption_crystal",
+      "display": "阴煞晶",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "nether_ferry_coin",
+      "display": "冥河渡币",
+      "category": "currency",
+      "rarity": ""
+    },
+    {
+      "id": "tianyuan_merit_token",
+      "display": "天渊功勋牌",
+      "category": "currency",
+      "rarity": ""
+    },
+    {
+      "id": "snow_lotus_ref",
+      "display": "雪莲（灵草）",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "moon_essence",
+      "display": "月华精",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "spatial_law_fragment",
+      "display": "空间法则残片",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "puppet_command_talisman",
+      "display": "御傀符",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_hooking_bell_blank",
+      "display": "引魂钟胚",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "fengyuan_spirit_fruit",
+      "display": "风元灵果",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "diyuan_marrow_grass",
+      "display": "地渊髓草",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "demon_gold_ore",
+      "display": "魔金矿石",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "holy_demon_blood",
+      "display": "圣魔之血",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "killing_intent_crystal",
+      "display": "杀意晶",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "asura_armor_scrap",
+      "display": "修罗甲残片",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "earth_spine_root",
+      "display": "地渊脊根",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "array_spirit_sand_bag",
+      "display": "阵灵砂袋",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "formation_jade_stake",
+      "display": "阵玉桩",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "sect_herb_garden_seed_pack",
+      "display": "宗门药园种子包",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "luoyun_pill_cauldron_rent_token",
+      "display": "落云丹炉租用牌",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "jiuxian_seclusion_permit",
+      "display": "九仙闭关许可",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "high_order_manual_fragment",
+      "display": "高阶功法残页",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "tribulation_aid_item",
+      "display": "渡劫辅助灵物",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "demonic_blood_coral",
+      "display": "魔血珊瑚",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "refinement_quench_oil",
+      "display": "淬器灵油",
+      "category": "",
+      "rarity": "uncommon"
+    },
+    {
+      "id": "spirit_iron_ingot_mid",
+      "display": "中品灵铁锭",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "artifact_spirit_injection_needle",
+      "display": "注灵针",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "star_palace_merit_plaque",
+      "display": "星宫功勋牌",
+      "category": "currency",
+      "rarity": ""
+    },
+    {
+      "id": "star_palace_tax_receipt",
+      "display": "星宫税契",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "chaotic_sea_teleport_permit",
+      "display": "乱星海传送许可",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "inverse_star_cipher_token",
+      "display": "逆星暗语牌",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "body_tempering_ointment",
+      "display": "锻体膏",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "border_merit_token",
+      "display": "边境功勋令",
+      "category": "currency",
+      "rarity": ""
+    },
+    {
+      "id": "demon_tide_scout_report",
+      "display": "魔潮侦察简",
+      "category": "quest",
+      "rarity": ""
+    },
+    {
+      "id": "tianyuan_garrison_ration",
+      "display": "天渊驻军营粮",
+      "category": "consumable_ref",
+      "rarity": ""
+    },
+    {
+      "id": "geng_gold_inlay",
+      "display": "庚精镶件",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "sun_essence_stone_inlay",
+      "display": "太阳精石镶件",
+      "category": "",
+      "rarity": "rare"
+    },
+    {
+      "id": "illusion_transform_clay",
+      "display": "化形泥",
+      "category": "",
+      "rarity": "epic"
+    },
+    {
+      "id": "beast_bone_block",
+      "display": "兽骨块",
+      "category": "",
+      "rarity": "common"
+    },
+    {
+      "id": "void_heaven_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "category": "",
+      "rarity": "legendary"
+    },
+    {
+      "id": "bear_king_pelt",
+      "display": "熊王皮",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "roc_feather_bundle",
+      "display": "鹏羽束",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "barbarian_king_token_bear",
+      "display": "熊王信物",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "array_disk_fragment",
+      "display": "阵盘残片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_ore_bundle",
+      "display": "灵矿捆",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "clan_guest_pass",
+      "display": "世家客卿牌",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_clan_stamp_book",
+      "display": "十八族印谱",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "wild_land_map",
+      "display": "荒原舆图",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ancient_ruin_chest",
+      "display": "废墟秘匣",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "void_key_fragment",
+      "display": "虚天钥碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "xuanbing_crystal",
+      "display": "玄冰晶",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "lieyan_iron_sand",
+      "display": "烈焰铁砂",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_iron_ingot",
+      "display": "灵铁锭",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "gold_silver_ore_spirit",
+      "display": "金银灵矿",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_hide_thick",
+      "display": "厚兽皮",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_bone_marrow",
+      "display": "兽骨髓",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_crystal_shard",
+      "display": "魂晶碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "space_rift_silk",
+      "display": "裂隙丝",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ancient_spirit_treasure_shard",
+      "display": "古宝残片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_treasure_essence",
+      "display": "灵宝精华",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "talisman_paper_high",
+      "display": "高阶符纸",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "talisman_ink_spirit",
+      "display": "灵墨",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "puppet_core_spirit",
+      "display": "傀儡灵核",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "formation_flag_jade",
+      "display": "阵旗玉",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "cold_jade_raw",
+      "display": "寒玉原石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "yin_metal_essence",
+      "display": "阴金精",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_stone_mid",
+      "display": "中品灵石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_stone_high",
+      "display": "上品灵石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_stone_top",
+      "display": "极品灵石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refine_copper",
+      "display": "精铜",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "mystic_silver",
+      "display": "秘银",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "gold_essence",
+      "display": "金精",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "silver_essence",
+      "display": "银精",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "dark_iron",
+      "display": "玄铁",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "star_iron",
+      "display": "星辰铁",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_tendon",
+      "display": "妖兽筋",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_fang",
+      "display": "妖兽牙",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_scale",
+      "display": "妖兽鳞",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_blood_concentrate",
+      "display": "妖血凝",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_wood_chip",
+      "display": "养魂木片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_jade_raw",
+      "display": "养魂玉胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "demon_bone",
+      "display": "魔骨",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ghost_silk",
+      "display": "阴蚕丝",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "thunder_bamboo_fiber",
+      "display": "雷竹纤维",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "void_crystal",
+      "display": "虚空晶",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_sand_refined",
+      "display": "精炼灵砂",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "array_core_fragment",
+      "display": "阵芯碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "mirror_glass_spirit",
+      "display": "灵镜玻",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "flying_sword_blank",
+      "display": "剑胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "shield_plate_spirit",
+      "display": "灵盾板",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "bell_bronze_spirit",
+      "display": "灵钟铜",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "rope_silk_spirit",
+      "display": "缚灵丝",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "bag_skin_space",
+      "display": "储物袋皮",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "ring_metal_spirit",
+      "display": "戒灵金",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "pearl_sea_spirit",
+      "display": "海珠",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "coral_spirit_stone",
+      "display": "珊瑚灵石",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "turtle_shell_spirit",
+      "display": "灵龟壳",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "snake_gall_spirit",
+      "display": "灵蛇胆",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "gold_devour_beetle_shell",
+      "display": "噬金虫壳",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "soul_cry_beast_essence",
+      "display": "啼魂兽精",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "primordial_magnet_ore",
+      "display": "元磁矿",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "rivers_mountains_pearl_shard",
+      "display": "山河珠碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "spirit_nurture_vase_shard",
+      "display": "灵润青瓶碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "void_sky_cauldron_shard",
+      "display": "虚天鼎碎片",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "green_bamboo_spirit",
+      "display": "青竹灵",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_1",
+      "display": "1阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_2",
+      "display": "2阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_3",
+      "display": "3阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_4",
+      "display": "4阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_5",
+      "display": "5阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_6",
+      "display": "6阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_7",
+      "display": "7阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_8",
+      "display": "8阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_9",
+      "display": "9阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_10",
+      "display": "10阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_11",
+      "display": "11阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_12",
+      "display": "12阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "beast_material_tier_13",
+      "display": "13阶妖兽材料",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_1",
+      "display": "1级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_2",
+      "display": "2级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_3",
+      "display": "3级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_4",
+      "display": "4级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_5",
+      "display": "5级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_6",
+      "display": "6级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_7",
+      "display": "7级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_8",
+      "display": "8级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_9",
+      "display": "9级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_10",
+      "display": "10级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "refinement_ingot_grade_11",
+      "display": "11级炼器胚",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "demon_qi_sample",
+      "display": "魔气样本",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "kunwu_permit_token",
+      "display": "昆吾入山令",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "talisman_paper_low",
+      "display": "低阶符纸",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "forge_hammer_low",
+      "display": "炼器小锤",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "nether_ferry_token",
+      "display": "冥河渡票",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "diyuan_permit",
+      "display": "地渊令",
+      "category": "",
+      "rarity": ""
+    },
+    {
+      "id": "mulan_war_merit",
+      "display": "边战功勋",
+      "category": "",
+      "rarity": ""
+    }
+  ]
+}

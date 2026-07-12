@@ -1,0 +1,34 @@
+{
+  "id": "foundation_building_pill_low",
+  "display_translation": "alchemy_recipe.seeking_immortals.foundation_building_pill_low",
+  "output_items": {
+    "low": "seeking_immortals:foundation_building_pill_low",
+    "medium": "seeking_immortals:foundation_building_pill_mid",
+    "high": "seeking_immortals:foundation_building_pill_high",
+    "supreme": "seeking_immortals:foundation_building_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 40,
+  "cook_ticks": 800,
+  "success_rate": 0.65,
+  "explosion_chance": 0.05,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4
+    },
+    {
+      "item": "seeking_immortals:dragon_blood_grass",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:beast_core",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "schema_version": 3,
+  "source": "汇编 魔道六宗北迁；专精标签非全量照搬",
+  "chronicle": "K_demonic_six_north_migration",
+  "region_primary": "tiannan_north_waste",
+  "karma": {
+    "type": "demonic_karma",
+    "righteous_sect_ban": [
+      "huangfeng_valley",
+      "tianlan_temple"
+    ]
+  },
+  "sects": [
+    {
+      "id": "guiling_gate",
+      "display": "鬼灵门",
+      "archetype": "soul_corpse",
+      "methods": [
+        "xuan_yin_art",
+        "guiling_soul_art"
+      ],
+      "specialty": [
+        "摄魂",
+        "炼尸",
+        "阴火"
+      ],
+      "skill_tree_ref": "ghost_xuan_yin",
+      "setting": {
+        "lore": "炼尸摄魂，鬼灵门为六宗之一。",
+        "join_risk": "righteous_bounty"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "karma": "demonic",
+          "realm_min": "QI_REFINING",
+          "forbidden_if": [
+            "huangfeng_inner"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "archetype": "dual_cultivation",
+      "methods": [
+        "hehuan_mind_art"
+      ],
+      "specialty": [
+        "媚术",
+        "双修",
+        "幻惑"
+      ],
+      "note": "女修为主",
+      "setting": {
+        "lore": "媚术双修，女修居多。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "gender_note": "女修优先",
+          "karma": "demonic"
+        }
+      }
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "archetype": "demon_body",
+      "methods": [
+        "tianmo_body_art"
+      ],
+      "specialty": [
+        "魔体",
+        "狂战",
+        "血祭"
+      ],
+      "setting": {
+        "lore": "魔体炼体，血祭狂战。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION",
+          "items_suggested": [
+            "blood_altar_access"
+          ]
+        }
+      }
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "archetype": "poison_insect",
+      "methods": [
+        "qingluo_poison_art"
+      ],
+      "specialty": [
+        "毒术",
+        "虫傀"
+      ],
+      "setting": {
+        "lore": "毒道诡术。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "archetype": "illusion_beast",
+      "methods": [
+        "wanhu_phantom_art"
+      ],
+      "specialty": [
+        "幻术",
+        "妖狐"
+      ],
+      "setting": {
+        "lore": "幻术惑心。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "archetype": "blood_curse",
+      "methods": [
+        "xuewu_blood_art"
+      ],
+      "specialty": [
+        "血咒",
+        "巫术"
+      ],
+      "setting": {
+        "lore": "血咒杀伐。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ],
+  "skill_tree_gate_audit": [
+    {
+      "sect": "guiling_gate",
+      "method": "xuan_yin_art",
+      "skill_tree": "ghost_xuan_yin",
+      "status": "ok",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "guiling_gate",
+      "method": "guiling_soul_art",
+      "skill_tree": "ghost_xuan_yin",
+      "status": "ok",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "hehuan_sect",
+      "method": "hehuan_mind_art",
+      "skill_tree": "demonic_hehuan",
+      "status": "ok",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "tianmo_sect",
+      "method": "tianmo_body_art",
+      "skill_tree": "demonic_tianmo",
+      "status": "ok",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "qingluo_sect",
+      "method": "qingluo_poison_art",
+      "skill_tree": null,
+      "status": "missing_tree",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "wanhu_sect",
+      "method": "wanhu_phantom_art",
+      "skill_tree": null,
+      "status": "missing_tree",
+      "requires_method_gate": "techniques/demonic.json"
+    },
+    {
+      "sect": "xuewu_sect",
+      "method": "xuewu_blood_art",
+      "skill_tree": null,
+      "status": "missing_tree",
+      "requires_method_gate": "techniques/demonic.json"
+    }
+  ],
+  "missing_trees_recommended": [
+    {
+      "sect": "hehuan_sect",
+      "tree_id": "hehuan_dual",
+      "method_root": "hehuan_mind_art"
+    },
+    {
+      "sect": "tianmo_sect",
+      "tree_id": "tianmo_body",
+      "method_root": "tianmo_body_art"
+    },
+    {
+      "sect": "qingluo_sect",
+      "tree_id": "qingluo_poison",
+      "method_root": "qingluo_poison_art"
+    },
+    {
+      "sect": "wanhu_sect",
+      "tree_id": "wanhu_phantom",
+      "method_root": "wanhu_phantom_art"
+    },
+    {
+      "sect": "xuewu_sect",
+      "tree_id": "xuewu_blood",
+      "method_root": "xuewu_blood_art"
+    }
+  ]
+}

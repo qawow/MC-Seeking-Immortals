@@ -1,0 +1,213 @@
+{
+  "schema_version": 2,
+  "source": "汇编 11.2 符箓三等级三 + talisman_catalog#craft_rules",
+  "description": "符纸、符墨成品与制符辅料（与通用 talisman_paper 兼容：默认 low_spirit）",
+  "papers": [
+    {
+      "id": "talisman_paper_mortal",
+      "display": "凡符纸",
+      "grade": "mortal",
+      "effect_mult": 0.8,
+      "success_base": 0.7,
+      "stack": 64,
+      "regions": [
+        "tiannan"
+      ],
+      "setting": {
+        "lore": "凡符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    },
+    {
+      "id": "talisman_paper",
+      "display": "下品灵符纸",
+      "grade": "low_spirit",
+      "effect_mult": 1.0,
+      "success_base": 0.8,
+      "stack": 64,
+      "alias_of_grade": "low_spirit",
+      "setting": {
+        "lore": "下品灵符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    },
+    {
+      "id": "talisman_paper_mid",
+      "display": "中品灵符纸",
+      "grade": "mid_spirit",
+      "effect_mult": 1.2,
+      "success_base": 0.9,
+      "stack": 32,
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "中品灵符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    },
+    {
+      "id": "talisman_paper_high",
+      "display": "上品灵符纸",
+      "grade": "high_spirit",
+      "effect_mult": 1.5,
+      "success_base": 1.0,
+      "stack": 16,
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "上品灵符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    },
+    {
+      "id": "yin_talisman_paper",
+      "display": "阴符纸",
+      "grade": "low_spirit",
+      "effect_mult": 1.0,
+      "path": "ghost",
+      "bonus": "yin_talisman_plus",
+      "setting": {
+        "lore": "阴符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    },
+    {
+      "id": "talisman_paper_spirit_realm",
+      "display": "灵界符纸",
+      "grade": "high_spirit",
+      "effect_mult": 1.35,
+      "success_base": 0.95,
+      "stack": 8,
+      "realm_min": "VOID_REFINEMENT",
+      "regions": [
+        "tianyuan",
+        "spirit_fengyuan"
+      ],
+      "setting": {
+        "lore": "灵界符纸",
+        "source_file": "talisman_materials_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "talisman_materials_catalog.json"
+      }
+    }
+  ],
+  "inks": [
+    {
+      "id": "beast_blood_ink",
+      "display": "妖血墨",
+      "craft_ref": "materials_catalog#beast_blood_ink"
+    },
+    {
+      "id": "spirit_plant_ink",
+      "display": "灵草墨",
+      "craft_ref": "materials_catalog#spirit_plant_ink"
+    },
+    {
+      "id": "essence_herb_ink",
+      "display": "精魄墨",
+      "craft_ref": "materials_catalog#essence_herb_ink"
+    }
+  ],
+  "craft_recipes": [
+    {
+      "id": "craft_paper_mortal",
+      "output": "talisman_paper_mortal",
+      "count": 8,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 1
+        }
+      ],
+      "station": "talisman_table"
+    },
+    {
+      "id": "craft_paper_low",
+      "output": "talisman_paper",
+      "count": 4,
+      "materials": [
+        {
+          "id": "spirit_silk",
+          "count": 2
+        },
+        {
+          "id": "spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "station": "talisman_table"
+    },
+    {
+      "id": "craft_paper_mid",
+      "output": "talisman_paper_mid",
+      "count": 2,
+      "materials": [
+        {
+          "id": "talisman_paper",
+          "count": 4
+        },
+        {
+          "id": "star_moon_grass",
+          "count": 1
+        }
+      ],
+      "station": "talisman_table",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "id": "craft_paper_high",
+      "output": "talisman_paper_high",
+      "count": 1,
+      "materials": [
+        {
+          "id": "talisman_paper_mid",
+          "count": 3
+        },
+        {
+          "id": "thunder_stone",
+          "count": 1
+        }
+      ],
+      "station": "talisman_table",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "id": "craft_paper_spirit_realm",
+      "output": "talisman_paper_spirit_realm",
+      "count": 1,
+      "materials": [
+        {
+          "id": "talisman_paper_high",
+          "count": 2
+        },
+        {
+          "id": "void_marrow",
+          "count": 1
+        }
+      ],
+      "station": "talisman_table",
+      "realm_min": "VOID_REFINEMENT"
+    }
+  ],
+  "recipe_paper_field": "paper_grade maps to papers[].grade in talisman_recipes.json"
+}

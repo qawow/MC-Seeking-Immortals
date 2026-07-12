@@ -1,0 +1,241 @@
+{
+  "schema_version": 2,
+  "source": "汇编 11.7 傀儡部件 + puppet_definitions 升级树",
+  "parts": [
+    {
+      "id": "puppet_core_blank",
+      "display": "傀儡灵核（空）",
+      "tier": "T0",
+      "use": "puppet_craft_base",
+      "setting": {
+        "lore": "傀儡灵核（空）",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "ironwood_frame",
+      "display": "铁木机架",
+      "tier": "T0",
+      "craft_from": [
+        "ironwood"
+      ],
+      "count": 4,
+      "setting": {
+        "lore": "铁木机架",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "turtle_plating",
+      "display": "龟甲覆片",
+      "tier": "T2",
+      "use": "defense_upgrade",
+      "setting": {
+        "lore": "龟甲覆片",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "thunder_fire_orb",
+      "display": "雷火珠",
+      "tier": "T2",
+      "use": "giant_turtle_skill",
+      "craft_from": [
+        "thunder_stone",
+        "demon_core_low"
+      ],
+      "setting": {
+        "lore": "雷火珠",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "stone_spirit_core",
+      "display": "石灵核心",
+      "tier": "T3",
+      "use": "stone_spirit_puppet",
+      "requires": "beast_soul_essence",
+      "setting": {
+        "lore": "石灵核心",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "dayan_solution_fragment",
+      "display": "大衍诀残页",
+      "tier": "T5",
+      "use": "unlock_dayan_puppet",
+      "rarity": "legendary",
+      "setting": {
+        "lore": "大衍诀残页",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "ancient_puppet_method",
+      "display": "上古傀儡术",
+      "tier": "T3",
+      "type": "manual",
+      "unlocks": [
+        "stone_spirit_puppet"
+      ],
+      "setting": {
+        "lore": "上古傀儡术",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "puppet_repair_kit",
+      "display": "傀儡修缮包",
+      "category": "consumable",
+      "restores_hp_pct": 0.4,
+      "setting": {
+        "lore": "傀儡修缮包",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "giant_ape_puppet_blueprint",
+      "display": "巨猿傀儡图",
+      "tier": "T1",
+      "type": "manual",
+      "unlocks": [
+        "giant_ape_puppet"
+      ],
+      "material": "ironwood",
+      "setting": {
+        "lore": "巨猿傀儡图",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "giant_turtle_shell_blank",
+      "display": "巨龟甲胚",
+      "tier": "T2",
+      "use": "giant_turtle_puppet",
+      "craft_from": [
+        "turtle_plating",
+        "jiao_scale"
+      ],
+      "setting": {
+        "lore": "巨龟甲胚",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "puppet_joint_bearing",
+      "display": "机括轴承",
+      "tier": "T1",
+      "use": "puppet_mobility",
+      "craft_from": [
+        "low_spirit_iron",
+        "ironwood"
+      ],
+      "setting": {
+        "lore": "机括轴承",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "refinement_forge_hammer",
+      "display": "炼器锤（低阶）",
+      "tier": "T0",
+      "type": "tool",
+      "use": "refinement_station",
+      "note": "炼器宗门常用工具向",
+      "setting": {
+        "lore": "炼器锤（低阶）",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "puppet_limb_iron",
+      "display": "铁制傀儡肢",
+      "tier": "common",
+      "setting": {
+        "lore": "铁制傀儡肢",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "puppet_array_core",
+      "display": "傀儡阵芯",
+      "tier": "rare",
+      "setting": {
+        "lore": "傀儡阵芯",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    },
+    {
+      "id": "giant_turtle_shell_plate",
+      "display": "巨龟壳板",
+      "tier": "legendary",
+      "note": "海域傀儡材料",
+      "setting": {
+        "lore": "巨龟壳板",
+        "source_file": "puppet_parts_catalog.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "puppet_parts_catalog.json"
+      }
+    }
+  ],
+  "assembly_recipes_ref": "puppet_definitions.json#definitions"
+}

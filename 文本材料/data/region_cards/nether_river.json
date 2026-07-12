@@ -1,0 +1,17 @@
+{
+  "schema_version": 2,
+  "id": "nether_river",
+  "display": "冥河",
+  "spirit_density": "yin",
+  "parent_cluster": "yin_underworld_cluster",
+  "secret_realms": [
+    "nether_river_land"
+  ],
+  "shops": [
+    "nether_ferry_vendor"
+  ],
+  "daily_events": [
+    "nether_river_fog",
+    "ghost_boat"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "artifact_taxonomy_111.json",
+  "primary_key": "sections",
+  "entries": [
+    {
+      "id": "attack",
+      "display": "攻击类"
+    },
+    {
+      "id": "defense",
+      "display": "防御类"
+    },
+    {
+      "id": "flight_escape",
+      "display": "飞行/遁逃"
+    },
+    {
+      "id": "special_control",
+      "display": "特殊/控制"
+    },
+    {
+      "id": "talisman_treasure",
+      "display": "符宝"
+    },
+    {
+      "id": "ancient_and_spirit",
+      "display": "古宝与灵宝向"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "dimensions": [
+    {
+      "id": "seeking_immortals:mortal_world",
+      "display": "人界（主世界）",
+      "type": "mortal_realm",
+      "min_realm": "DEITY_TRANSFORMATION"
+    },
+    {
+      "id": "seeking_immortals:tianyuan",
+      "display": "天渊城",
+      "type": "spirit_realm",
+      "min_realm": ""
+    },
+    {
+      "id": "seeking_immortals:spirit_fengyuan",
+      "display": "灵界·风元大陆",
+      "type": "spirit_realm",
+      "min_realm": "GREAT_VEHICLE"
+    },
+    {
+      "id": "seeking_immortals:yin_ming_pocket",
+      "display": "冥河界域",
+      "type": "yin_underworld_cluster",
+      "min_realm": ""
+    },
+    {
+      "id": "seeking_immortals:demon_rift",
+      "display": "魔界裂隙（临时）",
+      "type": "ancient_demon_realm",
+      "min_realm": ""
+    },
+    {
+      "id": "seeking_immortals:immortal_realm",
+      "display": "仙界",
+      "type": "immortal_realm",
+      "min_realm": ""
+    },
+    {
+      "id": "mortal_realm",
+      "display": "人界",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "spirit_realm",
+      "display": "灵界",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "yin_underworld_cluster",
+      "display": "阴司之界",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "ancient_demon_realm",
+      "display": "上古魔界",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "immortal_realm",
+      "display": "仙界",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "spirit_world_interface",
+      "display": "灵界界面节点",
+      "type": "cosmology",
+      "min_realm": "DEITY_TRANSFORMATION"
+    },
+    {
+      "id": "tianyuan_city_district",
+      "display": "天渊城",
+      "type": "cosmology",
+      "min_realm": ""
+    },
+    {
+      "id": "yin_underworld_gate",
+      "display": "阴司入口",
+      "type": "cosmology",
+      "min_realm": ""
+    }
+  ]
+}

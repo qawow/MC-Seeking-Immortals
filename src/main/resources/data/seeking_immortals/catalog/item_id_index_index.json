@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "item_id_index.json",
+  "primary_key": "expansion_log",
+  "entries": [
+    {
+      "id": "v13",
+      "display": "v13"
+    },
+    {
+      "id": "v14",
+      "display": "v14"
+    },
+    {
+      "id": "v15",
+      "display": "v15"
+    },
+    {
+      "id": "v16",
+      "display": "v16"
+    },
+    {
+      "id": "v21",
+      "display": "v21"
+    },
+    {
+      "id": "v57_novel_complete",
+      "display": "v57_novel_complete"
+    },
+    {
+      "id": "v58_novel_all",
+      "display": "v58_novel_all"
+    }
+  ]
+}

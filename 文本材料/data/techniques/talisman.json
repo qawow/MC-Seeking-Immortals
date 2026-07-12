@@ -1,0 +1,1264 @@
+{
+  "schema_version": 9,
+  "school": "talisman",
+  "techniques": [
+    {
+      "id": "fire_talisman",
+      "display": "烈火符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "烈火符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "烈火符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ]
+      }
+    },
+    {
+      "id": "ice_talisman",
+      "display": "寒冰符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 9,
+      "source": "通用",
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 18,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "寒冰符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "寒冰符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ]
+      }
+    },
+    {
+      "id": "teleport_talisman",
+      "display": "遁天符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "movement",
+        "element": "space",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "遁天符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "遁天符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ]
+      }
+    },
+    {
+      "id": "spirit_shield_talisman",
+      "display": "护体符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "护体符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "tianfu_scripture",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "护体符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_scripture"
+        ]
+      }
+    },
+    {
+      "id": "explosion_talisman",
+      "display": "爆炎符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 17,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 35,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "爆炎符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "tianfu_scripture",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "爆炎符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_scripture"
+        ]
+      }
+    },
+    {
+      "id": "wind_talisman",
+      "display": "神行符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "buff",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "神行符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "tianfu_scripture",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "神行符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_scripture"
+        ]
+      }
+    },
+    {
+      "id": "seal_talisman",
+      "display": "定身符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "通用",
+      "effect": {
+        "type": "debuff",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": []
+      },
+      "tier": "spell",
+      "description": "定身符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "tianfu_scripture",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "定身符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "tianfu_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "tianfu_scripture"
+        ]
+      }
+    },
+    {
+      "id": "ghost_talisman",
+      "display": "驱鬼符",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "通用",
+      "effect": {
+        "type": "aoe",
+        "element": "yang",
+        "damage_base": 28,
+        "tags": []
+      },
+      "tier": "spell",
+      "path_required": "ghost_cultivator",
+      "requires_method": "yin_luo_ghost_art",
+      "description": "驱鬼符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "驱鬼符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+        "requires_method": "yin_luo_ghost_art"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "prerequisite_methods": [
+          "yin_luo_ghost_art"
+        ]
+      }
+    },
+    {
+      "id": "spirit_chain_talisman_cast",
+      "display": "缚灵符术",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianfu_spirit_scripture",
+      "spirit_cost_base": 16,
+      "effect": {
+        "type": "debuff",
+        "element": "spirit",
+        "tags": [
+          "bind"
+        ]
+      },
+      "description": "缚灵符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "缚灵符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ]
+      }
+    },
+    {
+      "id": "golden_armor_talisman_cast",
+      "display": "金刚符术",
+      "school": "talisman",
+      "tier": "spell",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianfu_spirit_scripture",
+      "spirit_cost_base": 14,
+      "effect": {
+        "type": "buff",
+        "element": "metal",
+        "tags": [
+          "defense"
+        ]
+      },
+      "description": "金刚符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金刚符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ]
+      }
+    },
+    {
+      "id": "thunder_talisman_storm",
+      "display": "雷符暴雨",
+      "school": "talisman",
+      "tier": "secret",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "tianfu_spirit_scripture",
+      "spirit_cost_base": 32,
+      "effect": {
+        "type": "aoe",
+        "element": "thunder",
+        "damage_base": 60
+      },
+      "description": "雷符暴雨：talisman神通，需境界 CORE_FORMATION 以上方可施展。",
+      "source": "凡人向扩充",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "ritual",
+        "target": "battlefield",
+        "lore": "雷符暴雨：talisman神通，需境界 CORE_FORMATION 以上方可施展。",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "secret_inheritance",
+          "ruin",
+          "tribulation"
+        ],
+        "realm_min_override_strict": true,
+        "realm_min": "CORE_FORMATION",
+        "prerequisite_methods": [
+          "tianfu_spirit_scripture"
+        ],
+        "prerequisite_mode": "all"
+      }
+    },
+    {
+      "id": "tianfu_golden_chain",
+      "display": "天符金链",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianfu_scripture",
+      "effect": {
+        "type": "control",
+        "damage_base": 30,
+        "tags": [
+          "bind"
+        ]
+      },
+      "description": "符箓化金链缚敌。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "spirit_cost_base": 18,
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "耗符纸或灵墨",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "符箓化金链缚敌。",
+        "requires_method": "tianfu_scripture"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "method_unlock",
+          "manual_slip"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "prerequisite_methods": [
+          "tianfu_scripture"
+        ]
+      }
+    },
+    {
+      "id": "cast_fire_burst_talisman",
+      "display": "爆炎符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "aoe_fire",
+        "damage_base": 18
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「爆炎符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：爆炎符",
+        "craft_recipe_id": "fire_burst_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "fire_burst_talisman"
+      }
+    },
+    {
+      "id": "cast_ice_seal_talisman",
+      "display": "冰封符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "slow_ice",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「冰封符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：冰封符",
+        "craft_recipe_id": "ice_seal_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "ice_seal_talisman"
+      }
+    },
+    {
+      "id": "cast_escape_heaven_talisman",
+      "display": "遁天符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "long_escape",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「遁天符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：遁天符",
+        "craft_recipe_id": "escape_heaven_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "escape_heaven_talisman"
+      }
+    },
+    {
+      "id": "cast_spirit_fix_talisman",
+      "display": "定神符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "anti_illusion",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「定神符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：定神符",
+        "craft_recipe_id": "spirit_fix_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "spirit_fix_talisman"
+      }
+    },
+    {
+      "id": "cast_thunder_talisman",
+      "display": "雷霄符·瞬发",
+      "school": "talisman",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "thunder_strike",
+        "damage_base": 80
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「雷霄符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：雷霄符",
+        "craft_recipe_id": "thunder_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "craft_recipe_id": "thunder_talisman"
+      }
+    },
+    {
+      "id": "cast_soul_lock_talisman",
+      "display": "锁魂符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "soul_bind",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「锁魂符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：锁魂符",
+        "craft_recipe_id": "soul_lock_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "soul_lock_talisman"
+      }
+    },
+    {
+      "id": "cast_teleport_array_talisman",
+      "display": "传送符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "array_teleport",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「传送符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：传送符",
+        "craft_recipe_id": "teleport_array_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "teleport_array_talisman"
+      }
+    },
+    {
+      "id": "cast_beast_contract_talisman",
+      "display": "御兽契符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "pet_contract",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「御兽契符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：御兽契符",
+        "craft_recipe_id": "beast_contract_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "beast_contract_talisman"
+      }
+    },
+    {
+      "id": "cast_anti_demon_talisman",
+      "display": "驱魔符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "demon_repulse",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「驱魔符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：驱魔符",
+        "craft_recipe_id": "anti_demon_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "anti_demon_talisman"
+      }
+    },
+    {
+      "id": "cast_yin_protect_talisman",
+      "display": "阴灵护符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "yin_damage_resist_0.3",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「阴灵护符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：阴灵护符",
+        "craft_recipe_id": "yin_protect_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "yin_protect_talisman"
+      }
+    },
+    {
+      "id": "cast_ghost_hide_talisman",
+      "display": "敛魂符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "mask_qi",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「敛魂符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：敛魂符",
+        "craft_recipe_id": "ghost_hide_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "ghost_hide_talisman"
+      }
+    },
+    {
+      "id": "cast_space_anchor_talisman",
+      "display": "定空符·瞬发",
+      "school": "talisman",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "prevent_teleport",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「定空符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：定空符",
+        "craft_recipe_id": "space_anchor_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "CORE_FORMATION",
+        "craft_recipe_id": "space_anchor_talisman"
+      }
+    },
+    {
+      "id": "cast_life_save_talisman",
+      "display": "替身符·瞬发",
+      "school": "talisman",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "auto_resurrect_once",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「替身符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：替身符",
+        "craft_recipe_id": "life_save_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "NASCENT_SOUL",
+        "craft_recipe_id": "life_save_talisman"
+      }
+    },
+    {
+      "id": "cast_earth_wall_talisman",
+      "display": "土墙符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "temp_wall",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「土墙符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：土墙符",
+        "craft_recipe_id": "earth_wall_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "earth_wall_talisman"
+      }
+    },
+    {
+      "id": "cast_mirage_heart_talisman",
+      "display": "幻心符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "illusion_charm",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「幻心符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：幻心符",
+        "craft_recipe_id": "mirage_heart_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "mirage_heart_talisman"
+      }
+    },
+    {
+      "id": "cast_invisibility_talisman",
+      "display": "匿形符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "invisibility_short",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「匿形符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：匿形符",
+        "craft_recipe_id": "invisibility_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "invisibility_talisman"
+      }
+    },
+    {
+      "id": "cast_spirit_gather_talisman",
+      "display": "聚灵符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "local_spirit_boost",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「聚灵符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：聚灵符",
+        "craft_recipe_id": "spirit_gather_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "spirit_gather_talisman"
+      }
+    },
+    {
+      "id": "cast_illusion_talisman",
+      "display": "迷踪符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「迷踪符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：迷踪符",
+        "craft_recipe_id": "illusion_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "illusion_talisman"
+      }
+    },
+    {
+      "id": "cast_star_palace_patrol_talisman",
+      "display": "星宫巡海符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「星宫巡海符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：星宫巡海符",
+        "craft_recipe_id": "star_palace_patrol_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "star_palace_patrol_talisman"
+      }
+    },
+    {
+      "id": "cast_golden_armor_talisman",
+      "display": "金刚符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「金刚符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：金刚符",
+        "craft_recipe_id": "golden_armor_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "golden_armor_talisman"
+      }
+    },
+    {
+      "id": "cast_inverse_star_cipher_talisman",
+      "display": "逆星暗号符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「逆星暗号符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：逆星暗号符",
+        "craft_recipe_id": "inverse_star_cipher_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "inverse_star_cipher_talisman"
+      }
+    },
+    {
+      "id": "cast_bu_tian_talisman",
+      "display": "补天符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「补天符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：补天符",
+        "craft_recipe_id": "bu_tian_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "bu_tian_talisman"
+      }
+    },
+    {
+      "id": "cast_wood_bind_talisman",
+      "display": "木缚符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「木缚符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：木缚符",
+        "craft_recipe_id": "wood_bind_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "wood_bind_talisman"
+      }
+    },
+    {
+      "id": "cast_metal_blade_talisman",
+      "display": "金刃符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「金刃符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：金刃符",
+        "craft_recipe_id": "metal_blade_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "metal_blade_talisman"
+      }
+    },
+    {
+      "id": "cast_void_palace_key_talisman",
+      "display": "虚天引路符·瞬发",
+      "school": "talisman",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「虚天引路符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：虚天引路符",
+        "craft_recipe_id": "void_palace_key_talisman"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "QI_REFINING",
+        "craft_recipe_id": "void_palace_key_talisman"
+      }
+    },
+    {
+      "id": "cast_talisman_wooden_ox",
+      "display": "木牛符·瞬发",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "制符解锁",
+      "effect": {
+        "type": "talisman_consume",
+        "effect_key": "talisman_consume",
+        "damage_base": 12
+      },
+      "tier": "spell",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "制符学会「木牛符」后可瞬发消耗符箓。",
+      "setting": {
+        "combat_style": "符箓瞬发",
+        "cast_bias": "instant",
+        "cost_note": "消耗背包符箓",
+        "lore": "制符解锁：木牛符",
+        "craft_recipe_id": "talisman_wooden_ox"
+      },
+      "learn_requirements": {
+        "learn_source": [
+          "craft_talisman_recipe"
+        ],
+        "prerequisite_mode": "all",
+        "realm_min": "FOUNDATION",
+        "craft_recipe_id": "talisman_wooden_ox"
+      }
+    }
+  ],
+  "method_gate": {
+    "tianfu_spirit_scripture": "天符灵经"
+  }
+}

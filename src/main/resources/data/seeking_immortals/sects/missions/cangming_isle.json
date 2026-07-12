@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "cangming_water_stone",
+      "title_key": "screen.seeking_immortals.sect.mission.cangming_water_stone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:water_spirit_stone",
+      "target": 6,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "cangming_void_crystal",
+      "title_key": "screen.seeking_immortals.sect.mission.cangming_void_crystal.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:void_crystal",
+      "target": 2,
+      "reward_contribution": 70,
+      "min_stage": 2
+    },
+    {
+      "id": "cangming_time_sand",
+      "title_key": "screen.seeking_immortals.sect.mission.cangming_time_sand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:time_sand",
+      "target": 1,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

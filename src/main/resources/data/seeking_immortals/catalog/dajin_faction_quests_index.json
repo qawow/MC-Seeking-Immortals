@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "dajin_faction_quests.json",
+  "primary_key": "chains",
+  "entries": [
+    {
+      "id": "dajin_wanbao_route",
+      "display": "万宝楼拍卖线"
+    },
+    {
+      "id": "dajin_clan_line",
+      "display": "世家祖传诀"
+    },
+    {
+      "id": "dajin_righteous_demon_border",
+      "display": "正魔边境摩擦"
+    },
+    {
+      "id": "yinluo_ghost_river",
+      "display": "阴罗冥河线"
+    }
+  ]
+}

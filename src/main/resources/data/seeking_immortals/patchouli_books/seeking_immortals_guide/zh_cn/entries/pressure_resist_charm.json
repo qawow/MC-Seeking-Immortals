@@ -1,0 +1,28 @@
+{
+  "name": "抗压符",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:pressure_resist_charm",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "用途来源",
+      "text": "本页对应 tianyuan_merit_economy.json#pressure_resist_charm、secret_realms.json#diyuan、spirit_herbs_catalog.json#diyuan_pressure_moss 与 tribulation_rules.json#diyuan_pressure。抗压符是地渊重压的短时护身符路线。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前使用",
+      "text": "seeking_immortals:pressure_resist_charm 现在可右键使用，要求炼虚境界。成功后写入半日抗压计时，清理地渊压力造成的缓慢与反胃，并给短时抗性和移速反馈。若已有足量抗压计时，则不会浪费符箓。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "合成与兑换",
+      "text": "第一版合成为无序配方：纸、seeking_immortals:diyuan_pressure_moss、seeking_immortals:armor_talisman 与中品金灵石合成一张抗压符。天渊功勋殿也保留 200 alliance_merit_token 的兑换入口。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "与抗压丹",
+      "text": "抗压丹提供更长的基础计时，抗压符更像应急护身灵纹；两者复用同一服务端抗压状态，都会抵消当前地渊压力循环。后续仍需要地渊采集、秘境掉落、任务引导、专属视觉和更深层压力规则。"
+    }
+  ]
+}

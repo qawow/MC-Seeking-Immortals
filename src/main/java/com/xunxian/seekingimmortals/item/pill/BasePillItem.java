@@ -52,6 +52,11 @@ public class BasePillItem extends Item {
                 .orElse(1.0D);
     }
 
+    /** 丹药实际生效倍数 = 品质倍数 × 玩家吸收率（M16）。 */
+    protected double effectiveMultiplier(ServerPlayer player) {
+        return getQuality().getEffectMultiplier() * getPillAbsorptionMultiplier(player);
+    }
+
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.literal(quality.getDisplayName()).withStyle(style -> style.withColor(quality.getColor())));

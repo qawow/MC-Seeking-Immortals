@@ -1,0 +1,29 @@
+{
+  "id": "outer_sea_public_stall",
+  "currency": "item",
+  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "refresh_ticks": 24000,
+  "entries": [
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 10,
+      "cost": 1,
+      "stock": 999
+    },
+    {
+      "id": "herb_bundle_low",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4,
+      "cost": 12,
+      "stock": 30
+    },
+    {
+      "id": "pearl_raw",
+      "item": "seeking_immortals:pearl_raw",
+      "count": 1,
+      "cost": 8,
+      "stock": 50
+    }
+  ]
+}

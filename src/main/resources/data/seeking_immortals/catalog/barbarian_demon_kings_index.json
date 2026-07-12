@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "barbarian_demon_kings.json",
+  "primary_key": "kings",
+  "entries": [
+    {
+      "id": "king_bear_mountain",
+      "display": "山岳熊王"
+    },
+    {
+      "id": "king_fox_mist",
+      "display": "迷雾狐王"
+    },
+    {
+      "id": "king_pine_ancient",
+      "display": "古松妖王"
+    },
+    {
+      "id": "king_roc_sky",
+      "display": "鹏王"
+    },
+    {
+      "id": "king_snake_swamp",
+      "display": "沼泽蛇王"
+    },
+    {
+      "id": "king_tiger_jungle",
+      "display": "丛林虎王"
+    },
+    {
+      "id": "king_turtle_depth",
+      "display": "玄龟妖王"
+    }
+  ]
+}

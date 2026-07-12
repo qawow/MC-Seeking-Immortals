@@ -1,0 +1,30 @@
+{
+  "id": "forget_dust_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.forget_dust_pill",
+  "output_items": {
+    "low": "seeking_immortals:forget_dust_pill",
+    "medium": "seeking_immortals:forget_dust_pill_mid",
+    "high": "seeking_immortals:forget_dust_pill_high",
+    "supreme": "seeking_immortals:forget_dust_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 24,
+  "cook_ticks": 440,
+  "success_rate": 0.7,
+  "explosion_chance": 0.04,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "MORTAL",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:soul_fragment",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:time_sand",
+      "count": 1
+    }
+  ]
+}

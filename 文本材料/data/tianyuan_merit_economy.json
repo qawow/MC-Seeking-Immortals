@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "source": "汇编9.7 天渊城；灵气约2倍为结构倍率；功勋换资源",
+  "city_ref": "tianyuan_city.json",
+  "currency": "border_merit_token",
+  "merit_sources": [
+    {
+      "id": "wild_land_hunt",
+      "display": "荒原猎妖",
+      "typical_merit": 15
+    },
+    {
+      "id": "beast_wave_defense",
+      "display": "兽潮守城",
+      "typical_merit": 80,
+      "event_mult": 2.0
+    },
+    {
+      "id": "merit_convoy",
+      "display": "功勋车队护卫",
+      "typical_merit": 40
+    },
+    {
+      "id": "demon_embassy_quest",
+      "display": "妖族外交任务",
+      "typical_merit": 25
+    },
+    {
+      "id": "diyuan_permit_exchange",
+      "display": "兑换地渊令",
+      "cost_merit": 1200,
+      "realm_min": "VOID_REFINEMENT"
+    }
+  ],
+  "exchange_catalog": [
+    {
+      "item": "spirit_stone_high",
+      "cost_merit": 50
+    },
+    {
+      "item": "pressure_resist_charm",
+      "cost_merit": 200
+    },
+    {
+      "item": "diyuan_permit",
+      "cost_merit": 1200
+    },
+    {
+      "item": "wind_feather_raft_ticket",
+      "cost_merit": 300
+    }
+  ],
+  "daily_event_pool": "tianyuan_daily_events.json",
+  "disclaimer": "功勋数为量级参考，非原著精确数值"
+}

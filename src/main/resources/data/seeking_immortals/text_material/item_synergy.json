@@ -1,0 +1,389 @@
+{
+  "schema_version": 2,
+  "description": "汇编 11.1/11.2 法宝与丹药、术法、秘境联动",
+  "synergies": [
+    {
+      "items": [
+        "spirit_gathering_bead",
+        "evil_illusion_mirror"
+      ],
+      "relation": "counter",
+      "note": "定神珠破幻；邪幻镜施幻",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "spirit_gathering_bead",
+        "poluo_beads"
+      ],
+      "relation": "stack_soul_clarity",
+      "note": "定神+婆罗珠安定神魂",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "soul_summon_bell",
+        "quhun_iron_puppet"
+      ],
+      "relation": "controls",
+      "note": "引魂钟驱曲魂铁傀",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "hunyuan_bowl",
+        "giant_turtle_puppet"
+      ],
+      "relation": "upgrade_core",
+      "note": "混元钵可作傀儡核心",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "xuanhuang_mirror",
+        "xuanguang_mirror"
+      ],
+      "relation": "tier_upgrade",
+      "note": "玄光镜→玄黄镜魂灭",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "spirit_fix_talisman",
+        "spirit_gathering_bead"
+      ],
+      "relation": "anti_illusion",
+      "note": "定神符与定神珠同效类",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "qingxu_pill",
+        "spirit_beast"
+      ],
+      "relation": "pet_sanity",
+      "note": "清虚丹保灵兽神智",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "forget_dust_pill"
+      ],
+      "relation": "quest",
+      "note": "忘尘丹遗忘半日记忆",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "appearance_lock_pill"
+      ],
+      "relation": "cosmetic",
+      "note": "定颜丹",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "marrow_drain_pill"
+      ],
+      "relation": "debuff_tradeoff",
+      "note": "抽髓丸透支潜力",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "nether_river_shield_zone",
+        "nether_river_land"
+      ],
+      "relation": "tribulation_delay",
+      "note": "冥河屏蔽区",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "three_pure_thunder_talisman",
+        "thunder_tribulation"
+      ],
+      "relation": "tribulation_mitigate",
+      "note": "三清雷霄符",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "bu_tian_pill",
+        "spirit_roots_catalog"
+      ],
+      "relation": "spirit_root_purify",
+      "note": "补天丹净化灵根",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "dingyan_pill"
+      ],
+      "relation": "cosmetic",
+      "note": "定颜丹定格容貌",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "demon_suppress_pill",
+        "ancient_demon_fragment"
+      ],
+      "relation": "counter",
+      "note": "镇魔丹压制魔气",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "huiyang_true_water"
+      ],
+      "relation": "lifespan_once",
+      "note": "回阳真水一生一次",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "qingning_mirror",
+        "evil_illusion_mirror"
+      ],
+      "relation": "counter",
+      "note": "青凝镜克幻术类",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "antidote_pill",
+        "poison_dragon_pearl"
+      ],
+      "relation": "counter",
+      "note": "解毒丹克毒系",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "beast_taming_pill",
+        "beast_contract_talisman"
+      ],
+      "relation": "stack",
+      "note": "驭兽丹+御兽契符",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "refinement_manual_mid",
+        "refinement_forge"
+      ],
+      "relation": "unlock",
+      "note": "中篇手册解锁高阶炼器阵",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "flat_crown",
+        "flat_crown_replica"
+      ],
+      "relation": "variant",
+      "note": "平山冠与仿品",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    },
+    {
+      "items": [
+        "mana_shield_pill",
+        "body_guard_talisman"
+      ],
+      "relation": "stack_defense",
+      "note": "护灵丹+护体符",
+      "setting": {
+        "lore": "",
+        "source_file": "item_synergy.json"
+      },
+      "learn_requirements": {
+        "note": "结构向条目，具体门槛见关联主表。",
+        "ref": "item_synergy.json"
+      }
+    }
+  ],
+  "artifact_ids_ref": "artifacts_catalog.json",
+  "pill_ids_ref": "pills_catalog.json",
+  "artifact_combos": [
+    {
+      "artifacts": [
+        "yellow_umbrella",
+        "black_gold_shield"
+      ],
+      "bonus": "defense_stack",
+      "note": "汇编防御叠层"
+    },
+    {
+      "artifacts": [
+        "gold_demon_chain",
+        "peerless_flying_knives"
+      ],
+      "bonus": "multi_projectile_synergy",
+      "note": "子母刃+飞刀"
+    },
+    {
+      "artifacts": [
+        "soul_summon_bell",
+        "quhun_iron_puppet"
+      ],
+      "bonus": "puppet_duration",
+      "note": "引魂+铁傀"
+    },
+    {
+      "artifacts": [
+        "spirit_gathering_bead",
+        "evil_illusion_mirror"
+      ],
+      "bonus": "illusion_resist_while_channeling",
+      "note": "定神+幻镜对抗"
+    }
+  ]
+}

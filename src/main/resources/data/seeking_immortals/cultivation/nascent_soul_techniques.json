@@ -180,12 +180,266 @@
       "summary": "通用的复活秘术，能够借助他人尸体重获新生，但会大幅跌落修为境界，是最后的保命手段。"
     },
     {
+      "id": "life_fire",
+      "name": "本命真火",
+      "type": "secret_art",
+      "attribute": "元婴/本命真火/火",
+      "source": "通用",
+      "cost": 42,
+      "cooldown_ticks": 320,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "源自文本材料 secret_arts.json 的元婴期通用秘术，将本命婴火凝为灼魂火线；当前实现为自定义盘旋火线束、魔法伤害、灼烧和克制亡灵的阳火标记，不调用原版火球或火焰弹实体。"
+    },
+    {
+      "id": "lieyan_true_fire_secret",
+      "name": "真炎焚天",
+      "type": "secret_art",
+      "attribute": "火/真火/秘术",
+      "source": "烈焰真经",
+      "cost": 54,
+      "cooldown_ticks": 360,
+      "required_realm": "NASCENT_SOUL",
+      "requires_method": "lieyan_fire_art",
+      "summary": "源自文本材料 secret_arts.json 的烈焰功高阶秘术，真火成域焚烧敌阵；当前实现为自定义紫赤真火环阵和蛇形火路范围伤害，不生成原版爆炸、火球或火焰弹。"
+    },
+    {
       "id": "nascent_yang_infant_flame",
       "name": "元阳婴火",
       "type": "infant_flame",
       "attribute": "元婴/本命真火",
       "source": "元婴修士通用",
       "summary": "元婴修士独有的本命真火，不仅可用于炼丹炼器，还能作为强大的攻击手段，是元婴修士的标志。"
+    },
+    {
+      "id": "tribulation_thunder_ward",
+      "name": "护劫雷罩",
+      "type": "defense",
+      "attribute": "雷/护劫",
+      "source": "文本材料 recovery.json",
+      "cost": 34,
+      "cooldown_ticks": 360,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "元婴期护劫防御术，以雷光编成法罩，当前实现为自定义 DustParticle 雷罩、吸收护盾、抗性、火焰抗性与缓降；天劫正在进行时会额外增加少量天劫抗性。"
+    },
+    {
+      "id": "nascent_soul_escape",
+      "name": "元婴遁",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "元婴遁"
+    },
+    {
+      "id": "domain_compress",
+      "name": "领域压缩",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "领域压缩"
+    },
+    {
+      "id": "void_refine_touch",
+      "name": "炼虚触",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "炼虚触"
+    },
+    {
+      "id": "spirit_sense_merge",
+      "name": "神魂融合",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "神魂融合"
+    },
+    {
+      "id": "space_tear_slash",
+      "name": "裂空斩",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "裂空斩"
+    },
+    {
+      "id": "tribulation_redirect",
+      "name": "引劫术",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "引劫术"
+    },
+    {
+      "id": "bloodline_awaken",
+      "name": "血脉觉醒",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "血脉觉醒"
+    },
+    {
+      "id": "yin_soul_burst",
+      "name": "阴婴爆散",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "阴婴爆散"
+    },
+    {
+      "id": "nascent_soul_avatar",
+      "name": "元婴出窍",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料批量接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "元婴出窍"
+    },
+    {
+      "id": "second_nascent_soul",
+      "name": "第二元婴",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 12,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "summon:第二元婴"
+    },
+    {
+      "id": "nine_palace_seal_secret",
+      "name": "九宫封天",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:九宫封天"
+    },
+    {
+      "id": "dayan_puppet_legion",
+      "name": "大衍傀群",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:大衍傀群"
+    },
+    {
+      "id": "fallen_demon_transform",
+      "name": "坠魔变身",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:坠魔变身"
+    },
+    {
+      "id": "illusion_world",
+      "name": "幻界",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:幻界"
+    },
+    {
+      "id": "spatial_tear_escape",
+      "name": "破空遁",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:破空遁"
+    },
+    {
+      "id": "wan_sword_return",
+      "name": "万剑归宗（仿）",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 74,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "ultimate:万剑归宗（仿）"
+    },
+    {
+      "id": "huadao_slash_secret",
+      "name": "化刀一刀",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "secret_art:化刀一刀"
+    },
+    {
+      "id": "wanhu_thousand_phantom_domain",
+      "name": "千幻域",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "secret_art:千幻域"
+    },
+    {
+      "id": "inverse_star_covert_ultimate_secret",
+      "name": "逆星匿踪",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "secret_art:逆星匿踪"
+    },
+    {
+      "id": "demonic_guiling_ultimate_secret",
+      "name": "鬼灵尸潮",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "secret_art:鬼灵尸潮"
+    },
+    {
+      "id": "yin_cluster_ghost_ultimate_secret",
+      "name": "阴魂聚煞",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 18,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "secret_art:阴魂聚煞"
+    },
+    {
+      "id": "cast_life_save_talisman",
+      "name": "替身符·瞬发",
+      "type": "spell",
+      "attribute": "text_material",
+      "source": "文本材料收口接线",
+      "cost": 8,
+      "required_realm": "NASCENT_SOUL",
+      "summary": "talisman_consume:替身符·瞬发"
     }
   ]
 }

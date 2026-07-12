@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "region": "dajin",
+  "display": "正魔边境摩擦",
+  "daily_event_ids": [
+    "dajin_righteous_demon_skirmish"
+  ],
+  "quest_chain_ref": "dajin_righteous_demon_line",
+  "setting": {
+    "lore": "大晋正魔边境小规模冲突，非必胜国战；可双面悬赏。"
+  },
+  "reputation": {
+    "righteous_dajin": "rep_dajin_righteous",
+    "demonic_dajin": "rep_dajin_demon"
+  }
+}

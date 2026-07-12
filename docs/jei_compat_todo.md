@@ -1,12 +1,13 @@
-# JEI 兼容说明 / TODO
+# JEI compat notes / TODO
 
-当前版本只包含原版 `minecraft:crafting_shaped` / `minecraft:crafting_shapeless` 合成配方；安装 JEI 后，这些配方会被 JEI 自动显示，不需要额外 JEI Plugin。
+Current state:
 
-后续如果加入丹炉、炼丹台、符箓绘制台等自定义配方类型，应新增 JEI 兼容模块，例如：
+- JEI is optional in `mods.toml` and remains a development/runtime optional dependency.
+- The mod already ships a JEI alchemy category for built-in alchemy recipes.
+- The JEI alchemy view is limited to shipped/client-known recipes; datapack-added or server-only recipe changes are not dynamically synced into JEI in this pass.
 
-- 创建 `compat.jei` 包；
-- 添加带 `@JeiPlugin` 注解的插件类；
-- 注册自定义 recipe category、recipe catalyst、recipe transfer handler；
-- 仅引用 JEI API，保持 `mods.toml` 中 JEI 为 `mandatory=false`。
+Remaining TODO:
 
-依赖策略：`build.gradle` 使用 `compileOnly` 引入 JEI API，`runtimeOnly` 仅用于开发运行环境测试，避免把 JEI 变成硬依赖。
+- Add dynamic recipe sync if server datapack alchemy recipes should appear in JEI after `/reload`.
+- Add transfer/catalyst helpers for the alchemy furnace once the UX is ready.
+- Keep direct JEI API use isolated under compatibility code so the mod still starts without JEI installed.

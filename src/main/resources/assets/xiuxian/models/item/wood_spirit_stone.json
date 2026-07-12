@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "xiuxian:item/wood_spirit_stone"
-  }
-}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "source": "spirit_stone_ladder.json",
+  "primary_key": "tiers",
+  "entries": [
+    {
+      "id": "low",
+      "display": "下品灵石"
+    },
+    {
+      "id": "mid",
+      "display": "中品灵石"
+    },
+    {
+      "id": "high",
+      "display": "上品灵石"
+    },
+    {
+      "id": "peak",
+      "display": "极品灵石"
+    }
+  ]
+}

@@ -1,0 +1,1121 @@
+{
+  "schema_version": 3,
+  "note": "功法/法术具体描述与 effect 块；合并时覆盖或补缺",
+  "method_content": {
+    "changchun_gong": {
+      "description": "黄枫谷流传的基础木属性功法，炼气期可修至筑基；后续需转修更高剑诀或宗门秘传。",
+      "element_required": "wood",
+      "realm_max": "FOUNDATION",
+      "source": "huangfeng_valley",
+      "unlocks_techniques_school": "elemental",
+      "lore_ref": "tiannan_seven_sects"
+    },
+    "qingyuan_sword_art": {
+      "description": "青元剑诀：以灵力凝剑芒、御剑伤敌，筑基后主流剑修路径；需长春功等打底。",
+      "path": "sword",
+      "realm_min": "FOUNDATION",
+      "prerequisite_methods": [
+        "changchun_gong"
+      ],
+      "source": "huangfeng_valley",
+      "unlocks_techniques_school": "sword"
+    },
+    "xuan_yin_art": {
+      "description": "玄阴诀：魔道阴属性功法，可习摄魂、阴火一类法术；与鬼修阴体路线可衔接但非同一路。",
+      "path": "xuan_yin",
+      "karma": "yin",
+      "realm_min": "FOUNDATION",
+      "unlocks_techniques_school": "xuan_yin"
+    },
+    "dayan_art": {
+      "description": "大衍诀：傀儡术核心功法，凝炼神识分神操控傀体，结丹后威能方显。",
+      "path": "puppet",
+      "realm_min": "FOUNDATION",
+      "source": "dayan_sage_legacy",
+      "unlocks_techniques_school": "puppet"
+    },
+    "star_palace_art": {
+      "description": "星宫镇海诀：乱星海秩序阵营功法，偏重阵法与海域禁制。",
+      "path": "formation",
+      "realm_min": "FOUNDATION",
+      "faction": "star_palace",
+      "unlocks_techniques_school": "formation"
+    },
+    "inverse_star_art": {
+      "description": "逆星秘典：乱星海割据势力秘传，擅隐匿、走私与破禁。",
+      "path": "covert",
+      "realm_min": "FOUNDATION",
+      "faction": "inverse_star_alliance"
+    },
+    "mulan_wind_spirit_art": {
+      "description": "慕兰法士风灵诀：借天地灵气施法，不循传统丹田路线，需慕兰传承或特殊任务解锁。",
+      "path": "fashi",
+      "race_affinity": "mulan_fashi",
+      "realm_min": "FOUNDATION",
+      "unlocks_techniques_school": "fashi"
+    },
+    "ghost_nether_art": {
+      "description": "冥河鬼修诀：鬼道专属，凝阴体、驭阴魂；与人族正道声望冲突。",
+      "race": "ghost_cultivator",
+      "realm_min": "FOUNDATION",
+      "path_exclusive": "ghost_cultivator",
+      "unlocks_techniques_school": "ghost"
+    },
+    "guiling_soul_art": {
+      "description": "鬼灵门摄魂诀：炼尸、摄魂、阴火并修，魔道六宗之一。",
+      "path": "ghost",
+      "realm_min": "FOUNDATION",
+      "faction": "guiling_gate",
+      "karma": "demonic_karma"
+    },
+    "hehuan_mind_art": {
+      "description": "合欢心法：媚术与双修并重，女修居多，擅乱敌心神。",
+      "path": "dual",
+      "realm_min": "FOUNDATION",
+      "faction": "hehuan_sect"
+    },
+    "tianmo_body_art": {
+      "description": "天魔炼体诀：魔体强化、血祭狂战，肉身承压极高。",
+      "path": "body",
+      "realm_min": "FOUNDATION",
+      "faction": "tianmo_sect"
+    },
+    "tianfu_scripture": {
+      "description": "天符灵诀：制符宗门核心，以神识绘符引天地之力。",
+      "path": "talisman",
+      "realm_min": "FOUNDATION",
+      "faction": "tianfu_sect",
+      "unlocks_techniques_school": "talisman"
+    },
+    "luoyun_dan_dao": {
+      "description": "落云宗丹道诀：以丹道感悟灵气运转，斗法偏弱、炼丹加成显著。",
+      "path": "alchemy",
+      "realm_min": "FOUNDATION",
+      "source": "luoyun_sect"
+    },
+    "yanyue_gong": {
+      "description": "掩月诀：幻术与女修阴柔灵气并用，掩月宗传承。",
+      "path": "illusion",
+      "realm_min": "FOUNDATION",
+      "source": "yanyue_sect"
+    },
+    "void_refining_scripture": {
+      "description": "炼虚真经：炼虚期参悟空间法则，法术多带裂隙、领域特性。",
+      "path": "void",
+      "realm_min": "VOID_REFINING"
+    },
+    "great_vehicle_dao": {
+      "description": "大乘道典：灵界高阶道修总纲，法相、领域类神通前置。",
+      "path": "dao",
+      "realm_min": "GREAT_VEHICLE"
+    },
+    "spirit_severing_art": {
+      "description": "炼神诀：炼神期锤炼神魂与法则，杀伐神通代价极大。",
+      "path": "spirit",
+      "realm_min": "SPIRIT_SEVERING"
+    },
+    "barbarian_body_art": {
+      "description": "蛮荒炼体诀：灵界蛮荒体修，以妖兽精血淬体。",
+      "path": "body",
+      "realm_min": "VOID_REFINING",
+      "region": "barbarian_wasteland"
+    },
+    "fallen_demon_art": {
+      "description": "坠魔功：坠魔谷魔气浸染之道，易心魔，擅魔化变身。",
+      "path": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "region": "fallen_demon_valley"
+    },
+    "lieyan_gong": {
+      "description": "烈焰功：火属性入门，可修火弹、炎爆一类低阶火术。",
+      "element": "fire",
+      "realm_min": "QI_REFINING"
+    },
+    "taixu_gong": {
+      "description": "太虚功：道修入门，重吐纳与心境，不偏执单一元素。",
+      "path": "dao",
+      "realm_max": "FOUNDATION"
+    },
+    "jinxuan_gong": {
+      "description": "金玄功：金系灵力淬体，利于剑修与金刃术。",
+      "element": "metal",
+      "realm_max": "FOUNDATION"
+    },
+    "muyuan_gong": {
+      "description": "木元功：木系生机，与丹草、疗伤术相性佳。",
+      "element": "wood",
+      "realm_max": "FOUNDATION"
+    },
+    "shuiyuan_gong": {
+      "description": "水元功：水系柔劲，善防御与控场。",
+      "element": "water",
+      "realm_max": "FOUNDATION"
+    },
+    "huoyuan_gong": {
+      "description": "火元功：火系爆发，攻伐见长。",
+      "element": "fire",
+      "realm_max": "FOUNDATION"
+    },
+    "tuyuan_gong": {
+      "description": "土元功：土系厚重，善防御与土遁。",
+      "element": "earth",
+      "realm_max": "FOUNDATION"
+    },
+    "qingmu_gong": {
+      "description": "青木诀：筑基木系功法，黄枫一系常见过渡。",
+      "element": "wood",
+      "realm_min": "FOUNDATION"
+    },
+    "lieyan_zhenjing": {
+      "description": "烈焰真经：筑基火系正宗，火术威力上浮。",
+      "element": "fire",
+      "realm_min": "FOUNDATION"
+    },
+    "xuanbing_zhenjing": {
+      "description": "玄冰真经：筑基冰系，克火、善控速。",
+      "element": "ice",
+      "realm_min": "FOUNDATION"
+    },
+    "qingluo_poison_art": {
+      "description": "青罗毒经：毒虫毒雾并用，持续伤害强。",
+      "path": "poison",
+      "faction": "qingluo_sect",
+      "realm_min": "FOUNDATION"
+    },
+    "wanhu_phantom_art": {
+      "description": "万狐幻心诀：幻术惑心，擅规避正面厮杀。",
+      "path": "illusion",
+      "faction": "wanhu_sect",
+      "realm_min": "FOUNDATION"
+    },
+    "xuewu_blood_art": {
+      "description": "血巫咒经：血咒与巫术，以精血换瞬时威能。",
+      "path": "blood",
+      "faction": "xuewu_sect",
+      "realm_min": "FOUNDATION"
+    },
+    "tiannan_seven_sect_base": {
+      "description": "天南七派基础功：各派入门共性框架，需拜入具体宗门后转修专精。",
+      "path": "mixed",
+      "realm_max": "FOUNDATION"
+    },
+    "blood_demon_art": {
+      "description": "血魔功：以血炼法，攻伐凌厉，易入魔。",
+      "path": "demonic",
+      "realm_min": "CORE_FORMATION"
+    },
+    "xuantian_ice_art": {
+      "description": "玄天冰魄功：极寒灵力，封冻、碎冰并重。",
+      "element": "ice",
+      "realm_min": "CORE_FORMATION"
+    },
+    "tianyuan_guard_art": {
+      "description": "天渊守城诀：天渊城守军与修士共修，兼顾阵防与对妖。",
+      "path": "mixed",
+      "realm_min": "SPIRIT_SEVERING",
+      "region": "tianyuan"
+    },
+    "lingzu_pearl_art": {
+      "description": "灵族凝珠诀：灵族秘传，凝珠射劲与珠光护体。",
+      "path": "spirit",
+      "realm_min": "SPIRIT_SEVERING",
+      "race": "spirit_race"
+    }
+  },
+  "detailed_spells": [
+    {
+      "id": "huangfeng_fire_serpent",
+      "display": "黄枫火蛇术",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "FOUNDATION",
+      "requires_method": "changchun_gong",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 42,
+        "tags": [
+          "sect_huangfeng"
+        ]
+      },
+      "description": "黄枫谷低阶火系法术，凝火成蛇扑敌。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "黄枫火蛇术",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "yanyue_moon_illusion",
+      "display": "掩月幻身",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "requires_method": "yanyue_gong",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "stealth",
+          "illusion"
+        ]
+      },
+      "description": "掩月宗幻术，短暂隐匿身形。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "掩月幻身",
+        "school": "illusion"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "luoyun_spirit_flame",
+      "display": "落云灵焰",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "FOUNDATION",
+      "requires_method": "luoyun_dan_dao",
+      "effect": {
+        "type": "beam",
+        "damage_base": 36,
+        "tags": [
+          "alchemy_synergy"
+        ]
+      },
+      "description": "丹火化焰，斗法威力一般但可引丹火。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "落云灵焰",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "tianfu_golden_chain",
+      "display": "天符金链",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianfu_scripture",
+      "effect": {
+        "type": "control",
+        "damage_base": 30,
+        "tags": [
+          "bind"
+        ]
+      },
+      "description": "符箓化金链缚敌。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "天符金链",
+        "school": "talisman"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "kunwu_seal_strike",
+      "display": "坤吴印击",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "kunwu_seal_art",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 70,
+        "tags": [
+          "seal"
+        ]
+      },
+      "description": "印诀引阵力镇压一片区域。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "坤吴印击",
+        "school": "formation"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "star_palace_tidal_lock",
+      "display": "镇海潮封",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "star_palace_art",
+      "effect": {
+        "type": "control",
+        "tags": [
+          "sea_terrain"
+        ]
+      },
+      "description": "星宫海域禁制，迟滞敌方遁速。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "镇海潮封",
+        "school": "formation"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "inverse_star_shadow_step",
+      "display": "逆星影步",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "requires_method": "inverse_star_art",
+      "effect": {
+        "type": "dash",
+        "tags": [
+          "stealth"
+        ]
+      },
+      "description": "短距遁走并降低被神识锁定概率。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "逆星影步",
+        "school": "movement"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "guiling_corpse_summon",
+      "display": "唤尸术",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "requires_method": "guiling_soul_art",
+      "effect": {
+        "type": "summon",
+        "tags": [
+          "corpse"
+        ]
+      },
+      "description": "驱使炼尸扑敌。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "唤尸术",
+        "school": "ghost"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "hehuan_soul_charm",
+      "display": "合欢迷心",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "hehuan_mind_art",
+      "effect": {
+        "type": "debuff",
+        "tags": [
+          "charm",
+          "mind"
+        ]
+      },
+      "description": "扰乱敌修心神，对意志弱者尤效。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "合欢迷心",
+        "school": "demonic"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "tianmo_blood_armor",
+      "display": "天魔血甲",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "requires_method": "tianmo_body_art",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "defense",
+          "demonic"
+        ]
+      },
+      "description": "血祭化甲，短时大幅提升物防。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "天魔血甲",
+        "school": "body"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "qingluo_poison_needle",
+      "display": "青罗毒针",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "qingluo_poison_art",
+      "effect": {
+        "type": "projectile",
+        "damage_base": 35,
+        "tags": [
+          "poison"
+        ]
+      },
+      "description": "毒针入骨，附带持续毒伤。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "青罗毒针",
+        "school": "demonic"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "wanhu_nine_illusion",
+      "display": "九尾幻境",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "wanhu_phantom_art",
+      "effect": {
+        "type": "aoe",
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "多重重影乱敌判断。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "九尾幻境",
+        "school": "illusion"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "xuewu_blood_curse_mark",
+      "display": "血巫咒印",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "requires_method": "xuewu_blood_art",
+      "effect": {
+        "type": "debuff",
+        "tags": [
+          "curse"
+        ]
+      },
+      "description": "咒印标记，后续血咒伤害加深。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "血巫咒印",
+        "school": "demonic"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "dajin_buddhist_vajra",
+      "display": "大晋金刚杵",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "requires_method": "dajin_buddhist_base",
+      "effect": {
+        "type": "melee",
+        "damage_base": 45,
+        "tags": [
+          "buddhist"
+        ]
+      },
+      "description": "佛修金刚杵一击。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "大晋金刚杵",
+        "school": "buddhist"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "spirit_fengyuan_wind_wall",
+      "display": "风元风墙",
+      "school": "fashi",
+      "element": "wind",
+      "realm_min": "FOUNDATION",
+      "requires_method": "spirit_art_mulan",
+      "effect": {
+        "type": "wall",
+        "tags": [
+          "wind"
+        ]
+      },
+      "description": "风灵化墙挡术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "风元风墙",
+        "school": "fashi"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "nascent_soul_avatar",
+      "display": "元婴出窍",
+      "school": "misc",
+      "realm_min": "NASCENT_SOUL",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "avatar",
+          "soul"
+        ]
+      },
+      "description": "元婴暂离肉身，法力强增但肉身脆弱。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "元婴出窍",
+        "school": "misc"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "NASCENT_SOUL",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "deity_transformation_domain",
+      "display": "化神领域",
+      "school": "misc",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": {
+        "type": "field",
+        "tags": [
+          "domain"
+        ]
+      },
+      "description": "小范围法则压制，属神通前置表现。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "化神领域",
+        "school": "misc"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "DEITY_TRANSFORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "primordial_magnet_sphere",
+      "display": "元磁神光",
+      "school": "elemental",
+      "element": "metal",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 80,
+        "tags": [
+          "magnet",
+          "control"
+        ]
+      },
+      "description": "元磁之力摄物控敌，金属法宝受制。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "元磁神光",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "soul_cry_shock",
+      "display": "啼魂尖啸",
+      "school": "divine_sense",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "soul_attack",
+        "damage_base": 60,
+        "tags": [
+          "beast_soul"
+        ]
+      },
+      "description": "神魂冲击，对鬼物额外伤害。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "啼魂尖啸",
+        "school": "divine_sense"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "gold_devour_swarm",
+      "display": "噬金虫群",
+      "school": "misc",
+      "realm_min": "CORE_FORMATION",
+      "effect": {
+        "type": "summon",
+        "tags": [
+          "swarm",
+          "metal_eater"
+        ]
+      },
+      "description": "驱使噬金虫啃噬敌方法宝灵光。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "噬金虫群",
+        "school": "misc"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "ice_jade_shield",
+      "display": "冰玉盾",
+      "school": "elemental",
+      "element": "ice",
+      "realm_min": "FOUNDATION",
+      "requires_method": "xuanbing_zhenjing",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "ice_shield"
+        ]
+      },
+      "description": "凝冰为盾，挡术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "冰玉盾",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "flame_serpent_storm",
+      "display": "炎蛇风暴",
+      "school": "elemental",
+      "element": "fire",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "lieyan_zhenjing",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 75
+      },
+      "description": "火蛇交织成风暴。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "炎蛇风暴",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "wood_spirit_vine",
+      "display": "木灵藤",
+      "school": "elemental",
+      "element": "wood",
+      "realm_min": "FOUNDATION",
+      "requires_method": "qingmu_gong",
+      "effect": {
+        "type": "control",
+        "tags": [
+          "bind"
+        ]
+      },
+      "description": "藤萝缚足。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "木灵藤",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "metal_sword_finger",
+      "display": "金剑指",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "requires_method": "jinxuan_gong",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 40
+      },
+      "description": "金灵力凝指剑。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "金剑指",
+        "school": "sword"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "water_mirror_reflect",
+      "display": "水镜术",
+      "school": "elemental",
+      "element": "water",
+      "realm_min": "FOUNDATION",
+      "requires_method": "shuiyuan_gong",
+      "effect": {
+        "type": "buff",
+        "tags": [
+          "reflect_partial"
+        ]
+      },
+      "description": "水镜偏折部分术法。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "水镜术",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "FOUNDATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "earth_mountain_press",
+      "display": "山岳压",
+      "school": "elemental",
+      "element": "earth",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "tuyuan_gong",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 65
+      },
+      "description": "土灵化山影砸落。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "山岳压",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "blood_demon_slash",
+      "display": "血魔斩",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "blood_demon_art",
+      "effect": {
+        "type": "melee",
+        "damage_base": 85,
+        "tags": [
+          "blood"
+        ]
+      },
+      "description": "血刃斩击，消耗精血。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "血魔斩",
+        "school": "demonic"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "xuantian_ice_prison",
+      "display": "玄天冰牢",
+      "school": "elemental",
+      "element": "ice",
+      "realm_min": "CORE_FORMATION",
+      "requires_method": "xuantian_ice_art",
+      "effect": {
+        "type": "control",
+        "tags": [
+          "freeze"
+        ]
+      },
+      "description": "冰封敌人行动。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "玄天冰牢",
+        "school": "elemental"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "CORE_FORMATION",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "tianyuan_joint_array",
+      "display": "天渊合阵击",
+      "school": "formation",
+      "realm_min": "SPIRIT_SEVERING",
+      "requires_method": "tianyuan_guard_art",
+      "effect": {
+        "type": "aoe",
+        "damage_base": 120,
+        "tags": [
+          "anti_demon"
+        ]
+      },
+      "description": "多人阵力合一，对妖族额外伤害。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "天渊合阵击",
+        "school": "formation"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "SPIRIT_SEVERING",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    },
+    {
+      "id": "lingzu_pearl_barrage",
+      "display": "灵珠连射",
+      "school": "misc",
+      "realm_min": "SPIRIT_SEVERING",
+      "requires_method": "lingzu_pearl_art",
+      "effect": {
+        "type": "projectile",
+        "damage_base": 100
+      },
+      "description": "灵珠连发。",
+      "tier": "spell",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "灵珠连射",
+        "school": "misc"
+      },
+      "learn_requirements": {
+        "learn": {
+          "realm_min": "SPIRIT_SEVERING",
+          "method_any": [],
+          "source": "凡人向扩充"
+        }
+      }
+    }
+  ],
+  "detailed_secrets": [
+    {
+      "id": "wan_sword_return",
+      "display": "万剑归宗（仿）",
+      "school": "sword",
+      "realm_min": "NASCENT_SOUL",
+      "requires_method": "qingyuan_sword_art",
+      "effect": {
+        "type": "ultimate",
+        "damage_base": 200,
+        "tags": [
+          "sword_array"
+        ]
+      },
+      "description": "剑阵合一，万道剑芒齐射；合规化名神通。",
+      "tier": "secret",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "万剑归宗（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "void_palace_heaven_earth",
+      "display": "天地阴阳大挪移（仿）",
+      "school": "formation",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "effect": {
+        "type": "ultimate",
+        "tags": [
+          "spatial",
+          "void_palace"
+        ]
+      },
+      "description": "虚天殿级大神通仿制品，短距挪移大片区域。",
+      "tier": "secret",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "天地阴阳大挪移（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    },
+    {
+      "id": "true_immortal_sword_art",
+      "display": "真灵剑诀（仿）",
+      "school": "sword",
+      "realm_min": "SPIRIT_SEVERING",
+      "effect": {
+        "type": "ultimate",
+        "damage_base": 350,
+        "tags": [
+          "spirit_sword"
+        ]
+      },
+      "description": "灵界剑修传说神通化名。",
+      "tier": "secret",
+      "source": "凡人向扩充",
+      "setting": {
+        "lore": "真灵剑诀（仿）"
+      },
+      "learn_requirements": {
+        "note": "种子条目，已合并或待合并入主表。"
+      }
+    }
+  ]
+}

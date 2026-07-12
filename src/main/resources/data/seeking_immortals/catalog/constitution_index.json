@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "constitutions": [
+    {
+      "id": "tongyu_fengsui",
+      "display": "通玉凤髓",
+      "tier": ""
+    },
+    {
+      "id": "dragon_chant",
+      "display": "龙吟之体",
+      "tier": ""
+    },
+    {
+      "id": "self_govern",
+      "display": "自治之体",
+      "tier": ""
+    },
+    {
+      "id": "undying",
+      "display": "不灭之体",
+      "tier": ""
+    },
+    {
+      "id": "vajra_undamage",
+      "display": "金刚不坏",
+      "tier": ""
+    },
+    {
+      "id": "gold_forge",
+      "display": "锻金之体",
+      "tier": ""
+    },
+    {
+      "id": "nine_spirit_sword",
+      "display": "九灵剑体",
+      "tier": ""
+    },
+    {
+      "id": "void_shadow",
+      "display": "虚影之体",
+      "tier": ""
+    },
+    {
+      "id": "true_spirit_bloodline_generic",
+      "display": "真灵血脉（泛）",
+      "tier": ""
+    },
+    {
+      "id": "spirit_body_mild",
+      "display": "灵体（弱）",
+      "tier": "rare"
+    },
+    {
+      "id": "fire_spirit_root_variant",
+      "display": "变异火灵根",
+      "tier": "epic"
+    },
+    {
+      "id": "sword_intent_body",
+      "display": "剑意灵躯",
+      "tier": "legendary"
+    },
+    {
+      "id": "yin_yang_unbalanced",
+      "display": "阴阳不调",
+      "tier": "curse"
+    }
+  ]
+}

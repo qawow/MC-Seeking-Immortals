@@ -1,0 +1,23 @@
+{
+  "name": "逆星盟黑市",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:beast_core",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "逆星盟黑市",
+      "text": "逆星盟黑市对应文本材料 merchant_shops.json#inverse_star_black_market。当前版本通过已有坊市系统接入，不新增独立黑市 UI、声望界面、赃物流通加载器或额外网络包，仍使用下品金灵石作为物品货币。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "当前货品",
+      "text": "已接入 demon_core_mid、demon_heart_pill 与 recipe_demon_heart。当前分别复用兽核、低阶清心/宁神类丹药、清心丹玉简丹方作为实现载体，价格为 90、180、350 下品金灵石；默认刷新为 48000 tick。"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "延后内容",
+      "text": "文本材料中的 stolen_jade_slip、island_deed_gray、contraband_spirit_stone、pirate_loot_bundle、逆星联络信物、密令与走私包仍需要声望、赃物风险、任务和 NPC 表现承接，暂不通过通用物品强行替代。"
+    }
+  ]
+}

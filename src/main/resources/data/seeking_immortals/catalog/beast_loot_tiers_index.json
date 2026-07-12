@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "source": "beast_loot_tiers.json",
+  "primary_key": "tiers",
+  "entries": [
+    {
+      "id": "0",
+      "display": "0"
+    },
+    {
+      "id": "1",
+      "display": "1"
+    },
+    {
+      "id": "2",
+      "display": "2"
+    }
+  ]
+}

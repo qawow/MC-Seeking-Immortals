@@ -1,0 +1,36 @@
+{
+  "id": "yuling_pavilion_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "spirit_taming_basic",
+      "item": "seeking_immortals:technique_manual_spirit_taming_basic",
+      "count": 1,
+      "cost": 160
+    },
+    {
+      "id": "beast_core",
+      "item": "seeking_immortals:beast_core",
+      "count": 2,
+      "cost": 180
+    },
+    {
+      "id": "spirit_beast_bone",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 4,
+      "cost": 220
+    },
+    {
+      "id": "spirit_beast_feed",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4,
+      "cost": 15
+    },
+    {
+      "id": "beast_soul_essence",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 200
+    }
+  ]
+}

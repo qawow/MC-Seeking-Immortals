@@ -1,0 +1,33 @@
+{
+  "name": "Sect Rank Shop Gates",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:alchemy_formula_foundation_building_pill_sect",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Source Basis",
+      "text": "This page follows 文本材料/data/sect_contribution_shop.json rank_min and nested exchange gates. The current implementation reuses ShopService contribution exchanges, QuestProgress sect stages, and Patchouli guidance without adding a separate NPC, shop UI, quest loader, or network packet."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Purchase Check",
+      "text": "Contribution shops now check rank before spending contribution or reserving stock. Supported gates are outer_disciple, inner_disciple, and core_disciple; null in the source clears inherited requirements. If the player's rank is too low, the server returns RANK_TOO_LOW with localized required-rank text."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Current Gates",
+      "text": "Qinglan and Danxia Foundation Pill plus Ningshen formula require inner disciple. Qinglan and Danxia Low Flying Sword require outer disciple. Yanyue Foundation Pill requires inner disciple. Luoyun Spirit formula requires inner disciple. Artifact Repair Kit remains ungated."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "In Play",
+      "text": "If an entry is visible but purchase fails, raise the current sect stage through contribution, sect tasks, or promotion flow. The present shop list does not pre-render lock states, so the reliable hint is server purchase feedback. Contribution and stock change only after every gate passes."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Still Deferred",
+      "text": "Realm gates, reputation gates, monthly or per-player limits, visible lock text, stricter alchemy privileges, dedicated NPC or quest placement, and broader source-accurate stock distribution remain future slices. This page documents only the server-enforced rank_min path already wired."
+    }
+  ]
+}

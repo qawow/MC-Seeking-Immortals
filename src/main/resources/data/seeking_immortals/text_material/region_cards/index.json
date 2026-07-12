@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "template_fields": [
+    "climate",
+    "spirit_density",
+    "factions",
+    "portals",
+    "daily_events",
+    "disasters",
+    "banned_paths"
+  ],
+  "cards": [
+    {
+      "id": "tiannan",
+      "display": "天南（越国）",
+      "climate": "temperate_humid",
+      "spirit_density": 1.0,
+      "factions": [
+        "huangfeng_valley",
+        "yanyue_sect",
+        "qixuan_men",
+        "luoyun_sect",
+        "ghost_spirit_gate",
+        "hehuan_sect"
+      ],
+      "portals": [
+        {
+          "id": "market_huangfeng",
+          "type": "market",
+          "realm_min": "qi_refining"
+        },
+        {
+          "id": "blood_forbidden_gate",
+          "type": "secret_realm",
+          "cycle": "cycle_blood_forbidden"
+        }
+      ],
+      "daily_events": [
+        "sect_recruitment_spring",
+        "bandit_cultivator_road",
+        "spirit_herb_gatherers"
+      ],
+      "disasters": [],
+      "banned_paths": [],
+      "economy_notes": "筑基丹宗门管控；散修坊市溢价10%",
+      "chronicle_refs": [
+        "K1_seven_sects",
+        "A5_blood_forbidden_hermits",
+        "cycle_blood_forbidden"
+      ],
+      "minecraft_biomes_hint": [
+        "plains",
+        "forest",
+        "river"
+      ],
+      "notes": "世俗与修仙脱节；血色禁地五年一开"
+    },
+    {
+      "id": "chaotic_sea",
+      "display": "乱星海",
+      "climate": "oceanic_subtropical",
+      "spirit_density": 1.15,
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance"
+      ],
+      "portals": [
+        {
+          "id": "void_palace_appear",
+          "type": "secret_realm",
+          "cycle": "cycle_void_palace"
+        },
+        {
+          "id": "island_teleport_array",
+          "type": "fast_travel",
+          "cost_spirit_stones": 50
+        }
+      ],
+      "daily_events": [
+        "island_tax_collection",
+        "pirate_cultivator",
+        "pearl_diving_mortals"
+      ],
+      "disasters": [
+        "ghost_fog",
+        "sky_wind",
+        "beast_tide"
+      ],
+      "banned_paths": [],
+      "economy_notes": "岛民纳灵石换庇护；黑市在逆星盟",
+      "chronicle_refs": [
+        "K4_star_palace",
+        "K5_inverse_star",
+        "A4_void_palace_built",
+        "cycle_void_palace"
+      ],
+      "minecraft_biomes_hint": [
+        "ocean",
+        "beach",
+        "small_islands"
+      ],
+      "notes": "三大天灾：妖兽潮、天风、鬼雾"
+    },
+    {
+      "id": "mulan",
+      "display": "慕兰草原",
+      "climate": "steppe_dry",
+      "spirit_density": 0.95,
+      "factions": [
+        "mulan_fashi_council",
+        "mulan_beast_god"
+      ],
+      "portals": [
+        {
+          "id": "holy_bird_altar",
+          "type": "blessing",
+          "reputation_min": 30
+        },
+        {
+          "id": "border_war_camp",
+          "type": "faction_war",
+          "cycle": "mulan_tianlan_war_minor"
+        }
+      ],
+      "daily_events": [
+        "nomad_migration",
+        "fashi_patrol",
+        "beast_tame_festival"
+      ],
+      "disasters": [
+        "grassland_beast_raid"
+      ],
+      "banned_paths": [
+        "demonic_core_unless_oath"
+      ],
+      "economy_notes": "法士灵术强；圣禽祝福需声望",
+      "chronicle_refs": [
+        "M4_holy_bird_mulan",
+        "K3_mulan_tianlan_war_1",
+        "K9_mulan_tianlan_escalation"
+      ],
+      "minecraft_biomes_hint": [
+        "savanna",
+        "windswept_hills"
+      ],
+      "notes": "与突兀族世仇；天虎兽产地"
+    },
+    {
+      "id": "tianlan",
+      "display": "突兀族草原（天澜境）",
+      "file": "tianlan.json",
+      "spirit_density": 0.98,
+      "chronicle_refs": ["K3_mulan_tianlan_war_1", "K9_mulan_tianlan_escalation"]
+    },
+    {
+      "id": "dajin",
+      "display": "大晋",
+      "file": "dajin.json",
+      "spirit_density": 1.15,
+      "chronicle_refs": ["A2_kunwu_mountain", "D3_ancient_demon_invasion"]
+    },
+    {
+      "id": "tianyuan",
+      "display": "天渊城",
+      "file": "tianyuan.json",
+      "spirit_density": 2.0,
+      "chronicle_refs": ["K6_spirit_realm", "K7_tianyuan_city"]
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display": "灵界风元大陆",
+      "file": "spirit_fengyuan.json",
+      "spirit_density": 1.8,
+      "chronicle_refs": ["K6_spirit_realm"]
+    },
+    {
+      "id": "nether_river",
+      "display": "冥河之地",
+      "file": "nether_river.json",
+      "spirit_density": 0.85,
+      "chronicle_refs": ["D2_ghost_cultivator_rise"]
+    },
+    {
+      "id": "yinming",
+      "display": "阴冥之地",
+      "file": "yinming.json",
+      "spirit_density": 0.7,
+      "chronicle_refs": ["D2_ghost_cultivator_rise"]
+    },
+    {
+      "id": "fallen_demon_valley",
+      "display": "坠魔谷",
+      "file": "fallen_demon_valley.json",
+      "spirit_density": 1.1,
+      "chronicle_refs": ["D3_ancient_demon_invasion"]
+    }
+  ]
+}
