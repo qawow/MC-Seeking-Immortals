@@ -1,0 +1,11 @@
+{
+  "structures": [
+    { "structure": "seeking_immortals:sect_outpost_generic", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 52,
+    "separation": 18,
+    "salt": 10392001
+  }
+}

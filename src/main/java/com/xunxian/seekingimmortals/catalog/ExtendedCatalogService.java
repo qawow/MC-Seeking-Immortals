@@ -30,7 +30,10 @@ public final class ExtendedCatalogService {
     }
 
     public record PriceBand(String id, int min, int max, int suggested, String band, String note) {}
-    public record QuestChain(String id, String display, String region, String realmSpan, int stepCount, String mainChapterRef, List<String> rewardsFinale) {}
+    public record QuestStartRequirements(String realmMin, String faction, String region) {}
+    public record QuestChain(String id, String display, String region, String realmSpan, int stepCount,
+                             String mainChapterRef, List<String> rewardsFinale,
+                             QuestStartRequirements startRequirements) {}
     public record SectEntry(String id, String display, String region, String alignment, String realmFocus, String specialty) {}
     public record ConsumableEntry(String id, String display, String category, String realmMin, String effect) {}
     public record StoryChapter(String id, String display, String region, String realmSpan, String summary) {}
@@ -91,10 +94,13 @@ public final class ExtendedCatalogService {
                 JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
-                quests.put(id, new QuestChain(id, str(o, "display"), str(o, "region"), str(o, "realm_span"),
-                        asInt(o, "step_count"), str(o, "main_chapter_ref"), stringList(o.get("rewards_finale"))));
+                String region = str(o, "region");
+                quests.put(id, new QuestChain(id, str(o, "display"), region, str(o, "realm_span"),
+                        asInt(o, "step_count"), str(o, "main_chapter_ref"), stringList(o.get("rewards_finale")),
+                        new QuestStartRequirements(firstString(o.get("realm_span")), "", region)));
             }
         }
+        enrichQuestStartRequirements(quests);
 
         Map<String, SectEntry> sects = new LinkedHashMap<>();
         JsonObject sectRoot = readJson(path("catalog/sects_index.json"));
@@ -188,6 +194,33 @@ public final class ExtendedCatalogService {
         return map;
     }
 
+    private static void enrichQuestStartRequirements(Map<String, QuestChain> quests) {
+        JsonObject root = readJson(path("text_material/quest_chains.json"));
+        if (root == null) {
+            return;
+        }
+        for (JsonElement element : array(root, "chains")) {
+            if (!element.isJsonObject()) {
+                continue;
+            }
+            JsonObject object = element.getAsJsonObject();
+            String id = str(object, "id");
+            QuestChain current = quests.get(id);
+            if (current == null) {
+                continue;
+            }
+            JsonObject requirements = object(object, "learn_requirements");
+            boolean hasStart = requirements.has("start") && requirements.get("start").isJsonObject();
+            JsonObject start = object(requirements, "start");
+            String realmMin = hasStart ? str(start, "realm_min") : current.startRequirements().realmMin();
+            String faction = hasStart ? str(start, "faction") : current.startRequirements().faction();
+            String region = hasStart ? str(start, "region") : current.startRequirements().region();
+            quests.put(id, new QuestChain(current.id(), current.display(), current.region(), current.realmSpan(),
+                    current.stepCount(), current.mainChapterRef(), current.rewardsFinale(),
+                    new QuestStartRequirements(realmMin, faction, region)));
+        }
+    }
+
     private static String path(String relative) {
         return "data/" + SeekingImmortalsMod.MODID + "/" + relative;
     }
@@ -210,6 +243,18 @@ public final class ExtendedCatalogService {
             return new JsonArray();
         }
         return root.getAsJsonArray(key);
+    }
+
+    private static JsonObject object(JsonObject root, String key) {
+        if (root == null || !root.has(key) || !root.get(key).isJsonObject()) {
+            return new JsonObject();
+        }
+        return root.getAsJsonObject(key);
+    }
+
+    private static String firstString(JsonElement element) {
+        List<String> values = stringList(element);
+        return values.isEmpty() ? "" : values.get(0);
     }
 
     private static String str(JsonObject object, String key) {

@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qianzhu_sect_ironwood",
+      "title_key": "screen.seeking_immortals.sect.mission.qianzhu_sect_ironwood.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:ironwood",
+      "target": 8,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "qianzhu_sect_puppet_core",
+      "title_key": "screen.seeking_immortals.sect.mission.qianzhu_sect_puppet_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:puppet_core_blank",
+      "target": 2,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "qianzhu_sect_spirit_bone",
+      "title_key": "screen.seeking_immortals.sect.mission.qianzhu_sect_spirit_bone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "target": 3,
+      "reward_contribution": 95,
+      "min_stage": 3
+    }
+  ]
+}

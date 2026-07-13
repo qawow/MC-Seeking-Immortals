@@ -22,8 +22,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * Text-material blood_forbidden_gate cycle portal. Multiblock gate routes through
- * WorldpackGameplayService.usePortalArray; dedicated blood_forbidden_land target deferred.
+ * Text-material blood_forbidden_gate. Multiblock gate routes through
+ * WorldpackGameplayService.useBloodForbiddenGate (secret-realm ticket path).
  */
 public class BloodForbiddenGateBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
@@ -61,7 +61,7 @@ public class BloodForbiddenGateBlock extends Block {
         }
         ServerLevel origin = serverPlayer.serverLevel();
         BlockPos originPos = pos.immutable();
-        if (WorldpackGameplayService.usePortalArray(serverPlayer)) {
+        if (WorldpackGameplayService.useBloodForbiddenGate(serverPlayer)) {
             origin.sendParticles(ParticleTypes.CRIMSON_SPORE, originPos.getX() + 0.5D, originPos.getY() + 1.2D, originPos.getZ() + 0.5D,
                     48, 1.0D, 0.9D, 1.0D, 0.02D);
             origin.sendParticles(ParticleTypes.SOUL, originPos.getX() + 0.5D, originPos.getY() + 1.0D, originPos.getZ() + 0.5D,

@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "guiling_gate_soul_moss",
+      "title_key": "screen.seeking_immortals.sect.mission.guiling_gate_soul_moss.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:soul_fragment",
+      "target": 4,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "guiling_gate_yin_stone",
+      "title_key": "screen.seeking_immortals.sect.mission.guiling_gate_yin_stone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:yin_stone",
+      "target": 8,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "guiling_gate_soul_core",
+      "title_key": "screen.seeking_immortals.sect.mission.guiling_gate_soul_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:beast_core",
+      "target": 2,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

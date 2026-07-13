@@ -142,6 +142,12 @@ class ScreenLayoutTest {
                 "cultivation stats bars should not use white translucent highlight blocks");
     }
 
+    @Test
+    void methodTreeDropsSecondaryHintWhenBottomControlsNeedTheSpace() {
+        assertFalse(MethodTreeScreen.hasDetailRoomForSchoolHint(228, 254, 9));
+        assertTrue(MethodTreeScreen.hasDetailRoomForSchoolHint(200, 254, 9));
+    }
+
     private static void assertPanelFits(int screenWidth, int screenHeight, int panelWidth, int panelHeight) {
         assertTrue(panelWidth > 0, "panel width must stay positive");
         assertTrue(panelHeight > 0, "panel height must stay positive");
@@ -232,12 +238,19 @@ class ScreenLayoutTest {
         CultivationStatsScreen.PanelLayout layout = CultivationStatsScreen.calculateLayout(screenWidth, screenHeight);
 
         assertRectInside(screenWidth, screenHeight, layout.breakthroughButton(), "breakthrough button");
+        assertRectInside(screenWidth, screenHeight, layout.methodTreeButton(), "method tree button");
         assertRectInside(screenWidth, screenHeight, layout.closeButton(), "close button");
         assertRectInside(screenWidth, screenHeight, layout.slider(), "movement speed slider");
         assertFalse(layout.breakthroughButton().intersects(layout.closeButton()),
                 "cultivation stats buttons must not overlap");
+        assertFalse(layout.breakthroughButton().intersects(layout.methodTreeButton()),
+                "breakthrough button must not overlap method tree button");
+        assertFalse(layout.methodTreeButton().intersects(layout.closeButton()),
+                "method tree button must not overlap close button");
         assertFalse(layout.slider().intersects(layout.breakthroughButton()),
                 "movement speed slider must not overlap the breakthrough button");
+        assertFalse(layout.slider().intersects(layout.methodTreeButton()),
+                "movement speed slider must not overlap the method tree button");
         assertFalse(layout.slider().intersects(layout.closeButton()),
                 "movement speed slider must not overlap the close button");
     }
@@ -259,4 +272,3 @@ class ScreenLayoutTest {
         return alpha > 0 && red >= 220 && green >= 220 && blue >= 220;
     }
 }
-

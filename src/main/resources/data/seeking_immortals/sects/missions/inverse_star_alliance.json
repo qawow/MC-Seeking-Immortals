@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "inverse_star_alliance_void_crystal",
+      "title_key": "screen.seeking_immortals.sect.mission.inverse_star_alliance_void_crystal.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:void_crystal",
+      "target": 1,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "inverse_star_alliance_time_sand",
+      "title_key": "screen.seeking_immortals.sect.mission.inverse_star_alliance_time_sand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:time_sand",
+      "target": 2,
+      "reward_contribution": 55,
+      "min_stage": 2
+    },
+    {
+      "id": "inverse_star_alliance_immortal_jade",
+      "title_key": "screen.seeking_immortals.sect.mission.inverse_star_alliance_immortal_jade.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_jade",
+      "target": 1,
+      "reward_contribution": 110,
+      "min_stage": 3
+    }
+  ]
+}

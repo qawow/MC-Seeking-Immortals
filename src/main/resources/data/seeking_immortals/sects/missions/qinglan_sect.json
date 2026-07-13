@@ -1,30 +1,30 @@
 {
   "missions": [
     {
-      "id": "qinglan_spirit_grass",
-      "title_key": "screen.seeking_immortals.sect.mission.qinglan_spirit_grass.title",
+      "id": "qinglan_sect_herb_bundle",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_sect_herb_bundle.title",
       "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
       "item": "seeking_immortals:spirit_grass",
-      "target": 10,
-      "reward_contribution": 20,
+      "target": 16,
+      "reward_contribution": 30,
       "min_stage": 2
     },
     {
-      "id": "qinglan_cloud_mushroom",
-      "title_key": "screen.seeking_immortals.sect.mission.qinglan_cloud_mushroom.title",
+      "id": "qinglan_sect_formula_paper",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_sect_formula_paper.title",
       "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
-      "item": "seeking_immortals:cloud_mushroom",
-      "target": 6,
-      "reward_contribution": 35,
+      "item": "seeking_immortals:alchemy_formula_fasting_pill_paper",
+      "target": 1,
+      "reward_contribution": 45,
       "min_stage": 2
     },
     {
-      "id": "qinglan_immortal_ginseng",
-      "title_key": "screen.seeking_immortals.sect.mission.qinglan_immortal_ginseng.title",
+      "id": "qinglan_sect_immortal_ginseng",
+      "title_key": "screen.seeking_immortals.sect.mission.qinglan_sect_immortal_ginseng.title",
       "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
       "item": "seeking_immortals:immortal_ginseng",
       "target": 2,
-      "reward_contribution": 80,
+      "reward_contribution": 100,
       "min_stage": 3
     }
   ]

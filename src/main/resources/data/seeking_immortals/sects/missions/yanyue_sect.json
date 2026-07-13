@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "yanyue_sect_illusion_herb",
+      "title_key": "screen.seeking_immortals.sect.mission.yanyue_sect_illusion_herb.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "yanyue_sect_soul_trial",
+      "title_key": "screen.seeking_immortals.sect.mission.yanyue_sect_soul_trial.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:soul_fragment",
+      "target": 3,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "yanyue_sect_moon_core",
+      "title_key": "screen.seeking_immortals.sect.mission.yanyue_sect_moon_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_ginseng",
+      "target": 2,
+      "reward_contribution": 95,
+      "min_stage": 3
+    }
+  ]
+}

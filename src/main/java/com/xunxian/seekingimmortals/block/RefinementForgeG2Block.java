@@ -52,20 +52,18 @@ public class RefinementForgeG2Block extends Block {
                     check.missingBaseBlocks(), check.missingFrameBlocks()), false);
             return InteractionResult.CONSUME;
         }
-        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer);
+        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer, 2);
         if (recipeId == null || recipeId.isBlank()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g2.no_recipe"), false);
             return InteractionResult.CONSUME;
         }
-        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId);
+        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId, 2);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         if (ok) {
             serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                     16, 0.4D, 0.3D, 0.4D, 0.02D);
             serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.75F, 1.0F);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g2.activated"), true);
-        } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g2.no_recipe"), false);
         }
         return InteractionResult.CONSUME;
     }

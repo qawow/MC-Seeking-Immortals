@@ -1,0 +1,56 @@
+{
+  "id": "tianque_fort_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "spirit_iron",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 4,
+      "cost": 60,
+      "stock": 20
+    },
+    {
+      "id": "armor_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 80,
+      "stock": 14
+    },
+    {
+      "id": "war_token",
+      "item": "seeking_immortals:war_contribution_token",
+      "count": 1,
+      "cost": 30,
+      "stock": 12
+    },
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 8,
+      "cost": 25,
+      "stock": 40
+    },
+    {
+      "id": "fire_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 70,
+      "stock": 12
+    },
+    {
+      "id": "beast_core",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 90,
+      "stock": 8
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "stock": 2,
+      "rank_min": "inner_disciple"
+    }
+  ]
+}

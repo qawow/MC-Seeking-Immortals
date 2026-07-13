@@ -15,11 +15,17 @@ import java.util.Map;
 
 /**
  * Persistent beast contract slots (Wave49 Phase21 depth).
- * Uses player persistent data (no protocol churn). Summon reuses SummonHonestMvpService.
+ * Wave458: combat credit growth loop; jar seal affinity bonus.
  */
 public final class BeastContractService {
     private static final String ROOT = "seeking_immortals_beast_contracts";
     private static final int MAX_SLOTS = 3;
+
+    public enum CreditKind {
+        HIT,
+        KILL,
+        SURVIVE
+    }
 
     private BeastContractService() {}
 
@@ -36,6 +42,10 @@ public final class BeastContractService {
     }
 
     public static boolean contract(ServerPlayer player, String beastId) {
+        return contract(player, beastId, 1, 0);
+    }
+
+    public static boolean contract(ServerPlayer player, String beastId, int startAffinity, int startGrowth) {
         String id = normalize(beastId);
         if (id.isBlank()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.unknown"), false);
@@ -51,8 +61,8 @@ public final class BeastContractService {
             return false;
         }
         CompoundTag entry = new CompoundTag();
-        entry.putInt("Affinity", 1);
-        entry.putInt("Growth", 0);
+        entry.putInt("Affinity", Math.max(1, Math.min(100, startAffinity)));
+        entry.putInt("Growth", Math.max(0, Math.min(20, startGrowth)));
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.contracted", id), true);
@@ -96,12 +106,68 @@ public final class BeastContractService {
         double health = 24.0D + affinity * 0.4D + growth * 2.0D;
         double damage = 4.0D + affinity * 0.05D + growth * 0.4D;
         int life = 20 * (25 + growth * 2);
-        boolean ok = SummonHonestMvpService.spawnConfigured(player, "beast_" + id, life, health, damage);
+        boolean ok = SummonHonestMvpService.spawnConfigured(
+                player, "beast_" + id, life, health, damage,
+                com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.BEAST);
         if (ok) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.summoned",
                     id, affinity, growth), true);
         }
         return ok;
+    }
+
+    /**
+     * Wave458 combat feedback: hit/kill/survive bump affinity/growth.
+     */
+    public static void recordCombatCredit(ServerPlayer player, String beastId, CreditKind kind) {
+        if (player == null || kind == null) {
+            return;
+        }
+        String id = normalize(beastId);
+        if (id.isBlank()) {
+            return;
+        }
+        CompoundTag root = player.getPersistentData().getCompound(ROOT).copy();
+        if (!root.contains(id)) {
+            return;
+        }
+        CompoundTag entry = root.getCompound(id).copy();
+        int affinity = entry.getInt("Affinity");
+        int growth = entry.getInt("Growth");
+        switch (kind) {
+            case HIT -> affinity = Math.min(100, affinity + 1);
+            case KILL -> {
+                affinity = Math.min(100, affinity + 3);
+                growth = Math.min(20, growth + 1);
+            }
+            case SURVIVE -> affinity = Math.min(100, affinity + 2);
+        }
+        entry.putInt("Affinity", affinity);
+        entry.putInt("Growth", growth);
+        root.put(id, entry);
+        player.getPersistentData().put(ROOT, root);
+        if (kind == CreditKind.KILL || kind == CreditKind.SURVIVE) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.beast.combat_growth", id, affinity, growth), true);
+        }
+    }
+
+    public static String beastIdFromSummonId(String summonId) {
+        if (summonId == null) {
+            return "";
+        }
+        String id = summonId.trim().toLowerCase(Locale.ROOT);
+        if (id.startsWith("beast_")) {
+            return id.substring("beast_".length());
+        }
+        if (id.startsWith("captured_")) {
+            return id.substring("captured_".length());
+        }
+        return "";
+    }
+
+    public static boolean hasContract(ServerPlayer player, String beastId) {
+        return player != null && player.getPersistentData().getCompound(ROOT).contains(normalize(beastId));
     }
 
     public static Map<String, String> snapshotLines(ServerPlayer player) {

@@ -1,9 +1,11 @@
 package com.xunxian.seekingimmortals.item;
 
+import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -39,23 +41,41 @@ public class TechniqueManualItem extends Item {
             int learned = 0;
             int blocked = 0;
             for (TechniqueDataManager.TechniqueEntry technique : techniques) {
-                if (TechniqueDataManager.matchesAttributeCondition(cultivation, technique.attribute())) {
-                    if (cultivation.learnTechnique(technique.id())) {
-                        learned++;
-                    }
-                } else {
+                if (!TechniqueDataManager.matchesAttributeCondition(cultivation, technique.attribute())) {
                     blocked++;
+                    continue;
+                }
+                TechniqueGateService.GateResult gate = TechniqueGateService.canLearn(serverPlayer, cultivation, technique);
+                if (!gate.allowed()) {
+                    blocked++;
+                    if (gate.messageKey() != null && !gate.messageKey().isBlank()) {
+                        player.displayClientMessage(Component.translatable(gate.messageKey(), gate.args()), true);
+                    }
+                    continue;
+                }
+                if (cultivation.learnTechnique(technique.id())) {
+                    learned++;
                 }
             }
             if (techniques.isEmpty()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.empty", source), false);
                 return;
             }
-            if (learned > 0) {
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.learned", source, learned), false);
+            // Source methods are a consequence of a successful technique learn, never a gate bypass.
+            int methodsGranted = learned > 0
+                    ? ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, source)
+                    : 0;
+            if (learned > 0 || methodsGranted > 0) {
+                if (learned > 0) {
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_manual.learned", source, learned), false);
+                }
+                if (methodsGranted > 0) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.technique_manual.methods_granted", methodsGranted), false);
+                }
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
-                if (!player.getAbilities().instabuild) {
+                if (learned > 0 && !player.getAbilities().instabuild) {
                     stack.shrink(1);
                 }
             } else if (blocked > 0) {

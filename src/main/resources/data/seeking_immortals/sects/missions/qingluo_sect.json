@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qingluo_sect_spirit_grass",
+      "title_key": "screen.seeking_immortals.sect.mission.qingluo_sect_spirit_grass.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 12,
+      "reward_contribution": 25,
+      "min_stage": 2
+    },
+    {
+      "id": "qingluo_sect_ironwood",
+      "title_key": "screen.seeking_immortals.sect.mission.qingluo_sect_ironwood.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:ironwood",
+      "target": 6,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "qingluo_sect_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.qingluo_sect_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

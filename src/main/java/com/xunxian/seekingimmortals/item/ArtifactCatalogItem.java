@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.item;
 import com.xunxian.seekingimmortals.artifact.ArtifactActivationService;
 import com.xunxian.seekingimmortals.artifact.ArtifactDataService;
 import com.xunxian.seekingimmortals.artifact.ArtifactStorageService;
+import com.xunxian.seekingimmortals.artifact.NatalBindingService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -57,6 +58,14 @@ public class ArtifactCatalogItem extends Item {
             }
             return InteractionResultHolder.consume(stack);
         }
+        // Wave456: sneak-use binds natal artifact (one per player).
+        if (player.isShiftKeyDown()) {
+            if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+                boolean bound = NatalBindingService.bind(serverPlayer, stack);
+                return bound ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
+            }
+            return InteractionResultHolder.consume(stack);
+        }
         if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
             boolean activated = CultivationHelper.get(serverPlayer)
                     .map(cultivation -> ArtifactActivationService.activate(serverPlayer, stack, hand,
@@ -90,6 +99,18 @@ public class ArtifactCatalogItem extends Item {
                 ArtifactStorageService.appendStorageTooltip(stack, artifact, tooltip);
             } else {
                 ArtifactActivationService.appendActivationTooltip(stack, artifact, tooltip);
+            }
+            if (stack.hasTag() && stack.getTag().getBoolean(NatalBindingService.STACK_BOUND)) {
+                int growth = NatalBindingService.growthFromStack(stack);
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bound_mark")
+                        .withStyle(ChatFormatting.GOLD));
+                if (growth > 0) {
+                    tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.growth", growth)
+                            .withStyle(ChatFormatting.YELLOW));
+                }
+            } else {
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bind_hint")
+                        .withStyle(ChatFormatting.DARK_GRAY));
             }
         }, () -> tooltip.add(Component.literal("Artifact data missing: " + artifactId)
                 .withStyle(ChatFormatting.RED)));

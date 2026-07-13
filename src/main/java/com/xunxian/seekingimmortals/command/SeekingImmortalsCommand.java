@@ -28,6 +28,7 @@ import com.xunxian.seekingimmortals.cultivation.TribulationService;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.phase.SoftPhaseShellService;
 import com.xunxian.seekingimmortals.quest.MainStorySoftService;
 import com.xunxian.seekingimmortals.quest.QuestHookSoftService;
 import com.xunxian.seekingimmortals.quest.QuestService;
@@ -152,6 +153,9 @@ public final class SeekingImmortalsCommand {
                                 .then(Commands.literal("story")
                                         .executes(ctx -> mainStoryList(ctx.getSource()))
                                         .then(Commands.literal("list").executes(ctx -> mainStoryList(ctx.getSource())))
+                                        .then(Commands.literal("start")
+                                                .then(Commands.argument("id", StringArgumentType.word())
+                                                        .executes(ctx -> mainStoryStart(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                         .then(Commands.literal("complete")
                                                 .then(Commands.argument("id", StringArgumentType.word())
                                                         .executes(ctx -> mainStoryComplete(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))))
@@ -200,7 +204,14 @@ public final class SeekingImmortalsCommand {
                         .then(Commands.literal("flight")
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogBoardFlight(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
-                        .then(Commands.literal("methods").executes(ctx -> catalogMethods(ctx.getSource())))
+                        .then(Commands.literal("methods")
+                                .executes(ctx -> catalogMethods(ctx.getSource()))
+                                .then(Commands.literal("list").executes(ctx -> catalogMethods(ctx.getSource())))
+                                .then(Commands.literal("learn")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogLearnMethod(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("studied").executes(ctx -> catalogStudiedMethods(ctx.getSource()))))
                         .then(Commands.literal("realms").executes(ctx -> catalogRealms(ctx.getSource())))
                         .then(Commands.literal("quests").executes(ctx -> catalogQuests(ctx.getSource())))
                         .then(Commands.literal("sects").executes(ctx -> catalogSects(ctx.getSource())))
@@ -249,6 +260,16 @@ public final class SeekingImmortalsCommand {
                                                                 IntegerArgumentType.getInteger(ctx, "delta")))))))
                         .then(Commands.literal("conflicts")
                                 .executes(ctx -> catalogConflictsList(ctx.getSource()))
+                                .then(Commands.literal("accept")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogConflictsAccept(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("side")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .then(Commands.argument("side", StringArgumentType.word())
+                                                        .executes(ctx -> catalogConflictsSide(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "id"),
+                                                                StringArgumentType.getString(ctx, "side"))))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogConflictsPreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                         .then(Commands.literal("bulk")
@@ -257,21 +278,58 @@ public final class SeekingImmortalsCommand {
                                         .executes(ctx -> catalogBulkShow(ctx.getSource(), StringArgumentType.getString(ctx, "name")))))
                         .then(Commands.literal("refine")
                                 .executes(ctx -> catalogRefineList(ctx.getSource()))
+                                .then(Commands.literal("craft")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogRefineCraft(ctx.getSource(), StringArgumentType.getString(ctx, "id"), 1))
+                                                .then(Commands.argument("grade", IntegerArgumentType.integer(1, 3))
+                                                        .executes(ctx -> catalogRefineCraft(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "id"),
+                                                                IntegerArgumentType.getInteger(ctx, "grade"))))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogRefinePreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                         .then(Commands.literal("formations")
                                 .executes(ctx -> catalogFormationsList(ctx.getSource()))
+                                .then(Commands.literal("deploy")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogFormationsDeploy(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogFormationsPreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("talisman")
+                                .executes(ctx -> catalogTalismanList(ctx.getSource()))
+                                .then(Commands.literal("list").executes(ctx -> catalogTalismanList(ctx.getSource())))
+                                .then(Commands.literal("craft")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogTalismanCraft(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
+                        .then(Commands.literal("puppet")
+                                .executes(ctx -> catalogPuppetList(ctx.getSource()))
+                                .then(Commands.literal("list").executes(ctx -> catalogPuppetList(ctx.getSource())))
+                                .then(Commands.literal("craft")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogPuppetCraft(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("repair").executes(ctx -> catalogPuppetRepair(ctx.getSource()))))
                         .then(Commands.literal("chronicle")
                                 .executes(ctx -> catalogChronicleList(ctx.getSource()))
+                                .then(Commands.literal("discover")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogChronicleDiscover(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogChroniclePreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                         .then(Commands.literal("trade")
                                 .executes(ctx -> catalogTradeList(ctx.getSource()))
+                                .then(Commands.literal("embark")
+                                        .then(Commands.argument("id", StringArgumentType.word())
+                                                .executes(ctx -> catalogTradeEmbark(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogTradePreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                         .then(Commands.literal("summon")
+                                .executes(ctx -> catalogSummonList(ctx.getSource()))
+                                .then(Commands.literal("list").executes(ctx -> catalogSummonList(ctx.getSource())))
+                                .then(Commands.literal("stance")
+                                        .then(Commands.argument("mode", StringArgumentType.word())
+                                                .executes(ctx -> catalogSummonStance(ctx.getSource(), StringArgumentType.getString(ctx, "mode")))))
+                                .then(Commands.literal("dismiss").executes(ctx -> catalogSummonDismiss(ctx.getSource())))
+                                .then(Commands.literal("repair").executes(ctx -> catalogPuppetRepair(ctx.getSource())))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogSummon(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                         .then(Commands.literal("beast")
@@ -296,7 +354,10 @@ public final class SeekingImmortalsCommand {
                         .executes(ctx -> phaseStatus(ctx.getSource()))
                         .then(Commands.literal("mark")
                                 .then(Commands.argument("id", StringArgumentType.word())
-                                        .executes(ctx -> phaseMark(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
+                                        .executes(ctx -> phaseMark(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("enter")
+                                .then(Commands.argument("id", StringArgumentType.word())
+                                        .executes(ctx -> phaseEnter(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))
                 .then(Commands.literal("mission")
                         .executes(ctx -> missionGenerate(ctx.getSource()))
                         .then(Commands.literal("gen").executes(ctx -> missionGenerate(ctx.getSource()))))
@@ -583,6 +644,10 @@ public final class SeekingImmortalsCommand {
 
     private static int mainStoryComplete(CommandSourceStack source, String id) throws CommandSyntaxException {
         return MainStorySoftService.complete(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int mainStoryStart(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return MainStorySoftService.startChapter(source.getPlayerOrException(), id) ? 1 : 0;
     }
 
     private static int questStart(CommandSourceStack source) throws CommandSyntaxException {
@@ -1106,6 +1171,14 @@ public final class SeekingImmortalsCommand {
         return FactionConflictSoftService.preview(source.getPlayerOrException(), id) ? 1 : 0;
     }
 
+    private static int catalogConflictsAccept(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return FactionConflictSoftService.accept(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogConflictsSide(CommandSourceStack source, String id, String side) throws CommandSyntaxException {
+        return FactionConflictSoftService.chooseSide(source.getPlayerOrException(), id, side) ? 1 : 0;
+    }
+
     private static int catalogBulkList(CommandSourceStack source) {
         BulkCatalogIndexService.Snapshot snapshot = BulkCatalogIndexService.builtin();
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.bulk.header",
@@ -1153,6 +1226,10 @@ public final class SeekingImmortalsCommand {
                 "message.seeking_immortals.refine.soft_only") ? 1 : 0;
     }
 
+    private static int catalogRefineCraft(CommandSourceStack source, String id, int grade) throws CommandSyntaxException {
+        return CraftWorldSoftService.craft(source.getPlayerOrException(), id, grade) ? 1 : 0;
+    }
+
     private static int catalogFormationsList(CommandSourceStack source) {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.formations.header",
                 CraftWorldSoftService.formationCount()), false);
@@ -1169,6 +1246,41 @@ public final class SeekingImmortalsCommand {
                 "message.seeking_immortals.formation_catalog.soft_only") ? 1 : 0;
     }
 
+    private static int catalogFormationsDeploy(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return CraftWorldSoftService.deploy(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogTalismanList(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.talisman.header",
+                CraftWorldSoftService.talismanRecipeCount()), false);
+        for (String line : CraftWorldSoftService.sample("talisman_recipes_index", 20)) {
+            source.sendSuccess(() -> Component.literal(line), false);
+        }
+        return 1;
+    }
+
+    private static int catalogTalismanCraft(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return CraftWorldSoftService.craftTalisman(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogPuppetList(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.puppet.header",
+                CraftWorldSoftService.puppetRecipeCount()), false);
+        for (String line : CraftWorldSoftService.sample("puppet_craft_recipes_index", 20)) {
+            source.sendSuccess(() -> Component.literal(line), false);
+        }
+        return 1;
+    }
+
+    private static int catalogPuppetCraft(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return CraftWorldSoftService.craftPuppet(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogPuppetRepair(CommandSourceStack source) throws CommandSyntaxException {
+        int repaired = SummonHonestMvpService.repairOwnedPuppets(source.getPlayerOrException());
+        return repaired > 0 ? 1 : 0;
+    }
+
     private static int catalogChronicleList(CommandSourceStack source) {
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.chronicle.header",
                 ChronicleTradeSoftService.chronicleCount()), false);
@@ -1180,6 +1292,10 @@ public final class SeekingImmortalsCommand {
 
     private static int catalogChroniclePreview(CommandSourceStack source, String id) throws CommandSyntaxException {
         return ChronicleTradeSoftService.previewChronicle(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogChronicleDiscover(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return ChronicleTradeSoftService.discoverChronicle(source.getPlayerOrException(), id) ? 1 : 0;
     }
 
     private static int catalogTradeList(CommandSourceStack source) {
@@ -1195,8 +1311,41 @@ public final class SeekingImmortalsCommand {
         return ChronicleTradeSoftService.previewTradeRoute(source.getPlayerOrException(), id) ? 1 : 0;
     }
 
+    private static int catalogTradeEmbark(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return ChronicleTradeSoftService.embark(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
     private static int catalogSummon(CommandSourceStack source, String id) throws CommandSyntaxException {
         return SummonHonestMvpService.summonProxy(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogSummonList(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        int count = SummonHonestMvpService.countOwnedServitors(player);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.summon.header", count), false);
+        SummonHonestMvpService.listOwnedServitors(player).forEach(servitor ->
+                source.sendSuccess(() -> Component.literal(servitor.getSummonId() + " | "
+                        + servitor.getArchetype().name().toLowerCase() + " | "
+                        + servitor.getStance().name().toLowerCase()), false));
+        return 1;
+    }
+
+    private static int catalogSummonStance(CommandSourceStack source, String mode) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        String token = mode == null ? "" : mode.trim().toLowerCase();
+        com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance stance = switch (token) {
+            case "guard", "defend" -> com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance.GUARD;
+            case "aggressive", "attack", "aggro" -> com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance.AGGRESSIVE;
+            case "stay", "hold" -> com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance.STAY;
+            default -> com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Stance.FOLLOW;
+        };
+        int count = SummonHonestMvpService.setStanceAll(player, stance);
+        return count > 0 ? 1 : 0;
+    }
+
+    private static int catalogSummonDismiss(CommandSourceStack source) throws CommandSyntaxException {
+        int count = SummonHonestMvpService.dismissOwned(source.getPlayerOrException());
+        return count > 0 ? 1 : 0;
     }
 
     private static int beastList(CommandSourceStack source) throws CommandSyntaxException {
@@ -1232,6 +1381,10 @@ public final class SeekingImmortalsCommand {
 
     private static int phaseMark(CommandSourceStack source, String id) throws CommandSyntaxException {
         return com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int phaseEnter(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return SoftPhaseShellService.enter(source.getPlayerOrException(), id) ? 1 : 0;
     }
 
     private static int missionGenerate(CommandSourceStack source) throws CommandSyntaxException {
@@ -1290,6 +1443,34 @@ public final class SeekingImmortalsCommand {
             if (++shown >= 20) {
                 int remaining = total - shown;
                 source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.truncated", remaining), false);
+                break;
+            }
+        }
+        return 1;
+    }
+
+    private static int catalogLearnMethod(CommandSourceStack source, String id) throws CommandSyntaxException {
+        return ManualCatalogService.learnMethod(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int catalogStudiedMethods(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        int count = ManualCatalogService.learnedMethodCount(player);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.methods.studied_header", count), false);
+        var tag = player.getPersistentData().getCompound(ManualCatalogService.LEARNED_METHODS_TAG);
+        int shown = 0;
+        for (String key : tag.getAllKeys()) {
+            if (!tag.getBoolean(key)) {
+                continue;
+            }
+            String line = key;
+            var optional = TextMaterialCatalogService.builtin().findMethod(key);
+            if (optional.isPresent()) {
+                line = optional.get().id() + " | " + optional.get().display();
+            }
+            String finalLine = line;
+            source.sendSuccess(() -> Component.literal(finalLine), false);
+            if (++shown >= 30) {
                 break;
             }
         }

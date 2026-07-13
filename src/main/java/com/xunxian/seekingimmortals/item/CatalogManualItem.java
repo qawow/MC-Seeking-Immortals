@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
+import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -40,8 +41,20 @@ public class CatalogManualItem extends Item {
             return InteractionResultHolder.fail(stack);
         }
         boolean ok = ManualCatalogService.study(serverPlayer, manualId);
-        if (ok && !player.getAbilities().instabuild) {
-            stack.shrink(1);
+        if (ok) {
+            // Wave476: also map manual id/type text into learned methods when possible.
+            ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manualId);
+            TextMaterialCatalogService.builtin().findManual(manualId).ifPresent(manual -> {
+                if (manual.type() != null && !manual.type().isBlank()) {
+                    ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.type());
+                }
+                if (manual.display() != null && !manual.display().isBlank()) {
+                    ManualCatalogService.grantMethodsFromTechniqueSource(serverPlayer, manual.display());
+                }
+            });
+            if (!player.getAbilities().instabuild) {
+                stack.shrink(1);
+            }
         }
         return ok ? InteractionResultHolder.consume(stack) : InteractionResultHolder.fail(stack);
     }
@@ -49,5 +62,14 @@ public class CatalogManualItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         tooltip.add(Component.translatable("item.seeking_immortals.catalog_manual.tooltip", manualId));
+        TextMaterialCatalogService.builtin().findManual(manualId).ifPresent(manual -> {
+            if (manual.unlocksForgeGrade() > 0) {
+                tooltip.add(Component.translatable("message.seeking_immortals.manual.forge_grade",
+                        manual.unlocksForgeGrade()));
+            }
+            if (!manual.realmMin().isBlank()) {
+                tooltip.add(Component.translatable("message.seeking_immortals.manual.realm_req", manual.realmMin()));
+            }
+        });
     }
 }

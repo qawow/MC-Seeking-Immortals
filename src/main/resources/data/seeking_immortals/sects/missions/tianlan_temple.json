@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "tianlan_temple_beast_core",
+      "title_key": "screen.seeking_immortals.sect.mission.tianlan_temple_beast_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:beast_core",
+      "target": 2,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "tianlan_temple_spirit_bone",
+      "title_key": "screen.seeking_immortals.sect.mission.tianlan_temple_spirit_bone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "target": 3,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "tianlan_temple_true_dragon_blood",
+      "title_key": "screen.seeking_immortals.sect.mission.tianlan_temple_true_dragon_blood.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:true_dragon_blood",
+      "target": 1,
+      "reward_contribution": 110,
+      "min_stage": 3
+    }
+  ]
+}

@@ -167,12 +167,12 @@ class ArtifactActivationServiceTest {
         assertEquals("vehicle", spiritBoatModel.kind());
         assertEquals(Realm.FOUNDATION_ESTABLISHMENT, spiritBoatModel.minRealm());
 
-        assertFalse(ArtifactActivationService.hasActivation("generic_treasure_grade_5"));
+        assertTrue(ArtifactActivationService.hasActivation("generic_treasure_grade_5"));
     }
 
     @Test
     void keepsStorageOutsideCombatActivationButExposesCapacity() {
-        assertFalse(ArtifactActivationService.hasActivation("storage_bracelet_low"));
+        assertTrue(ArtifactActivationService.hasActivation("storage_bracelet_low"));
         assertTrue(ArtifactStorageService.supports("storage_bracelet_low"));
         assertEquals(8, ArtifactStorageService.storageSlots("storage_bracelet_low"));
     }

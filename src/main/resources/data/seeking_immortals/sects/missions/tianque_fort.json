@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "tianque_fort_spirit_iron",
+      "title_key": "screen.seeking_immortals.sect.mission.tianque_fort_spirit_iron.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_iron",
+      "target": 8,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "tianque_fort_armor_talisman",
+      "title_key": "screen.seeking_immortals.sect.mission.tianque_fort_armor_talisman.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:armor_talisman",
+      "target": 2,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "tianque_fort_war_token",
+      "title_key": "screen.seeking_immortals.sect.mission.tianque_fort_war_token.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:war_contribution_token",
+      "target": 2,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

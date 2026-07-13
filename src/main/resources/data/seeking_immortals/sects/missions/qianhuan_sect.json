@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qianhuan_sect_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.qianhuan_sect_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "qianhuan_sect_time_sand",
+      "title_key": "screen.seeking_immortals.sect.mission.qianhuan_sect_time_sand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:time_sand",
+      "target": 2,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "qianhuan_sect_void_crystal",
+      "title_key": "screen.seeking_immortals.sect.mission.qianhuan_sect_void_crystal.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:void_crystal",
+      "target": 1,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

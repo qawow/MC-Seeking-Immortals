@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qingxu_gate_talisman_paper",
+      "title_key": "screen.seeking_immortals.sect.mission.qingxu_gate_talisman_paper.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:talisman_paper_mortal",
+      "target": 8,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "qingxu_gate_spirit_shard",
+      "title_key": "screen.seeking_immortals.sect.mission.qingxu_gate_spirit_shard.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "target": 16,
+      "reward_contribution": 40,
+      "min_stage": 2
+    },
+    {
+      "id": "qingxu_gate_cold_jade",
+      "title_key": "screen.seeking_immortals.sect.mission.qingxu_gate_cold_jade.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cold_jade",
+      "target": 2,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

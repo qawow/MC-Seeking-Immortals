@@ -14,6 +14,7 @@ import java.util.Optional;
 
 /**
  * Quest-hook browser + Wave55 authority accept bridge into text quest chains.
+ * Wave457: honest empty mapping (no silent huangfeng fallback); expanded hook map.
  * Preview remains soft; accept starts a mapped chain server-side.
  */
 public final class QuestHookSoftService {
@@ -77,7 +78,8 @@ public final class QuestHookSoftService {
         if (id.contains("demon") || id.contains("fallen") || id.contains("ancient")) {
             return firstPresent("ancient_demon_line", "fallen_demon_expedition", "demonic_six_path");
         }
-        return Optional.of("huangfeng_cultivation_path");
+        // Wave457: honest soft_only — do not silently map everything to huangfeng.
+        return Optional.empty();
     }
 
     public static boolean preview(ServerPlayer player, String hookId) {
@@ -125,6 +127,17 @@ public final class QuestHookSoftService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.soft_only"), false);
             return false;
         }
+        TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, mapped.get());
+        if (progress.stage() > 0) {
+            // Wave466: already started — open dialogue / advance instead of hard-fail.
+            if (!progress.complete()) {
+                TextQuestChainService.advance(player, mapped.get());
+            }
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
+                    entry.id(), mapped.get()), true);
+            TextQuestNpcHookService.openDialogue(player, mapped.get(), false);
+            return true;
+        }
         boolean started = TextQuestChainService.start(player, mapped.get());
         if (started) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.quest_hook.accepted",
@@ -149,15 +162,166 @@ public final class QuestHookSoftService {
         map.put("huangfeng_entry", "huangfeng_cultivation_path");
         map.put("alchemy_apprentice", "huangfeng_cultivation_path");
         map.put("sect_fire_room", "huangfeng_cultivation_path");
+        map.put("herb_gather_contract", "huangfeng_cultivation_path");
         map.put("blood_forbidden_run", "ancient_demon_line");
         map.put("void_palace_key", "chaotic_sea_politics");
         map.put("mulan_side", "mulan_tianlan_war");
         map.put("tianlan_side", "tianlan_defense_line");
         map.put("inverse_star_contact", "star_palace_internal_politics");
+        map.put("inverse_star_sabotage", "star_palace_internal_politics");
         map.put("kunwu_expedition", "kunwu_mountain_expedition");
         map.put("nether_river_pilgrim", "yin_cluster_pilgrim");
         map.put("star_palace_patrol", "star_palace_internal_politics");
         map.put("beast_tide_defense", "spirit_realm_rise");
+        map.put("tianyuan_enlist", "tianyuan_merit_path");
+        map.put("diyuan_permit_apply", "spirit_realm_border");
+        map.put("auction_invite_dajin", "dajin_kunwu_line");
+        map.put("fallen_demon_seal_weaken", "fallen_demon_campaign");
+        map.put("ghost_expose_event", "ghost_path");
+        map.put("ascension_gate_rumor", "chain_ascension_spirit_world");
+        map.put("stolen_jade_slip", "chaotic_sea_politics");
+        map.put("pirate_bounty", "chaotic_sea_politics");
+        map.put("mulan_scout_clash", "mulan_tianlan_war");
+        map.put("yinming_escape", "ghost_path");
+        map.put("hook_ghost_yin_body", "ghost_path");
+        map.put("hook_ghost_soul_anchor", "ghost_path");
+        map.put("hook_ghost_nether_core", "ghost_path");
+        map.put("nether_river_guardian", "ghost_path");
+        map.put("kunwu_seal_research", "high_realm_endgame");
+        map.put("fallen_demon_scout", "high_realm_endgame");
+        map.put("tianyuan_demon_contract", "spirit_realm_rise");
+        map.put("treasure_fair_invite", "spirit_realm_rise");
+        map.put("diyuan_scout", "spirit_realm_rise");
+        map.put("asura_trial", "spirit_realm_rise");
+        map.put("jiuxian_seclusion_permit", "spirit_realm_rise");
+        map.put("puppet_maintain", "craft_master");
+        map.put("dajin_auction_preview", "dajin_kunwu_line");
+        map.put("kunwu_intel", "dajin_kunwu_line");
+        map.put("demon_rift_closure", "ancient_demon_line");
+        map.put("qixuan_village_intro", "qixuan_mortal_path");
+        map.put("qixuan_herb_errand", "qixuan_mortal_path");
+        map.put("qixuan_sect_trial", "qixuan_mortal_path");
+        map.put("qixuan_decline_legacy", "qixuan_mortal_path");
+        map.put("huadao_entry", "huadao_blade_path");
+        map.put("huadao_forge_contract", "huadao_blade_path");
+        map.put("huadao_duel_trial", "huadao_blade_path");
+        map.put("giant_sword_entry", "giant_sword_gate_path");
+        map.put("giant_sword_relic_restore", "giant_sword_gate_path");
+        map.put("qianzhu_puppet_apprentice", "qianzhu_puppet_path");
+        map.put("thousand_bamboo_tower_run", "qianzhu_puppet_path");
+        map.put("dayan_fragment_quest", "qianzhu_puppet_path");
+        map.put("yuling_secret_contact", "yuling_puppet_path");
+        map.put("beast_soul_bind_puppet", "yuling_puppet_path");
+        map.put("lingshou_contract_beast", "yuling_puppet_path");
+        map.put("clan_territory_patrol", "dajin_clan_line");
+        map.put("clan_ancestor_trial", "dajin_clan_line");
+        map.put("demonic_north_rumor", "demonic_six_path");
+        map.put("guiling_gate_recruit", "demonic_six_path");
+        map.put("hehuan_sect_trial", "demonic_six_path");
+        map.put("tianmo_blood_rite", "demonic_six_path");
+        map.put("righteous_bounty_hunt", "demonic_six_path");
+        map.put("nether_river_fog_event", "yin_cluster_pilgrim");
+        map.put("barbarian_border_contact", "barbarian_kings_line");
+        map.put("king_tribute_quest", "barbarian_kings_line");
+        map.put("spatial_rift_escape", "barbarian_kings_line");
+        map.put("clan_generic_tribute", "spirit_eighteen_clans");
+        map.put("star_palace_branch_enforcement", "star_palace_internal_politics");
+        map.put("star_palace_branch_commerce", "star_palace_internal_politics");
+        map.put("internal_tax_vote", "star_palace_internal_politics");
+        map.put("tiannan_defense_mobilize", "mulan_war_campaign");
+        map.put("fashi_soul_array_battle", "mulan_war_campaign");
+        map.put("holy_bird_blessing_quest", "mulan_war_campaign");
+        map.put("war_ceasefire_negotiation", "mulan_war_campaign");
+        map.put("mulan_fashi_initiation", "mulan_fashi_path");
+        map.put("holy_bird_altar_visit", "mulan_fashi_path");
+        map.put("tianhu_beast_tame_optional", "mulan_fashi_path");
+        map.put("tianlan_oath_renew", "tianlan_defense_line");
+        map.put("tianlan_beast_soul_call_training", "tianlan_defense_line");
+        map.put("mulan_war_campaign", "tianlan_defense_line");
+        map.put("wutu_raid_mulan_camp", "wutu_mulan_feud_line");
+        map.put("mulan_counter_hunt", "wutu_mulan_feud_line");
+        map.put("feud_truce_broker", "wutu_mulan_feud_line");
+        map.put("seal_weak_event", "fallen_demon_expedition");
+        map.put("demon_qi_purge_side", "fallen_demon_expedition");
+        map.put("ancient_demon_projection_boss", "fallen_demon_expedition");
+        map.put("dajin_clan_feud_choice", "dajin_wanbao_route");
+        map.put("kunwu_rumor", "dajin_wanbao_route");
+        map.put("yin_luo_initiation", "yin_luo_ghost_sect");
+        map.put("soul_banner_quest", "yin_luo_ghost_sect");
+        map.put("nether_ferry_pass", "yin_luo_ghost_sect");
+        map.put("kunwu_map_fragment_turnin", "kunwu_mountain_expedition");
+        map.put("kunwu_cold_snap_survive", "kunwu_mountain_expedition");
+        map.put("kunwu_puppet_king", "kunwu_mountain_expedition");
+        map.put("tianyuan_merit_enlist", "tianyuan_merit_path");
+        map.put("demon_beast_siege_defense", "tianyuan_merit_path");
+        map.put("wild_land_beast_horde", "spirit_realm_border");
+        map.put("spatial_rift_flutter_survive", "spirit_realm_border");
+        map.put("righteous_sect_ghost_hunt", "ghost_sect_ban_arc");
+        map.put("sect_ban_lift_rare_quest", "ghost_sect_ban_arc");
+        map.put("fengyuan_clan_intro", "fengyuan_explorer");
+        map.put("spirit_fengyuan_border_patrol", "fengyuan_explorer");
+        map.put("wild_land_rumor", "fengyuan_explorer");
+        map.put("barbarian_beast_tide_survive", "barbarian_king_hunt");
+        map.put("barbarian_king_token_hunt", "barbarian_king_hunt");
+        map.put("clan_guest_register", "human_clan_league_hub");
+        map.put("dajin_clan_feud", "human_clan_league_hub");
+        map.put("spirit_eighteen_pilgrimage", "spirit_eighteen_pilgrimage");
+        map.put("void_rift_surge", "void_great_cultivation_arc");
+        map.put("diyuan_core_probe", "void_great_cultivation_arc");
+        map.put("great_vehicle_insight", "void_great_cultivation_arc");
+        map.put("tribulation_cloud_gather", "void_great_cultivation_arc");
+        map.put("diyuan_pressure_wave", "diyuan_depth_delve");
+        map.put("diyuan_core_crystal_boss", "diyuan_depth_delve");
+        map.put("mortal_realm_cap_insight", "mortal_to_spirit_bridge");
+        map.put("spirit_realm_gate_voucher", "mortal_to_spirit_bridge");
+        map.put("star_palace_patrol_quest", "chaotic_sea_civil_war");
+        map.put("inverse_star_ambush_event", "chaotic_sea_civil_war");
+        map.put("star_palace_enforcement_raid", "chaotic_sea_civil_war");
+        map.put("inverse_star_smuggle_run", "chaotic_sea_civil_war");
+        map.put("chaotic_sea_neutral_ending_optional", "chaotic_sea_civil_war");
+        map.put("blood_forbidden_rumor", "blood_forbidden_campaign");
+        map.put("hook_blood_forbidden_ticket", "blood_forbidden_campaign");
+        map.put("blood_forbidden_entry_scar", "blood_forbidden_campaign");
+        map.put("blood_forbidden_outer_layer", "blood_forbidden_campaign");
+        map.put("blood_forbidden_inner_layer", "blood_forbidden_campaign");
+        map.put("blood_jiao_guardian", "blood_forbidden_campaign");
+        map.put("void_palace_cycle_notice", "void_palace_campaign");
+        map.put("void_key_fragment_hunt", "void_palace_campaign");
+        map.put("void_palace_outer_hall", "void_palace_campaign");
+        map.put("void_palace_herb_garden", "void_palace_campaign");
+        map.put("void_palace_cold_jade_hall", "void_palace_campaign");
+        map.put("void_palace_treasury", "void_palace_campaign");
+        map.put("demon_qi_purge_prep", "fallen_demon_campaign");
+        map.put("fallen_demon_outer_gorge", "fallen_demon_campaign");
+        map.put("fallen_demon_rift_layer", "fallen_demon_campaign");
+        map.put("ancient_demon_projection", "fallen_demon_campaign");
+        map.put("kunwu_open_permit", "kunwu_mountain_campaign");
+        map.put("kunwu_outer_array", "kunwu_mountain_campaign");
+        map.put("kunwu_mine_tunnel", "kunwu_mountain_campaign");
+        map.put("kunwu_puppet_hall", "kunwu_mountain_campaign");
+        map.put("kunwu_peak_seal", "kunwu_mountain_campaign");
+        map.put("nether_ferry_ticket", "nether_river_campaign");
+        map.put("nether_river_fog_entry", "nether_river_campaign");
+        map.put("nether_soul_shoal", "nether_river_campaign");
+        map.put("nether_ghost_hall", "nether_river_campaign");
+        map.put("diyuan_rift_mouth", "diyuan_campaign");
+        map.put("diyuan_shallow_mine", "diyuan_campaign");
+        map.put("diyuan_pressure_zone", "diyuan_campaign");
+        map.put("diyuan_ancient_beast", "diyuan_campaign");
+        map.put("dajin_border_rumor", "dajin_righteous_demon_line");
+        map.put("dajin_righteous_patrol_hook", "dajin_righteous_demon_line");
+        map.put("dajin_demon_infiltrate_hook", "dajin_righteous_demon_line");
+        map.put("wanbao_auction_lead", "dajin_righteous_demon_line");
+        map.put("yanyue_entry_trial", "yanyue_illusion_path");
+        map.put("illusion_array_practice", "yanyue_illusion_path");
+        map.put("seven_sect_tournament", "yanyue_illusion_path");
+        map.put("inner_veil_secret", "yanyue_illusion_path");
+        map.put("tianfu_paper_grind", "tianfu_talisman_path");
+        map.put("low_talisman_cert", "tianfu_talisman_path");
+        map.put("mid_talisman_inner", "tianfu_talisman_path");
+        map.put("high_talisman_secret", "tianfu_talisman_path");
+        map.put("sect_branch_choice", "demonic_six_expanded");
+        map.put("north_waste_ruin", "demonic_six_expanded");
         return map;
     }
 

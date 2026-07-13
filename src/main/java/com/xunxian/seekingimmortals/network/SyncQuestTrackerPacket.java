@@ -45,8 +45,12 @@ public record SyncQuestTrackerPacket(List<String> lines) {
         context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             com.xunxian.seekingimmortals.client.ClientQuestTrackerData.set(packet);
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            if (!(mc.screen instanceof com.xunxian.seekingimmortals.client.QuestTrackerScreen)) {
+            // Wave457: never steal focus from dialogue or other screens.
+            // Only open tracker when no screen is open, or refresh if already tracker.
+            if (mc.screen == null) {
                 mc.setScreen(new com.xunxian.seekingimmortals.client.QuestTrackerScreen());
+            } else if (mc.screen instanceof com.xunxian.seekingimmortals.client.QuestTrackerScreen tracker) {
+                tracker.refreshWidgets();
             }
         }));
         context.setPacketHandled(true);

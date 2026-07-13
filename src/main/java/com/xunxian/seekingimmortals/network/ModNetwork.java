@@ -6,7 +6,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    private static final String PROTOCOL_VERSION = "13";
+    // Wave486: method layout sync/action packets.
+    private static final String PROTOCOL_VERSION = "17";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -32,6 +33,12 @@ public final class ModNetwork {
                 .encoder(SyncCultivationDataPacket::encode)
                 .decoder(SyncCultivationDataPacket::decode)
                 .consumerMainThread(SyncCultivationDataPacket::handle)
+                .add();
+        // Wave477: learned cultivation methods (protocol 14).
+        CHANNEL.messageBuilder(SyncLearnedMethodsPacket.class, id++)
+                .encoder(SyncLearnedMethodsPacket::encode)
+                .decoder(SyncLearnedMethodsPacket::decode)
+                .consumerMainThread(SyncLearnedMethodsPacket::handle)
                 .add();
         CHANNEL.messageBuilder(ReleaseTechniquePacket.class, id++)
                 .encoder(ReleaseTechniquePacket::encode)
@@ -130,6 +137,23 @@ public final class ModNetwork {
                 .encoder(OpenRefinePlanPacket::encode)
                 .decoder(OpenRefinePlanPacket::decode)
                 .consumerMainThread(OpenRefinePlanPacket::handle)
+                .add();
+        // Wave478: method-tree learn/sync intent (protocol 15) — appended after existing packets.
+        CHANNEL.messageBuilder(MethodActionPacket.class, id++)
+                .encoder(MethodActionPacket::encode)
+                .decoder(MethodActionPacket::decode)
+                .consumerMainThread(MethodActionPacket::handle)
+                .add();
+        // Wave486: freeform method-tree layout (protocol 17).
+        CHANNEL.messageBuilder(SyncMethodLayoutPacket.class, id++)
+                .encoder(SyncMethodLayoutPacket::encode)
+                .decoder(SyncMethodLayoutPacket::decode)
+                .consumerMainThread(SyncMethodLayoutPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(MethodLayoutActionPacket.class, id++)
+                .encoder(MethodLayoutActionPacket::encode)
+                .decoder(MethodLayoutActionPacket::decode)
+                .consumerMainThread(MethodLayoutActionPacket::handle)
                 .add();
     }
 }

@@ -1,3 +1,344 @@
+## 431. 2026-07-14 0.1.486 review hardening
+
+  Step   Status   Notes
+  ---   ---   ---
+  Build/version preflight           Done   0.1.485->0.1.486
+  Player progression persistence    Done   manuals/methods/layers + layout clone
+  Server authority and transactions Done   auction/layout/quest/manual/trade/cast gates
+  Servitor global ownership         Done   SavedData cap + remote/deferred stance/dismiss
+  War scoring/UI/lang               Done   killer faction + detail reserve + zh/en keys
+  Tests/build                       Done   31 focused tests + full BUILD SUCCESSFUL in 33s
+  Protocol                          Done   remains 17; no packet schema/registration change
+
+## 430. 2026-07-14 0.1.485 drag tree + war AI + FTB advancement
+
+  Step   Status   Notes
+  ---   ---   ---
+  Freeform drag method graph        Done client offsets + reset
+  SectWar battlefield AI pulse      Done hostile shells + kill score
+  FTB advancement tasks (8)         Done intro/travel nodes
+  FtbQuestSnbtTest advancement      Done
+  Version/build                     Done   0.1.484->0.1.485 BUILD SUCCESSFUL protocol 16
+
+## 429. 2026-07-14 0.1.484 freer method graph + FTB kill tasks
+
+  Step   Status   Notes
+  ---   ---   ---
+  School graph multi-node grid      Done up to 6 peers, linked
+  Click graph node to reselect      Done switches filter/school
+  FTB kill tasks combat nodes       Done 6 packaged kill tasks
+  FtbQuestSnbtTest kill coverage    Done
+  Version/build                     Done   0.1.483->0.1.484 BUILD SUCCESSFUL protocol 16
+
+## 428. 2026-07-14 0.1.483 method graph + FTB rewards
+
+  Step   Status   Notes
+  ---   ---   ---
+  MethodTree layer node chain       Done 1-9 linked nodes
+  MethodTree school adjacency graph Done prev/curr/next peers
+  FTB rewards all 66 item tasks     Done spirit_stone_shard x2
+  FtbQuestSnbtTest reward coverage  Done assert all item-task rewards
+  Version/build                     Done   0.1.482->0.1.483 BUILD SUCCESSFUL protocol 16
+
+## 427. 2026-07-14 0.1.482 FTB consume authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  FTB item tasks consume_items true Done 66 packaged tasks
+  data.snbt default_consume true    Done
+  Mainline FTB item rewards         Done 4 quests spirit_stone_shard
+  FtbQuestSnbtTest consume assert   Done
+  Version/build                     Done   0.1.481->0.1.482 BUILD SUCCESSFUL protocol 16
+
+## 426. 2026-07-14 0.1.481 Curios spirit charm + method layers
+
+  Step   Status   Notes
+  ---   ---   ---
+  SpiritCharm ICurioItem            Done   curioTick recovery + right-click equip
+  Method layers 1-9 authority       Done   NBT + cultivate costs
+  SyncLearnedMethodsPacket layers   Done   protocol 16
+  MethodTreeScreen cultivate UI     Done   layer/cost display + button
+  Tests/lang/docs                   Done   cost unit test + lang
+  Version/build                     Done   0.1.480->0.1.481 BUILD SUCCESSFUL protocol 16
+
+## 425. 2026-07-14 0.1.480 typed secret-realm combat shells
+
+  Step   Status   Notes
+  ---   ---   ---
+  SummonedServitor hostile trial mode  Done no-owner player-hunt AI
+  TrialCombatShellService              Done archetype map + spawn helper
+  SecretRealmTrial patrol/guardian     Done typed shells replace vanilla
+  BossEncounterService boss shell      Done typed shells replace vanilla
+  Tests/lang/docs                      Done archetype mapping tests
+  Version/build                        Done   0.1.479->0.1.480 BUILD SUCCESSFUL protocol 15
+
+## 424. 2026-07-14 0.1.479 chronicle/trade/conflict authority deepen
+
+  Step   Status   Notes
+  ---   ---   ---
+  Chronicle full mapping + first reward Done discover NBT/rep/shards
+  Trade tax discount + settle profit   Done merchant_guild mult + settle
+  Conflict war open + side score       Done SectWarService bridge
+  Tests/lang/docs                      Done coverage tests + soft_only text
+  Version/build                        Done   0.1.478->0.1.479 BUILD SUCCESSFUL protocol 15
+
+## 423. 2026-07-14 0.1.478 interactive method-tree UI
+
+  Step   Status   Notes
+  ---   ---   ---
+  MethodActionPacket learn/sync     Done   protocol 15 append packet
+  MethodTreeScreen                  Done   catalog browse + school filter + learn
+  CultivationStatsScreen entry      Done   methods button opens tree
+  ScreenLayoutTest three controls   Done   methodTreeButton non-overlap
+  Version/build                     Done   0.1.477->0.1.478 BUILD SUCCESSFUL protocol 15
+
+## 422. 2026-07-14 0.1.477 learned methods protocol sync
+
+  Step   Status   Notes
+  ---   ---   ---
+  SyncLearnedMethodsPacket          Done   protocol 14 new packet
+  ClientMethodData + logout reset   Done   client mirror + ClientEvents reset
+  Login + markLearnedMethod sync    Done   auto send on grant/login
+  CultivationStatsScreen learned UI Done   shows synced learned methods
+  Version/build                     Done   0.1.476->0.1.477 BUILD SUCCESSFUL protocol 14
+
+## 421. 2026-07-14 0.1.476 method UI hint + catalog manual mapping
+
+  Step   Status   Notes
+  ---   ---   ---
+  CatalogManualItem source map      Done   id/type/display -> grantMethodsFromTechniqueSource
+  CultivationStatsScreen method hint Done  catalog count + sample names (no packet)
+  Version/build                     Done   0.1.475->0.1.476 BUILD SUCCESSFUL protocol 13
+
+## 420. 2026-07-14 0.1.475 technique manual source→method
+
+  Step   Status   Notes
+  ---   ---   ---
+  grantMethodsFromTechniqueSource   Done   source keywords + method id match
+  TechniqueManualItem use hook      Done   grants methods with techniques
+  Sect starter method id refine     Done   map to real methods index ids
+  Version/build                     Done   0.1.474->0.1.475 BUILD SUCCESSFUL protocol 13
+
+## 419. 2026-07-14 0.1.474 method unlock hooks
+
+  Step   Status   Notes
+  ---   ---   ---
+  Manual unlocks -> learned methods Done   grantUnlockMethods on study
+  Sect outer starter method grant   Done   grantSectStarterMethod on exam_passed
+  Version/build                     Done   0.1.473->0.1.474 BUILD SUCCESSFUL protocol 13
+
+## 418. 2026-07-14 0.1.473 cultivation method learn authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  Method learn persistent NBT       Done   seeking_immortals_learned_methods
+  ManualCatalogService.learnMethod  Done   realm gate + insight buff
+  TechniqueGate checkMethod         Done   hasLearnedMethod first
+  Commands methods learn/studied    Done   /catalog methods learn|studied
+  Version/build                     Done   0.1.472->0.1.473 BUILD SUCCESSFUL protocol 13
+
+## 417. 2026-07-14 0.1.472 summon contract gate + trial hazard tick
+
+  Step   Status   Notes
+  ---   ---   ---
+  Summon BEAST contract gate        Done   summonProxy requires hasContract; prefers BeastContractService.summon
+  Catalog summon shard cost         Done   1-3 shards non-creative
+  Secret-realm hazard tick          Done   every 5s mild reapply while active secret realm
+  Version/build                     Done   0.1.471->0.1.472 BUILD SUCCESSFUL protocol 13
+
+## 416. 2026-07-14 0.1.471 secret-realm kill gates
+
+  Step   Status   Notes
+  ---   ---   ---
+  Remove enter rare proxy grant     Done   rare proxy now on guardian kill
+  Seal mid/core chests until kill   Done   empty/sealed chests fill after combat
+  Tag patrol/guardian/boss mobs     Done   persistent NBT trial/boss tags
+  LivingDeath kill hooks            Done   ModEvents -> Trial/Boss kill handlers
+  Version/build                     Done   0.1.470->0.1.471 BUILD SUCCESSFUL protocol 13
+
+## 415. 2026-07-13 0.1.470 remaining template sect specialty closeout
+
+  Step   Status   Notes
+  ---   ---   ---
+  Huadao/Moyan/Qianhuan specialty   Done   body/flame/illusion missions+shops+dialogue
+  Qinglan/Qingluo specialty         Done   garden/wood missions+shops(qinglan deep kept)+dialogue
+  Tianque/Tiansha specialty         Done   fort/killing missions+shops+dialogue
+  Version/build                     Done   0.1.469->0.1.470 BUILD SUCCESSFUL protocol 13
+
+## 414. 2026-07-13 0.1.469 six specialty sect packages
+
+  Step   Status   Notes
+  ---   ---   ---
+  Hehuan/Luoyun specialty           Done   mind/alchemy missions+shops+dialogue
+  Tianlan/Qixuan specialty          Done   beast/mortal-entry missions+shops+dialogue
+  Mulan Fashi/Dajin Buddhist        Done   war/calm missions+shops+dialogue
+  Version/build                     Done   0.1.468->0.1.469 BUILD SUCCESSFUL protocol 13
+
+## 413. 2026-07-13 0.1.468 region gates + five specialty sects
+
+  Step   Status   Notes
+  ---   ---   ---
+  TechniqueGate region/dim cast     Done   Core+ tagged arts match worldpack region/secret/dim
+  Qingxu/Qianzhu/BeastMtn specialty Done   talisman/puppet/beast missions+shops+dialogue
+  InverseStar/GiantSword specialty  Done   void/smuggle + sword forge missions+shops+dialogue
+  Version/build                     Done   0.1.467->0.1.468 BUILD SUCCESSFUL protocol 13
+
+## 412. 2026-07-13 0.1.467 method/rep gates + offline auction refund + demonic four specialty
+
+  Step   Status   Notes
+  ---   ---   ---
+  TechniqueGate method + rep        Done   requires_method load + home-sect/learned; cast rep friendly
+  Auction offline refund ledger     Done   AuctionHouseSavedData.pendingRefunds + login claim
+  Guiling/Tianmo/Xuewu/Wanhu specialty Done missions+shops+dialogue
+  Version/build                     Done   0.1.466->0.1.467 BUILD SUCCESSFUL protocol 13
+
+## 411. 2026-07-13 0.1.466 soft authority + technique gates + sect specialty
+
+  Step   Status   Notes
+  ---   ---   ---
+  TechniqueGateService learn/cast   Done   realm hard + light sect hint
+  Soft→authority command wiring     Done   story start; summon stance/dismiss/repair; talisman/puppet craft
+  Auction outbid refund + settle    Done   online previous-leader shard refund; phase14 mark
+  Conflict/chronicle/hook deepen    Done   real faction rep + advance; rediscover advance; re-accept
+  Formation deploy shard cost       Done   3-6 shards by FieldKind
+  Sect specialty huangfeng/yanyue/star Done missions+shops+dialogue lang
+  Version/build                     Done   0.1.465->0.1.466 BUILD SUCCESSFUL protocol 13
+
+## 410. 2026-07-13 0.1.465 sect alias closeout
+
+  Step   Status   Notes
+  ---   ---   ---
+  Remaining unique sects 20→30   Done   +10 demonic/north/inverse/buddhist
+  Alias collapse                 Done   ghost/qianzhu/yuling/qixuan twins
+  Packages shops/dialogue/mission Done  10 new contribution halls
+  Version/build                  Done   0.1.464->0.1.465 BUILD SUCCESSFUL protocol 13
+
+## 409. 2026-07-13 0.1.464 sect auction manual
+
+  Step   Status   Notes
+  ---   ---   ---
+  Sect Wave A 14→20           Done   +qingxu/huadao/tianque/giant_sword/qixuan/tianlan
+  Auction A1/A5/A3            Done   rep gate, reward map, deposit floor
+  Manual M1/M2/M5             Done   rich fields, studied NBT, forge ceiling
+  Version/build               Done   0.1.463->0.1.464 BUILD SUCCESSFUL protocol 13
+
+## 408. 2026-07-13 0.1.463 sect content + catalog authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  Wave462 sect content repair   Done   dialogues/missions/shops/generic outpost
+  Playable sects 10→14          Done   +star/spirit_beast/qianzhu/mulan
+  CraftWorld craft/deploy       Done   refine craft + formations deploy
+  Chronicle discover            Done   event→chain + discovery flag
+  SoftPhase enter packages      Done   phase12-18 linked chains
+  Hook reverse map expand       Done   ~160 hard map entries from steps
+  Version/build                 Done   0.1.462->0.1.463 BUILD SUCCESSFUL protocol 13
+
+## 407. 2026-07-13 0.1.462 artifact/sect/gate authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  Generic/material activation   Done   kindFor promotes generic+material+storage+quest_key
+  Playable sects +4             Done   huangfeng/yanyue/luoyun/hehuan (10 total)
+  Ascension/Blood dedicated gates Done useAscensionGate / useBloodForbiddenGate
+  Version/build                 Done   0.1.461->0.1.462 BUILD SUCCESSFUL protocol 13
+
+## 406. 2026-07-13 0.1.461 conflict/trade authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  FactionConflict accept/side   Done   maps 21 conflicts -> chains + branch sides
+  Trade route embark            Done   fee consume + start/advance mapped chains
+  Commands + tests + lang       Done   catalog conflicts/trade verbs
+  Version/build                 Done   0.1.460->0.1.461 BUILD SUCCESSFUL protocol 13
+
+## 405. 2026-07-13 0.1.460 Wave5 docs/smoke closeout
+
+  Step   Status   Notes
+  ---   ---   ---
+  Open decisions refresh     Done   only external art/human smoke left
+  Checklist evidence 1→5     Done   unimplemented_checklist E section
+  Live smoke note            Done   auto build verified; human re-sign recommended
+  Version/build              Done   remains 0.1.460 (docs-only)
+
+## 404. 2026-07-13 0.1.460 secret-realm depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Mid patrol encounters     Done   once/player/realm
+  Layer hazards             Done   realm-tagged enter effects
+  Layered loot              Done   OUTER/MID/CORE density
+  Boss scaling + cache      Done   BossEncounterService chest
+  Version/build             Done   0.1.459->0.1.460 BUILD SUCCESSFUL protocol 13
+
+## 403. 2026-07-13 0.1.459 artifact/refine depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Grade-filtered selectRecipeId   Done   G1/G2/G3 pass forge grade
+  Failure salvage UX              Done   no false no_recipe; serializer salvage
+  Natal growth polish             Done   milestones + refine grow + stack growth
+  Integrity last-light / scale    Done   natal cost/CD/SP + repair consume guard
+  Version/build                   Done   0.1.458->0.1.459 BUILD SUCCESSFUL protocol 13
+
+## 402. 2026-07-13 0.1.458 summon/puppet/beast depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Servitor stance modes        Done   FOLLOW/GUARD/AGGRESSIVE/STAY + owner interact
+  Dismiss / repair APIs        Done   SummonHonestMvpService dismiss/repairOwnedPuppets
+  Beast combat growth          Done   HIT/KILL/SURVIVE credits affinity/growth
+  CaptureJar seal contract     Done   sneak-seal + BEAST release scaling
+  Crafted puppet priority      Done   crafted flag + cap prefers non-crafted despawn
+  Version/build                Done   0.1.457->0.1.458 BUILD SUCCESSFUL protocol 13
+
+## 401. 2026-07-13 0.1.457 quest authority deepen
+
+  Step   Status   Notes
+  ---   ---   ---
+  Catalog rewards_finale        Done   authorityRewardsFor prefers catalog tokens
+  Branch bonus ledger           Done   id#branch under AUTHORITY_REWARD_TAG
+  Tracker UI authority buttons  Done   advance/branch encodings + cost/lock parse
+  NPC gate on tracker packet    Done   requireNearbyNpcOrWarn for advance/branch
+  Main-story auto-complete      Done   main_chapter_ref + chapter chain start
+  Honest hook mapping           Done   no silent huangfeng fallback
+  FTB bridge residual table     Done   mirror-only, no independent grant
+  Version/build                 Done   0.1.456->0.1.457 BUILD SUCCESSFUL protocol 13
+
+## 400. 2026-07-13 0.1.456 artifact/refine depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Inventory refine stack      Done   refine/success/failure/loot already existed
+  Forge grade gate            Done   G1/G2/G3 pass grade into refine(); reject undergrade
+  Success bonus by grade      Done   +5%/extra grade (cap +15%)
+  Natal bind surface          Done   sneak-use ArtifactCatalogItem -> NatalBindingService
+  Natal activation growth     Done   bound artifact grows and cools faster
+  Version/build               Done   0.1.455->0.1.456 BUILD SUCCESSFUL protocol 13
+
+## 399. 2026-07-13 0.1.455 summon/puppet/beast depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Inventory summon stack      Done   entity already existed; HonestSummon was buff-first
+  Entity-first summon spell   Done   HonestSummonSpell spawns servitor first
+  Concurrent cap              Done   max 3 owned servitors; oldest despawned
+  Owner retaliate AI          Done   target owner's attacker/victim
+  Explicit archetypes         Done   beast contract=BEAST, puppet craft=PUPPET
+  Version/build               Done   0.1.454->0.1.455 BUILD SUCCESSFUL protocol 13
+
+## 398. 2026-07-13 0.1.454 quest authority closeout
+
+  Step   Status   Notes
+  ---   ---   ---
+  Task board 1→5              Done   priority: quest authority → summon/beast → artifact/refine → secret realm → art/smoke
+  Inventory existing services Done   TextQuestChainService already had stage costs + soft rewards
+  Forge resolveItem           Done   stage costs resolve bulk/registry items
+  Branch lock                 Done   non-neutral branch cannot rechoose
+  Unified reward ledger       Done   AUTHORITY_REWARD_TAG shared with FTB bridge
+  Tracker actions             Done   start:/advance:/branch: via existing action UTF (protocol 13)
+  Version/build               Done   0.1.453->0.1.454 BUILD SUCCESSFUL protocol 13
+
 ## 397. 2026-07-12 0.1.453 residual reward token
 
   Step   Status   Notes

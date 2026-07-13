@@ -1,0 +1,13 @@
+{
+  "id": "qingxu_gate_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"talisman_paper","item":"seeking_immortals:talisman_paper_mortal","count":4,"cost":30,"stock":30},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":40},
+    {"id":"fire_talisman","item":"seeking_immortals:fire_talisman","count":1,"cost":80,"stock":12},
+    {"id":"armor_talisman","item":"seeking_immortals:armor_talisman","count":1,"cost":80,"stock":12},
+    {"id":"cold_jade","item":"seeking_immortals:cold_jade","count":1,"cost":120,"stock":8},
+    {"id":"clear_void_pill","item":"seeking_immortals:clear_void_pill","count":1,"cost":90,"stock":8},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

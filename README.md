@@ -1,323 +1,197 @@
 # 寻仙问道 / Seeking Immortals
 
-`seeking_immortals` 是 Minecraft **Java 1.20.1** + **Forge 47.2.0** 的原创凡人流修仙模组。
+`seeking_immortals` 是面向 Minecraft Java Edition 1.20.1 的 Forge 修仙模组，以原创凡人流成长为核心，覆盖修炼、功法、炼丹炼器、宗门、任务、拍卖、秘境、阵法和多人服务端玩法。
 
-| 项 | 值 |
+当前项目是可构建、可游玩的深度 MVP。核心系统已经形成服务端权威闭环，但美术、叙事表现和部分大型世界内容仍在持续完善。
+
+## 项目状态
+
+| 项目 | 当前值 |
 |---|---|
-| 当前版本 | `0.1.440`（`gradle.properties`） |
-| 网络协议 | `ModNetwork.PROTOCOL_VERSION = "13"` |
-| Java | 17 |
-| 主题 | 灵力、境界、灵根、寿元、功法/术法、灵石、丹药、法宝、符箓、阵法、宗门、秘境、拍卖与修仙 UI |
+| 模组版本 | `0.1.486` |
+| 网络协议 | `17` |
+| Mod ID | `seeking_immortals` |
+| Minecraft | `1.20.1` |
+| Forge | `47.2.0` |
+| Java | `17` |
+| 构建系统 | ForgeGradle 6.x / Gradle Wrapper |
+| 许可证 | All Rights Reserved |
 
-> 文档以当前源码/资源为准。历史 `docs/phase-*.md`、旧 README 段落仅作追溯，不覆盖 `gradle.properties` 与 `project_docs/ai_handoff.md`。
+版本和协议的最终真相分别是 [`gradle.properties`](gradle.properties) 与 [`ModNetwork.java`](src/main/java/com/xunxian/seekingimmortals/network/ModNetwork.java)。不要从旧构建产物或历史文档推断当前版本。
 
----
+## 安装
 
-## 快速开始
+客户端和服务端必须安装相同版本的模组与依赖。当前 `mods.toml` 将以下依赖声明为必需：
+
+| 依赖 | 最低/开发版本 |
+|---|---|
+| Forge | `47.2.0` |
+| Curios | `5.9.1+1.20.1` |
+| Patchouli | `1.20.1-84-FORGE` |
+| JEI | `15.20.0.106` |
+| GeckoLib | `4.8.4` |
+| Architectury API | `9.1.12` |
+| FTB Library | `2001.2.9` |
+| FTB Teams | `2001.3.0` |
+| FTB Quests | `2001.4.22` |
+
+安装步骤：
+
+1. 安装 Minecraft 1.20.1 和 Forge 47.2.0。
+2. 将本模组及上述依赖放入实例或服务器的 `mods/` 目录。
+3. 确保客户端、服务端使用同一模组版本和协议。
+4. 首次进入世界前备份存档；开发版本不承诺向后兼容所有实验数据。
+
+当前构建产物位于 `build/libs/seeking_immortals-0.1.486.jar`。
+
+## 开发构建
+
+Windows PowerShell：
 
 ```powershell
-# 构建（输出 build/libs/seeking_immortals-0.1.440.jar）
+# 完整验证并构建 JAR
 .\gradlew.bat --no-daemon --max-workers=1 build
 
-# 开发客户端 / 服务端
+# 开发客户端 / 专用服务端
 .\gradlew.bat runClient
 .\gradlew.bat runServer
+
+# 数据生成
+.\gradlew.bat runData
 ```
 
-常规约定：
+Linux/macOS 使用对应的 `./gradlew` 命令。完整构建会先执行 `scripts/preflight.ps1`，检查版本递增和网络变更提示，然后编译、运行测试并重混淆 JAR。
 
-- 改代码/资源后必须 `build` 通过；`build` 会先跑 `scripts/preflight.ps1` 做版本门禁。
-- 改现有文件前备份到 `.bak/<timestamp>/`。
-- 代码/资源/构建逻辑变更需 bump `mod_version`（`0.1.X`）。
-- 改网络包字段/顺序/兼容性时同时 bump `ModNetwork.PROTOCOL_VERSION`。
+## 玩法概览
 
----
+### 修炼与角色成长
 
-## 依赖
+- 十阶境界路线，从炼气逐步成长至真仙。
+- 灵力、修为、神识、肉身、寿元、灵根、特殊体质和走火入魔风险。
+- 打坐吐纳、灵气浓度、灵脉、聚灵阵、突破材料与天劫流程。
+- 重伤、心魔、碎丹、跌境伤疤等长期负面状态。
 
-| 依赖 | 状态 |
+### 功法、术法与战斗
+
+- 资源驱动的功法/术法目录与服务端学习门禁。
+- 七槽技能栏、技能编辑、冷却、灵力消耗和熟练度成长。
+- 功法树、层数培养、可拖拽节点布局及服务端持久化。
+- 自定义弹射物、剑术、五行、魔道、鬼道、佛门、儒门、阵法与召唤效果。
+- 灵兽、傀儡、鬼物和通用侍从实体；跨维度所有权和全局数量上限。
+
+### 生产、物品与法宝
+
+- 炼丹炉 GUI、配方、品质、成功率、废丹和爆炉。
+- 炼器炉、多块结构、自定义炼器配方与失败回收。
+- 灵石、仙玉、丹药、符箓、灵草、妖兽材料、矿物和批量目录物品。
+- 法宝激活、本命绑定、成长、完整度、储物与捕获罐流程。
+
+### 世界、宗门与多人内容
+
+- 灵矿世界生成、阵法场、空间节点、传送阵和多种门类结构。
+- 独立秘境/维度、区域旅行、门票、事件门禁、环境危险和分层奖励。
+- 多宗门加入、晋升、贡献商店、任务、对话、据点和声望体系。
+- 62 条文本任务链、主线桥接、FTB Quests 章节、阶段消耗和分支奖励。
+- 共享拍卖 SavedData、离线退款、商路、势力冲突和宗门战计分。
+
+## 默认按键
+
+| 操作 | 默认按键 |
 |---|---|
-| Curios | 必需（法宝槽等） |
-| GeckoLib | 必需（召唤物骨骼渲染） |
-| Architectury / FTB Library / FTB Teams / FTB Quests | 已声明集成 |
-| Patchouli | 可选（修仙指南书） |
-| JEI | 可选（炼丹/炼器分类） |
+| 切换打坐 | `V` |
+| 打开打坐界面 | `B` |
+| 打开任务追踪 | `J` |
+| 打开修仙属性 | 未绑定，也可从背包中的“修仙”按钮进入 |
+| 技能编辑 | 未绑定 |
+| 突破 | 未绑定 |
+| 七个技能槽释放 | 未绑定 |
 
-可选依赖不得从 common/server 初始化路径无条件引用。客户端 UI 放在 `client` 包，经 `Dist.CLIENT` 隔离。
+所有按键均可在 Minecraft 控制设置中调整。
 
----
+## 命令入口
 
-## 当前玩法概览
-
-### 1. 修炼核心
-
-- **Capability 玩家修仙数据**：灵力/灵力上限、修为/阶段上限、神识、肉身、走火风险、寿元/年龄。
-- **境界**：炼气 → 筑基 → 金丹 → 元婴 → 化神 … 直至高阶（含设计映射与突破流程）。
-- **灵根**：伪/杂/三系/双系/异/天等，影响修炼速度、灵力回复、突破与丹药吸收。
-- **打坐吐纳**：静止打坐增长修为；受伤打断并抬高走火风险；受灵气浓度、功法、灵石等修正。
-- **突破**：材料检查、成功率（灵根/丹药/执念等）、成功升境或失败回退/走火检定。
-- **负面状态**：重伤、心魔、碎丹、跌境伤疤等。
-
-### 2. 功法 / 术法 / 战斗
-
-- **约 346 条文本功法/术法**已接线到释放路径（服务端权威）。
-- **7 槽技能栏** + 技能编辑界面；客户端只发意图包，消耗/冷却/已学状态服务端校验。
-- 自定义弹射物/区域术法为主（尽量不用原版火球/闪电作攻击主体）。
-- **召唤物** `SummonedServitor`：真实实体 + 原型 AI（兽/傀/鬼/通用），GeckoLib 渲染。
-- 战斗属性面板：攻防、暴击、闪避等由境界与修仙数据推导。
-
-### 3. 炼丹 / 炼器 / 材料
-
-- **炼丹炉**：MenuType 容器 GUI、配方、进度、成功率/废丹/爆炉、炼丹技能门禁。
-- **品质丹药框架** + 凝气/筑基/稳神/回灵等核心丹。
-- **炼器**：自定义 `seeking_immortals:refinement` RecipeType/Serializer；炼器炉/多块结构；命令规划与结算。
-- 材料体系：灵草、妖兽材料、矿石、特殊材料；高冲突 source-id 已部分解压为独立 carrier。
-- **JEI**：炼丹/炼器分类（JEI 存在时）。
-
-### 4. 世界与空间
-
-- 灵矿 worldgen、聚灵阵、鉴定石板、传送阵/宗门门/血禁门/飞升门等多块结构。
-- **秘境独立维度包** + 自定义 biome/dimension_type（如迷雾洞、血禁、虚空殿、堕魔等）。
-- 天元/凤原、阴冥/冥河、修罗/仙界等维度与旅行规则（门票、阵门、事件门等）。
-- 灵气浓度：维度/群系/灵脉哈希/附近阵法共同计算。
-
-### 5. 任务 / 宗门 / 经济
-
-- **七玄门五阶段 MVP**：命名 NPC、阶段旗标、分支、密室/越国门、奖励。
-- **文本任务 62 链**：阶段追踪、材料消耗、分支、对话 GUI、钩子接取、命名村民权威入口。
-- **宗门**：加入/贡献商店/rank 锁/日任务生成/执事实体/据点骨架。
-- **商店网络** + 贡献/货币购买；拍卖 GUI + 共享竞价 SavedData。
-- 声望、势力冲突索引、宗门战计分。
-
-### 6. 其它系统
-
-- 神秘小瓶（绑定、24h 充能、植物加速）。
-- 灵石吸收、储物手镯 MenuType GUI、本命绑定、捕获罐。
-- 灵舟载具、灵兽契约服务、阵法场持久/重水合。
-- 修仙 HUD、打坐 HUD、任务追踪 Screen、对话立绘/语音资源。
-- Patchouli 指南书；`live_smoke` 自动探测与签字报告。
-
----
-
-## 默认按键 / UI
-
-| 操作 | 默认 |
-|---|---|
-| 打坐 | `V` |
-| 打坐详情屏 | `B` |
-| 任务追踪 | `J` |
-| 修仙面板 | 原版背包中的「修仙」按钮 / 相关按键 |
-| 技能编辑 / 7 槽释放 | 默认可重绑（多为未绑定） |
-
-创造模式标签页：**寻仙问道**。
-
----
-
-## 命令一览
-
-根命令：
+根命令为：
 
 ```text
 /seeking_immortals
 ```
 
-`OP` = 权限等级 ≥ 2。
-
-### 基础
-
-```text
-/seeking_immortals lingli|qi          # 灵力/修为
-/seeking_immortals realm              # 境界
-/seeking_immortals root               # 灵根
-/seeking_immortals breakthrough       # 突破
-```
-
-### 法宝
-
-```text
-/seeking_immortals artifact
-/seeking_immortals artifact p0|list|files
-/seeking_immortals artifact info <id>
-/seeking_immortals artifact recipe <id>
-/seeking_immortals artifact refine <id>
-/seeking_immortals artifact plan <id>
-/seeking_immortals artifact natal
-/seeking_immortals artifact natal bind|grow
-```
-
-### 任务
-
-```text
-# 七玄门
-/seeking_immortals quest
-/seeking_immortals quest start|check
-/seeking_immortals quest choose report|silent|blackmail
-/seeking_immortals quest reset|advance              # OP
-/seeking_immortals quest spawn_mo_lao|spawn_steward # OP
-/seeking_immortals quest place_secret_room|place_yue_portal|give_evidence|trigger_attack  # OP
-
-# 文本任务 62 链
-/seeking_immortals quest text [list]
-/seeking_immortals quest text start|advance|status|cost <id>
-/seeking_immortals quest text branch <id> <choice>
-/seeking_immortals quest text talk <id> [choice]
-/seeking_immortals quest text gui <id>
-/seeking_immortals quest text hooks
-/seeking_immortals quest text hooks <id>
-/seeking_immortals quest text hooks accept <id>
-/seeking_immortals quest text spawn_npc <id>        # OP
-/seeking_immortals quest text interact <npc>
-/seeking_immortals quest text story [list]
-/seeking_immortals quest text story complete <id>
-```
-
-### 市场 / 世界包 / 宗门
-
-```text
-/seeking_immortals market [open [shopId]|list [shopId]]
-/seeking_immortals market buy <entry>
-/seeking_immortals market buy <shopId> <entry>
-/seeking_immortals market spawn_trader              # OP
-
-/seeking_immortals worldpack [open]
-/seeking_immortals worldpack travel <region>
-/seeking_immortals worldpack enter <realm>
-/seeking_immortals worldpack return
-/seeking_immortals worldpack set_anchor <anchor>    # OP
-/seeking_immortals worldpack regions|realms|events
-
-/seeking_immortals sect [status|open|join|candidates|advance|shop]
-/seeking_immortals sect apply <sectId>
-/seeking_immortals sect buy <entry>
-/seeking_immortals sect donate spirit_grass
-/seeking_immortals sect spawn_steward [sectId]      # OP
-/seeking_immortals sect place_outpost [sectId]      # OP
-```
-
-### 目录 / 拍卖 / 灵兽 / 声望等
-
-```text
-/seeking_immortals catalog [summary]
-/seeking_immortals catalog manual|flight|summon <id>
-/seeking_immortals catalog methods|realms|quests|sects|bands|chapters|manifest|lore|factions
-/seeking_immortals catalog auction [list|open]
-/seeking_immortals catalog auction interest|bid|settle <id>
-/seeking_immortals catalog auction <id>
-/seeking_immortals catalog spatial [travel] <id>
-/seeking_immortals catalog reputation [list]
-/seeking_immortals catalog reputation discount <shopId>
-/seeking_immortals catalog reputation get <faction>
-/seeking_immortals catalog reputation add <faction> <delta>   # OP
-/seeking_immortals catalog conflicts|bulk|refine|formations|chronicle|trade [id]
-/seeking_immortals catalog beast [list]
-/seeking_immortals catalog beast contract|feed|summon <id>
-/seeking_immortals catalog has <id>
-```
-
-### 其它系统
-
-```text
-/seeking_immortals boss <id>
-/seeking_immortals phase [mark <id>]
-/seeking_immortals mission [gen]
-/seeking_immortals war [status]
-/seeking_immortals war start <factionA> <factionB> [minutes]  # OP
-/seeking_immortals war stop                                   # OP
-/seeking_immortals live_smoke [run]
-/seeking_immortals live_smoke sign [note]
-```
-
-### OP 调试
-
-```text
-/seeking_immortals affliction severe_injury|heart_demon|realm_fall|shattered_core
-/seeking_immortals debug set_cultivation <amount>
-/seeking_immortals debug set_core_attrs <divSense> <bodyRef> <qiDevRisk> <tribRes>
-/seeking_immortals debug start_tribulation <target_realm>
-/seeking_immortals debug add_contribution <amount>
-/seeking_immortals debug fill_mana
-/seeking_immortals debug unlock_skills
-```
-
-### 常用示例
+常用入口：
 
 ```text
 /seeking_immortals qi
+/seeking_immortals realm
+/seeking_immortals root
 /seeking_immortals breakthrough
-/seeking_immortals quest text start huangfeng_cultivation_path
-/seeking_immortals quest text gui huangfeng_cultivation_path
-/seeking_immortals market open
-/seeking_immortals worldpack enter mist_cave_trial
-/seeking_immortals sect open
-/seeking_immortals catalog auction open
+/seeking_immortals quest
+/seeking_immortals sect
+/seeking_immortals market
+/seeking_immortals worldpack
+/seeking_immortals catalog
+/seeking_immortals artifact
+/seeking_immortals war
 /seeking_immortals live_smoke
 ```
 
----
+管理和调试命令需要 OP 权限。命令树变化较快，当前实现以 [`SeekingImmortalsCommand.java`](src/main/java/com/xunxian/seekingimmortals/command/SeekingImmortalsCommand.java) 为准。
 
-## 架构速览
+## 代码结构
 
 ```text
 src/main/java/com/xunxian/seekingimmortals/
-  SeekingImmortalsMod.java     # 入口注册
-  cultivation/                 # 修炼数据、境界、突破、飞行权限
-  skill/ + technique data      # 技能效果与资源功法
-  alchemy/ + recipe/           # 炼丹/炼器
-  artifact/                    # 法宝激活、炼器规划、储物
-  quest/ + sect/ + shop/       # 任务、宗门、商店
-  worldpack/ + structure/      # 区域秘境、阵法、多块
-  client/                      # HUD/Screen/渲染
-  network/                     # 协议包
-  registry/                    # 物品方块实体菜单配方音效
+  cultivation/   玩家修炼 Capability、境界、突破、灵根与契约
+  skill/         技能定义、施法门禁与效果实现
+  item/          丹药、手册、法宝载体、符箓和工具
+  artifact/      法宝激活、捕获、炼器与本命绑定
+  quest/         主线、文本任务、FTB 奖励桥接和 NPC 钩子
+  sect/          宗门、贡献、定义和宗门战
+  catalog/       文本材料目录、拍卖、商路、功法布局和召唤服务
+  worldpack/     区域、秘境、SavedData、危险与世界玩法
+  client/        Screen、HUD、渲染和客户端同步镜像
+  network/       C2S/S2C 网络包与协议注册
+  registry/      物品、方块、实体、菜单、配方和创造栏注册
 ```
 
-资源：
+资源目录：
 
-- 资产：`src/main/resources/assets/seeking_immortals/`
-- 数据：`src/main/resources/data/seeking_immortals/`（recipes、worldgen、dimension、text_material、artifacts、shops…）
+- `src/main/resources/assets/seeking_immortals/`：语言、模型、贴图、声音和 GUI。
+- `src/main/resources/data/seeking_immortals/`：配方、战利品、世界生成、维度、宗门、商店和文本材料。
+- `src/main/resources/seeking_immortals/ftbquests/`：随模组发布的 FTB Quests 默认内容。
 
----
+## 维护规则
 
-## 文档入口
+开始修改前先阅读 [`MAINTENANCE.md`](MAINTENANCE.md)、[`AGENTS.md`](AGENTS.md)、[`project_docs/ai_handoff.md`](project_docs/ai_handoff.md) 和 [`project_docs/step_progress.md`](project_docs/step_progress.md)。
 
-真相优先级：
+核心约束：
 
-1. `gradle.properties`（版本）
-2. 当前源码 / 资源
-3. `project_docs/ai_handoff.md`
-4. `project_docs/step_progress.md`
-5. `project_docs/unimplemented_checklist.md`
+- 当前源码和资源优先于历史文档、`build/`、`run/`、备份和生成目录。
+- 修改现有文件前，在 `.bak/<timestamp>/` 中按相对路径备份。
+- 代码、资源、数据包、构建逻辑或运行行为变更时递增 `mod_version`。
+- 网络包字段、顺序、类型、编码或兼容行为变化时同时递增协议版本。
+- 所有 C2S 请求都视为不可信；消耗、境界、权限、槽位、冷却和目录 ID 必须由服务端校验。
+- 新增可见内容时同步处理注册、创造栏、中英语言、模型、贴图、配方/掉落和文档。
+- 代码或资源变更完成后必须运行完整 `build`。
 
-其它常用文档：
+## 0.1.486 更新摘要
 
-- `project_docs/features.md` — 功能记录
-- `project_docs/items.md` — 物品
-- `project_docs/pending_requests.md` — 长期待办
-- `project_docs/missing_and_placeholders.md` — 占位与缺口
-- `docs/task-board.md` / `docs/mvp-scope.md` — 早期路线与范围
-- `CLAUDE.md` / `AGENTS.md` — AI/协作约定
+- 方法树布局升级至协议 17，并加入目录 ID、长度和数量边界。
+- 手册、已学功法和功法层数在死亡克隆后继续保留。
+- 修复首次万宝拍卖出价、任务起始前置校验和商路扣费原子性。
+- 召唤物改用服务器全局登记，未加载区块内的实体仍计入上限并接收延迟命令。
+- 宗门战战壳按实际击杀者阵营计分；补齐战场消息翻译。
+- 修复无效手册授予、被拒施法副作用和方法树底部文字遮挡。
+- 完整 Gradle 构建和自动化测试已通过。
 
----
+更细的版本演进见 [`project_docs/updates/`](project_docs/updates/) 与 [`project_docs/ai_handoff.md`](project_docs/ai_handoff.md)。
 
-## 已知局限（诚实说明）
+## 已知边界
 
-当前是**可构建、可游玩的深 MVP / 内容骨架**，不是最终凡人流全作：
+- 当前仍有占位或程序生成美术，不能视为最终发布品质。
+- 文本任务具备服务端进度、消耗、分支和奖励权威，但不是完整叙事引擎。
+- 部分秘境以可玩结构和规则为主，仍需要更丰富的手作地形、建筑和遭遇。
+- 未加载区块不会被召唤系统强制加载；延迟命令会在实体区块重新载入后应用。
+- 发布前仍需真人客户端和多人服烟测，重点覆盖死亡继承、跨维度召唤、同时竞拍和宗门战。
 
-- 文本 62 链为轻量权威（阶段/消耗/分支/钩子），不是完整叙事引擎。
-- 大量贴图/立绘为程序生成或占位，非最终商业美术。
-- 召唤/灵兽/傀儡有实体与契约 MVP，深度养成仍可扩展。
-- 秘境有维度与 biome 壳，大规模手作地形/结构仍可加深。
-- FTB 任务多为展示/桥接，并非全量双向权威同步。
-- 发布前建议再做一轮真实客户端回归；历史 network 包 diff 若涉及兼容需审计协议。
+## 许可证
 
-最近修复示例：`0.1.440` 修复创建世界时 `add_yin_essence_ore` biome_modifier 非法 biomes 数组导致的 registry 崩溃。
-
----
-
-## 工作约定
-
-- 以当前源码和资源为准，不以 `build/`、`.gradle/`、`run/`、`.bak/` 为实现真相。
-- 新增可见物品/方块时同步：注册、创造栏、中英语言、模型、贴图、配方/掉落/文档。
-- 网络包假设客户端不可信：消耗、冷却、境界、槽位、已学状态均服务端校验。
-- UI 使用原生 Forge/Minecraft Screen、Menu、Overlay；不重新引入旧第三方 UI 框架。
-- 一次任务尽量小范围、可回滚；先备份再改，改完再 build。
+项目元数据声明为 **All Rights Reserved**。未经权利人明确许可，不得重新分发、再授权或用于商业发布。

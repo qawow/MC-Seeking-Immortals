@@ -70,6 +70,14 @@ public class CultivationStatsScreen extends Screen {
         addRenderableWidget(new InkButton(layout.breakthroughButton(),
                 Component.translatable("screen.seeking_immortals.cultivation_stats.breakthrough"),
                 button -> ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket())));
+        // Wave478: open interactive method tree (catalog browse + server learn).
+        addRenderableWidget(new InkButton(layout.methodTreeButton(),
+                Component.translatable("screen.seeking_immortals.cultivation_stats.methods"),
+                button -> {
+                    if (minecraft != null) {
+                        minecraft.setScreen(new MethodTreeScreen(this));
+                    }
+                }));
         addRenderableWidget(new InkButton(layout.closeButton(), closeButtonLabel(returnToInventory), button -> onClose()));
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
@@ -130,10 +138,15 @@ public class CultivationStatsScreen extends Screen {
         int innerLeft = left + CONTENT_PADDING;
         int innerWidth = Math.max(40, panelWidth - CONTENT_PADDING * 2);
         int buttonHeight = panelHeight < 118 ? 14 : panelHeight < 180 ? 16 : 20;
-        int buttonWidth = Math.max(38, Math.min(86, (innerWidth - 6) / 2));
+        // Wave478: three bottom actions — breakthrough / methods / close, equal slots with gap.
+        int buttonGap = 4;
+        int buttonWidth = Math.max(28, Math.min(78, (innerWidth - buttonGap * 2) / 3));
         int buttonY = top + panelHeight - buttonHeight - 6;
-        UiRect breakthroughButton = new UiRect(innerLeft, buttonY, buttonWidth, buttonHeight);
-        UiRect closeButton = new UiRect(left + panelWidth - CONTENT_PADDING - buttonWidth, buttonY, buttonWidth, buttonHeight);
+        int totalButtonsWidth = buttonWidth * 3 + buttonGap * 2;
+        int buttonsStartX = innerLeft + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
+        UiRect breakthroughButton = new UiRect(buttonsStartX, buttonY, buttonWidth, buttonHeight);
+        UiRect methodTreeButton = new UiRect(buttonsStartX + buttonWidth + buttonGap, buttonY, buttonWidth, buttonHeight);
+        UiRect closeButton = new UiRect(buttonsStartX + (buttonWidth + buttonGap) * 2, buttonY, buttonWidth, buttonHeight);
         int sliderHeight = buttonHeight;
         int sliderY = Math.max(top + 18, buttonY - sliderHeight - 4);
         UiRect slider = new UiRect(innerLeft, sliderY, innerWidth, sliderHeight);
@@ -145,7 +158,7 @@ public class CultivationStatsScreen extends Screen {
         int rightX = twoColumns ? innerLeft + columnWidth + COLUMN_GAP : innerLeft;
         int rightWidth = twoColumns ? Math.max(40, innerWidth - columnWidth - COLUMN_GAP) : innerWidth;
         return new PanelLayout(left, top, panelWidth, panelHeight, twoColumns, contentTop, contentBottom,
-                innerLeft, columnWidth, rightX, rightWidth, breakthroughButton, closeButton, slider);
+                innerLeft, columnWidth, rightX, rightWidth, breakthroughButton, methodTreeButton, closeButton, slider);
     }
 
     private void renderCultivationPanel(GuiGraphics graphics) {
@@ -195,7 +208,45 @@ public class CultivationStatsScreen extends Screen {
         y = row(graphics, x, y, width, bottom, "功法", data.learnedTechniqueCount() + " 门，速率 " + formatDouble(data.cultivationSpeedMultiplier()) + "x", TEXT);
         y = row(graphics, x, y, width, bottom, "根骨加成",
                 formatDouble(data.rootCultivationSpeedCoefficient()) + "x / " + formatDouble(data.physiqueCultivationSpeedMultiplier()) + "x", TEXT);
+        y = renderMethodCatalogHint(graphics, x, y, width, bottom);
         return renderTechniqueSummaries(graphics, x, y, width, bottom);
+    }
+
+    /**
+     * Wave476/477: show learned methods when synced; otherwise catalog hint.
+     */
+    private int renderMethodCatalogHint(GuiGraphics graphics, int x, int y, int width, int bottom) {
+        if (ClientMethodData.isSynced()) {
+            int learned = ClientMethodData.getLearnedMethodCount();
+            y = row(graphics, x, y, width, bottom, "已学功法",
+                    learned + " 门", learned > 0 ? JADE : TEXT_MUTED);
+            List<String> lines = ClientMethodData.displayLines(4);
+            if (lines.isEmpty()) {
+                y = row(graphics, x, y, width, bottom, "·", "暂无（/si catalog methods learn）", TEXT_MUTED);
+            } else {
+                for (String line : lines) {
+                    y = row(graphics, x, y, width, bottom, "·", line, TEXT);
+                }
+                if (learned > lines.size()) {
+                    y = row(graphics, x, y, width, bottom, "更多",
+                            "+" + (learned - lines.size()) + " 门", GOLD);
+                }
+            }
+            return y;
+        }
+
+        int methodCount = 0;
+        try {
+            methodCount = com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService.builtin().methods().size();
+        } catch (Throwable ignored) {
+            methodCount = 0;
+        }
+        if (methodCount <= 0) {
+            return y;
+        }
+        y = row(graphics, x, y, width, bottom, "功法目录",
+                methodCount + " 门（等待同步）", TEXT_MUTED);
+        return y;
     }
 
     private int renderFoundationColumn(GuiGraphics graphics, int x, int y, int width, int bottom, ClientCultivationData.Snapshot data) {
@@ -436,6 +487,7 @@ public class CultivationStatsScreen extends Screen {
             int rightColumnX,
             int rightColumnWidth,
             UiRect breakthroughButton,
+            UiRect methodTreeButton,
             UiRect closeButton,
             UiRect slider) {
     }

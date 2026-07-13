@@ -1,0 +1,15 @@
+{
+  "id": "qianzhu_contribution_hall",
+  "currency": "sect_contribution",
+  "stock": 14,
+  "refresh_ticks": 24000,
+  "entries": [
+    {"id":"puppet_core_blank","item":"seeking_immortals:puppet_core_blank","count":1,"cost":160,"stock":12},
+    {"id":"ironwood","item":"seeking_immortals:ironwood","count":4,"cost":80,"stock":20},
+    {"id":"spirit_beast_bone","item":"seeking_immortals:spirit_beast_bone","count":1,"cost":140,"stock":8},
+    {"id":"soul_fragment","item":"seeking_immortals:soul_fragment","count":1,"cost":180,"stock":6},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":30},
+    {"id":"armor_talisman","item":"seeking_immortals:armor_talisman","count":1,"cost":80,"stock":10},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

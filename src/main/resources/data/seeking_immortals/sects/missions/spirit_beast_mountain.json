@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "spirit_beast_mountain_feed",
+      "title_key": "screen.seeking_immortals.sect.mission.spirit_beast_mountain_feed.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 16,
+      "reward_contribution": 25,
+      "min_stage": 2
+    },
+    {
+      "id": "spirit_beast_mountain_beast_core",
+      "title_key": "screen.seeking_immortals.sect.mission.spirit_beast_mountain_beast_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:beast_core",
+      "target": 2,
+      "reward_contribution": 55,
+      "min_stage": 2
+    },
+    {
+      "id": "spirit_beast_mountain_bone",
+      "title_key": "screen.seeking_immortals.sect.mission.spirit_beast_mountain_bone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_beast_bone",
+      "target": 4,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

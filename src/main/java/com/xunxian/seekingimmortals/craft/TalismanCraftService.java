@@ -50,7 +50,43 @@ public final class TalismanCraftService {
         if (optional.isEmpty()) {
             return new CraftResult(false, null, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
         }
+        return craftRecipe(player, optional.get());
+    }
+
+    /** Wave466: craft a specific recipe by id (catalog authority bridge). */
+    public static Optional<Recipe> find(String recipeId) {
+        String id = recipeId == null ? "" : recipeId.trim().toLowerCase(java.util.Locale.ROOT);
+        if (id.isBlank()) {
+            return Optional.empty();
+        }
+        for (Recipe recipe : ensureRecipes()) {
+            if (recipe.id().equals(id) || recipe.id().equalsIgnoreCase(recipeId)) {
+                return Optional.of(recipe);
+            }
+            // Allow bare names without craft_ prefix.
+            if (id.startsWith("craft_") && recipe.id().equals(id)) {
+                return Optional.of(recipe);
+            }
+            if (!id.startsWith("craft_") && recipe.id().equals("craft_" + id)) {
+                return Optional.of(recipe);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static CraftResult craftById(ServerPlayer player, String recipeId) {
+        Optional<Recipe> optional = find(recipeId);
+        if (optional.isEmpty()) {
+            return new CraftResult(false, null, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.unknown_recipe");
+        }
         Recipe recipe = optional.get();
+        if (!player.getAbilities().instabuild && !hasMaterials(player, recipe)) {
+            return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
+        }
+        return craftRecipe(player, recipe);
+    }
+
+    private static CraftResult craftRecipe(ServerPlayer player, Recipe recipe) {
         if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
         }

@@ -1,18 +1,20 @@
 # 文本材料落地 — 待用户决定事项
 
-> 更新于 0.1.436 Wave53 清单收口。
+> 更新于 0.1.485 freeform drag method tree + war AI + FTB advancement 后。
 
 ## 运行时结论
 
-`project_docs/unimplemented_checklist.md` 内可代码实现功能已全部落地到可玩深度（0.1.431~0.1.436 多波）。
+- 功法 method：学习 + 层数精进（1-9）+ 层数链 + 可拖拽/点选流派网格图 + 协议 16
+- SpiritCharm：ICurioItem Curios 佩戴回灵
+- 编年/商路/冲突权威路径、秘境分种战斗壳、召唤/拍卖已收口
+- 宗门战：计分窗口 + 战场 AI 压力壳脉冲（击杀计分）
+- FTB：item 消耗 66 + rewards；kill 6；advancement 8
 
-## 仅剩外部/抛光（非阻塞）
+## 仅剩外部/抛光
 
-- 高质量 GeckoLib 骨骼美术（外部美术管线）
-- 秘境大规模自定义地形/生物群系美术
-- 人工客户端签字式 live smoke 回填
-- 对话正式立绘/语音资源
-- MenuType 槽位 GUI / RecipeSerializer 终态抛光
-- 全源材料 alias 完全解压与精确掉落表
-
-> 以上不阻塞当前可玩版本。
+- 高保真美术 / 专属结构美术
+- 秘境大规模自定义地形 / studio 级 GeckoLib 独立模型
+- 人工 live smoke 再签 0.1.485
+- 服务端持久化功法树布局（当前为客户端会话偏移）
+- 更大规模多军战场模拟（当前为周期压力壳 + 计分）
+- 更广 FTB custom 任务类型

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SectDefinitionServiceTest {
     @Test
-    void sixSectDefinitionsHaveUniqueIds() {
+    void thirtySectDefinitionsHaveUniqueIds() {
         Set<String> ids = new HashSet<>();
 
         for (SectDefinitionService.SectDefinition definition : SectDefinitionService.playableDefinitions()) {
@@ -29,7 +29,7 @@ class SectDefinitionServiceTest {
             assertTrue(definition.playable());
         }
 
-        assertEquals(6, ids.size());
+        assertEquals(30, ids.size());
         assertTrue(ids.contains(SectContributionService.SECT_ID));
         assertTrue(SectDefinitionService.definitions().size() >= 6);
         assertTrue(SectDefinitionService.catalogSectCount() >= 20);
@@ -44,7 +44,7 @@ class SectDefinitionServiceTest {
         progress.setStage(SevenMysteriesQuest.STAGE_COMPLETE);
         progress.setYueArrived(true);
 
-        assertEquals(6, SectDefinitionService.candidates(progress).size());
+        assertEquals(30, SectDefinitionService.candidates(progress).size());
     }
 
     @Test
@@ -78,5 +78,15 @@ class SectDefinitionServiceTest {
 
         SectDefinitionService.ApplyResult second = SectDefinitionService.apply(progress, "danxia_valley");
         assertEquals(SectDefinitionService.ApplyStatus.OTHER_SECT, second.status());
+    }
+
+    @Test
+    void canonicalizeAliasesCollapseToPlayableSects() {
+        assertEquals("guiling_gate", SectDefinitionService.canonicalizeSectId("ghost_spirit_gate"));
+        assertEquals("qianzhu_sect", SectDefinitionService.canonicalizeSectId("qianzhu_teach"));
+        assertEquals("yuling_pavilion", SectDefinitionService.canonicalizeSectId("yuling_sect"));
+        assertEquals("yuling_pavilion", SectDefinitionService.canonicalizeSectId("yuling_sect_secret"));
+        assertTrue(SectDefinitionService.find("ghost_spirit_gate").isPresent());
+        assertEquals("guiling_gate", SectDefinitionService.find("ghost_spirit_gate").orElseThrow().id());
     }
 }

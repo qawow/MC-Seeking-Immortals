@@ -18,17 +18,20 @@
     {
       "id": "wanbao_auction",
       "region": "dajin",
-      "faction": "wanbao_pavilion"
+      "faction": "wanbao_pavilion",
+      "rep_min": 0
     },
     {
       "id": "chaotic_sea_inner",
       "region": "chaotic_sea",
-      "faction": "star_palace"
+      "faction": "star_palace",
+      "rep_min": 0
     },
     {
       "id": "tianyuan_garrison",
       "region": "tianyuan",
-      "currency_alt": "alliance_merit"
+      "currency_alt": "alliance_merit",
+      "rep_min": 0
     }
   ],
   "lots": [
@@ -37,7 +40,12 @@
       "display": "化神修为丹药（三瓶）",
       "low_stone_equiv_min": 500000,
       "low_stone_equiv_max": 700000,
-      "source_note": "汇编：六十万灵石量级成交范例"
+      "source_note": "汇编：六十万灵石量级成交范例",
+      "reward_item": "seeking_immortals:foundation_building_pill_low",
+      "extras": [
+        "seeking_immortals:spirit_stone_shard"
+      ],
+      "venue_id": "wanbao_auction"
     },
     {
       "id": "lot_ancient_beast_scale",
@@ -45,22 +53,31 @@
       "low_stone_equiv_min": 30000000,
       "low_stone_equiv_max": 40000000,
       "extras": [
-        "ten_thousand_year_herb_bundle"
+        "seeking_immortals:true_dragon_blood"
       ],
-      "source_note": "汇编：三千五百万灵石+万年灵草范例"
+      "source_note": "汇编：三千五百万灵石+万年灵草范例",
+      "reward_item": "seeking_immortals:beast_core",
+      "venue_id": "wanbao_auction"
     },
     {
       "id": "lot_foundation_pill",
       "display": "筑基丹",
       "low_stone_equiv_min": 800,
       "low_stone_equiv_max": 5000,
-      "auction_only": false
+      "auction_only": false,
+      "reward_item": "seeking_immortals:foundation_building_pill_low",
+      "venue_id": "wanbao_auction"
     },
     {
       "id": "lot_low_ancient_treasure",
       "display": "低阶古宝/符宝",
       "low_stone_equiv_min": 1500,
-      "low_stone_equiv_max": 8000
+      "low_stone_equiv_max": 8000,
+      "reward_item": "seeking_immortals:immortal_jade",
+      "extras": [
+        "seeking_immortals:void_crystal"
+      ],
+      "venue_id": "wanbao_auction"
     }
   ],
   "ladder_ref": "spirit_stone_ladder.json",

@@ -1,0 +1,13 @@
+{
+  "id": "spirit_beast_mountain_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"spirit_taming_basic","item":"seeking_immortals:technique_manual_spirit_taming_basic","count":1,"cost":160,"stock":4},
+    {"id":"beast_core","item":"seeking_immortals:beast_core","count":2,"cost":180,"stock":10},
+    {"id":"spirit_beast_bone","item":"seeking_immortals:spirit_beast_bone","count":4,"cost":220,"stock":8},
+    {"id":"spirit_beast_feed","item":"seeking_immortals:spirit_grass","count":4,"cost":15,"stock":40},
+    {"id":"beast_soul_essence","item":"seeking_immortals:beast_core","count":1,"cost":200,"stock":6},
+    {"id":"true_dragon_blood","item":"seeking_immortals:true_dragon_blood","count":1,"cost":140,"stock":4},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

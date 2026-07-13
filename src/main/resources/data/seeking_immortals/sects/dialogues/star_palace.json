@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "knocking",
+      "title_key": "screen.seeking_immortals.sect.dialogue.star_palace.knocking.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.star_palace.knocking.text",
+      "options": [
+        { "id": "exam", "label_key": "screen.seeking_immortals.sect.dialogue.option.exam", "action": "advance" }
+      ]
+    },
+    {
+      "id": "outer",
+      "title_key": "screen.seeking_immortals.sect.dialogue.star_palace.outer.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.star_palace.outer.text",
+      "options": [
+        { "id": "mission", "label_key": "screen.seeking_immortals.sect.dialogue.option.mission", "action": "accept_mission" }
+      ]
+    },
+    {
+      "id": "foundation",
+      "title_key": "screen.seeking_immortals.sect.dialogue.star_palace.foundation.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.star_palace.foundation.text",
+      "options": [
+        { "id": "promotion", "label_key": "screen.seeking_immortals.sect.dialogue.option.promotion", "action": "advance" }
+      ]
+    },
+    {
+      "id": "inner",
+      "title_key": "screen.seeking_immortals.sect.dialogue.star_palace.inner.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.star_palace.inner.text",
+      "options": [
+        { "id": "competition", "label_key": "screen.seeking_immortals.sect.dialogue.option.competition", "action": "advance" }
+      ]
+    },
+    {
+      "id": "complete",
+      "title_key": "screen.seeking_immortals.sect.dialogue.star_palace.complete.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.star_palace.complete.text",
+      "options": []
+    }
+  ]
+}

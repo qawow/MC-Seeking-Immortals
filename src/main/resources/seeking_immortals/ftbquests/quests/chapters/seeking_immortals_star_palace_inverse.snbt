@@ -63,7 +63,8 @@
       ],
       dependencies: ["1000000000001103"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_enforcement", "pirate_bounty", "optional"],
-      tasks: [{id: "1000000000002104", type: "item", title: "持有镇魔火符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002104", type: "item", title: "持有镇魔火符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002104", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001105",
@@ -93,7 +94,8 @@
       ],
       dependencies: ["1000000000001102"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "optional"],
-      tasks: [{id: "1000000000002106", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002106", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002106", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001107",
@@ -123,7 +125,8 @@
       ],
       dependencies: ["1000000000001107"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace_commerce", "void_palace", "optional"],
-      tasks: [{id: "1000000000002108", type: "item", title: "持有拍卖仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002108", type: "item", title: "持有拍卖仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002108", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001109",
@@ -209,11 +212,12 @@
       optional: true,
       description: [
         "来源：inverse_star_quest_network#collect_black_market_reward。",
-        "源设定奖励 rep_inverse_star 与 stolen_jade_slip；当前不授予玉简、声望或黑市折扣。逆星黑市已有妖丹货架承接，当前 FTB 物品任务检查 1 枚妖丹且不消耗。"
+        "源设定奖励 rep_inverse_star 与 stolen_jade_slip；当前不授予玉简、声望或黑市折扣。逆星黑市已有妖丹货架承接，当前 FTB 物品任务检查 1 枚妖丹并消耗。"
       ],
       dependencies: ["1000000000001113"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002114", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002114", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002114", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001115",
@@ -273,7 +277,8 @@
       ],
       dependencies: ["1000000000001114", "1000000000001117", "1000000000000509"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "void_palace", "optional"],
-      tasks: [{id: "1000000000002118", type: "item", title: "持有线索仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002118", type: "item", title: "持有线索仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002118", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001119",
@@ -303,7 +308,8 @@
       ],
       dependencies: ["1000000000001118"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "abyss_rift", "void_palace", "optional"],
-      tasks: [{id: "1000000000002120", type: "item", title: "持有深渊妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002120", type: "item", title: "持有深渊妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002120", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001121",
@@ -314,7 +320,7 @@
       optional: true,
       description: [
         "来源：quest_hooks#void_palace_key_fragment_turnin / quest_chains#chain_void_palace_expedition。",
-        "虚天钥碎片可上缴星宫、倒卖商盟或交给逆星，当前不消耗碎片或发放地图残片。"
+        "虚天钥碎片可上缴星宫、倒卖商盟或交给逆星，当前并消耗碎片或发放地图残片。"
       ],
       dependencies: ["1000000000001118", "1000000000000511"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "key_fragment", "optional"],
@@ -333,7 +339,8 @@
       ],
       dependencies: ["1000000000001121", "1000000000000510"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "cycle_gate", "optional"],
-      tasks: [{id: "1000000000002122", type: "item", title: "持有秘境仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002122", type: "item", title: "持有秘境仙玉", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002122", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001123",
@@ -359,11 +366,12 @@
       optional: true,
       description: [
         "来源：novel_world_expansion_waves_v67#loot_void_palace_lord / boss_loot_tables.json#loot_void_palace_lord。",
-        "源设定奖励古宝残片、虚天寒玉与高阶材料；当前仅展示账册，不授予战利品。殿主掉落表的 space_crystal 已映射为虚空结晶，当前 FTB 物品任务检查 1 枚虚空结晶且不消耗。"
+        "源设定奖励古宝残片、虚天寒玉与高阶材料；当前仅展示账册，不授予战利品。殿主掉落表的 space_crystal 已映射为虚空结晶，当前 FTB 物品任务检查 1 枚虚空结晶并消耗。"
       ],
       dependencies: ["1000000000001123", "1000000000000515"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace", "boss_loot", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000002124", type: "item", title: "持有虚空结晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002124", type: "item", title: "持有虚空结晶", item: "seeking_immortals:void_crystal", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002124", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     }
   ]
 }

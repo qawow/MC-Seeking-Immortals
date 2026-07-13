@@ -1,7 +1,6 @@
 {
   "id": "huangfeng_contribution_hall",
-  "currency": "item",
-  "currency_item": "seeking_immortals:metal_spirit_stone",
+  "currency": "sect_contribution",
   "stock": 20,
   "refresh_ticks": 24000,
   "entries": [
@@ -9,22 +8,67 @@
       "id": "spirit_grass",
       "item": "seeking_immortals:spirit_grass",
       "count": 4,
-      "cost": 2,
+      "cost": 40,
       "stock": 30
     },
     {
       "id": "spirit_stone_shard",
       "item": "seeking_immortals:spirit_stone_shard",
       "count": 4,
-      "cost": 2,
+      "cost": 40,
       "stock": 40
+    },
+    {
+      "id": "qi_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 80,
+      "stock": 16
     },
     {
       "id": "fire_talisman",
       "item": "seeking_immortals:fire_talisman",
       "count": 1,
-      "cost": 6,
+      "cost": 120,
       "stock": 10
+    },
+    {
+      "id": "formula_qi_recovery",
+      "item": "seeking_immortals:alchemy_formula_qi_recovery_pill_jade",
+      "count": 1,
+      "cost": 180,
+      "stock": 4
+    },
+    {
+      "id": "formula_foundation_paper",
+      "item": "seeking_immortals:alchemy_formula_foundation_building_pill_paper",
+      "count": 1,
+      "cost": 320,
+      "stock": 3
+    },
+    {
+      "id": "alchemy_furnace_t2",
+      "item": "seeking_immortals:alchemy_furnace_tier_2",
+      "count": 1,
+      "cost": 900,
+      "stock": 2,
+      "rank_min": "outer_disciple"
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "stock": 2,
+      "rank_min": "inner_disciple"
+    },
+    {
+      "id": "flying_sword_low",
+      "item": "seeking_immortals:flying_sword_low",
+      "count": 1,
+      "cost": 1600,
+      "stock": 1,
+      "rank_min": "inner_disciple"
     },
     {
       "id": "alliance_merit_token",

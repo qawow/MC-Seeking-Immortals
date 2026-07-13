@@ -29,11 +29,12 @@
       y: -1.0d,
       description: [
         "来源：dajin_wanbao_route / dajin_auction_preview。",
-        "大晋拍卖中枢正魔皆可竞价，后续可接入拍卖排期、请柬和竞价 UI。当前 FTB 物品任务检查 1 枚仙玉作为竞价保证金代理且不消耗。"
+        "大晋拍卖中枢正魔皆可竞价，后续可接入拍卖排期、请柬和竞价 UI。当前 FTB 物品任务检查 1 枚仙玉作为竞价保证金代理并消耗。"
       ],
       dependencies: ["1000000000000601"],
       tags: ["seeking_immortals", "dajin", "auction", "wanbao_pavilion"],
-      tasks: [{id: "1000000000001602", type: "item", title: "备齐竞价保证金", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001602", type: "item", title: "备齐竞价保证金", item: "seeking_immortals:immortal_jade", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001602", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000603",
@@ -99,11 +100,12 @@
       y: -1.0d,
       description: [
         "来源：dajin_kunwu_line / kunwu_intel。",
-        "从万宝拍卖、世家消息和大晋游历中取得昆吾山地图碎片。当前 FTB 物品任务检查 1 枚空白玉简作为情报记录载体且不消耗。"
+        "从万宝拍卖、世家消息和大晋游历中取得昆吾山地图碎片。当前 FTB 物品任务检查 1 枚空白玉简作为情报记录载体并消耗。"
       ],
       dependencies: ["1000000000000602"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign"],
-      tasks: [{id: "1000000000001607", type: "item", title: "记录昆吾情报", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001607", type: "item", title: "记录昆吾情报", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001607", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000608",
@@ -113,11 +115,12 @@
       y: -1.0d,
       description: [
         "来源：kunwu_mountain_campaign / kunwu_open_permit。",
-        "昆吾山要求大晋许可、境界与寒潮准备；后续可接入许可物品和冷害状态。当前 FTB 物品任务检查 1 枚寒玉作为寒潮准备代理且不消耗。"
+        "昆吾山要求大晋许可、境界与寒潮准备；后续可接入许可物品和冷害状态。当前 FTB 物品任务检查 1 枚寒玉作为寒潮准备代理并消耗。"
       ],
       dependencies: ["1000000000000607"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign"],
-      tasks: [{id: "1000000000001608", type: "item", title: "备妥寒潮护材", item: "seeking_immortals:cold_jade", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001608", type: "item", title: "备妥寒潮护材", item: "seeking_immortals:cold_jade", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001608", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000609",
@@ -127,11 +130,12 @@
       y: -1.0d,
       description: [
         "来源：kunwu_outer_array。",
-        "外阵破禁可走阵法或蛮力，连接现有聚灵阵和阵法指南内容。当前 FTB 物品任务检查 1 个聚灵阵作为破阵阵基代理且不消耗。"
+        "外阵破禁可走阵法或蛮力，连接现有聚灵阵和阵法指南内容。当前 FTB 物品任务检查 1 个聚灵阵作为破阵阵基代理并消耗。"
       ],
       dependencies: ["1000000000000608"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "formation"],
-      tasks: [{id: "1000000000001609", type: "item", title: "携带破阵阵基", item: "seeking_immortals:spirit_gathering_array", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001609", type: "item", title: "携带破阵阵基", item: "seeking_immortals:spirit_gathering_array", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001609", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000610",
@@ -145,7 +149,8 @@
       ],
       dependencies: ["1000000000000609"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "puppet_design"],
-      tasks: [{id: "1000000000001610", type: "item", title: "采得昆吾灵铜", item: "seeking_immortals:kunwu_copper", count: 4L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001610", type: "item", title: "采得昆吾灵铜", item: "seeking_immortals:kunwu_copper", count: 4L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001610", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000611",
@@ -159,7 +164,8 @@
       ],
       dependencies: ["1000000000000610"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "puppet_design"],
-      tasks: [{id: "1000000000001611", type: "item", title: "带回傀儡灵核", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001611", type: "item", title: "带回傀儡灵核", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001611", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000612",
@@ -169,11 +175,12 @@
       y: -1.0d,
       description: [
         "来源：kunwu_peak_seal。",
-        "峰顶封印与昆吾傀儡王是昆吾山战役终点；当前只做安全任务呈现。"
+        "峰顶封印与昆吾傀儡王是昆吾山战役终点；当前以原版击杀任务承接战役终点。"
       ],
       dependencies: ["1000000000000611"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "boss_design"],
-      tasks: [{id: "1000000000001612", type: "checkmark", title: "稳住峰顶封印"}]
+      tasks: [{id: "1000000000001612", type: "kill", entity: "minecraft:iron_golem", value: 1L, title: "稳住峰顶封印"}],
+      rewards: [{id: "9000000000001612", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000613",
@@ -183,11 +190,12 @@
       y: -1.0d,
       description: [
         "来源：kunwu_seal_research / dajin_kunwu_line。",
-        "昆吾封魔阵残卷可并入古魔封印线；源设定奖励：kunwu_seal_fragment、ancient_treasure_appraisal_lens。当前 FTB 物品任务检查 1 个镇魔符宝坯作为封魔阵文代理且不消耗。"
+        "昆吾封魔阵残卷可并入古魔封印线；源设定奖励：kunwu_seal_fragment、ancient_treasure_appraisal_lens。当前 FTB 物品任务检查 1 个镇魔符宝坯作为封魔阵文代理并消耗。"
       ],
       dependencies: ["1000000000000612"],
       tags: ["seeking_immortals", "dajin", "kunwu_mountain_campaign", "ancient_demon_line"],
-      tasks: [{id: "1000000000001613", type: "item", title: "誊录封魔阵文", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001613", type: "item", title: "誊录封魔阵文", item: "seeking_immortals:demon_suppress_talisman_blank", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001613", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     }
   ]
 }

@@ -25,5 +25,11 @@ class ExtendedCatalogServiceTest {
         assertTrue(snapshot.findQuest("huangfeng_cultivation_path").isPresent());
         assertTrue(snapshot.findSect("huangfeng_valley").isPresent());
         assertTrue(snapshot.findBand("talisman_low").isPresent());
+        ExtendedCatalogService.QuestStartRequirements fallenDemon = snapshot
+                .findQuest("fallen_demon_campaign")
+                .orElseThrow()
+                .startRequirements();
+        assertEquals("NASCENT_SOUL", fallenDemon.realmMin());
+        assertEquals("fallen_demon_valley", fallenDemon.region());
     }
 }

@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    {"id":"knocking","title_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.knocking.title","text_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.knocking.text","options":[{"id":"exam","label_key":"screen.seeking_immortals.sect.dialogue.option.exam","action":"advance"}]},
+    {"id":"outer","title_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.outer.title","text_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.outer.text","options":[{"id":"mission","label_key":"screen.seeking_immortals.sect.dialogue.option.mission","action":"accept_mission"}]},
+    {"id":"foundation","title_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.foundation.title","text_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.foundation.text","options":[{"id":"promotion","label_key":"screen.seeking_immortals.sect.dialogue.option.promotion","action":"advance"}]},
+    {"id":"inner","title_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.inner.title","text_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.inner.text","options":[{"id":"competition","label_key":"screen.seeking_immortals.sect.dialogue.option.competition","action":"advance"}]},
+    {"id":"complete","title_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.complete.title","text_key":"screen.seeking_immortals.sect.dialogue.guiling_gate.complete.text","options":[]}
+  ]
+}

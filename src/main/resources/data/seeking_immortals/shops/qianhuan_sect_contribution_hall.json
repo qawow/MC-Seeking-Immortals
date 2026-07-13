@@ -1,0 +1,56 @@
+{
+  "id": "qianhuan_sect_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "cloud_mushroom",
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 4,
+      "cost": 35,
+      "stock": 20
+    },
+    {
+      "id": "time_sand",
+      "item": "seeking_immortals:time_sand",
+      "count": 1,
+      "cost": 110,
+      "stock": 8
+    },
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 180,
+      "stock": 6
+    },
+    {
+      "id": "clear_void_pill",
+      "item": "seeking_immortals:clear_void_pill",
+      "count": 1,
+      "cost": 90,
+      "stock": 10
+    },
+    {
+      "id": "calming_pill",
+      "item": "seeking_immortals:calming_pill_low",
+      "count": 1,
+      "cost": 70,
+      "stock": 12
+    },
+    {
+      "id": "speed_talisman",
+      "item": "seeking_immortals:speed_talisman",
+      "count": 1,
+      "cost": 80,
+      "stock": 12
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "stock": 2,
+      "rank_min": "inner_disciple"
+    }
+  ]
+}

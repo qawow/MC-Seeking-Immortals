@@ -19,7 +19,7 @@
       ],
       dependencies: ["1000000000000401"],
       tags: ["seeking_immortals", "spirit_realm", "ascension_bridge"],
-      tasks: [{id: "1000000000001901", type: "checkmark", title: "完成飞升照会"}]
+      tasks: [{id: "1000000000001901", type: "advancement", advancement: "minecraft:story/follow_ender_eye", title: "完成飞升照会"}]
     },
     {
       id: "1000000000000902",
@@ -33,7 +33,7 @@
       ],
       dependencies: ["1000000000000901"],
       tags: ["seeking_immortals", "tianyuan", "merit", "service"],
-      tasks: [{id: "1000000000001902", type: "checkmark", title: "登记天渊军籍"}]
+      tasks: [{id: "1000000000001902", type: "advancement", advancement: "minecraft:nether/root", title: "登记天渊军籍"}]
     },
     {
       id: "1000000000000903",
@@ -61,7 +61,8 @@
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "beast_wave", "merit"],
-      tasks: [{id: "1000000000001904", type: "item", title: "持有兽潮妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001904", type: "item", title: "持有兽潮妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001904", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000905",
@@ -75,7 +76,8 @@
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "convoy", "spirit_fengyuan"],
-      tasks: [{id: "1000000000001905", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001905", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001905", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000906",
@@ -129,11 +131,12 @@
       y: 3.0d,
       description: [
         "来源：spirit_realm_interface#gates#tianyuan_to_spirit_fengyuan / trade_routes#tianyuan_to_spirit_fengyuan。",
-        "天渊至风元大陆是管制传送阵路线，已由现有世界旅行需求提示承接。当前 FTB 物品任务检查 1 枚功勋令且不消耗。"
+        "天渊至风元大陆是管制传送阵路线，已由现有世界旅行需求提示承接。当前 FTB 物品任务检查 1 枚功勋令并消耗。"
       ],
       dependencies: ["1000000000000905"],
       tags: ["seeking_immortals", "spirit_fengyuan", "regulated_portal"],
-      tasks: [{id: "1000000000001909", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001909", type: "item", title: "持有功勋令", item: "seeking_immortals:alliance_merit_token", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001909", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000910",
@@ -220,7 +223,8 @@
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "alchemy", "optional"],
-      tasks: [{id: "1000000000001915", type: "item", title: "持有风元参", item: "seeking_immortals:fengyuan_clan_ginseng", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001915", type: "item", title: "持有风元参", item: "seeking_immortals:fengyuan_clan_ginseng", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001915", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000916",
@@ -235,7 +239,8 @@
       ],
       dependencies: ["1000000000000912"],
       tags: ["seeking_immortals", "human_clan_league", "talisman", "optional"],
-      tasks: [{id: "1000000000001916", type: "item", title: "备好符纸订料", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001916", type: "item", title: "备好符纸订料", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001916", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000917",
@@ -378,11 +383,12 @@
       y: 6.0d,
       description: [
         "来源：diyuan_depth_delve / diyuan_campaign / tianyuan_merit_economy#diyuan_permit_exchange。",
-        "地渊申请承接主线地渊侦察与天渊功勋，后续应检查 pressure_resist_charm 与地渊令。当前 FTB 物品任务检查 1 枚地渊令且不消耗。"
+        "地渊申请承接主线地渊侦察与天渊功勋，后续应检查 pressure_resist_charm 与地渊令。当前 FTB 物品任务检查 1 枚地渊令并消耗。"
       ],
       dependencies: ["1000000000000908", "1000000000000404"],
       tags: ["seeking_immortals", "diyuan", "permit", "void_refining"],
-      tasks: [{id: "1000000000001926", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001926", type: "item", title: "持有地渊令", item: "seeking_immortals:diyuan_permit", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001926", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000927",
@@ -420,11 +426,12 @@
       y: 8.0d,
       description: [
         "来源：diyuan_depth_delve#diyuan_pressure_wave / diyuan_campaign#environment_rules。",
-        "地渊深层有重压、紊乱灵气和空间褶皱，可承接现有 Pressure Resist Pill/Charm 机制。当前 FTB 物品任务检查 1 张抗压符且不消耗。"
+        "地渊深层有重压、紊乱灵气和空间褶皱，可承接现有 Pressure Resist Pill/Charm 机制。当前 FTB 物品任务检查 1 张抗压符并消耗。"
       ],
       dependencies: ["1000000000000928"],
       tags: ["seeking_immortals", "diyuan", "pressure_resist"],
-      tasks: [{id: "1000000000001929", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001929", type: "item", title: "持有抗压符", item: "seeking_immortals:pressure_resist_charm", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001929", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000930",
@@ -466,7 +473,8 @@
       ],
       dependencies: ["1000000000000931"],
       tags: ["seeking_immortals", "barbarian_wasteland", "beast_tide"],
-      tasks: [{id: "1000000000001932", type: "item", title: "持有蛮荒妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001932", type: "item", title: "持有蛮荒妖核", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001932", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000933",

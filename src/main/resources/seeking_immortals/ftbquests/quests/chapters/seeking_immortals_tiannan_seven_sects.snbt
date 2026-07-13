@@ -49,7 +49,8 @@
       ],
       dependencies: ["1000000000001002"],
       tags: ["seeking_immortals", "tiannan", "huadao_wu", "refinement", "optional"],
-      tasks: [{id: "1000000000002003", type: "item", title: "备好灵铁铸刀料", item: "seeking_immortals:spirit_iron", count: 2L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002003", type: "item", title: "备好灵铁铸刀料", item: "seeking_immortals:spirit_iron", count: 2L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002003", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001004",
@@ -109,7 +110,8 @@
       ],
       dependencies: ["1000000000001006"],
       tags: ["seeking_immortals", "tiannan", "giant_sword_gate", "refinement", "optional"],
-      tasks: [{id: "1000000000002007", type: "item", title: "备好残片重铸灵铁", item: "seeking_immortals:spirit_iron", count: 4L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002007", type: "item", title: "备好残片重铸灵铁", item: "seeking_immortals:spirit_iron", count: 4L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002007", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001008",
@@ -124,7 +126,8 @@
       ],
       dependencies: ["1000000000001001"],
       tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "puppet", "optional"],
-      tasks: [{id: "1000000000002008", type: "item", title: "备好空白傀儡核心", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002008", type: "item", title: "备好空白傀儡核心", item: "seeking_immortals:puppet_core_blank", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002008", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001009",
@@ -169,7 +172,8 @@
       ],
       dependencies: ["1000000000001010"],
       tags: ["seeking_immortals", "tiannan", "qianzhu_sect", "puppet", "maintenance", "optional"],
-      tasks: [{id: "1000000000002011", type: "item", title: "备好铁木检修料", item: "seeking_immortals:ironwood", count: 4L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002011", type: "item", title: "备好铁木检修料", item: "seeking_immortals:ironwood", count: 4L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002011", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001012",
@@ -199,7 +203,8 @@
       ],
       dependencies: ["1000000000001012"],
       tags: ["seeking_immortals", "tiannan", "yuling_sect_secret", "puppet", "beast_taming", "optional"],
-      tasks: [{id: "1000000000002013", type: "item", title: "备好兽魂封傀核心", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002013", type: "item", title: "备好兽魂封傀核心", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002013", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001014",
@@ -214,7 +219,8 @@
       ],
       dependencies: ["1000000000001012"],
       tags: ["seeking_immortals", "tiannan", "spirit_beast_mountain", "beast_taming", "optional"],
-      tasks: [{id: "1000000000002014", type: "item", title: "备好灵兽契约兽核", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002014", type: "item", title: "备好灵兽契约兽核", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002014", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001015",
@@ -285,11 +291,12 @@
       optional: true,
       description: [
         "来源：tianfu_talisman_path / talisman_materials_catalog.json / talisman.json。",
-        "天符门从符纸、灵墨和天符灵经入门，当前不消耗材料。"
+        "天符门从符纸、灵墨和天符灵经入门，当前并消耗材料。"
       ],
       dependencies: ["1000000000001001"],
       tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
-      tasks: [{id: "1000000000002019", type: "item", title: "备好凡符纸", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002019", type: "item", title: "备好凡符纸", item: "seeking_immortals:talisman_paper_mortal", count: 3L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002019", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001020",
@@ -304,7 +311,8 @@
       ],
       dependencies: ["1000000000001019"],
       tags: ["seeking_immortals", "tiannan", "tianfu_gate", "talisman", "optional"],
-      tasks: [{id: "1000000000002020", type: "item", title: "备好烈火符考核样符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002020", type: "item", title: "备好烈火符考核样符", item: "seeking_immortals:fire_talisman", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002020", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001021",
@@ -364,7 +372,8 @@
       ],
       dependencies: ["1000000000001023"],
       tags: ["seeking_immortals", "tiannan", "craft_master", "alchemy", "optional"],
-      tasks: [{id: "1000000000002024", type: "item", title: "备好辟谷丹纸方", item: "seeking_immortals:alchemy_formula_fasting_pill_paper", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000002024", type: "item", title: "备好辟谷丹纸方", item: "seeking_immortals:alchemy_formula_fasting_pill_paper", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000002024", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000001025",

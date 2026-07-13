@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.skill.effect.spell;
 
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,8 +15,8 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 
 /**
- * Honest summon spell base: no real entity. Applies temporary combat proxy buffs and
- * routes through SummonHonestMvpService messaging.
+ * Summon spell base: spawns a real SummonedServitorEntity (archetype-aware).
+ * Wave455: entity-first; self-buff is only a short fail-safe ward when spawn fails.
  */
 public class HonestSummonSpell extends SpellEffect {
     private final String summonId;
@@ -31,7 +32,7 @@ public class HonestSummonSpell extends SpellEffect {
         this.resistAmp = Math.max(0, resistAmp);
         this.durationTicks = Math.max(40, durationTicks);
         this.successKey = successKey == null || successKey.isBlank()
-                ? "message.seeking_immortals.summon.honest_mvp"
+                ? "message.seeking_immortals.summon.entity_spawned"
                 : successKey;
     }
 
@@ -41,18 +42,36 @@ public class HonestSummonSpell extends SpellEffect {
         int scaledDuration = durationTicks + levelBonus * 20;
         int scaledStrength = strengthAmp + Math.max(0, skill.getLevel() / 5);
         int scaledResist = resistAmp + Math.max(0, skill.getLevel() / 7);
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaledDuration, scaledStrength, false, true));
-        player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaledDuration, scaledResist, false, true));
-        if (scaledStrength >= 1) {
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, scaledDuration, 0, false, true));
-        }
+        double health = 24.0D + scaledStrength * 8.0D + scaledResist * 4.0D;
+        double damage = 4.0D + scaledStrength * 1.6D + Math.max(0, skill.getLevel() / 4) * 0.5D;
+        SummonedServitorEntity.Archetype archetype = SummonHonestMvpService.archetypeOf(summonId);
+
+        boolean spawned = SummonHonestMvpService.spawnConfigured(
+                player, summonId, scaledDuration, health, damage, archetype);
+
         if (player.level() instanceof ServerLevel level) {
             level.sendParticles(ParticleTypes.SOUL, player.getX(), player.getY() + 1.0D, player.getZ(),
                     24, 0.5D, 0.4D, 0.5D, 0.02D);
             level.playSound(null, player.blockPosition(), SoundEvents.ENCHANTMENT_TABLE_USE, SoundSource.PLAYERS, 0.7F, 0.9F);
         }
-        SummonHonestMvpService.summonProxy(player, summonId);
-        player.displayClientMessage(Component.translatable(successKey, summonId), true);
+
+        if (spawned) {
+            // Brief focus buff only; combat authority is the servitor entity.
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 40, 0, false, true));
+            player.displayClientMessage(Component.translatable(successKey, summonId), true);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.summon.archetype", archetype.name().toLowerCase()), false);
+        } else {
+            // Fail-safe: temporary combat proxy if entity cannot spawn.
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, scaledDuration, scaledStrength, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, scaledDuration, scaledResist, false, true));
+            if (scaledStrength >= 1) {
+                player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, scaledDuration, 0, false, true));
+            }
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.summon.honest_mvp", summonId), true);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.summon.entity_pending"), false);
+        }
         return true;
     }
 }

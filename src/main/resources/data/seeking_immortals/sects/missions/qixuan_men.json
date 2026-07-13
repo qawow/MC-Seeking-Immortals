@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "qixuan_men_spirit_grass_errand",
+      "title_key": "screen.seeking_immortals.sect.mission.qixuan_men_spirit_grass_errand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 12,
+      "reward_contribution": 25,
+      "min_stage": 2
+    },
+    {
+      "id": "qixuan_men_jade_slip",
+      "title_key": "screen.seeking_immortals.sect.mission.qixuan_men_jade_slip.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:jade_slip_blank",
+      "target": 2,
+      "reward_contribution": 40,
+      "min_stage": 2
+    },
+    {
+      "id": "qixuan_men_ling_gen_stone",
+      "title_key": "screen.seeking_immortals.sect.mission.qixuan_men_ling_gen_stone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:ling_gen_test_stone",
+      "target": 1,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

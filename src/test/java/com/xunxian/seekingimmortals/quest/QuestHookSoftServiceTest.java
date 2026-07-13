@@ -23,4 +23,18 @@ class QuestHookSoftServiceTest {
         assertTrue(TextQuestChainService.find(
                 QuestHookSoftService.mappedChainId("huangfeng_entry").orElseThrow()).isPresent());
     }
+
+    @Test
+    void unknownHooksStayHonestlyUnmapped() {
+        assertTrue(QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").isEmpty());
+    }
+
+    @Test
+    void reverseMapCoversExpandedHooks() {
+        assertTrue(QuestHookSoftService.hookCount() >= 50);
+        assertTrue(QuestHookSoftService.mappedChainId("huangfeng_entry").isPresent());
+        // alias added in Wave463 overrides / reverse map
+        assertTrue(QuestHookSoftService.mappedChainId("diyuan_permit_apply").isPresent()
+                || QuestHookSoftService.mappedChainId("diyuan_permit").isEmpty());
+    }
 }

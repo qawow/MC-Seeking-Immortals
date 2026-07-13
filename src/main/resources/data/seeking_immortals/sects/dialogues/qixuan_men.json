@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "knocking",
+      "title_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.knocking.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.knocking.text",
+      "options": [
+        { "id": "exam", "label_key": "screen.seeking_immortals.sect.dialogue.option.exam", "action": "advance" }
+      ]
+    },
+    {
+      "id": "outer",
+      "title_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.outer.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.outer.text",
+      "options": [
+        { "id": "mission", "label_key": "screen.seeking_immortals.sect.dialogue.option.mission", "action": "accept_mission" }
+      ]
+    },
+    {
+      "id": "foundation",
+      "title_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.foundation.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.foundation.text",
+      "options": [
+        { "id": "promotion", "label_key": "screen.seeking_immortals.sect.dialogue.option.promotion", "action": "advance" }
+      ]
+    },
+    {
+      "id": "inner",
+      "title_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.inner.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.inner.text",
+      "options": [
+        { "id": "competition", "label_key": "screen.seeking_immortals.sect.dialogue.option.competition", "action": "advance" }
+      ]
+    },
+    {
+      "id": "complete",
+      "title_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.complete.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.qixuan_men.complete.text",
+      "options": []
+    }
+  ]
+}

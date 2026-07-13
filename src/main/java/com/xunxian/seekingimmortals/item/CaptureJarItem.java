@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-/** Capture container item for capture-family artifacts (Wave51). */
+/** Capture container item for capture-family artifacts (Wave51/458). */
 public class CaptureJarItem extends Item {
     public CaptureJarItem(Properties properties) {
         super(properties.stacksTo(1));
@@ -27,7 +27,7 @@ public class CaptureJarItem extends Item {
             return InteractionResultHolder.success(stack);
         }
         if (player instanceof ServerPlayer serverPlayer) {
-            boolean ok = ArtifactCaptureService.releaseOrCapture(serverPlayer, stack);
+            boolean ok = ArtifactCaptureService.releaseOrCapture(serverPlayer, stack, serverPlayer.isShiftKeyDown());
             return ok ? InteractionResultHolder.consume(stack) : InteractionResultHolder.fail(stack);
         }
         return InteractionResultHolder.pass(stack);
@@ -40,6 +40,7 @@ public class CaptureJarItem extends Item {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.empty"));
         } else {
             tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.stored", id));
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.capture_jar.seal_hint"));
         }
     }
 }

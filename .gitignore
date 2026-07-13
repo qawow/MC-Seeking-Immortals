@@ -100,6 +100,7 @@ manual_backups/
 # Generated media or art scratch areas
 generated_art/
 generated/
+output/
 tmp/
 temp/
 

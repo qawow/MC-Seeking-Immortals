@@ -4,6 +4,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.entity.CultivationFireballEntity;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
+import com.xunxian.seekingimmortals.artifact.NatalBindingService;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.structure.FormationFieldService;
 import net.minecraft.ChatFormatting;
@@ -132,18 +133,27 @@ public final class ArtifactActivationService {
                         "message.seeking_immortals.artifact.repair_full", repairTarget.stack().getHoverName()), true);
                 return false;
             }
-        } else if (info.integrityCost() > 0 && getIntegrity(stack, artifact) < info.integrityCost()
-                && !player.getAbilities().instabuild) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
-            return false;
+        } else if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
+            int integrity = getIntegrity(stack, artifact);
+            int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+            if (integrity <= 0) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.integrity_broken", stack.getHoverName()), true);
+                return false;
+            }
+            if (integrity < effectiveCost) {
+                // Wave459: last-light emergency activation zeros integrity.
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.integrity_last_light", stack.getHoverName()), true);
+            }
         }
         if (info.maxUses() > 0 && getUsesLeft(stack, info.maxUses()) <= 0) {
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.artifact.talisman_depleted", stack.getHoverName()), true);
             return false;
         }
-        if (!cultivation.consumeSpiritualPower(info.spiritualPowerCost())) {
+        int spCost = effectiveSpiritualCost(player, artifact, info);
+        if (!cultivation.consumeSpiritualPower(spCost)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
             return false;
         }
@@ -153,19 +163,65 @@ public final class ArtifactActivationService {
             applyRepair(player, stack, repairTarget, info);
         } else {
             applyActivation(player, cultivation, artifact, info);
+            // Wave456: natal-bound artifact gains growth on successful activation.
+            if (artifact.id().equals(NatalBindingService.boundId(player))) {
+                NatalBindingService.grow(player);
+            }
             if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
-                damageIntegrity(stack, artifact, info.integrityCost());
+                int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+                int integrity = getIntegrity(stack, artifact);
+                if (integrity < effectiveCost) {
+                    damageIntegrity(stack, artifact, integrity); // last light
+                } else {
+                    damageIntegrity(stack, artifact, effectiveCost);
+                }
             }
         }
-        player.getCooldowns().addCooldown(activatedItem, info.cooldownTicks());
+        int cooldown = effectiveCooldown(player, artifact, info);
+        player.getCooldowns().addCooldown(activatedItem, cooldown);
         consumeTalismanUse(player, stack, info);
         playActivationFeedback(player);
         SyncCultivationDataPacket.send(player, cultivation);
         if (repairTarget == null) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.activated",
-                    stack.getHoverName(), info.spiritualPowerCost()), true);
+                    stack.getHoverName(), spCost), true);
         }
         return true;
+    }
+
+    private static int effectiveIntegrityCost(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+                                              ActivationInfo info) {
+        int cost = info.integrityCost();
+        if (cost <= 0) {
+            return 0;
+        }
+        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+            int growth = NatalBindingService.growth(player);
+            cost = Math.max(0, cost - growth / 25);
+        }
+        return cost;
+    }
+
+    private static int effectiveSpiritualCost(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+                                              ActivationInfo info) {
+        int cost = info.spiritualPowerCost();
+        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+            int growth = NatalBindingService.growth(player);
+            cost = Math.max(1, cost - growth / 50);
+        }
+        return cost;
+    }
+
+    private static int effectiveCooldown(ServerPlayer player, ArtifactDataService.ArtifactDefinition artifact,
+                                         ActivationInfo info) {
+        int cooldown = info.cooldownTicks();
+        if (artifact.id().equals(NatalBindingService.boundId(player))) {
+            int growth = NatalBindingService.growth(player);
+            // Percent cut saturates softer than flat -60 ticks.
+            double factor = 1.0D - Math.min(0.35D, growth / 200.0D);
+            cooldown = Math.max(20, (int) Math.round(cooldown * factor));
+        }
+        return cooldown;
     }
 
     public static int maxIntegrity(ArtifactDataService.ArtifactDefinition artifact) {
@@ -276,6 +332,43 @@ public final class ArtifactActivationService {
             return ActivationKind.REPAIR;
         }
         String type = artifact.type().toLowerCase(Locale.ROOT);
+        String id = artifact.id() == null ? "" : artifact.id().toLowerCase(Locale.ROOT);
+        String effect = artifact.effect() == null ? "" : artifact.effect().toLowerCase(Locale.ROOT);
+        // Wave462: material shards route by id/effect keywords.
+        if ("material_artifact".equals(type)) {
+            if (id.contains("mirror") || effect.contains("mirror") || effect.contains("soul")) {
+                return id.contains("soul") || effect.contains("soul") ? ActivationKind.SOUL_DESTROY : ActivationKind.MIRROR;
+            }
+            if (id.contains("ruler") || effect.contains("ruler") || effect.contains("space")) {
+                return ActivationKind.SPACE_CONTROL;
+            }
+            if (id.contains("flag") || id.contains("disk") || effect.contains("formation")) {
+                return ActivationKind.FORMATION;
+            }
+            if (id.contains("inlay") || id.contains("socket") || effect.contains("craft") || effect.contains("refine")) {
+                return ActivationKind.REFINEMENT;
+            }
+            if (effect.contains("self_repair") || id.contains("repair") || effect.contains("repair")) {
+                return ActivationKind.REPAIR;
+            }
+            if (id.contains("natal") || effect.contains("natal")) {
+                return ActivationKind.FOCUS;
+            }
+            return ActivationKind.UTILITY;
+        }
+        if ("generic".equals(type) || id.startsWith("generic_treasure")) {
+            int tier = Math.max(1, artifact.gameTier());
+            if (tier <= 3) {
+                return ActivationKind.DEFENSE;
+            }
+            if (tier <= 7) {
+                return ActivationKind.OFFENSE;
+            }
+            if (tier <= 9) {
+                return ActivationKind.SOUL_DESTROY;
+            }
+            return ActivationKind.WORLD_DOMAIN;
+        }
         return switch (type) {
             case "movement" -> ActivationKind.MOVEMENT;
             case "defense" -> ActivationKind.DEFENSE;
@@ -295,7 +388,7 @@ public final class ArtifactActivationService {
             case "soul_destroy" -> ActivationKind.SOUL_DESTROY;
             case "space_control" -> ActivationKind.SPACE_CONTROL;
             case "soul" -> ActivationKind.SOUL_DESTROY;
-            case "utility" -> ActivationKind.UTILITY;
+            case "utility", "storage", "quest_key" -> ActivationKind.UTILITY;
             case "capture" -> ActivationKind.CAPTURE;
             case "refinement" -> ActivationKind.REFINEMENT;
             case "spirit_liquid" -> ActivationKind.SPIRIT_LIQUID;
@@ -307,8 +400,9 @@ public final class ArtifactActivationService {
     }
 
     private static boolean isDeferredType(String type) {
+        // Wave462: only natal_slot stays deferred (bind path is sneak-use, not combat activate).
         return switch (type.toLowerCase(Locale.ROOT)) {
-            case "storage", "quest_key", "material_artifact", "natal_slot" -> true;
+            case "natal_slot" -> true;
             default -> false;
         };
     }
@@ -411,7 +505,17 @@ public final class ArtifactActivationService {
 
     private static void applyRepair(ServerPlayer player, ItemStack repairStack, RepairTarget target,
                                     ActivationInfo info) {
+        if (target.currentIntegrity() >= target.maxIntegrity()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.repair_full", target.stack().getHoverName()), true);
+            return;
+        }
         int repaired = repairIntegrity(target.stack(), target.artifact(), info.repairAmount());
+        if (repaired <= 0) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.repair_full", target.stack().getHoverName()), true);
+            return;
+        }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.repaired",
                 target.stack().getHoverName(), repaired, target.maxIntegrity()), true);
         if (!player.getAbilities().instabuild) {

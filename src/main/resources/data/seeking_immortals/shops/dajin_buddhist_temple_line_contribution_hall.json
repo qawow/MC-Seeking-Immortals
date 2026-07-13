@@ -1,0 +1,13 @@
+{
+  "id": "dajin_buddhist_temple_line_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"spirit_grass","item":"seeking_immortals:spirit_grass","count":4,"cost":20,"stock":30},
+    {"id":"soul_fragment","item":"seeking_immortals:soul_fragment","count":2,"cost":60,"stock":12},
+    {"id":"cold_jade","item":"seeking_immortals:cold_jade","count":1,"cost":120,"stock":8},
+    {"id":"calming_pill","item":"seeking_immortals:calming_pill_low","count":1,"cost":70,"stock":14},
+    {"id":"clear_void_pill","item":"seeking_immortals:clear_void_pill","count":1,"cost":90,"stock":10},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":40},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

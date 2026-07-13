@@ -356,6 +356,64 @@ public final class WorldpackGameplayService {
     private static final String CHAOTIC_SEA_REGION_ID = "chaotic_sea";
     private static final String INVERSE_STAR_HIDEOUT_REGION_ID = "inverse_star_hideout";
 
+    /** Wave462: ascension_gate with realm/tribulation requires, routes to Tianyuan. */
+    public static boolean useAscensionGate(ServerPlayer player) {
+        return useAscensionGate(player, true);
+    }
+
+    public static boolean useAscensionGate(ServerPlayer player, boolean enforceRequires) {
+        if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "ascension_gate")) {
+            return false;
+        }
+        boolean[] success = { false };
+        CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
+            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
+                success[0] = returnFromSecretRealm(player);
+                return;
+            }
+            // One-way mortal -> spirit realm hub.
+            success[0] = travel(player, TIANYUAN_REGION_ID, true);
+            if (success[0]) {
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.worldpack.ascension_gate_travel"));
+            }
+        }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
+        return success[0];
+    }
+
+    /** Wave462: blood_forbidden_gate enters blood_forbidden secret realm (ticket gated). */
+    public static boolean useBloodForbiddenGate(ServerPlayer player) {
+        return useBloodForbiddenGate(player, true);
+    }
+
+    public static boolean useBloodForbiddenGate(ServerPlayer player, boolean enforceRequires) {
+        // Dedicated blood_forbidden_gate type may be absent; enforce when present, otherwise continue to ticket path.
+        if (enforceRequires) {
+            SpatialNodeRequiresService.enforceByType(player, "blood_forbidden_gate");
+        }
+        boolean[] success = { false };
+        CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
+            if ("blood_forbidden".equals(cultivation.getWorldpackActiveSecretRealmId())) {
+                success[0] = returnFromSecretRealm(player);
+                return;
+            }
+            if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
+                success[0] = returnFromSecretRealm(player);
+                return;
+            }
+            success[0] = enterSecretRealm(player, "blood_forbidden");
+            if (!success[0]) {
+                // Fallback: try fallen demon corridor then re-enter.
+                success[0] = travel(player, FALLEN_DEMON_REGION_ID, true);
+                if (success[0]) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.blood_gate_corridor"));
+                }
+            }
+        }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
+        return success[0];
+    }
+
     /** cycle_gate multiblock activation (void palace via chaotic_sea). */
     public static boolean useCycleGate(ServerPlayer player) {
         return useCycleGate(player, true);

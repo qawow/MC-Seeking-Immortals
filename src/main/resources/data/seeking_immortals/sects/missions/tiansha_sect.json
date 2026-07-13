@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "tiansha_sect_beast_core",
+      "title_key": "screen.seeking_immortals.sect.mission.tiansha_sect_beast_core.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:beast_core",
+      "target": 2,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "tiansha_sect_soul_fragment",
+      "title_key": "screen.seeking_immortals.sect.mission.tiansha_sect_soul_fragment.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:soul_fragment",
+      "target": 4,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "tiansha_sect_demonic_blood",
+      "title_key": "screen.seeking_immortals.sect.mission.tiansha_sect_demonic_blood.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:demonic_blood_coral",
+      "target": 2,
+      "reward_contribution": 110,
+      "min_stage": 3
+    }
+  ]
+}

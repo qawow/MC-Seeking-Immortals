@@ -1,0 +1,13 @@
+{
+  "id": "tianlan_temple_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"beast_core","item":"seeking_immortals:beast_core","count":1,"cost":80,"stock":10},
+    {"id":"spirit_beast_bone","item":"seeking_immortals:spirit_beast_bone","count":2,"cost":120,"stock":8},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":40},
+    {"id":"true_dragon_blood","item":"seeking_immortals:true_dragon_blood","count":1,"cost":140,"stock":4},
+    {"id":"armor_talisman","item":"seeking_immortals:armor_talisman","count":1,"cost":80,"stock":12},
+    {"id":"calming_pill","item":"seeking_immortals:calming_pill_low","count":1,"cost":70,"stock":12},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

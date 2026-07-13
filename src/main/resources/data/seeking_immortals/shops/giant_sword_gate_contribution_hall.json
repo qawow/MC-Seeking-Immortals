@@ -1,0 +1,13 @@
+{
+  "id": "giant_sword_gate_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"spirit_iron","item":"seeking_immortals:spirit_iron","count":4,"cost":60,"stock":20},
+    {"id":"star_meteorite","item":"seeking_immortals:star_meteorite","count":1,"cost":140,"stock":8},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":40},
+    {"id":"flying_sword_low","item":"seeking_immortals:flying_sword_low","count":1,"cost":900,"stock":3},
+    {"id":"chaos_gold","item":"seeking_immortals:chaos_gold","count":1,"cost":500,"stock":2,"rank_min":"outer_disciple"},
+    {"id":"fire_talisman","item":"seeking_immortals:fire_talisman","count":1,"cost":80,"stock":12},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "moyan_gate_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "fire_talisman",
+      "item": "seeking_immortals:fire_talisman",
+      "count": 1,
+      "cost": 80,
+      "stock": 14
+    },
+    {
+      "id": "phoenix_feather",
+      "item": "seeking_immortals:phoenix_feather",
+      "count": 1,
+      "cost": 120,
+      "stock": 6
+    },
+    {
+      "id": "true_dragon_blood",
+      "item": "seeking_immortals:true_dragon_blood",
+      "count": 1,
+      "cost": 140,
+      "stock": 4
+    },
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 8,
+      "cost": 25,
+      "stock": 40
+    },
+    {
+      "id": "beast_core",
+      "item": "seeking_immortals:beast_core",
+      "count": 1,
+      "cost": 90,
+      "stock": 8
+    },
+    {
+      "id": "qi_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 60,
+      "stock": 12
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "stock": 2,
+      "rank_min": "inner_disciple"
+    }
+  ]
+}

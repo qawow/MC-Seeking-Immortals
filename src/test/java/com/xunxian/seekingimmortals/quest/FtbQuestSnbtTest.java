@@ -140,6 +140,8 @@ class FtbQuestSnbtTest {
         Set<String> questIds = new HashSet<>();
         Set<String> taskIds = new HashSet<>();
         Set<String> itemTaskIds = new HashSet<>();
+        Set<String> killTaskIds = new HashSet<>();
+        Set<String> advancementTaskIds = new HashSet<>();
         int totalQuests = 0;
         for (Map.Entry<Path, ExpectedChapter> entry : EXPECTED_CHAPTERS.entrySet()) {
             Path chapterPath = PACKAGED_ROOT.resolve(entry.getKey());
@@ -173,6 +175,14 @@ class FtbQuestSnbtTest {
                     if ("item".equals(taskType)) {
                         assertItemTask(task);
                         itemTaskIds.add(taskId);
+                    } else if ("kill".equals(taskType)) {
+                        // Wave484: broader FTB kill tasks for combat nodes.
+                        assertKillTask(task);
+                        killTaskIds.add(taskId);
+                    } else if ("advancement".equals(taskType)) {
+                        // Wave485: broader FTB advancement tasks for intro/travel nodes.
+                        assertAdvancementTask(task);
+                        advancementTaskIds.add(taskId);
                     } else {
                         assertEquals("checkmark", taskType, "Unexpected FTB task type for " + taskId);
                     }
@@ -183,6 +193,52 @@ class FtbQuestSnbtTest {
         assertEquals(215, totalQuests, "Packaged FTB quest defaults should expose 215 nodes");
         assertEquals(EXPECTED_ITEM_TASKS.keySet(), itemTaskIds,
                 "Expected implemented FTB item-task bridge coverage");
+        // Wave482: every packaged item task is a consuming authority check.
+        assertEquals(EXPECTED_ITEM_TASKS.size(), itemTaskIds.size());
+        // Wave484: combat nodes upgraded to kill tasks.
+        assertTrue(killTaskIds.size() >= 5, "Expected packaged kill tasks, got " + killTaskIds.size());
+        assertTrue(killTaskIds.contains("1000000000001306"));
+        assertTrue(killTaskIds.contains("1000000000001705"));
+        assertTrue(killTaskIds.contains("1000000000001612"));
+        // Wave485: intro/travel nodes upgraded to advancement tasks.
+        assertTrue(advancementTaskIds.size() >= 6, "Expected packaged advancement tasks, got " + advancementTaskIds.size());
+        assertTrue(advancementTaskIds.contains("1000000000001101"));
+        assertTrue(advancementTaskIds.contains("1000000000001401"));
+        assertTrue(advancementTaskIds.contains("1000000000002201"));
+
+        // Wave482/483: every packaged item task quest ships an item reward after consumption.
+        int rewardedItemQuests = 0;
+        for (SNBTCompoundTag chapter : chapters.values()) {
+            for (Tag questTag : chapter.getList("quests", Tag.TAG_COMPOUND)) {
+                CompoundTag quest = (CompoundTag) questTag;
+                boolean hasItemTask = false;
+                for (Tag taskTag : quest.getList("tasks", Tag.TAG_COMPOUND)) {
+                    if ("item".equals(((CompoundTag) taskTag).getString("type"))) {
+                        hasItemTask = true;
+                        break;
+                    }
+                }
+                if (!hasItemTask) {
+                    continue;
+                }
+                ListTag rewards = quest.getList("rewards", Tag.TAG_COMPOUND);
+                assertFalse(rewards.isEmpty(), "Item-task quest missing rewards: " + quest.getString("id"));
+                boolean hasItemReward = false;
+                for (Tag rewardTag : rewards) {
+                    CompoundTag reward = (CompoundTag) rewardTag;
+                    if ("item".equals(reward.getString("type"))) {
+                        assertFalse(reward.getString("item").isBlank(), "Reward item blank for " + quest.getString("id"));
+                        assertTrue((reward.contains("count") ? reward.getLong("count") : 1L) >= 1L);
+                        hasItemReward = true;
+                        break;
+                    }
+                }
+                assertTrue(hasItemReward, "Item-task quest missing item reward: " + quest.getString("id"));
+                rewardedItemQuests++;
+            }
+        }
+        assertEquals(EXPECTED_ITEM_TASKS.size(), rewardedItemQuests,
+                "Every packaged item task should ship an item reward");
 
         for (SNBTCompoundTag chapter : chapters.values()) {
             for (Tag questTag : chapter.getList("quests", Tag.TAG_COMPOUND)) {
@@ -203,10 +259,25 @@ class FtbQuestSnbtTest {
         assertEquals(expected.item(), task.getString("item"), "Unexpected item for task " + taskId);
         long count = task.contains("count") ? task.getLong("count") : 1L;
         assertEquals(expected.count(), count, "Unexpected item count for task " + taskId);
-        assertTrue(task.contains("consume_items"), "Item task must explicitly opt out of consumption: " + taskId);
-        assertFalse(task.getBoolean("consume_items"), "Item task must not consume resources: " + taskId);
+        // Wave482: packaged item tasks are consuming authority checks (交验/缴纳).
+        assertTrue(task.contains("consume_items"), "Item task must explicitly declare consume_items: " + taskId);
+        assertTrue(task.getBoolean("consume_items"), "Item task must consume resources for authority: " + taskId);
         assertTrue(task.contains("match_nbt"), "Item task must explicitly ignore NBT: " + taskId);
         assertFalse(task.getBoolean("match_nbt"), "Item task must ignore NBT for broad inventory checks: " + taskId);
+    }
+
+    private static void assertKillTask(CompoundTag task) {
+        String taskId = task.getString("id");
+        assertFalse(task.getString("entity").isBlank(), "Kill task missing entity: " + taskId);
+        long value = task.contains("value") ? task.getLong("value") : 1L;
+        assertTrue(value >= 1L, "Kill task value must be >= 1: " + taskId);
+        assertFalse(task.getString("title").isBlank(), "Kill task missing title: " + taskId);
+    }
+
+    private static void assertAdvancementTask(CompoundTag task) {
+        String taskId = task.getString("id");
+        assertFalse(task.getString("advancement").isBlank(), "Advancement task missing advancement id: " + taskId);
+        assertFalse(task.getString("title").isBlank(), "Advancement task missing title: " + taskId);
     }
 
     private record ExpectedChapter(String filename, String title, int questCount) {

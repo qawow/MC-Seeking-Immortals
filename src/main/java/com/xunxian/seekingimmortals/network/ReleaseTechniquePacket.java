@@ -7,6 +7,7 @@ import com.xunxian.seekingimmortals.cultivation.TechniqueDataManager;
 import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.skill.TalismanConsumePolicy;
+import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffectRegistry;
@@ -67,23 +68,21 @@ public record ReleaseTechniquePacket(int slot) {
                 int cost = estimateCost(player, techniqueId);
                 boolean effectExecuted = false;
 
-                // 走火入魔风险：使用超出当前境界 2 级以上的功法
-                if (techniqueOpt.isPresent()) {
-                    Realm techniqueRealm = estimateTechniqueRealm(techniqueOpt.get());
-                    int realmDiff = techniqueRealm.ordinal() - cultivation.getRealm().ordinal();
-                    if (realmDiff >= 2) {
-                        cultivation.addQiDeviationRisk(5);
-                        player.displayClientMessage(Component.translatable(
-                                "message.seeking_immortals.technique_release.realm_too_high",
-                                realmDiff, cultivation.getQiDeviationRisk()), true);
-                        if (BreakthroughService.tryTriggerQiDeviation(player, cultivation, "message.seeking_immortals.qi_deviation.trigger.over_tier_technique")) {
-                            return;
-                        }
-                    }
-                }
-
                 if (techniqueOpt.isPresent()) {
                     var technique = techniqueOpt.get();
+                    // Wave466: realm/sect gate before cost or execute.
+                    TechniqueGateService.GateResult gate = TechniqueGateService.canCast(player, cultivation, technique);
+                    if (!gate.allowed()) {
+                        if (gate.messageKey() != null && !gate.messageKey().isBlank()) {
+                            player.displayClientMessage(Component.translatable(gate.messageKey(), gate.args()), true);
+                        } else {
+                            player.displayClientMessage(
+                                    Component.translatable("message.seeking_immortals.technique_release.effect_failed"), true);
+                        }
+                        SyncCultivationDataPacket.send(player, cultivation);
+                        SyncLearnedTechniquesPacket.send(player, cultivation);
+                        return;
+                    }
                     SkillType skillType = SkillEffectRegistry.byTechniqueId(technique.id());
                     if (skillType == null) {
                         skillType = SkillEffectRegistry.byDisplayName(technique.name());
@@ -110,6 +109,20 @@ public record ReleaseTechniquePacket(int slot) {
                         player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
                         SyncCultivationDataPacket.send(player, cultivation);
                         return;
+                    }
+                    // Apply over-tier risk only after every non-mutating cast gate has accepted the action.
+                    Realm techniqueRealm = estimateTechniqueRealm(technique);
+                    int realmDiff = techniqueRealm.ordinal() - cultivation.getRealm().ordinal();
+                    if (realmDiff >= 2) {
+                        cultivation.addQiDeviationRisk(5);
+                        player.displayClientMessage(Component.translatable(
+                                "message.seeking_immortals.technique_release.realm_too_high",
+                                realmDiff, cultivation.getQiDeviationRisk()), true);
+                        if (BreakthroughService.tryTriggerQiDeviation(player, cultivation,
+                                "message.seeking_immortals.qi_deviation.trigger.over_tier_technique")) {
+                            SyncCultivationDataPacket.send(player, cultivation);
+                            return;
+                        }
                     }
                     // Soft talisman_consume policy for CAST_* / *talisman* techniques.
                     if (!TalismanConsumePolicy.tryConsume(player, technique.id(), skillType)) {

@@ -42,11 +42,24 @@ public final class ArtifactRefinementService {
      * otherwise fall back to the first catalog recipe id.
      */
     public static String selectRecipeId(ServerPlayer player) {
+        return selectRecipeId(player, Integer.MAX_VALUE);
+    }
+
+    /**
+     * Wave459: grade-aware selection — only recipes with forgeGrade &lt;= workstation grade.
+     * Wave464: studied manuals may raise effective grade ceiling (never below workstation grade,
+     * and grade-1 recipes always remain selectable).
+     */
+    public static String selectRecipeId(ServerPlayer player, int forgeGrade) {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         Map<String, String> map = itemIdMap();
         String fallback = "";
+        int grade = effectiveForgeGrade(player, forgeGrade);
         for (ArtifactDataService.RefinementRecipe recipe : snapshot.refinementRecipes().values()) {
             if (recipe == null || recipe.id() == null || recipe.id().isBlank()) {
+                continue;
+            }
+            if (Math.max(1, recipe.forgeGrade()) > grade) {
                 continue;
             }
             if (fallback.isBlank()) {
@@ -77,6 +90,33 @@ public final class ArtifactRefinementService {
     }
 
     public static boolean refine(ServerPlayer player, String recipeId) {
+        return refine(player, recipeId, 1);
+    }
+
+    /**
+     * Wave464: workstation grade + studied manual forge ceiling.
+     * Never drops below workstation grade; grade-1 always available via max(1, ...).
+     * Reuses ManualCatalogService.maxUnlockedForgeGrade only.
+     */
+    public static int effectiveForgeGrade(ServerPlayer player, int forgeGrade) {
+        int base = Math.max(1, forgeGrade);
+        int manual = 1;
+        try {
+            manual = Math.max(1, com.xunxian.seekingimmortals.catalog.ManualCatalogService.maxUnlockedForgeGrade(player));
+        } catch (Throwable ignored) {
+            manual = 1;
+        }
+        int bonus = Math.max(0, manual - 1);
+        return Math.max(base, Math.min(base + bonus, Math.max(base, manual)));
+    }
+
+
+    /**
+     * Wave456: forge-grade aware refine.
+     * @param forgeGrade workstation grade (1/2/3+). Recipe requiring higher grade is rejected.
+     * Higher-grade forges grant +5% success per extra grade (capped +15%).
+     */
+    public static boolean refine(ServerPlayer player, String recipeId, int forgeGrade) {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
         ArtifactDataService.RefinementRecipe recipe = snapshot.findRecipe(recipeId).orElse(null);
         if (recipe == null) {
@@ -97,6 +137,17 @@ public final class ArtifactRefinementService {
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.realm_too_low",
                     recipe.display(), requiredRealm.getDisplayName()));
+            return false;
+        }
+
+        // Wave464: workstation grade is base; studied manuals can raise effective ceiling.
+        // Grade-1 recipes always pass when workstation is at least 1.
+        int grade = effectiveForgeGrade(player, forgeGrade);
+        int requiredGrade = Math.max(1, recipe.forgeGrade());
+        if (grade < requiredGrade) {
+            player.sendSystemMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.refine.forge_too_low",
+                    recipe.display(), requiredGrade, grade));
             return false;
         }
 
@@ -140,7 +191,8 @@ public final class ArtifactRefinementService {
             consumeMaterials(player, ingredients);
         }
 
-        boolean success = succeeds(player.getRandom().nextDouble(), recipe.baseSuccessRate());
+        double adjustedRate = adjustedSuccessRate(recipe.baseSuccessRate(), grade, requiredGrade);
+        boolean success = succeeds(player.getRandom().nextDouble(), adjustedRate);
         if (success) {
             ItemStack output = new ItemStack(outputItem);
             Component outputName = output.getHoverName();
@@ -149,19 +201,30 @@ public final class ArtifactRefinementService {
             }
             player.containerMenu.broadcastChanges();
             playFeedback(player, true);
+            // Wave459: refining bound natal artifact grows it.
+            if (recipe.artifactId() != null
+                    && recipe.artifactId().equals(NatalBindingService.boundId(player))) {
+                NatalBindingService.grow(player);
+            }
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.success",
-                    recipe.display(), outputName, successPercent(recipe.baseSuccessRate())));
+                    recipe.display(), outputName, successPercent(adjustedRate)));
             return true;
         }
 
         player.containerMenu.broadcastChanges();
         playFeedback(player, false);
-        List<ItemStack> failureLoot = grantFailureLoot(player, recipe);
+        List<ItemStack> failureLoot = grantFailureLoot(player, recipe, grade, requiredGrade);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.artifact.refine.failure",
-                recipe.display(), successPercent(recipe.baseSuccessRate()), failureLootSummary(failureLoot)));
+                recipe.display(), successPercent(adjustedRate), failureLootSummary(failureLoot)));
         return false;
+    }
+
+    public static double adjustedSuccessRate(double baseRate, int forgeGrade, int requiredGrade) {
+        double base = Math.max(0.0D, Math.min(1.0D, baseRate));
+        int bonusSteps = Math.max(0, Math.min(3, forgeGrade - Math.max(1, requiredGrade)));
+        return Math.max(0.0D, Math.min(0.95D, base + bonusSteps * 0.05D));
     }
 
     public static ResolvedPlan resolvePlan(ArtifactDataService.RefinementRecipe recipe,
@@ -373,22 +436,54 @@ public final class ArtifactRefinementService {
     }
 
     private static List<ItemStack> grantFailureLoot(ServerPlayer player, ArtifactDataService.RefinementRecipe recipe) {
-        ResolvedFailureLoot loot = rollFailureLoot(recipe, player.getRandom(), itemIdMap(), SeekingImmortalsMod.MODID);
-        if (loot.isEmpty()) {
-            return List.of();
-        }
-        Item item = resolveItem(loot.itemId());
-        if (item == null) {
-            return List.of();
-        }
+        return grantFailureLoot(player, recipe, 1, Math.max(1, recipe.forgeGrade()));
+    }
 
-        ItemStack stack = new ItemStack(item, loot.count());
-        ItemStack summaryStack = stack.copy();
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
+    /**
+     * Wave459: public salvage helper for workstation serializer failures + grade bonus rolls.
+     */
+    public static List<ItemStack> grantFailureLoot(ServerPlayer player, ArtifactDataService.RefinementRecipe recipe,
+                                                   int forgeGrade, int requiredGrade) {
+        int extraRolls = Math.max(0, Math.min(2, Math.max(1, forgeGrade) - Math.max(1, requiredGrade)));
+        List<ItemStack> granted = new ArrayList<>();
+        for (int i = 0; i < 1 + extraRolls; i++) {
+            ResolvedFailureLoot loot = rollFailureLoot(recipe, player.getRandom(), itemIdMap(), SeekingImmortalsMod.MODID);
+            if (loot.isEmpty()) {
+                continue;
+            }
+            Item item = resolveItem(loot.itemId());
+            if (item == null) {
+                continue;
+            }
+            int count = loot.count() + (extraRolls > 0 && i == 0 ? 1 : 0);
+            ItemStack stack = new ItemStack(item, Math.max(1, count));
+            ItemStack summaryStack = stack.copy();
+            if (!player.getInventory().add(stack)) {
+                player.drop(stack, false);
+            }
+            granted.add(summaryStack);
         }
-        player.containerMenu.broadcastChanges();
-        return List.of(summaryStack);
+        if (!granted.isEmpty()) {
+            player.containerMenu.broadcastChanges();
+        }
+        return granted;
+    }
+
+    /** Wave459: default salvage when only RecipeSerializer path fails (no catalog recipe). */
+    public static List<ItemStack> grantDefaultFailureLoot(ServerPlayer player, String tierHint) {
+        String tier = tierHint == null || tierHint.isBlank() ? "low" : tierHint;
+        for (ArtifactDataService.RefinementRecipe recipe : ArtifactDataService.builtin().refinementRecipes().values()) {
+            if (recipe != null && tier.equalsIgnoreCase(recipe.tier())) {
+                return grantFailureLoot(player, recipe, 1, 1);
+            }
+        }
+        // Fall back to any known recipe for loot table lookup.
+        for (ArtifactDataService.RefinementRecipe recipe : ArtifactDataService.builtin().refinementRecipes().values()) {
+            if (recipe != null) {
+                return grantFailureLoot(player, recipe, 1, 1);
+            }
+        }
+        return List.of();
     }
 
     private static Component failureLootSummary(List<ItemStack> loot) {

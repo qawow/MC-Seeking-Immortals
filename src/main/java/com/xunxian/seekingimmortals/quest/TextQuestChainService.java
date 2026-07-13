@@ -1,12 +1,18 @@
 package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.network.SyncQuestTrackerPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import com.xunxian.seekingimmortals.sect.SectDefinitionService;
+import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -17,9 +23,13 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * Lightweight progress for text-material quest_chains (62).
+ * Server-authoritative progress for text-material quest_chains (62).
  * Stored in player persistent data to avoid packet/capability protocol churn.
- * Wave48: stage advances can require and consume registered item costs (authority slice).
+ * Wave48+: stage advances consume registered item costs.
+ * Wave454: Forge-registry cost resolve, branch lock after non-neutral choice,
+ * unified reward ledger (no soft+FTB double grant), tracker sync hook.
+ * Wave457: catalog rewards_finale, branch bonus ledger, main-story auto-complete,
+ * richer tracker lines (cost/lock/rew) for client authority buttons.
  * Still not the full narrative/NPC quest engine.
  */
 public final class TextQuestChainService {
@@ -27,6 +37,8 @@ public final class TextQuestChainService {
     private static final String REWARD_TAG = "seeking_immortals_text_quest_rewards";
     private static final String BRANCH_TAG = "seeking_immortals_text_quest_branches";
     private static final String NPC_TAG = "seeking_immortals_text_quest_npc";
+    /** Unified one-time ledger shared with FtbRewardBridgeService. */
+    public static final String AUTHORITY_REWARD_TAG = "seeking_immortals_quest_authority_rewards";
 
     public static final String BRANCH_RIGHTEOUS = "righteous";
     public static final String BRANCH_NEUTRAL = "neutral";
@@ -73,6 +85,9 @@ public final class TextQuestChainService {
             return false;
         }
         ExtendedCatalogService.QuestChain chain = optional.get();
+        if (!meetsStartRequirements(player, chain, true)) {
+            return false;
+        }
         CompoundTag root = player.getPersistentData().getCompound(ROOT_TAG).copy();
         String id = chain.id();
         if (root.getInt(id) <= 0) {
@@ -88,11 +103,83 @@ public final class TextQuestChainService {
                     chain.display(), chain.stepCount()), true);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.npc_hook",
                     npcFor(id), getBranch(player, id)), false);
+            syncTracker(player);
             return true;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.already",
                 chain.display(), root.getInt(id), chain.stepCount()), false);
         return false;
+    }
+
+    /** Server-side preflight used by direct quest starts and composite trade transactions. */
+    public static boolean canStart(ServerPlayer player, String chainId) {
+        Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
+        if (player == null || optional.isEmpty()) {
+            if (player != null) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.text_quest.unknown", chainId), false);
+            }
+            return false;
+        }
+        if (progressOf(player, chainId).stage() > 0) {
+            return false;
+        }
+        return meetsStartRequirements(player, optional.get(), true);
+    }
+
+    private static boolean meetsStartRequirements(ServerPlayer player,
+                                                  ExtendedCatalogService.QuestChain chain,
+                                                  boolean warn) {
+        if (player == null || chain == null) {
+            return false;
+        }
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        boolean[] allowed = {false};
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            ExtendedCatalogService.QuestStartRequirements requirements = chain.startRequirements();
+            if (requirements == null) {
+                allowed[0] = true;
+                return;
+            }
+            if (!requirements.realmMin().isBlank()
+                    && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), requirements.realmMin())) {
+                if (warn) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.text_quest.start_realm_too_low",
+                            chain.display(), requirements.realmMin(), cultivation.getRealm().name()), true);
+                }
+                return;
+            }
+            String currentRegion = normalize(cultivation.getWorldpackCurrentRegionId());
+            String requiredRegion = normalize(requirements.region());
+            if (!requiredRegion.isBlank() && !requiredRegion.equals(currentRegion)) {
+                if (warn) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.text_quest.start_wrong_region",
+                            chain.display(), requiredRegion, currentRegion), true);
+                }
+                return;
+            }
+            String requiredFaction = SectDefinitionService.canonicalizeSectId(requirements.faction());
+            String currentFaction = SectDefinitionService.canonicalizeSectId(
+                    cultivation.getSevenMysteriesQuest().getSectId());
+            if (!requiredFaction.isBlank() && !requiredFaction.equals(currentFaction)) {
+                if (warn) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.text_quest.start_wrong_faction",
+                            chain.display(), requiredFaction, currentFaction.isBlank() ? "-" : currentFaction), true);
+                }
+                return;
+            }
+            allowed[0] = true;
+        });
+        if (!allowed[0] && warn && !CultivationHelper.get(player).isPresent()) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.start_no_data"), true);
+        }
+        return allowed[0];
     }
 
     public static boolean advance(ServerPlayer player, String chainId) {
@@ -123,9 +210,12 @@ public final class TextQuestChainService {
         if (chain.stepCount() > 0 && stage >= chain.stepCount()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.finished",
                     chain.display()), true);
-            grantSoftFinaleReward(player, id);
+            // Wave454: single authority finale path (ledger prevents double grant with FTB bridge).
+            grantAuthorityFinaleReward(player, id);
             grantBranchFinaleBonus(player, id);
             FtbRewardBridgeService.onTextQuestFinished(player, id);
+            // Wave457: finishing a chain with main_chapter_ref auto-completes that chapter flag.
+            maybeCompleteMainStory(player, chain);
             com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 5);
             com.xunxian.seekingimmortals.worldpack.ReputationService.onQuestComplete(player, id);
         } else {
@@ -137,6 +227,7 @@ public final class TextQuestChainService {
             maybeOfferBranchChoice(player, id, stage, chain.stepCount());
             com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionFor(id), 1);
         }
+        syncTracker(player);
         return true;
     }
 
@@ -164,6 +255,17 @@ public final class TextQuestChainService {
             return Optional.of(new StageCost("seeking_immortals:spirit_stone_shard", 1, "spirit_stone_shard"));
         }
         return Optional.empty();
+    }
+
+    public static Optional<StageCost> nextStageCostFor(ServerPlayer player, String chainId) {
+        if (player == null) {
+            return Optional.empty();
+        }
+        ChainProgress progress = progressOf(player, chainId);
+        if (progress.complete() || progress.stage() <= 0) {
+            return Optional.empty();
+        }
+        return stageCostFor(progress.id(), progress.stage() + 1, progress.stepCount());
     }
 
     private static StageCost midCost(String id) {
@@ -236,21 +338,28 @@ public final class TextQuestChainService {
         return true;
     }
 
-    private static Item resolveItem(String itemId) {
+    /**
+     * Wave454: resolve any registered item id (including bulk carriers) via Forge registry.
+     * Pure string path so unit tests can still call stageCostFor without registries.
+     */
+    public static Item resolveItem(String itemId) {
         if (itemId == null || itemId.isBlank()) {
             return null;
         }
-        return switch (itemId) {
-            case "seeking_immortals:spirit_stone_shard" -> ModItems.SPIRIT_STONE_SHARD.get();
-            case "seeking_immortals:yin_stone" -> ModItems.YIN_STONE.get();
-            case "seeking_immortals:beast_core" -> ModItems.BEAST_CORE.get();
-            case "seeking_immortals:jade_slip_blank" -> ModItems.JADE_SLIP_BLANK.get();
-            case "seeking_immortals:alliance_merit_token" -> ModItems.ALLIANCE_MERIT_TOKEN.get();
-            case "seeking_immortals:soul_fragment" -> ModItems.SOUL_FRAGMENT.get();
-            case "seeking_immortals:war_contribution_token" -> ModItems.WAR_CONTRIBUTION_TOKEN.get();
-            case "seeking_immortals:immortal_jade" -> ModItems.IMMORTAL_JADE.get();
-            default -> null;
-        };
+        String raw = itemId.trim().toLowerCase(Locale.ROOT);
+        if (!raw.contains(":")) {
+            raw = "seeking_immortals:" + raw;
+        }
+        ResourceLocation rl = ResourceLocation.tryParse(raw);
+        if (rl == null) {
+            return null;
+        }
+        Item item = ForgeRegistries.ITEMS.getValue(rl);
+        // Forge returns air for unknown ids on some mappings; treat air as missing.
+        if (item == null || item == net.minecraft.world.item.Items.AIR) {
+            return null;
+        }
+        return item;
     }
 
     public static int countOwned(ServerPlayer player, StageCost cost) {
@@ -323,11 +432,19 @@ public final class TextQuestChainService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_locked", id), false);
             return false;
         }
+        String current = getBranch(player, id);
+        // Wave454: once a non-neutral branch is chosen, lock it (neutral may still switch once).
+        if (!current.isBlank() && !BRANCH_NEUTRAL.equals(current) && !current.equals(normalized)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.text_quest.branch_already_locked", id, current), false);
+            return false;
+        }
         setBranch(player, id, normalized);
         touchNpc(player, id);
         com.xunxian.seekingimmortals.worldpack.ReputationService.add(player, factionForBranch(normalized), 2);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_chosen",
                 optional.get().display(), normalized, npcFor(id)), true);
+        syncTracker(player);
         return true;
     }
 
@@ -368,8 +485,17 @@ public final class TextQuestChainService {
     }
 
     private static void grantBranchFinaleBonus(ServerPlayer player, String chainId) {
-        String branch = getBranch(player, chainId);
-        ItemStack bonus = switch (normalizeBranch(branch)) {
+        String id = normalize(chainId);
+        String branch = normalizeBranch(getBranch(player, chainId));
+        if (branch.isBlank()) {
+            branch = BRANCH_NEUTRAL;
+        }
+        // Wave457: one-time branch bonus under shared authority ledger (key id#branch).
+        String ledgerKey = id + "#" + branch;
+        if (hasAuthorityReward(player, ledgerKey)) {
+            return;
+        }
+        ItemStack bonus = switch (branch) {
             case BRANCH_RIGHTEOUS -> new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), 1);
             case BRANCH_DEMONIC -> new ItemStack(ModItems.YIN_STONE.get(), 4);
             default -> new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2);
@@ -377,8 +503,20 @@ public final class TextQuestChainService {
         if (!player.getInventory().add(bonus.copy())) {
             player.drop(bonus.copy(), false);
         }
+        markAuthorityReward(player, ledgerKey);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_bonus",
                 branch, bonus.getHoverName()), true);
+    }
+
+    private static void maybeCompleteMainStory(ServerPlayer player, ExtendedCatalogService.QuestChain chain) {
+        if (player == null || chain == null) {
+            return;
+        }
+        String chapterRef = chain.mainChapterRef();
+        if (chapterRef == null || chapterRef.isBlank()) {
+            return;
+        }
+        MainStorySoftService.completeQuiet(player, chapterRef);
     }
 
     private static String normalizeBranch(String branch) {
@@ -466,17 +604,17 @@ public final class TextQuestChainService {
     }
 
     /**
-     * Soft finale rewards for top mainline chains. One-time grant per chain.
-     * Uses existing registered items only.
+     * Wave454 authority finale: one-time grant per chain via shared ledger.
+     * FtbRewardBridgeService checks the same ledger so soft+FTB cannot double-pay.
      */
-    private static void grantSoftFinaleReward(ServerPlayer player, String chainId) {
-        CompoundTag rewards = player.getPersistentData().getCompound(REWARD_TAG).copy();
+    private static void grantAuthorityFinaleReward(ServerPlayer player, String chainId) {
         String id = normalize(chainId);
-        if (rewards.getBoolean(id)) {
+        if (hasAuthorityReward(player, id)) {
             return;
         }
-        List<ItemStack> stacks = softRewardsFor(id);
+        List<ItemStack> stacks = authorityRewardsFor(id);
         if (stacks.isEmpty()) {
+            markAuthorityReward(player, id);
             return;
         }
         for (ItemStack stack : stacks) {
@@ -484,11 +622,109 @@ public final class TextQuestChainService {
                 player.drop(stack.copy(), false);
             }
         }
-        rewards.putBoolean(id, true);
-        player.getPersistentData().put(REWARD_TAG, rewards);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.soft_reward", id), true);
+        markAuthorityReward(player, id);
+        // Keep legacy soft-reward tag for older clients/docs that still read it.
+        CompoundTag legacy = player.getPersistentData().getCompound(REWARD_TAG).copy();
+        legacy.putBoolean(id, true);
+        player.getPersistentData().put(REWARD_TAG, legacy);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.authority_reward", id), true);
     }
 
+    public static boolean hasAuthorityReward(ServerPlayer player, String chainId) {
+        if (player == null) {
+            return false;
+        }
+        String id = normalize(chainId);
+        if (player.getPersistentData().getCompound(AUTHORITY_REWARD_TAG).getBoolean(id)) {
+            return true;
+        }
+        // Migrate older soft/FTB tags into the unified ledger on first check.
+        if (player.getPersistentData().getCompound(REWARD_TAG).getBoolean(id)
+                || player.getPersistentData().getCompound("seeking_immortals_ftb_reward_bridge").getBoolean(id)) {
+            markAuthorityReward(player, id);
+            return true;
+        }
+        return false;
+    }
+
+    public static void markAuthorityReward(ServerPlayer player, String chainId) {
+        if (player == null) {
+            return;
+        }
+        String id = normalize(chainId);
+        CompoundTag tag = player.getPersistentData().getCompound(AUTHORITY_REWARD_TAG).copy();
+        tag.putBoolean(id, true);
+        player.getPersistentData().put(AUTHORITY_REWARD_TAG, tag);
+    }
+
+    private static List<ItemStack> authorityRewardsFor(String chainId) {
+        String id = normalize(chainId);
+        // Wave457: catalog rewards_finale first (resolve via Forge registry / bulk carriers).
+        List<ItemStack> fromCatalog = catalogFinaleRewards(id);
+        if (!fromCatalog.isEmpty()) {
+            return fromCatalog;
+        }
+        return softRewardsFor(id);
+    }
+
+    /**
+     * Resolve catalog rewards_finale ids into stacks. Unknown/non-item tokens are skipped.
+     * Supports optional "id*count" / "id:count" suffixes.
+     */
+    public static List<ItemStack> catalogFinaleRewards(String chainId) {
+        Optional<ExtendedCatalogService.QuestChain> optional = find(chainId);
+        if (optional.isEmpty()) {
+            return List.of();
+        }
+        List<String> finale = optional.get().rewardsFinale();
+        if (finale == null || finale.isEmpty()) {
+            return List.of();
+        }
+        List<ItemStack> stacks = new ArrayList<>();
+        for (String raw : finale) {
+            ParsedReward parsed = parseRewardToken(raw);
+            if (parsed == null) {
+                continue;
+            }
+            Item item;
+            try {
+                // Unit tests without Forge bootstrap cannot touch ForgeRegistries.
+                item = resolveItem(parsed.itemId());
+            } catch (Throwable ignored) {
+                continue;
+            }
+            if (item == null) {
+                continue;
+            }
+            stacks.add(new ItemStack(item, parsed.count()));
+        }
+        return stacks;
+    }
+
+    private record ParsedReward(String itemId, int count) {}
+
+    private static ParsedReward parseRewardToken(String raw) {
+        if (raw == null || raw.isBlank()) {
+            return null;
+        }
+        String token = raw.trim();
+        int count = 1;
+        String itemId = token;
+        int star = token.lastIndexOf('*');
+        if (star > 0 && star < token.length() - 1) {
+            String maybe = token.substring(star + 1).trim();
+            if (!maybe.isEmpty() && maybe.chars().allMatch(Character::isDigit)) {
+                count = Math.max(1, Integer.parseInt(maybe));
+                itemId = token.substring(0, star).trim();
+            }
+        }
+        if (itemId.isBlank()) {
+            return null;
+        }
+        return new ParsedReward(itemId, count);
+    }
+
+    /** Authority reward table (legacy method name retained). */
     private static List<ItemStack> softRewardsFor(String chainId) {
         return switch (chainId) {
             case "huangfeng_cultivation_path" -> List.of(
@@ -554,6 +790,73 @@ public final class TextQuestChainService {
             map.put(key, root.getInt(key));
         }
         return map;
+    }
+
+    /** Sync compact tracker lines to client (no protocol field change). */
+    public static void syncTracker(ServerPlayer player) {
+        if (player == null) {
+            return;
+        }
+        SyncQuestTrackerPacket.send(player, buildTrackerLines(player));
+    }
+
+    /**
+     * Wave457: machine-readable tracker lines for client authority buttons.
+     * Format: {@code <id> <stage>/<steps> [DONE] branch=<b> cost=<item>:<need> own=<n> LOCK=<0|1> REW=<0|1>}
+     */
+    public static List<String> buildTrackerLines(ServerPlayer player) {
+        List<String> lines = new ArrayList<>();
+        if (player == null) {
+            lines.add("(no active text quest chains)");
+            return lines;
+        }
+        int shown = 0;
+        for (ChainProgress chain : listProgress(player)) {
+            if (chain.stage() <= 0 && !chain.complete()) {
+                continue;
+            }
+            lines.add(formatTrackerLine(player, chain));
+            if (++shown >= 20) {
+                break;
+            }
+        }
+        if (lines.isEmpty()) {
+            lines.add("(no active text quest chains)");
+        }
+        return lines;
+    }
+
+    public static String formatTrackerLine(ServerPlayer player, ChainProgress chain) {
+        String branch = player == null ? BRANCH_NEUTRAL : getBranch(player, chain.id());
+        if (branch == null || branch.isBlank()) {
+            branch = BRANCH_NEUTRAL;
+        }
+        boolean locked = !BRANCH_NEUTRAL.equals(normalizeBranch(branch)) && !branch.isBlank();
+        boolean rewarded = player != null && hasAuthorityReward(player, chain.id());
+        String costPart = "cost=-:0 own=0";
+        if (!chain.complete()) {
+            int target = Math.max(1, chain.stage() + 1);
+            Optional<StageCost> cost = stageCostFor(chain.id(), target, chain.stepCount());
+            if (cost.isPresent()) {
+                StageCost c = cost.get();
+                int owned = player == null ? 0 : countOwned(player, c);
+                costPart = "cost=" + shortItemId(c.itemId()) + ":" + c.count() + " own=" + owned;
+            }
+        }
+        return chain.id() + " " + chain.stage() + "/" + chain.stepCount()
+                + (chain.complete() ? " DONE" : "")
+                + " branch=" + branch
+                + " " + costPart
+                + " LOCK=" + (locked ? 1 : 0)
+                + " REW=" + (rewarded ? 1 : 0);
+    }
+
+    private static String shortItemId(String itemId) {
+        if (itemId == null) {
+            return "-";
+        }
+        int idx = itemId.indexOf(':');
+        return idx >= 0 ? itemId.substring(idx + 1) : itemId;
     }
 
     private static String normalize(String id) {

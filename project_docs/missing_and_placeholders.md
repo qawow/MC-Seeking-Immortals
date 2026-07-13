@@ -1,3 +1,7 @@
+## 0.1.486 Review hardening note
+
+No new placeholder assets, item ids, blocks, entities, packet fields, packet registrations, or data schemas were introduced. Servitor ownership now uses server SavedData so unloaded entities remain capped and receive deferred stance/dismiss commands when reloaded; chunks are not force-loaded. Live multiplayer death/auction/war/servitor smoke testing remains a human verification item beyond the passing automated build.
+
 ## 0.1.387 Text-material wave7 resource note
 
 New formation/gate blocks reuse spirit_gathering_array texture placeholders. Ticket/reputation enforcement for ascension/sect gates remains deferred per open decisions.

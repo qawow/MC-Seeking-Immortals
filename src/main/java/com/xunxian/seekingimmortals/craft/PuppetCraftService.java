@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.craft;
 
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.registry.ModItems;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -53,7 +54,40 @@ public final class PuppetCraftService {
         if (optional.isEmpty()) {
             return new CraftResult(false, null, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
         }
+        return craftRecipe(player, optional.get());
+    }
+
+    /** Wave466: craft a specific recipe by id (catalog authority bridge). */
+    public static Optional<Recipe> find(String recipeId) {
+        String id = recipeId == null ? "" : recipeId.trim().toLowerCase(java.util.Locale.ROOT);
+        if (id.isBlank()) {
+            return Optional.empty();
+        }
+        for (Recipe recipe : ensureRecipes()) {
+            if (recipe.id().equals(id) || recipe.id().equalsIgnoreCase(recipeId)) {
+                return Optional.of(recipe);
+            }
+            if (!id.startsWith("assemble_") && !id.startsWith("upgrade_")
+                    && (recipe.id().equals("assemble_" + id) || recipe.id().equals("upgrade_" + id))) {
+                return Optional.of(recipe);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static CraftResult craftById(ServerPlayer player, String recipeId) {
+        Optional<Recipe> optional = find(recipeId);
+        if (optional.isEmpty()) {
+            return new CraftResult(false, null, "message.seeking_immortals.puppet_assembly_bench.unknown_recipe");
+        }
         Recipe recipe = optional.get();
+        if (!player.getAbilities().instabuild && !hasMaterials(player, recipe)) {
+            return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
+        }
+        return craftRecipe(player, recipe);
+    }
+
+    private static CraftResult craftRecipe(ServerPlayer player, Recipe recipe) {
         if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
             return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
         }
@@ -68,8 +102,11 @@ public final class PuppetCraftService {
         double damage = 5.0D + recipe.strengthAmp() * 1.8D;
         int life = Math.max(20 * 600, recipe.durationTicks() * 4);
         boolean spawned = SummonHonestMvpService.spawnConfigured(
-                player, "puppet_" + recipe.id(), life, health, damage);
+                player, "puppet_" + recipe.id(), life, health, damage,
+                com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.PUPPET, true);
         if (spawned) {
+            // Wave458: hint repair loop after successful craft.
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repair_hint"), false);
             return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated");
         }
         return new CraftResult(true, recipe, "message.seeking_immortals.puppet_assembly_bench.activated_no_entity");

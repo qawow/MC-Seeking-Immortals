@@ -23,7 +23,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * Text-material ascension_gate. Sneak-use validates the tall gate multiblock then routes
- * through WorldpackGameplayService.usePortalArray (ticket/realm gates deferred).
+ * through WorldpackGameplayService.useAscensionGate (realm/tribulation requires).
  */
 public class AscensionGateBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D);
@@ -61,7 +61,7 @@ public class AscensionGateBlock extends Block {
         }
         ServerLevel origin = serverPlayer.serverLevel();
         BlockPos originPos = pos.immutable();
-        if (WorldpackGameplayService.usePortalArray(serverPlayer)) {
+        if (WorldpackGameplayService.useAscensionGate(serverPlayer)) {
             origin.sendParticles(ParticleTypes.END_ROD, originPos.getX() + 0.5D, originPos.getY() + 1.2D, originPos.getZ() + 0.5D,
                     60, 1.1D, 1.2D, 1.1D, 0.03D);
             origin.playSound(null, originPos, SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 0.55F, 1.35F);

@@ -1,3 +1,65 @@
+0.1.486 pending update: all 12 review regressions are fixed and build-verified. Remaining deferred work is unchanged: high-fidelity art, full custom secret biomes, studio GeckoLib assets, human live-smoke re-sign, and broader battlefield/quest simulation. Servitor commands persist for unloaded entities and apply when their chunks reload; unloaded entities are intentionally not force-loaded.
+
+0.1.485 pending update: freeform drag method-tree layout + sect-war battlefield AI pulse + FTB advancement tasks shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.485, server-persisted method-tree layouts, richer multi-army battlefield simulation, broader FTB custom tasks.
+
+0.1.484 pending update: freer clickable school method graph + FTB kill tasks for combat nodes shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.484, full freeform drag method tree, full dynamic battlefield AI, broader FTB advancement/custom tasks.
+
+0.1.483 pending update: method-tree node-link graph + FTB item rewards on all 66 consuming tasks shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.483, richer freeform method tree layout, full dynamic battlefield AI, broader FTB custom/advancement tasks.
+
+0.1.482 pending update: FTB packaged item tasks now consume items + mainline FTB item rewards shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.482, graphical node-link method tree polish, full dynamic battlefield AI, broader FTB custom/advancement tasks.
+
+0.1.481 pending update: SpiritCharm full Curios ICurioItem + method layer cultivation (1-9) shipped (protocol 16). Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.481, graphical node-link method tree polish, full dynamic battlefield AI, FTB consume authority.
+
+0.1.480 pending update: typed secret-realm combat shells shipped (SummonedServitor archetypes for patrol/guardian/boss). Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.480, graphical method node-tree polish, full dynamic battlefield AI.
+
+0.1.479 pending update: chronicle/trade/conflict authority deepen shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.479, graphical method node-tree polish, full dynamic battlefield simulation.
+
+0.1.478 pending update: interactive method-tree UI shipped (protocol 15 MethodActionPacket + MethodTreeScreen). Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.478, graphical node-tree polish.
+
+0.1.477 pending update: learned-methods protocol sync shipped (protocol 14). Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.477, full method-tree UI.
+
+0.1.476 pending update: catalog-manual method mapping + stats method catalog hint shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.476, full method-tree UI + learned-method packet sync.
+
+0.1.475 pending update: technique-manual source→method grant shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.475, full method-tree UI.
+
+0.1.474 pending update: method unlock hooks shipped (manual unlocks + sect outer starter methods). Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.474, full method-tree UI.
+
+0.1.473 pending update: cultivation method learn authority shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.473, deeper method trees/UI.
+
+0.1.472 pending update: summon contract gate + trial hazard tick shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.472.
+
+0.1.471 pending update: secret-realm kill-gated rewards shipped. Remaining deferred: high-fidelity art, custom secret biomes, GeckoLib, human live-smoke re-sign for 0.1.471.
+
+0.1.470 pending update: remaining template sect specialty closeout shipped. Only intentional herb-triad garden loops remain (Huangfeng/Luoyun). Deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign for 0.1.470.
+
+0.1.469 pending update: six specialty sect packages shipped. Remaining template-leaning missions: huadao_wu, moyan_gate, qianhuan_sect, qinglan_sect, qingluo_sect, tianque_fort, tiansha_sect (huangfeng/luoyun still use herb triad intentionally). Deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign for 0.1.469.
+
+0.1.468 pending update: region/dimension technique cast gates + five specialty sects shipped. Remaining deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign for 0.1.468, remaining template sects.
+
+0.1.467 pending update: method/rep technique gates + offline auction refund + four demonic-sect specialty shipped. Remaining deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign for 0.1.467, region technique gates, remaining template sects.
+
+0.1.466 pending update: Soft→authority wiring + TechniqueGate first cut + 3-sect specialty content shipped. Remaining deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign for 0.1.466, deeper method/rep gates, offline auction refund ledger.
+
+0.1.465 pending update: remaining unique catalog sects playable + alias collapse. Remaining deferred: high-fidelity art, custom secret biomes, human live-smoke re-sign, deeper per-sect specialty content.
+
+0.1.464 pending update: remaining safe sect packages + auction/manual depth shipped. Remaining deferred: leftover non-playable sects/aliases, high-fidelity art, human live-smoke re-sign.
+
+0.1.463 pending update: sect content packages + CraftWorld/chronicle/phase/hook authority deepen. Remaining deferred: high-fidelity art, full custom secret biomes, remaining non-playable sect content, human live-smoke re-sign.
+
+0.1.462 pending update: Soft→authority waves 1-5 shipped (conflicts/trade/artifact/sects/gates). Remaining deferred: high-fidelity art, full custom secret biomes, human live-smoke re-sign, deeper narrative content.
+
+0.1.461 pending update: faction conflict accept/side + trade embark authority. Remaining: artifact generic activation, playable sects, gate tickets.
+
+0.1.460 pending update: priority board 1→5 complete at playable depth. Remaining deferred: high-fidelity art, full custom secret biomes, human live-smoke re-sign for 0.1.460.
+
+0.1.460 pending update: secret-realm instanced depth (mid patrol, hazards, layered loot, boss cache). Remaining: art/live smoke polish.
+
+0.1.459 pending update: artifact/refine depth (grade select, salvage UX, natal polish, integrity last-light). Remaining: secret-realm instanced content, art/live smoke polish.
+
+0.1.458 pending update: summon/beast/puppet depth (stance/dismiss/repair, combat growth, jar seal). Remaining hard depth: artifact family depth, secret-realm instanced content, high-fidelity art/live smoke.
+
+0.1.457 pending update: quest authority deepen shipped (catalog rewards, tracker UI authority buttons, NPC gate, main-story link, honest hooks, FTB mirror-only). Remaining hard depth: summon/beast entity fidelity, artifact family depth, secret-realm instanced content, high-fidelity art/live smoke.
+
 0.1.436 pending update: checklist runtime closeout complete for implementable systems. Remaining deferred: high-fidelity art, human live-signoff, MenuType/serializer polish, full source-id decompression.
 
 0.1.431 pending update: secret-realm core encounters, summon archetypes, quest stage material costs, flying/sword orbit visuals, artifact plan command. Remaining hard depth: high-fidelity GeckoLib art, true instanced secret biomes, full quest narrative authority, live human smoke report.

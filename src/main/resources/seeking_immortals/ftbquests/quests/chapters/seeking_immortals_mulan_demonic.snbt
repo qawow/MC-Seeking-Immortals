@@ -77,7 +77,8 @@
       ],
       dependencies: ["1000000000000802"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "formation"],
-      tasks: [{id: "1000000000001805", type: "checkmark", title: "完成护阵破阵"}]
+      tasks: [{id: "1000000000001805", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成护阵破阵"}],
+      rewards: [{id: "9000000000001805", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000806",
@@ -135,7 +136,8 @@
       ],
       dependencies: ["1000000000000808"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "reward_bridge_deferred"],
-      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001809", type: "item", title: "持有战勋牌", item: "seeking_immortals:war_contribution_token", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001809", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000810",
@@ -180,7 +182,8 @@
       ],
       dependencies: ["1000000000000811"],
       tags: ["seeking_immortals", "mulan_fashi", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001812", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001812", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000813",
@@ -210,7 +213,8 @@
       ],
       dependencies: ["1000000000000813"],
       tags: ["seeking_immortals", "tianlan_temple", "beast_taming", "optional"],
-      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001814", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001814", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000815",
@@ -300,7 +304,8 @@
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "guiling_gate", "optional"],
-      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001820", type: "item", title: "持有魂魄碎片", item: "seeking_immortals:soul_fragment", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001820", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000821",
@@ -330,7 +335,8 @@
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "tianmo_sect", "optional"],
-      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001822", type: "item", title: "持有魔血珊瑚", item: "seeking_immortals:demonic_blood_coral", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001822", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000823",
@@ -375,7 +381,8 @@
       ],
       dependencies: ["1000000000000824"],
       tags: ["seeking_immortals", "demonic_six", "tiannan_north_waste", "reward_bridge_deferred", "optional"],
-      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001825", type: "item", title: "持有妖兽内丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001825", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     }
   ]
 }

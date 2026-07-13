@@ -15,11 +15,12 @@
       y: 0.0d,
       description: [
         "来源：main_story_chapters#chapter_3_chaotic_sea / chaotic_sea_ferry_escort。",
-        "筑基后远渡乱星海，先把灵舟、航路和外海补给作为新章节入口。当前 FTB 物品任务检查 1 张风羽舟票且不消耗。"
+        "筑基后远渡乱星海，先把灵舟、航路和外海补给作为新章节入口。当前 FTB 物品任务检查 1 张风羽舟票并消耗。"
       ],
       dependencies: ["1000000000000306"],
       tags: ["seeking_immortals", "chaotic_sea", "chapter_3_chaotic_sea"],
-      tasks: [{id: "1000000000001501", type: "item", title: "持有远渡舟票", item: "seeking_immortals:wind_feather_raft_ticket", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001501", type: "item", title: "持有远渡舟票", item: "seeking_immortals:wind_feather_raft_ticket", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001501", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000502",
@@ -29,11 +30,12 @@
       y: 0.0d,
       description: [
         "来源：chaotic_sea_faction_quests#hub_outer_dock_register / hook_star_palace_register。",
-        "星宫执法队登记岛税与通行令；后续可接入通行令、税务和声望任务。当前 FTB 物品任务检查 1 枚海灵原珠且不消耗。"
+        "星宫执法队登记岛税与通行令；后续可接入通行令、税务和声望任务。当前 FTB 物品任务检查 1 枚海灵原珠并消耗。"
       ],
       dependencies: ["1000000000000501"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace"],
-      tasks: [{id: "1000000000001502", type: "item", title: "持有海灵原珠", item: "seeking_immortals:pearl_raw", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001502", type: "item", title: "持有海灵原珠", item: "seeking_immortals:pearl_raw", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001502", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000503",
@@ -43,11 +45,12 @@
       y: -1.0d,
       description: [
         "来源：chaotic_sea_politics / star_palace_patrol / star_palace_patrol_quest。",
-        "忠于星宫时，巡防、清剿海盗和维护岛税秩序构成正线任务。当前 FTB 物品任务检查 1 张星宫税契且不消耗。"
+        "忠于星宫时，巡防、清剿海盗和维护岛税秩序构成正线任务。当前 FTB 物品任务检查 1 张星宫税契并消耗。"
       ],
       dependencies: ["1000000000000502"],
       tags: ["seeking_immortals", "chaotic_sea", "star_palace", "branch_loyalist"],
-      tasks: [{id: "1000000000001503", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001503", type: "item", title: "持有星宫税契", item: "seeking_immortals:star_palace_tax_receipt", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001503", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000504",
@@ -71,11 +74,12 @@
       y: 1.0d,
       description: [
         "来源：inverse_star_cipher_trial。",
-        "黑市密语试炼作为入盟前置，后续可替换为 NPC 对话或自定义任务条件。当前 FTB 物品任务检查 1 枚空白玉简且不消耗，作为暗号记录载体。"
+        "黑市密语试炼作为入盟前置，后续可替换为 NPC 对话或自定义任务条件。当前 FTB 物品任务检查 1 枚空白玉简并消耗，作为暗号记录载体。"
       ],
       dependencies: ["1000000000000504"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star"],
-      tasks: [{id: "1000000000001505", type: "item", title: "持有密语玉简", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001505", type: "item", title: "持有密语玉简", item: "seeking_immortals:jade_slip_blank", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001505", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000506",
@@ -99,11 +103,12 @@
       y: 1.0d,
       description: [
         "来源：inverse_star_smuggle_arc / inverse_star_smuggler_pack。",
-        "走私补给线承接黑市物资、巡防躲避与虚天情报买卖。当前 FTB 物品任务检查 1 枚妖兽内丹且不消耗，作为黑市补给筹码。"
+        "走私补给线承接黑市物资、巡防躲避与虚天情报买卖。当前 FTB 物品任务检查 1 枚妖兽内丹并消耗，作为黑市补给筹码。"
       ],
       dependencies: ["1000000000000506"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "smuggle"],
-      tasks: [{id: "1000000000001507", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001507", type: "item", title: "持有黑市妖丹", item: "seeking_immortals:beast_core", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001507", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000508",
@@ -127,11 +132,12 @@
       y: 1.0d,
       description: [
         "来源：void_palace_intel_sell / hub_merchant_league_wharf。",
-        "中立商盟码头可倒卖虚天殿消息，为后续钥碎片线提供旁路入口。当前 FTB 物品任务检查 2 枚海灵原珠且不消耗。"
+        "中立商盟码头可倒卖虚天殿消息，为后续钥碎片线提供旁路入口。当前 FTB 物品任务检查 2 枚海灵原珠并消耗。"
       ],
       dependencies: ["1000000000000508"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "void_palace"],
-      tasks: [{id: "1000000000001509", type: "item", title: "持有情报换货珠", item: "seeking_immortals:pearl_raw", count: 2L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001509", type: "item", title: "持有情报换货珠", item: "seeking_immortals:pearl_raw", count: 2L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001509", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000510",
@@ -155,11 +161,12 @@
       y: 3.0d,
       description: [
         "来源：void_key_fragment_hunt。",
-        "钥碎片散落于遗迹与海兽巢；后续可替换为物品收集或秘境进度任务。当前 FTB 物品任务检查 1 块虚空结晶且不消耗，作为虚天钥碎片代理。"
+        "钥碎片散落于遗迹与海兽巢；后续可替换为物品收集或秘境进度任务。当前 FTB 物品任务检查 1 块虚空结晶并消耗，作为虚天钥碎片代理。"
       ],
       dependencies: ["1000000000000510"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
-      tasks: [{id: "1000000000001511", type: "item", title: "持有虚天钥碎片", item: "seeking_immortals:void_crystal", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001511", type: "item", title: "持有虚天钥碎片", item: "seeking_immortals:void_crystal", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001511", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000512",
@@ -197,11 +204,12 @@
       y: 3.0d,
       description: [
         "来源：void_palace_cold_jade_hall。",
-        "寒玉殿对应极寒环境和寒玉资源；后续可接入冷抗、场景伤害或材料掉落。当前 FTB 物品任务检查 2 块寒玉且不消耗。"
+        "寒玉殿对应极寒环境和寒玉资源；后续可接入冷抗、场景伤害或材料掉落。当前 FTB 物品任务检查 2 块寒玉并消耗。"
       ],
       dependencies: ["1000000000000513"],
       tags: ["seeking_immortals", "chaotic_sea", "void_palace_campaign"],
-      tasks: [{id: "1000000000001514", type: "item", title: "持有寒玉", item: "seeking_immortals:cold_jade", count: 2L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001514", type: "item", title: "持有寒玉", item: "seeking_immortals:cold_jade", count: 2L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "9000000000001514", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000515",
@@ -244,7 +252,8 @@
       ],
       dependencies: ["1000000000000516"],
       tags: ["seeking_immortals", "chaotic_sea", "inverse_star", "optional"],
-      tasks: [{id: "1000000000001517", type: "checkmark", title: "完成逆星伏击"}]
+      tasks: [{id: "1000000000001517", type: "kill", entity: "minecraft:pillager", value: 3L, title: "完成逆星伏击"}],
+      rewards: [{id: "9000000000001517", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000518",

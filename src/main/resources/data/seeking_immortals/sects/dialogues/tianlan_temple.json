@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "knocking",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.knocking.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.knocking.text",
+      "options": [
+        { "id": "exam", "label_key": "screen.seeking_immortals.sect.dialogue.option.exam", "action": "advance" }
+      ]
+    },
+    {
+      "id": "outer",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.outer.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.outer.text",
+      "options": [
+        { "id": "mission", "label_key": "screen.seeking_immortals.sect.dialogue.option.mission", "action": "accept_mission" }
+      ]
+    },
+    {
+      "id": "foundation",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.foundation.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.foundation.text",
+      "options": [
+        { "id": "promotion", "label_key": "screen.seeking_immortals.sect.dialogue.option.promotion", "action": "advance" }
+      ]
+    },
+    {
+      "id": "inner",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.inner.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.inner.text",
+      "options": [
+        { "id": "competition", "label_key": "screen.seeking_immortals.sect.dialogue.option.competition", "action": "advance" }
+      ]
+    },
+    {
+      "id": "complete",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.complete.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianlan_temple.complete.text",
+      "options": []
+    }
+  ]
+}

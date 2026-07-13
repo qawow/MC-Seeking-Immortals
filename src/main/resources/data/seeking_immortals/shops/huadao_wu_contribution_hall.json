@@ -1,0 +1,56 @@
+{
+  "id": "huadao_wu_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {
+      "id": "body_tempering_pill",
+      "item": "seeking_immortals:body_tempering_pill",
+      "count": 1,
+      "cost": 90,
+      "stock": 12
+    },
+    {
+      "id": "spirit_iron",
+      "item": "seeking_immortals:spirit_iron",
+      "count": 4,
+      "cost": 60,
+      "stock": 20
+    },
+    {
+      "id": "spirit_stone_shard",
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 8,
+      "cost": 25,
+      "stock": 40
+    },
+    {
+      "id": "armor_talisman",
+      "item": "seeking_immortals:armor_talisman",
+      "count": 1,
+      "cost": 80,
+      "stock": 12
+    },
+    {
+      "id": "spirit_grass",
+      "item": "seeking_immortals:spirit_grass",
+      "count": 4,
+      "cost": 20,
+      "stock": 30
+    },
+    {
+      "id": "qi_recovery_pill",
+      "item": "seeking_immortals:qi_recovery_pill",
+      "count": 1,
+      "cost": 60,
+      "stock": 16
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "stock": 2,
+      "rank_min": "inner_disciple"
+    }
+  ]
+}

@@ -32,7 +32,20 @@ public final class TextMaterialCatalogService {
     public record SecretRealmFlavor(String id, String openCondition, String environment,
                                     String layeredExploration, List<String> rareDrops, String note) {}
 
-    public record ManualEntry(String id, String display, String type, List<String> unlocks, String realmMin, String note) {}
+    /**
+     * Wave464: rich fields from text_material manuals_catalog (forge grade / recipe / sources).
+     */
+    public record ManualEntry(String id, String display, String type, List<String> unlocks, String realmMin,
+                              String note, int unlocksForgeGrade, String recipeId, List<String> sources) {
+        public ManualEntry {
+            unlocks = unlocks == null ? List.of() : List.copyOf(unlocks);
+            sources = sources == null ? List.of() : List.copyOf(sources);
+            unlocksForgeGrade = Math.max(0, unlocksForgeGrade);
+            recipeId = recipeId == null ? "" : recipeId;
+            note = note == null ? "" : note;
+            realmMin = realmMin == null ? "" : realmMin;
+        }
+    }
 
     public record MethodEntry(String id, String display, String realmMin, String school, String attribute) {}
 
@@ -54,6 +67,27 @@ public final class TextMaterialCatalogService {
         public Optional<FlightBinding> findFlight(String id) {
             return Optional.ofNullable(flightBindings.get(id == null ? "" : id));
         }
+
+        public Optional<MethodEntry> findMethod(String id) {
+            if (id == null || id.isBlank()) {
+                return Optional.empty();
+            }
+            MethodEntry direct = methods.get(id);
+            if (direct != null) {
+                return Optional.of(direct);
+            }
+            String key = id.trim().toLowerCase(java.util.Locale.ROOT);
+            MethodEntry lower = methods.get(key);
+            if (lower != null) {
+                return Optional.of(lower);
+            }
+            for (MethodEntry method : methods.values()) {
+                if (method.id() != null && method.id().equalsIgnoreCase(id)) {
+                    return Optional.of(method);
+                }
+            }
+            return Optional.empty();
+        }
     }
 
     private static Snapshot loadBuiltin() {
@@ -71,15 +105,28 @@ public final class TextMaterialCatalogService {
         }
 
         Map<String, ManualEntry> manuals = new LinkedHashMap<>();
-        JsonObject manualRoot = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/manuals_catalog.json");
+        // Wave464: prefer rich text_material manuals, fallback to flat catalog index.
+        JsonObject manualRoot = readJson("data/" + SeekingImmortalsMod.MODID + "/text_material/manuals_catalog.json");
+        if (manualRoot == null) {
+            manualRoot = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/manuals_catalog.json");
+        }
         if (manualRoot != null) {
             for (JsonElement element : array(manualRoot, "manuals")) {
                 if (!element.isJsonObject()) continue;
                 JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
-                manuals.put(id, new ManualEntry(id, str(o, "display"), str(o, "type"),
-                        stringList(o.get("unlocks")), str(o, "realm_min"), str(o, "note")));
+                manuals.put(id, parseManualEntry(o));
+            }
+            // If text_material used a different array key.
+            if (manuals.isEmpty()) {
+                for (JsonElement element : array(manualRoot, "entries")) {
+                    if (!element.isJsonObject()) continue;
+                    JsonObject o = element.getAsJsonObject();
+                    String id = str(o, "id");
+                    if (id.isBlank()) continue;
+                    manuals.put(id, parseManualEntry(o));
+                }
             }
         }
 
@@ -115,6 +162,46 @@ public final class TextMaterialCatalogService {
                 Collections.unmodifiableMap(manuals),
                 Collections.unmodifiableMap(methods),
                 Collections.unmodifiableMap(flights));
+    }
+
+    private static ManualEntry parseManualEntry(JsonObject o) {
+        String realmMin = str(o, "realm_min");
+        String note = str(o, "note");
+        // text_material shape: learn_requirements.study.{realm_min,note}
+        if (o.has("learn_requirements") && o.get("learn_requirements").isJsonObject()) {
+            JsonObject learn = o.getAsJsonObject("learn_requirements");
+            if (learn.has("study") && learn.get("study").isJsonObject()) {
+                JsonObject study = learn.getAsJsonObject("study");
+                if (realmMin.isBlank()) {
+                    realmMin = str(study, "realm_min");
+                }
+                if (note.isBlank()) {
+                    note = str(study, "note");
+                }
+            }
+        }
+        int forgeGrade = 0;
+        if (o.has("unlocks_forge_grade") && o.get("unlocks_forge_grade").isJsonPrimitive()) {
+            try {
+                forgeGrade = o.get("unlocks_forge_grade").getAsInt();
+            } catch (Exception ignored) {
+                forgeGrade = 0;
+            }
+        }
+        List<String> unlocks = stringList(o.get("unlocks"));
+        if (unlocks.isEmpty() && forgeGrade > 0) {
+            unlocks = List.of("forge_grade_" + forgeGrade);
+        }
+        return new ManualEntry(
+                str(o, "id"),
+                str(o, "display"),
+                str(o, "type"),
+                unlocks,
+                realmMin,
+                note,
+                forgeGrade,
+                str(o, "recipe_id"),
+                stringList(o.get("source")));
     }
 
     private static JsonObject readJson(String path) {

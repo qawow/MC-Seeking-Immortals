@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "giant_sword_gate_spirit_iron",
+      "title_key": "screen.seeking_immortals.sect.mission.giant_sword_gate_spirit_iron.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_iron",
+      "target": 8,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "giant_sword_gate_star_meteorite",
+      "title_key": "screen.seeking_immortals.sect.mission.giant_sword_gate_star_meteorite.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:star_meteorite",
+      "target": 2,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "giant_sword_gate_chaos_gold",
+      "title_key": "screen.seeking_immortals.sect.mission.giant_sword_gate_chaos_gold.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:chaos_gold",
+      "target": 1,
+      "reward_contribution": 110,
+      "min_stage": 3
+    }
+  ]
+}

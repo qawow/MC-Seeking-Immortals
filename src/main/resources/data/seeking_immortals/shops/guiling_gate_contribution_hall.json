@@ -1,0 +1,13 @@
+{
+  "id": "guiling_gate_contribution_hall",
+  "currency": "sect_contribution",
+  "entries": [
+    {"id":"soul_fragment","item":"seeking_immortals:soul_fragment","count":2,"cost":60,"stock":16},
+    {"id":"yin_stone","item":"seeking_immortals:yin_stone","count":4,"cost":40,"stock":20},
+    {"id":"spirit_stone_shard","item":"seeking_immortals:spirit_stone_shard","count":8,"cost":25,"stock":40},
+    {"id":"calming_pill","item":"seeking_immortals:calming_pill_low","count":1,"cost":70,"stock":12},
+    {"id":"yin_body_charm","item":"seeking_immortals:yin_body_protection_charm","count":1,"cost":120,"stock":8},
+    {"id":"beast_core","item":"seeking_immortals:beast_core","count":1,"cost":90,"stock":8},
+    {"id":"foundation_pill","item":"seeking_immortals:foundation_building_pill_low","count":1,"cost":1400,"stock":2,"rank_min":"inner_disciple"}
+  ]
+}

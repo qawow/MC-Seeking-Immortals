@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "star_palace_patrol_stone",
+      "title_key": "screen.seeking_immortals.sect.mission.star_palace_patrol_stone.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:water_spirit_stone",
+      "target": 6,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "star_palace_void_chart",
+      "title_key": "screen.seeking_immortals.sect.mission.star_palace_void_chart.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:void_crystal",
+      "target": 1,
+      "reward_contribution": 55,
+      "min_stage": 2
+    },
+    {
+      "id": "star_palace_time_sand",
+      "title_key": "screen.seeking_immortals.sect.mission.star_palace_time_sand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:time_sand",
+      "target": 2,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

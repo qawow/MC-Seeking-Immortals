@@ -60,12 +60,12 @@ public class RefinementForgeG3Block extends Block {
             return InteractionResult.CONSUME;
         }
 
-        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer);
+        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer, 3);
         if (recipeId == null || recipeId.isBlank()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g3.no_recipe"), false);
             return InteractionResult.CONSUME;
         }
-        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId);
+        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId, 3);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         if (ok) {
             serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.1D, pos.getZ() + 0.5D,
@@ -74,8 +74,6 @@ public class RefinementForgeG3Block extends Block {
                     16, 0.4D, 0.3D, 0.4D, 0.01D);
             serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.85F, 0.85F);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g3.activated"), true);
-        } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g3.no_recipe"), false);
         }
         return InteractionResult.CONSUME;
     }

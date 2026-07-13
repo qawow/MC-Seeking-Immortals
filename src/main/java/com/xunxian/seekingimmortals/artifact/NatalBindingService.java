@@ -7,13 +7,15 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 
 /**
- * Natal artifact binding (Wave51 Phase13 depth).
- * Stores one bound artifact id on player persistent data.
+ * Natal artifact binding (Wave51 / Wave456 / Wave459).
+ * Stores one bound artifact id + growth on player persistent data.
  */
 public final class NatalBindingService {
     private static final String ROOT = "seeking_immortals_natal_binding";
     private static final String KEY_ID = "ArtifactId";
     private static final String KEY_GROWTH = "Growth";
+    public static final String STACK_BOUND = "SeekingImmortalsNatalBound";
+    public static final String STACK_GROWTH = "SeekingImmortalsNatalGrowth";
 
     private NatalBindingService() {}
 
@@ -32,9 +34,11 @@ public final class NatalBindingService {
             return false;
         }
         root.putString(KEY_ID, catalogItem.artifactId());
-        root.putInt(KEY_GROWTH, Math.max(0, root.getInt(KEY_GROWTH)));
+        int growth = Math.max(0, root.getInt(KEY_GROWTH));
+        root.putInt(KEY_GROWTH, growth);
         player.getPersistentData().put(ROOT, root);
-        stack.getOrCreateTag().putBoolean("SeekingImmortalsNatalBound", true);
+        stack.getOrCreateTag().putBoolean(STACK_BOUND, true);
+        stack.getOrCreateTag().putInt(STACK_GROWTH, growth);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.bound",
                 catalogItem.artifactId()), true);
         return true;
@@ -47,18 +51,48 @@ public final class NatalBindingService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.none"), true);
             return false;
         }
-        int growth = Math.min(100, root.getInt(KEY_GROWTH) + 1);
+        int prev = root.getInt(KEY_GROWTH);
+        int growth = Math.min(100, prev + 1);
         root.putInt(KEY_GROWTH, growth);
         player.getPersistentData().put(ROOT, root);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.grown", id, growth), true);
+        mirrorGrowthToHeld(player, growth);
+        if (growth == 25 || growth == 50 || growth == 75 || growth == 100) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.natal.milestone", id, growth), true);
+        } else {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.natal.grown", id, growth), true);
+        }
         return true;
     }
 
     public static String boundId(ServerPlayer player) {
+        if (player == null) {
+            return "";
+        }
         return player.getPersistentData().getCompound(ROOT).getString(KEY_ID);
     }
 
     public static int growth(ServerPlayer player) {
+        if (player == null) {
+            return 0;
+        }
         return player.getPersistentData().getCompound(ROOT).getInt(KEY_GROWTH);
+    }
+
+    public static int growthFromStack(ItemStack stack) {
+        if (stack == null || !stack.hasTag()) {
+            return 0;
+        }
+        return Math.max(0, stack.getTag().getInt(STACK_GROWTH));
+    }
+
+    private static void mirrorGrowthToHeld(ServerPlayer player, int growth) {
+        for (ItemStack stack : new ItemStack[]{player.getMainHandItem(), player.getOffhandItem()}) {
+            if (stack.getItem() instanceof ArtifactCatalogItem catalog
+                    && catalog.artifactId().equals(boundId(player))) {
+                stack.getOrCreateTag().putBoolean(STACK_BOUND, true);
+                stack.getOrCreateTag().putInt(STACK_GROWTH, growth);
+            }
+        }
     }
 }

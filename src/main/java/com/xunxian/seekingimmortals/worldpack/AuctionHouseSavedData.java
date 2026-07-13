@@ -20,6 +20,8 @@ import java.util.UUID;
 public class AuctionHouseSavedData extends SavedData {
     private static final String DATA_NAME = SeekingImmortalsMod.MODID + "_auction_house";
     private final Map<String, BidState> highestBids = new HashMap<>();
+    /** Wave467: offline outbid refund ledger (player UUID -> pending spirit_stone_shard count). */
+    private final Map<UUID, Integer> pendingRefunds = new HashMap<>();
 
     public static AuctionHouseSavedData get(ServerLevel level) {
         return level.getServer().overworld().getDataStorage().computeIfAbsent(
@@ -45,6 +47,18 @@ public class AuctionHouseSavedData extends SavedData {
             boolean settled = bidTag.getBoolean("Settled");
             data.highestBids.put(lotId.toLowerCase(Locale.ROOT), new BidState(lotId, bidder, amount, raises, settled));
         }
+        ListTag refunds = tag.getList("PendingRefunds", 10);
+        for (int i = 0; i < refunds.size(); i++) {
+            CompoundTag entry = refunds.getCompound(i);
+            if (!entry.hasUUID("Player") || !entry.contains("Amount")) {
+                continue;
+            }
+            UUID playerId = entry.getUUID("Player");
+            int amount = Math.max(0, entry.getInt("Amount"));
+            if (amount > 0) {
+                data.pendingRefunds.put(playerId, amount);
+            }
+        }
         return data;
     }
 
@@ -63,7 +77,45 @@ public class AuctionHouseSavedData extends SavedData {
             list.add(bidTag);
         }
         tag.put("Bids", list);
+        ListTag refunds = new ListTag();
+        for (Map.Entry<UUID, Integer> entry : pendingRefunds.entrySet()) {
+            if (entry.getKey() == null || entry.getValue() == null || entry.getValue() <= 0) {
+                continue;
+            }
+            CompoundTag refundTag = new CompoundTag();
+            refundTag.putUUID("Player", entry.getKey());
+            refundTag.putInt("Amount", entry.getValue());
+            refunds.add(refundTag);
+        }
+        tag.put("PendingRefunds", refunds);
         return tag;
+    }
+
+    public void addPendingRefund(UUID playerId, int amount) {
+        if (playerId == null || amount <= 0) {
+            return;
+        }
+        pendingRefunds.merge(playerId, amount, Integer::sum);
+        setDirty();
+    }
+
+    public int takePendingRefund(UUID playerId) {
+        if (playerId == null) {
+            return 0;
+        }
+        Integer amount = pendingRefunds.remove(playerId);
+        if (amount == null || amount <= 0) {
+            return 0;
+        }
+        setDirty();
+        return amount;
+    }
+
+    public int peekPendingRefund(UUID playerId) {
+        if (playerId == null) {
+            return 0;
+        }
+        return Math.max(0, pendingRefunds.getOrDefault(playerId, 0));
     }
 
     public Optional<BidState> getBid(String lotId) {

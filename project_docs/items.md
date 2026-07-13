@@ -1,3 +1,11 @@
+0.1.486 item/data note: No new item ids or registry entries. Manual consumption now grants source methods only after at least one valid technique learn; embark fee preflight reserves any additional quest-stage item cost before consuming either path. Wanbao auction access data now permits the first bid at zero reputation. Protocol 17 unchanged.
+
+0.1.456 item/data note: No new item ids. Artifact/refine depth reuses ArtifactCatalogItem + NatalBindingService + existing forge grades. Protocol 13 unchanged.
+
+0.1.455 item/data note: No new item ids. Summon depth reuses SummonedServitorEntity + existing puppet/beast carriers. Protocol 13 unchanged.
+
+0.1.454 item/data note: No new item ids. Quest authority wave reuses existing registered carriers for stage costs/rewards; expands resolveItem to Forge registry (bulk ids). Protocol 13 unchanged.
+
 0.1.453 item/data note: Registered residual quest reward carrier trade_discount_token via bulk catalog. Bulk total 869. Deferred non-item soft tags pill_quality_rank_up_chance_tag and skill_trees_overview. No packet/capability changes.
 
 0.1.452 item/data note: Mapped remaining item_id_aliases into text_material_id_map: kunwu_spirit_copper -> kunwu_copper, sea_soul_grass_herb -> sea_soul_grass. No new registrations. No packet/capability changes.

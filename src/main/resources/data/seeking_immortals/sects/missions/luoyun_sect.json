@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "luoyun_sect_herb_seed",
+      "title_key": "screen.seeking_immortals.sect.mission.luoyun_sect_herb_seed.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 16,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "luoyun_sect_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.luoyun_sect_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "luoyun_sect_immortal_ginseng",
+      "title_key": "screen.seeking_immortals.sect.mission.luoyun_sect_immortal_ginseng.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_ginseng",
+      "target": 3,
+      "reward_contribution": 100,
+      "min_stage": 3
+    }
+  ]
+}

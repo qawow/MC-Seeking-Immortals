@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "huangfeng_valley_herb_garden",
+      "title_key": "screen.seeking_immortals.sect.mission.huangfeng_valley_herb_garden.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 12,
+      "reward_contribution": 25,
+      "min_stage": 2
+    },
+    {
+      "id": "huangfeng_valley_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.huangfeng_valley_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 40,
+      "min_stage": 2
+    },
+    {
+      "id": "huangfeng_valley_dan_room",
+      "title_key": "screen.seeking_immortals.sect.mission.huangfeng_valley_dan_room.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_ginseng",
+      "target": 2,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

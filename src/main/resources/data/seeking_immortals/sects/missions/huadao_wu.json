@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "huadao_wu_body_herb",
+      "title_key": "screen.seeking_immortals.sect.mission.huadao_wu_body_herb.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_grass",
+      "target": 12,
+      "reward_contribution": 25,
+      "min_stage": 2
+    },
+    {
+      "id": "huadao_wu_body_tempering",
+      "title_key": "screen.seeking_immortals.sect.mission.huadao_wu_body_tempering.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:body_tempering_pill",
+      "target": 1,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "huadao_wu_spirit_iron",
+      "title_key": "screen.seeking_immortals.sect.mission.huadao_wu_spirit_iron.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:spirit_iron",
+      "target": 6,
+      "reward_contribution": 95,
+      "min_stage": 3
+    }
+  ]
+}

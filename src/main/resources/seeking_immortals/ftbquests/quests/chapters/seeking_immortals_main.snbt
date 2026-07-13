@@ -18,7 +18,7 @@
         "从山村传闻开始，记录墨大夫、七玄门与凡俗江湖的第一条引导线。"
       ],
       tags: ["seeking_immortals", "qixuan_mortal_path"],
-      tasks: [{id: "1000000000001101", type: "checkmark", title: "确认山村传闻"}]
+      tasks: [{id: "1000000000001101", type: "advancement", advancement: "minecraft:story/root", title: "确认山村传闻"}]
     },
     {
       id: "1000000000000102",
@@ -28,11 +28,12 @@
       y: 0.0d,
       description: [
         "来源：qixuan_herb_errand。",
-        "先以灵草杂役和低阶药材收集建立凡人阶段的生计循环。当前 FTB 物品任务检测 4 株灵草且不消耗。源设定奖励：herb_bundle_low。"
+        "先以灵草杂役和低阶药材收集建立凡人阶段的生计循环。当前 FTB 物品任务检测 4 株灵草并消耗。源设定奖励：herb_bundle_low。"
       ],
       dependencies: ["1000000000000101"],
       tags: ["seeking_immortals", "qixuan_mortal_path"],
-      tasks: [{id: "1000000000001102", type: "item", title: "交验灵草", item: "seeking_immortals:spirit_grass", count: 4L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001102", type: "item", title: "交验灵草", item: "seeking_immortals:spirit_grass", count: 4L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "1000000000009102", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000103",
@@ -42,11 +43,12 @@
       y: 0.0d,
       description: [
         "来源：qixuan_sect_trial。",
-        "将测灵根、外门试炼和凡俗武学传承串成可见任务节点。当前 FTB 物品任务检测测灵石且不消耗。源设定奖励：qixuan_mortal_art_scroll。"
+        "将测灵根、外门试炼和凡俗武学传承串成可见任务节点。当前 FTB 物品任务检测测灵石并消耗。源设定奖励：qixuan_mortal_art_scroll。"
       ],
       dependencies: ["1000000000000102"],
       tags: ["seeking_immortals", "qixuan_mortal_path"],
-      tasks: [{id: "1000000000001103", type: "item", title: "持有测灵石", item: "seeking_immortals:ling_gen_test_stone", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001103", type: "item", title: "持有测灵石", item: "seeking_immortals:ling_gen_test_stone", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "1000000000009103", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000104",
@@ -56,11 +58,12 @@
       y: 0.0d,
       description: [
         "来源：qixuan_decline_legacy。",
-        "收束七玄门凡俗线，作为后续离开大燕、进入天南宗门线的叙事桥。当前 FTB 物品任务检测灵石碎片且不消耗。源设定奖励：spirit_stone_shard。"
+        "收束七玄门凡俗线，作为后续离开大燕、进入天南宗门线的叙事桥。当前 FTB 物品任务检测灵石碎片并消耗。源设定奖励：spirit_stone_shard。"
       ],
       dependencies: ["1000000000000103"],
       tags: ["seeking_immortals", "qixuan_mortal_path"],
-      tasks: [{id: "1000000000001104", type: "item", title: "持有灵石碎片", item: "seeking_immortals:spirit_stone_shard", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001104", type: "item", title: "持有灵石碎片", item: "seeking_immortals:spirit_stone_shard", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "1000000000009104", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 3L}]
     },
     {
       id: "1000000000000201",
@@ -74,7 +77,7 @@
       ],
       dependencies: ["1000000000000104"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path"],
-      tasks: [{id: "1000000000001201", type: "checkmark", title: "完成黄枫入门"}]
+      tasks: [{id: "1000000000001201", type: "advancement", advancement: "minecraft:story/mine_stone", title: "完成黄枫入门"}]
     },
     {
       id: "1000000000000202",
@@ -84,11 +87,12 @@
       y: 2.0d,
       description: [
         "来源：alchemy_apprentice。",
-        "对接已实现的炼丹炉、辟谷丹和炼丹配方循环。当前 FTB 物品任务检测辟谷丹且不消耗。源设定奖励：recipe_bigu、alchemy_furnace_g1。"
+        "对接已实现的炼丹炉、辟谷丹和炼丹配方循环。当前 FTB 物品任务检测辟谷丹并消耗。源设定奖励：recipe_bigu、alchemy_furnace_g1。"
       ],
       dependencies: ["1000000000000201"],
       tags: ["seeking_immortals", "huangfeng_cultivation_path", "alchemy"],
-      tasks: [{id: "1000000000001202", type: "item", title: "炼成辟谷丹", item: "seeking_immortals:fasting_pill_low", count: 1L, consume_items: false, match_nbt: false}]
+      tasks: [{id: "1000000000001202", type: "item", title: "炼成辟谷丹", item: "seeking_immortals:fasting_pill_low", count: 1L, consume_items: true, match_nbt: false}],
+      rewards: [{id: "1000000000009202", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000203",
@@ -144,7 +148,7 @@
       ],
       dependencies: ["1000000000000204"],
       tags: ["seeking_immortals", "blood_forbidden_campaign"],
-      tasks: [{id: "1000000000001301", type: "checkmark", title: "听闻禁地开启"}]
+      tasks: [{id: "1000000000001301", type: "advancement", advancement: "minecraft:story/iron_tools", title: "听闻禁地开启"}]
     },
     {
       id: "1000000000000302",
@@ -214,7 +218,8 @@
       ],
       dependencies: ["1000000000000305"],
       tags: ["seeking_immortals", "blood_forbidden_campaign", "boss_design"],
-      tasks: [{id: "1000000000001306", type: "checkmark", title: "击退守关妖蛟"}]
+      tasks: [{id: "1000000000001306", type: "kill", entity: "minecraft:drowned", value: 1L, title: "击退守关妖蛟"}],
+      rewards: [{id: "9000000000001306", type: "item", item: "seeking_immortals:spirit_stone_shard", count: 2L}]
     },
     {
       id: "1000000000000401",
@@ -228,7 +233,7 @@
       ],
       dependencies: ["1000000000000205"],
       tags: ["seeking_immortals", "spirit_realm_rise", "tianyuan"],
-      tasks: [{id: "1000000000001401", type: "checkmark", title: "接受天渊征召"}]
+      tasks: [{id: "1000000000001401", type: "advancement", advancement: "minecraft:story/enter_the_nether", title: "接受天渊征召"}]
     },
     {
       id: "1000000000000402",

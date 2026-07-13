@@ -128,30 +128,32 @@ public class RefinementForgeBlock extends Block {
                 serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.7F, 1.1F);
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.activated"), true);
             } else {
+                var salvage = ArtifactRefinementService.grantDefaultFailureLoot(serverPlayer, "low");
                 serverLevel.playSound(null, pos, SoundEvents.ANVIL_BREAK, SoundSource.BLOCKS, 0.6F, 0.8F);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.refine.failure",
-                        recipe.getId().toString(), String.format(java.util.Locale.ROOT, "%.0f%%", recipe.successRate() * 100.0F), "-"), false);
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.failed",
+                        recipe.getId().toString(),
+                        String.format(java.util.Locale.ROOT, "%.0f%%", recipe.successRate() * 100.0F),
+                        salvage.isEmpty() ? "-" : salvage.get(0).getHoverName().getString()), false);
             }
             serverPlayer.containerMenu.broadcastChanges();
             return InteractionResult.CONSUME;
         }
 
         // Fallback to catalog service path.
-        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer);
+        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer, 1);
         if (recipeId == null || recipeId.isBlank()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.no_recipe"), false);
             return InteractionResult.CONSUME;
         }
 
-        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId);
+        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId, 1);
         if (ok) {
             serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                     12, 0.35D, 0.25D, 0.35D, 0.01D);
             serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.7F, 1.1F);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.activated"), true);
-        } else {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.no_recipe"), false);
         }
+        // On failure, refine() already sent failure/salvage/forge_too_low messages.
         return InteractionResult.CONSUME;
     }
 }

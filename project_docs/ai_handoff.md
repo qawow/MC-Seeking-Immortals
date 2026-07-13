@@ -1,3 +1,69 @@
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.486 protocol 17. Wave486 review hardening: build preflight/version fixed; consumed-manual progression survives death; first Wanbao bid is reachable; method-layout persistence is catalog/packet bounded; quest starts enforce realm/region/faction; source methods require a successful technique learn; servitor ownership/cap is server-global with deferred commands; war-shell score follows the killer faction; embark fees reserve stage costs atomically; cast gates precede qi-deviation risk; method-tree detail text and war translations fixed. No packet field/order/encoding change. Full build passed.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.485 protocol 16. Wave485: freeform drag method-tree layout + sect-war battlefield AI pulse shells + FTB advancement tasks (8). No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.484 protocol 16. Wave484: freer clickable school method graph (up to 6 peers) + FTB kill tasks for combat nodes (6). No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.483 protocol 16. Wave483: MethodTreeScreen node-link layer/school graph + FTB item rewards on all 66 consuming item tasks. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.482 protocol 16. Wave482: FTB packaged item tasks consume_items=true (66 tasks) + mainline item rewards; FtbQuestSnbtTest asserts consume authority. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.481 protocol 16. Wave481: SpiritCharm ICurioItem equip/recovery + method layer cultivation (1-9) with cultivate action; SyncLearnedMethodsPacket carries layers. Protocol 15->16.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.480 protocol 15. Wave480: typed secret-realm combat shells via SummonedServitorEntity archetypes (BEAST/PUPPET/GHOST/GENERIC) for patrol/guardian/boss; TrialCombatShellService. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.479 protocol 15. Wave479: chronicle/trade/conflict authority deepen (full chronicle mapping, first-discover rewards, trade tax discount + settle, conflict opens SectWar + side score). No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.478 protocol 15. Wave478: MethodTreeScreen interactive method UI + MethodActionPacket learn/sync; CultivationStatsScreen methods button. Protocol 14->15.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.477 protocol 14. Wave477: SyncLearnedMethodsPacket + ClientMethodData; stats UI shows synced learned methods. Protocol 13->14.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.476 protocol 13. Wave476: CatalogManualItem maps id/type/display to methods; CultivationStatsScreen shows method catalog hint (no packet change).
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.475 protocol 13. Wave475: TechniqueManualItem source maps to cultivation methods (grantMethodsFromTechniqueSource). No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.474 protocol 13. Wave474: method unlock hooks — manual study grants method unlocks; sect outer promotion grants starter methods. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.473 protocol 13. Wave473: cultivation method learn authority (ManualCatalogService.learnMethod + TechniqueGate accepts learned methods; catalog methods learn/studied commands). No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.472 protocol 13. Wave472: summon BEAST requires BeastContract + shard cost; secret-realm periodic hazard tick while active. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.471 protocol 13. Wave471: secret-realm kill gates — mid patrol unlocks mid chest; core guardian unlocks core chest + rare proxy; boss cache no longer pre-placed (spawn on kill). No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.470 protocol 13. Wave470: remaining template sects specialty closeout (Huadao/Moyan/Qianhuan/Qinglan/Qingluo/Tianque/Tiansha). Only intentional garden-triad left: Huangfeng/Luoyun. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.469 protocol 13. Wave469: six more specialty sect packages (Hehuan/Luoyun/Tianlan/Qixuan/Mulan Fashi/Dajin Buddhist) missions+shops+dialogue. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.468 protocol 13. Wave468: TechniqueGate region/dimension cast affinity for Core+ tagged arts; Qingxu/Qianzhu/SpiritBeastMountain/InverseStar/GiantSword specialty missions/shops/dialogue. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.467 protocol 13. Wave467: TechniqueGate method+rep deepen; auction offline outbid refund ledger + login claim; Guiling/Tianmo/Xuewu/Wanhu specialty missions/shops/dialogue. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.466 protocol 13. Wave466: Soft→authority wiring (story start, summon stance/dismiss/repair, talisman/puppet craft, auction outbid refund, conflict real rep+advance, chronicle rediscover advance, hook re-accept); TechniqueGateService realm/sect gates on learn+cast; Huangfeng/Yanyue/StarPalace specialty missions+shops+dialogue. No packet field change (ReleaseTechniquePacket logic only).
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.465 protocol 13. Wave465: playable sects 30; catalog alias collapse (ghost_spirit/qianzhu_teach/yuling_sect* → canonical playable ids).
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.464 protocol 13. Wave464: playable sects 20; auction rep/deposit/reward depth; manuals rich load + studied NBT + forge grade ceiling via existing ManualCatalogService.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.463 protocol 13. Wave463: playable sects 14 with content packages; CraftWorld refine craft/formation deploy; chronicle discover; SoftPhase enter packages; expanded quest-hook reverse map.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.462 protocol 13. Wave462: generic/material/storage/quest_key artifact activation; +4 playable sects; dedicated Ascension/Blood gates. Wave461: faction conflict accept/side + trade embark authority.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.460 protocol 13. Priority board 1→5 executed through secret-realm depth; Wave5 docs/checklist closeout complete. Remaining only external art / human re-sign smoke.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.460 protocol 13. Wave460 secret-realm depth: mid patrol, layer hazards, layered loot, boss cache. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.459 protocol 13. Wave459 artifact depth: grade-filtered forge select, failure salvage UX, natal milestones/scaled costs, integrity last-light. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.458 protocol 13. Wave458 summon depth: servitor stances/dismiss/repair, beast combat growth credits, capture-jar seal to contract, craft-aware puppet cap. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.457 protocol 13. Wave457 quest authority deepen: catalog rewards_finale grants, branch bonus ledger, tracker UI advance/branch + NPC gate, main-story auto-complete, honest hook mapping, FTB bridge no independent pay. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.456 protocol 13. Wave456 artifact/refine depth: forge-grade gate + success bonus, natal bind via sneak-use, natal growth/cooldown on activation. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.455 protocol 13. Wave455 summon depth: entity-first HonestSummonSpell, concurrent servitor cap 3, owner retaliate AI, explicit BEAST/PUPPET archetype spawn for beast contracts and puppet craft. No packet field change.
+
+> CURRENT TRUTH 2026-07-13: mod_version=0.1.454 protocol 13. Wave454 quest authority closeout: Forge-registry stage costs, branch lock, unified reward ledger (no soft+FTB double grant), tracker action start/advance/branch encoding. No packet field/order change.
+
 > CURRENT TRUTH 2026-07-12: mod_version=0.1.453 protocol 13. Wave453: +1 residual reward token trade_discount_token. Item hard-missing closed.
 
 > CURRENT TRUTH 2026-07-12: mod_version=0.1.452 protocol 13. Wave452: 2 remaining item_id_aliases mapped (kunwu_spirit_copper, sea_soul_grass_herb). Item carriers closed.

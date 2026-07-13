@@ -217,6 +217,8 @@ public final class ClientEvents {
         private static void resetClientSyncState() {
             ClientCultivationData.reset();
             ClientTechniqueData.reset();
+            ClientMethodData.reset();
+            ClientMethodLayoutData.reset();
             ClientSectData.reset();
             ClientShopData.reset();
             ClientWorldpackData.reset();

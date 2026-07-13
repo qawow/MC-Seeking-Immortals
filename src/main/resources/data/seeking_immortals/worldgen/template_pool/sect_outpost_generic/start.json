@@ -1,0 +1,15 @@
+{
+  "name": "seeking_immortals:sect_outpost_generic/start",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "seeking_immortals:sects/sect_outpost_generic",
+        "processors": "minecraft:empty",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

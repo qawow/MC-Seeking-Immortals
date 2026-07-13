@@ -3,29 +3,54 @@
   "currency": "sect_contribution",
   "entries": [
     {
-      "id": "foundation_pill",
-      "item": "seeking_immortals:foundation_building_pill_low",
-      "count": 1,
-      "cost": 1400,
-      "rank_min": "inner_disciple"
-    },
-    {
       "id": "calm_spirit_pill",
       "item": "seeking_immortals:clear_void_pill",
       "count": 1,
-      "cost": 60
-    },
-    {
-      "id": "recipe_heqi",
-      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
-      "count": 1,
-      "cost": 40
+      "cost": 60,
+      "stock": 12
     },
     {
       "id": "ningshen_pill",
       "item": "seeking_immortals:calming_pill_low",
       "count": 1,
-      "cost": 70
+      "cost": 70,
+      "stock": 12
+    },
+    {
+      "id": "recipe_heqi",
+      "item": "seeking_immortals:alchemy_formula_cultivation_pill_paper",
+      "count": 1,
+      "cost": 40,
+      "stock": 6
+    },
+    {
+      "id": "recipe_clear_void",
+      "item": "seeking_immortals:alchemy_formula_clear_void_pill_paper",
+      "count": 1,
+      "cost": 90,
+      "stock": 4
+    },
+    {
+      "id": "recipe_body_tempering",
+      "item": "seeking_immortals:alchemy_formula_body_tempering_pill_jade",
+      "count": 1,
+      "cost": 160,
+      "stock": 3
+    },
+    {
+      "id": "soul_fragment_pack",
+      "item": "seeking_immortals:soul_fragment",
+      "count": 2,
+      "cost": 110,
+      "stock": 8
+    },
+    {
+      "id": "foundation_pill",
+      "item": "seeking_immortals:foundation_building_pill_low",
+      "count": 1,
+      "cost": 1400,
+      "rank_min": "inner_disciple",
+      "stock": 2
     }
   ]
 }

@@ -645,7 +645,8 @@ class ShopServiceTest {
         ShopService.Shop shop = ShopService.getShop("star_palace_merit_hall");
 
         assertEquals("star_palace_merit_hall", shop.id());
-        assertEquals(5, shop.entries().size());
+        // Wave466 specialty deepen: patrol supplies + void crystal.
+        assertEquals(7, shop.entries().size());
         for (ShopService.Entry entry : shop.entries()) {
             assertEquals(ShopService.CURRENCY_SECT_CONTRIBUTION, entry.currency());
         }
@@ -654,6 +655,8 @@ class ShopServiceTest {
         assertEntry(shop, "recipe_yanghun", "seeking_immortals:alchemy_formula_soul_gathering_pill_jade");
         assertEntry(shop, "sea_calm_pill", "seeking_immortals:calming_pill_low");
         assertEntry(shop, "recipe_sea_calm", "seeking_immortals:alchemy_formula_calming_pill_jade");
+        assertEntry(shop, "water_spirit_stone", "seeking_immortals:water_spirit_stone");
+        assertEntry(shop, "void_crystal", "seeking_immortals:void_crystal");
 
         ShopService.Entry formula = shop.find("recipe_condensation")
                 .orElseThrow(() -> new AssertionError("Missing shop entry recipe_condensation"));
@@ -663,7 +666,7 @@ class ShopServiceTest {
         ShopService.Entry yanghunFormula = shop.find("recipe_yanghun")
                 .orElseThrow(() -> new AssertionError("Missing shop entry recipe_yanghun"));
         assertEquals(600, yanghunFormula.cost());
-        assertEquals(ShopService.UNLIMITED_STOCK, yanghunFormula.stock());
+        assertEquals(2, yanghunFormula.stock());
 
         ShopService.Entry seaCalm = shop.find("sea_calm_pill")
                 .orElseThrow(() -> new AssertionError("Missing shop entry sea_calm_pill"));
@@ -673,7 +676,7 @@ class ShopServiceTest {
         ShopService.Entry seaCalmFormula = shop.find("recipe_sea_calm")
                 .orElseThrow(() -> new AssertionError("Missing shop entry recipe_sea_calm"));
         assertEquals(40, seaCalmFormula.cost());
-        assertEquals(ShopService.UNLIMITED_STOCK, seaCalmFormula.stock());
+        assertEquals(6, seaCalmFormula.stock());
     }
 
     @Test
@@ -749,7 +752,8 @@ class ShopServiceTest {
         ShopService.Shop shop = ShopService.getShop("yanyue_contribution_hall");
 
         assertEquals("yanyue_contribution_hall", shop.id());
-        assertEquals(4, shop.entries().size());
+        // Wave466 specialty deepen: clear-void / body-tempering formulas + soul packs.
+        assertEquals(7, shop.entries().size());
         for (ShopService.Entry entry : shop.entries()) {
             assertEquals(ShopService.CURRENCY_SECT_CONTRIBUTION, entry.currency());
         }
@@ -757,6 +761,9 @@ class ShopServiceTest {
         assertEntry(shop, "calm_spirit_pill", "seeking_immortals:clear_void_pill");
         assertEntry(shop, "recipe_heqi", "seeking_immortals:alchemy_formula_cultivation_pill_paper");
         assertEntry(shop, "ningshen_pill", "seeking_immortals:calming_pill_low");
+        assertEntry(shop, "recipe_clear_void", "seeking_immortals:alchemy_formula_clear_void_pill_paper");
+        assertEntry(shop, "recipe_body_tempering", "seeking_immortals:alchemy_formula_body_tempering_pill_jade");
+        assertEntry(shop, "soul_fragment_pack", "seeking_immortals:soul_fragment");
 
         ShopService.Entry foundationPill = shop.find("foundation_pill")
                 .orElseThrow(() -> new AssertionError("Missing shop entry foundation_pill"));

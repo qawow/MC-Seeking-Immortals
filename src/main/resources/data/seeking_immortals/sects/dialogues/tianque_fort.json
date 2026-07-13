@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "id": "knocking",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.knocking.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.knocking.text",
+      "options": [
+        { "id": "exam", "label_key": "screen.seeking_immortals.sect.dialogue.option.exam", "action": "advance" }
+      ]
+    },
+    {
+      "id": "outer",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.outer.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.outer.text",
+      "options": [
+        { "id": "mission", "label_key": "screen.seeking_immortals.sect.dialogue.option.mission", "action": "accept_mission" }
+      ]
+    },
+    {
+      "id": "foundation",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.foundation.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.foundation.text",
+      "options": [
+        { "id": "promotion", "label_key": "screen.seeking_immortals.sect.dialogue.option.promotion", "action": "advance" }
+      ]
+    },
+    {
+      "id": "inner",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.inner.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.inner.text",
+      "options": [
+        { "id": "competition", "label_key": "screen.seeking_immortals.sect.dialogue.option.competition", "action": "advance" }
+      ]
+    },
+    {
+      "id": "complete",
+      "title_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.complete.title",
+      "text_key": "screen.seeking_immortals.sect.dialogue.tianque_fort.complete.text",
+      "options": []
+    }
+  ]
+}

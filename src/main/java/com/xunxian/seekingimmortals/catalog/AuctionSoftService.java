@@ -5,19 +5,26 @@ import com.xunxian.seekingimmortals.worldpack.AuctionHouseSavedData;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 /**
- * Live auction with shared multiplayer ladder (Wave46) over economy_auction_bands lots.
- * Highest bid is stored in AuctionHouseSavedData; winner settles for the lot reward.
+ * Live auction with shared multiplayer ladder over economy_auction_bands lots.
+ * Wave464: venue rep gate, deposit floor, id/extras reward mapping.
  */
 public final class AuctionSoftService {
     private static final String PERSONAL_RAISES = "seeking_immortals_auction_personal_raises";
     private static final String WON_ROOT = "seeking_immortals_auction_won";
+    private static final int DEFAULT_REP_MIN = 0;
 
     private AuctionSoftService() {}
 
@@ -25,10 +32,12 @@ public final class AuctionSoftService {
         return AuctionCatalogHolder.SNAPSHOT;
     }
 
-    public record Venue(String id, String region, String faction, String currencyAlt) {}
-    public record Lot(String id, String display, long minEquiv, long maxEquiv, String sourceNote) {}
+    public record Venue(String id, String region, String faction, String currencyAlt, int repMin) {}
 
-    public record Snapshot(java.util.List<Venue> venues, java.util.List<Lot> lots, double minIncrementPct) {
+    public record Lot(String id, String display, long minEquiv, long maxEquiv, String sourceNote,
+                      String venueId, String rewardItem, List<String> extras) {}
+
+    public record Snapshot(List<Venue> venues, List<Lot> lots, double minIncrementPct, int depositFloor) {
         public int venueCount() { return venues.size(); }
         public int lotCount() { return lots.size(); }
         public java.util.Optional<Venue> findVenue(String id) {
@@ -37,6 +46,16 @@ public final class AuctionSoftService {
         public java.util.Optional<Lot> findLot(String id) {
             return lots.stream().filter(l -> l.id().equals(id)).findFirst();
         }
+        public java.util.Optional<Venue> venueForLot(Lot lot) {
+            if (lot == null) {
+                return java.util.Optional.empty();
+            }
+            if (lot.venueId() != null && !lot.venueId().isBlank()) {
+                return findVenue(lot.venueId());
+            }
+            // Fallback: single-venue catalogs map all lots to first venue.
+            return venues.isEmpty() ? java.util.Optional.empty() : java.util.Optional.of(venues.get(0));
+        }
     }
 
     public static boolean preview(ServerPlayer player, String venueOrLotId) {
@@ -44,8 +63,11 @@ public final class AuctionSoftService {
         var venue = snapshot.findVenue(venueOrLotId);
         if (venue.isPresent()) {
             Venue v = venue.get();
+            int rep = ReputationService.get(player, v.faction());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.venue",
                     v.id(), v.region(), v.faction()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_gate",
+                    v.repMin(), rep), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.live_ready"), false);
             return true;
         }
@@ -54,7 +76,7 @@ public final class AuctionSoftService {
             Lot l = lot.get();
             AuctionHouseSavedData data = AuctionHouseSavedData.get(player);
             int current = data.currentAmount(l.id());
-            int next = nextBidCost(l, current, snapshot.minIncrementPct());
+            int next = nextBidCost(l, current, snapshot.minIncrementPct(), snapshot.depositFloor());
             String leader = data.getBid(l.id())
                     .map(s -> s.bidder() == null ? "-" : s.bidder().toString().substring(0, 8))
                     .orElse("-");
@@ -62,6 +84,11 @@ public final class AuctionSoftService {
                     l.display(), l.minEquiv(), l.maxEquiv()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.shared_hint",
                     current, next, leader, data.isSettled(l.id()) ? "SETTLED" : "OPEN"), false);
+            snapshot.venueForLot(l).ifPresent(v -> {
+                int rep = ReputationService.get(player, v.faction());
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_gate",
+                        v.repMin(), rep), false);
+            });
             return true;
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", venueOrLotId), false);
@@ -82,14 +109,29 @@ public final class AuctionSoftService {
             return false;
         }
 
+        // A1: venue faction reputation gate.
+        var venueOpt = snapshot.venueForLot(lot);
+        if (venueOpt.isPresent() && !player.getAbilities().instabuild) {
+            Venue venue = venueOpt.get();
+            int rep = ReputationService.get(player, venue.faction());
+            if (rep < venue.repMin()) {
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.rep_too_low",
+                        venue.faction(), venue.repMin(), rep), true);
+                return false;
+            }
+        }
+
         int current = house.currentAmount(lot.id());
-        int next = nextBidCost(lot, current, snapshot.minIncrementPct());
+        int next = nextBidCost(lot, current, snapshot.minIncrementPct(), snapshot.depositFloor());
         int delta = Math.max(1, next - Math.max(currentPersonalEscrow(player, lot.id()), 0));
-        // When raising over another player, pay full next amount (previous loser keeps paid shards as sunk cost).
+        UUID previousLeader = null;
+        int previousEscrow = 0;
         if (current > 0) {
             UUID leader = house.getBid(lot.id()).map(AuctionHouseSavedData.BidState::bidder).orElse(null);
             if (leader != null && !leader.equals(player.getUUID())) {
-                delta = next; // outbid pays full new top
+                delta = next;
+                previousLeader = leader;
+                previousEscrow = current;
             } else if (leader != null && leader.equals(player.getUUID())) {
                 delta = Math.max(1, next - current);
             }
@@ -102,13 +144,28 @@ public final class AuctionSoftService {
 
         AuctionHouseSavedData.BidState state = house.placeOrRaise(lot.id(), player.getUUID(), next);
         setPersonalEscrow(player, lot.id(), next);
+        // Wave466/467: refund previous leader's escrow when outbid (online now, offline ledger).
+        if (previousLeader != null && previousEscrow > 0 && player.getServer() != null) {
+            ServerPlayer previous = player.getServer().getPlayerList().getPlayer(previousLeader);
+            if (previous != null) {
+                giveShards(previous, previousEscrow);
+                setPersonalEscrow(previous, lot.id(), 0);
+                previous.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.auction.outbid_refund", lot.display(), previousEscrow), true);
+            } else {
+                house.addPendingRefund(previousLeader, previousEscrow);
+            }
+        }
         AuctionInterestService.markInterest(player, lot.id());
         ReputationService.add(player, "auction_house", 1);
+        venueOpt.ifPresent(v -> ReputationService.add(player, v.faction(), 1));
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.raised",
                 lot.display(), next, state.raises()), true);
 
-        // Shared ladder auto-opens settlement for current leader after 5 total raises.
-        if (state.raises() >= 5) {
+        // Wave466: auto-settle when bid reaches catalog maxEquiv floor.
+        long max = Math.max(lot.maxEquiv(), lot.minEquiv());
+        boolean hitCeiling = max > 0 && next >= Math.max(1L, max / 5000L);
+        if (state.raises() >= 5 || hitCeiling) {
             return settle(player, lot);
         }
         return true;
@@ -146,14 +203,30 @@ public final class AuctionSoftService {
             return false;
         }
 
-        ItemStack reward = new ItemStack(rewardItemFor(lot), 1);
+        ItemStack reward = new ItemStack(rewardItemFor(lot), rewardCountFor(lot));
         if (!player.getInventory().add(reward.copy())) {
             player.drop(reward.copy(), false);
+        }
+        // Grant first valid extra if present.
+        for (String extra : lot.extras()) {
+            Item extraItem = resolveItem(extra);
+            if (extraItem != null && extraItem != Items.AIR) {
+                ItemStack extraStack = new ItemStack(extraItem, 1);
+                if (!player.getInventory().add(extraStack.copy())) {
+                    player.drop(extraStack.copy(), false);
+                }
+                break;
+            }
         }
         house.markSettled(lot.id());
         won.putBoolean(lot.id(), true);
         player.getPersistentData().put(WON_ROOT, won);
         ReputationService.add(player, "auction_house", 5);
+        try {
+            com.xunxian.seekingimmortals.phase.SoftPhaseShellService.mark(player, "phase14_tiannan_auction", false);
+        } catch (Throwable ignored) {
+            // optional
+        }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.won",
                 lot.display(), state.amount(), reward.getHoverName()), true);
         return true;
@@ -164,7 +237,11 @@ public final class AuctionSoftService {
     }
 
     public static int nextBidCost(Lot lot, int currentBid, double minIncrementPct) {
-        int base = baseBidCost(lot);
+        return nextBidCost(lot, currentBid, minIncrementPct, builtin().depositFloor());
+    }
+
+    public static int nextBidCost(Lot lot, int currentBid, double minIncrementPct, int depositFloor) {
+        int base = Math.max(baseBidCost(lot), Math.max(1, depositFloor));
         if (currentBid <= 0) {
             return base;
         }
@@ -192,21 +269,75 @@ public final class AuctionSoftService {
         player.getPersistentData().put(PERSONAL_RAISES, tag);
     }
 
+    private static int rewardCountFor(Lot lot) {
+        String id = lot.id() == null ? "" : lot.id().toLowerCase(Locale.ROOT);
+        if (id.contains("bundle") || id.contains("pill")) {
+            return 3;
+        }
+        return 1;
+    }
+
     private static Item rewardItemFor(Lot lot) {
-        String id = (lot.id() + " " + lot.display()).toLowerCase(java.util.Locale.ROOT);
-        if (id.contains("jade") || id.contains("immortal")) {
-            return ModItems.IMMORTAL_JADE.get();
+        // A5: exact reward_item first.
+        Item explicit = resolveItem(lot.rewardItem());
+        if (explicit != null && explicit != Items.AIR) {
+            return explicit;
         }
-        if (id.contains("void") || id.contains("crystal") || id.contains("space")) {
-            return ModItems.VOID_CRYSTAL.get();
+        // id table
+        String id = lot.id() == null ? "" : lot.id().toLowerCase(Locale.ROOT);
+        if (id.contains("deity_pill") || id.contains("foundation_pill") || id.contains("pill")) {
+            return ModItems.FOUNDATION_BUILDING_PILL_LOW.get();
         }
-        if (id.contains("scale") || id.contains("beast")) {
+        if (id.contains("beast_scale") || id.contains("beast")) {
             return ModItems.BEAST_CORE.get();
         }
-        if (id.contains("pill") || id.contains("dan")) {
+        if (id.contains("ancient_treasure") || id.contains("jade")) {
+            return ModItems.IMMORTAL_JADE.get();
+        }
+        if (id.contains("void") || id.contains("crystal")) {
+            return ModItems.VOID_CRYSTAL.get();
+        }
+        // extras first resolvable item
+        for (String extra : lot.extras()) {
+            Item item = resolveItem(extra);
+            if (item != null && item != Items.AIR) {
+                return item;
+            }
+        }
+        // keyword fuzzy last
+        String blob = (lot.id() + " " + lot.display() + " " + lot.sourceNote()).toLowerCase(Locale.ROOT);
+        if (blob.contains("jade") || blob.contains("immortal")) {
+            return ModItems.IMMORTAL_JADE.get();
+        }
+        if (blob.contains("void") || blob.contains("crystal") || blob.contains("space")) {
+            return ModItems.VOID_CRYSTAL.get();
+        }
+        if (blob.contains("scale") || blob.contains("beast")) {
+            return ModItems.BEAST_CORE.get();
+        }
+        if (blob.contains("pill") || blob.contains("dan")) {
             return ModItems.FOUNDATION_BUILDING_PILL_LOW.get();
         }
         return ModItems.SPIRIT_STONE_SHARD.get();
+    }
+
+    private static Item resolveItem(String raw) {
+        if (raw == null || raw.isBlank()) {
+            return null;
+        }
+        String id = raw.trim().toLowerCase(Locale.ROOT);
+        if (!id.contains(":")) {
+            id = "seeking_immortals:" + id;
+        }
+        ResourceLocation rl = ResourceLocation.tryParse(id);
+        if (rl == null) {
+            return null;
+        }
+        Item item = ForgeRegistries.ITEMS.getValue(rl);
+        if (item == null || item == Items.AIR) {
+            return null;
+        }
+        return item;
     }
 
     private static boolean consumeShards(ServerPlayer player, int count) {
@@ -224,38 +355,98 @@ public final class AuctionSoftService {
         return remaining <= 0;
     }
 
+    private static void giveShards(ServerPlayer player, int count) {
+        if (player == null || count <= 0) {
+            return;
+        }
+        ItemStack stack = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), count);
+        if (!player.getInventory().add(stack.copy())) {
+            player.drop(stack.copy(), false);
+        }
+    }
+
+    /** Wave467: claim offline outbid refunds on login. */
+    public static int claimPendingRefunds(ServerPlayer player) {
+        if (player == null) {
+            return 0;
+        }
+        AuctionHouseSavedData house = AuctionHouseSavedData.get(player);
+        int amount = house.takePendingRefund(player.getUUID());
+        if (amount <= 0) {
+            return 0;
+        }
+        giveShards(player, amount);
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.auction.pending_refund_claim", amount), true);
+        return amount;
+    }
+
     private static final class AuctionCatalogHolder {
         private static final Snapshot SNAPSHOT = loadBuiltin();
 
         private static Snapshot loadBuiltin() {
             com.google.gson.JsonObject root = readJson("data/" + com.xunxian.seekingimmortals.SeekingImmortalsMod.MODID + "/text_material/economy_auction_bands.json");
             if (root == null) {
-                return new Snapshot(java.util.List.of(), java.util.List.of(), 0.05D);
+                return new Snapshot(List.of(), List.of(), 0.05D, 5);
             }
             double increment = 0.05D;
+            int depositFloor = 5;
             if (root.has("bid_rules") && root.get("bid_rules").isJsonObject()) {
                 com.google.gson.JsonObject rules = root.getAsJsonObject("bid_rules");
                 if (rules.has("min_increment_pct") && rules.get("min_increment_pct").isJsonPrimitive()) {
                     try { increment = rules.get("min_increment_pct").getAsDouble(); } catch (Exception ignored) {}
                 }
+                if (rules.has("deposit_band") && rules.get("deposit_band").isJsonObject()) {
+                    com.google.gson.JsonObject deposit = rules.getAsJsonObject("deposit_band");
+                    long min = asLong(deposit, "low_stone_min");
+                    // Scale deposit stones into shard floor used by gameplay bids.
+                    depositFloor = (int) Math.max(5L, Math.min(50L, Math.max(1L, min / 10L)));
+                }
             }
-            java.util.List<Venue> venues = new java.util.ArrayList<>();
+            List<Venue> venues = new ArrayList<>();
             for (com.google.gson.JsonElement element : array(root, "venues")) {
                 if (!element.isJsonObject()) continue;
                 com.google.gson.JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
-                venues.add(new Venue(id, str(o, "region"), str(o, "faction"), str(o, "currency_alt")));
+                int repMin = o.has("rep_min") && o.get("rep_min").isJsonPrimitive()
+                        ? o.get("rep_min").getAsInt() : DEFAULT_REP_MIN;
+                venues.add(new Venue(id, str(o, "region"), str(o, "faction"), str(o, "currency_alt"), Math.max(0, repMin)));
             }
-            java.util.List<Lot> lots = new java.util.ArrayList<>();
+            List<Lot> lots = new ArrayList<>();
             for (com.google.gson.JsonElement element : array(root, "lots")) {
                 if (!element.isJsonObject()) continue;
                 com.google.gson.JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
-                lots.add(new Lot(id, str(o, "display"), asLong(o, "low_stone_equiv_min"), asLong(o, "low_stone_equiv_max"), str(o, "source_note")));
+                List<String> extras = stringList(o.get("extras"));
+                lots.add(new Lot(
+                        id,
+                        str(o, "display"),
+                        asLong(o, "low_stone_equiv_min"),
+                        asLong(o, "low_stone_equiv_max"),
+                        str(o, "source_note"),
+                        str(o, "venue_id"),
+                        str(o, "reward_item"),
+                        extras));
             }
-            return new Snapshot(java.util.Collections.unmodifiableList(venues), java.util.Collections.unmodifiableList(lots), increment);
+            return new Snapshot(java.util.Collections.unmodifiableList(venues),
+                    java.util.Collections.unmodifiableList(lots), increment, depositFloor);
+        }
+
+        private static List<String> stringList(com.google.gson.JsonElement element) {
+            if (element == null || !element.isJsonArray()) {
+                return List.of();
+            }
+            List<String> list = new ArrayList<>();
+            for (com.google.gson.JsonElement child : element.getAsJsonArray()) {
+                try {
+                    list.add(child.getAsString());
+                } catch (Exception ignored) {
+                    list.add(String.valueOf(child));
+                }
+            }
+            return List.copyOf(list);
         }
 
         private static com.google.gson.JsonObject readJson(String path) {

@@ -1,8 +1,14 @@
 package com.xunxian.seekingimmortals.entity;
 
+import com.xunxian.seekingimmortals.cultivation.BeastContractService;
+import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
+import com.xunxian.seekingimmortals.worldpack.ServitorRegistrySavedData;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -33,9 +39,11 @@ import java.util.UUID;
 
 /**
  * Real combat servitor for text-material summon/puppet techniques.
- * Custom PathfinderMob (not vanilla projectile attack core). Owner-bound, timed despawn.
- * Wave48: archetype-based AI / stats (beast / puppet / ghost / generic).
- * Wave56: GeckoLib GeoEntity for high-fidelity skeletal rendering.
+ * Wave48: archetype-based AI / stats.
+ * Wave56: GeckoLib GeoEntity.
+ * Wave455: owner retaliate.
+ * Wave458: stance modes, crafted flag, combat credit hooks, owner interact cycle.
+ * Wave480: hostile trial mode for secret-realm typed combat shells (no owner, hunts players).
  */
 public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
@@ -43,6 +51,13 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     private static final String TAG_SUMMON_ID = "SummonId";
     private static final String TAG_LIFE = "LifeTicks";
     private static final String TAG_ARCHETYPE = "Archetype";
+    private static final String TAG_STANCE = "Stance";
+    private static final String TAG_CRAFTED = "Crafted";
+    private static final String TAG_HOSTILE = "HostileTrial";
+    private static final String TAG_GUARD_X = "GuardX";
+    private static final String TAG_GUARD_Y = "GuardY";
+    private static final String TAG_GUARD_Z = "GuardZ";
+    private static final String TAG_MAX_LIFE = "MaxLifeTicks";
 
     public enum Archetype {
         BEAST,
@@ -51,14 +66,29 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         GENERIC
     }
 
+    public enum Stance {
+        FOLLOW,
+        GUARD,
+        AGGRESSIVE,
+        STAY
+    }
+
     private UUID ownerUUID;
     private String summonId = "summon";
     private int lifeTicks;
+    private int maxLifeTicks;
     private Archetype archetype = Archetype.GENERIC;
+    private Stance stance = Stance.FOLLOW;
+    private boolean crafted;
+    private boolean hostileTrial;
+    private double guardX;
+    private double guardY;
+    private double guardZ;
 
     public SummonedServitorEntity(EntityType<? extends SummonedServitorEntity> type, Level level) {
         super(type, level);
         this.lifeTicks = 20 * 25;
+        this.maxLifeTicks = this.lifeTicks;
         setPersistenceRequired();
     }
 
@@ -76,10 +106,49 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     }
 
     public void configure(Player owner, String summonId, int lifeTicks, double health, double damage, Archetype archetype) {
+        this.hostileTrial = false;
         this.ownerUUID = owner.getUUID();
         this.summonId = summonId == null || summonId.isBlank() ? "summon" : summonId;
         this.lifeTicks = Math.max(20 * 8, lifeTicks);
+        this.maxLifeTicks = this.lifeTicks;
         this.archetype = archetype == null ? Archetype.GENERIC : archetype;
+        this.stance = Stance.FOLLOW;
+        this.guardX = owner.getX();
+        this.guardY = owner.getY();
+        this.guardZ = owner.getZ();
+        applyArchetypeStats(health, damage);
+        setCustomName(Component.translatable("entity.seeking_immortals.summoned_servitor.name", this.summonId));
+        setCustomNameVisible(true);
+        rebuildGoals();
+    }
+
+    /**
+     * Wave480: secret-realm hostile shell. No owner leash; hunts players; long lifetime.
+     */
+    public void configureHostileTrial(String shellId, int lifeTicks, double health, double damage, Archetype archetype) {
+        this.hostileTrial = true;
+        this.ownerUUID = null;
+        this.crafted = false;
+        this.summonId = shellId == null || shellId.isBlank() ? "trial_shell" : shellId;
+        this.lifeTicks = Math.max(20 * 60 * 10, lifeTicks);
+        this.maxLifeTicks = this.lifeTicks;
+        this.archetype = archetype == null ? Archetype.GENERIC : archetype;
+        this.stance = Stance.AGGRESSIVE;
+        this.guardX = getX();
+        this.guardY = getY();
+        this.guardZ = getZ();
+        applyArchetypeStats(health, damage);
+        // Hostile shells get a bit more follow range so they stick to the player in arenas.
+        if (getAttribute(Attributes.FOLLOW_RANGE) != null) {
+            getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(Math.max(28.0D,
+                    getAttribute(Attributes.FOLLOW_RANGE).getBaseValue()));
+        }
+        setCustomName(Component.translatable("entity.seeking_immortals.trial_shell.name", this.summonId));
+        setCustomNameVisible(true);
+        rebuildGoals();
+    }
+
+    private void applyArchetypeStats(double health, double damage) {
         double speed = switch (this.archetype) {
             case BEAST -> 0.34D;
             case PUPPET -> 0.24D;
@@ -114,11 +183,16 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         if (getAttribute(Attributes.FOLLOW_RANGE) != null) {
             getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(follow);
         }
-        setCustomName(Component.translatable("entity.seeking_immortals.summoned_servitor.name", this.summonId));
-        setCustomNameVisible(true);
+    }
+
+    private void rebuildGoals() {
         this.goalSelector.removeAllGoals(goal -> true);
         this.targetSelector.removeAllGoals(goal -> true);
         registerGoals();
+    }
+
+    public boolean isHostileTrial() {
+        return hostileTrial;
     }
 
     public Optional<UUID> getOwnerUUID() {
@@ -131,6 +205,66 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
 
     public Archetype getArchetype() {
         return archetype;
+    }
+
+    public Stance getStance() {
+        return stance;
+    }
+
+    public void setStance(Stance stance) {
+        this.stance = stance == null ? Stance.FOLLOW : stance;
+        if (this.stance == Stance.GUARD) {
+            this.guardX = getX();
+            this.guardY = getY();
+            this.guardZ = getZ();
+        }
+        if (this.stance == Stance.STAY) {
+            getNavigation().stop();
+            setTarget(null);
+        }
+        if (!level().isClientSide && !hostileTrial && ownerUUID != null && level() instanceof ServerLevel serverLevel) {
+            ServitorRegistrySavedData.get(serverLevel).setStance(getUUID(), this.stance.name());
+        }
+    }
+
+    public Stance cycleStance() {
+        Stance next = switch (stance) {
+            case FOLLOW -> Stance.GUARD;
+            case GUARD -> Stance.AGGRESSIVE;
+            case AGGRESSIVE -> Stance.STAY;
+            case STAY -> Stance.FOLLOW;
+        };
+        setStance(next);
+        return this.stance;
+    }
+
+    public boolean isCrafted() {
+        return crafted;
+    }
+
+    public void setCrafted(boolean crafted) {
+        this.crafted = crafted;
+    }
+
+    public int getLifeTicksRemaining() {
+        return lifeTicks;
+    }
+
+    public int getMaxLifeTicks() {
+        return Math.max(lifeTicks, maxLifeTicks);
+    }
+
+    public void extendLife(int ticks) {
+        int cap = Math.max(maxLifeTicks, 20 * 600);
+        lifeTicks = Math.min(cap, lifeTicks + Math.max(0, ticks));
+        maxLifeTicks = Math.max(maxLifeTicks, lifeTicks);
+    }
+
+    public void repair(float healAmount) {
+        if (healAmount > 0.0F) {
+            heal(healAmount);
+        }
+        extendLife(20 * 60);
     }
 
     @Override
@@ -153,7 +287,12 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, true));
+        if (hostileTrial) {
+            // Wave480: secret-realm shells hunt players, not monsters.
+            this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        } else {
+            this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Monster.class, true));
+        }
     }
 
     @Override
@@ -165,13 +304,87 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
                 discard();
                 return;
             }
+            // Hostile trial shells do not require an owner and stay in arena AI.
+            if (hostileTrial) {
+                return;
+            }
             if (ownerUUID != null && level() instanceof ServerLevel serverLevel) {
-                Player owner = serverLevel.getPlayerByUUID(ownerUUID);
-                if (owner == null) {
-                    discard();
+                if (applyRegistryState(serverLevel)) {
                     return;
                 }
-                // Keep servitor near owner when idle; custom follow (not vanilla wolf/tameable).
+                ServerPlayer owner = serverLevel.getServer().getPlayerList().getPlayer(ownerUUID);
+                if (owner != null && owner.serverLevel() == serverLevel) {
+                    applyStanceBehavior(owner);
+                }
+            }
+        }
+    }
+
+    private boolean applyRegistryState(ServerLevel serverLevel) {
+        ServitorRegistrySavedData registry = ServitorRegistrySavedData.get(serverLevel);
+        ServitorRegistrySavedData.State state = registry.register(
+                ownerUUID,
+                getUUID(),
+                serverLevel.dimension().location().toString(),
+                stance.name(),
+                SummonHonestMvpService.MAX_ACTIVE_SERVITORS);
+        if (state == null) {
+            return false;
+        }
+        if (state.dismissed()) {
+            discard();
+            return true;
+        }
+        try {
+            Stance desired = Stance.valueOf(state.stance());
+            if (desired != stance) {
+                setStance(desired);
+            }
+        } catch (IllegalArgumentException ignored) {
+            setStance(Stance.FOLLOW);
+        }
+        return false;
+    }
+
+    private void applyStanceBehavior(Player owner) {
+        // Retaliate unless STAY.
+        if (stance != Stance.STAY && (getTarget() == null || !getTarget().isAlive())) {
+            LivingEntity ownerAttacker = owner.getLastHurtByMob();
+            if (ownerAttacker != null && ownerAttacker.isAlive() && ownerAttacker != this && ownerAttacker != owner) {
+                setTarget(ownerAttacker);
+            } else {
+                LivingEntity lastHurt = owner.getLastHurtMob();
+                if (lastHurt != null && lastHurt.isAlive() && lastHurt != this && lastHurt != owner) {
+                    setTarget(lastHurt);
+                }
+            }
+        }
+
+        switch (stance) {
+            case STAY -> {
+                getNavigation().stop();
+                if (getTarget() != null) {
+                    setTarget(null);
+                }
+            }
+            case GUARD -> {
+                double gx = guardX;
+                double gy = guardY;
+                double gz = guardZ;
+                if (distanceToSqr(gx, gy, gz) > 4.0D * 4.0D && getTarget() == null) {
+                    getNavigation().moveTo(gx, gy, gz, 1.0D);
+                }
+            }
+            case AGGRESSIVE -> {
+                // Keep hunting monsters even when idle; follow owner more loosely.
+                if (getTarget() == null || !getTarget().isAlive()) {
+                    // NearestAttackableTargetGoal handles pick; still leash if very far.
+                    if (distanceToSqr(owner) > 24.0D * 24.0D) {
+                        getNavigation().moveTo(owner, 1.25D);
+                    }
+                }
+            }
+            case FOLLOW -> {
                 double leash = switch (archetype) {
                     case BEAST -> 14.0D;
                     case PUPPET -> 8.0D;
@@ -192,8 +405,25 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
     }
 
     @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        if (level().isClientSide) {
+            return InteractionResult.SUCCESS;
+        }
+        // Hostile trial shells are not controllable pets.
+        if (hostileTrial || ownerUUID == null || !ownerUUID.equals(player.getUUID())) {
+            return InteractionResult.PASS;
+        }
+        Stance next = cycleStance();
+        player.displayClientMessage(Component.translatable(
+                "message.seeking_immortals.summon.stance", summonId, next.name().toLowerCase()), true);
+        return InteractionResult.CONSUME;
+    }
+
+    @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (source.getEntity() instanceof Player player && ownerUUID != null && ownerUUID.equals(player.getUUID())) {
+        // Friendly fire immunity only for owned summons, not hostile trial shells.
+        if (!hostileTrial && source.getEntity() instanceof Player player
+                && ownerUUID != null && ownerUUID.equals(player.getUUID())) {
             return false;
         }
         return super.hurt(source, amount);
@@ -213,8 +443,42 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             if (archetype == Archetype.GHOST) {
                 living.setDeltaMovement(living.getDeltaMovement().add(0.0D, 0.15D, 0.0D));
             }
+            // Wave458: beast combat credit.
+            if (archetype == Archetype.BEAST && ownerUUID != null && level() instanceof ServerLevel serverLevel) {
+                Player owner = serverLevel.getPlayerByUUID(ownerUUID);
+                if (owner instanceof ServerPlayer serverPlayer) {
+                    String beastId = BeastContractService.beastIdFromSummonId(summonId);
+                    if (!beastId.isBlank()) {
+                        if (!living.isAlive()) {
+                            BeastContractService.recordCombatCredit(serverPlayer, beastId, BeastContractService.CreditKind.KILL);
+                        } else {
+                            BeastContractService.recordCombatCredit(serverPlayer, beastId, BeastContractService.CreditKind.HIT);
+                        }
+                    }
+                }
+            }
         }
         return hit;
+    }
+
+    @Override
+    public void die(DamageSource source) {
+        if (!level().isClientSide && !hostileTrial && archetype == Archetype.PUPPET
+                && ownerUUID != null && level() instanceof ServerLevel serverLevel) {
+            Player owner = serverLevel.getPlayerByUUID(ownerUUID);
+            if (owner != null) {
+                owner.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.core_cracked", summonId), true);
+            }
+        }
+        super.die(source);
+    }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        if (!level().isClientSide && reason.shouldDestroy() && level() instanceof ServerLevel serverLevel) {
+            ServitorRegistrySavedData.get(serverLevel).remove(getUUID());
+        }
+        super.remove(reason);
     }
 
     @Override
@@ -225,7 +489,14 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         }
         tag.putString(TAG_SUMMON_ID, summonId);
         tag.putInt(TAG_LIFE, lifeTicks);
+        tag.putInt(TAG_MAX_LIFE, maxLifeTicks);
         tag.putString(TAG_ARCHETYPE, archetype.name());
+        tag.putString(TAG_STANCE, stance.name());
+        tag.putBoolean(TAG_CRAFTED, crafted);
+        tag.putBoolean(TAG_HOSTILE, hostileTrial);
+        tag.putDouble(TAG_GUARD_X, guardX);
+        tag.putDouble(TAG_GUARD_Y, guardY);
+        tag.putDouble(TAG_GUARD_Z, guardZ);
     }
 
     @Override
@@ -233,17 +504,32 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
         super.readAdditionalSaveData(tag);
         if (tag.hasUUID(TAG_OWNER)) {
             ownerUUID = tag.getUUID(TAG_OWNER);
+        } else {
+            ownerUUID = null;
         }
         summonId = tag.getString(TAG_SUMMON_ID);
         if (summonId == null || summonId.isBlank()) {
             summonId = "summon";
         }
         lifeTicks = Math.max(0, tag.getInt(TAG_LIFE));
+        maxLifeTicks = Math.max(lifeTicks, tag.getInt(TAG_MAX_LIFE));
         try {
             archetype = Archetype.valueOf(tag.getString(TAG_ARCHETYPE));
         } catch (RuntimeException ignored) {
             archetype = Archetype.GENERIC;
         }
+        try {
+            stance = Stance.valueOf(tag.getString(TAG_STANCE));
+        } catch (RuntimeException ignored) {
+            stance = Stance.FOLLOW;
+        }
+        crafted = tag.getBoolean(TAG_CRAFTED);
+        hostileTrial = tag.getBoolean(TAG_HOSTILE);
+        guardX = tag.getDouble(TAG_GUARD_X);
+        guardY = tag.getDouble(TAG_GUARD_Y);
+        guardZ = tag.getDouble(TAG_GUARD_Z);
+        // Rebuild AI after load so hostile shells keep hunting players.
+        rebuildGoals();
     }
 
     @Override

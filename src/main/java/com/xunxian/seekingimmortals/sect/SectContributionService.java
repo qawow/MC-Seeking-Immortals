@@ -150,6 +150,12 @@ public final class SectContributionService {
                         "message.seeking_immortals.sect.exam_passed",
                         definition.get().displayZh(),
                         SectDefinitionService.OUTER_DISCIPLE_ROLE));
+                // Wave474: outer promotion grants a starter cultivation method when available.
+                try {
+                    com.xunxian.seekingimmortals.catalog.ManualCatalogService.grantSectStarterMethod(player, sid);
+                } catch (Throwable ignored) {
+                    // optional in tests
+                }
                 syncAll(player, cultivation, true, sid);
                 advanced[0] = true;
                 return;

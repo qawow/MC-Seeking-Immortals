@@ -1,3 +1,5 @@
+0.1.486 feature note: review hardening adds death-safe consumed-manual progression, reachable first Wanbao bidding, bounded method-layout persistence, authoritative quest-start requirements, valid-learn-only source method grants, server-global servitor ownership/caps with deferred unloaded commands, killer-faction war-shell scoring, combined embark/stage-cost reservation, side-effect-free denied casts, method-tree bottom-control spacing, and complete zh_cn/en_us war feedback. Protocol remains 17 because packet fields/order/encoding/registrations did not change.
+
 # 0.1.431 Wave48 remaining-depth
 
 - secret-realm core guardian encounters (once per player/realm)

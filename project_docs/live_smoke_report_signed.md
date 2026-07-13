@@ -35,3 +35,26 @@ Note: wave56_a_zone_closeout_build_verified
 
 Summary: pass=15 fail=0 signed=true
 Build: seeking_immortals-0.1.439.jar BUILD SUCCESSFUL
+
+
+---
+
+# Live Smoke Follow-up Note (0.1.460)
+
+Time: 2026-07-13
+Signer: code-wave auto
+Note: waves_457_460_build_verified_docs_closeout
+
+Auto build verification only (not full human client re-sign). Recommend human re-run `/seeking_immortals live_smoke sign 0.1.460_board_closeout` in client.
+
+
+---
+
+# Live Smoke Follow-up Note (0.1.463)
+
+Time: 2026-07-13
+Signer: code-wave auto
+Note: wave463_sect_content_authority_build_verified
+
+Recommend human client re-sign:
+`/seeking_immortals live_smoke sign 0.1.463_sect_catalog_authority`

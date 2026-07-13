@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "moyan_gate_fire_talisman",
+      "title_key": "screen.seeking_immortals.sect.mission.moyan_gate_fire_talisman.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:fire_talisman",
+      "target": 3,
+      "reward_contribution": 35,
+      "min_stage": 2
+    },
+    {
+      "id": "moyan_gate_phoenix_feather",
+      "title_key": "screen.seeking_immortals.sect.mission.moyan_gate_phoenix_feather.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:phoenix_feather",
+      "target": 1,
+      "reward_contribution": 55,
+      "min_stage": 2
+    },
+    {
+      "id": "moyan_gate_true_dragon_blood",
+      "title_key": "screen.seeking_immortals.sect.mission.moyan_gate_true_dragon_blood.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:true_dragon_blood",
+      "target": 1,
+      "reward_contribution": 110,
+      "min_stage": 3
+    }
+  ]
+}

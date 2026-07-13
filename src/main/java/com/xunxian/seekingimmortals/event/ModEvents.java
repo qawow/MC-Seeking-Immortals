@@ -122,6 +122,10 @@ public final class ModEvents {
         event.getOriginal().reviveCaps();
         CultivationHelper.get(event.getOriginal()).ifPresent(oldData ->
                 CultivationHelper.get(event.getEntity()).ifPresent(newData -> newData.loadNBTData(oldData.saveNBTData())));
+        com.xunxian.seekingimmortals.catalog.ManualCatalogService.copyProgressionData(
+                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
+        com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(
+                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
         event.getOriginal().invalidateCaps();
     }
 
@@ -161,6 +165,14 @@ public final class ModEvents {
                 TribulationService.tick(serverPlayer, cultivation);
                 handlePhysiqueDefects(serverPlayer, cultivation);
                 MultiSwordArraySpell.tickActive(serverPlayer);
+                // Wave472: secret-realm hazard pulse every 5s while active.
+                if (serverPlayer.tickCount % 100 == 0) {
+                    com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.tickHazard(serverPlayer);
+                }
+                // Wave485: battlefield AI pulse while sect war is active.
+                if (serverPlayer.tickCount % 40 == 0) {
+                    com.xunxian.seekingimmortals.sect.SectWarService.tickBattlefieldAi(serverPlayer);
+                }
             }
 
             if (event.player.tickCount % 20 != 0) return;
@@ -203,11 +215,7 @@ public final class ModEvents {
             absorbFromHeldStone(event.player, event.player.getMainHandItem(), cultivation::addSpiritualPower);
             absorbFromHeldStone(event.player, event.player.getOffhandItem(), cultivation::addSpiritualPower);
 
-            if (ModList.get().isLoaded("curios")) {
-                CuriosApi.getCuriosInventory(event.player).ifPresent(handler ->
-                        handler.findFirstCurio(ModItems.SPIRIT_CHARM.get()).ifPresent(slotResult ->
-                                cultivation.addSpiritualPower(Math.max(1, (int)Math.round(cultivation.getCultivationSpeedMultiplier())))));
-            }
+            // Wave481: SpiritCharm recovery lives on ICurioItem.curioTick (no double tick here).
             boolean flightSuppressed = event.player instanceof ServerPlayer serverPlayer
                     && handleWorldpackNoFly(serverPlayer, cultivation);
             if (!flightSuppressed) {
@@ -307,6 +315,20 @@ public final class ModEvents {
         if (event.getEntity() instanceof ServerPlayer victim
                 && event.getSource().getEntity() instanceof ServerPlayer killer) {
             com.xunxian.seekingimmortals.sect.SectWarService.onKill(killer, victim);
+        }
+        // Wave471: secret-realm kill gates (patrol/guardian/boss).
+        // Wave485: sect-war battlefield shell kills score for the killer's side.
+        if (event.getEntity() instanceof net.minecraft.world.entity.Mob mob
+                && event.getSource().getEntity() instanceof ServerPlayer killer) {
+            if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(mob)) {
+                com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.onTrialMobKilled(killer, mob);
+            }
+            if (com.xunxian.seekingimmortals.worldpack.BossEncounterService.isBossMob(mob)) {
+                com.xunxian.seekingimmortals.worldpack.BossEncounterService.onBossKilled(killer, mob);
+            }
+            if (com.xunxian.seekingimmortals.sect.SectWarService.isWarShell(mob)) {
+                com.xunxian.seekingimmortals.sect.SectWarService.onWarShellKilled(killer, mob);
+            }
         }
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
@@ -436,8 +458,14 @@ public final class ModEvents {
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
                 refreshCultivationAttributeState(serverPlayer, cultivation);
                 givePatchouliGuideBook(serverPlayer);
+                // Wave467: claim offline auction outbid refunds.
+                com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
+                // Wave477: learned methods sync (protocol 14).
+                com.xunxian.seekingimmortals.catalog.ManualCatalogService.syncLearnedMethods(serverPlayer);
+                // Wave486: freeform method-tree layout sync (protocol 17).
+                com.xunxian.seekingimmortals.catalog.MethodLayoutService.sync(serverPlayer);
                 SectContributionService.syncSect(serverPlayer, cultivation, false);
                 WorldpackGameplayService.sync(serverPlayer, false);
             }

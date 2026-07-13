@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "wanhu_sect_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.wanhu_sect_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "wanhu_sect_time_sand",
+      "title_key": "screen.seeking_immortals.sect.mission.wanhu_sect_time_sand.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:time_sand",
+      "target": 2,
+      "reward_contribution": 50,
+      "min_stage": 2
+    },
+    {
+      "id": "wanhu_sect_immortal_ginseng",
+      "title_key": "screen.seeking_immortals.sect.mission.wanhu_sect_immortal_ginseng.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:immortal_ginseng",
+      "target": 2,
+      "reward_contribution": 90,
+      "min_stage": 3
+    }
+  ]
+}

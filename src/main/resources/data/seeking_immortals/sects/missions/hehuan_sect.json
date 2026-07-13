@@ -1,0 +1,31 @@
+{
+  "missions": [
+    {
+      "id": "hehuan_sect_cloud_mushroom",
+      "title_key": "screen.seeking_immortals.sect.mission.hehuan_sect_cloud_mushroom.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:cloud_mushroom",
+      "target": 8,
+      "reward_contribution": 30,
+      "min_stage": 2
+    },
+    {
+      "id": "hehuan_sect_soul_fragment",
+      "title_key": "screen.seeking_immortals.sect.mission.hehuan_sect_soul_fragment.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:soul_fragment",
+      "target": 3,
+      "reward_contribution": 45,
+      "min_stage": 2
+    },
+    {
+      "id": "hehuan_sect_void_crystal",
+      "title_key": "screen.seeking_immortals.sect.mission.hehuan_sect_void_crystal.title",
+      "objective_key": "screen.seeking_immortals.sect.mission.collect_item.objective",
+      "item": "seeking_immortals:void_crystal",
+      "target": 1,
+      "reward_contribution": 95,
+      "min_stage": 3
+    }
+  ]
+}

@@ -2,21 +2,33 @@ package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
+import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.function.Supplier;
 
+/**
+ * Client intent for quest tracker UI.
+ * Wave454: action string may encode authority ops without packet schema change:
+ *   sync
+ *   start:<chainId>
+ *   advance:<chainId>
+ *   branch:<chainId>:<branch>
+ * Wave457: NPC proximity gate for advance/branch; richer tracker lines.
+ * Protocol fields/order unchanged (still one UTF action).
+ */
 public record QuestTrackerActionPacket(String action) {
     public static void encode(QuestTrackerActionPacket packet, FriendlyByteBuf buffer) {
-        buffer.writeUtf(packet.action() == null ? "sync" : packet.action(), 32);
+        buffer.writeUtf(packet.action() == null ? "sync" : packet.action(), 96);
     }
 
     public static QuestTrackerActionPacket decode(FriendlyByteBuf buffer) {
-        return new QuestTrackerActionPacket(buffer.readUtf(32));
+        return new QuestTrackerActionPacket(buffer.readUtf(96));
     }
 
     public static void handle(QuestTrackerActionPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -26,7 +38,40 @@ public record QuestTrackerActionPacket(String action) {
             if (player == null) {
                 return;
             }
+            String raw = packet.action() == null ? "sync" : packet.action().trim();
+            String lower = raw.toLowerCase(Locale.ROOT);
+            String status = "OK sync";
+            if (lower.startsWith("start:")) {
+                String chainId = raw.substring(6).trim();
+                boolean ok = TextQuestChainService.start(player, chainId);
+                status = (ok ? "OK" : "ERR") + " start " + chainId;
+            } else if (lower.startsWith("advance:")) {
+                String chainId = raw.substring(8).trim();
+                if (!TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
+                    status = "ERR need_npc " + chainId;
+                } else {
+                    boolean ok = TextQuestChainService.advance(player, chainId);
+                    status = (ok ? "OK" : "ERR") + " advance " + chainId;
+                }
+            } else if (lower.startsWith("branch:")) {
+                String body = raw.substring(7).trim();
+                int split = body.indexOf(':');
+                if (split > 0) {
+                    String chainId = body.substring(0, split).trim();
+                    String branch = body.substring(split + 1).trim();
+                    if (!TextQuestNpcHookService.requireNearbyNpcOrWarn(player, chainId)) {
+                        status = "ERR need_npc " + chainId;
+                    } else {
+                        boolean ok = TextQuestChainService.chooseBranch(player, chainId, branch);
+                        status = (ok ? "OK" : "ERR") + " branch " + chainId + " " + branch;
+                    }
+                } else {
+                    status = "ERR branch_format";
+                }
+            }
+            // Always sync after intent (including plain sync).
             List<String> lines = new ArrayList<>();
+            lines.add(status);
             CultivationHelper.get(player).ifPresent(cultivation -> {
                 var progress = cultivation.getSevenMysteriesQuest();
                 lines.add("mainline stage=" + progress.getStage()
@@ -34,19 +79,17 @@ public record QuestTrackerActionPacket(String action) {
                         + " rankStage=" + progress.getSectQuestStage()
                         + " contrib=" + progress.getContribution());
             });
-            int shown = 0;
-            for (TextQuestChainService.ChainProgress chain : TextQuestChainService.listProgress(player)) {
-                if (chain.stage() <= 0 && !chain.complete()) {
-                    continue;
-                }
-                lines.add(chain.id() + " " + chain.stage() + "/" + chain.stepCount()
-                        + (chain.complete() ? " DONE" : "")
-                        + " branch=" + TextQuestChainService.getBranch(player, chain.id()));
-                if (++shown >= 20) {
+            for (String line : TextQuestChainService.buildTrackerLines(player)) {
+                if (lines.size() >= 24) {
                     break;
                 }
+                // Skip empty placeholder when we already have mainline + status.
+                if ("(no active text quest chains)".equals(line) && lines.size() > 1) {
+                    continue;
+                }
+                lines.add(line);
             }
-            if (lines.size() == 1) {
+            if (lines.size() <= 2) {
                 lines.add("(no active text quest chains)");
             }
             SyncQuestTrackerPacket.send(player, lines);

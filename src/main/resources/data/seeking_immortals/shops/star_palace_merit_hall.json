@@ -3,28 +3,6 @@
   "currency": "sect_contribution",
   "entries": [
     {
-      "id": "condensation_pill",
-      "item": "seeking_immortals:essence_condensing_pill",
-      "count": 1,
-      "cost": 8000,
-      "stock": 1,
-      "refresh_ticks": 72000
-    },
-    {
-      "id": "recipe_condensation",
-      "item": "seeking_immortals:alchemy_formula_essence_condensing_pill_jade",
-      "count": 1,
-      "cost": 1200,
-      "stock": 2,
-      "refresh_ticks": 72000
-    },
-    {
-      "id": "recipe_yanghun",
-      "item": "seeking_immortals:alchemy_formula_soul_gathering_pill_jade",
-      "count": 1,
-      "cost": 600
-    },
-    {
       "id": "sea_calm_pill",
       "item": "seeking_immortals:calming_pill_low",
       "count": 1,
@@ -33,10 +11,51 @@
       "refresh_ticks": 24000
     },
     {
+      "id": "water_spirit_stone",
+      "item": "seeking_immortals:water_spirit_stone",
+      "count": 2,
+      "cost": 50,
+      "stock": 20
+    },
+    {
       "id": "recipe_sea_calm",
       "item": "seeking_immortals:alchemy_formula_calming_pill_jade",
       "count": 1,
-      "cost": 40
+      "cost": 40,
+      "stock": 6
+    },
+    {
+      "id": "recipe_yanghun",
+      "item": "seeking_immortals:alchemy_formula_soul_gathering_pill_jade",
+      "count": 1,
+      "cost": 600,
+      "stock": 2
+    },
+    {
+      "id": "void_crystal",
+      "item": "seeking_immortals:void_crystal",
+      "count": 1,
+      "cost": 700,
+      "stock": 3,
+      "rank_min": "outer_disciple"
+    },
+    {
+      "id": "recipe_condensation",
+      "item": "seeking_immortals:alchemy_formula_essence_condensing_pill_jade",
+      "count": 1,
+      "cost": 1200,
+      "stock": 2,
+      "refresh_ticks": 72000,
+      "rank_min": "inner_disciple"
+    },
+    {
+      "id": "condensation_pill",
+      "item": "seeking_immortals:essence_condensing_pill",
+      "count": 1,
+      "cost": 8000,
+      "stock": 1,
+      "refresh_ticks": 72000,
+      "rank_min": "inner_disciple"
     }
   ]
 }
