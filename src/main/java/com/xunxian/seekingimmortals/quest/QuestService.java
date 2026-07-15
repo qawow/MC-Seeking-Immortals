@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.item.LingGenTestStoneItem;
 import com.xunxian.seekingimmortals.item.MysticVialItem;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.skill.SkillType;
@@ -468,5 +469,6 @@ public final class QuestService {
     private static void sync(ServerPlayer player, PlayerCultivation cultivation) {
         SyncCultivationDataPacket.send(player, cultivation);
         SyncLearnedTechniquesPacket.send(player, cultivation);
+        SyncSkillDataPacket.send(player, cultivation);
     }
 }

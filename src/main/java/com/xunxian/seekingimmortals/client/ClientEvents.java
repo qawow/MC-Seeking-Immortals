@@ -219,6 +219,7 @@ public final class ClientEvents {
 
         private static void resetClientSyncState() {
             ClientCultivationData.reset();
+            ClientSkillData.reset();
             ClientTechniqueData.reset();
             ClientMethodData.reset();
             ClientMethodLayoutData.reset();

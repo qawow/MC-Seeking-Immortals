@@ -7,7 +7,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
     // Wave491: auction live ladder + skill tree action packets.
-    private static final String PROTOCOL_VERSION = "18";
+    private static final String PROTOCOL_VERSION = "19";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),
@@ -166,6 +166,10 @@ public final class ModNetwork {
                 .decoder(SkillTreeActionPacket::decode)
                 .consumerMainThread(SkillTreeActionPacket::handle)
                 .add();
+        CHANNEL.messageBuilder(SyncSkillDataPacket.class, id++)
+                .encoder(SyncSkillDataPacket::encode)
+                .decoder(SyncSkillDataPacket::decode)
+                .consumerMainThread(SyncSkillDataPacket::handle)
+                .add();
     }
 }
-

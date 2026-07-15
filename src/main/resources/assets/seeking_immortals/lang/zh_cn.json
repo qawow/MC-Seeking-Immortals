@@ -3322,6 +3322,7 @@
   "message.seeking_immortals.skill_tree.unknown_action": "未知动作：%s",
   "message.seeking_immortals.skill_tree.info": "%s · L%s · 境界门：%s",
   "message.seeking_immortals.skill_tree.practiced": "修习 %s，当前 L%s",
+  "message.seeking_immortals.skill_tree.practice_disabled": "技能只会在真实历练与技艺实践中增长，无法直接修习刷取。",
   "message.seeking_immortals.escort.started": "护送目标已生成，请带其回到执事处。",
   "message.seeking_immortals.escort.lost": "护送目标失散，任务失败。",
   "message.seeking_immortals.escort.too_far": "护送目标未跟上，请靠近后再交任务。",

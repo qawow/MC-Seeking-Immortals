@@ -3312,6 +3312,7 @@
   "message.seeking_immortals.skill_tree.unknown_action": "Unknown action: %s",
   "message.seeking_immortals.skill_tree.info": "%s · L%s · realm gate: %s",
   "message.seeking_immortals.skill_tree.practiced": "Practiced %s, now L%s",
+  "message.seeking_immortals.skill_tree.practice_disabled": "Skills improve through real disciplines and field practice, not direct training requests.",
   "message.seeking_immortals.escort.started": "Escort charge spawned. Lead it back to the steward.",
   "message.seeking_immortals.escort.lost": "Escort lost. Mission failed.",
   "message.seeking_immortals.escort.too_far": "Escort is too far. Bring it closer.",

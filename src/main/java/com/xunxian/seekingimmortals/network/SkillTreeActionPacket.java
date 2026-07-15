@@ -2,7 +2,6 @@ package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.skill.LifeSkillService;
 import com.xunxian.seekingimmortals.skill.SkillType;
-import com.xunxian.seekingimmortals.skill.SpecialSkillService;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -39,6 +38,11 @@ public record SkillTreeActionPacket(String action, String skillId) {
                 return;
             }
             String action = packet.action == null ? "" : packet.action.trim().toLowerCase(Locale.ROOT);
+            if (ACTION_PRACTICE.equals(action)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.skill_tree.practice_disabled"), true);
+                return;
+            }
             SkillType type = resolve(packet.skillId);
             if (type == null) {
                 player.displayClientMessage(Component.translatable(
@@ -52,20 +56,8 @@ public record SkillTreeActionPacket(String action, String skillId) {
                         type.getDisplayName(), level, type.getRequiredRealm().getDisplayName()), false);
                 return;
             }
-            if (!ACTION_PRACTICE.equals(action)) {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.skill_tree.unknown_action", action), true);
-                return;
-            }
-            // Small spiritual practice pulse; real gains still come from craft loops.
-            if (type.getCategory() == com.xunxian.seekingimmortals.skill.SkillCategory.SPECIAL) {
-                SpecialSkillService.practice(player, type, 8, 3);
-            } else {
-                LifeSkillService.grantPractice(player, type, 10, 4);
-            }
             player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.skill_tree.practiced",
-                    type.getDisplayName(), LifeSkillService.level(player, type)), true);
+                    "message.seeking_immortals.skill_tree.unknown_action", action), true);
         });
         context.setPacketHandled(true);
     }

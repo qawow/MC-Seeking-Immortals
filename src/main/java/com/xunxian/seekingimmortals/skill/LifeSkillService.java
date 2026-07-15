@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.skill;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
+import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import net.minecraft.server.level.ServerPlayer;
 
 /**
@@ -46,7 +47,16 @@ public final class LifeSkillService {
         if (player != null && player.getAbilities().instabuild) {
             return true;
         }
-        return level(player, type) >= Math.max(0, required);
+        if (player == null || type == null) {
+            return false;
+        }
+        return CultivationHelper.get(player)
+                .map(cultivation -> {
+                    CultivationSkill skill = cultivation.getSkill(type);
+                    return skill != null && skill.isUnlocked()
+                            && skill.getLevel() >= Math.max(0, required);
+                })
+                .orElse(false);
     }
 
     /** Unlock (if eligible) then grant XP/proficiency and sync. */
@@ -55,10 +65,14 @@ public final class LifeSkillService {
             return;
         }
         CultivationHelper.get(player).ifPresent(cultivation -> {
+            CultivationSkill before = cultivation.getSkill(type);
+            boolean wasUnlocked = before != null && before.isUnlocked();
+            int previousLevel = before == null ? 0 : before.getLevel();
+            int previousExperience = before == null ? 0 : before.getExperience();
+            int previousProficiency = before == null ? 0 : before.getProficiency();
             if (!cultivation.hasSkill(type)) {
-                // Quest-style unlock if realm gate fails for special cases; try normal first.
                 if (!cultivation.unlockSkill(type)) {
-                    cultivation.unlockSkillForQuest(type);
+                    return;
                 }
             }
             if (xp > 0) {
@@ -67,7 +81,15 @@ public final class LifeSkillService {
             if (proficiency > 0) {
                 cultivation.addSkillProficiency(type, proficiency);
             }
-            SyncCultivationDataPacket.send(player, cultivation);
+            CultivationSkill after = cultivation.getSkill(type);
+            boolean changed = after != null && (after.isUnlocked() != wasUnlocked
+                    || after.getLevel() != previousLevel
+                    || after.getExperience() != previousExperience
+                    || after.getProficiency() != previousProficiency);
+            if (changed) {
+                SyncCultivationDataPacket.send(player, cultivation);
+                SyncSkillDataPacket.send(player, cultivation);
+            }
         });
     }
 

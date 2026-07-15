@@ -26,6 +26,7 @@ import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestService;
 import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import com.xunxian.seekingimmortals.registry.ModItems;
@@ -363,7 +364,10 @@ public final class ModEvents {
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
         BreakthroughService.restorePreservedOnRespawn(player);
-        CultivationHelper.get(player).ifPresent(cultivation -> refreshCultivationAttributeState(player, cultivation));
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            refreshCultivationAttributeState(player, cultivation);
+            SyncSkillDataPacket.send(player, cultivation);
+        });
     }
 
     @SubscribeEvent
@@ -378,6 +382,7 @@ public final class ModEvents {
             TribulationService.handleDimensionChange(player, cultivation);
             refreshCultivationAttributeState(player, cultivation);
             SyncCultivationDataPacket.send(player, cultivation);
+            SyncSkillDataPacket.send(player, cultivation);
         });
     }
 
@@ -479,6 +484,7 @@ public final class ModEvents {
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
+                SyncSkillDataPacket.send(serverPlayer, cultivation);
                 // Wave477: learned methods sync (protocol 14).
                 com.xunxian.seekingimmortals.catalog.ManualCatalogService.syncLearnedMethods(serverPlayer);
                 // Wave486: freeform method-tree layout sync (protocol 17).

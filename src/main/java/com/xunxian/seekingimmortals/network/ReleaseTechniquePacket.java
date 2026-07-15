@@ -170,6 +170,7 @@ public record ReleaseTechniquePacket(int slot) {
                     cultivation.setTechniqueCooldown(techniqueId, gameTime + cooldownTicks);
                     SyncCultivationDataPacket.send(player, cultivation);
                     SyncLearnedTechniquesPacket.send(player, cultivation);
+                    SyncSkillDataPacket.send(player, cultivation);
                     var technique = techniqueOpt.get();
                     player.displayClientMessage(Component.translatable("message.seeking_immortals.technique_release.success",
                             packet.slot + 1,

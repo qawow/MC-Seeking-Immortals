@@ -1,3 +1,16 @@
+## 447. 2026-07-15 0.1.502 UI foundation and skill authority
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260715_182926/phase1/`
+  Shared visual primitives             Done layered journal panels, controls, rows, tabs, bars, scrollbars, HUD surfaces and safe clipping
+  Skill snapshot                       Done bounded S2C snapshot plus resettable client mirror
+  Practice authority                   Done direct practice request rejected; real gameplay remains the only skill-growth path
+  Sync lifecycle                       Done login, respawn, dimension, quest, crafting and technique-use paths
+  Version/protocol                     Done `0.1.501` -> `0.1.502`; protocol `18` -> `19`
+  Focused verification                 Done `SyncSkillDataPacketTest` BUILD SUCCESSFUL
+  Full verification                    Done full Gradle build BUILD SUCCESSFUL in 34s
+
 ## 446. 2026-07-15 0.1.501 cultivation chronicle UI
 
   Step   Status   Notes
