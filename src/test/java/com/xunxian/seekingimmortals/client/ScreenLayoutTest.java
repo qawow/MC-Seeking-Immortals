@@ -29,6 +29,44 @@ class ScreenLayoutTest {
     }
 
     @Test
+    void cultivationCoreScreensFitAndKeepScrollableContent() {
+        assertSkillTreeLayoutFits(120, 90);
+        assertSkillTreeLayoutFits(320, 180);
+        assertSkillTreeLayoutFits(854, 480);
+        assertMeditationLayoutFits(120, 90);
+        assertMeditationLayoutFits(320, 180);
+        assertMeditationLayoutFits(854, 480);
+
+        assertTrue(LifeSkillTreeScreen.calculateContentHeight(false)
+                        >= LifeSkillTreeScreen.calculateContentHeight(true),
+                "single-column skill content should be at least as tall as two-column content");
+        assertTrue(MeditationScreen.calculateContentHeight(false)
+                        >= MeditationScreen.calculateContentHeight(true),
+                "single-column meditation content should be at least as tall as two-column content");
+        assertEquals(0, LifeSkillTreeScreen.clampScroll(-10, 200, 80));
+        assertEquals(120, LifeSkillTreeScreen.clampScroll(999, 200, 80));
+        assertEquals(120, MeditationScreen.clampScroll(999, 200, 80));
+    }
+
+    @Test
+    void sharedCultivationHudLayoutStaysInsideAndSeparated() {
+        assertSharedHudLayout(90, 50);
+        assertSharedHudLayout(180, 90);
+        assertSharedHudLayout(320, 180);
+        assertSharedHudLayout(854, 480);
+    }
+
+    @Test
+    void methodAndTechniqueWorkspacesUseResponsiveGeometry() {
+        assertMethodTreeLayout(120, 90);
+        assertMethodTreeLayout(320, 180);
+        assertMethodTreeLayout(854, 480);
+        assertTechniqueEditorLayout(120, 90);
+        assertTechniqueEditorLayout(320, 180);
+        assertTechniqueEditorLayout(854, 480);
+    }
+
+    @Test
     void techniqueSkillBarAnchorsLeftAndFitsCommonScaledHudSizes() {
         assertSkillBarFits(180, 180);
         assertSkillBarFits(320, 180);
@@ -163,6 +201,71 @@ class ScreenLayoutTest {
         assertTrue(panelHeight <= screenHeight, "panel height must not exceed screen height");
         assertTrue((screenWidth - panelWidth) / 2 >= 0, "panel left must be non-negative");
         assertTrue((screenHeight - panelHeight) / 2 >= 0, "panel top must be non-negative");
+    }
+
+    private static void assertSkillTreeLayoutFits(int screenWidth, int screenHeight) {
+        LifeSkillTreeScreen.SkillTreeLayout layout = LifeSkillTreeScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
+        assertTrue(layout.header().x() >= 0 && layout.header().right() <= screenWidth);
+        assertTrue(layout.viewport().y() >= 0 && layout.viewport().bottom() <= screenHeight);
+        assertTrue(layout.closeButton().x() >= 0 && layout.closeButton().right() <= screenWidth);
+        assertFalse(layout.viewport().intersects(layout.closeButton()),
+                "skill viewport must leave room for its close button");
+    }
+
+    private static void assertMeditationLayoutFits(int screenWidth, int screenHeight) {
+        MeditationScreen.MeditationLayout layout = MeditationScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
+        assertTrue(layout.header().x() >= 0 && layout.header().right() <= screenWidth);
+        assertTrue(layout.viewport().y() >= 0 && layout.viewport().bottom() <= screenHeight);
+        assertTrue(layout.closeButton().x() >= 0 && layout.closeButton().right() <= screenWidth);
+        assertFalse(layout.viewport().intersects(layout.closeButton()),
+                "meditation viewport must leave room for its close button");
+    }
+
+    private static void assertSharedHudLayout(int screenWidth, int screenHeight) {
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        assertTrue(layout.allInside(), "all cultivation HUD panels must stay inside the screen");
+        assertTrue(layout.panelsSeparated(), "cultivation HUD panels must not overlap");
+        assertTrue(layout.techniqueSlotSize() > 0, "technique slots must remain visible");
+    }
+
+    private static void assertMethodTreeLayout(int screenWidth, int screenHeight) {
+        MethodTreeScreen.Layout layout = MethodTreeScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
+        assertMethodRectInside(screenWidth, screenHeight, layout.header());
+        assertMethodRectInside(screenWidth, screenHeight, layout.list());
+        assertMethodRectInside(screenWidth, screenHeight, layout.detail());
+        assertMethodRectInside(screenWidth, screenHeight, layout.syncButton());
+        assertMethodRectInside(screenWidth, screenHeight, layout.doneButton());
+        assertTrue(layout.list().bottom() <= layout.detail().y()
+                        || layout.list().right() <= layout.detail().x(),
+                "method list and detail panes must not overlap");
+    }
+
+    private static void assertTechniqueEditorLayout(int screenWidth, int screenHeight) {
+        TechniqueEditScreen.Layout layout = TechniqueEditScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
+        assertTechniqueRectInside(screenWidth, screenHeight, layout.header());
+        assertTechniqueRectInside(screenWidth, screenHeight, layout.slotPane());
+        assertTechniqueRectInside(screenWidth, screenHeight, layout.learnedPane());
+        assertTechniqueRectInside(screenWidth, screenHeight, layout.closeButton());
+        assertTrue(layout.slotPane().bottom() <= layout.learnedPane().y()
+                        || layout.slotPane().right() <= layout.learnedPane().x(),
+                "technique slot and learned panes must not overlap");
+        assertTrue(layout.slotSize() > 0, "technique slot size must remain positive");
+    }
+
+    private static void assertMethodRectInside(int width, int height, MethodTreeScreen.Rect rect) {
+        assertTrue(rect.width() > 0 && rect.height() > 0);
+        assertTrue(rect.x() >= 0 && rect.y() >= 0);
+        assertTrue(rect.right() <= width && rect.bottom() <= height);
+    }
+
+    private static void assertTechniqueRectInside(int width, int height, TechniqueEditScreen.Rect rect) {
+        assertTrue(rect.width() > 0 && rect.height() > 0);
+        assertTrue(rect.x() >= 0 && rect.y() >= 0);
+        assertTrue(rect.right() <= width && rect.bottom() <= height);
     }
 
     private static void assertShopRowsFit(int panelWidth, int panelHeight) {

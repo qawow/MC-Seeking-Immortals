@@ -1,3 +1,17 @@
+## 448. 2026-07-15 0.1.503 core cultivation UI and HUD
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260715_184944/phase2/`
+  Core screens                         Done stats, life/special skills, meditation, method tree and technique editor unified
+  Interaction preservation             Done method filtering/learning/drag layout and seven-slot drag/right-click workflows retained
+  HUD safe areas                       Done health, cultivation, seven-slot rail and breathing panels share tested non-overlapping layout
+  Responsive behavior                 Done small-window columns, scrolling, clipping, dynamic text fit and compact controls
+  Skill display                        Done stats and skill tree use the server-authoritative ClientSkillData snapshot
+  Version/protocol                     Done `0.1.502` -> `0.1.503`; protocol remains `19`
+  Focused verification                 Done `ScreenLayoutTest` BUILD SUCCESSFUL
+  Full verification                    Done full Gradle build BUILD SUCCESSFUL in 35s
+
 ## 447. 2026-07-15 0.1.502 UI foundation and skill authority
 
   Step   Status   Notes

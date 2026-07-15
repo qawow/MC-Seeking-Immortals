@@ -6,7 +6,6 @@ import com.xunxian.seekingimmortals.network.MethodActionPacket;
 import com.xunxian.seekingimmortals.network.MethodLayoutActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
@@ -30,16 +29,17 @@ import java.util.Set;
  * Learn/cultivate/sync go through MethodActionPacket → ManualCatalogService (server authority).
  */
 public class MethodTreeScreen extends Screen {
-    private static final int PANEL_W = 460;
-    private static final int PANEL_H = 280;
+    private static final int MAX_PANEL_W = 520;
+    private static final int MAX_PANEL_H = 320;
+    private static final int PANEL_MARGIN = 4;
+    private static final int WIDE_LAYOUT_WIDTH = 380;
     private static final int LINE = 12;
-    private static final int LIST_VISIBLE = 12;
     private static final int NODE = 12;
-    private static final int LINK = 0x88E6D59A;
-    private static final int NODE_EMPTY = 0xFF3B2F18;
-    private static final int NODE_REACHED = 0xFF2F8F45;
-    private static final int NODE_CURRENT = 0xFFE6D59A;
-    private static final int NODE_LOCKED = 0xFF6A5A3A;
+    private static final int LINK = ImmortalUiSkin.JOURNAL_BORDER_DIM;
+    private static final int NODE_EMPTY = 0xFF3B493C;
+    private static final int NODE_REACHED = ImmortalUiSkin.JOURNAL_JADE;
+    private static final int NODE_CURRENT = ImmortalUiSkin.JOURNAL_BORDER;
+    private static final int NODE_LOCKED = 0xFF5B5646;
     private static final int GRAPH_COLS = 3;
     private static final int GRAPH_MAX = 6;
 
@@ -49,11 +49,13 @@ public class MethodTreeScreen extends Screen {
     private List<String> schoolTabs = List.of("all");
     private String activeSchool = "all";
     private int scroll;
+    private int detailScroll;
+    private int renderedDetailHeight;
     private int selectedIndex = -1;
-    private Button learnButton;
-    private Button cultivateButton;
-    private Button prevSchoolButton;
-    private Button nextSchoolButton;
+    private ImmortalButton learnButton;
+    private ImmortalButton cultivateButton;
+    private ImmortalButton prevSchoolButton;
+    private ImmortalButton nextSchoolButton;
     /** Wave484/485/486: interactive school-graph nodes (screen coords) + method ids. */
     private final List<GraphHit> graphHits = new ArrayList<>();
     /** Wave485/486: freeform layout offsets (server-synced via ClientMethodLayoutData). */
@@ -65,6 +67,11 @@ public class MethodTreeScreen extends Screen {
     private int graphOriginY;
     private int graphWidth;
     private int graphHeight;
+    private int graphColumns = GRAPH_COLS;
+    private int graphGapX = 6;
+    private int graphGapY = 4;
+    private int graphNodeWidth = 42;
+    private int graphNodeHeight = 16;
 
     private record GraphHit(int x, int y, int w, int h, String methodId) {
         boolean contains(double mx, double my) {
@@ -85,55 +92,50 @@ public class MethodTreeScreen extends Screen {
     protected void init() {
         super.init();
         reloadCatalog();
-        int left = panelLeft();
-        int top = panelTop();
+        Layout layout = calculateLayout(width, height);
 
-        addRenderableWidget(Button.builder(Component.translatable("gui.done"), b -> onClose())
-                .bounds(left + PANEL_W - 70, top + PANEL_H - 26, 58, 18)
-                .build());
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.method_tree.sync"), b -> {
-                    ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("sync"));
-                })
-                .bounds(left + 12, top + PANEL_H - 26, 52, 18)
-                .build());
-        learnButton = Button.builder(Component.translatable("screen.seeking_immortals.method_tree.learn"), b -> {
-                    TextMaterialCatalogService.MethodEntry selected = selectedMethod();
-                    if (selected != null) {
-                        ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("learn:" + selected.id()));
-                    }
-                })
-                .bounds(left + 70, top + PANEL_H - 26, 48, 18)
-                .build();
+        addRenderableWidget(ImmortalButton.secondary(layout.doneButton().x(), layout.doneButton().y(),
+                layout.doneButton().width(), layout.doneButton().height(),
+                Component.translatable("gui.done"), b -> onClose()));
+        addRenderableWidget(ImmortalButton.secondary(layout.syncButton().x(), layout.syncButton().y(),
+                layout.syncButton().width(), layout.syncButton().height(),
+                Component.translatable("screen.seeking_immortals.method_tree.sync"), b ->
+                        ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("sync"))));
+        learnButton = ImmortalButton.primary(layout.learnButton().x(), layout.learnButton().y(),
+                layout.learnButton().width(), layout.learnButton().height(),
+                Component.translatable("screen.seeking_immortals.method_tree.learn"), b -> {
+            TextMaterialCatalogService.MethodEntry selected = selectedMethod();
+            if (selected != null) {
+                ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("learn:" + selected.id()));
+            }
+        });
         addRenderableWidget(learnButton);
-        // Wave481: cultivate raises method layer when already learned.
-        cultivateButton = Button.builder(Component.translatable("screen.seeking_immortals.method_tree.cultivate"), b -> {
-                    TextMaterialCatalogService.MethodEntry selected = selectedMethod();
-                    if (selected != null) {
-                        ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("cultivate:" + selected.id()));
-                    }
-                })
-                .bounds(left + 122, top + PANEL_H - 26, 48, 18)
-                .build();
+        cultivateButton = ImmortalButton.primary(layout.cultivateButton().x(), layout.cultivateButton().y(),
+                layout.cultivateButton().width(), layout.cultivateButton().height(),
+                Component.translatable("screen.seeking_immortals.method_tree.cultivate"), b -> {
+            TextMaterialCatalogService.MethodEntry selected = selectedMethod();
+            if (selected != null) {
+                ModNetwork.CHANNEL.sendToServer(new MethodActionPacket("cultivate:" + selected.id()));
+            }
+        });
         addRenderableWidget(cultivateButton);
 
-        prevSchoolButton = Button.builder(Component.literal("<"), b -> cycleSchool(-1))
-                .bounds(left + 176, top + PANEL_H - 26, 18, 18)
-                .build();
-        nextSchoolButton = Button.builder(Component.literal(">"), b -> cycleSchool(1))
-                .bounds(left + 286, top + PANEL_H - 26, 18, 18)
-                .build();
+        prevSchoolButton = ImmortalButton.secondary(layout.prevSchoolButton().x(), layout.prevSchoolButton().y(),
+                layout.prevSchoolButton().width(), layout.prevSchoolButton().height(),
+                Component.literal("<"), b -> cycleSchool(-1));
+        nextSchoolButton = ImmortalButton.secondary(layout.nextSchoolButton().x(), layout.nextSchoolButton().y(),
+                layout.nextSchoolButton().width(), layout.nextSchoolButton().height(),
+                Component.literal(">"), b -> cycleSchool(1));
         addRenderableWidget(prevSchoolButton);
         addRenderableWidget(nextSchoolButton);
-        // Wave485/486: reset freeform node offsets (server-cleared + resync).
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.method_tree.reset_layout"), b -> {
-                    layoutOffsets.clear();
-                    draggingMethodId = "";
-                    ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket("clear"));
-                })
-                .bounds(left + 310, top + PANEL_H - 26, 52, 18)
-                .build());
+        addRenderableWidget(ImmortalButton.secondary(layout.resetButton().x(), layout.resetButton().y(),
+                layout.resetButton().width(), layout.resetButton().height(),
+                Component.translatable("screen.seeking_immortals.method_tree.reset_layout"), b -> {
+            layoutOffsets.clear();
+            draggingMethodId = "";
+            ModNetwork.CHANNEL.sendToServer(new MethodLayoutActionPacket("clear"));
+        }));
 
-        // Pull any already-synced layout into local working map.
         hydrateLayoutFromClientMirror();
         updateLearnButton();
     }
@@ -223,7 +225,7 @@ public class MethodTreeScreen extends Screen {
     }
 
     private int maxScroll() {
-        return Math.max(0, filtered.size() - LIST_VISIBLE);
+        return Math.max(0, filtered.size() - visibleListRows(calculateLayout(width, height)));
     }
 
     private TextMaterialCatalogService.MethodEntry selectedMethod() {
@@ -246,152 +248,249 @@ public class MethodTreeScreen extends Screen {
         }
     }
 
-    private int panelLeft() {
-        return (width - PANEL_W) / 2;
+    static int calculatePanelWidth(int screenWidth) {
+        return Math.min(MAX_PANEL_W, Math.max(1, screenWidth - PANEL_MARGIN * 2));
     }
 
-    private int panelTop() {
-        return (height - PANEL_H) / 2;
+    static int calculatePanelHeight(int screenHeight) {
+        return Math.min(MAX_PANEL_H, Math.max(1, screenHeight - PANEL_MARGIN * 2));
+    }
+
+    static Layout calculateLayout(int screenWidth, int screenHeight) {
+        int panelWidth = calculatePanelWidth(screenWidth);
+        int panelHeight = calculatePanelHeight(screenHeight);
+        int left = Math.max(0, (screenWidth - panelWidth) / 2);
+        int top = Math.max(0, (screenHeight - panelHeight) / 2);
+        int padding = panelWidth >= 220 ? 10 : 5;
+        int headerHeight = panelHeight >= 220 ? 40 : panelHeight >= 140 ? 30 : 20;
+        int buttonHeight = panelHeight >= 140 ? 18 : panelHeight >= 100 ? 16 : 14;
+        int footerInset = panelHeight >= 140 ? 7 : 4;
+        int footerY = top + panelHeight - buttonHeight - footerInset;
+        int contentTop = top + headerHeight + 4;
+        int contentBottom = Math.max(contentTop + 1, footerY - 5);
+        int innerX = left + padding;
+        int innerWidth = Math.max(1, panelWidth - padding * 2);
+        int contentHeight = Math.max(1, contentBottom - contentTop);
+        boolean wide = panelWidth >= WIDE_LAYOUT_WIDTH && contentHeight >= 96;
+
+        Rect header = new Rect(innerX, top + 4, innerWidth, Math.max(12, headerHeight - 4));
+        Rect list;
+        Rect detail;
+        if (wide) {
+            int gap = 8;
+            int listWidth = Math.min(210, Math.max(120, innerWidth * 2 / 5));
+            list = new Rect(innerX, contentTop, listWidth, contentHeight);
+            detail = new Rect(list.right() + gap, contentTop,
+                    Math.max(1, innerX + innerWidth - list.right() - gap), contentHeight);
+        } else {
+            int gap = contentHeight >= 20 ? 3 : 1;
+            int listHeight = Math.max(Math.min(LINE, contentHeight),
+                    Math.min(72, Math.max(1, (contentHeight - gap) / 3)));
+            listHeight = Math.min(listHeight, Math.max(1, contentHeight - gap - 1));
+            list = new Rect(innerX, contentTop, innerWidth, listHeight);
+            detail = new Rect(innerX, list.bottom() + gap, innerWidth,
+                    Math.max(1, contentBottom - list.bottom() - gap));
+        }
+
+        int buttonGap = innerWidth >= 56 ? 3 : innerWidth >= 28 ? 1 : 0;
+        int buttonWidth = Math.max(1, (innerWidth - buttonGap * 6) / 7);
+        int totalButtonsWidth = buttonWidth * 7 + buttonGap * 6;
+        int buttonX = innerX + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
+        Rect[] actions = new Rect[7];
+        for (int i = 0; i < actions.length; i++) {
+            actions[i] = new Rect(buttonX + i * (buttonWidth + buttonGap), footerY,
+                    buttonWidth, buttonHeight);
+        }
+        return new Layout(left, top, panelWidth, panelHeight, wide, header, list, detail,
+                actions[0], actions[1], actions[2], actions[3], actions[4], actions[5], actions[6]);
+    }
+
+    static int visibleListRows(Layout layout) {
+        return Math.max(1, Math.max(1, layout.list().height() - 4) / LINE);
+    }
+
+    private int maxDetailScroll(Layout layout) {
+        return Math.max(0, renderedDetailHeight - layout.detail().height());
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
-        int left = panelLeft();
-        int top = panelTop();
-        ImmortalUiSkin.drawPanel(graphics, left, top, PANEL_W, PANEL_H);
-
-        graphics.drawCenteredString(font, title, left + PANEL_W / 2, top + 8, ImmortalUiSkin.COLOR_TITLE);
-
+        Layout layout = calculateLayout(width, height);
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
+                layout.header().width(), layout.header().height());
+        graphics.drawCenteredString(font, title, layout.header().x() + layout.header().width() / 2,
+                layout.header().y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
         int learnedCount = ClientMethodData.getLearnedMethodCount();
-        String header = Component.translatable("screen.seeking_immortals.method_tree.header",
+        String headerText = Component.translatable("screen.seeking_immortals.method_tree.header",
                 filtered.size(), allMethods.size(), learnedCount).getString();
-        ImmortalUiSkin.drawStringFit(font, graphics, header, left + 12, top + 22, PANEL_W - 24,
-                ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-
         String schoolLabel = Component.translatable("screen.seeking_immortals.method_tree.school_filter",
                 schoolDisplay(activeSchool)).getString();
-        ImmortalUiSkin.drawStringFit(font, graphics, schoolLabel, left + 198, top + PANEL_H - 21, 84,
-                ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
-
-        // Left list
-        int listX = left + 12;
-        int listY = top + 36;
-        int listW = 188;
-        int listH = LIST_VISIBLE * LINE + 4;
-        graphics.fill(listX - 2, listY - 2, listX + listW + 2, listY + listH, 0x66130C05);
-        if (filtered.isEmpty()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.method_tree.empty").getString(),
-                    listX, listY, listW, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        } else {
-            int end = Math.min(filtered.size(), scroll + LIST_VISIBLE);
-            for (int i = scroll; i < end; i++) {
-                TextMaterialCatalogService.MethodEntry method = filtered.get(i);
-                int rowY = listY + (i - scroll) * LINE;
-                boolean selected = i == selectedIndex;
-                boolean learned = ClientMethodData.hasLearned(method.id());
-                int layer = ClientMethodData.getLayer(method.id());
-                if (selected) {
-                    graphics.fill(listX - 1, rowY - 1, listX + listW + 1, rowY + LINE - 1, ImmortalUiSkin.COLOR_HOVER_BG);
-                }
-                String mark = learned ? "◆ " : "◇ ";
-                String name = method.display() == null || method.display().isBlank() ? method.id() : method.display();
-                if (learned) {
-                    name = name + " L" + layer;
-                }
-                int color = learned ? ImmortalUiSkin.COLOR_TEXT_SUCCESS
-                        : selected ? ImmortalUiSkin.COLOR_TITLE : ImmortalUiSkin.COLOR_TEXT_NORMAL;
-                ImmortalUiSkin.drawStringFit(font, graphics, mark + name, listX, rowY, listW, color, false);
-            }
+        if (layout.header().height() >= 26) {
+            int half = Math.max(1, layout.header().width() / 2);
+            ImmortalUiSkin.drawStringFit(font, graphics, headerText,
+                    layout.header().x() + 7, layout.header().y() + 18,
+                    Math.max(1, half - 10), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+            ImmortalUiSkin.drawStringFit(font, graphics, schoolLabel,
+                    layout.header().x() + half, layout.header().y() + 18,
+                    Math.max(1, layout.header().width() - half - 7),
+                    ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
         }
 
-        // Right detail
-        int detailX = left + 212;
-        int detailY = top + 36;
-        int detailW = PANEL_W - 224;
-        int detailBoxH = listH + 18;
-        graphics.fill(detailX - 2, detailY - 2, detailX + detailW + 2, detailY + detailBoxH, 0x66130C05);
-        TextMaterialCatalogService.MethodEntry selected = selectedMethod();
-        if (selected == null) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.method_tree.select_hint").getString(),
-                    detailX, detailY, detailW, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        } else {
-            boolean learned = ClientMethodData.hasLearned(selected.id());
-            int layer = ClientMethodData.getLayer(selected.id());
-            String name = selected.display() == null || selected.display().isBlank() ? selected.id() : selected.display();
-            ImmortalUiSkin.drawStringFit(font, graphics, name, detailX, detailY, detailW, ImmortalUiSkin.COLOR_TITLE, false);
-            int y = detailY + LINE + 2;
-            y = detailLine(graphics, detailX, y, detailW, "id", selected.id());
-            y = detailLine(graphics, detailX, y, detailW, "school",
-                    selected.school() == null || selected.school().isBlank() ? "-" : selected.school());
-            y = detailLine(graphics, detailX, y, detailW, "realm",
-                    selected.realmMin() == null || selected.realmMin().isBlank() ? "-" : selected.realmMin());
-            y = detailLine(graphics, detailX, y, detailW, "attr",
-                    selected.attribute() == null || selected.attribute().isBlank() ? "-" : selected.attribute());
-            if (learned) {
-                y = detailLine(graphics, detailX, y, detailW, "layer",
-                        layer + " / " + ManualCatalogService.MAX_METHOD_LAYER);
-                if (layer < ManualCatalogService.MAX_METHOD_LAYER) {
-                    y = detailLine(graphics, detailX, y, detailW, "cost_sp",
-                            Integer.toString(ManualCatalogService.cultivateSpiritualCost(layer)));
-                    y = detailLine(graphics, detailX, y, detailW, "cost_exp",
-                            Integer.toString(ManualCatalogService.cultivateCultivationCost(layer)));
-                }
-            }
-            // Wave483: layer node chain (1..9) + school adjacency graph.
-            y += 4;
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.method_tree.layer_graph").getString(),
-                    detailX, y, detailW, ImmortalUiSkin.COLOR_TITLE, false);
-            y += LINE;
-            y = drawLayerNodeChain(graphics, detailX, y, detailW, learned ? layer : 0);
-            y += 4;
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.method_tree.school_graph").getString(),
-                    detailX, y, detailW, ImmortalUiSkin.COLOR_TITLE, false);
-            y += LINE;
-            y = drawSchoolAdjacencyGraph(graphics, detailX, y, detailW, selected);
-            int controlsTop = top + PANEL_H - 26;
-            if (hasDetailRoomForSchoolHint(y, controlsTop, font.lineHeight)) {
-                ImmortalUiSkin.drawStringFit(font, graphics,
-                        Component.translatable("screen.seeking_immortals.method_tree.school_graph_hint").getString(),
-                        detailX, y, detailW, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-                y += LINE;
-            }
-            String statusKey = learned
-                    ? (layer >= ManualCatalogService.MAX_METHOD_LAYER
-                    ? "screen.seeking_immortals.method_tree.status_max"
-                    : "screen.seeking_immortals.method_tree.status_learned")
-                    : "screen.seeking_immortals.method_tree.status_locked";
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable(statusKey).getString(),
-                    detailX, y + 2, detailW,
-                    learned ? ImmortalUiSkin.COLOR_TEXT_SUCCESS : ImmortalUiSkin.COLOR_TEXT_BLUE, false);
-            y += LINE + 4;
-            y = Math.min(y, controlsTop - font.lineHeight - 1);
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable(learned
-                            ? "screen.seeking_immortals.method_tree.cultivate_hint"
-                            : "screen.seeking_immortals.method_tree.learn_hint").getString(),
-                    detailX, y, detailW, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
-
-        if (!ClientMethodData.isSynced()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.method_tree.waiting_sync").getString(),
-                    left + 12, top + PANEL_H - 40, PANEL_W - 24, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.list().x(), layout.list().y(),
+                layout.list().width(), layout.list().height());
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.detail().x(), layout.detail().y(),
+                layout.detail().width(), layout.detail().height());
+        renderMethodList(graphics, layout, mouseX, mouseY);
+        renderMethodDetail(graphics, layout);
 
         updateLearnButton();
         super.render(graphics, mouseX, mouseY, partialTick);
     }
 
+    private void renderMethodList(GuiGraphics graphics, Layout layout, int mouseX, int mouseY) {
+        Rect list = layout.list();
+        Rect viewport = new Rect(list.x() + 3, list.y() + 2,
+                Math.max(1, list.width() - 8), Math.max(1, list.height() - 4));
+        int visibleRows = visibleListRows(layout);
+        scroll = Mth.clamp(scroll, 0, maxScroll());
+        if (filtered.isEmpty()) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.method_tree.empty").getString(),
+                    viewport.x(), viewport.y(), viewport.width(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+            return;
+        }
+
+        int hovered = hoveredListIndex(layout, mouseX, mouseY);
+        int end = Math.min(filtered.size(), scroll + visibleRows);
+        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
+            for (int i = scroll; i < end; i++) {
+                TextMaterialCatalogService.MethodEntry method = filtered.get(i);
+                int rowY = viewport.y() + (i - scroll) * LINE;
+                boolean selected = i == selectedIndex;
+                boolean learned = ClientMethodData.hasLearned(method.id());
+                int layer = ClientMethodData.getLayer(method.id());
+                ImmortalUiSkin.InteractionState state = selected
+                        ? ImmortalUiSkin.InteractionState.SELECTED
+                        : hovered == i ? ImmortalUiSkin.InteractionState.HOVERED
+                        : ImmortalUiSkin.InteractionState.NORMAL;
+                ImmortalUiSkin.drawListRow(graphics, viewport.x(), rowY, viewport.width(), LINE, state);
+                String mark = learned ? "◆ " : "◇ ";
+                String name = method.display() == null || method.display().isBlank()
+                        ? method.id() : method.display();
+                if (learned) {
+                    name += " L" + layer;
+                }
+                int color = learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT
+                        : selected ? ImmortalUiSkin.JOURNAL_BORDER : ImmortalUiSkin.JOURNAL_PAPER;
+                ImmortalUiSkin.drawStringFit(font, graphics, mark + name,
+                        viewport.x() + 4, rowY + 2, Math.max(1, viewport.width() - 8), color, false);
+            }
+        });
+        ImmortalUiSkin.drawThinScrollbar(graphics, list.right() - 3, viewport.y(), viewport.height(),
+                filtered.size() * LINE, viewport.height(), scroll * LINE);
+    }
+
+    private void renderMethodDetail(GuiGraphics graphics, Layout layout) {
+        Rect detail = layout.detail();
+        Rect viewport = new Rect(detail.x() + 4, detail.y() + 3,
+                Math.max(1, detail.width() - 11), Math.max(1, detail.height() - 6));
+        detailScroll = Mth.clamp(detailScroll, 0, maxDetailScroll(layout));
+        int startY = viewport.y() - detailScroll;
+        graphHits.clear();
+        final int[] endY = {startY};
+        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () ->
+                endY[0] = renderDetailContent(graphics, viewport.x(), startY, viewport.width()));
+        renderedDetailHeight = Math.max(0, endY[0] - startY + 2);
+        detailScroll = Mth.clamp(detailScroll, 0, maxDetailScroll(layout));
+        ImmortalUiSkin.drawThinScrollbar(graphics, detail.right() - 3, viewport.y(), viewport.height(),
+                renderedDetailHeight, viewport.height(), detailScroll);
+    }
+
+    private int renderDetailContent(GuiGraphics graphics, int detailX, int detailY, int detailW) {
+        TextMaterialCatalogService.MethodEntry selected = selectedMethod();
+        if (selected == null) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.method_tree.select_hint").getString(),
+                    detailX, detailY, detailW, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+            return detailY + LINE;
+        }
+
+        boolean learned = ClientMethodData.hasLearned(selected.id());
+        int layer = ClientMethodData.getLayer(selected.id());
+        String name = selected.display() == null || selected.display().isBlank()
+                ? selected.id() : selected.display();
+        ImmortalUiSkin.drawStringFit(font, graphics, name, detailX, detailY, detailW,
+                ImmortalUiSkin.JOURNAL_BORDER, false);
+        int y = detailY + LINE + 2;
+        y = detailLine(graphics, detailX, y, detailW, "id", selected.id());
+        y = detailLine(graphics, detailX, y, detailW, "school",
+                selected.school() == null || selected.school().isBlank() ? "-" : selected.school());
+        y = detailLine(graphics, detailX, y, detailW, "realm",
+                selected.realmMin() == null || selected.realmMin().isBlank() ? "-" : selected.realmMin());
+        y = detailLine(graphics, detailX, y, detailW, "attr",
+                selected.attribute() == null || selected.attribute().isBlank() ? "-" : selected.attribute());
+        if (learned) {
+            y = detailLine(graphics, detailX, y, detailW, "layer",
+                    layer + " / " + ManualCatalogService.MAX_METHOD_LAYER);
+            if (layer < ManualCatalogService.MAX_METHOD_LAYER) {
+                y = detailLine(graphics, detailX, y, detailW, "cost_sp",
+                        Integer.toString(ManualCatalogService.cultivateSpiritualCost(layer)));
+                y = detailLine(graphics, detailX, y, detailW, "cost_exp",
+                        Integer.toString(ManualCatalogService.cultivateCultivationCost(layer)));
+            }
+        }
+
+        y += 4;
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.method_tree.layer_graph").getString(),
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_BORDER, false);
+        y += LINE;
+        ImmortalUiSkin.drawSemanticStatusBar(graphics, detailX, y, detailW, 5,
+                learned ? layer / (double)ManualCatalogService.MAX_METHOD_LAYER : 0.0D,
+                learned ? ImmortalUiSkin.StatusBarStyle.CULTIVATION : ImmortalUiSkin.StatusBarStyle.NEUTRAL);
+        y += 8;
+        y = drawLayerNodeChain(graphics, detailX, y, detailW, learned ? layer : 0);
+        y += 4;
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.method_tree.school_graph").getString(),
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_BORDER, false);
+        y += LINE;
+        y = drawSchoolAdjacencyGraph(graphics, detailX, y, detailW, selected);
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.method_tree.school_graph_hint").getString(),
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        y += LINE;
+        String statusKey = learned
+                ? (layer >= ManualCatalogService.MAX_METHOD_LAYER
+                ? "screen.seeking_immortals.method_tree.status_max"
+                : "screen.seeking_immortals.method_tree.status_learned")
+                : "screen.seeking_immortals.method_tree.status_locked";
+        ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(statusKey).getString(),
+                detailX, y + 2, detailW,
+                learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_SPIRIT, false);
+        y += LINE + 4;
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable(learned
+                        ? "screen.seeking_immortals.method_tree.cultivate_hint"
+                        : "screen.seeking_immortals.method_tree.learn_hint").getString(),
+                detailX, y, detailW, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        y += LINE;
+        if (!ClientMethodData.isSynced()) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.method_tree.waiting_sync").getString(),
+                    detailX, y, detailW, ImmortalUiSkin.JOURNAL_WARNING, false);
+            y += LINE;
+        }
+        return y;
+    }
+
     private int detailLine(GuiGraphics graphics, int x, int y, int width, String labelKey, String value) {
         String label = Component.translatable("screen.seeking_immortals.method_tree." + labelKey).getString();
         ImmortalUiSkin.drawStringFit(font, graphics, label + ": " + value, x, y, width,
-                ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
+                ImmortalUiSkin.JOURNAL_PAPER, false);
         return y + LINE;
     }
 
@@ -405,17 +504,27 @@ public class MethodTreeScreen extends Screen {
      */
     private int drawLayerNodeChain(GuiGraphics graphics, int x, int y, int width, int currentLayer) {
         int max = ManualCatalogService.MAX_METHOD_LAYER;
-        int gap = Math.max(4, (width - max * NODE) / Math.max(1, max - 1));
-        int total = max * NODE + (max - 1) * gap;
-        int startX = x + Math.max(0, (width - total) / 2);
-        int cy = y + NODE / 2;
+        int nodeSize = Math.max(1, Math.min(NODE, width));
+        int gap = width >= NODE + 4 ? 4 : 1;
+        int columns = Math.max(1, Math.min(max, (width + gap) / Math.max(1, nodeSize + gap)));
+        int rows = (max + columns - 1) / columns;
+        int[] xs = new int[max];
+        int[] ys = new int[max];
+        for (int i = 0; i < max; i++) {
+            int row = i / columns;
+            int column = i % columns;
+            int nodesInRow = Math.min(columns, max - row * columns);
+            int rowWidth = nodesInRow * nodeSize + Math.max(0, nodesInRow - 1) * gap;
+            xs[i] = x + Math.max(0, (width - rowWidth) / 2) + column * (nodeSize + gap);
+            ys[i] = y + row * (nodeSize + gap);
+        }
+        for (int i = 1; i < max; i++) {
+            drawLink(graphics, xs[i - 1] + nodeSize / 2, ys[i - 1] + nodeSize / 2,
+                    xs[i] + nodeSize / 2, ys[i] + nodeSize / 2);
+        }
         for (int i = 1; i <= max; i++) {
-            int nx = startX + (i - 1) * (NODE + gap);
-            if (i < max) {
-                int lx1 = nx + NODE;
-                int lx2 = nx + NODE + gap;
-                graphics.fill(lx1, cy - 1, lx2, cy + 1, LINK);
-            }
+            int nx = xs[i - 1];
+            int ny = ys[i - 1];
             int color;
             if (currentLayer <= 0) {
                 color = NODE_LOCKED;
@@ -426,13 +535,17 @@ public class MethodTreeScreen extends Screen {
             } else {
                 color = NODE_EMPTY;
             }
-            graphics.fill(nx, y, nx + NODE, y + NODE, color);
-            graphics.fill(nx + 1, y + 1, nx + NODE - 1, y + NODE - 1, 0x66130C05);
-            String num = Integer.toString(i);
-            int tw = font.width(num);
-            graphics.drawString(font, num, nx + (NODE - tw) / 2, y + 2, ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
+            graphics.fill(nx, ny, nx + nodeSize, ny + nodeSize, color);
+            if (nodeSize > 2) {
+                graphics.fill(nx + 1, ny + 1, nx + nodeSize - 1, ny + nodeSize - 1,
+                        ImmortalUiSkin.JOURNAL_INNER);
+            }
+            if (nodeSize >= 8) {
+                ImmortalUiSkin.drawStringFit(font, graphics, Integer.toString(i), nx + 1, ny + 2,
+                        Math.max(1, nodeSize - 2), ImmortalUiSkin.JOURNAL_PAPER, false);
+            }
         }
-        return y + NODE + 2;
+        return y + rows * nodeSize + Math.max(0, rows - 1) * gap + 2;
     }
 
     /**
@@ -463,16 +576,22 @@ public class MethodTreeScreen extends Screen {
         int start = Math.max(0, Math.min(focus - 1, Math.max(0, schoolPeers.size() - GRAPH_MAX)));
         int end = Math.min(schoolPeers.size(), start + GRAPH_MAX);
         List<TextMaterialCatalogService.MethodEntry> window = schoolPeers.subList(start, end);
-        int cols = GRAPH_COLS;
+        int cols = width >= 150 ? GRAPH_COLS : width >= 86 ? 2 : 1;
+        cols = Math.max(1, Math.min(cols, window.size()));
         int rows = Math.max(1, (window.size() + cols - 1) / cols);
-        int gapX = 6;
+        int gapX = cols <= 1 ? 0 : width >= 150 ? 6 : 4;
         int gapY = 4;
-        int nodeW = Math.max(42, (width - gapX * (cols - 1)) / cols);
+        int nodeW = Math.max(1, (width - gapX * (cols - 1)) / cols);
         int nodeH = 16;
         graphOriginX = x;
         graphOriginY = y;
         graphWidth = width;
         graphHeight = rows * (nodeH + gapY) + 8;
+        graphColumns = cols;
+        graphGapX = gapX;
+        graphGapY = gapY;
+        graphNodeWidth = nodeW;
+        graphNodeHeight = nodeH;
 
         int[] xs = new int[window.size()];
         int[] ys = new int[window.size()];
@@ -510,7 +629,7 @@ public class MethodTreeScreen extends Screen {
         for (int i = 0; i < window.size(); i++) {
             TextMaterialCatalogService.MethodEntry method = window.get(i);
             boolean isFocus = method.id().equalsIgnoreCase(selected.id());
-            drawGraphNode(graphics, xs[i], ys[i], nodeW, method, isFocus);
+            drawGraphNode(graphics, xs[i], ys[i], nodeW, nodeH, method, isFocus);
             graphHits.add(new GraphHit(xs[i], ys[i], nodeW, nodeH, method.id()));
         }
         return y + graphHeight;
@@ -530,22 +649,24 @@ public class MethodTreeScreen extends Screen {
         }
     }
 
-    private void drawGraphNode(GuiGraphics graphics, int x, int y, int w,
+    private void drawGraphNode(GuiGraphics graphics, int x, int y, int w, int h,
                                TextMaterialCatalogService.MethodEntry method, boolean focus) {
         boolean present = method != null;
         boolean learned = present && ClientMethodData.hasLearned(method.id());
         int border = focus ? NODE_CURRENT : (learned ? NODE_REACHED : NODE_EMPTY);
-        graphics.fill(x, y, x + w, y + 16, border);
-        graphics.fill(x + 1, y + 1, x + w - 1, y + 15, 0xEE130C05);
+        graphics.fill(x, y, x + w, y + h, border);
+        if (w > 2 && h > 2) {
+            graphics.fill(x + 1, y + 1, x + w - 1, y + h - 1, ImmortalUiSkin.JOURNAL_CONTROL);
+        }
         String label = present
                 ? (method.display() == null || method.display().isBlank() ? method.id() : method.display())
                 : "·";
         if (present && learned) {
             label = label + " L" + ClientMethodData.getLayer(method.id());
         }
-        ImmortalUiSkin.drawStringFit(font, graphics, label, x + 3, y + 4, w - 6,
-                focus ? ImmortalUiSkin.COLOR_TITLE
-                        : (learned ? ImmortalUiSkin.COLOR_TEXT_SUCCESS : ImmortalUiSkin.COLOR_TEXT_MUTED),
+        ImmortalUiSkin.drawStringFit(font, graphics, label, x + 3, y + Math.max(2, (h - 8) / 2),
+                Math.max(1, w - 6), focus ? ImmortalUiSkin.JOURNAL_BORDER
+                        : (learned ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED),
                 false);
     }
 
@@ -562,40 +683,50 @@ public class MethodTreeScreen extends Screen {
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (button == 0) {
+            Layout layout = calculateLayout(width, height);
             // Wave484/485: click/drag school-graph nodes.
-            for (GraphHit hit : graphHits) {
-                if (hit.contains(mouseX, mouseY) && hit.methodId() != null && !hit.methodId().isBlank()) {
-                    selectMethodById(hit.methodId());
-                    draggingMethodId = hit.methodId();
-                    dragGrabX = mouseX - hit.x();
-                    dragGrabY = mouseY - hit.y();
-                    return true;
+            if (layout.detail().contains(mouseX, mouseY)) {
+                for (GraphHit hit : graphHits) {
+                    if (hit.contains(mouseX, mouseY) && hit.methodId() != null && !hit.methodId().isBlank()) {
+                        selectMethodById(hit.methodId());
+                        draggingMethodId = hit.methodId();
+                        dragGrabX = mouseX - hit.x();
+                        dragGrabY = mouseY - hit.y();
+                        return true;
+                    }
                 }
             }
-            int left = panelLeft();
-            int top = panelTop();
-            int listX = left + 12;
-            int listY = top + 36;
-            int listW = 188;
-            int listH = LIST_VISIBLE * LINE;
-            if (mouseX >= listX && mouseX <= listX + listW && mouseY >= listY && mouseY <= listY + listH) {
-                int row = (int) ((mouseY - listY) / LINE);
-                int index = scroll + row;
-                if (index >= 0 && index < filtered.size()) {
-                    selectedIndex = index;
-                    updateLearnButton();
-                    return true;
-                }
+            int index = hoveredListIndex(layout, mouseX, mouseY);
+            if (index >= 0) {
+                selectedIndex = index;
+                detailScroll = 0;
+                updateLearnButton();
+                return true;
             }
         }
         return super.mouseClicked(mouseX, mouseY, button);
     }
 
+    private int hoveredListIndex(Layout layout, double mouseX, double mouseY) {
+        Rect list = layout.list();
+        Rect viewport = new Rect(list.x() + 3, list.y() + 2,
+                Math.max(1, list.width() - 8), Math.max(1, list.height() - 4));
+        if (!viewport.contains(mouseX, mouseY)) {
+            return -1;
+        }
+        int row = (int)((mouseY - viewport.y()) / LINE);
+        if (row < 0 || row >= visibleListRows(layout)) {
+            return -1;
+        }
+        int index = scroll + row;
+        return index >= 0 && index < filtered.size() ? index : -1;
+    }
+
     @Override
     public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
         if (button == 0 && draggingMethodId != null && !draggingMethodId.isBlank()) {
-            int nodeW = Math.max(42, (graphWidth - 6 * (GRAPH_COLS - 1)) / GRAPH_COLS);
-            int nodeH = 16;
+            int nodeW = graphNodeWidth;
+            int nodeH = graphNodeHeight;
             int targetX = (int) Math.round(mouseX - dragGrabX);
             int targetY = (int) Math.round(mouseY - dragGrabY);
             targetX = Mth.clamp(targetX, graphOriginX, graphOriginX + Math.max(0, graphWidth - nodeW));
@@ -611,12 +742,10 @@ public class MethodTreeScreen extends Screen {
                 }
             }
             if (idxInWindow >= 0) {
-                int col = idxInWindow % GRAPH_COLS;
-                int row = idxInWindow / GRAPH_COLS;
-                int gapX = 6;
-                int gapY = 4;
-                int baseX = graphOriginX + col * (nodeW + gapX);
-                int baseY = graphOriginY + row * (nodeH + gapY);
+                int col = idxInWindow % graphColumns;
+                int row = idxInWindow / graphColumns;
+                int baseX = graphOriginX + col * (nodeW + graphGapX);
+                int baseY = graphOriginY + row * (nodeH + graphGapY);
                 layoutOffsets.put(draggingMethodId.toLowerCase(Locale.ROOT),
                         new int[]{targetX - baseX, targetY - baseY});
             }
@@ -677,11 +806,13 @@ public class MethodTreeScreen extends Screen {
             if (methodId.equalsIgnoreCase(filtered.get(i).id())) {
                 selectedIndex = i;
                 // Keep selected row visible.
+                int visibleRows = visibleListRows(calculateLayout(width, height));
                 if (selectedIndex < scroll) {
                     scroll = selectedIndex;
-                } else if (selectedIndex >= scroll + LIST_VISIBLE) {
-                    scroll = selectedIndex - LIST_VISIBLE + 1;
+                } else if (selectedIndex >= scroll + visibleRows) {
+                    scroll = selectedIndex - visibleRows + 1;
                 }
+                detailScroll = 0;
                 updateLearnButton();
                 return;
             }
@@ -708,6 +839,7 @@ public class MethodTreeScreen extends Screen {
             if (methodId.equalsIgnoreCase(filtered.get(i).id())) {
                 selectedIndex = i;
                 scroll = Math.max(0, Math.min(selectedIndex, maxScroll()));
+                detailScroll = 0;
                 break;
             }
         }
@@ -716,15 +848,14 @@ public class MethodTreeScreen extends Screen {
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
-        int left = panelLeft();
-        int top = panelTop();
-        int listX = left + 12;
-        int listY = top + 36;
-        int listW = 188;
-        int listH = LIST_VISIBLE * LINE + 4;
-        if (mouseX >= listX - 2 && mouseX <= listX + listW + 2
-                && mouseY >= listY - 2 && mouseY <= listY + listH) {
-            scroll = Mth.clamp(scroll - (int) Math.signum(delta), 0, maxScroll());
+        Layout layout = calculateLayout(width, height);
+        int direction = (int)Math.signum(delta);
+        if (direction != 0 && layout.list().contains(mouseX, mouseY)) {
+            scroll = Mth.clamp(scroll - direction, 0, maxScroll());
+            return true;
+        }
+        if (direction != 0 && layout.detail().contains(mouseX, mouseY)) {
+            detailScroll = Mth.clamp(detailScroll - direction * LINE, 0, maxDetailScroll(layout));
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
@@ -742,5 +873,25 @@ public class MethodTreeScreen extends Screen {
     @Override
     public boolean isPauseScreen() {
         return false;
+    }
+
+    record Rect(int x, int y, int width, int height) {
+        int right() {
+            return x + width;
+        }
+
+        int bottom() {
+            return y + height;
+        }
+
+        boolean contains(double mouseX, double mouseY) {
+            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
+        }
+    }
+
+    record Layout(int left, int top, int panelWidth, int panelHeight, boolean wide,
+                  Rect header, Rect list, Rect detail, Rect syncButton, Rect learnButton,
+                  Rect cultivateButton, Rect prevSchoolButton, Rect nextSchoolButton,
+                  Rect resetButton, Rect doneButton) {
     }
 }

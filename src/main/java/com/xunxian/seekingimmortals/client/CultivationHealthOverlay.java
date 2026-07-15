@@ -39,30 +39,40 @@ public final class CultivationHealthOverlay {
     }
 
     static void renderHealthBar(GuiGraphics graphics, Minecraft minecraft, LocalPlayer player, int screenWidth, int screenHeight) {
-        int width = panelWidth(screenWidth);
-        int height = panelHeight(screenHeight);
-        int x = calculatePanelX(screenWidth);
-        int y = calculatePanelY(screenHeight);
+        ImmortalHudLayout.Rect panel = ImmortalHudLayout.healthRect(screenWidth, screenHeight);
+        int width = panel.width();
+        int height = panel.height();
+        int x = panel.x();
+        int y = panel.y();
         float maxHealth = Math.max(1.0F, player.getMaxHealth());
         float health = Math.max(0.0F, Math.min(player.getHealth(), maxHealth));
         float absorption = Math.max(0.0F, player.getAbsorptionAmount());
 
-        ImmortalUiSkin.drawPanel(graphics, x, y, width, height);
+        ImmortalUiSkin.drawHudPanel(graphics, x, y, width, height);
 
-        int textX = x + PADDING_X;
-        int contentWidth = Math.max(1, width - PADDING_X * 2);
+        int padding = width >= 72 ? PADDING_X : Math.min(3, Math.max(1, (width - 1) / 4));
+        int textX = x + padding;
+        int contentWidth = Math.max(1, width - padding * 2);
         String title = "气血 " + formatValue(health) + "/" + formatValue(maxHealth);
-        ImmortalUiSkin.drawStringFit(minecraft.font, graphics, title, textX, y + 5, contentWidth, 0xFFEFE4C2, false);
-        if (absorption > 0.0F) {
+        int barHeight = height >= 16
+                ? Math.max(5, Math.min(BAR_HEIGHT, height / 4))
+                : Math.max(2, Math.min(BAR_HEIGHT, height / 4));
+        int barY = Math.max(y, y + height - barHeight - Math.min(5, Math.max(1, height / 8)));
+        int textY = y + Math.min(5, Math.max(2, height / 7));
+        if (textY + minecraft.font.lineHeight <= barY) {
+            ImmortalUiSkin.drawStringFit(minecraft.font, graphics, title, textX, textY,
+                    contentWidth, ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT, false);
+        }
+        if (absorption > 0.0F && textY + TEXT_LINE_HEIGHT + minecraft.font.lineHeight <= barY) {
             String absorptionText = "护体 +" + formatValue(absorption);
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, absorptionText,
-                    textX, y + 5 + TEXT_LINE_HEIGHT, contentWidth, 0xFFE6D59A, false);
+                    textX, textY + TEXT_LINE_HEIGHT, contentWidth, ImmortalUiSkin.JOURNAL_WARNING, false);
         }
 
-        int barY = y + height - BAR_HEIGHT - 6;
         double healthFraction = health / maxHealth;
         double absorptionFraction = absorption / maxHealth;
-        ImmortalUiSkin.drawHealthBar(graphics, textX, barY, contentWidth, BAR_HEIGHT, healthFraction, absorptionFraction);
+        ImmortalUiSkin.drawHealthBar(graphics, textX, barY, contentWidth, barHeight,
+                healthFraction, absorptionFraction);
     }
 
     static int panelWidth(int screenWidth) {

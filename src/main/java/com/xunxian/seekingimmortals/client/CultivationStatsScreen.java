@@ -1,12 +1,9 @@
 package com.xunxian.seekingimmortals.client;
 
-import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.network.AttemptBreakthroughPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SetMovementSpeedScalePacket;
-import com.xunxian.seekingimmortals.skill.LifeSkillService;
 import com.xunxian.seekingimmortals.skill.SkillType;
-import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
@@ -31,28 +28,19 @@ public class CultivationStatsScreen extends Screen {
     private static final int SECTION_GAP = 8;
     private static final double MOVEMENT_SLIDER_STEP = 0.05D;
 
-    private static final int VOID = 0xF00A0E0C;
-    private static final int INK = 0xF2151B16;
-    private static final int INK_SOFT = 0xE61C251D;
-    private static final int INK_ROW = 0x6629362B;
-    private static final int HEADER = 0xF0101713;
-    private static final int BRONZE = 0xFFB99A55;
-    private static final int BRONZE_DIM = 0x886F5A31;
-    private static final int JADE_LINE = 0xFF73C79C;
-    private static final int JADE = 0xFFA7E0BE;
-    private static final int PAPER = 0xFFE8DFC2;
-    private static final int PAPER_MUTED = 0xFFC0B796;
-    private static final int SPIRIT_BLUE = 0xFF82D6DE;
-    private static final int CINNABAR = 0xFF9F443B;
-    private static final int CINNABAR_BRIGHT = 0xFFE47E68;
-    private static final int WARNING = 0xFFE1B36A;
-    private static final int SHADOW = 0x88000000;
-    private static final int BAR_BACKING = 0xEE080C0A;
-    private static final int BAR_HIGHLIGHT = 0x332B5845;
-    private static final int CONTROL = 0xF018211A;
-    private static final int CONTROL_HOVERED = 0xF024382B;
-    private static final int CONTROL_DISABLED = 0xDD101411;
-    private static final int TAB_SELECTED = 0xF0274133;
+    private static final int INK_SOFT = ImmortalUiSkin.JOURNAL_INNER;
+    private static final int INK_ROW = ImmortalUiSkin.JOURNAL_ROW;
+    private static final int BRONZE = ImmortalUiSkin.JOURNAL_BORDER;
+    private static final int BRONZE_DIM = ImmortalUiSkin.JOURNAL_BORDER_DIM;
+    private static final int JADE_LINE = ImmortalUiSkin.JOURNAL_JADE;
+    private static final int JADE = ImmortalUiSkin.JOURNAL_JADE_TEXT;
+    private static final int PAPER = ImmortalUiSkin.JOURNAL_PAPER;
+    private static final int PAPER_MUTED = ImmortalUiSkin.JOURNAL_PAPER_MUTED;
+    private static final int SPIRIT_BLUE = ImmortalUiSkin.JOURNAL_SPIRIT;
+    private static final int CINNABAR = ImmortalUiSkin.JOURNAL_CINNABAR;
+    private static final int CINNABAR_BRIGHT = ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT;
+    private static final int WARNING = ImmortalUiSkin.JOURNAL_WARNING;
+    private static final int BAR_HIGHLIGHT = ImmortalUiSkin.JOURNAL_BAR_HIGHLIGHT;
 
     private static final List<LifeSkillEntry> LIFE_SKILLS = List.of(
             new LifeSkillEntry("炼丹", SkillType.ALCHEMY),
@@ -96,25 +84,27 @@ public class CultivationStatsScreen extends Screen {
         addRenderableWidget(new JournalTabButton(layout.combatTab(), StatsTab.COMBAT));
         addRenderableWidget(new JournalTabButton(layout.studyTab(), StatsTab.STUDY));
 
-        addRenderableWidget(new JournalButton(layout.breakthroughButton(),
+        addRenderableWidget(ImmortalButton.primary(layout.breakthroughButton().x(), layout.breakthroughButton().y(),
+                layout.breakthroughButton().width(), layout.breakthroughButton().height(),
                 Component.translatable("screen.seeking_immortals.cultivation_stats.breakthrough"),
-                button -> ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket()), true));
-        addRenderableWidget(new JournalButton(layout.methodTreeButton(),
-                Component.translatable("screen.seeking_immortals.cultivation_stats.methods"),
-                button -> {
+                button -> ModNetwork.CHANNEL.sendToServer(new AttemptBreakthroughPacket())));
+        addRenderableWidget(ImmortalButton.secondary(layout.methodTreeButton().x(), layout.methodTreeButton().y(),
+                layout.methodTreeButton().width(), layout.methodTreeButton().height(),
+                Component.translatable("screen.seeking_immortals.cultivation_stats.methods"), button -> {
                     if (minecraft != null) {
                         minecraft.setScreen(new MethodTreeScreen(this));
                     }
-                }, false));
-        addRenderableWidget(new JournalButton(layout.skillTreeButton(),
-                Component.translatable("screen.seeking_immortals.cultivation_stats.skills"),
-                button -> {
+                }));
+        addRenderableWidget(ImmortalButton.secondary(layout.skillTreeButton().x(), layout.skillTreeButton().y(),
+                layout.skillTreeButton().width(), layout.skillTreeButton().height(),
+                Component.translatable("screen.seeking_immortals.cultivation_stats.skills"), button -> {
                     if (minecraft != null) {
                         minecraft.setScreen(new LifeSkillTreeScreen(this));
                     }
-                }, false));
-        addRenderableWidget(new JournalButton(layout.closeButton(), closeButtonLabel(returnToInventory),
-                button -> onClose(), false));
+                }));
+        addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
+                layout.closeButton().width(), layout.closeButton().height(), closeButtonLabel(returnToInventory),
+                button -> onClose()));
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
                 layout.slider().width(), layout.slider().height(),
@@ -302,21 +292,28 @@ public class CultivationStatsScreen extends Screen {
             renderedContentHeight = 0;
             contentRevision = revision;
         }
+        int pageWidth = Math.max(20, viewport.width() - SCROLLBAR_RESERVE);
+        int measuredEndY = renderPage(null, viewport.x(), viewport.y(), pageWidth, data);
+        renderedContentHeight = contentHeightFromBounds(viewport.y(), measuredEndY);
         scrollOffset = clampScroll(scrollOffset, renderedContentHeight, viewport.height());
         int startY = viewport.y() - scrollOffset;
-        int pageWidth = Math.max(20, viewport.width() - SCROLLBAR_RESERVE);
 
-        graphics.enableScissor(viewport.x(), viewport.y(), viewport.right(), viewport.bottom());
-        int endY = switch (activeTab) {
-            case FOUNDATION -> renderFoundationPage(graphics, viewport.x(), startY, pageWidth, data);
-            case COMBAT -> renderCombatPage(graphics, viewport.x(), startY, pageWidth, data);
-            case STUDY -> renderStudyPage(graphics, viewport.x(), startY, pageWidth);
-        };
-        graphics.disableScissor();
-
-        renderedContentHeight = Math.max(0, endY - startY + 2);
-        scrollOffset = clampScroll(scrollOffset, renderedContentHeight, viewport.height());
+        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(),
+                () -> renderPage(graphics, viewport.x(), startY, pageWidth, data));
         drawScrollBar(graphics, viewport, renderedContentHeight, scrollOffset);
+    }
+
+    private int renderPage(GuiGraphics graphics, int x, int y, int width,
+                           ClientCultivationData.Snapshot data) {
+        return switch (activeTab) {
+            case FOUNDATION -> renderFoundationPage(graphics, x, y, width, data);
+            case COMBAT -> renderCombatPage(graphics, x, y, width, data);
+            case STUDY -> renderStudyPage(graphics, x, y, width);
+        };
+    }
+
+    static int contentHeightFromBounds(int startY, int endY) {
+        return Math.max(0, endY - startY + 2);
     }
 
     private int currentContentRevision() {
@@ -324,7 +321,8 @@ public class CultivationStatsScreen extends Screen {
             return activeTab.ordinal();
         }
         int methodCount = ClientMethodData.isSynced() ? ClientMethodData.getLearnedMethodCount() : -1;
-        return 31 * (31 + methodCount) + ClientTechniqueData.getLearnedTechniques().size();
+        int techniqueCount = ClientTechniqueData.getLearnedTechniques().size();
+        return 31 * (31 * (31 + methodCount) + techniqueCount) + (ClientSkillData.isSynced() ? 1 : 0);
     }
 
     private int renderFoundationPage(GuiGraphics graphics, int x, int y, int width,
@@ -528,38 +526,50 @@ public class CultivationStatsScreen extends Screen {
 
     private int renderSkillPractice(GuiGraphics graphics, int x, int y, int width) {
         y = sectionTitle(graphics, x, y, width, "生活百艺");
-        if (player == null) {
-            y = row(graphics, x, y, width, "技能", "无本地玩家", PAPER_MUTED);
+        if (!ClientSkillData.isSynced()) {
+            y = row(graphics, x, y, width, "技能",
+                    Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync").getString(), PAPER_MUTED);
         } else {
-            var cultivation = CultivationHelper.get(player);
-            if (cultivation.isEmpty()) {
-                y = row(graphics, x, y, width, "技能", "等待能力同步", PAPER_MUTED);
-            } else {
-                for (LifeSkillEntry entry : LIFE_SKILLS) {
-                    y = row(graphics, x, y, width, entry.label(),
-                            LifeSkillService.summaryLine(cultivation.get(), entry.type()), PAPER);
-                }
+            for (LifeSkillEntry entry : LIFE_SKILLS) {
+                ClientSkillData.SkillSnapshot skill = ClientSkillData.get(entry.type());
+                y = row(graphics, x, y, width, entry.label(), skillSummary(entry.type(), skill),
+                        skill.unlocked() ? PAPER : PAPER_MUTED);
             }
         }
 
         y += SECTION_GAP;
         y = sectionTitle(graphics, x, y, width, "异术旁门");
-        if (player == null) {
-            return row(graphics, x, y, width, "异术", "无本地玩家", PAPER_MUTED);
-        }
-        var cultivation = CultivationHelper.get(player);
-        if (cultivation.isEmpty()) {
-            return row(graphics, x, y, width, "异术", "等待能力同步", PAPER_MUTED);
+        if (!ClientSkillData.isSynced()) {
+            return row(graphics, x, y, width, "异术",
+                    Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync").getString(), PAPER_MUTED);
         }
         for (LifeSkillEntry entry : SPECIAL_SKILLS) {
-            y = row(graphics, x, y, width, entry.label(),
-                    LifeSkillService.summaryLine(cultivation.get(), entry.type()), PAPER);
+            ClientSkillData.SkillSnapshot skill = ClientSkillData.get(entry.type());
+            y = row(graphics, x, y, width, entry.label(), skillSummary(entry.type(), skill),
+                    skill.unlocked() ? PAPER : PAPER_MUTED);
         }
         return y;
     }
 
+    private String skillSummary(SkillType type, ClientSkillData.SkillSnapshot skill) {
+        String realm = type.getRequiredRealm() == null ? "-" : type.getRequiredRealm().getDisplayName();
+        if (!skill.unlocked()) {
+            return Component.translatable("screen.seeking_immortals.skill_tree.locked_requirement", realm).getString();
+        }
+        int maxLevel = LifeSkillTreeScreen.skillMaxLevel(type);
+        Component next = skill.level() >= maxLevel
+                ? Component.translatable("screen.seeking_immortals.skill_tree.maxed")
+                : Component.literal(Integer.toString(LifeSkillTreeScreen.experienceForNextLevel(skill.level())));
+        return Component.translatable("screen.seeking_immortals.skill_tree.summary",
+                skill.level(), maxLevel, skill.experience(), next,
+                Math.round(skill.proficiency() / 100.0D)).getString();
+    }
+
     private void drawTechniqueCard(GuiGraphics graphics, int x, int y, int width, String techniqueId,
                                    ClientTechniqueData.TechniqueSummary summary) {
+        if (graphics == null) {
+            return;
+        }
         graphics.fill(x, y, x + width, y + 22, BRONZE_DIM);
         graphics.fill(x + 1, y + 1, x + width - 1, y + 21, INK_SOFT);
         int iconX = x + 3;
@@ -578,26 +588,16 @@ public class CultivationStatsScreen extends Screen {
     }
 
     private void drawJournalFrame(GuiGraphics graphics, PanelLayout layout) {
-        int left = layout.left();
-        int top = layout.top();
-        int right = left + layout.panelWidth();
-        int bottom = top + layout.panelHeight();
-        graphics.fill(left - 2, top - 2, right + 3, bottom + 3, SHADOW);
-        graphics.fill(left, top, right, bottom, BRONZE);
-        graphics.fill(left + 1, top + 1, right - 1, bottom - 1, VOID);
-        graphics.fill(left + 4, top + 4, right - 4, bottom - 4, INK);
-        graphics.fill(layout.header().x(), layout.header().y(), layout.header().right(),
-                layout.header().bottom(), HEADER);
-        drawBox(graphics, layout.content(), INK_SOFT, BRONZE_DIM);
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
+                layout.header().width(), layout.header().height());
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.content().x(), layout.content().y(),
+                layout.content().width(), layout.content().height());
         if (layout.wide()) {
-            drawBox(graphics, layout.profile(), 0xE8121814, BRONZE_DIM);
+            ImmortalUiSkin.drawInnerFrame(graphics, layout.profile().x(), layout.profile().y(),
+                    layout.profile().width(), layout.profile().height());
         }
-
-        int mark = Math.min(32, Math.max(10, layout.panelWidth() / 10));
-        drawCornerMark(graphics, left + 5, top + 5, mark, 1, 1);
-        drawCornerMark(graphics, right - 5, top + 5, mark, -1, 1);
-        drawCornerMark(graphics, left + 5, bottom - 5, mark, 1, -1);
-        drawCornerMark(graphics, right - 5, bottom - 5, mark, -1, -1);
 
         int tabRailY = layout.foundationTab().bottom() + 1;
         graphics.fill(layout.content().x(), tabRailY, layout.content().right(), tabRailY + 1, BRONZE_DIM);
@@ -686,68 +686,50 @@ public class CultivationStatsScreen extends Screen {
     }
 
     private int sectionTitle(GuiGraphics graphics, int x, int y, int width, String title) {
-        graphics.fill(x, y, x + width, y + 14, 0xAA101611);
-        graphics.fill(x, y, x + 3, y + 14, CINNABAR);
-        graphics.fill(x + 3, y + 13, x + width, y + 14, BRONZE_DIM);
-        drawFit(graphics, title, x + 8, y + 3, Math.max(8, width - 12), BRONZE);
+        if (graphics != null) {
+            ImmortalUiSkin.drawTitleBar(graphics, x, y, width, 14);
+            drawFit(graphics, title, x + 8, y + 3, Math.max(8, width - 12), BRONZE);
+        }
         return y + 18;
     }
 
     private int row(GuiGraphics graphics, int x, int y, int width, String label, String value, int color) {
-        if (((y / LINE_HEIGHT) & 1) == 0) {
-            graphics.fill(x, y - 1, x + width, y + 10, INK_ROW);
+        if (graphics != null) {
+            if (((y / LINE_HEIGHT) & 1) == 0) {
+                graphics.fill(x, y - 1, x + width, y + 10, INK_ROW);
+            }
+            int labelWidth = Math.min(68, Math.max(38, width / 3));
+            graphics.fill(x + 2, y + 3, x + 3, y + 7, JADE_LINE);
+            drawFit(graphics, label, x + 6, y, Math.max(8, labelWidth - 6), PAPER_MUTED);
+            drawFit(graphics, value, x + labelWidth + 4, y,
+                    Math.max(8, width - labelWidth - 4), color);
         }
-        int labelWidth = Math.min(68, Math.max(38, width / 3));
-        graphics.fill(x + 2, y + 3, x + 3, y + 7, JADE_LINE);
-        drawFit(graphics, label, x + 6, y, Math.max(8, labelWidth - 6), PAPER_MUTED);
-        drawFit(graphics, value, x + labelWidth + 4, y,
-                Math.max(8, width - labelWidth - 4), color);
         return y + LINE_HEIGHT;
     }
 
     private int progressBar(GuiGraphics graphics, int x, int y, int width, String label,
                             double fraction, String value, int fillColor) {
-        drawFit(graphics, label, x + 2, y, Math.max(20, width / 2), PAPER_MUTED);
-        int valueWidth = font.width(value);
-        drawFit(graphics, value, Math.max(x + width / 2, x + width - valueWidth), y,
-                Math.max(8, width / 2), PAPER);
-        int barY = y + 10;
-        graphics.fill(x, barY, x + width, barY + 7, BRONZE_DIM);
-        graphics.fill(x + 1, barY + 1, x + width - 1, barY + 6, BAR_BACKING);
-        int fillWidth = Math.max(0, Math.min(width - 4,
-                (int)Math.round((width - 4) * clamp01(fraction))));
-        if (fillWidth > 0) {
-            graphics.fill(x + 2, barY + 2, x + 2 + fillWidth, barY + 5, fillColor);
-            graphics.fill(x + 2, barY + 2, x + 2 + fillWidth, barY + 3, BAR_HIGHLIGHT);
+        if (graphics != null) {
+            drawFit(graphics, label, x + 2, y, Math.max(20, width / 2), PAPER_MUTED);
+            int valueWidth = font.width(value);
+            drawFit(graphics, value, Math.max(x + width / 2, x + width - valueWidth), y,
+                    Math.max(8, width / 2), PAPER);
+            ImmortalUiSkin.StatusBarStyle style = fillColor == SPIRIT_BLUE
+                    ? ImmortalUiSkin.StatusBarStyle.SPIRIT : ImmortalUiSkin.StatusBarStyle.CULTIVATION;
+            ImmortalUiSkin.drawSemanticStatusBar(graphics, x, y + 10, width, 7, fraction, style);
         }
         return y + 21;
     }
 
     private void drawScrollBar(GuiGraphics graphics, UiRect viewport, int contentHeight, int offset) {
-        int maxScroll = maxScroll(contentHeight, viewport.height());
-        if (maxScroll <= 0 || viewport.height() < 12) {
-            return;
-        }
-        int trackX = viewport.right() - 3;
-        graphics.fill(trackX, viewport.y() + 2, trackX + 2, viewport.bottom() - 2, 0x99101611);
-        int trackHeight = Math.max(1, viewport.height() - 4);
-        int thumbHeight = Math.max(12, (int)Math.round(trackHeight * (viewport.height() / (double)contentHeight)));
-        thumbHeight = Math.min(trackHeight, thumbHeight);
-        int travel = Math.max(0, trackHeight - thumbHeight);
-        int thumbY = viewport.y() + 2 + (maxScroll == 0 ? 0 : (int)Math.round(travel * (offset / (double)maxScroll)));
-        graphics.fill(trackX, thumbY, trackX + 2, thumbY + thumbHeight, JADE_LINE);
+        ImmortalUiSkin.drawThinScrollbar(graphics, viewport.right() - 3, viewport.y(), viewport.height(),
+                contentHeight, viewport.height(), offset);
     }
 
     private void drawColumnDivider(GuiGraphics graphics, int x, int y, int height) {
-        graphics.fill(x, y + 2, x + 1, y + height, BRONZE_DIM);
-        graphics.fill(x + 1, y + 16, x + 2, y + height - 16, 0x442F6B50);
-    }
-
-    private void drawCornerMark(GuiGraphics graphics, int x, int y, int length, int xDir, int yDir) {
-        int xEnd = x + length * xDir;
-        int yEnd = y + length * yDir;
-        graphics.fill(Math.min(x, xEnd), y, Math.max(x, xEnd) + 1, y + 1, BRONZE);
-        graphics.fill(x, Math.min(y, yEnd), x + 1, Math.max(y, yEnd) + 1, BRONZE);
+        if (graphics != null) {
+            ImmortalUiSkin.drawVerticalDivider(graphics, x, y + 2, Math.max(0, height - 2));
+        }
     }
 
     private void drawSeal(GuiGraphics graphics, int x, int y, int size, String mark) {
@@ -755,16 +737,6 @@ public class CultivationStatsScreen extends Screen {
         graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, 0xFF582A24);
         graphics.fill(x + 4, y + 4, x + size - 4, y + size - 4, CINNABAR);
         graphics.drawCenteredString(font, fit(mark, size - 6), x + size / 2, y + Math.max(3, (size - 8) / 2), PAPER);
-    }
-
-    private void drawBox(GuiGraphics graphics, UiRect rect, int fill, int border) {
-        if (rect.width() <= 0 || rect.height() <= 0) {
-            return;
-        }
-        graphics.fill(rect.x(), rect.y(), rect.right(), rect.bottom(), border);
-        if (rect.width() > 2 && rect.height() > 2) {
-            graphics.fill(rect.x() + 1, rect.y() + 1, rect.right() - 1, rect.bottom() - 1, fill);
-        }
     }
 
     private void drawFit(GuiGraphics graphics, String value, int x, int y, int maxWidth, int color) {
@@ -914,35 +886,11 @@ public class CultivationStatsScreen extends Screen {
         @Override
         protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
             boolean selected = activeTab == tab;
-            int fill = selected ? TAB_SELECTED : isHoveredOrFocused() ? CONTROL_HOVERED : CONTROL;
-            int border = selected ? JADE_LINE : BRONZE_DIM;
             int textColor = selected ? PAPER : isHoveredOrFocused() ? JADE : PAPER_MUTED;
-            drawControlBox(graphics, getX(), getY(), getWidth(), getHeight(), fill, border);
-            if (selected) {
-                graphics.fill(getX() + 3, getY() + getHeight() - 2,
-                        getX() + getWidth() - 3, getY() + getHeight() - 1, JADE_LINE);
-            }
-            FontHolder.drawCentered(graphics, getMessage(), getX(), getY(), getWidth(), getHeight(), textColor);
-        }
-    }
-
-    private static final class JournalButton extends Button {
-        private final boolean primary;
-
-        JournalButton(UiRect rect, Component message, OnPress onPress, boolean primary) {
-            super(rect.x(), rect.y(), rect.width(), rect.height(), message, onPress, DEFAULT_NARRATION);
-            this.primary = primary;
-        }
-
-        @Override
-        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-            int fill = active ? (isHoveredOrFocused() ? CONTROL_HOVERED : CONTROL) : CONTROL_DISABLED;
-            int border = primary && active ? CINNABAR_BRIGHT : active ? BRONZE : BRONZE_DIM;
-            int textColor = active ? (isHoveredOrFocused() ? JADE : PAPER) : PAPER_MUTED;
-            drawControlBox(graphics, getX(), getY(), getWidth(), getHeight(), fill, border);
-            if (primary && active) {
-                graphics.fill(getX() + 2, getY() + 2, getX() + 4, getY() + getHeight() - 2, CINNABAR);
-            }
+            ImmortalUiSkin.InteractionState state = selected ? ImmortalUiSkin.InteractionState.SELECTED
+                    : isHoveredOrFocused() ? ImmortalUiSkin.InteractionState.HOVERED
+                    : ImmortalUiSkin.InteractionState.NORMAL;
+            ImmortalUiSkin.drawTab(graphics, getX(), getY(), getWidth(), getHeight(), state);
             FontHolder.drawCentered(graphics, getMessage(), getX(), getY(), getWidth(), getHeight(), textColor);
         }
     }
@@ -950,7 +898,6 @@ public class CultivationStatsScreen extends Screen {
     private static final class MovementSpeedSlider extends AbstractSliderButton {
         private boolean syncing;
         private double pendingScale = Double.NaN;
-        private long suppressSnapshotUntilMillis;
 
         MovementSpeedSlider(int x, int y, int width, int height, double scale) {
             super(x, y, width, height, Component.empty(), step(scale));
@@ -962,12 +909,8 @@ public class CultivationStatsScreen extends Screen {
             if (!Double.isNaN(pendingScale)) {
                 if (Math.abs(stepped - pendingScale) < 0.0001D) {
                     pendingScale = Double.NaN;
-                    suppressSnapshotUntilMillis = 0L;
-                } else if (Util.getMillis() < suppressSnapshotUntilMillis) {
-                    return;
                 } else {
-                    pendingScale = Double.NaN;
-                    suppressSnapshotUntilMillis = 0L;
+                    return;
                 }
             }
             if (Math.abs(value - stepped) < 0.0001D) {
@@ -991,16 +934,16 @@ public class CultivationStatsScreen extends Screen {
             int y = getY();
             int width = getWidth();
             int height = getHeight();
-            int fill = active ? (isHoveredOrFocused() ? CONTROL_HOVERED : CONTROL) : CONTROL_DISABLED;
-            drawControlBox(graphics, x, y, width, height, fill, BRONZE);
+            ImmortalUiSkin.drawButtonBackground(graphics, x, y, width, height,
+                    isHoveredOrFocused(), active, false);
 
             int trackX = x + 7;
             int trackWidth = Math.max(1, width - 14);
             int trackY = height >= 18 ? y + height - 6 : y + height - 4;
-            graphics.fill(trackX, trackY, trackX + trackWidth, trackY + 2, BAR_BACKING);
             int progressWidth = Math.max(0, Math.min(trackWidth,
                     (int)Math.round(trackWidth * clamp01(value))));
-            graphics.fill(trackX, trackY, trackX + progressWidth, trackY + 2, JADE_LINE);
+            ImmortalUiSkin.drawSemanticStatusBar(graphics, trackX, trackY, trackWidth, 3, value,
+                    ImmortalUiSkin.StatusBarStyle.CULTIVATION);
             int thumbCenter = trackX + progressWidth;
             graphics.fill(thumbCenter - 2, trackY - 2, thumbCenter + 3, trackY + 4, BRONZE);
             graphics.fill(thumbCenter - 1, trackY - 1, thumbCenter + 2, trackY + 3, CINNABAR);
@@ -1015,25 +958,12 @@ public class CultivationStatsScreen extends Screen {
             value = step(value);
             if (!syncing) {
                 pendingScale = value;
-                suppressSnapshotUntilMillis = Util.getMillis() + 1_500L;
                 ModNetwork.CHANNEL.sendToServer(new SetMovementSpeedScalePacket(value));
             }
         }
 
         private static double step(double value) {
             return clamp01(Math.round(value / MOVEMENT_SLIDER_STEP) * MOVEMENT_SLIDER_STEP);
-        }
-    }
-
-    private static void drawControlBox(GuiGraphics graphics, int x, int y, int width, int height,
-                                       int fill, int border) {
-        if (width <= 0 || height <= 0) {
-            return;
-        }
-        graphics.fill(x, y, x + width, y + height, border);
-        if (width > 2 && height > 2) {
-            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, fill);
-            graphics.fill(x + 2, y + 2, x + width - 2, y + 3, BRONZE_DIM);
         }
     }
 
