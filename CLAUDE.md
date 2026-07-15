@@ -46,9 +46,38 @@ Codex and Claude Code must follow the same fixed order on this repository:
 5. Update project docs and add/update a note under `project_docs/updates/` when a step, blocker, build verification, or phase wrap-up is completed.
 6. Run `./gradlew build` after code/resource/build changes. The Gradle build runs `scripts/preflight.ps1` first to catch missing `mod_version` bumps.
 7. If the build fails, fix the failure and rerun the build. Do not report completion until the build succeeds or the blocker is documented with exact failure details.
-8. Final report must include: change class, edited files, backup path, `mod_version`, protocol-version decision, build result, and any remaining risk.
+8. Before finishing any repository update, inspect `git status` and the relevant diff, then stage only files belonging to the current update.
+9. After every completed update batch, create a local Git commit with a Chinese subject and Chinese description. Do not create an empty commit when no files changed.
+10. Never push, publish, or open a remote pull request automatically. Local `git commit` is the default endpoint; `git push`, `gh pr create`, and other GitHub/remote operations are forbidden unless the user explicitly requests that remote operation in the current turn.
+11. Final report must include: change class, edited files, backup path, `mod_version`, protocol-version decision, build result, local commit hash/subject, remaining uncommitted files, and any remaining risk.
 
 Only use `./gradlew build -PaiSkipVersionBumpCheck=true` for an explicitly documented emergency/manual override, and explain why the version gate was skipped.
+
+## Mandatory Local Git Commit Policy
+
+This policy applies to Codex and Claude Code for code, resources, data packs, build logic, configuration, documentation, scripts, tests, and ignore-file maintenance.
+
+- Complete backups, implementation, documentation, tests, and required Gradle builds before committing.
+- Review `git status --short`, `git diff`, and `git diff --check` before staging.
+- Stage only the current task's files. Never silently mix unrelated pre-existing changes into the new commit.
+- If the worktree already contains a completed earlier batch, audit and commit that batch separately before starting the next update when practical.
+- Do not commit `.bak/`, `backups/`, `build/`, `run/`, temporary output, generated scratch data, credentials, or secrets.
+- Use a concise Chinese commit subject. A conventional prefix such as `feat:`, `fix:`, `refactor:`, `docs:`, `test:`, `build:`, or `chore:` may remain in English, but the summary after it must be Chinese.
+- Add a Chinese commit body for every non-empty update. It should describe the update, verification result, `mod_version`, and protocol decision when applicable.
+- Suggested format:
+
+  ```text
+  feat: 中文更新摘要
+
+  更新内容：说明本次实际完成的功能或修复。
+  验证结果：说明测试与 Gradle 构建结果。
+  版本与协议：说明 mod_version 与 ModNetwork.PROTOCOL_VERSION 决策。
+  ```
+
+- After committing, run `git status --short` and report the local commit hash and subject.
+- Do not amend, rewrite, squash, reset, or force-update earlier commits unless the user explicitly asks.
+- Do not run `git push`, `git push --force`, `gh pr create`, `gh repo sync`, or any equivalent remote/GitHub publishing command as part of the normal workflow.
+- If a local commit fails, report the exact failure and leave the verified changes in the working tree; never use a remote push as a workaround.
 
 ## Source of Truth
 
