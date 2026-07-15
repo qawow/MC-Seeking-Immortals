@@ -71,7 +71,7 @@ public class DefenseFormationCoreBlock extends Block {
 
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 200, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.DEFENSE);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.DEFENSE, serverPlayer);
         playActivationEffects(serverPlayer.serverLevel(), pos);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.defense_formation_core.activated"), true);

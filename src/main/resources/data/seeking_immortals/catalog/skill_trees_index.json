@@ -403,42 +403,42 @@
     },
     {
       "id": "tree_sect_specialty_sword",
-      "display": "sword专精入门（通称）道途",
+      "display": "剑道专精入门（通称）道途",
       "layer": "sect_specialty_sword"
     },
     {
       "id": "tree_sect_specialty_body",
-      "display": "body专精入门（通称）道途",
+      "display": "炼体专精入门（通称）道途",
       "layer": "sect_specialty_body"
     },
     {
       "id": "tree_sect_specialty_talisman",
-      "display": "talisman专精入门（通称）道途",
+      "display": "符道专精入门（通称）道途",
       "layer": "sect_specialty_talisman"
     },
     {
       "id": "tree_sect_specialty_formation",
-      "display": "formation专精入门（通称）道途",
+      "display": "阵道专精入门（通称）道途",
       "layer": "sect_specialty_formation"
     },
     {
       "id": "tree_sect_specialty_puppet",
-      "display": "puppet专精入门（通称）道途",
+      "display": "傀儡专精入门（通称）道途",
       "layer": "sect_specialty_puppet"
     },
     {
       "id": "tree_sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）道途",
+      "display": "丹道专精入门（通称）道途",
       "layer": "sect_specialty_alchemy"
     },
     {
       "id": "tree_sect_specialty_ghost",
-      "display": "ghost专精入门（通称）道途",
+      "display": "鬼道专精入门（通称）道途",
       "layer": "sect_specialty_ghost"
     },
     {
       "id": "tree_sect_specialty_demonic",
-      "display": "demonic专精入门（通称）道途",
+      "display": "魔道专精入门（通称）道途",
       "layer": "sect_specialty_demonic"
     },
     {

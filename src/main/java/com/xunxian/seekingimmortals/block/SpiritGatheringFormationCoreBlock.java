@@ -94,7 +94,7 @@ public class SpiritGatheringFormationCoreBlock extends BaseEntityBlock {
 
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 200, 0));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.SPIRIT_GATHER);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.SPIRIT_GATHER, serverPlayer);
         if (level.getBlockEntity(pos) instanceof FormationCoreBlockEntity core) {
             core.activate(FormationFieldService.FieldKind.SPIRIT_GATHER, 20 * 90, false);
         }

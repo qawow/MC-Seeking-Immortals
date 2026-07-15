@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ASA",
+    "RFR",
+    "SSS"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "item": "seeking_immortals:metal_spirit_stone"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "F": {
+      "item": "seeking_immortals:alchemy_furnace"
+    }
+  },
+  "result": {
+    "item": "seeking_immortals:alchemy_furnace_array_node",
+    "count": 4
+  }
+}

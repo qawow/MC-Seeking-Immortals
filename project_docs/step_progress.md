@@ -1,3 +1,153 @@
+## 445. 2026-07-15 0.1.500 lid-block multiblock rework
+
+  Step   Status   Notes
+  ---   ---   ---
+  T1/T2 no array nodes                 Done only top lid required
+  Lids become placeable blocks         Done AlchemyLidBlock + BlockItems
+  Lid part of FORMED structure         Done offset (0,1,0)
+  GUI lid slot disabled                Done fire/formula still slot-authority
+  Tests/docs/build                     Done 0.1.499->0.1.500 BUILD SUCCESSFUL protocol 18
+
+## 444. 2026-07-15 0.1.499 alchemy furnace formed
+
+  Step   Status   Notes
+  ---   ---   ---
+  Dedicated shell node                 Done alchemy_furnace_array_node (+ legacy array OR)
+  FORMED blockstate + texture/particles Done all 5 furnace tiers
+  GUI slot authority formula/lid/fire  Done typed slots + hand insert + legacy migrate
+  Earth-fire room parallel retained    Done GUI/idle room status
+  Tests/docs/build                     Done 0.1.498->0.1.499 BUILD SUCCESSFUL protocol 18
+
+## 443. 2026-07-15 0.1.498 alchemy furnace multiblock
+
+  Step   Status   Notes
+  ---   ---   ---
+  Shell required for all furnace tiers Done T1-2 cardinal / T3 ring / T4 magma
+  Mid-cook shell break waste           Done abortForBrokenShell
+  Sneak inspect + idle shell status    Done
+  Tests                                Done AlchemyFurnaceShellStructureTest
+  Version/build                        Done 0.1.497->0.1.498 BUILD SUCCESSFUL protocol 18
+
+## 442. 2026-07-15 0.1.497 manual tooltip localize
+
+  Step   Status   Notes
+  ---   ---   ---
+  CatalogManualItem title/type/recipe  Done no raw recipe_bu_tian
+  ManualCatalogService study messages  Done type/realm/recipe Chinese
+  Specialty method display clean       Done sword/body/... -> 剑道/炼体
+  Version/build                        Done 0.1.496->0.1.497 BUILD SUCCESSFUL protocol 18
+
+## 441. 2026-07-15 0.1.496 tooltip code localize
+
+  Step   Status   Notes
+  ---   ---   ---
+  Material tooltip lang keys           Done 45 BaseMaterialItem descs
+  Artifact realm/type/tag/effect zh    Done ArtifactDisplayTexts + lang
+  Residual mixed item names            Done cultivation_aid + region herbs
+  Version/build                        Done 0.1.495->0.1.496 BUILD SUCCESSFUL protocol 18
+
+## 440. 2026-07-15 0.1.495 catalog display zh
+
+  Step   Status   Notes
+  ---   ---   ---
+  List residual English displays       Done 222 across 16 files
+  Explicit+token Chinese mapping       Done
+  Rewrite catalog *_index.json         Done remaining 0
+  Version/build                        Done 0.1.494->0.1.495 BUILD SUCCESSFUL protocol 18
+
+## 439. 2026-07-15 0.1.494 zh item localize
+
+  Step   Status   Notes
+  ---   ---   ---
+  37 English item names -> zh_cn        Done
+  Artifact tooltip bilingual keys       Done
+  Bulk catalog descriptions Chinese     Done 869
+  Catalog index high-impact displays    Done partial
+  Version/build                         Done 0.1.493->0.1.494 BUILD SUCCESSFUL protocol 18
+
+## 438. 2026-07-15 0.1.493 multi-biome leyline structures
+
+  Step   Status   Notes
+  ---   ---   ---
+  StructureType leyline_vein           Done ModStructures
+  Hash-gated start (major cores)       Done SpiritualAuraManager seed APIs
+  Multi-biome shapes mountain/forest/shore/plains Done
+  Structure set + biome tags           Done
+  Tests/docs                           Done seed helper tests
+  Version/build                        Done   0.1.492->0.1.493 BUILD SUCCESSFUL protocol 18
+
+## 437. 2026-07-15 0.1.492 authority polish
+
+  Step   Status   Notes
+  ---   ---   ---
+  Auction appraisal gate HIGH_TIER/ALL   Done
+  Dual-cast MULTI_CASTING                Done
+  Divine sense real passive              Done
+  SectHall/MarketHall tab parity         Done
+  Dialogue trees all catalog chains      Done
+  soft_only residual mapping closeout    Done
+  Tests/docs                             Done focused tests
+  Version/build                          Done   0.1.491->0.1.492 BUILD SUCCESSFUL protocol 18
+
+## 436. 2026-07-15 0.1.491 depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  Auction live ladder packet+page      Done protocol 18
+  Escort servitor + kill filters       Done
+  spawn_tables runtime + cluster       Done BeastSpawnTableService
+  Leyline surface marker feature       Done
+  LifeSkillTreeScreen UI               Done
+  Dialogue node tables 10 chains       Done
+  Tests/docs                           Done focused + full BUILD SUCCESSFUL
+  Version/build                        Done   0.1.490->0.1.491 BUILD SUCCESSFUL protocol 18
+
+## 435. 2026-07-14 0.1.490 full systems
+
+  Step   Status   Notes
+  ---   ---   ---
+  Market/Auction/Sect MenuType open  Done NetworkHooks + openHall
+  Life FORMATION + alchemy unify     Done FormationFieldService + LifeSkillService
+  SpecialSkillService                Done multi-cast CD + flying practice
+  Appraisal gates/partial/unappraised Done
+  Leyline beast ecology densify      Done DailyEventEncounterService
+  Sect generated mission contribution Done accept/turn-in
+  NPC path AI steward/trader         Done home leash
+  Tests/docs                         Done SpecialSkillServiceTest + docs
+  Version/build                      Done   0.1.489->0.1.490 BUILD SUCCESSFUL protocol 17
+
+## 434. 2026-07-14 0.1.489 systems depth
+
+  Step   Status   Notes
+  ---   ---   ---
+  LifeSkillService craft/refine loops Done alchemy/talisman/refine/puppet/beast/formation
+  ArtifactAppraisalService           Done opposite-hand appraise + auction value
+  CultivationStats skill section     Done life/special readout
+  Leyline cluster + beast ecology    Done cluster bonus + contract affinity
+  Sect daily kill/escort authority   Done mission generator deepen
+  Tests/build                        Done   focused tests + BUILD SUCCESSFUL
+
+## 433. 2026-07-14 0.1.488 FTB CustomTaskEvent war/rep
+
+  Step   Status   Notes
+  ---   ---   ---
+  FtbCustomTaskHooks register        Done CustomTaskEvent + setCheck
+  si_war_active / si_rep_* parse     Done AND-combined fail-closed
+  7 packaged custom tasks            Done mulan/dajin/tianyuan/outer
+  Tests                              Done   FtbCustomTaskHooksTest + Snbt
+  Version/build                      Done   0.1.487->0.1.488 BUILD SUCCESSFUL protocol 17
+
+## 432. 2026-07-14 0.1.487 multi-army war + FTB dimension
+
+  Step   Status   Notes
+  ---   ---   ---
+  Multi-army SectWar (3rd faction)  Done optional factionC + triple score
+  Elapsed-fraction war phases       Done with remain-bucket fallback
+  Multi-enemy shells + ally reinforce Done TrialCombatShell + owned servitor
+  FTB dimension tasks (8)           Done tianyuan/fengyuan/yin/nether/asura/immortal/rift
+  FtbQuestSnbtTest + SectWar tests  Done
+  Version/build                     Done   0.1.486->0.1.487 BUILD SUCCESSFUL protocol 17
+
 ## 431. 2026-07-14 0.1.486 review hardening
 
   Step   Status   Notes

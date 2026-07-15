@@ -78,8 +78,20 @@ public final class QuestHookSoftService {
         if (id.contains("demon") || id.contains("fallen") || id.contains("ancient")) {
             return firstPresent("ancient_demon_line", "fallen_demon_expedition", "demonic_six_path");
         }
-        // Wave457: honest soft_only — do not silently map everything to huangfeng.
-        return Optional.empty();
+        if (id.contains("craft") || id.contains("refine") || id.contains("talisman") || id.contains("puppet")
+                || id.contains("formation") || id.contains("alchemy")) {
+            return firstPresent("craft_master", "tianfu_talisman_path", "qianzhu_puppet_path", "yuling_puppet_path");
+        }
+        if (id.contains("barbarian") || id.contains("clan") || id.contains("fengyuan") || id.contains("human")) {
+            return firstPresent("barbarian_kings_line", "human_clan_neutral_intro", "spirit_eighteen_clans",
+                    "human_clan_league_hub");
+        }
+        if (id.contains("blood") || id.contains("nether") || id.contains("diyuan") || id.contains("void")) {
+            return firstPresent("blood_forbidden_campaign", "nether_river_campaign", "diyuan_campaign",
+                    "void_palace_campaign");
+        }
+        // Wave492: last-resort deterministic map to a playable mainline so hooks are not soft-only dead ends.
+        return firstPresent("huangfeng_cultivation_path", "qixuan_mortal_path", "spirit_realm_rise");
     }
 
     public static boolean preview(ServerPlayer player, String hookId) {

@@ -89,15 +89,15 @@
     },
     {
       "id": "recipe_invisibility_talisman",
-      "display": "recipe_invisibility_talisman"
+      "display": "配方·隐身符"
     },
     {
       "id": "recipe_binding_talisman",
-      "display": "recipe_binding_talisman"
+      "display": "配方·捆缚符"
     },
     {
       "id": "recipe_gold_armor_talisman",
-      "display": "recipe_gold_armor_talisman"
+      "display": "配方·金甲符"
     }
   ]
 }

@@ -90,14 +90,25 @@ public final class TalismanCraftService {
         if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.missing_materials");
         }
+        // Wave489: life-skill gate + success bonus from TALISMAN_CRAFTING.
+        if (!com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
+                com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 0)) {
+            return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.skill_locked");
+        }
+        double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
+                player, com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, recipe.successRate());
         RandomSource random = player.getRandom();
-        if (random.nextDouble() > recipe.successRate()) {
+        if (random.nextDouble() > rate) {
+            com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                    com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 8, 3);
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.failed");
         }
         ItemStack product = new ItemStack(recipe.product());
         if (!player.getInventory().add(product.copy())) {
             player.drop(product.copy(), false);
         }
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 22, 10);
         return new CraftResult(true, recipe, product, "message.seeking_immortals.talisman_table.activated");
     }
 

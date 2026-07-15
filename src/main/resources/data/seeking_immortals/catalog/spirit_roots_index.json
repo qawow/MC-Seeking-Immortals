@@ -25,43 +25,43 @@
   "elements": [
     {
       "id": "metal",
-      "display": "metal"
+      "display": "金"
     },
     {
       "id": "wood",
-      "display": "wood"
+      "display": "木"
     },
     {
       "id": "water",
-      "display": "water"
+      "display": "水"
     },
     {
       "id": "fire",
-      "display": "fire"
+      "display": "火"
     },
     {
       "id": "earth",
-      "display": "earth"
+      "display": "土"
     },
     {
       "id": "wind",
-      "display": "wind"
+      "display": "风"
     },
     {
       "id": "thunder",
-      "display": "thunder"
+      "display": "雷"
     },
     {
       "id": "ice",
-      "display": "ice"
+      "display": "冰"
     },
     {
       "id": "yin",
-      "display": "yin"
+      "display": "阴"
     },
     {
       "id": "yang",
-      "display": "yang"
+      "display": "阳"
     }
   ]
 }

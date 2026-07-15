@@ -76,7 +76,7 @@ public class CatalogFormationCoreBlock extends Block {
         FormationFieldService.FieldKind fieldKind = kind.usesSpiritGatheringRing()
                 ? FormationFieldService.FieldKind.SPIRIT_GATHER
                 : FormationFieldService.FieldKind.CATALOG_GENERIC;
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, fieldKind);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, fieldKind, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(kind.particle(), pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 36, 0.75D, 0.45D, 0.75D, 0.03D);

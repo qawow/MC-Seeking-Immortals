@@ -74,8 +74,13 @@ public record SyncSectDataPacket(String sectId, String sectDisplay, String curre
         NetworkEvent.Context context = contextSupplier.get();
         context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             com.xunxian.seekingimmortals.client.ClientSectData.set(packet);
+            // Wave490: sect opens via NetworkHooks SectHallMenu; legacy SectScreen only if no hall open.
             if (packet.openScreen()) {
-                net.minecraft.client.Minecraft.getInstance().setScreen(new com.xunxian.seekingimmortals.client.SectScreen());
+                net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
+                if (!(mc.screen instanceof com.xunxian.seekingimmortals.client.SectHallScreen)
+                        && !(mc.screen instanceof com.xunxian.seekingimmortals.client.SectScreen)) {
+                    mc.setScreen(new com.xunxian.seekingimmortals.client.SectScreen());
+                }
             }
         }));
         context.setPacketHandled(true);

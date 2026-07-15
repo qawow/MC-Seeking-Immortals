@@ -1,3 +1,21 @@
+0.1.495 pending update: catalog index display Chinese localization shipped (222). Remaining deferred: human live-smoke re-sign, studio art, dedicated beast entities.
+
+0.1.494 pending update: zh item name + artifact tooltip localization shipped. Remaining deferred: residual ~220 catalog-index English display ids (chronicle/event internals), human live-smoke re-sign, studio art.
+
+0.1.493 pending update: multi-biome leyline vein structures shipped. Remaining deferred: high-fidelity structure art/NBT polish, dedicated bestiary entities, human live-smoke re-sign for 0.1.493, denser underground vein networks.
+
+0.1.492 pending update: appraisal auction gate, dual-cast, divine sense passive, hall tab parity, full dialogue trees, soft_only closeout shipped. Remaining deferred: high-fidelity art, GeckoLib bestiary entities, true multi-biome leyline structures, human live-smoke re-sign for 0.1.492.
+
+0.1.491 pending update: auction live ladder/pagination, escort entity, spawn_tables runtime, leyline marker, skill tree UI, 10 dialogue trees shipped. Remaining deferred: studio marker art, full dialogue JSON loadout, human live-smoke re-sign for 0.1.491, denser multiplayer auction hall polish.
+
+0.1.490 pending update: multi-layer hall MenuType open paths, life/special deepen, appraisal gates, leyline beast densify, sect generated mission contribution, NPC path AI shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib bestiary entities, human live-smoke re-sign for 0.1.490, full multi-node dialogue graphs, true multi-biome leyline structures.
+
+0.1.489 pending update: life/special skill loops, appraisal, leyline clusters, sect daily authority, skill GUI section shipped. Remaining deferred: high-fidelity art, studio GeckoLib, human live-smoke re-sign for 0.1.489, auction MenuType hall productization, deeper NPC path AI.
+
+0.1.488 pending update: FTB CustomTaskEvent war/reputation hooks shipped (7 custom tasks). Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib assets, human live-smoke re-sign for 0.1.488, broader si_* custom rules.
+
+0.1.487 pending update: multi-army sect war + FTB dimension tasks shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib assets, human live-smoke re-sign for 0.1.487, broader FTB CustomTaskEvent hooks.
+
 0.1.486 pending update: all 12 review regressions are fixed and build-verified. Remaining deferred work is unchanged: high-fidelity art, full custom secret biomes, studio GeckoLib assets, human live-smoke re-sign, and broader battlefield/quest simulation. Servitor commands persist for unloaded entities and apply when their chunks reload; unloaded entities are intentionally not force-loaded.
 
 0.1.485 pending update: freeform drag method-tree layout + sect-war battlefield AI pulse + FTB advancement tasks shipped. Remaining deferred: high-fidelity art, full custom secret biomes, studio GeckoLib models, human live-smoke re-sign for 0.1.485, server-persisted method-tree layouts, richer multi-army battlefield simulation, broader FTB custom tasks.

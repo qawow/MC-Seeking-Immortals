@@ -1,7 +1,10 @@
 package com.xunxian.seekingimmortals.item;
 
+import com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts;
 import com.xunxian.seekingimmortals.catalog.ManualCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
+import net.minecraft.ChatFormatting;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +17,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Physical carrier for text-material manuals_catalog ids.
@@ -61,15 +65,76 @@ public class CatalogManualItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("item.seeking_immortals.catalog_manual.tooltip", manualId));
-        TextMaterialCatalogService.builtin().findManual(manualId).ifPresent(manual -> {
+        TextMaterialCatalogService.ManualEntry manual =
+                TextMaterialCatalogService.builtin().findManual(manualId).orElse(null);
+        Component title = resolveManualTitle(stack, manual);
+        tooltip.add(Component.translatable("item.seeking_immortals.catalog_manual.tooltip", title)
+                .withStyle(ChatFormatting.GOLD));
+        if (manual != null) {
+            if (manual.type() != null && !manual.type().isBlank()) {
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_manual.type",
+                                ManualCatalogService.typeDisplay(manual.type()))
+                        .withStyle(ChatFormatting.GRAY));
+            }
             if (manual.unlocksForgeGrade() > 0) {
                 tooltip.add(Component.translatable("message.seeking_immortals.manual.forge_grade",
-                        manual.unlocksForgeGrade()));
+                        manual.unlocksForgeGrade()).withStyle(ChatFormatting.DARK_AQUA));
             }
             if (!manual.realmMin().isBlank()) {
-                tooltip.add(Component.translatable("message.seeking_immortals.manual.realm_req", manual.realmMin()));
+                tooltip.add(Component.translatable("message.seeking_immortals.manual.realm_req",
+                        ArtifactDisplayTexts.realm(manual.realmMin())).withStyle(ChatFormatting.GRAY));
             }
-        });
+            if (manual.recipeId() != null && !manual.recipeId().isBlank()) {
+                tooltip.add(Component.translatable("message.seeking_immortals.manual.recipe",
+                                ManualCatalogService.recipeDisplay(manual.recipeId()))
+                        .withStyle(ChatFormatting.DARK_GREEN));
+            }
+            if (manual.note() != null && !manual.note().isBlank()
+                    && !manual.note().equals(manual.display())
+                    && !looksLikeCode(manual.note())) {
+                tooltip.add(Component.literal(manual.note()).withStyle(ChatFormatting.DARK_GRAY));
+            }
+        } else if (!manualId.isBlank()) {
+            tooltip.add(Component.translatable("message.seeking_immortals.manual.unknown", manualId)
+                    .withStyle(ChatFormatting.RED));
+        }
+    }
+
+    private Component resolveManualTitle(ItemStack stack, @Nullable TextMaterialCatalogService.ManualEntry manual) {
+        if (manual != null && manual.display() != null && !manual.display().isBlank()
+                && !looksLikeCode(manual.display())) {
+            return Component.literal(manual.display());
+        }
+        // Prefer item lang name (already Chinese for registered manuals).
+        Component hover = stack.getHoverName();
+        if (hover != null && !looksLikeCode(hover.getString())) {
+            return hover;
+        }
+        String itemKey = "item.seeking_immortals." + manualId;
+        Language language = Language.getInstance();
+        if (language != null && language.has(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return Component.literal(manualId);
+    }
+
+    private static boolean looksLikeCode(String text) {
+        if (text == null || text.isBlank()) {
+            return true;
+        }
+        String value = text.trim();
+        boolean hasCjk = false;
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            if (Character.UnicodeScript.of(c) == Character.UnicodeScript.HAN) {
+                hasCjk = true;
+                break;
+            }
+        }
+        if (hasCjk) {
+            return false;
+        }
+        String lower = value.toLowerCase(Locale.ROOT);
+        return lower.contains("_") || lower.matches("[a-z0-9\\-./: ]+");
     }
 }

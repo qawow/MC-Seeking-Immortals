@@ -34,6 +34,10 @@ public class SpiritDetectorItem extends Item {
             if (aura.leyline()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.leyline"), false);
             }
+            // Wave489: dense multi-vein cluster readout for ecology/leyline tools.
+            if (aura.cluster()) {
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.cluster"), false);
+            }
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }

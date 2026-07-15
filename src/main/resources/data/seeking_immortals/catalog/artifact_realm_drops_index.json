@@ -5,31 +5,31 @@
   "entries": [
     {
       "id": "king_bear_mountain",
-      "display": "king_bear_mountain"
+      "display": "熊王·山岭"
     },
     {
       "id": "king_fox_mist",
-      "display": "king_fox_mist"
+      "display": "狐王·雾隐"
     },
     {
       "id": "king_pine_ancient",
-      "display": "king_pine_ancient"
+      "display": "松王·古木"
     },
     {
       "id": "king_roc_sky",
-      "display": "king_roc_sky"
+      "display": "鹏王·长空"
     },
     {
       "id": "king_snake_swamp",
-      "display": "king_snake_swamp"
+      "display": "蛇王·泽国"
     },
     {
       "id": "king_tiger_jungle",
-      "display": "king_tiger_jungle"
+      "display": "虎王·密林"
     },
     {
       "id": "king_turtle_depth",
-      "display": "king_turtle_depth"
+      "display": "龟王·深渊"
     }
   ]
 }

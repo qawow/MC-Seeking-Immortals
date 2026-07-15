@@ -5,67 +5,67 @@
   "entries": [
     {
       "id": "pill_qi_refining",
-      "display": "pill_qi_refining"
+      "display": "丹药·炼气"
     },
     {
       "id": "pill_foundation",
-      "display": "pill_foundation"
+      "display": "丹药·筑基"
     },
     {
       "id": "artifact_low",
-      "display": "artifact_low"
+      "display": "法宝·低阶"
     },
     {
       "id": "artifact_mid",
-      "display": "artifact_mid"
+      "display": "法宝·中阶"
     },
     {
       "id": "artifact_high",
-      "display": "artifact_high"
+      "display": "法宝·高阶"
     },
     {
       "id": "ancient_treasure",
-      "display": "ancient_treasure"
+      "display": "上古秘宝"
     },
     {
       "id": "manual_refine_low",
-      "display": "manual_refine_low"
+      "display": "低阶炼器手册"
     },
     {
       "id": "herb_common",
-      "display": "herb_common"
+      "display": "常见灵草"
     },
     {
       "id": "talisman_low",
-      "display": "talisman_low"
+      "display": "符箓·低阶"
     },
     {
       "id": "talisman_mid",
-      "display": "talisman_mid"
+      "display": "符箓·中阶"
     },
     {
       "id": "talisman_high",
-      "display": "talisman_high"
+      "display": "符箓·高阶"
     },
     {
       "id": "sect_stipend_qi_outer",
-      "display": "sect_stipend_qi_outer"
+      "display": "外门炼气津贴"
     },
     {
       "id": "talisman_basic_shop",
-      "display": "talisman_basic_shop"
+      "display": "基础符箓铺"
     },
     {
       "id": "artifact_fine_threshold",
-      "display": "artifact_fine_threshold"
+      "display": "法宝精炼阈值"
     },
     {
       "id": "artifact_top_tier",
-      "display": "artifact_top_tier"
+      "display": "法宝·顶级"
     },
     {
       "id": "auction_deity_pill",
-      "display": "auction_deity_pill"
+      "display": "拍卖·仙丹"
     }
   ]
 }

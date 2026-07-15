@@ -1,3 +1,22 @@
+# Wave489 auto note (2026-07-14)
+
+Build: seeking_immortals-0.1.489.jar BUILD SUCCESSFUL
+Auto: LifeSkill/Appraisal/Aura/SectMission tests passed.
+Human re-sign for 0.1.489 systems depth: still pending.
+
+# Wave488 auto note (2026-07-14)
+
+Build: seeking_immortals-0.1.488.jar BUILD SUCCESSFUL
+Auto: FtbCustomTaskHooksTest + FtbQuestSnbtTest custom/dimension coverage passed.
+Human re-sign for 0.1.488 FTB custom war/rep auto-submit: still pending.
+
+
+# Wave487 auto note (2026-07-14)
+
+Build: seeking_immortals-0.1.487.jar BUILD SUCCESSFUL
+Auto: multi-army war unit tests + FTB dimension SNBT validation passed.
+Human re-sign for 0.1.487 multiplayer war density / FTB dimension auto-submit: still pending.
+
 # Live Smoke Signed Report
 
 Time: 2026-07-12T18:20:03

@@ -104,6 +104,12 @@ public record ReleaseTechniquePacket(int slot) {
                     }
                     cost = effect.getSpiritualPowerCost(skill.getLevel());
                     cooldownTicks = effect.getCooldownTicks(skill.getLevel());
+                    // Wave490: multi-cast special skill soft-reduces technique cooldown.
+                    double multiScale = com.xunxian.seekingimmortals.skill.SpecialSkillService
+                            .multiCastCooldownScale(player);
+                    if (multiScale < 0.999D) {
+                        cooldownTicks = Math.max(5, (int) Math.round(cooldownTicks * multiScale));
+                    }
                     // H5: 只检查不扣，execute 成功后才扣
                     if (cultivation.getSpiritualPower() < cost) {
                         player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
@@ -145,6 +151,17 @@ public record ReleaseTechniquePacket(int slot) {
                         return;
                     }
                     cultivation.addSkillProficiency(skillType, 10);
+                    // Wave490/492: multi-cast practice + honest dual-cast extras.
+                    if (cultivation.hasSkill(com.xunxian.seekingimmortals.skill.SkillType.MULTI_CASTING)) {
+                        if (player.tickCount % 3 == 0) {
+                            com.xunxian.seekingimmortals.skill.SpecialSkillService.practiceMultiCast(player);
+                        }
+                        int dualCount = tryDualCast(player, cultivation, packet.slot, gameTime, multiScale);
+                        if (dualCount > 0) {
+                            player.displayClientMessage(Component.translatable(
+                                    "message.seeking_immortals.technique_release.dual_cast", dualCount), false);
+                        }
+                    }
                     effectExecuted = true;
                 }
 
@@ -162,6 +179,79 @@ public record ReleaseTechniquePacket(int slot) {
             });
         });
         context.setPacketHandled(true);
+    }
+
+    /**
+     * Wave492: after primary cast succeeds, cast up to N other slotted techniques free of packet,
+     * still gated by learn/cooldown/cost/effect availability. Shared multi-cast CD scale applies.
+     */
+    private static int tryDualCast(ServerPlayer player, com.xunxian.seekingimmortals.cultivation.PlayerCultivation cultivation,
+                                   int primarySlot, long gameTime, double multiScale) {
+        int extra = com.xunxian.seekingimmortals.skill.SpecialSkillService.dualCastExtraSlots(player);
+        if (extra <= 0) {
+            return 0;
+        }
+        int fired = 0;
+        for (int slot = 0; slot < com.xunxian.seekingimmortals.cultivation.PlayerCultivation.TECHNIQUE_SLOT_COUNT && fired < extra; slot++) {
+            if (slot == primarySlot) {
+                continue;
+            }
+            String techniqueId = cultivation.getTechniqueSlot(slot);
+            if (techniqueId == null || techniqueId.isBlank() || !cultivation.hasLearnedTechnique(techniqueId)) {
+                continue;
+            }
+            if (cultivation.getTechniqueCooldownUntilTick(techniqueId) > gameTime) {
+                continue;
+            }
+            var techniqueOpt = TechniqueDataManager.getTechnique(player.getServer(), techniqueId);
+            if (techniqueOpt.isEmpty()) {
+                continue;
+            }
+            var technique = techniqueOpt.get();
+            TechniqueGateService.GateResult gate = TechniqueGateService.canCast(player, cultivation, technique);
+            if (!gate.allowed()) {
+                continue;
+            }
+            SkillType skillType = SkillEffectRegistry.byTechniqueId(technique.id());
+            if (skillType == null) {
+                skillType = SkillEffectRegistry.byDisplayName(technique.name());
+            }
+            SkillEffect effect = skillType == null ? null : SkillEffectRegistry.get(skillType);
+            CultivationSkill skill = skillType == null ? null : cultivation.getSkill(skillType);
+            if (effect == null || skill == null || !skill.isUnlocked() || !effect.canExecute(player, cultivation)) {
+                continue;
+            }
+            int cost = effect.getSpiritualPowerCost(skill.getLevel());
+            // Dual-cast secondary arts cost half, min 1.
+            cost = Math.max(1, cost / 2);
+            if (cultivation.getSpiritualPower() < cost) {
+                continue;
+            }
+            if (!TalismanConsumePolicy.tryConsume(player, technique.id(), skillType)) {
+                continue;
+            }
+            SkillContext ctx = SkillContext.builder()
+                    .level(player.serverLevel())
+                    .position(player.position())
+                    .lookDirection(player.getLookAngle())
+                    .build();
+            if (!effect.execute(player, cultivation, skill, ctx)) {
+                continue;
+            }
+            if (!cultivation.consumeSpiritualPower(cost)) {
+                continue;
+            }
+            int cooldownTicks = effect.getCooldownTicks(skill.getLevel());
+            if (multiScale < 0.999D) {
+                cooldownTicks = Math.max(5, (int) Math.round(cooldownTicks * multiScale));
+            }
+            // Dual-cast secondary CD is slightly longer to prevent spam.
+            cooldownTicks = Math.max(cooldownTicks, (int) Math.round(cooldownTicks * 1.15D));
+            cultivation.setTechniqueCooldown(techniqueId, gameTime + cooldownTicks);
+            cultivation.addSkillProficiency(skillType, 6);
+            fired++;
+        }
+        return fired;
     }
 
     private static int estimateCost(ServerPlayer player, String techniqueId) {

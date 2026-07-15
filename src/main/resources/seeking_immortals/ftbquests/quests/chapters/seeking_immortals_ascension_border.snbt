@@ -161,7 +161,7 @@
       ],
       dependencies: ["1000000000001210"],
       tags: ["seeking_immortals", "nether_river_pilgrim", "yin_underworld", "optional"],
-      tasks: [{id: "1000000000002211", type: "checkmark", title: "记下冥河朝圣札记"}]
+      tasks: [{id: "1000000000002211", type: "dimension", dimension: "seeking_immortals:nether_river_pocket", title: "朝圣冥河维度"}]
     },
     {
       id: "1000000000001212",
@@ -251,7 +251,7 @@
       ],
       dependencies: ["1000000000001216"],
       tags: ["seeking_immortals", "tiannan_seven", "contribution", "optional"],
-      tasks: [{id: "1000000000002217", type: "checkmark", title: "登记外门贡献"}]
+      tasks: [{id: "1000000000002217", type: "custom", title: "登记外门贡献", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000001218",
@@ -468,7 +468,7 @@
       ],
       dependencies: ["1000000000001231"],
       tags: ["seeking_immortals", "great_vehicle_ascension", "immortal_realm", "deferred"],
-      tasks: [{id: "1000000000002232", type: "checkmark", title: "记录仙界飞升占位"}]
+      tasks: [{id: "1000000000002232", type: "dimension", dimension: "seeking_immortals:immortal_realm", title: "踏入仙界维度"}]
     }
   ]
 }

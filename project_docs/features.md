@@ -1,3 +1,21 @@
+0.1.495 feature note: full Chinese cleanup of residual catalog index display fields (quest hooks, manifest, loot tables, economy bands, secret realms, spirit roots, etc.).
+
+0.1.494 feature note: Chinese localization pass for remaining English item display names, bilingual artifact hover tooltips, bulk carrier descriptions, and selected catalog index displays.
+
+0.1.493 feature note: multi-biome physical leyline vein structures. Custom `leyline_vein` StructureType only starts on major hash-leyline chunks; shapes resolve by biome family (mountain pillar, forest ring, shore ribbon, plains mound). Structure set covers four biome tags. Hash aura remains authority.
+
+0.1.492 feature note: configurable auction appraisal gate; honest dual-cast (分神双放) after primary technique release; divine-sense expansion range pulse + detection scaling; SectHall dialogue/mission/shop/progress tabs and MarketHall multi-shop pagination; dialogue node tables cover all catalog quest chains; Craft/Hook/Conflict/Chronicle residual soft_only paths map to playable authority.
+
+0.1.491 feature note: auction live ladder packet + hall pagination (protocol 18), true escort servitor follow + typed kill mission filters, spawn_tables runtime consumer with cluster weight, leyline surface marker worldgen, interactive life/special skill tree UI, multi-node dialogue tables for 10 demo text quest chains.
+
+0.1.490 feature note: productized multi-layer halls (Market/Auction/Sect MenuTypes wired open), complete life/special skill deepen (FORMATION deploy practice, alchemy unify, SpecialSkillService multi-cast/flying practice), appraisal skill gates + unappraised hide, leyline-cluster beast ecology densify, sect kill/escort/beast/formation generated dailies grant contribution, steward/market light path AI. Protocol remains 17.
+
+0.1.489 feature note: life/special skill practice loops (alchemy/refine/talisman/puppet/beast/formation), artifact appraisal authority, leyline cluster aura, sect daily kill/escort counters, CultivationStats skill tree section. Protocol remains 17.
+
+0.1.488 feature note: FTB CustomTaskEvent hooks bind si_war_active and si_rep_<faction>_<min> tags to SectWarService/ReputationService authority checks; 7 packaged custom tasks. Protocol remains 17.
+
+0.1.487 feature note: multi-army sect war (optional third faction, elapsed-fraction phases, multi-enemy pressure shells, ally reinforcement servitors) + FTB dimension tasks (8 travel/realm nodes). Protocol remains 17.
+
 0.1.486 feature note: review hardening adds death-safe consumed-manual progression, reachable first Wanbao bidding, bounded method-layout persistence, authoritative quest-start requirements, valid-learn-only source method grants, server-global servitor ownership/caps with deferred unloaded commands, killer-faction war-shell scoring, combined embark/stage-cost reservation, side-effect-free denied casts, method-tree bottom-control spacing, and complete zh_cn/en_us war feedback. Protocol remains 17 because packet fields/order/encoding/registrations did not change.
 
 # 0.1.431 Wave48 remaining-depth

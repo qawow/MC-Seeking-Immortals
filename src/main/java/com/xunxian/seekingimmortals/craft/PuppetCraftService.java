@@ -91,19 +91,32 @@ public final class PuppetCraftService {
         if (!player.getAbilities().instabuild && !consumeMaterials(player, recipe)) {
             return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.missing_materials");
         }
+        // Wave489: special skill PUPPET_CONTROL gate + success bonus.
+        if (!com.xunxian.seekingimmortals.skill.LifeSkillService.meetsLevel(player,
+                com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 0)) {
+            return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.skill_locked");
+        }
+        double rate = com.xunxian.seekingimmortals.skill.LifeSkillService.adjustedSuccessRate(
+                player, com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, recipe.successRate());
         RandomSource random = player.getRandom();
-        if (random.nextDouble() > recipe.successRate()) {
+        if (random.nextDouble() > rate) {
+            com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                    com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 8, 3);
             return new CraftResult(false, recipe, "message.seeking_immortals.puppet_assembly_bench.failed");
         }
+        int skillLv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(player,
+                com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL);
         // Wave49: durable puppet lifetime (10 minutes) + craft feedback buffs.
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, Math.min(200, recipe.durationTicks()), recipe.strengthAmp()));
         player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, Math.min(200, recipe.durationTicks()), recipe.resistAmp()));
-        double health = 28.0D + recipe.strengthAmp() * 10.0D + recipe.resistAmp() * 5.0D;
-        double damage = 5.0D + recipe.strengthAmp() * 1.8D;
-        int life = Math.max(20 * 600, recipe.durationTicks() * 4);
+        double health = 28.0D + recipe.strengthAmp() * 10.0D + recipe.resistAmp() * 5.0D + skillLv * 1.5D;
+        double damage = 5.0D + recipe.strengthAmp() * 1.8D + skillLv * 0.25D;
+        int life = Math.max(20 * 600, recipe.durationTicks() * 4) + skillLv * 40;
         boolean spawned = SummonHonestMvpService.spawnConfigured(
                 player, "puppet_" + recipe.id(), life, health, damage,
                 com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.PUPPET, true);
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL, 24, 12);
         if (spawned) {
             // Wave458: hint repair loop after successful craft.
             player.displayClientMessage(Component.translatable("message.seeking_immortals.puppet.repair_hint"), false);

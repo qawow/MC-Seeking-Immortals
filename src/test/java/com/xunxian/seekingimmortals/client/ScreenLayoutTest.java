@@ -239,18 +239,25 @@ class ScreenLayoutTest {
 
         assertRectInside(screenWidth, screenHeight, layout.breakthroughButton(), "breakthrough button");
         assertRectInside(screenWidth, screenHeight, layout.methodTreeButton(), "method tree button");
+        assertRectInside(screenWidth, screenHeight, layout.skillTreeButton(), "skill tree button");
         assertRectInside(screenWidth, screenHeight, layout.closeButton(), "close button");
         assertRectInside(screenWidth, screenHeight, layout.slider(), "movement speed slider");
         assertFalse(layout.breakthroughButton().intersects(layout.closeButton()),
                 "cultivation stats buttons must not overlap");
         assertFalse(layout.breakthroughButton().intersects(layout.methodTreeButton()),
                 "breakthrough button must not overlap method tree button");
+        assertFalse(layout.methodTreeButton().intersects(layout.skillTreeButton()),
+                "method tree button must not overlap skill tree button");
+        assertFalse(layout.skillTreeButton().intersects(layout.closeButton()),
+                "skill tree button must not overlap close button");
         assertFalse(layout.methodTreeButton().intersects(layout.closeButton()),
                 "method tree button must not overlap close button");
         assertFalse(layout.slider().intersects(layout.breakthroughButton()),
                 "movement speed slider must not overlap the breakthrough button");
         assertFalse(layout.slider().intersects(layout.methodTreeButton()),
                 "movement speed slider must not overlap the method tree button");
+        assertFalse(layout.slider().intersects(layout.skillTreeButton()),
+                "movement speed slider must not overlap the skill tree button");
         assertFalse(layout.slider().intersects(layout.closeButton()),
                 "movement speed slider must not overlap the close button");
     }

@@ -45,6 +45,18 @@ public class ArtifactCatalogItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, net.minecraft.world.entity.player.Player player,
                                                   InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
+        // Wave489: appraisal lens / identify scroll appraises the opposite hand.
+        if (com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {
+            InteractionHand other = hand == InteractionHand.MAIN_HAND
+                    ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND;
+            ItemStack target = player.getItemInHand(other);
+            if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+                boolean ok = com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService
+                        .appraise(serverPlayer, stack, target);
+                return ok ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
+            }
+            return InteractionResultHolder.consume(stack);
+        }
         if (ArtifactStorageService.supports(artifactId)) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
                 boolean handled = CultivationHelper.get(serverPlayer)
@@ -81,23 +93,34 @@ public class ArtifactCatalogItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         ArtifactDataService.Snapshot data = ArtifactDataService.builtin();
+        boolean appraised = com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraised(stack);
+        boolean creativeFull = flag != null && flag.isCreative();
         data.findArtifact(artifactId).ifPresentOrElse(artifact -> {
-            tooltip.add(Component.literal("Artifact: " + artifact.display()
-                    + " / " + data.tierDisplay(artifact.tier())
-                    + " / game tier " + artifact.gameTier()).withStyle(ChatFormatting.DARK_AQUA));
-            tooltip.add(Component.literal("Realm: " + artifact.realmMin()
-                    + " / type: " + artifact.type()).withStyle(ChatFormatting.DARK_GRAY));
-            if (!artifact.tags().isEmpty()) {
-                tooltip.add(Component.literal("Tags: " + String.join(", ", artifact.tags()))
+            // Wave490: hide detailed identity until appraised (creative tooltips still full).
+            if (appraised || creativeFull || com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.header",
+                                artifact.display(), data.tierDisplay(artifact.tier()), artifact.gameTier())
+                        .withStyle(ChatFormatting.DARK_AQUA));
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.realm_type",
+                                com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(artifact.realmMin()),
+                                com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.type(artifact.type()))
+                        .withStyle(ChatFormatting.DARK_GRAY));
+                if (!artifact.tags().isEmpty()) {
+                    tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.tags",
+                                    com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.tagsJoined(artifact.tags()))
+                            .withStyle(ChatFormatting.DARK_GRAY));
+                }
+                data.findRecipeByArtifact(artifact.id()).ifPresent(recipe ->
+                        tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.refine",
+                                        recipe.forgeGrade(), Math.round(recipe.baseSuccessRate() * 100.0D))
+                                .withStyle(ChatFormatting.DARK_GRAY)));
+            } else {
+                tooltip.add(Component.translatable("tooltip.seeking_immortals.unappraised")
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
-            data.findRecipeByArtifact(artifact.id()).ifPresent(recipe ->
-                    tooltip.add(Component.literal("Refine: grade " + recipe.forgeGrade()
-                            + " / success " + Math.round(recipe.baseSuccessRate() * 100.0D) + "%")
-                            .withStyle(ChatFormatting.DARK_GRAY)));
             if (ArtifactStorageService.supports(artifact.id())) {
                 ArtifactStorageService.appendStorageTooltip(stack, artifact, tooltip);
-            } else {
+            } else if (appraised || creativeFull) {
                 ArtifactActivationService.appendActivationTooltip(stack, artifact, tooltip);
             }
             if (stack.hasTag() && stack.getTag().getBoolean(NatalBindingService.STACK_BOUND)) {
@@ -112,7 +135,20 @@ public class ArtifactCatalogItem extends Item {
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bind_hint")
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
-        }, () -> tooltip.add(Component.literal("Artifact data missing: " + artifactId)
+        }, () -> tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.missing", artifactId)
                 .withStyle(ChatFormatting.RED)));
+        if (com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.appraisal_tool")
+                    .withStyle(ChatFormatting.AQUA));
+        }
+        if (appraised && stack.getTag() != null) {
+            var tag = stack.getTag();
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.appraised",
+                    tag.getInt(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_TIER),
+                    com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.type(
+                            tag.getString(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_TYPE)),
+                    tag.getInt(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_VALUE))
+                    .withStyle(ChatFormatting.GOLD));
+        }
     }
 }

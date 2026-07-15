@@ -361,19 +361,19 @@
     },
     {
       "id": "star_palace_branch_enforcement",
-      "display": "star_palace_branch_enforcement"
+      "display": "星宫分支·执法"
     },
     {
       "id": "star_palace_branch_commerce",
-      "display": "star_palace_branch_commerce"
+      "display": "星宫分支·商事"
     },
     {
       "id": "internal_tax_vote",
-      "display": "internal_tax_vote"
+      "display": "内务税赋表决"
     },
     {
       "id": "protect_mortal_fleet",
-      "display": "protect_mortal_fleet"
+      "display": "护送凡俗船队"
     },
     {
       "id": "tiannan_defense_mobilize",
@@ -401,55 +401,55 @@
     },
     {
       "id": "wutu_raid_mulan_camp",
-      "display": "wutu_raid_mulan_camp"
+      "display": "巫屠突袭木兰营"
     },
     {
       "id": "mulan_counter_hunt",
-      "display": "mulan_counter_hunt"
+      "display": "木兰反击猎杀"
     },
     {
       "id": "feud_truce_broker",
-      "display": "feud_truce_broker"
+      "display": "仇隙停战斡旋"
     },
     {
       "id": "wutu_scout_contact",
-      "display": "wutu_scout_contact"
+      "display": "巫屠斥候接触"
     },
     {
       "id": "seal_weak_event",
-      "display": "seal_weak_event"
+      "display": "封印松动事件"
     },
     {
       "id": "demon_qi_purge_side",
-      "display": "demon_qi_purge_side"
+      "display": "清剿魔气支线"
     },
     {
       "id": "auction_invite_dajin",
-      "display": "auction_invite_dajin"
+      "display": "大晋拍卖邀请"
     },
     {
       "id": "kunwu_rumor",
-      "display": "kunwu_rumor"
+      "display": "坤吾传闻"
     },
     {
       "id": "yin_luo_initiation",
-      "display": "yin_luo_initiation"
+      "display": "阴罗殿入门"
     },
     {
       "id": "soul_banner_quest",
-      "display": "soul_banner_quest"
+      "display": "魂幡任务"
     },
     {
       "id": "kunwu_puppet_king",
-      "display": "kunwu_puppet_king"
+      "display": "坤吾傀儡王"
     },
     {
       "id": "kunwu_map_fragment_turnin",
-      "display": "kunwu_map_fragment_turnin"
+      "display": "坤吾地图碎片上交"
     },
     {
       "id": "kunwu_cold_snap_survive",
-      "display": "kunwu_cold_snap_survive"
+      "display": "坤吾寒潮求生"
     },
     {
       "id": "righteous_sect_ghost_hunt",
@@ -465,107 +465,107 @@
     },
     {
       "id": "tianyuan_merit_enlist",
-      "display": "tianyuan_merit_enlist"
+      "display": "天渊功勋入籍"
     },
     {
       "id": "demon_beast_siege_defense",
-      "display": "demon_beast_siege_defense"
+      "display": "妖兽围城防御"
     },
     {
       "id": "diyuan_permit_apply",
-      "display": "diyuan_permit_apply"
+      "display": "地渊通行令申请"
     },
     {
       "id": "fengyuan_clan_intro",
-      "display": "fengyuan_clan_intro"
+      "display": "风元宗族引见"
     },
     {
       "id": "spirit_fengyuan_border_patrol",
-      "display": "spirit_fengyuan_border_patrol"
+      "display": "灵界风元边境巡逻"
     },
     {
       "id": "barbarian_beast_tide_survive",
-      "display": "barbarian_beast_tide_survive"
+      "display": "蛮荒兽潮求生"
     },
     {
       "id": "barbarian_king_token_hunt",
-      "display": "barbarian_king_token_hunt"
+      "display": "蛮王令搜寻"
     },
     {
       "id": "king_territory_intrusion",
-      "display": "king_territory_intrusion"
+      "display": "王域侵入"
     },
     {
       "id": "clan_guest_register",
-      "display": "clan_guest_register"
+      "display": "宗族客卿登记"
     },
     {
       "id": "array_disk_commission",
-      "display": "array_disk_commission"
+      "display": "阵盘委托"
     },
     {
       "id": "formation_trial_mo",
-      "display": "formation_trial_mo"
+      "display": "阵法试炼·墨"
     },
     {
       "id": "clan_feud_mediation_optional",
-      "display": "clan_feud_mediation_optional"
+      "display": "宗族仇隙调停（可选）"
     },
     {
       "id": "spirit_ore_escort",
-      "display": "spirit_ore_escort"
+      "display": "灵石矿护送"
     },
     {
       "id": "refinement_apprentice_yu",
-      "display": "refinement_apprentice_yu"
+      "display": "炼器学徒·玉"
     },
     {
       "id": "artifact_appraisal_quest",
-      "display": "artifact_appraisal_quest"
+      "display": "法宝鉴定任务"
     },
     {
       "id": "herb_tribute_gu",
-      "display": "herb_tribute_gu"
+      "display": "古氏灵草进贡"
     },
     {
       "id": "alchemy_furnace_access",
-      "display": "alchemy_furnace_access"
+      "display": "炼丹炉使用权限"
     },
     {
       "id": "pill_quality_audit",
-      "display": "pill_quality_audit"
+      "display": "丹药品阶核验"
     },
     {
       "id": "talisman_blank_order",
-      "display": "talisman_blank_order"
+      "display": "空白符纸订购"
     },
     {
       "id": "talisman_inscription_lesson",
-      "display": "talisman_inscription_lesson"
+      "display": "符箓铭刻课业"
     },
     {
       "id": "clan_raid_defense_ning",
-      "display": "clan_raid_defense_ning"
+      "display": "宁氏宗族防守战"
     },
     {
       "id": "barbarian_council_audience",
-      "display": "barbarian_council_audience"
+      "display": "蛮王议事觐见"
     },
     {
       "id": "ancient_ruin_explore",
-      "display": "ancient_ruin_explore"
+      "display": "上古遗迹探索"
     },
     {
       "id": "illusion_pearl_trade",
-      "display": "illusion_pearl_trade"
+      "display": "幻珠交易"
     },
     {
       "id": "ancient_wood_core_donate",
-      "display": "ancient_wood_core_donate"
+      "display": "古木核心捐献"
     },
     {
       "id": "wind_feather_craft_order",
-      "display": "wind_feather_craft_order"
+      "display": "风羽器物订单"
     },
     {
       "id": "spirit_eighteen_pilgrimage",
@@ -573,127 +573,127 @@
     },
     {
       "id": "barbarian_tribute_run",
-      "display": "barbarian_tribute_run"
+      "display": "蛮部进贡护送"
     },
     {
       "id": "diyuan_core_probe",
-      "display": "diyuan_core_probe"
+      "display": "地渊核心探查"
     },
     {
       "id": "wild_land_rumor",
-      "display": "wild_land_rumor"
+      "display": "荒野传闻"
     },
     {
       "id": "tianhu",
-      "display": "tianhu"
+      "display": "天狐"
     },
     {
       "id": "shuyao",
-      "display": "shuyao"
+      "display": "树妖"
     },
     {
       "id": "shiren",
-      "display": "shiren"
+      "display": "尸人"
     },
     {
       "id": "feiling",
-      "display": "feiling"
+      "display": "飞灵"
     },
     {
       "id": "jinyi",
-      "display": "jinyi"
+      "display": "锦衣"
     },
     {
       "id": "yaksha",
-      "display": "yaksha"
+      "display": "夜叉"
     },
     {
       "id": "tianyuan_city",
-      "display": "tianyuan_city"
+      "display": "天渊城"
     },
     {
       "id": "langzu",
-      "display": "langzu"
+      "display": "狼族"
     },
     {
       "id": "huzhu",
-      "display": "huzhu"
+      "display": "狐族"
     },
     {
       "id": "shezu",
-      "display": "shezu"
+      "display": "蛇族"
     },
     {
       "id": "guizu",
-      "display": "guizu"
+      "display": "鬼族"
     },
     {
       "id": "tianpeng",
-      "display": "tianpeng"
+      "display": "天鹏"
     },
     {
       "id": "mayi",
-      "display": "mayi"
+      "display": "蚂蚁"
     },
     {
       "id": "muyao",
-      "display": "muyao"
+      "display": "木妖"
     },
     {
       "id": "shuiyue",
-      "display": "shuiyue"
+      "display": "水月"
     },
     {
       "id": "jinhai",
-      "display": "jinhai"
+      "display": "金海"
     },
     {
       "id": "mozu",
-      "display": "mozu"
+      "display": "魔族"
     },
     {
       "id": "lingzu",
-      "display": "lingzu"
+      "display": "灵族"
     },
     {
       "id": "diyuan_core_crystal_boss",
-      "display": "diyuan_core_crystal_boss"
+      "display": "地渊核心晶主"
     },
     {
       "id": "ascension_gate_rumor",
-      "display": "ascension_gate_rumor"
+      "display": "飞升门传闻"
     },
     {
       "id": "inverse_star_contact_rumor",
-      "display": "inverse_star_contact_rumor"
+      "display": "逆星接头传闻"
     },
     {
       "id": "inverse_star_cipher_trial",
-      "display": "inverse_star_cipher_trial"
+      "display": "逆星密文试炼"
     },
     {
       "id": "inverse_star_oath",
-      "display": "inverse_star_oath"
+      "display": "逆星盟誓"
     },
     {
       "id": "star_palace_patrol_dodge",
-      "display": "star_palace_patrol_dodge"
+      "display": "星宫巡海规避"
     },
     {
       "id": "void_palace_intel_sell",
-      "display": "void_palace_intel_sell"
+      "display": "虚空殿情报出售"
     },
     {
       "id": "void_key_fragment_rumor",
-      "display": "void_key_fragment_rumor"
+      "display": "虚空钥匙碎片传闻"
     },
     {
       "id": "star_palace_spy_expose_optional",
-      "display": "star_palace_spy_expose_optional"
+      "display": "星宫细作曝光（可选）"
     },
     {
       "id": "inverse_star_ambush_event",
-      "display": "inverse_star_ambush_event"
+      "display": "逆星伏击事件"
     },
     {
       "id": "chaotic_sea_neutral_ending_optional",
@@ -701,7 +701,7 @@
     },
     {
       "id": "star_palace_enforcement_raid",
-      "display": "star_palace_enforcement_raid"
+      "display": "星宫执法突袭"
     },
     {
       "id": "hook_seven_sect_trial",

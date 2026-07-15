@@ -34,8 +34,11 @@ class FactionConflictSoftServiceTest {
     }
 
     @Test
-    void unknownConflictStaysUnmapped() {
-        assertTrue(FactionConflictSoftService.mappedChainId("totally_unknown_conflict_xyz").isEmpty());
+    void unknownConflictFallsBackToPlayableChain() {
+        // Wave492: residual conflicts no longer soft-only; they map to a playable chain.
+        assertTrue(FactionConflictSoftService.mappedChainId("totally_unknown_conflict_xyz").isPresent());
+        assertTrue(TextQuestChainService.find(
+                FactionConflictSoftService.mappedChainId("totally_unknown_conflict_xyz").orElseThrow()).isPresent());
     }
 
     @Test

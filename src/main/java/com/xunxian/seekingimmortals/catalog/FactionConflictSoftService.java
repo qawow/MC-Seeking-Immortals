@@ -82,7 +82,9 @@ public final class FactionConflictSoftService {
         if (id.contains("void") || id.contains("demon") || id.contains("ancient") || id.contains("fallen")) {
             return firstPresent("void_palace_campaign", "ancient_demon_line", "fallen_demon_campaign");
         }
-        return Optional.empty();
+        // Wave492: last-resort dual-side conflict maps into a playable war/politics chain.
+        return firstPresent("chaotic_sea_politics", "mulan_tianlan_war", "dajin_righteous_demon_line",
+                "huangfeng_cultivation_path");
     }
 
     public static Optional<Sides> mappedSides(String conflictId) {

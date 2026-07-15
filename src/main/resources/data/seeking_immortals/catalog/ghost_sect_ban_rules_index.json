@@ -5,15 +5,15 @@
   "entries": [
     {
       "id": "yin_qi_aura",
-      "display": "yin_qi_aura"
+      "display": "阴气灵场"
     },
     {
       "id": "ghost_path_active",
-      "display": "ghost_path_active"
+      "display": "鬼道启程"
     },
     {
       "id": "failed_hide_talisman",
-      "display": "failed_hide_talisman"
+      "display": "失败的隐匿符"
     }
   ]
 }

@@ -92,11 +92,12 @@ public final class CraftWorldSoftService {
 
     public static boolean craft(ServerPlayer player, String recipeId, int forgeGrade) {
         BulkCatalogIndexService.Entry entry = findEntry("refinement_recipes_index", recipeId);
-        if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.unknown", recipeId), false);
-            return false;
+        String id = entry == null ? norm(recipeId) : entry.id();
+        Optional<ArtifactDataService.RefinementRecipe> recipe = ArtifactDataService.builtin().findRecipe(id);
+        if (recipe.isEmpty()) {
+            // Wave492: try fuzzy recipe match against catalog display/id tokens.
+            recipe = fuzzyRecipe(id);
         }
-        Optional<ArtifactDataService.RefinementRecipe> recipe = ArtifactDataService.builtin().findRecipe(entry.id());
         if (recipe.isEmpty()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.soft_only"), false);
             return false;
@@ -107,6 +108,21 @@ public final class CraftWorldSoftService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.refine.crafted", recipe.get().display()), true);
         }
         return ok;
+    }
+
+    private static Optional<ArtifactDataService.RefinementRecipe> fuzzyRecipe(String id) {
+        if (id == null || id.isBlank()) {
+            return Optional.empty();
+        }
+        String needle = id.toLowerCase(Locale.ROOT);
+        for (ArtifactDataService.RefinementRecipe recipe : ArtifactDataService.builtin().refinementRecipes().values()) {
+            String rid = recipe.id() == null ? "" : recipe.id().toLowerCase(Locale.ROOT);
+            String display = recipe.display() == null ? "" : recipe.display().toLowerCase(Locale.ROOT);
+            if (rid.equals(needle) || rid.contains(needle) || needle.contains(rid) || display.contains(needle)) {
+                return Optional.of(recipe);
+            }
+        }
+        return Optional.empty();
     }
 
     public static Optional<FormationFieldService.FieldKind> mappedFieldKind(String formationId) {
@@ -123,14 +139,25 @@ public final class CraftWorldSoftService {
                 return Optional.of(e.getValue());
             }
         }
-        return Optional.empty();
+        // Wave492: unknown formation catalog ids deploy as generic free fields (no soft_only dead-end).
+        return Optional.of(FormationFieldService.FieldKind.CATALOG_GENERIC);
     }
 
     public static boolean deploy(ServerPlayer player, String formationId) {
         BulkCatalogIndexService.Entry entry = findEntry("formation_catalog_index", formationId);
         if (entry == null) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.unknown", formationId), false);
-            return false;
+            // Wave492: still allow direct deploy by id when index misses but kind maps.
+            Optional<FormationFieldService.FieldKind> kindDirect = mappedFieldKind(formationId);
+            if (kindDirect.isEmpty() || !(player.level() instanceof ServerLevel level)) {
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.unknown", formationId), false);
+                return false;
+            }
+            boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kindDirect.get(), 20 * 90, player);
+            if (ok) {
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
+                        formationId, kindDirect.get().name()), true);
+            }
+            return ok;
         }
         Optional<FormationFieldService.FieldKind> kind = mappedFieldKind(entry.id());
         if (kind.isEmpty()) {
@@ -151,7 +178,7 @@ public final class CraftWorldSoftService {
                     "message.seeking_immortals.formation_catalog.missing_shards", shardCost), true);
             return false;
         }
-        boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kind.get(), 20 * 90);
+        boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kind.get(), 20 * 90, player);
         if (ok) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
                     entry.display(), kind.get().name()), true);
@@ -240,6 +267,25 @@ public final class CraftWorldSoftService {
         map.put("defense_wall", FormationFieldService.FieldKind.DEFENSE);
         map.put("defense_formation", FormationFieldService.FieldKind.DEFENSE);
         map.put("kill_sword", FormationFieldService.FieldKind.KILL_SWORD);
+        map.put("kill_sword_formation", FormationFieldService.FieldKind.KILL_SWORD);
+        map.put("seal_demon_array", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("demon_seal_pillar_array", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("illusion_maze", FormationFieldService.FieldKind.ILLUSION_MAZE);
+        map.put("illusion_maze_array", FormationFieldService.FieldKind.ILLUSION_MAZE);
+        // Wave463/492: catalog aliases map to nearest playable field kinds.
+        map.put("five_elements_mountain", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("barrier_sect_protection", FormationFieldService.FieldKind.DEFENSE);
+        map.put("sword_array_bagua", FormationFieldService.FieldKind.KILL_SWORD);
+        map.put("thunder_tribulation_array", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("blood_sacrifice_array", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("teleport_array", FormationFieldService.FieldKind.CATALOG_GENERIC);
+        map.put("teleport_array_long_range", FormationFieldService.FieldKind.CATALOG_GENERIC);
+        map.put("blood_forbidden_gate", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("nine_dragon_flame_barrier", FormationFieldService.FieldKind.DEFENSE);
+        map.put("inverted_five_elements_array", FormationFieldService.FieldKind.SPIRIT_GATHER);
+        map.put("vajra_prison_array", FormationFieldService.FieldKind.SEAL_DEMON);
+        map.put("mulan_wind_ride_array", FormationFieldService.FieldKind.CATALOG_GENERIC);
+        map.put("nine_dragon_flame_barrier_formation_core", FormationFieldService.FieldKind.DEFENSE);
         map.put("kill_sword_formation", FormationFieldService.FieldKind.KILL_SWORD);
         map.put("seal_demon_array", FormationFieldService.FieldKind.SEAL_DEMON);
         map.put("demon_seal_pillar_array", FormationFieldService.FieldKind.SEAL_DEMON);

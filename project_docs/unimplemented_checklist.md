@@ -179,3 +179,59 @@
 - [x] SectWar 战场 AI 压力壳脉冲 + 击杀计分 0.1.485
 - [x] FTB advancement 任务（8）0.1.485
 - [x] FtbQuestSnbtTest 支持 advancement 类型 0.1.485
+
+## Z. 2026-07-14 Wave487 加深证据
+
+- [x] SectWar 三军可选 + 经过分阶段 + 多敌军压力壳 + 友军援护 0.1.487
+- [x] FTB dimension 任务 8 个（天渊/风元/阴冥/冥河/修罗/仙界/魔渊）0.1.487
+- [x] FtbQuestSnbtTest dimension 断言 + SectWarServiceTest 0.1.487
+
+
+## AA. 2026-07-14 Wave488 加深证据
+
+- [x] FtbCustomTaskHooks CustomTaskEvent 注册 + si_war_active / si_rep_* 0.1.488
+- [x] FTB custom 任务 7 个（慕兰战/声望/天渊/外门）0.1.488
+- [x] FtbCustomTaskHooksTest + FtbQuestSnbtTest custom 断言 0.1.488
+
+## AB. 2026-07-14 Wave489 加深证据
+
+- [x] LifeSkillService + craft/refine/alchemy/beast/puppet practice loops 0.1.489
+- [x] ArtifactAppraisalService + tool use + auction value preview 0.1.489
+- [x] CultivationStatsScreen life/special skill section 0.1.489
+- [x] Leyline cluster density + detector/beast bonus 0.1.489
+- [x] SectMissionGenerator kill/escort authority + beast/formation missions 0.1.489
+
+## AC. 2026-07-14 Wave490 full systems 证据
+
+- [x] Market/Auction/Sect MenuType open via NetworkHooks 0.1.490
+- [x] Life FORMATION deploy practice + alchemy unify 0.1.490
+- [x] SpecialSkillService multi-cast/flying 0.1.490
+- [x] Appraisal skill gate + partial + unappraised hide 0.1.490
+- [x] Leyline-cluster beast ecology densify 0.1.490
+- [x] Sect generated mission contribution turn-in 0.1.490
+- [x] Steward/MarketTrader light path AI 0.1.490
+
+## AD. 2026-07-15 Wave491 depth 证据
+
+- [x] SyncAuctionLadderPacket + AuctionHall pagination protocol 18 0.1.491
+- [x] EscortMissionService + typed kill filters 0.1.491
+- [x] BeastSpawnTableService runtime spawn_tables 0.1.491
+- [x] leyline_surface_marker worldgen 0.1.491
+- [x] LifeSkillTreeScreen + SkillTreeActionPacket 0.1.491
+- [x] TextQuestDialogueTreeService 10 demo chains 0.1.491
+
+## AE. 2026-07-15 Wave492 authority polish 证据
+
+- [x] Auction appraisal gate HIGH_TIER/ALL/OFF 0.1.492
+- [x] Dual-cast MULTI_CASTING (分神双放) 0.1.492
+- [x] DivineSenseExpansionPassive range/tick 0.1.492
+- [x] SectHall/MarketHall tab parity 0.1.492
+- [x] Dialogue trees cover all catalog chains 0.1.492
+- [x] soft_only residual mapping closeout 0.1.492
+
+## AF. 2026-07-15 Wave493 multi-biome leyline structures 证据
+
+- [x] StructureType leyline_vein + piece 0.1.493
+- [x] Hash-authority major-core start gate 0.1.493
+- [x] Mountain/forest/shore/plains biome tags + structure set 0.1.493
+- [x] Physical body via existing ore/array/marker blocks 0.1.493

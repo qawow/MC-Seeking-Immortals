@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "seeking_immortals:leyline_surface_marker",
+  "step": "vegetal_decoration"
+}

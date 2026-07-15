@@ -3692,7 +3692,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_sword",
-      "display": "sword专精入门（通称）道途",
+      "display": "剑道专精入门（通称）道途",
       "method_root": "sect_specialty_sword",
       "spells_ref": "techniques/* school=sword",
       "auto_generated": true,
@@ -3733,7 +3733,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_body",
-      "display": "body专精入门（通称）道途",
+      "display": "炼体专精入门（通称）道途",
       "method_root": "sect_specialty_body",
       "spells_ref": "techniques/* school=body",
       "auto_generated": true,
@@ -3774,7 +3774,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_talisman",
-      "display": "talisman专精入门（通称）道途",
+      "display": "符道专精入门（通称）道途",
       "method_root": "sect_specialty_talisman",
       "spells_ref": "techniques/* school=talisman",
       "auto_generated": true,
@@ -3815,7 +3815,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_formation",
-      "display": "formation专精入门（通称）道途",
+      "display": "阵道专精入门（通称）道途",
       "method_root": "sect_specialty_formation",
       "spells_ref": "techniques/* school=formation",
       "auto_generated": true,
@@ -3856,7 +3856,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_puppet",
-      "display": "puppet专精入门（通称）道途",
+      "display": "傀儡专精入门（通称）道途",
       "method_root": "sect_specialty_puppet",
       "spells_ref": "techniques/* school=puppet",
       "auto_generated": true,
@@ -3897,7 +3897,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）道途",
+      "display": "丹道专精入门（通称）道途",
       "method_root": "sect_specialty_alchemy",
       "spells_ref": "techniques/* school=alchemy",
       "auto_generated": true,
@@ -3938,7 +3938,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_ghost",
-      "display": "ghost专精入门（通称）道途",
+      "display": "鬼道专精入门（通称）道途",
       "method_root": "sect_specialty_ghost",
       "spells_ref": "techniques/* school=ghost",
       "auto_generated": true,
@@ -3979,7 +3979,7 @@
     },
     {
       "tree_id": "tree_sect_specialty_demonic",
-      "display": "demonic专精入门（通称）道途",
+      "display": "魔道专精入门（通称）道途",
       "method_root": "sect_specialty_demonic",
       "spells_ref": "techniques/* school=demonic",
       "auto_generated": true,

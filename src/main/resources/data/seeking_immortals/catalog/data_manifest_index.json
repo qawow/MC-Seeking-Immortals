@@ -5,187 +5,187 @@
   "entries": [
     {
       "id": "artifact_taxonomy_111.json",
-      "display": "artifact_taxonomy_111.json"
+      "display": "法宝分类表 111"
     },
     {
       "id": "moditems_artifacts_draft.json",
-      "display": "moditems_artifacts_draft.json"
+      "display": "模组法宝草案"
     },
     {
       "id": "wanbao_auction_artifacts.json",
-      "display": "wanbao_auction_artifacts.json"
+      "display": "万宝拍卖法宝表"
     },
     {
       "id": "artifact_realm_drops.json",
-      "display": "artifact_realm_drops.json"
+      "display": "法宝·境界掉落表"
     },
     {
       "id": "artifact_faction_specialty.json",
-      "display": "artifact_faction_specialty.json"
+      "display": "法宝·宗门专精表"
     },
     {
       "id": "dimensions_catalog.json",
-      "display": "dimensions_catalog.json"
+      "display": "维度目录"
     },
     {
       "id": "skill_trees.json",
-      "display": "skill_trees.json"
+      "display": "技能树表"
     },
     {
       "id": "demonic_six_sects.json",
-      "display": "demonic_six_sects.json"
+      "display": "魔道六宗表"
     },
     {
       "id": "ascension_flow.json",
-      "display": "ascension_flow.json"
+      "display": "飞升流程表"
     },
     {
       "id": "region_cards/tiannan_north_waste.json",
-      "display": "region_cards/tiannan_north_waste.json"
+      "display": "地区卡·天南北荒"
     },
     {
       "id": "region_cards/tianyuan.json",
-      "display": "region_cards/tianyuan.json"
+      "display": "地区卡·天渊"
     },
     {
       "id": "region_cards/spirit_fengyuan.json",
-      "display": "region_cards/spirit_fengyuan.json"
+      "display": "地区卡·灵界风元"
     },
     {
       "id": "yin_underworld_cluster.json",
-      "display": "yin_underworld_cluster.json"
+      "display": "阴冥集群"
     },
     {
       "id": "barbarian_demon_kings.json",
-      "display": "barbarian_demon_kings.json"
+      "display": "蛮荒魔王表"
     },
     {
       "id": "region_cards/yinming.json",
-      "display": "region_cards/yinming.json"
+      "display": "地区卡·阴冥"
     },
     {
       "id": "region_cards/nether_river.json",
-      "display": "region_cards/nether_river.json"
+      "display": "地区卡·冥河"
     },
     {
       "id": "region_cards/barbarian_wasteland.json",
-      "display": "region_cards/barbarian_wasteland.json"
+      "display": "地区卡·蛮荒"
     },
     {
       "id": "spirit_realm_clan_quests.json",
-      "display": "spirit_realm_clan_quests.json"
+      "display": "灵界宗族任务"
     },
     {
       "id": "spatial_nodes_catalog.json",
-      "display": "spatial_nodes_catalog.json"
+      "display": "空间节点目录"
     },
     {
       "id": "ghost_cultivation_path.json",
-      "display": "ghost_cultivation_path.json"
+      "display": "鬼修路径表"
     },
     {
       "id": "chaotic_sea_factions.json",
-      "display": "chaotic_sea_factions.json"
+      "display": "乱星海势力表"
     },
     {
       "id": "spirit_roots.json",
-      "display": "spirit_roots.json"
+      "display": "灵根表"
     },
     {
       "id": "quest_chains.json",
-      "display": "quest_chains.json"
+      "display": "任务链表"
     },
     {
       "id": "quest_hooks.json",
-      "display": "quest_hooks.json"
+      "display": "任务钩子表"
     },
     {
       "id": "secret_realm_template.json",
-      "display": "secret_realm_template.json"
+      "display": "秘境模板"
     },
     {
       "id": "star_palace_internal_factions.json",
-      "display": "star_palace_internal_factions.json"
+      "display": "星宫内务势力"
     },
     {
       "id": "mulan_tianlan_war.json",
-      "display": "mulan_tianlan_war.json"
+      "display": "木兰天岚战表"
     },
     {
       "id": "schema_validation_report.json",
-      "display": "schema_validation_report.json"
+      "display": "结构校验报告"
     },
     {
       "id": "region_cards/tianlan.json",
-      "display": "region_cards/tianlan.json"
+      "display": "地区卡·天岚"
     },
     {
       "id": "wutu_mulan_feud.json",
-      "display": "wutu_mulan_feud.json"
+      "display": "巫屠木兰世仇"
     },
     {
       "id": "yin_luo_hall.json",
-      "display": "yin_luo_hall.json"
+      "display": "阴罗殿数据"
     },
     {
       "id": "region_cards/wutu_border.json",
-      "display": "region_cards/wutu_border.json"
+      "display": "地区卡·巫屠边境"
     },
     {
       "id": "region_cards/dajin.json",
-      "display": "region_cards/dajin.json"
+      "display": "地区卡·大晋"
     },
     {
       "id": "region_cards/kunwu.json",
-      "display": "region_cards/kunwu.json"
+      "display": "地区卡·坤吾"
     },
     {
       "id": "techniques/ghost.json",
-      "display": "techniques/ghost.json"
+      "display": "术法·鬼道"
     },
     {
       "id": "tianyuan_city.json",
-      "display": "tianyuan_city.json"
+      "display": "天渊城数据"
     },
     {
       "id": "ghost_sect_ban_rules.json",
-      "display": "ghost_sect_ban_rules.json"
+      "display": "鬼道宗门禁令表"
     },
     {
       "id": "region_cards/spirit_realm_border.json",
-      "display": "region_cards/spirit_realm_border.json"
+      "display": "地区卡·灵界边境"
     },
     {
       "id": "human_clan_league.json",
-      "display": "human_clan_league.json"
+      "display": "人族宗盟表"
     },
     {
       "id": "human_clan_quest_network.json",
-      "display": "human_clan_quest_network.json"
+      "display": "人族宗族任务网"
     },
     {
       "id": "patchouli_static_entries.json",
-      "display": "patchouli_static_entries.json"
+      "display": "手册静态条目"
     },
     {
       "id": "inverse_star_quest_network.json",
-      "display": "inverse_star_quest_network.json"
+      "display": "逆星任务网"
     },
     {
       "id": "novel_items_master_index.json",
-      "display": "novel_items_master_index.json"
+      "display": "小说物品总索引"
     },
     {
       "id": "novel_items_waves.json",
-      "display": "novel_items_waves.json"
+      "display": "小说物品波次"
     },
     {
       "id": "novel_cultivation_waves.json",
-      "display": "novel_cultivation_waves.json"
+      "display": "小说修炼波次"
     },
     {
       "id": "novel_cultivation_master_index.json",
-      "display": "novel_cultivation_master_index.json"
+      "display": "小说修炼总索引"
     }
   ]
 }

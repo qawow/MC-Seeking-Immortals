@@ -54,16 +54,23 @@ public final class FormationFieldService {
     }
 
     public static boolean activate(ServerLevel level, BlockPos corePos, FieldKind kind) {
+        return activate(level, corePos, kind, null);
+    }
+
+    /** Wave490: optional deployer for life-skill FORMATION practice + duration scale. */
+    public static boolean activate(ServerLevel level, BlockPos corePos, FieldKind kind, ServerPlayer deployer) {
         if (level == null || corePos == null || kind == null) {
             return false;
         }
         if (!ringIntact(level, corePos, kind)) {
             return false;
         }
+        int duration = scaledDuration(deployer, DEFAULT_DURATION_TICKS);
         FieldKey key = FieldKey.of(level, corePos);
-        ActiveField field = new ActiveField(level.dimension().location().toString(), corePos.immutable(), kind, DEFAULT_DURATION_TICKS);
+        ActiveField field = new ActiveField(level.dimension().location().toString(), corePos.immutable(), kind, duration);
         ACTIVE.put(key, field);
         persistField(level, field);
+        grantFormationPractice(deployer, true);
         return true;
     }
 
@@ -71,16 +78,49 @@ public final class FormationFieldService {
      * Handheld formation deploy: free field around player without requiring a ring core.
      */
     public static boolean activateFreeField(ServerLevel level, BlockPos center, FieldKind kind, int durationTicks) {
+        return activateFreeField(level, center, kind, durationTicks, null);
+    }
+
+    public static boolean activateFreeField(ServerLevel level, BlockPos center, FieldKind kind, int durationTicks, ServerPlayer deployer) {
         if (level == null || center == null || kind == null) {
             return false;
         }
+        int duration = scaledDuration(deployer, Math.max(20 * 20, durationTicks));
         FieldKey key = FieldKey.of(level, center);
-        ActiveField field = new ActiveField(level.dimension().location().toString(), center.immutable(), kind,
-                Math.max(20 * 20, durationTicks));
+        ActiveField field = new ActiveField(level.dimension().location().toString(), center.immutable(), kind, duration);
         field.freeField = true;
         ACTIVE.put(key, field);
         persistField(level, field);
+        grantFormationPractice(deployer, false);
         return true;
+    }
+
+    private static int scaledDuration(ServerPlayer deployer, int baseTicks) {
+        if (deployer == null) {
+            return Math.max(1, baseTicks);
+        }
+        int lv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(
+                deployer, com.xunxian.seekingimmortals.skill.SkillType.FORMATION);
+        // +5% duration per level, cap +40%.
+        double scale = 1.0D + Math.min(0.40D, lv * 0.05D);
+        return Math.max(1, (int) Math.round(baseTicks * scale));
+    }
+
+    private static void grantFormationPractice(ServerPlayer deployer, boolean coreDeploy) {
+        if (deployer == null) {
+            return;
+        }
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(
+                deployer,
+                com.xunxian.seekingimmortals.skill.SkillType.FORMATION,
+                coreDeploy ? 20 : 14,
+                coreDeploy ? 8 : 5);
+        // Special skill sense gains light practice when formations are read/deployed.
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(
+                deployer,
+                com.xunxian.seekingimmortals.skill.SkillType.FORMATION_SENSE,
+                8,
+                3);
     }
 
     public static void loadFromSavedData(ServerLevel level) {

@@ -90,6 +90,9 @@ public final class ClientEvents {
         event.enqueueWork(() -> {
             MenuScreens.register(ModMenus.ALCHEMY_FURNACE.get(), AlchemyFurnaceScreen::new);
             MenuScreens.register(ModMenus.STORAGE_BRACELET.get(), StorageBraceletScreenMenu::new);
+            MenuScreens.register(ModMenus.MARKET_HALL.get(), MarketHallScreen::new);
+            MenuScreens.register(ModMenus.AUCTION_HALL.get(), AuctionHallScreen::new);
+            MenuScreens.register(ModMenus.SECT_HALL.get(), SectHallScreen::new);
         });
     }
 
@@ -223,6 +226,7 @@ public final class ClientEvents {
             ClientShopData.reset();
             ClientWorldpackData.reset();
             ClientQuestTrackerData.reset();
+            ClientAuctionLadderData.reset();
         }
 
         private static void drainTechniqueKeyClicks() {

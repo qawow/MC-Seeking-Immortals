@@ -191,7 +191,11 @@ public final class ArtifactRefinementService {
             consumeMaterials(player, ingredients);
         }
 
-        double adjustedRate = adjustedSuccessRate(recipe.baseSuccessRate(), grade, requiredGrade);
+        // Wave489: ARTIFACT_REFINING life skill bonus stacked on forge grade.
+        double skillBonus = com.xunxian.seekingimmortals.skill.LifeSkillService.successBonus(
+                player, com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING);
+        double adjustedRate = Math.min(0.95D,
+                adjustedSuccessRate(recipe.baseSuccessRate(), grade, requiredGrade) + skillBonus);
         boolean success = succeeds(player.getRandom().nextDouble(), adjustedRate);
         if (success) {
             ItemStack output = new ItemStack(outputItem);
@@ -206,6 +210,8 @@ public final class ArtifactRefinementService {
                     && recipe.artifactId().equals(NatalBindingService.boundId(player))) {
                 NatalBindingService.grow(player);
             }
+            com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                    com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING, 28, 12);
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.artifact.refine.success",
                     recipe.display(), outputName, successPercent(adjustedRate)));
@@ -214,6 +220,8 @@ public final class ArtifactRefinementService {
 
         player.containerMenu.broadcastChanges();
         playFeedback(player, false);
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING, 10, 4);
         List<ItemStack> failureLoot = grantFailureLoot(player, recipe, grade, requiredGrade);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.artifact.refine.failure",

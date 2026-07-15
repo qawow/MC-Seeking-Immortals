@@ -60,12 +60,13 @@ public final class ManualCatalogService {
         CultivationHelper.get(player).ifPresent(cultivation -> {
             if (!manual.realmMin().isBlank() && !WorldpackGameplayService.meetsMinRealm(cultivation.getRealm(), manual.realmMin())) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.realm_too_low",
-                        manual.display(), manual.realmMin()), false);
+                        displayName(manual),
+                        com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(manual.realmMin())), false);
                 return;
             }
             if (hasStudied(player, manual.id())) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.already_studied",
-                        manual.display()), false);
+                        displayName(manual)), false);
                 return;
             }
             markStudied(player, manual.id());
@@ -73,13 +74,14 @@ public final class ManualCatalogService {
             // Wave474: unlock tokens that map to cultivation methods are granted as learned methods.
             int grantedMethods = grantUnlockMethods(player, manual.unlocks());
             player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.studied",
-                    manual.display(), manual.type()), true);
-            if (!manual.note().isBlank()) {
+                    displayName(manual), typeDisplay(manual.type())), true);
+            if (!manual.note().isBlank() && !manual.note().equals(manual.display())
+                    && !looksLikeCode(manual.note())) {
                 player.displayClientMessage(Component.literal(manual.note()), false);
             }
             if (!manual.unlocks().isEmpty()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.unlocks",
-                        String.join(", ", manual.unlocks())), false);
+                        unlocksDisplay(manual.unlocks())), false);
             }
             if (grantedMethods > 0) {
                 player.displayClientMessage(Component.translatable(
@@ -91,11 +93,111 @@ public final class ManualCatalogService {
             }
             if (!manual.recipeId().isBlank()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.manual.recipe",
-                        manual.recipeId()), false);
+                        recipeDisplay(manual.recipeId())), false);
             }
             ok[0] = true;
         });
         return ok[0];
+    }
+
+    public static Component typeDisplay(String typeCode) {
+        String code = typeCode == null ? "" : typeCode.trim().toLowerCase(Locale.ROOT);
+        if (code.isBlank()) {
+            return Component.translatable("manual.type.seeking_immortals.unknown");
+        }
+        String key = "manual.type.seeking_immortals." + code;
+        net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
+        if (language != null && language.has(key)) {
+            return Component.translatable(key);
+        }
+        return Component.literal(switch (code) {
+            case "alchemy" -> "炼丹";
+            case "refinement" -> "炼器";
+            case "talisman" -> "符箓";
+            case "formation" -> "阵法";
+            case "puppet" -> "傀儡";
+            case "cultivation_path" -> "修炼道路";
+            case "quest" -> "任务";
+            default -> code;
+        });
+    }
+
+    public static Component recipeDisplay(String recipeId) {
+        String id = recipeId == null ? "" : recipeId.trim();
+        if (id.isBlank()) {
+            return Component.literal("");
+        }
+        net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
+        String itemKey = "item.seeking_immortals." + id;
+        if (language != null && language.has(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        String alchemyKey = "alchemy_recipe.seeking_immortals." + id;
+        if (language != null && language.has(alchemyKey)) {
+            return Component.translatable(alchemyKey);
+        }
+        // Prefer catalog manual display when recipe id equals a manual carrier.
+        Optional<TextMaterialCatalogService.ManualEntry> manual =
+                TextMaterialCatalogService.builtin().findManual(id);
+        if (manual.isPresent() && manual.get().display() != null && !manual.get().display().isBlank()) {
+            return Component.literal(manual.get().display());
+        }
+        return Component.literal(id);
+    }
+
+    public static Component displayName(TextMaterialCatalogService.ManualEntry manual) {
+        if (manual == null) {
+            return Component.literal("未知典籍");
+        }
+        if (manual.display() != null && !manual.display().isBlank() && !looksLikeCode(manual.display())) {
+            return Component.literal(manual.display());
+        }
+        net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
+        String itemKey = "item.seeking_immortals." + manual.id();
+        if (language != null && language.has(itemKey)) {
+            return Component.translatable(itemKey);
+        }
+        return Component.literal(manual.id());
+    }
+
+    private static String unlocksDisplay(List<String> unlocks) {
+        if (unlocks == null || unlocks.isEmpty()) {
+            return "";
+        }
+        List<String> parts = new ArrayList<>();
+        for (String unlock : unlocks) {
+            if (unlock == null || unlock.isBlank()) {
+                continue;
+            }
+            Optional<TextMaterialCatalogService.MethodEntry> method =
+                    TextMaterialCatalogService.builtin().findMethod(unlock);
+            if (method.isPresent() && method.get().display() != null && !method.get().display().isBlank()
+                    && !looksLikeCode(method.get().display())) {
+                parts.add(method.get().display());
+                continue;
+            }
+            net.minecraft.locale.Language language = net.minecraft.locale.Language.getInstance();
+            String itemKey = "item.seeking_immortals." + unlock;
+            if (language != null && language.has(itemKey)) {
+                parts.add(language.getOrDefault(itemKey));
+            } else {
+                parts.add(unlock);
+            }
+        }
+        return String.join("、", parts);
+    }
+
+    private static boolean looksLikeCode(String text) {
+        if (text == null || text.isBlank()) {
+            return true;
+        }
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.UnicodeScript.of(text.charAt(i)) == Character.UnicodeScript.HAN) {
+                return false;
+            }
+        }
+        String lower = text.toLowerCase(Locale.ROOT);
+        return lower.contains("_") || lower.matches("[a-z0-9\\-./: ]+");
     }
 
     public static boolean hasStudied(ServerPlayer player, String manualId) {

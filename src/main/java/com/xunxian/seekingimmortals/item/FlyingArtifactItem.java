@@ -54,14 +54,16 @@ public class FlyingArtifactItem extends Item {
     private void appendArtifactDataTooltip(List<Component> tooltip) {
         ArtifactDataService.Snapshot artifactData = ArtifactDataService.builtin();
         artifactData.findArtifact(artifactId).ifPresent(artifact -> {
-            tooltip.add(Component.literal("Artifact: " + artifact.display()
-                    + " / " + artifactData.tierDisplay(artifact.tier())
-                    + " / game tier " + artifact.gameTier()).withStyle(ChatFormatting.DARK_AQUA));
-            tooltip.add(Component.literal("Realm: " + artifact.realmMin()
-                    + " / type: " + artifact.type()).withStyle(ChatFormatting.DARK_GRAY));
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.header",
+                            artifact.display(), artifactData.tierDisplay(artifact.tier()), artifact.gameTier())
+                    .withStyle(ChatFormatting.DARK_AQUA));
+            tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.realm_type",
+                            com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.realm(artifact.realmMin()),
+                            com.xunxian.seekingimmortals.artifact.ArtifactDisplayTexts.type(artifact.type()))
+                    .withStyle(ChatFormatting.DARK_GRAY));
             artifactData.findRecipeByArtifact(artifact.id()).ifPresent(recipe ->
-                    tooltip.add(Component.literal("Refine: grade " + recipe.forgeGrade()
-                            + " / success " + Math.round(recipe.baseSuccessRate() * 100.0D) + "%")
+                    tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.refine",
+                                    recipe.forgeGrade(), Math.round(recipe.baseSuccessRate() * 100.0D))
                             .withStyle(ChatFormatting.DARK_GRAY)));
         });
     }

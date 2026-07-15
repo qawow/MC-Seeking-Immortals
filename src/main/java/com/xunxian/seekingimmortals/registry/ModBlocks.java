@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.registry;
 
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.block.AlchemyFurnaceBlock;
+import com.xunxian.seekingimmortals.block.AlchemyLidBlock;
 import com.xunxian.seekingimmortals.block.EarthWallBlock;
 import com.xunxian.seekingimmortals.block.LingGenIdentificationSlabBlock;
 import com.xunxian.seekingimmortals.block.MeditationCushionBlock;
@@ -150,6 +151,10 @@ public final class ModBlocks {
     public static final RegistryObject<Block> YIN_ESSENCE_ORE = BLOCKS.register("yin_essence_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(3.2F, 4.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE),
                     UniformInt.of(1, 4)));
+    // Wave491: sparse surface marker for leyline presentation (hash aura remains authority).
+    public static final RegistryObject<Block> LEYLINE_SURFACE_MARKER = BLOCKS.register("leyline_surface_marker",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(1.2F, 2.0F)
+                    .sound(SoundType.AMETHYST).lightLevel(state -> 7).noOcclusion()));
 
     public static final RegistryObject<Block> ALCHEMY_FURNACE = registerAlchemyFurnace("alchemy_furnace", 1, 3.0F, 6.0F);
     public static final RegistryObject<Block> ALCHEMY_FURNACE_TIER_2 = registerAlchemyFurnace("alchemy_furnace_tier_2", 2, 4.0F, 8.0F);
@@ -160,6 +165,17 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SECT_EARTH_FIRE_ROOM = BLOCKS.register("sect_earth_fire_room", () -> new Block(
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(4.0F, 9.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
+    /** Wave499: dedicated alchemy furnace shell node (preferred over reusing spirit_gathering_array). */
+    public static final RegistryObject<Block> ALCHEMY_FURNACE_ARRAY_NODE = BLOCKS.register("alchemy_furnace_array_node", () -> new Block(
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.AMETHYST).noOcclusion()));
+
+    /** Wave500: lids are placeable multiblock parts above the furnace controller. */
+    public static final RegistryObject<Block> ALCHEMY_LID_LOW = registerAlchemyLid("alchemy_lid_low", 1);
+    public static final RegistryObject<Block> ALCHEMY_LID_MID = registerAlchemyLid("alchemy_lid_mid", 2);
+    public static final RegistryObject<Block> ALCHEMY_LID_HIGH = registerAlchemyLid("alchemy_lid_high", 3);
+    public static final RegistryObject<Block> ALCHEMY_LID_TIER_4 = registerAlchemyLid("alchemy_lid_tier_4", 4);
+    public static final RegistryObject<Block> ALCHEMY_LID_TIER_5 = registerAlchemyLid("alchemy_lid_tier_5", 5);
+
     public static final RegistryObject<Block> EARTH_WALL = BLOCKS.register("earth_wall", () -> new EarthWallBlock(
             BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(1.5F, 3.0F).sound(SoundType.GRAVEL)));
 
@@ -168,6 +184,12 @@ public final class ModBlocks {
     private static RegistryObject<Block> registerAlchemyFurnace(String name, int tier, float hardness, float resistance) {
         return BLOCKS.register(name, () -> new AlchemyFurnaceBlock(
                 BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(hardness, resistance).requiresCorrectToolForDrops().sound(SoundType.METAL),
+                tier));
+    }
+
+    private static RegistryObject<Block> registerAlchemyLid(String name, int tier) {
+        return BLOCKS.register(name, () -> new AlchemyLidBlock(
+                BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.2F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion(),
                 tier));
     }
 

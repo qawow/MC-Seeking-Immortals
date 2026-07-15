@@ -86,11 +86,13 @@ public final class ModCreativeTabs {
                 output.accept(ModItems.SPIRIT_HERB_PLANTER.get());
                 output.accept(ModItems.LOW_SPIRIT_IRON_ORE.get());
                 output.accept(ModItems.YIN_ESSENCE_ORE.get());
+                output.accept(ModItems.LEYLINE_SURFACE_MARKER.get());
                 output.accept(ModItems.ALCHEMY_FURNACE.get());
                 output.accept(ModItems.ALCHEMY_FURNACE_TIER_2.get());
                 output.accept(ModItems.ALCHEMY_FURNACE_TIER_3.get());
                 output.accept(ModItems.ALCHEMY_FURNACE_TIER_4.get());
                 output.accept(ModItems.ALCHEMY_FURNACE_TIER_5.get());
+                output.accept(ModItems.ALCHEMY_FURNACE_ARRAY_NODE.get());
                 output.accept(ModItems.SECT_EARTH_FIRE_ROOM.get());
                 output.accept(ModItems.ALCHEMY_LID_LOW.get());
                 output.accept(ModItems.ALCHEMY_LID_MID.get());

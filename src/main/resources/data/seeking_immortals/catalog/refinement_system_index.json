@@ -5,23 +5,23 @@
   "entries": [
     {
       "id": "forge_grade",
-      "display": "forge_grade"
+      "display": "炼器炉阶"
     },
     {
       "id": "refinement_skill",
-      "display": "refinement_skill"
+      "display": "炼器技艺"
     },
     {
       "id": "material_quality",
-      "display": "material_quality"
+      "display": "材料品质"
     },
     {
       "id": "realm_control",
-      "display": "realm_control"
+      "display": "境界压制"
     },
     {
       "id": "manual_unlock",
-      "display": "manual_unlock"
+      "display": "功法解锁"
     }
   ]
 }

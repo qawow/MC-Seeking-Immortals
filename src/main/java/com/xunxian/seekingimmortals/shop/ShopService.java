@@ -103,9 +103,37 @@ public final class ShopService {
         if (!isMarketShop(normalizedShop)) {
             normalizedShop = MARKET_HERBAL_STALL;
         }
-        MarketSnapshot snapshot = snapshot(player, normalizedShop, WorldpackGameplayService.marketCostModifier(player), openScreen);
+        // Wave490: data sync never opens the legacy ShopScreen; hall MenuType is opened via NetworkHooks.
+        MarketSnapshot snapshot = snapshot(player, normalizedShop, WorldpackGameplayService.marketCostModifier(player), false);
         SyncShopDataPacket.send(player, toPacket(snapshot));
         sendMarketListing(player, snapshot);
+        if (openScreen) {
+            openMarketHall(player, normalizedShop);
+        }
+    }
+
+    /** Wave490: productized market hall MenuType open path. */
+    public static void openMarketHall(ServerPlayer player, String shopId) {
+        if (player == null) {
+            return;
+        }
+        String normalizedShop = normalizeShopId(shopId);
+        if (!isMarketShop(normalizedShop)) {
+            normalizedShop = MARKET_HERBAL_STALL;
+        }
+        final String openId = normalizedShop;
+        net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
+            @Override
+            public net.minecraft.network.chat.Component getDisplayName() {
+                return net.minecraft.network.chat.Component.translatable("screen.seeking_immortals.shop.market_title");
+            }
+
+            @Override
+            public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
+                    int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
+                return new com.xunxian.seekingimmortals.menu.MarketHallMenu(id, inv, openId);
+            }
+        }, buf -> buf.writeUtf(openId, 128));
     }
 
     public static void handleClientAction(ServerPlayer player, String action, String shopId, String entryId) {

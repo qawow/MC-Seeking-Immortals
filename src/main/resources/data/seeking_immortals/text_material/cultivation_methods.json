@@ -2100,7 +2100,7 @@
     },
     {
       "id": "sect_specialty_sword",
-      "display": "sword专精入门（通称）",
+      "display": "剑道专精入门（通称）",
       "path": "sword",
       "realm_min": "FOUNDATION",
       "description": "sword专精入门（通称）：sword系功法，门槛境界 FOUNDATION。",
@@ -2126,7 +2126,7 @@
     },
     {
       "id": "sect_specialty_body",
-      "display": "body专精入门（通称）",
+      "display": "炼体专精入门（通称）",
       "path": "body",
       "realm_min": "FOUNDATION",
       "description": "body专精入门（通称）：body系功法，门槛境界 FOUNDATION。",
@@ -2149,7 +2149,7 @@
     },
     {
       "id": "sect_specialty_talisman",
-      "display": "talisman专精入门（通称）",
+      "display": "符道专精入门（通称）",
       "path": "talisman",
       "realm_min": "FOUNDATION",
       "description": "talisman专精入门（通称）：talisman系功法，门槛境界 FOUNDATION。",
@@ -2176,7 +2176,7 @@
     },
     {
       "id": "sect_specialty_formation",
-      "display": "formation专精入门（通称）",
+      "display": "阵道专精入门（通称）",
       "path": "formation",
       "realm_min": "FOUNDATION",
       "description": "formation专精入门（通称）：formation系功法，门槛境界 FOUNDATION。",
@@ -2199,7 +2199,7 @@
     },
     {
       "id": "sect_specialty_puppet",
-      "display": "puppet专精入门（通称）",
+      "display": "傀儡专精入门（通称）",
       "path": "puppet",
       "realm_min": "FOUNDATION",
       "description": "puppet专精入门（通称）：puppet系功法，门槛境界 FOUNDATION。",
@@ -2223,7 +2223,7 @@
     },
     {
       "id": "sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）",
+      "display": "丹道专精入门（通称）",
       "path": "alchemy",
       "realm_min": "FOUNDATION",
       "description": "alchemy专精入门（通称）：alchemy系功法，门槛境界 FOUNDATION。",
@@ -2246,7 +2246,7 @@
     },
     {
       "id": "sect_specialty_ghost",
-      "display": "ghost专精入门（通称）",
+      "display": "鬼道专精入门（通称）",
       "path": "ghost",
       "realm_min": "FOUNDATION",
       "description": "ghost专精入门（通称）：ghost系功法，门槛境界 FOUNDATION。",
@@ -2270,7 +2270,7 @@
     },
     {
       "id": "sect_specialty_demonic",
-      "display": "demonic专精入门（通称）",
+      "display": "魔道专精入门（通称）",
       "path": "demonic",
       "realm_min": "FOUNDATION",
       "description": "demonic专精入门（通称）：demonic系功法，门槛境界 FOUNDATION。",
@@ -2484,8 +2484,13 @@
         "cultivation_type": "auxiliary",
         "sect_specialty": "artifact_defense",
         "spirit_root_gate": {
-          "required_any": ["earth", "fire"],
-          "bonus": ["earth"]
+          "required_any": [
+            "earth",
+            "fire"
+          ],
+          "bonus": [
+            "earth"
+          ]
         },
         "combat_style": "以符箓护体、法器御敌为主，本体战力偏弱。",
         "region": "tiannan",
@@ -2496,10 +2501,17 @@
       "learn_requirements": {
         "realm_min": "QI_REFINING",
         "spirit_roots": {
-          "required_any": ["earth", "fire"]
+          "required_any": [
+            "earth",
+            "fire"
+          ]
         },
         "faction_relation_min": "outer_disciple",
-        "learn_source": ["sect_forge_hall", "master_grant", "market_slip_rare"]
+        "learn_source": [
+          "sect_forge_hall",
+          "master_grant",
+          "market_slip_rare"
+        ]
       }
     },
     {
@@ -2515,7 +2527,9 @@
         "cultivation_type": "auxiliary",
         "sect_specialty": "auction_treasure",
         "spirit_root_gate": {
-          "required_any": ["any"],
+          "required_any": [
+            "any"
+          ],
           "note": "灵根不限，重神识与阅历。"
         },
         "combat_style": "几乎不参与斗法，情报与竞价为核心。",
@@ -2526,7 +2540,11 @@
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
-        "learn_source": ["wanbao_contract", "auction_mentor", "high_price_intel_scroll"],
+        "learn_source": [
+          "wanbao_contract",
+          "auction_mentor",
+          "high_price_intel_scroll"
+        ],
         "reputation_min": {
           "faction": "wanbao_pavilion",
           "tier": "registered_bidder"

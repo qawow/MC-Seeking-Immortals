@@ -76,7 +76,7 @@
       ],
       dependencies: ["1000000000000604"],
       tags: ["seeking_immortals", "dajin", "branch_righteous"],
-      tasks: [{id: "1000000000001605", type: "checkmark", title: "完成正道巡边"}]
+      tasks: [{id: "1000000000001605", type: "custom", title: "完成正道巡边", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000606",

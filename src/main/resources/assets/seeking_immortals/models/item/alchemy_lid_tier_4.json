@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "seeking_immortals:item/alchemy_lid_tier_4"
-  }
+  "parent": "seeking_immortals:block/alchemy_lid_tier_4"
 }

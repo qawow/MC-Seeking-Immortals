@@ -103,6 +103,7 @@ generated/
 output/
 tmp/
 temp/
+_tmp_*
 
 # Asset source files; exported PNG/JSON resources should remain tracked
 *.aseprite

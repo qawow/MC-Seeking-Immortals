@@ -5,27 +5,27 @@
   "entries": [
     {
       "id": "mortal_life",
-      "display": "mortal_life"
+      "display": "凡俗生涯"
     },
     {
       "id": "qi_refining_gear",
-      "display": "qi_refining_gear"
+      "display": "炼气装备"
     },
     {
       "id": "foundation_breakthrough",
-      "display": "foundation_breakthrough"
+      "display": "筑基突破"
     },
     {
       "id": "core_formation",
-      "display": "core_formation"
+      "display": "结丹"
     },
     {
       "id": "nascent_soul",
-      "display": "nascent_soul"
+      "display": "元婴"
     },
     {
       "id": "auction_legendary",
-      "display": "auction_legendary"
+      "display": "拍卖·传说级"
     }
   ]
 }

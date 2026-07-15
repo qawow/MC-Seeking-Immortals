@@ -1,3 +1,31 @@
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.500 protocol 18. Wave500: alchemy lids are placeable multiblock parts on furnace top; T1/T2 require only lid (no array nodes); T3+ outer ring + T4 magma; GUI lid slot disabled; lidTier from world lid block. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.499 protocol 18. Wave499: alchemy furnace FORMED multiblock + dedicated array node (legacy array compatible); GUI slot authority for formula/lid/fire; formed texture/particles; earth-fire room stays parallel. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.498 protocol 18. Wave498: alchemy furnace full multiblock shell for all tiers (T1-2 cardinal arrays, T3+ outer ring, T4+ magma under); mid-cook shell break wastes batch; sneak inspect status. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.497 protocol 18. Wave497: CatalogManualItem/ManualCatalogService no longer show raw ids (recipe_bu_tian/type/realm codes); manual type+recipe localized; specialty method displays Chinese. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.496 protocol 18. Wave496: material tooltip Chinese keys; artifact realm/type/tag/effect localization (no QI_REFINING/flying_sword raw codes in tooltips); residual mixed region/cultivation aid item names cleaned. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.495 protocol 18. Wave495: remaining 222 catalog index English display fields localized to Chinese (16 index files). No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.494 protocol 18. Wave494: 37 English item names localized to zh_cn; artifact tooltips bilingual; bulk catalog descriptions Chinese; high-impact catalog displays cleaned. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.493 protocol 18. Wave493: true multi-biome leyline vein structures (mountain/forest/shore/plains) using custom StructureType gated by SpiritualAuraManager hash authority; physical body uses spirit ore/array/marker. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.492 protocol 18. Wave492: auction appraisal gate (HIGH_TIER/ALL/OFF); dual-cast MULTI_CASTING; real DivineSenseExpansion passive; SectHall/MarketHall tab parity; dialogue trees for all catalog chains; soft_only residual mapping closeout. No packet field change.
+
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.491 protocol 18. Wave491: auction live ladder SyncAuctionLadderPacket + hall pagination; escort servitor + typed kill filters; BeastSpawnTableService runtime; leyline_surface_marker worldgen; LifeSkillTreeScreen; 10-chain dialogue node tables. Protocol 17->18.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.490 protocol 17. Wave490: productized market/auction/sect hall MenuTypes via NetworkHooks; life FORMATION loop; SpecialSkillService; appraisal gates/partial; leyline-cluster beast ecology densify; sect generated mission contribution turn-in; NPC path AI. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.489 protocol 17. Wave489: life/special skill loops + appraisal + leyline clusters + sect daily authority + skill GUI. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.488 protocol 17. Wave488: FTB CustomTaskEvent hooks (si_war_active / si_rep_*) + 7 packaged custom tasks. No packet field change.
+
+> CURRENT TRUTH 2026-07-14: mod_version=0.1.487 protocol 17. Wave487: multi-army sect war (optional third faction, elapsed-fraction phases, multi-enemy shells + ally reinforcements) + FTB dimension tasks (8). No packet field change.
+
 > CURRENT TRUTH 2026-07-14: mod_version=0.1.486 protocol 17. Wave486 review hardening: build preflight/version fixed; consumed-manual progression survives death; first Wanbao bid is reachable; method-layout persistence is catalog/packet bounded; quest starts enforce realm/region/faction; source methods require a successful technique learn; servitor ownership/cap is server-global with deferred commands; war-shell score follows the killer faction; embark fees reserve stage costs atomically; cast gates precede qi-deviation risk; method-tree detail text and war translations fixed. No packet field/order/encoding change. Full build passed.
 
 > CURRENT TRUTH 2026-07-14: mod_version=0.1.485 protocol 16. Wave485: freeform drag method-tree layout + sect-war battlefield AI pulse shells + FTB advancement tasks (8). No packet field change.

@@ -4,7 +4,6 @@ import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
-import com.xunxian.seekingimmortals.skill.CultivationSkill;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.server.level.ServerLevel;
@@ -180,18 +179,9 @@ public final class AlchemyRecipeService {
      * 炼丹技能等级带来的成功率加成（H13）。
      * <p>每级 +0.02，上限 +0.20；未学炼丹术视为 0。
      */
-    private static final double ALCHEMY_BONUS_PER_LEVEL = 0.02D;
-    private static final double ALCHEMY_BONUS_MAX = 0.20D;
-
     public static double getAlchemySkillBonus(ServerPlayer player) {
-        return CultivationHelper.get(player)
-                .filter(PlayerCultivation::hasAlchemy)
-                .map(cultivation -> {
-                    CultivationSkill alchemy = cultivation.getSkill(SkillType.ALCHEMY);
-                    int level = alchemy == null ? 0 : alchemy.getLevel();
-                    return Math.min(ALCHEMY_BONUS_MAX, level * ALCHEMY_BONUS_PER_LEVEL);
-                })
-                .orElse(0.0D);
+        // Wave490: unify onto LifeSkillService bonus constants (no parallel table).
+        return com.xunxian.seekingimmortals.skill.LifeSkillService.successBonus(player, SkillType.ALCHEMY);
     }
 
     private static final class ComponentName {

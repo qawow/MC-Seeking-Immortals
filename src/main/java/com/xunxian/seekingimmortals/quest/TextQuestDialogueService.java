@@ -22,6 +22,20 @@ public final class TextQuestDialogueService {
         String branch = TextQuestChainService.getBranch(player, id);
         String npc = TextQuestChainService.getNpc(player, id);
         TextQuestChainService.ChainProgress progress = TextQuestChainService.progressOf(player, id);
+        // Wave491: prefer multi-node demo trees for 10 chains.
+        var nodeOpt = TextQuestDialogueTreeService.nodeFor(id, progress.stage(), progress.complete());
+        if (nodeOpt.isPresent()) {
+            TextQuestDialogueTreeService.Node node = nodeOpt.get();
+            List<DialogueLine> lines = new ArrayList<>();
+            lines.add(new DialogueLine(npc, node.textKey(), ""));
+            for (TextQuestDialogueTreeService.Choice choice : node.choices()) {
+                lines.add(new DialogueLine(npc, choice.labelKey(), choice.action()));
+            }
+            if (!branch.isBlank()) {
+                lines.add(new DialogueLine(npc, "message.seeking_immortals.text_quest.dialogue.branch_remember", branch));
+            }
+            return lines;
+        }
         List<DialogueLine> lines = new ArrayList<>();
         lines.add(new DialogueLine(npc, "message.seeking_immortals.text_quest.dialogue.greeting", ""));
         if (progress.stage() <= 0) {
@@ -79,6 +93,10 @@ public final class TextQuestDialogueService {
                     TextQuestChainService.chooseBranch(player, chainId, TextQuestChainService.BRANCH_DEMONIC);
             case "branch_neutral", "neutral", "branch" ->
                     TextQuestChainService.chooseBranch(player, chainId, TextQuestChainService.BRANCH_NEUTRAL);
+            case "talk", "" -> {
+                talk(player, chainId);
+                yield true;
+            }
             default -> {
                 talk(player, chainId);
                 yield true;

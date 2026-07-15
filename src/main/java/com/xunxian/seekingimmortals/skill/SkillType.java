@@ -160,7 +160,7 @@ public enum SkillType {
     FORMATION_SENSE("阵法感知", SkillCategory.SPECIAL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.PEAK, "formation_sense", 10, 200, "以神识感知附近阵法与灵力边界"),
     BEAST_TAMING("驭兽术", SkillCategory.SPECIAL, Realm.FOUNDATION_ESTABLISHMENT, "契约和驯服灵兽"),
     PUPPET_CONTROL("傀儡操控", SkillCategory.SPECIAL, Realm.CORE_FORMATION, "操控战斗傀儡"),
-    MULTI_CASTING("分神多用", SkillCategory.SPECIAL, Realm.NASCENT_SOUL, "同时施展多个法术"),
+    MULTI_CASTING("分神双放", SkillCategory.SPECIAL, Realm.NASCENT_SOUL, "分神双放：主术释放时可联动额外术位同步施展（共享灵力与冷却）"),
 
     BUDDHA_LIGHT("佛光", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "buddha_light", 19, 170, "佛光铺开金色莲纹，净化隐匿并克制妖魔鬼物"),
     SARIRA_SHIELD("舍利护体", SkillCategory.SPELL, Realm.FOUNDATION_ESTABLISHMENT, RealmStage.EARLY, "sarira_shield", 12, 190, "舍利光珠护住周身，偏折飞矢并震退妖邪"),

@@ -5,11 +5,11 @@
   "entries": [
     {
       "id": "scrap_spirit_iron",
-      "display": "scrap_spirit_iron"
+      "display": "灵铁碎屑"
     },
     {
       "id": "spirit_stone_shard",
-      "display": "spirit_stone_shard"
+      "display": "灵石碎片"
     }
   ]
 }

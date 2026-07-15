@@ -1,0 +1,7 @@
+{
+  "type": "seeking_immortals:leyline_vein",
+  "biomes": "#seeking_immortals:has_structure/leyline_vein_forest",
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "spawn_overrides": {}
+}

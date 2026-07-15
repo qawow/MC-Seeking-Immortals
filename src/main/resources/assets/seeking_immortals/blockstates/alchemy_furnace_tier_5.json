@@ -1,7 +1,6 @@
 {
   "variants": {
-    "": {
-      "model": "seeking_immortals:block/alchemy_furnace_tier_5"
-    }
+    "formed=false": { "model": "seeking_immortals:block/alchemy_furnace_tier_5" },
+    "formed=true": { "model": "seeking_immortals:block/alchemy_furnace_tier_5_formed" }
   }
 }

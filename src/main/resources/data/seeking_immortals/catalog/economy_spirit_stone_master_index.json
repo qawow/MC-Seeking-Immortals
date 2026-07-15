@@ -5,35 +5,35 @@
   "entries": [
     {
       "id": "talisman_low_shop",
-      "display": "talisman_low_shop"
+      "display": "低阶符箓铺"
     },
     {
       "id": "talisman_mid_master",
-      "display": "talisman_mid_master"
+      "display": "中阶符师考核"
     },
     {
       "id": "low_artifact_fair",
-      "display": "low_artifact_fair"
+      "display": "低阶法宝会"
     },
     {
       "id": "mid_artifact_fair",
-      "display": "mid_artifact_fair"
+      "display": "中阶法宝会"
     },
     {
       "id": "top_artifact_fair_low_equiv",
-      "display": "top_artifact_fair_low_equiv"
+      "display": "顶级法宝会·低等值对照"
     },
     {
       "id": "thousand_year_herb_vs_fine_artifact",
-      "display": "roughly_equal_low_equiv_1500_3000"
+      "display": "千年灵药对照精良法宝"
     },
     {
       "id": "foundation_pill_auction",
-      "display": "foundation_pill_auction"
+      "display": "筑基丹拍卖"
     },
     {
       "id": "peak_talisman_three_thunder",
-      "display": "no_market_price"
+      "display": "巅峰符箓·三雷"
     }
   ]
 }

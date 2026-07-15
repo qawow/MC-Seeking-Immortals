@@ -32,12 +32,30 @@ public final class DailyEventEncounterService {
         }
         EntityType<? extends Mob> type = null;
         int count = 1;
+        boolean beastEcology = false;
         if (id.contains("bandit") || id.contains("rogue") || id.contains("raid")) {
             type = EntityType.PILLAGER;
             count = 2;
         } else if (id.contains("beast") || id.contains("migration") || id.contains("tide")) {
-            type = EntityType.WOLF;
-            count = 3;
+            // Wave491: prefer spawn_tables runtime consumer (servitor proxies + cluster weight).
+            String region = "tiannan";
+            if (id.contains("mulan")) {
+                region = "mulan";
+            } else if (id.contains("sea") || id.contains("chaotic")) {
+                region = "chaotic_sea";
+            } else if (id.contains("dajin") || id.contains("kunwu")) {
+                region = "dajin";
+            }
+            int spawned = BeastSpawnTableService.spawnNearPlayer(player, region, 3);
+            player.getPersistentData().putBoolean(key, true);
+            if (spawned <= 0) {
+                // Fallback to legacy wolf densify if tables empty.
+                type = EntityType.WOLF;
+                count = 3;
+                beastEcology = true;
+            } else {
+                return;
+            }
         } else if (id.contains("demon") || id.contains("qi") || id.contains("corruption")) {
             type = EntityType.VEX;
             count = 2;
@@ -49,6 +67,18 @@ public final class DailyEventEncounterService {
         } else {
             return;
         }
+
+        // Wave490: dense leyline clusters densify beast ecology packs.
+        boolean cluster = beastEcology && com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager
+                .isLeylineCluster(level, new net.minecraft.world.level.ChunkPos(player.blockPosition()));
+        if (cluster) {
+            count += 2;
+            // Prefer fox packs near clusters as a second ecology flavor.
+            if (player.getRandom().nextBoolean()) {
+                type = EntityType.FOX;
+            }
+        }
+
         for (int i = 0; i < count; i++) {
             Mob mob = type.create(level);
             if (mob == null) continue;
@@ -57,10 +87,23 @@ public final class DailyEventEncounterService {
             if (mob instanceof Monster monster) {
                 monster.setTarget(player);
             }
+            // Tag ecology spawns for later bestiary/contract hooks.
+            if (beastEcology) {
+                mob.getPersistentData().putBoolean("seeking_immortals_ecology_beast", true);
+                if (cluster) {
+                    mob.getPersistentData().putBoolean("seeking_immortals_leyline_cluster", true);
+                }
+            }
             mob.setPersistenceRequired();
             level.addFreshEntity(mob);
         }
         player.getPersistentData().putBoolean(key, true);
-        player.displayClientMessage(Component.translatable("message.seeking_immortals.daily_event.spawn", id, count), true);
+        if (cluster) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.daily_event.spawn_cluster", id, count), true);
+        } else {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.daily_event.spawn", id, count), true);
+        }
     }
 }

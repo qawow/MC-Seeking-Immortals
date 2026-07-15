@@ -8,6 +8,12 @@
     "seeking_immortals:alchemy_furnace_tier_3",
     "seeking_immortals:alchemy_furnace_tier_4",
     "seeking_immortals:alchemy_furnace_tier_5",
-    "seeking_immortals:sect_earth_fire_room"
+    "seeking_immortals:sect_earth_fire_room",
+    "seeking_immortals:alchemy_furnace_array_node",
+    "seeking_immortals:alchemy_lid_low",
+    "seeking_immortals:alchemy_lid_mid",
+    "seeking_immortals:alchemy_lid_high",
+    "seeking_immortals:alchemy_lid_tier_4",
+    "seeking_immortals:alchemy_lid_tier_5"
   ]
 }

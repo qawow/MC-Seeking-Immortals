@@ -532,17 +532,26 @@ public final class ModItems {
     public static final RegistryObject<Item> SPIRIT_HERB_PLANTER = ITEMS.register("spirit_herb_planter", () -> new BlockItem(ModBlocks.SPIRIT_HERB_PLANTER.get(), new Item.Properties()));
     public static final RegistryObject<Item> LOW_SPIRIT_IRON_ORE = ITEMS.register("low_spirit_iron_ore", () -> new BlockItem(ModBlocks.LOW_SPIRIT_IRON_ORE.get(), new Item.Properties()));
     public static final RegistryObject<Item> YIN_ESSENCE_ORE = ITEMS.register("yin_essence_ore", () -> new BlockItem(ModBlocks.YIN_ESSENCE_ORE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> LEYLINE_SURFACE_MARKER = ITEMS.register("leyline_surface_marker",
+            () -> new BlockItem(ModBlocks.LEYLINE_SURFACE_MARKER.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE = ITEMS.register("alchemy_furnace", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE_TIER_2 = ITEMS.register("alchemy_furnace_tier_2", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_TIER_2.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE_TIER_3 = ITEMS.register("alchemy_furnace_tier_3", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_TIER_3.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE_TIER_4 = ITEMS.register("alchemy_furnace_tier_4", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_TIER_4.get(), new Item.Properties()));
     public static final RegistryObject<Item> ALCHEMY_FURNACE_TIER_5 = ITEMS.register("alchemy_furnace_tier_5", () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_TIER_5.get(), new Item.Properties()));
     public static final RegistryObject<Item> SECT_EARTH_FIRE_ROOM = ITEMS.register("sect_earth_fire_room", () -> new BlockItem(ModBlocks.SECT_EARTH_FIRE_ROOM.get(), new Item.Properties()));
-    public static final RegistryObject<Item> ALCHEMY_LID_LOW = registerAlchemyLid("alchemy_lid_low", 1);
-    public static final RegistryObject<Item> ALCHEMY_LID_MID = registerAlchemyLid("alchemy_lid_mid", 2);
-    public static final RegistryObject<Item> ALCHEMY_LID_HIGH = registerAlchemyLid("alchemy_lid_high", 3);
-    public static final RegistryObject<Item> ALCHEMY_LID_TIER_4 = registerAlchemyLid("alchemy_lid_tier_4", 4);
-    public static final RegistryObject<Item> ALCHEMY_LID_TIER_5 = registerAlchemyLid("alchemy_lid_tier_5", 5);
+    public static final RegistryObject<Item> ALCHEMY_FURNACE_ARRAY_NODE = ITEMS.register("alchemy_furnace_array_node",
+            () -> new BlockItem(ModBlocks.ALCHEMY_FURNACE_ARRAY_NODE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ALCHEMY_LID_LOW = ITEMS.register("alchemy_lid_low",
+            () -> new BlockItem(ModBlocks.ALCHEMY_LID_LOW.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> ALCHEMY_LID_MID = ITEMS.register("alchemy_lid_mid",
+            () -> new BlockItem(ModBlocks.ALCHEMY_LID_MID.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> ALCHEMY_LID_HIGH = ITEMS.register("alchemy_lid_high",
+            () -> new BlockItem(ModBlocks.ALCHEMY_LID_HIGH.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> ALCHEMY_LID_TIER_4 = ITEMS.register("alchemy_lid_tier_4",
+            () -> new BlockItem(ModBlocks.ALCHEMY_LID_TIER_4.get(), new Item.Properties().stacksTo(16)));
+    public static final RegistryObject<Item> ALCHEMY_LID_TIER_5 = ITEMS.register("alchemy_lid_tier_5",
+            () -> new BlockItem(ModBlocks.ALCHEMY_LID_TIER_5.get(), new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> DAN_FIRE_LOW = registerDanFire("dan_fire_low", 1, Realm.MORTAL, false);
     public static final RegistryObject<Item> DAN_FIRE_MID = registerDanFire("dan_fire_mid", 2, Realm.QI_REFINING, false);
     public static final RegistryObject<Item> DAN_FIRE_HIGH = registerDanFire("dan_fire_high", 3, Realm.FOUNDATION_ESTABLISHMENT, false);
@@ -743,10 +752,6 @@ public final class ModItems {
     private static RegistryObject<Item> registerMaterial(String name, com.xunxian.seekingimmortals.item.material.MaterialType type) {
         return ITEMS.register(name, () -> new com.xunxian.seekingimmortals.item.material.BaseMaterialItem(
             new Item.Properties(), type.getCategory(), type.getRarity(), type.getDescription()));
-    }
-
-    private static RegistryObject<Item> registerAlchemyLid(String name, int tier) {
-        return ITEMS.register(name, () -> new AlchemyTieredItem(new Item.Properties().stacksTo(16), AlchemyTieredItem.ComponentType.LID, tier));
     }
 
     private static RegistryObject<Item> registerDanFire(String name, int tier, Realm minRealm, boolean requiresEarthFireRoom) {

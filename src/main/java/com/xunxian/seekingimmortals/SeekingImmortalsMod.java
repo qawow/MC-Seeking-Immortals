@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals;
 import com.mojang.logging.LogUtils;
 import com.xunxian.seekingimmortals.combat.AttributeLimitUnlocker;
 import com.xunxian.seekingimmortals.network.ModNetwork;
+import com.xunxian.seekingimmortals.quest.FtbCustomTaskHooks;
 import com.xunxian.seekingimmortals.quest.FtbQuestDefaults;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
@@ -13,6 +14,7 @@ import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModMenus;
 import com.xunxian.seekingimmortals.registry.ModRecipes;
 import com.xunxian.seekingimmortals.registry.ModSounds;
+import com.xunxian.seekingimmortals.registry.ModStructures;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,8 +36,11 @@ public class SeekingImmortalsMod {
         ModMenus.register(modBus);
         ModRecipes.register(modBus);
         ModSounds.register(modBus);
+        ModStructures.register(modBus);
         ModCreativeTabs.register(modBus);
         ModNetwork.register();
         FtbQuestDefaults.bootstrapDefaultPack();
+        // Wave488: bind FTB custom tasks to sect-war / reputation authority checks.
+        FtbCustomTaskHooks.register();
     }
 }

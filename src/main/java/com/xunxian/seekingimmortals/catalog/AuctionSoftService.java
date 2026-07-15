@@ -26,10 +26,103 @@ public final class AuctionSoftService {
     private static final String WON_ROOT = "seeking_immortals_auction_won";
     private static final int DEFAULT_REP_MIN = 0;
 
+    /**
+     * Wave492: configurable appraisal gate for bidding.
+     * HIGH_TIER = lots whose minEquiv >= HIGH_TIER_MIN_EQUIV require appraisal skill/tool.
+     * ALL = every lot requires it. OFF = disabled.
+     */
+    public enum AppraisalGateMode {
+        OFF,
+        HIGH_TIER,
+        ALL
+    }
+
+    public static AppraisalGateMode APPRAISAL_GATE_MODE = AppraisalGateMode.HIGH_TIER;
+    public static long HIGH_TIER_MIN_EQUIV = 80L;
+
     private AuctionSoftService() {}
 
     public static Snapshot builtin() {
         return AuctionCatalogHolder.SNAPSHOT;
+    }
+
+    public static final int PAGE_SIZE = 6;
+
+    /** Wave490: productized auction hall MenuType open path. */
+    public static void openHall(ServerPlayer player) {
+        openHall(player, 0);
+    }
+
+    /** Wave491: open hall and push live ladder page. */
+    public static void openHall(ServerPlayer player, int page) {
+        if (player == null) {
+            return;
+        }
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.live_ready"), true);
+        syncLadder(player, page);
+        net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable("screen.seeking_immortals.auction.title");
+            }
+
+            @Override
+            public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
+                    int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
+                return new com.xunxian.seekingimmortals.menu.AuctionHallMenu(id, inv);
+            }
+        }, buf -> {
+            // no payload
+        });
+    }
+
+    /** Wave491: server→client live bid ladder page. */
+    public static void syncLadder(ServerPlayer player, int page) {
+        if (player == null) {
+            return;
+        }
+        Snapshot snapshot = builtin();
+        List<Lot> all = snapshot.lots();
+        int total = all.size();
+        int safePage = Math.max(0, page);
+        int maxPage = total <= 0 ? 0 : (total - 1) / PAGE_SIZE;
+        if (safePage > maxPage) {
+            safePage = maxPage;
+        }
+        int from = safePage * PAGE_SIZE;
+        int to = Math.min(total, from + PAGE_SIZE);
+        AuctionHouseSavedData house = AuctionHouseSavedData.get(player);
+        List<com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket.LotBid> bids = new ArrayList<>();
+        for (int i = from; i < to; i++) {
+            Lot lot = all.get(i);
+            int current = house.currentAmount(lot.id());
+            int next = nextBidCost(lot, current, snapshot.minIncrementPct(), snapshot.depositFloor());
+            String leader = house.getBid(lot.id())
+                    .map(state -> {
+                        if (state.bidder() == null || player.getServer() == null) {
+                            return "-";
+                        }
+                        ServerPlayer online = player.getServer().getPlayerList().getPlayer(state.bidder());
+                        if (online != null) {
+                            return online.getGameProfile().getName();
+                        }
+                        String id = state.bidder().toString();
+                        return id.length() >= 8 ? id.substring(0, 8) : id;
+                    })
+                    .orElse("-");
+            bids.add(new com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket.LotBid(
+                    lot.id(),
+                    lot.display(),
+                    current,
+                    next,
+                    (int) Math.min(Integer.MAX_VALUE, lot.minEquiv()),
+                    (int) Math.min(Integer.MAX_VALUE, lot.maxEquiv()),
+                    leader,
+                    house.isSettled(lot.id())));
+        }
+        com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket.send(player,
+                new com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket(
+                        safePage, PAGE_SIZE, total, bids));
     }
 
     public record Venue(String id, String region, String faction, String currencyAlt, int repMin) {}
@@ -109,6 +202,13 @@ public final class AuctionSoftService {
             return false;
         }
 
+        // Wave492: configurable appraisal gate (high-tier / all lots).
+        if (!player.getAbilities().instabuild && requiresAppraisal(lot) && !playerMeetsAppraisalGate(player)) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.auction.appraisal_required", lot.display()), true);
+            return false;
+        }
+
         // A1: venue faction reputation gate.
         var venueOpt = snapshot.venueForLot(lot);
         if (venueOpt.isPresent() && !player.getAbilities().instabuild) {
@@ -166,8 +266,12 @@ public final class AuctionSoftService {
         long max = Math.max(lot.maxEquiv(), lot.minEquiv());
         boolean hitCeiling = max > 0 && next >= Math.max(1L, max / 5000L);
         if (state.raises() >= 5 || hitCeiling) {
-            return settle(player, lot);
+            boolean settled = settle(player, lot);
+            syncLadder(player, 0);
+            return settled;
         }
+        // Wave491: refresh live ladder for bidder after raise.
+        syncLadder(player, 0);
         return true;
     }
 
@@ -204,6 +308,8 @@ public final class AuctionSoftService {
         }
 
         ItemStack reward = new ItemStack(rewardItemFor(lot), rewardCountFor(lot));
+        // Wave492: won auction lots arrive pre-appraised for economy honesty.
+        markAppraisedReward(reward, lot);
         if (!player.getInventory().add(reward.copy())) {
             player.drop(reward.copy(), false);
         }
@@ -229,11 +335,75 @@ public final class AuctionSoftService {
         }
         player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.won",
                 lot.display(), state.amount(), reward.getHoverName()), true);
+        // Wave491: refresh live ladder after settle.
+        syncLadder(player, 0);
         return true;
     }
 
     public static int currentBid(ServerPlayer player, String lotId) {
         return AuctionHouseSavedData.get(player).currentAmount(lotId);
+    }
+
+    public static boolean requiresAppraisal(Lot lot) {
+        if (lot == null || APPRAISAL_GATE_MODE == AppraisalGateMode.OFF) {
+            return false;
+        }
+        if (APPRAISAL_GATE_MODE == AppraisalGateMode.ALL) {
+            return true;
+        }
+        // HIGH_TIER
+        return Math.max(lot.minEquiv(), lot.maxEquiv()) >= HIGH_TIER_MIN_EQUIV;
+    }
+
+    public static boolean playerMeetsAppraisalGate(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        if (player.getAbilities().instabuild) {
+            return true;
+        }
+        int refineLv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(
+                player, com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING);
+        if (refineLv >= 1) {
+            return true;
+        }
+        // Holding any appraisal/identify tool also qualifies.
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.isEmpty()) {
+                continue;
+            }
+            String id = ForgeRegistries.ITEMS.getKey(stack.getItem()) == null
+                    ? "" : ForgeRegistries.ITEMS.getKey(stack.getItem()).getPath();
+            if (com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(id)) {
+                return true;
+            }
+            if (stack.getItem() instanceof com.xunxian.seekingimmortals.item.ArtifactCatalogItem catalog
+                    && com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(catalog.artifactId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void markAppraisedReward(ItemStack reward, Lot lot) {
+        if (reward == null || reward.isEmpty()) {
+            return;
+        }
+        var tag = reward.getOrCreateTag();
+        tag.putBoolean(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED, true);
+        int tier = 1;
+        if (lot != null && lot.maxEquiv() >= HIGH_TIER_MIN_EQUIV * 4L) {
+            tier = 4;
+        } else if (lot != null && lot.maxEquiv() >= HIGH_TIER_MIN_EQUIV * 2L) {
+            tier = 3;
+        } else if (lot != null && lot.maxEquiv() >= HIGH_TIER_MIN_EQUIV) {
+            tier = 2;
+        }
+        tag.putInt(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_TIER, tier);
+        tag.putString(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_TYPE, "auction");
+        tag.putString(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_EFFECT, "wanbao_settled");
+        tag.putInt(com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.TAG_APPRAISED_VALUE,
+                lot == null ? 10 : (int) Math.min(Integer.MAX_VALUE, Math.max(lot.minEquiv(), lot.maxEquiv() / 10L)));
     }
 
     public static int nextBidCost(Lot lot, int currentBid, double minIncrementPct) {

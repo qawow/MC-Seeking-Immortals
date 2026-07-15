@@ -173,6 +173,14 @@ public final class ModEvents {
                 if (serverPlayer.tickCount % 40 == 0) {
                     com.xunxian.seekingimmortals.sect.SectWarService.tickBattlefieldAi(serverPlayer);
                 }
+                // Wave491: escort servitor leash/follow health.
+                if (serverPlayer.tickCount % 20 == 0) {
+                    com.xunxian.seekingimmortals.sect.EscortMissionService.tick(serverPlayer);
+                }
+                // Wave492: divine sense expansion passive tick.
+                if (serverPlayer.tickCount % 40 == 0) {
+                    com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseExpansionPassive.tick(serverPlayer);
+                }
             }
 
             if (event.player.tickCount % 20 != 0) return;
@@ -329,6 +337,13 @@ public final class ModEvents {
             if (com.xunxian.seekingimmortals.sect.SectWarService.isWarShell(mob)) {
                 com.xunxian.seekingimmortals.sect.SectWarService.onWarShellKilled(killer, mob);
             }
+            // Wave489/491: sect daily kill mission progress with typed target filter.
+            if (mob.getType().getCategory() == net.minecraft.world.entity.MobCategory.MONSTER) {
+                String typeId = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES
+                        .getKey(mob.getType()) == null ? "monster"
+                        : net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(mob.getType()).getPath();
+                com.xunxian.seekingimmortals.sect.SectMissionGenerator.onHostileKill(killer, typeId);
+            }
         }
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
         player.getPersistentData().remove(FlyingSwordBeginnerSpell.ACTIVE_KEY);
@@ -378,6 +393,8 @@ public final class ModEvents {
             return;
         }
         if (player instanceof ServerPlayer serverPlayer && villager instanceof SectStewardEntity steward) {
+            // Wave489: steward interaction also marks escort-proxy daily progress.
+            com.xunxian.seekingimmortals.sect.SectMissionGenerator.onStewardEscortMark(serverPlayer);
             SectContributionService.handleStewardInteraction(serverPlayer, steward);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
@@ -838,6 +855,11 @@ public final class ModEvents {
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 return;
             }
+            // Wave490: special skill practice while qi-flying.
+            if (serverPlayer.tickCount % 100 == 0) {
+                com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(
+                        serverPlayer, SkillType.FLYING_SWORD_BEGINNER, 6, 2);
+            }
             SyncCultivationDataPacket.send(serverPlayer, cultivation);
         }
         if (serverPlayer.getAbilities().flying) {
@@ -868,6 +890,11 @@ public final class ModEvents {
                 FlyingSwordAdvancedSpell.stop(serverPlayer, "Insufficient mana; advanced flying stopped.");
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 return;
+            }
+            // Wave490: special skill practice while foundation flying.
+            if (serverPlayer.tickCount % 100 == 0) {
+                com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(
+                        serverPlayer, SkillType.FLYING_SWORD_ADVANCED, 8, 3);
             }
             SyncCultivationDataPacket.send(serverPlayer, cultivation);
         }

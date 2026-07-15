@@ -78,6 +78,14 @@ public class CultivationStatsScreen extends Screen {
                         minecraft.setScreen(new MethodTreeScreen(this));
                     }
                 }));
+        // Wave491: interactive life/special skill tree.
+        addRenderableWidget(new InkButton(layout.skillTreeButton(),
+                Component.translatable("screen.seeking_immortals.cultivation_stats.skills"),
+                button -> {
+                    if (minecraft != null) {
+                        minecraft.setScreen(new LifeSkillTreeScreen(this));
+                    }
+                }));
         addRenderableWidget(new InkButton(layout.closeButton(), closeButtonLabel(returnToInventory), button -> onClose()));
 
         movementSpeedSlider = new MovementSpeedSlider(layout.slider().x(), layout.slider().y(),
@@ -138,15 +146,25 @@ public class CultivationStatsScreen extends Screen {
         int innerLeft = left + CONTENT_PADDING;
         int innerWidth = Math.max(40, panelWidth - CONTENT_PADDING * 2);
         int buttonHeight = panelHeight < 118 ? 14 : panelHeight < 180 ? 16 : 20;
-        // Wave478: three bottom actions — breakthrough / methods / close, equal slots with gap.
-        int buttonGap = 4;
-        int buttonWidth = Math.max(28, Math.min(78, (innerWidth - buttonGap * 2) / 3));
+        // Wave478/491: four bottom actions — breakthrough / methods / skills / close.
+        // Keep total button width within innerWidth on narrow panels.
+        int buttonGap = 2;
+        int buttonWidth = Math.max(18, Math.min(68, (innerWidth - buttonGap * 3) / 4));
+        int totalButtonsWidth = buttonWidth * 4 + buttonGap * 3;
+        while (totalButtonsWidth > innerWidth && buttonWidth > 14) {
+            buttonWidth--;
+            totalButtonsWidth = buttonWidth * 4 + buttonGap * 3;
+        }
         int buttonY = top + panelHeight - buttonHeight - 6;
-        int totalButtonsWidth = buttonWidth * 3 + buttonGap * 2;
         int buttonsStartX = innerLeft + Math.max(0, (innerWidth - totalButtonsWidth) / 2);
+        // Clamp right edge into panel/screen.
+        if (buttonsStartX + totalButtonsWidth > left + panelWidth - CONTENT_PADDING) {
+            buttonsStartX = Math.max(left + 2, left + panelWidth - CONTENT_PADDING - totalButtonsWidth);
+        }
         UiRect breakthroughButton = new UiRect(buttonsStartX, buttonY, buttonWidth, buttonHeight);
         UiRect methodTreeButton = new UiRect(buttonsStartX + buttonWidth + buttonGap, buttonY, buttonWidth, buttonHeight);
-        UiRect closeButton = new UiRect(buttonsStartX + (buttonWidth + buttonGap) * 2, buttonY, buttonWidth, buttonHeight);
+        UiRect skillTreeButton = new UiRect(buttonsStartX + (buttonWidth + buttonGap) * 2, buttonY, buttonWidth, buttonHeight);
+        UiRect closeButton = new UiRect(buttonsStartX + (buttonWidth + buttonGap) * 3, buttonY, buttonWidth, buttonHeight);
         int sliderHeight = buttonHeight;
         int sliderY = Math.max(top + 18, buttonY - sliderHeight - 4);
         UiRect slider = new UiRect(innerLeft, sliderY, innerWidth, sliderHeight);
@@ -158,7 +176,7 @@ public class CultivationStatsScreen extends Screen {
         int rightX = twoColumns ? innerLeft + columnWidth + COLUMN_GAP : innerLeft;
         int rightWidth = twoColumns ? Math.max(40, innerWidth - columnWidth - COLUMN_GAP) : innerWidth;
         return new PanelLayout(left, top, panelWidth, panelHeight, twoColumns, contentTop, contentBottom,
-                innerLeft, columnWidth, rightX, rightWidth, breakthroughButton, methodTreeButton, closeButton, slider);
+                innerLeft, columnWidth, rightX, rightWidth, breakthroughButton, methodTreeButton, skillTreeButton, closeButton, slider);
     }
 
     private void renderCultivationPanel(GuiGraphics graphics) {
@@ -208,8 +226,57 @@ public class CultivationStatsScreen extends Screen {
         y = row(graphics, x, y, width, bottom, "功法", data.learnedTechniqueCount() + " 门，速率 " + formatDouble(data.cultivationSpeedMultiplier()) + "x", TEXT);
         y = row(graphics, x, y, width, bottom, "根骨加成",
                 formatDouble(data.rootCultivationSpeedCoefficient()) + "x / " + formatDouble(data.physiqueCultivationSpeedMultiplier()) + "x", TEXT);
+        // Wave489: productized life/special skill tree readout (local capability mirror).
+        y = renderLifeSkillTree(graphics, x, y, width, bottom);
         y = renderMethodCatalogHint(graphics, x, y, width, bottom);
         return renderTechniqueSummaries(graphics, x, y, width, bottom);
+    }
+
+    private int renderLifeSkillTree(GuiGraphics graphics, int x, int y, int width, int bottom) {
+        y = sectionTitle(graphics, x, y, width, bottom, "生活/特殊技能");
+        if (player == null) {
+            return row(graphics, x, y, width, bottom, "技能", "无本地玩家", TEXT_MUTED);
+        }
+        var optional = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player);
+        if (optional.isEmpty()) {
+            return row(graphics, x, y, width, bottom, "技能", "等待能力同步", TEXT_MUTED);
+        }
+        var cultivation = optional.get();
+        y = row(graphics, x, y, width, bottom, "炼丹",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.ALCHEMY), TEXT);
+        y = row(graphics, x, y, width, bottom, "炼器",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.ARTIFACT_REFINING), TEXT);
+        y = row(graphics, x, y, width, bottom, "符箓",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING), TEXT);
+        y = row(graphics, x, y, width, bottom, "阵法",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.FORMATION), TEXT);
+        y = row(graphics, x, y, width, bottom, "驭兽",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING), TEXT);
+        y = row(graphics, x, y, width, bottom, "傀儡",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.PUPPET_CONTROL), TEXT);
+        // Wave490: special skill system readout (flying / sense / multi-cast).
+        y = row(graphics, x, y, width, bottom, "御剑初",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.FLYING_SWORD_BEGINNER), TEXT);
+        y = row(graphics, x, y, width, bottom, "御剑进",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.FLYING_SWORD_ADVANCED), TEXT);
+        y = row(graphics, x, y, width, bottom, "神识扩",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.DIVINE_SENSE_EXPANSION), TEXT);
+        y = row(graphics, x, y, width, bottom, "阵感",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.FORMATION_SENSE), TEXT);
+        y = row(graphics, x, y, width, bottom, "分神",
+                com.xunxian.seekingimmortals.skill.LifeSkillService.summaryLine(cultivation,
+                        com.xunxian.seekingimmortals.skill.SkillType.MULTI_CASTING), TEXT);
+        return y;
     }
 
     /**
@@ -488,6 +555,7 @@ public class CultivationStatsScreen extends Screen {
             int rightColumnWidth,
             UiRect breakthroughButton,
             UiRect methodTreeButton,
+            UiRect skillTreeButton,
             UiRect closeButton,
             UiRect slider) {
     }

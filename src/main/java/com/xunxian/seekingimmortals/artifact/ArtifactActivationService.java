@@ -690,7 +690,7 @@ public final class ArtifactActivationService {
         // Wave49: free persistent field around player + legacy buffs.
         if (player.level() instanceof ServerLevel serverLevel) {
             FormationFieldService.activateFreeField(serverLevel, player.blockPosition(),
-                    FormationFieldService.FieldKind.DEFENSE, 160 + gameTier * 16);
+                    FormationFieldService.FieldKind.DEFENSE, 160 + gameTier * 16, player);
         }
         double radius = 5.0D + gameTier * 0.32D;
         int duration = 160 + gameTier * 16;

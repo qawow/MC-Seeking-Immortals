@@ -304,9 +304,22 @@ public final class SectContributionService {
                 syncSect(player, cultivation, true);
                 return;
             }
-            SectContentService.MissionDefinition mission = SectContentService.missionForDay(definition.get().id(), progress.getSectQuestStage(), day);
-            progress.setSectMission(mission.id(), day);
-            player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_accepted", Component.translatable(mission.titleKey())));
+            // Wave490: alternate kill/escort/beast/formation generator missions with item dailies.
+            if ((day & 1L) == 1L) {
+                SectMissionGenerator.Mission generated = SectMissionGenerator.generate(definition.get().id());
+                SectMissionGenerator.acceptGenerated(player, generated);
+                progress.setSectMission(generated.id(), day);
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.mission_accepted_generated",
+                        generated.id(), generated.type(), generated.count(), generated.rewardContribution()));
+            } else {
+                SectContentService.MissionDefinition mission = SectContentService.missionForDay(
+                        definition.get().id(), progress.getSectQuestStage(), day);
+                progress.setSectMission(mission.id(), day);
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.mission_accepted",
+                        Component.translatable(mission.titleKey())));
+            }
             syncAll(player, cultivation, true, definition.get().id());
             accepted[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
@@ -329,6 +342,28 @@ public final class SectContributionService {
                 syncSect(player, cultivation, true);
                 return;
             }
+
+            // Wave490: prefer generated mission authority when payload is active.
+            SectMissionGenerator.Mission generated = SectMissionGenerator.activeGenerated(player);
+            if (generated != null && generated.id().equals(progress.getSectMissionId())) {
+                if (!SectMissionGenerator.turnIn(player, generated)) {
+                    syncSect(player, cultivation, true);
+                    return;
+                }
+                int rewardContribution = WorldpackGameplayService.applySectContributionBonus(
+                        player, cultivation, generated.rewardContribution());
+                progress.addContribution(rewardContribution);
+                progress.completeSectMission();
+                player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.mission_completed",
+                        Component.literal(generated.id()),
+                        rewardContribution,
+                        progress.getContribution()));
+                syncAll(player, cultivation, true, definition.get().id());
+                turnedIn[0] = true;
+                return;
+            }
+
             Optional<SectContentService.MissionDefinition> missionOptional = SectContentService.missionById(definition.get().id(), progress.getSectMissionId());
             if (missionOptional.isEmpty()) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.mission_missing_definition"));
@@ -412,9 +447,30 @@ public final class SectContributionService {
     public static void openScreen(ServerPlayer player, String focusSectId) {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
                     normalizeSectState(cultivation.getSevenMysteriesQuest());
+                    // Wave490: sync data then open productized SectHall MenuType.
                     syncSect(player, cultivation, true, focusSectId);
                 },
                 () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
+    }
+
+    /** Wave490: productized sect hall MenuType open path. */
+    public static void openSectHall(ServerPlayer player, String focusSectId) {
+        if (player == null) {
+            return;
+        }
+        final String focus = focusSectId == null ? "" : focusSectId;
+        net.minecraftforge.network.NetworkHooks.openScreen(player, new net.minecraft.world.MenuProvider() {
+            @Override
+            public Component getDisplayName() {
+                return Component.translatable("screen.seeking_immortals.sect.title");
+            }
+
+            @Override
+            public net.minecraft.world.inventory.AbstractContainerMenu createMenu(
+                    int id, net.minecraft.world.entity.player.Inventory inv, net.minecraft.world.entity.player.Player p) {
+                return new com.xunxian.seekingimmortals.menu.SectHallMenu(id, inv, focus);
+            }
+        }, buf -> buf.writeUtf(focus, 128));
     }
 
     public static void handleClientAction(ServerPlayer player, String action, String targetId, String extra) {
@@ -519,7 +575,11 @@ public final class SectContributionService {
     }
 
     public static void syncSect(ServerPlayer player, PlayerCultivation cultivation, boolean openScreen, String focusSectId) {
-        SyncSectDataPacket.send(player, createPacket(player, cultivation, openScreen, focusSectId));
+        // Wave490: never open legacy SectScreen via packet; MenuType is opened separately.
+        SyncSectDataPacket.send(player, createPacket(player, cultivation, false, focusSectId));
+        if (openScreen) {
+            openSectHall(player, focusSectId);
+        }
     }
 
     private static SyncSectDataPacket createPacket(ServerPlayer player, PlayerCultivation cultivation, boolean openScreen, String focusSectId) {

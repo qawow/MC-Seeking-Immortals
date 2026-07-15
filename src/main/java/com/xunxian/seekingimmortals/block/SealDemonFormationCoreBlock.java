@@ -56,7 +56,7 @@ public class SealDemonFormationCoreBlock extends Block {
         }
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 220, 1));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.GLOWING, 160, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.SEAL_DEMON);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.SEAL_DEMON, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(ParticleTypes.SOUL, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 28, 0.7D, 0.4D, 0.7D, 0.02D);

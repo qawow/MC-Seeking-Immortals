@@ -20,7 +20,6 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         int x = leftPos;
         int y = topPos;
-        // reuse a simple vanilla container backdrop; labels convey alchemy purpose
         graphics.blit(VANILLA, x, y, 0, 0, imageWidth, imageHeight);
         int progress = menu.getProgress();
         int total = menu.getTotal();
@@ -34,7 +33,17 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
         super.render(graphics, mouseX, mouseY, partialTick);
         renderTooltip(graphics, mouseX, mouseY);
         graphics.drawString(font, Component.translatable("screen.seeking_immortals.alchemy_menu.progress",
-                Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()),
-                leftPos + 8, topPos + 70, 0x404040, false);
+                        Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()),
+                leftPos + 8, topPos + 64, 0x404040, false);
+        graphics.drawString(font, Component.translatable(
+                        menu.isFormed()
+                                ? "screen.seeking_immortals.alchemy_menu.shell_ok"
+                                : "screen.seeking_immortals.alchemy_menu.shell_bad"),
+                leftPos + 8, topPos + 74, menu.isFormed() ? 0x2E7D32 : 0xB71C1C, false);
+        graphics.drawString(font, Component.translatable(
+                        menu.hasEarthFireRoom()
+                                ? "screen.seeking_immortals.alchemy_menu.room_ok"
+                                : "screen.seeking_immortals.alchemy_menu.room_none"),
+                leftPos + 90, topPos + 74, menu.hasEarthFireRoom() ? 0x2E7D32 : 0x616161, false);
     }
 }

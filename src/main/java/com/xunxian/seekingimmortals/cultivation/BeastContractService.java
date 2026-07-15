@@ -65,6 +65,19 @@ public final class BeastContractService {
         entry.putInt("Growth", Math.max(0, Math.min(20, startGrowth)));
         root.put(id, entry);
         player.getPersistentData().put(ROOT, root);
+        // Wave489: beast taming special skill practice + denser leyline clusters aid affinity.
+        int affinity = entry.getInt("Affinity");
+        if (player.level() instanceof net.minecraft.server.level.ServerLevel serverLevel
+                && com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager.isLeylineCluster(
+                serverLevel, new net.minecraft.world.level.ChunkPos(player.blockPosition()))) {
+            affinity = Math.min(100, affinity + 5);
+            entry.putInt("Affinity", affinity);
+            root.put(id, entry);
+            player.getPersistentData().put(ROOT, root);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.cluster_bonus"), false);
+        }
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 18, 8);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.contracted", id), true);
         return true;
     }
@@ -103,13 +116,18 @@ public final class BeastContractService {
         CompoundTag entry = root.getCompound(id);
         int affinity = entry.getInt("Affinity");
         int growth = entry.getInt("Growth");
-        double health = 24.0D + affinity * 0.4D + growth * 2.0D;
-        double damage = 4.0D + affinity * 0.05D + growth * 0.4D;
-        int life = 20 * (25 + growth * 2);
+        // Wave489: BEAST_TAMING skill scales summoned beast stats.
+        int tameLv = com.xunxian.seekingimmortals.skill.LifeSkillService.level(player,
+                com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING);
+        double health = 24.0D + affinity * 0.4D + growth * 2.0D + tameLv * 1.2D;
+        double damage = 4.0D + affinity * 0.05D + growth * 0.4D + tameLv * 0.2D;
+        int life = 20 * (25 + growth * 2 + tameLv);
         boolean ok = SummonHonestMvpService.spawnConfigured(
                 player, "beast_" + id, life, health, damage,
                 com.xunxian.seekingimmortals.entity.SummonedServitorEntity.Archetype.BEAST);
         if (ok) {
+            com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
+                    com.xunxian.seekingimmortals.skill.SkillType.BEAST_TAMING, 14, 6);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.beast.summoned",
                     id, affinity, growth), true);
         }

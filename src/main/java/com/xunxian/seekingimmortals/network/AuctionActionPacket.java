@@ -17,6 +17,8 @@ public record AuctionActionPacket(String action, String id) {
     public static final String ACTION_BID = "bid";
     public static final String ACTION_SETTLE = "settle";
     public static final String ACTION_LIST = "list";
+    /** Wave491: refresh live ladder page; id carries page number. */
+    public static final String ACTION_PAGE = "page";
 
     private static final int MAX_ACTION = 64;
     private static final int MAX_ID = 96;
@@ -43,17 +45,21 @@ public record AuctionActionPacket(String action, String id) {
                 case ACTION_BID -> AuctionSoftService.bid(player, id);
                 case ACTION_SETTLE -> AuctionSoftService.settle(player, id);
                 case ACTION_PREVIEW -> AuctionSoftService.preview(player, id);
+                case ACTION_PAGE -> {
+                    int page = 0;
+                    try {
+                        page = Integer.parseInt(id == null || id.isBlank() ? "0" : id.trim());
+                    } catch (NumberFormatException ignored) {
+                        page = 0;
+                    }
+                    AuctionSoftService.syncLadder(player, page);
+                }
                 case ACTION_LIST -> {
+                    AuctionSoftService.syncLadder(player, 0);
                     AuctionSoftService.Snapshot snapshot = AuctionSoftService.builtin();
                     player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
                             "command.seeking_immortals.catalog.auction.summary",
                             snapshot.venueCount(), snapshot.lotCount(), snapshot.minIncrementPct()), false);
-                    int shown = 0;
-                    for (AuctionSoftService.Lot lot : snapshot.lots()) {
-                        player.displayClientMessage(net.minecraft.network.chat.Component.literal(
-                                "lot " + lot.id() + " | " + lot.display()), false);
-                        if (++shown >= 8) break;
-                    }
                 }
                 default -> player.displayClientMessage(net.minecraft.network.chat.Component.translatable(
                         "message.seeking_immortals.auction.unknown", action), false);

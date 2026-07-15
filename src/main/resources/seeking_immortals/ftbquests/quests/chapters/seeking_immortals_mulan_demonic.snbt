@@ -19,7 +19,7 @@
       ],
       dependencies: ["1000000000000203"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_border"],
-      tasks: [{id: "1000000000001801", type: "checkmark", title: "完成边境遭遇"}]
+      tasks: [{id: "1000000000001801", type: "custom", title: "完成边境遭遇", tags: ["si_war_active"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000802",
@@ -48,7 +48,7 @@
       ],
       dependencies: ["1000000000000801"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "mulan_fashi", "branch_design"],
-      tasks: [{id: "1000000000001803", type: "checkmark", title: "接触慕兰边军"}]
+      tasks: [{id: "1000000000001803", type: "custom", title: "接触慕兰边军", tags: ["si_rep_mulan_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000804",
@@ -122,7 +122,7 @@
       ],
       dependencies: ["1000000000000805"],
       tags: ["seeking_immortals", "mulan_tianlan_war", "ceasefire"],
-      tasks: [{id: "1000000000001808", type: "checkmark", title: "促成停战谈判"}]
+      tasks: [{id: "1000000000001808", type: "custom", title: "促成停战谈判", tags: ["si_war_active", "si_rep_mulan_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000809",
@@ -366,7 +366,7 @@
       ],
       dependencies: ["1000000000000819"],
       tags: ["seeking_immortals", "demonic_six", "righteous_bounty", "optional"],
-      tasks: [{id: "1000000000001824", type: "checkmark", title: "承受正道悬赏"}]
+      tasks: [{id: "1000000000001824", type: "custom", title: "承受正道悬赏", tags: ["si_rep_dajin_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000825",

@@ -30,7 +30,11 @@ public class DetectionSpell extends SpellEffect {
 
     @Override
     public boolean execute(ServerPlayer player, PlayerCultivation cultivation, CultivationSkill skill, SkillContext context) {
-        double range = Math.max(8.0D, cultivation.getDivSense());
+        double baseRange = Math.max(8.0D, cultivation.getDivSense());
+        // Wave492: divine-sense expansion multiplies detection range.
+        double multi = com.xunxian.seekingimmortals.skill.effect.spell.DivineSenseExpansionPassive
+                .senseRangeMultiplier(player);
+        double range = baseRange * multi;
         AABB area = new AABB(player.blockPosition()).inflate(range);
 
         if (context.getLevel() instanceof ServerLevel serverLevel) {

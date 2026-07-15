@@ -137,7 +137,9 @@ public final class ChronicleTradeSoftService {
             return firstPresent("chain_seven_sect_outer_to_inner", "huangfeng_cultivation_path",
                     "qixuan_mortal_path", "demonic_six_path");
         }
-        return Optional.empty();
+        // Wave492: residual chronicle ids fall back to a playable mainline chain.
+        return firstPresent("huangfeng_cultivation_path", "qixuan_mortal_path", "spirit_realm_rise",
+                "dajin_kunwu_line");
     }
 
     public static boolean discoverChronicle(ServerPlayer player, String eventId) {
@@ -312,7 +314,8 @@ public final class ChronicleTradeSoftService {
         if (id.contains("dajin") || id.contains("wanbao") || id.contains("barbarian")) {
             return firstPresent("dajin_wanbao_route", "dajin_kunwu_line", "barbarian_kings_line");
         }
-        return Optional.empty();
+        // Wave492: residual trade routes map into commerce-friendly playable chains.
+        return firstPresent("dajin_wanbao_route", "chaotic_sea_politics", "huangfeng_cultivation_path");
     }
 
     public static List<EmbarkFee> feeFor(String routeId) {

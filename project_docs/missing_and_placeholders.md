@@ -1,3 +1,27 @@
+## 0.1.493 leyline structures note
+
+Added custom StructureType `seeking_immortals:leyline_vein` and four biome-scoped structure entries. Structure body reuses existing spirit_ore / low_spirit_iron_ore / yin_essence_ore / leyline_surface_marker / spirit_gathering_array blocks (no new textures). Hash aura remains authority; structures are physical presentation. Remaining: studio art, denser multi-chunk vein corridors, human live-smoke.
+
+## 0.1.492 authority polish note
+
+No new placeholder textures/models/entities. Protocol remains 18. Dual-cast reuses existing technique release authority. Remaining deferred: studio art, dedicated beast entities, multi-biome leyline structures, human live-smoke re-sign.
+
+## 0.1.491 depth note
+
+Added SyncAuctionLadderPacket/SkillTreeActionPacket (protocol 18). Leyline surface marker reuses spirit_ore texture as presentation placeholder. Beast ecology uses SummonedServitor proxies from spawn_tables. Remaining: dedicated marker art, full dialogue data files, human live-smoke re-sign.
+
+## 0.1.490 full systems note
+
+No new placeholder textures, models, item ids, blocks, entities, or packet fields were introduced. Hall GUIs reuse ImmortalUiSkin + existing Shop/Sect/Auction authority packets. Beast ecology densify reuses vanilla wolf/fox + SummonedServitor/contract path. Remaining: studio GeckoLib bestiary entities, multi-biome leyline structures, full dialogue node graphs, human live-smoke re-sign.
+
+## 0.1.488 CustomTaskEvent note
+
+No new placeholder textures, models, item ids, blocks, entities, or packet fields were introduced. Custom tasks reuse FTB built-in type + task tags; authority checks reuse SectWarService and ReputationService. Live FTB client auto-submit for custom tags remains a human verification item.
+
+## 0.1.487 Multi-army war + FTB dimension note
+
+No new placeholder textures, models, item ids, blocks, entities, or packet fields were introduced. Sect war reuses SummonedServitor + TrialCombatShellService. FTB dimension tasks use built-in FTB Quests type. Live multiplayer war density and FTB client auto-submit remain human verification items.
+
 ## 0.1.486 Review hardening note
 
 No new placeholder assets, item ids, blocks, entities, packet fields, packet registrations, or data schemas were introduced. Servitor ownership now uses server SavedData so unloaded entities remain capped and receive deferred stance/dismiss commands when reloaded; chunks are not force-loaded. Live multiplayer death/auction/war/servitor smoke testing remains a human verification item beyond the passing automated build.

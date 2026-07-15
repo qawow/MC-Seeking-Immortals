@@ -122,7 +122,7 @@
       ],
       dependencies: ["1000000000000104"],
       tags: ["seeking_immortals", "yin_underworld", "ghost_cultivator", "optional"],
-      tasks: [{id: "1000000000001708", type: "checkmark", title: "从阴冥脱身"}]
+      tasks: [{id: "1000000000001708", type: "dimension", dimension: "seeking_immortals:yin_ming_pocket", title: "踏入阴冥秘境"}]
     },
     {
       id: "1000000000000709",
@@ -265,7 +265,7 @@
       ],
       dependencies: ["1000000000000716"],
       tags: ["seeking_immortals", "nether_river", "ghost_npc_design", "optional"],
-      tasks: [{id: "1000000000001717", type: "checkmark", title: "进入冥殿"}]
+      tasks: [{id: "1000000000001717", type: "dimension", dimension: "seeking_immortals:nether_river_pocket", title: "进入冥河秘境"}]
     },
     {
       id: "1000000000000718",

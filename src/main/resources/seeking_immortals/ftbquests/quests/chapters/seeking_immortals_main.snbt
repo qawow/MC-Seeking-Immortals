@@ -290,7 +290,7 @@
       ],
       dependencies: ["1000000000000404"],
       tags: ["seeking_immortals", "spirit_realm_rise", "optional"],
-      tasks: [{id: "1000000000001405", type: "checkmark", title: "完成修罗试炼"}]
+      tasks: [{id: "1000000000001405", type: "dimension", dimension: "seeking_immortals:asura_realm", title: "进入修罗界"}]
     },
     {
       id: "1000000000000406",

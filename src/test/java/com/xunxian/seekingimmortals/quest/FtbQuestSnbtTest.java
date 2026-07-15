@@ -142,6 +142,8 @@ class FtbQuestSnbtTest {
         Set<String> itemTaskIds = new HashSet<>();
         Set<String> killTaskIds = new HashSet<>();
         Set<String> advancementTaskIds = new HashSet<>();
+        Set<String> dimensionTaskIds = new HashSet<>();
+        Set<String> customTaskIds = new HashSet<>();
         int totalQuests = 0;
         for (Map.Entry<Path, ExpectedChapter> entry : EXPECTED_CHAPTERS.entrySet()) {
             Path chapterPath = PACKAGED_ROOT.resolve(entry.getKey());
@@ -183,6 +185,14 @@ class FtbQuestSnbtTest {
                         // Wave485: broader FTB advancement tasks for intro/travel nodes.
                         assertAdvancementTask(task);
                         advancementTaskIds.add(taskId);
+                    } else if ("dimension".equals(taskType)) {
+                        // Wave487: broader FTB dimension tasks for realm/travel nodes.
+                        assertDimensionTask(task);
+                        dimensionTaskIds.add(taskId);
+                    } else if ("custom".equals(taskType)) {
+                        // Wave488: custom tasks bound by SI tags via CustomTaskEvent hooks.
+                        assertCustomTask(task);
+                        customTaskIds.add(taskId);
                     } else {
                         assertEquals("checkmark", taskType, "Unexpected FTB task type for " + taskId);
                     }
@@ -205,6 +215,18 @@ class FtbQuestSnbtTest {
         assertTrue(advancementTaskIds.contains("1000000000001101"));
         assertTrue(advancementTaskIds.contains("1000000000001401"));
         assertTrue(advancementTaskIds.contains("1000000000002201"));
+        // Wave487: realm/travel nodes upgraded to dimension tasks.
+        assertTrue(dimensionTaskIds.size() >= 6, "Expected packaged dimension tasks, got " + dimensionTaskIds.size());
+        assertTrue(dimensionTaskIds.contains("1000000000001910"));
+        assertTrue(dimensionTaskIds.contains("1000000000001708"));
+        assertTrue(dimensionTaskIds.contains("1000000000001405"));
+        assertTrue(dimensionTaskIds.contains("1000000000002232"));
+        // Wave488: war/reputation custom tasks bound via CustomTaskEvent.
+        assertTrue(customTaskIds.size() >= 6, "Expected packaged custom tasks, got " + customTaskIds.size());
+        assertTrue(customTaskIds.contains("1000000000001801"));
+        assertTrue(customTaskIds.contains("1000000000001808"));
+        assertTrue(customTaskIds.contains("1000000000002217"));
+        assertTrue(customTaskIds.contains("1000000000001605"));
 
         // Wave482/483: every packaged item task quest ships an item reward after consumption.
         int rewardedItemQuests = 0;
@@ -278,6 +300,33 @@ class FtbQuestSnbtTest {
         String taskId = task.getString("id");
         assertFalse(task.getString("advancement").isBlank(), "Advancement task missing advancement id: " + taskId);
         assertFalse(task.getString("title").isBlank(), "Advancement task missing title: " + taskId);
+    }
+
+    private static void assertDimensionTask(CompoundTag task) {
+        String taskId = task.getString("id");
+        String dimension = task.getString("dimension");
+        assertFalse(dimension.isBlank(), "Dimension task missing dimension id: " + taskId);
+        assertTrue(dimension.contains(":"), "Dimension id should be namespaced: " + taskId + " -> " + dimension);
+        assertFalse(task.getString("title").isBlank(), "Dimension task missing title: " + taskId);
+    }
+
+    private static void assertCustomTask(CompoundTag task) {
+        String taskId = task.getString("id");
+        assertFalse(task.getString("title").isBlank(), "Custom task missing title: " + taskId);
+        assertTrue(task.contains("tags"), "Custom task must declare SI tags: " + taskId);
+        ListTag tags = task.getList("tags", Tag.TAG_STRING);
+        assertFalse(tags.isEmpty(), "Custom task tags empty: " + taskId);
+        boolean hasSiTag = false;
+        for (Tag tag : tags) {
+            String value = tag.getAsString();
+            if (value.startsWith("si_")) {
+                hasSiTag = true;
+                assertTrue(value.matches("^[a-z0-9_]+$"), "Invalid FTB tag chars: " + value);
+                assertNotNull(FtbCustomTaskHooks.parseTag(value), "SI tag must parse: " + value);
+                break;
+            }
+        }
+        assertTrue(hasSiTag, "Custom task missing si_* authority tag: " + taskId);
     }
 
     private record ExpectedChapter(String filename, String title, int questCount) {

@@ -521,56 +521,56 @@
     },
     {
       "id": "sect_specialty_sword",
-      "display": "sword专精入门（通称）",
+      "display": "剑道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "sword",
       "attribute": ""
     },
     {
       "id": "sect_specialty_body",
-      "display": "body专精入门（通称）",
+      "display": "炼体专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "body",
       "attribute": ""
     },
     {
       "id": "sect_specialty_talisman",
-      "display": "talisman专精入门（通称）",
+      "display": "符道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "talisman",
       "attribute": ""
     },
     {
       "id": "sect_specialty_formation",
-      "display": "formation专精入门（通称）",
+      "display": "阵道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "formation",
       "attribute": ""
     },
     {
       "id": "sect_specialty_puppet",
-      "display": "puppet专精入门（通称）",
+      "display": "傀儡专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "puppet",
       "attribute": ""
     },
     {
       "id": "sect_specialty_alchemy",
-      "display": "alchemy专精入门（通称）",
+      "display": "丹道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "alchemy",
       "attribute": ""
     },
     {
       "id": "sect_specialty_ghost",
-      "display": "ghost专精入门（通称）",
+      "display": "鬼道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "ghost",
       "attribute": ""
     },
     {
       "id": "sect_specialty_demonic",
-      "display": "demonic专精入门（通称）",
+      "display": "魔道专精入门（通称）",
       "realm_min": "FOUNDATION",
       "school": "demonic",
       "attribute": ""

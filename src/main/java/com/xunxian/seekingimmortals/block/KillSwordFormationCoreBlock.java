@@ -56,7 +56,7 @@ public class KillSwordFormationCoreBlock extends Block {
         }
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 160, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.KILL_SWORD);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.KILL_SWORD, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(ParticleTypes.CRIT, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 40, 0.7D, 0.5D, 0.7D, 0.08D);

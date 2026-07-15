@@ -3,23 +3,23 @@
   "stages": [
     {
       "id": "mortal_peak",
-      "display": "mortal_peak"
+      "display": "凡俗之巅"
     },
     {
       "id": "ascension_channel",
-      "display": "ascension_channel"
+      "display": "飞升通道"
     },
     {
       "id": "tianyuan_garrison",
-      "display": "tianyuan_garrison"
+      "display": "天渊驻军"
     },
     {
       "id": "spirit_fengyuan",
-      "display": "spirit_fengyuan"
+      "display": "灵界风元"
     },
     {
       "id": "great_vehicle_ascension",
-      "display": "great_vehicle_ascension"
+      "display": "大乘飞升"
     }
   ]
 }

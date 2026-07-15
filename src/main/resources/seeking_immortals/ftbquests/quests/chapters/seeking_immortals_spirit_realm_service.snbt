@@ -107,7 +107,7 @@
       ],
       dependencies: ["1000000000000902"],
       tags: ["seeking_immortals", "tianyuan", "daily_event", "optional"],
-      tasks: [{id: "1000000000001907", type: "checkmark", title: "记录天渊灵雨"}]
+      tasks: [{id: "1000000000001907", type: "dimension", dimension: "seeking_immortals:tianyuan", title: "抵达天渊维度"}]
     },
     {
       id: "1000000000000908",
@@ -150,7 +150,7 @@
       ],
       dependencies: ["1000000000000909"],
       tags: ["seeking_immortals", "spirit_fengyuan", "exploration"],
-      tasks: [{id: "1000000000001910", type: "checkmark", title: "抵达风元大陆"}]
+      tasks: [{id: "1000000000001910", type: "dimension", dimension: "seeking_immortals:spirit_fengyuan", title: "抵达风元维度"}]
     },
     {
       id: "1000000000000911",
@@ -344,7 +344,7 @@
       ],
       dependencies: ["1000000000000918"],
       tags: ["seeking_immortals", "spirit_eighteen_clans", "yaksha", "mozu", "optional"],
-      tasks: [{id: "1000000000001923", type: "checkmark", title: "记录边境血契"}]
+      tasks: [{id: "1000000000001923", type: "custom", title: "记录边境血契", tags: ["si_rep_tianyuan_10"], check_timer: 20, max_progress: 1L}]
     },
     {
       id: "1000000000000924",
@@ -402,7 +402,7 @@
       ],
       dependencies: ["1000000000000926"],
       tags: ["seeking_immortals", "diyuan", "pressure"],
-      tasks: [{id: "1000000000001927", type: "checkmark", title: "抵达裂隙口"}]
+      tasks: [{id: "1000000000001927", type: "dimension", dimension: "seeking_immortals:demon_rift", title: "进入魔渊裂隙"}]
     },
     {
       id: "1000000000000928",

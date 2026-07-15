@@ -371,7 +371,7 @@
     },
     {
       "id": "recipe_solid_essence_pill",
-      "display": "solid_essence_pill",
+      "display": "配方·固元丹",
       "output": "solid_essence_pill",
       "realm_min": "QI_REFINING",
       "material_count": 2,
@@ -379,7 +379,7 @@
     },
     {
       "id": "recipe_demon_expel_pill",
-      "display": "demon_expel_pill",
+      "display": "配方·驱魔丹",
       "output": "demon_expel_pill",
       "realm_min": "QI_REFINING",
       "material_count": 2,
@@ -387,7 +387,7 @@
     },
     {
       "id": "recipe_mulan_wind_pill",
-      "display": "mulan_wind_pill",
+      "display": "配方·木兰风丹",
       "output": "mulan_wind_pill",
       "realm_min": "QI_REFINING",
       "material_count": 2,
@@ -395,7 +395,7 @@
     },
     {
       "id": "recipe_pressure_resist",
-      "display": "recipe_pressure_resist",
+      "display": "配方·抗压丹",
       "output": "pressure_resist_pill",
       "realm_min": "",
       "material_count": 1,
@@ -403,7 +403,7 @@
     },
     {
       "id": "recipe_spirit_realm_condense",
-      "display": "recipe_spirit_realm_condense",
+      "display": "配方·凝灵丹",
       "output": "spirit_realm_condense_pill",
       "realm_min": "",
       "material_count": 1,
@@ -411,7 +411,7 @@
     },
     {
       "id": "recipe_jiedan_pill",
-      "display": "recipe_jiedan_pill",
+      "display": "配方·结丹丹",
       "output": "jiedan_pill",
       "realm_min": "",
       "material_count": 1,
@@ -419,7 +419,7 @@
     },
     {
       "id": "recipe_yangyuan_pill",
-      "display": "recipe_yangyuan_pill",
+      "display": "配方·养元丹",
       "output": "yangyuan_pill",
       "realm_min": "",
       "material_count": 1,
@@ -427,7 +427,7 @@
     },
     {
       "id": "recipe_qingxin_pill",
-      "display": "recipe_qingxin_pill",
+      "display": "配方·清心丹",
       "output": "qingxin_pill",
       "realm_min": "",
       "material_count": 1,
@@ -435,7 +435,7 @@
     },
     {
       "id": "recipe_anti_poison_pill",
-      "display": "recipe_anti_poison_pill",
+      "display": "配方·解毒丹",
       "output": "anti_poison_pill",
       "realm_min": "",
       "material_count": 1,

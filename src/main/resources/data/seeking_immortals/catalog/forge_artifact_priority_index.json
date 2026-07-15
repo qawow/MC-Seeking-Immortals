@@ -5,47 +5,47 @@
   "entries": [
     {
       "id": "flying_sword_low",
-      "display": "flying_sword_low"
+      "display": "低阶飞剑"
     },
     {
       "id": "cloud_boots",
-      "display": "cloud_boots"
+      "display": "踏云靴"
     },
     {
       "id": "spirit_gathering_bead",
-      "display": "spirit_gathering_bead"
+      "display": "定神珠"
     },
     {
       "id": "yellow_umbrella",
-      "display": "yellow_umbrella"
+      "display": "黄罗伞"
     },
     {
       "id": "qingye_leaf_fan",
-      "display": "qingye_leaf_fan"
+      "display": "青叶法器"
     },
     {
       "id": "storage_bracelet_low",
-      "display": "storage_bracelet_low"
+      "display": "储物镯（低阶）"
     },
     {
       "id": "snake_pearl",
-      "display": "snake_pearl"
+      "display": "蛇珠"
     },
     {
       "id": "flying_needle_set",
-      "display": "flying_needle_set"
+      "display": "飞针匣"
     },
     {
       "id": "black_gold_shield",
-      "display": "black_gold_shield"
+      "display": "乌金盾"
     },
     {
       "id": "bedrock_shield",
-      "display": "bedrock_shield"
+      "display": "磐石盾"
     },
     {
       "id": "artifact_repair_kit",
-      "display": "artifact_repair_kit"
+      "display": "法宝修补匣"
     }
   ]
 }

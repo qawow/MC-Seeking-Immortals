@@ -369,12 +369,27 @@ public final class SeekingImmortalsCommand {
                                         .then(Commands.argument("factionB", StringArgumentType.word())
                                                 .executes(ctx -> warStart(ctx.getSource(),
                                                         StringArgumentType.getString(ctx, "factionA"),
-                                                        StringArgumentType.getString(ctx, "factionB"), 10))
+                                                        StringArgumentType.getString(ctx, "factionB"),
+                                                        "", 10))
                                                 .then(Commands.argument("minutes", IntegerArgumentType.integer(1, 120))
                                                         .executes(ctx -> warStart(ctx.getSource(),
                                                                 StringArgumentType.getString(ctx, "factionA"),
                                                                 StringArgumentType.getString(ctx, "factionB"),
-                                                                IntegerArgumentType.getInteger(ctx, "minutes")))))))
+                                                                "",
+                                                                IntegerArgumentType.getInteger(ctx, "minutes"))))
+                                                // Wave487: optional third army for multi-army battlefield simulation.
+                                                .then(Commands.argument("factionC", StringArgumentType.word())
+                                                        .executes(ctx -> warStart(ctx.getSource(),
+                                                                StringArgumentType.getString(ctx, "factionA"),
+                                                                StringArgumentType.getString(ctx, "factionB"),
+                                                                StringArgumentType.getString(ctx, "factionC"),
+                                                                10))
+                                                        .then(Commands.argument("minutes", IntegerArgumentType.integer(1, 120))
+                                                                .executes(ctx -> warStart(ctx.getSource(),
+                                                                        StringArgumentType.getString(ctx, "factionA"),
+                                                                        StringArgumentType.getString(ctx, "factionB"),
+                                                                        StringArgumentType.getString(ctx, "factionC"),
+                                                                        IntegerArgumentType.getInteger(ctx, "minutes"))))))))
                         .then(Commands.literal("stop").requires(source -> source.hasPermission(2))
                                 .executes(ctx -> warStop(ctx.getSource()))))
                 .then(Commands.literal("sect")
@@ -1060,7 +1075,8 @@ public final class SeekingImmortalsCommand {
 
     private static int catalogAuctionOpen(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
-        com.xunxian.seekingimmortals.network.OpenAuctionScreenPacket.send(player);
+        // Wave490: open productized AuctionHall MenuType (authority path).
+        com.xunxian.seekingimmortals.catalog.AuctionSoftService.openHall(player);
         source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.auction.opened"), false);
         return 1;
     }
@@ -1403,8 +1419,8 @@ public final class SeekingImmortalsCommand {
         return 1;
     }
 
-    private static int warStart(CommandSourceStack source, String a, String b, int minutes) {
-        return com.xunxian.seekingimmortals.sect.SectWarService.start(source.getServer(), a, b, minutes) ? 1 : 0;
+    private static int warStart(CommandSourceStack source, String a, String b, String c, int minutes) {
+        return com.xunxian.seekingimmortals.sect.SectWarService.start(source.getServer(), a, b, c, minutes) ? 1 : 0;
     }
 
     private static int warStop(CommandSourceStack source) {

@@ -5,7 +5,7 @@ import com.xunxian.seekingimmortals.alchemy.AlchemyRecipe;
 import com.xunxian.seekingimmortals.alchemy.AlchemyRecipeService;
 import com.xunxian.seekingimmortals.block.AlchemyFurnaceBlock;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
-import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.block.AlchemyLidBlock;
 import com.xunxian.seekingimmortals.item.alchemy.AlchemyFormulaItem;
 import com.xunxian.seekingimmortals.item.alchemy.AlchemyTieredItem;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
@@ -14,6 +14,7 @@ import com.xunxian.seekingimmortals.skill.SkillType;
 import com.xunxian.seekingimmortals.structure.AlchemyFurnaceShellStructure;
 import com.xunxian.seekingimmortals.structure.SectEarthFireRoomMultiblock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -25,6 +26,7 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -35,8 +37,23 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.UUID;
 
+/**
+ * Wave499/500:
+ * - GUI slots authority for formula/fire
+ * - Lid is a placed multiblock block above the furnace (not a GUI item)
+ * - FORMED is a blockstate driven by shell structure
+ * Ingredient consumption still uses player inventory (AlchemyRecipeService).
+ */
 public class AlchemyFurnaceBlockEntity extends BlockEntity {
+    public static final int SLOT_FORMULA = 0;
+    public static final int SLOT_INGREDIENT = 1;
+    /** Legacy slot index kept for save/layout compatibility; no longer accepts items. */
+    public static final int SLOT_LID = 2;
+    public static final int SLOT_FIRE = 3;
+    public static final int SLOT_OUTPUT = 4;
+
     private static final int EARTH_FIRE_TIER = 4;
+    private static final int FORM_REFRESH_INTERVAL = 20;
 
     private String recipeId = "";
     private String knownFormulaId = "";
@@ -49,18 +66,35 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     private double successRate;
     private double explosionChance;
     private UUID craftingPlayerId;
+    private int formRefreshCooldown;
+    private boolean migratedLegacyComponents;
+
     private final ItemStackHandler items = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
+            if (slot == SLOT_FORMULA || slot == SLOT_FIRE) {
+                syncComponentsFromSlots();
+            }
+            if (slot == SLOT_LID && !getStackInSlot(SLOT_LID).isEmpty()) {
+                // Wave500: lid is a world block; eject accidental slot inserts.
+                // Cannot call level-sensitive helpers here safely; clear and leave to interact path.
+                setStackInSlot(SLOT_LID, ItemStack.EMPTY);
+            }
+            if (slot == SLOT_OUTPUT && !getStackInSlot(SLOT_OUTPUT).isEmpty()) {
+                storedOutput = getStackInSlot(SLOT_OUTPUT).copy();
+            }
             setChanged();
         }
     };
-    private final ContainerData data = new SimpleContainerData(2) {
+
+    private final ContainerData data = new SimpleContainerData(4) {
         @Override
         public int get(int index) {
             return switch (index) {
                 case 0 -> progressTicks;
                 case 1 -> totalTicks;
+                case 2 -> isFormed() ? 1 : 0;
+                case 3 -> hasEarthFireRoomNearby() ? 1 : 0;
                 default -> 0;
             };
         }
@@ -77,7 +111,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 4;
         }
     };
 
@@ -89,15 +123,28 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         return data;
     }
 
-
     public AlchemyFurnaceBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ALCHEMY_FURNACE.get(), pos, state);
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, AlchemyFurnaceBlockEntity furnace) {
-        if (furnace.progressTicks <= 0) return;
-        // H12: 守卫上提 —— 非服务端维度不修改进度状态，防止静默丢失配方
-        if (!(level instanceof ServerLevel serverLevel)) return;
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        furnace.formRefreshCooldown--;
+        if (furnace.formRefreshCooldown <= 0) {
+            furnace.formRefreshCooldown = FORM_REFRESH_INTERVAL;
+            furnace.refreshFormedState(serverLevel, false);
+        }
+        if (furnace.progressTicks <= 0) {
+            return;
+        }
+        // Wave498/499: if the multiblock shell breaks mid-cook, abort and waste the batch.
+        if (!AlchemyFurnaceShellStructure.isComplete(serverLevel, pos, furnace.getFurnaceTier())) {
+            furnace.refreshFormedState(serverLevel, false);
+            furnace.abortForBrokenShell(serverLevel);
+            return;
+        }
         furnace.progressTicks--;
         furnace.setChanged();
         if (furnace.progressTicks <= 0) {
@@ -106,8 +153,13 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     public void interact(ServerPlayer player, ItemStack held) {
-        if (!(level instanceof ServerLevel serverLevel)) return;
-        if (!storedOutput.isEmpty()) {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        refreshFormedState(serverLevel, false);
+        syncComponentsFromSlots();
+
+        if (!storedOutput.isEmpty() || !items.getStackInSlot(SLOT_OUTPUT).isEmpty()) {
             giveOutput(player);
             return;
         }
@@ -116,31 +168,117 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                     getRecipeName(), totalTicks - progressTicks, totalTicks), true);
             return;
         }
-        if (tryInstallComponent(serverLevel, player, held)) {
+        // Wave499: components go into GUI authority slots.
+        if (tryInsertComponentToSlot(serverLevel, player, held)) {
             return;
         }
         findRecipeForHeldItem(held).ifPresentOrElse(recipe -> startRecipe(serverLevel, player, recipe),
-                () -> player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.idle",
-                        getFurnaceTier(), lidTier, fireTier, describeFormula()), false));
+                () -> {
+                    int tier = getFurnaceTier();
+                    int required = AlchemyFurnaceShellStructure.requiredCount(tier);
+                    int present = AlchemyFurnaceShellStructure.presentCount(serverLevel, worldPosition, tier);
+                    boolean shellOk = isFormed() && present >= required;
+                    boolean room = hasEarthFireRoom(serverLevel);
+                    player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.idle",
+                            tier, lidTier, fireTier, describeFormula(),
+                            present, required,
+                            shellOk
+                                    ? Component.translatable("message.seeking_immortals.alchemy_furnace.shell_ok")
+                                    : Component.translatable("message.seeking_immortals.alchemy_furnace.shell_bad"),
+                            room
+                                    ? Component.translatable("message.seeking_immortals.alchemy_furnace.room_ok")
+                                    : Component.translatable("message.seeking_immortals.alchemy_furnace.room_bad")), false);
+                });
+    }
+
+    public void refreshFormedState(ServerLevel serverLevel, boolean forceParticles) {
+        if (serverLevel == null) {
+            return;
+        }
+        BlockState state = getBlockState();
+        if (!(state.getBlock() instanceof AlchemyFurnaceBlock)) {
+            return;
+        }
+        boolean complete = AlchemyFurnaceShellStructure.isComplete(serverLevel, worldPosition, getFurnaceTier());
+        boolean wasFormed = state.getValue(AlchemyFurnaceBlock.FORMED);
+        if (complete == wasFormed && !forceParticles) {
+            return;
+        }
+        // Preserve BE while flipping formed flag.
+        serverLevel.setBlock(worldPosition, state.setValue(AlchemyFurnaceBlock.FORMED, complete), 3);
+        if (complete && !wasFormed) {
+            serverLevel.sendParticles(ParticleTypes.END_ROD,
+                    worldPosition.getX() + 0.5D, worldPosition.getY() + 1.0D, worldPosition.getZ() + 0.5D,
+                    18, 0.45D, 0.35D, 0.45D, 0.02D);
+            serverLevel.sendParticles(ParticleTypes.HAPPY_VILLAGER,
+                    worldPosition.getX() + 0.5D, worldPosition.getY() + 0.8D, worldPosition.getZ() + 0.5D,
+                    8, 0.35D, 0.2D, 0.35D, 0.0D);
+            serverLevel.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.7F, 1.15F);
+        } else if (!complete && wasFormed) {
+            serverLevel.playSound(null, worldPosition, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.45F, 0.9F);
+        }
+        setChanged();
+    }
+
+    public boolean isFormed() {
+        BlockState state = getBlockState();
+        return state.hasProperty(AlchemyFurnaceBlock.FORMED) && state.getValue(AlchemyFurnaceBlock.FORMED);
+    }
+
+    private void abortForBrokenShell(ServerLevel serverLevel) {
+        ServerPlayer crafter = craftingPlayerId == null
+                ? null
+                : serverLevel.getServer().getPlayerList().getPlayer(craftingPlayerId);
+        if (crafter != null) {
+            crafter.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.alchemy_furnace.shell_broken"), false);
+        }
+        ItemStack waste = new ItemStack(ModItems.WASTE_PILL.get());
+        storedOutput = waste.copy();
+        items.setStackInSlot(SLOT_OUTPUT, waste);
+        progressTicks = 0;
+        totalTicks = 0;
+        successRate = 0.0D;
+        explosionChance = 0.0D;
+        craftingPlayerId = null;
+        recipeId = "";
+        serverLevel.playSound(null, worldPosition, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.7F, 0.7F);
+        setChanged();
     }
 
     public void dropStoredContents() {
-        if (level == null || level.isClientSide) return;
-        dropItemStack(storedOutput);
-        dropItemStack(installedTieredComponentStack(AlchemyTieredItem.ComponentType.LID, lidTier));
-        dropItemStack(installedTieredComponentStack(AlchemyTieredItem.ComponentType.FIRE, fireTier));
-        dropItemStack(installedFormulaStack());
-
+        if (level == null || level.isClientSide) {
+            return;
+        }
+        // Wave499: drop GUI handler stacks as authority inventory.
+        for (int i = 0; i < items.getSlots(); i++) {
+            dropItemStack(items.getStackInSlot(i));
+            items.setStackInSlot(i, ItemStack.EMPTY);
+        }
+        // storedOutput may duplicate SLOT_OUTPUT; only drop if output slot already empty path failed.
+        if (!storedOutput.isEmpty() && items.getStackInSlot(SLOT_OUTPUT).isEmpty()) {
+            // already dropped above when present in slot; clear residual
+        }
         storedOutput = ItemStack.EMPTY;
         lidTier = 0;
         fireTier = 0;
         knownFormulaId = "";
         formulaSource = AlchemyFormulaSource.PAPER;
-        reset();
+        resetCookState();
     }
 
     private void startRecipe(ServerLevel serverLevel, ServerPlayer player, AlchemyRecipe recipe) {
+        syncComponentsFromSlots();
         int furnaceTier = getFurnaceTier();
+        if (!isFormed() || !AlchemyFurnaceShellStructure.isComplete(serverLevel, worldPosition, furnaceTier)) {
+            int missing = AlchemyFurnaceShellStructure.missingOffsets(serverLevel, worldPosition, furnaceTier).size();
+            int required = AlchemyFurnaceShellStructure.requiredCount(furnaceTier);
+            int present = Math.max(0, required - missing);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.alchemy_furnace.shell_incomplete",
+                    furnaceTier, present, required, missing), true);
+            return;
+        }
         if (!hasInstalledFormula(recipe)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.no_formula", recipe.displayName()), true);
             return;
@@ -173,14 +311,6 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
                     Component.translatable("item.seeking_immortals.earth_fire")), true);
             return;
         }
-        // Wave38: high-tier furnaces require MultiblockPattern shell (G1 cardinal ring / G3 full ring).
-        if (furnaceTier >= 3 && !AlchemyFurnaceShellStructure.isComplete(serverLevel, worldPosition, furnaceTier)) {
-            int missing = AlchemyFurnaceShellStructure.missingOffsets(serverLevel, worldPosition, furnaceTier).size();
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.alchemy_furnace.shell_incomplete", furnaceTier, missing), true);
-            return;
-        }
-        // Wave53: alchemy skill level gate unlocks higher furnace-tier recipes.
         int requiredSkill = Math.max(1, recipe.requiredFurnaceTier() * 2 - 1);
         int alchemyLevel = CultivationHelper.get(player)
                 .map(c -> {
@@ -217,61 +347,133 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         explosionChance = AlchemyRecipeService.explosionChance(player, recipe, furnaceTier, lidTier, fireTier, formulaSource);
         craftingPlayerId = player.getUUID();
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.started",
-                recipe.displayName(), recipe.manaCost(), (int)Math.round(successRate * 100.0D)), false);
+                recipe.displayName(), recipe.manaCost(), (int) Math.round(successRate * 100.0D)), false);
         serverLevel.playSound(null, worldPosition, SoundEvents.BLAZE_SHOOT, SoundSource.BLOCKS, 0.4F, 0.8F);
         setChanged();
     }
 
-    private boolean tryInstallComponent(ServerLevel serverLevel, ServerPlayer player, ItemStack held) {
-        if (held.isEmpty()) return false;
-        if (held.getItem() instanceof AlchemyTieredItem tieredItem) {
-            if (tieredItem.componentType() == AlchemyTieredItem.ComponentType.LID) {
-                if (lidTier == tieredItem.tier()) {
-                    player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.lid_already_installed", lidTier), true);
-                    return true;
-                }
-                returnInstalledItem(player, installedTieredComponentStack(AlchemyTieredItem.ComponentType.LID, lidTier));
-                lidTier = tieredItem.tier();
-                shrinkInstalledItem(player, held);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.lid_installed", lidTier), false);
-            } else {
-                if (fireTier == tieredItem.tier()) {
-                    player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.fire_already_installed", fireTier), true);
-                    return true;
-                }
-                if (!canInstallFire(serverLevel, player, held, tieredItem)) return true;
-                returnInstalledItem(player, installedTieredComponentStack(AlchemyTieredItem.ComponentType.FIRE, fireTier));
-                fireTier = tieredItem.tier();
-                shrinkInstalledItem(player, held);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.fire_installed", fireTier), false);
+    private boolean tryInsertComponentToSlot(ServerLevel serverLevel, ServerPlayer player, ItemStack held) {
+        if (held.isEmpty()) {
+            return false;
+        }
+        // Wave500: lids are placeable blocks on top of the furnace controller.
+        if (held.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof AlchemyLidBlock lidBlock) {
+            BlockPos lidPos = worldPosition.above();
+            BlockState existing = serverLevel.getBlockState(lidPos);
+            if (existing.getBlock() instanceof AlchemyLidBlock existingLid && existingLid.tier() == lidBlock.tier()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.alchemy_furnace.lid_already_installed", lidBlock.tier()), true);
+                return true;
             }
+            if (!existing.isAir() && !(existing.getBlock() instanceof AlchemyLidBlock) && !existing.canBeReplaced()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.alchemy_furnace.lid_blocked"), true);
+                return true;
+            }
+            if (existing.getBlock() instanceof AlchemyLidBlock) {
+                net.minecraft.world.level.block.Block.dropResources(existing, serverLevel, lidPos);
+                serverLevel.removeBlock(lidPos, false);
+            }
+            serverLevel.setBlock(lidPos, lidBlock.defaultBlockState(), 3);
+            shrinkInstalledItem(player, held);
+            syncComponentsFromSlots();
+            refreshFormedState(serverLevel, true);
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.alchemy_furnace.lid_installed", lidBlock.tier()), false);
+            setChanged();
+            return true;
+        }
+        if (held.getItem() instanceof AlchemyTieredItem tieredItem
+                && tieredItem.componentType() == AlchemyTieredItem.ComponentType.FIRE) {
+            if (!canInstallFire(serverLevel, player, held, tieredItem)) {
+                return true;
+            }
+            ItemStack existing = items.getStackInSlot(SLOT_FIRE);
+            if (!existing.isEmpty()
+                    && existing.getItem() instanceof AlchemyTieredItem existingTiered
+                    && existingTiered.componentType() == AlchemyTieredItem.ComponentType.FIRE
+                    && existingTiered.tier() == tieredItem.tier()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.alchemy_furnace.fire_already_installed",
+                        tieredItem.tier()), true);
+                return true;
+            }
+            if (!existing.isEmpty()) {
+                returnInstalledItem(player, existing);
+            }
+            ItemStack one = held.copy();
+            one.setCount(1);
+            items.setStackInSlot(SLOT_FIRE, one);
+            shrinkInstalledItem(player, held);
+            syncComponentsFromSlots();
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.alchemy_furnace.fire_installed",
+                    tieredItem.tier()), false);
             setChanged();
             return true;
         }
         if (held.getItem() instanceof AlchemyFormulaItem formulaItem) {
-            if (formulaItem.recipeId().equals(knownFormulaId) && formulaItem.source() == formulaSource) {
+            ItemStack existing = items.getStackInSlot(SLOT_FORMULA);
+            if (!existing.isEmpty()
+                    && existing.getItem() instanceof AlchemyFormulaItem existingFormula
+                    && existingFormula.recipeId().equals(formulaItem.recipeId())
+                    && existingFormula.source() == formulaItem.source()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.formula_already_installed",
-                        Component.translatable("alchemy_recipe.seeking_immortals." + knownFormulaId),
-                        Component.translatable("alchemy_formula_source.seeking_immortals." + formulaSource.id())), true);
+                        Component.translatable("alchemy_recipe.seeking_immortals." + formulaItem.recipeId()),
+                        Component.translatable("alchemy_formula_source.seeking_immortals." + formulaItem.source().id())), true);
                 return true;
             }
-            returnInstalledItem(player, installedFormulaStack());
-            knownFormulaId = formulaItem.recipeId();
-            formulaSource = formulaItem.source();
+            if (!existing.isEmpty()) {
+                returnInstalledItem(player, existing);
+            }
+            ItemStack one = held.copy();
+            one.setCount(1);
+            items.setStackInSlot(SLOT_FORMULA, one);
             shrinkInstalledItem(player, held);
+            syncComponentsFromSlots();
             player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.formula_installed",
-                    Component.translatable("alchemy_recipe.seeking_immortals." + knownFormulaId),
-                    Component.translatable("alchemy_formula_source.seeking_immortals." + formulaSource.id())), false);
+                    Component.translatable("alchemy_recipe.seeking_immortals." + formulaItem.recipeId()),
+                    Component.translatable("alchemy_formula_source.seeking_immortals." + formulaItem.source().id())), false);
             setChanged();
             return true;
         }
         return false;
     }
 
+    public void syncComponentsFromSlots() {
+        ItemStack formula = items.getStackInSlot(SLOT_FORMULA);
+        if (formula.getItem() instanceof AlchemyFormulaItem formulaItem) {
+            knownFormulaId = formulaItem.recipeId();
+            formulaSource = formulaItem.source();
+        } else {
+            knownFormulaId = "";
+            formulaSource = AlchemyFormulaSource.PAPER;
+        }
+        // Wave500: lid tier comes from the placed lid block above the furnace.
+        if (level != null) {
+            lidTier = AlchemyFurnaceShellStructure.lidTierAt(level, worldPosition).orElse(0);
+        } else {
+            lidTier = 0;
+        }
+        // Clear legacy lid slot residue so it cannot shadow world lid authority.
+        if (!items.getStackInSlot(SLOT_LID).isEmpty()) {
+            items.setStackInSlot(SLOT_LID, ItemStack.EMPTY);
+        }
+        ItemStack fire = items.getStackInSlot(SLOT_FIRE);
+        if (fire.getItem() instanceof AlchemyTieredItem tiered
+                && tiered.componentType() == AlchemyTieredItem.ComponentType.FIRE) {
+            fireTier = tiered.tier();
+        } else {
+            fireTier = 0;
+        }
+        ItemStack out = items.getStackInSlot(SLOT_OUTPUT);
+        storedOutput = out.isEmpty() ? ItemStack.EMPTY : out.copy();
+    }
+
     private void finishCraft(ServerLevel serverLevel) {
         AlchemyRecipe recipe = AlchemyRecipe.findById(recipeId).orElse(null);
         if (recipe == null) {
-            reset();
+            resetCookState();
             return;
         }
         double roll = serverLevel.random.nextDouble();
@@ -283,11 +485,15 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
             return;
         }
         if (roll < explosionChance + successRate) {
-            storedOutput = new ItemStack(rollOutputQuality(serverLevel, recipe, roll), recipe.outputCount());
+            ItemStack result = new ItemStack(rollOutputQuality(serverLevel, recipe, roll), recipe.outputCount());
+            storedOutput = result.copy();
+            items.setStackInSlot(SLOT_OUTPUT, result);
             grantAlchemyExperience(serverLevel);
             serverLevel.playSound(null, worldPosition, SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 0.6F, 1.2F);
         } else {
-            storedOutput = new ItemStack(ModItems.WASTE_PILL.get());
+            ItemStack waste = new ItemStack(ModItems.WASTE_PILL.get());
+            storedOutput = waste.copy();
+            items.setStackInSlot(SLOT_OUTPUT, waste);
             serverLevel.playSound(null, worldPosition, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.6F, 0.8F);
         }
         progressTicks = 0;
@@ -308,7 +514,14 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
 
     private void blowLid(ServerLevel serverLevel, ServerPlayer player) {
         player.displayClientMessage(Component.translatable("message.seeking_immortals.alchemy_furnace.explode_lid", fireTier, lidTier), false);
+        BlockPos lidPos = worldPosition.above();
+        BlockState lidState = serverLevel.getBlockState(lidPos);
+        if (lidState.getBlock() instanceof AlchemyLidBlock) {
+            serverLevel.destroyBlock(lidPos, false);
+        }
+        items.setStackInSlot(SLOT_LID, ItemStack.EMPTY);
         lidTier = 0;
+        refreshFormedState(serverLevel, false);
         DamageSource source = serverLevel.damageSources().explosion(null, null);
         serverLevel.getEntitiesOfClass(ServerPlayer.class, new AABB(worldPosition).inflate(2.5D))
                 .forEach(target -> target.hurt(source, 4.0F));
@@ -317,8 +530,17 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     private void giveOutput(ServerPlayer player) {
-        ItemStack result = storedOutput.copy();
+        ItemStack result = items.getStackInSlot(SLOT_OUTPUT);
+        if (result.isEmpty()) {
+            result = storedOutput.copy();
+        } else {
+            result = result.copy();
+        }
+        items.setStackInSlot(SLOT_OUTPUT, ItemStack.EMPTY);
         storedOutput = ItemStack.EMPTY;
+        if (result.isEmpty()) {
+            return;
+        }
         if (!player.getInventory().add(result)) {
             player.drop(result, false);
         }
@@ -345,7 +567,9 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     private String describeFormula() {
-        if (knownFormulaId.isBlank()) return "-";
+        if (knownFormulaId.isBlank()) {
+            return "-";
+        }
         return AlchemyRecipe.findById(knownFormulaId)
                 .map(recipe -> recipe.displayName().getString())
                 .orElse(knownFormulaId);
@@ -358,7 +582,9 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     private void returnInstalledItem(ServerPlayer player, ItemStack stack) {
-        if (stack.isEmpty()) return;
+        if (stack.isEmpty()) {
+            return;
+        }
         ItemStack returned = stack.copy();
         if (!player.getInventory().add(returned)) {
             player.drop(returned, false);
@@ -386,6 +612,13 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         return SectEarthFireRoomMultiblock.hasCompleteRoom(serverLevel, worldPosition);
     }
 
+    private boolean hasEarthFireRoomNearby() {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+        return hasEarthFireRoom(serverLevel);
+    }
+
     private int getFurnaceTier() {
         if (getBlockState().getBlock() instanceof AlchemyFurnaceBlock furnaceBlock) {
             return furnaceBlock.tier();
@@ -393,42 +626,42 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         return 1;
     }
 
-    /** 成丹时按成功余量与炼丹等级决定品质（M15）。realRoll 为 finishCraft 实际成功掷骰值（∈[explosionChance, successThreshold)）。 */
-    private net.minecraft.world.item.Item rollOutputQuality(ServerLevel serverLevel, AlchemyRecipe recipe, double realRoll) {
-        if (!recipe.isQualityVariable()) return recipe.output();
-        // 余量：realRoll 越接近成功阈值(successThreshold=explosionChance+successRate)越接近失败边界，按设计该情况品质分越高。
+    private Item rollOutputQuality(ServerLevel serverLevel, AlchemyRecipe recipe, double realRoll) {
+        if (!recipe.isQualityVariable()) {
+            return recipe.output();
+        }
         double successThreshold = explosionChance + successRate;
         double margin = successThreshold <= 0.0D ? 0.0D : Math.max(0.0D, Math.min(1.0D, (successThreshold - realRoll) / successRate));
-        // normalized ∈ [0,1)：realRoll 越接近失败边界 → margin 越小 → normalized 越大（越接近失败边界分越高）。
         double normalized = 1.0D - margin;
         ServerPlayer crafter = craftingPlayerId == null ? null : serverLevel.getServer().getPlayerList().getPlayer(craftingPlayerId);
         double alchemyBonus = crafter == null ? 0.0D : AlchemyRecipeService.getAlchemySkillBonus(crafter);
         double qualityScore = normalized * 0.8D + alchemyBonus;
         com.xunxian.seekingimmortals.item.pill.PillQuality quality;
-        if (qualityScore >= 0.95D) quality = com.xunxian.seekingimmortals.item.pill.PillQuality.SUPREME;
-        else if (qualityScore >= 0.75D) quality = com.xunxian.seekingimmortals.item.pill.PillQuality.HIGH;
-        else if (qualityScore >= 0.50D) quality = com.xunxian.seekingimmortals.item.pill.PillQuality.MEDIUM;
-        else quality = com.xunxian.seekingimmortals.item.pill.PillQuality.LOW;
+        if (qualityScore >= 0.95D) {
+            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.SUPREME;
+        } else if (qualityScore >= 0.75D) {
+            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.HIGH;
+        } else if (qualityScore >= 0.50D) {
+            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.MEDIUM;
+        } else {
+            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.LOW;
+        }
         return recipe.outputForQuality(quality);
     }
 
-    /** 成丹时为开炉玩家结算炼丹术经验（H13：提供解锁/升级路径）。 */
     private void grantAlchemyExperience(ServerLevel serverLevel) {
-        if (craftingPlayerId == null) return;
+        if (craftingPlayerId == null) {
+            return;
+        }
         ServerPlayer player = serverLevel.getServer().getPlayerList().getPlayer(craftingPlayerId);
-        if (player == null) return;
-        CultivationHelper.get(player).ifPresent(cultivation -> {
-            if (!cultivation.hasAlchemy()) {
-                cultivation.unlockSkill(SkillType.ALCHEMY);
-            }
-            cultivation.addSkillExperience(SkillType.ALCHEMY, 25);
-            com.xunxian.seekingimmortals.network.SyncCultivationDataPacket.send(player, cultivation);
-        });
+        if (player == null) {
+            return;
+        }
+        com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player, SkillType.ALCHEMY, 25, 10);
     }
 
-    private void reset() {
+    private void resetCookState() {
         recipeId = "";
-        storedOutput = ItemStack.EMPTY;
         progressTicks = 0;
         totalTicks = 0;
         successRate = 0.0D;
@@ -438,23 +671,60 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     private void discardStoredContents() {
+        for (int i = 0; i < items.getSlots(); i++) {
+            items.setStackInSlot(i, ItemStack.EMPTY);
+        }
         lidTier = 0;
         fireTier = 0;
         knownFormulaId = "";
         formulaSource = AlchemyFormulaSource.PAPER;
-        reset();
+        storedOutput = ItemStack.EMPTY;
+        resetCookState();
     }
 
     private void dropItemStack(ItemStack stack) {
-        if (stack.isEmpty()) return;
+        if (stack.isEmpty() || level == null) {
+            return;
+        }
         Containers.dropItemStack(level, worldPosition.getX() + 0.5D, worldPosition.getY() + 0.5D, worldPosition.getZ() + 0.5D, stack.copy());
     }
 
-    private ItemStack installedTieredComponentStack(AlchemyTieredItem.ComponentType componentType, int tier) {
-        if (tier <= 0) return ItemStack.EMPTY;
+    /** One-time migration: scalar-only installs become slot stacks (fire/formula/output only). */
+    private void migrateLegacyComponentsIntoSlots() {
+        if (migratedLegacyComponents) {
+            return;
+        }
+        migratedLegacyComponents = true;
+        // Lid is world structure now; drop any legacy lid slot item for the player world to place manually.
+        if (!items.getStackInSlot(SLOT_LID).isEmpty()) {
+            dropItemStack(items.getStackInSlot(SLOT_LID));
+            items.setStackInSlot(SLOT_LID, ItemStack.EMPTY);
+        }
+        if (items.getStackInSlot(SLOT_FIRE).isEmpty() && fireTier > 0) {
+            ItemStack stack = installedFireStack(fireTier);
+            if (!stack.isEmpty()) {
+                items.setStackInSlot(SLOT_FIRE, stack);
+            }
+        }
+        if (items.getStackInSlot(SLOT_FORMULA).isEmpty() && !knownFormulaId.isBlank()) {
+            ItemStack stack = installedFormulaStack();
+            if (!stack.isEmpty()) {
+                items.setStackInSlot(SLOT_FORMULA, stack);
+            }
+        }
+        if (items.getStackInSlot(SLOT_OUTPUT).isEmpty() && !storedOutput.isEmpty()) {
+            items.setStackInSlot(SLOT_OUTPUT, storedOutput.copy());
+        }
+        syncComponentsFromSlots();
+    }
+
+    private ItemStack installedFireStack(int tier) {
+        if (tier <= 0) {
+            return ItemStack.EMPTY;
+        }
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item instanceof AlchemyTieredItem tieredItem
-                    && tieredItem.componentType() == componentType
+                    && tieredItem.componentType() == AlchemyTieredItem.ComponentType.FIRE
                     && tieredItem.tier() == tier) {
                 return new ItemStack(item);
             }
@@ -463,7 +733,9 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     }
 
     private ItemStack installedFormulaStack() {
-        if (knownFormulaId.isBlank()) return ItemStack.EMPTY;
+        if (knownFormulaId.isBlank()) {
+            return ItemStack.EMPTY;
+        }
         for (Item item : ForgeRegistries.ITEMS.getValues()) {
             if (item instanceof AlchemyFormulaItem formulaItem
                     && formulaItem.recipeId().equals(knownFormulaId)
@@ -477,6 +749,7 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
+        syncComponentsFromSlots();
         tag.put("Items", items.serializeNBT());
         tag.putString("RecipeId", recipeId);
         tag.putString("KnownFormulaId", knownFormulaId);
@@ -488,7 +761,10 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         tag.putInt("TotalTicks", totalTicks);
         tag.putDouble("SuccessRate", successRate);
         tag.putDouble("ExplosionChance", explosionChance);
-        if (craftingPlayerId != null) tag.putUUID("CraftingPlayerId", craftingPlayerId);
+        tag.putBoolean("MigratedLegacyComponents", migratedLegacyComponents);
+        if (craftingPlayerId != null) {
+            tag.putUUID("CraftingPlayerId", craftingPlayerId);
+        }
     }
 
     @Override
@@ -508,5 +784,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         successRate = tag.getDouble("SuccessRate");
         explosionChance = tag.getDouble("ExplosionChance");
         craftingPlayerId = tag.hasUUID("CraftingPlayerId") ? tag.getUUID("CraftingPlayerId") : null;
+        migratedLegacyComponents = tag.getBoolean("MigratedLegacyComponents");
+        migrateLegacyComponentsIntoSlots();
+        syncComponentsFromSlots();
     }
 }

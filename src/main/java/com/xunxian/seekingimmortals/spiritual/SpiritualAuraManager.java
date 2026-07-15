@@ -33,11 +33,16 @@ public final class SpiritualAuraManager {
     public static AuraInfo getAuraInfo(Level level, BlockPos pos) {
         double dimensionMultiplier = getDimensionMultiplier(level);
         double biomeMultiplier = getBiomeMultiplier(level, pos);
-        double leylineMultiplier = getLeylineMultiplier(level, new ChunkPos(pos));
+        ChunkPos chunkPos = new ChunkPos(pos);
+        double leylineMultiplier = getLeylineMultiplier(level, chunkPos);
         int formationBonus = getFormationBonus(level, pos);
         AuraNature nature = getAuraNature(level);
+        boolean cluster = isLeylineCluster(level, chunkPos);
         int concentration = Math.max(1, (int)Math.round(BASE_AURA * dimensionMultiplier * biomeMultiplier * leylineMultiplier + formationBonus));
-        return new AuraInfo(concentration, dimensionMultiplier, biomeMultiplier, leylineMultiplier, formationBonus, nature, leylineMultiplier >= 3.0D);
+        if (cluster) {
+            concentration += 25;
+        }
+        return new AuraInfo(concentration, dimensionMultiplier, biomeMultiplier, leylineMultiplier, formationBonus, nature, leylineMultiplier >= 3.0D, cluster);
     }
 
     public static int adjustSpiritualPowerGain(int baseGain, AuraInfo auraInfo) {
@@ -86,12 +91,83 @@ public final class SpiritualAuraManager {
 
     public static double getLeylineCoreMultiplier(Level level, int chunkX, int chunkZ) {
         long seed = level instanceof ServerLevel serverLevel ? serverLevel.getSeed() : 0L;
+        return getLeylineCoreMultiplier(seed, chunkX, chunkZ);
+    }
+
+    /**
+     * Wave493: seed-only leyline core for worldgen structure start decisions.
+     * Same thresholds as live aura authority.
+     */
+    public static double getLeylineCoreMultiplier(long seed, int chunkX, int chunkZ) {
         long hash = mix(seed, chunkX, chunkZ);
-        int value = (int)Math.floorMod(hash, 10_000L);
-        if (value < 50) return 5.0D;
-        if (value < 100) return 4.0D;
-        if (value < 200) return 3.0D;
-        return 1.0D;
+        int value = (int) Math.floorMod(hash, 10_000L);
+        double core;
+        if (value < 50) core = 5.0D;
+        else if (value < 100) core = 4.0D;
+        else if (value < 200) core = 3.0D;
+        else core = 1.0D;
+        if (core >= 3.0D) {
+            int cluster = countNearbyMajorVeins(seed, chunkX, chunkZ, 2);
+            if (cluster >= 3) {
+                core = Math.min(6.5D, core + 0.75D + (cluster - 3) * 0.15D);
+            } else if (cluster >= 2) {
+                core = Math.min(6.0D, core + 0.35D);
+            }
+        }
+        return core;
+    }
+
+    /** True when this chunk is a major leyline core (x3+) under hash authority. */
+    public static boolean isMajorLeylineChunk(long seed, int chunkX, int chunkZ) {
+        long hash = mix(seed, chunkX, chunkZ);
+        int value = (int) Math.floorMod(hash, 10_000L);
+        return value < 200;
+    }
+
+    /**
+     * 1 = x3 core, 2 = x4 core, 3 = x5 core (pre-cluster), 0 = none.
+     */
+    public static int majorLeylineTier(long seed, int chunkX, int chunkZ) {
+        long hash = mix(seed, chunkX, chunkZ);
+        int value = (int) Math.floorMod(hash, 10_000L);
+        if (value < 50) return 3;
+        if (value < 100) return 2;
+        if (value < 200) return 1;
+        return 0;
+    }
+
+    /**
+     * Wave489: count major leyline cores (x3+) in a square radius of chunks (excluding center).
+     * Used for cluster density and ecology hooks.
+     */
+    public static int countNearbyMajorVeins(Level level, int chunkX, int chunkZ, int radius) {
+        long seed = level instanceof ServerLevel serverLevel ? serverLevel.getSeed() : 0L;
+        return countNearbyMajorVeins(seed, chunkX, chunkZ, radius);
+    }
+
+    public static int countNearbyMajorVeins(long seed, int chunkX, int chunkZ, int radius) {
+        int r = Math.max(1, radius);
+        int count = 0;
+        for (int dx = -r; dx <= r; dx++) {
+            for (int dz = -r; dz <= r; dz++) {
+                if (dx == 0 && dz == 0) {
+                    continue;
+                }
+                if (isMajorLeylineChunk(seed, chunkX + dx, chunkZ + dz)) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    /** True when the chunk sits inside a dense multi-vein cluster. */
+    public static boolean isLeylineCluster(Level level, ChunkPos chunkPos) {
+        if (chunkPos == null || level == null) {
+            return false;
+        }
+        return getLeylineCoreMultiplier(level, chunkPos.x, chunkPos.z) >= 3.0D
+                && countNearbyMajorVeins(level, chunkPos.x, chunkPos.z, 2) >= 2;
     }
 
     private static double getDimensionMultiplier(Level level) {
@@ -188,7 +264,7 @@ public final class SpiritualAuraManager {
     }
 
     public record AuraInfo(int concentration, double dimensionMultiplier, double biomeMultiplier, double leylineMultiplier,
-                           int formationBonus, AuraNature nature, boolean leyline) {}
+                           int formationBonus, AuraNature nature, boolean leyline, boolean cluster) {}
 
     public record LeylineTarget(int blockX, int blockZ, double multiplier, double distance) {}
 

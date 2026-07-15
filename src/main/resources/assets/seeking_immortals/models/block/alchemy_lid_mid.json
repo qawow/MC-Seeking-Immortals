@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "seeking_immortals:block/alchemy_lid_mid",
+    "top": "seeking_immortals:block/alchemy_lid_mid",
+    "side": "seeking_immortals:block/alchemy_lid_mid"
+  }
+}

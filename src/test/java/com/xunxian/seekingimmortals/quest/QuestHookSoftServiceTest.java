@@ -25,8 +25,11 @@ class QuestHookSoftServiceTest {
     }
 
     @Test
-    void unknownHooksStayHonestlyUnmapped() {
-        assertTrue(QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").isEmpty());
+    void unknownHooksFallBackToPlayableMainline() {
+        // Wave492: residual hooks no longer soft-only; they map to a playable chain.
+        assertTrue(QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").isPresent());
+        assertTrue(TextQuestChainService.find(
+                QuestHookSoftService.mappedChainId("totally_unknown_hook_xyz").orElseThrow()).isPresent());
     }
 
     @Test

@@ -56,7 +56,7 @@ public class IllusionMazeFormationCoreBlock extends Block {
         }
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.INVISIBILITY, 160, 0));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0));
-        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.ILLUSION_MAZE);
+        FormationFieldService.activate(serverPlayer.serverLevel(), pos, FormationFieldService.FieldKind.ILLUSION_MAZE, serverPlayer);
         ServerLevel serverLevel = serverPlayer.serverLevel();
         serverLevel.sendParticles(ParticleTypes.CLOUD, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
                 36, 0.8D, 0.4D, 0.8D, 0.02D);
