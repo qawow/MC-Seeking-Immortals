@@ -67,6 +67,33 @@ class ScreenLayoutTest {
     }
 
     @Test
+    void operationalJournalScreensFitScaledWindows() {
+        int[][] sizes = { {120, 90}, {320, 180}, {854, 480} };
+        for (int[] size : sizes) {
+            assertOperationalLayouts(size[0], size[1]);
+        }
+    }
+
+    @Test
+    void fixedContainersPreserveSlotPlaneAndExposeVisibleFrame() {
+        int[][] sizes = { {120, 90}, {320, 180}, {854, 480} };
+        for (int[] size : sizes) {
+            AlchemyFurnaceScreen.FurnaceLayout furnace = AlchemyFurnaceScreen.calculateLayout(size[0], size[1]);
+            assertTrue(furnace.visiblePanel().x() >= 0 && furnace.visiblePanel().y() >= 0);
+            assertTrue(furnace.visiblePanel().right() <= size[0]);
+            assertTrue(furnace.visiblePanel().bottom() <= size[1]);
+
+            StorageBraceletScreenMenu.ContainerLayout storage =
+                    StorageBraceletScreenMenu.calculateLayout(size[0], size[1], 27);
+            assertTrue(storage.visibleFrame().inside(size[0], size[1]));
+            assertEquals(176, storage.fullFrame().width());
+            assertEquals(3, storage.rows());
+            assertEquals(9 * 18, storage.storageSlotPlane().width());
+            assertEquals(9 * 18, storage.playerSlotPlane().width());
+        }
+    }
+
+    @Test
     void techniqueSkillBarAnchorsLeftAndFitsCommonScaledHudSizes() {
         assertSkillBarFits(180, 180);
         assertSkillBarFits(320, 180);
@@ -266,6 +293,61 @@ class ScreenLayoutTest {
         assertTrue(rect.width() > 0 && rect.height() > 0);
         assertTrue(rect.x() >= 0 && rect.y() >= 0);
         assertTrue(rect.right() <= width && rect.bottom() <= height);
+    }
+
+    private static void assertOperationalLayouts(int screenWidth, int screenHeight) {
+        AlchemyStatusScreen.StatusLayout alchemy = AlchemyStatusScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, alchemy.panelWidth(), alchemy.panelHeight());
+        assertFalse(alchemy.viewport().intersects(alchemy.closeButton()));
+
+        AuctionScreen.AuctionLayout auction = AuctionScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, auction.panelWidth(), auction.panelHeight());
+        assertFalse(auction.viewport().intersects(auction.refreshButton()));
+
+        AuctionHallScreen.HallLayout auctionHall = AuctionHallScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, auctionHall.panelWidth(), auctionHall.panelHeight());
+        assertFalse(auctionHall.viewport().intersects(auctionHall.previousButton()));
+
+        MarketHallScreen.MarketLayout market = MarketHallScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, market.panelWidth(), market.panelHeight());
+        assertTrue(market.viewport().bottom() <= market.previousPageButton().y(),
+                "market viewport must leave room for page controls");
+
+        DialogueScreen.Layout dialogue = DialogueScreen.calculateLayout(screenWidth, screenHeight);
+        assertTrue(dialogue.panel().inside(screenWidth, screenHeight));
+        assertTrue(dialogue.promptViewport().inside(screenWidth, screenHeight));
+        assertTrue(dialogue.close().inside(screenWidth, screenHeight));
+
+        QuestTrackerScreen.Layout quest = QuestTrackerScreen.calculateLayout(screenWidth, screenHeight);
+        assertTrue(quest.panel().inside(screenWidth, screenHeight));
+        assertTrue(quest.viewport().inside(screenWidth, screenHeight));
+        assertEquals(6, quest.buttons().size());
+        assertTrue(quest.buttons().stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
+
+        RefinementPlanScreen.Layout refinement = RefinementPlanScreen.calculateLayout(screenWidth, screenHeight);
+        assertTrue(refinement.panel().inside(screenWidth, screenHeight));
+        assertTrue(refinement.viewport().inside(screenWidth, screenHeight));
+        assertTrue(refinement.doneButton().inside(screenWidth, screenHeight));
+
+        StorageBraceletScreen.Layout preview = StorageBraceletScreen.calculateLayout(screenWidth, screenHeight);
+        assertTrue(preview.panel().inside(screenWidth, screenHeight));
+        assertTrue(preview.viewport().inside(screenWidth, screenHeight));
+
+        SectScreen.Layout sect = SectScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, sect.panelWidth(), sect.panelHeight());
+        assertTrue(sect.content().width() > 0 && sect.content().height() > 0);
+
+        SectHallScreen.Layout sectHall = SectHallScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, sectHall.panelWidth(), sectHall.panelHeight());
+        assertTrue(sectHall.content().width() > 0 && sectHall.content().height() > 0);
+
+        ShopScreen.Layout shop = ShopScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, shop.panelWidth(), shop.panelHeight());
+        assertTrue(shop.content().width() > 0 && shop.content().height() > 0);
+
+        WorldpackScreen.Layout worldpack = WorldpackScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, worldpack.panelWidth(), worldpack.panelHeight());
+        assertTrue(worldpack.content().width() > 0 && worldpack.content().height() > 0);
     }
 
     private static void assertShopRowsFit(int panelWidth, int panelHeight) {

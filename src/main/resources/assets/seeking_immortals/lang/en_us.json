@@ -3316,6 +3316,8 @@
   "message.seeking_immortals.daily_event.spawn_cluster": "Leyline cluster surge: %s spawned %s spirit beasts",
   "screen.seeking_immortals.auction.page": "Auction page %s/%s · %s lots",
   "screen.seeking_immortals.auction.waiting": "Syncing auction ladder…",
+  "screen.seeking_immortals.auction.lot_status": "Current %s · Next %s · Leader %s",
+  "screen.seeking_immortals.auction.settled": "Settled",
   "screen.seeking_immortals.skill_tree.title": "Life / Special Skills",
   "screen.seeking_immortals.skill_tree.close": "Close",
   "screen.seeking_immortals.skill_tree.practice": "Practice",

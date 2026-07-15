@@ -3326,6 +3326,8 @@
   "message.seeking_immortals.daily_event.spawn_cluster": "灵脉集群扰动：%s 引发了 %s 只灵兽潮",
   "screen.seeking_immortals.auction.page": "拍卖页 %s/%s · 共 %s 拍品",
   "screen.seeking_immortals.auction.waiting": "同步拍卖阶梯中…",
+  "screen.seeking_immortals.auction.lot_status": "现价 %s · 下次 %s · 领先 %s",
+  "screen.seeking_immortals.auction.settled": "已结算",
   "screen.seeking_immortals.skill_tree.title": "生活/特殊技能树",
   "screen.seeking_immortals.skill_tree.close": "关闭",
   "screen.seeking_immortals.skill_tree.practice": "修习",

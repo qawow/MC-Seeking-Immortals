@@ -4,12 +4,9 @@ import com.xunxian.seekingimmortals.menu.AlchemyFurnaceMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnaceMenu> {
-    private static final ResourceLocation VANILLA = new ResourceLocation("textures/gui/container/dispenser.png");
-
     public AlchemyFurnaceScreen(AlchemyFurnaceMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
         this.imageWidth = 176;
@@ -20,30 +17,78 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         int x = leftPos;
         int y = topPos;
-        graphics.blit(VANILLA, x, y, 0, 0, imageWidth, imageHeight);
+        ImmortalUiSkin.drawLayeredPanel(graphics, x, y, imageWidth, imageHeight);
+        ImmortalUiSkin.drawTitleBar(graphics, x + 5, y + 4, imageWidth - 10, 14);
+        graphics.drawCenteredString(font,
+                ImmortalUiSkin.fitWidth(font, title.getString(), imageWidth - 24),
+                x + imageWidth / 2, y + 7, ImmortalUiSkin.JOURNAL_BORDER);
+        drawSlot(graphics, x, y, 26, 20);
+        drawSlot(graphics, x, y, 62, 20);
+        drawSlot(graphics, x, y, 26, 48);
+        drawSlot(graphics, x, y, 62, 48);
+        drawSlot(graphics, x, y, 116, 34);
+        for (int row = 0; row < 3; row++) {
+            for (int column = 0; column < 9; column++) {
+                drawSlot(graphics, x, y, 8 + column * 18, 84 + row * 18);
+            }
+        }
+        for (int column = 0; column < 9; column++) {
+            drawSlot(graphics, x, y, 8 + column * 18, 142);
+        }
         int progress = menu.getProgress();
         int total = menu.getTotal();
-        int w = total <= 0 ? 0 : (int) (24.0F * (total - progress) / (float) total);
-        graphics.fill(x + 88, y + 36, x + 88 + Math.max(0, Math.min(24, w)), y + 40, 0xFF55FF55);
+        double fraction = total <= 0 ? 0.0D : (total - progress) / (double)total;
+        ImmortalUiSkin.drawSemanticStatusBar(graphics, x + 87, y + 35, 28, 7, fraction,
+                ImmortalUiSkin.StatusBarStyle.CULTIVATION);
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
         super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
-        graphics.drawString(font, Component.translatable("screen.seeking_immortals.alchemy_menu.progress",
-                        Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()),
-                leftPos + 8, topPos + 64, 0x404040, false);
-        graphics.drawString(font, Component.translatable(
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.alchemy_menu.progress",
+                        Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()).getString(),
+                leftPos + 87, topPos + 23, 80, ImmortalUiSkin.JOURNAL_PAPER, false);
+        ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(
                         menu.isFormed()
                                 ? "screen.seeking_immortals.alchemy_menu.shell_ok"
-                                : "screen.seeking_immortals.alchemy_menu.shell_bad"),
-                leftPos + 8, topPos + 74, menu.isFormed() ? 0x2E7D32 : 0xB71C1C, false);
-        graphics.drawString(font, Component.translatable(
+                                : "screen.seeking_immortals.alchemy_menu.shell_bad").getString(),
+                leftPos + 8, topPos + 69, 78,
+                menu.isFormed() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT, false);
+        ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(
                         menu.hasEarthFireRoom()
                                 ? "screen.seeking_immortals.alchemy_menu.room_ok"
-                                : "screen.seeking_immortals.alchemy_menu.room_none"),
-                leftPos + 90, topPos + 74, menu.hasEarthFireRoom() ? 0x2E7D32 : 0x616161, false);
+                                : "screen.seeking_immortals.alchemy_menu.room_none").getString(),
+                leftPos + 90, topPos + 69, 78,
+                menu.hasEarthFireRoom() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        renderTooltip(graphics, mouseX, mouseY);
     }
+
+    @Override
+    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
+    }
+
+    static FurnaceLayout calculateLayout(int screenWidth, int screenHeight) {
+        int left = (screenWidth - 176) / 2;
+        int top = (screenHeight - 166) / 2;
+        int visibleX = Math.max(0, left);
+        int visibleY = Math.max(0, top);
+        int visibleRight = Math.min(screenWidth, left + 176);
+        int visibleBottom = Math.min(screenHeight, top + 166);
+        return new FurnaceLayout(left, top,
+                new UiRect(visibleX, visibleY, Math.max(0, visibleRight - visibleX),
+                        Math.max(0, visibleBottom - visibleY)));
+    }
+
+    private static void drawSlot(GuiGraphics graphics, int left, int top, int slotX, int slotY) {
+        ImmortalUiSkin.drawSkillSlot(graphics, left + slotX - 1, top + slotY - 1, 18, false);
+    }
+
+    record UiRect(int x, int y, int width, int height) {
+        int right() { return x + width; }
+        int bottom() { return y + height; }
+    }
+
+    record FurnaceLayout(int left, int top, UiRect visiblePanel) {}
 }

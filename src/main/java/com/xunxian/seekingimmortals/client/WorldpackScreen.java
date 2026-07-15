@@ -4,10 +4,10 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.WorldpackActionPacket;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -18,9 +18,12 @@ import java.util.stream.Collectors;
 public class WorldpackScreen extends Screen {
     private static final int PANEL_WIDTH = 420;
     private static final int PANEL_HEIGHT = 272;
+    private static final int PANEL_MARGIN = 4;
     private static final int LINE = 13;
+    private static final int ROW_HEIGHT = 28;
 
     private Tab tab = Tab.REGIONS;
+    private int listScroll;
 
     public WorldpackScreen() {
         super(Component.translatable("screen.seeking_immortals.worldpack.title"));
@@ -29,97 +32,224 @@ public class WorldpackScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
-        int left = left();
-        int top = top();
-        int panelWidth = panelWidth();
-        int panelHeight = panelHeight();
+        rebuildActionWidgets();
+    }
 
-        addHeaderButtons(left, top, panelWidth, data);
-        addTabButtons(left, top, panelWidth);
+    private void rebuildActionWidgets() {
+        clearWidgets();
+        Layout layout = calculateLayout(width, height);
+        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+
+        addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
+                layout.refreshButton().width(), layout.refreshButton().height(),
+                Component.translatable("screen.seeking_immortals.worldpack.refresh"), button ->
+                        ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                WorldpackGameplayService.ACTION_SYNC, ""))));
+        addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
+                layout.closeButton().width(), layout.closeButton().height(),
+                Component.translatable("screen.seeking_immortals.worldpack.close"), button -> onClose()));
+        if (!data.activeSecretRealmId().isBlank()) {
+            addRenderableWidget(ImmortalButton.primary(layout.returnButton().x(), layout.returnButton().y(),
+                    layout.returnButton().width(), layout.returnButton().height(),
+                    Component.translatable("screen.seeking_immortals.worldpack.return"), button ->
+                            ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                    WorldpackGameplayService.ACTION_RETURN, ""))));
+        }
+
+        addTabButton(layout.regionTab(), Tab.REGIONS);
+        addTabButton(layout.realmTab(), Tab.REALMS);
         if (!data.synced()) {
+            listScroll = 0;
             return;
         }
-        if (tab == Tab.REGIONS) {
-            addRegionButtons(left, top, panelWidth, panelHeight, data);
-        } else {
-            addRealmButtons(left, top, panelWidth, panelHeight, data);
+
+        int total = tab == Tab.REGIONS ? data.regions().size() : data.realms().size();
+        int visible = visibleRows(layout);
+        listScroll = Mth.clamp(listScroll, 0, Math.max(0, total - visible));
+        for (int row = 0; row < visible && listScroll + row < total; row++) {
+            Rect action = rowAction(layout, row);
+            if (tab == Tab.REGIONS) {
+                ClientWorldpackData.Region region = data.regions().get(listScroll + row);
+                ImmortalButton button = ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
+                        Component.translatable("screen.seeking_immortals.worldpack.travel"), ignored ->
+                        ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                WorldpackGameplayService.ACTION_TRAVEL, region.id())));
+                button.active = region.anchorReady() && !region.current()
+                        && data.activeSecretRealmId().isBlank();
+                addRenderableWidget(button);
+            } else {
+                ClientWorldpackData.SecretRealm realm = data.realms().get(listScroll + row);
+                ImmortalButton button = ImmortalButton.primary(action.x(), action.y(), action.width(), action.height(),
+                        Component.translatable("screen.seeking_immortals.worldpack.enter"), ignored ->
+                        ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
+                                WorldpackGameplayService.ACTION_ENTER, realm.id())));
+                button.active = realm.anchorReady() && realm.currentRegion() && !realm.active()
+                        && realm.remainingCooldownTicks() <= 0 && data.activeSecretRealmId().isBlank();
+                addRenderableWidget(button);
+            }
         }
     }
 
-    private void addHeaderButtons(int left, int top, int panelWidth, ClientWorldpackData.Snapshot data) {
-        int smallWidth = Math.max(54, Math.min(68, (panelWidth - 36) / 5));
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.worldpack.refresh"), button ->
-                        ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(WorldpackGameplayService.ACTION_SYNC, "")))
-                .bounds(left + panelWidth - smallWidth * 2 - 18, top + 8, smallWidth, 18)
-                .build());
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.worldpack.close"), button -> onClose())
-                .bounds(left + panelWidth - smallWidth - 12, top + 8, smallWidth, 18)
-                .build());
-        if (!data.activeSecretRealmId().isBlank()) {
-            addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.worldpack.return"), button ->
-                            ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(WorldpackGameplayService.ACTION_RETURN, "")))
-                    .bounds(left + 14, top + 8, smallWidth, 18)
-                    .build());
-        }
+    private void addTabButton(Rect bounds, Tab target) {
+        ImmortalButton button = target == tab
+                ? ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
+                Component.translatable(target.key), ignored -> setTab(target))
+                : ImmortalButton.secondary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
+                Component.translatable(target.key), ignored -> setTab(target));
+        addRenderableWidget(button);
     }
 
-    private void addTabButtons(int left, int top, int panelWidth) {
-        int y = top + 82;
-        int gap = 4;
-        int buttonWidth = Math.max(1, (panelWidth - 28 - gap) / 2);
-        addTabButton(Tab.REGIONS, left + 14, y, buttonWidth);
-        addTabButton(Tab.REALMS, left + 14 + buttonWidth + gap, y, buttonWidth);
-    }
-
-    private void addTabButton(Tab target, int x, int y, int width) {
-        addRenderableWidget(Button.builder(Component.translatable(target.key), button -> {
-                    tab = target;
-                    clearWidgets();
-                    init();
-                })
-                .bounds(x, y, width, 18)
-                .build());
-    }
-
-    private void addRegionButtons(int left, int top, int panelWidth, int panelHeight, ClientWorldpackData.Snapshot data) {
-        int rowY = top + listTopOffset(panelHeight) + 20;
-        int rows = Math.min(data.regions().size(), visibleRows(panelWidth, panelHeight));
-        int actionWidth = Math.min(54, Math.max(1, panelWidth - 24));
-        int actionX = Math.max(left + 4, left + panelWidth - actionWidth - 12);
-        for (int i = 0; i < rows; i++) {
-            ClientWorldpackData.Region region = data.regions().get(i);
-            Button button = Button.builder(Component.translatable("screen.seeking_immortals.worldpack.travel"), ignored ->
-                            ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(WorldpackGameplayService.ACTION_TRAVEL, region.id())))
-                    .bounds(actionX, rowY + i * 24 - 4, actionWidth, 18)
-                    .build();
-            button.active = region.anchorReady() && !region.current() && data.activeSecretRealmId().isBlank();
-            addRenderableWidget(button);
-        }
-    }
-
-    private void addRealmButtons(int left, int top, int panelWidth, int panelHeight, ClientWorldpackData.Snapshot data) {
-        int rowY = top + listTopOffset(panelHeight) + 20;
-        int rows = Math.min(data.realms().size(), visibleRows(panelWidth, panelHeight));
-        int actionWidth = Math.min(54, Math.max(1, panelWidth - 24));
-        int actionX = Math.max(left + 4, left + panelWidth - actionWidth - 12);
-        for (int i = 0; i < rows; i++) {
-            ClientWorldpackData.SecretRealm realm = data.realms().get(i);
-            Button button = Button.builder(Component.translatable("screen.seeking_immortals.worldpack.enter"), ignored ->
-                            ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(WorldpackGameplayService.ACTION_ENTER, realm.id())))
-                    .bounds(actionX, rowY + i * 24 - 4, actionWidth, 18)
-                    .build();
-            button.active = realm.anchorReady() && realm.currentRegion() && !realm.active()
-                    && realm.remainingCooldownTicks() <= 0 && data.activeSecretRealmId().isBlank();
-            addRenderableWidget(button);
+    private void setTab(Tab next) {
+        if (tab != next) {
+            tab = next;
+            listScroll = 0;
+            rebuildActionWidgets();
         }
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
-        renderPanel(graphics);
+        renderPanel(graphics, mouseX, mouseY);
         super.render(graphics, mouseX, mouseY, partialTick);
+    }
+
+    private void renderPanel(GuiGraphics graphics, int mouseX, int mouseY) {
+        Layout layout = calculateLayout(width, height);
+        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
+                layout.header().width(), layout.header().height());
+        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), layout.titleArea().x(),
+                layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
+                layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+        renderStatus(graphics, layout.status(), data);
+
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.content().x(), layout.content().y(),
+                layout.content().width(), layout.content().height());
+        Rect viewport = listViewport(layout);
+        if (!data.synced()) {
+            drawNotice(graphics, viewport,
+                    Component.translatable("screen.seeking_immortals.worldpack.waiting"));
+            return;
+        }
+        int total = tab == Tab.REGIONS ? data.regions().size() : data.realms().size();
+        int visible = visibleRows(layout);
+        listScroll = Mth.clamp(listScroll, 0, Math.max(0, total - visible));
+        int hovered = hoveredRow(layout, mouseX, mouseY);
+        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
+            for (int row = 0; row < visible && listScroll + row < total; row++) {
+                Rect item = rowRect(layout, row);
+                ImmortalUiSkin.drawListRow(graphics, item.x(), item.y(), item.width(), item.height(),
+                        hovered == row ? ImmortalUiSkin.InteractionState.HOVERED
+                                : ImmortalUiSkin.InteractionState.NORMAL);
+                if (tab == Tab.REGIONS) {
+                    renderRegion(graphics, layout, item, data, data.regions().get(listScroll + row));
+                } else {
+                    renderRealm(graphics, layout, item, data.realms().get(listScroll + row));
+                }
+            }
+        });
+        ImmortalUiSkin.drawThinScrollbar(graphics, layout.content().right() - 3,
+                viewport.y(), viewport.height(), total * layout.rowHeight(), viewport.height(),
+                listScroll * layout.rowHeight());
+    }
+
+    private void renderStatus(GuiGraphics graphics, Rect status, ClientWorldpackData.Snapshot data) {
+        if (status.height() < 9) return;
+        int y = status.y() + 1;
+        int bottom = status.bottom();
+        y = statusLine(graphics, status, y, bottom,
+                Component.translatable("screen.seeking_immortals.worldpack.current_region",
+                        data.currentRegionDisplay().isBlank() ? "-" : data.currentRegionDisplay()),
+                ImmortalUiSkin.JOURNAL_PAPER);
+        if (!data.activeSecretRealmId().isBlank()) {
+            y = statusLine(graphics, status, y, bottom,
+                    Component.translatable("screen.seeking_immortals.worldpack.active_realm",
+                            data.activeSecretRealmDisplay()), ImmortalUiSkin.JOURNAL_SPIRIT);
+            y = statusLine(graphics, status, y, bottom,
+                    Component.translatable("screen.seeking_immortals.worldpack.in_realm",
+                            data.activeSecretRealmDisplay()), ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+        }
+        if (!data.dailyEventId().isBlank()) {
+            y = statusLine(graphics, status, y, bottom,
+                    Component.translatable("screen.seeking_immortals.worldpack.daily_event",
+                            data.dailyEventDisplay(), Math.max(0L, data.dailyEventRemainingTicks() / 20L)),
+                    ImmortalUiSkin.JOURNAL_WARNING);
+            statusLine(graphics, status, y, bottom,
+                    Component.translatable("screen.seeking_immortals.worldpack.effects",
+                            formatEffectDescriptions(data.dailyEventEffects())),
+                    ImmortalUiSkin.JOURNAL_PAPER_MUTED);
+        }
+    }
+
+    private int statusLine(GuiGraphics graphics, Rect status, int y, int bottom,
+                           Component text, int color) {
+        if (y + 8 > bottom) return y;
+        ImmortalUiSkin.drawStringFit(font, graphics, text.getString(), status.x(), y,
+                status.width(), color, false);
+        return y + LINE;
+    }
+
+    private void renderRegion(GuiGraphics graphics, Layout layout, Rect row,
+                              ClientWorldpackData.Snapshot data, ClientWorldpackData.Region region) {
+        Rect action = rowAction(layout, (row.y() - listViewport(layout).y()) / layout.rowHeight());
+        int textWidth = Math.max(1, action.x() - row.x() - 8);
+        String text = region.display() + " / " + region.minRealm() + " / x"
+                + String.format("%.2f", region.auraMultiplier());
+        ImmortalUiSkin.drawStringFit(font, graphics, text, row.x() + 4, row.y() + 3, textWidth,
+                region.current() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER, false);
+        if (layout.rowHeight() >= 24) {
+            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", region.id()).getString()
+                    + " / " + bool(region.anchorReady());
+            String route = routeRequirementText(WorldpackGameplayService.routeRequirementForDisplay(
+                    data.currentRegionId(), region.id()));
+            if (!route.isBlank()) meta += " / " + route;
+            ImmortalUiSkin.drawStringFit(font, graphics, meta, row.x() + 4, row.y() + LINE,
+                    textWidth, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        }
+    }
+
+    private void renderRealm(GuiGraphics graphics, Layout layout, Rect row,
+                             ClientWorldpackData.SecretRealm realm) {
+        Rect action = rowAction(layout, (row.y() - listViewport(layout).y()) / layout.rowHeight());
+        int textWidth = Math.max(1, action.x() - row.x() - 8);
+        String cooldown = realm.remainingCooldownTicks() <= 0
+                ? Component.translatable("screen.seeking_immortals.worldpack.ready").getString()
+                : Component.translatable("screen.seeking_immortals.worldpack.cooldown_seconds",
+                Math.max(1L, (realm.remainingCooldownTicks() + 19L) / 20L)).getString();
+        String text = realm.display() + " / " + realm.minRealm() + " / " + cooldown;
+        ImmortalUiSkin.drawStringFit(font, graphics, text, row.x() + 4, row.y() + 3, textWidth,
+                realm.active() ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER, false);
+        if (layout.rowHeight() >= 24) {
+            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", realm.id()).getString()
+                    + " / " + Component.translatable(realm.ticketDescriptionId()).getString();
+            ImmortalUiSkin.drawStringFit(font, graphics, meta, row.x() + 4, row.y() + LINE,
+                    textWidth, ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        }
+    }
+
+    private void drawNotice(GuiGraphics graphics, Rect viewport, Component text) {
+        ImmortalUiSkin.drawStringFit(font, graphics, text.getString(), viewport.x() + 2, viewport.y() + 2,
+                Math.max(1, viewport.width() - 4), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+    }
+
+    @Override
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        Layout layout = calculateLayout(width, height);
+        if (listViewport(layout).contains(mouseX, mouseY) && delta != 0.0D) {
+            ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+            int total = tab == Tab.REGIONS ? data.regions().size() : data.realms().size();
+            int next = Mth.clamp(listScroll - (int)Math.signum(delta),
+                    0, Math.max(0, total - visibleRows(layout)));
+            if (next != listScroll) {
+                listScroll = next;
+                rebuildActionWidgets();
+            }
+            return true;
+        }
+        return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
     @Override
@@ -127,111 +257,16 @@ public class WorldpackScreen extends Screen {
         return false;
     }
 
-    private void renderPanel(GuiGraphics graphics) {
-        int left = left();
-        int top = top();
-        int panelWidth = panelWidth();
-        int panelHeight = panelHeight();
-        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
-
-        ImmortalUiSkin.drawPanel(graphics, left, top, panelWidth, panelHeight);
-        graphics.drawCenteredString(font, title, left + panelWidth / 2, top + 12, ImmortalUiSkin.COLOR_TITLE);
-
-        int y = top + 34;
-        drawLine(graphics, left, y, Component.translatable("screen.seeking_immortals.worldpack.current_region",
-                data.currentRegionDisplay().isBlank() ? "-" : data.currentRegionDisplay()));
-        y += LINE;
-        if (!data.activeSecretRealmId().isBlank()) {
-            drawLine(graphics, left, y, Component.translatable("screen.seeking_immortals.worldpack.active_realm",
-                    data.activeSecretRealmDisplay()));
-            y += LINE;
-        }
-        if (!data.dailyEventId().isBlank()) {
-            drawLine(graphics, left, y, Component.translatable("screen.seeking_immortals.worldpack.daily_event",
-                    data.dailyEventDisplay(), Math.max(0L, data.dailyEventRemainingTicks() / 20L)));
-            y += LINE;
-            drawLine(graphics, left, y, Component.translatable("screen.seeking_immortals.worldpack.effects",
-                    formatEffectDescriptions(data.dailyEventEffects())));
-        }
-
-        if (!data.synced()) {
-            drawLine(graphics, left, top + listTopOffset(panelHeight) + 20,
-                    Component.translatable("screen.seeking_immortals.worldpack.waiting"));
-            return;
-        }
-        if (!data.activeSecretRealmId().isBlank()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.worldpack.in_realm", data.activeSecretRealmDisplay()).getString(),
-                    left + 14, top + 104, Math.max(1, panelWidth - 28), ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
-        if (tab == Tab.REGIONS) {
-            renderRegions(graphics, left, top, panelWidth, panelHeight, data);
-        } else {
-            renderRealms(graphics, left, top, panelWidth, panelHeight, data.realms());
-        }
-    }
-
-    private void renderRegions(GuiGraphics graphics, int left, int top, int panelWidth, int panelHeight,
-                               ClientWorldpackData.Snapshot data) {
-        List<ClientWorldpackData.Region> regions = data.regions();
-        int listTop = top + listTopOffset(panelHeight);
-        int rows = Math.min(regions.size(), visibleRows(panelWidth, panelHeight));
-        for (int i = 0; i < rows; i++) {
-            ClientWorldpackData.Region region = regions.get(i);
-            String text = region.display() + " / " + region.minRealm() + " / x" + String.format("%.2f", region.auraMultiplier());
-            int color = region.current() ? ImmortalUiSkin.COLOR_TITLE : ImmortalUiSkin.COLOR_TEXT_NORMAL;
-            ImmortalUiSkin.drawStringFit(font, graphics, text, left + 16, listTop + 20 + i * 24,
-                    Math.max(1, panelWidth - 94), color, false);
-            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", region.id()).getString()
-                    + " / " + bool(region.anchorReady());
-            String route = routeRequirementText(WorldpackGameplayService.routeRequirementForDisplay(
-                    data.currentRegionId(), region.id()));
-            if (!route.isBlank()) {
-                meta += " / " + route;
-            }
-            ImmortalUiSkin.drawStringFit(font, graphics, meta, left + 16, listTop + 20 + i * 24 + LINE,
-                    Math.max(1, panelWidth - 94), ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
-    }
-
-    private void renderRealms(GuiGraphics graphics, int left, int top, int panelWidth, int panelHeight,
-                              List<ClientWorldpackData.SecretRealm> realms) {
-        int listTop = top + listTopOffset(panelHeight);
-        int rows = Math.min(realms.size(), visibleRows(panelWidth, panelHeight));
-        for (int i = 0; i < rows; i++) {
-            ClientWorldpackData.SecretRealm realm = realms.get(i);
-            String cooldown = realm.remainingCooldownTicks() <= 0
-                    ? Component.translatable("screen.seeking_immortals.worldpack.ready").getString()
-                    : Component.translatable("screen.seeking_immortals.worldpack.cooldown_seconds",
-                    Math.max(1L, (realm.remainingCooldownTicks() + 19L) / 20L)).getString();
-            String text = realm.display() + " / " + realm.minRealm() + " / " + cooldown;
-            int color = realm.active() ? ImmortalUiSkin.COLOR_TITLE : ImmortalUiSkin.COLOR_TEXT_NORMAL;
-            ImmortalUiSkin.drawStringFit(font, graphics, text, left + 16, listTop + 20 + i * 24,
-                    Math.max(1, panelWidth - 94), color, false);
-            String meta = Component.translatable("screen.seeking_immortals.worldpack.entry_id", realm.id()).getString()
-                    + " / " + Component.translatable(realm.ticketDescriptionId()).getString();
-            ImmortalUiSkin.drawStringFit(font, graphics, meta, left + 16, listTop + 20 + i * 24 + LINE,
-                    Math.max(1, panelWidth - 94), ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
-    }
-
-    private void drawLine(GuiGraphics graphics, int left, int y, Component text) {
-        ImmortalUiSkin.drawStringFit(font, graphics, text.getString(), left + 14, y, Math.max(1, panelWidth() - 28),
-                ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
-    }
-
     private String bool(boolean value) {
-        return Component.translatable(value ? "message.seeking_immortals.sect.yes" : "message.seeking_immortals.sect.no").getString();
+        return Component.translatable(value
+                ? "message.seeking_immortals.sect.yes"
+                : "message.seeking_immortals.sect.no").getString();
     }
 
     private static String formatEffectDescriptions(List<String> effects) {
-        if (effects == null || effects.isEmpty()) {
-            return "-";
-        }
-        return effects.stream()
-                .map(WorldpackScreen::effectDescription)
-                .filter(description -> !description.isBlank())
-                .collect(Collectors.joining(", "));
+        if (effects == null || effects.isEmpty()) return "-";
+        return effects.stream().map(WorldpackScreen::effectDescription)
+                .filter(description -> !description.isBlank()).collect(Collectors.joining(", "));
     }
 
     private static String effectDescription(String effect) {
@@ -240,9 +275,7 @@ public class WorldpackScreen extends Screen {
     }
 
     static String effectDescriptionKey(String effect) {
-        if (effect == null || effect.isBlank()) {
-            return "";
-        }
+        if (effect == null || effect.isBlank()) return "";
         return switch (effect) {
             case WorldpackGameplayService.EFFECT_AURA_PLUS_5 ->
                     "screen.seeking_immortals.worldpack.effect.aura_plus_5";
@@ -262,18 +295,14 @@ public class WorldpackScreen extends Screen {
     }
 
     private static String routeRequirementText(WorldpackGameplayService.RouteRequirement requirement) {
-        if (requirement == null || !requirement.isPresent()) {
-            return "";
-        }
+        if (requirement == null || !requirement.isPresent()) return "";
         String itemId = requirement.itemId();
         if (requirement.amount() > 0 && itemId != null && !itemId.isBlank()) {
-            return Component.translatable(requirement.translationKey(),
-                    requirement.amount(),
+            return Component.translatable(requirement.translationKey(), requirement.amount(),
                     itemNameComponent(itemId)).getString();
         }
         if (itemId != null && !itemId.isBlank()) {
-            return Component.translatable(requirement.translationKey(),
-                    itemNameComponent(itemId)).getString();
+            return Component.translatable(requirement.translationKey(), itemNameComponent(itemId)).getString();
         }
         return Component.translatable(requirement.translationKey()).getString();
     }
@@ -285,36 +314,84 @@ public class WorldpackScreen extends Screen {
         }
         Item item = ForgeRegistries.ITEMS.getValue(location);
         return item == null || item == Items.AIR
-                ? Component.literal(itemId)
-                : Component.translatable(item.getDescriptionId());
+                ? Component.literal(itemId) : Component.translatable(item.getDescriptionId());
     }
 
-    private int left() {
-        return Math.max(0, (this.width - panelWidth()) / 2);
+    static Layout calculateLayout(int screenWidth, int screenHeight) {
+        int panelWidth = calculatePanelWidth(screenWidth);
+        int panelHeight = calculatePanelHeight(screenHeight);
+        int left = Math.max(0, (screenWidth - panelWidth) / 2);
+        int top = Math.max(0, (screenHeight - panelHeight) / 2);
+        int padding = panelWidth >= 220 ? 10 : 5;
+        int innerX = left + padding;
+        int innerWidth = Math.max(1, panelWidth - padding * 2);
+        int headerHeight = panelHeight >= 170 ? 36 : 20;
+        Rect header = new Rect(innerX, top + 4, innerWidth,
+                Math.min(headerHeight, Math.max(1, panelHeight - 8)));
+        int buttonGap = innerWidth >= 80 ? 3 : 1;
+        int buttonWidth = Math.max(1, Math.min(60, (innerWidth - 24 - buttonGap * 2) / 3));
+        int buttonHeight = Math.max(12, Math.min(18, header.height() - 4));
+        int buttonY = header.y() + Math.max(1, (header.height() - buttonHeight) / 2);
+        Rect returnButton = new Rect(header.x() + 3, buttonY, buttonWidth, buttonHeight);
+        Rect closeButton = new Rect(header.right() - buttonWidth - 3, buttonY, buttonWidth, buttonHeight);
+        Rect refreshButton = new Rect(closeButton.x() - buttonGap - buttonWidth, buttonY,
+                buttonWidth, buttonHeight);
+        Rect titleArea = new Rect(returnButton.right() + buttonGap, header.y(),
+                Math.max(1, refreshButton.x() - returnButton.right() - buttonGap * 2), header.height());
+        int statusHeight = panelHeight >= 220 ? 54 : panelHeight >= 150 ? 32 : panelHeight >= 100 ? 18 : 0;
+        Rect status = new Rect(innerX, header.bottom() + 2, innerWidth, statusHeight);
+        int tabHeight = panelHeight >= 120 ? 18 : 14;
+        int tabY = status.bottom() + (statusHeight > 0 ? 2 : 1);
+        int tabGap = innerWidth >= 60 ? 4 : 1;
+        int tabWidth = Math.max(1, (innerWidth - tabGap) / 2);
+        Rect regionTab = new Rect(innerX, tabY, tabWidth, tabHeight);
+        Rect realmTab = new Rect(regionTab.right() + tabGap, tabY,
+                Math.max(1, innerX + innerWidth - regionTab.right() - tabGap), tabHeight);
+        int contentY = regionTab.bottom() + 3;
+        int contentBottom = top + panelHeight - 5;
+        Rect content = new Rect(innerX, contentY, innerWidth, Math.max(1, contentBottom - contentY));
+        int rowHeight = content.height() >= 58 ? ROW_HEIGHT : 20;
+        return new Layout(left, top, panelWidth, panelHeight, header, titleArea, status,
+                regionTab, realmTab, content, returnButton, refreshButton, closeButton, rowHeight);
     }
 
-    private int top() {
-        return Math.max(0, (this.height - panelHeight()) / 2);
+    private static Rect listViewport(Layout layout) {
+        Rect content = layout.content();
+        return new Rect(content.x() + 3, content.y() + 3,
+                Math.max(1, content.width() - 8), Math.max(1, content.height() - 6));
     }
 
-    private int panelWidth() {
-        return calculatePanelWidth(this.width);
+    private static int visibleRows(Layout layout) {
+        return Math.max(1, listViewport(layout).height() / layout.rowHeight());
     }
 
-    private int panelHeight() {
-        return calculatePanelHeight(this.height);
+    private static Rect rowRect(Layout layout, int row) {
+        Rect viewport = listViewport(layout);
+        return new Rect(viewport.x(), viewport.y() + row * layout.rowHeight(),
+                viewport.width(), layout.rowHeight());
+    }
+
+    private static Rect rowAction(Layout layout, int row) {
+        Rect item = rowRect(layout, row);
+        int width = Math.max(22, Math.min(54, item.width() / 3));
+        int height = Math.max(12, Math.min(18, item.height() - 4));
+        return new Rect(item.right() - width - 3, item.y() + Math.max(1, (item.height() - height) / 2),
+                width, height);
+    }
+
+    private static int hoveredRow(Layout layout, double mouseX, double mouseY) {
+        Rect viewport = listViewport(layout);
+        if (!viewport.contains(mouseX, mouseY)) return -1;
+        int row = (int)((mouseY - viewport.y()) / layout.rowHeight());
+        return row < visibleRows(layout) ? row : -1;
     }
 
     static int calculatePanelWidth(int screenWidth) {
-        if (screenWidth <= 0) return 1;
-        int margin = screenWidth >= 260 ? 24 : Math.min(8, Math.max(0, screenWidth / 10));
-        return Math.max(1, Math.min(PANEL_WIDTH, screenWidth - margin));
+        return Math.min(PANEL_WIDTH, Math.max(1, screenWidth - PANEL_MARGIN * 2));
     }
 
     static int calculatePanelHeight(int screenHeight) {
-        if (screenHeight <= 0) return 1;
-        int margin = screenHeight >= 190 ? 24 : Math.min(8, Math.max(0, screenHeight / 10));
-        return Math.max(1, Math.min(PANEL_HEIGHT, screenHeight - margin));
+        return Math.min(PANEL_HEIGHT, Math.max(1, screenHeight - PANEL_MARGIN * 2));
     }
 
     static int listTopOffset(int panelHeight) {
@@ -327,6 +404,25 @@ public class WorldpackScreen extends Screen {
     static int visibleRows(int panelWidth, int panelHeight) {
         int available = panelHeight - listTopOffset(panelHeight) - (panelWidth < 300 ? 44 : 30);
         return Math.max(0, Math.min(5, available / 24));
+    }
+
+    record Rect(int x, int y, int width, int height) {
+        int right() {
+            return x + width;
+        }
+
+        int bottom() {
+            return y + height;
+        }
+
+        boolean contains(double mouseX, double mouseY) {
+            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
+        }
+    }
+
+    record Layout(int left, int top, int panelWidth, int panelHeight, Rect header,
+                  Rect titleArea, Rect status, Rect regionTab, Rect realmTab, Rect content,
+                  Rect returnButton, Rect refreshButton, Rect closeButton, int rowHeight) {
     }
 
     private enum Tab {

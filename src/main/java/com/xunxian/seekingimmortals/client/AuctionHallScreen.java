@@ -5,15 +5,23 @@ import com.xunxian.seekingimmortals.network.AuctionActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 import java.util.List;
 
-/** Wave491: productized auction hall with live ladder page + pagination. */
+/** Live, paged auction ladder with a responsive scroll viewport. */
 public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> {
+    private static final int PANEL_MARGIN = 4;
+    private static final int ROW_HEIGHT = 50;
+    private static final int ROW_GAP = 4;
+
+    private int scrollOffset;
+    private int contentHeight;
+    private int observedRevision = Integer.MIN_VALUE;
+    private int observedPage = -1;
+
     public AuctionHallScreen(AuctionHallMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
         this.imageWidth = 360;
@@ -23,126 +31,239 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
     @Override
     protected void init() {
         super.init();
-        // Request current ladder on open.
         ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(AuctionActionPacket.ACTION_PAGE, "0"));
         rebuildButtons();
     }
 
     private void rebuildButtons() {
         clearWidgets();
-        int left = leftPos;
-        int top = topPos;
-        int smallWidth = Math.max(54, Math.min(72, (imageWidth - 32) / 5));
+        HallLayout layout = calculateLayout(width, height);
         ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
         int page = data.page();
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.auction.refresh"), button ->
-                        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(
-                                AuctionActionPacket.ACTION_PAGE, Integer.toString(page))))
-                .bounds(left + imageWidth - smallWidth * 2 - 18, top + 8, smallWidth, 18)
-                .build());
-        addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.auction.close"), button -> onClose())
-                .bounds(left + imageWidth - smallWidth - 12, top + 8, smallWidth, 18)
-                .build());
-        addRenderableWidget(Button.builder(Component.literal("<"), button ->
-                        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(
-                                AuctionActionPacket.ACTION_PAGE, Integer.toString(Math.max(0, page - 1)))))
-                .bounds(left + 12, top + imageHeight - 28, 24, 18)
-                .build());
-        addRenderableWidget(Button.builder(Component.literal(">"), button ->
-                        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(
-                                AuctionActionPacket.ACTION_PAGE, Integer.toString(page + 1))))
-                .bounds(left + 40, top + imageHeight - 28, 24, 18)
-                .build());
+        if (observedPage != -1 && observedPage != page) {
+            scrollOffset = 0;
+        }
+        observedPage = page;
+        observedRevision = data.hashCode();
+
+        addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
+                layout.refreshButton().width(), layout.refreshButton().height(),
+                Component.translatable("screen.seeking_immortals.auction.refresh"), button ->
+                        send(AuctionActionPacket.ACTION_PAGE, Integer.toString(page))));
+        addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
+                layout.closeButton().width(), layout.closeButton().height(),
+                Component.translatable("screen.seeking_immortals.auction.close"), button -> onClose()));
+        ImmortalButton previous = ImmortalButton.secondary(layout.previousButton().x(), layout.previousButton().y(),
+                layout.previousButton().width(), layout.previousButton().height(), Component.literal("<"), button ->
+                        send(AuctionActionPacket.ACTION_PAGE, Integer.toString(Math.max(0, page - 1))));
+        previous.active = page > 0;
+        addRenderableWidget(previous);
+        ImmortalButton next = ImmortalButton.secondary(layout.nextButton().x(), layout.nextButton().y(),
+                layout.nextButton().width(), layout.nextButton().height(), Component.literal(">"), button ->
+                        send(AuctionActionPacket.ACTION_PAGE, Integer.toString(page + 1)));
+        next.active = !data.synced() || page < data.maxPage();
+        addRenderableWidget(next);
 
         List<SyncAuctionLadderPacket.LotBid> lots = data.lots();
-        int rows = Math.min(lots.size(), 6);
-        int buyWidth = Math.min(54, Math.max(1, imageWidth - 24));
-        int buyX = Math.max(left + 4, left + imageWidth - buyWidth - 12);
-        int rowY = top + 56;
-        for (int i = 0; i < rows; i++) {
+        contentHeight = calculateContentHeight(lots.size());
+        scrollOffset = clampScroll(scrollOffset, contentHeight, layout.viewport().height());
+        int rowY = layout.viewport().y() + 4 - scrollOffset;
+        for (int i = 0; i < lots.size(); i++) {
             SyncAuctionLadderPacket.LotBid lot = lots.get(i);
-            String lotId = lot.lotId();
-            boolean settled = lot.settled();
-            Button bid = Button.builder(Component.translatable("screen.seeking_immortals.auction.bid"), ignored ->
-                            ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(AuctionActionPacket.ACTION_BID, lotId)))
-                    .bounds(buyX, rowY + i * 24 - 4, buyWidth, 18)
-                    .build();
-            bid.active = !settled;
-            addRenderableWidget(bid);
-            Button settle = Button.builder(Component.translatable("screen.seeking_immortals.auction.settle"), ignored ->
-                            ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(AuctionActionPacket.ACTION_SETTLE, lotId)))
-                    .bounds(buyX - buyWidth - 4, rowY + i * 24 - 4, buyWidth, 18)
-                    .build();
-            settle.active = !settled;
-            addRenderableWidget(settle);
-            addRenderableWidget(Button.builder(Component.translatable("screen.seeking_immortals.auction.preview"), ignored ->
-                            ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(AuctionActionPacket.ACTION_PREVIEW, lotId)))
-                    .bounds(buyX - buyWidth * 2 - 8, rowY + i * 24 - 4, buyWidth, 18)
-                    .build());
+            UiRect row = new UiRect(layout.viewport().x() + 4,
+                    rowY + i * (ROW_HEIGHT + ROW_GAP),
+                    Math.max(1, layout.viewport().width() - 9), ROW_HEIGHT);
+            addLotButtons(layout.viewport(), row, lot);
         }
+    }
+
+    private void addLotButtons(UiRect viewport, UiRect row, SyncAuctionLadderPacket.LotBid lot) {
+        int gap = 3;
+        int buttonWidth = Math.max(1, (row.width() - gap * 2 - 8) / 3);
+        int buttonX = row.x() + 4;
+        int buttonY = row.y() + 29;
+        ImmortalButton preview = ImmortalButton.secondary(buttonX, buttonY, buttonWidth, 17,
+                Component.translatable("screen.seeking_immortals.auction.preview"), ignored ->
+                        send(AuctionActionPacket.ACTION_PREVIEW, lot.lotId()));
+        ImmortalButton settle = ImmortalButton.secondary(buttonX + buttonWidth + gap, buttonY,
+                buttonWidth, 17, Component.translatable("screen.seeking_immortals.auction.settle"), ignored ->
+                        send(AuctionActionPacket.ACTION_SETTLE, lot.lotId()));
+        ImmortalButton bid = ImmortalButton.primary(buttonX + (buttonWidth + gap) * 2, buttonY,
+                Math.max(1, row.right() - 4 - (buttonX + (buttonWidth + gap) * 2)), 17,
+                Component.translatable("screen.seeking_immortals.auction.bid"), ignored ->
+                        send(AuctionActionPacket.ACTION_BID, lot.lotId()));
+        boolean visible = buttonY >= viewport.y() && buttonY + 17 <= viewport.bottom();
+        preview.visible = visible;
+        settle.visible = visible;
+        bid.visible = visible;
+        settle.active = !lot.settled();
+        bid.active = !lot.settled();
+        addRenderableWidget(preview);
+        addRenderableWidget(settle);
+        addRenderableWidget(bid);
+    }
+
+    private static void send(String action, String payload) {
+        ModNetwork.CHANNEL.sendToServer(new AuctionActionPacket(action, payload));
     }
 
     @Override
     protected void containerTick() {
         super.containerTick();
-        // Rebuild when ladder sync arrives/changes page size.
-        if (minecraft != null && minecraft.level != null && minecraft.level.getGameTime() % 20L == 0L) {
-            // keep buttons in sync with latest lot ids after page change
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        if (data.hashCode() != observedRevision) {
+            rebuildButtons();
         }
     }
 
     @Override
     protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
-        ImmortalUiSkin.drawPanel(graphics, leftPos, topPos, imageWidth, imageHeight);
+        HallLayout layout = calculateLayout(width, height);
+        drawFrame(graphics, layout);
+        drawLots(graphics, layout, mouseX, mouseY);
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
         super.render(graphics, mouseX, mouseY, partialTick);
-        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
-        graphics.drawCenteredString(font, Component.translatable("screen.seeking_immortals.auction.title"),
-                leftPos + imageWidth / 2, topPos + 12, ImmortalUiSkin.COLOR_TITLE);
-        ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable("screen.seeking_immortals.auction.page",
-                        data.page() + 1, data.maxPage() + 1, data.totalLots()).getString(),
-                leftPos + 14, topPos + 34, imageWidth - 28, ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
-        if (!data.synced()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.auction.waiting").getString(),
-                    leftPos + 14, topPos + 60, imageWidth - 28, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-            renderTooltip(graphics, mouseX, mouseY);
-            return;
-        }
-        List<SyncAuctionLadderPacket.LotBid> lots = data.lots();
-        int rows = Math.min(lots.size(), 6);
-        for (int i = 0; i < rows; i++) {
-            SyncAuctionLadderPacket.LotBid lot = lots.get(i);
-            String text = lot.display()
-                    + "  now=" + lot.current()
-                    + " next=" + lot.next()
-                    + " lead=" + lot.leaderName()
-                    + (lot.settled() ? " [SETTLED]" : "");
-            ImmortalUiSkin.drawStringFit(font, graphics, text, leftPos + 16, topPos + 56 + i * 24,
-                    imageWidth - 180, ImmortalUiSkin.COLOR_TEXT_NORMAL, false);
-        }
-        if (lots.isEmpty()) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.auction.empty").getString(),
-                    leftPos + 14, topPos + 60, imageWidth - 28, ImmortalUiSkin.COLOR_TEXT_MUTED, false);
-        }
         renderTooltip(graphics, mouseX, mouseY);
     }
 
     @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        // Rebuild buttons when page changes after click handlers fire next frame.
-        boolean result = super.mouseClicked(mouseX, mouseY, button);
-        rebuildButtons();
-        return result;
+    public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
+        HallLayout layout = calculateLayout(width, height);
+        if (layout.viewport().contains(mouseX, mouseY) && contentHeight > layout.viewport().height()) {
+            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 20.0D),
+                    contentHeight, layout.viewport().height());
+            rebuildButtons();
+            return true;
+        }
+        return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
     @Override
     protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
     }
+
+    static HallLayout calculateLayout(int screenWidth, int screenHeight) {
+        int panelWidth = Math.min(360, Math.max(1, screenWidth - PANEL_MARGIN * 2));
+        int panelHeight = Math.min(236, Math.max(1, screenHeight - PANEL_MARGIN * 2));
+        int left = Math.max(0, (screenWidth - panelWidth) / 2);
+        int top = Math.max(0, (screenHeight - panelHeight) / 2);
+        int padding = panelWidth >= 180 ? 8 : 3;
+        boolean compact = panelWidth < 240;
+        int headerHeight = compact ? 40 : 27;
+        int buttonHeight = compact ? 16 : 18;
+        int buttonWidth = compact ? Math.max(1, (panelWidth - padding * 3) / 2)
+                : Math.min(64, Math.max(1, (panelWidth - padding * 3) / 2));
+        int buttonY = top + (compact ? 21 : 7);
+        UiRect header = new UiRect(left + padding, top + 4, Math.max(1, panelWidth - padding * 2),
+                compact ? 14 : 21);
+        UiRect refresh = new UiRect(compact ? left + padding : left + panelWidth - padding * 2 - buttonWidth * 2,
+                buttonY, buttonWidth, buttonHeight);
+        UiRect close = new UiRect(refresh.right() + padding, buttonY, buttonWidth, buttonHeight);
+        int summaryY = top + headerHeight + 3;
+        UiRect summary = new UiRect(left + padding, summaryY, Math.max(1, panelWidth - padding * 2), 13);
+        int footerHeight = 21;
+        int footerY = Math.max(summary.y() + summary.height() + 4,
+                top + panelHeight - padding - footerHeight);
+        UiRect previous = new UiRect(left + padding, footerY, 24, Math.min(18, footerHeight));
+        UiRect next = new UiRect(previous.right() + 4, footerY, 24, Math.min(18, footerHeight));
+        int viewportY = summary.y() + summary.height() + 3;
+        UiRect viewport = new UiRect(left + padding, viewportY, Math.max(1, panelWidth - padding * 2),
+                Math.max(1, footerY - 4 - viewportY));
+        return new HallLayout(left, top, panelWidth, panelHeight, header, summary, viewport,
+                refresh, close, previous, next);
+    }
+
+    static int calculateContentHeight(int rowCount) {
+        return Math.max(1, rowCount * (ROW_HEIGHT + ROW_GAP) + 8);
+    }
+
+    static int clampScroll(int requested, int contentHeight, int viewportHeight) {
+        int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
+        return Math.max(0, Math.min(requested, maximum));
+    }
+
+    private void drawFrame(GuiGraphics graphics, HallLayout layout) {
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
+                layout.header().width(), layout.header().height());
+        int titleWidth = layout.panelWidth() < 240 ? layout.header().width()
+                : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.auction.title").getString(),
+                layout.header().x() + 7, layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2),
+                titleWidth, ImmortalUiSkin.JOURNAL_BORDER, false);
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.auction.page",
+                        data.page() + 1, data.maxPage() + 1, data.totalLots()).getString(),
+                layout.summary().x() + 3, layout.summary().y() + 2,
+                Math.max(1, layout.summary().width() - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
+                layout.viewport().width(), layout.viewport().height());
+    }
+
+    private void drawLots(GuiGraphics graphics, HallLayout layout, int mouseX, int mouseY) {
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        int rowY = layout.viewport().y() + 4 - scrollOffset;
+        ImmortalUiSkin.withScissor(graphics, layout.viewport().x(), layout.viewport().y(),
+                layout.viewport().width(), layout.viewport().height(), () -> {
+                    if (!data.synced()) {
+                        drawEmpty(graphics, layout.viewport(), "screen.seeking_immortals.auction.waiting");
+                        return;
+                    }
+                    if (data.lots().isEmpty()) {
+                        drawEmpty(graphics, layout.viewport(), "screen.seeking_immortals.auction.empty");
+                        return;
+                    }
+                    for (int i = 0; i < data.lots().size(); i++) {
+                        SyncAuctionLadderPacket.LotBid lot = data.lots().get(i);
+                        UiRect row = new UiRect(layout.viewport().x() + 4,
+                                rowY + i * (ROW_HEIGHT + ROW_GAP),
+                                Math.max(1, layout.viewport().width() - 9), ROW_HEIGHT);
+                        ImmortalUiSkin.drawListRow(graphics, row.x(), row.y(), row.width(), row.height(),
+                                row.contains(mouseX, mouseY) ? ImmortalUiSkin.InteractionState.HOVERED
+                                        : ImmortalUiSkin.InteractionState.NORMAL);
+                        ImmortalUiSkin.drawStringFit(font, graphics, lot.display(), row.x() + 6, row.y() + 5,
+                                Math.max(1, row.width() - 12), ImmortalUiSkin.JOURNAL_PAPER, false);
+                        Component status = Component.translatable("screen.seeking_immortals.auction.lot_status",
+                                lot.current(), lot.next(), lot.leaderName());
+                        String statusText = status.getString() + (lot.settled()
+                                ? " · " + Component.translatable("screen.seeking_immortals.auction.settled").getString() : "");
+                        ImmortalUiSkin.drawStringFit(font, graphics, statusText, row.x() + 6, row.y() + 16,
+                                Math.max(1, row.width() - 12), lot.settled()
+                                        ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
+                    }
+                });
+        ImmortalUiSkin.drawThinScrollbar(graphics, layout.viewport().right() - 3,
+                layout.viewport().y(), layout.viewport().height(), contentHeight,
+                layout.viewport().height(), scrollOffset);
+    }
+
+    private void drawEmpty(GuiGraphics graphics, UiRect viewport, String key) {
+        ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(key).getString(),
+                viewport.x() + 8, viewport.y() + 10, Math.max(1, viewport.width() - 16),
+                ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+    }
+
+    record UiRect(int x, int y, int width, int height) {
+        int right() { return x + width; }
+        int bottom() { return y + height; }
+        boolean contains(double mouseX, double mouseY) {
+            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
+        }
+        boolean intersects(UiRect other) {
+            return other != null && x < other.right() && right() > other.x()
+                    && y < other.bottom() && bottom() > other.y();
+        }
+    }
+
+    record HallLayout(int left, int top, int panelWidth, int panelHeight,
+                      UiRect header, UiRect summary, UiRect viewport,
+                      UiRect refreshButton, UiRect closeButton,
+                      UiRect previousButton, UiRect nextButton) {}
 }

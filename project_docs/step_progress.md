@@ -1,3 +1,17 @@
+## 449. 2026-07-15 0.1.504 all remaining client screens
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260715_192144/phase3/`
+  Operational screens                  Done alchemy, auction, market, sect, shop and worldpack migrated
+  Narrative and utility screens        Done dialogue, quest tracker, refinement plan and storage migrated
+  Container compatibility              Done furnace, auction/market/sect halls and storage slot planes retain original coordinates
+  Responsive behavior                 Done clipped long text/lists, scrolling, dynamic controls and visible-frame fallbacks
+  Version/protocol                     Done `0.1.503` -> `0.1.504`; protocol remains `19`
+  Focused verification                 Done expanded `ScreenLayoutTest` BUILD SUCCESSFUL
+  Concurrent tree                      Blocked current-tree tests see 747 techniques vs 346 and `body.json.json`; external files untouched
+  Full verification                    Done clean committed-text baseline + UI patch BUILD SUCCESSFUL in 1m40s
+
 ## 448. 2026-07-15 0.1.503 core cultivation UI and HUD
 
   Step   Status   Notes
