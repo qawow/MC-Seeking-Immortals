@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 法器/法宝/古宝/通天灵宝结构目录",
+  "disclaimer": "等级与战力为结构带；非逐件原文数值",
+  "grade_system": {
+    "note": "人界常用：法器（低中高）→ 法宝 → 古宝 → 通天灵宝；另有魔器/佛宝分支",
+    "bands": [
+      {
+        "id": "qi_low",
+        "display": "下品法器",
+        "realm": "QI_REFINING",
+        "grade_num": "1-2"
+      },
+      {
+        "id": "qi_mid",
+        "display": "中品法器",
+        "realm": "QI_REFINING_LATE",
+        "grade_num": "3"
+      },
+      {
+        "id": "qi_high",
+        "display": "上品法器",
+        "realm": "FOUNDATION_EARLY",
+        "grade_num": "4"
+      },
+      {
+        "id": "fa_bao",
+        "display": "法宝",
+        "realm": "CORE_FORMATION",
+        "grade_num": "5-7",
+        "note": "可炼本命"
+      },
+      {
+        "id": "high_fa_bao",
+        "display": "高阶法宝",
+        "realm": "NASCENT_SOUL",
+        "grade_num": "8-9"
+      },
+      {
+        "id": "gu_bao",
+        "display": "古宝",
+        "realm": "NASCENT_SOUL_PLUS",
+        "grade_num": "10",
+        "note": "上古遗留，威能远超同阶法宝"
+      },
+      {
+        "id": "tongtian",
+        "display": "通天灵宝",
+        "realm": "DEITY_PLUS",
+        "grade_num": "11",
+        "note": "需通宝诀培炼，上古最多数十件量级"
+      },
+      {
+        "id": "xuantian",
+        "display": "玄天之宝/残宝",
+        "realm": "BODY_INTEGRATION_PLUS",
+        "grade_num": "beyond",
+        "note": "含法则，大乘级"
+      }
+    ]
+  },
+  "quality_layers": {
+    "normal": "凡品",
+    "fine": "灵品",
+    "treasure": "宝品",
+    "immortal_edge": "通天边缘"
+  },
+  "artifacts": [
+    {
+      "id": "qingzhu_fengyun_jian",
+      "display": "青竹蜂云剑",
+      "band": "fa_bao_to_high",
+      "type": "飞剑组",
+      "count_structure": 72,
+      "materials": [
+        "金雷竹",
+        "庚精"
+      ],
+      "methods": [
+        "青元剑诀",
+        "大庚剑阵"
+      ],
+      "realm_min": "CORE_FORMATION",
+      "growth": "可重炼去杂质，进阶春黎/青蟠剑阵结构",
+      "setting": {
+        "lore": "主角本命剑组结构；剑丝、剑阵为核心玩法标签。"
+      },
+      "description": "飞剑组。主角本命剑组结构；剑丝、剑阵为核心玩法标签。"
+    },
+    {
+      "id": "xu_tian_ding",
+      "display": "虚天鼎",
+      "band": "gu_bao",
+      "type": "炼丹鼎/空间宝",
+      "realm_min": "NASCENT_SOUL",
+      "special": [
+        "内含乾蓝冰焰等",
+        "虚天殿核心争夺物"
+      ],
+      "setting": {
+        "lore": "乱星海虚天殿主拍级古宝；补天丹、玄阴经等同场。"
+      },
+      "description": "炼丹鼎/空间宝。乱星海虚天殿主拍级古宝；补天丹、玄阴经等同场。"
+    },
+    {
+      "id": "hunyuan_bo",
+      "display": "混元钵",
+      "band": "fa_bao",
+      "type": "收摄类",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "六连殿古长老法宝结构；收摄/镇压。"
+      },
+      "description": "收摄类。六连殿古长老法宝结构；收摄/镇压。"
+    },
+    {
+      "id": "lvhuang_jian",
+      "display": "绿煌剑",
+      "band": "fa_bao",
+      "type": "飞剑",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "御灵宗曲魂法宝结构。"
+      },
+      "description": "飞剑。御灵宗曲魂法宝结构。"
+    },
+    {
+      "id": "qiyun_xie",
+      "display": "踏云靴",
+      "band": "qi_high",
+      "type": "身法法器",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "血色试炼常见中高阶法器掉落标签。"
+      },
+      "description": "身法法器。血色试炼常见中高阶法器掉落标签。"
+    },
+    {
+      "id": "tianleizi",
+      "display": "天雷子",
+      "band": "qi_high_to_fa",
+      "type": "一次性雷爆符宝/暗器",
+      "realm_min": "FOUNDATION",
+      "consumable": true,
+      "price_low_stone": [
+        500,
+        5000
+      ],
+      "setting": {
+        "lore": "低中阶翻盘物；可破黑煞教主等剧情节点。"
+      },
+      "description": "一次性雷爆符宝/暗器。低中阶翻盘物；可破黑煞教主等剧情节点。"
+    },
+    {
+      "id": "diandao_wuxing_zhen",
+      "display": "颠倒五行阵（阵盘/阵旗）",
+      "band": "fa_bao",
+      "type": "阵法套装",
+      "realm_min": "FOUNDATION",
+      "setting": {
+        "lore": "齐云霄系阵盘；困敌护洞核心。"
+      },
+      "description": "阵法套装。齐云霄系阵盘；困敌护洞核心。"
+    },
+    {
+      "id": "fenglei_chi",
+      "display": "风雷翅",
+      "band": "high_fa_bao",
+      "type": "遁器",
+      "materials": [
+        "雷鹏骨骸",
+        "可嵌鲲鹏羽/天凤翎"
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "special": [
+        "雷遁",
+        "后期风遁"
+      ],
+      "setting": {
+        "lore": "风希联合炼制；人界顶级遁速标签。"
+      },
+      "description": "遁器。风希联合炼制；人界顶级遁速标签。"
+    },
+    {
+      "id": "yuan_ci_shen_shan",
+      "display": "元磁神山",
+      "band": "gu_bao",
+      "type": "元磁至宝",
+      "realm_min": "NASCENT_SOUL_LATE",
+      "methods": [
+        "元磁神光"
+      ],
+      "setting": {
+        "lore": "星宫关联；克制五行，可收入体内培炼。"
+      },
+      "description": "元磁至宝。星宫关联；克制五行，可收入体内培炼。"
+    },
+    {
+      "id": "gui_luo_fan",
+      "display": "鬼罗幡",
+      "band": "high_fa_bao",
+      "type": "鬼道幡",
+      "faction": "阴罗宗",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "阴罗宗标志物；可组幡阵，鬼物炼尸配套。"
+      },
+      "description": "鬼道幡。阴罗宗标志物；可组幡阵，鬼物炼尸配套。"
+    },
+    {
+      "id": "ba_ling_chi",
+      "display": "八灵尺",
+      "band": "tongtian",
+      "type": "佛门通天灵宝",
+      "realm_min": "NASCENT_SOUL_LATE",
+      "special": [
+        "八灵兽虚影",
+        "定敌法宝",
+        "克魔道鬼修",
+        "需通宝诀"
+      ],
+      "setting": {
+        "lore": "昆吾镇魔通天灵宝；飞升节点可能损毁结构。"
+      },
+      "description": "佛门通天灵宝。昆吾镇魔通天灵宝；飞升节点可能损毁结构。"
+    },
+    {
+      "id": "liu_ding_tian_jia_fu",
+      "display": "六丁天甲符",
+      "band": "high_fa_bao",
+      "type": "顶级护身符宝",
+      "consumable_or_limited": true,
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "南宫婉所赠级护身；空间节点保命标签。"
+      },
+      "description": "顶级护身符宝。南宫婉所赠级护身；空间节点保命标签。"
+    },
+    {
+      "id": "san_yan_shan",
+      "display": "三焰扇",
+      "band": "high_fa_bao",
+      "type": "火焰扇",
+      "materials": [
+        "赤火蛟等火材"
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "多种火焰炼合扇宝结构。"
+      },
+      "description": "火焰扇。多种火焰炼合扇宝结构。"
+    },
+    {
+      "id": "wuzi_tongxin_mo",
+      "display": "五子同心魔",
+      "band": "gu_bao",
+      "type": "魔器/融合器",
+      "special": [
+        "可融五种寒焰",
+        "可炼入体内"
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "昆吾所得；寒焰与法体双修关键。"
+      },
+      "description": "魔器/融合器。昆吾所得；寒焰与法体双修关键。"
+    },
+    {
+      "id": "tian_shi_zhu",
+      "display": "天尸珠",
+      "band": "high_fa_bao",
+      "type": "尸道本命类",
+      "special": [
+        "尸毒",
+        "法体奇材"
+      ],
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "炫烨王线；吞服/培炼可大幅提升法体。"
+      },
+      "description": "尸道本命类。炫烨王线；吞服/培炼可大幅提升法体。"
+    },
+    {
+      "id": "jingang_zhao",
+      "display": "金刚罩",
+      "band": "fa_bao",
+      "type": "佛光护罩半成品",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "舍利炼制半成品；可体内培养。"
+      },
+      "description": "佛光护罩半成品。舍利炼制半成品；可体内培养。"
+    },
+    {
+      "id": "hua_long_xi",
+      "display": "化龙玺",
+      "band": "gu_bao",
+      "type": "印玺古宝",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "昆吾争夺物之一。"
+      },
+      "description": "印玺古宝。昆吾争夺物之一。"
+    },
+    {
+      "id": "hei_feng_qi",
+      "display": "黑风旗（残）",
+      "band": "tongtian_damaged",
+      "type": "空间/魔气旗",
+      "special": [
+        "可化赤魂幡等后续形态结构"
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "元刹/昆吾封印关联；损毁后仍可炼化。"
+      },
+      "description": "空间/魔气旗。元刹/昆吾封印关联；损毁后仍可炼化。"
+    },
+    {
+      "id": "yuan_ming_deng",
+      "display": "元明灯",
+      "band": "high_fa_bao",
+      "type": "战场奇宝",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "边界大战扭转战局级；可换大量宝物。"
+      },
+      "description": "战场奇宝。边界大战扭转战局级；可换大量宝物。"
+    },
+    {
+      "id": "tai_xuan_bagua_tu",
+      "display": "太玄八卦图",
+      "band": "gu_bao",
+      "type": "正道古宝",
+      "faction": "浩然阁",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "正道盟长老战场古宝标签。"
+      },
+      "description": "正道古宝。正道盟长老战场古宝标签。"
+    },
+    {
+      "id": "mie_xian_zhu",
+      "display": "灭仙珠",
+      "band": "high_fa_bao",
+      "type": "禁制珠",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "阴罗/小极宫线；可被八灵尺等克制。"
+      },
+      "description": "禁制珠。阴罗/小极宫线；可被八灵尺等克制。"
+    },
+    {
+      "id": "qianlan_ding",
+      "display": "乾蓝鼎",
+      "band": "gu_bao",
+      "type": "寒焰鼎",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "小极宫寒焰体系关联。"
+      },
+      "description": "寒焰鼎。小极宫寒焰体系关联。"
+    },
+    {
+      "id": "zhen_mo_suo",
+      "display": "镇魔锁",
+      "band": "xuantian_related",
+      "type": "封印玄天级",
+      "realm_min": "BODY_INTEGRATION",
+      "special": [
+        "内含混沌阴阳二气结构",
+        "多层禁制"
+      ],
+      "setting": {
+        "lore": "灵界/魔界级；封印圣祖级存在。"
+      },
+      "description": "封印玄天级。灵界/魔界级；封印圣祖级存在。"
+    },
+    {
+      "id": "yuan_he_wuji_shan",
+      "display": "元合五极山",
+      "band": "xuantian_acquired",
+      "type": "后天玄天灵宝",
+      "materials": [
+        "元磁神山",
+        "北极元山",
+        "太乙青山",
+        "阴阳大五行极山",
+        "昊阴寒魄山"
+      ],
+      "realm_min": "GREAT_VEHICLE",
+      "setting": {
+        "lore": "玄天炼器术炼成结构；终局级。"
+      },
+      "description": "后天玄天灵宝。玄天炼器术炼成结构；终局级。"
+    },
+    {
+      "id": "common_feijian_low",
+      "display": "普通飞剑（坊市）",
+      "band": "qi_low_to_mid",
+      "type": "飞剑",
+      "price_low_stone": [
+        5,
+        80
+      ],
+      "realm_min": "QI_REFINING",
+      "setting": {
+        "lore": "炼气弟子标配；损耗件。"
+      },
+      "description": "飞剑。炼气弟子标配；损耗件。"
+    },
+    {
+      "id": "common_dunfu",
+      "display": "遁符/初级遁器",
+      "band": "qi_mid",
+      "type": "逃遁",
+      "price_low_stone": [
+        20,
+        200
+      ],
+      "consumable": true,
+      "setting": {
+        "lore": "低阶保命经济件。"
+      },
+      "description": "逃遁。低阶保命经济件。"
+    },
+    {
+      "id": "hunyuan_bo_detail",
+      "display": "混元钵",
+      "band": "fa_bao",
+      "type": "收摄",
+      "realm_min": "CORE_FORMATION",
+      "setting": {
+        "lore": "六连殿古长老；韩立击杀所得。"
+      },
+      "description": "收摄。六连殿古长老；韩立击杀所得。"
+    },
+    {
+      "id": "yu_ruyi",
+      "display": "玉如意",
+      "band": "gu_bao",
+      "type": "古宝",
+      "realm_min": "CORE_FORMATION",
+      "source": "虚天殿",
+      "setting": {
+        "lore": "内殿混战所得古宝结构。"
+      },
+      "description": "古宝。内殿混战所得古宝结构。"
+    },
+    {
+      "id": "chi_hun_fan",
+      "display": "赤魂幡",
+      "band": "high_fa_bao",
+      "type": "空间/魔幡",
+      "materials": [
+        "黑风旗残",
+        "鬼罗幡"
+      ],
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "昆吾后炼成。"
+      },
+      "description": "空间/魔幡。昆吾后炼成。"
+    },
+    {
+      "id": "jiangmo_zhang",
+      "display": "降魔杖",
+      "band": "fa_bao",
+      "type": "佛门重杖",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "昆吾三老佛修法宝；克邪祟。"
+      },
+      "description": "佛门重杖。昆吾三老佛修法宝；克邪祟。"
+    },
+    {
+      "id": "xue_ren_art",
+      "display": "血刃",
+      "band": "pseudo_lingbao",
+      "type": "杀伐刃",
+      "realm_min": "NASCENT_SOUL",
+      "setting": {
+        "lore": "仿魔龙刃；尸熊→玲珑→韩立。"
+      },
+      "description": "杀伐刃。仿魔龙刃；尸熊→玲珑→韩立。"
+    },
+    {
+      "id": "yang_huan_art",
+      "display": "阳环",
+      "band": "fa_bao",
+      "type": "环",
+      "realm_min": "CORE_FORMATION",
+      "source": "掩月宗",
+      "description": "环。"
+    },
+    {
+      "id": "xue_mo_jian_art",
+      "display": "血魔剑",
+      "band": "fa_bao",
+      "type": "魔剑",
+      "source": "掩月宗",
+      "description": "魔剑。"
+    },
+    {
+      "id": "kun_xian_huan_art",
+      "display": "困仙环",
+      "band": "fa_bao",
+      "type": "困锁",
+      "note": "未认主可交易",
+      "description": "困锁。"
+    },
+    {
+      "id": "tongling_huoding",
+      "display": "通灵火鼎",
+      "band": "fa_bao",
+      "type": "炼器鼎",
+      "source": "昆吾铸灵殿",
+      "description": "炼器鼎。"
+    },
+    {
+      "id": "sheng_ding_tianlan",
+      "display": "天澜圣鼎",
+      "band": "gu_bao",
+      "type": "圣兽关联鼎",
+      "source": "天澜圣兽线",
+      "description": "圣兽关联鼎。"
+    }
+  ],
+  "refinement_rules_structural": {
+    "blood_refine": "本命法宝需精血认主，损毁伤主",
+    "tongbao_jue": "通天灵宝必须专属通宝诀，不可混用",
+    "in_body_nurture": "古宝/通天可暂藏体内培灵性，非心神完全融合",
+    "upgrade_path": "注灵→融材→阵纹→本命→（可选）通宝/玄天"
+  },
+  "price_bands_low_stone": {
+    "common_tool": [
+      5,
+      100
+    ],
+    "foundation_gear": [
+      100,
+      2000
+    ],
+    "core_fabao": [
+      5000,
+      80000
+    ],
+    "nascent_high": [
+      50000,
+      500000
+    ],
+    "gu_bao_auction": [
+      200000,
+      2000000
+    ],
+    "tongtian": "不可常规标价"
+  }
+}

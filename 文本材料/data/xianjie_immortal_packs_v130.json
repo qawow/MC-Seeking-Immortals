@@ -1,0 +1,1823 @@
+{
+  "schema_version": 1,
+  "source": "v130 仙界扩展总包",
+  "disclaimer": "可玩仙界闭环；法则名为结构+原著气质，非逐章抄书目录",
+  "region": "xianjie",
+  "factions": [
+    {
+      "faction_id": "zhenyan_men",
+      "display": "真言门",
+      "role": "真言+大五行幻世；韩立主线宗门气质",
+      "methods": [
+        "zhenyan_true_word_art",
+        "great_five_elements_world_art",
+        "zhenyan_elder_canon"
+      ],
+      "alignment": "immortal_sect",
+      "hostile_to": [],
+      "allied_hint": [
+        "可与天庭竞合"
+      ],
+      "techniques": [
+        {
+          "id": "zhenyan_word_bolt",
+          "display": "真言弹",
+          "requires_method": "zhenyan_true_word_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "zhenyan_command_bind",
+          "display": "真言缚",
+          "requires_method": "zhenyan_true_word_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "zhenyan_voice_shield",
+          "display": "真言盾",
+          "requires_method": "zhenyan_true_word_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "zhenyan_lesson_seal",
+          "display": "授业印",
+          "requires_method": "zhenyan_elder_canon",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "wuxing_world_seed",
+          "display": "幻世种子",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "dao.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_full_world",
+          "display": "大五行幻世",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "dao.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_metal_edge",
+          "display": "幻世金锋",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_wood_bind_world",
+          "display": "幻世木囚",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_water_mirror",
+          "display": "幻世水镜",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_fire_realm",
+          "display": "幻世火域",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "wuxing_earth_suppress",
+          "display": "幻世土镇",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "zhenyan_sect_array",
+          "display": "真言护宗大阵催",
+          "requires_method": "zhenyan_elder_canon",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "formation.json",
+          "law_type": null
+        },
+        {
+          "id": "wuxing_cycle_array",
+          "display": "五行轮转阵",
+          "requires_method": "great_five_elements_world_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "formation.json",
+          "law_type": "law_five_elements"
+        },
+        {
+          "id": "zhenyan_elder_canon_xian_3",
+          "display": "真言长老典·仙式3",
+          "requires_method": "zhenyan_elder_canon",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "formation.json",
+          "law_type": null
+        }
+      ],
+      "technique_count": 14,
+      "method_layer_tables": [
+        {
+          "method_id": "zhenyan_true_word_art",
+          "display": "真言门真言诀",
+          "total_layers": 3,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "真言入门",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "zhenyan_word_bolt",
+                "zhenyan_voice_shield"
+              ],
+              "unlock_new_this_layer": [
+                "zhenyan_word_bolt",
+                "zhenyan_voice_shield"
+              ],
+              "note": "弹盾"
+            },
+            {
+              "layer": 2,
+              "layer_name": "真言缚",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "zhenyan_word_bolt",
+                "zhenyan_voice_shield",
+                "zhenyan_command_bind"
+              ],
+              "unlock_new_this_layer": [
+                "zhenyan_command_bind"
+              ],
+              "note": "控"
+            },
+            {
+              "layer": 3,
+              "layer_name": "接幻世",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "zhenyan_word_bolt",
+                "zhenyan_voice_shield",
+                "zhenyan_command_bind"
+              ],
+              "unlock_new_this_layer": [
+                "zhenyan_command_bind"
+              ],
+              "note": "可转大五行"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "great_five_elements_world_art",
+          "display": "大五行幻世诀",
+          "total_layers": 4,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "幻世种",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "wuxing_world_seed",
+                "wuxing_metal_edge",
+                "wuxing_wood_bind_world"
+              ],
+              "unlock_new_this_layer": [
+                "wuxing_world_seed",
+                "wuxing_metal_edge",
+                "wuxing_wood_bind_world"
+              ],
+              "note": "种+金木"
+            },
+            {
+              "layer": 2,
+              "layer_name": "三行域",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "wuxing_world_seed",
+                "wuxing_metal_edge",
+                "wuxing_wood_bind_world",
+                "wuxing_water_mirror",
+                "wuxing_fire_realm",
+                "wuxing_earth_suppress",
+                "wuxing_cycle_array"
+              ],
+              "unlock_new_this_layer": [
+                "wuxing_water_mirror",
+                "wuxing_fire_realm",
+                "wuxing_earth_suppress",
+                "wuxing_cycle_array"
+              ],
+              "note": "水火土阵"
+            },
+            {
+              "layer": 3,
+              "layer_name": "大幻世",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "wuxing_world_seed",
+                "wuxing_metal_edge",
+                "wuxing_wood_bind_world",
+                "wuxing_water_mirror",
+                "wuxing_fire_realm",
+                "wuxing_earth_suppress",
+                "wuxing_cycle_array",
+                "wuxing_full_world"
+              ],
+              "unlock_new_this_layer": [
+                "wuxing_full_world"
+              ],
+              "note": "完整幻世"
+            },
+            {
+              "layer": 4,
+              "layer_name": "道祖前圆满带",
+              "realm_band": "DALUO_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "wuxing_world_seed",
+                "wuxing_metal_edge",
+                "wuxing_wood_bind_world",
+                "wuxing_water_mirror",
+                "wuxing_fire_realm",
+                "wuxing_earth_suppress",
+                "wuxing_cycle_array",
+                "wuxing_full_world"
+              ],
+              "unlock_new_this_layer": [
+                "wuxing_full_world",
+                "wuxing_cycle_array"
+              ],
+              "note": "圆满叙事"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "zhenyan_elder_canon",
+          "display": "真言长老典",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "授业",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "zhenyan_lesson_seal"
+              ],
+              "unlock_new_this_layer": [
+                "zhenyan_lesson_seal"
+              ],
+              "note": "权限"
+            },
+            {
+              "layer": 2,
+              "layer_name": "护宗",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "zhenyan_lesson_seal",
+                "zhenyan_sect_array"
+              ],
+              "unlock_new_this_layer": [
+                "zhenyan_sect_array"
+              ],
+              "note": "大阵"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    },
+    {
+      "faction_id": "reincarnation_hall",
+      "display": "轮回殿",
+      "role": "轮回交易与魂道制裁",
+      "methods": [
+        "reincarnation_hall_art"
+      ],
+      "alignment": "neutral_power",
+      "techniques": [
+        {
+          "id": "reincarnation_trade_seal",
+          "display": "轮回交易契",
+          "requires_method": "reincarnation_hall_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_reincarnation"
+        },
+        {
+          "id": "reincarnation_mark",
+          "display": "轮回印",
+          "requires_method": "reincarnation_hall_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "divine_sense.json",
+          "law_type": "law_reincarnation"
+        },
+        {
+          "id": "reincarnation_judgment",
+          "display": "轮回裁断",
+          "requires_method": "reincarnation_hall_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "divine_sense.json",
+          "law_type": "law_reincarnation"
+        },
+        {
+          "id": "dayan_to_reincarnation_bridge",
+          "display": "大衍通轮回感",
+          "requires_method": "reincarnation_hall_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "divine_sense.json",
+          "law_type": null
+        },
+        {
+          "id": "reincarnation_soul_pull",
+          "display": "轮回摄魂",
+          "requires_method": "reincarnation_hall_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "ghost.json",
+          "law_type": "law_reincarnation"
+        }
+      ],
+      "technique_count": 5,
+      "method_layer_tables": [
+        {
+          "method_id": "reincarnation_hall_art",
+          "display": "轮回殿秘典",
+          "total_layers": 3,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "印与摄",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "reincarnation_mark",
+                "reincarnation_soul_pull",
+                "dayan_to_reincarnation_bridge"
+              ],
+              "unlock_new_this_layer": [
+                "reincarnation_mark",
+                "reincarnation_soul_pull",
+                "dayan_to_reincarnation_bridge"
+              ],
+              "note": "入门"
+            },
+            {
+              "layer": 2,
+              "layer_name": "交易",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "reincarnation_mark",
+                "reincarnation_soul_pull",
+                "dayan_to_reincarnation_bridge",
+                "reincarnation_trade_seal"
+              ],
+              "unlock_new_this_layer": [
+                "reincarnation_trade_seal"
+              ],
+              "note": "契"
+            },
+            {
+              "layer": 3,
+              "layer_name": "裁断",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "reincarnation_mark",
+                "reincarnation_soul_pull",
+                "dayan_to_reincarnation_bridge",
+                "reincarnation_trade_seal",
+                "reincarnation_judgment"
+              ],
+              "unlock_new_this_layer": [
+                "reincarnation_judgment"
+              ],
+              "note": "大"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    },
+    {
+      "faction_id": "heavenly_court",
+      "display": "天庭/仙官",
+      "role": "律法巡天",
+      "methods": [
+        "heavenly_court_law_art"
+      ],
+      "alignment": "order",
+      "techniques": [
+        {
+          "id": "heaven_patrol_aura",
+          "display": "巡天威",
+          "requires_method": "heavenly_court_law_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "heaven_law_bind",
+          "display": "天法律锁",
+          "requires_method": "heavenly_court_law_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "formation.json",
+          "law_type": null
+        },
+        {
+          "id": "heaven_edict",
+          "display": "天敕",
+          "requires_method": "heavenly_court_law_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "formation.json",
+          "law_type": null
+        }
+      ],
+      "technique_count": 3,
+      "method_layer_tables": [
+        {
+          "method_id": "heavenly_court_law_art",
+          "display": "天庭律修诀",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "律锁",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "heaven_law_bind"
+              ],
+              "unlock_new_this_layer": [
+                "heaven_law_bind"
+              ],
+              "note": "锁"
+            },
+            {
+              "layer": 2,
+              "layer_name": "天敕巡",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "heaven_law_bind",
+                "heaven_edict",
+                "heaven_patrol_aura"
+              ],
+              "unlock_new_this_layer": [
+                "heaven_edict",
+                "heaven_patrol_aura"
+              ],
+              "note": "敕"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    },
+    {
+      "faction_id": "heifeng_sea",
+      "display": "黑风海",
+      "role": "海域航行与风劫",
+      "methods": [
+        "heifeng_sea_art"
+      ],
+      "alignment": "region",
+      "techniques": [
+        {
+          "id": "heifeng_wind_ride",
+          "display": "黑风驰",
+          "requires_method": "heifeng_sea_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "movement.json",
+          "law_type": null
+        },
+        {
+          "id": "heifeng_storm_brace",
+          "display": "黑风抗劫",
+          "requires_method": "heifeng_sea_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "movement.json",
+          "law_type": null
+        },
+        {
+          "id": "heifeng_black_gale",
+          "display": "黑风割",
+          "requires_method": "heifeng_sea_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "elemental.json",
+          "law_type": null
+        }
+      ],
+      "technique_count": 3,
+      "method_layer_tables": [
+        {
+          "method_id": "heifeng_sea_art",
+          "display": "黑风海御风诀",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "驰抗",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "heifeng_wind_ride",
+                "heifeng_storm_brace"
+              ],
+              "unlock_new_this_layer": [
+                "heifeng_wind_ride",
+                "heifeng_storm_brace"
+              ],
+              "note": "航"
+            },
+            {
+              "layer": 2,
+              "layer_name": "割",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "heifeng_wind_ride",
+                "heifeng_storm_brace",
+                "heifeng_black_gale"
+              ],
+              "unlock_new_this_layer": [
+                "heifeng_black_gale"
+              ],
+              "note": "战"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    },
+    {
+      "faction_id": "gray_realm",
+      "display": "灰界",
+      "role": "冥渡高危",
+      "methods": [
+        "gray_realm_nether_art"
+      ],
+      "alignment": "hostile_zone",
+      "techniques": [
+        {
+          "id": "gray_mist_veil",
+          "display": "灰界雾纱",
+          "requires_method": "gray_realm_nether_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "ghost.json",
+          "law_type": null
+        },
+        {
+          "id": "gray_soul_drain",
+          "display": "灰界抽魂",
+          "requires_method": "gray_realm_nether_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "ghost.json",
+          "law_type": null
+        },
+        {
+          "id": "gray_nether_domain",
+          "display": "灰冥域",
+          "requires_method": "gray_realm_nether_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "ghost.json",
+          "law_type": null
+        }
+      ],
+      "technique_count": 3,
+      "method_layer_tables": [
+        {
+          "method_id": "gray_realm_nether_art",
+          "display": "灰界冥渡诀",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "雾抽",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "gray_mist_veil",
+                "gray_soul_drain"
+              ],
+              "unlock_new_this_layer": [
+                "gray_mist_veil",
+                "gray_soul_drain"
+              ],
+              "note": "雾"
+            },
+            {
+              "layer": 2,
+              "layer_name": "域",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "gray_mist_veil",
+                "gray_soul_drain",
+                "gray_nether_domain"
+              ],
+              "unlock_new_this_layer": [
+                "gray_nether_domain"
+              ],
+              "note": "域"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    },
+    {
+      "faction_id": "xianjie_unaligned",
+      "display": "仙界散修/法则自修",
+      "role": "时间/空间/剑/体/丹",
+      "methods": [
+        "time_law_scripture",
+        "time_reversion_fragment",
+        "void_immortal_space_art",
+        "immortal_sword_dao_art",
+        "body_immortal_golden_art",
+        "medicine_king_immortal_art",
+        "dao_ancestor_glimpse"
+      ],
+      "alignment": "unaligned",
+      "techniques": [
+        {
+          "id": "true_immortal_sword_art",
+          "display": "真灵剑诀（仿）",
+          "requires_method": "immortal_sword_dao_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": null
+        },
+        {
+          "id": "time_slow_field",
+          "display": "时间迟滞域",
+          "requires_method": "time_law_scripture",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "time_haste_self",
+          "display": "时光加速",
+          "requires_method": "time_law_scripture",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "time_lock_spike",
+          "display": "时锁定刺",
+          "requires_method": "time_law_scripture",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "time_reversion_blink",
+          "display": "时光逆转·一瞬",
+          "requires_method": "time_reversion_fragment",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "time_stasis_prison",
+          "display": "时停囚笼",
+          "requires_method": "time_reversion_fragment",
+          "realm_min": "DALUO_GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "void_immortal_rift",
+          "display": "虚空裂隙",
+          "requires_method": "void_immortal_space_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_space"
+        },
+        {
+          "id": "void_immortal_fold",
+          "display": "空间折叠",
+          "requires_method": "void_immortal_space_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_space"
+        },
+        {
+          "id": "time_reversion_fragment_xian_3",
+          "display": "时光逆转残篇·仙式3",
+          "requires_method": "time_reversion_fragment",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "secret_arts.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "dao_ancestor_glimpse_domain",
+          "display": "道祖窥影域",
+          "requires_method": "dao_ancestor_glimpse",
+          "realm_min": "DAO_ANCESTOR_BAND",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "dao_ancestor_silence",
+          "display": "道寂",
+          "requires_method": "dao_ancestor_glimpse",
+          "realm_min": "DAO_ANCESTOR_BAND",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "dao_ancestor_glimpse_xian_3",
+          "display": "道祖窥影（终局）·仙式3",
+          "requires_method": "dao_ancestor_glimpse",
+          "realm_min": "DAO_ANCESTOR_BAND",
+          "file": "dao.json",
+          "law_type": null
+        },
+        {
+          "id": "immortal_sword_ray",
+          "display": "仙剑芒",
+          "requires_method": "immortal_sword_dao_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "sword.json",
+          "law_type": "law_sword"
+        },
+        {
+          "id": "immortal_sword_domain",
+          "display": "仙剑域",
+          "requires_method": "immortal_sword_dao_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "sword.json",
+          "law_type": "law_sword"
+        },
+        {
+          "id": "immortal_sword_law_cut",
+          "display": "剑则斩",
+          "requires_method": "immortal_sword_dao_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "sword.json",
+          "law_type": "law_sword"
+        },
+        {
+          "id": "qingyuan_to_immortal_bridge",
+          "display": "青元化仙剑意",
+          "requires_method": "immortal_sword_dao_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "sword.json",
+          "law_type": null
+        },
+        {
+          "id": "time_skip_step",
+          "display": "时隙步",
+          "requires_method": "time_law_scripture",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "movement.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "void_immortal_blink",
+          "display": "虚空仙瞬",
+          "requires_method": "void_immortal_space_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "movement.json",
+          "law_type": "law_space"
+        },
+        {
+          "id": "immortal_body_harden",
+          "display": "仙体淬",
+          "requires_method": "body_immortal_golden_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "body.json",
+          "law_type": null
+        },
+        {
+          "id": "immortal_body_fist",
+          "display": "仙体崩拳",
+          "requires_method": "body_immortal_golden_art",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "body.json",
+          "law_type": null
+        },
+        {
+          "id": "immortal_golden_avatar",
+          "display": "仙金身",
+          "requires_method": "body_immortal_golden_art",
+          "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+          "file": "body.json",
+          "law_type": null
+        },
+        {
+          "id": "time_sense_echo",
+          "display": "时光残响探",
+          "requires_method": "time_law_scripture",
+          "realm_min": "GOLDEN_IMMORTAL",
+          "file": "divine_sense.json",
+          "law_type": "law_time"
+        },
+        {
+          "id": "medicine_king_pill_boost",
+          "display": "药王丹效引",
+          "requires_method": "medicine_king_immortal_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "recovery.json",
+          "law_type": null
+        },
+        {
+          "id": "medicine_king_detox",
+          "display": "药王解灵毒",
+          "requires_method": "medicine_king_immortal_art",
+          "realm_min": "TRUE_IMMORTAL",
+          "file": "recovery.json",
+          "law_type": null
+        }
+      ],
+      "technique_count": 24,
+      "method_layer_tables": [
+        {
+          "method_id": "time_law_scripture",
+          "display": "时间法则经",
+          "total_layers": 3,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "迟滞/加速",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "time_slow_field",
+                "time_haste_self",
+                "time_skip_step"
+              ],
+              "unlock_new_this_layer": [
+                "time_slow_field",
+                "time_haste_self",
+                "time_skip_step"
+              ],
+              "note": "基础时法"
+            },
+            {
+              "layer": 2,
+              "layer_name": "残响",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "time_slow_field",
+                "time_haste_self",
+                "time_skip_step",
+                "time_sense_echo"
+              ],
+              "unlock_new_this_layer": [
+                "time_sense_echo"
+              ],
+              "note": "探"
+            },
+            {
+              "layer": 3,
+              "layer_name": "时锁",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "time_slow_field",
+                "time_haste_self",
+                "time_skip_step",
+                "time_sense_echo",
+                "time_lock_spike"
+              ],
+              "unlock_new_this_layer": [
+                "time_lock_spike"
+              ],
+              "note": "高阶"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "time_reversion_fragment",
+          "display": "时光逆转残篇",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "一瞬逆转",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "time_reversion_blink"
+              ],
+              "unlock_new_this_layer": [
+                "time_reversion_blink"
+              ],
+              "note": "回溯"
+            },
+            {
+              "layer": 2,
+              "layer_name": "时停囚",
+              "realm_band": "DALUO_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "time_reversion_blink",
+                "time_stasis_prison"
+              ],
+              "unlock_new_this_layer": [
+                "time_stasis_prison"
+              ],
+              "note": "终局向"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "immortal_sword_dao_art",
+          "display": "仙剑道诀",
+          "total_layers": 3,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "仙芒",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_sword_ray",
+                "qingyuan_to_immortal_bridge",
+                "true_immortal_sword_art"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_sword_ray",
+                "qingyuan_to_immortal_bridge",
+                "true_immortal_sword_art"
+              ],
+              "note": "接青元"
+            },
+            {
+              "layer": 2,
+              "layer_name": "剑域",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_sword_ray",
+                "qingyuan_to_immortal_bridge",
+                "true_immortal_sword_art",
+                "immortal_sword_domain"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_sword_domain"
+              ],
+              "note": "域"
+            },
+            {
+              "layer": 3,
+              "layer_name": "剑则",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_sword_ray",
+                "qingyuan_to_immortal_bridge",
+                "true_immortal_sword_art",
+                "immortal_sword_domain",
+                "immortal_sword_law_cut"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_sword_law_cut"
+              ],
+              "note": "法则"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "void_immortal_space_art",
+          "display": "虚空仙遁经",
+          "total_layers": 2,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "瞬裂",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "void_immortal_blink",
+                "void_immortal_rift"
+              ],
+              "unlock_new_this_layer": [
+                "void_immortal_blink",
+                "void_immortal_rift"
+              ],
+              "note": "空"
+            },
+            {
+              "layer": 2,
+              "layer_name": "折叠",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "void_immortal_blink",
+                "void_immortal_rift",
+                "void_immortal_fold"
+              ],
+              "unlock_new_this_layer": [
+                "void_immortal_fold"
+              ],
+              "note": "困"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "body_immortal_golden_art",
+          "display": "仙体金身诀",
+          "total_layers": 3,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "淬",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_body_harden"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_body_harden"
+              ],
+              "note": "体"
+            },
+            {
+              "layer": 2,
+              "layer_name": "拳",
+              "realm_band": "GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_body_harden",
+                "immortal_body_fist"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_body_fist"
+              ],
+              "note": "战"
+            },
+            {
+              "layer": 3,
+              "layer_name": "金身",
+              "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+              "unlock_technique_ids": [
+                "immortal_body_harden",
+                "immortal_body_fist",
+                "immortal_golden_avatar"
+              ],
+              "unlock_new_this_layer": [
+                "immortal_golden_avatar"
+              ],
+              "note": "大"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "medicine_king_immortal_art",
+          "display": "药王仙经",
+          "total_layers": 1,
+          "layer_model": "v130_craft",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "丹效",
+              "realm_band": "TRUE_IMMORTAL",
+              "unlock_technique_ids": [
+                "medicine_king_pill_boost",
+                "medicine_king_detox"
+              ],
+              "unlock_new_this_layer": [
+                "medicine_king_pill_boost",
+                "medicine_king_detox"
+              ],
+              "note": "职"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        },
+        {
+          "method_id": "dao_ancestor_glimpse",
+          "display": "道祖窥影",
+          "total_layers": 1,
+          "layer_model": "v130_xianjie",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "窥影",
+              "realm_band": "DAO_ANCESTOR_BAND",
+              "unlock_technique_ids": [
+                "dao_ancestor_glimpse_domain",
+                "dao_ancestor_silence"
+              ],
+              "unlock_new_this_layer": [
+                "dao_ancestor_glimpse_domain",
+                "dao_ancestor_silence"
+              ],
+              "note": "终局"
+            }
+          ],
+          "v130": true,
+          "region": "xianjie"
+        }
+      ]
+    }
+  ],
+  "law_tracks": [
+    {
+      "id": "law_time",
+      "display": "时间法则",
+      "primary_method": "time_law_scripture"
+    },
+    {
+      "id": "law_five_elements",
+      "display": "五行法则",
+      "primary_method": "great_five_elements_world_art"
+    },
+    {
+      "id": "law_reincarnation",
+      "display": "轮回法则",
+      "primary_method": "reincarnation_hall_art"
+    },
+    {
+      "id": "law_space",
+      "display": "空间法则",
+      "primary_method": "void_immortal_space_art"
+    },
+    {
+      "id": "law_sword",
+      "display": "剑道法则",
+      "primary_method": "immortal_sword_dao_art"
+    }
+  ],
+  "bridge_from_lingjie": {
+    "body": [
+      "fansheng_zhenmogong",
+      "baipulse_lianbao_jue",
+      "body_immortal_golden_art"
+    ],
+    "sense": [
+      "lian_shen_shu",
+      "dayan_art",
+      "reincarnation_hall_art"
+    ],
+    "sword": [
+      "qingyuan_sword_art",
+      "immortal_sword_dao_art"
+    ],
+    "void": [
+      "void_refining_scripture",
+      "void_immortal_space_art"
+    ]
+  },
+  "method_layer_tables": [
+    {
+      "method_id": "zhenyan_true_word_art",
+      "display": "真言门真言诀",
+      "total_layers": 3,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "真言入门",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield"
+          ],
+          "unlock_new_this_layer": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield"
+          ],
+          "note": "弹盾"
+        },
+        {
+          "layer": 2,
+          "layer_name": "真言缚",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield",
+            "zhenyan_command_bind"
+          ],
+          "unlock_new_this_layer": [
+            "zhenyan_command_bind"
+          ],
+          "note": "控"
+        },
+        {
+          "layer": 3,
+          "layer_name": "接幻世",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "zhenyan_word_bolt",
+            "zhenyan_voice_shield",
+            "zhenyan_command_bind"
+          ],
+          "unlock_new_this_layer": [
+            "zhenyan_command_bind"
+          ],
+          "note": "可转大五行"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "great_five_elements_world_art",
+      "display": "大五行幻世诀",
+      "total_layers": 4,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "幻世种",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world"
+          ],
+          "unlock_new_this_layer": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world"
+          ],
+          "note": "种+金木"
+        },
+        {
+          "layer": 2,
+          "layer_name": "三行域",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array"
+          ],
+          "unlock_new_this_layer": [
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array"
+          ],
+          "note": "水火土阵"
+        },
+        {
+          "layer": 3,
+          "layer_name": "大幻世",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array",
+            "wuxing_full_world"
+          ],
+          "unlock_new_this_layer": [
+            "wuxing_full_world"
+          ],
+          "note": "完整幻世"
+        },
+        {
+          "layer": 4,
+          "layer_name": "道祖前圆满带",
+          "realm_band": "DALUO_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "wuxing_world_seed",
+            "wuxing_metal_edge",
+            "wuxing_wood_bind_world",
+            "wuxing_water_mirror",
+            "wuxing_fire_realm",
+            "wuxing_earth_suppress",
+            "wuxing_cycle_array",
+            "wuxing_full_world"
+          ],
+          "unlock_new_this_layer": [
+            "wuxing_full_world",
+            "wuxing_cycle_array"
+          ],
+          "note": "圆满叙事"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "zhenyan_elder_canon",
+      "display": "真言长老典",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "授业",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "zhenyan_lesson_seal"
+          ],
+          "unlock_new_this_layer": [
+            "zhenyan_lesson_seal"
+          ],
+          "note": "权限"
+        },
+        {
+          "layer": 2,
+          "layer_name": "护宗",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "zhenyan_lesson_seal",
+            "zhenyan_sect_array"
+          ],
+          "unlock_new_this_layer": [
+            "zhenyan_sect_array"
+          ],
+          "note": "大阵"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "time_law_scripture",
+      "display": "时间法则经",
+      "total_layers": 3,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "迟滞/加速",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step"
+          ],
+          "unlock_new_this_layer": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step"
+          ],
+          "note": "基础时法"
+        },
+        {
+          "layer": 2,
+          "layer_name": "残响",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step",
+            "time_sense_echo"
+          ],
+          "unlock_new_this_layer": [
+            "time_sense_echo"
+          ],
+          "note": "探"
+        },
+        {
+          "layer": 3,
+          "layer_name": "时锁",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "time_slow_field",
+            "time_haste_self",
+            "time_skip_step",
+            "time_sense_echo",
+            "time_lock_spike"
+          ],
+          "unlock_new_this_layer": [
+            "time_lock_spike"
+          ],
+          "note": "高阶"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "time_reversion_fragment",
+      "display": "时光逆转残篇",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "一瞬逆转",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "time_reversion_blink"
+          ],
+          "unlock_new_this_layer": [
+            "time_reversion_blink"
+          ],
+          "note": "回溯"
+        },
+        {
+          "layer": 2,
+          "layer_name": "时停囚",
+          "realm_band": "DALUO_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "time_reversion_blink",
+            "time_stasis_prison"
+          ],
+          "unlock_new_this_layer": [
+            "time_stasis_prison"
+          ],
+          "note": "终局向"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "reincarnation_hall_art",
+      "display": "轮回殿秘典",
+      "total_layers": 3,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "印与摄",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge"
+          ],
+          "unlock_new_this_layer": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge"
+          ],
+          "note": "入门"
+        },
+        {
+          "layer": 2,
+          "layer_name": "交易",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge",
+            "reincarnation_trade_seal"
+          ],
+          "unlock_new_this_layer": [
+            "reincarnation_trade_seal"
+          ],
+          "note": "契"
+        },
+        {
+          "layer": 3,
+          "layer_name": "裁断",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "reincarnation_mark",
+            "reincarnation_soul_pull",
+            "dayan_to_reincarnation_bridge",
+            "reincarnation_trade_seal",
+            "reincarnation_judgment"
+          ],
+          "unlock_new_this_layer": [
+            "reincarnation_judgment"
+          ],
+          "note": "大"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "heifeng_sea_art",
+      "display": "黑风海御风诀",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "驰抗",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "heifeng_wind_ride",
+            "heifeng_storm_brace"
+          ],
+          "unlock_new_this_layer": [
+            "heifeng_wind_ride",
+            "heifeng_storm_brace"
+          ],
+          "note": "航"
+        },
+        {
+          "layer": 2,
+          "layer_name": "割",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "heifeng_wind_ride",
+            "heifeng_storm_brace",
+            "heifeng_black_gale"
+          ],
+          "unlock_new_this_layer": [
+            "heifeng_black_gale"
+          ],
+          "note": "战"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "immortal_sword_dao_art",
+      "display": "仙剑道诀",
+      "total_layers": 3,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "仙芒",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art"
+          ],
+          "note": "接青元"
+        },
+        {
+          "layer": 2,
+          "layer_name": "剑域",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art",
+            "immortal_sword_domain"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_sword_domain"
+          ],
+          "note": "域"
+        },
+        {
+          "layer": 3,
+          "layer_name": "剑则",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_sword_ray",
+            "qingyuan_to_immortal_bridge",
+            "true_immortal_sword_art",
+            "immortal_sword_domain",
+            "immortal_sword_law_cut"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_sword_law_cut"
+          ],
+          "note": "法则"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "void_immortal_space_art",
+      "display": "虚空仙遁经",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "瞬裂",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "void_immortal_blink",
+            "void_immortal_rift"
+          ],
+          "unlock_new_this_layer": [
+            "void_immortal_blink",
+            "void_immortal_rift"
+          ],
+          "note": "空"
+        },
+        {
+          "layer": 2,
+          "layer_name": "折叠",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "void_immortal_blink",
+            "void_immortal_rift",
+            "void_immortal_fold"
+          ],
+          "unlock_new_this_layer": [
+            "void_immortal_fold"
+          ],
+          "note": "困"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "heavenly_court_law_art",
+      "display": "天庭律修诀",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "律锁",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "heaven_law_bind"
+          ],
+          "unlock_new_this_layer": [
+            "heaven_law_bind"
+          ],
+          "note": "锁"
+        },
+        {
+          "layer": 2,
+          "layer_name": "天敕巡",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "heaven_law_bind",
+            "heaven_edict",
+            "heaven_patrol_aura"
+          ],
+          "unlock_new_this_layer": [
+            "heaven_edict",
+            "heaven_patrol_aura"
+          ],
+          "note": "敕"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "gray_realm_nether_art",
+      "display": "灰界冥渡诀",
+      "total_layers": 2,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "雾抽",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "gray_mist_veil",
+            "gray_soul_drain"
+          ],
+          "unlock_new_this_layer": [
+            "gray_mist_veil",
+            "gray_soul_drain"
+          ],
+          "note": "雾"
+        },
+        {
+          "layer": 2,
+          "layer_name": "域",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "gray_mist_veil",
+            "gray_soul_drain",
+            "gray_nether_domain"
+          ],
+          "unlock_new_this_layer": [
+            "gray_nether_domain"
+          ],
+          "note": "域"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "body_immortal_golden_art",
+      "display": "仙体金身诀",
+      "total_layers": 3,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "淬",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_body_harden"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_body_harden"
+          ],
+          "note": "体"
+        },
+        {
+          "layer": 2,
+          "layer_name": "拳",
+          "realm_band": "GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_body_harden",
+            "immortal_body_fist"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_body_fist"
+          ],
+          "note": "战"
+        },
+        {
+          "layer": 3,
+          "layer_name": "金身",
+          "realm_band": "TAIYI_GOLDEN_IMMORTAL",
+          "unlock_technique_ids": [
+            "immortal_body_harden",
+            "immortal_body_fist",
+            "immortal_golden_avatar"
+          ],
+          "unlock_new_this_layer": [
+            "immortal_golden_avatar"
+          ],
+          "note": "大"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "medicine_king_immortal_art",
+      "display": "药王仙经",
+      "total_layers": 1,
+      "layer_model": "v130_craft",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "丹效",
+          "realm_band": "TRUE_IMMORTAL",
+          "unlock_technique_ids": [
+            "medicine_king_pill_boost",
+            "medicine_king_detox"
+          ],
+          "unlock_new_this_layer": [
+            "medicine_king_pill_boost",
+            "medicine_king_detox"
+          ],
+          "note": "职"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    },
+    {
+      "method_id": "dao_ancestor_glimpse",
+      "display": "道祖窥影",
+      "total_layers": 1,
+      "layer_model": "v130_xianjie",
+      "layers": [
+        {
+          "layer": 1,
+          "layer_name": "窥影",
+          "realm_band": "DAO_ANCESTOR_BAND",
+          "unlock_technique_ids": [
+            "dao_ancestor_glimpse_domain",
+            "dao_ancestor_silence"
+          ],
+          "unlock_new_this_layer": [
+            "dao_ancestor_glimpse_domain",
+            "dao_ancestor_silence"
+          ],
+          "note": "终局"
+        }
+      ],
+      "v130": true,
+      "region": "xianjie"
+    }
+  ]
+}

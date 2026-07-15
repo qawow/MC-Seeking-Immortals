@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "source": "v116 深稿对齐：catalog → deep id",
+  "technique_deep_prefix": "tech_deep_",
+  "method_deep_prefix": "method_deep_",
+  "orig_deep_prefixes": {
+    "pill": "orig_deep_pill_",
+    "herb": "orig_deep_herb_",
+    "material": "orig_deep_mat_",
+    "artifact": "orig_deep_art_",
+    "consumable": "orig_deep_cons_",
+    "manual": "orig_deep_man_"
+  },
+  "region_deep_prefix": "region_deep_",
+  "realm_deep2_prefix": "realm_deep2_",
+  "files": [
+    "item_descriptions_v116_techniques.json",
+    "item_descriptions_v116_methods.json",
+    "item_descriptions_v116_regions.json",
+    "item_descriptions_v116_orig_deep.json",
+    "item_descriptions_v116_realms.json",
+    "item_descriptions_v116_npcs.json",
+    "item_descriptions_v116.json",
+    "named_npcs_v116.json",
+    "region_cards_deep_v116.json",
+    "secret_realms_final_seven_deep_v116.json",
+    "bestiary_v116.json"
+  ],
+  "counts": {
+    "techniques_deep": 369,
+    "methods_deep": 91,
+    "regions_deep": 22,
+    "orig_deep": 709,
+    "realms_deep2": 7,
+    "npcs": 168,
+    "master_total": 1369
+  },
+  "description": "制作时优先 deep/v116 文案，v112 orig_* 作短摘要回退。"
+}

@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "source": "v145 关键生物原著向描述（可玩图鉴）",
+  "disclaimer": "贴原著气质；权重事件不强制玩家=韩立；unique 相关兽不野刷。",
+  "creatures": [
+    {
+      "id": "ink_flood_dragon",
+      "aliases": [
+        "mo_jiao",
+        "墨蛟"
+      ],
+      "display": "墨蛟",
+      "description": "血色禁地水潭一带的凶物。墨色鳞甲、水压与蛟息并重，炼气后期至筑基弟子常视为生死关。筋、珠可作水属材与法器辅。南宫婉等相关事件为权重遭遇，不强制绑定玩家身份。",
+      "habitat": "血色禁地·墨蛟水潭带",
+      "novel_anchor": "血色禁地墨蛟",
+      "threat_note": "水战不利火系硬刚；可绕行",
+      "drops_note": "墨蛟筋、蛟珠、水属性材",
+      "quest_hooks": [
+        "nangong_wan_weight_optional",
+        "blood_forbidden_run"
+      ],
+      "layer": "secret_realm_layer_diagrams_v143.json#blood_forbidden/bf_water_jiao"
+    },
+    {
+      "id": "mo_jiao",
+      "aliases": [
+        "ink_flood_dragon"
+      ],
+      "display": "墨蛟",
+      "description": "同 ink_flood_dragon。禁地水域霸主级存在（相对炼气弟子）。",
+      "novel_anchor": "血色禁地墨蛟"
+    },
+    {
+      "id": "silver_wing_yaksha",
+      "aliases": [
+        "yinchi_yecha",
+        "银翅夜叉"
+      ],
+      "display": "银翅夜叉",
+      "description": "阴阳窟高危种。银翼、阴煞，巢区毒雾与夜叉幼并存。为取阴芝马常须过夜叉巢或绕道，蛮干死亡率极高。羽、骨、阴煞晶可入鬼道与阴丹辅材。",
+      "habitat": "阴阳窟·银翅夜叉巢",
+      "novel_anchor": "阴阳窟银翅夜叉",
+      "quest_hooks": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ],
+      "layer": "yinyang_ku/yy_yezha"
+    },
+    {
+      "id": "yinchi_yecha",
+      "aliases": [
+        "silver_wing_yaksha"
+      ],
+      "display": "银翅夜叉",
+      "description": "同 silver_wing_yaksha。",
+      "novel_anchor": "阴阳窟"
+    },
+    {
+      "id": "yin_zhi_ma",
+      "aliases": [
+        "yin_zhi_ma_living",
+        "阴芝马"
+      ],
+      "display": "阴芝马",
+      "description": "阴阳窟培婴关键生灵。优先活捕：活体血肉入培婴丹主料；击杀仅余劣材，市价与丹成率双降。运出需笼具与阴气维持。韩立与富成协作气质——本包作「窟外协作炼丹」结构，不强制玩家身份。",
+      "habitat": "阴阳窟·阴芝马栖息层",
+      "novel_anchor": "阴芝马/培婴丹",
+      "prefer_live_capture": true,
+      "quest_hooks": [
+        "peiying_material_hunt"
+      ],
+      "price_ref": "herb_compendium / crosswalk 活体价带"
+    },
+    {
+      "id": "fire_toad",
+      "aliases": [
+        "火蟾"
+      ],
+      "display": "火蟾兽",
+      "description": "坠魔谷外谷常见火域生物。火涎、蟾丹材，入谷开胃兽。抗火不足者勿近群。",
+      "habitat": "坠魔谷外谷",
+      "novel_anchor": "坠魔谷火域生态",
+      "quest_hooks": [
+        "zhuimo_token"
+      ]
+    },
+    {
+      "id": "cinder_moth",
+      "display": "烬蛾",
+      "description": "火域飞蛾，灼壳与烬粉。坠魔、火狱外围皆可出现。",
+      "habitat": "坠魔谷/火狱烟道",
+      "novel_anchor": "火域生态"
+    },
+    {
+      "id": "huoyu_smoke_fire_hound",
+      "display": "火狱烟道炎犬",
+      "description": "火狱外围炎犬。牙、烬粉、火髓。取太阳精火前的过滤层。",
+      "habitat": "火狱·烟道",
+      "novel_anchor": "火狱",
+      "quest_hooks": [
+        "deity_huoyu_path"
+      ]
+    },
+    {
+      "id": "jinghuo_guardian",
+      "display": "精火守护灵",
+      "description": "太阳精火核心守护。非无限刷新野怪；取火限次/冷却。需五寒焰对冲与逃遁预案。",
+      "habitat": "火狱·精火核心",
+      "novel_anchor": "太阳精火",
+      "unique_related": "tai_yang_jing_huo",
+      "farmable": false
+    },
+    {
+      "id": "stone_spirit_puppet",
+      "display": "石灵傀",
+      "description": "千竹机关塔四层精英。石质傀儡，破核与控场优先于蛮力。掉落石灵碎核、高阶零件。",
+      "habitat": "千竹塔四层",
+      "novel_anchor": "千竹机关",
+      "quest_hooks": [
+        "qianzhu_tower_trial"
+      ]
+    },
+    {
+      "id": "puppet_tower_lord",
+      "display": "塔主傀",
+      "description": "千竹塔顶层结构首领。总控台争夺后决战。大衍残篇权重掉落，完整大衍不保底。",
+      "habitat": "千竹塔五层",
+      "novel_anchor": "大衍/千竹",
+      "quest_hooks": [
+        "qianzhu_tower_trial",
+        "dayan_clue"
+      ],
+      "no_pity_full_dayan": true
+    },
+    {
+      "id": "herb_field_guard",
+      "display": "药田卫",
+      "description": "血色禁地药田环带守护兽。与药点绑定刷新。杀卫夺药是禁地经济核心玩法，亦是伤亡来源。",
+      "habitat": "血色·药田环带",
+      "novel_anchor": "禁地药田",
+      "quest_hooks": [
+        "blood_forbidden_run"
+      ]
+    },
+    {
+      "id": "jade_bee",
+      "display": "玉蜂",
+      "description": "药田/灵药点伴生。群攻与毒刺，采药时注意。",
+      "habitat": "血色药田等",
+      "novel_anchor": "禁地生态"
+    },
+    {
+      "id": "palace_stone_statue",
+      "display": "守殿石像",
+      "description": "虚天殿外殿试炼石像。过滤弱者，掉落中阶材与线索。",
+      "habitat": "虚天殿外殿",
+      "novel_anchor": "虚天殿",
+      "quest_hooks": [
+        "xutian_window_prepare"
+      ]
+    },
+    {
+      "id": "true_immortal_pressure_event",
+      "display": "真仙威压（事件）",
+      "description": "广寒终局钩子。不是可刷Boss。结算以存活、撤离、契约为主，禁止做成普通掉落表。",
+      "habitat": "广寒事件层",
+      "novel_anchor": "真仙战钩子",
+      "farmable": false,
+      "quest_hooks": [
+        "guanghan_endgame_path"
+      ]
+    },
+    {
+      "id": "jin_jiao_wang",
+      "display": "金蛟王",
+      "description": "外海深域高阶蛟类。化神准备链「金蛟与龙鳞果」相关，金属性妖丹与龙鳞果线索。",
+      "habitat": "乱星海外海深",
+      "novel_anchor": "龙鳞果/化神准备",
+      "quest_hooks": [
+        "deity_huoyu_path"
+      ]
+    },
+    {
+      "id": "thunder_jiao",
+      "display": "雷劫蛟",
+      "description": "雷属性蛟类，渡劫/雷域相关威胁。非禁地主角，作高阶水域对照。",
+      "novel_anchor": "雷蛟"
+    },
+    {
+      "id": "wind_blade_wolf",
+      "display": "风刃狼",
+      "description": "天澜/慕兰风麓常见。风灵石低阶掉落与兽皮，军功线开胃。",
+      "habitat": "天澜秘境一层",
+      "novel_anchor": "慕兰草原",
+      "quest_hooks": [
+        "tianlan related"
+      ]
+    },
+    {
+      "id": "nether_mist_soul",
+      "display": "冥河雾魂",
+      "description": "冥河雾岸低层。阴材与魂砂。无抗阴勿深。",
+      "habitat": "冥河雾岸",
+      "novel_anchor": "冥河"
+    },
+    {
+      "id": "yinluo_corpse_general",
+      "display": "阴罗尸将",
+      "description": "阴罗冢四层。炼尸巅峰结构，天尸珠线索权重。鬼灵门货架互通。",
+      "habitat": "阴罗将军冢",
+      "novel_anchor": "阴罗/鬼道"
+    }
+  ]
+}

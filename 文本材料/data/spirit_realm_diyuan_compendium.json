@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "source": "汇编/原著向：灵界天渊城、地渊、功勋与多族结构；数值为模组结构",
+  "region": "spirit_realm",
+  "disclaimer": "灵界为大乘级舞台，与人界境界映射需单独校准",
+  "overview": {
+    "display": "灵界",
+    "entry": "空间节点飞升 / 仙劫成功",
+    "pressure": "灵气浓度与神识压力远超人界",
+    "major_powers_human": ["天渊城", "人族诸城商号", "飞升修士群体"],
+    "other_races": ["木族", "夜叉族", "蜉蝣族", "角蚩族", "火阳族", "魔族前线"]
+  },
+  "tianyuan_city": {
+    "id": "tianyuan_city",
+    "display": "天渊城",
+    "role": "人族抗魔与地渊事务枢纽",
+    "structure": ["城主府", "天渊卫", "功勋司", "拍卖与坊市", "飞升修士安置"],
+    "player_join": {
+      "typical_hook": "飞升后被天渊卫收容编制",
+      "example_rank": "丙字队队长结构",
+      "realm_min": "DEITY_TRANSFORMATION"
+    },
+    "benefits": [
+      "diyuan_entry_permit",
+      "merit_exchange",
+      "shelter_array_once",
+      "intelligence_on_wilds"
+    ],
+    "setting": {
+      "lore": "飞升修士常见落脚点；可编入天渊卫执行地渊巡防、魔族前线与蛮荒任务。"
+    }
+  },
+  "diyuan": {
+    "id": "diyuan",
+    "display": "地渊",
+    "type": "high_danger_zone",
+    "secret_realm_ref": "diyuan",
+    "layers": [
+      {
+        "id": "outer_corridor",
+        "display": "外廊",
+        "threat_tier": "11",
+        "realm_suggest": "VOID_REFINEMENT",
+        "boss_ref": "diyuan_guardian",
+        "lore": "回廊守关，重压带前哨。"
+      },
+      {
+        "id": "deep_abyss",
+        "display": "深层",
+        "threat_tier": "13",
+        "realm_suggest": "GREAT_VEHICLE",
+        "boss_ref": "ancient_beast_sovereign",
+        "lore": "古兽王与真灵远亲级威胁；组队或大乘自探。"
+      }
+    ],
+    "environment_modifiers": [
+      {"tag": "diyuan_pressure", "effect": "雷劫/神识压力结构+1", "ref": "tribulation_rules"},
+      {"tag": "wild_land_proximity", "effect": "心魔结构加重"}
+    ],
+    "loot_focus": ["古兽材", "异火异水", "功勋任务目标物", "稀有灵药"]
+  },
+  "merit_system": {
+    "id": "tianyuan_merit",
+    "display": "天渊功勋",
+    "source": "economy_contribution_exchange 结构扩展",
+    "earn": [
+      {"action": "diyuan_patrol", "amount": 10, "realm_min": "DEITY_TRANSFORMATION"},
+      {"action": "kill_outer_beast", "amount": 25},
+      {"action": "escort_supply", "amount": 15},
+      {"action": "frontline_demon_skirmish", "amount": 40},
+      {"action": "complete_wood_clan_contract", "amount": 60},
+      {"action": "major_campaign_assist", "amount": 200}
+    ],
+    "spend": [
+      {"item": "shelter_array_token", "display": "护劫阵一次", "cost": 100, "note": "渡大劫环境减伤结构"},
+      {"item": "diyuan_deep_permit", "display": "深层通行证", "cost": 80},
+      {"item": "spirit_realm_pill_batch", "display": "灵界丹药配额", "cost": 50},
+      {"item": "manual_fragment_high", "display": "高阶功法残篇", "cost": 150},
+      {"item": "city_residence_right", "display": "城内洞府租约", "cost": 30}
+    ],
+    "rank_titles": [
+      {"merit_min": 0, "title": "新晋飞升"},
+      {"merit_min": 100, "title": "天渊卫卒"},
+      {"merit_min": 300, "title": "小队头目"},
+      {"merit_min": 800, "title": "功勋长"},
+      {"merit_min": 2000, "title": "城卫核心"}
+    ]
+  },
+  "tribulation_context": {
+    "ref": "tribulation_rules.json#realm_context_modifiers.spirit_realm",
+    "notes": [
+      "荒野心魔加重",
+      "地渊近处雷层+1结构",
+      "天渊功勋可兑护劫阵一次",
+      "蛮荒妖王远啸可触发渡劫骚扰"
+    ]
+  },
+  "cross_race_hooks": [
+    {
+      "id": "wood_clan_mission",
+      "display": "木族协作",
+      "lore": "换取真蟾液/灭尘丹等目标的任务结构；蛮荒世界协作与背叛风险并存。"
+    },
+    {
+      "id": "yaksha_front",
+      "display": "夜叉前线",
+      "lore": "围剿真蟾等事件中的异族部队压力。"
+    },
+    {
+      "id": "demon_clan_war",
+      "display": "魔族大战",
+      "lore": "天渊大战级战役；涅盘圣体等终局战叙事挂钩，非日常任务。"
+    },
+    {
+      "id": "nether_river_spirit",
+      "display": "冥河之地（灵界段）",
+      "secret_realm_ref": "nether_river_land",
+      "lore": "可延缓天劫的特殊环境；与青元子洞府等叙事节点关联。"
+    }
+  ],
+  "quest_chain_seeds": [
+    "spirit_arrival_tianyuan",
+    "tianyuan_enlist",
+    "diyuan_first_patrol",
+    "merit_shelter_array",
+    "wood_clan_contract",
+    "barbarian_world_raid",
+    "ascension_pre_thunder"
+  ],
+  "beast_boss_ref": "beast_boss_tier_secret_realm_map.json",
+  "economy_note": "灵界货币与人界灵石兑换需单独表；本表以功勋为主货币之一"
+}

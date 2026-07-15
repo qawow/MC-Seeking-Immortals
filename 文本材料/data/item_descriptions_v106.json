@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v106 物品详释：广寒马良 / 火狱化神 / 三宗门货架",
+  "items": [
+    {
+      "id": "lian_shen_shu_full",
+      "display": "炼神术（详释）",
+      "type": "manual",
+      "tags": ["unique", "quest", "no_trade"],
+      "source": "广寒考校",
+      "description": "神识质变总纲。层数结构；NG+禁全继承防开局崩经济。"
+    },
+    {
+      "id": "tai_yi_qing_shan_full",
+      "display": "太乙青山（详释）",
+      "type": "treasure",
+      "tags": ["quest", "scarce"],
+      "description": "洞天山体至宝。认主看契合与神识，非纯战力硬抢。"
+    },
+    {
+      "id": "xu_ling_dan_full",
+      "display": "虚灵丹（详释）",
+      "type": "pill",
+      "tags": ["scarce", "quest", "merit_only"],
+      "use": "合体关键辅",
+      "description": "灵界顶阶。有价难市；禁量贩。"
+    },
+    {
+      "id": "jin_zhuan_wen_full",
+      "display": "金篆文（详释）",
+      "type": "script",
+      "tags": ["quest", "scarce"],
+      "description": "仙篆。破译禁制与功法残篇。"
+    },
+    {
+      "id": "zhen_hun_dan_full",
+      "display": "真魂丹（详释）",
+      "type": "pill",
+      "tags": ["unique", "quest", "no_trade"],
+      "source": "马良战事件",
+      "description": "真魂巩固。全局唯一，禁拍卖禁复制。"
+    },
+    {
+      "id": "xian_qi_can_full",
+      "display": "仙器残（详释）",
+      "type": "fragment",
+      "tags": ["quest", "scarce"],
+      "description": "研究/镶嵌结构。不可当成品通天刷。"
+    },
+    {
+      "id": "dao_tian_hook",
+      "display": "盗天关联简",
+      "type": "meta",
+      "tags": ["quest", "unique"],
+      "description": "世界观钩子。非数值堆砌。"
+    },
+    {
+      "id": "minghe_shenru_clue",
+      "display": "冥河神乳线索",
+      "type": "intel",
+      "tags": ["quest", "unique"],
+      "description": "大乘后门户线索。神乳本体另表。"
+    },
+    {
+      "id": "bing_po_jing",
+      "display": "冰魄晶",
+      "type": "material",
+      "source": "广寒路冰元灵",
+      "tags": ["trade", "craft_mat"],
+      "price": [3000, 40000],
+      "description": "寒器与合体寒辅。"
+    },
+    {
+      "id": "han_sui_si",
+      "display": "寒髓丝",
+      "type": "material",
+      "tags": ["craft_mat", "scarce"],
+      "description": "广寒途。寒衣与对冲精火。"
+    },
+    {
+      "id": "guanghan_pass_seal",
+      "display": "广寒放行印",
+      "type": "token",
+      "tags": ["quest"],
+      "description": "冰宫守灵考校通过。"
+    },
+    {
+      "id": "realm_loadout_guanghan",
+      "display": "广寒炼虚战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["火道对冲", "神识稳固", "高疗", "界面逃遁", "虚灵线索"],
+      "description": "赴广寒推荐。"
+    },
+    {
+      "id": "realm_loadout_maliang",
+      "display": "真仙战联军包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["联军令", "阵旗", "高疗", "替身结构", "真魂预备位"],
+      "description": "马良战。配合大于抢人头。"
+    },
+    {
+      "id": "wu_han_yan_full",
+      "display": "五寒焰（详释）",
+      "type": "flame_set",
+      "tags": ["quest", "scarce", "set"],
+      "source": "小极宫",
+      "description": "五种寒焰集。反目线可能争夺。"
+    },
+    {
+      "id": "wan_nian_xuan_yu_full",
+      "display": "万年玄玉（详释）",
+      "type": "jade",
+      "tags": ["auction", "scarce"],
+      "price": [50000, 400000],
+      "description": "小极宫交易锚。极品级玉材。"
+    },
+    {
+      "id": "tuo_tian_mo_gong_full",
+      "display": "托天魔功（详释）",
+      "type": "manual",
+      "tags": ["quest", "manual"],
+      "description": "蛮胡子洞府。梵圣拼图之一。"
+    },
+    {
+      "id": "yin_ke_wen_full",
+      "display": "银蝌文（详释）",
+      "type": "script",
+      "tags": ["quest"],
+      "description": "古蝌文。功法破译。"
+    },
+    {
+      "id": "fan_sheng_full",
+      "display": "梵圣真魔功（详释）",
+      "type": "manual",
+      "tags": ["quest", "scarce"],
+      "description": "法体成型总功。化神准备关键。"
+    },
+    {
+      "id": "long_lin_guo_full",
+      "display": "龙鳞果（详释）",
+      "type": "fruit",
+      "tags": ["quest", "scarce", "craft_mat"],
+      "description": "金蛟线。金属性与秘术。"
+    },
+    {
+      "id": "tai_yang_jing_huo_full",
+      "display": "太阳精火（详释）",
+      "type": "flame",
+      "tags": ["quest", "unique", "scarce"],
+      "source": "火狱核心",
+      "description": "至阳之火。取火有冷却；回阳主料。"
+    },
+    {
+      "id": "hui_yang_zhen_shui_full",
+      "display": "回阳真水（详释）",
+      "type": "elixir",
+      "tags": ["unique", "quest", "no_trade"],
+      "need": ["太阳精火", "太阴/寒髓结构辅"],
+      "description": "化神关键灵物。合成标记一生结构。"
+    },
+    {
+      "id": "mo_yuan_dan_full",
+      "display": "魔元丹（详释）",
+      "type": "pill",
+      "tags": ["scarce", "quest", "black_market"],
+      "bond": "紫灵线",
+      "description": "化神包关键。交换非坊市量贩。"
+    },
+    {
+      "id": "deity_resource_bundle_full",
+      "display": "化神资源捆（详释）",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["魔元", "回阳", "法体确认", "护劫线索", "净心"],
+      "base_success": 0.08,
+      "description": "冲击化神时消耗结构包。"
+    },
+    {
+      "id": "huiyang_combine_mark",
+      "display": "回阳合成标记",
+      "type": "meta",
+      "tags": ["unique", "account_bound"],
+      "description": "防无限复制回阳真水。"
+    },
+    {
+      "id": "rongyan_jing",
+      "display": "熔岩晶",
+      "type": "material",
+      "source": "熔岩巨蜥",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 8000],
+      "description": "火器核材。"
+    },
+    {
+      "id": "re_jing",
+      "display": "热晶",
+      "type": "material",
+      "source": "热浪灵",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2000],
+      "description": "低阶火辅。"
+    },
+    {
+      "id": "bi_huo_sha_robe",
+      "display": "避火纱袍（火狱）",
+      "type": "gear",
+      "tags": ["trade"],
+      "price": [800, 12000],
+      "description": "烟道必备。核心仅部分有效。"
+    },
+    {
+      "id": "realm_loadout_huoyu",
+      "display": "火狱取火战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["避火纱", "寒焰/五寒", "高疗", "逃遁", "取火瓶结构"],
+      "description": "太阳精火线。"
+    },
+    {
+      "id": "path_deity_checklist",
+      "display": "化神九步清单",
+      "type": "meta",
+      "steps": ["寒焰", "托天", "梵圣", "龙鳞", "精火", "回阳", "魔元", "冲击", "飞升"],
+      "description": "path_deity_huoyu 人读。"
+    },
+    {
+      "id": "huangfeng_shelf_token",
+      "display": "黄枫外门购货牌",
+      "type": "token",
+      "tags": ["sect_only"],
+      "rep_min": 0,
+      "description": "基础架：黄符、养精、聚灵、小储物等。"
+    },
+    {
+      "id": "huangfeng_inner_token",
+      "display": "黄枫内门事务牌",
+      "type": "token",
+      "tags": ["sect_only"],
+      "rep_min": 20,
+      "description": "地火时券、聚灵阵、药园配额。"
+    },
+    {
+      "id": "huangfeng_zhuji_quota_full",
+      "display": "筑基丹配额券（黄枫）",
+      "type": "token",
+      "tags": ["sect_only", "scarce"],
+      "rep_min": 40,
+      "description": "抽签+贡献。非保证得丹。"
+    },
+    {
+      "id": "huangfeng_garden_seal",
+      "display": "药园主事印",
+      "type": "token",
+      "tags": ["sect_only", "quest"],
+      "rep_min": 60,
+      "description": "主事权。剧情+声望。"
+    },
+    {
+      "id": "dihuo_ticket_full",
+      "display": "地火时券（详释）",
+      "type": "service",
+      "tags": ["sect_only", "trade"],
+      "price": [20, 500],
+      "description": "炼器炼丹地火时段。事故可能刷火灵。"
+    },
+    {
+      "id": "qingyuan_hint_page",
+      "display": "剑诀指点残页",
+      "type": "manual_page",
+      "tags": ["sect_only"],
+      "description": "非完整青元剑诀。防剧透全功法出售。"
+    },
+    {
+      "id": "tianfu_huang_stack",
+      "display": "黄符捆（天符门）",
+      "type": "consumable",
+      "tags": ["trade", "sect_only"],
+      "price": [10, 30],
+      "description": "零售入门。"
+    },
+    {
+      "id": "tianfu_xuan_stack",
+      "display": "玄符（天符门）",
+      "type": "consumable",
+      "tags": ["trade"],
+      "price": [30, 300],
+      "description": "筑基常用。"
+    },
+    {
+      "id": "tianfu_di_wholesale",
+      "display": "地符（批发）",
+      "type": "consumable",
+      "tags": ["trade", "sect_only"],
+      "price": [500, 8000],
+      "rep_min": 25,
+      "description": "天符门特色。声望锁批发价。"
+    },
+    {
+      "id": "tianfu_pu_l1",
+      "display": "符谱一层",
+      "type": "manual",
+      "tags": ["sect_only"],
+      "price": [2000, 20000],
+      "rep_min": 25,
+      "description": "自绘黄玄基础。"
+    },
+    {
+      "id": "tianfu_tian_apply",
+      "display": "天符（申请制）",
+      "type": "consumable",
+      "tags": ["scarce", "sect_only"],
+      "price": [5000, 100000],
+      "rep_min": 55,
+      "description": "稀缺。考核+价。"
+    },
+    {
+      "id": "tianfu_hualing_quest",
+      "display": "化灵符任务契",
+      "type": "quest",
+      "tags": ["sect_only", "scarce"],
+      "rep_min": 55,
+      "description": "化灵符不直接货架秒买。"
+    },
+    {
+      "id": "tianfu_jiangling_favor",
+      "display": "降灵符人情线",
+      "type": "quest",
+      "tags": ["sect_only", "bond"],
+      "rep_min": 80,
+      "description": "崇敬+人情。非通货。"
+    },
+    {
+      "id": "fake_fu_item",
+      "display": "假符",
+      "type": "junk",
+      "tags": ["black_market"],
+      "price": [1, 50],
+      "description": "假符贩子。鉴定失败则战斗中哑火。"
+    },
+    {
+      "id": "fu_paper_mid",
+      "display": "中品符纸",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [50, 500],
+      "description": "自绘地符辅。"
+    },
+    {
+      "id": "cinnabar_mid",
+      "display": "中品朱砂",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [50, 500],
+      "description": "绘符耗材。"
+    },
+    {
+      "id": "yuling_basic_egg_box",
+      "display": "普通虫卵礼盒",
+      "type": "kit",
+      "tags": ["sect_only", "trade"],
+      "price": [50, 500],
+      "description": "御灵入门。不含成灾种。"
+    },
+    {
+      "id": "yuling_mid_egg",
+      "display": "中阶虫种",
+      "type": "creature_item",
+      "tags": ["sect_only", "scarce"],
+      "price": [2000, 30000],
+      "rep_min": 50,
+      "description": "声望锁。禁噬金成灾种。"
+    },
+    {
+      "id": "yuling_si_ling_recipe",
+      "display": "饲灵丸配方",
+      "type": "recipe",
+      "tags": ["sect_only"],
+      "price": [500, 5000],
+      "rep_min": 20,
+      "description": "御虫基础产能。"
+    },
+    {
+      "id": "yuling_qu_chong_secret",
+      "display": "驱虫秘传",
+      "type": "manual",
+      "tags": ["sect_only"],
+      "rep_min": 50,
+      "description": "考核+贡献。控群软顶。"
+    },
+    {
+      "id": "yuling_insect_net",
+      "display": "灵虫网",
+      "type": "tool",
+      "tags": ["trade"],
+      "price": [30, 200],
+      "description": "活捕低阶虫。"
+    },
+    {
+      "id": "sect_discount_table",
+      "display": "宗门声望折扣表",
+      "type": "meta",
+      "discounts": {"friendly": 0.9, "honored": 0.8, "exalted": 0.7},
+      "description": "sect_shelves 全局规则。"
+    },
+    {
+      "id": "sect_never_list",
+      "display": "宗门永不进货单",
+      "type": "rule_item",
+      "list": ["掌天瓶", "绿液", "通天完整", "真魂丹", "炼神术"],
+      "description": "三宗门共同红线。"
+    },
+    {
+      "id": "shelf_index_huangfeng",
+      "display": "黄枫货架目录",
+      "type": "lore_book",
+      "tiers": ["外门", "内门", "筑基特供", "主事"],
+      "description": "药谷气质。"
+    },
+    {
+      "id": "shelf_index_tianfu",
+      "display": "天符货架目录",
+      "type": "lore_book",
+      "tiers": ["零售", "地符批发", "天符申请", "人情"],
+      "description": "符道阶梯。"
+    },
+    {
+      "id": "shelf_index_yuling",
+      "display": "御灵货架目录",
+      "type": "lore_book",
+      "tiers": ["入门虫", "御虫", "中高阶虫种"],
+      "description": "忌成灾外泄。"
+    },
+    {
+      "id": "numeric_deity_success",
+      "display": "数值锚·化神基础成功率",
+      "type": "meta",
+      "base": 0.08,
+      "mods": {"mo_yuan": 0.1, "body": 0.08},
+      "description": "与 numeric_overview 对齐。"
+    },
+    {
+      "id": "numeric_xuanyu_anchor",
+      "display": "数值锚·万年玄玉",
+      "type": "meta",
+      "price": [50000, 400000],
+      "description": "化神准备物价尺。"
+    },
+    {
+      "id": "crossref_guanghan_quest",
+      "display": "主线交叉·广寒马良",
+      "type": "meta",
+      "quest_chain": "guanghan_maliang",
+      "description": "终局链。"
+    },
+    {
+      "id": "crossref_deity_prepare",
+      "display": "主线交叉·化神准备",
+      "type": "meta",
+      "quest_chain": "deity_prepare",
+      "description": "九步流水线。"
+    },
+    {
+      "id": "crossref_sect_rep",
+      "display": "声望交叉·三宗门",
+      "type": "meta",
+      "factions": ["huangfeng", "tianfu_men", "yuling_zong"],
+      "description": "reputation_unlocks 对齐。"
+    },
+    {
+      "id": "lore_guanghan_one_line",
+      "display": "广寒马良一句话",
+      "type": "lore",
+      "text": "炼神、合体、真魂，真仙前活着就是赢。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_huoyu_one_line",
+      "display": "火狱回阳一句话",
+      "type": "lore",
+      "text": "取至阳之火，合回阳之水，再言化神。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_sect_one_line",
+      "display": "三宗门一句话",
+      "type": "lore",
+      "text": "黄枫卖药火，天符卖符阶，御灵卖虫不卖灾。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "deep_dive_index_v106",
+      "display": "v106 深挖索引",
+      "type": "meta",
+      "files": [
+        "secret_realm_guanghan_maliang_v106.json",
+        "path_deity_huoyu_v106.json",
+        "sect_shelves_v106.json"
+      ],
+      "description": "机读入口。"
+    },
+    {
+      "id": "designer_slice_endgame_ready",
+      "display": "切片验收·终局",
+      "type": "meta",
+      "checks": ["炼神unique", "真魂unique", "马良非刷", "冥河线索"],
+      "description": "广寒马良。"
+    },
+    {
+      "id": "designer_slice_deity_ready",
+      "display": "切片验收·化神链",
+      "type": "meta",
+      "checks": ["九步", "回阳标记", "火狱取火冷却", "成功率"],
+      "description": "人界终章。"
+    },
+    {
+      "id": "designer_slice_sect_ready",
+      "display": "切片验收·三货架",
+      "type": "meta",
+      "checks": ["声望锁", "折扣", "永不进货", "无完整青元/成灾虫"],
+      "description": "宗门经济。"
+    },
+    {
+      "id": "v106_accept",
+      "display": "v106 验收签",
+      "type": "meta",
+      "checks": ["广寒马良", "火狱化神", "三宗门货架", "生物说明", "无代码"],
+      "description": "本版完成。"
+    }
+  ]
+}

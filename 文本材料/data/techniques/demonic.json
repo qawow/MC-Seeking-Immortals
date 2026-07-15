@@ -18,7 +18,7 @@
       "tier": "spell",
       "alignment": "demonic",
       "requires_method": "tianmo_body_art",
-      "description": "魔焰术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "魔焰术：魔道火焰，沾染魔气，破防强、污名重。正道城池内施展易被猎。",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -37,7 +37,21 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "six_sect_id": "tianmo_sect",
+      "tags": [
+        "v125",
+        "tianmo_sect",
+        "fire",
+        "demonic",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "tianmo_sect",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_desc_polish": true
     },
     {
       "id": "soul_devour",
@@ -55,7 +69,7 @@
       "tier": "spell",
       "alignment": "demonic",
       "requires_method": "guiling_soul_art",
-      "description": "摄魂术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "摄魂术：demonic派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 17。神魂手段，慎用。 常随功法「guiling_soul_art」体系解锁。",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -74,7 +88,22 @@
         "prerequisite_methods": [
           "guiling_soul_art"
         ]
-      }
+      },
+      "six_sect_id": "guiling_gate",
+      "tags": [
+        "guiling_gate",
+        "v125",
+        "yin",
+        "demonic",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "guiling_gate",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_sacrifice",
@@ -92,7 +121,7 @@
       "tier": "spell",
       "alignment": "demonic",
       "requires_method": "xuewu_blood_art",
-      "description": "血祭：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "血祭：demonic派术法，属性倾向 blood。境界门槛 FOUNDATION，耗灵约 12。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -111,7 +140,23 @@
         "prerequisite_methods": [
           "xuewu_blood_art"
         ]
-      }
+      },
+      "six_sect_id": "xuewu_sect",
+      "tags": [
+        "six_sects",
+        "v125",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "element": "blood",
+      "path": "xuewu_sect",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_form",
@@ -128,8 +173,8 @@
       },
       "tier": "spell",
       "alignment": "demonic",
-      "description": "魔化：demonic法术，需境界 FOUNDATION 以上方可施展。",
-      "requires_method": "xuan_yin_art",
+      "description": "魔化：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 12。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -148,7 +193,21 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "demon",
+      "path": "tianmo_sect",
+      "tags": [
+        "demon",
+        "tianmo_sect",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_contract",
@@ -165,8 +224,8 @@
       },
       "tier": "spell",
       "alignment": "demonic",
-      "description": "魔契：demonic法术，需境界 FOUNDATION 以上方可施展。",
-      "requires_method": "xuan_yin_art",
+      "description": "魔契：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 19。 常随功法「demonic_blood_art_generic」体系解锁。",
+      "requires_method": "demonic_blood_art_generic",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -185,7 +244,20 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "element": "demon",
+      "path": "demonic_six",
+      "tags": [
+        "demon",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "demonic_blood_art_generic",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_armor",
@@ -202,8 +274,8 @@
       },
       "tier": "spell",
       "alignment": "demonic",
-      "description": "魔甲：demonic法术，需境界 FOUNDATION 以上方可施展。",
-      "requires_method": "xuan_yin_art",
+      "description": "魔甲：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 12。 常随功法「demonic_blood_art_generic」体系解锁。",
+      "requires_method": "demonic_blood_art_generic",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -222,7 +294,20 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "element": "demon",
+      "path": "demonic_six",
+      "tags": [
+        "demon",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "demonic_blood_art_generic",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "fox_phantom_shift",
@@ -236,7 +321,7 @@
         "type": "buff",
         "element": "illusion"
       },
-      "description": "狐影幻形：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "狐影幻形：demonic派术法，属性倾向 illusion。境界门槛 FOUNDATION，耗灵约 18。 常随功法「wanhu_phantom_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "karma": "demonic",
@@ -256,7 +341,21 @@
         "prerequisite_methods": [
           "wanhu_phantom_art"
         ]
-      }
+      },
+      "element": "illusion",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "tags": [
+        "illusion",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_curse_mark",
@@ -270,7 +369,7 @@
         "type": "debuff",
         "element": "blood"
       },
-      "description": "血咒印：demonic神通，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "血咒印：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 28。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "karma": "demonic",
@@ -292,7 +391,22 @@
           "xuewu_blood_art"
         ],
         "prerequisite_mode": "all"
-      }
+      },
+      "six_sect_id": "xuewu_sect",
+      "tags": [
+        "six_sects",
+        "v125",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "secret"
+      ],
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "hehuan_charm",
@@ -300,18 +414,18 @@
       "school": "demonic",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "媚惑术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "媚惑术：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「hehuan_mind_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "demon",
         "damage_base": 37,
         "tags": [
           "demonic"
         ]
       },
       "source": "凡人向扩充",
-      "requires_method": "xuan_yin_art",
+      "requires_method": "hehuan_mind_art",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -330,7 +444,26 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "tags": [
+        "hehuan_sect",
+        "v123_rehang",
+        "dual",
+        "six_sects",
+        "v125",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "six_sect_id": "hehuan_sect",
+      "element": "demon",
+      "path": "hehuan_sect",
+      "alignment": "demonic",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_curse_strike",
@@ -338,18 +471,18 @@
       "school": "demonic",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "血咒击：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "血咒击：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。耗血换力。 常随功法「demonic_blood_art_generic」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "demon",
         "damage_base": 37,
         "tags": [
           "demonic"
         ]
       },
       "source": "凡人向扩充",
-      "requires_method": "xuan_yin_art",
+      "requires_method": "demonic_blood_art_generic",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -368,7 +501,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "six_sect_id": null,
+      "tags": [
+        "six_sects",
+        "v125",
+        "demon",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "element": "demon",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "demonic_blood_art_generic",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "poison_mist",
@@ -376,18 +526,18 @@
       "school": "demonic",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "毒雾术：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "毒雾术：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「qingluo_poison_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "demon",
         "damage_base": 37,
         "tags": [
           "demonic"
         ]
       },
       "source": "凡人向扩充",
-      "requires_method": "xuan_yin_art",
+      "requires_method": "qingluo_poison_art",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -406,7 +556,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "tags": [
+        "v123_rehang",
+        "qingluo_sect",
+        "v125",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "six_sect_id": "qingluo_sect",
+      "element": "demon",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_claw",
@@ -414,18 +581,18 @@
       "school": "demonic",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "魔爪：demonic法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "魔爪：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「demonic_blood_art_generic」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "demon",
         "damage_base": 37,
         "tags": [
           "demonic"
         ]
       },
       "source": "凡人向扩充",
-      "requires_method": "xuan_yin_art",
+      "requires_method": "demonic_blood_art_generic",
       "setting": {
         "karma": "demonic",
         "combat_style": "魔道杀伐",
@@ -444,7 +611,21 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "element": "demon",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "tags": [
+        "demon",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "demonic_blood_art_generic",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "hehuan_soul_charm",
@@ -457,9 +638,10 @@
         "tags": [
           "charm",
           "mind"
-        ]
+        ],
+        "element": "demon"
       },
-      "description": "扰乱敌修心神，对意志弱者尤效。",
+      "description": "合欢迷心：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「hehuan_mind_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -486,7 +668,22 @@
         "prerequisite_methods": [
           "hehuan_mind_art"
         ]
-      }
+      },
+      "six_sect_id": "hehuan_sect",
+      "tags": [
+        "six_sects",
+        "v125",
+        "hehuan_sect",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "element": "demon",
+      "path": "hehuan_sect",
+      "alignment": "demonic",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "qingluo_poison_needle",
@@ -499,9 +696,10 @@
         "damage_base": 35,
         "tags": [
           "poison"
-        ]
+        ],
+        "element": "demon"
       },
-      "description": "毒针入骨，附带持续毒伤。",
+      "description": "青罗毒针：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。 常随功法「qingluo_poison_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -523,7 +721,21 @@
         "prerequisite_methods": [
           "qingluo_poison_art"
         ]
-      }
+      },
+      "six_sect_id": "qingluo_sect",
+      "tags": [
+        "qingluo_sect",
+        "v125",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "element": "demon",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "xuewu_blood_curse_mark",
@@ -535,9 +747,10 @@
         "type": "debuff",
         "tags": [
           "curse"
-        ]
+        ],
+        "element": "demon"
       },
-      "description": "咒印标记，后续血咒伤害加深。",
+      "description": "血巫咒印：demonic派术法，属性倾向 demon。境界门槛 FOUNDATION，耗灵约 18。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -559,7 +772,22 @@
         "prerequisite_methods": [
           "xuewu_blood_art"
         ]
-      }
+      },
+      "six_sect_id": "xuewu_sect",
+      "tags": [
+        "six_sects",
+        "v125",
+        "demon",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "element": "demon",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_demon_slash",
@@ -572,9 +800,10 @@
         "damage_base": 85,
         "tags": [
           "blood"
-        ]
+        ],
+        "element": "demon"
       },
-      "description": "血刃斩击，消耗精血。",
+      "description": "血魔斩：demonic派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 —。耗血换力。 常随功法「blood_demon_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -595,8 +824,1546 @@
         "prerequisite_methods": [
           "blood_demon_art"
         ]
-      }
+      },
+      "element": "demon",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "tags": [
+        "demon",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "source_method": "blood_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuotian_devil_arm",
+      "display": "托天魔臂",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 50,
+      "source": "托天魔功",
+      "effect": {
+        "type": "melee",
+        "element": "yin",
+        "damage_base": 75,
+        "tags": [
+          "demonic"
+        ]
+      },
+      "description": "托天魔臂：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 50。 常随功法「tuotian_mogong」体系解锁。",
+      "setting": {
+        "combat_style": "托天魔功催动的魔劲一击。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "托天魔功催动的魔劲一击。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tuotian_mogong"
+      },
+      "requires_method": "tuotian_mogong",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "tuotian_mogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "blood_refine_light",
+      "display": "血炼神光",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 30,
+      "source": "血炼神光修炼法",
+      "effect": {
+        "type": "beam",
+        "element": "blood",
+        "damage_base": 42,
+        "tags": [
+          "blood"
+        ]
+      },
+      "description": "血炼神光：demonic派术法，属性倾向 blood。境界门槛 FOUNDATION，耗灵约 30。耗血换力。 常随功法「xue_lian_shenguang」体系解锁。",
+      "setting": {
+        "combat_style": "黑煞教系血炼神光。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "黑煞教系血炼神光。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xue_lian_shenguang"
+      },
+      "requires_method": "xue_lian_shenguang",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "blood",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "element": "blood",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "xue_lian_shenguang",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fallen_demon_mist",
+      "display": "坠魔雾",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 40,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "field",
+        "element": "yin",
+        "damage_base": 35
+      },
+      "description": "坠魔雾：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 40。 常随功法「fallen_demon_art」体系解锁。",
+      "setting": {
+        "combat_style": "坠魔功",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "area",
+        "lore": "坠魔功",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "fallen_demon_art"
+      },
+      "requires_method": "fallen_demon_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "fallen_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_demonic_intro",
+      "display": "魔修入门煞",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 24
+      },
+      "description": "魔修入门煞：demonic派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「sect_specialty_demonic」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_demonic"
+      },
+      "requires_method": "sect_specialty_demonic",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "sect_specialty_demonic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_blood_frenzy",
+      "display": "天魔血狂",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "天魔宗",
+      "effect": {
+        "type": "buff_self",
+        "element": "blood",
+        "damage_base": 0,
+        "tags": [
+          "berserk"
+        ]
+      },
+      "description": "天魔血狂：demonic派术法，属性倾向 blood。境界门槛 FOUNDATION，耗灵约 20。耗血换力。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "tianmo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "攻升防降的狂化。",
+        "combat_style": "demonic",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "blood",
+      "path": "tianmo_sect",
+      "alignment": "demonic",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_demon_fist",
+      "display": "天魔崩拳",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "天魔宗",
+      "effect": {
+        "type": "melee",
+        "element": "yin",
+        "damage_base": 40,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "天魔崩拳：demonic派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 22。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "tianmo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔体近战崩拳。",
+        "combat_style": "demonic",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "yin",
+      "path": "tianmo_sect",
+      "alignment": "demonic",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_blood_altar_strike",
+      "display": "血祭一击",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 45,
+      "source": "天魔宗",
+      "effect": {
+        "type": "strike",
+        "element": "blood",
+        "damage_base": 65,
+        "tags": [
+          "sacrifice"
+        ]
+      },
+      "description": "血祭一击：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 45。耗血换力。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "tianmo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血祭换爆发伤害。",
+        "combat_style": "demonic",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "blood",
+      "path": "tianmo_sect",
+      "alignment": "demonic",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_heaven_hand",
+      "display": "天魔大手印",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "天魔宗",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 72,
+        "tags": [
+          "palm"
+        ]
+      },
+      "description": "天魔大手印：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 55。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "tianmo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "天魔宗招牌大手印。",
+        "combat_style": "demonic",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "yin",
+      "path": "tianmo_sect",
+      "alignment": "demonic",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingluo_toxin_mist",
+      "display": "青罗毒瘴",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "青罗宗",
+      "effect": {
+        "type": "aoe_dot",
+        "element": "wood",
+        "damage_base": 22,
+        "tags": [
+          "poison"
+        ]
+      },
+      "description": "青罗毒瘴：demonic派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 20。 常随功法「qingluo_poison_art」体系解锁。",
+      "requires_method": "qingluo_poison_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingluo_poison_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "wood",
+        "qingluo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "入门毒瘴 DOT。",
+        "combat_style": "demonic",
+        "six_sect": "qingluo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "qingluo_sect",
+      "element": "wood",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingluo_insect_dart",
+      "display": "青罗虫镖",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "青罗宗",
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 30,
+        "tags": [
+          "insect"
+        ]
+      },
+      "description": "青罗虫镖：demonic派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 18。 常随功法「qingluo_poison_art」体系解锁。",
+      "requires_method": "qingluo_poison_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingluo_poison_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "wood",
+        "qingluo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "毒虫化镖。",
+        "combat_style": "demonic",
+        "six_sect": "qingluo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "qingluo_sect",
+      "element": "wood",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingluo_paralytic_spore",
+      "display": "麻孢子",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 28,
+      "source": "青罗宗",
+      "effect": {
+        "type": "debuff",
+        "element": "wood",
+        "damage_base": 10,
+        "tags": [
+          "poison",
+          "slow"
+        ]
+      },
+      "description": "麻孢子：demonic派术法，属性倾向 wood。境界门槛 CORE_FORMATION，耗灵约 28。 常随功法「qingluo_poison_art」体系解锁。",
+      "requires_method": "qingluo_poison_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qingluo_poison_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "wood",
+        "qingluo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "麻痹减速。",
+        "combat_style": "demonic",
+        "six_sect": "qingluo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "qingluo_sect",
+      "element": "wood",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingluo_worm_puppet",
+      "display": "虫傀术",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 35,
+      "source": "青罗宗",
+      "effect": {
+        "type": "summon",
+        "element": "wood",
+        "damage_base": 32,
+        "tags": [
+          "insect",
+          "puppet"
+        ]
+      },
+      "description": "虫傀术：demonic派术法，属性倾向 wood。境界门槛 CORE_FORMATION，耗灵约 35。驱傀作战。 常随功法「qingluo_poison_art」体系解锁。",
+      "requires_method": "qingluo_poison_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qingluo_poison_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "wood",
+        "qingluo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "毒虫群傀。",
+        "combat_style": "demonic",
+        "six_sect": "qingluo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "qingluo_sect",
+      "element": "wood",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingluo_heart_toxin",
+      "display": "蚀心毒",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 50,
+      "source": "青罗宗",
+      "effect": {
+        "type": "dot",
+        "element": "yin",
+        "damage_base": 45,
+        "tags": [
+          "poison",
+          "lethal"
+        ]
+      },
+      "description": "蚀心毒：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 50。 常随功法「qingluo_poison_art」体系解锁。",
+      "requires_method": "qingluo_poison_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "qingluo_poison_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "qingluo_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "高阶蚀心剧毒。",
+        "combat_style": "demonic",
+        "six_sect": "qingluo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "qingluo_sect",
+      "element": "yin",
+      "path": "qingluo_sect",
+      "alignment": "demonic",
+      "source_method": "qingluo_poison_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuewu_blood_sigil",
+      "display": "血巫咒印",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "血巫教",
+      "effect": {
+        "type": "debuff",
+        "element": "blood",
+        "damage_base": 18,
+        "tags": [
+          "curse"
+        ]
+      },
+      "description": "血巫咒印：demonic派术法，属性倾向 blood。境界门槛 FOUNDATION，耗灵约 20。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
+      "requires_method": "xuewu_blood_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xuewu_blood_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "入门血印减益。",
+        "combat_style": "demonic",
+        "six_sect": "xuewu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "xuewu_sect",
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuewu_blood_lance",
+      "display": "血矛术",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "血巫教",
+      "effect": {
+        "type": "projectile",
+        "element": "blood",
+        "damage_base": 34,
+        "tags": [
+          "blood"
+        ]
+      },
+      "description": "血矛术：demonic派术法，属性倾向 blood。境界门槛 FOUNDATION，耗灵约 22。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
+      "requires_method": "xuewu_blood_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xuewu_blood_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血凝矛。",
+        "combat_style": "demonic",
+        "six_sect": "xuewu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "xuewu_sect",
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuewu_hex_decay",
+      "display": "血巫朽咒",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "血巫教",
+      "effect": {
+        "type": "dot",
+        "element": "blood",
+        "damage_base": 28,
+        "tags": [
+          "curse"
+        ]
+      },
+      "description": "血巫朽咒：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 32。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
+      "requires_method": "xuewu_blood_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "xuewu_blood_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "持续朽血。",
+        "combat_style": "demonic",
+        "six_sect": "xuewu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "xuewu_sect",
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuewu_blood_puppet",
+      "display": "血巫血傀",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 38,
+      "source": "血巫教",
+      "effect": {
+        "type": "summon",
+        "element": "blood",
+        "damage_base": 36,
+        "tags": [
+          "blood",
+          "summon"
+        ]
+      },
+      "description": "血巫血傀：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 38。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
+      "requires_method": "xuewu_blood_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "xuewu_blood_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血凝临时傀。",
+        "combat_style": "demonic",
+        "six_sect": "xuewu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "xuewu_sect",
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuewu_grand_curse",
+      "display": "血巫大咒",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 60,
+      "source": "血巫教",
+      "effect": {
+        "type": "ultimate",
+        "element": "blood",
+        "damage_base": 80,
+        "tags": [
+          "curse",
+          "ultimate"
+        ]
+      },
+      "description": "血巫大咒：demonic派术法，属性倾向 blood。境界门槛 NASCENT_SOUL，耗灵约 60。耗血换力。 常随功法「xuewu_blood_art」体系解锁。",
+      "requires_method": "xuewu_blood_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "xuewu_blood_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "blood",
+        "xuewu_sect",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "大咒点名重创。",
+        "combat_style": "demonic",
+        "six_sect": "xuewu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "xuewu_sect",
+      "element": "blood",
+      "path": "xuewu_sect",
+      "alignment": "demonic",
+      "source_method": "xuewu_blood_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "inverse_star_chaos_brand",
+      "display": "逆星乱印",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 28,
+      "source": "逆星秘典",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 25,
+        "tags": [
+          "chaos"
+        ]
+      },
+      "description": "逆星乱印：demonic派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 28。 常随功法「inverse_star_art」体系解锁。",
+      "requires_method": "inverse_star_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "inverse_star_art"
+      },
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "乱星印记干扰敌法。",
+        "v128": true,
+        "faction": "inverse_star_alliance"
+      },
+      "faction_id": "inverse_star_alliance",
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "inverse_star_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "ye_clan_dark_mandate",
+      "display": "叶家暗令",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 40,
+      "source": "叶家皇脉诀",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 30
+      },
+      "description": "叶家暗令：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 40。 常随功法「dajin_ye_clan_art」体系解锁。",
+      "requires_method": "dajin_ye_clan_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "dajin_ye_clan_art"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "暗令。",
+        "v129": true
+      },
+      "faction_id": "dajin_ye_clan",
+      "region": "dajin",
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "dajin_ye_clan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "diyuan_asura_slash",
+      "display": "地渊修罗斩",
+      "school": "demonic",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 48,
+      "source": "地渊修罗诀",
+      "effect": {
+        "type": "melee",
+        "element": "yin",
+        "damage_base": 72
+      },
+      "description": "地渊修罗斩：demonic派术法，属性倾向 yin。境界门槛 VOID_REFINEMENT，耗灵约 48。 常随功法「diyuan_asura_art」体系解锁。",
+      "requires_method": "diyuan_asura_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "diyuan_asura_art"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "修罗斩。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "diyuan_asura_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "diyuan_blood_mist",
+      "display": "地渊血雾",
+      "school": "demonic",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 40,
+      "source": "地渊修罗诀",
+      "effect": {
+        "type": "field",
+        "element": "blood",
+        "damage_base": 45
+      },
+      "description": "地渊血雾：demonic派术法，属性倾向 blood。境界门槛 VOID_REFINEMENT，耗灵约 40。耗血换力。 常随功法「diyuan_asura_art」体系解锁。",
+      "requires_method": "diyuan_asura_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "diyuan_asura_art"
+      },
+      "tags": [
+        "v129",
+        "blood",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血雾。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "blood",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "diyuan_asura_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fallen2_v129_1",
+      "display": "坠魔·击",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 12,
+      "source": "坠魔功",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "坠魔·击：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 12。 常随功法「fallen_demon_art」体系解锁。",
+      "requires_method": "fallen_demon_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "fallen_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "坠魔补全第1式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "fallen_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fallen2_v129_2",
+      "display": "坠魔·护",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 18,
+      "source": "坠魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "坠魔·护：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 18。 常随功法「fallen_demon_art」体系解锁。",
+      "requires_method": "fallen_demon_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "fallen_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "坠魔补全第2式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "fallen_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fallen2_v129_3",
+      "display": "坠魔·爆",
+      "school": "demonic",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 24,
+      "source": "坠魔功",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "坠魔·爆：demonic派术法，属性倾向 yin。境界门槛 DEITY_TRANSFORMATION，耗灵约 24。 常随功法「fallen_demon_art」体系解锁。",
+      "requires_method": "fallen_demon_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "fallen_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "坠魔补全第3式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "fallen_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "blooddem2_v129_1",
+      "display": "血魔·击",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 12,
+      "source": "血魔功",
+      "effect": {
+        "type": "projectile",
+        "element": "blood",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "血魔·击：demonic派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 12。耗血换力。 常随功法「blood_demon_art」体系解锁。",
+      "requires_method": "blood_demon_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "blood_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "blood",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血魔补全第1式。",
+        "v129": true
+      },
+      "element": "blood",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "blood_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "blooddem2_v129_2",
+      "display": "血魔·护",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 18,
+      "source": "血魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "blood",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "血魔·护：demonic派术法，属性倾向 blood。境界门槛 NASCENT_SOUL，耗灵约 18。耗血换力。 常随功法「blood_demon_art」体系解锁。",
+      "requires_method": "blood_demon_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "blood_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "blood",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血魔补全第2式。",
+        "v129": true
+      },
+      "element": "blood",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "blood_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "blooddem2_v129_3",
+      "display": "血魔·爆",
+      "school": "demonic",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 24,
+      "source": "血魔功",
+      "effect": {
+        "type": "aoe",
+        "element": "blood",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "血魔·爆：demonic派术法，属性倾向 blood。境界门槛 DEITY_TRANSFORMATION，耗灵约 24。耗血换力。 常随功法「blood_demon_art」体系解锁。",
+      "requires_method": "blood_demon_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "blood_demon_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "blood",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血魔补全第3式。",
+        "v129": true
+      },
+      "element": "blood",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "blood_demon_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectdem2_v129_1",
+      "display": "魔专·击",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "demonic专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "魔专·击：demonic派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「sect_specialty_demonic」体系解锁。",
+      "requires_method": "sect_specialty_demonic",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_demonic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔专补全第1式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "sect_specialty_demonic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectdem2_v129_2",
+      "display": "魔专·护",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "demonic专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "魔专·护：demonic派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 18。 常随功法「sect_specialty_demonic」体系解锁。",
+      "requires_method": "sect_specialty_demonic",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_demonic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔专补全第2式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "sect_specialty_demonic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectdem2_v129_3",
+      "display": "魔专·爆",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "demonic专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "魔专·爆：demonic派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 24。 常随功法「sect_specialty_demonic」体系解锁。",
+      "requires_method": "sect_specialty_demonic",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_demonic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔专补全第3式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "sect_specialty_demonic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuotian_mogong_auto_2",
+      "display": "托天魔功·式2",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 14,
+      "source": "托天魔功",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "托天魔功·式2：demonic派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 14。 常随功法「tuotian_mogong」体系解锁。",
+      "requires_method": "tuotian_mogong",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tuotian_mogong"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "tuotian_mogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuotian_mogong_auto_3",
+      "display": "托天魔功·式3",
+      "school": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 20,
+      "source": "托天魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "托天魔功·式3：demonic派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 20。 常随功法「tuotian_mogong」体系解锁。",
+      "requires_method": "tuotian_mogong",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tuotian_mogong"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "tuotian_mogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xue_lian_shenguang_auto_2",
+      "display": "血炼神光修炼法·式2",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "血炼神光修炼法",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "血炼神光修炼法·式2：demonic派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。耗血换力。 常随功法「xue_lian_shenguang」体系解锁。",
+      "requires_method": "xue_lian_shenguang",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xue_lian_shenguang"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "xue_lian_shenguang",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xue_lian_shenguang_auto_3",
+      "display": "血炼神光修炼法·式3",
+      "school": "demonic",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "血炼神光修炼法",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "血炼神光修炼法·式3：demonic派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。耗血换力。 常随功法「xue_lian_shenguang」体系解锁。",
+      "requires_method": "xue_lian_shenguang",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xue_lian_shenguang"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "xue_lian_shenguang",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "diyuan_asura_art_auto_3",
+      "display": "地渊修罗诀·式3",
+      "school": "demonic",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 14,
+      "source": "地渊修罗诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "地渊修罗诀·式3：demonic派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 14。 常随功法「diyuan_asura_art」体系解锁。",
+      "requires_method": "diyuan_asura_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "diyuan_asura_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "demonic_six",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "demonic_six",
+      "alignment": "demonic",
+      "source_method": "diyuan_asura_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
-  "six_sects_ref": "demonic_six_sects.json"
+  "six_sects_ref": "demonic_six_sects.json",
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 功法/秘术目录（结构层，非完整原文口诀）",
+  "disclaimer": "仅列名称、定位、境界与获取结构；不含可运行功法代码",
+  "manuals": [
+    {
+      "id": "changchun_gong",
+      "display": "长春功",
+      "type": "基础功法",
+      "attribute": "木",
+      "layers": 13,
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "spells_basic": [
+        "火弹",
+        "定神符",
+        "御风",
+        "控物",
+        "天眼",
+        "地刺",
+        "流沙",
+        "冰冻",
+        "升空",
+        "缠绕",
+        "传音",
+        "匿身"
+      ],
+      "access": "凡人门派/低阶起步",
+      "setting": {
+        "lore": "韩立起步功法；含一批基础法术。"
+      },
+      "description": "韩立起步功法。木属性为主，附带一批炼气期基础法术，适合散修生存，不足以支撑结丹后主修。"
+    },
+    {
+      "id": "qingyuan_jianjue",
+      "display": "青元剑诀",
+      "type": "镇派剑修",
+      "attribute": "木/金剑",
+      "layers_human": 13,
+      "layers_spirit_extra": 6,
+      "realm_span": [
+        "FOUNDATION",
+        "BODY_INTEGRATION"
+      ],
+      "stages": [
+        {
+          "layers": "1-3",
+          "name": "青元剑芒"
+        },
+        {
+          "layers": "4-6",
+          "name": "护体剑盾"
+        },
+        {
+          "layers": "7-9",
+          "name": "剑影分光术"
+        },
+        {
+          "layers": "10-13",
+          "name": "大庚剑阵"
+        },
+        {
+          "layers": "13-15",
+          "name": "春黎剑阵",
+          "realm": "VOID_REFINEMENT"
+        },
+        {
+          "layers": "16-18",
+          "name": "青蟠剑阵"
+        }
+      ],
+      "side": [
+        "三转重元功"
+      ],
+      "access": "黄枫谷玉简/青元子线",
+      "description": "人界最完整剑修成长线之一。与青竹蜂云剑绑定；灵界可续创层数。"
+    },
+    {
+      "id": "sanzhuan_zhongyuan",
+      "display": "三转重元功",
+      "type": "辅助散功",
+      "effect": "三次散功压缩真元，提高结丹几率",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "description": "专为结丹瓶颈设计；需安全闭关与海量丹药支撑。"
+    },
+    {
+      "id": "dayan_jue",
+      "display": "大衍诀",
+      "type": "神识秘术",
+      "layers": 7,
+      "effect": "壮大神识、分神",
+      "access": "千竹教/大衍神君",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "description": "神识流核心。越往后越吃神识天赋；石坚类弟子更适配。"
+    },
+    {
+      "id": "xuanyin_jing",
+      "display": "玄阴经",
+      "type": "魔道总经",
+      "alignment": "demonic",
+      "includes": [
+        "黑煞修罗功",
+        "煞妖诀",
+        "血炼神光",
+        "煞丹术",
+        "身外化身",
+        "换形诀",
+        "血影遁",
+        "阴魔斩",
+        "离魂术",
+        "梦引术"
+      ],
+      "access": "虚天殿/极阴线",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "description": "乱星海顶级魔功合集。适合分身/第二元婴修炼，本体慎全修。"
+    },
+    {
+      "id": "mingwang_jue",
+      "display": "明王诀",
+      "type": "佛门炼体",
+      "effect": "以煞辅体，痛楚极大",
+      "access": "冯家密窟/皇清观线",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "非大毅力不可成。是法体双修拼图的佛门块。"
+    },
+    {
+      "id": "tuotian_mogong",
+      "display": "托天魔功",
+      "type": "防御魔功",
+      "effect": "金鳞护体，防搜魂",
+      "access": "乱星海蛮胡子线",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "乱星海防御第一魔功结构。与明王诀、梵圣片合成梵圣真魔功。"
+    },
+    {
+      "id": "fansheng_zhenmogong",
+      "display": "梵圣真魔功",
+      "type": "法体双修",
+      "compose_from": [
+        "明王诀",
+        "托天魔功",
+        "梵圣真片"
+      ],
+      "divine_abilities": [
+        "涅槃圣体",
+        "梵圣甲衣",
+        "洞漩金光"
+      ],
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "description": "韩立自创整合功法。大成后法力与肉身指数级提升，可扛玄天级负荷。"
+    },
+    {
+      "id": "yuanci_shenguang",
+      "display": "元磁神光",
+      "type": "顶阶神通功法",
+      "requirement": "五行灵根更易圆满",
+      "effect": "克制五行",
+      "access": "乱星海星宫",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "人界破局化神的关键功法之一；修炼极耗岁月与资源。"
+    },
+    {
+      "id": "qugu_jue",
+      "display": "淬骨诀",
+      "type": "炼体",
+      "synergy": [
+        "龙鳞果"
+      ],
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "与龙鳞果绑定的炼体日程功法。"
+    },
+    {
+      "id": "baipai_lianbao",
+      "display": "百脉炼宝决",
+      "type": "炼体/炼宝",
+      "access": "金阙玉书外页",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "BODY_INTEGRATION"
+      ],
+      "description": "决定法体双修路线的关键功法页。"
+    },
+    {
+      "id": "jingzhe_jue",
+      "display": "惊蛰诀（惊蛰十二变）",
+      "type": "妖族真血变化",
+      "access": "天鹏圣地等",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "description": "妖族顶阶变化秘术；与真血收集玩法绑定。"
+    },
+    {
+      "id": "lianshen_shu",
+      "display": "炼神术",
+      "type": "逆天神识",
+      "layers": 7,
+      "effect": "神识倍增（结构：层数越高倍率越高）",
+      "restriction": [
+        "需金篆文",
+        "肉身神识基础",
+        "不可中断",
+        "后世代价结构"
+      ],
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "IMMORTAL"
+      ],
+      "description": "灵界至仙界神识核心。威能逆天，代价与天庭不容并列结构。"
+    },
+    {
+      "id": "wudu_hunyuanshen",
+      "display": "万毒混元身",
+      "type": "毒体炼体",
+      "layers": 7,
+      "access": "灵界拍卖配套",
+      "realm_span": [
+        "BODY_INTEGRATION",
+        "GREAT_VEHICLE"
+      ],
+      "description": "偏门但极强的肉身路线。"
+    },
+    {
+      "id": "hehuan_dual",
+      "display": "合欢/双修类功法（合称）",
+      "type": "双修",
+      "examples": [
+        "颠凤培元功",
+        "姹女天月诀"
+      ],
+      "alignment": "mixed",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "description": "双修：合欢/双修类功法（合称）"
+    },
+    {
+      "id": "yuling_insect",
+      "display": "御灵驱虫术",
+      "type": "御兽御虫",
+      "faction": "yuling_zong",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "description": "虫修职业功法；六翼霜蚣线前置。"
+    },
+    {
+      "id": "puppet_classic",
+      "display": "傀儡真经/上古傀儡术",
+      "type": "傀儡",
+      "access": "千竹教/天晶真人交易",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "description": "神识与材料双门槛。"
+    },
+    {
+      "id": "xuantian_lianqi",
+      "display": "玄天炼器术",
+      "type": "炼器至法",
+      "access": "金阙玉书",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "description": "界面级炼器法；材料与火候皆非人界可比。"
+    },
+    {
+      "id": "nongyan_jue",
+      "display": "弄焰诀",
+      "type": "火系秘术",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "access": "越京王府线",
+      "description": "小神通，实用向。"
+    },
+    {
+      "id": "lianxi_shu",
+      "display": "敛息术",
+      "type": "隐匿",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "access": "越京线",
+      "description": "散修保命标配。"
+    },
+    {
+      "id": "luoyan_bu",
+      "display": "罗烟步",
+      "type": "身法",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "access": "七玄门",
+      "description": "七玄门暗学身法；入炼气前保命。"
+    },
+    {
+      "id": "zhayan_jianfa",
+      "display": "眨眼剑法",
+      "type": "凡剑",
+      "realm_span": [
+        "MORTAL"
+      ],
+      "access": "七玄门",
+      "description": "快剑；墨大夫线前武斗用。"
+    },
+    {
+      "id": "jifeng_jiubian",
+      "display": "疾风九变",
+      "type": "身法",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "高阶身法；可被圣兽指点改进。"
+    },
+    {
+      "id": "chanu_tianyue",
+      "display": "姹女天月诀",
+      "type": "双修/解咒相关",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "access": "南宫婉线",
+      "description": "剧情向功法；与封魂咒对抗。"
+    },
+    {
+      "id": "dianfeng_peiyuan",
+      "display": "颠凤培元功",
+      "type": "双修",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "access": "六道极圣系",
+      "description": "魔道双修顶阶之一；慕佩玲改修线。"
+    },
+    {
+      "id": "yin_yang_lunhui",
+      "display": "阴阳轮回决",
+      "type": "阴冥双修",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "access": "阴冥之地",
+      "description": "元瑶/妍丽留守阴冥的功法结构。"
+    },
+    {
+      "id": "cuigu_long",
+      "display": "淬骨诀",
+      "type": "炼体",
+      "synergy": [
+        "龙鳞果"
+      ],
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "炼体：淬骨诀"
+    },
+    {
+      "id": "yinkui_wen",
+      "display": "银蝌文",
+      "type": "文字神通",
+      "access": "天澜圣兽",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "description": "文字神通：银蝌文"
+    }
+  ],
+  "trade_value_structural": {
+    "basic_manual": [
+      50,
+      500
+    ],
+    "core_sect_manual": [
+      2000,
+      50000
+    ],
+    "top_human_manual": [
+      50000,
+      500000
+    ],
+    "spirit_realm_manual": "功勋/不可售"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "source": "v130 仙界任务链",
+  "chains": [
+    {
+      "id": "xianjie_ascension_path",
+      "display": "飞升入仙",
+      "region": "xianjie",
+      "realm_span": [
+        "TRIBULATION_LAND",
+        "TRUE_IMMORTAL"
+      ],
+      "steps": [
+        {
+          "hook": "tribulation_land_final",
+          "summary": "人界渡劫"
+        },
+        {
+          "hook": "ascend_light",
+          "summary": "飞升光门"
+        },
+        {
+          "hook": "xianjie_landing",
+          "summary": "仙界落地适应仙灵力"
+        },
+        {
+          "hook": "choose_first_camp",
+          "summary": "初选真言/散修/黑风等"
+        }
+      ],
+      "rewards_finale": [
+        "true_immortal_status",
+        "xianjie_map_unlock"
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 5
+      }
+    },
+    {
+      "id": "zhenyan_men_path",
+      "display": "真言门修行线",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL",
+        "TAIYI_GOLDEN_IMMORTAL"
+      ],
+      "steps": [
+        {
+          "hook": "zhenyan_entry_trial",
+          "summary": "入门试真言"
+        },
+        {
+          "hook": "true_word_practice",
+          "summary": "真言诀修成"
+        },
+        {
+          "hook": "wuxing_seed_trial",
+          "summary": "幻世种子试炼"
+        },
+        {
+          "hook": "elder_mission",
+          "summary": "长老任务"
+        },
+        {
+          "hook": "wuxing_full_world_insight",
+          "summary": "大五行幻世感悟"
+        }
+      ],
+      "rewards_finale": [
+        "great_five_elements_world_art_page",
+        "zhenyan_elder_candidate"
+      ],
+      "unlock_methods": [
+        "zhenyan_true_word_art",
+        "great_five_elements_world_art",
+        "zhenyan_elder_canon"
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 30
+      }
+    },
+    {
+      "id": "time_law_path",
+      "display": "时间法则线",
+      "region": "xianjie",
+      "realm_span": [
+        "GOLDEN_IMMORTAL",
+        "DALUO_GOLDEN_IMMORTAL"
+      ],
+      "steps": [
+        {
+          "hook": "time_fragment_find",
+          "summary": "得时间法则机缘"
+        },
+        {
+          "hook": "time_slow_mastery",
+          "summary": "迟滞域小成"
+        },
+        {
+          "hook": "time_lock_trial",
+          "summary": "时锁试炼"
+        },
+        {
+          "hook": "reversion_fragment",
+          "summary": "逆转残篇"
+        }
+      ],
+      "unlock_methods": [
+        "time_law_scripture",
+        "time_reversion_fragment"
+      ],
+      "rewards_finale": [
+        "time_law_insight_token"
+      ],
+      "risk": "道心劫"
+    },
+    {
+      "id": "reincarnation_hall_path",
+      "display": "轮回殿线",
+      "region": "xianjie",
+      "steps": [
+        {
+          "hook": "hall_contact",
+          "summary": "接触轮回殿"
+        },
+        {
+          "hook": "first_trade",
+          "summary": "首次交易"
+        },
+        {
+          "hook": "soul_mark_mission",
+          "summary": "轮回印任务"
+        },
+        {
+          "hook": "judgment_witness",
+          "summary": "见证裁断"
+        }
+      ],
+      "unlock_methods": [
+        "reincarnation_hall_art"
+      ],
+      "finale_rep": {
+        "rep_reincarnation_hall": 25
+      }
+    },
+    {
+      "id": "heifeng_and_gray",
+      "display": "黑风海与灰界",
+      "region": "xianjie",
+      "steps": [
+        {
+          "hook": "heifeng_sail",
+          "summary": "黑风航行"
+        },
+        {
+          "hook": "storm_tribulation",
+          "summary": "风劫"
+        },
+        {
+          "hook": "gray_border",
+          "summary": "灰界边境"
+        },
+        {
+          "hook": "nether_escape",
+          "summary": "冥渡脱困"
+        }
+      ],
+      "unlock_methods": [
+        "heifeng_sea_art",
+        "gray_realm_nether_art"
+      ]
+    },
+    {
+      "id": "xianjie_endgame_glimpse",
+      "display": "仙界终局窥影",
+      "region": "xianjie",
+      "realm_span": [
+        "DALUO_GOLDEN_IMMORTAL",
+        "DAO_ANCESTOR_BAND"
+      ],
+      "steps": [
+        {
+          "hook": "daluo_threshold",
+          "summary": "大罗门槛"
+        },
+        {
+          "hook": "law_fusion",
+          "summary": "多法则融合叙事"
+        },
+        {
+          "hook": "dao_glimpse",
+          "summary": "道祖窥影"
+        }
+      ],
+      "unlock_methods": [
+        "dao_ancestor_glimpse"
+      ],
+      "note": "不给全知全能结局数值"
+    }
+  ]
+}

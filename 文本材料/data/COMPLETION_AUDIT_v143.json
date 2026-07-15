@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source": "v143 物价勾稽+术法+终局",
+  "delivered": [
+    "item_price_quest_crosswalk_v143",
+    "endgame_guanghan_v143",
+    "endgame_deity_huoyu_v143",
+    "techniques polished ~743",
+    "quest chains 22",
+    "layer realms 13"
+  ],
+  "honest_gaps_still": [
+    "非关键数百味药未全部勾稽",
+    "真仙战仍不做成完整战场模拟",
+    "部分术法仍非抄书级原文风"
+  ],
+  "status": "物价-任务勾稽完成；广寒/化神终局可玩加深；术法继续贴原著"
+}

@@ -13,7 +13,7 @@
           "monthly_limit": 1,
           "rank_min": "inner_disciple",
           "setting": {
-            "lore": "筑基丹，七派严控，内门限额兑换。"
+            "lore": "内门限额；市价约500–2000下品，贡献价防倒卖。"
           },
           "learn_requirements": {
             "exchange": {
@@ -21,7 +21,8 @@
               "realm_gate": "FOUNDATION",
               "monthly_limit": 1
             }
-          }
+          },
+          "v144_aligned": true
         },
         {
           "id": "recipe_spirit_condense",
@@ -316,6 +317,22 @@
               "realm_gate": null
             }
           }
+        },
+        {
+          "id": "blood_forbidden_token",
+          "display": "血色禁地试炼令",
+          "cost": 30,
+          "v144_aligned": true,
+          "cost_range": [
+            25,
+            40
+          ],
+          "realm_gate": "QI_REFINING",
+          "monthly_limit": 1,
+          "rank_min": "outer_disciple",
+          "setting": {
+            "lore": "贡献换令，死不退。对齐 quest_reward_economy。"
+          }
         }
       ],
       "setting": {
@@ -326,7 +343,8 @@
           "currency": "sect_contribution_point",
           "faction": "huangfeng_valley"
         }
-      }
+      },
+      "v144": true
     },
     {
       "faction_id": "yanyue_sect",
@@ -843,6 +861,27 @@
           "bigu_pill"
         ]
       }
+    ],
+    "items": [
+      {
+        "id": "blood_forbidden_token",
+        "display": "血色禁地试炼令",
+        "cost": 30,
+        "v144_aligned": true,
+        "cost_range": [
+          25,
+          40
+        ]
+      },
+      {
+        "id": "foundation_pill",
+        "display": "筑基丹",
+        "cost": 1200,
+        "v144_aligned": true,
+        "monthly_limit": 1
+      }
     ]
-  }
+  },
+  "v144": true,
+  "price_align_ref": "market_shelf_price_align_v144.json"
 }

@@ -1,13 +1,13 @@
 {
-  "schema_version": 12,
+  "schema_version": 19,
   "methods": [
     {
       "id": "changchun_gong",
       "display": "长春功",
       "element_required": "wood",
       "realm_max": "FOUNDATION",
-      "source": "huangfeng_valley",
-      "description": "黄枫谷流传的基础木属性功法，炼气期可修至筑基；后续需转修更高剑诀或宗门秘传。",
+      "source": "qixuan_men_moh_doctor",
+      "description": "凡人向基础木属性功法，约十三层。墨大夫一脉/七玄门线常见启蒙，宜炼气至筑基门槛。筑基后应尽早转修更高功法（如青元剑诀）。含火弹、定神、轻身一类过渡小术，不求霸道，只求稳活。",
       "unlocks_techniques_school": "elemental",
       "lore_ref": "tiannan_seven_sects",
       "setting": {
@@ -22,12 +22,16 @@
           ]
         },
         "breakthrough": "炼气十三层圆满后需筑基丹或机缘筑基；功法本身不提供结丹路径。",
-        "combat_style": "低阶木系术法与符箓过渡，后期必须转修剑诀或其他宗门秘传。",
+        "combat_style": "低阶木火杂术",
         "region": "tiannan",
         "faction": "huangfeng_valley",
         "layers_max": 13,
         "lore_ref": "tiannan_seven_sects",
-        "source_detail": "huangfeng_valley"
+        "source_detail": "huangfeng_valley",
+        "novel_arc": "七玄门-黄枫谷前",
+        "must_convert_after": "FOUNDATION",
+        "lore_v141": "韩立启蒙功气质：慢、稳、木系，药园与散修前期友好。",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -49,7 +53,26 @@
         "layers_required": 13,
         "note": "黄枫外门常见入门；需木灵根或宗门特批。"
       },
-      "skill_tree_ref": "ascension_tianyuan"
+      "skill_tree_ref": "ascension_tianyuan",
+      "path": "qi_base",
+      "realm_min": "QI_REFINING",
+      "path_taxonomy_v123": "qi_base",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "huangfeng_valley",
+      "seven_sect_display": "黄枫谷",
+      "element": "wood",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "qi_base",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "qingyuan_sword_art",
@@ -61,7 +84,7 @@
       "prerequisite_methods": [
         "changchun_gong"
       ],
-      "description": "青元剑诀：以灵力凝剑芒、御剑伤敌，筑基后主流剑修路径；需长春功等打底。",
+      "description": "青元剑诀：可贯筑基后长程的剑修主功。重剑气、剑丝与神识配合，宜正道剑心。与长春功形成「启蒙→正修」阶梯；与魔功强行混修易生心魔与功法冲突。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "sword",
@@ -75,13 +98,17 @@
           ]
         },
         "breakthrough": "筑基后凝剑芒；结丹后可剑光分化、御剑更远。",
-        "combat_style": "远程剑芒、剑阵前置；依赖飞剑或剑器法宝。",
+        "combat_style": "剑芒远程/剑阵",
         "requires_items": [
           "flying_sword_low"
         ],
         "faction": "huangfeng_valley",
         "lore_ref": null,
-        "source_detail": "huangfeng_valley"
+        "source_detail": "huangfeng_valley",
+        "novel_arc": "黄枫谷-落云宗-化神前",
+        "creator": "青元子",
+        "lore_v141": "原著核心长线功法气质，与长春功形成「启蒙→正修」阶梯。",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -111,17 +138,33 @@
         ],
         "note": "筑基且长春功圆满后方可转修；内门贡献或师承。"
       },
-      "skill_tree_ref": "sword_qingyuan"
+      "skill_tree_ref": "sword_qingyuan",
+      "path_taxonomy_v123": "sword",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "huangfeng_valley",
+      "seven_sect_display": "黄枫谷",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "sword",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "xuan_yin_art",
-      "display": "玄阴诀",
+      "display": "玄阴经",
       "path": "xuan_yin",
       "realm_min": "FOUNDATION",
       "karma": "yin",
       "unlocks_techniques_school": "xuan_yin",
       "note": "魔道玄阴，可习部分阴术但非鬼修阴体",
-      "description": "玄阴诀：魔道阴属性功法，可习摄魂、阴火一类法术；与鬼修阴体路线可衔接但非同一路。",
+      "description": "玄阴经：阴寒功法，宜阴灵根或改修阴体者。修炼环境喜阴湿极地，与纯阳功法相冲。虚天殿等处或见经卷机缘（unique 权重）。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "demonic_yin",
@@ -137,7 +180,10 @@
         "combat_style": "摄魂、阴火、鬼幡类；正道声望下降。",
         "faction": "demonic_alliance",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "novel_arc": "乱星海-掩月",
+        "note": "与血魔功分家",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -162,26 +208,56 @@
         },
         "note": "魔道功法；正道宗门弟子学习将叛宗。"
       },
-      "skill_tree_ref": "tree_xuan_yin_art"
+      "skill_tree_ref": "tree_xuan_yin_art",
+      "source": "yanyue_sect_related",
+      "path_taxonomy_v123": "xuan_yin",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "aliases": [
+        "玄阴诀"
+      ],
+      "six_sect_affinity": [
+        "guiling_gate",
+        "yanyue_related"
+      ],
+      "note_v125": "鬼灵门可兼修/相关；本体亦连掩月阴功线",
+      "seven_sect_id": "yanyue_sect",
+      "seven_sect_display": "掩月宗",
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "xuan_yin",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "dayan_art",
       "display": "大衍诀",
-      "path": "puppet",
+      "path": "divine_sense",
       "realm_min": "FOUNDATION",
       "source": "dayan_sage_legacy",
-      "description": "大衍诀：傀儡术核心功法，凝炼神识分神操控傀体，结丹后威能方显。",
-      "unlocks_techniques_school": "puppet",
+      "description": "大衍诀：神识衍算秘传。残篇可自千竹机关、人情与机缘拼合；完整版极稀有，不设保底、不商店直售。神识手段远超常人，亦易招窥伺与杀身之祸。",
+      "unlocks_techniques_school": "divine_sense",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "puppet",
         "spirit_root_gate": {
           "requires_divine_sense": "above_average"
         },
-        "combat_style": "傀儡群战、神识分神；单体弱。",
+        "combat_style": "神识攻+傀儡",
         "source_type": "legacy",
         "lore_ref": null,
-        "source_detail": "dayan_sage_legacy"
+        "source_detail": "dayan_sage_legacy",
+        "novel_arc": "筑基后-元婴",
+        "creator": "大衍神君",
+        "dual_school": true,
+        "lore_v141": "与千竹塔、傀儡、神识线绑定；完整大衍=稀有终点非刷物。",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -196,7 +272,25 @@
         ],
         "note": "大衍圣人遗泽；非宗门常规传授。"
       },
-      "skill_tree_ref": "puppet_dayan"
+      "skill_tree_ref": "puppet_dayan",
+      "path_taxonomy_v123": "puppet",
+      "combat_school": true,
+      "unlocks_techniques_schools": [
+        "divine_sense",
+        "puppet"
+      ],
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "lieyan_gong",
@@ -229,7 +323,21 @@
         ],
         "note": "火灵根散修常见入门。"
       },
-      "skill_tree_ref": "fire_lieyan"
+      "skill_tree_ref": "fire_lieyan",
+      "path": "elemental",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "fire",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "beast_transformation_art",
@@ -249,7 +357,20 @@
           "bloodline_awakening"
         ]
       },
-      "skill_tree_ref": "tree_beast_transformation_art"
+      "skill_tree_ref": "tree_beast_transformation_art",
+      "path": "qi_base",
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "qi_base",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "qi_base",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "ghost_nether_art",
@@ -258,7 +379,7 @@
       "realm_min": "FOUNDATION",
       "unlocks_techniques_school": "ghost",
       "path_exclusive": "ghost_cultivator",
-      "description": "冥河鬼修诀：鬼道专属，凝阴体、驭阴魂；与人族正道声望冲突。",
+      "description": "冥河鬼修诀：neutral属性/倾向的ghost向功法。境界跨度约 FOUNDATION–视篇。ghost。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "ghost",
         "path_exclusive": "ghost_cultivator",
@@ -279,7 +400,22 @@
         ],
         "note": "须鬼道转修或鬼修出身。"
       },
-      "skill_tree_ref": "yin_cluster_ghost"
+      "skill_tree_ref": "yin_cluster_ghost",
+      "path": "ghost",
+      "path_taxonomy_v123": "ghost",
+      "combat_school": true,
+      "source": "ghost_realm",
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "spirit_art_mulan",
@@ -303,7 +439,21 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_spirit_art_mulan"
+      "skill_tree_ref": "tree_spirit_art_mulan",
+      "path": "fashi",
+      "unlocks_techniques_school": "fashi",
+      "source": "mulan",
+      "path_taxonomy_v123": "fashi",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "fashi",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "star_palace_art",
@@ -315,7 +465,7 @@
       "unlocks_techniques_school": "formation",
       "element": "water_metal_mixed",
       "note": "乱星海秩序功法，阵剑兼修标签",
-      "description": "星宫镇海诀：乱星海秩序阵营功法，偏重阵法与海域禁制。",
+      "description": "星宫镇派向：巡海、镇海阵、天星剑阵协同。乱星海秩序侧主修之一。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "formation_sea",
@@ -341,22 +491,39 @@
         ],
         "note": "乱星海需登记或加入星宫体系。"
       },
-      "skill_tree_ref": "star_palace_sea"
+      "skill_tree_ref": "star_palace_sea",
+      "source": "star_palace",
+      "path_taxonomy_v123": "formation",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "unlocks_techniques_schools": [
+        "formation",
+        "elemental",
+        "sword"
+      ],
+      "faction_id": "star_palace",
+      "v128": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "water_metal_mixed",
+        "formation",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "inverse_star_art",
       "display": "逆星秘典",
       "faction": "inverse_star_alliance",
       "region": "chaotic_sea",
-      "path": "covert",
+      "path": "movement",
       "realm_min": "FOUNDATION",
-      "unlocks_techniques_school": [
-        "demonic",
-        "movement"
-      ],
+      "unlocks_techniques_school": "movement",
       "karma": "chaotic",
       "note": "走私盟秘传",
-      "description": "逆星秘典：乱星海割据势力秘传，擅隐匿、走私与破禁。",
+      "description": "逆星盟核心：潜行、走私遁、乱世秘术。与星宫敌对。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "smuggle_covert",
@@ -385,7 +552,26 @@
         ],
         "note": "逆星盟血誓入门；与星宫不可两立。"
       },
-      "skill_tree_ref": "inverse_star_covert"
+      "skill_tree_ref": "inverse_star_covert",
+      "unlocks_techniques_schools": [
+        "movement",
+        "demonic"
+      ],
+      "source": "inverse_star",
+      "path_taxonomy_v123": "movement",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "faction_id": "inverse_star_alliance",
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "tianfu_spirit_scripture",
@@ -393,9 +579,9 @@
       "path": "talisman",
       "element_required": "wood",
       "realm_min": "QI_REFINING",
-      "source": "tianfu_sect",
+      "source": "tianfu_gate",
       "note": "制符宗门主线功法",
-      "description": "天符灵经：talisman系功法，门槛境界 QI_REFINING。",
+      "description": "天符门制符总纲。三品符结构对应技能解锁。备选七派之一。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "talisman",
@@ -420,22 +606,39 @@
           ]
         }
       },
-      "skill_tree_ref": "talisman_tianfu"
+      "skill_tree_ref": "talisman_tianfu",
+      "unlocks_techniques_school": "talisman",
+      "path_taxonomy_v123": "talisman",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "sect_id": "tianfu_gate",
+      "v127": true,
+      "element": "wood",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "talisman",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "yanyue_cycle_art",
-      "display": "素女轮回功（仿）",
-      "path": "dual_cultivation",
+      "display": "素女轮回功",
+      "path": "dual",
       "realm_min": "FOUNDATION",
       "source": "yanyue_sect",
       "compliance": "replica",
-      "description": "素女轮回功（仿）：dual_cultivation系功法，门槛境界 FOUNDATION。",
+      "description": "掩月宗双修核心气质功法（包内曾标仿，现按原著宗门功归类）。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "dual_cultivation",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "素女轮回功（仿） 所属道途：dual_cultivation。",
-        "structural_note": false
+        "structural_note": false,
+        "alignment": "yanyue"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -445,7 +648,23 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_yanyue_cycle_art"
+      "skill_tree_ref": "tree_yanyue_cycle_art",
+      "unlocks_techniques_school": "illusion",
+      "path_taxonomy_v123": "dual",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "yanyue_sect",
+      "seven_sect_display": "掩月宗",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "dual",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "lingshou_beast_mind_art",
@@ -453,13 +672,14 @@
       "path": "beast",
       "realm_min": "QI_REFINING",
       "source": "spirit_beast_mountain",
-      "description": "驭兽心法：beast系功法，门槛境界 QI_REFINING。",
+      "description": "驭兽心法：灵兽山一脉根基。重契约、血脉亲和与神识安抚，非单纯鞭挞。可衔接灵兽笼舍、契坛与化形池等结构玩法。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "beast",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "驭兽心法 所属道途：beast。",
-        "structural_note": false
+        "structural_note": false,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -469,15 +689,30 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "beast_lingshou"
+      "skill_tree_ref": "beast_lingshou",
+      "unlocks_techniques_school": "fashi",
+      "path_taxonomy_v123": "beast",
+      "combat_school": true,
+      "seven_sect_id": "spirit_beast_mountain",
+      "seven_sect_display": "灵兽山",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "beast",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "qingxu_pure_tao_art",
       "display": "清虚玄功",
-      "path": "tao",
+      "path": "dao",
       "realm_min": "QI_REFINING",
       "source": "qingxu_gate",
-      "description": "清虚玄功：tao系功法，门槛境界 QI_REFINING。",
+      "description": "清虚玄功：neutral属性/倾向的dao向功法。境界跨度约 QI_REFINING–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "tao",
@@ -493,7 +728,24 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_qingxu_pure_tao_art"
+      "skill_tree_ref": "tree_qingxu_pure_tao_art",
+      "unlocks_techniques_school": "dao",
+      "path_taxonomy_v123": "dao",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "qingxu_gate",
+      "seven_sect_display": "清虚门",
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "huadao_blade_intent",
@@ -501,7 +753,7 @@
       "path": "blade",
       "realm_min": "QI_REFINING",
       "source": "huadao_wu",
-      "description": "化刀诀：blade系功法，门槛境界 QI_REFINING。",
+      "description": "化刀诀：neutral属性/倾向的blade向功法。境界跨度约 QI_REFINING–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "blade",
@@ -517,7 +769,23 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "blade_huadao"
+      "skill_tree_ref": "blade_huadao",
+      "unlocks_techniques_school": "sword",
+      "path_taxonomy_v123": "blade",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "huadao_wu",
+      "seven_sect_display": "化刀坞",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "blade",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "mulan_wind_spirit_art",
@@ -549,16 +817,28 @@
         ],
         "note": "慕兰法士专属；人族修士无法按同一路线施法。"
       },
-      "skill_tree_ref": "fashi_mulan"
+      "skill_tree_ref": "fashi_mulan",
+      "source": "mulan",
+      "path_taxonomy_v123": "fashi",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "fashi",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "tianlan_holy_beast_art",
       "display": "天澜圣兽诀",
-      "path": "beast_spirit",
+      "path": "beast",
       "race": "tianlan_fashi",
-      "realm_min": "QI_REFINING",
+      "realm_min": "FOUNDATION",
       "region": "tianlan",
-      "description": "天澜圣兽诀：beast_spirit系功法，门槛境界 QI_REFINING。",
+      "description": "天澜圣兽/圣殿兽灵向。唤灵、圣羽。可与天澜寺同阵营。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "beast_spirit",
@@ -575,12 +855,27 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_tianlan_holy_beast_art"
+      "skill_tree_ref": "tree_tianlan_holy_beast_art",
+      "unlocks_techniques_school": "fashi",
+      "source": "tianlan_temple_mulan",
+      "path_taxonomy_v123": "beast",
+      "combat_school": true,
+      "sect_id": "tianlan_temple",
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "beast",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "tiannan_border_guard_art",
       "display": "天南守边诀",
-      "path": "defense",
+      "path": "body",
       "realm_min": "FOUNDATION",
       "faction": "tiannan_alliance",
       "note": "抗慕兰法士",
@@ -599,15 +894,27 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_tiannan_border_guard_art"
+      "skill_tree_ref": "tree_tiannan_border_guard_art",
+      "unlocks_techniques_school": "body",
+      "path_taxonomy_v123": "body",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "chaotic_sea_nav_art",
       "display": "星海御浪诀",
-      "path": "water",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "region": "chaotic_sea",
-      "description": "星海御浪诀：water系功法，门槛境界 FOUNDATION。",
+      "description": "星海御浪诀：neutral属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "water",
@@ -623,11 +930,26 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_chaotic_sea_nav_art"
+      "skill_tree_ref": "tree_chaotic_sea_nav_art",
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "source": "chaotic_sea_generic",
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "elemental",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "demonic_blood_art_generic",
-      "display": "血煞功（魔道）",
+      "display": "血煞功",
       "path": "demonic",
       "karma": "negative",
       "realm_min": "FOUNDATION",
@@ -635,13 +957,14 @@
         "huangfeng_valley",
         "tianlan_temple"
       ],
-      "description": "血煞功（魔道）：demonic系功法，门槛境界 FOUNDATION。",
+      "description": "血煞功：neutral属性/倾向的demonic向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "demonic",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "血煞功（魔道） 所属道途：demonic。",
-        "structural_note": false
+        "structural_note": false,
+        "alignment": "demonic"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -651,16 +974,31 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_demonic_blood_art_generic"
+      "skill_tree_ref": "tree_demonic_blood_art_generic",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "source": "modao_generic",
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "star_palace_sea_art",
       "display": "镇海诀",
-      "path": "water",
+      "path": "elemental",
       "faction": "star_palace",
       "region": "chaotic_sea",
       "realm_min": "FOUNDATION",
-      "description": "镇海诀：water系功法，门槛境界 FOUNDATION。",
+      "description": "镇海诀：neutral属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "water",
@@ -675,17 +1013,33 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_star_palace_sea_art"
+      "skill_tree_ref": "tree_star_palace_sea_art",
+      "unlocks_techniques_school": "elemental",
+      "source": "star_palace",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "faction_id": "star_palace",
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "elemental",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "inverse_star_shadow_art",
       "display": "逆星潜行诀",
-      "path": "stealth",
+      "path": "movement",
       "faction": "inverse_star_alliance",
       "region": "chaotic_sea",
       "realm_min": "FOUNDATION",
       "karma": "ambiguous",
-      "description": "逆星潜行诀：stealth系功法，门槛境界 FOUNDATION。",
+      "description": "逆星潜行诀：neutral属性/倾向的movement向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "stealth",
@@ -700,7 +1054,23 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_inverse_star_shadow_art"
+      "skill_tree_ref": "tree_inverse_star_shadow_art",
+      "unlocks_techniques_school": "movement",
+      "source": "inverse_star",
+      "path_taxonomy_v123": "movement",
+      "combat_school": true,
+      "faction_id": "inverse_star_alliance",
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "dajin_clan_ancestor_art",
@@ -709,7 +1079,7 @@
       "faction": "dajin_clans_generic",
       "region": "dajin",
       "realm_min": "QI_REFINING",
-      "description": "世家祖传诀：mixed系功法，门槛境界 QI_REFINING。",
+      "description": "世家祖传诀：neutral属性/倾向的mixed向功法。境界跨度约 QI_REFINING–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "mixed",
@@ -724,15 +1094,31 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_dajin_clan_ancestor_art"
+      "skill_tree_ref": "tree_dajin_clan_ancestor_art",
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "mixed",
+      "combat_school": true,
+      "source": "dajin_clans",
+      "faction_id": "dajin_clans",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "kunwu_ice_guard_art",
       "display": "昆吾寒罡诀",
-      "path": "ice",
-      "region": "kunwu",
+      "path": "elemental",
+      "region": "dajin",
       "realm_min": "CORE_FORMATION",
-      "description": "昆吾寒罡诀：ice系功法，门槛境界 CORE_FORMATION。",
+      "description": "昆吾寒罡诀：neutral属性/倾向的elemental向功法。境界跨度约 CORE_FORMATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "ice",
@@ -748,7 +1134,23 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_kunwu_ice_guard_art"
+      "skill_tree_ref": "tree_kunwu_ice_guard_art",
+      "unlocks_techniques_school": "elemental",
+      "source": "kunwu",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "faction_id": "kunwu",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "elemental",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "yanyue_illusion_art",
@@ -757,7 +1159,7 @@
       "faction": "yanyue_sect",
       "region": "tiannan",
       "unlocks_techniques_school": "illusion",
-      "description": "掩月幻心诀：illusion系功法，门槛境界 见条目。",
+      "description": "掩月幻心诀：neutral属性/倾向的illusion向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "illusion",
@@ -771,12 +1173,30 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "illusion_yanyue"
+      "skill_tree_ref": "illusion_yanyue",
+      "source": "yanyue_sect",
+      "path_taxonomy_v123": "illusion",
+      "combat_school": true,
+      "realm_min": "FOUNDATION",
+      "novel_canon_v124": true,
+      "seven_sect_id": "yanyue_sect",
+      "seven_sect_display": "掩月宗",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "illusion",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "huangfeng_alchemy_scripture",
       "display": "黄枫丹经",
-      "path": "alchemy",
+      "path": "craft_alchemy",
       "faction": "huangfeng_valley",
       "realm_min": "QI_REFINING",
       "craft_ref": "alchemy_recipes.json",
@@ -796,7 +1216,22 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_huangfeng_alchemy_scripture"
+      "skill_tree_ref": "tree_huangfeng_alchemy_scripture",
+      "unlocks_techniques_school": null,
+      "source": "huangfeng_valley",
+      "path_taxonomy_v123": "craft_alchemy",
+      "combat_school": false,
+      "note_v123": "生活职 path，不解锁战斗 techniques school",
+      "seven_sect_id": "huangfeng_valley",
+      "seven_sect_display": "黄枫谷",
+      "element": "neutral",
+      "school": "craft_alchemy",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "craft_alchemy"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "qixuan_mortal_art",
@@ -821,23 +1256,35 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_qixuan_mortal_art"
+      "skill_tree_ref": "tree_qixuan_mortal_art",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "giant_sword_art",
       "display": "巨剑诀",
-      "path": "metal",
+      "path": "sword",
       "faction": "giant_sword_gate",
       "region": "tiannan",
       "unlocks_techniques_school": "sword",
       "realm_min": "QI_REFINING",
-      "description": "巨剑诀：metal系功法，门槛境界 QI_REFINING。",
+      "description": "巨剑诀：巨剑门重剑功法。以势压人，开山裂石，灵力消耗偏高，宜体魄与剑胚并修。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "metal",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "巨剑诀 所属道途：metal。",
-        "structural_note": false
+        "structural_note": false,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -846,16 +1293,32 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "blade_giant_sword"
+      "skill_tree_ref": "blade_giant_sword",
+      "source": "giant_sword_sect",
+      "path_taxonomy_v123": "sword",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "giant_sword_gate",
+      "seven_sect_display": "巨剑门",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "sword",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "qixuan_azure_pearl_art",
       "display": "青珠诀",
-      "path": "water",
+      "path": "elemental",
       "faction": "qixuan_men",
       "realm_min": "QI_REFINING",
       "note": "七玄门残传",
-      "description": "青珠诀：water系功法，门槛境界 QI_REFINING。",
+      "description": "青珠诀：water属性/倾向的elemental向功法。境界跨度约 QI_REFINING–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "water",
@@ -870,7 +1333,24 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_qixuan_azure_pearl_art"
+      "skill_tree_ref": "tree_qixuan_azure_pearl_art",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "water",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "source": "qixuan_related",
+      "novel_canon_v124": true,
+      "element": "water",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "qianzhu_puppet_art",
@@ -881,13 +1361,14 @@
       "realm_min": "QI_REFINING",
       "craft_ref": "puppet_craft_recipes.json",
       "unlocks_techniques_school": "puppet",
-      "description": "千竹傀儡术：puppet系功法，门槛境界 QI_REFINING。",
+      "description": "千竹教傀儡操控与炼制配套心法。与大衍诀可叠加：大衍壮神识，千竹重傀体结构。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "puppet_entry",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
-        "combat_style": "低阶木傀驱策，高阶转大衍。",
-        "structural_note": false
+        "combat_style": "傀儡",
+        "structural_note": false,
+        "novel_arc": "筑基争大衍"
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -899,7 +1380,20 @@
         "divine_sense_min": "above_average",
         "faction_relation_min": "outer_disciple"
       },
-      "skill_tree_ref": "puppet_qianzhu"
+      "skill_tree_ref": "puppet_qianzhu",
+      "path_taxonomy_v123": "puppet",
+      "combat_school": true,
+      "source": "qianzhu_sect",
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "yuling_beast_puppet_art",
@@ -925,24 +1419,40 @@
         ],
         "divine_sense_min": "above_average"
       },
-      "skill_tree_ref": "puppet_yuling"
+      "skill_tree_ref": "puppet_yuling",
+      "unlocks_techniques_school": "puppet",
+      "path_taxonomy_v123": "puppet",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "dayan_true_solution",
       "display": "大衍真解",
-      "path": "puppet",
+      "path": "divine_sense",
       "realm_min": "CORE_FORMATION",
       "requires": [
         "dayan_art"
       ],
       "note": "高阶傀儡与神识运算",
-      "description": "大衍真解：puppet系功法，门槛境界 CORE_FORMATION。",
+      "description": "大衍真解：大衍体系深化篇，非入门残页。需已有残篇基础与足够神识，方可参悟。仍不承诺一次补满完整大衍。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "puppet",
         "breakthrough": "门槛 CORE_FORMATION；具体突破条件见境界系统。",
         "combat_style": "大衍真解 所属道途：puppet。",
-        "structural_note": false
+        "structural_note": false,
+        "novel_arc": "结丹+",
+        "prerequisite": "大衍诀入门",
+        "lore_v141": "与千竹塔、傀儡、神识线绑定；完整大衍=稀有终点非刷物。",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -953,7 +1463,30 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_dayan_true_solution"
+      "skill_tree_ref": "tree_dayan_true_solution",
+      "unlocks_techniques_school": "divine_sense",
+      "prerequisite_methods": [
+        "dayan_art"
+      ],
+      "path_taxonomy_v123": "puppet",
+      "combat_school": true,
+      "source": "dayan_sage_legacy",
+      "unlocks_techniques_schools": [
+        "divine_sense",
+        "puppet"
+      ],
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "guiling_soul_art",
@@ -962,7 +1495,7 @@
       "faction": "guiling_gate",
       "element": "yin",
       "realm_min": "FOUNDATION",
-      "description": "鬼灵门摄魂诀：炼尸、摄魂、阴火并修，魔道六宗之一。",
+      "description": "鬼灵摄魂诀：鬼灵门神魂手段。摄魂、炼魂与幡类法器相合，正道声望 reciprocal 下降；入阴罗冢、冥河浅层有加成。",
       "karma": "demonic_karma",
       "setting": {
         "cultivation_type": "qi",
@@ -971,7 +1504,8 @@
         "combat_style": "炼尸、驱尸、阴火；需尸材资源。",
         "karma": "demonic_karma",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -986,7 +1520,26 @@
         ],
         "note": "鬼灵门核心；需尸材与阴地修炼。"
       },
-      "skill_tree_ref": "demonic_guiling"
+      "skill_tree_ref": "demonic_guiling",
+      "unlocks_techniques_school": "ghost",
+      "path_taxonomy_v123": "ghost",
+      "combat_school": true,
+      "source": "guiling_gate",
+      "unlocks_techniques_schools": [
+        "ghost",
+        "xuan_yin"
+      ],
+      "six_sect_id": "guiling_gate",
+      "novel_pack_canon": true,
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "hehuan_mind_art",
@@ -995,7 +1548,7 @@
       "faction": "hehuan_sect",
       "realm_min": "FOUNDATION",
       "karma": "demonic_karma",
-      "description": "合欢心法：媚术与双修并重，女修居多，擅乱敌心神。",
+      "description": "合欢媚心诀：合欢/掩月双修体系心法。重神魂牵引与采补平衡，风险在心性与因果；非无代价战力捷径。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "dual_charm",
@@ -1003,7 +1556,9 @@
         "combat_style": "媚术、心神扰乱、双修增益。",
         "karma": "demonic_karma",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "alignment": "demonic_dual",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1015,7 +1570,24 @@
         ],
         "note": "合欢宗不传外人；擅媚术与双修。"
       },
-      "skill_tree_ref": "hehuan_dual"
+      "skill_tree_ref": "hehuan_dual",
+      "unlocks_techniques_school": "illusion",
+      "source": "hehuan_sect",
+      "path_taxonomy_v123": "dual",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "six_sect_id": "hehuan_sect",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "dual",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "tianmo_body_art",
@@ -1023,7 +1595,7 @@
       "path": "body",
       "faction": "tianmo_sect",
       "realm_min": "FOUNDATION",
-      "description": "天魔炼体诀：魔体强化、血祭狂战，肉身承压极高。",
+      "description": "天魔炼体诀：魔道体修。换力猛、见效快，代价是心性与魔气反噬。掩月与魔道任务可接触；正道关隘易被查。",
       "setting": {
         "cultivation_type": "body",
         "sect_specialty": "demonic_body",
@@ -1031,7 +1603,9 @@
         "combat_style": "肉身强横、血祭爆发；灵力术法为辅。",
         "karma": "demonic_karma",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "lore_v141": "魔道体修入口，非无代价战力。",
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -1043,15 +1617,36 @@
         ],
         "note": "天魔宗炼体；需血祭池或等价魔道资源。"
       },
-      "skill_tree_ref": "tianmo_body"
+      "skill_tree_ref": "tianmo_body",
+      "unlocks_techniques_school": "body",
+      "path_taxonomy_v123": "body",
+      "combat_school": true,
+      "source": "tianmo_sect",
+      "unlocks_techniques_schools": [
+        "body",
+        "demonic"
+      ],
+      "six_sect_id": "tianmo_sect",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "body",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "qingluo_poison_art",
       "display": "青罗毒经",
-      "path": "poison",
+      "path": "demonic",
       "faction": "qingluo_sect",
       "realm_min": "FOUNDATION",
-      "description": "青罗毒经：毒虫毒雾并用，持续伤害强。",
+      "description": "青罗毒经：neutral属性/倾向的demonic向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "poison",
@@ -1068,7 +1663,22 @@
           "qingluo_poison_cave"
         ]
       },
-      "skill_tree_ref": "qingluo_poison"
+      "skill_tree_ref": "qingluo_poison",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "source": "qingluo_sect",
+      "six_sect_id": "qingluo_sect",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "wanhu_phantom_art",
@@ -1076,7 +1686,7 @@
       "path": "illusion",
       "faction": "wanhu_sect",
       "realm_min": "FOUNDATION",
-      "description": "万狐幻心诀：幻术惑心，擅规避正面厮杀。",
+      "description": "万狐幻形诀：neutral属性/倾向的illusion向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "illusion",
@@ -1093,15 +1703,30 @@
           "wanhu_illusion_grove"
         ]
       },
-      "skill_tree_ref": "wanhu_phantom"
+      "skill_tree_ref": "wanhu_phantom",
+      "unlocks_techniques_school": "illusion",
+      "path_taxonomy_v123": "illusion",
+      "combat_school": true,
+      "source": "wanhu_sect",
+      "six_sect_id": "wanhu_sect",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "illusion",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "xuewu_blood_art",
       "display": "血巫咒经",
-      "path": "blood",
+      "path": "demonic",
       "faction": "xuewu_sect",
       "realm_min": "FOUNDATION",
-      "description": "血巫咒经：血咒与巫术，以精血换瞬时威能。",
+      "description": "血巫咒经：neutral属性/倾向的demonic向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "blood_curse",
@@ -1118,7 +1743,22 @@
           "blood_altar"
         ]
       },
-      "skill_tree_ref": "xuewu_blood"
+      "skill_tree_ref": "xuewu_blood",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "source": "xuewu_sect",
+      "six_sect_id": "xuewu_sect",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "tianlan_beast_soul_art",
@@ -1126,7 +1766,7 @@
       "path": "beast",
       "faction": "tianlan_temple",
       "realm_min": "QI_REFINING",
-      "unlocks_techniques_school": "fashi_spirit_art",
+      "unlocks_techniques_school": "fashi",
       "note": "御兽法士线，与慕兰风灵术对照",
       "description": "天澜御兽诀：beast系功法，门槛境界 QI_REFINING。",
       "setting": {
@@ -1143,7 +1783,19 @@
           "faction_scripture"
         ]
       },
-      "skill_tree_ref": "tree_tianlan_beast_soul_art"
+      "skill_tree_ref": "tree_tianlan_beast_soul_art",
+      "source": "mulan",
+      "path_taxonomy_v123": "beast",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "beast",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "yin_luo_ghost_art",
@@ -1154,13 +1806,14 @@
       "karma": "yin_evil",
       "unlocks_techniques_school": "ghost",
       "requires_path": "ghost_cultivator",
-      "description": "阴罗鬼诀：ghost系功法，门槛境界 QI_REFINING。",
+      "description": "阴罗鬼诀：阴罗一脉鬼修功法。炼尸、驱阴、冢地生存向；与天尸珠、阴罗冢层表呼应。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "ghost",
         "breakthrough": "门槛 QI_REFINING；具体突破条件见境界系统。",
         "combat_style": "阴罗鬼诀 所属道途：ghost。",
-        "structural_note": false
+        "structural_note": false,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "QI_REFINING",
@@ -1170,14 +1823,31 @@
         ],
         "race_required": "ghost_cultivator"
       },
-      "skill_tree_ref": "yin_luo_ghost"
+      "skill_tree_ref": "yin_luo_ghost",
+      "path_taxonomy_v123": "ghost",
+      "combat_school": true,
+      "source": "yinluo_zong",
+      "novel_canon_v124": true,
+      "faction_id": "yinluo_zong",
+      "region": "dajin",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "taixu_gong",
       "display": "太虚功",
       "path": "dao",
       "realm_max": "FOUNDATION",
-      "description": "太虚功：道修入门，重吐纳与心境，不偏执单一元素。",
+      "description": "太虚功：正道清修根基之一。可衔接五雷等正法，忌魔气侵体。道门山门常见传授，散修需机缘。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "dao",
@@ -1185,7 +1855,8 @@
         "combat_style": "太虚功 所属道途：dao。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_max_practice": "FOUNDATION",
@@ -1195,15 +1866,30 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_taixu_gong"
+      "skill_tree_ref": "tree_taixu_gong",
+      "unlocks_techniques_school": "dao",
+      "path_taxonomy_v123": "dao",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
     },
     {
       "id": "jinxuan_gong",
       "display": "金玄功",
-      "path": "metal",
+      "path": "elemental",
       "realm_max": "FOUNDATION",
       "element": "metal",
-      "description": "金玄功：金系灵力淬体，利于剑修与金刃术。",
+      "description": "金玄功：metal属性/倾向的elemental向功法。境界跨度约 炼气–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "metal",
@@ -1226,15 +1912,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_jinxuan_gong"
+      "skill_tree_ref": "tree_jinxuan_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "metal",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "muyuan_gong",
       "display": "木元功",
-      "path": "wood",
+      "path": "elemental",
       "realm_max": "FOUNDATION",
       "element": "wood",
-      "description": "木元功：木系生机，与丹草、疗伤术相性佳。",
+      "description": "木元功：wood属性/倾向的elemental向功法。境界跨度约 炼气–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "wood",
@@ -1257,15 +1957,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_muyuan_gong"
+      "skill_tree_ref": "tree_muyuan_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "wood",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "shuiyuan_gong",
       "display": "水元功",
-      "path": "water",
+      "path": "elemental",
       "realm_max": "FOUNDATION",
       "element": "water",
-      "description": "水元功：水系柔劲，善防御与控场。",
+      "description": "水元功：water属性/倾向的elemental向功法。境界跨度约 炼气–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "water",
@@ -1288,15 +2002,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_shuiyuan_gong"
+      "skill_tree_ref": "tree_shuiyuan_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "water",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "huoyuan_gong",
       "display": "火元功",
-      "path": "fire",
+      "path": "elemental",
       "realm_max": "FOUNDATION",
       "element": "fire",
-      "description": "火元功：火系爆发，攻伐见长。",
+      "description": "火元功：fire属性/倾向的elemental向功法。境界跨度约 炼气–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "fire",
@@ -1319,15 +2047,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_huoyuan_gong"
+      "skill_tree_ref": "tree_huoyuan_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "fire",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "tuyuan_gong",
       "display": "土元功",
-      "path": "earth",
+      "path": "elemental",
       "realm_max": "FOUNDATION",
       "element": "earth",
-      "description": "土元功：土系厚重，善防御与土遁。",
+      "description": "土元功：earth属性/倾向的elemental向功法。境界跨度约 炼气–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "earth",
@@ -1350,15 +2092,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_tuyuan_gong"
+      "skill_tree_ref": "tree_tuyuan_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "earth",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "qingmu_gong",
       "display": "青木诀",
-      "path": "wood",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "element": "wood",
-      "description": "青木诀：筑基木系功法，黄枫一系常见过渡。",
+      "description": "青木诀：wood属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "wood",
@@ -1381,15 +2137,29 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_qingmu_gong"
+      "skill_tree_ref": "tree_qingmu_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "wood",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "lieyan_zhenjing",
       "display": "烈焰真经",
-      "path": "fire",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "element": "fire",
-      "description": "烈焰真经：筑基火系正宗，火术威力上浮。",
+      "description": "烈焰真经：fire属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "fire",
@@ -1412,15 +2182,32 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_lieyan_zhenjing"
+      "skill_tree_ref": "tree_lieyan_zhenjing",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "fire",
+      "prerequisite_methods": [
+        "lieyan_gong"
+      ],
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "xuanbing_zhenjing",
       "display": "玄冰真经",
-      "path": "ice",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "element": "ice",
-      "description": "玄冰真经：筑基冰系，克火、善控速。",
+      "description": "玄冰真经：ice属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "ice",
@@ -1443,12 +2230,25 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_xuanbing_zhenjing"
+      "skill_tree_ref": "tree_xuanbing_zhenjing",
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "ice",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "jinyi_gong",
       "display": "金翼功",
-      "path": "metal",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "element": "metal",
       "description": "金翼功：metal系功法，门槛境界 FOUNDATION。",
@@ -1472,14 +2272,27 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_jinyi_gong"
+      "skill_tree_ref": "tree_jinyi_gong",
+      "unlocks_techniques_school": "elemental",
+      "element_required": "metal",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "yanyue_gong",
       "display": "掩月诀",
       "path": "illusion",
       "realm_min": "FOUNDATION",
-      "description": "掩月诀：幻术与女修阴柔灵气并用，掩月宗传承。",
+      "description": "掩月诀：neutral属性/倾向的illusion向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "source": "yanyue_sect",
       "setting": {
         "cultivation_type": "qi",
@@ -1507,14 +2320,31 @@
         ],
         "note": "掩月宗秘传；男修多只能得残篇。"
       },
-      "skill_tree_ref": "tree_yanyue_gong"
+      "skill_tree_ref": "tree_yanyue_gong",
+      "unlocks_techniques_school": "illusion",
+      "path_taxonomy_v123": "illusion",
+      "combat_school": true,
+      "novel_canon_v124": true,
+      "seven_sect_id": "yanyue_sect",
+      "seven_sect_display": "掩月宗",
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "illusion",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "luoyun_dan_dao",
       "display": "落云丹道诀",
-      "path": "alchemy",
+      "path": "craft_alchemy",
       "realm_min": "FOUNDATION",
-      "description": "落云宗丹道诀：以丹道感悟灵气运转，斗法偏弱、炼丹加成显著。",
+      "description": "落云宗顶级丹道职修。不解锁战斗 school；可解锁炼丹操作/灵焰辅助技（craft 向）。",
       "source": "luoyun_sect",
       "setting": {
         "cultivation_type": "qi",
@@ -1547,14 +2377,28 @@
         },
         "note": "落云宗弟子主修；外人极难习得完整版。"
       },
-      "skill_tree_ref": "tree_luoyun_dan_dao"
+      "skill_tree_ref": "tree_luoyun_dan_dao",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "craft_alchemy",
+      "combat_school": false,
+      "note_v123": "生活职 path，不解锁战斗 techniques school",
+      "sect_id": "luoyun_sect",
+      "v127": true,
+      "element": "neutral",
+      "school": "craft_alchemy",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "craft_alchemy"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "tianfu_scripture",
       "display": "天符灵诀",
       "path": "talisman",
       "realm_min": "FOUNDATION",
-      "description": "天符灵诀：制符宗门核心，以神识绘符引天地之力。",
+      "description": "天符灵诀：neutral属性/倾向的talisman向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "faction": "tianfu_sect",
       "unlocks_techniques_school": "talisman",
       "setting": {
@@ -1588,7 +2432,25 @@
         "divine_sense_min": "average",
         "note": "制符宗门核心；神识偏弱难以成符。"
       },
-      "skill_tree_ref": "tree_tianfu_scripture"
+      "skill_tree_ref": "tree_tianfu_scripture",
+      "prerequisite_methods": [
+        "tianfu_spirit_scripture"
+      ],
+      "path_taxonomy_v123": "talisman",
+      "combat_school": true,
+      "source": "tianfu_gate",
+      "sect_id": "tianfu_gate",
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "talisman",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "tiannan_seven_sect_base",
@@ -1613,14 +2475,25 @@
         ],
         "note": "七派外门共性框架，入门后须转专修。"
       },
-      "skill_tree_ref": "tree_tiannan_seven_sect_base"
+      "skill_tree_ref": "tree_tiannan_seven_sect_base",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "dajin_buddhist_base",
       "display": "大晋佛修基础",
       "path": "buddhist",
       "realm_max": "FOUNDATION",
-      "description": "大晋佛修基础：buddhist系功法，门槛境界 FOUNDATION。",
+      "description": "大晋佛修基础：neutral属性/倾向的buddhist向功法。境界跨度约 FOUNDATION–FOUNDATION。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "buddhist",
@@ -1636,21 +2509,41 @@
         "karma": "righteous",
         "note": "大晋佛寺度化入门；克魔克鬼。"
       },
-      "skill_tree_ref": "tree_dajin_buddhist_base"
+      "skill_tree_ref": "tree_dajin_buddhist_base",
+      "unlocks_techniques_school": "buddhist",
+      "path_taxonomy_v123": "buddhist",
+      "combat_school": true,
+      "realm_min": "FOUNDATION",
+      "source": "dajin_buddhist",
+      "faction_id": "dajin_buddhist",
+      "region": "dajin",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "buddhist",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "void_refining_scripture",
       "display": "炼虚真经",
       "path": "void",
-      "realm_min": "VOID_REFINING",
-      "description": "炼虚真经：炼虚期参悟空间法则，法术多带裂隙、领域特性。",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "炼虚真解/通修：炼虚期主修骨架。强调虚空之躯与灵界法则初感，为人界化神后飞升灵界的功法台阶（通称可替换门派真传）。",
       "setting": {
         "cultivation_type": "qi",
         "realm_focus": "VOID_REFINING",
         "combat_style": "空间裂隙、领域雏形；灵界规则。",
         "region": "spirit_world",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "VOID_REFINING",
@@ -1661,14 +2554,30 @@
         ],
         "note": "灵界炼虚功法；人界极少完整版本。"
       },
-      "skill_tree_ref": "tree_void_refining_scripture"
+      "skill_tree_ref": "tree_void_refining_scripture",
+      "unlocks_techniques_school": "secret_arts",
+      "path_taxonomy_v123": "void",
+      "combat_school": true,
+      "source": "lingjie",
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "void",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "great_vehicle_dao",
       "display": "大乘道典",
       "path": "dao",
       "realm_min": "GREAT_VEHICLE",
-      "description": "大乘道典：灵界高阶道修总纲，法相、领域类神通前置。",
+      "description": "大乘道典：neutral属性/倾向的dao向功法。境界跨度约 GREAT_VEHICLE–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "realm_focus": "GREAT_VEHICLE",
@@ -1683,20 +2592,38 @@
           "tribulation_insight"
         ]
       },
-      "skill_tree_ref": "tree_great_vehicle_dao"
+      "skill_tree_ref": "tree_great_vehicle_dao",
+      "unlocks_techniques_school": "dao",
+      "path_taxonomy_v123": "dao",
+      "combat_school": true,
+      "source": "lingjie",
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "spirit_severing_art",
-      "display": "炼神诀",
-      "path": "spirit",
-      "realm_min": "SPIRIT_SEVERING",
-      "description": "炼神诀：炼神期锤炼神魂与法则，杀伐神通代价极大。",
+      "display": "炼神诀（通称）",
+      "path": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "高阶神识修炼通称。与「炼神术」分层：本条泛用，炼神术为禁术具名。",
       "setting": {
         "cultivation_type": "qi",
         "realm_focus": "SPIRIT_SEVERING",
         "combat_style": "法则感悟、神魂杀伐；代价极大。",
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "note": "勿与 lian_shen_shu 混淆"
       },
       "learn_requirements": {
         "realm_min": "SPIRIT_SEVERING",
@@ -1705,14 +2632,28 @@
           "clan_supreme"
         ]
       },
-      "skill_tree_ref": "tree_spirit_severing_art"
+      "skill_tree_ref": "tree_spirit_severing_art",
+      "unlocks_techniques_school": "divine_sense",
+      "path_taxonomy_v123": "divine_sense",
+      "combat_school": true,
+      "source": "generic",
+      "novel_canon_v124": false,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "barbarian_body_art",
       "display": "蛮荒炼体诀",
       "path": "body",
-      "realm_min": "VOID_REFINING",
-      "description": "蛮荒炼体诀：灵界蛮荒体修，以妖兽精血淬体。",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "蛮荒炼体诀：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。body。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "region": "barbarian_wasteland",
       "setting": {
         "cultivation_type": "body",
@@ -1728,15 +2669,28 @@
           "tribal_blood_oath"
         ]
       },
-      "skill_tree_ref": "tree_barbarian_body_art"
+      "skill_tree_ref": "tree_barbarian_body_art",
+      "unlocks_techniques_school": "body",
+      "path_taxonomy_v123": "body",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "tianyuan_guard_art",
       "display": "天渊守城诀",
       "path": "mixed",
-      "realm_min": "SPIRIT_SEVERING",
-      "description": "天渊守城诀：天渊城守军与修士共修，兼顾阵防与对妖。",
-      "region": "tianyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "天渊守城诀：neutral属性/倾向的mixed向功法。境界跨度约 VOID_REFINEMENT–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "region": "lingjie",
       "setting": {
         "cultivation_type": "qi",
         "faction": "tianyuan_city",
@@ -1755,7 +2709,23 @@
           "tianyuan_merit"
         ]
       },
-      "skill_tree_ref": "tree_tianyuan_guard_art"
+      "skill_tree_ref": "tree_tianyuan_guard_art",
+      "unlocks_techniques_school": "formation",
+      "path_taxonomy_v123": "mixed",
+      "combat_school": true,
+      "source": "tianyuan",
+      "faction_id": "tianyuan",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "fallen_demon_art",
@@ -1782,14 +2752,26 @@
           "pure_righteous_path_locked"
         ]
       },
-      "skill_tree_ref": "tree_fallen_demon_art"
+      "skill_tree_ref": "tree_fallen_demon_art",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "blood_demon_art",
       "display": "血魔功",
       "path": "demonic",
       "realm_min": "CORE_FORMATION",
-      "description": "血魔功：以血炼法，攻伐凌厉，易入魔。",
+      "description": "血魔功：neutral属性/倾向的demonic向功法。境界跨度约 CORE_FORMATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "demonic",
@@ -1797,7 +2779,8 @@
         "combat_style": "血魔功 所属道途：demonic。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "alignment": "demonic"
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -1807,15 +2790,30 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_blood_demon_art"
+      "skill_tree_ref": "tree_blood_demon_art",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "source": "xuemozong",
+      "novel_canon_v124": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "xuantian_ice_art",
       "display": "玄天冰魄功",
-      "path": "ice",
+      "path": "elemental",
       "realm_min": "CORE_FORMATION",
       "element": "ice",
-      "description": "玄天冰魄功：极寒灵力，封冻、碎冰并重。",
+      "description": "玄天冰魄功：极寒冰系。宜冰灵根，惧纯阳燥火环境。可与冰鉴、寒域洞府结构联动。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "ice",
@@ -1823,7 +2821,8 @@
         "combat_style": "玄天冰魄功 所属道途：ice。",
         "structural_note": false,
         "lore_ref": null,
-        "source_detail": null
+        "source_detail": null,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "CORE_FORMATION",
@@ -1838,7 +2837,20 @@
           ]
         }
       },
-      "skill_tree_ref": "tree_xuantian_ice_art"
+      "skill_tree_ref": "tree_xuantian_ice_art",
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "ice",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "wudang_sword_art",
@@ -1865,7 +2877,20 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_wudang_sword_art"
+      "skill_tree_ref": "tree_wudang_sword_art",
+      "unlocks_techniques_school": "sword",
+      "tags": [
+        "crossover_easter_egg",
+        "neutral",
+        "sword",
+        true
+      ],
+      "path_taxonomy_v123": "sword",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "v138_field_fill": true
     },
     {
       "id": "nangong_wangzu_art",
@@ -1889,14 +2914,25 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_nangong_wangzu_art"
+      "skill_tree_ref": "tree_nangong_wangzu_art",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "lingzu_pearl_art",
       "display": "灵族凝珠诀",
-      "path": "spirit",
-      "realm_min": "SPIRIT_SEVERING",
-      "description": "灵族凝珠诀：灵族秘传，凝珠射劲与珠光护体。",
+      "path": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "灵族凝珠诀：neutral属性/倾向的divine_sense向功法。境界跨度约 VOID_REFINEMENT–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "race": "spirit_race",
       "setting": {
         "cultivation_type": "qi",
@@ -1912,7 +2948,20 @@
           "spirit_clan_bloodline"
         ]
       },
-      "skill_tree_ref": "tree_lingzu_pearl_art"
+      "skill_tree_ref": "tree_lingzu_pearl_art",
+      "unlocks_techniques_school": "divine_sense",
+      "path_taxonomy_v123": "divine_sense",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "generic_cultivation_qi_refining",
@@ -1935,7 +2984,18 @@
         "structural": true,
         "note": "通称占位，学习限制由具体宗门版本覆盖。"
       },
-      "skill_tree_ref": "tree_generic_cultivation_qi_refining"
+      "skill_tree_ref": "tree_generic_cultivation_qi_refining",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_foundation",
@@ -1958,7 +3018,18 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_foundation"
+      "skill_tree_ref": "tree_generic_cultivation_foundation",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_core_formation",
@@ -1981,7 +3052,18 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_core_formation"
+      "skill_tree_ref": "tree_generic_cultivation_core_formation",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_nascent_soul",
@@ -2004,7 +3086,18 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_nascent_soul"
+      "skill_tree_ref": "tree_generic_cultivation_nascent_soul",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_deity_transformation",
@@ -2027,20 +3120,32 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_deity_transformation"
+      "skill_tree_ref": "tree_generic_cultivation_deity_transformation",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_void_refining",
       "display": "VOID_REFINING通修诀（通称）",
       "path": "mixed",
-      "realm_min": "VOID_REFINING",
-      "description": "VOID_REFINING通修诀（通称）：mixed系功法，门槛境界 VOID_REFINING。",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "炼虚通修诀（通称）：无门派时的炼虚骨架，属性中性，战力低于真传，但可平稳过渡到灵界功法。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "mixed",
         "breakthrough": "门槛 VOID_REFINING；具体突破条件见境界系统。",
         "combat_style": "VOID_REFINING通修诀（通称） 所属道途：mixed。",
-        "structural_note": false
+        "structural_note": false,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "VOID_REFINING",
@@ -2050,7 +3155,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_void_refining"
+      "skill_tree_ref": "tree_generic_cultivation_void_refining",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "generic_cultivation_great_vehicle",
@@ -2073,13 +3190,24 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_great_vehicle"
+      "skill_tree_ref": "tree_generic_cultivation_great_vehicle",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "generic_cultivation_spirit_severing",
       "display": "SPIRIT_SEVERING通修诀（通称）",
       "path": "mixed",
-      "realm_min": "SPIRIT_SEVERING",
+      "realm_min": "VOID_REFINEMENT",
       "description": "SPIRIT_SEVERING通修诀（通称）：mixed系功法，门槛境界 SPIRIT_SEVERING。",
       "setting": {
         "cultivation_type": "qi",
@@ -2096,20 +3224,32 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_generic_cultivation_spirit_severing"
+      "skill_tree_ref": "tree_generic_cultivation_spirit_severing",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_sword",
       "display": "sword专精入门（通称）",
       "path": "sword",
       "realm_min": "FOUNDATION",
-      "description": "sword专精入门（通称）：sword系功法，门槛境界 FOUNDATION。",
+      "description": "剑修专精入门（通称）：七派/落云等剑院通用入门，强调剑心与日课，非某一绝学全本。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "sword",
         "breakthrough": "门槛 FOUNDATION；具体突破条件见境界系统。",
         "combat_style": "sword专精入门（通称） 所属道途：sword。",
-        "structural_note": false
+        "structural_note": false,
+        "lore_v142": "贴原著气质精修"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
@@ -2122,7 +3262,20 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_sword"
+      "skill_tree_ref": "tree_sect_specialty_sword",
+      "unlocks_techniques_school": "sword",
+      "path_taxonomy_v123": "sword",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "sword",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
     },
     {
       "id": "sect_specialty_body",
@@ -2145,7 +3298,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_body"
+      "skill_tree_ref": "tree_sect_specialty_body",
+      "unlocks_techniques_school": "body",
+      "path_taxonomy_v123": "body",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_talisman",
@@ -2172,7 +3337,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_talisman"
+      "skill_tree_ref": "tree_sect_specialty_talisman",
+      "unlocks_techniques_school": "talisman",
+      "path_taxonomy_v123": "talisman",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "talisman",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_formation",
@@ -2195,7 +3372,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_formation"
+      "skill_tree_ref": "tree_sect_specialty_formation",
+      "unlocks_techniques_school": "formation",
+      "path_taxonomy_v123": "formation",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_puppet",
@@ -2219,12 +3408,24 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_puppet"
+      "skill_tree_ref": "tree_sect_specialty_puppet",
+      "unlocks_techniques_school": "puppet",
+      "path_taxonomy_v123": "puppet",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_alchemy",
       "display": "alchemy专精入门（通称）",
-      "path": "alchemy",
+      "path": "craft_alchemy",
       "realm_min": "FOUNDATION",
       "description": "alchemy专精入门（通称）：alchemy系功法，门槛境界 FOUNDATION。",
       "setting": {
@@ -2242,7 +3443,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_alchemy"
+      "skill_tree_ref": "tree_sect_specialty_alchemy",
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "craft_alchemy",
+      "combat_school": false,
+      "note_v123": "生活职 path，不解锁战斗 techniques school",
+      "element": "neutral",
+      "school": "craft_alchemy",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "craft_alchemy"
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_ghost",
@@ -2266,7 +3479,19 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_ghost"
+      "skill_tree_ref": "tree_sect_specialty_ghost",
+      "unlocks_techniques_school": "ghost",
+      "path_taxonomy_v123": "ghost",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "sect_specialty_demonic",
@@ -2289,18 +3514,30 @@
           "master_teach"
         ]
       },
-      "skill_tree_ref": "tree_sect_specialty_demonic"
+      "skill_tree_ref": "tree_sect_specialty_demonic",
+      "unlocks_techniques_school": "demonic",
+      "path_taxonomy_v123": "demonic",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "kunwu_seal_art",
-      "display": "坤吴印诀",
+      "display": "昆吾印诀",
       "path": "formation",
       "realm_min": "FOUNDATION",
       "source": "kunwu_mountain",
       "faction": "kunwu_lineage",
       "region": "dajin",
       "unlocks_techniques_school": "formation",
-      "description": "坤吴印诀：大晋坤吴山阵宗核心，以印引阵、以阵镇魔；高阶与古印碎片共鸣。",
+      "description": "昆吾印诀：neutral属性/倾向的formation向功法。境界跨度约 FOUNDATION–视篇。人界大晋顶级阵宗传承，与魔劫封印相关。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "formation_seal",
@@ -2339,7 +3576,21 @@
           "kunwu_intel"
         ],
         "note": "大晋坤吴山传承；多需机缘或宗门引荐。"
-      }
+      },
+      "path_taxonomy_v123": "formation",
+      "combat_school": true,
+      "faction_id": "kunwu",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "lingwu_sect_art",
@@ -2348,7 +3599,7 @@
       "realm_min": "FOUNDATION",
       "faction": "lingwu_sect",
       "region": "tiannan",
-      "description": "灵武门：天南体修小宗，炼体与低阶武技并用。",
+      "description": "灵武门炼体诀：neutral属性/倾向的body向功法。境界跨度约 FOUNDATION–视篇。body。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "body",
         "sect_specialty": "body",
@@ -2362,7 +3613,20 @@
         "learn_source": [
           "faction_scripture"
         ]
-      }
+      },
+      "unlocks_techniques_school": "body",
+      "path_taxonomy_v123": "body",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "juvenile_sect_art",
@@ -2371,7 +3635,7 @@
       "realm_min": "QI_REFINING",
       "faction": "juvenile_sect",
       "region": "tiannan",
-      "description": "幼童门：天南小派，功法平庸，以收徒闻名。",
+      "description": "幼童门心法：neutral属性/倾向的mixed向功法。境界跨度约 QI_REFINING–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "mixed",
@@ -2385,16 +3649,28 @@
         "learn_source": [
           "faction_scripture"
         ]
-      }
+      },
+      "unlocks_techniques_school": null,
+      "path_taxonomy_v123": "mixed",
+      "combat_school": false,
+      "element": "neutral",
+      "school": "mixed",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed"
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "huangjin_sect_art",
       "display": "皇金宗金罡诀",
-      "path": "metal",
+      "path": "elemental",
       "realm_min": "FOUNDATION",
       "faction": "huangjin_sect",
       "region": "dajin",
-      "description": "大晋皇金宗：金系攻伐正宗。",
+      "description": "皇金宗金罡诀：neutral属性/倾向的elemental向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "metal",
@@ -2408,7 +3684,20 @@
         "learn_source": [
           "faction_scripture"
         ]
-      }
+      },
+      "unlocks_techniques_school": "elemental",
+      "path_taxonomy_v123": "elemental",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "elemental",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "taiyi_sect_art",
@@ -2417,7 +3706,7 @@
       "realm_min": "FOUNDATION",
       "faction": "taiyi_sect",
       "region": "dajin",
-      "description": "大晋太一门：道修正宗，兼修阵法。",
+      "description": "太一门太玄功：neutral属性/倾向的dao向功法。境界跨度约 FOUNDATION–视篇。qi。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
       "setting": {
         "cultivation_type": "qi",
         "sect_specialty": "dao",
@@ -2431,12 +3720,26 @@
         "learn_source": [
           "faction_scripture"
         ]
-      }
+      },
+      "unlocks_techniques_school": "dao",
+      "path_taxonomy_v123": "dao",
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "beast_taming_basic",
       "display": "御兽基础诀",
-      "path": "beast_taming",
+      "path": "beast",
       "realm_min": "QI_REFINING",
       "description": "散修与宗门共用的驯兽入门：精血认主、御兽环、灵兽袋。",
       "learn_requirements": {
@@ -2449,14 +3752,28 @@
       "setting": {
         "cultivation_type": "auxiliary",
         "sect_specialty": "beast_taming"
-      }
+      },
+      "unlocks_techniques_school": "fashi",
+      "path_taxonomy_v123": "beast",
+      "combat_school": true,
+      "seven_sect_id": "spirit_beast_mountain",
+      "seven_sect_display": "灵兽山",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "beast",
+        true
+      ],
+      "v138_field_fill": true
     },
     {
       "id": "buddhist_vajra_body_art",
       "display": "金刚诀",
       "type": "body",
       "realm_min": "QI_REFINING",
-      "source": "大晋佛修",
+      "source": "dajin_buddhist",
       "setting": {
         "lore": "佛修炼体入门，与道门炼体并行但因果不同。",
         "compliance": "结构向"
@@ -2469,23 +3786,47 @@
           ],
           "note": "需佛寺或残卷。"
         }
-      }
+      },
+      "path": "buddhist",
+      "unlocks_techniques_school": "buddhist",
+      "path_taxonomy_v123": "buddhist",
+      "combat_school": true,
+      "description": "金刚诀：neutral属性/倾向的buddhist向功法。境界跨度约 QI_REFINING–视篇。佛修炼体入门，与道门炼体并行但因果不同。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "dajin_buddhist",
+      "region": "dajin",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "buddhist",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "artifact_refining_basic",
       "display": "炼器基础诀",
-      "path": "artifact_craft",
+      "path": "craft_artifact",
       "element_required": "earth",
       "realm_max": "CORE_FORMATION",
       "source": "tianque_fort",
-      "description": "天阙堡等炼器宗门的外门基础：控火、胚体、铭文入门；不直接提供战斗神通，需配合炼器台与材料。",
-      "unlocks_techniques_school": "artifact",
+      "description": "炼器基础诀：earth属性/倾向的craft_artifact向功法。境界跨度约 QI_REFINING–CORE_FORMATION。auxiliary。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "unlocks_techniques_school": null,
       "setting": {
         "cultivation_type": "auxiliary",
         "sect_specialty": "artifact_defense",
         "spirit_root_gate": {
-          "required_any": ["earth", "fire"],
-          "bonus": ["earth"]
+          "required_any": [
+            "earth",
+            "fire"
+          ],
+          "bonus": [
+            "earth"
+          ]
         },
         "combat_style": "以符箓护体、法器御敌为主，本体战力偏弱。",
         "region": "tiannan",
@@ -2496,26 +3837,51 @@
       "learn_requirements": {
         "realm_min": "QI_REFINING",
         "spirit_roots": {
-          "required_any": ["earth", "fire"]
+          "required_any": [
+            "earth",
+            "fire"
+          ]
         },
         "faction_relation_min": "outer_disciple",
-        "learn_source": ["sect_forge_hall", "master_grant", "market_slip_rare"]
-      }
+        "learn_source": [
+          "sect_forge_hall",
+          "master_grant",
+          "market_slip_rare"
+        ]
+      },
+      "path_taxonomy_v123": "craft_artifact",
+      "combat_school": false,
+      "note_v123": "生活职 path，不解锁战斗 techniques school",
+      "realm_min": "QI_REFINING",
+      "sect_id": "tianque_fort",
+      "v127": true,
+      "element": "earth",
+      "school": "craft_artifact",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "craft_artifact",
+        "neutral"
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     },
     {
       "id": "treasure_appraisal_art",
       "display": "鉴宝诀",
-      "path": "treasure_trade",
+      "path": "craft_appraise",
       "element_required": "none",
       "realm_max": "NASCENT_SOUL",
       "source": "wanbao_pavilion",
       "description": "万宝楼一脉的辅修功法：观气辨宝、估阶议价；修至高层可在拍卖中识破伪宝与压价陷阱。",
-      "unlocks_techniques_school": "treasure",
+      "unlocks_techniques_school": null,
       "setting": {
         "cultivation_type": "auxiliary",
         "sect_specialty": "auction_treasure",
         "spirit_root_gate": {
-          "required_any": ["any"],
+          "required_any": [
+            "any"
+          ],
           "note": "灵根不限，重神识与阅历。"
         },
         "combat_style": "几乎不参与斗法，情报与竞价为核心。",
@@ -2526,14 +3892,1271 @@
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
-        "learn_source": ["wanbao_contract", "auction_mentor", "high_price_intel_scroll"],
+        "learn_source": [
+          "wanbao_contract",
+          "auction_mentor",
+          "high_price_intel_scroll"
+        ],
         "reputation_min": {
           "faction": "wanbao_pavilion",
           "tier": "registered_bidder"
         }
-      }
+      },
+      "path_taxonomy_v123": "craft_appraise",
+      "combat_school": false,
+      "note_v123": "生活职 path，不解锁战斗 techniques school",
+      "element": "none",
+      "school": "craft_appraise",
+      "alignment": "neutral",
+      "tags": [
+        "none",
+        "craft_appraise",
+        "neutral"
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "five_elements_root_art",
+      "display": "五行根基诀",
+      "path": "elemental",
+      "realm_min": "QI_REFINING",
+      "realm_max": "FOUNDATION",
+      "source": "generic",
+      "element_required": null,
+      "unlocks_techniques_school": "elemental",
+      "description": "散修/坊市通行的五行根基总纲，承接杂五行低阶术；专精后应转修单一五行真经或宗门剑诀。",
+      "setting": {
+        "cultivation_type": "qi",
+        "sect_specialty": "elemental",
+        "note": "v123 补挂：原术法 requires 悬空"
+      },
+      "tags": [
+        "v123_added",
+        "neutral",
+        "elemental",
+        true
+      ],
+      "combat_school": true,
+      "path_taxonomy_v123": "elemental",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "v138_field_fill": true
+    },
+    {
+      "id": "huadao_slash_art",
+      "display": "化刀斩诀",
+      "path": "blade",
+      "realm_min": "FOUNDATION",
+      "source": "huadao_wu",
+      "unlocks_techniques_school": "sword",
+      "prerequisite_methods": [
+        "huadao_blade_intent"
+      ],
+      "description": "化刀坞进阶斩法，承接化刀诀；术法归 sword 文件并以 tags:blade 区分。",
+      "setting": {
+        "cultivation_type": "qi",
+        "sect_specialty": "blade",
+        "faction": "huadao_wu"
+      },
+      "tags": [
+        "v123_added",
+        "blade",
+        "neutral",
+        true
+      ],
+      "combat_school": true,
+      "path_taxonomy_v123": "blade",
+      "seven_sect_id": "huadao_wu",
+      "seven_sect_display": "化刀坞",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "v138_field_fill": true
+    },
+    {
+      "id": "sanzhuan_zhongyuan_gong",
+      "display": "三转重元功",
+      "path": "qi_base",
+      "realm_min": "FOUNDATION",
+      "source": "huangfeng_valley",
+      "unlocks_techniques_school": "elemental",
+      "description": "黄枫谷李化元一脉相关功法（金色书页线）。偏稳固灵力、再筑根基，非剑诀本体。",
+      "setting": {
+        "novel_arc": "黄枫谷记名弟子"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "seven_sect_id": "huangfeng_valley",
+      "seven_sect_display": "黄枫谷",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "qi_base",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "nongyan_jue",
+      "display": "弄焰决",
+      "path": "elemental",
+      "realm_min": "FOUNDATION",
+      "element_required": "fire",
+      "source": "tiannan_misc",
+      "unlocks_techniques_school": "elemental",
+      "description": "天南所得控火心法。辅助炼器/战斗喷焰，非主修大道功。",
+      "setting": {
+        "novel_arc": "筑基中期后"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "fire",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "lianxi_shu_method",
+      "display": "敛息术心法",
+      "path": "movement",
+      "realm_min": "QI_REFINING",
+      "source": "tiannan_misc",
+      "unlocks_techniques_school": "movement",
+      "description": "收敛气息、降低被神识/探查锁定概率的辅助心法。韩立常用保命手段之一。",
+      "setting": {
+        "novel_arc": "全程",
+        "combat_style": "隐匿"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "tuotian_mogong",
+      "display": "托天魔功",
+      "path": "demonic",
+      "realm_min": "NASCENT_SOUL",
+      "source": "jiyin_legacy",
+      "unlocks_techniques_school": "demonic",
+      "description": "极阴等魔道强者相关魔功。韩立缴获后可阅，偏魔道神通与肉身/魔气。正道声望敌对。",
+      "setting": {
+        "novel_arc": "乱星海报仇线",
+        "alignment": "demonic"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "yuanci_shenguang_art",
+      "display": "元磁神光功法",
+      "path": "elemental",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "element_required": "metal",
+      "source": "star_palace_gift",
+      "unlocks_techniques_school": "elemental",
+      "description": "元磁神光：磁光擒拿、破器与领域向秘术功法。中后期强控，对金属法宝克制明显，修炼需特殊灵物。",
+      "setting": {
+        "novel_arc": "化神冲刺",
+        "combat_style": "元磁",
+        "lore_v142": "贴原著气质精修"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "faction_id": "star_palace",
+      "v128": true,
+      "element": "metal",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
+    },
+    {
+      "id": "mingwang_jue",
+      "display": "明王决",
+      "path": "body",
+      "realm_min": "NASCENT_SOUL",
+      "source": "dajin_feng_family",
+      "unlocks_techniques_school": "body",
+      "description": "明王决：neutral属性/倾向的body向功法。境界跨度约 NASCENT_SOUL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "大晋",
+        "combat_style": "肉身"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "faction_id": "dajin_feng",
+      "region": "dajin",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "fansheng_zhenmogong",
+      "display": "梵圣真魔功",
+      "path": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "source": "lingjie",
+      "unlocks_techniques_school": "body",
+      "description": "梵圣真魔功：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "灵界",
+        "combat_style": "法体"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "baipulse_lianbao_jue",
+      "display": "百脉炼宝诀",
+      "path": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "source": "guanghan_jie",
+      "unlocks_techniques_school": "body",
+      "description": "百脉炼宝诀：neutral属性/倾向的body向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "灵界广寒"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "wuzang_duanyuan_gong",
+      "display": "五藏锻元功",
+      "path": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "source": "lingjie",
+      "unlocks_techniques_school": "body",
+      "description": "五藏锻元功：neutral属性/倾向的body向功法。境界跨度约 BODY_INTEGRATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "灵界后期"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "lian_shen_shu",
+      "display": "炼神术",
+      "path": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "source": "guanghan_jie",
+      "unlocks_techniques_school": "divine_sense",
+      "description": "炼神术：neutral属性/倾向的divine_sense向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "灵界-仙界",
+        "risk": "神识反噬"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "jingzhe_shier_bian",
+      "display": "惊蛰十二变",
+      "path": "beast",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "source": "tianpeng",
+      "unlocks_techniques_school": "fashi",
+      "description": "惊蛰十二变：neutral属性/倾向的beast向功法。境界跨度约 DEITY_TRANSFORMATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "灵界天鹏"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "lingjie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "beast",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "tiansha_zhenyu_gong",
+      "display": "天煞镇狱功",
+      "path": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "source": "mojie",
+      "unlocks_techniques_school": "body",
+      "description": "天煞镇狱功：neutral属性/倾向的body向功法。境界跨度约 BODY_INTEGRATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "novel_arc": "魔界",
+        "alignment": "demonic_body"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "region": "mojie",
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "yin_yang_lunhui_jue",
+      "display": "阴阳轮回决",
+      "path": "dual",
+      "realm_min": "CORE_FORMATION",
+      "source": "yinming_land",
+      "unlocks_techniques_school": "illusion",
+      "description": "阴阳轮回决：阴阳对转、生死边缘的险修。与轮回殿气质相合，反噬高，不适合无神魂根基者。",
+      "setting": {
+        "novel_arc": "乱星海鬼雾",
+        "lore_v142": "贴原著气质精修"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "dual",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_polish": true
+    },
+    {
+      "id": "xue_lian_shenguang",
+      "display": "血炼神光修炼法",
+      "path": "demonic",
+      "realm_min": "FOUNDATION",
+      "source": "heisha_jiao",
+      "unlocks_techniques_school": "demonic",
+      "description": "血炼神光修炼法：neutral属性/倾向的demonic向功法。境界跨度约 FOUNDATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "alignment": "demonic"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "jifeng_jiubian",
+      "display": "疾风九变",
+      "path": "movement",
+      "realm_min": "NASCENT_SOUL",
+      "source": "tiannan_misc",
+      "unlocks_techniques_school": "movement",
+      "description": "疾风九变：neutral属性/倾向的movement向功法。境界跨度约 NASCENT_SOUL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {
+        "combat_style": "爆发身法"
+      },
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "cuigu_jue",
+      "display": "淬骨决",
+      "path": "body",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "source": "chaotic_sea",
+      "unlocks_techniques_school": "body",
+      "description": "淬骨决：neutral属性/倾向的body向功法。境界跨度约 DEITY_TRANSFORMATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "setting": {},
+      "novel_canon_v124": true,
+      "combat_school": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "tianque_fort_art",
+      "display": "天阙堡垒诀",
+      "path": "body",
+      "realm_min": "FOUNDATION",
+      "source": "tianque_fort",
+      "unlocks_techniques_school": "body",
+      "unlocks_techniques_schools": [
+        "body",
+        "formation"
+      ],
+      "description": "天阙堡垒诀：neutral属性/倾向的body向功法。境界跨度约 FOUNDATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "seven_sect_id": "tianque_fort",
+      "combat_school": true,
+      "v126": true,
+      "seven_sect_display": "天阙堡",
+      "sect_id": "tianque_fort",
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "luoyun_cloud_dream_art",
+      "display": "落云梦诀",
+      "path": "mixed",
+      "realm_min": "CORE_FORMATION",
+      "source": "luoyun_sect",
+      "unlocks_techniques_school": "elemental",
+      "unlocks_techniques_schools": [
+        "elemental",
+        "formation",
+        "sword"
+      ],
+      "description": "落云宗中高阶综合心法（后期玩家长老向）。云雾遁、护宗阵协同、丹火战用。与落云丹道诀分工：本条战斗/护宗，丹道为炼丹职。",
+      "sect_id": "luoyun_sect",
+      "combat_school": true,
+      "novel_arc": "天南后期-落云宗",
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "luoyun_elder_seal_art",
+      "display": "落云长老印诀",
+      "path": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "source": "luoyun_sect",
+      "unlocks_techniques_school": "formation",
+      "prerequisite_methods": [
+        "luoyun_cloud_dream_art"
+      ],
+      "description": "落云宗元婴长老权限功：宗门大阵节点、传讯、戒律印。韩立任长老线。",
+      "sect_id": "luoyun_sect",
+      "combat_school": true,
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "tianlan_temple_vajra_art",
+      "display": "天澜降魔功",
+      "path": "buddhist",
+      "realm_min": "FOUNDATION",
+      "source": "tianlan_temple",
+      "unlocks_techniques_school": "buddhist",
+      "unlocks_techniques_schools": [
+        "buddhist",
+        "body"
+      ],
+      "description": "天澜寺/天澜圣殿佛修降魔炼体主修。慕兰大战前线支柱气质。与天澜圣兽诀（慕兰兽）分流。",
+      "sect_id": "tianlan_temple",
+      "combat_school": true,
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "buddhist",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "lingyun_sword_wind_art",
+      "display": "灵云剑风诀",
+      "path": "sword",
+      "realm_min": "QI_REFINING",
+      "source": "lingyun_sect",
+      "unlocks_techniques_school": "sword",
+      "unlocks_techniques_schools": [
+        "sword",
+        "movement"
+      ],
+      "description": "灵云剑风诀：剑风并修，轻灵连斩。乱星海与高空飞行战友好。",
+      "sect_id": "lingyun_sect",
+      "combat_school": true,
+      "v127": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "sword",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "qingyan_earth_guard_art",
+      "display": "青岩厚土诀",
+      "path": "elemental",
+      "realm_min": "QI_REFINING",
+      "element_required": "earth",
+      "source": "qingyan_sect",
+      "unlocks_techniques_school": "elemental",
+      "unlocks_techniques_schools": [
+        "elemental",
+        "formation"
+      ],
+      "description": "青岩厚土诀：earth属性/倾向的elemental向功法。境界跨度约 QI_REFINING–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "sect_id": "qingyan_sect",
+      "combat_school": true,
+      "v127": true,
+      "element": "earth",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "elemental",
+        "neutral",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "star_palace_law_art",
+      "display": "星宫律典",
+      "path": "dao",
+      "realm_min": "FOUNDATION",
+      "source": "star_palace",
+      "unlocks_techniques_school": "formation",
+      "description": "星宫执法/注册修士权限心法。巡海信标、封灵。声望绑定 star_palace。",
+      "faction_id": "star_palace",
+      "combat_school": true,
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "miaoyin_sound_art",
+      "display": "妙音玄律",
+      "path": "illusion",
+      "realm_min": "FOUNDATION",
+      "source": "miaoyin_men",
+      "unlocks_techniques_school": "illusion",
+      "unlocks_techniques_schools": [
+        "illusion",
+        "divine_sense"
+      ],
+      "description": "妙音玄律：妙音门音律功法。以声入神识、附魔与群体影响，战场与交涉皆用。",
+      "faction_id": "miaoyin_men",
+      "combat_school": true,
+      "region": "chaotic_sea",
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "illusion",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "miaoyin_zither_secret",
+      "display": "妙音琴诀",
+      "path": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "source": "miaoyin_men",
+      "unlocks_techniques_school": "illusion",
+      "prerequisite_methods": [
+        "miaoyin_sound_art"
+      ],
+      "description": "妙音琴诀：琴器专精。一张名琴可当半个阵眼，需共鸣台与长期温养。",
+      "faction_id": "miaoyin_men",
+      "combat_school": true,
+      "v128": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "illusion",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "dajin_ye_clan_art",
+      "display": "叶家皇脉诀",
+      "path": "mixed",
+      "realm_min": "CORE_FORMATION",
+      "source": "dajin_ye_clan",
+      "unlocks_techniques_school": "elemental",
+      "unlocks_techniques_schools": [
+        "elemental",
+        "demonic"
+      ],
+      "description": "叶家皇脉诀：neutral属性/倾向的mixed向功法。境界跨度约 CORE_FORMATION–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "dajin_ye_clan",
+      "region": "dajin",
+      "combat_school": true,
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "mixed",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "xiaji_palace_art",
+      "display": "小极宫玄功",
+      "path": "dao",
+      "realm_min": "NASCENT_SOUL",
+      "source": "xiaji_palace",
+      "unlocks_techniques_school": "dao",
+      "description": "小极宫玄功：neutral属性/倾向的dao向功法。境界跨度约 NASCENT_SOUL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "xiaji_palace",
+      "region": "dajin",
+      "combat_school": true,
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "diyuan_asura_art",
+      "display": "地渊修罗诀",
+      "path": "demonic",
+      "realm_min": "VOID_REFINEMENT",
+      "source": "diyuan",
+      "unlocks_techniques_school": "demonic",
+      "description": "地渊修罗诀：neutral属性/倾向的demonic向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "region": "lingjie",
+      "combat_school": true,
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "demonic",
+      "tags": [
+        "neutral",
+        "demonic",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "guanghan_star_map_art",
+      "display": "广寒星图诀",
+      "path": "dao",
+      "realm_min": "VOID_REFINEMENT",
+      "source": "guanghan_jie",
+      "unlocks_techniques_school": "dao",
+      "description": "广寒星图诀：neutral属性/倾向的dao向功法。境界跨度约 VOID_REFINEMENT–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "region": "lingjie",
+      "combat_school": true,
+      "v129": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "great_five_elements_world_art",
+      "display": "大五行幻世诀",
+      "path": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "zhenyan_men",
+      "unlocks_techniques_school": "dao",
+      "unlocks_techniques_schools": [
+        "dao",
+        "elemental",
+        "formation"
+      ],
+      "description": "真言门镇派级功法气质：以真言驱动五行幻世，可衍化小世界/五行领域。韩立真言门线核心。需真言根基与仙灵力。",
+      "faction_id": "zhenyan_men",
+      "region": "xianjie",
+      "law_type": "law_five_elements",
+      "combat_school": true,
+      "v130": true,
+      "novel_arc": "仙界-真言门",
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "zhenyan_true_word_art",
+      "display": "真言门真言诀",
+      "path": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "zhenyan_men",
+      "unlocks_techniques_school": "dao",
+      "description": "真言门真言诀：口舌即法。外门听法可入门，内门方授高阶真言。与幻世、法则课衔接。",
+      "faction_id": "zhenyan_men",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "zhenyan_elder_canon",
+      "display": "真言长老典",
+      "path": "dao",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "source": "zhenyan_men",
+      "unlocks_techniques_school": "formation",
+      "prerequisite_methods": [
+        "zhenyan_true_word_art"
+      ],
+      "description": "真言长老典：门中高层传法摘要。非外门可读全文；含真言冲突与天条忌讳。",
+      "faction_id": "zhenyan_men",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "time_law_scripture",
+      "display": "时间法则经",
+      "path": "secret_arts",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "source": "xianjie_time_legacy",
+      "unlocks_techniques_school": "secret_arts",
+      "unlocks_techniques_schools": [
+        "secret_arts",
+        "divine_sense",
+        "movement"
+      ],
+      "description": "时间法则经：仙界法则轨。加速、逆转皆有反噬与天条风险；不作人界挂机万能药。",
+      "faction_id": null,
+      "region": "xianjie",
+      "law_type": "law_time",
+      "combat_school": true,
+      "v130": true,
+      "risk": "道心/仙灵力反噬",
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "secret_arts",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v141_desc_polish": true,
+      "v142_desc_polish": true
+    },
+    {
+      "id": "time_reversion_fragment",
+      "display": "时光逆转残篇",
+      "path": "secret_arts",
+      "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+      "source": "xianjie_time_legacy",
+      "unlocks_techniques_school": "secret_arts",
+      "prerequisite_methods": [
+        "time_law_scripture"
+      ],
+      "description": "时光逆转残篇：时间法则分支残卷。只允极短回溯或战斗内修正，滥用招天谴。",
+      "law_type": "law_time",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "secret_arts",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "reincarnation_hall_art",
+      "display": "轮回殿秘典",
+      "path": "divine_sense",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "reincarnation_hall",
+      "unlocks_techniques_school": "divine_sense",
+      "unlocks_techniques_schools": [
+        "divine_sense",
+        "ghost",
+        "secret_arts"
+      ],
+      "description": "轮回殿主系气质：轮回之力、魂道、交易与制裁。与炼神术可先后，勿混为同一功。",
+      "faction_id": "reincarnation_hall",
+      "region": "xianjie",
+      "law_type": "law_reincarnation",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        true
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "heifeng_sea_art",
+      "display": "黑风海御风诀",
+      "path": "movement",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "heifeng_sea",
+      "unlocks_techniques_school": "movement",
+      "description": "黑风海御风诀：neutral属性/倾向的movement向功法。境界跨度约 TRUE_IMMORTAL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "heifeng_sea",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "immortal_sword_dao_art",
+      "display": "仙剑道诀",
+      "path": "sword",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "xianjie_sword_line",
+      "unlocks_techniques_school": "sword",
+      "description": "仙剑道诀：真仙境剑道总纲。人界剑诀到此需重铸剑心与法则。",
+      "region": "xianjie",
+      "law_type": "law_sword",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "sword",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "void_immortal_space_art",
+      "display": "虚空仙遁经",
+      "path": "movement",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "source": "xianjie_space",
+      "unlocks_techniques_school": "movement",
+      "unlocks_techniques_schools": [
+        "movement",
+        "secret_arts"
+      ],
+      "description": "虚空仙遁经：空间法则移动。金仙前后主用，可跨枢纽；消耗与反噬随距离上升。",
+      "region": "xianjie",
+      "law_type": "law_space",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        true
+      ],
+      "v138_field_fill": true,
+      "setting": {
+        "lore_v142": "贴原著气质精修"
+      },
+      "v142_desc_polish": true
+    },
+    {
+      "id": "heavenly_court_law_art",
+      "display": "天庭律修诀",
+      "path": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "heavenly_court",
+      "unlocks_techniques_school": "formation",
+      "description": "天庭律修诀：neutral属性/倾向的dao向功法。境界跨度约 TRUE_IMMORTAL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "heavenly_court",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "gray_realm_nether_art",
+      "display": "灰界冥渡诀",
+      "path": "ghost",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "source": "gray_realm",
+      "unlocks_techniques_school": "ghost",
+      "description": "灰界冥渡诀：neutral属性/倾向的ghost向功法。境界跨度约 GOLDEN_IMMORTAL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "faction_id": "gray_realm",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "ghost",
+      "tags": [
+        "neutral",
+        "ghost",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "medicine_king_immortal_art",
+      "display": "药王仙经",
+      "path": "craft_alchemy",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "medicine_king_valley_immortal",
+      "unlocks_techniques_school": null,
+      "description": "仙界丹道职修。无战斗 school；可解锁仙丹辅助技。",
+      "region": "xianjie",
+      "combat_school": false,
+      "v130": true,
+      "element": "neutral",
+      "school": "craft_alchemy",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "craft_alchemy"
+      ],
+      "v138_field_fill": true
+    },
+    {
+      "id": "body_immortal_golden_art",
+      "display": "仙体金身诀",
+      "path": "body",
+      "realm_min": "TRUE_IMMORTAL",
+      "source": "xianjie_body",
+      "unlocks_techniques_school": "body",
+      "description": "仙体金身诀：neutral属性/倾向的body向功法。境界跨度约 TRUE_IMMORTAL–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
+    },
+    {
+      "id": "dao_ancestor_glimpse",
+      "display": "道祖窥影（终局）",
+      "path": "dao",
+      "realm_min": "DAO_ANCESTOR_BAND",
+      "source": "endgame",
+      "unlocks_techniques_school": "dao",
+      "description": "道祖窥影（终局）：neutral属性/倾向的dao向功法。境界跨度约 DAO_ANCESTOR_BAND–视篇。具体层数与可学术见 skill_tree / 对照表；与相冲功法同修有心魔与走火风险。",
+      "region": "xianjie",
+      "combat_school": true,
+      "v130": true,
+      "endgame": true,
+      "element": "neutral",
+      "school": true,
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        true
+      ],
+      "v138_field_fill": true,
+      "v142_desc_light": true
     }
   ],
-  "design_note": "功法=主线天赋；法术见 techniques；神通见 techniques tier secret",
-  "skill_tree_layer_schema_ref": "skill_tree_layer_schema.json"
+  "design_note": "功法=主线天赋；法术见 techniques；神通见 techniques tier secret | v123 分类修正",
+  "skill_tree_layer_schema_ref": "skill_tree_layer_schema.json",
+  "v123_classification_patch": {
+    "path_taxonomy_ref": "method_path_taxonomy_v123.json",
+    "realm_map": {
+      "VOID_REFINING": "VOID_REFINEMENT",
+      "SPIRIT_SEVERING": "VOID_REFINEMENT",
+      "void_refining": "VOID_REFINEMENT",
+      "spirit_severing": "VOID_REFINEMENT"
+    },
+    "notes": "P0+P1 同步：境界、path、unlock、悬空 requires、显示名昆吾"
+  },
+  "v124_novel_canon": {
+    "note": "原著功法/术法补全与归类校正",
+    "dayan": "path=divine_sense, schools=[divine_sense,puppet]; 惊神刺/失神刺挂 dayan_art",
+    "shishen": "失神刺≠神念针≠斩魂诀",
+    "disclaimer": "无法保证小说每一个具名神通100%收录；人界主线+灵界关键已覆盖，仙界法则技另表"
+  },
+  "v125": {
+    "layer_matrix": "method_layer_technique_matrix_v125.json",
+    "six_packs": "six_sects_technique_packs_v125.json"
+  },
+  "v126": {
+    "seven_sects": "tiannan_seven_sects_packs_v126.json",
+    "qingyuan_map": "qingyuan_novel_layer_map_v126.json"
+  },
+  "v127": {
+    "luoyun": "luoyun_late_game_pack_v127.json",
+    "alt_seven": "tiannan_alternate_seven_packs_v127.json",
+    "lists": "tiannan_seven_lists_registry_v127.json"
+  },
+  "v128": {
+    "chaotic_sea": "chaotic_sea_factions_packs_v128.json",
+    "opening_rep": "opening_list_and_reputation_rules_v128.json"
+  },
+  "v129": {
+    "dajin": "dajin_line_packs_v129.json",
+    "lingjie": "lingjie_high_realm_packs_v129.json",
+    "rep": "reputation_thresholds_and_quest_rewards_v129.json"
+  },
+  "v130": {
+    "xianjie_packs": "xianjie_immortal_packs_v130.json",
+    "realms": "immortal_realms_v130.json",
+    "rep_gates": "xianjie_reputation_and_gates_v130.json",
+    "quests": "xianjie_quest_chains_v130.json"
+  },
+  "v138_field_fill": {
+    "note": "功法主表 element/school/alignment/tags 回填",
+    "counts": {
+      "element": 123,
+      "school": 136,
+      "alignment": 136,
+      "methods": 136
+    }
+  },
+  "v141_desc_polish": {
+    "polished": 7,
+    "note": "关键功法描述贴原著气质精修"
+  },
+  "v142_desc_polish": {
+    "touched": 85
+  }
 }

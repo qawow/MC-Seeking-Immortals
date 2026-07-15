@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "source": "v145 丹方材料全链对齐（筑基/培婴/造化/补天/回阳/虚灵）",
+  "chains": [
+    {
+      "id": "foundation_chain",
+      "display": "筑基链",
+      "flow": "血色配额→禁地药田→三主料(+千年灵草)→炼筑基丹→突破",
+      "recipe": "zhu_ji_dan",
+      "quests": [
+        "huangfeng_blood_quota",
+        "blood_forbidden_run"
+      ],
+      "herbs": [
+        "yu_sui_zhi",
+        "zi_hou_hua",
+        "tian_ling_guo"
+      ],
+      "beasts_risk": [
+        "herb_field_guard",
+        "ink_flood_dragon optional"
+      ],
+      "market": "真货 rare_event；贡献堂限额",
+      "success_base": 0.35
+    },
+    {
+      "id": "peiying_chain",
+      "display": "培婴链",
+      "flow": "阴阳情报→过夜叉→活捕阴芝马→窟外协作炼培婴",
+      "recipe": "pei_ying_dan",
+      "quests": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ],
+      "prefer_live": true,
+      "success_base": 0.22,
+      "live_bonus": 0.12
+    },
+    {
+      "id": "zaohua_chain",
+      "display": "造化链",
+      "flow": "坠魔令→内谷→灵烛果 unique→造化丹一生一次",
+      "recipe": "zao_hua_dan",
+      "quests": [
+        "zhuimo_token",
+        "lingzhu_fruit_run"
+      ],
+      "lifetime_once": true
+    },
+    {
+      "id": "butian_chain",
+      "display": "补天链",
+      "flow": "虚天筹备→宝库 unique 竞争",
+      "recipe": "bu_tian_dan",
+      "quests": [
+        "xutian_window_prepare"
+      ],
+      "unique_contest": true
+    },
+    {
+      "id": "huiyang_chain",
+      "display": "回阳化神链",
+      "flow": "五寒焰→火狱精火→寒髓合→回阳→化神冲击",
+      "recipe": "hui_yang_zhen_shui",
+      "quests": [
+        "deity_huoyu_path"
+      ],
+      "unique": true
+    },
+    {
+      "id": "xuling_chain",
+      "display": "虚灵合体链",
+      "flow": "飞升→广寒→虚灵丹 scarce→合体",
+      "recipe": "xu_ling_dan",
+      "quests": [
+        "guanghan_endgame_path",
+        "tianyuan_landing_register"
+      ],
+      "scarce": true
+    }
+  ],
+  "recipe_file": "pill_recipes_detailed_v98.json",
+  "crosswalk": "item_price_quest_crosswalk_v143.json",
+  "market_policy": "market_shelf_price_align_v144.json"
+}

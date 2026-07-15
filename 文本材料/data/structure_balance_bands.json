@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source": "汇编使用建议：优先结构分类；数值为可重平衡模组量级",
+  "disclaimer": "非原著精确统计",
+  "realm_damage_order_of_magnitude": [
+    {"realm": "QI_REFINING", "relative": 1},
+    {"realm": "FOUNDATION", "relative": 10},
+    {"realm": "CORE_FORMATION", "relative": 100},
+    {"realm": "NASCENT_SOUL", "relative": 1000},
+    {"realm": "DEITY_TRANSFORMATION", "relative": 10000},
+    {"realm": "VOID_REFINEMENT", "relative": 50000},
+    {"realm": "BODY_INTEGRATION", "relative": 200000},
+    {"realm": "GREAT_VEHICLE", "relative": 1000000}
+  ],
+  "beast_tier_to_realm": [
+    {"tier": 1, "realm": "QI_REFINING_EARLY"},
+    {"tier": 2, "realm": "QI_REFINING_MID"},
+    {"tier": 3, "realm": "QI_REFINING_LATE"},
+    {"tier": 4, "realm": "QI_REFINING_PEAK"},
+    {"tier": 5, "realm": "FOUNDATION_EARLY", "demon_core": true},
+    {"tier": 6, "realm": "FOUNDATION_MID"},
+    {"tier": 7, "realm": "FOUNDATION_LATE", "shape_shift_minor_tribulation": true},
+    {"tier": 8, "realm": "CORE_FORMATION_EARLY"},
+    {"tier": 9, "realm": "CORE_FORMATION_MID"},
+    {"tier": 10, "realm": "CORE_FORMATION_LATE"},
+    {"tier": 11, "realm": "NASCENT_SOUL"},
+    {"tier": 12, "realm": "DEITY_TRANSFORMATION"},
+    {"tier": 13, "realm": "VOID_TO_GREAT_VEHICLE", "note": "真灵/妖王级"}
+  ],
+  "artifact_grades_eleven": {
+    "note": "法宝十一级结构占位",
+    "bands": [
+      {"grade": "1-3", "realm": "QI_REFINING", "display": "低阶法器"},
+      {"grade": "4-5", "realm": "FOUNDATION", "display": "中阶法器"},
+      {"grade": "6-7", "realm": "CORE_FORMATION", "display": "法宝"},
+      {"grade": "8-9", "realm": "NASCENT_SOUL", "display": "高阶法宝/古宝边缘"},
+      {"grade": "10-11", "realm": "DEITY_PLUS", "display": "古宝/通天级结构"}
+    ]
+  },
+  "talisman_matrix": {
+    "ranks": ["黄", "玄", "地", "天"],
+    "grades_per_rank": 3,
+    "note": "符箓等级×等阶结构，具体配方另表"
+  },
+  "spirit_stone_ratio": {
+    "low_to_mid": 100,
+    "mid_to_high": 100,
+    "high_to_top": 100,
+    "note": "四级灵石常见结构比，经济需按产出重平衡"
+  },
+  "tribulation_tier": {
+    "minor": {"waves_typical": 3, "fail": "跌境/重伤"},
+    "major": {"waves_typical": [5, 9, 12, 18], "fail": "身陨/入魔/燃寿"},
+    "immortal": {"waves_typical": 27, "fail": "形神俱灭", "success": "飞升"}
+  },
+  "war_merit_scale": {
+    "tiannan_war_merit": "mulan_tiannan_war.json#war_merit_currency",
+    "tianyuan_merit": "spirit_realm_diyuan_compendium.json#merit_system"
+  }
+}

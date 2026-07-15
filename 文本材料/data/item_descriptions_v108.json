@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v108 物品详释：星宫大晋 + 药园绿液年历 + 校对",
+  "items": [
+    {
+      "id": "consistency_audit_book",
+      "display": "全包矛盾校对册",
+      "type": "lore_book",
+      "ref": "docs/CONSISTENCY_AUDIT_v108.md",
+      "description": "唯一物、货币、刷怪、物价、WATCH 项自查。"
+    },
+    {
+      "id": "xinggong_ling_true",
+      "display": "星宫令（真）",
+      "type": "token",
+      "tags": ["scarce", "quest", "sect_only"],
+      "description": "通行与任务。失令/假令后果严重。"
+    },
+    {
+      "id": "xinggong_ling_fake",
+      "display": "星宫令（假）",
+      "type": "junk",
+      "tags": ["black_market"],
+      "price": [100, 5000],
+      "description": "贩子货。鉴定失败入死路。"
+    },
+    {
+      "id": "shennian_laoyin_mark",
+      "display": "神念烙印印记",
+      "type": "meta",
+      "tags": ["account_bound", "balance_risk"],
+      "effect": "追踪/叛逃惩罚",
+      "description": "接受烙印后。破印高代价路径另表。"
+    },
+    {
+      "id": "shennian_refuse_token",
+      "display": "拒印凭证结构",
+      "type": "meta",
+      "tags": ["quest"],
+      "description": "拒绝烙印的叙事标记。星宫冷淡/敌对风险。"
+    },
+    {
+      "id": "break_seal_plan",
+      "display": "破印方案残篇",
+      "type": "intel",
+      "tags": ["quest", "scarce", "black_market"],
+      "description": "高风险。成功与否看神识与机缘。"
+    },
+    {
+      "id": "xinggong_outer_pass",
+      "display": "星宫外使通行简",
+      "type": "token",
+      "tags": ["quest"],
+      "rep_min": 0,
+      "description": "外围情报区。"
+    },
+    {
+      "id": "xinggong_hunt_order",
+      "display": "星宫追杀令",
+      "type": "meta",
+      "tags": ["hostile"],
+      "rep_max": -40,
+      "description": "敌对后刷追杀小队。"
+    },
+    {
+      "id": "jin_jing_pass",
+      "display": "晋京路引",
+      "type": "token",
+      "tags": ["trade", "quest"],
+      "price": [50, 2000],
+      "description": "入晋京。假籍黑市有售但风险高。"
+    },
+    {
+      "id": "jin_jing_pass_fake",
+      "display": "假晋京路引",
+      "type": "junk",
+      "tags": ["black_market"],
+      "price": [20, 500],
+      "description": "牙人货。城门识破扣押。"
+    },
+    {
+      "id": "duel_token",
+      "display": "赌战台令",
+      "type": "token",
+      "tags": ["quest", "scarce"],
+      "rep_min": 25,
+      "description": "观礼/上台资格。"
+    },
+    {
+      "id": "geng_jing_prize_clue",
+      "display": "庚精顶赏线索",
+      "type": "intel",
+      "tags": ["quest", "scarce"],
+      "description": "赌战顶格。庚精不在野刷。"
+    },
+    {
+      "id": "geng_jing_full_v108",
+      "display": "庚精（详释·大晋）",
+      "type": "material",
+      "tags": ["auction", "scarce", "craft_mat"],
+      "price": [20000, 120000],
+      "description": "元婴金材尺。顶赏/拍卖。"
+    },
+    {
+      "id": "court_favor_jade",
+      "display": "官面人情玉",
+      "type": "token",
+      "tags": ["quest"],
+      "rep_min": 50,
+      "description": "州府令/拍席人情。"
+    },
+    {
+      "id": "state_warrant",
+      "display": "州府协拿令",
+      "type": "token",
+      "tags": ["hostile", "quest"],
+      "description": "被点名时。路引作废风险。"
+    },
+    {
+      "id": "auction_seat_dajin",
+      "display": "晋京中档拍席",
+      "type": "token",
+      "tags": ["trade"],
+      "rep_min": 25,
+      "description": "溢价×1.5 环境。"
+    },
+    {
+      "id": "gate_tax_receipt",
+      "display": "城门税契",
+      "type": "meta",
+      "tax": [0.05, 0.15],
+      "description": "晋京落地成本。"
+    },
+    {
+      "id": "realm_loadout_dajin",
+      "display": "晋京立足包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["路引", "易容", "疗伤", "鉴定符", "礼仪简"],
+      "description": "大晋推荐。"
+    },
+    {
+      "id": "realm_loadout_xinggong",
+      "display": "星宫应对包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["令鉴定", "神识稳固", "逃遁", "假令识别简", "拒印/受印说明"],
+      "description": "烙印分叉前。"
+    },
+    {
+      "id": "palm_bottle_rules_card",
+      "display": "掌天瓶规则牌",
+      "type": "rule_item",
+      "tags": ["unique", "no_trade", "balance_risk"],
+      "caps": {"story": 12, "standard": 6, "hard": 3, "legend": 1},
+      "description": "年帽/冷却/禁交易/禁无帽叠乘。"
+    },
+    {
+      "id": "green_liquid_drop",
+      "display": "绿液（一滴）",
+      "type": "catalyst",
+      "tags": ["unique", "no_trade", "consumable"],
+      "description": "催熟。耗年次数。单株药龄上限。"
+    },
+    {
+      "id": "liquid_year_counter",
+      "display": "绿液年次数册",
+      "type": "meta",
+      "tags": ["account_bound"],
+      "description": "UI/叙事：本年剩余滴数。"
+    },
+    {
+      "id": "garden_slot_mortal",
+      "display": "凡人药圃地契",
+      "type": "token",
+      "tags": ["trade"],
+      "slots": [4, 12],
+      "yield_mod": 0.5,
+      "description": "入门种植。"
+    },
+    {
+      "id": "garden_slot_sect",
+      "display": "宗门药园配额位",
+      "type": "token",
+      "tags": ["sect_only"],
+      "rep_min": 20,
+      "yield_mod": 1.0,
+      "description": "部分上缴。防全卖。"
+    },
+    {
+      "id": "garden_slot_cave",
+      "display": "洞府药园册",
+      "type": "token",
+      "tags": ["quest"],
+      "yield_mod": 1.1,
+      "description": "自布聚灵。防破阵。"
+    },
+    {
+      "id": "garden_slot_jizi",
+      "display": "芥子药园册",
+      "type": "token",
+      "tags": ["quest", "balance_risk"],
+      "yield_mod": 1.3,
+      "rule": "加速不赠绿液次数",
+      "description": "高产高风险平衡点。"
+    },
+    {
+      "id": "care_lingquan_water",
+      "display": "灵泉灌溉壶",
+      "type": "tool",
+      "tags": ["trade"],
+      "price": [10, 200],
+      "description": "基础照料。"
+    },
+    {
+      "id": "care_juling_flag_garden",
+      "display": "药园聚灵旗",
+      "type": "array",
+      "tags": ["trade"],
+      "price": [100, 2000],
+      "description": "增速/产量+。"
+    },
+    {
+      "id": "care_pest_net",
+      "display": "药园灵虫网",
+      "type": "tool",
+      "tags": ["trade"],
+      "price": [30, 200],
+      "description": "蛀果虫/杂虫。"
+    },
+    {
+      "id": "care_guard_contract",
+      "display": "药园守卫雇契",
+      "type": "service",
+      "tags": ["trade"],
+      "price": [50, 2000],
+      "description": "降盗药权重。"
+    },
+    {
+      "id": "plant_seed_ban_yao",
+      "display": "伴妖草种",
+      "type": "seed",
+      "tags": ["trade"],
+      "price": [5, 40],
+      "description": "标药诱妖双刃。"
+    },
+    {
+      "id": "plant_seed_common",
+      "display": "普通灵草种",
+      "type": "seed",
+      "tags": ["trade"],
+      "price": [1, 20],
+      "description": "入门。"
+    },
+    {
+      "id": "plant_seed_four_main",
+      "display": "四主药种苗结构",
+      "type": "seed",
+      "tags": ["scarce", "quest"],
+      "note": "天然仍稀，种苗非无限",
+      "description": "玉髓芝/紫猴花/天灵果/千年草。绿液中价值。"
+    },
+    {
+      "id": "plant_forbid_lingzhu",
+      "display": "灵烛果禁种示",
+      "type": "rule_item",
+      "description": "不进日常园。坠魔事件。"
+    },
+    {
+      "id": "plant_forbid_live_shen",
+      "display": "活参禁猛催示",
+      "type": "rule_item",
+      "description": "损灵智。曲儿线。"
+    },
+    {
+      "id": "year_plan_standard_card",
+      "display": "标准档六滴年历卡",
+      "type": "meta",
+      "allocation": ["主药1", "主药2", "疗伤中药", "结丹辅", "应急拍卖", "战略/培婴"],
+      "description": "standard 6/年建议分配。"
+    },
+    {
+      "id": "season_spring_note",
+      "display": "春·播种简",
+      "type": "meta",
+      "pest": "田鼠妖",
+      "description": "节气钩子。"
+    },
+    {
+      "id": "season_summer_note",
+      "display": "夏·聚灵简",
+      "type": "meta",
+      "pest": "蛀果虫",
+      "description": "节气钩子。"
+    },
+    {
+      "id": "season_autumn_note",
+      "display": "秋·采收炼丹简",
+      "type": "meta",
+      "event": "药价波动",
+      "description": "节气钩子。"
+    },
+    {
+      "id": "season_winter_note",
+      "display": "冬·闭园防盗简",
+      "type": "meta",
+      "event": "盗药高发",
+      "description": "节气钩子。"
+    },
+    {
+      "id": "flood_audit_notice",
+      "display": "万年药洪峰审计告示",
+      "type": "rule_item",
+      "description": "短时间大量抛售触发冻结摊位。"
+    },
+    {
+      "id": "sect_quota_ledger",
+      "display": "药园上缴账册",
+      "type": "meta",
+      "tags": ["sect_only"],
+      "description": "宗门园防全卖。"
+    },
+    {
+      "id": "xuan_bing_hua_seed",
+      "display": "玄冰花需寒脉说明",
+      "type": "seed",
+      "tags": ["scarce"],
+      "need": "寒脉",
+      "description": "无寒脉种不活。"
+    },
+    {
+      "id": "ni_chang_cao_seed",
+      "display": "霓裳草种",
+      "type": "seed",
+      "tags": ["trade"],
+      "grow_days": [120, 400],
+      "description": "中价值园栽。"
+    },
+    {
+      "id": "numeric_garden_bundle",
+      "display": "数值锚·园产四主药捆",
+      "type": "meta",
+      "price": [80, 400],
+      "description": "与血色捆同尺。"
+    },
+    {
+      "id": "numeric_gengjing_v108",
+      "display": "数值锚·庚精",
+      "type": "meta",
+      "price": [20000, 120000],
+      "description": "大晋赌战/拍卖。"
+    },
+    {
+      "id": "numeric_tax_gate",
+      "display": "数值锚·晋京门税",
+      "type": "meta",
+      "rate": [0.05, 0.15],
+      "description": "落地成本。"
+    },
+    {
+      "id": "watch_seal_design",
+      "display": "WATCH·烙印玩法",
+      "type": "meta",
+      "status": "WATCH",
+      "hint": "必须保留拒印/破印，避免永久减玩法",
+      "description": "校对表项。"
+    },
+    {
+      "id": "watch_xueyami_exchange",
+      "display": "WATCH·血牙米兑换",
+      "type": "meta",
+      "status": "WATCH",
+      "hint": "勿与灵石无限双向兑",
+      "description": "校对表项。"
+    },
+    {
+      "id": "watch_jizi_liquid",
+      "display": "WATCH·芥子加速",
+      "type": "meta",
+      "status": "WATCH",
+      "hint": "加速不赠绿液次数",
+      "description": "校对表项。"
+    },
+    {
+      "id": "watch_duplicate_bestiary_ids",
+      "display": "WATCH·同名多源词条",
+      "type": "meta",
+      "status": "WATCH",
+      "hint": "UI 以 id 合并，显示 primary 名",
+      "description": "墨蛟/火蟾等。"
+    },
+    {
+      "id": "fix_hint_ui_alias",
+      "display": "FIX·UI 走别名表",
+      "type": "meta",
+      "status": "FIX_HINT",
+      "description": "name_alias_glossary primary。"
+    },
+    {
+      "id": "fix_hint_spawn_by_id",
+      "display": "FIX·刷怪引用 id",
+      "type": "meta",
+      "status": "FIX_HINT",
+      "description": "勿只写中文名。"
+    },
+    {
+      "id": "crossref_xinggong_rep",
+      "display": "交叉·星宫声望",
+      "type": "meta",
+      "faction": "xinggong",
+      "description": "reputation_unlocks 镜像。"
+    },
+    {
+      "id": "crossref_dajin_kunwu",
+      "display": "交叉·大晋至昆吾",
+      "type": "meta",
+      "quest": "dajin_kunwu",
+      "description": "晋京线索拼图。"
+    },
+    {
+      "id": "crossref_garden_blood",
+      "display": "交叉·园与血色",
+      "type": "meta",
+      "link": "四主药",
+      "description": "禁地抢药 vs 长线种植。"
+    },
+    {
+      "id": "xinggong_dajin_map",
+      "display": "星宫大晋关系简图",
+      "type": "map",
+      "tags": ["quest"],
+      "description": "海→陆→晋京→昆吾/阴阳窟。"
+    },
+    {
+      "id": "garden_calendar_poster",
+      "display": "药园年历挂图",
+      "type": "lore",
+      "ref": "garden_liquid_calendar_v108.json",
+      "description": "四季与六滴分配。"
+    },
+    {
+      "id": "lore_xinggong_one_line",
+      "display": "星宫一句话",
+      "type": "lore",
+      "text": "令可借，印难洗，叛了满海是敌。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_dajin_one_line",
+      "display": "大晋一句话",
+      "type": "lore",
+      "text": "城内讲规矩，台上赌庚精，黑市赌命。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_garden_one_line",
+      "display": "药园绿液一句话",
+      "type": "lore",
+      "text": "园是长线，液是按钮，按钮有年帽。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "deep_dive_index_v108",
+      "display": "v108 深挖索引",
+      "type": "meta",
+      "files": [
+        "region_xinggong_dajin_v108.json",
+        "garden_liquid_calendar_v108.json",
+        "docs/CONSISTENCY_AUDIT_v108.md"
+      ],
+      "description": "机读入口。"
+    },
+    {
+      "id": "designer_slice_xinggong_ready",
+      "display": "切片验收·星宫",
+      "type": "meta",
+      "checks": ["令真伪", "烙印分叉", "追杀", "情报"],
+      "description": "结丹后权力。"
+    },
+    {
+      "id": "designer_slice_dajin_ready",
+      "display": "切片验收·大晋",
+      "type": "meta",
+      "checks": ["路引", "拍场", "赌战", "城内红线", "庚精线索"],
+      "description": "元婴前舞台。"
+    },
+    {
+      "id": "designer_slice_garden_ready",
+      "display": "切片验收·药园绿液",
+      "type": "meta",
+      "checks": ["四类园", "年帽", "节气", "审计", "禁种名单"],
+      "description": "长线经济。"
+    },
+    {
+      "id": "designer_slice_audit_ready",
+      "display": "切片验收·校对表",
+      "type": "meta",
+      "checks": ["唯一物", "货币隔离", "物价抽查", "WATCH 可读"],
+      "description": "制作前自查。"
+    },
+    {
+      "id": "v108_accept",
+      "display": "v108 验收签",
+      "type": "meta",
+      "checks": ["星宫大晋", "药园年历", "校对表", "生物说明", "无代码"],
+      "description": "本版完成。"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "source": "v130 仙界境界延伸（可玩）",
+  "extends": "cultivation_progression.json realms 至 TRIBULATION_LAND",
+  "disclaimer": "仙界境界名取可玩结构+原著气质，非考证每一称谓的唯一正统列表",
+  "bridge": {
+    "from_realm": "TRIBULATION_LAND",
+    "to_realm": "TRUE_IMMORTAL",
+    "note": "飞升后入真仙；人界渡劫成功→仙界"
+  },
+  "realms": [
+    {
+      "id": "TRUE_IMMORTAL",
+      "display": "真仙",
+      "order": 10,
+      "region": "xianjie",
+      "note": "初入仙途"
+    },
+    {
+      "id": "GOLDEN_IMMORTAL",
+      "display": "金仙",
+      "order": 11,
+      "region": "xianjie",
+      "note": "金仙境"
+    },
+    {
+      "id": "TAIYI_GOLDEN_IMMORTAL",
+      "display": "太乙金仙",
+      "order": 12,
+      "region": "xianjie",
+      "note": "太乙"
+    },
+    {
+      "id": "DALUO_GOLDEN_IMMORTAL",
+      "display": "大罗金仙",
+      "order": 13,
+      "region": "xianjie",
+      "note": "大罗"
+    },
+    {
+      "id": "DAO_ANCESTOR_BAND",
+      "display": "道祖带（终局）",
+      "order": 14,
+      "region": "xianjie",
+      "note": "可玩终局带，不展开全权能"
+    }
+  ],
+  "law_mastery_tracks": [
+    {
+      "id": "law_time",
+      "display": "时间法则",
+      "primary_method": "time_law_scripture"
+    },
+    {
+      "id": "law_five_elements",
+      "display": "五行法则",
+      "primary_method": "great_five_elements_world_art"
+    },
+    {
+      "id": "law_reincarnation",
+      "display": "轮回法则",
+      "primary_method": "reincarnation_hall_art"
+    },
+    {
+      "id": "law_space",
+      "display": "空间法则",
+      "primary_method": "void_immortal_space_art"
+    },
+    {
+      "id": "law_sword",
+      "display": "剑道法则",
+      "primary_method": "immortal_sword_dao_art"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "source": "v138 设定完善续",
+  "previous": "v137",
+  "delivered": [
+    "术法顶层 element/path/alignment 回填：techniques≈747，empty_element_after=0",
+    "区域卡 11 张 region_cards_v138.json",
+    "NPC 对话 archetype 12 + 具名绑定"
+  ],
+  "honest_gaps_still": [
+    "功法 method 主表若另文件仍可能有空字段（本卷主攻 techniques/* 术法）",
+    "区域卡非逐省逐岛百科全书",
+    "对话非分支树/好感数值全表",
+    "道祖与仙界全具名角色仍不求全"
+  ],
+  "status": "字段回填+区域卡+对话模板落地"
+}

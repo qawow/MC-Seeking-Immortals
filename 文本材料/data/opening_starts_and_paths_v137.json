@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "source": "v137 开局与早期路线设定",
+  "disclaimer": "可玩导航，非代码；对齐原著气质与 travel/quest 包",
+  "start_archetypes": [
+    {
+      "id": "start_qixuan",
+      "display": "七玄门/凡人入仙",
+      "realm": "MORTAL",
+      "region": "tiannan_mortal",
+      "first_goals": [
+        "拜入修仙宗门或散修立足",
+        "辟谷/炼气资源",
+        "避开过早仇杀"
+      ],
+      "first_structures": [
+        "talisman_table",
+        "alchemy_furnace_g1",
+        "spirit_herb_planter"
+      ],
+      "first_travel": [
+        "walk_escape",
+        "quest_escort"
+      ],
+      "hook_quests": [
+        "mortal_to_qi",
+        "tiannan_entry"
+      ],
+      "novel_anchor": "韩立七玄门起点气质"
+    },
+    {
+      "id": "start_huangfeng_outer",
+      "display": "黄枫谷外门",
+      "realm": "QI_REFINING",
+      "region": "tiannan",
+      "first_goals": [
+        "贡献换功法",
+        "聚灵/洞府",
+        "血色禁地配额"
+      ],
+      "first_structures": [
+        "cave_dwelling_core",
+        "spirit_gathering_array",
+        "meditation_chamber",
+        "contribution_stele"
+      ],
+      "first_travel": [
+        "fixed_teleport_array"
+      ],
+      "nodes": [
+        "node_tiannan_huangfeng"
+      ],
+      "hook_quests": [
+        "huangfeng_outer_duty",
+        "blood_forbidden_quota"
+      ]
+    },
+    {
+      "id": "start_yanyue",
+      "display": "掩月宗线",
+      "realm": "QI_REFINING",
+      "region": "tiannan",
+      "path_tags": [
+        "demonic_adjacent",
+        "dual_cultivation_optional"
+      ],
+      "first_structures": [
+        "dual_cultivation_chamber",
+        "illusion_array_hub",
+        "blood_sacrifice_altar"
+      ],
+      "nodes": [
+        "node_yanyue"
+      ],
+      "note": "声望与正道冲突"
+    },
+    {
+      "id": "start_scatter",
+      "display": "散修坊市开局",
+      "realm": "QI_REFINING",
+      "region": "tiannan_market",
+      "first_structures": [
+        "market_stall_counter",
+        "talisman_table",
+        "alchemy_furnace_g1"
+      ],
+      "first_goals": [
+        "制符/炼丹营生",
+        "买筑基机缘"
+      ]
+    },
+    {
+      "id": "start_chaotic_sea",
+      "display": "乱星海开局（进阶）",
+      "realm": "FOUNDATION_plus",
+      "region": "chaotic_sea",
+      "need": [
+        "已离天南或中后期开局"
+      ],
+      "first_structures": [
+        "star_palace_teleport_gate",
+        "flying_boat_dock",
+        "chaotic_sea_island_lighthouse"
+      ],
+      "factions": [
+        "star_palace",
+        "inverse_star",
+        "miaoyin"
+      ]
+    }
+  ],
+  "milestone_paths": [
+    {
+      "id": "path_qi_to_foundation",
+      "display": "炼气 → 筑基",
+      "steps": [
+        {
+          "step": 1,
+          "do": "稳定灵石来源（制符/任务/猎妖）"
+        },
+        {
+          "step": 2,
+          "do": "布置聚灵阵+静室"
+        },
+        {
+          "step": 3,
+          "do": "筑基丹/机缘",
+          "items": [
+            "foundation_pill_band"
+          ]
+        },
+        {
+          "step": 4,
+          "do": "渡小劫/突破",
+          "ref": "realm_breakthrough_v98"
+        }
+      ]
+    },
+    {
+      "id": "path_to_blood_forbidden",
+      "display": "首次秘境：血色禁地",
+      "need": [
+        "QI_REFINING_late_or_FOUNDATION",
+        "sect_quota_or_token"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "do": "贡献碑/任务换配额"
+        },
+        {
+          "step": 2,
+          "do": "窗口开启时触界碑",
+          "structure": "blood_forbidden_entry_stele",
+          "node": "node_blood_forbidden_entry"
+        },
+        {
+          "step": 3,
+          "do": "试炼坛/血池风险区",
+          "structures": [
+            "blood_forbidden_trial_altar",
+            "blood_forbidden_blood_pool"
+          ]
+        },
+        {
+          "step": 4,
+          "do": "出口阵撤离",
+          "structure": "blood_forbidden_exit_array"
+        }
+      ],
+      "travel_ref": "secret_blood_forbidden"
+    },
+    {
+      "id": "path_tiannan_to_sea",
+      "display": "天南 → 乱星海",
+      "need": [
+        "FOUNDATION_or_story_flag"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "do": "出海口船票或远程阵许可"
+        },
+        {
+          "step": 2,
+          "do": "海船/飞舟",
+          "time_days": [
+            15,
+            60
+          ]
+        },
+        {
+          "step": 3,
+          "do": "星宫注册或逆星接头",
+          "structures": [
+            "star_palace_teleport_gate",
+            "inverse_star_smuggle_dock"
+          ]
+        },
+        {
+          "step": 4,
+          "do": "岛际传送与灯塔导航",
+          "structure": "chaotic_sea_island_lighthouse"
+        }
+      ],
+      "travel_ref": "mortal_tiannan_to_chaotic_sea"
+    },
+    {
+      "id": "path_to_dajin_kunwu",
+      "display": "大晋 / 昆吾线",
+      "need": [
+        "CORE_FORMATION_typical"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "do": "关隘令/拍卖请柬"
+        },
+        {
+          "step": 2,
+          "do": "万宝楼/拍卖展台",
+          "structure": "auction_display_dais",
+          "node": "node_dajin_wanbao"
+        },
+        {
+          "step": 3,
+          "do": "昆吾封印任务",
+          "structures": [
+            "kunwu_seal_pillar",
+            "kunwu_seal_hall"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "path_ascension_tianyuan",
+      "display": "化神飞升天渊",
+      "need": [
+        "DEITY_TRANSFORMATION_peak",
+        "tribulation_success"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "do": "渡劫台准备",
+          "structure": "tribulation_platform"
+        },
+        {
+          "step": 2,
+          "do": "天劫成功"
+        },
+        {
+          "step": 3,
+          "do": "飞升通道",
+          "node": "gate_mortal_to_tianyuan",
+          "one_way": true
+        },
+        {
+          "step": 4,
+          "do": "天渊驻军登记"
+        },
+        {
+          "step": 5,
+          "do": "可选界门入风元",
+          "fee_contribution": 500
+        }
+      ],
+      "travel_ref": "mortal_to_tianyuan"
+    },
+    {
+      "id": "path_to_immortal",
+      "display": "大乘入仙界",
+      "need": [
+        "GREAT_VEHICLE"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "do": "法则/大乘门槛"
+        },
+        {
+          "step": 2,
+          "do": "飞升仙界门",
+          "node": "gate_spirit_to_immortal"
+        },
+        {
+          "step": 3,
+          "do": "真言/轮回/天庭等择营",
+          "ref": "xianjie_quest_chains_v130"
+        }
+      ]
+    }
+  ],
+  "recommended_structure_unlock_order": [
+    "talisman_table",
+    "alchemy_furnace_g1",
+    "spirit_herb_planter",
+    "cave_dwelling_core",
+    "spirit_gathering_array",
+    "meditation_chamber",
+    "alchemy_furnace_g2",
+    "refinement_forge_g1",
+    "puppet_assembly_bench",
+    "teleport_array_pedestal",
+    "earth_fire_alchemy_room",
+    "kill_array_hub",
+    "alchemy_furnace_g3",
+    "refinement_forge_g3",
+    "sect_formation_hub",
+    "tribulation_platform",
+    "infant_fire_alchemy_room",
+    "immortal_teleport_grand_array",
+    "time_acceleration_array",
+    "wuxing_world_seed_block"
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v93 特殊道具/令牌/图残/空间物",
+  "disclaimer": "剧情关键物默认唯一或任务绑定",
+  "items": [
+    {
+      "id": "shengxian_ling",
+      "display": "升仙令",
+      "type": "entry_token",
+      "use": "参加升仙大会/入七派资格结构",
+      "realm": "凡人_to_QI_REFINING",
+      "rarity": 3,
+      "price_low_stone": [50, 300],
+      "setting": {"lore": "跨入正式修仙界门票。"}
+    },
+    {
+      "id": "xutian_cantu",
+      "display": "虚天残图",
+      "type": "map_fragment",
+      "use": "定位虚天殿",
+      "rarity": 5,
+      "sources": ["黑煞教线", "拍卖", "夺宝"],
+      "unique_set": true
+    },
+    {
+      "id": "da_nuoyi_ling",
+      "display": "大挪移令",
+      "type": "teleport_token",
+      "use": "配合古传送阵",
+      "rarity": 5,
+      "quest_bind": "ancient_teleport_tunnel"
+    },
+    {
+      "id": "zhuimo_ling",
+      "display": "坠魔令",
+      "type": "entry_token",
+      "use": "入坠魔谷",
+      "rarity": 5,
+      "source": "鬼灵门受迫发放等结构"
+    },
+    {
+      "id": "guanghan_ling",
+      "display": "广寒令",
+      "type": "entry_token",
+      "use": "入广寒界",
+      "realm": "spirit_realm",
+      "rarity": 6
+    },
+    {
+      "id": "wanli_fu_item",
+      "display": "万里符",
+      "type": "communication",
+      "use": "超远传讯",
+      "price_low_stone": [100, 2000]
+    },
+    {
+      "id": "nuanyang_baoyu",
+      "display": "暖阳宝玉",
+      "type": "antidote_key",
+      "use": "解特定奇毒（墨家线结构）",
+      "rarity": 3
+    },
+    {
+      "id": "xiaojian_fubao",
+      "display": "小剑符宝",
+      "type": "talisman_treasure",
+      "use": "凡人/炼气翻盘",
+      "source": "金光上人线",
+      "rarity": 3
+    },
+    {
+      "id": "palm_heaven_bottle",
+      "display": "掌天瓶（小绿瓶）",
+      "type": "unique_world_item",
+      "use": ["绿液催熟灵药", "时间法则后期", "不可复制"],
+      "rarity": 99,
+      "player_policy": "建议仅NPC传说或极度限制规则物，防破经济",
+      "setting": {"lore": "原著核心外挂；模组若引入需严格规则。"}
+    },
+    {
+      "id": "green_liquid_drop",
+      "display": "瓶中绿液（结构）",
+      "type": "growth_catalyst",
+      "use": "大幅缩短灵药药龄",
+      "bind": "palm_heaven_bottle",
+      "economy_risk": "极高",
+      "setting": {"lore": "催熟是人界资源碾压来源；需冷却/次数限制。"}
+    },
+    {
+      "id": "jiezi_space",
+      "display": "芥子空间",
+      "type": "personal_space",
+      "use": ["闭关加速结构", "藏宝", "种药"],
+      "obtain": "炼制法（元智大师线结构）",
+      "realm_min": "NASCENT_SOUL",
+      "rarity": 6
+    },
+    {
+      "id": "huajie_zhu",
+      "display": "化界珠",
+      "type": "space_treasure",
+      "materials": ["帝流浆"],
+      "use": "空间类神通/洞天辅助",
+      "rarity": 6
+    },
+    {
+      "id": "mu_sheng_zhu_item",
+      "display": "木生珠",
+      "type": "wood_treasure",
+      "use": "木系培元/神通",
+      "rarity": 6
+    },
+    {
+      "id": "ju_ling_zhu",
+      "display": "聚灵珠",
+      "type": "cultivation_aid",
+      "use": "聚灵加速修炼",
+      "rarity": 5
+    },
+    {
+      "id": "po_mie_fa_mu",
+      "display": "破灭法目",
+      "type": "body_treasure_eye",
+      "use": "破幻/破禁",
+      "obtain": "虚灵殿杀妖等",
+      "rarity": 6
+    },
+    {
+      "id": "huo_ling_si",
+      "display": "火灵丝",
+      "type": "refined_material_weapon",
+      "use": "火系丝攻",
+      "rarity": 5
+    },
+    {
+      "id": "chi_nian_zhenlei",
+      "display": "叱念真雷（禁制种入）",
+      "type": "soul_brand",
+      "use": "控制/威胁高阶目标",
+      "rarity": 6,
+      "alignment_note": "霸道禁制"
+    },
+    {
+      "id": "fenghun_zhou",
+      "display": "封魂咒",
+      "type": "curse",
+      "use": "剧情负面状态",
+      "counter": "昆吾解咒之法",
+      "rarity": 5
+    },
+    {
+      "id": "space_node_intel",
+      "display": "空间节点资料",
+      "type": "intel",
+      "use": "飞升/偷渡灵界",
+      "rarity": 7,
+      "quality_tiers": ["残缺", "标准", "详尽（十余节点）"]
+    },
+    {
+      "id": "po_jie_fu_item",
+      "display": "破界符",
+      "type": "consumable",
+      "use": "破空间障壁",
+      "charges": 1,
+      "rarity": 7
+    },
+    {
+      "id": "xue_ren_item",
+      "display": "血刃",
+      "type": "pseudo_lingbao",
+      "use": "魔龙刃仿制级杀伐",
+      "rarity": 6
+    },
+    {
+      "id": "jinque_yushu_page",
+      "display": "金阙玉书外页",
+      "type": "manual_page",
+      "variants": ["百脉炼宝决", "玄天炼器术", "其他外页"],
+      "rarity": 7
+    },
+    {
+      "id": "fansheng_zhenpian",
+      "display": "梵圣真片",
+      "type": "manual_fragment",
+      "use": "拼梵圣真魔功",
+      "rarity": 6
+    },
+    {
+      "id": "top_spirit_stone",
+      "display": "极品灵石",
+      "type": "currency_high",
+      "ratio_to_low": 1000000,
+      "use": ["化神冲阶", "大阵", "妖族争夺"],
+      "rarity": 6,
+      "price_note": "本身即货币顶层"
+    },
+    {
+      "id": "geng_jing_nugget",
+      "display": "庚精（块）",
+      "type": "material_keystone",
+      "cross_ref": "materials_compendium_v92.json#geng_jing",
+      "quest_sources": ["赌战赏", "拍卖", "坠魔消息"]
+    },
+    {
+      "id": "xuantian_xian_teng",
+      "display": "玄天仙藤（根茎/活株）",
+      "type": "living_treasure_plant",
+      "use": ["救活需醇液等", "后期玄天相关"],
+      "rarity": 7,
+      "care": "回阳水浇灌可活"
+    },
+    {
+      "id": "gui_ling_tablet",
+      "display": "圭灵本命牌",
+      "type": "spirit_control",
+      "use": "收服圭灵",
+      "rarity": 6
+    },
+    {
+      "id": "mo_sui_zuan",
+      "display": "魔髓钻",
+      "type": "demon_material",
+      "use": ["修鬼罗幡", "地下拍卖硬通货"],
+      "rarity": 5
+    },
+    {
+      "id": "chi_ling_ruanyu",
+      "display": "叱灵软玉",
+      "type": "material",
+      "use": "修幡/禁制",
+      "rarity": 5
+    },
+    {
+      "id": "gang_yin_sha",
+      "display": "罡银沙",
+      "type": "material",
+      "source": "坠魔谷",
+      "use": "炼器",
+      "rarity": 4
+    },
+    {
+      "id": "qi_yan_shan_fafa",
+      "display": "七焰扇炼制之法",
+      "type": "blueprint",
+      "source": "坠魔谷火蟾线",
+      "rarity": 5
+    },
+    {
+      "id": "yang_huan",
+      "display": "阳环",
+      "type": "fabao",
+      "source": "掩月宗线",
+      "rarity": 4
+    },
+    {
+      "id": "xue_mo_jian",
+      "display": "血魔剑",
+      "type": "fabao",
+      "source": "掩月宗线",
+      "rarity": 4
+    },
+    {
+      "id": "kun_xian_huan",
+      "display": "困仙环",
+      "type": "fabao_unbind",
+      "use": "交易会未认主法宝结构",
+      "rarity": 5
+    },
+    {
+      "id": "yu_ruyi_gubao",
+      "display": "玉如意古宝",
+      "type": "gu_bao",
+      "source": "虚天殿内殿",
+      "rarity": 6
+    },
+    {
+      "id": "lei_zhu_leipao",
+      "display": "雷珠/雷帕/雷袍",
+      "type": "crafted_set",
+      "materials": ["天雷木", "雷纹"],
+      "realm": "spirit_realm",
+      "rarity": 5
+    },
+    {
+      "id": "tianwai_mojia",
+      "display": "天外魔甲（破损）",
+      "type": "armor",
+      "repair": "合体级魔核",
+      "rarity": 6
+    },
+    {
+      "id": "zhen_hun_dan_item",
+      "display": "真魂丹",
+      "type": "pill_endgame",
+      "source": "斩马良等",
+      "rarity": 8,
+      "trade": "大乘级可售一粒"
+    },
+    {
+      "id": "dao_tian_ping",
+      "display": "盗天瓶",
+      "type": "unique_endgame",
+      "note": "与掌天瓶相关终局物，慎入常规",
+      "rarity": 99
+    }
+  ],
+  "inventory_tags": {
+    "quest_bound": "不可交易",
+    "soul_bound": "认主",
+    "contraband": "正道坊市禁售",
+    "living": "需喂养栏"
+  }
+}

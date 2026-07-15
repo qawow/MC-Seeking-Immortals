@@ -1,0 +1,2523 @@
+{
+  "schema_version": 1,
+  "source": "v127 备选七派精表",
+  "list_note": "与 v126 主名单并存；本名单来自 tiannan_seven_sects_lore.json",
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "methods": [
+        "changchun_gong",
+        "qingyuan_sword_art",
+        "sanzhuan_zhongyuan_gong",
+        "huangfeng_alchemy_scripture"
+      ],
+      "role": "丹药灵草；开局",
+      "ref": "v126 primary also"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "methods": [
+        "yanyue_gong",
+        "yanyue_illusion_art",
+        "yanyue_cycle_art"
+      ],
+      "role": "七派之首气质",
+      "ref": "v126 primary also"
+    },
+    {
+      "id": "tianfu_gate",
+      "display": "天符门",
+      "methods": [
+        "tianfu_spirit_scripture",
+        "tianfu_scripture"
+      ],
+      "role": "制符专精"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "methods": [
+        "tianque_fort_art",
+        "artifact_refining_basic"
+      ],
+      "role": "炼器守御"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜寺/圣殿",
+      "methods": [
+        "tianlan_temple_vajra_art",
+        "tianlan_holy_beast_art",
+        "tianlan_beast_soul_art"
+      ],
+      "role": "佛修降魔+圣兽"
+    },
+    {
+      "id": "lingyun_sect",
+      "display": "灵云宗",
+      "methods": [
+        "lingyun_sword_wind_art"
+      ],
+      "role": "剑+遁攻伐"
+    },
+    {
+      "id": "qingyan_sect",
+      "display": "青岩宗",
+      "methods": [
+        "qingyan_earth_guard_art"
+      ],
+      "role": "土防阵石"
+    }
+  ],
+  "sect_technique_packs": [
+    {
+      "sect_id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "role": "丹药灵草；开局",
+      "methods": [
+        "changchun_gong",
+        "qingyuan_sword_art",
+        "sanzhuan_zhongyuan_gong",
+        "huangfeng_alchemy_scripture"
+      ],
+      "ref": "v126 primary also",
+      "technique_count": 58,
+      "techniques": [
+        {
+          "id": "wan_sword_return",
+          "display": "万剑归宗（仿）",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "secret_arts.json"
+        },
+        {
+          "id": "qingyuan_sword_ray",
+          "display": "青元剑芒",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "flying_sword_strike",
+          "display": "御剑斩",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "green_bamboo_sword_qi",
+          "display": "青竹剑气",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "sword_shield",
+          "display": "剑盾",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "thousand_sword_array",
+          "display": "万剑阵",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "sword_escape",
+          "display": "剑遁",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "sword_merge",
+          "display": "人剑合一",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "invisible_sword",
+          "display": "无形剑",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "sword_domain",
+          "display": "剑域",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "sword.json"
+        },
+        {
+          "id": "dual_sword_dance",
+          "display": "双剑舞",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "sword_formation_basic",
+          "display": "小剑阵",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "green_bamboo_sword_ray",
+          "display": "青竹剑芒（仿）",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_sword_silk",
+          "display": "青元剑丝",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_sword_pill_intent",
+          "display": "剑丸之意",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_sword_light_split",
+          "display": "剑光分化",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_bamboo_cloud_drive",
+          "display": "青竹蜂云御",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "pixie_thunder_sword",
+          "display": "辟邪神雷（剑载）",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_layer5_intent",
+          "display": "青元剑意（五层）",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "qingyuan_layer9_split_mastery",
+          "display": "剑光分化·九层",
+          "requires_method": "qingyuan_sword_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "sword.json"
+        },
+        {
+          "id": "wind_ride",
+          "display": "御风",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "movement.json"
+        },
+        {
+          "id": "fireball",
+          "display": "火弹术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "water_arrow",
+          "display": "水箭术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "earth_spike",
+          "display": "土刺术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "wood_bind",
+          "display": "藤缚术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "metal_needle",
+          "display": "金针术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "ice_shard",
+          "display": "冰锥术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "wind_blade",
+          "display": "风刃术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "thunder_palm",
+          "display": "雷击掌",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "flame_ring",
+          "display": "火环术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "frost_armor",
+          "display": "寒冰护体",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "lava_burst",
+          "display": "熔岩爆",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "mist_rain",
+          "display": "雾雨术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "sand_storm",
+          "display": "沙暴术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "vine_arrow",
+          "display": "木箭术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "gold_beam",
+          "display": "金芒术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "blizzard",
+          "display": "暴雪术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "cyclone",
+          "display": "旋风术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "chain_lightning",
+          "display": "连锁雷",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "dark_flame",
+          "display": "暗焰术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "light_orb",
+          "display": "光球术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "steam_cloud",
+          "display": "蒸汽云",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "ice_spear",
+          "display": "冰矛术",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "flame_burst",
+          "display": "炎爆术",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_fire",
+          "display": "fire系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_water",
+          "display": "water系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_earth",
+          "display": "earth系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_wind",
+          "display": "wind系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_metal",
+          "display": "metal系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_wood",
+          "display": "wood系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_ice",
+          "display": "ice系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "elemental_burst_thunder",
+          "display": "thunder系爆发术（通称）",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "huangfeng_fire_serpent",
+          "display": "黄枫火蛇术",
+          "requires_method": "changchun_gong",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "dingshen_talisman_qi",
+          "display": "定神符（长春过渡）",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "wood_spirit_shield_basic",
+          "display": "木灵护体",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "spring_wood_heal_minor",
+          "display": "长春回春",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "huangfeng_garden_ward",
+          "display": "药园护阵小术",
+          "requires_method": "changchun_gong",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "sanzhuan_rebuild",
+          "display": "三转固元",
+          "requires_method": "sanzhuan_zhongyuan_gong",
+          "realm_min": "FOUNDATION",
+          "file": "recovery.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "changchun_gong",
+          "display": "长春功",
+          "total_layers": 5,
+          "layer_model": "seven_sect_refined_v126",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "1-3层启蒙",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "fireball",
+                "dingshen_talisman_qi"
+              ],
+              "unlock_new_this_layer": [
+                "fireball",
+                "dingshen_talisman_qi"
+              ],
+              "note": "火弹定神"
+            },
+            {
+              "layer": 2,
+              "layer_name": "4-6层",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "fireball",
+                "dingshen_talisman_qi",
+                "wind_ride",
+                "wood_bind",
+                "luoyan_bu"
+              ],
+              "unlock_new_this_layer": [
+                "wind_ride",
+                "wood_bind",
+                "luoyan_bu"
+              ],
+              "note": "御风藤缚"
+            },
+            {
+              "layer": 3,
+              "layer_name": "7-9层",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "fireball",
+                "dingshen_talisman_qi",
+                "wind_ride",
+                "wood_bind",
+                "luoyan_bu",
+                "wood_spirit_shield_basic",
+                "spring_wood_heal_minor",
+                "huangfeng_garden_ward"
+              ],
+              "unlock_new_this_layer": [
+                "wood_spirit_shield_basic",
+                "spring_wood_heal_minor",
+                "huangfeng_garden_ward"
+              ],
+              "note": "护体微疗药园"
+            },
+            {
+              "layer": 4,
+              "layer_name": "10-12层",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "fireball",
+                "dingshen_talisman_qi",
+                "wind_ride",
+                "wood_bind",
+                "luoyan_bu",
+                "wood_spirit_shield_basic",
+                "spring_wood_heal_minor",
+                "huangfeng_garden_ward",
+                "earth_spike",
+                "lianxi_shu"
+              ],
+              "unlock_new_this_layer": [
+                "earth_spike",
+                "lianxi_shu"
+              ],
+              "note": "可兼敛息"
+            },
+            {
+              "layer": 5,
+              "layer_name": "13层圆满",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "fireball",
+                "dingshen_talisman_qi",
+                "wind_ride",
+                "wood_bind",
+                "luoyan_bu",
+                "wood_spirit_shield_basic",
+                "spring_wood_heal_minor",
+                "huangfeng_garden_ward",
+                "earth_spike",
+                "lianxi_shu"
+              ],
+              "unlock_new_this_layer": [
+                "fireball",
+                "wind_ride"
+              ],
+              "note": "转修青元/三转"
+            }
+          ],
+          "v126": true
+        },
+        {
+          "method_id": "qingyuan_sword_art",
+          "display": "青元剑诀",
+          "total_layers": 13,
+          "layer_model": "novel_anchored_13_playable",
+          "source_note": "原著对「第N层」有提及但非教科书目录。本表做成13层可玩刻度，每层附 novel_anchor（剧情/境界锚点）与 playable_unlock（可学术id）。勿当作原文逐字层名。",
+          "path": "sword",
+          "school": "sword",
+          "prerequisite_methods": [
+            "changchun_gong"
+          ],
+          "creator": "青元子",
+          "obtained_via": "李化元记名/机缘",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "第一层·剑气初凝",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "筑基后初修剑诀",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_ray",
+                "sword_shield"
+              ],
+              "note": "筑基后初修剑诀"
+            },
+            {
+              "layer": 2,
+              "layer_name": "第二层·剑芒成形",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "可稳定施展剑芒",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_ray",
+                "flying_sword_strike",
+                "sword_shield"
+              ],
+              "note": "可稳定施展剑芒"
+            },
+            {
+              "layer": 3,
+              "layer_name": "第三层·御剑小成",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "御剑斩、短距剑遁",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_ray",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi"
+              ],
+              "note": "御剑斩、短距剑遁"
+            },
+            {
+              "layer": 4,
+              "layer_name": "第四层·剑丝初现",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "剑气细化切割",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_silk",
+                "green_bamboo_sword_qi",
+                "sword_escape",
+                "dual_sword_dance"
+              ],
+              "note": "剑气细化切割"
+            },
+            {
+              "layer": 5,
+              "layer_name": "第五层·剑意渐显",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "韩立筑基中期气质；小剑阵雏形",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "qingyuan_layer5_intent"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_silk",
+                "qingyuan_layer5_intent",
+                "sword_formation_basic",
+                "dual_sword_dance",
+                "invisible_sword"
+              ],
+              "note": "韩立筑基中期气质；小剑阵雏形"
+            },
+            {
+              "layer": 6,
+              "layer_name": "第六层·筑基圆满剑",
+              "realm_band": "FOUNDATION",
+              "novel_anchor": "备结丹；人剑合一雏形",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_layer5_intent"
+              ],
+              "unlock_new_this_layer": [
+                "sword_merge",
+                "invisible_sword",
+                "sword_formation_basic",
+                "qingyuan_sword_silk"
+              ],
+              "note": "备结丹；人剑合一雏形"
+            },
+            {
+              "layer": 7,
+              "layer_name": "第七层·结丹剑基",
+              "realm_band": "CORE_FORMATION",
+              "novel_anchor": "结丹后剑基稳固",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "qingyuan_layer5_intent"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_pill_intent",
+                "sword_merge",
+                "qingyuan_bamboo_cloud_drive"
+              ],
+              "note": "结丹后剑基稳固"
+            },
+            {
+              "layer": 8,
+              "layer_name": "第八层·本命剑成",
+              "realm_band": "CORE_FORMATION",
+              "novel_anchor": "青竹蜂云剑本命御使（需本命剑）",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_layer5_intent"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_pill_intent"
+              ],
+              "note": "青竹蜂云剑本命御使（需本命剑）"
+            },
+            {
+              "layer": 9,
+              "layer_name": "第九层·元婴剑阶",
+              "realm_band": "NASCENT_SOUL",
+              "novel_anchor": "原著元婴前后「九层」气质锚点；剑光分化",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "qingyuan_layer5_intent",
+                "qingyuan_layer9_split_mastery"
+              ],
+              "unlock_new_this_layer": [
+                "thousand_sword_array",
+                "qingyuan_layer9_split_mastery",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "qingyuan_bamboo_cloud_drive"
+              ],
+              "note": "原著元婴前后「九层」气质锚点；剑光分化"
+            },
+            {
+              "layer": 10,
+              "layer_name": "第十层·剑光分化大成",
+              "realm_band": "NASCENT_SOUL",
+              "novel_anchor": "一剑多芒熟练",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "sword_domain",
+                "qingyuan_layer5_intent",
+                "qingyuan_layer9_split_mastery"
+              ],
+              "unlock_new_this_layer": [
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "sword_domain"
+              ],
+              "note": "一剑多芒熟练"
+            },
+            {
+              "layer": 11,
+              "layer_name": "第十一层·剑域展开",
+              "realm_band": "NASCENT_SOUL",
+              "novel_anchor": "剑域/万剑归宗气质",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "sword_domain",
+                "wan_sword_return",
+                "qingyuan_layer5_intent",
+                "qingyuan_layer9_split_mastery"
+              ],
+              "unlock_new_this_layer": [
+                "sword_domain",
+                "wan_sword_return",
+                "qingyuan_sword_light_split"
+              ],
+              "note": "剑域/万剑归宗气质"
+            },
+            {
+              "layer": 12,
+              "layer_name": "第十二层·辟邪雷载",
+              "realm_band": "NASCENT_SOUL",
+              "novel_anchor": "青竹蜂云剑辟邪神雷",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "sword_domain",
+                "wan_sword_return",
+                "pixie_thunder_sword",
+                "qingyuan_layer5_intent",
+                "qingyuan_layer9_split_mastery"
+              ],
+              "unlock_new_this_layer": [
+                "pixie_thunder_sword",
+                "sword_domain",
+                "wan_sword_return"
+              ],
+              "note": "青竹蜂云剑辟邪神雷"
+            },
+            {
+              "layer": 13,
+              "layer_name": "第十三层·青元圆满带",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "novel_anchor": "化神前大圆满气质；之后主修可转元磁等",
+              "unlock_technique_ids": [
+                "qingyuan_sword_ray",
+                "sword_shield",
+                "flying_sword_strike",
+                "sword_escape",
+                "green_bamboo_sword_qi",
+                "qingyuan_sword_silk",
+                "dual_sword_dance",
+                "sword_formation_basic",
+                "invisible_sword",
+                "sword_merge",
+                "qingyuan_sword_pill_intent",
+                "qingyuan_bamboo_cloud_drive",
+                "green_bamboo_sword_ray",
+                "qingyuan_sword_light_split",
+                "thousand_sword_array",
+                "sword_domain",
+                "wan_sword_return",
+                "pixie_thunder_sword",
+                "qingyuan_layer5_intent",
+                "qingyuan_layer9_split_mastery"
+              ],
+              "unlock_new_this_layer": [
+                "pixie_thunder_sword",
+                "sword_domain",
+                "qingyuan_sword_light_split",
+                "wan_sword_return"
+              ],
+              "note": "化神前大圆满气质；之后主修可转元磁等"
+            }
+          ],
+          "han_li_timeline_hints": [
+            {
+              "when": "筑基后黄枫谷",
+              "layer_hint": "1-5",
+              "note": "得诀开修，剑芒御剑"
+            },
+            {
+              "when": "结丹前后",
+              "layer_hint": "6-8",
+              "note": "本命青竹蜂云剑"
+            },
+            {
+              "when": "元婴",
+              "layer_hint": "9-11",
+              "note": "约第九层气质+剑域"
+            },
+            {
+              "when": "化神前",
+              "layer_hint": "12-13",
+              "note": "辟邪雷、圆满带"
+            }
+          ]
+        },
+        {
+          "method_id": "sanzhuan_zhongyuan_gong",
+          "display": "三转重元功",
+          "total_layers": 3,
+          "layer_model": "seven_sect_refined_v126",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "一转",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "sanzhuan_rebuild"
+              ],
+              "unlock_new_this_layer": [
+                "sanzhuan_rebuild"
+              ],
+              "note": "固元"
+            },
+            {
+              "layer": 2,
+              "layer_name": "二转",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "sanzhuan_rebuild"
+              ],
+              "unlock_new_this_layer": [
+                "sanzhuan_rebuild"
+              ],
+              "note": "再筑"
+            },
+            {
+              "layer": 3,
+              "layer_name": "三转",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "sanzhuan_rebuild"
+              ],
+              "unlock_new_this_layer": [
+                "sanzhuan_rebuild"
+              ],
+              "note": "三重"
+            }
+          ],
+          "v126": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "yanyue_sect",
+      "display": "掩月宗",
+      "role": "七派之首气质",
+      "methods": [
+        "yanyue_gong",
+        "yanyue_illusion_art",
+        "yanyue_cycle_art"
+      ],
+      "ref": "v126 primary also",
+      "technique_count": 29,
+      "techniques": [
+        {
+          "id": "mirror_phantom",
+          "display": "镜影术",
+          "requires_method": "yanyue_illusion_art",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "hundred_illusion",
+          "display": "百幻术",
+          "requires_method": "yanyue_gong",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "mind_confusion",
+          "display": "迷心术",
+          "requires_method": "yanyue_illusion_art",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "void_step",
+          "display": "虚步",
+          "requires_method": "yanyue_gong",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "dream_snare",
+          "display": "梦缚",
+          "requires_method": "yanyue_gong",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "clone_image",
+          "display": "分身幻影",
+          "requires_method": "yanyue_gong",
+          "realm_min": "QI_REFINING",
+          "file": "illusion.json"
+        },
+        {
+          "id": "yanyue_phantom_array",
+          "display": "掩月幻阵",
+          "requires_method": "yanyue_illusion_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "veil_of_moon",
+          "display": "月纱障",
+          "requires_method": "yanyue_illusion_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "invisibility_basic",
+          "display": "隐匿术",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "illusion_mist",
+          "display": "幻雾术",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "inverse_star_veil",
+          "display": "逆星匿形",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "yanyue_moon_illusion",
+          "display": "掩月幻身",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "yanyue_mirage",
+          "display": "掩月幻景",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "suyu_cycle_drain",
+          "display": "素女轮回吸",
+          "requires_method": "yanyue_cycle_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "yanyue_moon_veil",
+          "display": "掩月纱",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "yanyue_heart_mirror",
+          "display": "掩月心镜",
+          "requires_method": "yanyue_illusion_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json"
+        },
+        {
+          "id": "soul_devouring_cloud",
+          "display": "噬魂云",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "corpse_explosion",
+          "display": "尸爆",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "yin_soul_chain",
+          "display": "阴魂链",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "blood_corruption",
+          "display": "污血术",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "corpse_armor",
+          "display": "炼尸甲",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "underworld_flame",
+          "display": "幽冥火",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "yin_corrosion",
+          "display": "阴蚀",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "ghost_king_summon",
+          "display": "鬼王召",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "soul_banner",
+          "display": "招魂",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "poluo_soul_pull",
+          "display": "夺魂牵引",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "xuanyin_cold_aura",
+          "display": "玄阴寒息",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "xuanyin_soul_thread",
+          "display": "玄阴魂丝",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "xuan_yin.json"
+        },
+        {
+          "id": "guiling_xuan_bridge",
+          "display": "鬼灵玄阴渡",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "yanyue_gong",
+          "display": "掩月诀",
+          "total_layers": 3,
+          "layer_model": "seven_sect_refined_v126",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "入门",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "yanyue_mirage",
+                "yanyue_moon_veil"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_mirage",
+                "yanyue_moon_veil"
+              ],
+              "note": "幻景月纱"
+            },
+            {
+              "layer": 2,
+              "layer_name": "小成",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "yanyue_mirage",
+                "yanyue_moon_veil"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_mirage",
+                "yanyue_moon_veil"
+              ],
+              "note": "熟练"
+            },
+            {
+              "layer": 3,
+              "layer_name": "大成",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "yanyue_mirage",
+                "yanyue_moon_veil",
+                "yanyue_heart_mirror"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_heart_mirror"
+              ],
+              "note": "心镜"
+            }
+          ],
+          "v126": true
+        },
+        {
+          "method_id": "yanyue_illusion_art",
+          "display": "掩月幻心诀",
+          "total_layers": 3,
+          "layer_model": "seven_sect_refined_v126",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "幻心初",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "yanyue_mirage"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_mirage"
+              ],
+              "note": "基础"
+            },
+            {
+              "layer": 2,
+              "layer_name": "幻心",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "yanyue_mirage",
+                "yanyue_heart_mirror"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_heart_mirror"
+              ],
+              "note": "心镜"
+            },
+            {
+              "layer": 3,
+              "layer_name": "幻心成",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "yanyue_mirage",
+                "yanyue_heart_mirror"
+              ],
+              "unlock_new_this_layer": [
+                "yanyue_heart_mirror"
+              ],
+              "note": "高阶幻"
+            }
+          ],
+          "v126": true
+        },
+        {
+          "method_id": "yanyue_cycle_art",
+          "display": "素女轮回功",
+          "total_layers": 3,
+          "layer_model": "seven_sect_refined_v126",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "轮回入门",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "suyu_cycle_drain"
+              ],
+              "unlock_new_this_layer": [
+                "suyu_cycle_drain"
+              ],
+              "note": "吸补"
+            },
+            {
+              "layer": 2,
+              "layer_name": "轮回",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "suyu_cycle_drain"
+              ],
+              "unlock_new_this_layer": [
+                "suyu_cycle_drain"
+              ],
+              "note": "强化"
+            },
+            {
+              "layer": 3,
+              "layer_name": "轮回大成",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "suyu_cycle_drain"
+              ],
+              "unlock_new_this_layer": [
+                "suyu_cycle_drain"
+              ],
+              "note": "宗门核心"
+            }
+          ],
+          "v126": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "tianfu_gate",
+      "display": "天符门",
+      "role": "制符专精",
+      "methods": [
+        "tianfu_spirit_scripture",
+        "tianfu_scripture"
+      ],
+      "ref": null,
+      "technique_count": 42,
+      "techniques": [
+        {
+          "id": "fire_talisman",
+          "display": "烈火符",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "ice_talisman",
+          "display": "寒冰符",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "teleport_talisman",
+          "display": "遁天符",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "spirit_shield_talisman",
+          "display": "护体符",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "explosion_talisman",
+          "display": "爆炎符",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "wind_talisman",
+          "display": "神行符",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "seal_talisman",
+          "display": "定身符",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "ghost_talisman",
+          "display": "驱鬼符",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "spirit_chain_talisman_cast",
+          "display": "缚灵符术",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "golden_armor_talisman_cast",
+          "display": "金刚符术",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "thunder_talisman_storm",
+          "display": "雷符暴雨",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "CORE_FORMATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "tianfu_golden_chain",
+          "display": "天符金链",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_fire_burst_talisman",
+          "display": "爆炎符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_ice_seal_talisman",
+          "display": "冰封符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_escape_heaven_talisman",
+          "display": "遁天符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_spirit_fix_talisman",
+          "display": "定神符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_thunder_talisman",
+          "display": "雷霄符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "CORE_FORMATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_soul_lock_talisman",
+          "display": "锁魂符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_teleport_array_talisman",
+          "display": "传送符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_beast_contract_talisman",
+          "display": "御兽契符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_anti_demon_talisman",
+          "display": "驱魔符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_yin_protect_talisman",
+          "display": "阴灵护符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_ghost_hide_talisman",
+          "display": "敛魂符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_space_anchor_talisman",
+          "display": "定空符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "CORE_FORMATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_life_save_talisman",
+          "display": "替身符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "NASCENT_SOUL",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_earth_wall_talisman",
+          "display": "土墙符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_mirage_heart_talisman",
+          "display": "幻心符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_invisibility_talisman",
+          "display": "匿形符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_spirit_gather_talisman",
+          "display": "聚灵符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_illusion_talisman",
+          "display": "迷踪符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_star_palace_patrol_talisman",
+          "display": "星宫巡海符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_golden_armor_talisman",
+          "display": "金刚符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_inverse_star_cipher_talisman",
+          "display": "逆星暗号符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_bu_tian_talisman",
+          "display": "补天符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_wood_bind_talisman",
+          "display": "木缚符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_metal_blade_talisman",
+          "display": "金刃符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_void_palace_key_talisman",
+          "display": "虚天引路符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json"
+        },
+        {
+          "id": "cast_talisman_wooden_ox",
+          "display": "木牛符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "mid_grade_talisman_burst",
+          "display": "中级符爆",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "tianfu_grade3_master_cast",
+          "display": "天符三品连爆",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "CORE_FORMATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "tianfu_ink_resonance",
+          "display": "灵墨共鸣",
+          "requires_method": "tianfu_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        },
+        {
+          "id": "tianfu_paper_shield_wall",
+          "display": "符墙",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "FOUNDATION",
+          "file": "talisman.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "tianfu_spirit_scripture",
+          "display": "天符灵经",
+          "total_layers": 4,
+          "layer_model": "tianfu_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "一品符",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "cast_beast_contract_talisman",
+                "cast_bu_tian_talisman",
+                "cast_earth_wall_talisman",
+                "cast_fire_burst_talisman",
+                "cast_ghost_hide_talisman",
+                "cast_golden_armor_talisman",
+                "cast_ice_seal_talisman",
+                "cast_illusion_talisman",
+                "cast_inverse_star_cipher_talisman",
+                "cast_metal_blade_talisman",
+                "cast_spirit_fix_talisman",
+                "cast_spirit_gather_talisman"
+              ],
+              "unlock_new_this_layer": [
+                "cast_beast_contract_talisman",
+                "cast_bu_tian_talisman",
+                "cast_earth_wall_talisman",
+                "cast_fire_burst_talisman",
+                "cast_ghost_hide_talisman",
+                "cast_golden_armor_talisman",
+                "cast_ice_seal_talisman",
+                "cast_illusion_talisman",
+                "cast_inverse_star_cipher_talisman",
+                "cast_metal_blade_talisman",
+                "cast_spirit_fix_talisman",
+                "cast_spirit_gather_talisman"
+              ],
+              "note": "低阶符海"
+            },
+            {
+              "layer": 2,
+              "layer_name": "二品符",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "cast_beast_contract_talisman",
+                "cast_bu_tian_talisman",
+                "cast_earth_wall_talisman",
+                "cast_fire_burst_talisman",
+                "cast_ghost_hide_talisman",
+                "cast_golden_armor_talisman",
+                "cast_ice_seal_talisman",
+                "cast_illusion_talisman",
+                "cast_inverse_star_cipher_talisman",
+                "cast_metal_blade_talisman",
+                "cast_spirit_fix_talisman",
+                "cast_spirit_gather_talisman",
+                "cast_anti_demon_talisman",
+                "cast_escape_heaven_talisman",
+                "cast_invisibility_talisman",
+                "cast_mirage_heart_talisman",
+                "cast_soul_lock_talisman",
+                "cast_talisman_wooden_ox",
+                "cast_teleport_array_talisman",
+                "cast_yin_protect_talisman",
+                "golden_armor_talisman_cast",
+                "mid_grade_talisman_burst",
+                "spirit_chain_talisman_cast",
+                "tianfu_golden_chain"
+              ],
+              "unlock_new_this_layer": [
+                "cast_anti_demon_talisman",
+                "cast_escape_heaven_talisman",
+                "cast_invisibility_talisman",
+                "cast_mirage_heart_talisman",
+                "cast_soul_lock_talisman",
+                "cast_talisman_wooden_ox",
+                "cast_teleport_array_talisman",
+                "cast_yin_protect_talisman",
+                "golden_armor_talisman_cast",
+                "mid_grade_talisman_burst",
+                "spirit_chain_talisman_cast",
+                "tianfu_golden_chain"
+              ],
+              "note": "中阶"
+            },
+            {
+              "layer": 3,
+              "layer_name": "三品符",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "cast_beast_contract_talisman",
+                "cast_bu_tian_talisman",
+                "cast_earth_wall_talisman",
+                "cast_fire_burst_talisman",
+                "cast_ghost_hide_talisman",
+                "cast_golden_armor_talisman",
+                "cast_ice_seal_talisman",
+                "cast_illusion_talisman",
+                "cast_inverse_star_cipher_talisman",
+                "cast_metal_blade_talisman",
+                "cast_spirit_fix_talisman",
+                "cast_spirit_gather_talisman",
+                "cast_anti_demon_talisman",
+                "cast_escape_heaven_talisman",
+                "cast_invisibility_talisman",
+                "cast_mirage_heart_talisman",
+                "cast_soul_lock_talisman",
+                "cast_talisman_wooden_ox",
+                "cast_teleport_array_talisman",
+                "cast_yin_protect_talisman",
+                "golden_armor_talisman_cast",
+                "mid_grade_talisman_burst",
+                "spirit_chain_talisman_cast",
+                "tianfu_golden_chain",
+                "cast_space_anchor_talisman",
+                "cast_thunder_talisman",
+                "thunder_talisman_storm",
+                "tianfu_grade3_master_cast"
+              ],
+              "unlock_new_this_layer": [
+                "cast_space_anchor_talisman",
+                "cast_thunder_talisman",
+                "thunder_talisman_storm",
+                "tianfu_grade3_master_cast"
+              ],
+              "note": "高阶连爆"
+            },
+            {
+              "layer": 4,
+              "layer_name": "元婴符道",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "cast_beast_contract_talisman",
+                "cast_bu_tian_talisman",
+                "cast_earth_wall_talisman",
+                "cast_fire_burst_talisman",
+                "cast_ghost_hide_talisman",
+                "cast_golden_armor_talisman",
+                "cast_ice_seal_talisman",
+                "cast_illusion_talisman",
+                "cast_inverse_star_cipher_talisman",
+                "cast_metal_blade_talisman",
+                "cast_spirit_fix_talisman",
+                "cast_spirit_gather_talisman",
+                "cast_anti_demon_talisman",
+                "cast_escape_heaven_talisman",
+                "cast_invisibility_talisman",
+                "cast_mirage_heart_talisman",
+                "cast_soul_lock_talisman",
+                "cast_talisman_wooden_ox",
+                "cast_teleport_array_talisman",
+                "cast_yin_protect_talisman",
+                "golden_armor_talisman_cast",
+                "mid_grade_talisman_burst",
+                "spirit_chain_talisman_cast",
+                "tianfu_golden_chain",
+                "cast_space_anchor_talisman",
+                "cast_thunder_talisman",
+                "thunder_talisman_storm",
+                "tianfu_grade3_master_cast",
+                "cast_life_save_talisman"
+              ],
+              "unlock_new_this_layer": [
+                "cast_life_save_talisman"
+              ],
+              "note": "替身等"
+            }
+          ],
+          "v127": true
+        },
+        {
+          "method_id": "tianfu_scripture",
+          "display": "天符灵诀",
+          "total_layers": 3,
+          "layer_model": "tianfu_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "灵诀入门",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianfu_ink_resonance",
+                "spirit_shield_talisman",
+                "seal_talisman"
+              ],
+              "unlock_new_this_layer": [
+                "tianfu_ink_resonance",
+                "spirit_shield_talisman",
+                "seal_talisman"
+              ],
+              "note": "进阶符"
+            },
+            {
+              "layer": 2,
+              "layer_name": "金链",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianfu_ink_resonance",
+                "spirit_shield_talisman",
+                "seal_talisman",
+                "tianfu_golden_chain",
+                "explosion_talisman"
+              ],
+              "unlock_new_this_layer": [
+                "tianfu_golden_chain",
+                "explosion_talisman"
+              ],
+              "note": "金链爆炎"
+            },
+            {
+              "layer": 3,
+              "layer_name": "大成",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "tianfu_ink_resonance",
+                "spirit_shield_talisman",
+                "seal_talisman",
+                "tianfu_golden_chain",
+                "explosion_talisman"
+              ],
+              "unlock_new_this_layer": [
+                "tianfu_ink_resonance"
+              ],
+              "note": "共鸣强化"
+            }
+          ],
+          "v127": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "tianque_fort",
+      "display": "天阙堡",
+      "role": "炼器守御",
+      "methods": [
+        "tianque_fort_art",
+        "artifact_refining_basic"
+      ],
+      "ref": null,
+      "technique_count": 7,
+      "techniques": [
+        {
+          "id": "golden_armor_talisman_forge_cast",
+          "display": "金刚护体符",
+          "requires_method": "artifact_refining_basic",
+          "realm_min": "FOUNDATION",
+          "file": "misc.json"
+        },
+        {
+          "id": "tianque_forge_focus",
+          "display": "天阙锻意",
+          "requires_method": "artifact_refining_basic",
+          "realm_min": "QI_REFINING",
+          "file": "misc.json"
+        },
+        {
+          "id": "artifact_spirit_awaken_secret",
+          "display": "器灵初醒",
+          "requires_method": "artifact_refining_basic",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json"
+        },
+        {
+          "id": "tianque_bastion_guard",
+          "display": "天阙堡罡",
+          "requires_method": "tianque_fort_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json"
+        },
+        {
+          "id": "tianque_shield_bash",
+          "display": "天阙盾击",
+          "requires_method": "tianque_fort_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json"
+        },
+        {
+          "id": "tianque_wall_array",
+          "display": "天阙壁阵",
+          "requires_method": "tianque_fort_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "tianque_fortress_domain",
+          "display": "天阙要塞域",
+          "requires_method": "tianque_fort_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "tianque_fort_art",
+          "display": "天阙堡垒诀",
+          "total_layers": 3,
+          "layer_model": "tianque_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "堡罡",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianque_bastion_guard",
+                "tianque_shield_bash"
+              ],
+              "unlock_new_this_layer": [
+                "tianque_bastion_guard",
+                "tianque_shield_bash"
+              ],
+              "note": "来自v126"
+            },
+            {
+              "layer": 2,
+              "layer_name": "壁阵",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianque_bastion_guard",
+                "tianque_shield_bash",
+                "tianque_wall_array"
+              ],
+              "unlock_new_this_layer": [
+                "tianque_wall_array"
+              ],
+              "note": "阵"
+            },
+            {
+              "layer": 3,
+              "layer_name": "要塞",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "tianque_bastion_guard",
+                "tianque_shield_bash",
+                "tianque_wall_array",
+                "tianque_fortress_domain"
+              ],
+              "unlock_new_this_layer": [
+                "tianque_fortress_domain"
+              ],
+              "note": "域"
+            }
+          ],
+          "v127": true
+        },
+        {
+          "method_id": "artifact_refining_basic",
+          "display": "炼器基础诀",
+          "total_layers": 2,
+          "layer_model": "tianque_craft_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "锻意",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "tianque_forge_focus"
+              ],
+              "unlock_new_this_layer": [
+                "tianque_forge_focus"
+              ],
+              "note": "职修"
+            },
+            {
+              "layer": 2,
+              "layer_name": "成形",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianque_forge_focus"
+              ],
+              "unlock_new_this_layer": [
+                "tianque_forge_focus"
+              ],
+              "note": "叙事"
+            }
+          ],
+          "v127": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "tianlan_temple",
+      "display": "天澜寺/圣殿",
+      "role": "佛修降魔+圣兽",
+      "methods": [
+        "tianlan_temple_vajra_art",
+        "tianlan_holy_beast_art",
+        "tianlan_beast_soul_art"
+      ],
+      "ref": null,
+      "technique_count": 9,
+      "techniques": [
+        {
+          "id": "spirit_art_holy_beast_call",
+          "display": "圣兽唤灵术",
+          "requires_method": "tianlan_holy_beast_art",
+          "realm_min": "FOUNDATION",
+          "file": "fashi.json"
+        },
+        {
+          "id": "spirit_art_holy_feather_guard",
+          "display": "圣羽护体",
+          "requires_method": "tianlan_holy_beast_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "fashi.json"
+        },
+        {
+          "id": "tianlan_beast_soul_link",
+          "display": "天澜兽魂契",
+          "requires_method": "tianlan_beast_soul_art",
+          "realm_min": "QI_REFINING",
+          "file": "fashi.json"
+        },
+        {
+          "id": "tianlan_holy_descent",
+          "display": "圣兽虚影降",
+          "requires_method": "tianlan_holy_beast_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "fashi.json"
+        },
+        {
+          "id": "tianlan_iron_palm",
+          "display": "天澜铁掌",
+          "requires_method": "tianlan_temple_vajra_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json"
+        },
+        {
+          "id": "tianlan_demon_subdue",
+          "display": "天澜降魔印",
+          "requires_method": "tianlan_temple_vajra_art",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "tianlan_vajra_body",
+          "display": "天澜金刚体",
+          "requires_method": "tianlan_temple_vajra_art",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "tianlan_zen_shock",
+          "display": "天澜禅音震",
+          "requires_method": "tianlan_temple_vajra_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "tianlan_war_front_oath",
+          "display": "天澜前线誓",
+          "requires_method": "tianlan_temple_vajra_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "buddhist.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "tianlan_temple_vajra_art",
+          "display": "天澜降魔功",
+          "total_layers": 4,
+          "layer_model": "tianlan_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "金刚体",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianlan_vajra_body",
+                "tianlan_iron_palm"
+              ],
+              "unlock_new_this_layer": [
+                "tianlan_vajra_body",
+                "tianlan_iron_palm"
+              ],
+              "note": "炼体"
+            },
+            {
+              "layer": 2,
+              "layer_name": "降魔印",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "tianlan_vajra_body",
+                "tianlan_iron_palm",
+                "tianlan_demon_subdue"
+              ],
+              "unlock_new_this_layer": [
+                "tianlan_demon_subdue"
+              ],
+              "note": "降魔"
+            },
+            {
+              "layer": 3,
+              "layer_name": "禅音",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "tianlan_vajra_body",
+                "tianlan_iron_palm",
+                "tianlan_demon_subdue",
+                "tianlan_zen_shock"
+              ],
+              "unlock_new_this_layer": [
+                "tianlan_zen_shock"
+              ],
+              "note": "范围"
+            },
+            {
+              "layer": 4,
+              "layer_name": "前线誓",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "tianlan_vajra_body",
+                "tianlan_iron_palm",
+                "tianlan_demon_subdue",
+                "tianlan_zen_shock",
+                "tianlan_war_front_oath"
+              ],
+              "unlock_new_this_layer": [
+                "tianlan_war_front_oath"
+              ],
+              "note": "慕兰大战"
+            }
+          ],
+          "v127": true
+        },
+        {
+          "method_id": "tianlan_holy_beast_art",
+          "display": "天澜圣兽诀",
+          "total_layers": 3,
+          "layer_model": "tianlan_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "唤灵",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "spirit_art_holy_beast_call",
+                "tianlan_beast_soul_link"
+              ],
+              "unlock_new_this_layer": [
+                "spirit_art_holy_beast_call",
+                "tianlan_beast_soul_link"
+              ],
+              "note": "契约"
+            },
+            {
+              "layer": 2,
+              "layer_name": "圣羽",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "spirit_art_holy_beast_call",
+                "tianlan_beast_soul_link",
+                "spirit_art_holy_feather_guard"
+              ],
+              "unlock_new_this_layer": [
+                "spirit_art_holy_feather_guard"
+              ],
+              "note": "护体"
+            },
+            {
+              "layer": 3,
+              "layer_name": "虚影降",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "spirit_art_holy_beast_call",
+                "tianlan_beast_soul_link",
+                "spirit_art_holy_feather_guard",
+                "tianlan_holy_descent"
+              ],
+              "unlock_new_this_layer": [
+                "tianlan_holy_descent"
+              ],
+              "note": "大招"
+            }
+          ],
+          "v127": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "lingyun_sect",
+      "display": "灵云宗",
+      "role": "剑+遁攻伐",
+      "methods": [
+        "lingyun_sword_wind_art"
+      ],
+      "ref": null,
+      "technique_count": 5,
+      "techniques": [
+        {
+          "id": "lingyun_swift_thrust",
+          "display": "灵云疾刺",
+          "requires_method": "lingyun_sword_wind_art",
+          "realm_min": "QI_REFINING",
+          "file": "sword.json"
+        },
+        {
+          "id": "lingyun_wind_slash",
+          "display": "灵云风斩",
+          "requires_method": "lingyun_sword_wind_art",
+          "realm_min": "FOUNDATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "lingyun_storm_array",
+          "display": "灵云剑岚",
+          "requires_method": "lingyun_sword_wind_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json"
+        },
+        {
+          "id": "lingyun_cloud_flash",
+          "display": "灵云闪",
+          "requires_method": "lingyun_sword_wind_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json"
+        },
+        {
+          "id": "lingyun_void_step",
+          "display": "灵云虚步",
+          "requires_method": "lingyun_sword_wind_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "movement.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "lingyun_sword_wind_art",
+          "display": "灵云剑风诀",
+          "total_layers": 4,
+          "layer_model": "lingyun_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "疾刺",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "lingyun_swift_thrust"
+              ],
+              "unlock_new_this_layer": [
+                "lingyun_swift_thrust"
+              ],
+              "note": "入门"
+            },
+            {
+              "layer": 2,
+              "layer_name": "风斩闪",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "lingyun_swift_thrust",
+                "lingyun_wind_slash",
+                "lingyun_cloud_flash"
+              ],
+              "unlock_new_this_layer": [
+                "lingyun_wind_slash",
+                "lingyun_cloud_flash"
+              ],
+              "note": "剑遁"
+            },
+            {
+              "layer": 3,
+              "layer_name": "剑岚",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "lingyun_swift_thrust",
+                "lingyun_wind_slash",
+                "lingyun_cloud_flash",
+                "lingyun_storm_array"
+              ],
+              "unlock_new_this_layer": [
+                "lingyun_storm_array"
+              ],
+              "note": "范围"
+            },
+            {
+              "layer": 4,
+              "layer_name": "虚步",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "lingyun_swift_thrust",
+                "lingyun_wind_slash",
+                "lingyun_cloud_flash",
+                "lingyun_storm_array",
+                "lingyun_void_step"
+              ],
+              "unlock_new_this_layer": [
+                "lingyun_void_step"
+              ],
+              "note": "高阶遁"
+            }
+          ],
+          "v127": true
+        }
+      ],
+      "list": "alternate_seven"
+    },
+    {
+      "sect_id": "qingyan_sect",
+      "display": "青岩宗",
+      "role": "土防阵石",
+      "methods": [
+        "qingyan_earth_guard_art"
+      ],
+      "ref": null,
+      "technique_count": 5,
+      "techniques": [
+        {
+          "id": "qingyan_stone_skin",
+          "display": "青岩石肤",
+          "requires_method": "qingyan_earth_guard_art",
+          "realm_min": "QI_REFINING",
+          "file": "elemental.json"
+        },
+        {
+          "id": "qingyan_earth_spike_wall",
+          "display": "青岩刺壁",
+          "requires_method": "qingyan_earth_guard_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "qingyan_quake",
+          "display": "青岩震",
+          "requires_method": "qingyan_earth_guard_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "qingyan_array_stone",
+          "display": "青岩阵石植",
+          "requires_method": "qingyan_earth_guard_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "qingyan_border_bastion",
+          "display": "青岩边堡阵",
+          "requires_method": "qingyan_earth_guard_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "formation.json"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "qingyan_earth_guard_art",
+          "display": "青岩厚土诀",
+          "total_layers": 4,
+          "layer_model": "qingyan_v127",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "石肤",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "qingyan_stone_skin"
+              ],
+              "unlock_new_this_layer": [
+                "qingyan_stone_skin"
+              ],
+              "note": "护体"
+            },
+            {
+              "layer": 2,
+              "layer_name": "刺壁阵石",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "qingyan_stone_skin",
+                "qingyan_earth_spike_wall",
+                "qingyan_array_stone"
+              ],
+              "unlock_new_this_layer": [
+                "qingyan_earth_spike_wall",
+                "qingyan_array_stone"
+              ],
+              "note": "防与阵"
+            },
+            {
+              "layer": 3,
+              "layer_name": "震",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "qingyan_stone_skin",
+                "qingyan_earth_spike_wall",
+                "qingyan_array_stone",
+                "qingyan_quake"
+              ],
+              "unlock_new_this_layer": [
+                "qingyan_quake"
+              ],
+              "note": "输出"
+            },
+            {
+              "layer": 4,
+              "layer_name": "边堡",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "qingyan_stone_skin",
+                "qingyan_earth_spike_wall",
+                "qingyan_array_stone",
+                "qingyan_quake",
+                "qingyan_border_bastion"
+              ],
+              "unlock_new_this_layer": [
+                "qingyan_border_bastion"
+              ],
+              "note": "协防"
+            }
+          ],
+          "v127": true
+        }
+      ],
+      "list": "alternate_seven"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v135",
+  "items": [
+    {
+      "id": "v135_mb",
+      "display": "多方块联机与定价",
+      "type": "meta",
+      "description": "时序7条；材料价245；结构86"
+    }
+  ]
+}

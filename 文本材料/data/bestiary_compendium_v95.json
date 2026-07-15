@@ -1,0 +1,917 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 生物图鉴。贴原著外形/习性/战力结构；数值为可重平衡量级",
+  "disclaimer": "非逐章统计；真灵级仅作界面后期标签",
+  "tier_system_note": "妖兽常见一至十三级；约五级凝妖丹，七级近化形，八级可化形，十一级约元婴，十二级约化神，十三级妖王/真灵边缘",
+  "categories": {
+    "yaoshou": "妖兽",
+    "lingshou": "灵兽（可驯）",
+    "chong": "灵虫",
+    "shi_gui": "炼尸/鬼物",
+    "gu_mo": "古魔/域外",
+    "zhenling": "真灵",
+    "plant_spirit": "草木精怪",
+    "humanoid_other": "异族/特殊"
+  },
+  "creatures": [
+    {
+      "id": "mo_jiao",
+      "display": "墨蛟",
+      "category": "yaoshou",
+      "tier_hint": 5,
+      "realm_band": "FOUNDATION",
+      "appearance": "黑黝黝蛇形，身长约三四丈，通体巨大鳞甲",
+      "habitat": [
+        "血色禁地水域/巢穴"
+      ],
+      "temper": "暴烈护巢",
+      "abilities": [
+        "水蛇类缠绞",
+        "鳞甲防御",
+        "淫囊（剧情触发）"
+      ],
+      "drops": [
+        "墨蛟丹",
+        "蛟皮",
+        "淫囊（剧情）"
+      ],
+      "combat_notes": "炼气试炼中属高危；宜诱杀或联手",
+      "setting": {
+        "lore": "血色试炼名场面生物；与南宫婉线绑定。淫囊为剧情道具，非常规掉落建议。",
+        "lore_v145": "同 ink_flood_dragon。禁地水域霸主级存在（相对炼气弟子）。"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description_v145": "同 ink_flood_dragon。禁地水域霸主级存在（相对炼气弟子）。",
+      "novel_anchor": "血色禁地墨蛟",
+      "v145": true
+    },
+    {
+      "id": "xue_yu_zhizhu",
+      "display": "血玉蜘蛛",
+      "category": "lingshou",
+      "tier_hint": [
+        5,
+        8
+      ],
+      "appearance": "体表如血玉，可吐韧性蛛丝",
+      "habitat": [
+        "战场遗迹",
+        "古洞",
+        "培养于洞府"
+      ],
+      "abilities": [
+        "蛛丝束缚",
+        "毒",
+        "群蛛协作",
+        "拉鼎/拖物（高阶）"
+      ],
+      "drops": [
+        "血玉蜘蛛丝",
+        "蛛毒",
+        "卵"
+      ],
+      "obtain": "古传送线血玉蜘蛛卵培养",
+      "combat_notes": "控制型；虚天殿拉鼎结构",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "yin_se_feichong",
+      "display": "银色飞虫",
+      "category": "chong",
+      "tier_hint": [
+        3,
+        5
+      ],
+      "appearance": "银光飞虫群",
+      "habitat": [
+        "血色禁地"
+      ],
+      "abilities": [
+        "群袭",
+        "噬咬"
+      ],
+      "drops": [
+        "虫壳",
+        "虫粉"
+      ],
+      "combat_notes": "群战耗符耗法力；火系有效结构",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "shi_jin_chong",
+      "display": "噬金虫",
+      "category": "chong",
+      "tier_hint": [
+        1,
+        13
+      ],
+      "appearance": "金系灵虫，可群可变异三色，终极虫王",
+      "habitat": [
+        "乱星海偶得",
+        "洞府培育"
+      ],
+      "abilities": [
+        "噬金克金器法宝",
+        "群攻覆盖",
+        "变异强化",
+        "虫王级战力"
+      ],
+      "feed": [
+        "金系矿材",
+        "金系妖丹",
+        "霓裳草催熟",
+        "特殊晶石",
+        "螟虫之母晶石等"
+      ],
+      "drops_if_kill": "不推荐；活体价值远高于尸体",
+      "combat_notes": "金属性法宝克星；暴露引天澜等追杀",
+      "threat": 5,
+      "tameable": true,
+      "growth_stages": [
+        "幼虫群",
+        "成虫群",
+        "三色变异",
+        "伪虫王",
+        "虫王"
+      ],
+      "setting": {
+        "lore": "主角标志性虫群；贯穿人界至灵界。"
+      }
+    },
+    {
+      "id": "ti_hun_shou",
+      "display": "啼魂兽",
+      "category": "lingshou",
+      "tier_hint": "special_growth",
+      "appearance": "形若猴子，通体碧绿，鼻子极大；进阶后乌黑、背生鬼影、鼻孔增多",
+      "habitat": [
+        "契约随主",
+        "阴冥之地成长"
+      ],
+      "abilities": [
+        "吸魂啖鬼",
+        "喷黄光吸魂",
+        "克炼尸鬼物",
+        "化形",
+        "定魄"
+      ],
+      "feed": [
+        "精魂",
+        "鬼物",
+        "尸气",
+        "阴兽"
+      ],
+      "origin": "魔道秘法祭炼的灵兽/妖魂之间存在；元瑶线赠予结构",
+      "combat_notes": "鬼修、炼尸天敌；后期真灵潜力",
+      "threat": 5,
+      "tameable": true,
+      "true_spirit_potential": true
+    },
+    {
+      "id": "ying_li_shou",
+      "display": "婴鲤兽",
+      "category": "yaoshou",
+      "tier_hint": [
+        6,
+        7
+      ],
+      "appearance": "海兽，鲤形带婴名特征（海域特有）",
+      "habitat": [
+        "乱星海"
+      ],
+      "abilities": [
+        "水战",
+        "群游"
+      ],
+      "drops": [
+        "妖丹",
+        "海兽材"
+      ],
+      "setting": {
+        "lore": "六连殿邀捕杀线；乌丑强索引发古长老追杀。"
+      },
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "du_jiao_t8",
+      "display": "八级毒蛟",
+      "category": "yaoshou",
+      "tier_hint": 8,
+      "appearance": "化形级毒蛟，剧毒",
+      "habitat": [
+        "乱星海荒岛/海外"
+      ],
+      "abilities": [
+        "剧毒",
+        "蛟力",
+        "本命鳞"
+      ],
+      "drops": [
+        "八级妖丹",
+        "本命鳞片",
+        "毒血",
+        "精魂（降灵符）"
+      ],
+      "combat_notes": "风雷翅材料线；与风希、龟妖同档",
+      "threat": 5,
+      "tameable": false
+    },
+    {
+      "id": "feng_xi",
+      "display": "风希（九级妖兽）",
+      "category": "yaoshou",
+      "tier_hint": 9,
+      "appearance": "化形高阶妖修，智高",
+      "habitat": [
+        "乱星海外"
+      ],
+      "abilities": [
+        "风系",
+        "炼器协作",
+        "追杀"
+      ],
+      "drops": [
+        "九级妖丹",
+        "碧焰酒（交易/赠）",
+        "风雷翅线索"
+      ],
+      "combat_notes": "宜智取；硬刚结丹后期仍险",
+      "threat": 5,
+      "tameable": false,
+      "named": true
+    },
+    {
+      "id": "gui_yao_huaxing",
+      "display": "龟妖（化形）",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        9
+      ],
+      "appearance": "化形龟妖，防御惊人",
+      "habitat": [
+        "乱星海"
+      ],
+      "abilities": [
+        "龟甲防御",
+        "渡化形雷劫可见"
+      ],
+      "drops": [
+        "甲材",
+        "妖丹"
+      ],
+      "setting": {
+        "lore": "风雷翅三妖之一；雾中岛可见渡劫。"
+      },
+      "threat": 4
+    },
+    {
+      "id": "jin_jiao_wang",
+      "display": "金蛟王",
+      "category": "yaoshou",
+      "tier_hint": 11,
+      "appearance": "金属性蛟王级，近元婴",
+      "habitat": [
+        "乱星海极品灵石矿周边"
+      ],
+      "abilities": [
+        "金系霸体",
+        "王级威压"
+      ],
+      "drops": [
+        "金属性妖丹",
+        "龙鳞果/移植法线索",
+        "淬骨诀线索"
+      ],
+      "combat_notes": "元婴后期方可稳图；可伏击夺丹",
+      "threat": 6,
+      "named": true,
+      "description_v145": "外海深域高阶蛟类。化神准备链「金蛟与龙鳞果」相关，金属性妖丹与龙鳞果线索。",
+      "setting": {
+        "lore_v145": "外海深域高阶蛟类。化神准备链「金蛟与龙鳞果」相关，金属性妖丹与龙鳞果线索。"
+      },
+      "novel_anchor": "龙鳞果/化神准备",
+      "v145": true
+    },
+    {
+      "id": "tian_lan_shou",
+      "display": "天澜圣兽",
+      "category": "lingshou",
+      "tier_hint": "special",
+      "appearance": "圣兽级；分身可下界，本体洞天鼠王等相关",
+      "habitat": [
+        "天澜草原信仰",
+        "契约后随缘"
+      ],
+      "abilities": [
+        "圣兽战力",
+        "帝流浆",
+        "银蝌文传授",
+        "化形雷劫"
+      ],
+      "bond": "契约互利，非简单奴役",
+      "drops": [
+        "帝流浆",
+        "怪异金角",
+        "圣鼎关联"
+      ],
+      "combat_notes": "收服线优先击杀线",
+      "threat": 6,
+      "tameable": true,
+      "named": true
+    },
+    {
+      "id": "tu_jia_long",
+      "display": "土甲龙",
+      "category": "lingshou",
+      "tier_hint": [
+        5,
+        8
+      ],
+      "appearance": "皮球般丑陋，土黄厚皮，头似鼠，尾细长，肥胖",
+      "habitat": [
+        "秘境",
+        "随主寻宝"
+      ],
+      "abilities": [
+        "极高防御",
+        "擅长寻找天材地宝"
+      ],
+      "obtain": "大衍神君线后收服",
+      "combat_notes": "辅助寻宝为主",
+      "threat": 2,
+      "tameable": true
+    },
+    {
+      "id": "liu_yi_shuang_gong",
+      "display": "六翼霜蚣",
+      "category": "chong",
+      "tier_hint": [
+        6,
+        12
+      ],
+      "appearance": "霜寒蜈蚣类，可生六翼，后期可十二合一变异",
+      "habitat": [
+        "御灵宗线",
+        "洞府",
+        "灵界可能失控"
+      ],
+      "abilities": [
+        "冰寒",
+        "飞行",
+        "合体进阶"
+      ],
+      "obtain": "驱虫术/擒获",
+      "risk": "灵界法力暴涨可能叛离",
+      "threat": 4,
+      "tameable": true
+    },
+    {
+      "id": "si_xiao",
+      "display": "尸魈",
+      "category": "shi_gui",
+      "tier_hint": "NASCENT_special",
+      "appearance": "僵尸一种；木或土天灵根元婴死后怨气滞留可成",
+      "habitat": [
+        "阴地",
+        "古战场",
+        "雪云狐追踪线"
+      ],
+      "abilities": [
+        "尸气",
+        "蛮力",
+        "难灭"
+      ],
+      "drops": [
+        "尸材",
+        "怨气结晶"
+      ],
+      "combat_notes": "啼魂/佛门克制；银月可吞噬元神结构",
+      "threat": 5,
+      "tameable": false
+    },
+    {
+      "id": "yinchi_yecha",
+      "display": "银翅夜叉",
+      "category": "shi_gui",
+      "tier_hint": 10,
+      "appearance": "绿毛，尖嘴猴腮，双目银白无瞳，背生银翅；飞天尸进阶",
+      "habitat": [
+        "阴阳窟",
+        "重阴之地"
+      ],
+      "abilities": [
+        "风遁土遁",
+        "银瞳幻术",
+        "刀枪难伤",
+        "力大",
+        "吸阴月精华可向金身月尸"
+      ],
+      "drops": [
+        "银翅",
+        "夜叉骨",
+        "阴月精华关联"
+      ],
+      "combat_notes": "人界仅次于金身月尸的炼尸结构；培婴线高危",
+      "threat": 6,
+      "tameable": false,
+      "description_v145": "同 silver_wing_yaksha。",
+      "setting": {
+        "lore_v145": "同 silver_wing_yaksha。"
+      },
+      "novel_anchor": "阴阳窟",
+      "v145": true
+    },
+    {
+      "id": "yin_zhi_ma",
+      "display": "阴芝马",
+      "category": "yaoshou",
+      "tier_hint": "special",
+      "appearance": "白嫩小马，两眼碧绿，身长约半尺",
+      "habitat": [
+        "阴阳窟"
+      ],
+      "abilities": [
+        "隐匿"
+      ],
+      "drops": [
+        "血肉（培婴丹主料）"
+      ],
+      "combat_notes": "捕捉优先；活体入药",
+      "threat": 2,
+      "tameable": false,
+      "description_v145": "阴阳窟培婴关键生灵。优先活捕：活体血肉入培婴丹主料；击杀仅余劣材，市价与丹成率双降。运出需笼具与阴气维持。韩立与富成协作气质——本包作「窟外协作炼丹」结构，不强制玩家身份。",
+      "setting": {
+        "lore_v145": "阴阳窟培婴关键生灵。优先活捕：活体血肉入培婴丹主料；击杀仅余劣材，市价与丹成率双降。运出需笼具与阴气维持。韩立与富成协作气质——本包作「窟外协作炼丹」结构，不强制玩家身份。"
+      },
+      "novel_anchor": "阴芝马/培婴丹",
+      "prefer_live_capture": true,
+      "v145": true
+    },
+    {
+      "id": "nie_yuan",
+      "display": "孽猿",
+      "category": "shi_gui",
+      "tier_hint": [
+        6,
+        8
+      ],
+      "appearance": "蛇身猿面，黑鳞，双臂，长约三四丈",
+      "habitat": [
+        "重阴之地"
+      ],
+      "abilities": [
+        "暴虐",
+        "食人脑浆",
+        "模仿鬼声"
+      ],
+      "origin": "人怨念在重阴之地凝结",
+      "threat": 4
+    },
+    {
+      "id": "si_tong_ling_hu",
+      "display": "四瞳灵狐",
+      "category": "lingshou",
+      "tier_hint": [
+        5,
+        9
+      ],
+      "appearance": "雪白灵狐，四瞳",
+      "abilities": [
+        "隐匿",
+        "幻术",
+        "魔瞳天赋"
+      ],
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "hao_yang_niao",
+      "display": "昊阳鸟",
+      "category": "lingshou",
+      "tier_hint": [
+        7,
+        10
+      ],
+      "appearance": "火属性灵禽",
+      "habitat": [
+        "岳阳宫传承"
+      ],
+      "abilities": [
+        "火系",
+        "翎羽炼器"
+      ],
+      "drops": [
+        "昊阳鸟翎羽"
+      ],
+      "note": "人界极难化人",
+      "threat": 4,
+      "tameable": "faction_only"
+    },
+    {
+      "id": "wu_feng",
+      "display": "乌凤",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        11
+      ],
+      "appearance": "凤类变种，乌羽",
+      "habitat": [
+        "苦竹岛等相关"
+      ],
+      "drops": [
+        "乌凤之翎"
+      ],
+      "use": "风雷翅/三焰扇强化",
+      "threat": 5
+    },
+    {
+      "id": "zhi_mu_lingying",
+      "display": "至木灵婴",
+      "category": "plant_spirit",
+      "tier_hint": "NASCENT_special",
+      "appearance": "五行灵婴之一，木性",
+      "habitat": [
+        "御灵宗禁制逃脱后游荡"
+      ],
+      "abilities": [
+        "吞噬修士元神",
+        "木系神异"
+      ],
+      "use": "可炼第二元婴（高风险）",
+      "combat_notes": "需离魂术等消灵智",
+      "threat": 5
+    },
+    {
+      "id": "xue_yan_gumo",
+      "display": "血焰（古魔）",
+      "category": "gu_mo",
+      "tier_hint": "NASCENT_plus",
+      "appearance": "古魔主魂/分魂；可化身混入人族",
+      "habitat": [
+        "坠魔谷封印",
+        "出谷后游荡/大晋"
+      ],
+      "abilities": [
+        "吞噬元婴",
+        "魔器",
+        "夺舍",
+        "空间相关"
+      ],
+      "drops": [
+        "魔器残",
+        "被夺法宝夺回权",
+        "本命剑夺回"
+      ],
+      "combat_notes": "元婴团战级；主魂可灭于灵缈园禁制",
+      "threat": 7,
+      "named": true
+    },
+    {
+      "id": "huo_chan_shou",
+      "display": "火蟾兽",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        10
+      ],
+      "habitat": [
+        "坠魔谷"
+      ],
+      "abilities": [
+        "火毒",
+        "蟾类防御"
+      ],
+      "drops": [
+        "火蟾妖丹",
+        "七焰扇炼制相关"
+      ],
+      "threat": 4,
+      "description_v145": "坠魔谷外谷常见火域生物。火涎、蟾丹材，入谷开胃兽。抗火不足者勿近群。",
+      "setting": {
+        "lore_v145": "坠魔谷外谷常见火域生物。火涎、蟾丹材，入谷开胃兽。抗火不足者勿近群。"
+      },
+      "novel_anchor": "坠魔谷火域生态",
+      "v145": true
+    },
+    {
+      "id": "mang_shou_zhuimo",
+      "display": "坠魔蟒兽",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        10
+      ],
+      "habitat": [
+        "坠魔谷"
+      ],
+      "drops": [
+        "蟒皮",
+        "妖丹",
+        "罡银沙线索同区"
+      ],
+      "threat": 4
+    },
+    {
+      "id": "bing_feng",
+      "display": "冰凤",
+      "category": "zhenling_bloodline",
+      "tier_hint": "DEITY_to_GREAT",
+      "appearance": "通体雪白如玉的凤凰，具天凤部分血脉",
+      "abilities": [
+        "空间神通",
+        "冰系",
+        "化形"
+      ],
+      "bond": "盟友非普通灵兽栏",
+      "setting": {
+        "lore": "小极宫/虚天殿闭关搭档；飞升节点关键。"
+      },
+      "threat": 7,
+      "named": true
+    },
+    {
+      "id": "lei_peng",
+      "display": "雷鹏（骨骸/真灵遗）",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "use": "风雷翅主材为化形期雷鹏骨骸",
+      "abilities": [
+        "雷遁本源"
+      ],
+      "threat": 8
+    },
+    {
+      "id": "you_tian_kunpeng",
+      "display": "游天鲲鹏",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "appearance": "通体碧青，体长可达数千丈级描述",
+      "abilities": [
+        "风属性极致",
+        "界面级"
+      ],
+      "drops": [
+        "鲲鹏翎羽"
+      ],
+      "habitat": [
+        "外星海可见与罗睺交战"
+      ],
+      "threat": 9
+    },
+    {
+      "id": "luo_hou",
+      "display": "罗睺",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "appearance": "混沌初分魔兽，喜隐海底",
+      "abilities": [
+        "吞食日月传说",
+        "破空穿梭界面"
+      ],
+      "note": "与游天鲲鹏死敌结构",
+      "threat": 9
+    },
+    {
+      "id": "bao_lin_shou",
+      "display": "豹麟兽",
+      "category": "lingshou",
+      "tier_hint": [
+        10,
+        13
+      ],
+      "habitat": [
+        "灵界",
+        "地渊阴寒成长"
+      ],
+      "abilities": [
+        "食阴寒进阶",
+        "化形",
+        "吞暗兽内丹"
+      ],
+      "tameable": true,
+      "threat": 5
+    },
+    {
+      "id": "zhen_chan",
+      "display": "真蟾兽",
+      "category": "yaoshou",
+      "tier_hint": 12,
+      "habitat": [
+        "灵界"
+      ],
+      "drops": [
+        "真蟾液",
+        "蟾核"
+      ],
+      "threat": 6
+    },
+    {
+      "id": "ming_lei_shou",
+      "display": "冥雷兽",
+      "category": "yaoshou",
+      "tier_hint": 12,
+      "habitat": [
+        "地渊周边"
+      ],
+      "abilities": [
+        "雷系",
+        "冥寒"
+      ],
+      "drops": [
+        "雷核",
+        "冥雷筋"
+      ],
+      "threat": 6
+    },
+    {
+      "id": "mo_yuan_heti",
+      "display": "合体级魔猿",
+      "category": "yaoshou",
+      "tier_hint": 13,
+      "habitat": [
+        "魔金山脉"
+      ],
+      "abilities": [
+        "魔气",
+        "巨力",
+        "血床秘藏"
+      ],
+      "drops": [
+        "魔核",
+        "山岳巨猿真血",
+        "玄天炼器术线索"
+      ],
+      "threat": 8
+    },
+    {
+      "id": "zhi_xian",
+      "display": "芝仙",
+      "category": "plant_spirit",
+      "tier_hint": "special",
+      "appearance": "灵芝化精",
+      "use": [
+        "身外化身躯壳",
+        "助九曲灵参开智"
+      ],
+      "tameable": "capture",
+      "threat": 3
+    },
+    {
+      "id": "jiu_qu_lingshen_spirit",
+      "display": "九曲灵参（活体/曲儿）",
+      "category": "plant_spirit",
+      "tier_hint": "special",
+      "appearance": "天生幻化动物昆虫，善钻土入木；开智后名曲儿",
+      "habitat": [
+        "虚天殿等",
+        "喜麝兰兽粪结构"
+      ],
+      "use": [
+        "九曲灵参丹主药",
+        "开智灵童"
+      ],
+      "threat": 1,
+      "tameable": true
+    },
+    {
+      "id": "yin_yue",
+      "display": "银月（雪玲）",
+      "category": "humanoid_other",
+      "tier_hint": "artifact_spirit_to_great",
+      "appearance": "器灵/银月妖狼魂相关，可化形",
+      "abilities": [
+        "幻术",
+        "情报",
+        "七星月体后期"
+      ],
+      "bond": "本命法宝器灵→盟友",
+      "named": true,
+      "threat": 6
+    },
+    {
+      "id": "mei_lan_shengwu",
+      "display": "慕兰圣兽/图腾兽（结构）",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        12
+      ],
+      "habitat": [
+        "慕兰草原"
+      ],
+      "abilities": [
+        "法师图腾加持",
+        "血祭强化"
+      ],
+      "note": "与天南战争线绑定",
+      "threat": 5
+    },
+    {
+      "id": "hai_shou_generic",
+      "display": "乱星海普通海兽",
+      "category": "yaoshou",
+      "tier_hint": [
+        3,
+        8
+      ],
+      "habitat": [
+        "内星海/外星海"
+      ],
+      "drops": [
+        "海兽妖丹",
+        "皮骨油"
+      ],
+      "combat_notes": "结丹前主产出",
+      "threat": 2
+    },
+    {
+      "id": "xiang_yao_cao_marker",
+      "display": "伴妖草指示巢穴的妖兽群",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        9
+      ],
+      "note": "伴妖草色深浅示强度：越深越强",
+      "threat": 3
+    },
+    {
+      "id": "jin_shen_yue_shi",
+      "display": "金身月尸",
+      "category": "shi_gui",
+      "tier_hint": "NASCENT_plus",
+      "appearance": "银翅夜叉再进阶，吸阴月精华",
+      "abilities": [
+        "人界炼尸顶阶结构"
+      ],
+      "threat": 7
+    },
+    {
+      "id": "shan_yue_juyuan_blood",
+      "display": "山岳巨猿（真血/真灵）",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "use": "真血炼体/法相",
+      "source": "魔猿等",
+      "threat": 9
+    },
+    {
+      "id": "tian_feng_bloodline",
+      "display": "天凤血脉生物",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "drops": [
+        "天凤之翎",
+        "真血"
+      ],
+      "threat": 9
+    },
+    {
+      "id": "wu_se_kongque",
+      "display": "五色孔雀",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "drops": [
+        "五色孔雀真血"
+      ],
+      "source": "灵界鱼店主等线",
+      "threat": 9
+    },
+    {
+      "id": "ink_qilin_scale_beast",
+      "display": "墨麒麟（远亲/真灵）",
+      "category": "zhenling",
+      "tier_hint": 13,
+      "drops": [
+        "墨麒麟鳞片"
+      ],
+      "use": "葵水真灵丹",
+      "threat": 9
+    }
+  ],
+  "behavior_tags": {
+    "pack": "群居加攻",
+    "ambush": "伏击",
+    "flee_low_hp": "残血遁",
+    "guard_herb": "护药",
+    "tribulation_event": "可见渡劫不可轻易打断"
+  },
+  "threat_scale": {
+    "1": "炼气可单杀",
+    "2": "炼气队",
+    "3": "筑基谨慎",
+    "4": "筑基精英/结丹",
+    "5": "结丹~元婴",
+    "6": "元婴主力",
+    "7": "化神边缘/古魔",
+    "8": "化神~合体",
+    "9": "真灵/界面"
+  },
+  "v145_key_ref": "bestiary_key_novel_v145.json"
+}

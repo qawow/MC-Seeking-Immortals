@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source": "v139 三线同扩",
+  "delivered": [
+    "secret_realm_layer_diagrams_v139 (blood/xutian/qianzhu)",
+    "region_cards_detail_v139 sects=14 islands=7",
+    "npc_dialogue_branches_v139 trees=9"
+  ],
+  "honest_gaps_still": [
+    "其它秘境层示意未在本卷全写（可复用模板）",
+    "岛卡非全乱星海群岛名录",
+    "对话树未覆盖全部 archetype（黑风/灰界/摊主可再挂）",
+    "刷怪 id 与 bestiary 逐条对齐可再扫"
+  ],
+  "status": "三线并行扩充完成"
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v108 药园种植与绿液年历（贴原著掌天瓶节奏）",
+  "disclaimer": "结构量级。绿液受难度年帽。禁与芥子空间无帽叠乘。无代码",
+  "id": "garden_liquid_calendar",
+  "display": "药园与绿液年历",
+  "bottle_rules": {
+    "id": "palm_bottle",
+    "display": "掌天瓶",
+    "tags": ["unique", "no_trade", "balance_risk"],
+    "liquid": "绿液",
+    "year_caps": {"story": 12, "standard": 6, "hard": 3, "legend": 1},
+    "cooldown_days_structure": [20, 40],
+    "per_plant_age_cap_hint": "单株单次催熟有药龄上限结构，不可一滴万年无脑",
+    "forbid": [
+      "交易瓶与液",
+      "复制瓶",
+      "芥子内无限挂机无帽",
+      "批量抛售万年药不触发审计"
+    ],
+    "audit_triggers": ["短时间大量抛售高龄药", "坊市万年药洪峰", "同窗秘境药点异常"]
+  },
+  "garden_types": [
+    {
+      "id": "mortal_plot",
+      "display": "凡人药圃",
+      "owner": "外门/散修",
+      "slots": [4, 12],
+      "aura": "无/微",
+      "risk": "窃贼、田鼠妖",
+      "yield_mod": 0.5
+    },
+    {
+      "id": "sect_garden",
+      "display": "宗门药园",
+      "owner": "黄枫等",
+      "slots": [20, 100],
+      "aura": "聚灵阵可加",
+      "risk": "考核、配额、同门眼红",
+      "yield_mod": 1.0,
+      "rep_need": 20
+    },
+    {
+      "id": "cave_garden",
+      "display": "洞府药园",
+      "owner": "个人洞府",
+      "slots": [8, 40],
+      "aura": "自布聚灵",
+      "risk": "被破阵",
+      "yield_mod": 1.1
+    },
+    {
+      "id": "jizi_garden",
+      "display": "芥子药园",
+      "owner": "芥子空间",
+      "slots": [30, 200],
+      "aura": "高",
+      "risk": "平衡风险：必须继承绿液年帽",
+      "yield_mod": 1.3,
+      "rule": "时间流速若加速，绿液次数仍按现实年/难度帽结算"
+    }
+  ],
+  "plant_profiles": [
+    {
+      "id": "ban_yao_cao",
+      "display": "伴妖草",
+      "grow_days": [30, 90],
+      "liquid_value": "低",
+      "note": "标药诱妖双刃"
+    },
+    {
+      "id": "common_lingcao",
+      "display": "普通灵草",
+      "grow_days": [60, 180],
+      "liquid_value": "低",
+      "price": [1, 20]
+    },
+    {
+      "id": "yu_sui_zhi",
+      "display": "玉髓芝",
+      "grow_days": [180, 720],
+      "liquid_value": "中",
+      "role": "筑基四主药",
+      "natural_rare": true
+    },
+    {
+      "id": "zi_hou_hua",
+      "display": "紫猴花",
+      "grow_days": [180, 720],
+      "liquid_value": "中",
+      "role": "筑基四主药"
+    },
+    {
+      "id": "tian_ling_guo",
+      "display": "天灵果",
+      "grow_days": [200, 800],
+      "liquid_value": "中",
+      "role": "筑基四主药",
+      "pest": "蛀果虫"
+    },
+    {
+      "id": "qian_nian_ling_cao",
+      "display": "千年灵草",
+      "grow_days": [365, 2000],
+      "liquid_value": "高",
+      "role": "筑基辅/主",
+      "age_gate": true
+    },
+    {
+      "id": "ni_chang_cao",
+      "display": "霓裳草",
+      "grow_days": [120, 400],
+      "liquid_value": "中"
+    },
+    {
+      "id": "ling_zhu_guo",
+      "display": "灵烛果",
+      "grow_days": "不可常规园种",
+      "liquid_value": "禁常规催",
+      "note": "坠魔事件主药，不进日常园"
+    },
+    {
+      "id": "jiu_qu_ling_shen",
+      "display": "九曲灵参",
+      "grow_days": "活参特殊",
+      "liquid_value": "极慎",
+      "note": "活物，催熟不当损灵智"
+    },
+    {
+      "id": "xuan_bing_hua",
+      "display": "玄冰花",
+      "grow_days": [300, 1200],
+      "liquid_value": "高",
+      "need": "寒脉"
+    }
+  ],
+  "year_calendar_standard": {
+    "difficulty": "standard",
+    "liquid_per_year": 6,
+    "suggested_allocation": [
+      {"slot": 1, "use": "筑基四主药之一催熟", "phase": "炼气末"},
+      {"slot": 2, "use": "第二主药/辅药", "phase": "炼气末"},
+      {"slot": 3, "use": "疗伤/稀缺中阶药", "phase": "筑基"},
+      {"slot": 4, "use": "结丹辅材药", "phase": "筑基末"},
+      {"slot": 5, "use": "应急/拍卖级药", "phase": "结丹"},
+      {"slot": 6, "use": "战略储备或培婴相关", "phase": "结丹末~元婴"}
+    ],
+    "season_hooks": [
+      {"season": "春", "act": "播种/移栽", "pest": "田鼠妖"},
+      {"season": "夏", "act": "聚灵加持", "pest": "蛀果虫"},
+      {"season": "秋", "act": "采收/炼丹窗口", "event": "坊市药价波动"},
+      {"season": "冬", "act": "寒药/闭园", "event": "盗药高发"}
+    ]
+  },
+  "care_actions": [
+    {"id": "water_ling", "display": "灵泉灌溉", "cost": "低"},
+    {"id": "array_juling", "display": "聚灵阵", "cost": "中", "mod": "+产量/增速"},
+    {"id": "pest_control", "display": "除虫", "cost": "耗符/虫网"},
+    {"id": "guard_hire", "display": "雇守卫", "cost": "灵石", "anti": "窃贼"},
+    {"id": "liquid_drop", "display": "绿液一滴", "cost": "年帽次数", "mod": "药龄结构跃升"},
+    {"id": "harvest", "display": "采收", "risk": "生长期不足则品阶降"}
+  ],
+  "economy_link": {
+    "four_herb_bundle": [80, 400],
+    "flood_audit": "一年内绿液药占拍卖高龄药比例过高→审计",
+    "sect_quota": "宗门园产出部分上缴，防全卖"
+  },
+  "redlines": [
+    "瓶唯一禁交易",
+    "绿液年帽不可关",
+    "芥子加速不额外赠液次数",
+    "灵烛果/活参不走日常园表",
+    "失败突破不吞瓶"
+  ],
+  "cross_ref": {
+    "numeric": "numeric_overview_v103 bottle_liquid_year_caps",
+    "blood": "secret_realm_blood_forbidden_v104",
+    "ng_plus": "newgame_plus_economy_v102"
+  },
+  "description": "药园是长线经济，绿液是稀缺按钮。种植可玩，但不能变成无限印钞机。"
+}

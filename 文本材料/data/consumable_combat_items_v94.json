@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v94 战斗消耗品：丹、符、雷珠、禁制物、一次性翻盘",
+  "items": [
+    {
+      "id": "cc_yangjing",
+      "display": "养精丹",
+      "type": "heal",
+      "realm": "QI_to_FOUNDATION",
+      "effect": "内外伤",
+      "price": [10, 50],
+      "cd_structure": "短"
+    },
+    {
+      "id": "cc_huisha",
+      "display": "回煞丸",
+      "type": "mana_burst",
+      "realm": "NASCENT",
+      "effect": "法力恢复大半+略增修为，事后损元气",
+      "price": [8000, 50000],
+      "side_effect": "元气损伤"
+    },
+    {
+      "id": "cc_tianleizi",
+      "display": "天雷子",
+      "type": "burst_throw",
+      "realm": "FOUNDATION_PLUS",
+      "effect": "雷爆破防/翻盘",
+      "price": [500, 5000],
+      "charges": 1
+    },
+    {
+      "id": "cc_leizhu",
+      "display": "雷珠",
+      "type": "burst_throw",
+      "realm": "NASCENT_to_DEITY",
+      "materials": ["天雷木", "雷纹"],
+      "price_merit": [5, 25]
+    },
+    {
+      "id": "cc_dunfu",
+      "display": "遁符（地级）",
+      "type": "escape",
+      "price": [800, 6000],
+      "effect": "中距逃遁"
+    },
+    {
+      "id": "cc_xueying_fu",
+      "display": "血影遁符/术触发",
+      "type": "escape_demonic",
+      "cost": "精血",
+      "effect": "瞬遁百里结构"
+    },
+    {
+      "id": "cc_hualing_fu",
+      "display": "化灵符",
+      "type": "trump",
+      "price": [20000, 150000],
+      "faction": "tianfu_men"
+    },
+    {
+      "id": "cc_jiangling_fu",
+      "display": "降灵符",
+      "type": "seal_soul",
+      "price": [5000, 80000]
+    },
+    {
+      "id": "cc_liuding",
+      "display": "六丁天甲符",
+      "type": "absolute_guard",
+      "charges": 1,
+      "price_note": "不卖",
+      "effect": "元婴~化神级护身结构"
+    },
+    {
+      "id": "cc_pojie",
+      "display": "破界符",
+      "type": "space",
+      "charges": 1,
+      "effect": "破空间障壁"
+    },
+    {
+      "id": "cc_miexian_zhu",
+      "display": "灭仙珠",
+      "type": "lock_fabao",
+      "effect": "禁制敌宝",
+      "counter": "八灵尺等"
+    },
+    {
+      "id": "cc_juling_bomb",
+      "display": "爆灵石阵（一次性）",
+      "type": "trap",
+      "cost_stones": [100, 10000],
+      "effect": "范围爆发"
+    },
+    {
+      "id": "cc_poison_biji",
+      "display": "碧鸠毒剂",
+      "type": "poison",
+      "price": [10000, 80000],
+      "effect": "剧毒"
+    },
+    {
+      "id": "cc_dingshen",
+      "display": "定神符",
+      "type": "anti_charm",
+      "price": [2, 10]
+    },
+    {
+      "id": "cc_yinshen",
+      "display": "隐身符",
+      "type": "stealth",
+      "price": [30, 150]
+    },
+    {
+      "id": "cc_wanli",
+      "display": "万里符",
+      "type": "signal",
+      "price": [100, 2000],
+      "effect": "求援/传讯"
+    },
+    {
+      "id": "cc_jiugong",
+      "display": "九宫天乾符",
+      "type": "bind",
+      "realm": "DEITY_PLUS",
+      "effect": "困高阶妖兽"
+    },
+    {
+      "id": "cc_jiametaifu",
+      "display": "甲元符",
+      "type": "guard",
+      "realm": "DEITY",
+      "source": "灵界自炼结构"
+    },
+    {
+      "id": "cc_biyan_jiu",
+      "display": "碧焰酒",
+      "type": "temp_boost",
+      "effect": "短时冲阶/药力",
+      "side_effect": "火毒风险",
+      "source": "风希"
+    },
+    {
+      "id": "cc_han_sui_use",
+      "display": "寒髓应急",
+      "type": "tribulation_or_heal",
+      "rarity": 6
+    },
+    {
+      "id": "cc_top_stone_burn",
+      "display": "极品灵石燃爆/灌顶",
+      "type": "breakthrough_fuel",
+      "use": "化神冲阶等"
+    }
+  ],
+  "loadout_presets": {
+    "qi_refining": ["养精丹×3", "黄符×10", "遁符×1"],
+    "foundation": ["疗伤丹", "玄符", "天雷子×1", "隐身符"],
+    "core": ["法宝保养材", "地符遁", "降尘相关"],
+    "nascent": ["回煞丸×1", "天符护", "傀儡", "万里符"],
+    "ascend_prep": ["六丁天甲", "破界符", "护身多层", "极品灵石"]
+  }
+}

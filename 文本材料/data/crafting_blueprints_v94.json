@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v94 炼器/炼符/傀儡/阵盘蓝图结构（非代码实现）",
+  "disclaimer": "材料列表为结构配方，无精确剂量",
+  "skill_tracks": {
+    "lianqi": "炼器",
+    "liandan": "炼丹（见表 pill）",
+    "lianfu": "制符",
+    "puppet": "傀儡",
+    "array": "阵法"
+  },
+  "difficulty_tiers": [
+    {"tier": 1, "realm": "QI_REFINING", "fail_base": 0.35},
+    {"tier": 2, "realm": "FOUNDATION", "fail_base": 0.25},
+    {"tier": 3, "realm": "CORE_FORMATION", "fail_base": 0.2},
+    {"tier": 4, "realm": "NASCENT_SOUL", "fail_base": 0.15},
+    {"tier": 5, "realm": "DEITY_PLUS", "fail_base": 0.1}
+  ],
+  "blueprints": [
+    {
+      "id": "bp_feijian_low",
+      "display": "下品飞剑",
+      "track": "lianqi",
+      "tier": 1,
+      "materials": ["精铁", "低阶灵木", "兽血淬"],
+      "tools": ["凡炉", "凡火"],
+      "output": "common_feijian_low",
+      "time_days": [1, 3],
+      "price_if_buy": [5, 40]
+    },
+    {
+      "id": "bp_storage_bag_s",
+      "display": "小储物袋",
+      "track": "lianqi",
+      "tier": 1,
+      "materials": ["空间石碎", "兽皮", "禁制墨"],
+      "output": "储物袋（小）",
+      "price_if_buy": [20, 80]
+    },
+    {
+      "id": "bp_mid_faqi",
+      "display": "中品法器（泛用）",
+      "track": "lianqi",
+      "tier": 2,
+      "materials": ["灵矿", "妖骨", "阵纹砂"],
+      "tools": ["灵炉", "地火"],
+      "time_days": [3, 10]
+    },
+    {
+      "id": "bp_qingzhu_jian_set",
+      "display": "青竹蜂云剑组",
+      "track": "lianqi",
+      "tier": 3,
+      "materials": ["金雷竹", "庚精", "本命精血", "剑胚×72结构"],
+      "tools": ["宝炉", "地火/丹火"],
+      "manual_req": "青元剑诀基础",
+      "output": "qingzhu_fengyun_jian",
+      "time_days": [30, 180],
+      "unique_path": true,
+      "setting": {"lore": "主角本命剑组；庚精为瓶颈。"}
+    },
+    {
+      "id": "bp_dagen_array_prep",
+      "display": "大庚剑阵祭炼",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["青竹蜂云剑组", "额外庚精", "神识"],
+      "realm_min": "NASCENT_SOUL",
+      "output": "剑阵可用态"
+    },
+    {
+      "id": "bp_fenglei_chi",
+      "display": "风雷翅",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["雷鹏骨骸", "毒蛟材", "龟妖材", "可嵌鲲鹏羽/天凤翎"],
+      "output": "fenglei_chi",
+      "setting": {"lore": "风希线炼制；可二次、三次强化。"}
+    },
+    {
+      "id": "bp_sanyan_shan",
+      "display": "三焰扇",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["赤火蛟鳞", "昊阳鸟翎", "乌凤翎", "多种火焰"],
+      "output": "san_yan_shan",
+      "source": "银蛇山/大晋搜集线"
+    },
+    {
+      "id": "bp_qiyan_shan",
+      "display": "七焰扇",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["七焰扇炼制之法", "火蟾等火材", "罡银沙可选"],
+      "blueprint_item": "qi_yan_shan_fafa",
+      "source": "坠魔谷"
+    },
+    {
+      "id": "bp_feizhen_jinghua",
+      "display": "晶化妖丹飞针",
+      "track": "lianqi",
+      "tier": 3,
+      "materials": ["晶化妖丹", "奇毒辅材", "针胚"],
+      "special": "遁速极快、偷袭",
+      "output": "飞针法宝"
+    },
+    {
+      "id": "bp_gui_luo_fan_repair",
+      "display": "鬼罗幡修复/强化",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["鬼罗幡", "魔髓钻", "叱灵软玉", "阴材"],
+      "alignment": "demonic_ok"
+    },
+    {
+      "id": "bp_chi_hun_fan",
+      "display": "赤魂幡（黑风旗残+鬼罗幡）",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["黑风旗残", "鬼罗幡", "空间材", "魔气"],
+      "output": "赤魂幡",
+      "setting": {"lore": "昆吾后续炼化结构。"}
+    },
+    {
+      "id": "bp_yuanci_nurture",
+      "display": "元磁神山炼化入体",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["元磁神山", "元磁神光功法", "极品灵石", "岁月"],
+      "time_years": [50, 300]
+    },
+    {
+      "id": "bp_beijiyuan_shan",
+      "display": "北极元山",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["北极元晶"],
+      "output": "北极元山"
+    },
+    {
+      "id": "bp_huajie_zhu",
+      "display": "化界珠",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["帝流浆", "空间材"],
+      "output": "huajie_zhu"
+    },
+    {
+      "id": "bp_jiezi_space",
+      "display": "芥子空间",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["芥子炼制法", "空间奇材", "海量灵石"],
+      "output": "jiezi_space",
+      "source": "元智大师线结构"
+    },
+    {
+      "id": "bp_yuanhe_wuji",
+      "display": "元合五极山",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["元磁神山", "北极元山", "太乙青山", "阴阳大五行极山", "昊阴寒魄山"],
+      "manual_req": "玄天炼器术",
+      "output": "yuan_he_wuji_shan",
+      "endgame": true
+    },
+    {
+      "id": "bp_leizhu_set",
+      "display": "雷珠/雷帕/雷袍",
+      "track": "lianqi",
+      "tier": 4,
+      "materials": ["天雷木", "雷纹", "灵界辅材"],
+      "region": "spirit_realm"
+    },
+    {
+      "id": "bp_tianwai_mojia_repair",
+      "display": "天外魔甲修复",
+      "track": "lianqi",
+      "tier": 5,
+      "materials": ["破损天外魔甲", "合体级魔核"]
+    },
+    {
+      "id": "bp_huiyang_water",
+      "display": "回阳真水",
+      "track": "liandan",
+      "tier": 5,
+      "materials": ["太阳精火", "寒髓"],
+      "output": "hui_yang_zhen_shui",
+      "cross_ref": "flame_water_catalog"
+    },
+    {
+      "id": "bp_zaohua_dan",
+      "display": "造化丹",
+      "track": "liandan",
+      "tier": 4,
+      "materials": ["灵烛果", "辅药"],
+      "limit": "一身体会一次结构"
+    },
+    {
+      "id": "bp_peiying_dan",
+      "display": "培婴丹",
+      "track": "liandan",
+      "tier": 4,
+      "materials": ["阴芝马血肉", "辅药"],
+      "source": "阴阳窟+富成线"
+    },
+    {
+      "id": "bp_zhuji_dan_batch",
+      "display": "筑基丹批量",
+      "track": "liandan",
+      "tier": 2,
+      "materials": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "output_qty_hint": 20,
+      "tools": ["地火室", "丹炉"]
+    },
+    {
+      "id": "bp_jiangling_fu",
+      "display": "降灵符",
+      "track": "lianfu",
+      "tier": 4,
+      "materials": ["高阶妖魂/精魂", "天符门符胚", "灵墨"],
+      "faction_bonus": "tianfu_men"
+    },
+    {
+      "id": "bp_hualing_fu",
+      "display": "化灵符",
+      "track": "lianfu",
+      "tier": 5,
+      "materials": ["天符门秘材", "顶阶符纸"],
+      "access": "天符门核心"
+    },
+    {
+      "id": "bp_common_talisman_batch",
+      "display": "黄符批制",
+      "track": "lianfu",
+      "tier": 1,
+      "materials": ["符纸", "灵墨", "神识"],
+      "output_qty_hint": [10, 50]
+    },
+    {
+      "id": "bp_dayan_puppet",
+      "display": "大衍人形傀儡",
+      "track": "puppet",
+      "tier": 3,
+      "materials": ["眩光晶", "魄石", "傀儡核心", "木材/晶材"],
+      "manual_req": "傀儡真经/大衍相关"
+    },
+    {
+      "id": "bp_nascent_puppet",
+      "display": "元婴级傀儡",
+      "track": "puppet",
+      "tier": 4,
+      "materials": ["高阶核心", "海量材", "神识分念"],
+      "time_years": [1, 20]
+    },
+    {
+      "id": "bp_diandao_array",
+      "display": "颠倒五行阵",
+      "track": "array",
+      "tier": 3,
+      "materials": ["阵旗×多", "阵盘", "五行之材"],
+      "output": "diandao_wuxing_zhen"
+    },
+    {
+      "id": "bp_juling_array",
+      "display": "聚灵阵",
+      "track": "array",
+      "tier": 2,
+      "materials": ["灵石", "阵旗", "阵基"]
+    },
+    {
+      "id": "bp_jiugong_tianqian",
+      "display": "九宫天乾符",
+      "track": "lianfu",
+      "tier": 5,
+      "materials": ["灵界符材", "神识"],
+      "region": "spirit_realm"
+    }
+  ],
+  "facility_requirements": {
+    "difire_room": "结丹以上法器常用",
+    "bao_ding": "古鼎/虚天鼎大幅降失败率结构",
+    "tongbao_jue": "通天灵宝不可当普通蓝图乱炼"
+  },
+  "quality_outcomes": {
+    "fail": "材料部分损毁",
+    "low": "凡品",
+    "mid": "灵品",
+    "high": "宝品",
+    "crit": "带额外词缀/灵性初开"
+  }
+}

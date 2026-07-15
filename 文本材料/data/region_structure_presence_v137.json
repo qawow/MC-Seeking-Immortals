@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "source": "v137 区域结构出现表（洞府/宗门/秘境/坊市）",
+  "disclaimer": "描述「何处会出现/可建造哪些多方块」，非势力战对局模板",
+  "regions": [
+    {
+      "id": "tiannan_sect",
+      "display": "天南宗门驻地",
+      "dimension": "seeking_immortals:mortal_world",
+      "player_build": true,
+      "worldgen_or_preset": true,
+      "structures": {
+        "core": [
+          "cave_dwelling_core",
+          "spirit_gathering_array",
+          "sect_formation_hub",
+          "contribution_stele",
+          "inner_sect_task_board",
+          "scripture_pavilion_shelf"
+        ],
+        "craft": [
+          "alchemy_furnace_g1",
+          "alchemy_furnace_g2",
+          "alchemy_furnace_g3",
+          "earth_fire_alchemy_room",
+          "talisman_table",
+          "refinement_forge_g1",
+          "refinement_forge_g3",
+          "furnace_safety_array"
+        ],
+        "life": [
+          "meditation_chamber",
+          "spirit_herb_planter",
+          "spirit_herb_greenhouse",
+          "pill_cabinet",
+          "weapon_rack_artifact",
+          "spirit_stone_vault"
+        ],
+        "defense": [
+          "kill_array_hub",
+          "illusion_array_hub",
+          "formation_flag_post",
+          "array_maintenance_obelisk",
+          "ownership_stele"
+        ]
+      },
+      "rarity_notes": "地火室宗门限权；护宗枢纽长老"
+    },
+    {
+      "id": "tiannan_scatter_cave",
+      "display": "天南散修洞府",
+      "structures": {
+        "core": [
+          "cave_dwelling_core",
+          "spirit_gathering_array",
+          "ownership_stele"
+        ],
+        "craft": [
+          "alchemy_furnace_g1",
+          "talisman_table",
+          "refinement_forge_g1",
+          "spirit_fire_brazier"
+        ],
+        "life": [
+          "meditation_chamber",
+          "spirit_herb_planter",
+          "spirit_well"
+        ],
+        "optional": [
+          "puppet_assembly_bench",
+          "teleport_array_pedestal"
+        ]
+      }
+    },
+    {
+      "id": "tiannan_market",
+      "display": "天南坊市",
+      "structures": {
+        "trade": [
+          "market_stall_counter",
+          "warehouse_loading_bay",
+          "auction_display_dais"
+        ],
+        "service": [
+          "structure_repair_bench",
+          "structure_blueprint_table",
+          "flying_boat_dock"
+        ]
+      }
+    },
+    {
+      "id": "yanyue_demonic",
+      "display": "掩月/魔道驻地倾向",
+      "structures": {
+        "special": [
+          "dual_cultivation_chamber",
+          "illusion_array_hub",
+          "blood_sacrifice_altar",
+          "soul_banner_altar"
+        ],
+        "note": "正道区域放置降声望"
+      }
+    },
+    {
+      "id": "ghost_path",
+      "display": "鬼道/阴罗气质",
+      "structures": {
+        "special": [
+          "soul_banner_altar",
+          "corpse_refinement_pit",
+          "yin_essence_ore_block"
+        ],
+        "access": [
+          "node_yin_ming_gate 关联"
+        ]
+      }
+    },
+    {
+      "id": "chaotic_sea",
+      "display": "乱星海",
+      "structures": {
+        "transit": [
+          "star_palace_teleport_gate",
+          "inverse_star_smuggle_dock",
+          "chaotic_sea_island_lighthouse",
+          "flying_boat_dock"
+        ],
+        "faction": [
+          "miaoyin_resonance_platform"
+        ],
+        "life": [
+          "cave_dwelling_core",
+          "spirit_gathering_array",
+          "market_stall_counter"
+        ]
+      }
+    },
+    {
+      "id": "dajin_kunwu",
+      "display": "大晋 / 昆吾",
+      "structures": {
+        "trade": [
+          "auction_display_dais",
+          "warehouse_loading_bay"
+        ],
+        "seal": [
+          "kunwu_seal_pillar",
+          "kunwu_seal_hall",
+          "kunwu_frost_forge",
+          "kunwu_copper_ore"
+        ]
+      }
+    },
+    {
+      "id": "mulan_tianlan",
+      "display": "慕兰 / 天澜",
+      "structures": {
+        "war_support": [
+          "field_repair_tent",
+          "tianlan_bell_tower",
+          "formation_flag_post"
+        ],
+        "note": "不做完整势力战地图，仅结构出现"
+      }
+    },
+    {
+      "id": "secret_blood_forbidden",
+      "display": "血色禁地（实例）",
+      "player_build": false,
+      "worldgen_only": true,
+      "structures": {
+        "fixed": [
+          "blood_forbidden_entry_stele",
+          "blood_forbidden_blood_pool",
+          "blood_forbidden_trial_altar",
+          "blood_forbidden_exit_array"
+        ]
+      }
+    },
+    {
+      "id": "secret_xutian",
+      "display": "虚天殿（实例）",
+      "player_build": false,
+      "structures": {
+        "fixed": [
+          "xutian_palace_gate_fragment",
+          "xutian_main_hall",
+          "xutian_trap_corridor",
+          "xutian_key_socket",
+          "bao_ding_socket"
+        ]
+      }
+    },
+    {
+      "id": "secret_qianzhu",
+      "display": "千竹机关塔",
+      "structures": {
+        "fixed": [
+          "qianzhu_mechanism_tower",
+          "qianzhu_control_console",
+          "puppet_workshop"
+        ]
+      }
+    },
+    {
+      "id": "secret_misc",
+      "display": "其它秘境结构",
+      "structures": {
+        "yinyang": [
+          "yinyang_cave_gate"
+        ],
+        "zhuimo": [
+          "fallen_demon_rift"
+        ],
+        "kunwu": [
+          "kunwu_seal_hall"
+        ]
+      }
+    },
+    {
+      "id": "spirit_tianyuan",
+      "display": "天渊城",
+      "dimension": "seeking_immortals:tianyuan",
+      "structures": {
+        "city": [
+          "tianyuan_wall_segment",
+          "contribution_stele",
+          "sect_formation_hub",
+          "teleport_array_pedestal"
+        ],
+        "craft_high": [
+          "infant_fire_alchemy_room",
+          "alchemy_furnace_g3",
+          "refinement_forge_g3"
+        ]
+      }
+    },
+    {
+      "id": "spirit_fengyuan",
+      "display": "风元大陆",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "structures": {
+        "trial": [
+          "asura_trial_ring"
+        ],
+        "life": [
+          "cave_dwelling_core",
+          "spirit_gathering_array",
+          "spirit_beast_pen",
+          "spirit_beast_evolution_pool"
+        ]
+      }
+    },
+    {
+      "id": "xianjie",
+      "display": "仙界",
+      "dimension": "seeking_immortals:immortal_realm",
+      "structures": {
+        "transit": [
+          "immortal_teleport_grand_array"
+        ],
+        "faction": [
+          "true_word_lecture_platform",
+          "reincarnation_trade_desk"
+        ],
+        "law": [
+          "time_acceleration_array",
+          "wuxing_world_seed_block",
+          "immortal_alchemy_cauldron"
+        ]
+      }
+    },
+    {
+      "id": "universal_support",
+      "display": "通用配套（多区可建）",
+      "structures": {
+        "support": [
+          "structure_repair_bench",
+          "structure_blueprint_table",
+          "ice_crystal_cooler",
+          "spirit_vein_tap",
+          "palm_heaven_bottle_stand"
+        ]
+      }
+    }
+  ]
+}

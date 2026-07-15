@@ -15,7 +15,7 @@
         "damage_base": 70,
         "tags": []
       },
-      "description": "天魔手：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "天魔手：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 35。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -29,7 +29,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "demon",
+      "path": "demon",
+      "alignment": "demonic",
+      "tags": [
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_qi_burst",
@@ -44,7 +56,7 @@
         "damage_base": 65,
         "tags": []
       },
-      "description": "魔气爆：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "魔气爆：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 32。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -58,7 +70,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "demon",
+      "path": "demon",
+      "alignment": "demonic",
+      "tags": [
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_contract",
@@ -73,7 +97,7 @@
         "damage_base": 40,
         "tags": []
       },
-      "description": "魂契：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "魂契：demon_path派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 20。神魂手段，慎用。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -87,7 +111,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "yin",
+      "path": "demon",
+      "alignment": "demonic",
+      "tags": [
+        "yin",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_soul_devour",
@@ -102,7 +139,7 @@
         "damage_base": 55,
         "tags": []
       },
-      "description": "魔噬魂：demon_path法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "魔噬魂：demon_path派术法，属性倾向 demon。境界门槛 CORE_FORMATION，耗灵约 27。神魂手段，慎用。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -116,7 +153,198 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "demon",
+      "path": "demon",
+      "alignment": "demonic",
+      "tags": [
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yao_transform_partial",
+      "display": "妖修化形（初）",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "transform",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "妖修化形（初）：demon_path派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「beast_transformation_art」体系解锁。",
+      "setting": {
+        "combat_style": "妖修化形诀",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "妖修化形诀",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "beast_transformation_art"
+      },
+      "requires_method": "beast_transformation_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "neutral",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "demon",
+      "alignment": "demonic",
+      "source_method": "beast_transformation_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yaoform2_v129_1",
+      "display": "妖化·击",
+      "school": "demon_path",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 12,
+      "source": "妖修化形诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "妖化·击：demon_path派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 12。 常随功法「beast_transformation_art」体系解锁。",
+      "requires_method": "beast_transformation_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "beast_transformation_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "妖化补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "demon",
+      "alignment": "demonic",
+      "source_method": "beast_transformation_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yaoform2_v129_2",
+      "display": "妖化·护",
+      "school": "demon_path",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 18,
+      "source": "妖修化形诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "妖化·护：demon_path派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 18。 常随功法「beast_transformation_art」体系解锁。",
+      "requires_method": "beast_transformation_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "beast_transformation_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "妖化补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "demon",
+      "alignment": "demonic",
+      "source_method": "beast_transformation_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yaoform2_v129_3",
+      "display": "妖化·爆",
+      "school": "demon_path",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 24,
+      "source": "妖修化形诀",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "妖化·爆：demon_path派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 24。 常随功法「beast_transformation_art」体系解锁。",
+      "requires_method": "beast_transformation_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "beast_transformation_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "demon",
+        "demonic",
+        "spell"
+      ],
+      "setting": {
+        "lore": "妖化补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "demon",
+      "alignment": "demonic",
+      "source_method": "beast_transformation_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "classification_note_v123": "demon_path：妖修/化形/旁支；demonic.json：魔功六宗向。勿混用。",
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

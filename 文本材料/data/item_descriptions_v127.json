@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "v127 落云后期+备选七派",
+  "items": [
+    {
+      "id": "v127_luoyun",
+      "display": "落云后期线",
+      "type": "meta",
+      "description": "梦诀/长老印/丹道；11术；兼容青元大衍元磁"
+    },
+    {
+      "id": "v127_alt_seven",
+      "display": "备选七派",
+      "type": "meta",
+      "description": "黄枫谷58；掩月宗29；天符门42；天阙堡7；天澜寺/圣殿9；灵云宗5；青岩宗5"
+    },
+    {
+      "id": "v127_accept",
+      "display": "验收",
+      "type": "meta",
+      "checks": [
+        "落云后期包",
+        "备选七派精表",
+        "双名单注册",
+        "层矩阵更新",
+        "无代码"
+      ],
+      "description": "双线同时完成"
+    }
+  ]
+}

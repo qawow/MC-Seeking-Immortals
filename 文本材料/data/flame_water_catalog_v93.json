@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v93 异火/异水/寒焰体系",
+  "disclaimer": "融合路线为结构参考，非唯一炼法实现",
+  "categories": ["寒焰", "真火", "神雷关联", "异水", "融合焰"],
+  "flames": [
+    {
+      "id": "qianlan_bingyan",
+      "display": "乾蓝冰焰",
+      "type": "寒焰",
+      "source": "虚天鼎/小极宫系",
+      "realm_min": "NASCENT_SOUL",
+      "use": ["炼丹", "冻敌", "融五焰"],
+      "rarity": 6
+    },
+    {
+      "id": "five_cold_flames",
+      "display": "五种寒焰（合称）",
+      "type": "寒焰",
+      "source": "小极宫/虚灵殿线灭敌所得结构",
+      "use": ["冲化神辅助", "融入五子同心魔"],
+      "rarity": 6,
+      "setting": {"lore": "韩立灭寒焰修士后收取；与魔元丹等同档冲阶。"}
+    },
+    {
+      "id": "taiyin_zhenhuo",
+      "display": "太阴真火",
+      "type": "真火",
+      "source": "昆吾铸灵殿",
+      "use": ["炼器", "噬灵天火前置"],
+      "rarity": 6
+    },
+    {
+      "id": "zi_luo_jihuo",
+      "display": "紫罗极火",
+      "type": "真火",
+      "source": "秘境/魔功关联结构",
+      "use": ["与太阴融合"],
+      "rarity": 5
+    },
+    {
+      "id": "taiyang_jinghuo",
+      "display": "太阳精火",
+      "type": "真火",
+      "source": "大晋火狱",
+      "use": ["回阳真水", "阴阳极火"],
+      "materials_link": ["太阳精石"],
+      "rarity": 6
+    },
+    {
+      "id": "yinyang_jihuo",
+      "display": "阴阳极火",
+      "type": "融合焰",
+      "compose": ["太阴真火系", "太阳精火"],
+      "use": ["吞噬其他火焰", "炼器炼丹"],
+      "rarity": 7
+    },
+    {
+      "id": "shiling_tianhuo",
+      "display": "噬灵天火",
+      "type": "融合焰",
+      "evolve_from": "阴阳极火+噬炎等",
+      "abilities": ["心寒入体", "化火鸟/童子"],
+      "realm_min": "DEITY_TRANSFORMATION",
+      "rarity": 7,
+      "setting": {"lore": "可持续吞噬火属性异火强化；灵界可压真灵级火修结构。"}
+    },
+    {
+      "id": "xiuluo_shenghuo",
+      "display": "修罗圣火（结构）",
+      "type": "融合焰",
+      "compose": ["乾蓝冰焰", "玄魂阴火", "辟邪神雷"],
+      "note": "鬼道圣火结构标签",
+      "rarity": 7
+    },
+    {
+      "id": "tian_du_shihuo",
+      "display": "天都尸火",
+      "type": "尸火",
+      "source": "玄阴经系",
+      "alignment": "demonic",
+      "rarity": 5
+    },
+    {
+      "id": "biyan_jiu_boost",
+      "display": "碧焰酒（火毒酒）",
+      "type": "consumable_flame_aid",
+      "source": "风希赠",
+      "use": ["短时冲阶/药力", "结丹后期辅助结构"],
+      "rarity": 4
+    }
+  ],
+  "waters": [
+    {
+      "id": "yin_ling_shui",
+      "display": "阴灵水（沉水）",
+      "source": "阴冥之地",
+      "use": ["附阴火于器", "阴修"]
+    },
+    {
+      "id": "huiyang_zhenshui",
+      "display": "回阳真水",
+      "compose": ["太阳精火", "寒髓"],
+      "use": ["白骨生肉", "延寿约四分之一结构", "浇灌玄天仙藤"],
+      "rarity": 7
+    },
+    {
+      "id": "wannian_lingru",
+      "display": "万年灵乳",
+      "source": "虚天殿二层等",
+      "use": ["培神识/疗伤顶级"]
+    },
+    {
+      "id": "di_liu_jiang",
+      "display": "帝流浆",
+      "source": "天澜圣兽渡劫",
+      "use": ["化界珠", "空间炼器"]
+    },
+    {
+      "id": "zhen_chan_ye",
+      "display": "真蟾液",
+      "source": "真蟾兽/天渊",
+      "use": ["化神级丹药/任务"]
+    },
+    {
+      "id": "minghe_shenru",
+      "display": "冥河神乳",
+      "source": "冥河之地",
+      "use": ["大乘交易", "噬金虫王"],
+      "rarity": 7
+    },
+    {
+      "id": "mingqing_lingshui",
+      "display": "明清灵水",
+      "source": "云梦圣地",
+      "use": ["洗目清神"]
+    }
+  ],
+  "fusion_rules_structural": {
+    "one_primary_flame_slot": "主修异火位有限，吞噬可进化",
+    "cold_hot_pair": "至寒+至阳可成回阳或阴阳极火",
+    "risk": "融合失败反噬经脉/心魔",
+    "wuzi_vessel": "五子同心魔可作多焰容器"
+  }
+}

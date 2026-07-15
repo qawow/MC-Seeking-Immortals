@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "source": "v140 贴原著三线完善",
+  "delivered": [
+    "secret layer diagrams total 11",
+    "region detail dajin/mulan/spirit/immortal",
+    "dialogue effect quest hard links + stubs",
+    "novel_canon_checklist_v140"
+  ],
+  "honest_gaps_still": [
+    "广寒真仙战仍钩子级，不全文展开",
+    "quest_stub 尚未写入完整任务步骤奖励表",
+    "小极宫等仅钩子非全势力百科",
+    "刷怪 id 与 bestiary 可再逐条对齐"
+  ],
+  "status": "贴原著秘境层+区域+对话任务链粘合完成"
+}

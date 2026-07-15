@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "v118 视觉样式手册数据",
+  "style_guide_id": "visual_style_guide_v118",
+  "palette": {
+    "qi": "#C8E7FF",
+    "fire": "#FF6A3D",
+    "water": "#4DB7FF",
+    "wood": "#3DCF7A",
+    "metal": "#E8D48B",
+    "earth": "#C2A37A",
+    "thunder": "#B388FF",
+    "yin": "#6B4E9B",
+    "heal": "#8CFFB0",
+    "poison": "#5CFF3D",
+    "soul": "#A78BFA"
+  },
+  "counts": {
+    "pills": 114,
+    "herbs": 79,
+    "materials": 221,
+    "artifacts": 217,
+    "consumables": 57,
+    "techniques": 346,
+    "methods": 91,
+    "beasts": 42,
+    "npcs": 168,
+    "total_item_entries": 1351
+  },
+  "field_schema": {
+    "appearance": "静态外貌",
+    "idle_vfx": "静置/认主特效",
+    "active_vfx": "使用/催动特效",
+    "cast_vfx": "术法施放",
+    "effect_text": "规则效果+表现",
+    "style_tags": "美术标签"
+  },
+  "description": "与 item_descriptions_v118 同步。"
+}

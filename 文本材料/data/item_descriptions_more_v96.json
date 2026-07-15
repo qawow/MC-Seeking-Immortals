@@ -1,0 +1,591 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v96 物品详释续篇（次要丹药/符/材料/日常物）",
+  "items": [
+    {
+      "id": "yang_jing_dan",
+      "display": "养精丹",
+      "type": "pill",
+      "appearance": "普通淡黄灵丹",
+      "effect": "治疗内外伤，恢复精气",
+      "realm": "QI_to_FOUNDATION",
+      "price_low_stone": [10, 50],
+      "sources": ["坊市", "宗门", "自炼"],
+      "description": "炼气筑基最常见疗伤丹。便宜量大，战队标配。"
+    },
+    {
+      "id": "ju_ling_dan",
+      "display": "聚灵丹",
+      "type": "pill",
+      "effect": "加速炼气期灵气积累",
+      "price_low_stone": [20, 100],
+      "description": "外门弟子日常修炼丹；筑基后效减。"
+    },
+    {
+      "id": "ling_sui_wan",
+      "display": "灵髓丸",
+      "type": "pill",
+      "effect": "筑基期修为丹",
+      "price_low_stone": [80, 400],
+      "description": "筑基中期常用；优于聚灵一档。"
+    },
+    {
+      "id": "jin_sui_wan",
+      "display": "金髓丸",
+      "type": "pill",
+      "effect": "筑基后期~结丹前修为",
+      "price_low_stone": [200, 1200],
+      "description": "乱星海坊市常见高阶筑基丹药。"
+    },
+    {
+      "id": "hui_sha_wan",
+      "display": "回煞丸",
+      "type": "pill",
+      "effect": "瞬时回法力大半并略增修为，事后损元气",
+      "realm": "NASCENT",
+      "price_low_stone": [8000, 50000],
+      "taboo": "不可连服",
+      "description": "元婴死斗翻盘丹；用后虚弱需闭关。"
+    },
+    {
+      "id": "xuan_bing_dan",
+      "display": "玄冰丹",
+      "type": "pill",
+      "main_ingredients": ["玄冰花"],
+      "effect": "寒系修为/培寒焰",
+      "price_low_stone": [15000, 80000],
+      "description": "小极宫寒焰修士常用丹。"
+    },
+    {
+      "id": "wuxing_xue_ning",
+      "display": "五行血凝丹",
+      "type": "pill",
+      "alignment": "demonic",
+      "effect": "邪修急进结构",
+      "sources": ["黑煞教"],
+      "description": "正道禁丹；覆灭黑煞教任务掉落结构。"
+    },
+    {
+      "id": "yu_qing_dan",
+      "display": "玉清丹",
+      "type": "pill",
+      "realm": "DEITY_TRANSFORMATION",
+      "currency": "tianyuan_merit",
+      "merit": [15, 40],
+      "description": "天渊城化神修士基础高阶丹。"
+    },
+    {
+      "id": "teng_long_dan",
+      "display": "腾龙丹",
+      "type": "pill",
+      "realm": "DEITY_to_VOID",
+      "effect": "化神~炼虚修为推进",
+      "description": "灵界量产向高阶丹；可自炼。"
+    },
+    {
+      "id": "zhen_chan_ye_item",
+      "display": "真蟾液",
+      "type": "liquid",
+      "effect": "化神级特殊药液",
+      "merit": [30, 100],
+      "description": "天渊紧俏货；任务与拍卖双渠道。"
+    },
+    {
+      "id": "qianye_lu",
+      "display": "千叶露",
+      "type": "liquid",
+      "use": "九曲灵参丹辅料",
+      "price_low_stone": [5000, 35000],
+      "description": "黑石城等地流通的结婴辅液。"
+    },
+    {
+      "id": "yin_ling_shui_item",
+      "display": "阴灵水（沉水）",
+      "type": "water",
+      "sources": ["阴冥之地"],
+      "use": "附阴火于器、阴修",
+      "description": "法力异常环境下的特产灵液。"
+    },
+    {
+      "id": "mingqing_shui",
+      "display": "明清灵水",
+      "type": "water",
+      "sources": ["云梦圣地"],
+      "use": "洗目清神",
+      "description": "灵目线相关；配方可自圣地获。"
+    },
+    {
+      "id": "huang_fu_batch",
+      "display": "黄符（批）",
+      "type": "talisman",
+      "examples": ["火球符", "金光盾符", "定神符"],
+      "price_each": [1, 15],
+      "description": "炼气耗材；韩立早期批量制售。"
+    },
+    {
+      "id": "xuan_fu",
+      "display": "玄符",
+      "type": "talisman",
+      "price": [30, 300],
+      "description": "筑基级战符；坊市有售。"
+    },
+    {
+      "id": "di_fu",
+      "display": "地符",
+      "type": "talisman",
+      "price": [500, 8000],
+      "description": "结丹~元婴用；遁符、攻符皆有。"
+    },
+    {
+      "id": "tian_fu",
+      "display": "天符",
+      "type": "talisman",
+      "price": [5000, 100000],
+      "description": "元婴级符；天符门精品溢价。"
+    },
+    {
+      "id": "yin_shen_fu",
+      "display": "隐身符",
+      "type": "talisman",
+      "price": [30, 150],
+      "description": "短时隐匿；强神识可破。"
+    },
+    {
+      "id": "ding_shen_fu",
+      "display": "定神符",
+      "type": "talisman",
+      "price": [2, 10],
+      "description": "抗幻魅基础符；合欢/狐修对线常用。"
+    },
+    {
+      "id": "wanli_fu",
+      "display": "万里符",
+      "type": "talisman_signal",
+      "price": [100, 2000],
+      "description": "超远传讯/求援；星海必备。"
+    },
+    {
+      "id": "chu_wu_dai_s",
+      "display": "小储物袋",
+      "type": "storage",
+      "price": [20, 80],
+      "capacity_structure": "数立方米级",
+      "description": "入门储物；可自炼或购。"
+    },
+    {
+      "id": "chu_wu_dai_m",
+      "display": "中储物袋",
+      "type": "storage",
+      "price": [100, 800],
+      "description": "筑基标配。"
+    },
+    {
+      "id": "chu_wu_jie",
+      "display": "储物镯/戒指",
+      "type": "storage",
+      "price": [1000, 50000],
+      "description": "空间更稳、更隐蔽；结丹以上常见。"
+    },
+    {
+      "id": "feijian_low",
+      "display": "下品飞剑",
+      "type": "faqi",
+      "price": [5, 40],
+      "description": "炼气标配远程。"
+    },
+    {
+      "id": "faqi_mid",
+      "display": "中品法器",
+      "type": "faqi",
+      "price": [50, 300],
+      "description": "筑基初中期主力。"
+    },
+    {
+      "id": "faqi_high",
+      "display": "上品法器",
+      "type": "faqi",
+      "price": [200, 1500],
+      "description": "筑基巅峰；再上即准法宝。"
+    },
+    {
+      "id": "zhun_fabao",
+      "display": "准法宝",
+      "type": "faqi",
+      "price": [1500, 8000],
+      "description": "结丹门槛装备；可培成本命。"
+    },
+    {
+      "id": "xuanguang_jing",
+      "display": "眩光晶",
+      "type": "material",
+      "use": "傀儡关键材",
+      "price": [3000, 30000],
+      "description": "傀儡师硬通货；大衍线需求。"
+    },
+    {
+      "id": "po_shi_item",
+      "display": "魄石",
+      "type": "material",
+      "use": "傀儡、神识器",
+      "price": [5000, 50000],
+      "description": "阴冥高产；可换上古傀儡术。"
+    },
+    {
+      "id": "mo_jin_item",
+      "display": "墨金",
+      "type": "material",
+      "price": [18000, 100000],
+      "sources": ["晋京地下拍卖"],
+      "description": "炼器傀儡皆宜的黑市金材。"
+    },
+    {
+      "id": "wuxing_yu_item",
+      "display": "五行玉",
+      "type": "material",
+      "price": [12000, 90000],
+      "description": "五行炼器培法；魔髓钻可换。"
+    },
+    {
+      "id": "lei_ling_jing_item",
+      "display": "雷灵晶",
+      "type": "material",
+      "price": [5000, 40000],
+      "description": "雷系炼器；晋西坊市可见。"
+    },
+    {
+      "id": "jin_yan_shi_item",
+      "display": "金焰石",
+      "type": "material",
+      "price": [4000, 30000],
+      "description": "火金属性矿晶。"
+    },
+    {
+      "id": "gang_yin_sha_item",
+      "display": "罡银沙",
+      "type": "material",
+      "sources": ["坠魔谷"],
+      "use": "炼器",
+      "description": "外谷常见珍材。"
+    },
+    {
+      "id": "bei_ji_yuan_jing_item",
+      "display": "北极元晶",
+      "type": "material",
+      "use": "炼北极元山",
+      "price": [80000, 500000],
+      "description": "坠魔谷深层/后期收集；五极山组件。"
+    },
+    {
+      "id": "chi_ling_ruanyu_item",
+      "display": "叱灵软玉",
+      "type": "material",
+      "sources": ["魔气之渊"],
+      "use": "修幡/禁制",
+      "description": "与魔髓钻同区产出。"
+    },
+    {
+      "id": "hao_yang_ling",
+      "display": "昊阳鸟翎羽",
+      "type": "beast_part",
+      "price": [20000, 120000],
+      "sources": ["岳阳宫"],
+      "description": "三焰扇火材。"
+    },
+    {
+      "id": "wu_feng_ling_item",
+      "display": "乌凤之翎",
+      "type": "beast_part",
+      "price": [30000, 180000],
+      "sources": ["苦竹岛比试"],
+      "description": "风雷翅/扇类强化。"
+    },
+    {
+      "id": "kunpeng_ling_item",
+      "display": "游天鲲鹏翎羽",
+      "type": "beast_part",
+      "price_note": "不标价",
+      "use": "风雷翅风遁",
+      "description": "真灵级翎；外星海奇遇。"
+    },
+    {
+      "id": "tianlei_mu",
+      "display": "天雷木",
+      "type": "wood",
+      "merit": [20, 80],
+      "use": "雷珠雷袍雷纹",
+      "description": "天渊城雷系核心材。"
+    },
+    {
+      "id": "mo_qilin_lin",
+      "display": "墨麒麟鳞片",
+      "type": "beast_part",
+      "merit": [40, 120],
+      "use": "葵水真灵丹",
+      "description": "天渊拍卖级珍材。"
+    },
+    {
+      "id": "jin_sui_jing_chong_item",
+      "display": "金髓晶虫",
+      "type": "material",
+      "use": "金髓炼体",
+      "region": "spirit_realm",
+      "description": "木铃花可换；体修线。"
+    },
+    {
+      "id": "kong_yun_jing_item",
+      "display": "空云晶",
+      "type": "crystal",
+      "use": "空间/炼器",
+      "region": "spirit_realm",
+      "description": "海外流浪线可获。"
+    },
+    {
+      "id": "yi_mo_jin_item",
+      "display": "异魔金",
+      "type": "metal",
+      "use": "阴阳大五行极山",
+      "region": "demon_realm",
+      "description": "魔界特产金属。"
+    },
+    {
+      "id": "xue_ya_mi_item",
+      "display": "血牙米",
+      "type": "food",
+      "effect": "精血肉身",
+      "region": "demon_realm",
+      "description": "需精血浇灌结构的巨型米；体修硬通货。"
+    },
+    {
+      "id": "taiyang_jingshi",
+      "display": "太阳精石",
+      "type": "material",
+      "use": "太阳精火关联",
+      "sources": ["火狱"],
+      "description": "至阳矿石；与寒髓对。"
+    },
+    {
+      "id": "du_fu_mu_item",
+      "display": "毒符木",
+      "type": "wood",
+      "price": [3000, 25000],
+      "description": "毒符与炼器材；交易会难求。"
+    },
+    {
+      "id": "qian_ling_cao_item",
+      "display": "千灵草",
+      "type": "herb",
+      "price": [200, 2000],
+      "description": "中阶灵草；可换消息。"
+    },
+    {
+      "id": "mu_ling_hua_item",
+      "display": "木铃花",
+      "type": "herb",
+      "region": "spirit_realm",
+      "use": "换金髓晶虫等",
+      "description": "灵界交易花。"
+    },
+    {
+      "id": "xuan_bing_hua_item",
+      "display": "玄冰花",
+      "type": "herb",
+      "price": [15000, 90000],
+      "sources": ["小极宫"],
+      "description": "炼玄冰丹主花。"
+    },
+    {
+      "id": "wannian_xuanyu_item",
+      "display": "万年玄玉",
+      "type": "jade",
+      "price": [50000, 400000],
+      "use": "换魔元丹/培寒焰",
+      "description": "北地硬通货。"
+    },
+    {
+      "id": "yang_huan_item",
+      "display": "阳环",
+      "type": "fabao",
+      "sources": ["掩月宗线"],
+      "description": "南宫婉线所得法宝之一。"
+    },
+    {
+      "id": "xue_mo_jian_item",
+      "display": "血魔剑",
+      "type": "fabao",
+      "sources": ["掩月宗大长老线"],
+      "description": "魔性剑宝；可转手或自用。"
+    },
+    {
+      "id": "kun_xian_huan_item",
+      "display": "困仙环",
+      "type": "fabao",
+      "note": "未认主可交易",
+      "price": [20000, 100000],
+      "description": "天南交换会名场面法宝。"
+    },
+    {
+      "id": "yu_ruyi_item",
+      "display": "玉如意古宝",
+      "type": "gubao",
+      "sources": ["虚天殿"],
+      "description": "内殿混战所得；品阶高于普通法宝。"
+    },
+    {
+      "id": "tongling_huoding_item",
+      "display": "通灵火鼎",
+      "type": "fabao",
+      "sources": ["昆吾铸灵殿"],
+      "use": "炼器",
+      "description": "带灵性的火鼎；利炼器成功率。"
+    },
+    {
+      "id": "sheng_ding_item",
+      "display": "天澜圣鼎",
+      "type": "gubao",
+      "sources": ["天澜圣兽"],
+      "description": "圣兽关联鼎器；叙事向。"
+    },
+    {
+      "id": "yuan_ming_deng_item",
+      "display": "元明灯",
+      "type": "fabao",
+      "sources": ["边界大战"],
+      "description": "扭转战局级；可换大量宝物。"
+    },
+    {
+      "id": "gui_ling_pai",
+      "display": "圭灵本命牌",
+      "type": "control",
+      "sources": ["昆吾殿"],
+      "use": "收服圭灵",
+      "description": "昆吾关键控制物。"
+    },
+    {
+      "id": "tian_jing_bei_item",
+      "display": "天晶碑",
+      "type": "seal",
+      "use": "封印真魔气等",
+      "sources": ["昆吾"],
+      "description": "玲珑/封印线道具。"
+    },
+    {
+      "id": "mie_xian_zhu_item",
+      "display": "灭仙珠",
+      "type": "tool",
+      "effect": "禁锢法宝",
+      "counter": "八灵尺",
+      "description": "阴罗/小极宫可见；对宝杀器。"
+    },
+    {
+      "id": "chi_nian_zhenlei_item",
+      "display": "叱念真雷（种入）",
+      "type": "brand",
+      "effect": "禁制威胁目标",
+      "description": "昆吾后对徐仙师、圣女等的保险。"
+    },
+    {
+      "id": "feng_hun_zhou_item",
+      "display": "封魂咒",
+      "type": "curse",
+      "effect": "剧情负面",
+      "counter": "昆吾解法",
+      "description": "南宫婉中咒结构。"
+    },
+    {
+      "id": "ju_ling_zhu_item",
+      "display": "聚灵珠",
+      "type": "aid",
+      "effect": "聚灵加速修炼",
+      "description": "双修大典等线赠物结构。"
+    },
+    {
+      "id": "mu_sheng_zhu_item",
+      "display": "木生珠",
+      "type": "treasure",
+      "effect": "木系培元",
+      "materials": ["聚灵珠改造结构"],
+      "description": "圣兽指点炼成。"
+    },
+    {
+      "id": "hua_jie_zhu_item",
+      "display": "化界珠",
+      "type": "space",
+      "materials": ["帝流浆"],
+      "description": "空间类至宝。"
+    },
+    {
+      "id": "po_mie_fa_mu_item",
+      "display": "破灭法目",
+      "type": "body",
+      "effect": "破幻破禁",
+      "description": "虚灵殿杀妖所得结构。"
+    },
+    {
+      "id": "huo_ling_si_item",
+      "display": "火灵丝",
+      "type": "weapon",
+      "effect": "火系丝攻",
+      "description": "化神前自炼战技物。"
+    },
+    {
+      "id": "nuanyang_baoyu_item",
+      "display": "暖阳宝玉",
+      "type": "key",
+      "use": "解特定奇毒",
+      "sources": ["欧阳飞天线"],
+      "description": "凡人后期/入仙前关键解毒物。"
+    },
+    {
+      "id": "xiaojian_fubao_item",
+      "display": "小剑符宝",
+      "type": "fubao",
+      "sources": ["金光上人"],
+      "description": "凡人翻盘符宝。"
+    },
+    {
+      "id": "guanghan_ling_item",
+      "display": "广寒令",
+      "type": "token",
+      "use": "入广寒界",
+      "description": "灵界副本门票。"
+    },
+    {
+      "id": "fansheng_zhenpian_item",
+      "display": "梵圣真片",
+      "type": "manual_frag",
+      "use": "拼梵圣真魔功",
+      "price": [50000, 300000],
+      "description": "坊市极罕；法体双修拼图。"
+    },
+    {
+      "id": "biyan_jiu_item",
+      "display": "碧焰酒",
+      "type": "drink",
+      "effect": "短时冲阶药力",
+      "side": "火毒风险",
+      "sources": ["风希"],
+      "description": "结丹后期突破辅助结构。"
+    },
+    {
+      "id": "top_stone_item",
+      "display": "极品灵石",
+      "type": "currency",
+      "ratio": 1000000,
+      "description": "化神、大阵、妖族争夺的顶层货币。"
+    },
+    {
+      "id": "mid_stone",
+      "display": "中品灵石",
+      "type": "currency",
+      "ratio": 100,
+      "description": "筑基~结丹常用面额。"
+    },
+    {
+      "id": "high_stone",
+      "display": "上品灵石",
+      "type": "currency",
+      "ratio": 10000,
+      "description": "元婴交易常见。"
+    }
+  ]
+}

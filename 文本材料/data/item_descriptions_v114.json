@@ -1,0 +1,5143 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v114 任务/宗门/功法/丹方/术法/刷怪/事件全量说明",
+  "disclaimer": "无代码",
+  "items": [
+    {
+      "id": "quest_huangfeng_cultivation_path",
+      "catalog_id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】黄枫谷修行线。域：tiannan。境界跨度：炼气–结丹。步骤：入门测灵根 → 丹童与辟谷丹 → 外门灵草任务 → 血色禁地历练 → 结丹后地火室。终局奖励线索：core_earth_fire, contribution_rank_inner。气质：黄枫谷修行线。主线章：chapter_1_sect。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chaotic_sea_politics",
+      "catalog_id": "chaotic_sea_politics",
+      "display": "乱星海势力线（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】乱星海势力线。域：chaotic_sea。境界跨度：筑基–元婴。步骤：star_palace_patrol → inverse_star_contact → stolen_jade_slip → inverse_star_sabotage → pirate_bounty → 虚天殿钥终章。终局奖励线索：贡献/人情/材料（视链）。气质：乱星海星宫忠诚线与逆星暗线互斥，走私与清剿悬赏各据一方。。主线章：chapter_3_chaotic_sea。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_mulan_tianlan_war",
+      "catalog_id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线（任务链说明）",
+      "type": "quest_chain",
+      "region": "mulan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】慕兰天澜战线。域：mulan。境界跨度：未标。步骤：mulan_side → beast_tide_defense → mulan_scout_clash。终局奖励线索：贡献/人情/材料（视链）。气质：慕兰与天澜势力线并行，兽潮与斥候战挂钩 faction_conflict_events。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_ghost_path",
+      "catalog_id": "ghost_path",
+      "display": "鬼道线（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】鬼道线。域：None。境界跨度：未标。步骤：阴冥脱困得玄阴残卷 → 敛魂符阴体 → 冥河朝圣换阴石 → 聚魂石魂锚 → 冥河地结冥核 → 阴婴门槛。终局奖励线索：yin_soul_stage, ghost_nether_art_full_page。气质：鬼道线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_high_realm_endgame",
+      "catalog_id": "high_realm_endgame",
+      "display": "高境界终局（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】高境界终局。域：None。境界跨度：结丹–化神。步骤：kunwu_expedition → kunwu_seal_research → fallen_demon_scout → tianyuan_enlist。终局奖励线索：贡献/人情/材料（视链）。气质：高境界终局。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_spirit_realm_rise",
+      "catalog_id": "spirit_realm_rise",
+      "display": "灵界上升线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】灵界上升线。域：spirit_fengyuan。境界跨度：炼虚–大乘。步骤：tianyuan_demon_contract → treasure_fair_invite → diyuan_scout → asura_trial → jiuxian_seclusion_permit → 天渊入伍。终局奖励线索：贡献/人情/材料（视链）。气质：灵界上升线。主线章：chapter_6_spirit_realm。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_craft_master",
+      "catalog_id": "craft_master",
+      "display": "百艺精通（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】百艺精通。域：None。境界跨度：未标。步骤：alchemy_apprentice → puppet_maintain → 阵法进阶 → 炼器地火。终局奖励线索：贡献/人情/材料（视链）。气质：百艺精通。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_dajin_kunwu_line",
+      "catalog_id": "dajin_kunwu_line",
+      "display": "大晋昆吾线（任务链说明）",
+      "type": "quest_chain",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】大晋昆吾线。域：dajin。境界跨度：筑基–元婴。步骤：dajin_auction_preview → kunwu_intel → kunwu_expedition → kunwu_seal_research。终局奖励线索：kunwu_seal_fragment, ancient_treasure_appraisal_lens。气质：大晋昆吾线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_ancient_demon_line",
+      "catalog_id": "ancient_demon_line",
+      "display": "古魔封印线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】古魔封印线。域：tiannan。境界跨度：结丹–化神。步骤：坠魔谷侦察 → 封印残片（可并行昆吾线） → 血色禁地周期 → 协助稳固裂隙。终局奖励线索：seal_reinforcement_token, anti_demon_talisman_bulk。气质：古魔封印线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_qixuan_mortal_path",
+      "catalog_id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】七玄门凡俗线。域：tiannan。境界跨度：MORTAL–炼气。步骤：山村与墨大夫传闻 → 采药杂役 → 测灵根入外门 → 门派衰落遗册。终局奖励线索：qixuan_mortal_art_scroll, spirit_stone_shard。气质：七玄门凡俗线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_huadao_blade_path",
+      "catalog_id": "huadao_blade_path",
+      "display": "化刀坞刀道（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】化刀坞刀道。域：tiannan。境界跨度：炼气–筑基。步骤：刀坞试刀 → 铸刀委托 → 刀意对决。终局奖励线索：huadao_blade_intent_page。气质：化刀坞刀道。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_giant_sword_gate_path",
+      "catalog_id": "giant_sword_gate_path",
+      "display": "巨剑门传承（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】巨剑门传承。域：tiannan。境界跨度：炼气–筑基。步骤：巨剑入门 → 血色禁地银巨剑线索 → 古剑残片重铸。终局奖励线索：silver_giant_sword_blueprint, giant_sword_art。气质：巨剑门传承。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_qianzhu_puppet_path",
+      "catalog_id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】千竹傀儡线。域：tiannan。境界跨度：炼气–结丹。步骤：傀儡童工 → 千竹塔历练 → 大衍残页 → 维护高阶傀。终局奖励线索：dayan_art_scroll, puppet_core_blank_bulk。气质：千竹傀儡线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_yuling_puppet_path",
+      "catalog_id": "yuling_puppet_path",
+      "display": "御灵兽傀线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】御灵兽傀线。域：tiannan。境界跨度：筑基–结丹。步骤：灵兽山暗线 → 兽魂封傀 → lingshou_contract_beast。终局奖励线索：yuling_beast_puppet_art, beast_puppet_core。气质：御灵兽傀线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_dajin_clan_line",
+      "catalog_id": "dajin_clan_line",
+      "display": "大晋世家线（任务链说明）",
+      "type": "quest_chain",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】大晋世家线。域：dajin。境界跨度：筑基–元婴。步骤：clan_territory_patrol → dajin_auction_preview → 祖传诀试炼 → kunwu_expedition。终局奖励线索：dajin_clan_ancestor_art, clan_seal_token。气质：大晋世家祖传诀、拍卖与可选昆吾支线。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_demonic_six_path",
+      "catalog_id": "demonic_six_path",
+      "display": "魔道六宗线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】魔道六宗线。域：tiannan_north_waste。境界跨度：炼气–结丹。步骤：北迁传闻 → guiling_gate_recruit → hehuan_sect_trial → tianmo_blood_rite → 正道悬赏反噬。终局奖励线索：demonic_core_material, sect_method_scroll。气质：魔道六宗线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_yin_cluster_pilgrim",
+      "catalog_id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线（任务链说明）",
+      "type": "quest_chain",
+      "region": "yin_underworld",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】阴司朝圣线。域：yin_underworld。境界跨度：未标。步骤：yinming_escape → nether_river_pilgrim → nether_river_fog_event。终局奖励线索：yin_protect_talisman_bulk, nether_river_map。气质：阴司朝圣线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_barbarian_kings_line",
+      "catalog_id": "barbarian_kings_line",
+      "display": "蛮荒妖王线（任务链说明）",
+      "type": "quest_chain",
+      "region": "barbarian_wasteland",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】蛮荒妖王线。域：barbarian_wasteland。境界跨度：炼虚–大乘。步骤：diyuan_scout → barbarian_border_contact → 任选妖王朝贡/试炼 → spatial_rift_escape。终局奖励线索：barbarian_king_token, ancient_beast_core。气质：蛮荒妖王线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_spirit_eighteen_clans",
+      "catalog_id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】灵界十八族巡礼。域：spirit_fengyuan。境界跨度：化神–大乘。步骤：天渊入伍 → clan_generic_tribute → treasure_fair_invite → asura_trial。终局奖励线索：spirit_clan_grand_token, specialty_item_bundle。气质：灵界十八族巡礼。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_star_palace_internal_politics",
+      "catalog_id": "star_palace_internal_politics",
+      "display": "星宫派系线（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】星宫派系线。域：chaotic_sea。境界跨度：未标。步骤：star_palace_patrol → star_palace_branch_enforcement → star_palace_branch_commerce → internal_tax_vote。终局奖励线索：贡献/人情/材料（视链）。气质：星宫派系线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_mulan_war_campaign",
+      "catalog_id": "mulan_war_campaign",
+      "display": "慕兰天澜战役（任务链说明）",
+      "type": "quest_chain",
+      "region": "mulan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】慕兰天澜战役。域：mulan。境界跨度：炼气–结丹。步骤：边境遭遇 → mulan_side → tiannan_defense_mobilize → 法士护阵 → holy_bird_blessing_quest → 停战谈判。终局奖励线索：war_campaign_token, rep_faction_major。气质：慕兰法士与天南千年摩擦：择边、斥候、护阵/破阵、圣禽、停战；结构向战役非必胜。。主线章：chapter_1_sect。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_mulan_fashi_path",
+      "catalog_id": "mulan_fashi_path",
+      "display": "慕兰法士道途（任务链说明）",
+      "type": "quest_chain",
+      "region": "mulan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】慕兰法士道途。域：mulan。境界跨度：未标。步骤：mulan_fashi_initiation → holy_bird_altar_visit → tianhu_beast_tame_optional。终局奖励线索：贡献/人情/材料（视链）。气质：慕兰法士入门、圣禽祭坛与可选天虎驯兽，对接 fashi_mulan 技能树。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_tianlan_defense_line",
+      "catalog_id": "tianlan_defense_line",
+      "display": "天澜御兽线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tianlan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】天澜御兽线。域：tianlan。境界跨度：未标。步骤：tianlan_oath_renew → tianlan_beast_soul_call_training → mulan_war_campaign。终局奖励线索：贡献/人情/材料（视链）。气质：天澜御兽线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_wutu_mulan_feud_line",
+      "catalog_id": "wutu_mulan_feud_line",
+      "display": "突兀慕兰世仇（任务链说明）",
+      "type": "quest_chain",
+      "region": "mulan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】突兀慕兰世仇。域：mulan。境界跨度：未标。步骤：wutu_raid_mulan_camp → mulan_counter_hunt → feud_truce_broker。终局奖励线索：贡献/人情/材料（视链）。气质：突兀慕兰世仇。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_fallen_demon_expedition",
+      "catalog_id": "fallen_demon_expedition",
+      "display": "坠魔谷探谷（任务链说明）",
+      "type": "quest_chain",
+      "region": "fallen_demon_valley",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】坠魔谷探谷。域：fallen_demon_valley。境界跨度：未标。步骤：fallen_demon_scout → seal_weak_event → demon_qi_purge_side → ancient_demon_projection_boss。终局奖励线索：贡献/人情/材料（视链）。气质：坠魔谷探谷。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_dajin_wanbao_route",
+      "catalog_id": "dajin_wanbao_route",
+      "display": "大晋商路（任务链说明）",
+      "type": "quest_chain",
+      "region": "dajin",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】大晋商路。域：dajin。境界跨度：未标。步骤：auction_invite_dajin → dajin_clan_feud_choice → kunwu_rumor。终局奖励线索：贡献/人情/材料（视链）。气质：万宝楼商路与拍卖准入。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_yin_luo_ghost_sect",
+      "catalog_id": "yin_luo_ghost_sect",
+      "display": "阴罗殿线（任务链说明）",
+      "type": "quest_chain",
+      "region": "yinming",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】阴罗殿线。域：yinming。境界跨度：未标。步骤：yin_luo_initiation → soul_banner_quest → nether_ferry_pass。终局奖励线索：贡献/人情/材料（视链）。气质：阴罗殿线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_kunwu_mountain_expedition",
+      "catalog_id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山（任务链说明）",
+      "type": "quest_chain",
+      "region": "kunwu",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】昆吾山探山。域：kunwu。境界跨度：未标。步骤：kunwu_intel → kunwu_map_fragment_turnin → kunwu_cold_snap_survive → kunwu_puppet_king。终局奖励线索：kunwu_seal_fragment, kunwu_puppet_core。气质：昆吾山探山。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_tianyuan_merit_path",
+      "catalog_id": "tianyuan_merit_path",
+      "display": "天渊功勋线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tianyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】天渊功勋线。域：tianyuan。境界跨度：未标。步骤：tianyuan_merit_enlist → demon_beast_siege_defense → diyuan_permit_apply。终局奖励线索：贡献/人情/材料（视链）。气质：天渊功勋线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_spirit_realm_border",
+      "catalog_id": "spirit_realm_border",
+      "display": "灵界边境（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_realm_border",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】灵界边境。域：spirit_realm_border。境界跨度：未标。步骤：wild_land_beast_horde → spatial_rift_flutter_survive。终局奖励线索：贡献/人情/材料（视链）。气质：灵界边境。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_ghost_sect_ban_arc",
+      "catalog_id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】鬼修禁入正道。域：None。境界跨度：未标。步骤：ghost_expose_event → righteous_sect_ghost_hunt → sect_ban_lift_rare_quest。终局奖励线索：贡献/人情/材料（视链）。气质：鬼修禁入正道。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_fengyuan_explorer",
+      "catalog_id": "fengyuan_explorer",
+      "display": "风元探索（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】风元探索。域：spirit_fengyuan。境界跨度：未标。步骤：fengyuan_clan_intro → spirit_fengyuan_border_patrol → wild_land_rumor。终局奖励线索：贡献/人情/材料（视链）。气质：风元探索。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_barbarian_king_hunt",
+      "catalog_id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线（任务链说明）",
+      "type": "quest_chain",
+      "region": "barbarian_wasteland",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】蛮荒妖王线。域：barbarian_wasteland。境界跨度：未标。步骤：barbarian_border_contact → barbarian_beast_tide_survive → barbarian_king_token_hunt。终局奖励线索：贡献/人情/材料（视链）。气质：蛮荒妖王线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_human_clan_neutral_intro",
+      "catalog_id": "human_clan_neutral_intro",
+      "display": "世家引荐（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】世家引荐。域：spirit_fengyuan。境界跨度：未标。步骤：fengyuan_clan_intro → clan_guest_register。终局奖励线索：贡献/人情/材料（视链）。气质：世家引荐。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_clan_array_mo_line",
+      "catalog_id": "clan_array_mo_line",
+      "display": "莫家阵法线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】莫家阵法线。域：spirit_fengyuan。境界跨度：未标。步骤：array_disk_commission → formation_trial_mo → clan_feud_mediation_optional。终局奖励线索：贡献/人情/材料（视链）。气质：莫家阵法线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_clan_refinement_yu_line",
+      "catalog_id": "clan_refinement_yu_line",
+      "display": "俞家炼器线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】俞家炼器线。域：spirit_fengyuan。境界跨度：未标。步骤：spirit_ore_escort → refinement_apprentice_yu → artifact_appraisal_quest。终局奖励线索：贡献/人情/材料（视链）。气质：俞家炼器线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_clan_alchemy_gu_line",
+      "catalog_id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】谷家丹道线。域：spirit_fengyuan。境界跨度：未标。步骤：herb_tribute_gu → alchemy_furnace_access → pill_quality_audit。终局奖励线索：贡献/人情/材料（视链）。气质：谷家丹道线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_clan_talisman_ning_line",
+      "catalog_id": "clan_talisman_ning_line",
+      "display": "宁家符箓线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】宁家符箓线。域：spirit_fengyuan。境界跨度：未标。步骤：talisman_blank_order → talisman_inscription_lesson → clan_raid_defense_ning。终局奖励线索：贡献/人情/材料（视链）。气质：宁家符箓线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_human_clan_league_hub",
+      "catalog_id": "human_clan_league_hub",
+      "display": "世家联盟总线（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】世家联盟总线。域：spirit_fengyuan。境界跨度：未标。步骤：fengyuan_clan_intro → clan_guest_register → dajin_clan_feud。终局奖励线索：贡献/人情/材料（视链）。气质：世家联盟总线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_spirit_eighteen_pilgrimage",
+      "catalog_id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_fengyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】灵界十八族巡礼。域：spirit_fengyuan。境界跨度：未标。步骤：fengyuan_clan_intro → spirit_eighteen_pilgrimage → tianyuan_enlist。终局奖励线索：贡献/人情/材料（视链）。气质：灵界十八族巡礼。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_void_great_cultivation_arc",
+      "catalog_id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [
+        "VOID_REFINING",
+        "TRIBULATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】炼虚大乘道途。域：None。境界跨度：VOID_REFINING–TRIBULATION。步骤：void_rift_surge → diyuan_core_probe → great_vehicle_insight → tribulation_cloud_gather。终局奖励线索：贡献/人情/材料（视链）。气质：炼虚大乘道途。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_diyuan_depth_delve",
+      "catalog_id": "diyuan_depth_delve",
+      "display": "地渊深层（任务链说明）",
+      "type": "quest_chain",
+      "region": "diyuan",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】地渊深层。域：diyuan。境界跨度：未标。步骤：diyuan_permit_apply → diyuan_pressure_wave → diyuan_core_probe → diyuan_core_crystal_boss。终局奖励线索：贡献/人情/材料（视链）。气质：地渊深层。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_mortal_to_spirit_bridge",
+      "catalog_id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】人界化神·赴灵界。域：None。境界跨度：未标。步骤：mortal_realm_cap_insight → ascension_gate_rumor → spirit_realm_gate_voucher。终局奖励线索：贡献/人情/材料（视链）。气质：人界化神·赴灵界。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_inverse_star_recruit",
+      "catalog_id": "inverse_star_recruit",
+      "display": "逆星入盟（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】逆星入盟。域：chaotic_sea。境界跨度：未标。步骤：inverse_star_contact_rumor → inverse_star_cipher_trial → inverse_star_oath。终局奖励线索：贡献/人情/材料（视链）。气质：逆星入盟。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_inverse_star_smuggle_arc",
+      "catalog_id": "inverse_star_smuggle_arc",
+      "display": "走私补给线（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】走私补给线。域：chaotic_sea。境界跨度：未标。步骤：inverse_star_smuggler_pack → star_palace_patrol_dodge → void_palace_intel_sell。终局奖励线索：贡献/人情/材料（视链）。气质：走私补给线。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_inverse_star_void_heist",
+      "catalog_id": "inverse_star_void_heist",
+      "display": "虚天情报战（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】虚天情报战。域：chaotic_sea。境界跨度：未标。步骤：void_key_fragment_rumor → inverse_star_black_market_buy → star_palace_spy_expose_optional。终局奖励线索：贡献/人情/材料（视链）。气质：虚天情报战。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chaotic_sea_civil_war",
+      "catalog_id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】星宫逆星对峙。域：chaotic_sea。境界跨度：未标。步骤：star_palace_patrol_quest → inverse_star_ambush_event → star_palace_enforcement_raid → inverse_star_smuggle_run → chaotic_sea_neutral_ending_optional。终局奖励线索：贡献/人情/材料（视链）。气质：星宫巡防与逆星伏击对峙，可选中立收束；结构向非阵营必胜。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chain_seven_sect_outer_to_inner",
+      "catalog_id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】七派外门晋升内门。域：None。境界跨度：未标。步骤：约3步（原包仅记步数）。终局奖励线索：inner_manual_slot。气质：贡献、境界与师门考核。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chain_mulan_war_campaign",
+      "catalog_id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役（任务链说明）",
+      "type": "quest_chain",
+      "region": "mulan_border",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】慕兰大战战役。域：mulan_border。境界跨度：未标。步骤：边境遭遇 → 法士大阵 → holy_bird_blessing_quest → 停战。终局奖励线索：war_merit, mulan_spoil。气质：天南联军对慕兰法士。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chain_void_palace_expedition",
+      "catalog_id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】虚天殿探险链。域：None。境界跨度：未标。步骤：约4步（原包仅记步数）。终局奖励线索：void_key, legendary_roll。气质：三百年一开，多层殿宇。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chain_ascension_spirit_world",
+      "catalog_id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置（任务链说明）",
+      "type": "quest_chain",
+      "region": null,
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】飞升灵界前置。域：None。境界跨度：未标。步骤：约6步（原包仅记步数）。终局奖励线索：ascension_insight。气质：界面之力、心魔、空间节点。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_chain_tianyuan_enlist",
+      "catalog_id": "chain_tianyuan_enlist",
+      "display": "天渊城服役（任务链说明）",
+      "type": "quest_chain",
+      "region": "spirit_world",
+      "realm_span": [],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】天渊城服役。域：spirit_world。境界跨度：未标。步骤：约4步（原包仅记步数）。终局奖励线索：tianyuan_contribution。气质：抵御异族，换取灵界资源。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_blood_forbidden_campaign",
+      "catalog_id": "blood_forbidden_campaign",
+      "display": "血色禁地历练（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】血色禁地历练。域：tiannan。境界跨度：炼气–筑基。步骤：传闻与名额 → 争取入场令 → 穿越禁制入口 → 外层猎妖取药 → 内层结伴破禁 → 守关妖蛟。终局奖励线索：foundation_pill_material, blood_forbidden_herb, contribution_rank_inner。气质：天南筑基机缘秘境：开放条件、禁制环境、外→内→禁地三层结构。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_void_palace_campaign",
+      "catalog_id": "void_palace_campaign",
+      "display": "虚天殿探宝（任务链说明）",
+      "type": "quest_chain",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】虚天殿探宝。域：chaotic_sea。境界跨度：结丹–元婴。步骤：三百年周期预告 → 搜集虚天钥碎片 → 外殿傀儡战 → 灵药园采集 → 寒玉殿极寒 → 核心宝库。终局奖励线索：void_key_fragment, void_palace_cold_jade, ancient_spirit_treasure_shard。气质：乱星海奇景虚天殿：空间法则、极寒层、分层殿宇；古宝以碎片形式掉落。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_fallen_demon_campaign",
+      "catalog_id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘（任务链说明）",
+      "type": "quest_chain",
+      "region": "fallen_demon_valley",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】坠魔谷探秘。域：fallen_demon_valley。境界跨度：元婴–化神。步骤：封印松动传闻 → 备驱魔丹与辟邪物 → 外谷魔雾 → 裂隙层心魔 → 古魔投影。终局奖励线索：demon_qi_purge_pill, space_rift_compass, fallen_demon_chest。气质：魔道入侵遗留禁地：魔气、心魔、空间裂隙；封印削弱方可入谷，非刷胜率副本。。主线章：chapter_5_deity_transformation。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_kunwu_mountain_campaign",
+      "catalog_id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝（任务链说明）",
+      "type": "quest_chain",
+      "region": "kunwu",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】昆吾山夺宝。域：kunwu。境界跨度：结丹–元婴。步骤：入山许可 → 外阵破禁 → 矿脉傀儡 → 傀儡殿 → 峰顶封印。终局奖励线索：kunwu_core_ore, kunwu_puppet_core, kunwu_seal_fragment。气质：大晋昆吾山：寒禁、上古傀儡、矿脉与封印；周期开放+许可+境界三重门槛。。主线章：chapter_4_great_jin。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_nether_river_campaign",
+      "catalog_id": "nether_river_campaign",
+      "display": "冥河之地行（任务链说明）",
+      "type": "quest_chain",
+      "region": "nether_river",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】冥河之地行。域：nether_river。境界跨度：筑基–元婴。步骤：冥河渡费 → 阴雾入界 → 魂滩采集 → 冥殿鬼修 → 守关。终局奖励线索：soul_gathering_stone, ghost_cultivation_manual, nether_river_chest。气质：鬼道秘境：渡费、敛魂符、阴雾减阳伤；白日 debuff，纯阳术法克制鬼物。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_diyuan_campaign",
+      "catalog_id": "diyuan_campaign",
+      "display": "地渊探脉（任务链说明）",
+      "type": "quest_chain",
+      "region": "diyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_FUSION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】地渊探脉。域：diyuan。境界跨度：炼虚–BODY_FUSION。步骤：天渊功勋换地渊令 → 裂隙口重压 → 浅矿灵脉 → 重压带 → 古兽守脉。终局奖励线索：spirit_vein_shard, diyuan_core_crystal, pressure_resist_charm。气质：灵界地渊：炼虚以上、许可与功勋；紊乱灵气与空间褶皱，非刷宝副本。。主线章：chapter_6_spirit_realm。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_dajin_righteous_demon_line",
+      "catalog_id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线（任务链说明）",
+      "type": "quest_chain",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】大晋正魔边境线。域：dajin。境界跨度：筑基–元婴。步骤：边境传闻 → dajin_righteous_patrol_hook → dajin_demon_infiltrate_hook → wanbao_auction_lead → kunwu_expedition。终局奖励线索：贡献/人情/材料（视链）。气质：正道巡边与魔道渗透互斥支线；万宝拍卖可中立介入。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_yanyue_illusion_path",
+      "catalog_id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】掩月宗幻媚线。域：tiannan。境界跨度：炼气–筑基。步骤：神识心性试炼 → 幻阵双修课业 → 七派大比（可选） → 内门媚术秘传。终局奖励线索：yanyue_inner_token, illusion_manual_fragment。气质：女修为主；媚术幻阵双修，与黄枫谷资源竞合。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_tianfu_talisman_path",
+      "catalog_id": "tianfu_talisman_path",
+      "display": "天符门制符线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】天符门制符线。域：tiannan。境界跨度：炼气–结丹。步骤：符纸灵墨基础 → 低阶符考核 → 筑基后中阶符室 → 结丹秘传符（可选分支）。终局奖励线索：talisman_master_seal, high_talisman_recipe_scroll。气质：符箓三品对应低中高阶符解锁；符宝另计。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "quest_demonic_six_expanded",
+      "catalog_id": "demonic_six_expanded",
+      "display": "魔道六宗深入线（任务链说明）",
+      "type": "quest_chain",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "tags": [
+        "original_quest",
+        "aligned_v114"
+      ],
+      "description": "【原包任务链】魔道六宗深入线。域：tiannan_north_waste。境界跨度：炼气–结丹。步骤：北迁与边境悬赏 → 六宗择一入门 → 正道围剿压力 → 荒原古冢夺宝。终局奖励线索：demonic_core_material, sect_method_scroll。气质：鬼灵、合欢、天魔、青罗、万狐、血巫六宗；入魔则七派关系恶化。。主线章：支线/循环。奖励服从稀缺与软顶，不给通天/瓶/绿液保底。"
+    },
+    {
+      "id": "sect_huangfeng_valley",
+      "catalog_id": "huangfeng_valley",
+      "display": "黄枫谷（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_huangfeng",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】黄枫谷。域：tiannan。立场：正道。特长：alchemy_mid,pill_trade。加入境界上限参考：core_formation。声望 id：sect_huangfeng。货架档：2。禁途：demonic_core。功法来源：['黄枫谷']。纪年锚：K1_seven_sects。气质：天南七派之一，丹药与交易见长，黄枫药园闻名。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_yanyue_sect",
+      "catalog_id": "yanyue_sect",
+      "display": "掩月宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_yanyue",
+      "shop_tier": 3,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】掩月宗。域：tiannan。立场：正道。特长：dual_cultivation,body_refining,illusion。加入境界上限参考：core_formation。声望 id：sect_yanyue。货架档：3。禁途：见功法冲突。功法来源：['掩月宗']。纪年锚：无。气质：掩月宗：dual_cultivation,body_refining,illusion。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_spirit_beast_mountain",
+      "catalog_id": "spirit_beast_mountain",
+      "display": "灵兽山（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_lingshou",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】灵兽山。域：tiannan。立场：正道。特长：beast_taming,refinement_support。加入境界上限参考：None。声望 id：sect_lingshou。货架档：2。禁途：见功法冲突。功法来源：['灵兽山']。纪年锚：无。气质：御兽与炼器辅助并重。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qingxu_gate",
+      "catalog_id": "qingxu_gate",
+      "display": "清虚门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_qingxu",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】清虚门。域：tiannan。立场：正道。特长：tao_spells,formation_basic。加入境界上限参考：None。声望 id：sect_qingxu。货架档：2。禁途：见功法冲突。功法来源：['清虚门']。纪年锚：无。气质：清虚门：tao_spells,formation_basic。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_huadao_wu",
+      "catalog_id": "huadao_wu",
+      "display": "化刀坞（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_huadao",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】化刀坞。域：tiannan。立场：正道。特长：blade。加入境界上限参考：None。声望 id：sect_huadao。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：化刀坞：blade。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_tianque_fort",
+      "catalog_id": "tianque_fort",
+      "display": "天阙堡（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_tianque",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】天阙堡。域：tiannan。立场：正道。特长：defense_artifacts。加入境界上限参考：None。声望 id：sect_tianque。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：天阙堡：defense_artifacts。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_giant_sword_gate",
+      "catalog_id": "giant_sword_gate",
+      "display": "巨剑门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_jujian",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】巨剑门。域：tiannan。立场：正道。特长：sword。加入境界上限参考：None。声望 id：sect_jujian。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：巨剑门：sword。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qixuan_men",
+      "catalog_id": "qixuan_men",
+      "display": "七玄门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "reputation_id": "sect_qixuan",
+      "shop_tier": 0,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "neutral"
+      ],
+      "description": "【原包宗门】七玄门。域：tiannan。立场：中立。特长：starter。加入境界上限参考：None。声望 id：sect_qixuan。货架档：0。禁途：见功法冲突。功法来源：['长春功']。纪年锚：K10_qixuan_decline。气质：七玄门：starter。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_ghost_spirit_gate",
+      "catalog_id": "ghost_spirit_gate",
+      "display": "鬼灵门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_guiling",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】鬼灵门。域：tiannan。立场：魔道。特长：ghost,poison。加入境界上限参考：None。声望 id：sect_guiling。货架档：2。禁途：见功法冲突。功法来源：['鬼灵门']。纪年锚：无。气质：鬼灵门：ghost,poison。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_hehuan_sect",
+      "catalog_id": "hehuan_sect",
+      "display": "合欢宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_hehuan",
+      "shop_tier": 3,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】合欢宗。域：tiannan。立场：魔道。特长：dual_cultivation,illusion。加入境界上限参考：None。声望 id：sect_hehuan。货架档：3。禁途：见功法冲突。功法来源：['合欢宗']。纪年锚：无。气质：合欢宗：dual_cultivation,illusion。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_moyan_gate",
+      "catalog_id": "moyan_gate",
+      "display": "魔焰门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_moyan",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】魔焰门。域：tiannan。立场：魔道。特长：fire_demonic。加入境界上限参考：None。声望 id：sect_moyan。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：魔焰门：fire_demonic。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_tiansha_sect",
+      "catalog_id": "tiansha_sect",
+      "display": "天煞宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_tiansha",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】天煞宗。域：tiannan。立场：魔道。特长：assassination。加入境界上限参考：None。声望 id：sect_tiansha。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：天煞宗：assassination。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_yuling_sect",
+      "catalog_id": "yuling_sect",
+      "display": "御灵宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_yuling",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】御灵宗。域：tiannan。立场：魔道。特长：beast_taming,soul。加入境界上限参考：None。声望 id：sect_yuling。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：御灵宗：beast_taming,soul。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qianhuan_sect",
+      "catalog_id": "qianhuan_sect",
+      "display": "千幻宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_qianhuan",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】千幻宗。域：tiannan。立场：魔道。特长：illusion。加入境界上限参考：None。声望 id：sect_qianhuan。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：千幻宗：illusion。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_luoyun_sect",
+      "catalog_id": "luoyun_sect",
+      "display": "落云宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_luoyun",
+      "shop_tier": 4,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】落云宗。域：tiannan。立场：正道。特长：alchemy_top。加入境界上限参考：None。声望 id：sect_luoyun。货架档：4。禁途：见功法冲突。功法来源：None。纪年锚：K8_luoyun_sect。气质：炼丹强宗，丹堂与灵田并重。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_star_palace",
+      "catalog_id": "star_palace",
+      "display": "星宫（宗门说明）",
+      "type": "sect",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "reputation_id": "faction_star_palace",
+      "shop_tier": 4,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "lawful"
+      ],
+      "description": "【原包宗门】星宫。域：chaotic_sea。立场：lawful。特长：governance,teleport_hubs,order_enforcement,artifact_standard。加入境界上限参考：None。声望 id：faction_star_palace。货架档：4。禁途：见功法冲突。功法来源：None。纪年锚：K4_star_palace。气质：乱星海秩序中枢，登记修士与征收灵石。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_inverse_star_alliance",
+      "catalog_id": "inverse_star_alliance",
+      "display": "逆星盟（宗门说明）",
+      "type": "sect",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "reputation_id": "faction_inverse_star",
+      "shop_tier": 3,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "rebel"
+      ],
+      "description": "【原包宗门】逆星盟。域：chaotic_sea。立场：rebel。特长：black_market。加入境界上限参考：None。声望 id：faction_inverse_star。货架档：3。禁途：见功法冲突。功法来源：None。纪年锚：K5_inverse_star。气质：反星宫割据，走私与破禁。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qianzhu_teach",
+      "catalog_id": "qianzhu_teach",
+      "display": "千竹教（宗门说明）",
+      "type": "sect",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "reputation_id": "sect_qianzhu",
+      "shop_tier": 3,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "neutral"
+      ],
+      "description": "【原包宗门】千竹教。域：extreme_west。立场：中立。特长：puppet,formation_trap。加入境界上限参考：None。声望 id：sect_qianzhu。货架档：3。禁途：见功法冲突。功法来源：['大衍诀']。纪年锚：A3_dayan_sage。气质：千竹教傀儡术传承地。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_mulan_fashi_council",
+      "catalog_id": "mulan_fashi_council",
+      "display": "慕兰神师府（宗门说明）",
+      "type": "sect",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "reputation_id": "faction_mulan",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "tribal_faith"
+      ],
+      "description": "【原包宗门】慕兰神师府。域：mulan。立场：tribal_faith。特长：spirit_art_fashi。加入境界上限参考：None。声望 id：faction_mulan。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：慕兰神师府：spirit_art_fashi。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_tianlan_temple",
+      "catalog_id": "tianlan_temple",
+      "display": "天澜圣殿（宗门说明）",
+      "type": "sect",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "reputation_id": "faction_tianlan",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "tribal_faith"
+      ],
+      "description": "【原包宗门】天澜圣殿。域：tianlan。立场：tribal_faith。特长：holy_beast_oath。加入境界上限参考：None。声望 id：faction_tianlan。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：天澜圣殿：holy_beast_oath。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qianzhu_sect",
+      "catalog_id": "qianzhu_sect",
+      "display": "千竹教（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_qianzhu",
+      "shop_tier": 2,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "righteous"
+      ],
+      "description": "【原包宗门】千竹教。域：tiannan。立场：正道。特长：puppet,talisman_support。加入境界上限参考：None。声望 id：sect_qianzhu。货架档：2。禁途：见功法冲突。功法来源：None。纪年锚：A3_dayan_sage。气质：千竹教：puppet,talisman_support。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_yuling_sect_secret",
+      "catalog_id": "yuling_sect_secret",
+      "display": "御灵宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "reputation_id": "sect_yuling",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "neutral"
+      ],
+      "description": "【原包宗门】御灵宗。域：tiannan。立场：中立。特长：beast_puppet,hidden。加入境界上限参考：None。声望 id：sect_yuling。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：御灵宗：beast_puppet,hidden。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_guiling_gate",
+      "catalog_id": "guiling_gate",
+      "display": "鬼灵门（宗门说明）",
+      "type": "sect",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_guiling_gate",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】鬼灵门。域：tiannan_north_waste。立场：魔道。特长：摄魂,炼尸,阴火。加入境界上限参考：None。声望 id：sect_guiling_gate。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：鬼灵门：摄魂,炼尸,阴火。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_tianmo_sect",
+      "catalog_id": "tianmo_sect",
+      "display": "天魔宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_tianmo",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】天魔宗。域：tiannan_north_waste。立场：魔道。特长：魔体,狂战,血祭。加入境界上限参考：None。声望 id：sect_tianmo。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：天魔宗：魔体,狂战,血祭。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_qingluo_sect",
+      "catalog_id": "qingluo_sect",
+      "display": "青罗宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_qingluo",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】青罗宗。域：tiannan_north_waste。立场：魔道。特长：毒术,虫傀。加入境界上限参考：None。声望 id：sect_qingluo。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：青罗宗：毒术,虫傀。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_wanhu_sect",
+      "catalog_id": "wanhu_sect",
+      "display": "万狐宗（宗门说明）",
+      "type": "sect",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_wanhu",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】万狐宗。域：tiannan_north_waste。立场：魔道。特长：幻术,妖狐。加入境界上限参考：None。声望 id：sect_wanhu。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：万狐宗：幻术,妖狐。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_xuewu_sect",
+      "catalog_id": "xuewu_sect",
+      "display": "血巫教（宗门说明）",
+      "type": "sect",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_xuewu",
+      "shop_tier": 1,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "demonic"
+      ],
+      "description": "【原包宗门】血巫教。域：tiannan_north_waste。立场：魔道。特长：血咒,巫术。加入境界上限参考：None。声望 id：sect_xuewu。货架档：1。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：血巫教：血咒,巫术。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "sect_dajin_buddhist_temple_line",
+      "catalog_id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉（宗门说明）",
+      "type": "sect",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "reputation_id": null,
+      "shop_tier": null,
+      "tags": [
+        "original_sect",
+        "aligned_v114",
+        "neutral_righteous"
+      ],
+      "description": "【原包宗门】大晋佛寺一脉。域：dajin。立场：neutral_righteous。特长：body_refining,purify_demon。加入境界上限参考：None。声望 id：None。货架档：None。禁途：见功法冲突。功法来源：None。纪年锚：无。气质：诛魔与炼体，不主炼丹。。与 sect_shelves、贡献令、追杀/同盟咬合。"
+    },
+    {
+      "id": "method_changchun_gong",
+      "catalog_id": "changchun_gong",
+      "display": "长春功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": "wood",
+      "realm_max": "FOUNDATION",
+      "source": "huangfeng_valley",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】长春功。需求属性：wood。可修至：筑基。来源：huangfeng_valley。正文：黄枫谷流传的基础木属性功法，炼气期可修至筑基；后续需转修更高剑诀或宗门秘传。 。解锁术法流派：elemental。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qingyuan_sword_art",
+      "catalog_id": "qingyuan_sword_art",
+      "display": "青元剑诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "huangfeng_valley",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】青元剑诀。需求属性：不限。可修至：None。来源：huangfeng_valley。正文：青元剑诀：以灵力凝剑芒、御剑伤敌，筑基后主流剑修路径；需长春功等打底。 。解锁术法流派：sword。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_xuan_yin_art",
+      "catalog_id": "xuan_yin_art",
+      "display": "玄阴诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】玄阴诀。需求属性：不限。可修至：None。来源：None。正文：玄阴诀：魔道阴属性功法，可习摄魂、阴火一类法术；与鬼修阴体路线可衔接但非同一路。 。解锁术法流派：xuan_yin。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_dayan_art",
+      "catalog_id": "dayan_art",
+      "display": "大衍诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "dayan_sage_legacy",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】大衍诀。需求属性：不限。可修至：None。来源：dayan_sage_legacy。正文：大衍诀：傀儡术核心功法，凝炼神识分神操控傀体，结丹后威能方显。 。解锁术法流派：puppet。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_lieyan_gong",
+      "catalog_id": "lieyan_gong",
+      "display": "烈焰功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】烈焰功。需求属性：不限。可修至：None。来源：None。正文：烈焰功：火属性入门，可修火弹、炎爆一类低阶火术。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_beast_transformation_art",
+      "catalog_id": "beast_transformation_art",
+      "display": "妖修化形诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】妖修化形诀。需求属性：不限。可修至：None。来源：None。正文：妖修化形诀：修炼系功法，门槛境界 CORE_FORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_ghost_nether_art",
+      "catalog_id": "ghost_nether_art",
+      "display": "冥河鬼修诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】冥河鬼修诀。需求属性：不限。可修至：None。来源：None。正文：冥河鬼修诀：鬼道专属，凝阴体、驭阴魂；与人族正道声望冲突。 。解锁术法流派：ghost。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_spirit_art_mulan",
+      "catalog_id": "spirit_art_mulan",
+      "display": "慕兰灵术总纲（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】慕兰灵术总纲。需求属性：不限。可修至：None。来源：None。正文：慕兰灵术总纲：修炼系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_star_palace_art",
+      "catalog_id": "star_palace_art",
+      "display": "星宫镇海诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】星宫镇海诀。需求属性：不限。可修至：None。来源：None。正文：星宫镇海诀：乱星海秩序阵营功法，偏重阵法与海域禁制。 。解锁术法流派：formation。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_inverse_star_art",
+      "catalog_id": "inverse_star_art",
+      "display": "逆星秘典（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】逆星秘典。需求属性：不限。可修至：None。来源：None。正文：逆星秘典：乱星海割据势力秘传，擅隐匿、走私与破禁。 。解锁术法流派：['demonic', 'movement']。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianfu_spirit_scripture",
+      "catalog_id": "tianfu_spirit_scripture",
+      "display": "天符灵经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": "wood",
+      "realm_max": null,
+      "source": "tianfu_sect",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天符灵经。需求属性：wood。可修至：None。来源：tianfu_sect。正文：天符灵经：talisman系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_yanyue_cycle_art",
+      "catalog_id": "yanyue_cycle_art",
+      "display": "素女轮回功（仿）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "yanyue_sect",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】素女轮回功（仿）。需求属性：不限。可修至：None。来源：yanyue_sect。正文：素女轮回功（仿）：dual_cultivation系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_lingshou_beast_mind_art",
+      "catalog_id": "lingshou_beast_mind_art",
+      "display": "驭兽心法（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "spirit_beast_mountain",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】驭兽心法。需求属性：不限。可修至：None。来源：spirit_beast_mountain。正文：驭兽心法：beast系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qingxu_pure_tao_art",
+      "catalog_id": "qingxu_pure_tao_art",
+      "display": "清虚玄功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "qingxu_gate",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】清虚玄功。需求属性：不限。可修至：None。来源：qingxu_gate。正文：清虚玄功：tao系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_huadao_blade_intent",
+      "catalog_id": "huadao_blade_intent",
+      "display": "化刀诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "huadao_wu",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】化刀诀。需求属性：不限。可修至：None。来源：huadao_wu。正文：化刀诀：blade系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_mulan_wind_spirit_art",
+      "catalog_id": "mulan_wind_spirit_art",
+      "display": "天风灵诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天风灵诀。需求属性：不限。可修至：None。来源：None。正文：慕兰法士风灵诀：借天地灵气施法，不循传统丹田路线，需慕兰传承或特殊任务解锁。 。解锁术法流派：fashi。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianlan_holy_beast_art",
+      "catalog_id": "tianlan_holy_beast_art",
+      "display": "天澜圣兽诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天澜圣兽诀。需求属性：不限。可修至：None。来源：None。正文：天澜圣兽诀：beast_spirit系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tiannan_border_guard_art",
+      "catalog_id": "tiannan_border_guard_art",
+      "display": "天南守边诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天南守边诀。需求属性：不限。可修至：None。来源：None。正文：天南守边诀：defense系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_chaotic_sea_nav_art",
+      "catalog_id": "chaotic_sea_nav_art",
+      "display": "星海御浪诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】星海御浪诀。需求属性：不限。可修至：None。来源：None。正文：星海御浪诀：water系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_demonic_blood_art_generic",
+      "catalog_id": "demonic_blood_art_generic",
+      "display": "血煞功（魔道）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】血煞功（魔道）。需求属性：不限。可修至：None。来源：None。正文：血煞功（魔道）：demonic系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_star_palace_sea_art",
+      "catalog_id": "star_palace_sea_art",
+      "display": "镇海诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】镇海诀。需求属性：不限。可修至：None。来源：None。正文：镇海诀：water系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_inverse_star_shadow_art",
+      "catalog_id": "inverse_star_shadow_art",
+      "display": "逆星潜行诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】逆星潜行诀。需求属性：不限。可修至：None。来源：None。正文：逆星潜行诀：stealth系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_dajin_clan_ancestor_art",
+      "catalog_id": "dajin_clan_ancestor_art",
+      "display": "世家祖传诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】世家祖传诀。需求属性：不限。可修至：None。来源：None。正文：世家祖传诀：mixed系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_kunwu_ice_guard_art",
+      "catalog_id": "kunwu_ice_guard_art",
+      "display": "昆吾寒罡诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】昆吾寒罡诀。需求属性：不限。可修至：None。来源：None。正文：昆吾寒罡诀：ice系功法，门槛境界 CORE_FORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_yanyue_illusion_art",
+      "catalog_id": "yanyue_illusion_art",
+      "display": "掩月幻心诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】掩月幻心诀。需求属性：不限。可修至：None。来源：None。正文：掩月幻心诀：illusion系功法，门槛境界 见条目。 。解锁术法流派：illusion。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_huangfeng_alchemy_scripture",
+      "catalog_id": "huangfeng_alchemy_scripture",
+      "display": "黄枫丹经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】黄枫丹经。需求属性：不限。可修至：None。来源：None。正文：黄枫丹经：alchemy系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qixuan_mortal_art",
+      "catalog_id": "qixuan_mortal_art",
+      "display": "七玄凡诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】七玄凡诀。需求属性：不限。可修至：None。来源：None。正文：七玄凡诀：mixed系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_giant_sword_art",
+      "catalog_id": "giant_sword_art",
+      "display": "巨剑诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】巨剑诀。需求属性：不限。可修至：None。来源：None。正文：巨剑诀：metal系功法，门槛境界 QI_REFINING。 。解锁术法流派：sword。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qixuan_azure_pearl_art",
+      "catalog_id": "qixuan_azure_pearl_art",
+      "display": "青珠诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】青珠诀。需求属性：不限。可修至：None。来源：None。正文：青珠诀：water系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qianzhu_puppet_art",
+      "catalog_id": "qianzhu_puppet_art",
+      "display": "千竹傀儡术（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】千竹傀儡术。需求属性：不限。可修至：None。来源：None。正文：千竹傀儡术：puppet系功法，门槛境界 QI_REFINING。 。解锁术法流派：puppet。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_yuling_beast_puppet_art",
+      "catalog_id": "yuling_beast_puppet_art",
+      "display": "御灵兽傀诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】御灵兽傀诀。需求属性：不限。可修至：None。来源：None。正文：御灵兽傀诀：puppet系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_dayan_true_solution",
+      "catalog_id": "dayan_true_solution",
+      "display": "大衍真解（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】大衍真解。需求属性：不限。可修至：None。来源：None。正文：大衍真解：puppet系功法，门槛境界 CORE_FORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_guiling_soul_art",
+      "catalog_id": "guiling_soul_art",
+      "display": "鬼灵摄魂诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】鬼灵摄魂诀。需求属性：不限。可修至：None。来源：None。正文：鬼灵门摄魂诀：炼尸、摄魂、阴火并修，魔道六宗之一。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_hehuan_mind_art",
+      "catalog_id": "hehuan_mind_art",
+      "display": "合欢媚心诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】合欢媚心诀。需求属性：不限。可修至：None。来源：None。正文：合欢心法：媚术与双修并重，女修居多，擅乱敌心神。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianmo_body_art",
+      "catalog_id": "tianmo_body_art",
+      "display": "天魔炼体诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天魔炼体诀。需求属性：不限。可修至：None。来源：None。正文：天魔炼体诀：魔体强化、血祭狂战，肉身承压极高。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qingluo_poison_art",
+      "catalog_id": "qingluo_poison_art",
+      "display": "青罗毒经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】青罗毒经。需求属性：不限。可修至：None。来源：None。正文：青罗毒经：毒虫毒雾并用，持续伤害强。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_wanhu_phantom_art",
+      "catalog_id": "wanhu_phantom_art",
+      "display": "万狐幻形诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】万狐幻形诀。需求属性：不限。可修至：None。来源：None。正文：万狐幻心诀：幻术惑心，擅规避正面厮杀。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_xuewu_blood_art",
+      "catalog_id": "xuewu_blood_art",
+      "display": "血巫咒经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】血巫咒经。需求属性：不限。可修至：None。来源：None。正文：血巫咒经：血咒与巫术，以精血换瞬时威能。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianlan_beast_soul_art",
+      "catalog_id": "tianlan_beast_soul_art",
+      "display": "天澜御兽诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天澜御兽诀。需求属性：不限。可修至：None。来源：None。正文：天澜御兽诀：beast系功法，门槛境界 QI_REFINING。 。解锁术法流派：fashi_spirit_art。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_yin_luo_ghost_art",
+      "catalog_id": "yin_luo_ghost_art",
+      "display": "阴罗鬼诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】阴罗鬼诀。需求属性：不限。可修至：None。来源：None。正文：阴罗鬼诀：ghost系功法，门槛境界 QI_REFINING。 。解锁术法流派：ghost。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_taixu_gong",
+      "catalog_id": "taixu_gong",
+      "display": "太虚功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】太虚功。需求属性：不限。可修至：筑基。来源：None。正文：太虚功：道修入门，重吐纳与心境，不偏执单一元素。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_jinxuan_gong",
+      "catalog_id": "jinxuan_gong",
+      "display": "金玄功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】金玄功。需求属性：不限。可修至：筑基。来源：None。正文：金玄功：金系灵力淬体，利于剑修与金刃术。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_muyuan_gong",
+      "catalog_id": "muyuan_gong",
+      "display": "木元功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】木元功。需求属性：不限。可修至：筑基。来源：None。正文：木元功：木系生机，与丹草、疗伤术相性佳。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_shuiyuan_gong",
+      "catalog_id": "shuiyuan_gong",
+      "display": "水元功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】水元功。需求属性：不限。可修至：筑基。来源：None。正文：水元功：水系柔劲，善防御与控场。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_huoyuan_gong",
+      "catalog_id": "huoyuan_gong",
+      "display": "火元功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】火元功。需求属性：不限。可修至：筑基。来源：None。正文：火元功：火系爆发，攻伐见长。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tuyuan_gong",
+      "catalog_id": "tuyuan_gong",
+      "display": "土元功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】土元功。需求属性：不限。可修至：筑基。来源：None。正文：土元功：土系厚重，善防御与土遁。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_qingmu_gong",
+      "catalog_id": "qingmu_gong",
+      "display": "青木诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】青木诀。需求属性：不限。可修至：None。来源：None。正文：青木诀：筑基木系功法，黄枫一系常见过渡。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_lieyan_zhenjing",
+      "catalog_id": "lieyan_zhenjing",
+      "display": "烈焰真经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】烈焰真经。需求属性：不限。可修至：None。来源：None。正文：烈焰真经：筑基火系正宗，火术威力上浮。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_xuanbing_zhenjing",
+      "catalog_id": "xuanbing_zhenjing",
+      "display": "玄冰真经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】玄冰真经。需求属性：不限。可修至：None。来源：None。正文：玄冰真经：筑基冰系，克火、善控速。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_jinyi_gong",
+      "catalog_id": "jinyi_gong",
+      "display": "金翼功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】金翼功。需求属性：不限。可修至：None。来源：None。正文：金翼功：metal系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_yanyue_gong",
+      "catalog_id": "yanyue_gong",
+      "display": "掩月诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "yanyue_sect",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】掩月诀。需求属性：不限。可修至：None。来源：yanyue_sect。正文：掩月诀：幻术与女修阴柔灵气并用，掩月宗传承。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_luoyun_dan_dao",
+      "catalog_id": "luoyun_dan_dao",
+      "display": "落云丹道诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "luoyun_sect",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】落云丹道诀。需求属性：不限。可修至：None。来源：luoyun_sect。正文：落云宗丹道诀：以丹道感悟灵气运转，斗法偏弱、炼丹加成显著。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianfu_scripture",
+      "catalog_id": "tianfu_scripture",
+      "display": "天符灵诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天符灵诀。需求属性：不限。可修至：None。来源：None。正文：天符灵诀：制符宗门核心，以神识绘符引天地之力。 。解锁术法流派：talisman。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tiannan_seven_sect_base",
+      "catalog_id": "tiannan_seven_sect_base",
+      "display": "天南七派基础功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天南七派基础功。需求属性：不限。可修至：筑基。来源：None。正文：天南七派基础功：各派入门共性框架，需拜入具体宗门后转修专精。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_dajin_buddhist_base",
+      "catalog_id": "dajin_buddhist_base",
+      "display": "大晋佛修基础（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": "FOUNDATION",
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】大晋佛修基础。需求属性：不限。可修至：筑基。来源：None。正文：大晋佛修基础：buddhist系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_void_refining_scripture",
+      "catalog_id": "void_refining_scripture",
+      "display": "炼虚真经（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】炼虚真经。需求属性：不限。可修至：None。来源：None。正文：炼虚真经：炼虚期参悟空间法则，法术多带裂隙、领域特性。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_great_vehicle_dao",
+      "catalog_id": "great_vehicle_dao",
+      "display": "大乘道典（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】大乘道典。需求属性：不限。可修至：None。来源：None。正文：大乘道典：灵界高阶道修总纲，法相、领域类神通前置。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_spirit_severing_art",
+      "catalog_id": "spirit_severing_art",
+      "display": "炼神诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】炼神诀。需求属性：不限。可修至：None。来源：None。正文：炼神诀：炼神期锤炼神魂与法则，杀伐神通代价极大。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_barbarian_body_art",
+      "catalog_id": "barbarian_body_art",
+      "display": "蛮荒炼体诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】蛮荒炼体诀。需求属性：不限。可修至：None。来源：None。正文：蛮荒炼体诀：灵界蛮荒体修，以妖兽精血淬体。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_tianyuan_guard_art",
+      "catalog_id": "tianyuan_guard_art",
+      "display": "天渊守城诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】天渊守城诀。需求属性：不限。可修至：None。来源：None。正文：天渊守城诀：天渊城守军与修士共修，兼顾阵防与对妖。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_fallen_demon_art",
+      "catalog_id": "fallen_demon_art",
+      "display": "坠魔功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】坠魔功。需求属性：不限。可修至：None。来源：None。正文：坠魔功：坠魔谷魔气浸染之道，易心魔，擅魔化变身。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_blood_demon_art",
+      "catalog_id": "blood_demon_art",
+      "display": "血魔功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】血魔功。需求属性：不限。可修至：None。来源：None。正文：血魔功：以血炼法，攻伐凌厉，易入魔。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_xuantian_ice_art",
+      "catalog_id": "xuantian_ice_art",
+      "display": "玄天冰魄功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】玄天冰魄功。需求属性：不限。可修至：None。来源：None。正文：玄天冰魄功：极寒灵力，封冻、碎冰并重。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_wudang_sword_art",
+      "catalog_id": "wudang_sword_art",
+      "display": "武当剑诀（仿）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】武当剑诀（仿）。需求属性：不限。可修至：None。来源：None。正文：武当剑诀（仿）：sword系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_nangong_wangzu_art",
+      "catalog_id": "nangong_wangzu_art",
+      "display": "南宫王族秘传（仿）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】南宫王族秘传（仿）。需求属性：不限。可修至：None。来源：None。正文：南宫王族秘传（仿）：mixed系功法，门槛境界 CORE_FORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_lingzu_pearl_art",
+      "catalog_id": "lingzu_pearl_art",
+      "display": "灵族凝珠诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】灵族凝珠诀。需求属性：不限。可修至：None。来源：None。正文：灵族凝珠诀：灵族秘传，凝珠射劲与珠光护体。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_qi_refining",
+      "catalog_id": "generic_cultivation_qi_refining",
+      "display": "QI_REFINING通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】QI_REFINING通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：QI_REFINING通修诀（通称）：mixed系功法，门槛境界 QI_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_foundation",
+      "catalog_id": "generic_cultivation_foundation",
+      "display": "FOUNDATION通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】FOUNDATION通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：FOUNDATION通修诀（通称）：mixed系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_core_formation",
+      "catalog_id": "generic_cultivation_core_formation",
+      "display": "CORE_FORMATION通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】CORE_FORMATION通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：CORE_FORMATION通修诀（通称）：mixed系功法，门槛境界 CORE_FORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_nascent_soul",
+      "catalog_id": "generic_cultivation_nascent_soul",
+      "display": "NASCENT_SOUL通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】NASCENT_SOUL通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：NASCENT_SOUL通修诀（通称）：mixed系功法，门槛境界 NASCENT_SOUL。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_deity_transformation",
+      "catalog_id": "generic_cultivation_deity_transformation",
+      "display": "DEITY_TRANSFORMATION通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】DEITY_TRANSFORMATION通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：DEITY_TRANSFORMATION通修诀（通称）：mixed系功法，门槛境界 DEITY_TRANSFORMATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_void_refining",
+      "catalog_id": "generic_cultivation_void_refining",
+      "display": "VOID_REFINING通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】VOID_REFINING通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：VOID_REFINING通修诀（通称）：mixed系功法，门槛境界 VOID_REFINING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_great_vehicle",
+      "catalog_id": "generic_cultivation_great_vehicle",
+      "display": "GREAT_VEHICLE通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】GREAT_VEHICLE通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：GREAT_VEHICLE通修诀（通称）：mixed系功法，门槛境界 GREAT_VEHICLE。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_generic_cultivation_spirit_severing",
+      "catalog_id": "generic_cultivation_spirit_severing",
+      "display": "SPIRIT_SEVERING通修诀（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】SPIRIT_SEVERING通修诀（通称）。需求属性：不限。可修至：None。来源：None。正文：SPIRIT_SEVERING通修诀（通称）：mixed系功法，门槛境界 SPIRIT_SEVERING。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_sword",
+      "catalog_id": "sect_specialty_sword",
+      "display": "sword专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】sword专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：sword专精入门（通称）：sword系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_body",
+      "catalog_id": "sect_specialty_body",
+      "display": "body专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】body专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：body专精入门（通称）：body系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_talisman",
+      "catalog_id": "sect_specialty_talisman",
+      "display": "talisman专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】talisman专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：talisman专精入门（通称）：talisman系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_formation",
+      "catalog_id": "sect_specialty_formation",
+      "display": "formation专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】formation专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：formation专精入门（通称）：formation系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_puppet",
+      "catalog_id": "sect_specialty_puppet",
+      "display": "puppet专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】puppet专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：puppet专精入门（通称）：puppet系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_alchemy",
+      "catalog_id": "sect_specialty_alchemy",
+      "display": "alchemy专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】alchemy专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：alchemy专精入门（通称）：alchemy系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_ghost",
+      "catalog_id": "sect_specialty_ghost",
+      "display": "ghost专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】ghost专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：ghost专精入门（通称）：ghost系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_sect_specialty_demonic",
+      "catalog_id": "sect_specialty_demonic",
+      "display": "demonic专精入门（通称）（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】demonic专精入门（通称）。需求属性：不限。可修至：None。来源：None。正文：demonic专精入门（通称）：demonic系功法，门槛境界 FOUNDATION。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_kunwu_seal_art",
+      "catalog_id": "kunwu_seal_art",
+      "display": "坤吴印诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "kunwu_mountain",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】坤吴印诀。需求属性：不限。可修至：None。来源：kunwu_mountain。正文：坤吴印诀：大晋坤吴山阵宗核心，以印引阵、以阵镇魔；高阶与古印碎片共鸣。 人界大晋顶级阵宗传承，与魔劫封印相关。。解锁术法流派：formation。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_lingwu_sect_art",
+      "catalog_id": "lingwu_sect_art",
+      "display": "灵武门炼体诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】灵武门炼体诀。需求属性：不限。可修至：None。来源：None。正文：灵武门：天南体修小宗，炼体与低阶武技并用。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_juvenile_sect_art",
+      "catalog_id": "juvenile_sect_art",
+      "display": "幼童门心法（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】幼童门心法。需求属性：不限。可修至：None。来源：None。正文：幼童门：天南小派，功法平庸，以收徒闻名。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_huangjin_sect_art",
+      "catalog_id": "huangjin_sect_art",
+      "display": "皇金宗金罡诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】皇金宗金罡诀。需求属性：不限。可修至：None。来源：None。正文：大晋皇金宗：金系攻伐正宗。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_taiyi_sect_art",
+      "catalog_id": "taiyi_sect_art",
+      "display": "太一门太玄功（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】太一门太玄功。需求属性：不限。可修至：None。来源：None。正文：大晋太一门：道修正宗，兼修阵法。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_beast_taming_basic",
+      "catalog_id": "beast_taming_basic",
+      "display": "御兽基础诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": null,
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】御兽基础诀。需求属性：不限。可修至：None。来源：None。正文：散修与宗门共用的驯兽入门：精血认主、御兽环、灵兽袋。 。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_buddhist_vajra_body_art",
+      "catalog_id": "buddhist_vajra_body_art",
+      "display": "金刚诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": null,
+      "realm_max": null,
+      "source": "大晋佛修",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】金刚诀。需求属性：不限。可修至：None。来源：大晋佛修。正文： 佛修炼体入门，与道门炼体并行但因果不同。。解锁术法流派：见 skill_tree。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_artifact_refining_basic",
+      "catalog_id": "artifact_refining_basic",
+      "display": "炼器基础诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": "earth",
+      "realm_max": "CORE_FORMATION",
+      "source": "tianque_fort",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】炼器基础诀。需求属性：earth。可修至：结丹。来源：tianque_fort。正文：天阙堡等炼器宗门的外门基础：控火、胚体、铭文入门；不直接提供战斗神通，需配合炼器台与材料。 。解锁术法流派：artifact。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "method_treasure_appraisal_art",
+      "catalog_id": "treasure_appraisal_art",
+      "display": "鉴宝诀（功法说明）",
+      "type": "cultivation_method",
+      "element_required": "none",
+      "realm_max": "NASCENT_SOUL",
+      "source": "wanbao_pavilion",
+      "tags": [
+        "original_method",
+        "aligned_v114"
+      ],
+      "description": "【原包功法】鉴宝诀。需求属性：none。可修至：元婴。来源：wanbao_pavilion。正文：万宝楼一脉的辅修功法：观气辨宝、估阶议价；修至高层可在拍卖中识破伪宝与压价陷阱。 。解锁术法流派：treasure。转修/冲突见冲突矩阵；残篇不覆盖完整顶级功。进阶需机缘考核。"
+    },
+    {
+      "id": "recipe_recipe_bigu",
+      "catalog_id": "recipe_bigu",
+      "display": "辟谷丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "bigu_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.75,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】辟谷丹方。对应丹：bigu_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：1；火焰上限：2。地火房：False。材料：yellow_essence×2, spirit_stone_shard×1。基础成功率：0.75（受丹师/火候/辅药修正）。解锁：alchemy_apprentice。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_spirit_condense",
+      "catalog_id": "recipe_spirit_condense",
+      "display": "聚灵丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "spirit_condense_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.65,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】聚灵丹方。对应丹：spirit_condense_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：2。地火房：False。材料：ginseng_spirit×3。基础成功率：0.65（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_calm_spirit",
+      "catalog_id": "recipe_calm_spirit",
+      "display": "清虚丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "calm_spirit_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.7,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】清虚丹方。对应丹：calm_spirit_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：1；火焰上限：None。地火房：False。材料：ginseng_spirit×4。基础成功率：0.7（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_huoyuan",
+      "catalog_id": "recipe_huoyuan",
+      "display": "火元丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "huoyuan_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.6,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】火元丹方。对应丹：huoyuan_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：3。地火房：False。材料：fire_sparrow_fruit×2, demon_core_low×1。基础成功率：0.6（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_ice_fire",
+      "catalog_id": "recipe_ice_fire",
+      "display": "冰火丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "ice_fire_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.45,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】冰火丹方。对应丹：ice_fire_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：False。材料：snow_lotus×1, fire_sparrow_fruit×1, spirit_stone_shard×5。基础成功率：0.45（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_bone_marrow",
+      "catalog_id": "recipe_bone_marrow",
+      "display": "洗髓丸方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "bone_marrow_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.5,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】洗髓丸方。对应丹：bone_marrow_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：earth_spine_root×2, beast_blood_vial×2。基础成功率：0.5（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_soul_gathering",
+      "catalog_id": "recipe_soul_gathering",
+      "display": "聚魂丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "soul_gathering_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】聚魂丹方。对应丹：soul_gathering_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：3。地火房：False。材料：frost_moon_flower×2, soul_moss×2。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_foundation",
+      "catalog_id": "recipe_foundation",
+      "display": "筑基丹方（残卷）（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "foundation_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.35,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】筑基丹方（残卷）。对应丹：foundation_pill。载体：sect_secret_scroll。炼制境界：FOUNDATION。炉品≥3；理想火候：3；火焰上限：3。地火房：False。材料：dragon_blood_grass×1, demon_core_mid×2, spirit_stone_shard×10。基础成功率：0.35（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_forget_dust",
+      "catalog_id": "recipe_forget_dust",
+      "display": "忘尘丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "forget_dust_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.65,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】忘尘丹方。对应丹：forget_dust_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：soul_moss×1, ginseng_spirit×2。基础成功率：0.65（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_dingyan",
+      "catalog_id": "recipe_dingyan",
+      "display": "定颜丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "dingyan_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.68,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】定颜丹方。对应丹：dingyan_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：yellow_essence×3, spirit_silk×1。基础成功率：0.68（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_marrow_repair",
+      "catalog_id": "recipe_marrow_repair",
+      "display": "修髓丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "marrow_repair_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.52,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】修髓丹方。对应丹：marrow_repair_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：earth_spine_root×1, ginseng_spirit×3。基础成功率：0.52（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_marrow_extract",
+      "catalog_id": "recipe_marrow_extract",
+      "display": "抽髓丸方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "marrow_extract_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.4,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】抽髓丸方。对应丹：marrow_extract_pill。载体：sect_secret_scroll。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：ghost_face_mushroom×2, beast_blood_vial×3。基础成功率：0.4（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_soul_break",
+      "catalog_id": "recipe_soul_break",
+      "display": "断魂丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "soul_break_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.38,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】断魂丹方。对应丹：soul_break_pill。载体：sect_secret_scroll。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：ghost_face_mushroom×3, yin_essence_ore×1。基础成功率：0.38（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_poison_dragon",
+      "catalog_id": "recipe_poison_dragon",
+      "display": "毒龙珠方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "poison_dragon_pearl",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.3,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】毒龙珠方。对应丹：poison_dragon_pearl。载体：sect_secret_scroll。炼制境界：CORE_FORMATION。炉品≥3；理想火候：4；火焰上限：None。地火房：True。材料：demon_core_mid×2, demon_corruption_fungus×2, ancient_demon_fragment×1。基础成功率：0.3（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_condensation",
+      "catalog_id": "recipe_condensation",
+      "display": "凝元丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "condensation_pill",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.4,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】凝元丹方。对应丹：condensation_pill。载体：jade_slip。炼制境界：CORE_FORMATION。炉品≥4；理想火候：4；火焰上限：4。地火房：True。材料：demon_core_mid×3, star_moon_grass×2。基础成功率：0.4（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_longevity_fruit",
+      "catalog_id": "recipe_longevity_fruit",
+      "display": "长生丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "longevity_fruit_pill",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.22,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】长生丹方。对应丹：longevity_fruit_pill。载体：sect_secret_scroll。炼制境界：CORE_FORMATION。炉品≥4；理想火候：4；火焰上限：None。地火房：True。材料：phoenix_tail_fern×1, thousand_year_ganoderma×1, demon_core_high×1。基础成功率：0.22（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_blood_qi",
+      "catalog_id": "recipe_blood_qi",
+      "display": "血气丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "blood_qi_pill",
+      "realm_min": "SPIRIT_SEVERANCE",
+      "base_success_rate": 0.25,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】血气丹方。对应丹：blood_qi_pill。载体：sect_secret_scroll。炼制境界：SPIRIT_SEVERANCE。炉品≥4；理想火候：4；火焰上限：None。地火房：True。材料：dragon_blood_grass×2, true_spirit_blood_drop×1, demon_core_high×2。基础成功率：0.25（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_huiyang",
+      "catalog_id": "recipe_huiyang",
+      "display": "回阳真水方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "huiyang_true_water",
+      "realm_min": "NASCENT_SOUL",
+      "base_success_rate": 0.12,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】回阳真水方。对应丹：huiyang_true_water。载体：sect_secret_scroll。炼制境界：NASCENT_SOUL。炉品≥5；理想火候：5；火焰上限：None。地火房：False。材料：phoenix_tail_fern×2, thunder_essence_lotus×1, void_marrow×1。基础成功率：0.12（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_bu_tian",
+      "catalog_id": "recipe_bu_tian",
+      "display": "补天丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "bu_tian_pill",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.15,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】补天丹方。对应丹：bu_tian_pill。载体：sect_secret_scroll。炼制境界：CORE_FORMATION。炉品≥5；理想火候：4；火焰上限：None。地火房：True。材料：coral_spirit_pearl×2, star_moon_grass×3, space_crystal×1。基础成功率：0.15（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_spirit_recovery",
+      "catalog_id": "recipe_spirit_recovery",
+      "display": "回灵丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "spirit_recovery_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.72,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】回灵丹方。对应丹：spirit_recovery_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：ginseng_spirit×2, spirit_stone_shard×2。基础成功率：0.72（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_body_tempering",
+      "catalog_id": "recipe_body_tempering",
+      "display": "淬体丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "body_tempering_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.62,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】淬体丹方。对应丹：body_tempering_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：earth_spine_root×1, beast_blood_vial×1。基础成功率：0.62（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_demon_suppress",
+      "catalog_id": "recipe_demon_suppress",
+      "display": "镇魔丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "demon_suppress_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.48,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】镇魔丹方。对应丹：demon_suppress_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：thunder_stone×1, ginseng_spirit×2。基础成功率：0.48（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_nascent_soul",
+      "catalog_id": "recipe_nascent_soul",
+      "display": "培婴丹方（残篇）（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "nascent_soul_pill",
+      "realm_min": "NASCENT_SOUL",
+      "base_success_rate": 0.1,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】培婴丹方（残篇）。对应丹：nascent_soul_pill。载体：sect_secret_scroll。炼制境界：NASCENT_SOUL。炉品≥5；理想火候：5；火焰上限：None。地火房：False。材料：demon_core_high×3, void_marrow×2, thunder_essence_lotus×1。基础成功率：0.1（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_antidote",
+      "catalog_id": "recipe_antidote",
+      "display": "解毒丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "antidote_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.82,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】解毒丹方。对应丹：antidote_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：ginseng_spirit×2, purple_ganoderma×1。基础成功率：0.82（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_mana_shield",
+      "catalog_id": "recipe_mana_shield",
+      "display": "护灵丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "mana_shield_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.58,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】护灵丹方。对应丹：mana_shield_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：star_moon_grass×2, spirit_stone_shard×3。基础成功率：0.58（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_beast_taming",
+      "catalog_id": "recipe_beast_taming",
+      "display": "驭兽丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "beast_taming_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.7,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】驭兽丹方。对应丹：beast_taming_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：beast_blood_vial×2, spirit_mushroom×3。基础成功率：0.7（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_foundation_break",
+      "catalog_id": "recipe_foundation_break",
+      "display": "筑基丹方（破境篇）（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "foundation_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.45,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】筑基丹方（破境篇）。对应丹：foundation_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：ginseng_spirit×4, purple_ganoderma×2, spirit_stone_shard×8。基础成功率：0.45（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_jiangchen",
+      "catalog_id": "recipe_jiangchen",
+      "display": "降尘丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "jiangchen_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.65,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】降尘丹方。对应丹：jiangchen_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：yellow_essence×3, spirit_mushroom×2。基础成功率：0.65（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_huanglong",
+      "catalog_id": "recipe_huanglong",
+      "display": "黄龙丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "huanglong_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.58,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】黄龙丹方。对应丹：huanglong_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：ginseng_spirit×2, demon_core_fragment×1。基础成功率：0.58（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_heqi",
+      "catalog_id": "recipe_heqi",
+      "display": "合气丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "heqi_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.7,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】合气丹方。对应丹：heqi_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：spirit_mushroom×4, spirit_stone_shard×2。基础成功率：0.7（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_ningshen",
+      "catalog_id": "recipe_ningshen",
+      "display": "凝神丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "ningshen_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.52,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】凝神丹方。对应丹：ningshen_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：soul_moss×2, ginseng_spirit×2。基础成功率：0.52（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_yanghun",
+      "catalog_id": "recipe_yanghun",
+      "display": "养魂丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "yanghun_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.48,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】养魂丹方。对应丹：yanghun_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：soul_gathering_stone×1, sea_soul_grass×2。基础成功率：0.48（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_sea_calm",
+      "catalog_id": "recipe_sea_calm",
+      "display": "定海丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "sea_calm_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.75,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】定海丹方。对应丹：sea_calm_pill。载体：paper_formula。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：sea_soul_grass×2, spirit_mushroom×2。基础成功率：0.75（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_demon_heart",
+      "catalog_id": "recipe_demon_heart",
+      "display": "镇心丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "demon_heart_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.5,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】镇心丹方。对应丹：demon_heart_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：demon_suppress_pill×1, ginseng_spirit×2。基础成功率：0.5（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_snow_lotus",
+      "catalog_id": "recipe_snow_lotus",
+      "display": "雪莲丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "snow_lotus_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】雪莲丹方。对应丹：snow_lotus_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：snow_lotus×2, hundred_year_ice×1。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_demon_qi_purge",
+      "catalog_id": "recipe_demon_qi_purge",
+      "display": "驱魔丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "demon_qi_purge_pill",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.42,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】驱魔丹方。对应丹：demon_qi_purge_pill。载体：jade_slip。炼制境界：CORE_FORMATION。炉品≥3；理想火候：4；火焰上限：None。地火房：None。材料：demon_corruption_fungus×2, thunder_stone×1。基础成功率：0.42（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_yin_ward",
+      "catalog_id": "recipe_yin_ward",
+      "display": "护阴丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "yin_ward_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】护阴丹方。对应丹：yin_ward_pill。载体：jade_slip。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：frost_moon_flower×2, soul_moss×2。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_tianyuan_spirit",
+      "catalog_id": "recipe_tianyuan_spirit",
+      "display": "天渊聚灵丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "tianyuan_spirit_pill",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "base_success_rate": 0.35,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】天渊聚灵丹方。对应丹：tianyuan_spirit_pill。载体：sect_secret_scroll。炼制境界：DEITY_TRANSFORMATION。炉品≥4；理想火候：4；火焰上限：None。地火房：None。材料：void_marrow×1, spirit_realm_sand×3。基础成功率：0.35（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_thunder_soothing",
+      "catalog_id": "recipe_thunder_soothing",
+      "display": "避雷丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "thunder_soothing_pill",
+      "realm_min": "NASCENT_SOUL",
+      "base_success_rate": 0.35,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】避雷丹方。对应丹：thunder_soothing_pill。载体：jade_slip。炼制境界：NASCENT_SOUL。炉品≥3；理想火候：4；火焰上限：None。地火房：None。材料：thunder_stone×2, thunder_essence_lotus×1。基础成功率：0.35（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_heart_guard",
+      "catalog_id": "recipe_heart_guard",
+      "display": "守心丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "heart_guard_pill",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "base_success_rate": 0.28,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】守心丹方。对应丹：heart_guard_pill。载体：sect_secret_scroll。炼制境界：DEITY_TRANSFORMATION。炉品≥4；理想火候：4；火焰上限：None。地火房：None。材料：ningshen_pill×2, void_marrow×1。基础成功率：0.28（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_demon_gold_body",
+      "catalog_id": "recipe_demon_gold_body",
+      "display": "魔金锻体丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "demon_gold_body_pill",
+      "realm_min": "VOID_REFINEMENT",
+      "base_success_rate": 0.22,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】魔金锻体丹方。对应丹：demon_gold_body_pill。载体：sect_secret_scroll。炼制境界：VOID_REFINEMENT。炉品≥4；理想火候：5；火焰上限：None。地火房：None。材料：demon_gold_ore×2, holy_demon_blood×1。基础成功率：0.22（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_asura_mind",
+      "catalog_id": "recipe_asura_mind",
+      "display": "修罗定念丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "asura_mind_pill",
+      "realm_min": "BODY_INTEGRATION",
+      "base_success_rate": 0.25,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】修罗定念丹方。对应丹：asura_mind_pill。载体：jade_slip。炼制境界：BODY_INTEGRATION。炉品≥5；理想火候：5；火焰上限：None。地火房：None。材料：killing_intent_crystal×1, ningshen_pill×2。基础成功率：0.25（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_luoyun_spirit",
+      "catalog_id": "recipe_luoyun_spirit",
+      "display": "落云聚元丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "luoyun_spirit_pill",
+      "realm_min": "CORE_FORMATION",
+      "base_success_rate": 0.48,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】落云聚元丹方。对应丹：luoyun_spirit_pill。载体：jade_slip。炼制境界：CORE_FORMATION。炉品≥3；理想火候：4；火焰上限：None。地火房：None。材料：ginseng_spirit×3, yellow_essence×2, spirit_mushroom×2。基础成功率：0.48（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_dual_harmony",
+      "catalog_id": "recipe_dual_harmony",
+      "display": "合欢丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "dual_harmony_pill",
+      "realm_min": "FOUNDATION",
+      "base_success_rate": 0.5,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】合欢丹方。对应丹：dual_harmony_pill。载体：sect_secret_scroll。炼制境界：FOUNDATION。炉品≥2；理想火候：3；火焰上限：None。地火房：None。材料：heqi_pill×1, frost_moon_flower×1。基础成功率：0.5（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_great_vehicle_ascension_aid",
+      "catalog_id": "recipe_great_vehicle_ascension_aid",
+      "display": "大乘护劫丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "great_vehicle_ascension_aid_pill",
+      "realm_min": "GREAT_VEHICLE",
+      "base_success_rate": 0.15,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】大乘护劫丹方。对应丹：great_vehicle_ascension_aid_pill。载体：sect_secret_scroll。炼制境界：GREAT_VEHICLE。炉品≥5；理想火候：5；火焰上限：None。地火房：None。材料：thunder_soothing_pill×2, void_marrow×2。基础成功率：0.15（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_spirit_beast_nurture",
+      "catalog_id": "recipe_spirit_beast_nurture",
+      "display": "灵兽育灵丹方（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "spirit_beast_nurture_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.6,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】灵兽育灵丹方。对应丹：spirit_beast_nurture_pill。载体：jade_slip。炼制境界：QI_REFINING。炉品≥1；理想火候：2；火焰上限：None。地火房：None。材料：spirit_mushroom×3, beast_soul_essence×1。基础成功率：0.6（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_solid_essence_pill",
+      "catalog_id": "recipe_solid_essence_pill",
+      "display": "solid_essence_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "solid_essence_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】solid_essence_pill。对应丹：solid_essence_pill。载体：None。炼制境界：QI_REFINING。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：spirit_condense_pill×1, yellow_essence×3。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_demon_expel_pill",
+      "catalog_id": "recipe_demon_expel_pill",
+      "display": "demon_expel_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "demon_expel_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】demon_expel_pill。对应丹：demon_expel_pill。载体：None。炼制境界：QI_REFINING。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：anti_demon_herb×2, spirit_stone_shard×5。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_mulan_wind_pill",
+      "catalog_id": "recipe_mulan_wind_pill",
+      "display": "mulan_wind_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "mulan_wind_pill",
+      "realm_min": "QI_REFINING",
+      "base_success_rate": 0.55,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】mulan_wind_pill。对应丹：mulan_wind_pill。载体：None。炼制境界：QI_REFINING。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：wind_herb×4, talisman_paper_mortal×1。基础成功率：0.55（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_pressure_resist",
+      "catalog_id": "recipe_pressure_resist",
+      "display": "recipe_pressure_resist（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "pressure_resist_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：pressure_resist_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：diyuan_pressure_moss×2。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_spirit_realm_condense",
+      "catalog_id": "recipe_spirit_realm_condense",
+      "display": "recipe_spirit_realm_condense（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "spirit_realm_condense_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：spirit_realm_condense_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：fengyuan_clan_ginseng×1。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_jiedan_pill",
+      "catalog_id": "recipe_jiedan_pill",
+      "display": "recipe_jiedan_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "jiedan_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：jiedan_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：spirit_herb_common×3。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_yangyuan_pill",
+      "catalog_id": "recipe_yangyuan_pill",
+      "display": "recipe_yangyuan_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "yangyuan_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：yangyuan_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：spirit_herb_common×3。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_qingxin_pill",
+      "catalog_id": "recipe_qingxin_pill",
+      "display": "recipe_qingxin_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "qingxin_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：qingxin_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：spirit_herb_common×3。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "recipe_recipe_anti_poison_pill",
+      "catalog_id": "recipe_anti_poison_pill",
+      "display": "recipe_anti_poison_pill（丹方说明）",
+      "type": "alchemy_recipe",
+      "pill_id": "anti_poison_pill",
+      "realm_min": null,
+      "base_success_rate": null,
+      "tags": [
+        "original_recipe",
+        "aligned_v114"
+      ],
+      "description": "【原包丹方】None。对应丹：anti_poison_pill。载体：None。炼制境界：None。炉品≥None；理想火候：None；火焰上限：None。地火房：None。材料：spirit_herb_common×3。基础成功率：None（受丹师/火候/辅药修正）。解锁：坊市/贡献/秘境。炸炉伤人；高阶方不进炼气货架。"
+    },
+    {
+      "id": "tech_fireball",
+      "catalog_id": "fireball",
+      "display": "火弹术（术法说明）",
+      "type": "technique",
+      "school": "elemental_fire",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】火弹术。流派：elemental_fire。境界：QI_REFINING。灵力基础耗：8；冷却刻：40。来源：通用。效果：{\"type\": \"projectile\", \"element\": \"fire\", \"damage_base\": 12, \"damage_scale\": \"spirit_power * 0.15\", \"range\": 24, \"tags\": [\"burn_chance_0.1\"]}。气质：火弹术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_qingyuan_sword_ray",
+      "catalog_id": "qingyuan_sword_ray",
+      "display": "青元剑芒（术法说明）",
+      "type": "technique",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】青元剑芒。流派：sword。境界：FOUNDATION。灵力基础耗：35；冷却刻：60。来源：青元剑诀。效果：{\"type\": \"beam\", \"element\": \"metal\", \"damage_base\": 45, \"damage_scale\": \"spirit_power * 0.35 + sword_affinity * 10\", \"range\": 32, \"pierce\": 1, \"tags\": [\"requires_flying_sword\"]}。气质：青元剑芒。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_soul_devouring_cloud",
+      "catalog_id": "soul_devouring_cloud",
+      "display": "噬魂云（术法说明）",
+      "type": "technique",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】噬魂云。流派：xuan_yin。境界：FOUNDATION。灵力基础耗：40；冷却刻：None。来源：玄阴诀。效果：{\"type\": \"aoe_dot\", \"element\": \"yin\", \"damage_per_tick\": 6, \"duration_ticks\": 100, \"radius\": 6, \"tags\": [\"corpse_synergy\", \"demonic_karma\"]}。气质：噬魂云。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_yin_soul_claw",
+      "catalog_id": "yin_soul_claw",
+      "display": "阴魂爪（术法说明）",
+      "type": "technique",
+      "school": "xuan_yin",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】阴魂爪。流派：xuan_yin。境界：QI_REFINING。灵力基础耗：12；冷却刻：35。来源：鬼修传承。效果：{\"type\": \"projectile\", \"element\": \"yin\", \"damage_base\": 10, \"tags\": [\"life_steal_0.1\", \"ghost_cultivator_only\"]}。气质：阴魂爪。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_spirit_art_wind_blade",
+      "catalog_id": "spirit_art_wind_blade",
+      "display": "风刃灵术（术法说明）",
+      "type": "technique",
+      "school": "fashi_spirit_art",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】风刃灵术。流派：fashi_spirit_art。境界：QI_REFINING。灵力基础耗：10；冷却刻：None。来源：None。效果：{\"type\": \"projectile\", \"element\": \"wind\", \"damage_base\": 14, \"range\": 28, \"tags\": [\"uses_spirit_art_charge_not_mana\"]}。气质：风刃灵术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_ice_prison_array",
+      "catalog_id": "ice_prison_array",
+      "display": "冰封囚笼（术法说明）",
+      "type": "technique",
+      "school": "elemental_ice",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】冰封囚笼。流派：elemental_ice。境界：FOUNDATION。灵力基础耗：45；冷却刻：None。来源：掩月宗秘术。效果：{\"type\": \"aoe_control\", \"element\": \"ice\", \"duration_ticks\": 60, \"radius\": 4, \"tags\": [\"immobilize\", \"ice_armor_synergy\"]}。气质：冰封囚笼。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_five_element_shield",
+      "catalog_id": "five_element_shield",
+      "display": "五行盾（术法说明）",
+      "type": "technique",
+      "school": "defense",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】五行盾。流派：defense。境界：FOUNDATION。灵力基础耗：28；冷却刻：None。来源：通用。效果：{\"type\": \"shield\", \"element\": \"neutral\", \"shield_base\": 50, \"shield_scale\": \"spirit_power * 0.2\", \"tags\": [\"element_adaptive\"]}。气质：五行盾。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_fashi_spirit_art_lightning",
+      "catalog_id": "fashi_spirit_art_lightning",
+      "display": "法士灵术·雷霆（术法说明）",
+      "type": "technique",
+      "school": "fashi_spirit_art",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】法士灵术·雷霆。流派：fashi_spirit_art。境界：FOUNDATION。灵力基础耗：30；冷却刻：None。来源：None。效果：{\"type\": \"beam\", \"element\": \"thunder\", \"damage_base\": 30, \"range\": 24, \"tags\": [\"uses_spirit_art_charge\", \"fashi_soul_burn\"]}。气质：法士灵术·雷霆。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_blood_frenzy_secret",
+      "catalog_id": "blood_frenzy_secret",
+      "display": "血煞秘术（术法说明）",
+      "type": "technique",
+      "school": "blood",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】血煞秘术。流派：blood。境界：QI_REFINING。灵力基础耗：50；冷却刻：None。来源：魔道残篇。效果：{\"type\": \"buff\", \"duration_ticks\": 200, \"stat_modifiers\": {\"attack_multiply\": 1.5, \"defense_multiply\": 0.6}, \"tags\": [\"lifespan_debt\", \"karma_demon\"]}。气质：血煞秘术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_mulan_wind_blade",
+      "catalog_id": "mulan_wind_blade",
+      "display": "风刃术（术法说明）",
+      "type": "technique",
+      "school": "mulan_fashi",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】风刃术。流派：mulan_fashi。境界：QI_REFINING。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：风刃术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_mulan_sand_storm",
+      "catalog_id": "mulan_sand_storm",
+      "display": "风沙术（术法说明）",
+      "type": "technique",
+      "school": "mulan_fashi",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】风沙术。流派：mulan_fashi。境界：FOUNDATION。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：风沙术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_tianlan_beast_soul_call",
+      "catalog_id": "tianlan_beast_soul_call",
+      "display": "唤兽术（术法说明）",
+      "type": "technique",
+      "school": "tianlan_fashi",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】唤兽术。流派：tianlan_fashi。境界：FOUNDATION。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：唤兽术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_tiannan_sword_rain",
+      "catalog_id": "tiannan_sword_rain",
+      "display": "剑雨术（术法说明）",
+      "type": "technique",
+      "school": "sword",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】剑雨术。流派：sword。境界：FOUNDATION。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：剑雨术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_talisman_spirit_chain",
+      "catalog_id": "talisman_spirit_chain",
+      "display": "缚灵术（术法说明）",
+      "type": "technique",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】缚灵术。流派：talisman。境界：FOUNDATION。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：缚灵术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_blood_shadow_escape",
+      "catalog_id": "blood_shadow_escape",
+      "display": "血影遁（术法说明）",
+      "type": "technique",
+      "school": "demonic",
+      "realm_min": "CORE_FORMATION",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】血影遁。流派：demonic。境界：CORE_FORMATION。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：血影遁。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_body_lightness_art",
+      "catalog_id": "body_lightness_art",
+      "display": "轻身术（术法说明）",
+      "type": "technique",
+      "school": "body",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】轻身术。流派：body。境界：QI_REFINING。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：轻身术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_spirit_sense_probe",
+      "catalog_id": "spirit_sense_probe",
+      "display": "神识探查（术法说明）",
+      "type": "technique",
+      "school": "generic",
+      "realm_min": "QI_REFINING",
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】神识探查。流派：generic。境界：QI_REFINING。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：神识探查。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "tech_yin_body_condense",
+      "catalog_id": "yin_body_condense",
+      "display": "阴体凝形术（术法说明）",
+      "type": "technique",
+      "school": "xuan_yin",
+      "realm_min": null,
+      "tags": [
+        "original_technique",
+        "aligned_v114"
+      ],
+      "description": "【原包术法】阴体凝形术。流派：xuan_yin。境界：None。灵力基础耗：None；冷却刻：None。来源：None。效果：{}。气质：阴体凝形术。与功法 school 匹配有加成。"
+    },
+    {
+      "id": "manual_refinement_manual_low",
+      "catalog_id": "refinement_manual_low",
+      "display": "炼器入门篇（秘籍说明）",
+      "type": "manual",
+      "manual_type": "refinement",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】炼器入门篇。类型：refinement。解锁锻造档：1。来源：['sect_contribution', 'merchant']。气质：炼器入门篇。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_refinement_manual_mid",
+      "catalog_id": "refinement_manual_mid",
+      "display": "炼器真解（中篇）（秘籍说明）",
+      "type": "manual",
+      "manual_type": "refinement",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】炼器真解（中篇）。类型：refinement。解锁锻造档：3。来源：None。气质：炼器真解（中篇）。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_refinement_manual_ancient",
+      "catalog_id": "refinement_manual_ancient",
+      "display": "古宝重铸秘要（秘籍说明）",
+      "type": "manual",
+      "manual_type": "refinement",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】古宝重铸秘要。类型：refinement。解锁锻造档：5。来源：None。气质：古宝重铸秘要。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_refine_flying_sword",
+      "catalog_id": "recipe_refine_flying_sword",
+      "display": "低阶飞剑谱（秘籍说明）",
+      "type": "manual",
+      "manual_type": "refinement",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】低阶飞剑谱。类型：refinement。解锁锻造档：None。来源：None。气质：低阶飞剑谱。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_refine_evil_mirror",
+      "catalog_id": "recipe_refine_evil_mirror",
+      "display": "邪幻镜炼制要诀（秘籍说明）",
+      "type": "manual",
+      "manual_type": "refinement",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】邪幻镜炼制要诀。类型：refinement。解锁锻造档：None。来源：None。气质：邪幻镜炼制要诀。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_refine_giant_turtle",
+      "catalog_id": "recipe_refine_giant_turtle",
+      "display": "巨龟核心图（秘籍说明）",
+      "type": "manual",
+      "manual_type": "puppet",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】巨龟核心图。类型：puppet。解锁锻造档：None。来源：None。气质：巨龟核心图。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_ancient_puppet_method",
+      "catalog_id": "ancient_puppet_method",
+      "display": "上古傀儡术（秘籍说明）",
+      "type": "manual",
+      "manual_type": "puppet",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】上古傀儡术。类型：puppet。解锁锻造档：None。来源：['kunwu_boss']。气质：上古傀儡术。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_ghost_cultivation_manual",
+      "catalog_id": "ghost_cultivation_manual",
+      "display": "阴灵鬼修录（秘籍说明）",
+      "type": "manual",
+      "manual_type": "cultivation_path",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】阴灵鬼修录。类型：cultivation_path。解锁锻造档：None。来源：['nether_boss']。气质：阴灵鬼修录。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_fashi_array_manual",
+      "catalog_id": "fashi_array_manual",
+      "display": "慕兰法阵要诀（秘籍说明）",
+      "type": "manual",
+      "manual_type": "formation",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】慕兰法阵要诀。类型：formation。解锁锻造档：None。来源：['mulan_shop']。气质：慕兰法阵要诀。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_array_blueprint_scroll",
+      "catalog_id": "array_blueprint_scroll",
+      "display": "阵图残卷（秘籍说明）",
+      "type": "manual",
+      "manual_type": "formation",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】阵图残卷。类型：formation。解锁锻造档：None。来源：None。气质：阵图残卷。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_spirit_condense",
+      "catalog_id": "recipe_spirit_condense",
+      "display": "聚灵丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】聚灵丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：聚灵丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_foundation",
+      "catalog_id": "recipe_foundation",
+      "display": "筑基丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】筑基丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：筑基丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_bigu",
+      "catalog_id": "recipe_bigu",
+      "display": "辟谷丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】辟谷丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：辟谷丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_calm_spirit",
+      "catalog_id": "recipe_calm_spirit",
+      "display": "清虚丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】清虚丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：清虚丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_condensation",
+      "catalog_id": "recipe_condensation",
+      "display": "凝婴丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】凝婴丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：凝婴丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_recipe_bu_tian",
+      "catalog_id": "recipe_bu_tian",
+      "display": "补天丹方（秘籍说明）",
+      "type": "manual",
+      "manual_type": "alchemy",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】补天丹方。类型：alchemy。解锁锻造档：None。来源：None。气质：补天丹方。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_illusion_talisman_scroll",
+      "catalog_id": "illusion_talisman_scroll",
+      "display": "幻符要诀（秘籍说明）",
+      "type": "manual",
+      "manual_type": "talisman",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】幻符要诀。类型：talisman。解锁锻造档：None。来源：None。气质：幻符要诀。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_dayan_solution_fragment",
+      "catalog_id": "dayan_solution_fragment",
+      "display": "大衍诀残页（秘籍说明）",
+      "type": "manual",
+      "manual_type": "puppet",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】大衍诀残页。类型：puppet。解锁锻造档：None。来源：None。气质：大衍诀残页。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_stolen_jade_slip",
+      "catalog_id": "stolen_jade_slip",
+      "display": "失窃玉简（秘籍说明）",
+      "type": "manual",
+      "manual_type": "quest",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】失窃玉简。类型：quest。解锁锻造档：None。来源：['black_market']。气质：失窃玉简。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_manual_dayan_true_solution",
+      "catalog_id": "manual_dayan_true_solution",
+      "display": "大衍真解（秘籍说明）",
+      "type": "manual",
+      "manual_type": "puppet",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】大衍真解。类型：puppet。解锁锻造档：None。来源：None。气质：大衍真解。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "manual_manual_ancient_puppet_art",
+      "catalog_id": "manual_ancient_puppet_art",
+      "display": "上古傀儡术（秘籍说明）",
+      "type": "manual",
+      "manual_type": "puppet",
+      "tags": [
+        "original_manual",
+        "aligned_v114"
+      ],
+      "description": "【原包秘籍】上古傀儡术。类型：puppet。解锁锻造档：None。来源：None。气质：上古傀儡术。研读耗神识；重复本可交宗门或分解。"
+    },
+    {
+      "id": "spawn_tiannan_forest",
+      "display": "刷怪·tiannan/forest（生态说明）",
+      "type": "spawn_table",
+      "region": "tiannan",
+      "biome": "forest",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 tiannan · 生态 forest。权重：red_leopard_beast(t1,w30), spirit_fox(t6,w2), green_vine_demon(t4,w5)。气质：天南山林：低中阶混生，外门采药与猎妖主线。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_tiannan_river",
+      "display": "刷怪·tiannan/river（生态说明）",
+      "type": "spawn_table",
+      "region": "tiannan",
+      "biome": "river",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 tiannan · 生态 river。权重：ink_flood_dragon(t3,w15), mystic_water_turtle(t4,w8)。气质：天南水脉：墨蛟类与龟妖，筑基前常组队清理。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_chaotic_sea_ocean",
+      "display": "刷怪·chaotic_sea/ocean（生态说明）",
+      "type": "spawn_table",
+      "region": "chaotic_sea",
+      "biome": "ocean",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 chaotic_sea · 生态 ocean。权重：baby_carp_demon(t6,w12), fire_jiao_adult(t10,w2)。气质：乱星海深海：幼蛟至火蛟，高阶权重低。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_chaotic_sea_None",
+      "display": "刷怪·chaotic_sea/None（生态说明）",
+      "type": "spawn_table",
+      "region": "chaotic_sea",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 chaotic_sea · 生态 None。权重：。气质：兽潮事件：权重乘数，与星宫/猎妖队联动。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_mulan_savanna",
+      "display": "刷怪·mulan/savanna（生态说明）",
+      "type": "spawn_table",
+      "region": "mulan",
+      "biome": "savanna",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 mulan · 生态 savanna。权重：wind_screech_hawk(t2,w20), sky_tiger_beast(t13,w1)。气质：慕兰草原：风禽与圣禽线高阶妖王（声望门）。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_dajin_mountain",
+      "display": "刷怪·dajin/mountain（生态说明）",
+      "type": "spawn_table",
+      "region": "dajin",
+      "biome": "mountain",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 dajin · 生态 mountain。权重：ice_soul_serpent(t7,w5), earth_armor_dragon(t8,w3)。气质：大晋山脉：寒蛇与地龙，昆吾外围。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_nether_river_yin",
+      "display": "刷怪·nether_river/yin（生态说明）",
+      "type": "spawn_table",
+      "region": "nether_river",
+      "biome": "yin",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 nether_river · 生态 yin。权重：soul_weep_beast(t4,w20), gold_body_moon_corpse(t11,w2)。气质：冥河阴域：尸妖与魂兽，纯阳克制。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_fallen_demon_valley_None",
+      "display": "刷怪·fallen_demon_valley/None（生态说明）",
+      "type": "spawn_table",
+      "region": "fallen_demon_valley",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 fallen_demon_valley · 生态 None。权重：suanni_beast(t9,w6), phantom_flame_moth(t8,w4)。气质：坠魔谷魔雾：魔化妖兽权重上升。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_mulan_None",
+      "display": "刷怪·mulan/None（生态说明）",
+      "type": "spawn_table",
+      "region": "mulan",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 mulan · 生态 None。权重：。气质：mulan 区域刷怪表（default）。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_blood_forbidden_None",
+      "display": "刷怪·blood_forbidden/None（生态说明）",
+      "type": "spawn_table",
+      "region": "blood_forbidden",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 blood_forbidden · 生态 None。权重：。气质：禁地开启时妖兽狂暴。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_chaotic_sea_None",
+      "display": "刷怪·chaotic_sea/None（生态说明）",
+      "type": "spawn_table",
+      "region": "chaotic_sea",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 chaotic_sea · 生态 None。权重：。气质：乱星海浅海。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_kunwu_None",
+      "display": "刷怪·kunwu/None（生态说明）",
+      "type": "spawn_table",
+      "region": "kunwu",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 kunwu · 生态 None。权重：。气质：坤吴傀儡殿。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_mulan_border_None",
+      "display": "刷怪·mulan_border/None（生态说明）",
+      "type": "spawn_table",
+      "region": "mulan_border",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 mulan_border · 生态 None。权重：。气质：慕兰风骑。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_tianyuan_wild_land",
+      "display": "刷怪·tianyuan/wild_land（生态说明）",
+      "type": "spawn_table",
+      "region": "tianyuan",
+      "biome": "wild_land",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 tianyuan · 生态 wild_land。权重：mountain_giant_ape(t7,w12), void_mantis(t10,w3), shape_shift_trial_beast(t7,w5)。气质：天渊城外荒原：边境功勋猎杀主区。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_tianyuan_None",
+      "display": "刷怪·tianyuan/None（生态说明）",
+      "type": "spawn_table",
+      "region": "tianyuan",
+      "biome": null,
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 tianyuan · 生态 None。权重：。气质：兽潮攻城线：功勋与军需翻倍。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_diyuan_rift",
+      "display": "刷怪·diyuan/rift（生态说明）",
+      "type": "spawn_table",
+      "region": "diyuan",
+      "biome": "rift",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 diyuan · 生态 rift。权重：void_mantis(t10,w10), four_ear_gold_ape(t11,w4)。气质：地渊裂隙：炼虚以上古兽，须地渊令。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "spawn_spirit_fengyuan_plains",
+      "display": "刷怪·spirit_fengyuan/plains（生态说明）",
+      "type": "spawn_table",
+      "region": "spirit_fengyuan",
+      "biome": "plains",
+      "tags": [
+        "original_spawn",
+        "aligned_v114"
+      ],
+      "description": "【原包刷怪表】域 spirit_fengyuan · 生态 plains。权重：gold_devour_beetle(t5,w15), wind_split_beast(t9,w6)。气质：风元大陆平原：灵界常规猎妖。。真灵 weight 极低或 0；高阶兽不进炼气林保底。"
+    },
+    {
+      "id": "event_wandering_merchant",
+      "catalog_id": "wandering_merchant",
+      "display": "行商路过（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "weight": 10,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】行商路过。域：tiannan,dajin。权重：10。奖励：random_low_artifact,herb_bundle。气质：天南官道偶有行商兜售低阶符箓与灵草，价格随宗门距离浮动。。日/周池软顶。"
+    },
+    {
+      "id": "event_bandit_cultivator",
+      "catalog_id": "bandit_cultivator",
+      "display": "散修劫道（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "weight": 8,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】散修劫道。域：tiannan,chaotic_sea。权重：8。奖励：。气质：散修劫道在灵脉稀薄处高发，败者常被搜魂夺宝。。日/周池软顶。"
+    },
+    {
+      "id": "event_spirit_rain",
+      "catalog_id": "spirit_rain",
+      "display": "灵雨（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "*"
+      ],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】灵雨。域：*。权重：3。奖励：。气质：灵雨骤降可催熟灵田，修士借雨吐纳一日可抵寻常数日。。日/周池软顶。"
+    },
+    {
+      "id": "event_auction_notice",
+      "catalog_id": "auction_notice",
+      "display": "拍卖预告（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "chaotic_sea",
+        "dajin",
+        "tianyuan"
+      ],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】拍卖预告。域：chaotic_sea,dajin,tianyuan。权重：5。奖励：。气质：坊市将开小型拍卖，筑基以上修士可入场竞价。。日/周池软顶。"
+    },
+    {
+      "id": "event_sect_recruit",
+      "catalog_id": "sect_recruit",
+      "display": "宗门招新（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】宗门招新。域：tiannan。权重：6。奖励：。气质：宗门外门招新，测灵根与心性为入门门槛。。日/周池软顶。"
+    },
+    {
+      "id": "event_ghost_boat",
+      "catalog_id": "ghost_boat",
+      "display": "冥河渡船（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "nether_river"
+      ],
+      "weight": 12,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】冥河渡船。域：nether_river。权重：12。奖励：。气质：冥河虚影渡船现于江面，鬼修传闻可借船入阴罗外围。。日/周池软顶。"
+    },
+    {
+      "id": "event_demon_qi_surge",
+      "catalog_id": "demon_qi_surge",
+      "display": "魔气涌动（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "fallen_demon_valley",
+        "dajin"
+      ],
+      "weight": 7,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】魔气涌动。域：fallen_demon_valley,dajin。权重：7。奖励：。气质：魔气潮汐自坠魔谷方向涌来，低阶修士需避其锋芒。。日/周池软顶。"
+    },
+    {
+      "id": "event_beast_migration",
+      "catalog_id": "beast_migration",
+      "display": "兽潮前兆（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "mulan",
+        "spirit_fengyuan"
+      ],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】兽潮前兆。域：mulan,spirit_fengyuan。权重：4。奖励：。气质：妖兽迁徙过境，猎妖队与散修常尾随取利。。日/周池软顶。"
+    },
+    {
+      "id": "event_mulan_scout_clash",
+      "catalog_id": "mulan_scout_clash",
+      "display": "斥候遭遇（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "mulan",
+        "tianlan"
+      ],
+      "weight": 9,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】斥候遭遇。域：mulan,tianlan。权重：9。奖励：。气质：慕兰斥候与天南巡逻队在边境丘陵遭遇，多为炼气—筑基小规模交锋。。日/周池软顶。"
+    },
+    {
+      "id": "event_pirate_raid",
+      "catalog_id": "pirate_raid",
+      "display": "海盗袭岛（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "weight": 11,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】海盗袭岛。域：chaotic_sea。权重：11。奖励：。气质：乱星海海盗劫掠商船，星宫巡逻与逆星暗线皆可能介入。。日/周池软顶。"
+    },
+    {
+      "id": "event_ancient_ruins_whisper",
+      "catalog_id": "ancient_ruins_whisper",
+      "display": "古迹低鸣（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "kunwu",
+        "dajin"
+      ],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】古迹低鸣。域：kunwu,dajin。权重：4。奖励：。气质：上古遗迹传出低语，神识不足者易生心魔。。日/周池软顶。"
+    },
+    {
+      "id": "event_yin_corruption_warning",
+      "catalog_id": "yin_corruption_warning",
+      "display": "阴煞侵体（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "yinming"
+      ],
+      "weight": 15,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】阴煞侵体。域：yinming。权重：15。奖励：。气质：阴煞浓度升高，鬼道修士受益，正道需备辟邪物。。日/周池软顶。"
+    },
+    {
+      "id": "event_foundation_pill_rumor",
+      "catalog_id": "foundation_pill_rumor",
+      "display": "筑基丹流言（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 7,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】筑基丹流言。域：tiannan。权重：7。奖励：。气质：坊市传闻有筑基丹私下流通，真伪需炼丹师辨。。日/周池软顶。"
+    },
+    {
+      "id": "event_talisman_master_visit",
+      "catalog_id": "talisman_master_visit",
+      "display": "符师云游（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】符师云游。域：tiannan,dajin。权重：5。奖励：talisman_paper_bundle。气质：制符师路过村落，可委托绘制低阶护身符。。日/周池软顶。"
+    },
+    {
+      "id": "event_spirit_vein_pulse",
+      "catalog_id": "spirit_vein_pulse",
+      "display": "灵脉微涌（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "*"
+      ],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】灵脉微涌。域：*。权重：2。奖励：。气质：灵脉短暂涌动，当日修炼效率略增。。日/周池软顶。"
+    },
+    {
+      "id": "event_rogue_cultivator_duel",
+      "catalog_id": "rogue_cultivator_duel",
+      "display": "散修约战（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "chaotic_sea",
+        "dajin"
+      ],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】散修约战。域：tiannan,chaotic_sea,dajin。权重：6。奖励：random_mid_artifact_chance。气质：散修以斗法立威或夺宝，天南与乱星海皆常见，败者往往身死道消。。日/周池软顶。"
+    },
+    {
+      "id": "event_sect_elder_lecture",
+      "catalog_id": "sect_elder_lecture",
+      "display": "长老讲道（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】长老讲道。域：tiannan。权重：4。奖励：。气质：宗门长老开坛讲道，外门弟子可悟一丝修炼关窍。。日/周池软顶。"
+    },
+    {
+      "id": "event_void_rift_sighting",
+      "catalog_id": "void_rift_sighting",
+      "display": "空间裂隙目击（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tianyuan",
+        "fallen_demon_valley"
+      ],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】空间裂隙目击。域：tianyuan,fallen_demon_valley。权重：3。奖励：。气质：空间裂隙在天渊边境与坠魔谷周边偶现，误入者九死一生。。日/周池软顶。"
+    },
+    {
+      "id": "event_treasure_fair_rumor",
+      "catalog_id": "treasure_fair_rumor",
+      "display": "万宝大会传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "spirit_fengyuan",
+        "tianyuan"
+      ],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】万宝大会传闻。域：spirit_fengyuan,tianyuan。权重：4。奖励：。气质：灵界万宝大会将开，高阶材料与古宝残片或现拍卖场。。日/周池软顶。"
+    },
+    {
+      "id": "event_ghost_wail_night",
+      "catalog_id": "ghost_wail_night",
+      "display": "夜哭鬼啸（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "nether_river",
+        "yinming"
+      ],
+      "weight": 10,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】夜哭鬼啸。域：nether_river,yinming。权重：10。奖励：。气质：冥河阴雾之夜鬼啸四起，鬼修受益，正道需备辟邪符。。日/周池软顶。"
+    },
+    {
+      "id": "event_contribution_bonus_day",
+      "catalog_id": "contribution_bonus_day",
+      "display": "宗门赏功日（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】宗门赏功日。域：tiannan。权重：3。奖励：。气质：宗门赏功日，完成契约任务贡献点结算加成。。日/周池软顶。"
+    },
+    {
+      "id": "event_tiannan_herb_price_spike",
+      "catalog_id": "tiannan_herb_price_spike",
+      "display": "坊市灵草涨价（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 8,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】坊市灵草涨价。域：。权重：8。奖励：。气质：坊市灵草因战事或灵雨短缺涨价，炼丹师囤货。。日/周池软顶。"
+    },
+    {
+      "id": "event_chaotic_sea_pirate_raid",
+      "catalog_id": "chaotic_sea_pirate_raid",
+      "display": "海盗袭船（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】海盗袭船。域：。权重：6。奖励：。气质：海盗劫商船，星宫巡逻与逆星走私线皆可能被卷入。。日/周池软顶。"
+    },
+    {
+      "id": "event_mulan_wind_storm",
+      "catalog_id": "mulan_wind_storm",
+      "display": "草原罡风（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 7,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】草原罡风。域：。权重：7。奖励：。气质：草原罡风裹挟沙砾，法士借风势施术威力上升。。日/周池软顶。"
+    },
+    {
+      "id": "event_blood_forbidden_rumor",
+      "catalog_id": "blood_forbidden_rumor",
+      "display": "血色禁地将开传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】血色禁地将开传闻。域：。权重：3。奖励：。气质：血色禁地入口封印松动传闻再起，宗门开始分配筑基弟子名额。。日/周池软顶。"
+    },
+    {
+      "id": "event_great_jin_auction_week",
+      "catalog_id": "great_jin_auction_week",
+      "display": "万宝楼拍卖周（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】万宝楼拍卖周。域：。权重：4。奖励：。气质：大晋万宝楼周拍，结丹以上修士方可竞价珍稀丹方。。日/周池软顶。"
+    },
+    {
+      "id": "event_nether_river_fog",
+      "catalog_id": "nether_river_fog",
+      "display": "冥河雾灾（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】冥河雾灾。域：。权重：5。奖励：。气质：冥河大雾封渡，鬼船票价翻倍，敛魂符走俏。。日/周池软顶。"
+    },
+    {
+      "id": "event_chaotic_sea_beast_tide",
+      "catalog_id": "chaotic_sea_beast_tide",
+      "display": "兽潮袭岛（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】兽潮袭岛。域：。权重：5。奖励：。气质：星海兽潮袭岛，猎妖队与宗门驻岛修士联合御敌。。日/周池软顶。"
+    },
+    {
+      "id": "event_chaotic_sea_ghost_fog_truce",
+      "catalog_id": "chaotic_sea_ghost_fog_truce",
+      "display": "鬼雾暂休战（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】鬼雾暂休战。域：。权重：3。奖励：。气质：鬼雾笼罩航线，星宫与海盗暂休战，走私暗涌。。日/周池软顶。"
+    },
+    {
+      "id": "event_chaotic_sea_tax_raid",
+      "catalog_id": "chaotic_sea_tax_raid",
+      "display": "星宫查税（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】星宫查税。域：。权重：4。奖励：。气质：星宫执法队查税缉私，逆星盟成员需隐匿行踪。。日/周池软顶。"
+    },
+    {
+      "id": "event_chaotic_sea_auction_rumor",
+      "catalog_id": "chaotic_sea_auction_rumor",
+      "display": "岛拍传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】岛拍传闻。域：。权重：4。奖励：。气质：某岛将开黑拍，来源不明的古宝碎片或将露面。。日/周池软顶。"
+    },
+    {
+      "id": "event_dajin_clan_feud",
+      "catalog_id": "dajin_clan_feud",
+      "display": "世家械斗（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】世家械斗。域：。权重：4。奖励：。气质：大晋修仙世家因矿脉与婚盟械斗，散修慎入。。日/周池软顶。"
+    },
+    {
+      "id": "event_kunwu_cold_snap",
+      "catalog_id": "kunwu_cold_snap",
+      "display": "昆吾寒潮（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】昆吾寒潮。域：。权重：3。奖励：。气质：昆吾山寒潮加剧，傀儡与寒禁对低阶修士杀伤极大。。日/周池软顶。"
+    },
+    {
+      "id": "event_barbarian_beast_tide",
+      "catalog_id": "barbarian_beast_tide",
+      "display": "兽潮过境（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】兽潮过境。域：。权重：4。奖励：。气质：蛮荒兽潮过境，空间裂缝附近妖王气息压迫。。日/周池软顶。"
+    },
+    {
+      "id": "event_yin_wind_howl",
+      "catalog_id": "yin_wind_howl",
+      "display": "阴风怒号（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】阴风怒号。域：。权重：5。奖励：。气质：阴冥之地阴风怒号，鬼道修炼效率略升。。日/周池软顶。"
+    },
+    {
+      "id": "event_pearl_diving_mortals",
+      "catalog_id": "pearl_diving_mortals",
+      "display": "凡人采珠船出海（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】凡人采珠船出海。域：。权重：6。奖励：。气质：外海凡人采珠船出海，修士劫珠传闻伴随风暴季。。日/周池软顶。"
+    },
+    {
+      "id": "event_pearl_storm_shelter",
+      "catalog_id": "pearl_storm_shelter",
+      "display": "风暴避港（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】风暴避港。域：。权重：3。奖励：。气质：风暴迫港，采珠船与商船争泊位，岛主抽税。。日/周池软顶。"
+    },
+    {
+      "id": "event_pearl_tax_dispute",
+      "catalog_id": "pearl_tax_dispute",
+      "display": "采珠税争执（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】采珠税争执。域：。权重：4。奖励：。气质：采珠税与岛主分成争执，易引发修士与凡人冲突。。日/周池软顶。"
+    },
+    {
+      "id": "event_cultivator_pearl_snatch",
+      "catalog_id": "cultivator_pearl_snatch",
+      "display": "修士劫珠传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】修士劫珠传闻。域：。权重：3。奖励：。气质：高阶海珠可辅炼体，散修劫珠案在乱星海屡禁不止。。日/周池软顶。"
+    },
+    {
+      "id": "event_wutu_raid_mulan_camp",
+      "catalog_id": "wutu_raid_mulan_camp",
+      "display": "突兀袭营（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】突兀袭营。域：。权重：5。奖励：。气质：突兀族夜袭慕兰营地，世仇与粮草争夺交织。。日/周池软顶。"
+    },
+    {
+      "id": "event_fallen_demon_miasma",
+      "catalog_id": "fallen_demon_miasma",
+      "display": "坠魔谷魔雾（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】坠魔谷魔雾。域：。权重：4。奖励：。气质：坠魔谷魔雾外溢，心魔与魔化风险升高。。日/周池软顶。"
+    },
+    {
+      "id": "event_yin_luo_patrol",
+      "catalog_id": "yin_luo_patrol",
+      "display": "阴罗殿巡魂（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】阴罗殿巡魂。域：。权重：3。奖励：。气质：阴罗殿巡魂使过境，野鬼与散修鬼修需避其锋芒。。日/周池软顶。"
+    },
+    {
+      "id": "event_demon_beast_siege",
+      "catalog_id": "demon_beast_siege",
+      "display": "兽潮攻城（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】兽潮攻城。域：。权重：5。奖励：。气质：天渊城兽潮攻城，功勋与军需兑换翻倍。。日/周池软顶。"
+    },
+    {
+      "id": "event_wild_land_beast_horde",
+      "catalog_id": "wild_land_beast_horde",
+      "display": "荒原兽群（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】荒原兽群。域：。权重：6。奖励：。气质：灵界边境荒原兽群迁徙，猎杀可换边境功勋。。日/周池软顶。"
+    },
+    {
+      "id": "event_ghost_expose_rumor",
+      "catalog_id": "ghost_expose_rumor",
+      "display": "鬼修踪迹传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】鬼修踪迹传闻。域：。权重：2。奖励：。气质：天南某坊市传闻鬼修现身，正道宗门暗中搜捕。。日/周池软顶。"
+    },
+    {
+      "id": "event_void_rift_surge",
+      "catalog_id": "void_rift_surge",
+      "display": "虚空裂隙涌动（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】虚空裂隙涌动。域：。权重：4。奖励：。气质：灵界边境虚空裂隙涌动，炼虚修士方敢近前探查。。日/周池软顶。"
+    },
+    {
+      "id": "event_great_vehicle_insight",
+      "catalog_id": "great_vehicle_insight",
+      "display": "大道感悟异象（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】大道感悟异象。域：。权重：3。奖励：。气质：大乘修士讲道余韵引动天地，旁听者或悟一丝大道。。日/周池软顶。"
+    },
+    {
+      "id": "event_tribulation_cloud_gather",
+      "catalog_id": "tribulation_cloud_gather",
+      "display": "天劫云聚（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】天劫云聚。域：。权重：2。奖励：。气质：天劫云聚，方圆千里修士避劫远遁。。日/周池软顶。"
+    },
+    {
+      "id": "event_diyuan_pressure_wave",
+      "catalog_id": "diyuan_pressure_wave",
+      "display": "地渊重压波（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】地渊重压波。域：。权重：5。奖励：。气质：地渊重压波外传，未持许可者神识受损。。日/周池软顶。"
+    },
+    {
+      "id": "event_barbarian_king_roar",
+      "catalog_id": "barbarian_king_roar",
+      "display": "妖王远啸（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】妖王远啸。域：。权重：4。奖励：。气质：蛮荒妖王远啸，低阶修士气血翻腾。。日/周池软顶。"
+    },
+    {
+      "id": "event_clan_auction_spirit_realm",
+      "catalog_id": "clan_auction_spirit_realm",
+      "display": "世家灵界拍卖（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】世家灵界拍卖。域：。权重：3。奖励：。气质：灵界世家拍卖灵石矿份额与古修遗物。。日/周池软顶。"
+    },
+    {
+      "id": "event_demon_clan_embassy",
+      "catalog_id": "demon_clan_embassy",
+      "display": "妖族使馆纠纷（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】妖族使馆纠纷。域：。权重：3。奖励：。气质：天渊妖族使馆与城主府摩擦，任务多涉外交功勋。。日/周池软顶。"
+    },
+    {
+      "id": "event_spirit_storm_major",
+      "catalog_id": "spirit_storm_major",
+      "display": "荒原灵暴（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】荒原灵暴。域：。权重：4。奖励：。气质：荒原灵暴席卷，灵舟停航数日。。日/周池软顶。"
+    },
+    {
+      "id": "event_ancient_ruin_whisper",
+      "catalog_id": "ancient_ruin_whisper",
+      "display": "上古废墟低语（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】上古废墟低语。域：。权重：2。奖励：。气质：上古废墟传出道韵低语，需稳固心神方可探查。。日/周池软顶。"
+    },
+    {
+      "id": "event_merit_convoy_ambush",
+      "catalog_id": "merit_convoy_ambush",
+      "display": "功勋车队遇袭（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】功勋车队遇袭。域：。权重：5。奖励：。气质：天渊功勋车队遇袭，魔族探子与逆星余孽皆可疑。。日/周池软顶。"
+    },
+    {
+      "id": "event_mortal_realm_cap_insight",
+      "catalog_id": "mortal_realm_cap_insight",
+      "display": "化神瓶颈感悟（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】化神瓶颈感悟。域：。权重：3。奖励：。气质：化神修士闭关感悟偶泄天机，同阶可借境参悟。。日/周池软顶。"
+    },
+    {
+      "id": "event_ascension_pressure_hint",
+      "catalog_id": "ascension_pressure_hint",
+      "display": "飞升压力暗涌（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】飞升压力暗涌。域：。权重：2。奖励：。气质：人界灵气稀薄，化神巅峰感飞升压力，需备渡劫之物。。日/周池软顶。"
+    },
+    {
+      "id": "event_spirit_realm_call_echo",
+      "catalog_id": "spirit_realm_call_echo",
+      "display": "灵界共鸣（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 2,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】灵界共鸣。域：。权重：2。奖励：。气质：灵界共鸣偶现乱星海，预示飞升通道或天渊征召。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_spirit_rain_tiannan",
+      "catalog_id": "evt_spirit_rain_tiannan",
+      "display": "天南灵雨（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 8,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】天南灵雨。域：tiannan。权重：8。奖励：。气质：天南灵雨润泽灵田，当日吐纳效率略增。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_demonic_scout",
+      "catalog_id": "evt_demonic_scout",
+      "display": "魔道探子（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】魔道探子。域：tiannan。权重：6。奖励：。气质：魔道探子潜入天南坊市，宗门暗哨加强盘查。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_auction_rumor",
+      "catalog_id": "evt_auction_rumor",
+      "display": "万宝楼拍卖传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】万宝楼拍卖传闻。域：tiannan,chaotic_sea。权重：5。奖励：。气质：万宝楼将拍筑基丹与低阶古宝，需备足灵石。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_sea_beast_migration",
+      "catalog_id": "evt_sea_beast_migration",
+      "display": "海兽迁徙（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "weight": 7,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】海兽迁徙。域：chaotic_sea。权重：7。奖励：。气质：海兽迁徙改变航线，猎妖队尾随取丹。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_herb_merchant_caravan",
+      "catalog_id": "evt_herb_merchant_caravan",
+      "display": "灵药商队（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "dajin"
+      ],
+      "weight": 9,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】灵药商队。域：tiannan,dajin。权重：9。奖励：。气质：灵药商队求护卫，报酬为灵草或折扣丹药。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_tribulation_omen",
+      "catalog_id": "evt_tribulation_omen",
+      "display": "天劫异象（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "any"
+      ],
+      "weight": 3,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】天劫异象。域：any。权重：3。奖励：。气质：突破者众，天地灵气躁动。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_clan_recruit",
+      "catalog_id": "evt_clan_recruit",
+      "display": "家族招揽（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan"
+      ],
+      "weight": 6,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】家族招揽。域：tiannan。权重：6。奖励：。气质：修仙家族招揽外姓天才，赐丹换忠诚。。日/周池软顶。"
+    },
+    {
+      "id": "event_evt_spirit_mine_dispute",
+      "catalog_id": "evt_spirit_mine_dispute",
+      "display": "灵矿争执（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ],
+      "weight": 5,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】灵矿争执。域：tiannan,chaotic_sea。权重：5。奖励：。气质：灵矿脉权争执，易演变为宗门与世家冲突。。日/周池软顶。"
+    },
+    {
+      "id": "event_mulan_border_patrol",
+      "catalog_id": "mulan_border_patrol",
+      "display": "边境巡哨（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "mulan",
+        "tiannan_border"
+      ],
+      "weight": 9,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】边境巡哨。域：mulan,tiannan_border。权重：9。奖励：war_scout_token,low_grade_spirit_stone。气质：联军或慕兰法士编队在边境轮值，遭遇战可积累战役贡献。。日/周池软顶。"
+    },
+    {
+      "id": "event_mulan_soul_array_supply",
+      "catalog_id": "mulan_soul_array_supply",
+      "display": "护阵供灵（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "mulan"
+      ],
+      "weight": 7,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】护阵供灵。域：mulan。权重：7。奖励：array_core_fragment,fashi_art_fragment。气质：慕兰法士大阵需持续灌注灵力，过度抽取有燃魂之险；破阵方为战役目标。。日/周池软顶。"
+    },
+    {
+      "id": "event_tiannan_war_merit_muster",
+      "catalog_id": "tiannan_war_merit_muster",
+      "display": "天南战勋集结（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "tiannan",
+        "tiannan_border"
+      ],
+      "weight": 8,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】天南战勋集结。域：tiannan,tiannan_border。权重：8。奖励：war_merit_huangfeng,anti_fashi_talisman。气质：黄枫、燕乐等宗门动员弟子赴边境，战勋可换地火室与丹方权限。。日/周池软顶。"
+    },
+    {
+      "id": "event_ceasefire_envoy_rumor",
+      "catalog_id": "ceasefire_envoy_rumor",
+      "display": "停战使者传闻（随机事件）",
+      "type": "daily_event",
+      "regions": [
+        "mulan",
+        "tiannan"
+      ],
+      "weight": 4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】停战使者传闻。域：mulan,tiannan。权重：4。奖励：。气质：双方元婴层面试探停战，地面修士仍可能遭遇突袭；结构为阶段分支非单一结局。。日/周池软顶。"
+    },
+    {
+      "id": "event_open_sky_tribulation_omen",
+      "catalog_id": "open_sky_tribulation_omen",
+      "display": "天象异变（随机事件）",
+      "type": "daily_event",
+      "regions": [],
+      "weight": 0.4,
+      "tags": [
+        "original_event",
+        "aligned_v114"
+      ],
+      "description": "【原包日常事件】天象异变。域：。权重：0.4。奖励：。气质：方圆百里雷云聚集，疑有人渡大劫或妖兽化形小劫；非密境内方可观劫。。日/周池软顶。"
+    },
+    {
+      "id": "v114_align_index",
+      "display": "v114 对齐索引",
+      "type": "meta",
+      "counts": {
+        "quest_chains": 62,
+        "sects": 28,
+        "methods": 91,
+        "recipes": 55,
+        "techniques": 18,
+        "manuals": 21,
+        "spawn_tables": 17,
+        "daily_events": 71,
+        "total": 369
+      },
+      "description": "任务/宗门/功法/丹方/术法/秘籍/刷怪/事件全量说明。"
+    },
+    {
+      "id": "huangfeng_loop_note",
+      "display": "黄枫丹童循环",
+      "type": "meta",
+      "description": "辟谷→外门草→贡献→小丹，不产筑基丹。"
+    },
+    {
+      "id": "quest_reward_softcap",
+      "display": "任务奖励软顶",
+      "type": "rule_item",
+      "description": "循环任务低阶；禁刷庚精/降尘/通天。"
+    },
+    {
+      "id": "sect_vs_shelf",
+      "display": "宗门 vs 货架",
+      "type": "meta",
+      "description": "sects=人设；sect_shelves=声望价；merchant_shops=点位。"
+    },
+    {
+      "id": "method_conflict_pointer",
+      "display": "功法冲突指针",
+      "type": "meta",
+      "description": "详冲突矩阵；魔正双修扣心性。"
+    },
+    {
+      "id": "v114_accept",
+      "display": "v114 验收签",
+      "type": "meta",
+      "checks": [
+        "62链",
+        "28宗",
+        "91功",
+        "55方",
+        "18术",
+        "21籍",
+        "17刷怪",
+        "71事件",
+        "无代码"
+      ],
+      "description": "本版完成。"
+    }
+  ]
+}

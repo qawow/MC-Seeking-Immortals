@@ -1,0 +1,1290 @@
+{
+  "schema_version": 1,
+  "source": "v136 前往各维度办法总表",
+  "disclaimer": "设定包可玩规则；与 dimensions_catalog / travel_routes / ascension_flow / spatial_nodes 对齐并补全缺口。无代码。",
+  "cosmology_layers": [
+    {
+      "id": "mortal_realm",
+      "display": "人界",
+      "playable": true,
+      "dim": "seeking_immortals:mortal_world",
+      "contains_regions": [
+        "tiannan",
+        "chaotic_sea",
+        "great_jin",
+        "mulan",
+        "barbarian_wasteland",
+        "nether_edges_in_mortal"
+      ]
+    },
+    {
+      "id": "spirit_realm",
+      "display": "灵界",
+      "playable": true,
+      "dims": [
+        "seeking_immortals:tianyuan",
+        "seeking_immortals:spirit_fengyuan"
+      ],
+      "contains_regions": [
+        "tianyuan",
+        "fengyuan",
+        "diyuan",
+        "guanghan",
+        "jiuxian"
+      ]
+    },
+    {
+      "id": "immortal_realm",
+      "display": "仙界",
+      "playable": true,
+      "dim": "seeking_immortals:immortal_realm",
+      "note": "v130 已可玩扩展；本表补齐进入办法",
+      "contains_regions": [
+        "zhenyan_men",
+        "heifeng_sea",
+        "reincarnation_hall",
+        "heavenly_court",
+        "gray_realm_border"
+      ]
+    },
+    {
+      "id": "yin_underworld_cluster",
+      "display": "阴司/冥河界域",
+      "playable": "partial",
+      "dim": "seeking_immortals:yin_ming_pocket"
+    },
+    {
+      "id": "ancient_demon_realm",
+      "display": "上古魔界/魔隙",
+      "playable": "event",
+      "dim": "seeking_immortals:demon_rift"
+    },
+    {
+      "id": "secret_realm_instance",
+      "display": "秘境实例（挂靠父维度）",
+      "playable": true,
+      "handler": "instanced"
+    }
+  ],
+  "transport_methods_catalog": [
+    {
+      "id": "walk_escape",
+      "display": "步行/遁光",
+      "scale": "intra_region",
+      "realm_min": "QI_REFINING",
+      "cost": "time"
+    },
+    {
+      "id": "flying_boat",
+      "display": "飞舟/飞车",
+      "scale": "cross_region",
+      "realm_min": "FOUNDATION",
+      "cost": "spirit_stones_or_own_boat"
+    },
+    {
+      "id": "sea_ship",
+      "display": "海船（乱星海）",
+      "scale": "chaotic_sea",
+      "realm_min": "QI_REFINING",
+      "cost": "ticket"
+    },
+    {
+      "id": "fixed_teleport_array",
+      "display": "固定传送阵",
+      "scale": "hub_to_hub",
+      "realm_min": "QI_REFINING",
+      "cost": "spirit_stones + permit"
+    },
+    {
+      "id": "sect_gate",
+      "display": "宗门关隘/令牌门",
+      "scale": "faction",
+      "realm_min": "QI_REFINING",
+      "cost": "contribution_or_token"
+    },
+    {
+      "id": "portable_teleport_disk",
+      "display": "便携阵盘/传送符",
+      "scale": "limited",
+      "realm_min": "FOUNDATION",
+      "cost": "consumable",
+      "risk": "backlash_if_interrupted"
+    },
+    {
+      "id": "secret_realm_token",
+      "display": "秘境令/配额",
+      "scale": "instance",
+      "realm_min": "varies",
+      "cost": "token_or_sect_quota"
+    },
+    {
+      "id": "ascension_channel",
+      "display": "飞升通道",
+      "scale": "cross_cosmology",
+      "realm_min": "DEITY_TRANSFORMATION_peak",
+      "cost": "tribulation",
+      "one_way_body": true
+    },
+    {
+      "id": "avatar_descent",
+      "display": "分身下界",
+      "scale": "spirit_to_mortal",
+      "realm_min": "VOID_REFINEMENT",
+      "cost": "clone_risk"
+    },
+    {
+      "id": "regulated_portal",
+      "display": "管制界门",
+      "scale": "spirit_internal",
+      "realm_min": "VOID_REFINEMENT",
+      "cost": "contribution_fee"
+    },
+    {
+      "id": "ghost_path_portal",
+      "display": "鬼道/阴司入口",
+      "scale": "yin",
+      "realm_min": "FOUNDATION",
+      "cost": "ghost_method_or_item",
+      "karma": "ghost"
+    },
+    {
+      "id": "demon_rift_event",
+      "display": "魔界裂隙事件",
+      "scale": "event",
+      "realm_min": "CORE_FORMATION",
+      "cost": "event_flag",
+      "risk": "demonization"
+    },
+    {
+      "id": "law_space_step",
+      "display": "空间法则/虚空仙遁",
+      "scale": "high",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "cost": "law_mastery"
+    },
+    {
+      "id": "immortal_grand_array",
+      "display": "仙界传送大阵",
+      "scale": "immortal_hubs",
+      "realm_min": "TRUE_IMMORTAL",
+      "cost": "immortal_spirit_stone"
+    },
+    {
+      "id": "quest_escort",
+      "display": "任务护送/NPC带路",
+      "scale": "story",
+      "realm_min": "any",
+      "cost": "quest"
+    }
+  ],
+  "access_routes": [
+    {
+      "id": "mortal_intra_tiannan",
+      "display": "人界·天南内部",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:mortal_world",
+      "from_region": "tiannan_any",
+      "to_region": "tiannan_hubs",
+      "methods": [
+        {
+          "method": "walk_escape",
+          "realm_min": "QI_REFINING",
+          "time": "小时~数日",
+          "note": "同省山谷"
+        },
+        {
+          "method": "fixed_teleport_array",
+          "nodes": [
+            "node_tiannan_huangfeng",
+            "node_yanyue",
+            "node_qingxu"
+          ],
+          "cost": {
+            "spirit_stone_low": [
+              10,
+              50
+            ]
+          },
+          "need": [
+            "sect_permit_or_contribution"
+          ],
+          "time": "即时"
+        },
+        {
+          "method": "flying_boat",
+          "realm_min": "FOUNDATION",
+          "time": "半日~三日"
+        }
+      ],
+      "return_same": true,
+      "blockers": [
+        "war_lockdown",
+        "no_permit_on_sect_array"
+      ]
+    },
+    {
+      "id": "mortal_tiannan_to_chaotic_sea",
+      "display": "天南 → 乱星海",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:mortal_world",
+      "from_region": "tiannan",
+      "to_region": "chaotic_sea",
+      "methods": [
+        {
+          "method": "sea_ship",
+          "hub": "天南出海口/乱星海航线",
+          "cost": {
+            "ticket_spirit_stone": [
+              20,
+              200
+            ]
+          },
+          "time_days": [
+            15,
+            60
+          ],
+          "risk": "风暴/海兽/海盗"
+        },
+        {
+          "method": "flying_boat",
+          "realm_min": "CORE_FORMATION",
+          "time_days": [
+            5,
+            20
+          ],
+          "need": [
+            "sea_chart_or_pilot"
+          ]
+        },
+        {
+          "method": "fixed_teleport_array",
+          "nodes": [
+            "node_chaotic_sea_hub"
+          ],
+          "need": [
+            "long_range_permit",
+            "high_fee"
+          ],
+          "cost": {
+            "spirit_stone_mid": [
+              5,
+              30
+            ]
+          },
+          "note": "远程阵稀少，多被星宫/大宗控制"
+        },
+        {
+          "method": "quest_escort",
+          "example": "星宫注册/商队护送任务"
+        }
+      ],
+      "return_methods": "symmetric_with_higher_fee_if_no_registration",
+      "lore": "韩立离天南入乱星海的主路径气质"
+    },
+    {
+      "id": "mortal_tiannan_to_dajin",
+      "display": "天南 → 大晋",
+      "from_region": "tiannan",
+      "to_region": "great_jin",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:mortal_world",
+      "methods": [
+        {
+          "method": "sect_gate",
+          "nodes": [
+            "node_dajin_wanbao"
+          ],
+          "need": [
+            "identity_token_or_auction_invite"
+          ],
+          "time_days": [
+            10,
+            40
+          ]
+        },
+        {
+          "method": "flying_boat",
+          "realm_min": "NASCENT_SOUL",
+          "note": "高阶可直飞，低阶需驿站"
+        },
+        {
+          "method": "fixed_teleport_array",
+          "cost": {
+            "spirit_stone_mid": [
+              3,
+              20
+            ]
+          },
+          "need": [
+            "dajin_entry_permit"
+          ]
+        },
+        {
+          "method": "quest_escort",
+          "example": "dajin_kunwu_line 拍卖/昆吾线"
+        }
+      ],
+      "blockers": [
+        "dajin_clan_inspection",
+        "yinluo_hunt_if_hostile"
+      ]
+    },
+    {
+      "id": "mortal_tiannan_to_mulan",
+      "display": "天南 → 慕兰草原",
+      "from_region": "tiannan",
+      "to_region": "mulan",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:mortal_world",
+      "methods": [
+        {
+          "method": "fixed_teleport_array",
+          "nodes": [
+            "node_mulan_steppe",
+            "node_tiannan_border"
+          ],
+          "need": [
+            "border_pass"
+          ]
+        },
+        {
+          "method": "walk_escape",
+          "time_days": [
+            20,
+            90
+          ],
+          "risk": "边军/妖兽"
+        },
+        {
+          "method": "quest_escort",
+          "example": "mulan_tianlan_war 战线任务"
+        }
+      ],
+      "note": "战争期封锁，声望 rep_mulan 影响通行"
+    },
+    {
+      "id": "mortal_chaotic_sea_internal",
+      "display": "乱星海岛际",
+      "from_region": "chaotic_sea",
+      "to_region": "chaotic_sea_islands",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:mortal_world",
+      "methods": [
+        {
+          "method": "sea_ship",
+          "time_days": [
+            1,
+            15
+          ]
+        },
+        {
+          "method": "star_palace_teleport_gate",
+          "structure": "star_palace_teleport_gate",
+          "need": [
+            "rep_star_palace_or_token"
+          ],
+          "block_if": "high_rep_inverse_star"
+        },
+        {
+          "method": "inverse_star_smuggle_dock",
+          "structure": "inverse_star_smuggle_dock",
+          "need": [
+            "rep_inverse_star"
+          ],
+          "risk": "star_palace_patrol"
+        },
+        {
+          "method": "flying_boat",
+          "realm_min": "FOUNDATION"
+        }
+      ]
+    },
+    {
+      "id": "secret_blood_forbidden",
+      "display": "秘境·血色禁地",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "blood_forbidden",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "QI_REFINING",
+          "typical_realm": "FOUNDATION",
+          "entry": "sect_quota_or_token",
+          "window": "periodic"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "node/stele blood_forbidden_entry_stele"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_xutian",
+      "display": "秘境·虚天殿",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "xutian",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "CORE_FORMATION",
+          "typical_realm": "NASCENT_SOUL",
+          "entry": "void_key_or_invite",
+          "window": "rare_open"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "xutian_palace_gate_fragment + key"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_kunwu",
+      "display": "秘境·昆吾山",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "kunwu",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "CORE_FORMATION",
+          "typical_realm": "NASCENT_SOUL",
+          "entry": "expedition_or_seal_duty",
+          "window": "story_or_periodic"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "kunwu_seal_hall region"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_qianzhu",
+      "display": "秘境·千竹机关塔",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "qianzhu",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "FOUNDATION",
+          "typical_realm": "CORE_FORMATION",
+          "entry": "token_or_infiltrate",
+          "window": "instance"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "qianzhu tower layers"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_yinyang_ku",
+      "display": "秘境·阴阳窟",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "yinyang_ku",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "FOUNDATION",
+          "typical_realm": "CORE_FORMATION",
+          "entry": "map_or_quest",
+          "window": "instance"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "yinyang_cave_gate puzzle"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_zhuimo",
+      "display": "秘境·坠魔谷",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "zhuimo",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "CORE_FORMATION",
+          "typical_realm": "NASCENT_SOUL",
+          "entry": "approach_rift",
+          "window": "dangerous_open"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "fallen_demon_rift"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_nether_river",
+      "display": "秘境·冥河相关",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "nether_river",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "FOUNDATION",
+          "typical_realm": "NASCENT_SOUL",
+          "entry": "ghost_path",
+          "window": "path_locked"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "yin portal"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "secret_guanghan",
+      "display": "秘境·广寒界相关",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "guanghan",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "VOID_REFINEMENT",
+          "typical_realm": "BODY_INTEGRATION",
+          "entry": "spirit_realm_permit",
+          "window": "spirit_parent"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "spirit_fengyuan parent"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:spirit_fengyuan"
+    },
+    {
+      "id": "secret_diyuan",
+      "display": "秘境·地渊",
+      "from_dim": "parent_default_mortal_or_spirit",
+      "to_dim": "instance:secret_realm",
+      "instance_id": "diyuan",
+      "methods": [
+        {
+          "method": "secret_realm_token",
+          "realm_min": "VOID_REFINEMENT",
+          "typical_realm": "VOID_REFINEMENT",
+          "entry": "tianyuan_or_trial",
+          "window": "spirit"
+        },
+        {
+          "method": "structure_or_node",
+          "ref": "asura_trial / diyuan"
+        },
+        {
+          "method": "quest_chain",
+          "note": "对应 quest_chains / secret_realm_* 文件"
+        }
+      ],
+      "exit_methods": [
+        {
+          "method": "exit_array",
+          "example": "blood_forbidden_exit_array"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "窗口关闭强制遣返"
+        },
+        {
+          "method": "death_or_cripple_eject",
+          "note": "规则可配置掉落"
+        }
+      ],
+      "parent_dimension_default": "seeking_immortals:spirit_fengyuan"
+    },
+    {
+      "id": "mortal_to_yin",
+      "display": "人界 → 冥河/阴司界域",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:yin_ming_pocket",
+      "methods": [
+        {
+          "method": "ghost_path_portal",
+          "need": [
+            "ghost_nether_art_or_xuan_yin",
+            "or_yin_item"
+          ],
+          "structures": [
+            "soul_banner_altar"
+          ],
+          "risk": "soul_damage",
+          "realm_min": "FOUNDATION"
+        },
+        {
+          "method": "quest_chain",
+          "ref": "ghost_path",
+          "steps": "yinming_escape → nether_river"
+        },
+        {
+          "method": "forced_event",
+          "note": "被阴罗/鬼修拉入"
+        }
+      ],
+      "return_methods": [
+        {
+          "method": "nether_exit_rite",
+          "need": "anchor_in_mortal",
+          "risk": "body_mismatch"
+        },
+        {
+          "method": "timeout_eject",
+          "note": "阳寿/阴气条耗尽"
+        }
+      ],
+      "playable": "partial"
+    },
+    {
+      "id": "mortal_to_demon_rift",
+      "display": "人界 → 魔界裂隙（临时）",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:demon_rift",
+      "methods": [
+        {
+          "method": "demon_rift_event",
+          "nodes": [
+            "node_fallen_demon_rift"
+          ],
+          "realm_min": "CORE_FORMATION",
+          "need": [
+            "event_flag_demon_rift_open"
+          ],
+          "risk": [
+            "demonization",
+            "corruption"
+          ]
+        },
+        {
+          "method": "quest",
+          "example": "high_realm_endgame fallen_demon_scout"
+        }
+      ],
+      "return_methods": [
+        {
+          "method": "rift_collapse_eject",
+          "note": "事件结束踢回"
+        },
+        {
+          "method": "seal_escape",
+          "need": "seal_item_or_high_realm"
+        }
+      ],
+      "playable": "event_only",
+      "stay_limit": "event_timer"
+    },
+    {
+      "id": "mortal_to_tianyuan",
+      "display": "人界 → 天渊城（飞升）",
+      "from_dim": "seeking_immortals:mortal_world",
+      "to_dim": "seeking_immortals:tianyuan",
+      "methods": [
+        {
+          "method": "ascension_channel",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "requires": [
+            "tribulation_success",
+            "mortal_peak"
+          ],
+          "nodes": [
+            "gate_mortal_to_tianyuan"
+          ],
+          "structures_help": [
+            "tribulation_platform"
+          ],
+          "items_help": [
+            "ascension_talisman",
+            "space_anchor_talisman"
+          ],
+          "one_way_main_body": true,
+          "failure": [
+            "death",
+            "cripple",
+            "demonization"
+          ],
+          "quest_ref": "xianjie_ascension_path 前段 / spirit_realm_rise / ascension_flow"
+        }
+      ],
+      "post_arrival": [
+        "tianyuan_garrison_register",
+        "adapt_spirit_qi"
+      ],
+      "cannot": [
+        "bring_entire_sect_without_rules",
+        "return_main_body_freely"
+      ]
+    },
+    {
+      "id": "tianyuan_avatar_to_mortal",
+      "display": "天渊/灵界 → 人界（分身下界）",
+      "from_dim": "seeking_immortals:tianyuan",
+      "to_dim": "seeking_immortals:mortal_world",
+      "methods": [
+        {
+          "method": "avatar_descent",
+          "realm_min": "VOID_REFINEMENT",
+          "body": "weaker_clone",
+          "main_body_stays": "spirit_realm",
+          "purpose": [
+            "inheritance",
+            "resource",
+            "avoid_some_affairs"
+          ],
+          "risk": "clone_death_no_main_death",
+          "cooldown": "long"
+        }
+      ],
+      "note": "本体不回；与 travel_matrix avatar_descent_clone 一致"
+    },
+    {
+      "id": "tianyuan_to_fengyuan",
+      "display": "天渊城 → 灵界风元大陆",
+      "from_dim": "seeking_immortals:tianyuan",
+      "to_dim": "seeking_immortals:spirit_fengyuan",
+      "methods": [
+        {
+          "method": "regulated_portal",
+          "gate": "tianyuan_to_spirit_fengyuan",
+          "realm_min": "VOID_REFINEMENT",
+          "fee_contribution": 500,
+          "faction": "tianyuan_garrison",
+          "nodes": [
+            "gate_tianyuan_to_fengyuan"
+          ]
+        },
+        {
+          "method": "military_escort",
+          "need": "tianyuan_enlist",
+          "fee_reduced": true
+        }
+      ],
+      "return_methods": [
+        {
+          "method": "regulated_portal",
+          "fee_contribution": 300,
+          "note": "回城较便宜"
+        }
+      ]
+    },
+    {
+      "id": "spirit_fengyuan_internal",
+      "display": "灵界风元内部/地标",
+      "from_dim": "seeking_immortals:spirit_fengyuan",
+      "to_dim": "seeking_immortals:spirit_fengyuan",
+      "methods": [
+        {
+          "method": "fixed_teleport_array",
+          "note": "天渊驻军/大族阵网"
+        },
+        {
+          "method": "flying_boat",
+          "realm_min": "VOID_REFINEMENT"
+        },
+        {
+          "method": "quest_landmark",
+          "targets": [
+            "jiuxian_mount",
+            "diyuan_edge",
+            "guanghan_route"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spirit_to_diyuan",
+      "display": "灵界 → 地渊",
+      "from_dim": "seeking_immortals:spirit_fengyuan",
+      "to_region": "diyuan",
+      "methods": [
+        {
+          "method": "trial_gate",
+          "structure": "asura_trial_ring",
+          "need": [
+            "challenge_token_or_quest"
+          ]
+        },
+        {
+          "method": "scout_mission",
+          "quest": "diyuan_scout / spirit_realm_rise"
+        },
+        {
+          "method": "forced_descent",
+          "risk": "asura_beasts"
+        }
+      ],
+      "return_methods": [
+        {
+          "method": "survival_extract",
+          "note": "活着走出或任务完成传送"
+        }
+      ]
+    },
+    {
+      "id": "spirit_to_guanghan",
+      "display": "灵界 → 广寒相关",
+      "from_dim": "seeking_immortals:spirit_fengyuan",
+      "to_region": "guanghan",
+      "methods": [
+        {
+          "method": "seclusion_permit",
+          "quest": "jiuxian_seclusion_permit"
+        },
+        {
+          "method": "star_map_insight",
+          "method_ref": "guanghan_star_map_art",
+          "realm_min": "VOID_REFINEMENT"
+        },
+        {
+          "method": "faction_invite",
+          "note": "灵族/广寒机缘"
+        }
+      ]
+    },
+    {
+      "id": "spirit_to_immortal",
+      "display": "灵界/大乘 → 仙界",
+      "from_dim": [
+        "seeking_immortals:spirit_fengyuan",
+        "seeking_immortals:tianyuan"
+      ],
+      "to_dim": "seeking_immortals:immortal_realm",
+      "methods": [
+        {
+          "method": "great_vehicle_ascension",
+          "realm_min": "GREAT_VEHICLE",
+          "requires": [
+            "great_vehicle_tribulation_or_law_threshold",
+            "ascension_flow.great_vehicle_ascension"
+          ],
+          "note": "第二次跨界面飞升气质；落地 TRUE_IMMORTAL"
+        },
+        {
+          "method": "immortal_recruit_exception",
+          "note": "剧情特例/仙使接引",
+          "rarity": "rare"
+        }
+      ],
+      "post_arrival": [
+        "true_immortal_status",
+        "xianjie_map_unlock",
+        "choose_first_camp"
+      ],
+      "quest_ref": "xianjie_ascension_path / xianjie_quest_chains_v130",
+      "gates_ref": "xianjie_reputation_and_gates_v130.json"
+    },
+    {
+      "id": "immortal_internal",
+      "display": "仙界内部城域",
+      "from_dim": "seeking_immortals:immortal_realm",
+      "to_dim": "seeking_immortals:immortal_realm",
+      "methods": [
+        {
+          "method": "immortal_grand_array",
+          "structure": "immortal_teleport_grand_array",
+          "cost": {
+            "immortal_spirit_stone": [
+              1,
+              20
+            ]
+          },
+          "realm_min": "TRUE_IMMORTAL",
+          "need": [
+            "permission_or_uncontested"
+          ]
+        },
+        {
+          "method": "law_space_step",
+          "method_req": "void_immortal_space_art",
+          "realm_min": "GOLDEN_IMMORTAL"
+        },
+        {
+          "method": "heifeng_sail",
+          "structure_region": "heifeng_sea",
+          "method_req": "heifeng_sea_art"
+        },
+        {
+          "method": "faction_portal",
+          "examples": [
+            "zhenyan_men",
+            "heavenly_court",
+            "reincarnation_hall"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "immortal_to_gray",
+      "display": "仙界 → 灰界边境",
+      "from_dim": "seeking_immortals:immortal_realm",
+      "to_region": "gray_realm",
+      "methods": [
+        {
+          "method": "gray_border_expedition",
+          "need": [
+            "rep_or_quest"
+          ],
+          "risk": "high",
+          "method_help": "gray_realm_nether_art"
+        },
+        {
+          "method": "forbidden_smuggle",
+          "rep_hit": "rep_heavenly_court-"
+        }
+      ],
+      "return_methods": [
+        {
+          "method": "nether_escape",
+          "quest": "heifeng_and_gray"
+        }
+      ]
+    },
+    {
+      "id": "immortal_no_free_return",
+      "display": "仙界 → 灵界/人界",
+      "from_dim": "seeking_immortals:immortal_realm",
+      "to_dim": [
+        "seeking_immortals:spirit_fengyuan",
+        "seeking_immortals:mortal_world"
+      ],
+      "methods": [
+        {
+          "method": "not_freely_available",
+          "note": "默认不开放本体自由下界"
+        },
+        {
+          "method": "avatar_or_incarnation_story",
+          "rarity": "endgame_story",
+          "realm_min": "DALUO_GOLDEN_IMMORTAL",
+          "risk": "law_backlash",
+          "note": "剧情/道祖窥影级特例，防烂大街"
+        }
+      ],
+      "design_intent": "保持飞升重量，避免仙界随时回人界刷资源"
+    }
+  ],
+  "requirement_checklist": {
+    "always_check": [
+      "from_dim_match",
+      "realm_min",
+      "item_or_token",
+      "rep_or_permit",
+      "event_window",
+      "not_in_combat_lock"
+    ],
+    "cost_types": [
+      "spirit_stone_low/mid/high",
+      "immortal_spirit_stone",
+      "contribution",
+      "quest_flag",
+      "tribulation",
+      "clone_risk",
+      "time_days"
+    ],
+    "common_failures": [
+      {
+        "id": "insufficient_realm",
+        "result": "reject_or_lethal_pressure"
+      },
+      {
+        "id": "no_permit",
+        "result": "reject_or_guards"
+      },
+      {
+        "id": "array_damaged",
+        "result": "seq_repair_race_or_backlash",
+        "ref": "v134/v135 multiblock states"
+      },
+      {
+        "id": "mid_teleport_interrupt",
+        "result": "spatial_backlash",
+        "ref": "seq_teleport_interrupt"
+      },
+      {
+        "id": "ascension_fail",
+        "result": "death_cripple_demonize"
+      },
+      {
+        "id": "yin_overstay",
+        "result": "eject_or_ghost_transform_risk"
+      },
+      {
+        "id": "rift_collapse",
+        "result": "eject_with_loot_rules"
+      }
+    ]
+  },
+  "quick_path_summary": [
+    {
+      "goal": "天南各宗",
+      "how": "遁光/短距传送阵+令"
+    },
+    {
+      "goal": "乱星海",
+      "how": "海船或远程阵；岛际星宫门/逆星暗港"
+    },
+    {
+      "goal": "大晋/昆吾",
+      "how": "关隘令、拍卖线、高阶飞舟"
+    },
+    {
+      "goal": "慕兰",
+      "how": "边关传送/任务；战时封锁"
+    },
+    {
+      "goal": "血色禁地等秘境",
+      "how": "令牌+开放窗口+入口结构"
+    },
+    {
+      "goal": "阴司冥河",
+      "how": "鬼道功法/祭坛/任务，非人人可进"
+    },
+    {
+      "goal": "魔隙",
+      "how": "事件裂隙，限时"
+    },
+    {
+      "goal": "天渊城",
+      "how": "化神渡劫成功→飞升通道（本体单向）"
+    },
+    {
+      "goal": "风元大陆",
+      "how": "天渊管制门+贡献费"
+    },
+    {
+      "goal": "地渊/广寒",
+      "how": "灵界内试炼/许可/机缘"
+    },
+    {
+      "goal": "仙界",
+      "how": "大乘级再飞升或特例接引"
+    },
+    {
+      "goal": "仙界城际",
+      "how": "仙界传送大阵/空间法则/黑风海航"
+    },
+    {
+      "goal": "回人界",
+      "how": "灵界后仅分身下界；仙界默认不可自由回"
+    }
+  ],
+  "structure_links": {
+    "teleport_array_pedestal": [
+      "mortal_intra",
+      "hub_links"
+    ],
+    "star_palace_teleport_gate": [
+      "chaotic_sea"
+    ],
+    "inverse_star_smuggle_dock": [
+      "chaotic_sea_black"
+    ],
+    "immortal_teleport_grand_array": [
+      "immortal_internal"
+    ],
+    "tribulation_platform": [
+      "ascension_help"
+    ],
+    "blood_forbidden_entry_stele": [
+      "secret_blood"
+    ],
+    "blood_forbidden_exit_array": [
+      "secret_blood_exit"
+    ],
+    "xutian_palace_gate_fragment": [
+      "secret_xutian"
+    ],
+    "xutian_key_socket": [
+      "secret_xutian"
+    ],
+    "fallen_demon_rift": [
+      "demon_rift"
+    ],
+    "yinyang_cave_gate": [
+      "secret_yinyang"
+    ],
+    "kunwu_seal_hall": [
+      "secret_kunwu"
+    ],
+    "asura_trial_ring": [
+      "diyuan"
+    ],
+    "soul_banner_altar": [
+      "yin_access"
+    ],
+    "cave_dwelling_core": [
+      "not_dimension_but_home_bind"
+    ]
+  },
+  "crossref": {
+    "dimensions_catalog": "dimensions_catalog.json",
+    "dimension_registry": "dimension_registry.json",
+    "travel_routes": "travel_routes_v102.json",
+    "spatial_nodes": "spatial_nodes_catalog.json",
+    "ascension_flow": "ascension_flow.json",
+    "spirit_realm_interface": "spirit_realm_interface.json",
+    "immortal_realms": "immortal_realms_v130.json",
+    "xianjie_gates": "xianjie_reputation_and_gates_v130.json",
+    "xianjie_quests": "xianjie_quest_chains_v130.json",
+    "multiblock_teleport": "block_items_catalog.json",
+    "multiplayer_teleport_interrupt": "multiblock_multiplayer_sequences_v135.json#seq_teleport_interrupt"
+  },
+  "costs_ref": "dimension_travel_costs_v137.json",
+  "opening_paths_ref": "opening_starts_and_paths_v137.json",
+  "region_structures_ref": "region_structure_presence_v137.json"
+}

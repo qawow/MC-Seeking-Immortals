@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v129",
+  "items": [
+    {
+      "id": "v129_done",
+      "display": "收口审计",
+      "type": "meta",
+      "description": "人界–灵界可玩闭环完成；仙界为后续扩展"
+    }
+  ]
+}

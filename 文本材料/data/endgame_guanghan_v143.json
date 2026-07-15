@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "source": "v143 广寒界终局钩子加深（贴原著，非全文真仙战）",
+  "disclaimer": "可玩终局向；炼神术 unique；不展开真仙全战力；禁止开局继承全抄。",
+  "id": "guanghan_realm",
+  "display": "广寒界",
+  "parent_dimension": "seeking_immortals:spirit_fengyuan",
+  "realm_band": [
+    "VOID_REFINEMENT",
+    "BODY_INTEGRATION",
+    "MAHAYANA_gate"
+  ],
+  "entry_ref": {
+    "need": [
+      "界面令/机缘",
+      "炼虚以上生存",
+      "神识底子"
+    ],
+    "from": "天渊/灵界枢纽",
+    "blockers": [
+      "无界面资格",
+      "神识过弱",
+      "真仙威压未解"
+    ]
+  },
+  "novel_anchor": "广寒：炼神术、太乙青山、虚灵丹；真仙战仅钩子；合体冲击相关",
+  "canon_notes": [
+    "炼神术 unique，开局/周目禁止全抄导致经济与神识崩",
+    "虚灵丹合体关键，稀缺任务/功勋向",
+    "真仙威压为环境/事件，不做成可刷野怪",
+    "与马良等冲突作权重事件，非强制玩家=韩立"
+  ],
+  "depth_model": "赴广寒途→界内考校→核心机缘→（可选）真仙威压事件→合体冲击准备",
+  "layers": [
+    {
+      "id": "gh_approach",
+      "display": "赴广寒途",
+      "threat": [
+        6,
+        7
+      ],
+      "structures": [
+        {
+          "id": "teleport_array_pedestal",
+          "role": "界面跳板",
+          "pos": "hub"
+        },
+        {
+          "id": "ice_crystal_cooler",
+          "role": "寒域适应",
+          "pos": "camp"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "guanghan_road_ice_spirit",
+          "display": "guanghan_road_ice_spirit"
+        },
+        {
+          "id": "void_mite",
+          "display": "void_mite"
+        },
+        {
+          "id": "interface_rift_beast",
+          "display": "interface_rift_beast"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "ice_po_crystal",
+          "chance": 0.35
+        },
+        {
+          "table": "space_dust",
+          "chance": 0.25
+        },
+        {
+          "table": "han_sui_si",
+          "chance": 0.2
+        }
+      ],
+      "boss": null,
+      "map_hint": "途",
+      "notes": [
+        "旅行层，火道有优（对冲寒）"
+      ],
+      "novel_anchor": "赴广寒途"
+    },
+    {
+      "id": "gh_inner",
+      "display": "广寒界内",
+      "threat": [
+        7,
+        8
+      ],
+      "structures": [
+        {
+          "id": "meditation_chamber",
+          "role": "考校静室意象",
+          "pos": "palace"
+        },
+        {
+          "id": "scripture_pavilion_shelf",
+          "role": "残典架",
+          "pos": "side"
+        },
+        {
+          "id": "spirit_gathering_array",
+          "role": "寒域聚灵",
+          "pos": "court"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "ice_palace_guard_spirit",
+          "display": "ice_palace_guard_spirit"
+        },
+        {
+          "id": "ancient_array_echo",
+          "display": "ancient_array_echo"
+        },
+        {
+          "id": "trial_spirit",
+          "display": "trial_spirit"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "lian_shen_shu",
+          "chance": "unique_quest",
+          "unique": true
+        },
+        {
+          "table": "tai_yi_qing_shan_clue",
+          "chance": 0.1
+        },
+        {
+          "table": "xu_ling_dan",
+          "chance": "scarce_quest"
+        },
+        {
+          "table": "jin_zhuan_wen",
+          "chance": 0.15
+        }
+      ],
+      "boss": null,
+      "map_hint": "界内",
+      "notes": [
+        "炼神术 unique",
+        "虚灵丹 scarce"
+      ],
+      "novel_anchor": "广寒核心机缘"
+    },
+    {
+      "id": "gh_true_immortal_pressure",
+      "display": "真仙威压事件层（钩子）",
+      "threat": [
+        9,
+        11
+      ],
+      "structures": [
+        {
+          "id": "immortal_teleport_grand_array",
+          "role": "撤离/界面锁",
+          "pos": "edge"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "true_immortal_pressure_event",
+          "display": "true_immortal_pressure_event"
+        },
+        {
+          "id": "not_farmable_boss",
+          "display": "not_farmable_boss"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "survival_flag",
+          "chance": "event"
+        },
+        {
+          "table": "maliang_weight_optional",
+          "chance": "weight"
+        }
+      ],
+      "boss": {
+        "id": "true_immortal_pressure",
+        "display": "真仙威压/事件",
+        "farmable": false
+      },
+      "map_hint": "事件",
+      "notes": [
+        "不可野刷真仙",
+        "马良等为权重",
+        "以存活/撤离/契约为结算"
+      ],
+      "novel_anchor": "真仙战钩子——不做成普通Boss战"
+    },
+    {
+      "id": "gh_integration_prep",
+      "display": "合体冲击准备",
+      "threat": [
+        0,
+        0
+      ],
+      "structures": [
+        {
+          "id": "cave_dwelling_core",
+          "role": "稳固洞天",
+          "pos": "home"
+        },
+        {
+          "id": "pill_cabinet",
+          "role": "虚灵丹储",
+          "pos": "home"
+        }
+      ],
+      "spawns": [],
+      "loot_tables": [
+        {
+          "table": "body_integration_attempt",
+          "chance": "breakthrough"
+        }
+      ],
+      "boss": null,
+      "map_hint": "界外准备",
+      "notes": [
+        "需虚灵丹+洗灵+洞天",
+        "失败重伤"
+      ],
+      "novel_anchor": "合体冲击"
+    }
+  ],
+  "key_items_enriched": [
+    {
+      "id": "lian_shen_shu",
+      "display": "炼神术",
+      "unique": true,
+      "no_trade": true,
+      "description": "广寒核心神识质变功法/秘术。层数结构；禁止开局继承完整版与商店直售，防神识经济崩盘。"
+    },
+    {
+      "id": "tai_yi_qing_shan",
+      "display": "太乙青山",
+      "scarce": true,
+      "description": "洞天/山体类至宝结构。改变洞府上限与合体根基叙事。"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "scarce": true,
+      "merit_or_quest": true,
+      "description": "合体关键丹。无公开坊市无限货；广寒/功勋/高阶任务。"
+    },
+    {
+      "id": "jin_zhuan_wen",
+      "display": "金篆文",
+      "scarce": true,
+      "description": "高阶典籍/符文线索，可接法则或真言旁支。"
+    }
+  ],
+  "quest_chain": {
+    "id": "guanghan_endgame_path",
+    "display": "广寒终局路",
+    "realm_span": [
+      "VOID_REFINEMENT",
+      "BODY_INTEGRATION"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "do": "在天渊/风元取得界面令或机缘资格",
+        "novel": "界面资格"
+      },
+      {
+        "step": 2,
+        "do": "赴广寒途：寒域适应、路途妖物",
+        "place": "gh_approach"
+      },
+      {
+        "step": 3,
+        "do": "界内考校，争炼神术资格（unique）",
+        "place": "gh_inner",
+        "unique": "lian_shen_shu"
+      },
+      {
+        "step": 4,
+        "do": "可选：真仙威压事件求生/契约/撤离",
+        "optional": true,
+        "place": "gh_true_immortal_pressure"
+      },
+      {
+        "step": 5,
+        "do": "持虚灵丹等冲击合体",
+        "place": "gh_integration_prep",
+        "pill": "xu_ling_dan"
+      }
+    ],
+    "rewards_finale": {
+      "possible": [
+        "lian_shen_shu_unique",
+        "xu_ling_dan",
+        "integration_success_flag"
+      ]
+    },
+    "no_pity": [
+      "lian_shen_shu",
+      "full_true_immortal_loot"
+    ]
+  },
+  "source_ref": "secret_realm_guanghan_maliang_v106.json",
+  "rewards_detail_ref": "endgame_reward_tables_v144.json#guanghan",
+  "v144": true
+}

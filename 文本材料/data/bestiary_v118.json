@@ -1,0 +1,3084 @@
+{
+  "schema_version": 1,
+  "source": "v118 原包兽+NPC 外貌视觉",
+  "creatures": [
+    {
+      "id": "vis_beast_twin_pupil_rat",
+      "catalog_id": "twin_pupil_rat",
+      "display": "双瞳鼠（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「双瞳鼠」：双瞳看穿迷雾，喜灵浓处筑窝。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 neutral",
+      "weakness": [
+        "fire_noise"
+      ],
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】双瞳鼠。体态：依名「双瞳鼠」：双瞳看穿迷雾，喜灵浓处筑窝。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 neutral。原摘要：双瞳看穿迷雾，喜灵浓处筑窝。。战法：辅助探路。栖息：灵脉洞窟。弱点：['fire_noise']。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_red_leopard_beast",
+      "catalog_id": "red_leopard_beast",
+      "display": "红狸兽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「红狸兽」：敏捷、嗅觉超常。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 wood",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】红狸兽。体态：依名「红狸兽」：敏捷、嗅觉超常。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 wood。原摘要：敏捷、嗅觉超常。。战法：敏捷、嗅觉超常。。栖息：tiannan,forest。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_fire_horn_deer",
+      "catalog_id": "fire_horn_deer",
+      "display": "炙角鹿（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「炙角鹿」：火红独角。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】炙角鹿。体态：依名「炙角鹿」：火红独角。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 fire。原摘要：火红独角。。战法：火红独角。。栖息：tiannan,hills。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_wind_screech_hawk",
+      "catalog_id": "wind_screech_hawk",
+      "display": "风啸鹰（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "翼展夸张，羽有金属或火焰光泽",
+      "movement": "盘旋俯冲",
+      "aura_vfx": "风火或圣辉；元素倾向 wind",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】风啸鹰。体态：翼展夸张，羽有金属或火焰光泽。行动：盘旋俯冲。气场特效：风火或圣辉；元素倾向 wind。原摘要：驯养放哨侦察。。战法：风刃俯冲。栖息：None。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_scent_spirit_beast",
+      "catalog_id": "scent_spirit_beast",
+      "display": "嗅灵兽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「嗅灵兽」：查违禁物品。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 neutral",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】嗅灵兽。体态：依名「嗅灵兽」：查违禁物品。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 neutral。原摘要：查违禁物品。。战法：嗅探灵药。栖息：药园山林。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_giant_centipede",
+      "catalog_id": "giant_centipede",
+      "display": "巨型蜈蚣（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 poison",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】巨型蜈蚣。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 poison。原摘要：黑色甲壳。。战法：黑色甲壳。。栖息：tiannan,caves。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_ink_flood_dragon",
+      "catalog_id": "ink_flood_dragon",
+      "display": "墨蛟（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气",
+      "movement": "水/云中折行，尾扫成浪",
+      "aura_vfx": "水压或雷火环绕；元素倾向 water",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】墨蛟。体态：修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气。行动：水/云中折行，尾扫成浪。气场特效：水压或雷火环绕；元素倾向 water。原摘要：低阶蛟形。。战法：低阶蛟形。。栖息：tiannan,river。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_heart_bore_worm",
+      "catalog_id": "heart_bore_worm",
+      "display": "钻心虫（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 yin",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】钻心虫。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 yin。原摘要：沿血脉钻心。。战法：沿血脉钻心。。栖息：tiannan,demonic。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_fire_crow",
+      "catalog_id": "fire_crow",
+      "display": "火鸦（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "翼展夸张，羽有金属或火焰光泽",
+      "movement": "盘旋俯冲",
+      "aura_vfx": "风火或圣辉；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】火鸦。体态：翼展夸张，羽有金属或火焰光泽。行动：盘旋俯冲。气场特效：风火或圣辉；元素倾向 fire。原摘要：火属性远程。。战法：火属性远程。。栖息：tiannan,volcano。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_green_vine_demon",
+      "catalog_id": "green_vine_demon",
+      "display": "青木妖藤（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「青木妖藤」：束缚毒回血。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 wood",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】青木妖藤。体态：依名「青木妖藤」：束缚毒回血。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 wood。原摘要：束缚毒回血。。战法：束缚毒回血。。栖息：tiannan,jungle。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_mystic_water_turtle",
+      "catalog_id": "mystic_water_turtle",
+      "display": "玄水龟（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "巨甲如丘，纹路如阵",
+      "movement": "迟重，缩首时甲合",
+      "aura_vfx": "水波护体；元素倾向 water",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】玄水龟。体态：巨甲如丘，纹路如阵。行动：迟重，缩首时甲合。气场特效：水波护体；元素倾向 water。原摘要：高防水系控制。。战法：高防水系控制。。栖息：chaotic_sea,tiannan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_thunder_horn_tiger",
+      "catalog_id": "thunder_horn_tiger",
+      "display": "雷角虎（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "大型猫科骨架，肩肌贲起，目如灯",
+      "movement": "箭步无声，扑杀带风",
+      "aura_vfx": "兽王压感；元素倾向 thunder",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】雷角虎。体态：大型猫科骨架，肩肌贲起，目如灯。行动：箭步无声，扑杀带风。气场特效：兽王压感；元素倾向 thunder。原摘要：冲锋雷击。。战法：冲锋雷击。。栖息：tiannan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_demon_core_bear",
+      "catalog_id": "demon_core_bear",
+      "display": "妖丹熊（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「妖丹熊」：结丹初，体内结妖丹。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 earth",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】妖丹熊。体态：依名「妖丹熊」：结丹初，体内结妖丹。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 earth。原摘要：结丹初，体内结妖丹。。战法：结丹初，体内结妖丹。。栖息：tiannan,mountain。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_baby_carp_demon",
+      "catalog_id": "baby_carp_demon",
+      "display": "婴鲤兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「婴鲤兽」：娃娃脸鱼尾，水罡神雷。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 water",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】婴鲤兽。体态：依名「婴鲤兽」：娃娃脸鱼尾，水罡神雷。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 water。原摘要：娃娃脸鱼尾，水罡神雷。。战法：娃娃脸鱼尾，水罡神雷。。栖息：chaotic_sea。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_ice_soul_serpent",
+      "catalog_id": "ice_soul_serpent",
+      "display": "冰魄蛇（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 ice",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】冰魄蛇。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 ice。原摘要：冰冻毒。。战法：冰冻毒。。栖息：tiannan,snow。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_spirit_fox",
+      "catalog_id": "spirit_fox",
+      "display": "灵狐（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "狐形修美，尾数可见，毛尖灵光",
+      "movement": "似幻似真的踱步",
+      "aura_vfx": "迷雾与叠影；元素倾向 illusion",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】灵狐。体态：狐形修美，尾数可见，毛尖灵光。行动：似幻似真的踱步。气场特效：迷雾与叠影；元素倾向 illusion。原摘要：幻术闪避可驯服。。战法：幻术干扰。栖息：None。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_shape_shift_trial_beast",
+      "catalog_id": "shape_shift_trial_beast",
+      "display": "化形试炼兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「化形试炼兽」：七级渡劫化形模板。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 mixed",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】化形试炼兽。体态：依名「化形试炼兽」：七级渡劫化形模板。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 mixed。原摘要：七级渡劫化形模板。。战法：七级渡劫化形模板。。栖息：global。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_thunder_jiao",
+      "catalog_id": "thunder_jiao",
+      "display": "雷劫蛟（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气",
+      "movement": "水/云中折行，尾扫成浪",
+      "aura_vfx": "水压或雷火环绕；元素倾向 thunder",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】雷劫蛟。体态：修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气。行动：水/云中折行，尾扫成浪。气场特效：水压或雷火环绕；元素倾向 thunder。原摘要：雷暴秘境Boss雏形。。战法：雷水双系。栖息：None。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_silver_wing_yaksha",
+      "catalog_id": "silver_wing_yaksha",
+      "display": "银翅夜叉（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「银翅夜叉」：炼尸/妖 hybrid，风土遁幻术。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 yin",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】银翅夜叉。体态：依名「银翅夜叉」：炼尸/妖 hybrid，风土遁幻术。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 yin。原摘要：炼尸/妖 hybrid，风土遁幻术。。战法：炼尸/妖 hybrid，风土遁幻术。。栖息：tiannan,zhuimo。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_wind_split_beast",
+      "catalog_id": "wind_split_beast",
+      "display": "裂风兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「裂风兽」：妖王级，学人族技术。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 wind",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】裂风兽。体态：依名「裂风兽」：妖王级，学人族技术。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 wind。原摘要：妖王级，学人族技术。。战法：妖王级，学人族技术。。栖息：chaotic_sea。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_earth_armor_dragon",
+      "catalog_id": "earth_armor_dragon",
+      "display": "土甲龙（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气",
+      "movement": "水/云中折行，尾扫成浪",
+      "aura_vfx": "水压或雷火环绕；元素倾向 earth",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】土甲龙。体态：修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气。行动：水/云中折行，尾扫成浪。气场特效：水压或雷火环绕；元素倾向 earth。原摘要：寻宝天赋。。战法：寻宝天赋。。栖息：dajin,caves。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_fire_jiao_adult",
+      "catalog_id": "fire_jiao_adult",
+      "display": "离火蛟（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气",
+      "movement": "水/云中折行，尾扫成浪",
+      "aura_vfx": "水压或雷火环绕；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】离火蛟。体态：修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气。行动：水/云中折行，尾扫成浪。气场特效：水压或雷火环绕；元素倾向 fire。原摘要：海域蛟龙。。战法：海域蛟龙。。栖息：chaotic_sea,ocean。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_suanni_beast",
+      "catalog_id": "suanni_beast",
+      "display": "狻猊兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「狻猊兽」：上古兽形。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】狻猊兽。体态：依名「狻猊兽」：上古兽形。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 fire。原摘要：上古兽形。。战法：上古兽形。。栖息：dajin。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_four_ear_gold_ape",
+      "catalog_id": "four_ear_gold_ape",
+      "display": "四耳金猿（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "长臂金毛或巨猿，面有智光",
+      "movement": "荡跃砸地",
+      "aura_vfx": "力场震尘；元素倾向 metal",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】四耳金猿。体态：长臂金毛或巨猿，面有智光。行动：荡跃砸地。气场特效：力场震尘；元素倾向 metal。原摘要：金黄巨猴凶恶。。战法：金黄巨猴凶恶。。栖息：dajin,kunwu。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_gold_body_moon_corpse",
+      "catalog_id": "gold_body_moon_corpse",
+      "display": "金身月尸（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "干尸或金身皮相，关节反常",
+      "movement": "瞬步金遁式滑移",
+      "aura_vfx": "阴风与尸臭光粒；元素倾向 metal",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】金身月尸。体态：干尸或金身皮相，关节反常。行动：瞬步金遁式滑移。气场特效：阴风与尸臭光粒；元素倾向 metal。原摘要：人界顶阶炼尸，金遁。。战法：人界顶阶炼尸，金遁。。栖息：tiannan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_six_wing_frost_centipede",
+      "catalog_id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 ice",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】六翼霜蚣。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 ice。原摘要：冰龙血统灵虫。。战法：冰龙血统灵虫。。栖息：spirit_realm,ancient。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_leopard_qilin_beast",
+      "catalog_id": "leopard_qilin_beast",
+      "display": "豹麟兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "大型猫科骨架，肩肌贲起，目如灯",
+      "movement": "箭步无声，扑杀带风",
+      "aura_vfx": "兽王压感；元素倾向 mixed",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】豹麟兽。体态：大型猫科骨架，肩肌贲起，目如灯。行动：箭步无声，扑杀带风。气场特效：兽王压感；元素倾向 mixed。原摘要：麒麟血脉，元婴实力幼体。。战法：麒麟血脉，元婴实力幼体。。栖息：spirit_realm。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_mirage_sand_beast",
+      "catalog_id": "mirage_sand_beast",
+      "display": "蜃兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「蜃兽」：双蛇首蛙身，幻化。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 illusion",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】蜃兽。体态：依名「蜃兽」：双蛇首蛙身，幻化。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 illusion。原摘要：双蛇首蛙身，幻化。。战法：双蛇首蛙身，幻化。。栖息：chaotic_sea,desert。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_sky_tiger_beast",
+      "catalog_id": "sky_tiger_beast",
+      "display": "天虎兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "大型猫科骨架，肩肌贲起，目如灯",
+      "movement": "箭步无声，扑杀带风",
+      "aura_vfx": "兽王压感；元素倾向 earth_wind",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】天虎兽。体态：大型猫科骨架，肩肌贲起，目如灯。行动：箭步无声，扑杀带风。气场特效：兽王压感；元素倾向 earth_wind。原摘要：土风法术瞬移。。战法：土风法术瞬移。。栖息：mulan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_holy_peacock",
+      "catalog_id": "holy_peacock",
+      "display": "圣禽（青孔雀）（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "翼展夸张，羽有金属或火焰光泽",
+      "movement": "盘旋俯冲",
+      "aura_vfx": "风火或圣辉；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】圣禽（青孔雀）。体态：翼展夸张，羽有金属或火焰光泽。行动：盘旋俯冲。气场特效：风火或圣辉；元素倾向 fire。原摘要：慕兰供奉，妖火。。战法：慕兰供奉，妖火。。栖息：mulan,spirit_realm。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "泣魂兽（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「泣魂兽」：冥河阴兽，啼哭可乱人心神，常伴尸气。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 yin",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】泣魂兽。体态：依名「泣魂兽」：冥河阴兽，啼哭可乱人心神，常伴尸气。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 yin。原摘要：冥河阴兽，啼哭可乱人心神，常伴尸气。。战法：冥河阴兽，啼哭可乱人心神，常伴尸气。。栖息：nether_river。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】幻焰蛾。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 fire。原摘要：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。战法：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。栖息：fallen_demon_valley。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_gold_devour_beetle",
+      "catalog_id": "gold_devour_beetle",
+      "display": "噬金虫（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 metal",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】噬金虫。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 metal。原摘要：啃噬五金法宝灵光，群居奇虫。。战法：虫群啃宝。栖息：None。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_soul_weeping_beast",
+      "catalog_id": "soul_weeping_beast",
+      "display": "啼魂兽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「啼魂兽」：尖啸伤魂，对鬼物克制极强。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 yin",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】啼魂兽。体态：依名「啼魂兽」：尖啸伤魂，对鬼物克制极强。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 yin。原摘要：尖啸伤魂，对鬼物克制极强。。战法：神魂尖啸。栖息：None。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_mountain_giant_ape",
+      "catalog_id": "mountain_giant_ape",
+      "display": "山岳巨猿（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "长臂金毛或巨猿，面有智光",
+      "movement": "荡跃砸地",
+      "aura_vfx": "力场震尘；元素倾向 earth",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】山岳巨猿。体态：长臂金毛或巨猿，面有智光。行动：荡跃砸地。气场特效：力场震尘；元素倾向 earth。原摘要：力大无穷，可化形前兆。。战法：力大无穷，可化形前兆。。栖息：barbarian_wasteland。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_blood_jiao",
+      "catalog_id": "blood_jiao",
+      "display": "血蛟（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气",
+      "movement": "水/云中折行，尾扫成浪",
+      "aura_vfx": "水压或雷火环绕；元素倾向 water",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】血蛟。体态：修长蜿体，鳞片层叠反光，四爪或无爪视阶，须眉杀气。行动：水/云中折行，尾扫成浪。气场特效：水压或雷火环绕；元素倾向 water。原摘要：海域凶蛟，妖丹珍贵。。战法：海域凶蛟，妖丹珍贵。。栖息：chaotic_sea。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_three_tailed_fox",
+      "catalog_id": "three_tailed_fox",
+      "display": "三尾妖狐（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "狐形修美，尾数可见，毛尖灵光",
+      "movement": "似幻似真的踱步",
+      "aura_vfx": "迷雾与叠影；元素倾向 illusion",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】三尾妖狐。体态：狐形修美，尾数可见，毛尖灵光。行动：似幻似真的踱步。气场特效：迷雾与叠影；元素倾向 illusion。原摘要：擅幻术，灵狐一脉。。战法：擅幻术，灵狐一脉。。栖息：tiannan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_iron_lion_beast",
+      "catalog_id": "iron_lion_beast",
+      "display": "铁甲狮兽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "大型猫科骨架，肩肌贲起，目如灯",
+      "movement": "箭步无声，扑杀带风",
+      "aura_vfx": "兽王压感；元素倾向 metal",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】铁甲狮兽。体态：大型猫科骨架，肩肌贲起，目如灯。行动：箭步无声，扑杀带风。气场特效：兽王压感；元素倾向 metal。原摘要：体修型妖兽，皮糙肉厚。。战法：体修型妖兽，皮糙肉厚。。栖息：tiannan。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_cloud_silk_spider",
+      "catalog_id": "cloud_silk_spider",
+      "display": "云丝蛛（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "节肢或蜿体，甲壳/鳞粉/复眼细节清晰",
+      "movement": "贴地或短飞，轨迹诡异",
+      "aura_vfx": "毒雾或丝线反光；元素倾向 wood",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】云丝蛛。体态：节肢或蜿体，甲壳/鳞粉/复眼细节清晰。行动：贴地或短飞，轨迹诡异。气场特效：毒雾或丝线反光；元素倾向 wood。原摘要：吐丝缚敌，可炼蛛丝材料。。战法：吐丝缚敌，可炼蛛丝材料。。栖息：caves。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_flame_salamander",
+      "catalog_id": "flame_salamander",
+      "display": "火蜥兽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「火蜥兽」：火系低阶妖兽，内丹可入药。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 fire",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】火蜥兽。体态：依名「火蜥兽」：火系低阶妖兽，内丹可入药。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 fire。原摘要：火系低阶妖兽，内丹可入药。。战法：火系低阶妖兽，内丹可入药。。栖息：volcano。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_ice_phoenix_chick",
+      "catalog_id": "ice_phoenix_chick",
+      "display": "冰凤幼禽（外貌·战斗视觉）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "翼展夸张，羽有金属或火焰光泽",
+      "movement": "盘旋俯冲",
+      "aura_vfx": "风火或圣辉；元素倾向 ice",
+      "weakness": null,
+      "threat": 3,
+      "tameable": true,
+      "description": "【外貌·兽】冰凤幼禽。体态：翼展夸张，羽有金属或火焰光泽。行动：盘旋俯冲。气场特效：风火或圣辉；元素倾向 ice。原摘要：灵界珍禽幼体，极难驯服。。战法：灵界珍禽幼体，极难驯服。。栖息：polar。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_beast_void_mantis",
+      "catalog_id": "void_mantis",
+      "display": "虚空螳螂（外貌·战斗视觉）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v118",
+        "beast"
+      ],
+      "appearance": "依名「虚空螳螂」：灵界虫族，前肢如刃。 的具象化体态，比例略大于凡兽",
+      "movement": "警觉游走，受惊爆起",
+      "aura_vfx": "低阶灵光或妖气；元素倾向 void",
+      "weakness": null,
+      "threat": 3,
+      "tameable": false,
+      "description": "【外貌·兽】虚空螳螂。体态：依名「虚空螳螂」：灵界虫族，前肢如刃。 的具象化体态，比例略大于凡兽。行动：警觉游走，受惊爆起。气场特效：低阶灵光或妖气；元素倾向 void。原摘要：灵界虫族，前肢如刃。。战法：灵界虫族，前肢如刃。。栖息：spirit_world。弱点：None。受击：鳞/甲爆屑或毛羽飞散；死亡：妖气回旋散尽。精英/Boss：体型×1.2–2，描边仅用暗金细线。掉落表现：尸体可剥时高亮可互动物件。"
+    },
+    {
+      "id": "vis_npc_huangfeng_valley_sect_master",
+      "catalog_id": "npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_valley_great_elder",
+      "catalog_id": "npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_valley_alchemy_elder",
+      "catalog_id": "npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_valley_outer_deacon",
+      "catalog_id": "npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_valley_patrol_captain",
+      "catalog_id": "npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_sect_sect_master",
+      "catalog_id": "npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_sect_great_elder",
+      "catalog_id": "npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_sect_alchemy_elder",
+      "catalog_id": "npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_sect_outer_deacon",
+      "catalog_id": "npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_sect_patrol_captain",
+      "catalog_id": "npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_mountain_sect_master",
+      "catalog_id": "npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_mountain_great_elder",
+      "catalog_id": "npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_mountain_alchemy_elder",
+      "catalog_id": "npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_mountain_outer_deacon",
+      "catalog_id": "npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_mountain_patrol_captain",
+      "catalog_id": "npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_gate_sect_master",
+      "catalog_id": "npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_gate_great_elder",
+      "catalog_id": "npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_gate_alchemy_elder",
+      "catalog_id": "npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_gate_outer_deacon",
+      "catalog_id": "npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_gate_patrol_captain",
+      "catalog_id": "npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huadao_wu_sect_master",
+      "catalog_id": "npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】化刀坞·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huadao_wu_great_elder",
+      "catalog_id": "npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】化刀坞·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huadao_wu_alchemy_elder",
+      "catalog_id": "npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】化刀坞·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huadao_wu_outer_deacon",
+      "catalog_id": "npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】化刀坞·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huadao_wu_patrol_captain",
+      "catalog_id": "npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】化刀坞·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianque_fort_sect_master",
+      "catalog_id": "npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】天阙堡·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianque_fort_great_elder",
+      "catalog_id": "npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】天阙堡·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianque_fort_alchemy_elder",
+      "catalog_id": "npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】天阙堡·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianque_fort_outer_deacon",
+      "catalog_id": "npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】天阙堡·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianque_fort_patrol_captain",
+      "catalog_id": "npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】天阙堡·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_giant_sword_gate_sect_master",
+      "catalog_id": "npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_giant_sword_gate_great_elder",
+      "catalog_id": "npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_giant_sword_gate_alchemy_elder",
+      "catalog_id": "npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_giant_sword_gate_outer_deacon",
+      "catalog_id": "npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_giant_sword_gate_patrol_captain",
+      "catalog_id": "npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_men_sect_master",
+      "catalog_id": "npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_men_great_elder",
+      "catalog_id": "npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_men_alchemy_elder",
+      "catalog_id": "npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_men_outer_deacon",
+      "catalog_id": "npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_men_patrol_captain",
+      "catalog_id": "npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_gate_sect_master",
+      "catalog_id": "npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_gate_great_elder",
+      "catalog_id": "npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_gate_alchemy_elder",
+      "catalog_id": "npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_gate_outer_deacon",
+      "catalog_id": "npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_gate_patrol_captain",
+      "catalog_id": "npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_sect_sect_master",
+      "catalog_id": "npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_sect_great_elder",
+      "catalog_id": "npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_sect_alchemy_elder",
+      "catalog_id": "npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_sect_outer_deacon",
+      "catalog_id": "npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_sect_patrol_captain",
+      "catalog_id": "npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_moyan_gate_sect_master",
+      "catalog_id": "npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】魔焰门·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_moyan_gate_great_elder",
+      "catalog_id": "npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】魔焰门·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_moyan_gate_alchemy_elder",
+      "catalog_id": "npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】魔焰门·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_moyan_gate_outer_deacon",
+      "catalog_id": "npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】魔焰门·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_moyan_gate_patrol_captain",
+      "catalog_id": "npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】魔焰门·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tiansha_sect_sect_master",
+      "catalog_id": "npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】天煞宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tiansha_sect_great_elder",
+      "catalog_id": "npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】天煞宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tiansha_sect_alchemy_elder",
+      "catalog_id": "npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】天煞宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tiansha_sect_outer_deacon",
+      "catalog_id": "npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】天煞宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tiansha_sect_patrol_captain",
+      "catalog_id": "npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】天煞宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_sect_master",
+      "catalog_id": "npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_great_elder",
+      "catalog_id": "npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_alchemy_elder",
+      "catalog_id": "npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_outer_deacon",
+      "catalog_id": "npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_patrol_captain",
+      "catalog_id": "npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianhuan_sect_sect_master",
+      "catalog_id": "npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】千幻宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianhuan_sect_great_elder",
+      "catalog_id": "npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】千幻宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianhuan_sect_alchemy_elder",
+      "catalog_id": "npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】千幻宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianhuan_sect_outer_deacon",
+      "catalog_id": "npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】千幻宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianhuan_sect_patrol_captain",
+      "catalog_id": "npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】千幻宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_luoyun_sect_sect_master",
+      "catalog_id": "npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】落云宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_luoyun_sect_great_elder",
+      "catalog_id": "npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】落云宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_luoyun_sect_alchemy_elder",
+      "catalog_id": "npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】落云宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_luoyun_sect_outer_deacon",
+      "catalog_id": "npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】落云宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_luoyun_sect_patrol_captain",
+      "catalog_id": "npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】落云宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_sect_master",
+      "catalog_id": "npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·掌门/代掌。域：chaotic_sea。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：lawful。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_great_elder",
+      "catalog_id": "npc_star_palace_great_elder",
+      "display": "星宫·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·大长老。域：chaotic_sea。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：lawful。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_alchemy_elder",
+      "catalog_id": "npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·丹堂执事。域：chaotic_sea。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：lawful。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_outer_deacon",
+      "catalog_id": "npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·外门执事。域：chaotic_sea。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：lawful。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_patrol_captain",
+      "catalog_id": "npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·巡卫队长。域：chaotic_sea。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：lawful。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_alliance_sect_master",
+      "catalog_id": "npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星盟·掌门/代掌。域：chaotic_sea。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：rebel。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_alliance_great_elder",
+      "catalog_id": "npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星盟·大长老。域：chaotic_sea。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：rebel。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_alliance_alchemy_elder",
+      "catalog_id": "npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星盟·丹堂执事。域：chaotic_sea。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：rebel。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_alliance_outer_deacon",
+      "catalog_id": "npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星盟·外门执事。域：chaotic_sea。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：rebel。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_alliance_patrol_captain",
+      "catalog_id": "npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星盟·巡卫队长。域：chaotic_sea。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：rebel。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_teach_sect_master",
+      "catalog_id": "npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·掌门/代掌。域：extreme_west。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_teach_great_elder",
+      "catalog_id": "npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·大长老。域：extreme_west。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_teach_alchemy_elder",
+      "catalog_id": "npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·丹堂执事。域：extreme_west。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_teach_outer_deacon",
+      "catalog_id": "npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·外门执事。域：extreme_west。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_teach_patrol_captain",
+      "catalog_id": "npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·巡卫队长。域：extreme_west。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi_council_sect_master",
+      "catalog_id": "npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰神师府·掌门/代掌。域：mulan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi_council_great_elder",
+      "catalog_id": "npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰神师府·大长老。域：mulan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi_council_alchemy_elder",
+      "catalog_id": "npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰神师府·丹堂执事。域：mulan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi_council_outer_deacon",
+      "catalog_id": "npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰神师府·外门执事。域：mulan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi_council_patrol_captain",
+      "catalog_id": "npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰神师府·巡卫队长。域：mulan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianlan_temple_sect_master",
+      "catalog_id": "npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】天澜圣殿·掌门/代掌。域：tianlan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianlan_temple_great_elder",
+      "catalog_id": "npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】天澜圣殿·大长老。域：tianlan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianlan_temple_alchemy_elder",
+      "catalog_id": "npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】天澜圣殿·丹堂执事。域：tianlan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianlan_temple_outer_deacon",
+      "catalog_id": "npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】天澜圣殿·外门执事。域：tianlan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianlan_temple_patrol_captain",
+      "catalog_id": "npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】天澜圣殿·巡卫队长。域：tianlan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：tribal_faith。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_sect_sect_master",
+      "catalog_id": "npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色正，气息清。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_sect_great_elder",
+      "catalog_id": "npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色正，气息清",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色正，气息清。装备：执法令牌、简朴但高阶护符。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_sect_alchemy_elder",
+      "catalog_id": "npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色正，气息清",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色正，气息清。装备：丹炉微缩、火折、鉴丹镜。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_sect_outer_deacon",
+      "catalog_id": "npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色正，气息清",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色正，气息清。装备：名册、外门令、低阶飞剑。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_sect_patrol_captain",
+      "catalog_id": "npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色正，气息清",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹教·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色正，气息清。装备：制式兵刃、拘灵索、声望令。立场：righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_secret_sect_master",
+      "catalog_id": "npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·掌门/代掌。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_secret_great_elder",
+      "catalog_id": "npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·大长老。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_secret_alchemy_elder",
+      "catalog_id": "npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·丹堂执事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_secret_outer_deacon",
+      "catalog_id": "npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·外门执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yuling_sect_secret_patrol_captain",
+      "catalog_id": "npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】御灵宗·巡卫队长。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：neutral。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_guiling_gate_sect_master",
+      "catalog_id": "npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·掌门/代掌。域：tiannan_north_waste。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_guiling_gate_great_elder",
+      "catalog_id": "npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·大长老。域：tiannan_north_waste。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_guiling_gate_alchemy_elder",
+      "catalog_id": "npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·丹堂执事。域：tiannan_north_waste。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_guiling_gate_outer_deacon",
+      "catalog_id": "npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·外门执事。域：tiannan_north_waste。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_guiling_gate_patrol_captain",
+      "catalog_id": "npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·巡卫队长。域：tiannan_north_waste。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianmo_sect_sect_master",
+      "catalog_id": "npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】天魔宗·掌门/代掌。域：tiannan_north_waste。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianmo_sect_great_elder",
+      "catalog_id": "npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】天魔宗·大长老。域：tiannan_north_waste。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianmo_sect_alchemy_elder",
+      "catalog_id": "npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】天魔宗·丹堂执事。域：tiannan_north_waste。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianmo_sect_outer_deacon",
+      "catalog_id": "npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】天魔宗·外门执事。域：tiannan_north_waste。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianmo_sect_patrol_captain",
+      "catalog_id": "npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】天魔宗·巡卫队长。域：tiannan_north_waste。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingluo_sect_sect_master",
+      "catalog_id": "npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】青罗宗·掌门/代掌。域：tiannan_north_waste。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingluo_sect_great_elder",
+      "catalog_id": "npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】青罗宗·大长老。域：tiannan_north_waste。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingluo_sect_alchemy_elder",
+      "catalog_id": "npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】青罗宗·丹堂执事。域：tiannan_north_waste。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingluo_sect_outer_deacon",
+      "catalog_id": "npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】青罗宗·外门执事。域：tiannan_north_waste。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingluo_sect_patrol_captain",
+      "catalog_id": "npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】青罗宗·巡卫队长。域：tiannan_north_waste。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wanhu_sect_sect_master",
+      "catalog_id": "npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】万狐宗·掌门/代掌。域：tiannan_north_waste。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wanhu_sect_great_elder",
+      "catalog_id": "npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】万狐宗·大长老。域：tiannan_north_waste。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wanhu_sect_alchemy_elder",
+      "catalog_id": "npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】万狐宗·丹堂执事。域：tiannan_north_waste。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wanhu_sect_outer_deacon",
+      "catalog_id": "npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】万狐宗·外门执事。域：tiannan_north_waste。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wanhu_sect_patrol_captain",
+      "catalog_id": "npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】万狐宗·巡卫队长。域：tiannan_north_waste。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xuewu_sect_sect_master",
+      "catalog_id": "npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】血巫教·掌门/代掌。域：tiannan_north_waste。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒；袍色偏黑紫，神采阴锐。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xuewu_sect_great_elder",
+      "catalog_id": "npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】血巫教·大长老。域：tiannan_north_waste。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松；袍色偏黑紫，神采阴锐。装备：执法令牌、简朴但高阶护符。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xuewu_sect_alchemy_elder",
+      "catalog_id": "npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】血巫教·丹堂执事。域：tiannan_north_waste。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍；袍色偏黑紫，神采阴锐。装备：丹炉微缩、火折、鉴丹镜。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xuewu_sect_outer_deacon",
+      "catalog_id": "npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】血巫教·外门执事。域：tiannan_north_waste。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办；袍色偏黑紫，神采阴锐。装备：名册、外门令、低阶飞剑。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xuewu_sect_patrol_captain",
+      "catalog_id": "npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】血巫教·巡卫队长。域：tiannan_north_waste。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀；袍色偏黑紫，神采阴锐。装备：制式兵刃、拘灵索、声望令。立场：demonic。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_buddhist_temple_line_sect_master",
+      "catalog_id": "npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋佛寺一脉·掌门/代掌。域：dajin。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：neutral_righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_buddhist_temple_line_great_elder",
+      "catalog_id": "npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋佛寺一脉·大长老。域：dajin。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：neutral_righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_buddhist_temple_line_alchemy_elder",
+      "catalog_id": "npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋佛寺一脉·丹堂执事。域：dajin。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：neutral_righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_buddhist_temple_line_outer_deacon",
+      "catalog_id": "npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋佛寺一脉·外门执事。域：dajin。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：neutral_righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_buddhist_temple_line_patrol_captain",
+      "catalog_id": "npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋佛寺一脉·巡卫队长。域：dajin。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：neutral_righteous。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_dan_tang",
+      "catalog_id": "npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·丹堂管事。域：tiannan。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_huangfeng_outer",
+      "catalog_id": "npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】黄枫谷·外门赵执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_yanyue_shadow",
+      "catalog_id": "npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】掩月宗·影堂引路人。域：tiannan。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_spirit_beast_herder",
+      "catalog_id": "npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】灵兽山·御兽长。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qingxu_quiet",
+      "catalog_id": "npc_qingxu_quiet",
+      "display": "清虚门·静修堂主（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】清虚门·静修堂主。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_jujian_forge",
+      "catalog_id": "npc_jujian_forge",
+      "display": "巨剑门·剑冢执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】巨剑门·剑冢执事。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qixuan_chief",
+      "catalog_id": "npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】七玄门·门主（江湖）。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_ghost_spirit_ferry",
+      "catalog_id": "npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】鬼灵门·引渡使。域：yinming。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_hehuan_host",
+      "catalog_id": "npc_hehuan_host",
+      "display": "合欢宗·堂主（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】合欢宗·堂主。域：tiannan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_star_palace_censor",
+      "catalog_id": "npc_star_palace_censor",
+      "display": "星宫·巡察使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】星宫·巡察使。域：chaotic_sea。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_inverse_star_broker",
+      "catalog_id": "npc_inverse_star_broker",
+      "display": "逆星·灰市掮客（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "兜帽或易容，笑容假，眼神活",
+      "gear": "储物多、烟香掩气息",
+      "threat": 2,
+      "description": "【外貌·NPC】逆星·灰市掮客。域：outer_sea_market。职司：black_market_contact。外貌：兜帽或易容，笑容假，眼神活。装备：储物多、烟香掩气息。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_liulian_envoy",
+      "catalog_id": "npc_liulian_envoy",
+      "display": "六连殿·联络修（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】六连殿·联络修。域：chaotic_sea。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_auctioneer",
+      "catalog_id": "npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "兜帽或易容，笑容假，眼神活",
+      "gear": "储物多、烟香掩气息",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋·拍卖行掌柜。域：great_jin_central。职司：black_market_contact。外貌：兜帽或易容，笑容假，眼神活。装备：储物多、烟香掩气息。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_dajin_border_general",
+      "catalog_id": "npc_dajin_border_general",
+      "display": "大晋边军·校尉（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】大晋边军·校尉。域：dajin。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_fashi",
+      "catalog_id": "npc_mulan_fashi",
+      "display": "慕兰·法师长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰·法师长老。域：mulan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_mulan_scout_chief",
+      "catalog_id": "npc_mulan_scout_chief",
+      "display": "慕兰·斥候长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】慕兰·斥候长。域：tianlan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_tianyuan_clerk",
+      "catalog_id": "npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】天渊城·功勋吏。域：tianyuan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_qianzhu_mechanic",
+      "catalog_id": "npc_qianzhu_mechanic",
+      "display": "千竹·机关长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "常带丹香与火燎气，指尖有药渍",
+      "gear": "丹炉微缩、火折、鉴丹镜",
+      "threat": 2,
+      "description": "【外貌·NPC】千竹·机关长老。域：extreme_west_thousand_bamboo。职司：alchemy_elder。外貌：常带丹香与火燎气，指尖有药渍。装备：丹炉微缩、火折、鉴丹镜。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_kunwu_guide",
+      "catalog_id": "npc_kunwu_guide",
+      "display": "昆吾·火脉向导（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】昆吾·火脉向导。域：kunwu。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_nether_ferryman",
+      "catalog_id": "npc_nether_ferryman",
+      "display": "冥河·摆渡残影（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】冥河·摆渡残影。域：nether_river。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_blood_forbidden_guard",
+      "catalog_id": "npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】血色禁地·守界修。域：tiannan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_xutian_observer",
+      "catalog_id": "npc_xutian_observer",
+      "display": "虚天殿·观殿人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "面相严肃，鬓霜，站姿如松",
+      "gear": "执法令牌、简朴但高阶护符",
+      "threat": 2,
+      "description": "【外貌·NPC】虚天殿·观殿人。域：tiannan。职司：great_elder。外貌：面相严肃，鬓霜，站姿如松。装备：执法令牌、简朴但高阶护符。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_diyuan_miner",
+      "catalog_id": "npc_diyuan_miner",
+      "display": "地渊·矿脉包工头（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】地渊·矿脉包工头。域：dajin。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_asura_trial_warden",
+      "catalog_id": "npc_asura_trial_warden",
+      "display": "修罗界·试炼令使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "修士常服，气质随势力",
+      "gear": "身份令与常用法器",
+      "threat": 2,
+      "description": "【外貌·NPC】修罗界·试炼令使。域：spirit_realm_border。职司：quest_giver_main。外貌：修士常服，气质随势力。装备：身份令与常用法器。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_jiuxian_gatekeeper",
+      "catalog_id": "npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒",
+      "gear": "本命法宝常收敛为佩饰，袖有宗纹",
+      "threat": 2,
+      "description": "【外貌·NPC】九仙山·守峰人。域：spirit_fengyuan。职司：sect_master。外貌：华发或冠冕，袍制最尊，气机深海般压人，眉眼少喜怒。装备：本命法宝常收敛为佩饰，袖有宗纹。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_garden_auditor",
+      "catalog_id": "npc_garden_auditor",
+      "display": "灵缈园·采药审计（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "甲片或劲装，目光扫人如刀",
+      "gear": "制式兵刃、拘灵索、声望令",
+      "threat": 2,
+      "description": "【外貌·NPC】灵缈园·采药审计。域：spirit_fengyuan。职司：patrol_captain。外貌：甲片或劲装，目光扫人如刀。装备：制式兵刃、拘灵索、声望令。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_wandering_appraiser",
+      "catalog_id": "npc_wandering_appraiser",
+      "display": "散修·鉴宝张（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "兜帽或易容，笑容假，眼神活",
+      "gear": "储物多、烟香掩气息",
+      "threat": 2,
+      "description": "【外貌·NPC】散修·鉴宝张。域：tiannan。职司：black_market_contact。外貌：兜帽或易容，笑容假，眼神活。装备：储物多、烟香掩气息。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "vis_npc_seven_meridian_judge",
+      "catalog_id": "npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v118",
+        "npc"
+      ],
+      "appearance": "青袍利落，表情势利或公事公办",
+      "gear": "名册、外门令、低阶飞剑",
+      "threat": 2,
+      "description": "【外貌·NPC】七脉试炼·评分执事。域：tiannan。职司：outer_deacon。外貌：青袍利落，表情势利或公事公办。装备：名册、外门令、低阶飞剑。立场：None。交互时：友好微点头光，敌对眼露刃光。不可当野怪刷模型死亡循环；剧情死后用残影/墓碑。"
+    },
+    {
+      "id": "v118_art_director",
+      "display": "视觉司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 visual_style_v118 与 item_descriptions_v118。",
+      "tags": [
+        "v118"
+      ]
+    }
+  ]
+}

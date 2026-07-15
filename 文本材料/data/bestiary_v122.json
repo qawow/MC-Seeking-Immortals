@@ -1,0 +1,2200 @@
+{
+  "schema_version": 1,
+  "source": "v122 兽/NPC 完整外貌卡",
+  "creatures": [
+    {
+      "id": "look_beast_twin_pupil_rat",
+      "display": "双瞳鼠（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 双瞳看穿迷雾，喜灵浓处筑窝。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_red_leopard_beast",
+      "display": "红狸兽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 敏捷、嗅觉超常。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_fire_horn_deer",
+      "display": "炙角鹿（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 火红独角。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_wind_screech_hawk",
+      "display": "风啸鹰（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 驯养放哨侦察。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_scent_spirit_beast",
+      "display": "嗅灵兽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 查违禁物品。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_giant_centipede",
+      "display": "巨型蜈蚣（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 黑色甲壳。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_ink_flood_dragon",
+      "display": "墨蛟（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "墨黑/灰腹/黄浊瞳",
+      "description": "墨黑/灰腹/黄浊瞳 低阶蛟形。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_heart_bore_worm",
+      "display": "钻心虫（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 沿血脉钻心。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_fire_crow",
+      "display": "火鸦（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 火属性远程。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_green_vine_demon",
+      "display": "青木妖藤（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 束缚毒回血。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_mystic_water_turtle",
+      "display": "玄水龟（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 高防水系控制。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_thunder_horn_tiger",
+      "display": "雷角虎（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "乌云紫电",
+      "description": "乌云紫电 冲锋雷击。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_demon_core_bear",
+      "display": "妖丹熊（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 结丹初，体内结妖丹。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_baby_carp_demon",
+      "display": "婴鲤兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 娃娃脸鱼尾，水罡神雷。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_ice_soul_serpent",
+      "display": "冰魄蛇（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 冰冻毒。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_spirit_fox",
+      "display": "灵狐（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 幻术闪避可驯服。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_shape_shift_trial_beast",
+      "display": "化形试炼兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 七级渡劫化形模板。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_thunder_jiao",
+      "display": "雷劫蛟（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "乌云紫电",
+      "description": "乌云紫电 雷暴秘境Boss雏形。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_silver_wing_yaksha",
+      "display": "银翅夜叉（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 炼尸/妖 hybrid，风土遁幻术。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_wind_split_beast",
+      "display": "裂风兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 妖王级，学人族技术。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_earth_armor_dragon",
+      "display": "土甲龙（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 寻宝天赋。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_fire_jiao_adult",
+      "display": "离火蛟（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 海域蛟龙。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_suanni_beast",
+      "display": "狻猊兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 上古兽形。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_four_ear_gold_ape",
+      "display": "四耳金猿（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "金黑甲/金属反光",
+      "description": "金黑甲/金属反光 金黄巨猴凶恶。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_gold_body_moon_corpse",
+      "display": "金身月尸（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "金黑甲/金属反光",
+      "description": "金黑甲/金属反光 人界顶阶炼尸，金遁。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_six_wing_frost_centipede",
+      "display": "六翼霜蚣（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 冰龙血统灵虫。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_leopard_qilin_beast",
+      "display": "豹麟兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 麒麟血脉，元婴实力幼体。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_mirage_sand_beast",
+      "display": "蜃兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 双蛇首蛙身，幻化。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_sky_tiger_beast",
+      "display": "天虎兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 土风法术瞬移。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_holy_peacock",
+      "display": "圣禽（青孔雀）（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "青翠华羽/智金瞳",
+      "description": "青翠华羽/智金瞳 慕兰供奉，妖火。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_soul_weep_beast",
+      "display": "泣魂兽（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 冥河阴兽，啼哭可乱人心神，常伴尸气。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_phantom_flame_moth",
+      "display": "幻焰蛾（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_gold_devour_beetle",
+      "display": "噬金虫（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "金黑甲/金属反光",
+      "description": "金黑甲/金属反光 啃噬五金法宝灵光，群居奇虫。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_soul_weeping_beast",
+      "display": "啼魂兽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 尖啸伤魂，对鬼物克制极强。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_mountain_giant_ape",
+      "display": "山岳巨猿（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 力大无穷，可化形前兆。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_blood_jiao",
+      "display": "血蛟（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "暗赤鳞沟/血线",
+      "description": "暗赤鳞沟/血线 海域凶蛟，妖丹珍贵。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_beast_three_tailed_fox",
+      "display": "三尾妖狐（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 擅幻术，灵狐一脉。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_iron_lion_beast",
+      "display": "铁甲狮兽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 体修型妖兽，皮糙肉厚。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_cloud_silk_spider",
+      "display": "云丝蛛（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 吐丝缚敌，可炼蛛丝材料。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_flame_salamander",
+      "display": "火蜥兽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 火系低阶妖兽，内丹可入药。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_ice_phoenix_chick",
+      "display": "冰凤幼禽（外貌卡）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 灵界珍禽幼体，极难驯服。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "look_beast_void_mantis",
+      "display": "虚空螳螂（外貌卡）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v122"
+      ],
+      "appearance": "按栖息域去饱和或灵光点缀",
+      "description": "按栖息域去饱和或灵光点缀 灵界虫族，前肢如刃。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "look_npc_npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_star_palace_great_elder",
+      "display": "星宫·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 脏灰暗青"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 脏灰暗青"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 脏灰暗青"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 脏灰暗青"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 脏灰暗青"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 青灰月白"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰褐"
+    },
+    {
+      "id": "look_npc_npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 黑紫湿暗"
+    },
+    {
+      "id": "look_npc_npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_qingxu_quiet",
+      "display": "清虚门·静修堂主（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_jujian_forge",
+      "display": "巨剑门·剑冢执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_hehuan_host",
+      "display": "合欢宗·堂主（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_star_palace_censor",
+      "display": "星宫·巡察使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_inverse_star_broker",
+      "display": "逆星·灰市掮客（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "半脸常阴影，笑单侧 / 多层斗篷 / 灰"
+    },
+    {
+      "id": "look_npc_npc_liulian_envoy",
+      "display": "六连殿·联络修（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "半脸常阴影，笑单侧 / 多层斗篷 / 灰"
+    },
+    {
+      "id": "look_npc_npc_dajin_border_general",
+      "display": "大晋边军·校尉（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_fashi",
+      "display": "慕兰·法师长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_mulan_scout_chief",
+      "display": "慕兰·斥候长（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_qianzhu_mechanic",
+      "display": "千竹·机关长老（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "指黄、眼有火映 / 耐火短袍，袖防溅 / 灰"
+    },
+    {
+      "id": "look_npc_npc_kunwu_guide",
+      "display": "昆吾·火脉向导（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_nether_ferryman",
+      "display": "冥河·摆渡残影（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_xutian_observer",
+      "display": "虚天殿·观殿人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "法令纹，目如秤 / 长身或清癯，佩令 / 灰"
+    },
+    {
+      "id": "look_npc_npc_diyuan_miner",
+      "display": "地渊·矿脉包工头（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "look_npc_npc_asura_trial_warden",
+      "display": "修罗界·试炼令使（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "可亲藏锋 / 半正式赶路袍 / 灰"
+    },
+    {
+      "id": "look_npc_npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "气沉印堂，眉目少波，年貌可逆于境界 / 袍制最尊，步稳无尘 / 灰"
+    },
+    {
+      "id": "look_npc_npc_garden_auditor",
+      "display": "灵缈园·采药审计（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "下颌硬、扫描式注视 / 甲叶劲装钉靴 / 灰"
+    },
+    {
+      "id": "look_npc_npc_wandering_appraiser",
+      "display": "散修·鉴宝张（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "半脸常阴影，笑单侧 / 多层斗篷 / 灰"
+    },
+    {
+      "id": "look_npc_npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事（外貌）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v122"
+      ],
+      "threat": 1,
+      "description": "笑薄、眼活 / 青灰袍腰牌 / 灰"
+    },
+    {
+      "id": "v122_look_librarian",
+      "display": "外貌司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 visual_look_cards_v122",
+      "tags": [
+        "v122"
+      ]
+    }
+  ]
+}

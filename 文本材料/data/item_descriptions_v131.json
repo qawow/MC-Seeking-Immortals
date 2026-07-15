@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "source": "v131 多方块结构描述",
+  "items": [
+    {
+      "id": "v131_blocks",
+      "display": "多方块结构",
+      "type": "meta",
+      "description": "共 21 个方块，含完整尺寸/部件/外观/功能/原著锚点"
+    },
+    {
+      "id": "v131_accept",
+      "display": "验收",
+      "type": "meta",
+      "checks": [
+        "全部方块有完整结构",
+        "新增灵脉/冰鉴/仙鼎/时间阵/幻世种子/洞府/宗阵枢纽",
+        "无代码"
+      ]
+    }
+  ]
+}

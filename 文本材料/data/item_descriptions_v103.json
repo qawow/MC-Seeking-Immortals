@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v103 物品详释：手册/数值锚/别名检索配套",
+  "items": [
+    {
+      "id": "handbook_v103",
+      "display": "策划阅读手册（戏中册）",
+      "type": "lore_book",
+      "ref": "docs/DESIGNER_HANDBOOK_v103.md",
+      "description": "建议阅读顺序、红线、制作切片。无代码说明全集入口。"
+    },
+    {
+      "id": "numeric_onepager_item",
+      "display": "数值总览一页（戏中帖）",
+      "type": "lore_book",
+      "ref": "docs/NUMERIC_ONEPAGER_v103.md",
+      "description": "货币比率、物价锚、突破率、绿液帽、声望带。"
+    },
+    {
+      "id": "glossary_item",
+      "display": "名讳别录",
+      "type": "lore_book",
+      "ref": "name_alias_glossary_v103.json",
+      "description": "掌天瓶=小瓶、厉飞雨=韩立等检索。"
+    },
+    {
+      "id": "ling_jiao_material",
+      "display": "灵角",
+      "type": "material",
+      "source": "灵角鹿",
+      "tags": ["trade", "craft_mat"],
+      "price": [20, 200],
+      "description": "入门炼器/药引。手册示例掉落。"
+    },
+    {
+      "id": "lu_rong_low",
+      "display": "灵鹿茸",
+      "type": "material",
+      "source": "灵角鹿",
+      "tags": ["trade", "craft_mat"],
+      "price": [15, 150],
+      "description": "养精/聚灵辅材。"
+    },
+    {
+      "id": "xue_hu_pi",
+      "display": "雪狐皮",
+      "type": "material",
+      "source": "雪云狐",
+      "tags": ["trade", "craft_mat"],
+      "price": [200, 4000],
+      "description": "寒衣与幻衣。银月线慎杀。"
+    },
+    {
+      "id": "mo_jiao_jin",
+      "display": "墨蛟筋",
+      "type": "material",
+      "source": "墨蛟",
+      "tags": ["trade", "craft_mat", "quest"],
+      "price": [300, 5000],
+      "description": "韧筋，弓弦与软甲。"
+    },
+    {
+      "id": "mo_jiao_zhu",
+      "display": "墨蛟珠",
+      "type": "material",
+      "source": "墨蛟",
+      "tags": ["trade", "auction", "craft_mat"],
+      "price": [500, 8000],
+      "description": "水属性宝核。"
+    },
+    {
+      "id": "yin_chi_yu",
+      "display": "银翅羽",
+      "type": "material",
+      "source": "银翅夜叉",
+      "tags": ["black_market", "demonic", "craft_mat"],
+      "price": [2000, 25000],
+      "description": "阴飞梭与鬼器。"
+    },
+    {
+      "id": "huo_chan_dan_drop",
+      "display": "火蟾丹（兽丹）",
+      "type": "material",
+      "source": "火蟾兽",
+      "tags": ["trade", "craft_mat"],
+      "price": [800, 12000],
+      "description": "坠魔火材。区别于修士所服丹。"
+    },
+    {
+      "id": "ying_li_zhu",
+      "display": "婴鲤珠",
+      "type": "material",
+      "source": "婴鲤兽",
+      "tags": ["trade", "craft_mat"],
+      "price": [600, 10000],
+      "description": "乱星海邀猎目标物。"
+    },
+    {
+      "id": "hai_ao_jia",
+      "display": "海獒甲",
+      "type": "material",
+      "source": "结丹海獒",
+      "tags": ["trade", "craft_mat"],
+      "price": [1000, 15000],
+      "description": "threat5 锚示例掉落。"
+    },
+    {
+      "id": "shui_mu_jing",
+      "display": "星海水母晶",
+      "type": "material",
+      "source": "星海水母妖",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2000],
+      "description": "结丹切片练级材。"
+    },
+    {
+      "id": "lei_jin_spirit",
+      "display": "灵界雷筋",
+      "type": "material",
+      "source": "灵界雷兽幼",
+      "tags": ["merit_only", "craft_mat"],
+      "description": "天渊回收。可兑功勋。"
+    },
+    {
+      "id": "anchor_yaodan_t6_item",
+      "display": "六级妖丹（锚）",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 5000],
+      "description": "numeric_overview 锚点实体说明。"
+    },
+    {
+      "id": "anchor_yaodan_t8_item",
+      "display": "八级妖丹（锚）",
+      "type": "material",
+      "tags": ["trade", "auction", "craft_mat"],
+      "price": [10000, 100000],
+      "description": "高阶猎杀标尺。"
+    },
+    {
+      "id": "anchor_zhuji_display",
+      "display": "筑基丹（锚说明）",
+      "type": "pill",
+      "tags": ["trade", "scarce", "sect_only"],
+      "price": [500, 2000],
+      "description": "全经济尺。手册必引。"
+    },
+    {
+      "id": "anchor_gengjing_display",
+      "display": "庚精（锚说明）",
+      "type": "material",
+      "tags": ["auction", "scarce", "craft_mat"],
+      "price": [20000, 120000],
+      "description": "元婴金材尺。赌战顶赏。"
+    },
+    {
+      "id": "anchor_topstone_display",
+      "display": "极品灵石（锚说明）",
+      "type": "currency",
+      "tags": ["currency", "scarce"],
+      "ratio": 1000000,
+      "description": "化神货币尺。"
+    },
+    {
+      "id": "slice_pack_qi_foundation",
+      "display": "切片包·炼气筑基",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["血色令", "四主药线索", "筑基丹配额线索", "黄枫声望任务"],
+      "description": "手册制作切片1。"
+    },
+    {
+      "id": "slice_pack_foundation_core",
+      "display": "切片包·筑基结丹",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["天星居权", "海猎令", "降尘线索", "风雷翅线"],
+      "description": "手册切片2。"
+    },
+    {
+      "id": "slice_pack_core_nascent",
+      "display": "切片包·结丹结婴",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["虚天残图", "定灵/参丹线", "阴冥通行证"],
+      "description": "手册切片3。"
+    },
+    {
+      "id": "slice_pack_nascent_mid",
+      "display": "切片包·元婴中盘",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["军功令", "坠魔令", "昆吾线索"],
+      "description": "手册切片4。"
+    },
+    {
+      "id": "slice_pack_spirit",
+      "display": "切片包·灵界",
+      "type": "kit",
+      "tags": ["quest", "merit_only"],
+      "contains": ["天渊籍", "地渊令", "功勋介绍"],
+      "description": "手册切片5。"
+    },
+    {
+      "id": "alias_card_li_feiyu",
+      "display": "名帖·厉飞雨",
+      "type": "meta",
+      "aliases_for": "韩立",
+      "description": "乱星海化名检索卡。"
+    },
+    {
+      "id": "alias_card_small_bottle",
+      "display": "名帖·小瓶",
+      "type": "meta",
+      "aliases_for": "掌天瓶",
+      "description": "别名检索。内容仍 unique 禁交易。"
+    },
+    {
+      "id": "alias_card_an_hun_dan",
+      "display": "名帖·安魂丹",
+      "type": "meta",
+      "aliases_for": "定灵丹",
+      "description": "一物二名。"
+    },
+    {
+      "id": "reading_order_token",
+      "display": "设定阅读顺序签",
+      "type": "meta",
+      "order": ["timeline", "quest", "travel", "breakthrough", "rep", "economy", "bestiary_csv"],
+      "description": "手册第1-4章压缩。"
+    },
+    {
+      "id": "redline_poster_bottle",
+      "display": "红线榜·瓶与绿液",
+      "type": "rule_item",
+      "tags": ["balance_risk", "no_trade"],
+      "description": "唯一/年帽/冷却/禁叠乘/抛售审计。"
+    },
+    {
+      "id": "redline_poster_unique",
+      "display": "红线榜·唯一物",
+      "type": "rule_item",
+      "list": ["鼎", "尺", "炼神", "真魂", "详尽节点"],
+      "description": "不复制不早掉。"
+    },
+    {
+      "id": "redline_poster_spawn",
+      "display": "红线榜·禁野刷",
+      "type": "rule_item",
+      "list": ["真灵", "噬金成灾", "啼魂", "天澜圣兽", "冰凤"],
+      "description": "spawn weight=0。"
+    },
+    {
+      "id": "redline_poster_currency",
+      "display": "红线榜·功勋隔离",
+      "type": "rule_item",
+      "description": "天渊功勋≠灵石无限兑。"
+    },
+    {
+      "id": "combat_threat_card_1",
+      "display": "战力牌·威胁1",
+      "type": "meta",
+      "meaning": "凡人~炼气前",
+      "description": "numeric combat_threat_guide。"
+    },
+    {
+      "id": "combat_threat_card_5",
+      "display": "战力牌·威胁5",
+      "type": "meta",
+      "meaning": "结丹",
+      "description": "配装与刷怪对照。"
+    },
+    {
+      "id": "combat_threat_card_7",
+      "display": "战力牌·威胁7",
+      "type": "meta",
+      "meaning": "元婴",
+      "description": "边军与外星海标尺。"
+    },
+    {
+      "id": "price_mod_card_set",
+      "display": "物价修正牌组",
+      "type": "meta",
+      "mods": {"tide": 1.8, "war": 2.0, "black": 1.3, "sect": 0.7, "auction": 1.5},
+      "description": "一页总览全局修正。"
+    },
+    {
+      "id": "breakthrough_card_foundation",
+      "display": "突破牌·筑基",
+      "type": "meta",
+      "base": 0.35,
+      "key": "筑基丹",
+      "description": "与 realm_breakthrough 同步。"
+    },
+    {
+      "id": "breakthrough_card_core",
+      "display": "突破牌·结丹",
+      "type": "meta",
+      "base": 0.2,
+      "key": "降尘+三转",
+      "description": "结构成功率。"
+    },
+    {
+      "id": "breakthrough_card_nascent",
+      "display": "突破牌·结婴",
+      "type": "meta",
+      "base": 0.15,
+      "key": "定灵/参/培婴",
+      "description": "三助丹。"
+    },
+    {
+      "id": "breakthrough_card_deity",
+      "display": "突破牌·化神",
+      "type": "meta",
+      "base": 0.08,
+      "key": "魔元包+法体",
+      "description": "人界顶关。"
+    },
+    {
+      "id": "liquid_cap_story_item",
+      "display": "绿液年帽·剧情档",
+      "type": "rule_item",
+      "cap": 12,
+      "description": "难度预设物化。"
+    },
+    {
+      "id": "liquid_cap_standard_item",
+      "display": "绿液年帽·标准档",
+      "type": "rule_item",
+      "cap": 6,
+      "description": "默认。"
+    },
+    {
+      "id": "liquid_cap_hard_item",
+      "display": "绿液年帽·艰苦档",
+      "type": "rule_item",
+      "cap": 3,
+      "description": "资源紧张。"
+    },
+    {
+      "id": "liquid_cap_legend_item",
+      "display": "绿液年帽·近原著",
+      "type": "rule_item",
+      "cap": 1,
+      "description": "苦难档。"
+    },
+    {
+      "id": "rep_band_card",
+      "display": "声望色带卡",
+      "type": "meta",
+      "bands": ["hostile", "neutral", "friendly", "honored", "exalted"],
+      "description": "UI 上色用结构。"
+    },
+    {
+      "id": "travel_speed_card",
+      "display": "遁速对照卡",
+      "type": "meta",
+      "mods": {"walk": 0.05, "escape": 1.0, "fenglei": 3.0, "teleport": 99},
+      "description": "旅行时间缩放。"
+    },
+    {
+      "id": "content_scale_plaque_v103",
+      "display": "规模碑 v103",
+      "type": "lore",
+      "text": "生物270+ 详释680+ 连接层齐全",
+      "description": "版本纪念。"
+    },
+    {
+      "id": "index_how_to_find",
+      "display": "如何找条目（简）",
+      "type": "meta",
+      "steps": ["summary CSV", "economy tags", "glossary alias", "catalog_refs"],
+      "description": "检索流程。"
+    },
+    {
+      "id": "csv_column_legend",
+      "display": "生物摘要列说明",
+      "type": "meta",
+      "columns": ["id", "display", "category", "threat", "tier_hint", "habitat", "tameable", "source_file", "description_short"],
+      "description": "bestiary_summary 表头。"
+    },
+    {
+      "id": "tag_legend_short",
+      "display": "经济标签速查",
+      "type": "meta",
+      "tags": ["trade", "quest", "unique", "no_trade", "merit_only", "bond", "balance_risk"],
+      "description": "商店过滤速记。"
+    },
+    {
+      "id": "mod_pipeline_checklist",
+      "display": "模组落地检查表",
+      "type": "meta",
+      "checks": ["切片1可玩", "瓶规则生效", "unique 计数", "声望锁店", "主线防早掉"],
+      "description": "从设定到原型。"
+    },
+    {
+      "id": "lore_consistency_note",
+      "display": "原著贴合备忘",
+      "type": "rule_item",
+      "points": ["四主药筑基", "虚天争夺", "结婴三助", "人界化神难", "飞升节点"],
+      "description": "扩写时勿破。"
+    },
+    {
+      "id": "no_code_declaration",
+      "display": "无代码交付声明",
+      "type": "meta",
+      "text": "本包仅为 JSON/Markdown/CSV 设定",
+      "description": "用户约束再确认。"
+    },
+    {
+      "id": "next_optional_pqr_done",
+      "display": "PQR 完成印",
+      "type": "meta",
+      "done": ["手册", "数值一页", "别名表"],
+      "description": "v103 目标收束。"
+    },
+    {
+      "id": "optional_future_stu",
+      "display": "更后可选 STU",
+      "type": "meta",
+      "ideas": ["天劫日历", "多结局旗", "UI文案包", "配音/立绘需求表"],
+      "description": "仍建议少堆同质词条。"
+    },
+    {
+      "id": "kunpeng_feather_event",
+      "display": "鲲鹏翎羽（事件）",
+      "type": "material",
+      "tags": ["unique", "quest", "no_trade"],
+      "description": "目击事件可能获得。嵌风雷翅。"
+    },
+    {
+      "id": "xue_yan_crystal",
+      "display": "血焰魔晶（事件）",
+      "type": "material",
+      "tags": ["quest", "demonic", "scarce"],
+      "description": "古魔线。清魔或炼魔二分。"
+    },
+    {
+      "id": "yuan_cha_qi_sample",
+      "display": "元刹魔气样",
+      "type": "material",
+      "tags": ["quest", "no_trade"],
+      "description": "研究用，不可坊市。"
+    },
+    {
+      "id": "feng_xi_wine_ref",
+      "display": "碧焰酒（别名完整说明）",
+      "type": "drink",
+      "tags": ["quest", "consumable"],
+      "side": "火毒",
+      "description": "风希线。结丹后期辅助。"
+    },
+    {
+      "id": "li_feiyu_token",
+      "display": "厉飞雨身份牌（易容）",
+      "type": "stealth",
+      "tags": ["quest", "account_bound"],
+      "description": "乱星海阶段身份。破除有风险。"
+    },
+    {
+      "id": "wan_yao_ming_lu_toc",
+      "display": "《万妖名录》目录页",
+      "type": "lore_book",
+      "ref": "bestiary_summary",
+      "description": "CSV/JSON 摘要入口。"
+    },
+    {
+      "id": "economy_index_toc",
+      "display": "经济总索引目录",
+      "type": "lore_book",
+      "ref": "item_economy_index_v92",
+      "description": "catalog_refs 人读。"
+    },
+    {
+      "id": "designer_accept_v103",
+      "display": "v103 验收签",
+      "type": "meta",
+      "checks": ["手册可读", "数值可查", "别名可搜", "JSON 全过", "仍无代码"],
+      "description": "交付完成标志。"
+    }
+  ]
+}

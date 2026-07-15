@@ -1,0 +1,4031 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v117 主线剧情/秘境三遍/关键物超长/势力页/对话/兽叙事",
+  "disclaimer": "无代码",
+  "items": [
+    {
+      "id": "v117_index",
+      "display": "v117 索引",
+      "type": "meta",
+      "counts": {
+        "quest_deep": 62,
+        "realm_third": 5,
+        "ultra": 12,
+        "faction_pages": 15,
+        "dialogues": 10,
+        "beast_narr": 42
+      },
+      "description": "主线剧情深稿+全链加厚、核心秘境三遍、关键物超长、势力一页纸、NPC对话、原包兽叙事。"
+    },
+    {
+      "id": "v117_read_order",
+      "display": "v117 阅读顺序",
+      "type": "meta",
+      "order": [
+        "quest_deep 主线",
+        "blood/xutian 三遍",
+        "ultra 关键物",
+        "faction_pages",
+        "dialogue",
+        "beast_narr"
+      ],
+      "description": "先剧情再秘境再物再势力。"
+    },
+    {
+      "id": "v117_accept",
+      "display": "v117 验收签",
+      "type": "meta",
+      "checks": [
+        "主线深稿",
+        "全链加厚",
+        "五核心秘境三遍",
+        "超长关键物",
+        "势力页",
+        "对话包",
+        "42兽叙事",
+        "无代码"
+      ],
+      "description": "本版完成。"
+    },
+    {
+      "id": "quest_deep_qixuan_mortal_path",
+      "catalog_id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "qixuan_village_intro",
+          "title": "山村雾气",
+          "objective": "在七玄村打听墨大夫与山门传闻",
+          "dialogue": [
+            "执事甲：山门收徒要看灵根，别白忙。",
+            "村妇：药园近来丢苗，邪修？"
+          ],
+          "fail": "被仇家追杀重伤，回村休养",
+          "reward": "线索、少许碎灵石",
+          "softcap": "不给筑基丹"
+        },
+        {
+          "step": 2,
+          "hook": "qixuan_herb_errand",
+          "title": "采药杂役",
+          "objective": "采三株低阶药并避狼",
+          "dialogue": [
+            "药童：黄精别连根拔。"
+          ],
+          "fail": "药筐被抢，扣人情",
+          "reward": "黄精×n、门派人情"
+        },
+        {
+          "step": 3,
+          "hook": "qixuan_sect_trial",
+          "title": "测灵入门",
+          "objective": "完成测灵仪式",
+          "dialogue": [
+            "测灵执事：杂灵根也能练，别灰心。"
+          ],
+          "fail": "无灵根走散修旁支",
+          "reward": "长春残页或外门令"
+        },
+        {
+          "step": 4,
+          "hook": "qixuan_decline_legacy",
+          "title": "衰落遗册",
+          "objective": "在旧库取得七玄遗册",
+          "dialogue": [
+            "老门主：把册子带去真正的修仙界。"
+          ],
+          "fail": "册子被毁，改买残页",
+          "reward": "qixuan_mortal_art_scroll"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】七玄门凡俗线（剧情深稿）（qixuan_mortal_path）。主题：凡人入道前夜：仇怨、药园、测灵。原包境界跨度：['MORTAL', 'QI_REFINING']。原终局奖励：['qixuan_mortal_art_scroll', 'spirit_stone_shard']。分镜：第1步《山村雾气》：目标—在七玄村打听墨大夫与山门传闻；对白示例—执事甲：山门收徒要看灵根，别白忙。／村妇：药园近来丢苗，邪修？；失败—被仇家追杀重伤，回村休养；奖励—线索、少许碎灵石；软顶：不给筑基丹； 第2步《采药杂役》：目标—采三株低阶药并避狼；对白示例—药童：黄精别连根拔。；失败—药筐被抢，扣人情；奖励—黄精×n、门派人情； 第3步《测灵入门》：目标—完成测灵仪式；对白示例—测灵执事：杂灵根也能练，别灰心。；失败—无灵根走散修旁支；奖励—长春残页或外门令； 第4步《衰落遗册》：目标—在旧库取得七玄遗册；对白示例—老门主：把册子带去真正的修仙界。；失败—册子被毁，改买残页；奖励—qixuan_mortal_art_scroll；终局收束：进入天南七派外围或黄枫引荐钩。数值/规则注：{'time_days': [7, 30], 'death_risk': '低'}。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_huangfeng_cultivation_path",
+      "catalog_id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "huangfeng_entry",
+          "title": "入门测灵",
+          "objective": "赴黄枫山门测灵并登记",
+          "dialogue": [
+            "外门赵执事：木灵根？先领长春功。",
+            "同门冷眼：又一个抢丹的。"
+          ],
+          "fail": "伪造灵根被逐",
+          "reward": "sect_token、changchun_gong",
+          "note": "势利但不违法"
+        },
+        {
+          "step": 2,
+          "hook": "alchemy_apprentice",
+          "title": "丹童岁月",
+          "objective": "完成辟谷丹学徒循环3次",
+          "dialogue": [
+            "丹堂管事：火候偏了就炸炉，炸了赔。"
+          ],
+          "fail": "炸炉受伤，冷却日修",
+          "reward": "bigu_pill配方进度、贡献",
+          "softcap": "循环不产筑基丹"
+        },
+        {
+          "step": 3,
+          "hook": "herb_gather_contract",
+          "title": "外门灵草",
+          "objective": "交付合同灵草",
+          "dialogue": [
+            "药园老者：百年株留下，只采规定。"
+          ],
+          "fail": "偷采高龄被记过",
+          "reward": "贡献、低阶药",
+          "repeatable": true
+        },
+        {
+          "step": 4,
+          "hook": "blood_forbidden_run",
+          "title": "血色历练",
+          "objective": "取得禁地相关成果（药/令/存活）",
+          "dialogue": [
+            "长老：名额不是施舍。",
+            "同门：进去别拖后腿。"
+          ],
+          "fail": "身死或重伤退出，可下周期",
+          "reward": "禁地药/材料线索",
+          "links": "blood_forbidden_campaign"
+        },
+        {
+          "step": 5,
+          "hook": "sect_fire_room",
+          "title": "地火室",
+          "objective": "结丹后预约地火闭关",
+          "dialogue": [
+            "管事：地火时辰按贡献排。"
+          ],
+          "fail": "火脉反噬",
+          "reward": "core_earth_fire 权限、内门阶",
+          "softcap": "需结丹资质"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】黄枫谷修行线（剧情深稿）（huangfeng_cultivation_path）。主题：外门→丹童→血色→内门/地火。原包境界跨度：['QI_REFINING', 'CORE_FORMATION']。原终局奖励：['core_earth_fire', 'contribution_rank_inner']。分镜：第1步《入门测灵》：目标—赴黄枫山门测灵并登记；对白示例—外门赵执事：木灵根？先领长春功。／同门冷眼：又一个抢丹的。；失败—伪造灵根被逐；奖励—sect_token、changchun_gong； 第2步《丹童岁月》：目标—完成辟谷丹学徒循环3次；对白示例—丹堂管事：火候偏了就炸炉，炸了赔。；失败—炸炉受伤，冷却日修；奖励—bigu_pill配方进度、贡献；软顶：循环不产筑基丹； 第3步《外门灵草》：目标—交付合同灵草；对白示例—药园老者：百年株留下，只采规定。；失败—偷采高龄被记过；奖励—贡献、低阶药； 第4步《血色历练》：目标—取得禁地相关成果（药/令/存活）；对白示例—长老：名额不是施舍。／同门：进去别拖后腿。；失败—身死或重伤退出，可下周期；奖励—禁地药/材料线索； 第5步《地火室》：目标—结丹后预约地火闭关；对白示例—管事：地火时辰按贡献排。；失败—火脉反噬；奖励—core_earth_fire 权限、内门阶；软顶：需结丹资质；终局收束：内门身份+地火；虚天/乱星海另线。数值/规则注：{'contribution_curve': '慢热', 'foundation_pill': '不保底'}。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_blood_forbidden_campaign",
+      "catalog_id": "blood_forbidden_campaign",
+      "display": "血色禁地历练（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "传闻与名额",
+          "objective": "收集开启周期情报",
+          "dialogue": [
+            "散修：没有令牌的，去了也是妖粮。"
+          ],
+          "reward": "情报"
+        },
+        {
+          "step": 2,
+          "title": "入场令",
+          "objective": "贡献/任务/争夺获得令",
+          "dialogue": [
+            "赵执事：令上有禁制，转手无效。"
+          ],
+          "fail": "买到假令",
+          "reward": "ticket",
+          "softcap": "一周期一人一令气质"
+        },
+        {
+          "step": 3,
+          "title": "禁制入口",
+          "objective": "穿越入口并稳住经脉",
+          "dialogue": [
+            "守界修：再吵就取消资格。"
+          ],
+          "fail": "入口反噬轻伤"
+        },
+        {
+          "step": 4,
+          "title": "外层猎药",
+          "objective": "取血色灵药与低阶妖材",
+          "dialogue": [
+            "队友：药守来了，别贪。"
+          ],
+          "fail": "药守团灭风险",
+          "reward": "blood_forbidden_herb等"
+        },
+        {
+          "step": 5,
+          "title": "内层破禁",
+          "objective": "组队破简易古禁",
+          "dialogue": [
+            "阵修：缺阵盘就别逞强。"
+          ],
+          "fail": "队散、被夺药"
+        },
+        {
+          "step": 6,
+          "title": "守关妖蛟",
+          "objective": "击败或绕过守关",
+          "dialogue": [
+            "老修：蛟丹能换半个筑基希望。"
+          ],
+          "boss": true,
+          "reward": "foundation_pill_material线索、贡献",
+          "softcap": "不保证出筑基丹成品"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】血色禁地历练（剧情深稿）（blood_forbidden_campaign）。主题：名额、禁制、外内层、守关。原包境界跨度：['QI_REFINING', 'FOUNDATION']。原终局奖励：['foundation_pill_material', 'blood_forbidden_herb', 'contribution_rank_inner']。分镜：第1步《传闻与名额》：目标—收集开启周期情报；对白示例—散修：没有令牌的，去了也是妖粮。；失败—重试/撤离；奖励—情报； 第2步《入场令》：目标—贡献/任务/争夺获得令；对白示例—赵执事：令上有禁制，转手无效。；失败—买到假令；奖励—ticket；软顶：一周期一人一令气质； 第3步《禁制入口》：目标—穿越入口并稳住经脉；对白示例—守界修：再吵就取消资格。；失败—入口反噬轻伤；奖励—见链； 第4步《外层猎药》：目标—取血色灵药与低阶妖材；对白示例—队友：药守来了，别贪。；失败—药守团灭风险；奖励—blood_forbidden_herb等； 第5步《内层破禁》：目标—组队破简易古禁；对白示例—阵修：缺阵盘就别逞强。；失败—队散、被夺药；奖励—见链； 第6步《守关妖蛟》：目标—击败或绕过守关；对白示例—老修：蛟丹能换半个筑基希望。；失败—重试/撤离；奖励—foundation_pill_material线索、贡献；【BOSS】软顶：不保证出筑基丹成品；终局收束：存活结算+声望；降尘级仅事件。数值/规则注：{'cycle': '长期', 'party': '建议'}。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_void_palace_campaign",
+      "catalog_id": "void_palace_campaign",
+      "display": "虚天殿探宝（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "三百年预告",
+          "objective": "确认殿期与入场条件",
+          "dialogue": [
+            "观殿人：没有钥，连门缝都摸不着。"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "钥碎搜集",
+          "objective": "集齐或拼合虚天钥碎片",
+          "dialogue": [
+            "逆星掮客：碎片有价，命另算。"
+          ],
+          "fail": "碎片被抢",
+          "reward": "void_key_fragment"
+        },
+        {
+          "step": 3,
+          "title": "外殿傀儡",
+          "objective": "突破外殿防线",
+          "dialogue": [
+            "结丹修：别碰那些会动的石像。"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "灵药园",
+          "objective": "限时采药，防第三方",
+          "dialogue": [
+            "药痴：万年株会引杀机。"
+          ],
+          "softcap": "高龄药权重低"
+        },
+        {
+          "step": 5,
+          "title": "寒玉殿",
+          "objective": "抗寒取得寒玉相关",
+          "dialogue": [
+            "同伴：寒气噬神识。"
+          ],
+          "reward": "void_palace_cold_jade"
+        },
+        {
+          "step": 6,
+          "title": "核心宝库",
+          "objective": "争夺宝库窗口",
+          "dialogue": [
+            "多方：鼎是我的！"
+          ],
+          "boss": "void_palace_lord",
+          "reward": "shard级古宝、不保完整通天",
+          "softcap": "完整鼎/尺 never_list"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】虚天殿探宝（剧情深稿）（void_palace_campaign）。主题：周期、钥碎、外殿、药园、寒玉、宝库。原包境界跨度：['CORE_FORMATION', 'NASCENT_SOUL']。原终局奖励：['void_key_fragment', 'void_palace_cold_jade', 'ancient_spirit_treasure_shard']。分镜：第1步《三百年预告》：目标—确认殿期与入场条件；对白示例—观殿人：没有钥，连门缝都摸不着。；失败—重试/撤离；奖励—见链； 第2步《钥碎搜集》：目标—集齐或拼合虚天钥碎片；对白示例—逆星掮客：碎片有价，命另算。；失败—碎片被抢；奖励—void_key_fragment； 第3步《外殿傀儡》：目标—突破外殿防线；对白示例—结丹修：别碰那些会动的石像。；失败—重试/撤离；奖励—见链； 第4步《灵药园》：目标—限时采药，防第三方；对白示例—药痴：万年株会引杀机。；失败—重试/撤离；奖励—见链；软顶：高龄药权重低； 第5步《寒玉殿》：目标—抗寒取得寒玉相关；对白示例—同伴：寒气噬神识。；失败—重试/撤离；奖励—void_palace_cold_jade； 第6步《核心宝库》：目标—争夺宝库窗口；对白示例—多方：鼎是我的！；失败—重试/撤离；奖励—shard级古宝、不保完整通天；【BOSS】软顶：完整鼎/尺 never_list；终局收束：出殿转乱星海或大晋。数值/规则注：{'realm': '结丹为主', 'pvp_pressure': '高'}。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_chaotic_sea_politics",
+      "catalog_id": "chaotic_sea_politics",
+      "display": "乱星海势力线（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "巡察接触",
+          "branch": "loyalist",
+          "objective": "配合星宫巡察",
+          "dialogue": [
+            "巡察使：外海要法度。"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "逆星接头",
+          "branch": "rebel",
+          "objective": "找到灰市接头人",
+          "dialogue": [
+            "掮客：星宫的规矩是给死人定的。"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "玉简失窃",
+          "branch": "rebel",
+          "objective": "夺或护玉简",
+          "dialogue": [
+            "线人：里面是虚天日程。"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "破坏任务",
+          "branch": "rebel",
+          "objective": "破坏星宫补给",
+          "fail": "被捕通缉"
+        },
+        {
+          "step": 5,
+          "title": "海盗悬赏",
+          "branch": "loyalist",
+          "objective": "清剿指定海盗",
+          "reward": "军功/制式器"
+        },
+        {
+          "step": 6,
+          "title": "虚天钥终章",
+          "objective": "两线汇合争夺钥线索",
+          "dialogue": [
+            "六连殿联络：内海要中立过路费。"
+          ]
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】乱星海势力线（剧情深稿）（chaotic_sea_politics）。主题：星宫忠/逆星叛分支。原包境界跨度：['FOUNDATION', 'NASCENT_SOUL']。原终局奖励：None。分镜：第1步《巡察接触》：目标—配合星宫巡察；对白示例—巡察使：外海要法度。；失败—重试/撤离；奖励—见链； 第2步《逆星接头》：目标—找到灰市接头人；对白示例—掮客：星宫的规矩是给死人定的。；失败—重试/撤离；奖励—见链； 第3步《玉简失窃》：目标—夺或护玉简；对白示例—线人：里面是虚天日程。；失败—重试/撤离；奖励—见链； 第4步《破坏任务》：目标—破坏星宫补给；对白示例—无；失败—被捕通缉；奖励—见链； 第5步《海盗悬赏》：目标—清剿指定海盗；对白示例—无；失败—重试/撤离；奖励—军功/制式器； 第6步《虚天钥终章》：目标—两线汇合争夺钥线索；对白示例—六连殿联络：内海要中立过路费。；失败—重试/撤离；奖励—见链；终局收束：阵营声望锁定+虚天钩。数值/规则注：{'reputation_fork': True}。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_fallen_demon_campaign",
+      "catalog_id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "封印松动",
+          "objective": "确认谷口异常"
+        },
+        {
+          "step": 2,
+          "title": "驱魔筹备",
+          "objective": "备驱魔丹与辟邪物",
+          "softcap": "丹有价"
+        },
+        {
+          "step": 3,
+          "title": "外谷魔雾",
+          "objective": "穿越雾区，抗魔化"
+        },
+        {
+          "step": 4,
+          "title": "裂隙心魔",
+          "objective": "通过心性检定"
+        },
+        {
+          "step": 5,
+          "title": "古魔投影",
+          "objective": "击溃投影非真体",
+          "boss": true,
+          "reward": "demon_qi_purge_pill等",
+          "softcap": "非真魔本体"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】坠魔谷探秘（剧情深稿）（fallen_demon_campaign）。主题：封印、驱魔、魔雾、心魔、投影。原包境界跨度：['NASCENT_SOUL', 'DEITY_TRANSFORMATION']。原终局奖励：['demon_qi_purge_pill', 'space_rift_compass', 'fallen_demon_chest']。分镜：第1步《封印松动》：目标—确认谷口异常；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《驱魔筹备》：目标—备驱魔丹与辟邪物；对白示例—无；失败—重试/撤离；奖励—见链；软顶：丹有价； 第3步《外谷魔雾》：目标—穿越雾区，抗魔化；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《裂隙心魔》：目标—通过心性检定；对白示例—无；失败—重试/撤离；奖励—见链； 第5步《古魔投影》：目标—击溃投影非真体；对白示例—无；失败—重试/撤离；奖励—demon_qi_purge_pill等；【BOSS】软顶：非真魔本体；终局收束：古魔线线索+空间罗盘。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_kunwu_mountain_campaign",
+      "catalog_id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "入山许可",
+          "objective": "获令或强闯（声望惩罚）"
+        },
+        {
+          "step": 2,
+          "title": "外阵破禁",
+          "objective": "破火山地阵"
+        },
+        {
+          "step": 3,
+          "title": "矿脉傀儡",
+          "objective": "取昆吾矿与零件"
+        },
+        {
+          "step": 4,
+          "title": "傀儡殿",
+          "objective": "过机关与自走傀"
+        },
+        {
+          "step": 5,
+          "title": "峰顶封印",
+          "objective": "傀儡王/封印战",
+          "boss": "kunwu_puppet_king",
+          "reward": "kunwu_core_ore、seal_fragment",
+          "softcap": "八灵尺完整唯一"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】昆吾山夺宝（剧情深稿）（kunwu_mountain_campaign）。主题：许可、外阵、矿脉、傀儡殿、峰顶。原包境界跨度：['CORE_FORMATION', 'NASCENT_SOUL']。原终局奖励：['kunwu_core_ore', 'kunwu_puppet_core', 'kunwu_seal_fragment']。分镜：第1步《入山许可》：目标—获令或强闯（声望惩罚）；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《外阵破禁》：目标—破火山地阵；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《矿脉傀儡》：目标—取昆吾矿与零件；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《傀儡殿》：目标—过机关与自走傀；对白示例—无；失败—重试/撤离；奖励—见链； 第5步《峰顶封印》：目标—傀儡王/封印战；对白示例—无；失败—重试/撤离；奖励—kunwu_core_ore、seal_fragment；【BOSS】软顶：八灵尺完整唯一；终局收束：火脉材料+傀儡线。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_nether_river_campaign",
+      "catalog_id": "nether_river_campaign",
+      "display": "冥河之地行（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "渡费",
+          "objective": "交阴材或心愿给摆渡残影"
+        },
+        {
+          "step": 2,
+          "title": "阴雾入界",
+          "objective": "持定神入雾"
+        },
+        {
+          "step": 3,
+          "title": "魂滩",
+          "objective": "采集聚魂石类，防泣魂"
+        },
+        {
+          "step": 4,
+          "title": "冥殿",
+          "objective": "与鬼修交易或开战"
+        },
+        {
+          "step": 5,
+          "title": "守关",
+          "objective": "击败/谈和守关",
+          "boss": true,
+          "reward": "ghost_cultivation_manual线索",
+          "softcap": "神乳unique"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】冥河之地行（剧情深稿）（nether_river_campaign）。主题：渡费、阴雾、魂滩、冥殿、守关。原包境界跨度：['FOUNDATION', 'NASCENT_SOUL']。原终局奖励：['soul_gathering_stone', 'ghost_cultivation_manual', 'nether_river_chest']。分镜：第1步《渡费》：目标—交阴材或心愿给摆渡残影；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《阴雾入界》：目标—持定神入雾；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《魂滩》：目标—采集聚魂石类，防泣魂；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《冥殿》：目标—与鬼修交易或开战；对白示例—无；失败—重试/撤离；奖励—见链； 第5步《守关》：目标—击败/谈和守关；对白示例—无；失败—重试/撤离；奖励—ghost_cultivation_manual线索；【BOSS】软顶：神乳unique；终局收束：鬼道分支解锁加深。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_diyuan_campaign",
+      "catalog_id": "diyuan_campaign",
+      "display": "地渊探脉（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "地渊令",
+          "objective": "天渊功勋兑换"
+        },
+        {
+          "step": 2,
+          "title": "裂隙口",
+          "objective": "抗压进入"
+        },
+        {
+          "step": 3,
+          "title": "浅矿",
+          "objective": "采灵脉碎片"
+        },
+        {
+          "step": 4,
+          "title": "重压带",
+          "objective": "穿越高压区"
+        },
+        {
+          "step": 5,
+          "title": "古兽守脉",
+          "objective": "击退古兽主权",
+          "boss": true,
+          "reward": "diyuan_core_crystal"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】地渊探脉（剧情深稿）（diyuan_campaign）。主题：功勋令、裂隙、浅矿、重压、古兽。原包境界跨度：['VOID_REFINEMENT', 'BODY_FUSION']。原终局奖励：['spirit_vein_shard', 'diyuan_core_crystal', 'pressure_resist_charm']。分镜：第1步《地渊令》：目标—天渊功勋兑换；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《裂隙口》：目标—抗压进入；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《浅矿》：目标—采灵脉碎片；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《重压带》：目标—穿越高压区；对白示例—无；失败—重试/撤离；奖励—见链； 第5步《古兽守脉》：目标—击退古兽主权；对白示例—无；失败—重试/撤离；奖励—diyuan_core_crystal；【BOSS】终局收束：灵界中期资源。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_spirit_realm_rise",
+      "catalog_id": "spirit_realm_rise",
+      "display": "灵界上升线（剧情深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "天渊契约",
+          "objective": "签人族契约降敌意"
+        },
+        {
+          "step": 2,
+          "title": "宝会请柬",
+          "objective": "赴会不闹事"
+        },
+        {
+          "step": 3,
+          "title": "地渊斥候",
+          "objective": "完成一次地渊侦察"
+        },
+        {
+          "step": 4,
+          "title": "修罗试炼",
+          "optional": true,
+          "objective": "持令入小界"
+        },
+        {
+          "step": 5,
+          "title": "九仙许可",
+          "objective": "获闭关令资格审查"
+        },
+        {
+          "step": 6,
+          "title": "天渊入伍",
+          "objective": "编入功勋序列"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】灵界上升线（剧情深稿）（spirit_realm_rise）。主题：天渊—宝会—地渊—修罗可选—九仙—入伍。原包境界跨度：['VOID_REFINEMENT', 'GREAT_VEHICLE']。原终局奖励：None。分镜：第1步《天渊契约》：目标—签人族契约降敌意；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《宝会请柬》：目标—赴会不闹事；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《地渊斥候》：目标—完成一次地渊侦察；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《修罗试炼》：目标—持令入小界；对白示例—无；失败—重试/撤离；奖励—见链；可选； 第5步《九仙许可》：目标—获闭关令资格审查；对白示例—无；失败—重试/撤离；奖励—见链； 第6步《天渊入伍》：目标—编入功勋序列；对白示例—无；失败—重试/撤离；奖励—见链；终局收束：灵界中后期解锁。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_chain_ascension_spirit_world",
+      "catalog_id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置（剧情深稿·补步）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "化神压力",
+          "objective": "体验人界化神压制事件"
+        },
+        {
+          "step": 2,
+          "title": "飞升物资",
+          "objective": "集齐抗压与界门材料"
+        },
+        {
+          "step": 3,
+          "title": "界门开启",
+          "objective": "守护开启仪式"
+        },
+        {
+          "step": 4,
+          "title": "穿越乱流",
+          "objective": "活过界间乱流"
+        },
+        {
+          "step": 5,
+          "title": "灵界落地",
+          "objective": "在边境适应灵气"
+        },
+        {
+          "step": 6,
+          "title": "天渊报道",
+          "objective": "见功勋吏登记"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】飞升灵界前置（剧情深稿·补步）（chain_ascension_spirit_world）。主题：人界化神帽→破界→落地。原包境界跨度：None。原终局奖励：None。分镜：第1步《化神压力》：目标—体验人界化神压制事件；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《飞升物资》：目标—集齐抗压与界门材料；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《界门开启》：目标—守护开启仪式；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《穿越乱流》：目标—活过界间乱流；对白示例—无；失败—重试/撤离；奖励—见链； 第5步《灵界落地》：目标—在边境适应灵气；对白示例—无；失败—重试/撤离；奖励—见链； 第6步《天渊报道》：目标—见功勋吏登记；对白示例—无；失败—重试/撤离；奖励—见链；终局收束：接入 spirit_realm_rise。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_chain_void_palace_expedition",
+      "catalog_id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链（补步深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "集钥",
+          "objective": "至少一枚钥碎"
+        },
+        {
+          "step": 2,
+          "title": "入殿",
+          "objective": "外殿通关"
+        },
+        {
+          "step": 3,
+          "title": "中殿",
+          "objective": "药园或寒玉二选一深潜"
+        },
+        {
+          "step": 4,
+          "title": "夺宝撤离",
+          "objective": "带出碎片级奖励并存活"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】虚天殿探险链（补步深稿）（chain_void_palace_expedition）。主题：与 void_palace_campaign 并行的简链。原包境界跨度：None。原终局奖励：None。分镜：第1步《集钥》：目标—至少一枚钥碎；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《入殿》：目标—外殿通关；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《中殿》：目标—药园或寒玉二选一深潜；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《夺宝撤离》：目标—带出碎片级奖励并存活；对白示例—无；失败—重试/撤离；奖励—见链；终局收束：同虚天软顶。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_chain_seven_sect_outer_to_inner",
+      "catalog_id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门（补步深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "外门满绩",
+          "objective": "贡献达阈值"
+        },
+        {
+          "step": 2,
+          "title": "术法考核",
+          "objective": "通过本门术法试"
+        },
+        {
+          "step": 3,
+          "title": "内门令",
+          "objective": "长老签字晋升"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】七派外门晋升内门（补步深稿）（chain_seven_sect_outer_to_inner）。主题：贡献+考核+举荐。原包境界跨度：None。原终局奖励：None。分镜：第1步《外门满绩》：目标—贡献达阈值；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《术法考核》：目标—通过本门术法试；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《内门令》：目标—长老签字晋升；对白示例—无；失败—重试/撤离；奖励—见链；终局收束：内门货架与地火权限。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_deep_chain_tianyuan_enlist",
+      "catalog_id": "chain_tianyuan_enlist",
+      "display": "天渊城服役（补步深稿）",
+      "type": "quest_chain_deep",
+      "beats": [
+        {
+          "step": 1,
+          "title": "登记",
+          "objective": "功勋吏备案"
+        },
+        {
+          "step": 2,
+          "title": "训练",
+          "objective": "完成制式训练"
+        },
+        {
+          "step": 3,
+          "title": "边境勤务",
+          "objective": "完成一次边境任务"
+        },
+        {
+          "step": 4,
+          "title": "授勋",
+          "objective": "换取功勋货"
+        }
+      ],
+      "tags": [
+        "quest_deep_v117",
+        "mainline"
+      ],
+      "description": "【主线剧情深稿】天渊城服役（补步深稿）（chain_tianyuan_enlist）。主题：功勋、纪律、边境。原包境界跨度：None。原终局奖励：None。分镜：第1步《登记》：目标—功勋吏备案；对白示例—无；失败—重试/撤离；奖励—见链； 第2步《训练》：目标—完成制式训练；对白示例—无；失败—重试/撤离；奖励—见链； 第3步《边境勤务》：目标—完成一次边境任务；对白示例—无；失败—重试/撤离；奖励—见链； 第4步《授勋》：目标—换取功勋货；对白示例—无；失败—重试/撤离；奖励—见链；终局收束：军功隔离经济。数值/规则注：None。与秘境专页、NPC具名、经济软顶交叉；禁止任务洪峰刷通天/瓶/绿液。"
+    },
+    {
+      "id": "quest_thick_mulan_tianlan_war",
+      "catalog_id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "mulan_side",
+          "title": "mulan_side",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "beast_tide_defense",
+          "title": "beast_tide_defense",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "mulan_scout_clash",
+          "title": "mulan_scout_clash",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】慕兰天澜战线（mulan_tianlan_war）。域：mulan。跨度：None。步骤：1.mulan_side → 2.beast_tide_defense → 3.mulan_scout_clash。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：慕兰与天澜势力线并行，兽潮与斥候战挂钩 faction_conflict_events。。"
+    },
+    {
+      "id": "quest_thick_ghost_path",
+      "catalog_id": "ghost_path",
+      "display": "鬼道线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "yinming_escape",
+          "title": "阴冥脱困得玄阴残卷",
+          "objective": "阴冥脱困得玄阴残卷",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "hook_ghost_yin_body",
+          "title": "敛魂符阴体",
+          "objective": "敛魂符阴体",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "nether_river_pilgrim",
+          "title": "冥河朝圣换阴石",
+          "objective": "冥河朝圣换阴石",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "hook_ghost_soul_anchor",
+          "title": "聚魂石魂锚",
+          "objective": "聚魂石魂锚",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 5,
+          "hook": "hook_ghost_nether_core",
+          "title": "冥河地结冥核",
+          "objective": "冥河地结冥核",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 6,
+          "hook": "nether_river_guardian",
+          "title": "阴婴门槛",
+          "objective": "阴婴门槛",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】鬼道线（ghost_path）。域：None。跨度：None。步骤：1.阴冥脱困得玄阴残卷 → 2.敛魂符阴体 → 3.冥河朝圣换阴石 → 4.聚魂石魂锚 → 5.冥河地结冥核 → 6.阴婴门槛。终奖：['yin_soul_stage', 'ghost_nether_art_full_page']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：鬼道线。"
+    },
+    {
+      "id": "quest_thick_high_realm_endgame",
+      "catalog_id": "high_realm_endgame",
+      "display": "高境界终局（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "kunwu_expedition",
+          "title": "kunwu_expedition",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_seal_research",
+          "title": "kunwu_seal_research",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "fallen_demon_scout",
+          "title": "fallen_demon_scout",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "tianyuan_enlist",
+          "title": "tianyuan_enlist",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】高境界终局（high_realm_endgame）。域：None。跨度：['CORE_FORMATION', 'DEITY_TRANSFORMATION']。步骤：1.kunwu_expedition → 2.kunwu_seal_research → 3.fallen_demon_scout → 4.tianyuan_enlist。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：高境界终局。"
+    },
+    {
+      "id": "quest_thick_craft_master",
+      "catalog_id": "craft_master",
+      "display": "百艺精通（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "alchemy_apprentice",
+          "title": "alchemy_apprentice",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "puppet_maintain",
+          "title": "puppet_maintain",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_seal_research",
+          "title": "阵法进阶",
+          "objective": "阵法进阶",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "sect_fire_room",
+          "title": "炼器地火",
+          "objective": "炼器地火",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】百艺精通（craft_master）。域：None。跨度：None。步骤：1.alchemy_apprentice → 2.puppet_maintain → 3.阵法进阶 → 4.炼器地火。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：百艺精通。"
+    },
+    {
+      "id": "quest_thick_dajin_kunwu_line",
+      "catalog_id": "dajin_kunwu_line",
+      "display": "大晋昆吾线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "dajin_auction_preview",
+          "title": "dajin_auction_preview",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_intel",
+          "title": "kunwu_intel",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_expedition",
+          "title": "kunwu_expedition",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_seal_research",
+          "title": "kunwu_seal_research",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】大晋昆吾线（dajin_kunwu_line）。域：dajin。跨度：['FOUNDATION', 'NASCENT_SOUL']。步骤：1.dajin_auction_preview → 2.kunwu_intel → 3.kunwu_expedition → 4.kunwu_seal_research。终奖：['kunwu_seal_fragment', 'ancient_treasure_appraisal_lens']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：大晋昆吾线。"
+    },
+    {
+      "id": "quest_thick_ancient_demon_line",
+      "catalog_id": "ancient_demon_line",
+      "display": "古魔封印线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fallen_demon_scout",
+          "title": "坠魔谷侦察",
+          "objective": "坠魔谷侦察",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_seal_research",
+          "title": "封印残片（可并行昆吾线）",
+          "objective": "封印残片（可并行昆吾线）",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "blood_forbidden_run",
+          "title": "血色禁地周期",
+          "objective": "血色禁地周期",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "demon_rift_closure",
+          "title": "协助稳固裂隙",
+          "objective": "协助稳固裂隙",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】古魔封印线（ancient_demon_line）。域：tiannan。跨度：['CORE_FORMATION', 'DEITY_TRANSFORMATION']。步骤：1.坠魔谷侦察 → 2.封印残片（可并行昆吾线） → 3.血色禁地周期 → 4.协助稳固裂隙。终奖：['seal_reinforcement_token', 'anti_demon_talisman_bulk']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：古魔封印线。"
+    },
+    {
+      "id": "quest_thick_huadao_blade_path",
+      "catalog_id": "huadao_blade_path",
+      "display": "化刀坞刀道（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "huadao_entry",
+          "title": "刀坞试刀",
+          "objective": "刀坞试刀",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "huadao_forge_contract",
+          "title": "铸刀委托",
+          "objective": "铸刀委托",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "huadao_duel_trial",
+          "title": "刀意对决",
+          "objective": "刀意对决",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】化刀坞刀道（huadao_blade_path）。域：tiannan。跨度：['QI_REFINING', 'FOUNDATION']。步骤：1.刀坞试刀 → 2.铸刀委托 → 3.刀意对决。终奖：['huadao_blade_intent_page']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：化刀坞刀道。"
+    },
+    {
+      "id": "quest_thick_giant_sword_gate_path",
+      "catalog_id": "giant_sword_gate_path",
+      "display": "巨剑门传承（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "giant_sword_entry",
+          "title": "巨剑入门",
+          "objective": "巨剑入门",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "blood_forbidden_run",
+          "title": "血色禁地银巨剑线索",
+          "objective": "血色禁地银巨剑线索",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 3,
+          "hook": "giant_sword_relic_restore",
+          "title": "古剑残片重铸",
+          "objective": "古剑残片重铸",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】巨剑门传承（giant_sword_gate_path）。域：tiannan。跨度：['QI_REFINING', 'FOUNDATION']。步骤：1.巨剑入门 → 2.血色禁地银巨剑线索 → 3.古剑残片重铸。终奖：['silver_giant_sword_blueprint', 'giant_sword_art']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：巨剑门传承。"
+    },
+    {
+      "id": "quest_thick_qianzhu_puppet_path",
+      "catalog_id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "qianzhu_puppet_apprentice",
+          "title": "傀儡童工",
+          "objective": "傀儡童工",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "thousand_bamboo_tower_run",
+          "title": "千竹塔历练",
+          "objective": "千竹塔历练",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "dayan_fragment_quest",
+          "title": "大衍残页",
+          "objective": "大衍残页",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "puppet_maintain",
+          "title": "维护高阶傀",
+          "objective": "维护高阶傀",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】千竹傀儡线（qianzhu_puppet_path）。域：tiannan。跨度：['QI_REFINING', 'CORE_FORMATION']。步骤：1.傀儡童工 → 2.千竹塔历练 → 3.大衍残页 → 4.维护高阶傀。终奖：['dayan_art_scroll', 'puppet_core_blank_bulk']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：千竹傀儡线。"
+    },
+    {
+      "id": "quest_thick_yuling_puppet_path",
+      "catalog_id": "yuling_puppet_path",
+      "display": "御灵兽傀线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "yuling_secret_contact",
+          "title": "灵兽山暗线",
+          "objective": "灵兽山暗线",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "beast_soul_bind_puppet",
+          "title": "兽魂封傀",
+          "objective": "兽魂封傀",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "lingshou_contract_beast",
+          "title": "lingshou_contract_beast",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】御灵兽傀线（yuling_puppet_path）。域：tiannan。跨度：['FOUNDATION', 'CORE_FORMATION']。步骤：1.灵兽山暗线 → 2.兽魂封傀 → 3.lingshou_contract_beast。终奖：['yuling_beast_puppet_art', 'beast_puppet_core']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：御灵兽傀线。"
+    },
+    {
+      "id": "quest_thick_dajin_clan_line",
+      "catalog_id": "dajin_clan_line",
+      "display": "大晋世家线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "clan_territory_patrol",
+          "title": "clan_territory_patrol",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "dajin_auction_preview",
+          "title": "dajin_auction_preview",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "clan_ancestor_trial",
+          "title": "祖传诀试炼",
+          "objective": "祖传诀试炼",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_expedition",
+          "title": "kunwu_expedition",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】大晋世家线（dajin_clan_line）。域：dajin。跨度：['FOUNDATION', 'NASCENT_SOUL']。步骤：1.clan_territory_patrol → 2.dajin_auction_preview → 3.祖传诀试炼 → 4.kunwu_expedition。终奖：['dajin_clan_ancestor_art', 'clan_seal_token']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：大晋世家祖传诀、拍卖与可选昆吾支线。。"
+    },
+    {
+      "id": "quest_thick_demonic_six_path",
+      "catalog_id": "demonic_six_path",
+      "display": "魔道六宗线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "demonic_north_rumor",
+          "title": "北迁传闻",
+          "objective": "北迁传闻",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "guiling_gate_recruit",
+          "title": "guiling_gate_recruit",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "guiling_gate",
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "hehuan_sect_trial",
+          "title": "hehuan_sect_trial",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "hehuan_sect",
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "tianmo_blood_rite",
+          "title": "tianmo_blood_rite",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "tianmo_sect",
+          "optional": null
+        },
+        {
+          "step": 5,
+          "hook": "righteous_bounty_hunt",
+          "title": "正道悬赏反噬",
+          "objective": "正道悬赏反噬",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】魔道六宗线（demonic_six_path）。域：tiannan_north_waste。跨度：['QI_REFINING', 'CORE_FORMATION']。步骤：1.北迁传闻 → 2.guiling_gate_recruit → 3.hehuan_sect_trial → 4.tianmo_blood_rite → 5.正道悬赏反噬。终奖：['demonic_core_material', 'sect_method_scroll']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：魔道六宗线。"
+    },
+    {
+      "id": "quest_thick_yin_cluster_pilgrim",
+      "catalog_id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "yinming_escape",
+          "title": "yinming_escape",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "nether_river_pilgrim",
+          "title": "nether_river_pilgrim",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "nether_river_fog_event",
+          "title": "nether_river_fog_event",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】阴司朝圣线（yin_cluster_pilgrim）。域：yin_underworld。跨度：None。步骤：1.yinming_escape → 2.nether_river_pilgrim → 3.nether_river_fog_event。终奖：['yin_protect_talisman_bulk', 'nether_river_map']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：阴司朝圣线。"
+    },
+    {
+      "id": "quest_thick_barbarian_kings_line",
+      "catalog_id": "barbarian_kings_line",
+      "display": "蛮荒妖王线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "diyuan_scout",
+          "title": "diyuan_scout",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "barbarian_border_contact",
+          "title": "barbarian_border_contact",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "king_tribute_quest",
+          "title": "任选妖王朝贡/试炼",
+          "objective": "任选妖王朝贡/试炼",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "spatial_rift_escape",
+          "title": "spatial_rift_escape",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】蛮荒妖王线（barbarian_kings_line）。域：barbarian_wasteland。跨度：['VOID_REFINEMENT', 'GREAT_VEHICLE']。步骤：1.diyuan_scout → 2.barbarian_border_contact → 3.任选妖王朝贡/试炼 → 4.spatial_rift_escape。终奖：['barbarian_king_token', 'ancient_beast_core']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：蛮荒妖王线。"
+    },
+    {
+      "id": "quest_thick_spirit_eighteen_clans",
+      "catalog_id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "tianyuan_enlist",
+          "title": "天渊入伍",
+          "objective": "天渊入伍",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "clan_generic_tribute",
+          "title": "clan_generic_tribute",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "treasure_fair_invite",
+          "title": "treasure_fair_invite",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "asura_trial",
+          "title": "asura_trial",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】灵界十八族巡礼（spirit_eighteen_clans）。域：spirit_fengyuan。跨度：['DEITY_TRANSFORMATION', 'GREAT_VEHICLE']。步骤：1.天渊入伍 → 2.clan_generic_tribute → 3.treasure_fair_invite → 4.asura_trial。终奖：['spirit_clan_grand_token', 'specialty_item_bundle']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：灵界十八族巡礼。"
+    },
+    {
+      "id": "quest_thick_star_palace_internal_politics",
+      "catalog_id": "star_palace_internal_politics",
+      "display": "星宫派系线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "star_palace_patrol",
+          "title": "star_palace_patrol",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "star_palace_branch_enforcement",
+          "title": "star_palace_branch_enforcement",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "enforcement",
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_branch_commerce",
+          "title": "star_palace_branch_commerce",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "commerce",
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "internal_tax_vote",
+          "title": "internal_tax_vote",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】星宫派系线（star_palace_internal_politics）。域：chaotic_sea。跨度：None。步骤：1.star_palace_patrol → 2.star_palace_branch_enforcement → 3.star_palace_branch_commerce → 4.internal_tax_vote。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：星宫派系线。"
+    },
+    {
+      "id": "quest_thick_mulan_war_campaign",
+      "catalog_id": "mulan_war_campaign",
+      "display": "慕兰天澜战役（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "mulan_scout_clash",
+          "title": "边境遭遇",
+          "objective": "边境遭遇",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "mulan_side",
+          "title": "mulan_side",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "mulan",
+          "optional": true
+        },
+        {
+          "step": 3,
+          "hook": "tiannan_defense_mobilize",
+          "title": "tiannan_defense_mobilize",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "tiannan",
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "fashi_soul_array_battle",
+          "title": "法士护阵",
+          "objective": "法士护阵",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 5,
+          "hook": "holy_bird_blessing_quest",
+          "title": "holy_bird_blessing_quest",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 6,
+          "hook": "war_ceasefire_negotiation",
+          "title": "停战谈判",
+          "objective": "停战谈判",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】慕兰天澜战役（mulan_war_campaign）。域：mulan。跨度：['QI_REFINING', 'CORE_FORMATION']。步骤：1.边境遭遇 → 2.mulan_side → 3.tiannan_defense_mobilize → 4.法士护阵 → 5.holy_bird_blessing_quest → 6.停战谈判。终奖：['war_campaign_token', 'rep_faction_major']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：慕兰法士与天南千年摩擦：择边、斥候、护阵/破阵、圣禽、停战；结构向战役非必胜。。"
+    },
+    {
+      "id": "quest_thick_mulan_fashi_path",
+      "catalog_id": "mulan_fashi_path",
+      "display": "慕兰法士道途（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "mulan_fashi_initiation",
+          "title": "mulan_fashi_initiation",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "holy_bird_altar_visit",
+          "title": "holy_bird_altar_visit",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "tianhu_beast_tame_optional",
+          "title": "tianhu_beast_tame_optional",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】慕兰法士道途（mulan_fashi_path）。域：mulan。跨度：None。步骤：1.mulan_fashi_initiation → 2.holy_bird_altar_visit → 3.tianhu_beast_tame_optional。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：慕兰法士入门、圣禽祭坛与可选天虎驯兽，对接 fashi_mulan 技能树。。"
+    },
+    {
+      "id": "quest_thick_tianlan_defense_line",
+      "catalog_id": "tianlan_defense_line",
+      "display": "天澜御兽线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "tianlan_oath_renew",
+          "title": "tianlan_oath_renew",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "tianlan_beast_soul_call_training",
+          "title": "tianlan_beast_soul_call_training",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "mulan_war_campaign",
+          "title": "mulan_war_campaign",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】天澜御兽线（tianlan_defense_line）。域：tianlan。跨度：None。步骤：1.tianlan_oath_renew → 2.tianlan_beast_soul_call_training → 3.mulan_war_campaign。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：天澜御兽线。"
+    },
+    {
+      "id": "quest_thick_wutu_mulan_feud_line",
+      "catalog_id": "wutu_mulan_feud_line",
+      "display": "突兀慕兰世仇（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "wutu_raid_mulan_camp",
+          "title": "wutu_raid_mulan_camp",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "mulan_counter_hunt",
+          "title": "mulan_counter_hunt",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "feud_truce_broker",
+          "title": "feud_truce_broker",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】突兀慕兰世仇（wutu_mulan_feud_line）。域：mulan。跨度：None。步骤：1.wutu_raid_mulan_camp → 2.mulan_counter_hunt → 3.feud_truce_broker。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：突兀慕兰世仇。"
+    },
+    {
+      "id": "quest_thick_fallen_demon_expedition",
+      "catalog_id": "fallen_demon_expedition",
+      "display": "坠魔谷探谷（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fallen_demon_scout",
+          "title": "fallen_demon_scout",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "seal_weak_event",
+          "title": "seal_weak_event",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "demon_qi_purge_side",
+          "title": "demon_qi_purge_side",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "ancient_demon_projection_boss",
+          "title": "ancient_demon_projection_boss",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】坠魔谷探谷（fallen_demon_expedition）。域：fallen_demon_valley。跨度：None。步骤：1.fallen_demon_scout → 2.seal_weak_event → 3.demon_qi_purge_side → 4.ancient_demon_projection_boss。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：坠魔谷探谷。"
+    },
+    {
+      "id": "quest_thick_dajin_wanbao_route",
+      "catalog_id": "dajin_wanbao_route",
+      "display": "大晋商路（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "auction_invite_dajin",
+          "title": "auction_invite_dajin",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "dajin_clan_feud_choice",
+          "title": "dajin_clan_feud_choice",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_rumor",
+          "title": "kunwu_rumor",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】大晋商路（dajin_wanbao_route）。域：dajin。跨度：None。步骤：1.auction_invite_dajin → 2.dajin_clan_feud_choice → 3.kunwu_rumor。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：万宝楼商路与拍卖准入。。"
+    },
+    {
+      "id": "quest_thick_yin_luo_ghost_sect",
+      "catalog_id": "yin_luo_ghost_sect",
+      "display": "阴罗殿线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "yin_luo_initiation",
+          "title": "yin_luo_initiation",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "soul_banner_quest",
+          "title": "soul_banner_quest",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "nether_ferry_pass",
+          "title": "nether_ferry_pass",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】阴罗殿线（yin_luo_ghost_sect）。域：yinming。跨度：None。步骤：1.yin_luo_initiation → 2.soul_banner_quest → 3.nether_ferry_pass。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：阴罗殿线。"
+    },
+    {
+      "id": "quest_thick_kunwu_mountain_expedition",
+      "catalog_id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "kunwu_intel",
+          "title": "kunwu_intel",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_map_fragment_turnin",
+          "title": "kunwu_map_fragment_turnin",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_cold_snap_survive",
+          "title": "kunwu_cold_snap_survive",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_puppet_king",
+          "title": "kunwu_puppet_king",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】昆吾山探山（kunwu_mountain_expedition）。域：kunwu。跨度：None。步骤：1.kunwu_intel → 2.kunwu_map_fragment_turnin → 3.kunwu_cold_snap_survive → 4.kunwu_puppet_king。终奖：['kunwu_seal_fragment', 'kunwu_puppet_core']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：昆吾山探山。"
+    },
+    {
+      "id": "quest_thick_tianyuan_merit_path",
+      "catalog_id": "tianyuan_merit_path",
+      "display": "天渊功勋线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "tianyuan_merit_enlist",
+          "title": "tianyuan_merit_enlist",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "demon_beast_siege_defense",
+          "title": "demon_beast_siege_defense",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_permit_apply",
+          "title": "diyuan_permit_apply",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】天渊功勋线（tianyuan_merit_path）。域：tianyuan。跨度：None。步骤：1.tianyuan_merit_enlist → 2.demon_beast_siege_defense → 3.diyuan_permit_apply。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：天渊功勋线。"
+    },
+    {
+      "id": "quest_thick_spirit_realm_border",
+      "catalog_id": "spirit_realm_border",
+      "display": "灵界边境（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "wild_land_beast_horde",
+          "title": "wild_land_beast_horde",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "spatial_rift_flutter_survive",
+          "title": "spatial_rift_flutter_survive",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】灵界边境（spirit_realm_border）。域：spirit_realm_border。跨度：None。步骤：1.wild_land_beast_horde → 2.spatial_rift_flutter_survive。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：灵界边境。"
+    },
+    {
+      "id": "quest_thick_ghost_sect_ban_arc",
+      "catalog_id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "ghost_expose_event",
+          "title": "ghost_expose_event",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "righteous_sect_ghost_hunt",
+          "title": "righteous_sect_ghost_hunt",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "sect_ban_lift_rare_quest",
+          "title": "sect_ban_lift_rare_quest",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】鬼修禁入正道（ghost_sect_ban_arc）。域：None。跨度：None。步骤：1.ghost_expose_event → 2.righteous_sect_ghost_hunt → 3.sect_ban_lift_rare_quest。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：鬼修禁入正道。"
+    },
+    {
+      "id": "quest_thick_fengyuan_explorer",
+      "catalog_id": "fengyuan_explorer",
+      "display": "风元探索（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "title": "fengyuan_clan_intro",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "spirit_fengyuan_border_patrol",
+          "title": "spirit_fengyuan_border_patrol",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "wild_land_rumor",
+          "title": "wild_land_rumor",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】风元探索（fengyuan_explorer）。域：spirit_fengyuan。跨度：None。步骤：1.fengyuan_clan_intro → 2.spirit_fengyuan_border_patrol → 3.wild_land_rumor。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：风元探索。"
+    },
+    {
+      "id": "quest_thick_barbarian_king_hunt",
+      "catalog_id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "barbarian_border_contact",
+          "title": "barbarian_border_contact",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "barbarian_beast_tide_survive",
+          "title": "barbarian_beast_tide_survive",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "barbarian_king_token_hunt",
+          "title": "barbarian_king_token_hunt",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】蛮荒妖王线（barbarian_king_hunt）。域：barbarian_wasteland。跨度：None。步骤：1.barbarian_border_contact → 2.barbarian_beast_tide_survive → 3.barbarian_king_token_hunt。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：蛮荒妖王线。"
+    },
+    {
+      "id": "quest_thick_human_clan_neutral_intro",
+      "catalog_id": "human_clan_neutral_intro",
+      "display": "世家引荐（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "title": "fengyuan_clan_intro",
+          "objective": "完成钩 fengyuan_clan_intro"
+        },
+        {
+          "step": 2,
+          "hook": "clan_guest_register",
+          "title": "clan_guest_register",
+          "objective": "完成钩 clan_guest_register"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】世家引荐（human_clan_neutral_intro）。域：spirit_fengyuan。跨度：None。步骤：1.fengyuan_clan_intro → 2.clan_guest_register。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：世家引荐。"
+    },
+    {
+      "id": "quest_thick_clan_array_mo_line",
+      "catalog_id": "clan_array_mo_line",
+      "display": "莫家阵法线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "array_disk_commission",
+          "title": "array_disk_commission",
+          "objective": "完成钩 array_disk_commission"
+        },
+        {
+          "step": 2,
+          "hook": "formation_trial_mo",
+          "title": "formation_trial_mo",
+          "objective": "完成钩 formation_trial_mo"
+        },
+        {
+          "step": 3,
+          "hook": "clan_feud_mediation_optional",
+          "title": "clan_feud_mediation_optional",
+          "objective": "完成钩 clan_feud_mediation_optional"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】莫家阵法线（clan_array_mo_line）。域：spirit_fengyuan。跨度：None。步骤：1.array_disk_commission → 2.formation_trial_mo → 3.clan_feud_mediation_optional。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：莫家阵法线。"
+    },
+    {
+      "id": "quest_thick_clan_refinement_yu_line",
+      "catalog_id": "clan_refinement_yu_line",
+      "display": "俞家炼器线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "spirit_ore_escort",
+          "title": "spirit_ore_escort",
+          "objective": "完成钩 spirit_ore_escort"
+        },
+        {
+          "step": 2,
+          "hook": "refinement_apprentice_yu",
+          "title": "refinement_apprentice_yu",
+          "objective": "完成钩 refinement_apprentice_yu"
+        },
+        {
+          "step": 3,
+          "hook": "artifact_appraisal_quest",
+          "title": "artifact_appraisal_quest",
+          "objective": "完成钩 artifact_appraisal_quest"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】俞家炼器线（clan_refinement_yu_line）。域：spirit_fengyuan。跨度：None。步骤：1.spirit_ore_escort → 2.refinement_apprentice_yu → 3.artifact_appraisal_quest。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：俞家炼器线。"
+    },
+    {
+      "id": "quest_thick_clan_alchemy_gu_line",
+      "catalog_id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "herb_tribute_gu",
+          "title": "herb_tribute_gu",
+          "objective": "完成钩 herb_tribute_gu"
+        },
+        {
+          "step": 2,
+          "hook": "alchemy_furnace_access",
+          "title": "alchemy_furnace_access",
+          "objective": "完成钩 alchemy_furnace_access"
+        },
+        {
+          "step": 3,
+          "hook": "pill_quality_audit",
+          "title": "pill_quality_audit",
+          "objective": "完成钩 pill_quality_audit"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】谷家丹道线（clan_alchemy_gu_line）。域：spirit_fengyuan。跨度：None。步骤：1.herb_tribute_gu → 2.alchemy_furnace_access → 3.pill_quality_audit。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：谷家丹道线。"
+    },
+    {
+      "id": "quest_thick_clan_talisman_ning_line",
+      "catalog_id": "clan_talisman_ning_line",
+      "display": "宁家符箓线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "talisman_blank_order",
+          "title": "talisman_blank_order",
+          "objective": "完成钩 talisman_blank_order"
+        },
+        {
+          "step": 2,
+          "hook": "talisman_inscription_lesson",
+          "title": "talisman_inscription_lesson",
+          "objective": "完成钩 talisman_inscription_lesson"
+        },
+        {
+          "step": 3,
+          "hook": "clan_raid_defense_ning",
+          "title": "clan_raid_defense_ning",
+          "objective": "完成钩 clan_raid_defense_ning"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】宁家符箓线（clan_talisman_ning_line）。域：spirit_fengyuan。跨度：None。步骤：1.talisman_blank_order → 2.talisman_inscription_lesson → 3.clan_raid_defense_ning。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：宁家符箓线。"
+    },
+    {
+      "id": "quest_thick_human_clan_league_hub",
+      "catalog_id": "human_clan_league_hub",
+      "display": "世家联盟总线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "title": "fengyuan_clan_intro",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "clan_guest_register",
+          "title": "clan_guest_register",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "dajin_clan_feud",
+          "title": "dajin_clan_feud",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】世家联盟总线（human_clan_league_hub）。域：spirit_fengyuan。跨度：None。步骤：1.fengyuan_clan_intro → 2.clan_guest_register → 3.dajin_clan_feud。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：世家联盟总线。"
+    },
+    {
+      "id": "quest_thick_spirit_eighteen_pilgrimage",
+      "catalog_id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "title": "fengyuan_clan_intro",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "spirit_eighteen_pilgrimage",
+          "title": "spirit_eighteen_pilgrimage",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "tianyuan_enlist",
+          "title": "tianyuan_enlist",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】灵界十八族巡礼（spirit_eighteen_pilgrimage）。域：spirit_fengyuan。跨度：None。步骤：1.fengyuan_clan_intro → 2.spirit_eighteen_pilgrimage → 3.tianyuan_enlist。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：灵界十八族巡礼。"
+    },
+    {
+      "id": "quest_thick_void_great_cultivation_arc",
+      "catalog_id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "void_rift_surge",
+          "title": "void_rift_surge",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "diyuan_core_probe",
+          "title": "diyuan_core_probe",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "great_vehicle_insight",
+          "title": "great_vehicle_insight",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "tribulation_cloud_gather",
+          "title": "tribulation_cloud_gather",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】炼虚大乘道途（void_great_cultivation_arc）。域：None。跨度：['VOID_REFINING', 'TRIBULATION']。步骤：1.void_rift_surge → 2.diyuan_core_probe → 3.great_vehicle_insight → 4.tribulation_cloud_gather。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：炼虚大乘道途。"
+    },
+    {
+      "id": "quest_thick_diyuan_depth_delve",
+      "catalog_id": "diyuan_depth_delve",
+      "display": "地渊深层（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "diyuan_permit_apply",
+          "title": "diyuan_permit_apply",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "diyuan_pressure_wave",
+          "title": "diyuan_pressure_wave",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_core_probe",
+          "title": "diyuan_core_probe",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "diyuan_core_crystal_boss",
+          "title": "diyuan_core_crystal_boss",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】地渊深层（diyuan_depth_delve）。域：diyuan。跨度：None。步骤：1.diyuan_permit_apply → 2.diyuan_pressure_wave → 3.diyuan_core_probe → 4.diyuan_core_crystal_boss。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：地渊深层。"
+    },
+    {
+      "id": "quest_thick_mortal_to_spirit_bridge",
+      "catalog_id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "mortal_realm_cap_insight",
+          "title": "mortal_realm_cap_insight",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "ascension_gate_rumor",
+          "title": "ascension_gate_rumor",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "spirit_realm_gate_voucher",
+          "title": "spirit_realm_gate_voucher",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】人界化神·赴灵界（mortal_to_spirit_bridge）。域：None。跨度：None。步骤：1.mortal_realm_cap_insight → 2.ascension_gate_rumor → 3.spirit_realm_gate_voucher。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：人界化神·赴灵界。"
+    },
+    {
+      "id": "quest_thick_inverse_star_recruit",
+      "catalog_id": "inverse_star_recruit",
+      "display": "逆星入盟（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "inverse_star_contact_rumor",
+          "title": "inverse_star_contact_rumor",
+          "objective": "完成钩 inverse_star_contact_rumor"
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_cipher_trial",
+          "title": "inverse_star_cipher_trial",
+          "objective": "完成钩 inverse_star_cipher_trial"
+        },
+        {
+          "step": 3,
+          "hook": "inverse_star_oath",
+          "title": "inverse_star_oath",
+          "objective": "完成钩 inverse_star_oath"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】逆星入盟（inverse_star_recruit）。域：chaotic_sea。跨度：None。步骤：1.inverse_star_contact_rumor → 2.inverse_star_cipher_trial → 3.inverse_star_oath。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：逆星入盟。"
+    },
+    {
+      "id": "quest_thick_inverse_star_smuggle_arc",
+      "catalog_id": "inverse_star_smuggle_arc",
+      "display": "走私补给线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "inverse_star_smuggler_pack",
+          "title": "inverse_star_smuggler_pack",
+          "objective": "完成钩 inverse_star_smuggler_pack"
+        },
+        {
+          "step": 2,
+          "hook": "star_palace_patrol_dodge",
+          "title": "star_palace_patrol_dodge",
+          "objective": "完成钩 star_palace_patrol_dodge"
+        },
+        {
+          "step": 3,
+          "hook": "void_palace_intel_sell",
+          "title": "void_palace_intel_sell",
+          "objective": "完成钩 void_palace_intel_sell"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】走私补给线（inverse_star_smuggle_arc）。域：chaotic_sea。跨度：None。步骤：1.inverse_star_smuggler_pack → 2.star_palace_patrol_dodge → 3.void_palace_intel_sell。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：走私补给线。"
+    },
+    {
+      "id": "quest_thick_inverse_star_void_heist",
+      "catalog_id": "inverse_star_void_heist",
+      "display": "虚天情报战（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "void_key_fragment_rumor",
+          "title": "void_key_fragment_rumor",
+          "objective": "完成钩 void_key_fragment_rumor"
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_black_market_buy",
+          "title": "inverse_star_black_market_buy",
+          "objective": "完成钩 inverse_star_black_market_buy"
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_spy_expose_optional",
+          "title": "star_palace_spy_expose_optional",
+          "objective": "完成钩 star_palace_spy_expose_optional"
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】虚天情报战（inverse_star_void_heist）。域：chaotic_sea。跨度：None。步骤：1.void_key_fragment_rumor → 2.inverse_star_black_market_buy → 3.star_palace_spy_expose_optional。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：虚天情报战。"
+    },
+    {
+      "id": "quest_thick_chaotic_sea_civil_war",
+      "catalog_id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "star_palace_patrol_quest",
+          "title": "star_palace_patrol_quest",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "loyalist",
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_ambush_event",
+          "title": "inverse_star_ambush_event",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "rebel",
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_enforcement_raid",
+          "title": "star_palace_enforcement_raid",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "loyalist",
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "inverse_star_smuggle_run",
+          "title": "inverse_star_smuggle_run",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "rebel",
+          "optional": true
+        },
+        {
+          "step": 5,
+          "hook": "chaotic_sea_neutral_ending_optional",
+          "title": "chaotic_sea_neutral_ending_optional",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】星宫逆星对峙（chaotic_sea_civil_war）。域：chaotic_sea。跨度：None。步骤：1.star_palace_patrol_quest → 2.inverse_star_ambush_event → 3.star_palace_enforcement_raid → 4.inverse_star_smuggle_run → 5.chaotic_sea_neutral_ending_optional。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：星宫巡防与逆星伏击对峙，可选中立收束；结构向非阵营必胜。。"
+    },
+    {
+      "id": "quest_thick_chain_mulan_war_campaign",
+      "catalog_id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "mulan_scout_clash",
+          "title": "边境遭遇",
+          "objective": "边境遭遇",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "fashi_soul_array_battle",
+          "title": "法士大阵",
+          "objective": "法士大阵",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "holy_bird_blessing_quest",
+          "title": "holy_bird_blessing_quest",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "war_ceasefire_negotiation",
+          "title": "停战",
+          "objective": "停战",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】慕兰大战战役（chain_mulan_war_campaign）。域：mulan_border。跨度：None。步骤：1.边境遭遇 → 2.法士大阵 → 3.holy_bird_blessing_quest → 4.停战。终奖：['war_merit', 'mulan_spoil']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：天南联军对慕兰法士。。"
+    },
+    {
+      "id": "quest_thick_dajin_righteous_demon_line",
+      "catalog_id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "dajin_border_rumor",
+          "title": "边境传闻",
+          "objective": "边境传闻",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "dajin_righteous_patrol_hook",
+          "title": "dajin_righteous_patrol_hook",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "righteous",
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "dajin_demon_infiltrate_hook",
+          "title": "dajin_demon_infiltrate_hook",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": "demonic",
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "wanbao_auction_lead",
+          "title": "wanbao_auction_lead",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 5,
+          "hook": "kunwu_expedition",
+          "title": "kunwu_expedition",
+          "objective": "完成钩子",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】大晋正魔边境线（dajin_righteous_demon_line）。域：dajin。跨度：['FOUNDATION', 'NASCENT_SOUL']。步骤：1.边境传闻 → 2.dajin_righteous_patrol_hook → 3.dajin_demon_infiltrate_hook → 4.wanbao_auction_lead → 5.kunwu_expedition。终奖：贡献/材料/人情。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：正道巡边与魔道渗透互斥支线；万宝拍卖可中立介入。。"
+    },
+    {
+      "id": "quest_thick_yanyue_illusion_path",
+      "catalog_id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "yanyue_entry_trial",
+          "title": "神识心性试炼",
+          "objective": "神识心性试炼",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "illusion_array_practice",
+          "title": "幻阵双修课业",
+          "objective": "幻阵双修课业",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "seven_sect_tournament",
+          "title": "七派大比（可选）",
+          "objective": "七派大比（可选）",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        },
+        {
+          "step": 4,
+          "hook": "inner_veil_secret",
+          "title": "内门媚术秘传",
+          "objective": "内门媚术秘传",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】掩月宗幻媚线（yanyue_illusion_path）。域：tiannan。跨度：['QI_REFINING', 'FOUNDATION']。步骤：1.神识心性试炼 → 2.幻阵双修课业 → 3.七派大比（可选） → 4.内门媚术秘传。终奖：['yanyue_inner_token', 'illusion_manual_fragment']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：女修为主；媚术幻阵双修，与黄枫谷资源竞合。。"
+    },
+    {
+      "id": "quest_thick_tianfu_talisman_path",
+      "catalog_id": "tianfu_talisman_path",
+      "display": "天符门制符线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "tianfu_paper_grind",
+          "title": "符纸灵墨基础",
+          "objective": "符纸灵墨基础",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "low_talisman_cert",
+          "title": "低阶符考核",
+          "objective": "低阶符考核",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "mid_talisman_inner",
+          "title": "筑基后中阶符室",
+          "objective": "筑基后中阶符室",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "high_talisman_secret",
+          "title": "结丹秘传符（可选分支）",
+          "objective": "结丹秘传符（可选分支）",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】天符门制符线（tianfu_talisman_path）。域：tiannan。跨度：['QI_REFINING', 'CORE_FORMATION']。步骤：1.符纸灵墨基础 → 2.低阶符考核 → 3.筑基后中阶符室 → 4.结丹秘传符（可选分支）。终奖：['talisman_master_seal', 'high_talisman_recipe_scroll']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：符箓三品对应低中高阶符解锁；符宝另计。。"
+    },
+    {
+      "id": "quest_thick_demonic_six_expanded",
+      "catalog_id": "demonic_six_expanded",
+      "display": "魔道六宗深入线（加厚）",
+      "type": "quest_chain_thick",
+      "beats": [
+        {
+          "step": 1,
+          "hook": "demonic_north_rumor",
+          "title": "北迁与边境悬赏",
+          "objective": "北迁与边境悬赏",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 2,
+          "hook": "sect_branch_choice",
+          "title": "六宗择一入门",
+          "objective": "六宗择一入门",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 3,
+          "hook": "righteous_bounty_hunt",
+          "title": "正道围剿压力",
+          "objective": "正道围剿压力",
+          "boss": null,
+          "branch": null,
+          "optional": null
+        },
+        {
+          "step": 4,
+          "hook": "north_waste_ruin",
+          "title": "荒原古冢夺宝",
+          "objective": "荒原古冢夺宝",
+          "boss": null,
+          "branch": null,
+          "optional": true
+        }
+      ],
+      "tags": [
+        "quest_thick_v117"
+      ],
+      "description": "【任务链加厚】魔道六宗深入线（demonic_six_expanded）。域：tiannan_north_waste。跨度：['QI_REFINING', 'CORE_FORMATION']。步骤：1.北迁与边境悬赏 → 2.六宗择一入门 → 3.正道围剿压力 → 4.荒原古冢夺宝。终奖：['demonic_core_material', 'sect_method_scroll']。写作要求：每步有目标、可失败、奖励软顶；分支用声望记录。气质：鬼灵、合欢、天魔、青罗、万狐、血巫六宗；入魔则七派关系恶化。。"
+    },
+    {
+      "id": "realm_third_blood_forbidden",
+      "catalog_id": "blood_forbidden",
+      "display": "血色禁地（三遍深稿）",
+      "type": "secret_realm_third",
+      "rooms": [
+        {
+          "zone": "外圈血雾林",
+          "beats": [
+            "进入《外圈血雾林》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "outer_mist",
+            "display": "外圈血雾林",
+            "threat": [
+              1,
+              3
+            ],
+            "spawns": [
+              "田鼠妖",
+              "盗药灵貂",
+              "低阶蛇蝎",
+              "路匪式散修"
+            ],
+            "herbs": [
+              "伴妖草",
+              "普通灵草",
+              "低龄药"
+            ],
+            "note": "入门缓冲区，适合摸规则"
+          }
+        },
+        {
+          "zone": "药田环带",
+          "beats": [
+            "进入《药田环带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "herb_ring",
+            "display": "药田环带",
+            "threat": [
+              2,
+              4
+            ],
+            "spawns": [
+              "药田卫",
+              "灵角鹿",
+              "玉蜂",
+              "蛀果虫"
+            ],
+            "herbs": [
+              "玉髓芝点",
+              "紫猴花点",
+              "天灵果点",
+              "千年灵草点"
+            ],
+            "note": "经济核心。守药兽刷新与药点绑定"
+          }
+        },
+        {
+          "zone": "墨蛟水潭带",
+          "beats": [
+            "进入《墨蛟水潭带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "water_black_jiao",
+            "display": "墨蛟水潭带",
+            "threat": [
+              3,
+              5
+            ],
+            "spawns": [
+              "墨蛟",
+              "水魅",
+              "深潭尸偶结构"
+            ],
+            "drops": [
+              "墨蛟筋",
+              "蛟珠",
+              "水属性材"
+            ],
+            "story": "南宫婉线/墨蛟事件权重区"
+          }
+        },
+        {
+          "zone": "中环争夺带",
+          "beats": [
+            "进入《中环争夺带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "mid_contested",
+            "display": "中环争夺带",
+            "threat": [
+              3,
+              5
+            ],
+            "spawns": [
+              "他派精英弟子",
+              "结伴猎队",
+              "禁地守护兽中核"
+            ],
+            "note": "人祸>兽祸。声望与因果在此累积"
+          }
+        },
+        {
+          "zone": "内圈古禁残区",
+          "beats": [
+            "进入《内圈古禁残区》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "inner_core",
+            "display": "内圈古禁残区",
+            "threat": [
+              4,
+              6
+            ],
+            "spawns": [
+              "高阶药田卫",
+              "古禁灵",
+              "偶发银色飞虫等奇物"
+            ],
+            "loot_weight": "稀有↑ 死亡率↑",
+            "note": "非必须；贪者多死"
+          }
+        }
+      ],
+      "tags": [
+        "realm_third_v117"
+      ],
+      "description": "【核心秘境三遍】血色禁地（blood_forbidden）。境界带：['QI_REFINING', 'FOUNDATION_early_optional']。入场：{'who': '越国七派炼气弟子为主', 'token': ['宗门配额', '试炼令'], 'window_days': [10, 30], 'cycle': '数年~数十年一开（结构）', 'max_stay_hint': '窗口关闭强制传送/滞留极危'}。环境：{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}。原描述：炼气修士改变命运的第一秘境。核心是四主药与人性，不是打怪升级。。设计补语：血色核心节奏：令牌→外层药守→内层夺药→可选蛟战。降尘不保底。队友可能反水。分区逐房：【外圈血雾林】进入《外圈血雾林》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【药田环带】进入《药田环带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【墨蛟水潭带】进入《墨蛟水潭带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【中环争夺带】进入《中环争夺带》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【内圈古禁残区】进入《内圈古禁残区》：观察环境—{'aura': '血雾、药香与煞气交织', 'visibility': '中低，中心更差', 'hazards': ['血雾迷神', '药田守护兽', '弟子互杀', '禁地古禁偶发'], 'benefits': ['灵药密度极高', '筑基四主药集中', '偶见上古残留']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层已有事件：herb_contest:{'id': 'herb_contest', 'display': '药点争夺', 'trigger': '同点多人', 'outcome': ['交涉', ' mo_jiao_ambush:{'id': 'mo_jiao_ambush', 'display': '墨蛟出水', 'trigger': '水潭采集过深', 'outcome': ['战' lu_shixiong_structure:{'id': 'lu_shixiong_structure', 'display': '同门暗算结构', 'trigger': '持丹/重药', 'outcom exit_scramble:{'id': 'exit_scramble', 'display': '闭窗撤离', 'trigger': '窗口将尽', 'outcome': ['挤传送',配装：{'must': ['火球符批量', '金光盾', '定神符', '解毒', '小储物袋', '隐身/敛息'], 'nice': ['中品法器', '地遁符', '队友'], 'avoid': ['暴露绿液催药', '独自硬闯内圈']}。平衡：{'pvp_flag': True, 'death_penalty': '掉落部分未入袋物/重伤抬出', 'repeat_farm': '同窗期内药点枯竭，不可无限刷万年药'}。经济：{'four_main_herbs': [{'id': 'yu_sui_zhi', 'display': '玉髓芝', 'role': '筑基四主药', 'price_out': [10, 50]}, {'id': 'zi_hou_hua', 'display': '紫猴花', 'role': '筑基四主药', 'price_out': [10, 50]}, {'id': 'tian_ling_guo', 'display': '天灵果', 'role': '筑基四主药', 'price_out': [10, 60]}, {'id': 'qian_nian_ling_cao', 'display': '千年灵草', 'role': '筑基四主药/辅', 'price_out': [20, 100]}], 'bundle_value_low_stone': [80, 400], 'pill_pipeline': '四主药 → 筑基丹（约廿丹结构/视配方损耗）', 'ban_yao_cao': '伴妖草：药旁标记/诱妖双刃'}。出图奖励：{'standard': ['四主药捆', '禁地声望', '中低阶材'], 'high': ['自炼筑基丹材料齐', '奇物线索'], 'unique_rules': '掌天瓶可在内催药但受年帽/冷却；勿做成无限刷'}。多方势力：None。规则：周期优先随机；稀缺服从 never_list；可与任务链 campaign 同步。"
+    },
+    {
+      "id": "realm_third_xutian",
+      "catalog_id": "xutian_palace",
+      "display": "虚天殿（三遍深稿）",
+      "type": "secret_realm_third",
+      "rooms": [
+        {
+          "zone": "外殿试炼",
+          "beats": [
+            "进入《外殿试炼》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['中阶材', '线索', '九曲灵参方位']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "outer_court",
+            "display": "外殿试炼",
+            "threat": [
+              5,
+              7
+            ],
+            "spawns": [
+              "守殿石像",
+              "禁制灵",
+              "试炼影"
+            ],
+            "loot": [
+              "中阶材",
+              "线索",
+              "九曲灵参方位"
+            ],
+            "note": "过滤弱者"
+          }
+        },
+        {
+          "zone": "殿中药苑残",
+          "beats": [
+            "进入《殿中药苑残》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['九曲灵参', '万年级药线索']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "herb_garden_relic",
+            "display": "殿中药苑残",
+            "threat": [
+              6,
+              8
+            ],
+            "spawns": [
+              "药守",
+              "活参逃窜"
+            ],
+            "loot": [
+              "九曲灵参",
+              "万年级药线索"
+            ],
+            "note": "曲儿线起点"
+          }
+        },
+        {
+          "zone": "核心宝库争夺",
+          "beats": [
+            "进入《核心宝库争夺》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "treasure_core",
+            "display": "核心宝库争夺",
+            "threat": [
+              7,
+              9
+            ],
+            "spawns": [
+              "多方修士",
+              "殿灵",
+              "偶发古魔压"
+            ],
+            "contest_pool": [
+              "虚天鼎",
+              "乾蓝冰焰",
+              "补天丹",
+              "玉如意",
+              "养魂木",
+              "万年灵乳",
+              "玄阴经"
+            ],
+            "rules": "unique 竞争；不可人人有鼎"
+          }
+        },
+        {
+          "zone": "殿后撤离廊",
+          "beats": [
+            "进入《殿后撤离廊》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "escape_corridor",
+            "display": "殿后撤离廊",
+            "threat": [
+              6,
+              8
+            ],
+            "spawns": [
+              "追杀队",
+              "禁制反噬"
+            ],
+            "note": "夺宝后半程，活着出去才算赢"
+          }
+        }
+      ],
+      "tags": [
+        "realm_third_v117"
+      ],
+      "description": "【核心秘境三遍】虚天殿（xutian_palace）。境界带：['CORE_FORMATION', 'NASCENT_optional_pressure']。入场：{'need': ['虚天残图拼合', '开启窗口', '结丹以上生存力'], 'window_days': [15, 60], 'cycle': '数十年级', 'map_item': 'xu_tian_can_tu'}。环境：{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}。原描述：结丹修士命运分水岭。目标不是清怪，是活着带走一两件改命物。。设计补语：虚天核心节奏：钥→傀儡外殿→药园/寒玉分支→宝库多方混战。完整通天不进货架。分区逐房：【外殿试炼】进入《外殿试炼》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['中阶材', '线索', '九曲灵参方位']；撤离条件：清敌或取得本区关键物后可进下层 【殿中药苑残】进入《殿中药苑残》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['九曲灵参', '万年级药线索']；撤离条件：清敌或取得本区关键物后可进下层 【核心宝库争夺】进入《核心宝库争夺》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【殿后撤离廊】进入《殿后撤离廊》：观察环境—{'aura': '上古仙家遗泽与禁制并存', 'hazards': ['守殿石像/禁制灵', '多方元婴级介入', '机关杀阵', '逃出亦难'], 'benefits': ['通天级机缘', '活参/神木/寒焰/经书']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层已有事件：map_assemble:{'id': 'map_assemble', 'display': '残图拼合', 'phase': '前置'} gate_open:{'id': 'gate_open', 'display': '殿门开启', 'phase': '入口'} core_scramble:{'id': 'core_scramble', 'display': '核心混战', 'phase': '高潮'} escape_with_loot:{'id': 'escape_with_loot', 'display': '携宝撤离', 'phase': '收尾'} post_hunt:{'id': 'post_hunt', 'display': '殿外追杀', 'phase': '后日谈'}配装：{'must': ['本命法宝', '逃遁（风雷翅目标）', '护体', '疗伤高阶', '阵盘'], 'nice': ['噬金虫破禁制', '替身/分身', '情报玉简'], 'avoid': ['无图硬闯', '夺宝后当街炫耀']}。平衡：{'unique_once': True, 'no_respawn_tongtian': True, 'post_realm_inflation': '殿后市场相关材短期涨价'}。经济：[{'id': 'xutian_ding', 'display': '虚天鼎', 'tier': 'tongtian', 'tags': ['unique', 'quest', 'scarce'], 'use': ['炼丹神器', '乾蓝寄托', '通宝诀'], 'description': '殿内第一争夺。默认结构归属主线胜者之一。'}, {'id': 'qian_lan_bing_yan', 'display': '乾蓝冰焰', 'tier': 'flame', 'use': ['炼丹', '攻防', '与鼎绑定结构'], 'description': '寒焰顶级。可随鼎。'}, {'id': 'bu_tian_dan', 'display': '补天丹', 'tier': 'pill_legendary', 'tags': ['scarce', 'contest'], 'description': '改命级。多人抢，常引发血战。'}, {'id': 'jiu_qu_ling_shen', 'display': '九曲灵参', 'tier': 'living_herb', 'tags': ['quest', 'bond'], 'description': '活参。开智→曲儿。优先活捕。'}, {'id': 'yang_hun_mu', 'display': '养魂木', 'tier': 'divine_wood', 'tags': ['quest', 'scarce'], 'description': '神识修炼命根木。大衍/炼神友好。'}, {'id': 'wan_nian_ling_ru', 'display': '万年灵乳', 'tier': 'liquid', 'description': '培婴/疗伤/破境辅，极珍。'}, {'id': 'xuan_yin_jing', 'display': '玄阴经', 'tier': 'manual_demonic', 'tags': ['demonic', 'quest'], 'description': '魔功总汇。本体慎全修，分身/第二元婴可。'}, {'id': 'yu_ru_yi', 'display': '玉如意', 'tier': 'fabao_high', 'description': '防御/镇压类高阶法宝结构。'}]。出图奖励：None。多方势力：['乱星海各大势力', '隐世散修', '可能的元婴监看/下场']。规则：周期优先随机；稀缺服从 never_list；可与任务链 campaign 同步。"
+    },
+    {
+      "id": "realm_third_zhuimo",
+      "catalog_id": "zhuimo_valley",
+      "display": "坠魔谷（三遍深稿）",
+      "type": "secret_realm_third",
+      "rooms": [
+        {
+          "zone": "外谷",
+          "beats": [
+            "进入《外谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['罡银沙', '火蟾丹', '火涎囊', '中阶火材']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "outer_valley",
+            "display": "外谷",
+            "threat": [
+              6,
+              8
+            ],
+            "spawns": [
+              "火蟾兽",
+              "烬蛾",
+              "火狪",
+              "低阶魔气怪"
+            ],
+            "loot": [
+              "罡银沙",
+              "火蟾丹",
+              "火涎囊",
+              "中阶火材"
+            ],
+            "note": "可反复搜刮至枯竭；适合备战"
+          }
+        },
+        {
+          "zone": "中裂谷",
+          "beats": [
+            "进入《中裂谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['七焰扇法残页权重', '高阶火晶']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "mid_rift",
+            "display": "中裂谷",
+            "threat": [
+              7,
+              9
+            ],
+            "spawns": [
+              "石炎兽结构",
+              "魔气吞噬兽低等",
+              "猎队"
+            ],
+            "loot": [
+              "七焰扇法残页权重",
+              "高阶火晶"
+            ],
+            "note": "内外分界"
+          }
+        },
+        {
+          "zone": "内谷",
+          "beats": [
+            "进入《内谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['灵烛果', '造化相关', '魔气凝晶']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "inner_valley",
+            "display": "内谷",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "血焰分身残影",
+              "古魔残魄",
+              "高阶火域生灵"
+            ],
+            "loot": [
+              "灵烛果",
+              "造化相关",
+              "魔气凝晶"
+            ],
+            "note": "非战力达标勿入"
+          }
+        },
+        {
+          "zone": "灵烛果树点",
+          "beats": [
+            "进入《灵烛果树点》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['灵烛果']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "candle_fruit_point",
+            "display": "灵烛果树点",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "果树守护",
+              "争夺修士",
+              "魔压"
+            ],
+            "loot": [
+              "灵烛果"
+            ],
+            "rules": [
+              "摘后速离",
+              "保鲜禁制",
+              "倒计时炼造化丹"
+            ],
+            "note": "造化丹唯一主药点结构"
+          }
+        }
+      ],
+      "tags": [
+        "realm_third_v117"
+      ],
+      "description": "【核心秘境三遍】坠魔谷（zhuimo_valley）。境界带：['NASCENT_SOUL']。入场：{'token': 'zhui_mo_ling', 'window_days': [20, 90], 'need': ['元婴战力', '火域抗性', '情报'], 'map': '坠魔谷残图（加分）'}。环境：{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}。原描述：元婴修士的火与魔试炼。外谷赚材，内谷赌命，造化只给一次。。设计补语：坠魔核心节奏：驱魔准备→雾→裂隙心魔→投影。魔化值管理是胜负手。分区逐房：【外谷】进入《外谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['罡银沙', '火蟾丹', '火涎囊', '中阶火材']；撤离条件：清敌或取得本区关键物后可进下层 【中裂谷】进入《中裂谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['七焰扇法残页权重', '高阶火晶']；撤离条件：清敌或取得本区关键物后可进下层 【内谷】进入《内谷》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['灵烛果', '造化相关', '魔气凝晶']；撤离条件：清敌或取得本区关键物后可进下层 【灵烛果树点】进入《灵烛果树点》：观察环境—{'aura': '魔气与地火交织，外谷资源、内谷死地', 'hazards': ['火域', '魔气侵', '古魔残影', '地形塌陷', '同境猎杀'], 'benefits': ['罡银沙', '火蟾等丹材', '灵烛果', '七焰扇法线索']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['灵烛果']；撤离条件：清敌或取得本区关键物后可进下层已有事件：配装：None。平衡：{'fruit_despawn_timer': True, 'zaohua_once': True, 'outer_respawn_limited': '同窗期资源衰减'}。经济：None。出图奖励：None。多方势力：None。规则：周期优先随机；稀缺服从 never_list；可与任务链 campaign 同步。"
+    },
+    {
+      "id": "realm_third_kunwu",
+      "catalog_id": "kunwu_mountain",
+      "display": "昆吾山（三遍深稿）",
+      "type": "secret_realm_third",
+      "rooms": [
+        {
+          "zone": "山道外围",
+          "beats": [
+            "进入《山道外围》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['线索', '中高阶材']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "approach_path",
+            "display": "山道外围",
+            "threat": [
+              7,
+              9
+            ],
+            "spawns": [
+              "昆吾影侍",
+              "猎队",
+              "低阶魔气怪"
+            ],
+            "loot": [
+              "线索",
+              "中高阶材"
+            ],
+            "note": "过滤与情报战"
+          }
+        },
+        {
+          "zone": "外殿群",
+          "beats": [
+            "进入《外殿群》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['圭灵牌线索', '火鼎辅材', '古符残']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "outer_halls",
+            "display": "外殿群",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "殿灵",
+              "禁制灵",
+              "构装守卫"
+            ],
+            "loot": [
+              "圭灵牌线索",
+              "火鼎辅材",
+              "古符残"
+            ],
+            "note": "权限与考校并行"
+          }
+        },
+        {
+          "zone": "火禁/太阴相关区",
+          "beats": [
+            "进入《火禁/太阴相关区》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['太阴真火', '通灵火鼎结构']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "fire_seal_zone",
+            "display": "火禁/太阴相关区",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "火域生灵",
+              "守火灵"
+            ],
+            "loot": [
+              "太阴真火",
+              "通灵火鼎结构"
+            ],
+            "note": "控火/寒焰对冲"
+          }
+        },
+        {
+          "zone": "镇魔/古魔区",
+          "beats": [
+            "进入《镇魔/古魔区》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['黑风旗残', '血刃', '魔气样']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "demon_seal_zone",
+            "display": "镇魔/古魔区",
+            "threat": [
+              9,
+              11
+            ],
+            "spawns": [
+              "元刹结构",
+              "血焰压",
+              "真魔气雾"
+            ],
+            "loot": [
+              "黑风旗残",
+              "血刃",
+              "魔气样"
+            ],
+            "note": "八灵尺叙事核心区"
+          }
+        },
+        {
+          "zone": "顶层宝库与节点",
+          "beats": [
+            "进入《顶层宝库与节点》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "apex_vault",
+            "display": "顶层宝库与节点",
+            "threat": [
+              9,
+              11
+            ],
+            "spawns": [
+              "多方元婴+",
+              "守库灵",
+              "夺宝混战"
+            ],
+            "contest_pool": [
+              "八灵尺",
+              "破界符",
+              "空间节点资料（残缺/标准/详尽）",
+              "五子同心魔（截杀线）",
+              "青竹剑夺回事件"
+            ],
+            "rules": "详尽节点唯一向；八灵尺 unique"
+          }
+        },
+        {
+          "zone": "出山追杀廊",
+          "beats": [
+            "进入《出山追杀廊》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：搜索/破禁/采集",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "exit_pursuit",
+            "display": "出山追杀廊",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "追杀队",
+              "小极宫反目结构可接"
+            ],
+            "note": "携宝存活才算通关"
+          }
+        }
+      ],
+      "tags": [
+        "realm_third_v117"
+      ],
+      "description": "【核心秘境三遍】昆吾山（kunwu_mountain）。境界带：['NASCENT_SOUL_late', 'DEITY_prepare']。入场：{'need': ['昆吾线索拼图', '元婴战力', '抗魔/抗火准备'], 'window': '任务驱动，非固定年窗', 'map_items': ['昆吾入口线索', '多方情报玉简'], 'blockers': ['线索不全', '魔气过重无净法', '独自硬闯顶层']}。环境：{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}。原描述：元婴后期总枢纽：镇魔、通天残宝、飞升钥匙三线交汇。打通才谈化神飞升。。设计补语：昆吾核心节奏：许可→火阵→矿道→傀儡殿→峰顶。寒热与机关并重。分区逐房：【山道外围】进入《山道外围》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['线索', '中高阶材']；撤离条件：清敌或取得本区关键物后可进下层 【外殿群】进入《外殿群》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['圭灵牌线索', '火鼎辅材', '古符残']；撤离条件：清敌或取得本区关键物后可进下层 【火禁/太阴相关区】进入《火禁/太阴相关区》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['太阴真火', '通灵火鼎结构']；撤离条件：清敌或取得本区关键物后可进下层 【镇魔/古魔区】进入《镇魔/古魔区》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['黑风旗残', '血刃', '魔气样']；撤离条件：清敌或取得本区关键物后可进下层 【顶层宝库与节点】进入《顶层宝库与节点》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层 【出山追杀廊】进入《出山追杀廊》：观察环境—{'aura': '上古仙家与古魔残留交织，火金煞重', 'hazards': ['古魔压', '禁制杀阵', '多方夺宝', '真魔气局部', '逃出亦被追杀'], 'benefits': ['八灵尺', '黑风旗残', '太阴真火', '通灵火鼎', '破界符', '节点资料', '夺回本命剑']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：搜索/破禁/采集；撤离条件：清敌或取得本区关键物后可进下层已有事件：clue_assemble:{'id': 'clue_assemble', 'display': '线索拼图', 'phase': '前置'} hall_trial:{'id': 'hall_trial', 'display': '外殿考校', 'phase': '入山'} fire_claim:{'id': 'fire_claim', 'display': '真火/火鼎', 'phase': '中层'} demon_seal_battle:{'id': 'demon_seal_battle', 'display': '镇魔交锋', 'phase': '高潮'} apex_scramble:{'id': 'apex_scramble', 'display': '顶层夺宝', 'phase': '高潮'} reclaim_swords:{'id': 'reclaim_swords', 'display': '夺回青竹剑', 'phase': '并行'} exit_with_ascent_kit:{'id': 'exit_with_ascent_kit', 'display': '携飞升包撤离', 'phase': '收尾'}配装：{'must': ['本命剑组/法宝', '净魔', '火抗/寒焰对冲', '逃遁', '高疗', '分身探路'], 'nice': ['八灵未到手前的镇魔替代', '阵盘', '易容'], 'avoid': ['无拼图硬闯', '顶层恋战', '公然炫宝']}。平衡：{'no_early_drop': ['八灵尺', '详尽节点'], 'unique_once': True, 'post_kunwu': '飞升准备链解锁（火狱回阳/魔元丹等可并行）'}。经济：None。出图奖励：None。多方势力：None。规则：周期优先随机；稀缺服从 never_list；可与任务链 campaign 同步。"
+    },
+    {
+      "id": "realm_third_yinyang_ku",
+      "catalog_id": "yinyang_ku",
+      "display": "阴阳窟（三遍深稿）",
+      "type": "secret_realm_third",
+      "rooms": [
+        {
+          "zone": "外窟阴雾",
+          "beats": [
+            "进入《外窟阴雾》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['阴砂', '解毒辅材']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "outer_yin_mist",
+            "display": "外窟阴雾",
+            "threat": [
+              7,
+              9
+            ],
+            "spawns": [
+              "阴雾尸偶",
+              "阴阳双头兽低阶",
+              "毒虫"
+            ],
+            "loot": [
+              "阴砂",
+              "解毒辅材"
+            ],
+            "note": "清雾与抗毒测试"
+          }
+        },
+        {
+          "zone": "阴阳分途",
+          "beats": [
+            "进入《阴阳分途》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['双极材', '路引']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "yin_yang_split_path",
+            "display": "阴阳分途",
+            "threat": [
+              8,
+              9
+            ],
+            "spawns": [
+              "阴阳狮子兽结构",
+              "阵灵"
+            ],
+            "loot": [
+              "双极材",
+              "路引"
+            ],
+            "note": "单属性硬闯易吃亏"
+          }
+        },
+        {
+          "zone": "银翅夜叉巢",
+          "beats": [
+            "进入《银翅夜叉巢》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['银翅羽', '夜叉骨', '阴煞晶']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "yezha_nest",
+            "display": "银翅夜叉巢",
+            "threat": [
+              9,
+              11
+            ],
+            "spawns": [
+              "银翅夜叉",
+              "夜叉幼",
+              "阴煞雾"
+            ],
+            "loot": [
+              "银翅羽",
+              "夜叉骨",
+              "阴煞晶"
+            ],
+            "note": "高危。佛光/净法有效；可绕行优先抓马"
+          }
+        },
+        {
+          "zone": "阴芝马栖息层",
+          "beats": [
+            "进入《阴芝马栖息层》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['阴芝马活体/血肉', '阴芝']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "yinzhi_habitat",
+            "display": "阴芝马栖息层",
+            "threat": [
+              8,
+              10
+            ],
+            "spawns": [
+              "阴芝马",
+              "护马阴兽",
+              "盗猎修"
+            ],
+            "loot": [
+              "阴芝马活体/血肉",
+              "阴芝"
+            ],
+            "rules": [
+              "活捕优先",
+              "死料大打折"
+            ],
+            "note": "培婴主料点"
+          }
+        },
+        {
+          "zone": "窟外协作炼丹点（结构）",
+          "beats": [
+            "进入《窟外协作炼丹点（结构）》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}",
+            "遭遇：按 spawn/秘境表刷新，优先弱点克制",
+            "交互：['培婴丹']",
+            "撤离条件：清敌或取得本区关键物后可进下层"
+          ],
+          "original": "",
+          "detail": {
+            "id": "alchemy_cooperation",
+            "display": "窟外协作炼丹点（结构）",
+            "threat": 0,
+            "note": "富成等人情线。材料齐后炼培婴",
+            "loot": [
+              "培婴丹"
+            ]
+          }
+        }
+      ],
+      "tags": [
+        "realm_third_v117"
+      ],
+      "description": "【核心秘境三遍】阴阳窟（yinyang_ku）。境界带：['NASCENT_SOUL']。入场：{'need': ['元婴抗毒/抗阴', '情报', '活捕准备'], 'from': '晋京外围/大晋秘境网', 'hazard_level': '高'}。环境：{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}。原描述：结婴关键支线。核心是活料与协作，不是清窟成就。。设计补语：阴阳窟节奏：阴阳气失衡→双生试炼→合道关。偏元婴阴修/双修边界。分区逐房：【外窟阴雾】进入《外窟阴雾》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['阴砂', '解毒辅材']；撤离条件：清敌或取得本区关键物后可进下层 【阴阳分途】进入《阴阳分途》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['双极材', '路引']；撤离条件：清敌或取得本区关键物后可进下层 【银翅夜叉巢】进入《银翅夜叉巢》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['银翅羽', '夜叉骨', '阴煞晶']；撤离条件：清敌或取得本区关键物后可进下层 【阴芝马栖息层】进入《阴芝马栖息层》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['阴芝马活体/血肉', '阴芝']；撤离条件：清敌或取得本区关键物后可进下层 【窟外协作炼丹点（结构）】进入《窟外协作炼丹点（结构）》：观察环境—{'aura': '阴阳二气撕扯，阴毒与煞重', 'hazards': ['阴毒入体', '阴阳兽', '银翅夜叉', '迷路阵', '夺丹猎队'], 'benefits': ['阴芝马', '培婴材料链', '银翅夜叉材', '阴阳功法感悟']}；遭遇：按 spawn/秘境表刷新，优先弱点克制；交互：['培婴丹']；撤离条件：清敌或取得本区关键物后可进下层已有事件：poison_check:{'id': 'poison_check', 'display': '阴毒初次中招', 'phase': '入窟'} path_choice:{'id': 'path_choice', 'display': '阴阳分途选择', 'phase': '中'} yezha_or_bypass:{'id': 'yezha_or_bypass', 'display': '夜叉硬刚/绕行', 'phase': '中'} live_capture:{'id': 'live_capture', 'display': '阴芝马活捕', 'phase': '高潮'} coop_refine:{'id': 'coop_refine', 'display': '协作炼丹', 'phase': '收尾'} robber_ambush:{'id': 'robber_ambush', 'display': '夺丹伏击', 'phase': '出窟'}配装：{'must': ['百炼解毒+', '阴抗/阳火对冲', '活物袋与禁制', '高疗', '定神'], 'nice': ['啼魂辅助', '佛门净物', '双属性手段'], 'avoid': ['无抗毒硬刚夜叉巢', '杀死全部阴芝马']}。平衡：{'live_over_dead': True, 'pei_ying_not_vendor': True, 'repeat_farm_softcap': '同季阴芝马数量软顶'}。经济：None。出图奖励：None。多方势力：None。规则：周期优先随机；稀缺服从 never_list；可与任务链 campaign 同步。"
+    },
+    {
+      "id": "ultra_foundation_pill",
+      "display": "筑基丹（超长专解）",
+      "type": "pill",
+      "description": "【超长】筑基丹是天南从炼气迈入筑基的硬门槛。原著气质：主药与丹方皆稀，宗门以贡献、任务、禁地成果控量，坊市常有价无市。服用窗口在炼气大圆满且经脉稳固时；失败者轻则经脉裂、重则终身停步。本包价带500–2000下品灵石量级，不进外门无限货架。假丹鉴定为刚需。与血色材料、药园长线、人情交易三路径并行。绿液可催主药但受年帽。制作时：成功率为丹师等级×火候×材料真伪，失败爆炸范围伤人。叙事上每一枚丹都应感觉「沉重」，而非日常消耗品。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_jiangchen",
+      "display": "降尘丹（超长专解）",
+      "type": "pill",
+      "description": "【超长】降尘丹在原著节点中远贵于寻常筑基辅药，常与血色级机缘或顶级拍卖绑定。功效气质：洗髓降尘、稳固将结之丹气，服务结丹前后，而非替代结丹本身。本包价带3000–15000。双 id（jiangchen/jiangying）UI 必须合并。假货横行，仅寸金阁/万宝楼级或高鉴宝可稳。事件掉落权重极低，禁止任务洪峰。与忘尘丹勿混淆——忘尘偏心性，降尘偏肉身/丹气沉降。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_qingyuan",
+      "display": "青元剑诀与剑芒（超长专解）",
+      "type": "method_tech",
+      "description": "【超长】青元剑诀是黄枫体系筑基后主流剑修路径，需长春功等木系根基过渡。修至可凝剑芒、御剑、破甲。关联术法：青元剑芒等（见 techniques/sword）。法宝侧可用青竹灵云剑仿品、竹叶剑过渡，真·剧情飞剑另 id 且 unique。转修代价：弃剑改体/改魔有心魔检定。与金属性灵根协同最佳，木金双属性亦通。宗门内卷：同门试剑、剑冢任务、外门晋升考核常考剑芒稳定度。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_void_cauldron",
+      "display": "虚天鼎相关（超长专解）",
+      "type": "artifact_set",
+      "description": "【超长】虚天鼎为虚天殿争夺核心意象。完整鼎：unique、剧情、不进货架、不进日常掉落。碎片/仿器：可祭炼残威、可流通、可拼合叙事。争夺时多方结丹及以上混战，出殿结算以碎片级为主。与虚天尺、虚天钥碎片同属虚天线。炼丹向仿器弱于真鼎但可作高级炉具皮肤。never_list 与审计双锁。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_geng_gold",
+      "display": "庚精（超长专解）",
+      "type": "material",
+      "description": "【超长】庚精是大晋赌战与顶层拍卖的硬通货气质材料。嵌材/分材可流通，完整大块更稀。价带20000–120000量级。不在野刷、不在低阶任务。用途：顶级炼器嵌纹、交易硬锚、剧情贿赂。当街暴露可能引劫修与世家眼线。与军功、贡献隔离——不能用边军功勋一键兑完整庚精。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_gold_devour",
+      "display": "噬金虫（超长专解）",
+      "type": "beast_item",
+      "description": "【超长】噬金虫克金噬宝，原著奇虫。本包：以养成与事件为主，禁止开放世界无限虫灾刷宝。野群若出现必须是灾厄事件且有收束。养成阶段：幼虫→虫群→虫王线索，耗金料与时间。对金系法宝威胁高，对土石弱。活体远贵于尸体。与啼魂等伙伴养成规则分轨。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_green_liquid",
+      "display": "绿液与药园（超长规则专解）",
+      "type": "rule_item",
+      "description": "【超长】绿液催熟是洞府药园核心外挂气质，但必须有年帽与单株药龄上限，禁止无帽叠乘刷万年药破经济。掌天瓶本体 unique 不进货架，只允许规则说明与仿品叙事。与灵缈园软顶、坊市抛售审计交叉：短时大量抛万年药触发审计。策划验收：任意一周目无法通过绿液+日常任务稳定量产降尘/庚精。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_blood_ticket",
+      "display": "血色禁地入场令（超长专解）",
+      "type": "key_item",
+      "description": "【超长】入场令绑定周期与持有者禁制，转手无效或无效且触发追查。获取：贡献、任务、争夺、人情。假令市场繁荣。无令强闯=妖粮或守界修敌对。一周期名额有限，制造玩家与NPC竞争。出地后令销毁或冷却。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_void_key",
+      "display": "虚天钥碎片（超长专解）",
+      "type": "key_item",
+      "description": "【超长】无钥难入殿。碎片来自乱星海政治、逆星、拍卖、秘境。拼合有神识与阵法检定。完整钥仍可能是一次性或耐久制，防无限刷殿。与星宫/逆星声望挂钩：一方敌对可能追讨碎片。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_holy_demon_blood",
+      "display": "圣魔血（超长专解）",
+      "type": "material",
+      "description": "【超长】魔金山脉产物。炼魔功大补，滥用走火与心性下滑。价高、审计严、当街抛售记档。与正道声望冲突。非新手材料。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_asura_token",
+      "display": "修罗试炼令（超长专解）",
+      "type": "key_item",
+      "description": "【超长】进入小修罗界的资格。超时失效。杀意侵蚀叠层，清心/止杀可解。奖励杀意晶与甲材，投影非真体。不可当日常副本无限开。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "ultra_jiuxian_permit",
+      "display": "九仙闭关令（超长专解）",
+      "type": "key_item",
+      "description": "【超长】非大众本资格。查大乘资质与心性。峰顶匣周目软顶。护法位与闭关位分离。组队开黑刷触发审计。",
+      "tags": [
+        "ultra_v117"
+      ]
+    },
+    {
+      "id": "faction_page_huangfeng_valley",
+      "display": "黄枫谷（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】黄枫谷。域：tiannan。立场：righteous。特长：丹道、地火、外门贡献。敌对：鬼灵门等；竞争：七派资源。特产：丹、地火时辰。主线：修行线+血色。货：低中阶丹方与材料。NPC：赵执事、丹堂管事。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_yanyue_sect",
+      "display": "掩月宗（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】掩月宗。域：tiannan。立场：righteous。特长：阴柔、幻媚、双修边界。与合欢有渊源张力。任务偏社交与幻术。禁公开邪修行径于山门内。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_spirit_beast_mountain",
+      "display": "灵兽山（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】灵兽山。域：tiannan。立场：righteous。特长：御兽契约。虐待灵兽扣声望。可卖契约符与兽粮。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_qingxu_gate",
+      "display": "清虚门（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】清虚门。域：tiannan。立场：righteous。特长：清修符阵。厌战，给身法恢复任务。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_giant_sword_gate",
+      "display": "巨剑门（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】巨剑门。域：tiannan。立场：righteous。特长：重剑试炼。剑冢认主。刚猛直给。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_ghost_spirit_gate",
+      "display": "鬼灵门（势力一页纸）",
+      "type": "faction_page",
+      "region": "yinming",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】鬼灵门。域：yinming。立场：demonic。特长：鬼道阴修。正道声望互斥。阴罗、冥河衔接。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_hehuan_sect",
+      "display": "合欢宗（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】合欢宗。域：tiannan。立场：demonic。特长：幻术双修。高风险社交。声望阈值锁深线。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_star_palace",
+      "display": "星宫（势力一页纸）",
+      "type": "faction_page",
+      "region": "chaotic_sea",
+      "alignment": "order",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】星宫。域：chaotic_sea。立场：order。特长：外海法度。制式剑、通缉、巡察。与逆星对立。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_inverse_star",
+      "display": "逆星盟（势力一页纸）",
+      "type": "faction_page",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】逆星盟。域：chaotic_sea。立场：rebel。特长：走私情报。灰市、钥碎、可能背刺。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_mulan",
+      "display": "慕兰（势力一页纸）",
+      "type": "faction_page",
+      "region": "mulan",
+      "alignment": "war",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】慕兰。域：mulan。立场：war。特长：法士骑射。圣禽禁忌。天澜战场。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_tianyuan",
+      "display": "天渊城（势力一页纸）",
+      "type": "faction_page",
+      "region": "tianyuan",
+      "alignment": "order",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】天渊城。域：tianyuan。立场：order。特长：功勋服役。飞升后秩序。军功隔离。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_qianzhu",
+      "display": "千竹教（势力一页纸）",
+      "type": "faction_page",
+      "region": "extreme_west_thousand_bamboo",
+      "alignment": "neutral",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】千竹教。域：extreme_west_thousand_bamboo。立场：neutral。特长：傀儡大衍。机关塔、零件、残篇。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_dajin_auction",
+      "display": "大晋拍卖行（势力一页纸）",
+      "type": "faction_page",
+      "region": "great_jin_central",
+      "alignment": "neutral",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】大晋拍卖行。域：great_jin_central。立场：neutral。特长：顶级流通。降尘庚精过眼。抽成与鉴定。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_demonic_six",
+      "display": "魔道六宗集合（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】魔道六宗集合。域：tiannan_north_waste。立场：demonic。特长：六宗深入。北荒据点。与正道边战。血牙米等窄通货。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_nether_court",
+      "display": "阴司势力（势力一页纸）",
+      "type": "faction_page",
+      "region": "nether_river",
+      "alignment": "ghost",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】阴司势力。域：nether_river。立场：ghost。特长：渡魂交易。摆渡、定神、神乳线索锁。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "dlg_zhao_deacon",
+      "npc": "npc_huangfeng_outer",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "报上名来。",
+            "木灵根？先领长春功残页，别想一步登天。",
+            "筑基丹？贡献够了再问。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "你还算给谷里争脸。",
+            "地火室？我替你递个话。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "滚出山门。",
+            "再靠近巡卫的剑不长眼。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_outer。场景数 3。first_meet：报上名来。／木灵根？先领长春功残页，别想一步登天。／筑基丹？贡献够了再问。 high_rep：你还算给谷里争脸。／地火室？我替你递个话。 low_rep：滚出山门。／再靠近巡卫的剑不长眼。",
+      "display": "对话·npc_huangfeng_outer",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_dan_tang",
+      "npc": "npc_huangfeng_dan_tang",
+      "scenes": [
+        {
+          "when": "apprentice",
+          "lines": [
+            "火候数着，别跟我扯天赋。",
+            "炸炉赔灵石，没有例外。"
+          ]
+        },
+        {
+          "when": "ask_foundation",
+          "lines": [
+            "你听不见我说「不谈」吗？",
+            "有令再来。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_dan_tang。场景数 2。apprentice：火候数着，别跟我扯天赋。／炸炉赔灵石，没有例外。 ask_foundation：你听不见我说「不谈」吗？／有令再来。",
+      "display": "对话·npc_huangfeng_dan_tang",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_star_censor",
+      "npc": "npc_star_palace_censor",
+      "scenes": [
+        {
+          "when": "patrol",
+          "lines": [
+            "外海不是法外。",
+            "出示令牌。",
+            "通缉犯？束手。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_censor。场景数 1。patrol：外海不是法外。／出示令牌。／通缉犯？束手。",
+      "display": "对话·npc_star_palace_censor",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_inverse_broker",
+      "npc": "npc_inverse_star_broker",
+      "scenes": [
+        {
+          "when": "trade",
+          "lines": [
+            "灵石先放桌上。",
+            "钥碎有货，你的命自己看着办。",
+            "星宫来了？我从不认识你。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_broker。场景数 1。trade：灵石先放桌上。／钥碎有货，你的命自己看着办。／星宫来了？我从不认识你。",
+      "display": "对话·npc_inverse_star_broker",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_blood_guard",
+      "npc": "npc_blood_forbidden_guard",
+      "scenes": [
+        {
+          "when": "entry",
+          "lines": [
+            "令。",
+            "假令？留下手。",
+            "进去别死在门口，晦气。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_blood_forbidden_guard。场景数 1。entry：令。／假令？留下手。／进去别死在门口，晦气。",
+      "display": "对话·npc_blood_forbidden_guard",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_nether_ferry",
+      "npc": "npc_nether_ferryman",
+      "scenes": [
+        {
+          "when": "cross",
+          "lines": [
+            "渡资。阴材或心愿。",
+            "神乳？你不该知道这个词。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_nether_ferryman。场景数 1。cross：渡资。阴材或心愿。／神乳？你不该知道这个词。",
+      "display": "对话·npc_nether_ferryman",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_jiuxian",
+      "npc": "npc_jiuxian_gatekeeper",
+      "scenes": [
+        {
+          "when": "gate",
+          "lines": [
+            "非大乘勿近。",
+            "闭关令。",
+            "峰顶不是给你们开黑的地方。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_jiuxian_gatekeeper。场景数 1。gate：非大乘勿近。／闭关令。／峰顶不是给你们开黑的地方。",
+      "display": "对话·npc_jiuxian_gatekeeper",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_tianyuan_clerk",
+      "npc": "npc_tianyuan_clerk",
+      "scenes": [
+        {
+          "when": "register",
+          "lines": [
+            "人界来的？放下架子。",
+            "功勋不够换什么换。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianyuan_clerk。场景数 1。register：人界来的？放下架子。／功勋不够换什么换。",
+      "display": "对话·npc_tianyuan_clerk",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_appraiser",
+      "npc": "npc_wandering_appraiser",
+      "scenes": [
+        {
+          "when": "identify",
+          "lines": [
+            "先付钱。",
+            "这丹是假的，壳子倒不错。",
+            "我嘴严，钱到位就行。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wandering_appraiser。场景数 1。identify：先付钱。／这丹是假的，壳子倒不错。／我嘴严，钱到位就行。",
+      "display": "对话·npc_wandering_appraiser",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_mulan_fashi",
+      "npc": "npc_mulan_fashi",
+      "scenes": [
+        {
+          "when": "war",
+          "lines": [
+            "圣禽不可猎。",
+            "天澜风起，跟不跟？"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi。场景数 1。war：圣禽不可猎。／天澜风起，跟不跟？",
+      "display": "对话·npc_mulan_fashi",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "ptr_realm_third_blood_forbidden",
+      "display": "指针·blood_forbidden三遍文件",
+      "type": "meta",
+      "description": "详见 secret_realm_blood_forbidden_third_v117.json 与 realm_third_blood_forbidden 条目。"
+    },
+    {
+      "id": "ptr_realm_third_xutian",
+      "display": "指针·xutian三遍文件",
+      "type": "meta",
+      "description": "详见 secret_realm_xutian_third_v117.json 与 realm_third_xutian 条目。"
+    },
+    {
+      "id": "ptr_realm_third_zhuimo",
+      "display": "指针·zhuimo三遍文件",
+      "type": "meta",
+      "description": "详见 secret_realm_zhuimo_third_v117.json 与 realm_third_zhuimo 条目。"
+    },
+    {
+      "id": "ptr_realm_third_kunwu",
+      "display": "指针·kunwu三遍文件",
+      "type": "meta",
+      "description": "详见 secret_realm_kunwu_third_v117.json 与 realm_third_kunwu 条目。"
+    },
+    {
+      "id": "ptr_realm_third_yinyang_ku",
+      "display": "指针·yinyang_ku三遍文件",
+      "type": "meta",
+      "description": "详见 secret_realm_yinyang_ku_third_v117.json 与 realm_third_yinyang_ku 条目。"
+    }
+  ]
+}

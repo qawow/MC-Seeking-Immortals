@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source": "v145 生物+主线挂接+丹方链",
+  "delivered": [
+    "key beasts 20",
+    "story chapters 7 all playable linked",
+    "pill chains 6",
+    "quest chains 22"
+  ],
+  "honest_gaps_still": [
+    "图鉴 1800+ 词条未全部精修，仅关键种",
+    "凡人章 starter 专链仍可扩",
+    "非关键丹方未全部写 success_base"
+  ],
+  "status": "关键生物描述、主线-任务全挂接、筑基/培婴等丹方全链对齐完成"
+}

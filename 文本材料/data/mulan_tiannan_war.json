@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "source": "汇编/原著向：天南四大势力 + 慕兰入侵与边界之战；结构非逐句原文",
+  "region_pair": ["tiannan", "mulan_grassland"],
+  "disclaimer": "战役阶段与伤亡为叙事结构；具体数值可重平衡",
+  "tiannan_four_powers": [
+    {
+      "id": "zhengdao_meng",
+      "display": "正道盟",
+      "leader_tag": "太真门·至阳上人（元婴后期结构）",
+      "core_sects": ["太真门", "天极门", "浩然阁"],
+      "role": "天南正道霸权之一",
+      "specialty": ["正统剑道/气功", "古宝储备"],
+      "support_mulan_front": true
+    },
+    {
+      "id": "modao_liuzong",
+      "display": "魔道六宗",
+      "leader_tag": "合欢宗·合欢老魔（元婴后期结构）",
+      "core_sects": ["合欢宗", "御灵宗", "鬼灵门", "天煞宗", "千幻宗", "魔焰门"],
+      "role": "魔道联合，可扩张吞并七派故地",
+      "specialty": ["双修", "驱虫灵婴", "鬼修", "幻术", "魔焰"],
+      "support_mulan_front": true
+    },
+    {
+      "id": "tiandao_meng",
+      "display": "天道盟",
+      "leader_tag": "鸾鸣宗·龙晗/凤冰（元婴中期联手抗后期）",
+      "core_sects": ["鸾鸣宗", "落云宗", "古剑门", "百巧院", "倪航斋", "水影门"],
+      "role": "北部自保联盟，防正魔蚕食",
+      "specialty": ["剑修", "百艺", "联防"],
+      "support_mulan_front": true
+    },
+    {
+      "id": "jiuguo_meng",
+      "display": "九国盟",
+      "leader_tag": "化意门·魏无涯（元婴后期结构）",
+      "core_sects": ["化意门", "贝叶宗"],
+      "role": "南境主防慕兰，轮戍总协调",
+      "specialty": ["边防大阵", "轮戍调度"],
+      "support_mulan_front": true,
+      "is_frontline_host": true
+    }
+  ],
+  "yue_seven_sects": {
+    "display": "越国七派（后六派流亡）",
+    "sects": [
+      {"id": "yanyue", "display": "掩月宗", "origin_note": "自合欢宗分裂结构", "tier": "七派之首"},
+      {"id": "lingshou", "display": "灵兽山", "origin_note": "自御灵宗分裂；可倒戈回魔道", "tier": "次席"},
+      {"id": "huangfeng", "display": "黄枫谷", "tier": "中游", "player_start_friendly": true},
+      {"id": "qingxu", "display": "清虚门", "tier": "中游"},
+      {"id": "huadao", "display": "化刀坞", "tier": "中游"},
+      {"id": "tianque", "display": "天阙堡", "tier": "中游"},
+      {"id": "jujian", "display": "巨剑门", "tier": "中游"}
+    ],
+    "war_outcome_hook": "魔道收复失地后六派撤入九国盟北凉一带"
+  },
+  "mulan_side": {
+    "display": "慕兰法士",
+    "region": "mulan_grassland",
+    "lore": "草原资源匮乏，常南侵劫掠；法士体系与天南宗门修士对峙。",
+    "command_structure": [
+      {"id": "four_divine_masters", "display": "四大神师", "realm_band": "NASCENT_SOUL", "examples": ["仲神师", "祝神师", "田锺", "窟耀类上师结构"]},
+      {"id": "fire_tribe_masters", "display": "拜火部大上师", "realm_band": "NASCENT_SOUL", "specialty": "火灵化形"},
+      {"id": "holy_birds", "display": "圣禽级战力", "note": "战场杀伤结构，可对标高阶妖兽/元婴战"}
+    ],
+    "motivation": "资源掠夺 + 生存空间",
+    "post_war": "战败后部分迁入天南边境，转为防突兀前哨叙事"
+  },
+  "phases": [
+    {
+      "id": "phase_border_raids",
+      "display": "边境劫掠常态",
+      "intensity": 2,
+      "hooks": ["mulan_scout_ambush", "jiuguo_patrol", "supply_escort"],
+      "realm_span": ["FOUNDATION", "CORE_FORMATION"],
+      "setting": {
+        "lore": "小股法士劫掠边镇灵矿与坊市，九国盟轮戍应战。"
+      }
+    },
+    {
+      "id": "phase_tiantian_siege_memory",
+      "display": "阗天城记忆战（历史）",
+      "intensity": 4,
+      "optional_flashback": true,
+      "hooks": ["upper_yuan_array_legend"],
+      "setting": {
+        "lore": "慕兰曾打到阗天城下，九国盟以上元灭光阵击退；作背景叙事与阵法图鉴。"
+      }
+    },
+    {
+      "id": "phase_jingu_yuan",
+      "display": "金鼓原对峙（七派vs魔道）",
+      "intensity": 4,
+      "factions": ["yue_seven", "modao_liuzong"],
+      "hooks": ["jingu_monthly_skirmish", "tunnel_escape", "lingshou_defection"],
+      "realm_span": ["FOUNDATION", "NASCENT_SOUL"],
+      "setting": {
+        "lore": "一月一大打、每日小打的消耗战结构；灵兽山倒戈可触发防线崩溃事件。"
+      }
+    },
+    {
+      "id": "phase_exodus_north",
+      "display": "六派北撤",
+      "intensity": 5,
+      "hooks": ["huangfeng_bait_breakout", "yanyue_hard_breakout", "family_abandoned_event"],
+      "setting": {
+        "lore": "撤入九国盟过程惨烈；玩家可选护送/断后/趁乱夺宝。"
+      }
+    },
+    {
+      "id": "phase_boundary_war",
+      "display": "边界大战（慕兰全面冲突）",
+      "intensity": 5,
+      "hooks": [
+        "huanglongshan_defense",
+        "duel_wager_war",
+        "yinluo_copper_corpses",
+        "holy_bird_battlefield",
+        "tianyi_city_rebuild"
+      ],
+      "realm_span": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "frontline_nodes": ["huanglong_mountain", "tiantian_city", "tianyi_city", "beiliang_border"],
+      "setting": {
+        "lore": "慕兰倾巢，四大势力轮派支援；可赌战减员。阴罗宗等大晋魔道可插手。"
+      }
+    },
+    {
+      "id": "phase_settlement",
+      "display": "议和与迁入",
+      "intensity": 1,
+      "hooks": ["mulan_settlement_permit", "anti_tuwu_outpost"],
+      "setting": {
+        "lore": "慕兰战败迁入边境两国结构，转为防突兀前哨；玩家可接安置/监视任务。"
+      }
+    }
+  ],
+  "player_paths": [
+    {
+      "id": "frontline_conscript",
+      "display": "轮戍征召",
+      "from_factions": ["jiuguo_meng", "any_tiannan_sect"],
+      "rewards": ["war_merit", "border_loot", "array_manual_fragment"]
+    },
+    {
+      "id": "demonic_expansion",
+      "display": "魔道扩张线",
+      "from_factions": ["modao_liuzong"],
+      "rewards": ["conquered_market_tax", "blood_refine_materials"],
+      "exclusive_with": ["yue_loyalist"]
+    },
+    {
+      "id": "yue_loyalist",
+      "display": "七派/六派忠诚",
+      "from_factions": ["huangfeng", "yanyue"],
+      "rewards": ["sect_rebirth_aid", "exodus_survival_bonus"]
+    },
+    {
+      "id": "mulan_sympathizer",
+      "display": "慕兰接触（高风险）",
+      "note": "间谍/议和中间人；被正魔发现则双杀风险",
+      "rewards": ["mulan_fire_art_fragment", "grassland_map"]
+    }
+  ],
+  "war_merit_currency": {
+    "id": "tiannan_war_merit",
+    "display": "天南边功",
+    "earn": [
+      {"action": "kill_mulan_scout", "amount": 5},
+      {"action": "hold_node_day", "amount": 20},
+      {"action": "win_wager_duel", "amount": 80},
+      {"action": "defend_huanglong", "amount": 150}
+    ],
+    "spend": [
+      {"item": "mid_spirit_stone_pack", "cost": 30},
+      {"item": "healing_pill_batch", "cost": 15},
+      {"item": "array_flag_repair", "cost": 50},
+      {"item": "nascent_manual_fragment", "cost": 200}
+    ]
+  },
+  "key_locations": [
+    {"id": "tiantian_city", "display": "阗天城", "feature": "上元灭光阵"},
+    {"id": "tianyi_city", "display": "天一城", "feature": "失守后新建石城"},
+    {"id": "huanglong_mountain", "display": "黄龙山", "feature": "守阵节点"},
+    {"id": "jingu_yuan", "display": "金鼓原", "feature": "七派魔道消耗战"},
+    {"id": "beiliang", "display": "北凉国", "feature": "六派流亡落脚"}
+  ],
+  "chronicle_refs": ["K_mulan_boundary", "K_jingu_yuan", "K_yue_exodus"],
+  "dajin_crossref": "dajin_factions.json#yinluo_zong"
+}

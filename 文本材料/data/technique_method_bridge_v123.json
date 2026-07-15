@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "source": "v123 功法 school ↔ 术法文件",
+  "method_school_to_file": {
+    "elemental": "elemental.json",
+    "sword": "sword.json",
+    "xuan_yin": "xuan_yin.json",
+    "puppet": "puppet.json",
+    "ghost": "ghost.json",
+    "formation": "formation.json",
+    "fashi": "fashi.json",
+    "illusion": "illusion.json",
+    "talisman": "talisman.json",
+    "demonic": "demonic.json",
+    "body": "body.json",
+    "movement": "movement.json",
+    "dao": "dao.json",
+    "buddhist": "buddhist.json",
+    "divine_sense": "divine_sense.json",
+    "secret_arts": "secret_arts.json",
+    "misc": "misc.json",
+    "recovery": "recovery.json",
+    "demon_path": "demon_path.json",
+    "confucian": "confucian.json"
+  },
+  "aliases": {
+    "fashi_spirit_art": "fashi",
+    "artifact": null,
+    "treasure": null
+  },
+  "req_method_aliases_fixed": {
+    "beast_tamer_art": "beast_taming_basic",
+    "five_elements_root_art": "five_elements_root_art",
+    "huadao_slash_art": "huadao_slash_art",
+    "lieyan_fire_art": "lieyan_gong",
+    "mulan_array_spirit_art": "mulan_wind_spirit_art",
+    "mulan_holy_beast_art": "tianlan_holy_beast_art",
+    "yinluo_ghost_art": "yin_luo_ghost_art"
+  },
+  "duplicate_ids_fixed": {
+    "inverse_star_veil": "illusion 保留；misc -> inverse_star_veil_trace",
+    "golden_armor_talisman_cast": "talisman 保留；misc -> golden_armor_talisman_forge_cast"
+  },
+  "description": "制作解锁时：method.unlocks_techniques_school → 文件；secret_arts 另计 parent_school。"
+}

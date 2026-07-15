@@ -30,7 +30,12 @@
         "trigger": {
           "note": "飞升链阶段条件。"
         }
-      }
+      },
+      "from_dimension": "seeking_immortals:mortal_world",
+      "to_dimension": "seeking_immortals:tianyuan",
+      "method": "ascension_channel",
+      "one_way_main_body": true,
+      "v136": true
     },
     {
       "id": "tianyuan_garrison",
@@ -58,7 +63,8 @@
         "trigger": {
           "note": "飞升链阶段条件。"
         }
-      }
+      },
+      "via_gate": "tianyuan_to_spirit_fengyuan"
     },
     {
       "id": "great_vehicle_ascension",
@@ -72,7 +78,11 @@
         "trigger": {
           "note": "飞升链阶段条件。"
         }
-      }
+      },
+      "from_dimension": "seeking_immortals:spirit_fengyuan",
+      "to_dimension": "seeking_immortals:immortal_realm",
+      "method": "great_vehicle_ascension",
+      "v136": true
     }
   ],
   "quest_chain_ref": "spirit_realm_rise",
@@ -81,5 +91,8 @@
     "L1_tianyuan_founded",
     "P3_smuggle_ascension"
   ],
-  "main_chapter_ref": "chapter_6_spirit_realm"
+  "main_chapter_ref": "chapter_6_spirit_realm",
+  "v136_travel_methods": "dimension_travel_methods_v136.json",
+  "v143_deity_ref": "endgame_deity_huoyu_v143.json",
+  "v143_guanghan_ref": "endgame_guanghan_v143.json"
 }

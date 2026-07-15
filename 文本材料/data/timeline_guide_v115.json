@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "source": "v115 主线时间线与纪年速查",
+  "mainline_order": [
+    "tl_mengmei_five_realms",
+    "tl_tiannan_qi_entry",
+    "tl_foundation_blood",
+    "tl_core_void_palace",
+    "tl_chaotic_sea",
+    "tl_nascent_yin_yang",
+    "tl_dajin_mulan",
+    "tl_diyuan_tianyuan",
+    "tl_ascend_spirit",
+    "tl_spirit_void_asura",
+    "tl_guanghan_end"
+  ],
+  "chronicle_count": 56,
+  "hooks_count": 208,
+  "figures": [
+    {
+      "id": "dayan_sage",
+      "name": "大衍神君",
+      "note": "创千竹教傀儡术"
+    },
+    {
+      "id": "seal_saints",
+      "name": "封魔诸圣",
+      "note": "集体封印，无单一主角"
+    },
+    {
+      "id": "nine_nation_alliance",
+      "name": "九国盟",
+      "note": "抗魔联盟"
+    },
+    {
+      "id": "qixuan_men",
+      "name": "七玄门",
+      "note": "新手江湖门派"
+    },
+    {
+      "id": "player",
+      "name": "入道者（玩家）",
+      "note": "创角默认年"
+    }
+  ],
+  "realms": [
+    {
+      "id": "QI_REFINING",
+      "display": "炼气",
+      "sub_stages": 13,
+      "lifespan": 120
+    },
+    {
+      "id": "FOUNDATION",
+      "display": "筑基",
+      "sub_stages": 4,
+      "lifespan": 250
+    },
+    {
+      "id": "CORE_FORMATION",
+      "display": "结丹",
+      "sub_stages": 3,
+      "lifespan": 600
+    },
+    {
+      "id": "NASCENT_SOUL",
+      "display": "元婴",
+      "sub_stages": 3,
+      "lifespan": 1200
+    },
+    {
+      "id": "DEITY_TRANSFORMATION",
+      "display": "化神",
+      "sub_stages": 3,
+      "lifespan": 2500
+    },
+    {
+      "id": "VOID_REFINEMENT",
+      "display": "炼虚",
+      "sub_stages": 3,
+      "lifespan": 5000
+    },
+    {
+      "id": "BODY_INTEGRATION",
+      "display": "合体",
+      "sub_stages": 3,
+      "lifespan": 10000
+    },
+    {
+      "id": "GREAT_VEHICLE",
+      "display": "大乘",
+      "sub_stages": 3,
+      "lifespan": 100000
+    },
+    {
+      "id": "TRIBULATION_LAND",
+      "display": "渡劫期",
+      "sub_stages": 1,
+      "lifespan": null
+    }
+  ],
+  "bottlenecks": [
+    {
+      "at": "FOUNDATION",
+      "type": "pill_or_sect_resource"
+    },
+    {
+      "at": "CORE_FORMATION",
+      "type": "pill_and_demon_core"
+    },
+    {
+      "at": "DEITY_TRANSFORMATION",
+      "type": "tribulation_and_spirit_density"
+    },
+    {
+      "at": "VOID_REFINEMENT",
+      "type": "artificial_root_or_rare_manual"
+    }
+  ],
+  "description": "先 mainline_order，再 chronicle_* / hook_* / realm_*。"
+}

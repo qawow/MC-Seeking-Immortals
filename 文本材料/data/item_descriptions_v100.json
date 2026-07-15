@@ -1,0 +1,676 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v100 物品详释：时间线节点物/物价锚点/功法玉简说明",
+  "items": [
+    {
+      "id": "palm_bottle_timeline",
+      "display": "掌天瓶（时间线）",
+      "type": "unique",
+      "phase": "凡人·墨大夫后",
+      "rules": ["唯一", "禁交易", "绿液帽", "长冷却"],
+      "description": "全时间线经济锚点。任何阶段不得复制或早爆。"
+    },
+    {
+      "id": "shengxian_ling_timeline",
+      "display": "升仙令（时间线）",
+      "type": "token",
+      "phase": "凡人末",
+      "price": [50, 300],
+      "description": "入仙门票。野狼帮/金光线或小会购买。"
+    },
+    {
+      "id": "xiaojian_fubao_timeline",
+      "display": "小剑符宝（时间线）",
+      "type": "fubao",
+      "phase": "凡人末",
+      "description": "翻盘件。入仙后贬值但仍可卖。"
+    },
+    {
+      "id": "nuanyang_timeline",
+      "display": "暖阳宝玉（时间线）",
+      "type": "key",
+      "phase": "凡人·解毒",
+      "description": "欧阳飞天线。解特定毒，非万金油。"
+    },
+    {
+      "id": "zhuji_siyao_timeline",
+      "display": "筑基四主药（时间线）",
+      "type": "bundle",
+      "phase": "血色禁地",
+      "price_bundle": [80, 400],
+      "description": "炼气经济核心。约廿丹结构。"
+    },
+    {
+      "id": "xueyu_egg_timeline",
+      "display": "血玉蜘蛛卵（时间线）",
+      "type": "egg",
+      "phase": "灵矿地道",
+      "description": "三宝之一。养成见 spirit_beast_growth。"
+    },
+    {
+      "id": "danuoyi_timeline",
+      "display": "大挪移令（时间线）",
+      "type": "token",
+      "phase": "灵矿地道",
+      "description": "古传送钥匙。账户绑定结构。"
+    },
+    {
+      "id": "xutian_map_timeline",
+      "display": "虚天残图（时间线）",
+      "type": "map",
+      "phase": "黑煞教后",
+      "description": "乱星海主线驱动。可拼合。"
+    },
+    {
+      "id": "jiangchen_timeline",
+      "display": "降尘丹（时间线）",
+      "type": "pill",
+      "phase": "六连殿",
+      "price": [3000, 15000],
+      "description": "结丹命门。古长老袋。"
+    },
+    {
+      "id": "hunyuan_timeline",
+      "display": "混元钵（时间线）",
+      "type": "fabao",
+      "phase": "六连殿",
+      "description": "收摄镇压。结丹成名。"
+    },
+    {
+      "id": "fenglei_timeline",
+      "display": "风雷翅（时间线）",
+      "type": "escape",
+      "phase": "风希线",
+      "description": "人界顶级遁。可嵌鲲鹏羽。"
+    },
+    {
+      "id": "xutian_ding_timeline",
+      "display": "虚天鼎（时间线）",
+      "type": "tongtian",
+      "phase": "虚天殿",
+      "description": "殿内第一争夺。乾蓝+炼丹+通宝诀。"
+    },
+    {
+      "id": "jiuqu_timeline",
+      "display": "九曲灵参（时间线）",
+      "type": "herb_living",
+      "phase": "虚天殿",
+      "description": "活参。开智=曲儿线。"
+    },
+    {
+      "id": "yanghun_timeline",
+      "display": "养魂木（时间线）",
+      "type": "divine_wood",
+      "phase": "虚天殿",
+      "description": "神识命根木。"
+    },
+    {
+      "id": "xuanyin_timeline",
+      "display": "玄阴经（时间线）",
+      "type": "manual",
+      "phase": "虚天殿",
+      "conflict": "本体慎全修",
+      "description": "魔功合集。见冲突矩阵。"
+    },
+    {
+      "id": "dingling_timeline",
+      "display": "定灵丹（时间线）",
+      "type": "pill",
+      "phase": "云梦试剑",
+      "price": [20000, 100000],
+      "description": "结婴三助之一。"
+    },
+    {
+      "id": "tihun_timeline",
+      "display": "啼魂兽（时间线）",
+      "type": "companion",
+      "phase": "元瑶/阴冥",
+      "description": "养成见 v99。阴冥成长快。"
+    },
+    {
+      "id": "gengjing_timeline",
+      "display": "庚精（时间线）",
+      "type": "material",
+      "phase": "赌战/大晋",
+      "price": [20000, 120000],
+      "description": "剑组与大庚命门材。"
+    },
+    {
+      "id": "xuantian_teng_timeline",
+      "display": "玄天仙藤根茎（时间线）",
+      "type": "living",
+      "phase": "赌战赏",
+      "need": ["醇液", "回阳"],
+      "description": "织纤线起点。"
+    },
+    {
+      "id": "dayan_timeline",
+      "display": "大衍诀（时间线）",
+      "type": "manual",
+      "phase": "大衍神君",
+      "synergy": ["傀儡", "炼神"],
+      "description": "神识流核心。"
+    },
+    {
+      "id": "tujialong_timeline",
+      "display": "土甲龙（时间线）",
+      "type": "companion",
+      "phase": "大衍线",
+      "description": "傀儡流肉盾灵兽。"
+    },
+    {
+      "id": "lingzhu_timeline",
+      "display": "灵烛果（时间线）",
+      "type": "fruit",
+      "phase": "坠魔谷",
+      "taboo": "速炼",
+      "description": "造化丹唯一主药。"
+    },
+    {
+      "id": "zaohua_timeline",
+      "display": "造化丹（时间线）",
+      "type": "pill",
+      "phase": "坠魔炼成",
+      "limit": "一生一次结构",
+      "description": "给感悟不直接加层。"
+    },
+    {
+      "id": "mosui_timeline",
+      "display": "魔髓钻（时间线）",
+      "type": "material",
+      "phase": "魔气之渊",
+      "price": [30000, 200000],
+      "description": "修幡+黑市通货。"
+    },
+    {
+      "id": "mingwang_timeline",
+      "display": "明王诀（时间线）",
+      "type": "manual",
+      "phase": "冯家密窟",
+      "synergy": ["托天", "梵圣"],
+      "description": "炼体拼图佛门块。"
+    },
+    {
+      "id": "hansui_timeline",
+      "display": "寒髓（时间线）",
+      "type": "essence",
+      "phase": "肖老儿",
+      "description": "回阳与护劫。"
+    },
+    {
+      "id": "mojin_timeline",
+      "display": "墨金（时间线）",
+      "type": "material",
+      "phase": "晋京地下",
+      "price": [18000, 100000],
+      "description": "魔髓钻可换。"
+    },
+    {
+      "id": "wufeng_timeline",
+      "display": "乌凤之翎（时间线）",
+      "type": "beast_part",
+      "phase": "苦竹岛",
+      "description": "三焰扇/翅材。"
+    },
+    {
+      "id": "yinzhi_timeline",
+      "display": "阴芝马（时间线）",
+      "type": "material_live",
+      "phase": "阴阳窟",
+      "description": "培婴丹主料。优先活捕。"
+    },
+    {
+      "id": "peiying_timeline",
+      "display": "培婴丹（时间线）",
+      "type": "pill",
+      "phase": "阴阳窟后",
+      "description": "上古绿丹。富成协作。"
+    },
+    {
+      "id": "baling_timeline",
+      "display": "八灵尺（时间线）",
+      "type": "tongtian",
+      "phase": "昆吾",
+      "description": "镇魔塔通天。飞升或损。"
+    },
+    {
+      "id": "heifeng_timeline",
+      "display": "黑风旗残（时间线）",
+      "type": "tongtian_damaged",
+      "phase": "昆吾",
+      "description": "赤魂幡素材。"
+    },
+    {
+      "id": "wuzi_timeline",
+      "display": "五子同心魔（时间线）",
+      "type": "gubao",
+      "phase": "截杀乾老魔",
+      "description": "五子联攻。"
+    },
+    {
+      "id": "pojiefu_timeline",
+      "display": "破界符（时间线）",
+      "type": "consumable",
+      "phase": "昆吾",
+      "charges": 1,
+      "description": "飞升物资。"
+    },
+    {
+      "id": "node_timeline",
+      "display": "空间节点资料（时间线）",
+      "type": "intel",
+      "phase": "昆吾玲珑",
+      "grades": ["残缺", "标准", "详尽"],
+      "description": "详尽版唯一向。"
+    },
+    {
+      "id": "wuhanyan_timeline",
+      "display": "五寒焰（时间线）",
+      "type": "flame_set",
+      "phase": "小极宫反目",
+      "description": "化神包组件。"
+    },
+    {
+      "id": "tuotian_timeline",
+      "display": "托天魔功（时间线）",
+      "type": "manual",
+      "phase": "蛮胡子洞府",
+      "description": "金鳞防御。拼梵圣。"
+    },
+    {
+      "id": "longlin_timeline",
+      "display": "龙鳞果（时间线）",
+      "type": "fruit",
+      "phase": "金蛟王线",
+      "description": "淬骨日程果。"
+    },
+    {
+      "id": "taiyang_timeline",
+      "display": "太阳精火（时间线）",
+      "type": "flame",
+      "phase": "火狱",
+      "description": "回阳真水至阳。"
+    },
+    {
+      "id": "huiyang_timeline",
+      "display": "回阳真水（时间线）",
+      "type": "elixir",
+      "phase": "火+寒合成",
+      "description": "人界顶疗愈与活藤。"
+    },
+    {
+      "id": "moyuan_timeline",
+      "display": "魔元丹（时间线）",
+      "type": "pill",
+      "phase": "魔陀山交换",
+      "description": "化神冲阶。"
+    },
+    {
+      "id": "liuding_timeline",
+      "display": "六丁天甲符（时间线）",
+      "type": "consumable",
+      "phase": "南宫婉",
+      "trade": false,
+      "description": "飞升级护身。"
+    },
+    {
+      "id": "yuanci_timeline",
+      "display": "元磁神山（时间线）",
+      "type": "gubao",
+      "phase": "星宫线",
+      "description": "可入体。化神核心。"
+    },
+    {
+      "id": "jinque_timeline",
+      "display": "金阙玉书页（时间线）",
+      "type": "manual_page",
+      "phase": "灵界",
+      "contents": ["百脉炼宝", "玄天炼器"],
+      "description": "法体与后天玄天转折。"
+    },
+    {
+      "id": "lianshen_timeline",
+      "display": "炼神术（时间线）",
+      "type": "manual",
+      "phase": "广寒界",
+      "layers": 7,
+      "conflict": "天庭不容结构",
+      "description": "神识倍增。与大衍绝配。"
+    },
+    {
+      "id": "xuling_timeline",
+      "display": "虚灵丹（时间线）",
+      "type": "pill",
+      "phase": "广寒等",
+      "description": "合体辅助。"
+    },
+    {
+      "id": "zhenhun_timeline",
+      "display": "真魂丹（时间线）",
+      "type": "pill",
+      "phase": "斩马良",
+      "description": "大乘级。惊动灵界。"
+    },
+    {
+      "id": "baolin_timeline",
+      "display": "豹麟兽（时间线）",
+      "type": "companion",
+      "phase": "地渊",
+      "description": "吃战力的灵兽。见养成表。"
+    },
+    {
+      "id": "price_anchor_zhuji",
+      "display": "物价锚·筑基丹",
+      "type": "meta",
+      "price": [500, 2000],
+      "regions": ["黄枫", "天星", "大晋"],
+      "description": "炼气~筑基经济尺。"
+    },
+    {
+      "id": "price_anchor_gengjing",
+      "display": "物价锚·庚精",
+      "type": "meta",
+      "price": [20000, 120000],
+      "description": "元婴金材尺。"
+    },
+    {
+      "id": "price_anchor_topstone",
+      "display": "物价锚·极品灵石",
+      "type": "meta",
+      "ratio": 1000000,
+      "description": "化神货币尺。"
+    },
+    {
+      "id": "price_anchor_merit",
+      "display": "物价锚·天渊功勋",
+      "type": "meta",
+      "examples": {"玉清丹": [15, 40], "护劫": 100},
+      "description": "灵界基础服务尺。"
+    },
+    {
+      "id": "manual_jade_qingyuan",
+      "display": "青元剑诀玉简",
+      "type": "manual",
+      "compat": "S with 三转; A with 大衍/梵圣",
+      "description": "主修剑道。见冲突矩阵。"
+    },
+    {
+      "id": "manual_jade_sanzhuan",
+      "display": "三转重元功玉简",
+      "type": "manual",
+      "risk": "散功期无力",
+      "description": "结丹率换脆弱。"
+    },
+    {
+      "id": "manual_jade_dayan",
+      "display": "大衍诀玉简",
+      "type": "manual",
+      "compat": "S 傀儡/炼神",
+      "description": "七层神识。"
+    },
+    {
+      "id": "manual_jade_xuanyin",
+      "display": "玄阴经玉简",
+      "type": "manual",
+      "compat": "C 本体青元; A 分身",
+      "description": "魔功总经。立场风险。"
+    },
+    {
+      "id": "manual_jade_fansheng",
+      "display": "梵圣真魔功",
+      "type": "manual",
+      "compose": ["明王", "托天", "梵圣片"],
+      "description": "法体双修完成体。"
+    },
+    {
+      "id": "manual_jade_yuanci",
+      "display": "元磁神光功法",
+      "type": "manual",
+      "years": [50, 300],
+      "description": "苦修。五行灵根友好。"
+    },
+    {
+      "id": "manual_jade_lianshen",
+      "display": "炼神术玉简",
+      "type": "manual",
+      "level_vs_tian_ting": "F",
+      "description": "逆天神识。叙事高压。"
+    },
+    {
+      "id": "manual_jade_jingzhe",
+      "display": "惊蛰十二变",
+      "type": "manual",
+      "compat": "S 天煞镇狱; D 乱吞真血",
+      "description": "真血变化。冲突幻魔惩罚。"
+    },
+    {
+      "id": "manual_huanxing_liansi",
+      "display": "换形+敛息套简",
+      "type": "manual_set",
+      "compat": "S 彼此",
+      "description": "潜行标配。"
+    },
+    {
+      "id": "dual_cult_warning_token",
+      "display": "双修禁忌示警简",
+      "type": "rule_item",
+      "content": "颠凤夺阴等红线",
+      "description": "设计备忘。平衡与伦理。"
+    },
+    {
+      "id": "stack_cap_token",
+      "display": "功法槽位规则简",
+      "type": "rule_item",
+      "content": "主修1+炼体1+神识1",
+      "description": "防功法无限叠。"
+    },
+    {
+      "id": "market_tax_token",
+      "display": "坊市税契",
+      "type": "service",
+      "effect": "合法摆摊",
+      "price": [10, 500],
+      "description": "各地区税率不同。"
+    },
+    {
+      "id": "auction_deposit",
+      "display": "拍卖保证金",
+      "type": "service",
+      "price": [1000, 100000],
+      "description": "举牌资格押金。"
+    },
+    {
+      "id": "war_supply_crate",
+      "display": "盟军补给箱",
+      "type": "kit",
+      "phase": "边界大战",
+      "contains": ["疗伤批", "符批", "功勋预支"],
+      "description": "战争经济。"
+    },
+    {
+      "id": "beast_tide_premium_note",
+      "display": "兽潮溢价告示",
+      "type": "meta",
+      "mod": 1.8,
+      "description": "寸金阁等物价规则物化。"
+    },
+    {
+      "id": "black_market_pass",
+      "display": "地下黑市腰牌",
+      "type": "token",
+      "risk": "跟踪",
+      "mod": 1.3,
+      "description": "晋京地下等。"
+    },
+    {
+      "id": "sect_quota_zhuji",
+      "display": "宗门筑基丹配额契",
+      "type": "currency",
+      "effect": "内部价购丹",
+      "description": "散修难享。"
+    },
+    {
+      "id": "barter_chip_yuanying",
+      "display": "元婴交换筹码",
+      "type": "currency",
+      "use": "天南交换会",
+      "description": "以物易物计量。"
+    },
+    {
+      "id": "timeline_skip_forbid",
+      "display": "主线防跳级清单",
+      "type": "rule_item",
+      "forbid_early": ["八灵尺", "炼神术", "真魂丹", "详尽节点"],
+      "description": "设计用。对应 timeline do_not_early_drop。"
+    },
+    {
+      "id": "phase_unlock_shop",
+      "display": "阶段商店解锁符（结构）",
+      "type": "meta",
+      "effect": "按韩立 phase 开货架",
+      "description": "主线奖励钩子。"
+    },
+    {
+      "id": "qingyuan_sword_set_status",
+      "display": "青竹蜂云剑组状态册",
+      "type": "meta",
+      "tracks": ["柄数", "庚精灌注", "阵法层"],
+      "description": "时间线多节点更新。"
+    },
+    {
+      "id": "body_dual_progress",
+      "display": "法体双修进度册",
+      "type": "meta",
+      "tracks": ["明王", "托天", "梵圣片", "涅槃变"],
+      "description": "拼图进度。"
+    },
+    {
+      "id": "insect_king_progress",
+      "display": "噬金虫王进度册",
+      "type": "meta",
+      "tracks": ["数量", "异变", "黑晶", "神乳"],
+      "description": "养成终局。"
+    },
+    {
+      "id": "ascension_checklist",
+      "display": "飞升物资清单",
+      "type": "kit_meta",
+      "contains": ["破界符", "节点详尽", "六丁", "化神巩固", "灵界货币种子"],
+      "description": "人界→灵界闸门。"
+    },
+    {
+      "id": "spirit_realm_starter",
+      "display": "灵界立足包",
+      "type": "kit",
+      "contains": ["功勋介绍简", "天渊地图", "玉清丹1", "防骗简"],
+      "description": "飞升后第一周。"
+    },
+    {
+      "id": "conflict_test_stone",
+      "display": "功法冲突试炼石",
+      "type": "utility",
+      "effect": "安全模拟走火",
+      "description": "配合试炼人偶与矩阵。"
+    },
+    {
+      "id": "true_blood_buffer",
+      "display": "真血缓冲丹（结构）",
+      "type": "pill",
+      "use": "惊蛰多血",
+      "compat": "S 天煞镇狱",
+      "description": "降 D 级冲突。"
+    },
+    {
+      "id": "sha_qing_shu",
+      "display": "清煞秘术简",
+      "type": "manual",
+      "use": "魔转正缓冲",
+      "description": "换功规则。"
+    },
+    {
+      "id": "second_yuanying_contract",
+      "display": "第二元婴约束咒",
+      "type": "seal",
+      "effect": "降反噬",
+      "risk": "仍在",
+      "description": "分修策略件。"
+    },
+    {
+      "id": "commodity_yaodan_table",
+      "display": "妖丹品阶价目",
+      "type": "meta",
+      "table": {
+        "6": [500, 5000],
+        "7": [2000, 20000],
+        "8": [10000, 100000],
+        "9": [50000, 500000]
+      },
+      "description": "屠户与任务回收尺。"
+    },
+    {
+      "id": "commodity_talisman_table",
+      "display": "符箓品阶价目",
+      "type": "meta",
+      "table": {
+        "黄": [1, 20],
+        "玄": [30, 300],
+        "地": [500, 8000],
+        "天": [5000, 100000]
+      },
+      "description": "天符门与坊市。"
+    },
+    {
+      "id": "commodity_storage_table",
+      "display": "储物空间价目",
+      "type": "meta",
+      "table": {
+        "小袋": [20, 80],
+        "中袋": [100, 800],
+        "镯戒": [1000, 50000]
+      },
+      "description": "生活质量线。"
+    },
+    {
+      "id": "region_mod_card_war",
+      "display": "战争物价牌",
+      "type": "meta",
+      "mod": 2.0,
+      "description": "全局修正物化。"
+    },
+    {
+      "id": "region_mod_card_tide",
+      "display": "兽潮物价牌",
+      "type": "meta",
+      "mod": 1.8,
+      "description": "星海经济。"
+    },
+    {
+      "id": "region_mod_card_sect",
+      "display": "宗门内购折扣牌",
+      "type": "meta",
+      "mod": 0.7,
+      "description": "贡献体系。"
+    },
+    {
+      "id": "hanli_biography_compendium",
+      "display": "《散修韩记》道具年表（戏中书）",
+      "type": "lore_book",
+      "effect": "解锁图鉴回忆",
+      "description": "把 timeline 做成可读物。"
+    },
+    {
+      "id": "world_economy_whitepaper",
+      "display": "人界灵石白皮书（戏中）",
+      "type": "lore_book",
+      "content": "货币比率与禁物价",
+      "description": "对应 market_price_master。"
+    },
+    {
+      "id": "manual_orthodoxy_catalog",
+      "display": "功法门派立场录",
+      "type": "lore_book",
+      "content": "正魔兼容简表",
+      "description": "对应 conflict matrix。"
+    }
+  ]
+}

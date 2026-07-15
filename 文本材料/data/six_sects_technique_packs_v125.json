@@ -1,0 +1,1240 @@
+{
+  "schema_version": 4,
+  "source": "v125 六宗分宗术包（叠 demonic_six_sects）",
+  "pack_note": "本包六宗=鬼灵门/合欢宗/天魔宗/青罗宗/万狐宗/血巫教（见原 demonic_six_sects）。与部分同人「六派」名单可能不同，以本包为准。",
+  "sects": [
+    {
+      "id": "guiling_gate",
+      "display": "鬼灵门",
+      "archetype": "soul_corpse",
+      "methods": [
+        "xuan_yin_art",
+        "guiling_soul_art"
+      ],
+      "specialty": [
+        "摄魂",
+        "炼尸",
+        "阴火"
+      ],
+      "skill_tree_ref": "ghost_xuan_yin",
+      "setting": {
+        "lore": "炼尸摄魂，鬼灵门为六宗之一。",
+        "join_risk": "righteous_bounty"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "karma": "demonic",
+          "realm_min": "QI_REFINING",
+          "forbidden_if": [
+            "huangfeng_inner"
+          ]
+        }
+      }
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "archetype": "dual_cultivation",
+      "methods": [
+        "hehuan_mind_art"
+      ],
+      "specialty": [
+        "媚术",
+        "双修",
+        "幻惑"
+      ],
+      "note": "女修为主",
+      "setting": {
+        "lore": "媚术双修，女修居多。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "gender_note": "女修优先",
+          "karma": "demonic"
+        }
+      }
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "archetype": "demon_body",
+      "methods": [
+        "tianmo_body_art"
+      ],
+      "specialty": [
+        "魔体",
+        "狂战",
+        "血祭"
+      ],
+      "setting": {
+        "lore": "魔体炼体，血祭狂战。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION",
+          "items_suggested": [
+            "blood_altar_access"
+          ]
+        }
+      }
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "archetype": "poison_insect",
+      "methods": [
+        "qingluo_poison_art"
+      ],
+      "specialty": [
+        "毒术",
+        "虫傀"
+      ],
+      "setting": {
+        "lore": "毒道诡术。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "archetype": "illusion_beast",
+      "methods": [
+        "wanhu_phantom_art"
+      ],
+      "specialty": [
+        "幻术",
+        "妖狐"
+      ],
+      "setting": {
+        "lore": "幻术惑心。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "archetype": "blood_curse",
+      "methods": [
+        "xuewu_blood_art"
+      ],
+      "specialty": [
+        "血咒",
+        "巫术"
+      ],
+      "setting": {
+        "lore": "血咒杀伐。"
+      },
+      "learn_requirements": {
+        "disciple": {
+          "realm_min": "FOUNDATION"
+        }
+      }
+    }
+  ],
+  "sect_technique_packs": [
+    {
+      "sect_id": "guiling_gate",
+      "display": "鬼灵门",
+      "archetype": "soul_corpse",
+      "specialty": [
+        "摄魂",
+        "炼尸",
+        "阴火"
+      ],
+      "methods": [
+        "xuan_yin_art",
+        "guiling_soul_art"
+      ],
+      "technique_count": 21,
+      "techniques": [
+        {
+          "id": "soul_devour",
+          "display": "摄魂术",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "soul_devouring_cloud",
+          "display": "噬魂云",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "aoe_dot"
+        },
+        {
+          "id": "corpse_explosion",
+          "display": "尸爆",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "aoe"
+        },
+        {
+          "id": "yin_soul_chain",
+          "display": "阴魂链",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "blood_corruption",
+          "display": "污血术",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "dot"
+        },
+        {
+          "id": "corpse_armor",
+          "display": "炼尸甲",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "underworld_flame",
+          "display": "幽冥火",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "yin_corrosion",
+          "display": "阴蚀",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "dot"
+        },
+        {
+          "id": "ghost_king_summon",
+          "display": "鬼王召",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "summon"
+        },
+        {
+          "id": "soul_banner",
+          "display": "招魂",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "poluo_soul_pull",
+          "display": "夺魂牵引",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "xuanyin_cold_aura",
+          "display": "玄阴寒息",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "xuanyin_soul_thread",
+          "display": "玄阴魂丝",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "xuan_yin.json",
+          "effect_type": "control"
+        },
+        {
+          "id": "guiling_xuan_bridge",
+          "display": "鬼灵玄阴渡",
+          "requires_method": "xuan_yin_art",
+          "realm_min": "FOUNDATION",
+          "file": "xuan_yin.json",
+          "effect_type": "buff_self"
+        },
+        {
+          "id": "demonic_guiling_ultimate_secret",
+          "display": "鬼灵尸潮",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "secret_arts.json",
+          "effect_type": "secret_art"
+        },
+        {
+          "id": "guiling_corpse_summon",
+          "display": "唤尸术",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json",
+          "effect_type": "summon"
+        },
+        {
+          "id": "guiling_soul_hook",
+          "display": "鬼灵摄魂钩",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json",
+          "effect_type": "soul_attack"
+        },
+        {
+          "id": "guiling_corpse_drive",
+          "display": "驱尸术",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json",
+          "effect_type": "summon"
+        },
+        {
+          "id": "guiling_yin_fire",
+          "display": "鬼灵阴火",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "ghost.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "guiling_soul_banner_wave",
+          "display": "摄魂幡浪",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "ghost.json",
+          "effect_type": "aoe"
+        },
+        {
+          "id": "guiling_corpse_burst_chain",
+          "display": "炼尸连环爆",
+          "requires_method": "guiling_soul_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "ghost.json",
+          "effect_type": "aoe"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "xuan_yin_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "blood_corruption",
+                "corpse_armor",
+                "corpse_explosion",
+                "ghost_king_summon",
+                "guiling_xuan_bridge",
+                "poluo_soul_pull",
+                "soul_banner",
+                "soul_devouring_cloud",
+                "underworld_flame",
+                "xuanyin_cold_aura",
+                "yin_corrosion",
+                "yin_soul_chain"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "blood_corruption",
+                "corpse_armor",
+                "corpse_explosion",
+                "ghost_king_summon",
+                "guiling_xuan_bridge",
+                "poluo_soul_pull",
+                "soul_banner",
+                "soul_devouring_cloud",
+                "underworld_flame",
+                "xuanyin_cold_aura",
+                "xuanyin_soul_thread",
+                "yin_corrosion",
+                "yin_soul_chain"
+              ]
+            }
+          ],
+          "technique_count": 13
+        },
+        {
+          "method_id": "guiling_soul_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "guiling_corpse_drive",
+                "guiling_corpse_summon",
+                "guiling_soul_hook",
+                "soul_devour"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "guiling_corpse_drive",
+                "guiling_corpse_summon",
+                "guiling_soul_banner_wave",
+                "guiling_soul_hook",
+                "guiling_yin_fire",
+                "soul_devour"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "demonic_guiling_ultimate_secret",
+                "guiling_corpse_burst_chain",
+                "guiling_corpse_drive",
+                "guiling_corpse_summon",
+                "guiling_soul_banner_wave",
+                "guiling_soul_hook",
+                "guiling_yin_fire",
+                "soul_devour"
+              ]
+            }
+          ],
+          "technique_count": 8
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    },
+    {
+      "sect_id": "hehuan_sect",
+      "display": "合欢宗",
+      "archetype": "dual_cultivation",
+      "specialty": [
+        "媚术",
+        "双修",
+        "幻惑"
+      ],
+      "methods": [
+        "hehuan_mind_art"
+      ],
+      "technique_count": 10,
+      "techniques": [
+        {
+          "id": "hehuan_charm_art",
+          "display": "合欢魅术",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "effect_type": "control"
+        },
+        {
+          "id": "hehuan_gaze",
+          "display": "合欢秋波",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "hehuan_dream_mist",
+          "display": "合欢迷梦雾",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "effect_type": "control"
+        },
+        {
+          "id": "hehuan_dual_siphon",
+          "display": "合欢摄元",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "effect_type": "drain"
+        },
+        {
+          "id": "hehuan_heart_lock",
+          "display": "合欢锁心",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "effect_type": "control"
+        },
+        {
+          "id": "hehuan_domain_bliss",
+          "display": "合欢欲域",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "illusion.json",
+          "effect_type": "field"
+        },
+        {
+          "id": "hehuan_charm",
+          "display": "媚惑术",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "beam"
+        },
+        {
+          "id": "hehuan_soul_charm",
+          "display": "合欢迷心",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "hehuan_union_secret",
+          "display": "双修合欢",
+          "requires_method": null,
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json",
+          "effect_type": "ultimate"
+        },
+        {
+          "id": "hehuan_soul_devour_secret",
+          "display": "合欢噬魂",
+          "requires_method": "hehuan_mind_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json",
+          "effect_type": "secret_art"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "hehuan_mind_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "hehuan_charm",
+                "hehuan_charm_art",
+                "hehuan_dream_mist",
+                "hehuan_gaze",
+                "hehuan_soul_charm"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "hehuan_charm",
+                "hehuan_charm_art",
+                "hehuan_dream_mist",
+                "hehuan_dual_siphon",
+                "hehuan_gaze",
+                "hehuan_heart_lock",
+                "hehuan_soul_charm",
+                "hehuan_soul_devour_secret"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "hehuan_charm",
+                "hehuan_charm_art",
+                "hehuan_domain_bliss",
+                "hehuan_dream_mist",
+                "hehuan_dual_siphon",
+                "hehuan_gaze",
+                "hehuan_heart_lock",
+                "hehuan_soul_charm",
+                "hehuan_soul_devour_secret"
+              ]
+            }
+          ],
+          "technique_count": 9
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    },
+    {
+      "sect_id": "tianmo_sect",
+      "display": "天魔宗",
+      "archetype": "demon_body",
+      "specialty": [
+        "魔体",
+        "狂战",
+        "血祭"
+      ],
+      "methods": [
+        "tianmo_body_art"
+      ],
+      "technique_count": 19,
+      "techniques": [
+        {
+          "id": "demon_flame",
+          "display": "魔焰术",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "aoe"
+        },
+        {
+          "id": "demon_form",
+          "display": "魔化",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "transform"
+        },
+        {
+          "id": "tianmo_blood_frenzy",
+          "display": "天魔血狂",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "buff_self"
+        },
+        {
+          "id": "tianmo_demon_fist",
+          "display": "天魔崩拳",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "melee"
+        },
+        {
+          "id": "tianmo_blood_altar_strike",
+          "display": "血祭一击",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "strike"
+        },
+        {
+          "id": "tianmo_heaven_hand",
+          "display": "天魔大手印",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "demonic.json",
+          "effect_type": "aoe"
+        },
+        {
+          "id": "tianmo_demon_body_secret",
+          "display": "天魔真身",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "file": "secret_arts.json",
+          "effect_type": "secret_art"
+        },
+        {
+          "id": "vajra_body",
+          "display": "金刚诀",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "iron_skin",
+          "display": "铁肤术",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "dragon_strength",
+          "display": "龙力诀",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "palm_wind",
+          "display": "掌风",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "melee"
+        },
+        {
+          "id": "body_flash",
+          "display": "身闪",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "movement"
+        },
+        {
+          "id": "bone_crush",
+          "display": "碎骨拳",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "melee"
+        },
+        {
+          "id": "qi_burst_palm",
+          "display": "气爆掌",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "melee"
+        },
+        {
+          "id": "body_hardness",
+          "display": "金刚不坏",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "body.json",
+          "effect_type": "beam"
+        },
+        {
+          "id": "barbarian_roar",
+          "display": "蛮荒咆哮",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "VOID_REFINEMENT",
+          "file": "body.json",
+          "effect_type": "beam"
+        },
+        {
+          "id": "tianmo_blood_armor",
+          "display": "天魔血甲",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "tianmo_iron_demon_skin",
+          "display": "天魔铁肤",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "body.json",
+          "effect_type": "buff_self"
+        },
+        {
+          "id": "tianmo_body_rebuild",
+          "display": "天魔炼体",
+          "requires_method": "tianmo_body_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "body.json",
+          "effect_type": "buff_self"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "tianmo_body_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "body_flash",
+                "bone_crush",
+                "demon_flame",
+                "demon_form",
+                "dragon_strength",
+                "iron_skin",
+                "palm_wind",
+                "qi_burst_palm",
+                "tianmo_blood_armor",
+                "tianmo_blood_frenzy",
+                "tianmo_demon_fist",
+                "tianmo_iron_demon_skin",
+                "vajra_body"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "body_flash",
+                "body_hardness",
+                "bone_crush",
+                "demon_flame",
+                "demon_form",
+                "dragon_strength",
+                "iron_skin",
+                "palm_wind",
+                "qi_burst_palm",
+                "tianmo_blood_altar_strike",
+                "tianmo_blood_armor",
+                "tianmo_blood_frenzy",
+                "tianmo_body_rebuild",
+                "tianmo_demon_fist",
+                "tianmo_iron_demon_skin",
+                "vajra_body"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "body_flash",
+                "body_hardness",
+                "bone_crush",
+                "demon_flame",
+                "demon_form",
+                "dragon_strength",
+                "iron_skin",
+                "palm_wind",
+                "qi_burst_palm",
+                "tianmo_blood_altar_strike",
+                "tianmo_blood_armor",
+                "tianmo_blood_frenzy",
+                "tianmo_body_rebuild",
+                "tianmo_demon_fist",
+                "tianmo_heaven_hand",
+                "tianmo_iron_demon_skin",
+                "vajra_body"
+              ]
+            },
+            {
+              "layer": 4,
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "body_flash",
+                "body_hardness",
+                "bone_crush",
+                "demon_flame",
+                "demon_form",
+                "dragon_strength",
+                "iron_skin",
+                "palm_wind",
+                "qi_burst_palm",
+                "tianmo_blood_altar_strike",
+                "tianmo_blood_armor",
+                "tianmo_blood_frenzy",
+                "tianmo_body_rebuild",
+                "tianmo_demon_body_secret",
+                "tianmo_demon_fist",
+                "tianmo_heaven_hand",
+                "tianmo_iron_demon_skin",
+                "vajra_body"
+              ]
+            },
+            {
+              "layer": 5,
+              "realm_band": "VOID_REFINEMENT",
+              "unlock_technique_ids": [
+                "barbarian_roar",
+                "body_flash",
+                "body_hardness",
+                "bone_crush",
+                "demon_flame",
+                "demon_form",
+                "dragon_strength",
+                "iron_skin",
+                "palm_wind",
+                "qi_burst_palm",
+                "tianmo_blood_altar_strike",
+                "tianmo_blood_armor",
+                "tianmo_blood_frenzy",
+                "tianmo_body_rebuild",
+                "tianmo_demon_body_secret",
+                "tianmo_demon_fist",
+                "tianmo_heaven_hand",
+                "tianmo_iron_demon_skin",
+                "vajra_body"
+              ]
+            }
+          ],
+          "technique_count": 19
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    },
+    {
+      "sect_id": "qingluo_sect",
+      "display": "青罗宗",
+      "archetype": "poison_insect",
+      "specialty": [
+        "毒术",
+        "虫傀"
+      ],
+      "methods": [
+        "qingluo_poison_art"
+      ],
+      "technique_count": 8,
+      "techniques": [
+        {
+          "id": "poison_mist",
+          "display": "毒雾术",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "beam"
+        },
+        {
+          "id": "qingluo_poison_needle",
+          "display": "青罗毒针",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "qingluo_toxin_mist",
+          "display": "青罗毒瘴",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "aoe_dot"
+        },
+        {
+          "id": "qingluo_insect_dart",
+          "display": "青罗虫镖",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "qingluo_paralytic_spore",
+          "display": "麻孢子",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "qingluo_worm_puppet",
+          "display": "虫傀术",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "summon"
+        },
+        {
+          "id": "qingluo_heart_toxin",
+          "display": "蚀心毒",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "demonic.json",
+          "effect_type": "dot"
+        },
+        {
+          "id": "qingluo_ten_poison_seal",
+          "display": "十毒封脉",
+          "requires_method": "qingluo_poison_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json",
+          "effect_type": "secret_art"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "qingluo_poison_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "poison_mist",
+                "qingluo_insect_dart",
+                "qingluo_poison_needle",
+                "qingluo_toxin_mist"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "poison_mist",
+                "qingluo_insect_dart",
+                "qingluo_paralytic_spore",
+                "qingluo_poison_needle",
+                "qingluo_ten_poison_seal",
+                "qingluo_toxin_mist",
+                "qingluo_worm_puppet"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "poison_mist",
+                "qingluo_heart_toxin",
+                "qingluo_insect_dart",
+                "qingluo_paralytic_spore",
+                "qingluo_poison_needle",
+                "qingluo_ten_poison_seal",
+                "qingluo_toxin_mist",
+                "qingluo_worm_puppet"
+              ]
+            }
+          ],
+          "technique_count": 8
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    },
+    {
+      "sect_id": "wanhu_sect",
+      "display": "万狐宗",
+      "archetype": "illusion_beast",
+      "specialty": [
+        "幻术",
+        "妖狐"
+      ],
+      "methods": [
+        "wanhu_phantom_art"
+      ],
+      "technique_count": 8,
+      "techniques": [
+        {
+          "id": "wanhu_nine_illusion",
+          "display": "九尾幻境",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "effect_type": "aoe"
+        },
+        {
+          "id": "wanhu_fox_fire",
+          "display": "万狐狐火",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "wanhu_afterimage",
+          "display": "狐影分身",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "effect_type": "buff_self"
+        },
+        {
+          "id": "wanhu_charm_tail",
+          "display": "狐尾媚惑",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "effect_type": "control"
+        },
+        {
+          "id": "wanhu_nine_tail_mirage",
+          "display": "九尾幻域",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "illusion.json",
+          "effect_type": "field"
+        },
+        {
+          "id": "wanhu_beast_shift",
+          "display": "妖狐化形",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "effect_type": "transform"
+        },
+        {
+          "id": "fox_phantom_shift",
+          "display": "狐影幻形",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "wanhu_thousand_phantom_domain",
+          "display": "千幻域",
+          "requires_method": "wanhu_phantom_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "secret_arts.json",
+          "effect_type": "secret_art"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "wanhu_phantom_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "fox_phantom_shift",
+                "wanhu_afterimage",
+                "wanhu_fox_fire"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "fox_phantom_shift",
+                "wanhu_afterimage",
+                "wanhu_beast_shift",
+                "wanhu_charm_tail",
+                "wanhu_fox_fire",
+                "wanhu_nine_illusion"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "fox_phantom_shift",
+                "wanhu_afterimage",
+                "wanhu_beast_shift",
+                "wanhu_charm_tail",
+                "wanhu_fox_fire",
+                "wanhu_nine_illusion",
+                "wanhu_nine_tail_mirage",
+                "wanhu_thousand_phantom_domain"
+              ]
+            }
+          ],
+          "technique_count": 8
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    },
+    {
+      "sect_id": "xuewu_sect",
+      "display": "血巫教",
+      "archetype": "blood_curse",
+      "specialty": [
+        "血咒",
+        "巫术"
+      ],
+      "methods": [
+        "xuewu_blood_art"
+      ],
+      "technique_count": 8,
+      "techniques": [
+        {
+          "id": "blood_sacrifice",
+          "display": "血祭",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "buff"
+        },
+        {
+          "id": "blood_curse_mark",
+          "display": "血咒印",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "xuewu_blood_curse_mark",
+          "display": "血巫咒印",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "xuewu_blood_sigil",
+          "display": "血巫咒印",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "debuff"
+        },
+        {
+          "id": "xuewu_blood_lance",
+          "display": "血矛术",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "FOUNDATION",
+          "file": "demonic.json",
+          "effect_type": "projectile"
+        },
+        {
+          "id": "xuewu_hex_decay",
+          "display": "血巫朽咒",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "dot"
+        },
+        {
+          "id": "xuewu_blood_puppet",
+          "display": "血巫血傀",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "effect_type": "summon"
+        },
+        {
+          "id": "xuewu_grand_curse",
+          "display": "血巫大咒",
+          "requires_method": "xuewu_blood_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "demonic.json",
+          "effect_type": "ultimate"
+        }
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "xuewu_blood_art",
+          "layers": [
+            {
+              "layer": 1,
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "blood_sacrifice",
+                "xuewu_blood_curse_mark",
+                "xuewu_blood_lance",
+                "xuewu_blood_sigil"
+              ]
+            },
+            {
+              "layer": 2,
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "blood_curse_mark",
+                "blood_sacrifice",
+                "xuewu_blood_curse_mark",
+                "xuewu_blood_lance",
+                "xuewu_blood_puppet",
+                "xuewu_blood_sigil",
+                "xuewu_hex_decay"
+              ]
+            },
+            {
+              "layer": 3,
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "blood_curse_mark",
+                "blood_sacrifice",
+                "xuewu_blood_curse_mark",
+                "xuewu_blood_lance",
+                "xuewu_blood_puppet",
+                "xuewu_blood_sigil",
+                "xuewu_grand_curse",
+                "xuewu_hex_decay"
+              ]
+            }
+          ],
+          "technique_count": 8
+        }
+      ],
+      "karma": "demonic",
+      "righteous_hostile": true
+    }
+  ],
+  "added_techniques_this_version": 32,
+  "classification": {
+    "guiling_gate": "ghost + 兼 xuan_yin",
+    "hehuan_sect": "illusion/dual",
+    "tianmo_sect": "body + demonic",
+    "qingluo_sect": "demonic poison/insect",
+    "wanhu_sect": "illusion fox",
+    "xuewu_sect": "demonic blood curse"
+  }
+}

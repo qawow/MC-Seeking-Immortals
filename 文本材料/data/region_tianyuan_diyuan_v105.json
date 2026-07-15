@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v105 天渊城 / 地渊 功勋体系深挖",
+  "disclaimer": "灵界基础舞台。功勋与灵石隔离。化神+主货币",
+  "regions": [
+    {
+      "id": "tianyuan_city",
+      "display": "天渊城",
+      "realm_band": ["DEITY_TRANSFORMATION", "VOID_REFINEMENT+"],
+      "role": "飞升修士注册、灵地租、护劫、拍卖、功勋店",
+      "currency": "tianyuan_merit",
+      "entry": {
+        "from": "飞升节点",
+        "check": ["天渊入境籍", "关卡司察", "禁物清单"],
+        "rep_min": 0
+      },
+      "districts": [
+        {
+          "id": "registry",
+          "display": "注册司",
+          "services": ["功勋账户", "身份玉牌", "基础地图"]
+        },
+        {
+          "id": "merit_shop",
+          "display": "功勋兑换库",
+          "wares": [
+            {"name": "玉清丹", "merit": [15, 40]},
+            {"name": "腾龙丹", "merit": [20, 50]},
+            {"name": "真蟾液", "merit": [30, 100]},
+            {"name": "天雷木", "merit": [20, 80]},
+            {"name": "墨麒麟鳞", "merit": [40, 120]},
+            {"name": "护劫阵预约", "merit": 100},
+            {"name": "灵地租中档", "merit": "月租", "rep": 30},
+            {"name": "顶阶拍卖席", "merit": "高", "rep": 85}
+          ]
+        },
+        {
+          "id": "lease_lands",
+          "display": "灵地出租区",
+          "effect": "聚灵+安全闭关",
+          "tiers": ["低", "中", "高", "护劫邻地"]
+        },
+        {
+          "id": "auction",
+          "display": "天渊拍卖",
+          "currency": ["merit", "top_stone", "barter"],
+          "note": "界面级材出现"
+        },
+        {
+          "id": "law_enforcement",
+          "display": "巡城执法",
+          "rule": "城内开杀=全城敌",
+          "spawns": ["天渊巡城执法", "禁制傀"]
+        }
+      ],
+      "reputation": {
+        "faction": "tianyuan",
+        "key_thresholds": [
+          {"at": 0, "unlock": ["注册", "基础店"]},
+          {"at": 30, "unlock": ["中档灵地", "玉清/腾龙稳定供"]},
+          {"at": 60, "unlock": ["护劫预约", "真蟾优先"]},
+          {"at": 85, "unlock": ["顶拍席", "墨麒麟级"]},
+          {"at": -30, "lock": ["巡城执法"]}
+        ]
+      },
+      "daily_loops": [
+        "交任务攒功勋",
+        "租地闭关",
+        "拍卖/兑换突破材",
+        "接地渊服役"
+      ],
+      "balance": {
+        "merit_not_equal_stone": true,
+        "no_infinite_dual_exchange": true,
+        "lease_as_stone_sink": true
+      }
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊",
+      "realm_band": ["DEITY_TRANSFORMATION", "VOID_REFINEMENT"],
+      "role": "危险服役、豹麟养成、真蟾/暗兽/雷材",
+      "currency": ["tianyuan_merit", "battlefield_salvage"],
+      "entry": {
+        "need": ["地渊营地通行", "diyuan_corps 声望≥20 浅层"],
+        "from": "天渊传送/护送"
+      },
+      "layers": [
+        {
+          "id": "camp",
+          "display": "地渊营地",
+          "threat": 0,
+          "services": ["回收", "疗伤", "任务板", "演武"],
+          "buyback": [0.4, 0.7]
+        },
+        {
+          "id": "shallow",
+          "display": "浅层",
+          "threat": [5, 6],
+          "spawns": ["地渊侦察兽", "冥雷幼", "运补伏击暗兽"],
+          "loot": ["暗兽材", "雷筋", "功勋任务项"],
+          "rep_need": 20
+        },
+        {
+          "id": "mid",
+          "display": "中层",
+          "threat": [6, 7],
+          "spawns": ["石炎兽", "暗蚀兽", "精英小队敌对"],
+          "loot": ["石炎心", "高阶内丹"],
+          "rep_need": 50
+        },
+        {
+          "id": "deep",
+          "display": "深层",
+          "threat": [7, 8],
+          "spawns": ["豹麟猎物链", "王级暗兽结构"],
+          "loot": ["真蟾液线索", "豹麟成长口粮"],
+          "rep_need": 50,
+          "note": "豹麟养成绑定"
+        }
+      ],
+      "key_rewards": [
+        {
+          "id": "bao_lin_shou",
+          "display": "豹麟兽",
+          "tags": ["quest", "bond"],
+          "description": "地渊标志伙伴。吃战力成长。"
+        },
+        {
+          "id": "zhen_chan_ye",
+          "display": "真蟾液",
+          "merit": [30, 100],
+          "tags": ["merit_only", "consumable"],
+          "description": "化神巩固/特效药液。"
+        },
+        {
+          "id": "an_shou_nei_dan",
+          "display": "暗兽内丹",
+          "tags": ["craft_mat", "quest"],
+          "description": "回收功勋与炼器。"
+        },
+        {
+          "id": "ming_lei_parts",
+          "display": "冥雷材",
+          "tags": ["craft_mat"],
+          "description": "雷脉产物。天雷木线相关。"
+        }
+      ],
+      "mission_types": [
+        {"id": "escort_supply", "display": "运补护送", "merit": [5, 20]},
+        {"id": "purge_shallow", "display": "浅层清剿", "merit": [8, 25]},
+        {"id": "hunt_mid", "display": "中层猎杀", "merit": [15, 40]},
+        {"id": "elite_deep", "display": "深层精英", "merit": [30, 80], "rep": 50},
+        {"id": "bao_lin_feed_run", "display": "豹麟猎食护送", "merit": [10, 30], "bond": true}
+      ],
+      "recommended_loadout": {
+        "must": ["化神法宝", "暗抗/毒抗", "高疗", "传讯", "功勋籍"],
+        "nice": ["豹麟出战", "元磁手段", "小队"],
+        "avoid": ["无通行深层", "城外开杀运补友军"]
+      },
+      "balance": {
+        "death_merit_loss_light": true,
+        "salvage_softcap_week": true,
+        "companion_growth_gated_by_layer": true
+      }
+    }
+  ],
+  "merit_economy": {
+    "earn": ["地渊任务", "天渊政务", "拍卖税收结构", "上交稀有材"],
+    "sink": ["灵地租", "护劫", "丹药", "传送", "顶拍席"],
+    "isolation_rule": "禁止功勋与灵石无限制双向无限兑",
+    "exchange_examples": {
+      "yuqing_dan": [15, 40],
+      "zhenchan": [30, 100],
+      "hujie": 100
+    }
+  },
+  "ascent_arrival_kit": {
+    "contains": ["功勋介绍简", "天渊地图", "玉清丹1", "防骗简", "入境籍"],
+    "description": "飞升后第一周。对应 spirit_realm_starter"
+  },
+  "cross_ref": {
+    "quest": "spirit_diyuan",
+    "travel": ["tianyuan", "diyuan"],
+    "reputation": ["tianyuan", "diyuan_corps"],
+    "companions": "bao_lin_shou growth v99"
+  },
+  "description": "灵界生存底盘：天渊换钱换安全，地渊换钱换成长与豹麟。"
+}

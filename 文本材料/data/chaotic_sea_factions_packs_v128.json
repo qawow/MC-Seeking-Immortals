@@ -1,0 +1,862 @@
+{
+  "schema_version": 1,
+  "source": "v128 乱星海势力精表",
+  "region": "chaotic_sea",
+  "factions": [
+    {
+      "faction_id": "star_palace",
+      "display": "星宫",
+      "role": "乱星海秩序/巡海/注册",
+      "alignment": "order",
+      "hostile_to": [
+        "inverse_star_alliance"
+      ],
+      "methods": [
+        "star_palace_art",
+        "star_palace_sea_art",
+        "star_palace_law_art",
+        "yuanci_shenguang_art"
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "star_palace_art",
+          "display": "星宫镇海诀",
+          "total_layers": 4,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "镇海入门",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "sea_lock_array",
+                "star_sea_seal_array",
+                "formation_trap_basic"
+              ],
+              "unlock_new_this_layer": [
+                "sea_lock_array",
+                "star_sea_seal_array",
+                "formation_trap_basic"
+              ],
+              "note": "锁阵"
+            },
+            {
+              "layer": 2,
+              "layer_name": "巡海",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "sea_lock_array",
+                "star_sea_seal_array",
+                "formation_trap_basic",
+                "star_palace_patrol_beacon"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_patrol_beacon"
+              ],
+              "note": "信标"
+            },
+            {
+              "layer": 3,
+              "layer_name": "潮封剑阵",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "sea_lock_array",
+                "star_sea_seal_array",
+                "formation_trap_basic",
+                "star_palace_patrol_beacon",
+                "star_palace_seal",
+                "star_palace_tidal_lock",
+                "star_sword_array",
+                "star_palace_star_ray"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_seal",
+                "star_palace_tidal_lock",
+                "star_sword_array",
+                "star_palace_star_ray"
+              ],
+              "note": "高阶"
+            },
+            {
+              "layer": 4,
+              "layer_name": "秘术天印预备",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "sea_lock_array",
+                "star_sea_seal_array",
+                "formation_trap_basic",
+                "star_palace_patrol_beacon",
+                "star_palace_seal",
+                "star_palace_tidal_lock",
+                "star_sword_array",
+                "star_palace_star_ray",
+                "star_palace_heaven_seal"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_heaven_seal"
+              ],
+              "note": "需律典权限叙事"
+            }
+          ],
+          "v128": true
+        },
+        {
+          "method_id": "star_palace_sea_art",
+          "display": "镇海诀",
+          "total_layers": 2,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "浪",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "star_sea_wave",
+                "star_palace_tide_cut"
+              ],
+              "unlock_new_this_layer": [
+                "star_sea_wave",
+                "star_palace_tide_cut"
+              ],
+              "note": "水战"
+            },
+            {
+              "layer": 2,
+              "layer_name": "涡",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "star_sea_wave",
+                "star_palace_tide_cut",
+                "star_palace_whirlpool"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_whirlpool"
+              ],
+              "note": "困敌"
+            }
+          ],
+          "v128": true
+        },
+        {
+          "method_id": "star_palace_law_art",
+          "display": "星宫律典",
+          "total_layers": 3,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "注册",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "star_palace_register_seal",
+                "star_palace_law_bind"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_register_seal",
+                "star_palace_law_bind"
+              ],
+              "note": "身份"
+            },
+            {
+              "layer": 2,
+              "layer_name": "舰队",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "star_palace_register_seal",
+                "star_palace_law_bind",
+                "star_palace_fleet_signal"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_fleet_signal"
+              ],
+              "note": "指挥"
+            },
+            {
+              "layer": 3,
+              "layer_name": "天印",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "star_palace_register_seal",
+                "star_palace_law_bind",
+                "star_palace_fleet_signal",
+                "star_palace_heaven_seal"
+              ],
+              "unlock_new_this_layer": [
+                "star_palace_heaven_seal"
+              ],
+              "note": "大印"
+            }
+          ],
+          "v128": true
+        },
+        {
+          "method_id": "yuanci_shenguang_art",
+          "display": "元磁神光功法",
+          "total_layers": 3,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "控物",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "magnet_control"
+              ],
+              "unlock_new_this_layer": [
+                "magnet_control"
+              ],
+              "note": "入门"
+            },
+            {
+              "layer": 2,
+              "layer_name": "神光",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "magnet_control",
+                "primordial_magnet_sphere"
+              ],
+              "unlock_new_this_layer": [
+                "primordial_magnet_sphere"
+              ],
+              "note": "战"
+            },
+            {
+              "layer": 3,
+              "layer_name": "大成",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "magnet_control",
+                "primordial_magnet_sphere"
+              ],
+              "unlock_new_this_layer": [
+                "primordial_magnet_sphere"
+              ],
+              "note": "叙事"
+            }
+          ],
+          "v128": true
+        }
+      ],
+      "techniques": [
+        {
+          "id": "magnet_control",
+          "display": "元磁控物",
+          "requires_method": "yuanci_shenguang_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "misc.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_seal_burst",
+          "display": "星宫封灵爆",
+          "requires_method": "star_palace_art",
+          "realm_min": "FOUNDATION",
+          "file": "misc.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_heaven_seal",
+          "display": "星宫天印",
+          "requires_method": "star_palace_law_art",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "file": "secret_arts.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "cast_star_palace_patrol_talisman",
+          "display": "星宫巡海符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_sword_array",
+          "display": "天星剑阵",
+          "requires_method": "star_palace_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_star_ray",
+          "display": "天星剑芒",
+          "requires_method": "star_palace_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "sword.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "primordial_magnet_sphere",
+          "display": "元磁神光",
+          "requires_method": "yuanci_shenguang_art",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "file": "elemental.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_sea_wave",
+          "display": "镇海浪",
+          "requires_method": "star_palace_sea_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_tide_cut",
+          "display": "星宫潮斩",
+          "requires_method": "star_palace_sea_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_whirlpool",
+          "display": "星宫涡狱",
+          "requires_method": "star_palace_sea_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "elemental.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "sea_lock_array",
+          "display": "镇海锁阵",
+          "requires_method": "star_palace_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_patrol_beacon",
+          "display": "巡海信标",
+          "requires_method": "star_palace_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "formation_trap_basic",
+          "display": "困敌小阵",
+          "requires_method": "star_palace_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_seal",
+          "display": "镇海印",
+          "requires_method": "star_palace_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_tidal_lock",
+          "display": "镇海潮封",
+          "requires_method": "star_palace_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_sea_seal_array",
+          "display": "镇海星阵",
+          "requires_method": "star_palace_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_register_seal",
+          "display": "星宫注册印",
+          "requires_method": "star_palace_law_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_law_bind",
+          "display": "星宫律锁",
+          "requires_method": "star_palace_law_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        },
+        {
+          "id": "star_palace_fleet_signal",
+          "display": "星宫舰队号",
+          "requires_method": "star_palace_law_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json",
+          "faction_id": "star_palace"
+        }
+      ],
+      "technique_count": 19
+    },
+    {
+      "faction_id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "role": "割据/走私/反星宫",
+      "alignment": "rebel",
+      "hostile_to": [
+        "star_palace"
+      ],
+      "methods": [
+        "inverse_star_art",
+        "inverse_star_shadow_art"
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "inverse_star_art",
+          "display": "逆星秘典",
+          "total_layers": 3,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "走私潜行",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "smuggle_rift_step",
+                "inverse_star_shadow_step",
+                "inverse_star_smuggle_route"
+              ],
+              "unlock_new_this_layer": [
+                "smuggle_rift_step",
+                "inverse_star_shadow_step",
+                "inverse_star_smuggle_route"
+              ],
+              "note": "暗港"
+            },
+            {
+              "layer": 2,
+              "layer_name": "虚遁乱印",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "smuggle_rift_step",
+                "inverse_star_shadow_step",
+                "inverse_star_smuggle_route",
+                "inverse_star_void_escape",
+                "inverse_star_chaos_brand",
+                "inverse_star_rebellion"
+              ],
+              "unlock_new_this_layer": [
+                "inverse_star_void_escape",
+                "inverse_star_chaos_brand",
+                "inverse_star_rebellion"
+              ],
+              "note": "乱战"
+            },
+            {
+              "layer": 3,
+              "layer_name": "匿踪黑市",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "smuggle_rift_step",
+                "inverse_star_shadow_step",
+                "inverse_star_smuggle_route",
+                "inverse_star_void_escape",
+                "inverse_star_chaos_brand",
+                "inverse_star_rebellion",
+                "inverse_star_covert_ultimate_secret",
+                "inverse_star_black_market_burst"
+              ],
+              "unlock_new_this_layer": [
+                "inverse_star_covert_ultimate_secret",
+                "inverse_star_black_market_burst"
+              ],
+              "note": "大遁"
+            }
+          ],
+          "v128": true
+        },
+        {
+          "method_id": "inverse_star_shadow_art",
+          "display": "逆星潜行诀",
+          "total_layers": 2,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "潜步",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "inverse_shadow_step",
+                "inverse_star_double_feint"
+              ],
+              "unlock_new_this_layer": [
+                "inverse_shadow_step",
+                "inverse_star_double_feint"
+              ],
+              "note": "潜"
+            },
+            {
+              "layer": 2,
+              "layer_name": "匿",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "inverse_shadow_step",
+                "inverse_star_double_feint",
+                "inverse_star_veil_trace"
+              ],
+              "unlock_new_this_layer": [
+                "inverse_star_veil_trace"
+              ],
+              "note": "匿踪"
+            }
+          ],
+          "v128": true
+        }
+      ],
+      "techniques": [
+        {
+          "id": "inverse_star_veil_trace",
+          "display": "逆星匿踪",
+          "requires_method": "inverse_star_art",
+          "realm_min": "FOUNDATION",
+          "file": "misc.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_veil",
+          "display": "逆星匿形",
+          "requires_method": "yanyue_gong",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_chaos_brand",
+          "display": "逆星乱印",
+          "requires_method": "inverse_star_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "demonic.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_rebellion",
+          "display": "逆星乱世",
+          "requires_method": "inverse_star_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_void_escape",
+          "display": "逆星虚空遁",
+          "requires_method": "inverse_star_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_covert_ultimate_secret",
+          "display": "逆星匿踪",
+          "requires_method": "inverse_star_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "secret_arts.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_black_market_burst",
+          "display": "黑市爆逃",
+          "requires_method": "inverse_star_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "secret_arts.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "cast_inverse_star_cipher_talisman",
+          "display": "逆星暗号符·瞬发",
+          "requires_method": "tianfu_spirit_scripture",
+          "realm_min": "QI_REFINING",
+          "file": "talisman.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "smuggle_rift_step",
+          "display": "暗港遁步",
+          "requires_method": "inverse_star_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_shadow_step",
+          "display": "逆星影步",
+          "requires_method": "inverse_star_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_shadow_step",
+          "display": "逆星潜步",
+          "requires_method": "inverse_star_shadow_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_smuggle_route",
+          "display": "逆星走私线",
+          "requires_method": "inverse_star_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json",
+          "faction_id": "inverse_star_alliance"
+        },
+        {
+          "id": "inverse_star_double_feint",
+          "display": "逆星双佯",
+          "requires_method": "inverse_star_shadow_art",
+          "realm_min": "FOUNDATION",
+          "file": "movement.json",
+          "faction_id": "inverse_star_alliance"
+        }
+      ],
+      "technique_count": 13
+    },
+    {
+      "faction_id": "miaoyin_men",
+      "display": "妙音门",
+      "role": "音律摄神；名义长老线",
+      "alignment": "neutral_power",
+      "hostile_to": [],
+      "methods": [
+        "miaoyin_sound_art",
+        "miaoyin_zither_secret"
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "miaoyin_sound_art",
+          "display": "妙音玄律",
+          "total_layers": 3,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "音刃",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "miaoyin_note_pierce",
+                "miaoyin_resonance_shield",
+                "miaoyin_sense_echo"
+              ],
+              "unlock_new_this_layer": [
+                "miaoyin_note_pierce",
+                "miaoyin_resonance_shield",
+                "miaoyin_sense_echo"
+              ],
+              "note": "基础"
+            },
+            {
+              "layer": 2,
+              "layer_name": "摄魂曲",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "miaoyin_note_pierce",
+                "miaoyin_resonance_shield",
+                "miaoyin_sense_echo",
+                "miaoyin_charm_song"
+              ],
+              "unlock_new_this_layer": [
+                "miaoyin_charm_song"
+              ],
+              "note": "控"
+            },
+            {
+              "layer": 3,
+              "layer_name": "接琴诀",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "miaoyin_note_pierce",
+                "miaoyin_resonance_shield",
+                "miaoyin_sense_echo",
+                "miaoyin_charm_song"
+              ],
+              "unlock_new_this_layer": [
+                "miaoyin_charm_song"
+              ],
+              "note": "可转琴诀"
+            }
+          ],
+          "v128": true
+        },
+        {
+          "method_id": "miaoyin_zither_secret",
+          "display": "妙音琴诀",
+          "total_layers": 2,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "琴域",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "miaoyin_zither_domain"
+              ],
+              "unlock_new_this_layer": [
+                "miaoyin_zither_domain"
+              ],
+              "note": "领域"
+            },
+            {
+              "layer": 2,
+              "layer_name": "杀调",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "miaoyin_zither_domain",
+                "miaoyin_finale_kill"
+              ],
+              "unlock_new_this_layer": [
+                "miaoyin_finale_kill"
+              ],
+              "note": "大招"
+            }
+          ],
+          "v128": true
+        }
+      ],
+      "techniques": [
+        {
+          "id": "miaoyin_note_pierce",
+          "display": "妙音穿心调",
+          "requires_method": "miaoyin_sound_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "faction_id": "miaoyin_men"
+        },
+        {
+          "id": "miaoyin_charm_song",
+          "display": "妙音摄魂曲",
+          "requires_method": "miaoyin_sound_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "faction_id": "miaoyin_men"
+        },
+        {
+          "id": "miaoyin_resonance_shield",
+          "display": "妙音护律",
+          "requires_method": "miaoyin_sound_art",
+          "realm_min": "FOUNDATION",
+          "file": "illusion.json",
+          "faction_id": "miaoyin_men"
+        },
+        {
+          "id": "miaoyin_zither_domain",
+          "display": "妙音琴域",
+          "requires_method": "miaoyin_zither_secret",
+          "realm_min": "CORE_FORMATION",
+          "file": "illusion.json",
+          "faction_id": "miaoyin_men"
+        },
+        {
+          "id": "miaoyin_finale_kill",
+          "display": "妙音杀调",
+          "requires_method": "miaoyin_zither_secret",
+          "realm_min": "NASCENT_SOUL",
+          "file": "illusion.json",
+          "faction_id": "miaoyin_men"
+        },
+        {
+          "id": "miaoyin_sense_echo",
+          "display": "妙音回响探",
+          "requires_method": "miaoyin_sound_art",
+          "realm_min": "FOUNDATION",
+          "file": "divine_sense.json",
+          "faction_id": "miaoyin_men"
+        }
+      ],
+      "technique_count": 6
+    },
+    {
+      "faction_id": "chaotic_sea_neutral",
+      "display": "乱星海中立航行",
+      "role": "通用御浪",
+      "alignment": "neutral",
+      "hostile_to": [],
+      "methods": [
+        "chaotic_sea_nav_art"
+      ],
+      "method_layer_tables": [
+        {
+          "method_id": "chaotic_sea_nav_art",
+          "display": "星海御浪诀",
+          "total_layers": 2,
+          "layer_model": "v128_chaotic_sea",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "御浪",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "chaotic_wave_ride",
+                "nav_tide_step"
+              ],
+              "unlock_new_this_layer": [
+                "chaotic_wave_ride",
+                "nav_tide_step"
+              ],
+              "note": "航行"
+            },
+            {
+              "layer": 2,
+              "layer_name": "抗飓",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "chaotic_wave_ride",
+                "nav_tide_step",
+                "chaotic_storm_brace"
+              ],
+              "unlock_new_this_layer": [
+                "chaotic_storm_brace"
+              ],
+              "note": "生存"
+            }
+          ],
+          "v128": true
+        }
+      ],
+      "techniques": [
+        {
+          "id": "nav_tide_step",
+          "display": "御浪步",
+          "requires_method": "chaotic_sea_nav_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json",
+          "faction_id": null
+        },
+        {
+          "id": "chaotic_storm_brace",
+          "display": "星海抗飓",
+          "requires_method": "chaotic_sea_nav_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json",
+          "faction_id": null
+        },
+        {
+          "id": "chaotic_wave_ride",
+          "display": "御浪驰",
+          "requires_method": "chaotic_sea_nav_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json",
+          "faction_id": null
+        }
+      ],
+      "technique_count": 3
+    }
+  ],
+  "hard_conflict": {
+    "star_palace_vs_inverse_star": {
+      "type": "war",
+      "weight": -80,
+      "rule": "星宫声望与逆星声望不可同时≥友好；一高一低可卧底"
+    }
+  },
+  "story_hooks": [
+    "注册星宫→任务→双圣/元磁线",
+    "逆星走私→与星宫开战",
+    "妙音名义长老→金雷竹等",
+    "中立御浪可始终学习"
+  ]
+}

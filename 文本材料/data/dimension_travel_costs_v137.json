@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "source": "v137 维度/区域通行数值表",
+  "unit": {
+    "time": "天（或注明小时）",
+    "currency": "下品灵石当量，除非写明中品/仙灵石/贡献",
+    "fail": "0-1 概率或定性"
+  },
+  "entries": [
+    {
+      "route": "tiannan_hub_teleport",
+      "time": [
+        0,
+        0
+      ],
+      "cost_low_stone": [
+        10,
+        50
+      ],
+      "fail": 0.02,
+      "fail_if": "array_damaged",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "route": "tiannan_to_chaotic_sea_ship",
+      "time_days": [
+        15,
+        60
+      ],
+      "cost_low_stone": [
+        20,
+        200
+      ],
+      "fail": 0.08,
+      "fail_if": "storm_beast_pirate",
+      "realm_min": "QI_REFINING"
+    },
+    {
+      "route": "tiannan_to_chaotic_sea_boat",
+      "time_days": [
+        5,
+        20
+      ],
+      "cost_low_stone": [
+        50,
+        300
+      ],
+      "fail": 0.05,
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "route": "tiannan_to_dajin_array",
+      "time_days": [
+        0,
+        1
+      ],
+      "cost_mid_stone": [
+        3,
+        20
+      ],
+      "need": "permit",
+      "fail": 0.03,
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "route": "tiannan_to_mulan_border",
+      "time_days": [
+        0,
+        2
+      ],
+      "cost_low_stone": [
+        35,
+        80
+      ],
+      "need": "border_pass",
+      "block_if_war": true
+    },
+    {
+      "route": "chaotic_sea_island_teleport",
+      "time": [
+        0,
+        0
+      ],
+      "cost_low_stone": [
+        15,
+        60
+      ],
+      "need": "star_or_inverse_rep",
+      "fail": 0.03
+    },
+    {
+      "route": "blood_forbidden_enter",
+      "time": "window",
+      "cost": "token_or_quota",
+      "death_risk": "high_if_underleveled",
+      "realm_min": "QI_REFINING_late"
+    },
+    {
+      "route": "yin_portal",
+      "time_days": [
+        0,
+        3
+      ],
+      "cost": "ghost_method",
+      "fail": 0.15,
+      "fail_if": "soul_damage",
+      "realm_min": "FOUNDATION"
+    },
+    {
+      "route": "demon_rift_event",
+      "time": "event",
+      "cost": "event_flag",
+      "fail": 0.2,
+      "fail_if": "demonization",
+      "realm_min": "CORE_FORMATION"
+    },
+    {
+      "route": "ascension_mortal_to_tianyuan",
+      "time": "ritual",
+      "cost": "tribulation",
+      "fail": "see_tribulation_table",
+      "one_way": true,
+      "realm_min": "DEITY_TRANSFORMATION_peak"
+    },
+    {
+      "route": "avatar_descent",
+      "time": [
+        0,
+        1
+      ],
+      "cost": "clone_prep",
+      "cooldown_days": [
+        30,
+        180
+      ],
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "route": "tianyuan_to_fengyuan",
+      "time": [
+        0,
+        1
+      ],
+      "cost_contribution": 500,
+      "fail": 0.01,
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "route": "fengyuan_to_tianyuan",
+      "time": [
+        0,
+        1
+      ],
+      "cost_contribution": 300,
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "route": "diyuan_trial",
+      "time": "run",
+      "cost": "challenge_token",
+      "fail": 0.25,
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "route": "great_vehicle_to_immortal",
+      "time": "ritual",
+      "cost": "law_tribulation",
+      "one_way": true,
+      "realm_min": "GREAT_VEHICLE"
+    },
+    {
+      "route": "immortal_hub_teleport",
+      "time": [
+        0,
+        0
+      ],
+      "cost_immortal_stone": [
+        1,
+        20
+      ],
+      "fail": 0.02,
+      "realm_min": "TRUE_IMMORTAL"
+    },
+    {
+      "route": "immortal_to_mortal_free",
+      "allowed": false,
+      "note": "默认禁止"
+    },
+    {
+      "route": "teleport_interrupt_backlash",
+      "ref": "seq_teleport_interrupt",
+      "fail_extra": 0.1,
+      "if": "damaged_mid_channel"
+    }
+  ],
+  "crossref": "dimension_travel_methods_v136.json"
+}

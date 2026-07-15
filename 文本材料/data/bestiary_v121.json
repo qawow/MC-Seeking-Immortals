@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "source": "v121 兽受击部位视觉",
+  "creatures": [
+    {
+      "id": "hitloc_beast_twin_pupil_rat",
+      "display": "双瞳鼠（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_red_leopard_beast",
+      "display": "红狸兽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_fire_horn_deer",
+      "display": "炙角鹿（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_wind_screech_hawk",
+      "display": "风啸鹰（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_scent_spirit_beast",
+      "display": "嗅灵兽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_giant_centipede",
+      "display": "巨型蜈蚣（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_ink_flood_dragon",
+      "display": "墨蛟（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血墨/赤浆 弱七寸/颌下 甲鳞甲金属火花",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_heart_bore_worm",
+      "display": "钻心虫（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血绿黄汁 弱腹节 甲甲壳崩屑",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_fire_crow",
+      "display": "火鸦（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_green_vine_demon",
+      "display": "青木妖藤（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_mystic_water_turtle",
+      "display": "玄水龟（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_thunder_horn_tiger",
+      "display": "雷角虎（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_demon_core_bear",
+      "display": "妖丹熊（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_baby_carp_demon",
+      "display": "婴鲤兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_ice_soul_serpent",
+      "display": "冰魄蛇（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_spirit_fox",
+      "display": "灵狐（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_shape_shift_trial_beast",
+      "display": "化形试炼兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_thunder_jiao",
+      "display": "雷劫蛟（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血墨/赤浆 弱七寸/颌下 甲鳞甲金属火花",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_silver_wing_yaksha",
+      "display": "银翅夜叉（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_wind_split_beast",
+      "display": "裂风兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_earth_armor_dragon",
+      "display": "土甲龙（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血墨/赤浆 弱七寸/颌下 甲鳞甲金属火花",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_fire_jiao_adult",
+      "display": "离火蛟（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血墨/赤浆 弱七寸/颌下 甲鳞甲金属火花",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_suanni_beast",
+      "display": "狻猊兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_four_ear_gold_ape",
+      "display": "四耳金猿（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血赤 弱胸/面 甲金毛抗切",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_gold_body_moon_corpse",
+      "display": "金身月尸（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血黑粉 弱金皮接缝 甲金皮 spark",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_six_wing_frost_centipede",
+      "display": "六翼霜蚣（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_leopard_qilin_beast",
+      "display": "豹麟兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_mirage_sand_beast",
+      "display": "蜃兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_sky_tiger_beast",
+      "display": "天虎兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_holy_peacock",
+      "display": "圣禽（青孔雀）（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血金赤 弱翅根 甲羽盾挡弹道",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_soul_weep_beast",
+      "display": "泣魂兽（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_phantom_flame_moth",
+      "display": "幻焰蛾（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_gold_devour_beetle",
+      "display": "噬金虫（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血绿黄汁 弱腹节 甲甲壳崩屑",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_soul_weeping_beast",
+      "display": "啼魂兽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_mountain_giant_ape",
+      "display": "山岳巨猿（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血赤 弱胸/面 甲金毛抗切",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_blood_jiao",
+      "display": "血蛟（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血墨/赤浆 弱七寸/颌下 甲鳞甲金属火花",
+      "tameable": false
+    },
+    {
+      "id": "hitloc_beast_three_tailed_fox",
+      "display": "三尾妖狐（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_iron_lion_beast",
+      "display": "铁甲狮兽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_cloud_silk_spider",
+      "display": "云丝蛛（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_flame_salamander",
+      "display": "火蜥兽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_ice_phoenix_chick",
+      "display": "冰凤幼禽（受击）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血金赤 弱翅根 甲羽盾挡弹道",
+      "tameable": true
+    },
+    {
+      "id": "hitloc_beast_void_mantis",
+      "display": "虚空螳螂（受击）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v121"
+      ],
+      "threat": 3,
+      "description": "血暗赤 弱头/腹 甲皮毛",
+      "tameable": false
+    },
+    {
+      "id": "v121_fx_pipeline",
+      "display": "视效管线司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 visual_fx_pipeline_v121",
+      "tags": [
+        "v121"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v107 乱星海 / 六连殿 专页（贴原著结丹期舞台）",
+  "disclaimer": "内星海秩序与外星海危险分层。六连殿客卿/降尘结构。非代码",
+  "id": "chaotic_sea_liulian",
+  "display": "乱星海与六连殿",
+  "aliases": ["乱星海", "内星海", "外星海", "六连殿"],
+  "realm_band": ["FOUNDATION_late", "CORE_FORMATION", "NASCENT_optional"],
+  "geography": {
+    "inner_sea": {
+      "display": "内星海",
+      "hubs": ["天星城", "周边岛屿坊市"],
+      "threat": [3, 6],
+      "features": ["航线相对安全", "法舟票", "海兽偶发", "拍卖与情报"]
+    },
+    "outer_sea": {
+      "display": "外星海",
+      "hubs": ["黑石城边缘", "深域无城"],
+      "threat": [5, 9],
+      "features": ["兽潮", "风暴灵", "高阶海兽", "虚天殿开启窗口相关"]
+    }
+  },
+  "tianxing_city": {
+    "display": "天星城",
+    "services": ["城居权", "海图", "法舟", "秘店介绍", "传送", "星宫线索商人"],
+    "rep_faction": "tianxing_city",
+    "thresholds": [
+      {"at": 0, "unlock": ["城居", "基础海图"]},
+      {"at": 25, "unlock": ["秘店", "传送折扣"]},
+      {"at": 50, "unlock": ["星宫线索", "高级法舟位"]},
+      {"at": -30, "lock": ["巡海盘查+"]}
+    ],
+    "daily_loops": ["海猎交丹", "护送航线", "拍卖", "情报买卖"]
+  },
+  "liulian_dian": {
+    "display": "六连殿",
+    "role": "乱星海一方势力；古长老线与降尘丹",
+    "rep_faction": "liulian_dian",
+    "thresholds": [
+      {"at": 20, "unlock": ["客卿任务", "降尘情报"]},
+      {"at": 50, "unlock": ["核心委托"], "note": "古长老线后可跳"},
+      {"at": -40, "lock": ["殿杀"]}
+    ],
+    "key_npcs_structure": [
+      {"id": "gu_zhanglao", "display": "古长老", "role": "降尘/混元钵线"},
+      {"id": "liulian_deacon", "display": "殿执事", "role": "客卿任务板"}
+    ],
+    "quest_hooks": [
+      {"id": "guest_hunt", "display": "客卿海猎", "rewards": ["声望", "海兽材", "灵石"]},
+      {"id": "jiangchen_intel", "display": "降尘情报任务", "rewards": ["降尘丹线索", "势力中立"]},
+      {"id": "gu_elder_arc", "display": "古长老事件", "rewards": ["降尘丹", "混元钵", "中立/人情"]}
+    ],
+    "wares_guest": [
+      {"id": "sea_chart_inner", "price": [100, 3000]},
+      {"id": "anti_sea_poison", "price": [50, 800]},
+      {"id": "boat_repair_kit", "price": [80, 1500]},
+      {"id": "core_formation_assist_hint", "price": "声望", "note": "非直接卖降尘"}
+    ]
+  },
+  "zones": [
+    {
+      "id": "shipping_lanes",
+      "display": "航道",
+      "threat": [4, 7],
+      "spawns": ["航道妖鲨群", "星海海盗结丹", "水母妖"],
+      "loot": ["鲨皮", "赃物", "海图残"]
+    },
+    {
+      "id": "hunting_grounds",
+      "display": "海猎场",
+      "threat": [5, 8],
+      "spawns": ["星海猎手兽", "婴鲤兽", "海獒"],
+      "loot": ["海兽妖丹", "甲壳", "婴鲤珠"]
+    },
+    {
+      "id": "storm_belt",
+      "display": "风暴带",
+      "threat": [6, 9],
+      "spawns": ["航路风暴灵"],
+      "loot": ["风暴晶", "雷筋"],
+      "bypass": "海图/风雷翅"
+    },
+    {
+      "id": "xutian_window_sea",
+      "display": "虚天开启海域",
+      "threat": [6, 9],
+      "spawns": ["夺图修", "多方舰队结构"],
+      "loot": ["残图权重+", "开启窗口情报"],
+      "link": "secret_realm_xutian_v104"
+    },
+    {
+      "id": "nether_mist_edge",
+      "display": "阴冥边缘（海侧）",
+      "threat": [6, 9],
+      "spawns": ["阴冥路魂", "水魅"],
+      "loot": ["魂砂", "魄石微量"],
+      "link": "结婴阴冥线"
+    }
+  ],
+  "key_items": [
+    {"id": "jiang_chen_dan", "display": "降尘丹", "tags": ["scarce", "quest", "auction"], "price": [3000, 15000], "note": "六连殿线关键，非货架保底"},
+    {"id": "hun_yuan_bo", "display": "混元钵", "tags": ["quest", "scarce"]},
+    {"id": "feng_lei_chi", "display": "风雷翅", "tags": ["quest", "scarce"], "note": "风希线，海域逃遁质变"},
+    {"id": "sea_chart_inner", "display": "内星海海图"},
+    {"id": "sea_chart_outer", "display": "外星海深域海图", "price": [1000, 20000]},
+    {"id": "route_ticket_tianxing", "display": "天星法舟票"},
+    {"id": "xu_tian_can_tu", "display": "虚天残图", "tags": ["quest", "account_bound"]}
+  ],
+  "recommended_loadout_core": {
+    "must": ["本命法宝", "水抗/舟", "疗伤", "逃遁（翅目标）", "海图"],
+    "nice": ["噬金破甲", "阵盘", "六连殿令"],
+    "avoid": ["无图闯外海", "兽潮期硬航", "降尘到手后当街炫耀"]
+  },
+  "economy": {
+    "sea_beast_dan_price_mod": {"tide": 1.8, "peace": 1.0},
+    "jiangchen_scarce": true,
+    "boat_ticket_sink": [50, 2000]
+  },
+  "events": [
+    {"id": "arrive_tianxing", "display": "初到天星", "phase": "立足"},
+    {"id": "guest_liulian", "display": "六连殿客卿", "phase": "中"},
+    {"id": "gu_elder", "display": "古长老与降尘", "phase": "高潮"},
+    {"id": "fengxi_wings", "display": "风希风雷翅", "phase": "并行"},
+    {"id": "xutian_open", "display": "虚天开启动员", "phase": "转场"}
+  ],
+  "cross_ref": {
+    "quest": "chaotic_core",
+    "travel": ["tianxing", "heishi", "outer_sea_deep", "xutian_gate"],
+    "reputation": ["tianxing_city", "liulian_dian"],
+    "xutian": "secret_realm_xutian_v104"
+  },
+  "description": "结丹期主舞台：天星立足、六连殿降尘、外海机缘、虚天转场。人祸与海祸并重。"
+}

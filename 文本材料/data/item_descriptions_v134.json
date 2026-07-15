@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v134",
+  "items": [
+    {
+      "id": "v134_mb",
+      "display": "多方块状态机",
+      "type": "meta",
+      "description": "82结构全量 operational_states；建造精修；+8配套"
+    }
+  ]
+}

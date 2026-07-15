@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v145",
+  "extends": "novel_canon_checklist_v140.json",
+  "add": [
+    "阴芝马活捕优先写进图鉴与丹方",
+    "墨蛟/夜叉等与秘境层、任务互链",
+    "主线章节可玩任务全覆盖",
+    "造化一生一次与灵烛 unique 在丹方层钉死",
+    "真仙威压图鉴 farmable=false"
+  ]
+}

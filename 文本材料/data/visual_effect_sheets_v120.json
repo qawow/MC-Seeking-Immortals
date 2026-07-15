@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source": "v120 效果与视觉表精选索引",
+  "ui": [
+    "damage_number_style_v120",
+    "status_icon_sheet_v120"
+  ],
+  "specs": [
+    "rarity_material_language_v120",
+    "lighting_mood_bible_v120"
+  ],
+  "counts": {
+    "pills": 114,
+    "herbs": 79,
+    "materials": 221,
+    "artifacts": 217,
+    "techniques": 346,
+    "methods": 91,
+    "beasts": 42,
+    "npcs": 168,
+    "total_entries": 1363
+  },
+  "stack_with": [
+    "item_descriptions_v118.json",
+    "item_descriptions_v119.json",
+    "visual_storyboards_v119.json"
+  ],
+  "description": "查询用索引；正文在 item_descriptions_v120"
+}

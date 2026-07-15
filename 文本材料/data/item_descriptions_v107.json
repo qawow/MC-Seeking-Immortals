@@ -1,0 +1,564 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v107 物品详释：掩月/落云/鬼灵货架 + 乱星海六连殿 + 总目录",
+  "items": [
+    {
+      "id": "catalog_master_v107",
+      "display": "设定包总目录（戏中册）",
+      "type": "lore_book",
+      "ref": "docs/CATALOG_MASTER_v107.md",
+      "description": "全文件一览与阅读顺序。策划入口。"
+    },
+    {
+      "id": "yin_yang_primer",
+      "display": "阴阳入门册",
+      "type": "manual_page",
+      "tags": ["sect_only", "trade"],
+      "price": [50, 300],
+      "sect": "manyue",
+      "description": "掩月外门。非完整双修功法。"
+    },
+    {
+      "id": "beauty_pill_low",
+      "display": "驻颜丹（低）",
+      "type": "pill",
+      "tags": ["sect_only", "trade", "consumable"],
+      "price": [30, 200],
+      "description": "掩月特色消耗。效果有限。"
+    },
+    {
+      "id": "veil_robe_basic",
+      "display": "掩月外袍",
+      "type": "gear",
+      "tags": ["sect_only", "trade"],
+      "price": [40, 400],
+      "description": "身份标识。敌对宗门区可能被盘查。"
+    },
+    {
+      "id": "xiang_fu_stack",
+      "display": "迷香符捆",
+      "type": "consumable",
+      "tags": ["trade", "sect_only"],
+      "price": [20, 150],
+      "description": "控场轻。对高阶抗性低。"
+    },
+    {
+      "id": "shuang_xiu_assist",
+      "display": "双修辅香（合规）",
+      "type": "consumable",
+      "tags": ["sect_only"],
+      "price": [200, 3000],
+      "rep_min": 25,
+      "description": "可拒用。非强制玩法道具。"
+    },
+    {
+      "id": "yin_ling_dan",
+      "display": "阴灵丹",
+      "type": "pill",
+      "tags": ["sect_only", "trade"],
+      "price": [300, 4000],
+      "description": "掩月内门。阴属性修为辅。"
+    },
+    {
+      "id": "moon_array_flag",
+      "display": "月华小阵旗",
+      "type": "array",
+      "tags": ["sect_only"],
+      "price": [500, 5000],
+      "description": "小范围聚阴/护宅。"
+    },
+    {
+      "id": "yang_huan_clue_jade",
+      "display": "阳环线索玉简",
+      "type": "intel",
+      "tags": ["quest", "sect_only", "no_trade"],
+      "description": "不卖实物阳环。剧情向。"
+    },
+    {
+      "id": "blood_sword_intel",
+      "display": "血魔剑情报",
+      "type": "intel",
+      "tags": ["quest", "sect_only"],
+      "description": "掩月核心线。非货架武器。"
+    },
+    {
+      "id": "nangong_letter_slot",
+      "display": "宗主传讯额度",
+      "type": "service",
+      "tags": ["bond", "scarce"],
+      "bond_min": 30,
+      "description": "南宫婉 bond。限次。"
+    },
+    {
+      "id": "liuding_unlock_path",
+      "display": "六丁天甲解锁路径",
+      "type": "quest",
+      "tags": ["bond", "unique", "no_trade"],
+      "bond_min": 80,
+      "description": "道侣崇敬。不量贩六丁实物。"
+    },
+    {
+      "id": "dual_stable_kit",
+      "display": "双修稳态匣",
+      "type": "kit",
+      "tags": ["quest", "bond"],
+      "description": "防走火结构。剧情发放。"
+    },
+    {
+      "id": "cloud_sword_talisman",
+      "display": "落云剑符",
+      "type": "consumable",
+      "tags": ["sect_only", "trade"],
+      "price": [30, 300],
+      "sect": "luoyun",
+      "description": "客卿基础攻击符。"
+    },
+    {
+      "id": "ju_ling_flag_s",
+      "display": "小聚灵旗",
+      "type": "array",
+      "tags": ["trade", "sect_only"],
+      "price": [100, 1500],
+      "description": "落云外门。短时聚灵。"
+    },
+    {
+      "id": "sect_heal_kit_luoyun",
+      "display": "护宗疗伤包",
+      "type": "kit",
+      "tags": ["sect_only"],
+      "price": [80, 800],
+      "description": "守阵轮值补给。"
+    },
+    {
+      "id": "escape_cloud_fu",
+      "display": "遁云符",
+      "type": "consumable",
+      "tags": ["trade"],
+      "price": [50, 500],
+      "description": "短距逃遁。非大挪移。"
+    },
+    {
+      "id": "array_wuxing_rent",
+      "display": "颠倒五行旗租赁券",
+      "type": "service",
+      "tags": ["sect_only", "scarce"],
+      "price": [500, 8000],
+      "rep_min": 30,
+      "description": "损坏赔偿。限时归还。"
+    },
+    {
+      "id": "cloud_mountain_map",
+      "display": "落云山防图",
+      "type": "map",
+      "tags": ["sect_only"],
+      "price": [200, 2000],
+      "description": "内门防区。外泄扣声望。"
+    },
+    {
+      "id": "sword_maintain_oil",
+      "display": "飞剑保养油",
+      "type": "consumable",
+      "tags": ["trade"],
+      "price": [100, 1500],
+      "description": "青竹剑组友好。"
+    },
+    {
+      "id": "kun_xian_huan_rent",
+      "display": "困仙环类租赁",
+      "type": "service",
+      "tags": ["sect_only", "scarce"],
+      "price": [5000, 50000],
+      "rep_min": 55,
+      "description": "元婴支援。非永久归属。"
+    },
+    {
+      "id": "exchange_fair_pass",
+      "display": "元婴交换会入场荐",
+      "type": "token",
+      "tags": ["sect_only", "quest"],
+      "rep_min": 55,
+      "description": "落云人情。会场禁私斗。"
+    },
+    {
+      "id": "guardian_array_slot",
+      "display": "护山阵眼轮值令",
+      "type": "token",
+      "tags": ["sect_only"],
+      "description": "贡献换。守阵声望+"
+    },
+    {
+      "id": "luoyun_master_seal",
+      "display": "落云事务印",
+      "type": "token",
+      "tags": ["quest", "sect_only"],
+      "rep_min": 80,
+      "description": "宗主权限结构。剧情。"
+    },
+    {
+      "id": "ally_war_supply",
+      "display": "盟军联防补给",
+      "type": "kit",
+      "tags": ["quest"],
+      "description": "军功折算。天南战事。"
+    },
+    {
+      "id": "yin_sha_fu",
+      "display": "阴煞符",
+      "type": "consumable",
+      "tags": ["black_market", "sect_only", "demonic"],
+      "price": [20, 200],
+      "sect": "guiling",
+      "description": "鬼灵外门。正道使用可能扣正道声望。"
+    },
+    {
+      "id": "corpse_drive_needle",
+      "display": "驱尸针",
+      "type": "tool",
+      "tags": ["sect_only", "demonic"],
+      "price": [50, 500],
+      "description": "低阶炼尸操控。"
+    },
+    {
+      "id": "low_corpse_material",
+      "display": "低阶尸材",
+      "type": "material",
+      "tags": ["black_market", "craft_mat"],
+      "price": [30, 400],
+      "description": "炼尸入门。忌在正道城显摆。"
+    },
+    {
+      "id": "soul_sand",
+      "display": "魂砂",
+      "type": "material",
+      "tags": ["black_market", "craft_mat"],
+      "price": [40, 600],
+      "description": "阴幡辅材。魂砂阴灵掉落。"
+    },
+    {
+      "id": "gui_luo_fan_scrap",
+      "display": "鬼罗幡残料",
+      "type": "material",
+      "tags": ["scarce", "black_market", "craft_mat"],
+      "price": [2000, 30000],
+      "rep_min": 20,
+      "description": "不直接给完整鬼罗幡。炼幡线。"
+    },
+    {
+      "id": "chi_hun_method_hint",
+      "display": "赤魂之法残页",
+      "type": "manual_page",
+      "tags": ["sect_only", "demonic"],
+      "price": [1000, 15000],
+      "description": "黑风旗/赤魂幡线拼图。"
+    },
+    {
+      "id": "mid_jiangshi_core",
+      "display": "中阶炼尸核",
+      "type": "material",
+      "tags": ["demonic", "craft_mat"],
+      "price": [800, 12000],
+      "description": "中阶炼尸核心。"
+    },
+    {
+      "id": "xue_ya_mi_stack",
+      "display": "血牙米",
+      "type": "currency",
+      "tags": ["demonic", "currency"],
+      "description": "魔道通货结构。与灵石隔离部分用途。"
+    },
+    {
+      "id": "tian_shi_zhu_clue",
+      "display": "天尸珠线索",
+      "type": "intel",
+      "tags": ["quest", "no_trade"],
+      "description": "不直接卖珠。长老黑架剧情。"
+    },
+    {
+      "id": "wang_chan_heat_token",
+      "display": "王蝉线热度符",
+      "type": "meta",
+      "tags": ["quest"],
+      "description": "事件热度。影响追杀/交易。"
+    },
+    {
+      "id": "yin_luo_intro",
+      "display": "阴罗引荐令",
+      "type": "token",
+      "tags": ["scarce", "black_market"],
+      "price": [5000, 50000],
+      "rep_min": 45,
+      "description": "阴罗势力接口。高风险。"
+    },
+    {
+      "id": "jiang_chen_dan_full",
+      "display": "降尘丹（详释·六连殿）",
+      "type": "pill",
+      "tags": ["scarce", "quest", "auction"],
+      "price": [3000, 15000],
+      "description": "结丹关键。古长老线/拍卖；非货架保底。"
+    },
+    {
+      "id": "hun_yuan_bo_full",
+      "display": "混元钵（详释）",
+      "type": "fabao",
+      "tags": ["quest", "scarce"],
+      "description": "六连殿古长老线。防御/镇压。"
+    },
+    {
+      "id": "feng_lei_chi_full",
+      "display": "风雷翅（详释·海域）",
+      "type": "escape",
+      "tags": ["quest", "scarce"],
+      "description": "风希线。海域逃遁质变，遁速约×3。"
+    },
+    {
+      "id": "sea_chart_inner_full",
+      "display": "内星海海图",
+      "type": "map",
+      "tags": ["trade"],
+      "price": [100, 3000],
+      "description": "航道与风暴带标注。天星/六连殿可购。"
+    },
+    {
+      "id": "sea_chart_outer_full",
+      "display": "外星海深域海图",
+      "type": "map",
+      "tags": ["scarce", "trade"],
+      "price": [1000, 20000],
+      "description": "外海。假图风险。"
+    },
+    {
+      "id": "route_ticket_tianxing",
+      "display": "天星法舟票",
+      "type": "consumable",
+      "tags": ["trade"],
+      "price": [50, 2000],
+      "description": "灵石沉洞。黄牛假票风险。"
+    },
+    {
+      "id": "anti_sea_poison",
+      "display": "海毒清散",
+      "type": "antidote",
+      "tags": ["trade"],
+      "price": [50, 800],
+      "description": "海猎/鲨群后。"
+    },
+    {
+      "id": "boat_repair_kit",
+      "display": "法舟抢修匣",
+      "type": "kit",
+      "tags": ["trade"],
+      "price": [80, 1500],
+      "description": "撞舟后紧急维修。"
+    },
+    {
+      "id": "liulian_guest_token",
+      "display": "六连殿客卿玉",
+      "type": "token",
+      "tags": ["sect_only", "quest"],
+      "rep_min": 20,
+      "description": "开任务板。降尘情报入口。"
+    },
+    {
+      "id": "core_formation_assist_hint",
+      "display": "结丹辅助指点",
+      "type": "service",
+      "tags": ["sect_only"],
+      "description": "非直接卖降尘。声望服务。"
+    },
+    {
+      "id": "ying_li_zhu_v107",
+      "display": "婴鲤珠（海猎）",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [600, 10000],
+      "description": "水属性宝核。客卿任务交。"
+    },
+    {
+      "id": "shark_skin",
+      "display": "妖鲨皮",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [50, 800],
+      "description": "航道鲨群。水甲辅。"
+    },
+    {
+      "id": "storm_crystal",
+      "display": "风暴晶",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 8000],
+      "description": "风暴灵。雷水双属。"
+    },
+    {
+      "id": "sea_beast_dan_core",
+      "display": "海兽妖丹（结丹期）",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 15000],
+      "description": "兽潮×1.8 价。六连殿回收。"
+    },
+    {
+      "id": "realm_loadout_sea_core",
+      "display": "乱星海结丹战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["海图", "法舟票", "疗伤", "海毒清", "抢修匣", "水抗"],
+      "description": "天星立足期。"
+    },
+    {
+      "id": "sect_discount_table_v107",
+      "display": "六宗门声望折扣总表",
+      "type": "meta",
+      "discounts": {"friendly": 0.9, "honored": 0.8, "exalted": 0.7},
+      "sects": ["huangfeng", "tianfu", "yuling", "manyue", "luoyun", "guiling"],
+      "description": "v106+v107 货架通用。"
+    },
+    {
+      "id": "sect_never_list_v107",
+      "display": "货架永不进货单（扩）",
+      "type": "rule_item",
+      "list": ["掌天瓶", "绿液", "通天完整", "真魂丹", "炼神术", "六丁天甲量贩", "阳环实物", "天尸珠实物"],
+      "description": "防碾压与剧情崩坏。"
+    },
+    {
+      "id": "shelf_index_manyue",
+      "display": "掩月货架目录",
+      "type": "lore_book",
+      "tiers": ["外门", "内门月华", "核心人情", "道侣崇敬"],
+      "description": "情谊锁阳环/六丁路径。"
+    },
+    {
+      "id": "shelf_index_luoyun",
+      "display": "落云货架目录",
+      "type": "lore_book",
+      "tiers": ["客卿", "内门阵法", "元婴支援", "宗主权限"],
+      "description": "阵法与护宗。"
+    },
+    {
+      "id": "shelf_index_guiling",
+      "display": "鬼灵货架目录",
+      "type": "lore_book",
+      "tiers": ["外门阴货", "内门鬼货", "长老黑架", "敌对追杀板"],
+      "description": "正道易容，敌对变追杀。"
+    },
+    {
+      "id": "sea_zone_map",
+      "display": "乱星海分区简图",
+      "type": "map",
+      "tags": ["trade"],
+      "zones": ["航道", "海猎场", "风暴带", "虚天海域", "阴冥海侧"],
+      "description": "专页 zones 人读。"
+    },
+    {
+      "id": "liulian_zone_map",
+      "display": "六连殿简图",
+      "type": "map",
+      "tags": ["quest"],
+      "description": "客卿任务与古长老事件点。"
+    },
+    {
+      "id": "numeric_jiangchen_anchor",
+      "display": "数值锚·降尘丹",
+      "type": "meta",
+      "price": [3000, 15000],
+      "description": "结丹经济尺。"
+    },
+    {
+      "id": "numeric_sea_ticket_anchor",
+      "display": "数值锚·法舟票",
+      "type": "meta",
+      "price": [50, 2000],
+      "description": "旅行沉洞。"
+    },
+    {
+      "id": "numeric_gui_luo_scrap",
+      "display": "数值锚·鬼罗残料",
+      "type": "meta",
+      "price": [2000, 30000],
+      "description": "魔道黑市尺。"
+    },
+    {
+      "id": "crossref_manyue_bond",
+      "display": "交叉·掩月道侣",
+      "type": "meta",
+      "bond": "nangong_bond",
+      "description": "reputation + bond 双锁。"
+    },
+    {
+      "id": "crossref_chaotic_quest",
+      "display": "主线交叉·乱星海",
+      "type": "meta",
+      "quest_chain": "chaotic_core",
+      "description": "与 main_quest_rewards 对齐。"
+    },
+    {
+      "id": "crossref_xutian_sea",
+      "display": "交叉·虚天海域",
+      "type": "meta",
+      "link": "secret_realm_xutian_v104",
+      "description": "海战转秘境。"
+    },
+    {
+      "id": "lore_manyue_one_line",
+      "display": "掩月一句话",
+      "type": "lore",
+      "text": "月华可买，阳环与六丁只认情谊。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_luoyun_one_line",
+      "display": "落云一句话",
+      "type": "lore",
+      "text": "剑阵护宗，交换会里禁私斗。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_guiling_one_line",
+      "display": "鬼灵一句话",
+      "type": "lore",
+      "text": "阴货好买，敌对之后满天追杀。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_sea_one_line",
+      "display": "乱星海一句话",
+      "type": "lore",
+      "text": "天星立足，六连求丹，外海赌命，虚天转场。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "deep_dive_index_v107",
+      "display": "v107 深挖索引",
+      "type": "meta",
+      "files": [
+        "sect_shelves_more_v107.json",
+        "region_chaotic_sea_liulian_v107.json",
+        "docs/CATALOG_MASTER_v107.md"
+      ],
+      "description": "机读入口。"
+    },
+    {
+      "id": "six_sects_ready",
+      "display": "切片验收·六宗门货架",
+      "type": "meta",
+      "sects": 6,
+      "checks": ["声望锁", "折扣", "永不进货", "bond锁掩月", "鬼灵追杀"],
+      "description": "v106+v107。"
+    },
+    {
+      "id": "sea_slice_ready",
+      "display": "切片验收·乱星海",
+      "type": "meta",
+      "checks": ["天星", "客卿", "降尘事件", "海图", "虚天窗口"],
+      "description": "结丹主舞台。"
+    },
+    {
+      "id": "v107_accept",
+      "display": "v107 验收签",
+      "type": "meta",
+      "checks": ["三货架续", "乱星海专页", "总目录", "生物说明", "无代码"],
+      "description": "本版完成。"
+    }
+  ]
+}

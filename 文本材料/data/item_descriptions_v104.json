@@ -1,0 +1,510 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v104 物品详释：三大秘境深挖配套",
+  "items": [
+    {
+      "id": "blood_trial_token",
+      "display": "血色试炼令",
+      "type": "token",
+      "tags": ["quest", "sect_only", "consumable"],
+      "realm": "QI_REFINING",
+      "description": "入血色禁地门票。宗门配额制，散修极难买到正品。"
+    },
+    {
+      "id": "blood_herb_bundle_four",
+      "display": "筑基四主药捆（禁地）",
+      "type": "bundle",
+      "tags": ["quest", "craft_mat", "trade"],
+      "contains": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "price": [80, 400],
+      "description": "禁地经济核心。支撑筑基丹炼制结构。"
+    },
+    {
+      "id": "yu_sui_zhi_fresh",
+      "display": "玉髓芝（鲜）",
+      "type": "herb",
+      "tags": ["trade", "craft_mat", "quest"],
+      "price": [10, 50],
+      "zone": "blood_forbidden herb_ring",
+      "description": "四主药之一。鲜品入丹成率高于干品。"
+    },
+    {
+      "id": "zi_hou_hua_fresh",
+      "display": "紫猴花（鲜）",
+      "type": "herb",
+      "tags": ["trade", "craft_mat", "quest"],
+      "price": [10, 50],
+      "description": "四主药之一。花期短，窗口内优先采。"
+    },
+    {
+      "id": "tian_ling_guo_fresh",
+      "display": "天灵果（鲜）",
+      "type": "fruit",
+      "tags": ["trade", "craft_mat", "quest"],
+      "price": [10, 60],
+      "description": "四主药之一。易被蛀果虫与血鬃豕毁。"
+    },
+    {
+      "id": "qian_nian_cao_forbidden",
+      "display": "千年灵草（禁地）",
+      "type": "herb",
+      "tags": ["trade", "craft_mat", "scarce"],
+      "price": [20, 100],
+      "description": "药龄结构。绿液催熟受年帽，不可无脑堆万年。"
+    },
+    {
+      "id": "ban_yao_cao_use",
+      "display": "伴妖草（使用说明）",
+      "type": "herb",
+      "tags": ["trade", "craft_mat"],
+      "price": [5, 40],
+      "effect": "标药/诱妖",
+      "description": "双刃剑。标药点也招血雾蛇与杂妖。"
+    },
+    {
+      "id": "blood_mist_antidote",
+      "display": "血雾清神散",
+      "type": "antidote",
+      "tags": ["trade", "consumable"],
+      "price": [30, 300],
+      "description": "禁地血雾迷神专用。定神符可部分替代。"
+    },
+    {
+      "id": "mo_jiao_jin_v104",
+      "display": "墨蛟筋（禁地）",
+      "type": "material",
+      "tags": ["trade", "craft_mat", "quest"],
+      "price": [300, 5000],
+      "description": "韧筋。弓弦、软甲、水属性法宝辅。"
+    },
+    {
+      "id": "mo_jiao_zhu_v104",
+      "display": "墨蛟珠",
+      "type": "material",
+      "tags": ["trade", "auction", "craft_mat"],
+      "price": [500, 8000],
+      "description": "水属性宝核。墨蛟成体掉落。"
+    },
+    {
+      "id": "silver_bug_shell",
+      "display": "银虫壳",
+      "type": "material",
+      "tags": ["scarce", "craft_mat", "quest"],
+      "price": [200, 4000],
+      "description": "禁地银色飞虫。研究材，非量产通货。"
+    },
+    {
+      "id": "blood_seal_scrap",
+      "display": "古禁残符",
+      "type": "material",
+      "tags": ["quest", "craft_mat"],
+      "description": "内圈古禁残灵掉落。可研究禁制，不可当普通符用。"
+    },
+    {
+      "id": "blood_exit_survival_badge",
+      "display": "禁地生还徽",
+      "type": "token",
+      "tags": ["quest", "sect_only"],
+      "effect": "+黄枫/七派声望",
+      "description": "撤离结算。死亡次数影响评价。"
+    },
+    {
+      "id": "xutian_map_piece",
+      "display": "虚天残图碎片",
+      "type": "map",
+      "tags": ["quest", "account_bound"],
+      "description": "拼合开启虚天。防假图；碎片可交易但风险极高。"
+    },
+    {
+      "id": "xutian_map_fake",
+      "display": "虚天假图",
+      "type": "junk",
+      "tags": ["black_market"],
+      "price": [100, 5000],
+      "description": "残图劫夺修掉落/出售。鉴定失败则误入死地。"
+    },
+    {
+      "id": "xutian_entry_window_notice",
+      "display": "虚天开启告示",
+      "type": "lore",
+      "description": "数十年窗口。乱星海全势力动员。"
+    },
+    {
+      "id": "xutian_ding_full",
+      "display": "虚天鼎（详释）",
+      "type": "tongtian",
+      "tags": ["unique", "quest", "scarce", "no_trade"],
+      "use": ["炼丹", "寄乾蓝", "通宝诀温养"],
+      "description": "殿内第一争夺。全局唯一结构，不可复制、不可早掉到炼气。"
+    },
+    {
+      "id": "qianlan_with_ding",
+      "display": "乾蓝冰焰（随鼎）",
+      "type": "flame",
+      "tags": ["quest", "scarce"],
+      "description": "与虚天鼎强关联。寒焰炼丹与攻防。"
+    },
+    {
+      "id": "butian_dan_contest",
+      "display": "补天丹（争夺）",
+      "type": "pill",
+      "tags": ["scarce", "quest", "auction"],
+      "description": "改命级。核心混战焦点之一，非保底掉落。"
+    },
+    {
+      "id": "jiuqu_live_capture_kit",
+      "display": "活参捕捉套",
+      "type": "kit",
+      "tags": ["trade", "quest"],
+      "contains": ["禁土符", "麝兰诱饵结构", "活物袋"],
+      "price": [500, 8000],
+      "description": "九曲灵参活捕。死参药力大损。"
+    },
+    {
+      "id": "yanghun_mu_full",
+      "display": "养魂木（详释）",
+      "type": "divine_wood",
+      "tags": ["quest", "scarce", "unique"],
+      "description": "神识命根。大衍/炼神线；粗暴获取降品。"
+    },
+    {
+      "id": "wannian_lingru_full",
+      "display": "万年灵乳（详释）",
+      "type": "liquid",
+      "tags": ["quest", "scarce"],
+      "use": ["培婴辅", "重伤", "破境辅"],
+      "description": "虚天核心池。有价难市。"
+    },
+    {
+      "id": "xuanyin_from_xutian",
+      "display": "玄阴经（虚天）",
+      "type": "manual",
+      "tags": ["demonic", "quest", "black_market"],
+      "conflict": "本体青元 C；分身 A",
+      "description": "魔功总经。立场与心性风险。"
+    },
+    {
+      "id": "yuruyi_xutian",
+      "display": "玉如意（虚天）",
+      "type": "fabao",
+      "tags": ["quest", "scarce"],
+      "description": "高阶防御/镇压。核心池之一。"
+    },
+    {
+      "id": "xutian_construct_core",
+      "display": "守殿构装核",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [1000, 20000],
+      "description": "石像掉落。傀儡/阵眼研究。"
+    },
+    {
+      "id": "xutian_escape_smoke",
+      "display": "殿后撤离烟幕符",
+      "type": "consumable",
+      "tags": ["trade", "consumable"],
+      "price": [200, 3000],
+      "description": "降追杀队锁踪权重。"
+    },
+    {
+      "id": "zhuimo_ling_token",
+      "display": "坠魔令",
+      "type": "token",
+      "tags": ["quest", "scarce", "consumable"],
+      "realm": "NASCENT_SOUL",
+      "description": "入坠魔谷。伪造触发守护傀追杀。"
+    },
+    {
+      "id": "zhuimo_map_scrap",
+      "display": "坠魔谷残图",
+      "type": "map",
+      "tags": ["trade", "quest"],
+      "price": [500, 15000],
+      "description": "外谷/内谷分区提示。有图仍高死。"
+    },
+    {
+      "id": "gang_yin_sha_full",
+      "display": "罡银沙（详释）",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 8000],
+      "source": ["罡银沙甲虫", "外谷矿脉"],
+      "description": "外谷硬通货。炼器阵法火金辅材。"
+    },
+    {
+      "id": "ling_zhu_guo_timer",
+      "display": "灵烛果（保鲜倒计时）",
+      "type": "fruit",
+      "tags": ["quest", "no_trade", "scarce"],
+      "timer": true,
+      "use": "造化丹唯一主药",
+      "description": "摘下即腐。必须保鲜禁制+急炼；恋战=报废。"
+    },
+    {
+      "id": "zaohua_ready_box",
+      "display": "造化丹急炼箱",
+      "type": "kit",
+      "tags": ["quest", "scarce"],
+      "contains": ["保鲜禁制", "辅药", "元婴精血针结构", "便携炉"],
+      "description": "坠魔内谷后半程标配。"
+    },
+    {
+      "id": "zao_hua_dan_full",
+      "display": "造化丹（详释）",
+      "type": "pill",
+      "tags": ["unique", "quest", "no_trade"],
+      "limit": "一生一次结构",
+      "effect": "增感悟/造化，不直接加修为层",
+      "description": "坠魔顶点。防重复刷与拍卖复制。"
+    },
+    {
+      "id": "qi_yan_page",
+      "display": "七焰扇法残页",
+      "type": "manual_page",
+      "tags": ["quest", "craft_mat"],
+      "source": "扇法残页火蛾",
+      "description": "集齐可进七焰扇。勿火烧页。"
+    },
+    {
+      "id": "huo_chan_dan_full",
+      "display": "火蟾丹（兽）",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [800, 12000],
+      "description": "火蟾兽丹。入火系炼器与丹辅。"
+    },
+    {
+      "id": "huo_xian_nang",
+      "display": "火涎囊",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [200, 4000],
+      "description": "淬刃与火符辅。"
+    },
+    {
+      "id": "chan_pi_huo",
+      "display": "火蟾皮",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [300, 5000],
+      "description": "火抗甲材。"
+    },
+    {
+      "id": "zhuimo_fire_resist_oil",
+      "display": "避火油（坠魔）",
+      "type": "consumable",
+      "tags": ["trade", "consumable"],
+      "price": [100, 2000],
+      "description": "外谷中裂谷减火伤。内谷仅部分有效。"
+    },
+    {
+      "id": "zhuimo_moqi_cleanse",
+      "display": "净魔散（坠魔）",
+      "type": "consumable",
+      "tags": ["trade", "consumable"],
+      "price": [200, 5000],
+      "description": "轻中度魔气。血焰级无效。"
+    },
+    {
+      "id": "xueyan_pressure_shard",
+      "display": "血焰残晶",
+      "type": "material",
+      "tags": ["quest", "demonic", "scarce"],
+      "description": "残影事件。清魔或炼魔二分，禁普通货架。"
+    },
+    {
+      "id": "candle_wood_heart",
+      "display": "烛木心",
+      "type": "material",
+      "tags": ["scarce", "craft_mat"],
+      "description": "灵烛果树灵副产。火属性奇材。"
+    },
+    {
+      "id": "realm_loadout_blood_qi",
+      "display": "禁地炼气战备包",
+      "type": "kit",
+      "tags": ["trade", "quest"],
+      "contains": ["火球符20", "金光盾10", "定神10", "血雾清神", "解毒", "隐身3", "小储物"],
+      "price": [100, 500],
+      "description": "对应 blood recommended_loadout_qi。"
+    },
+    {
+      "id": "realm_loadout_xutian_core",
+      "display": "虚天结丹战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["本命保养", "疗伤高阶", "阵盘", "撤离烟幕", "活参套", "替身结构"],
+      "description": "夺宝与撤离导向。"
+    },
+    {
+      "id": "realm_loadout_zhuimo_nascent",
+      "display": "坠魔元婴战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["避火油", "净魔散", "高疗", "逃遁维护", "造化急炼箱", "火蟾猎具"],
+      "description": "外谷赚材+内谷赌命。"
+    },
+    {
+      "id": "secret_realm_calendar_v104",
+      "display": "三大秘境开启历",
+      "type": "lore_book",
+      "content": ["血色周期", "虚天数十年", "坠魔令牌/周期"],
+      "description": "与 travel instance_windows 对齐。"
+    },
+    {
+      "id": "blood_zone_map",
+      "display": "血色禁地分区简图",
+      "type": "map",
+      "tags": ["trade", "quest"],
+      "price": [50, 500],
+      "zones": ["外圈", "药田环", "墨潭", "中环", "内圈"],
+      "description": "试炼前购买。死不退。"
+    },
+    {
+      "id": "xutian_zone_map",
+      "display": "虚天殿结构简图",
+      "type": "map",
+      "tags": ["scarce", "quest"],
+      "zones": ["外殿", "药苑", "核心", "撤离廊"],
+      "description": "残图拼合后可能获得更详版。"
+    },
+    {
+      "id": "zhuimo_zone_map",
+      "display": "坠魔外内谷简图",
+      "type": "map",
+      "tags": ["trade", "quest"],
+      "zones": ["外谷", "中裂", "内谷", "果点"],
+      "description": "有图仍须火抗与战力。"
+    },
+    {
+      "id": "post_xutian_inflation_note",
+      "display": "虚天后物价告示",
+      "type": "meta",
+      "mod": "相关材短期涨",
+      "description": "balance post_realm_inflation。"
+    },
+    {
+      "id": "blood_pvp_rule_slate",
+      "display": "禁地私斗规碑",
+      "type": "rule_item",
+      "rules": ["可互杀", "门派事后清算", "窗口结束强制清场"],
+      "description": "pvp_flag 叙事物化。"
+    },
+    {
+      "id": "unique_contest_rules",
+      "display": "通天争夺公约（戏）",
+      "type": "rule_item",
+      "rules": ["鼎焰唯一", "不人人有", "殿外仍可被夺"],
+      "description": "虚天 unique 规则。"
+    },
+    {
+      "id": "zaohua_once_brand",
+      "display": "造化已授印记",
+      "type": "meta",
+      "tags": ["unique", "account_bound"],
+      "description": "一生一次。阻止重复发丹。"
+    },
+    {
+      "id": "fruit_timer_hourglass",
+      "display": "灵烛保鲜沙漏",
+      "type": "tool",
+      "tags": ["quest", "consumable"],
+      "description": "延长腐败，不可无限。"
+    },
+    {
+      "id": "deep_dive_index_v104",
+      "display": "秘境深挖索引",
+      "type": "meta",
+      "files": [
+        "secret_realm_blood_forbidden_v104.json",
+        "secret_realm_xutian_v104.json",
+        "secret_realm_zhuimo_v104.json"
+      ],
+      "description": "三大秘境机读入口。"
+    },
+    {
+      "id": "crossref_quest_blood",
+      "display": "主线交叉·血色",
+      "type": "meta",
+      "quest_chain": "huangfeng_qi",
+      "description": "与 main_quest_rewards 对齐。"
+    },
+    {
+      "id": "crossref_quest_xutian",
+      "display": "主线交叉·虚天",
+      "type": "meta",
+      "quest_chain": "xutian_raid",
+      "description": "核心池奖励对照。"
+    },
+    {
+      "id": "crossref_quest_zhuimo",
+      "display": "主线交叉·坠魔",
+      "type": "meta",
+      "quest_chain": "dayan_zhuimo",
+      "description": "造化与外谷材。"
+    },
+    {
+      "id": "numeric_blood_bundle_anchor",
+      "display": "数值锚·四主药捆",
+      "type": "meta",
+      "price": [80, 400],
+      "description": "写入 numeric 时可合并。"
+    },
+    {
+      "id": "numeric_gangyin_anchor",
+      "display": "数值锚·罡银沙",
+      "type": "meta",
+      "price": [500, 8000],
+      "description": "坠魔外谷尺。"
+    },
+    {
+      "id": "designer_slice_blood_ready",
+      "display": "切片验收·血色可玩",
+      "type": "meta",
+      "checks": ["令牌", "五区", "四药", "墨蛟", "撤离"],
+      "description": "手册切片1落地检查。"
+    },
+    {
+      "id": "designer_slice_xutian_ready",
+      "display": "切片验收·虚天可玩",
+      "type": "meta",
+      "checks": ["残图", "外殿", "核心unique", "撤离追杀"],
+      "description": "手册切片3。"
+    },
+    {
+      "id": "designer_slice_zhuimo_ready",
+      "display": "切片验收·坠魔可玩",
+      "type": "meta",
+      "checks": ["令", "外谷沙", "果计时", "造化一次", "血焰压"],
+      "description": "手册切片4。"
+    },
+    {
+      "id": "lore_blood_one_paragraph",
+      "display": "血色禁地一句话",
+      "type": "lore",
+      "text": "炼气改命靠四药，死的多是人心。",
+      "description": "宣传/加载文案。"
+    },
+    {
+      "id": "lore_xutian_one_paragraph",
+      "display": "虚天殿一句话",
+      "type": "lore",
+      "text": "通天在前，活着带走一件便是赢。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_zhuimo_one_paragraph",
+      "display": "坠魔谷一句话",
+      "type": "lore",
+      "text": "外谷赚沙，内谷赌果，造化只一次。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "v104_accept",
+      "display": "v104 验收签",
+      "type": "meta",
+      "checks": ["三秘境JSON", "生物+说明", "无代码", "贴原著节点"],
+      "description": "本版完成标志。"
+    }
+  ]
+}

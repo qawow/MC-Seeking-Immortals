@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "source": "v141 关键令牌/宝物描述（贴原著）",
+  "items": [
+    {
+      "id": "blood_forbidden_token",
+      "display": "血色禁地试炼令",
+      "description": "七派（及授权散修）进入血色禁地的凭证。多由贡献或宗门选拔换得。窗口外无效；持令触界碑入场。死不退贡献。",
+      "novel_anchor": "血色禁地配额/试炼令",
+      "rarity": "quest"
+    },
+    {
+      "id": "zhui_mo_ling",
+      "display": "坠魔令",
+      "description": "开启或获准进入坠魔谷的令牌。火域凶地凭证，无抗火准备等同送死。可与拍卖、猎队任务挂钩。",
+      "novel_anchor": "坠魔谷",
+      "rarity": "rare"
+    },
+    {
+      "id": "lingzhu_fruit",
+      "display": "灵烛果",
+      "description": "坠魔谷核心奇果。与造化丹等一生一次结构相关，unique 争夺，不设人人有。夺果后出谷仍是半场。",
+      "novel_anchor": "灵烛果/造化",
+      "rarity": "unique",
+      "lifetime_once_related": true
+    },
+    {
+      "id": "xu_tian_can_tu",
+      "display": "虚天残图",
+      "description": "拼合后方知虚天殿窗口与方位。残片可交易、可抢，完整图是入场资格而非通关保证。",
+      "novel_anchor": "虚天殿",
+      "rarity": "quest_progress"
+    },
+    {
+      "id": "xutian_ding",
+      "display": "虚天鼎（unique）",
+      "description": "虚天殿核心古宝之一。全服/本次窗口竞争，不可掉落复制。得鼎者成为众矢之的。",
+      "novel_anchor": "虚天鼎",
+      "rarity": "unique_contest"
+    },
+    {
+      "id": "yin_zhi_horse_live",
+      "display": "阴芝马（活）",
+      "description": "阴阳窟关键生灵。培婴丹主料倾向活捕；击杀仅余劣材。运出窟需笼具与阴气维持。",
+      "novel_anchor": "阴芝马/培婴",
+      "rarity": "rare_live"
+    },
+    {
+      "id": "peiying_dan",
+      "display": "培婴丹",
+      "description": "元婴关口辅助重丹。材料链可接阴阳窟；炼成率受炉、丹师、主料品质影响。非街边货。",
+      "novel_anchor": "培婴丹",
+      "rarity": "high"
+    },
+    {
+      "id": "dayan_fragment",
+      "display": "大衍残篇",
+      "description": "大衍决残页。可自千竹塔、人情、黑市拼合。完整大衍不保底。",
+      "novel_anchor": "大衍决",
+      "rarity": "fragment"
+    },
+    {
+      "id": "kunwu_clue_jade",
+      "display": "昆吾线索玉简",
+      "description": "入昆吾山所需情报拼图之一。多枚拼合才开山，单买一张不够。",
+      "novel_anchor": "昆吾山",
+      "rarity": "quest_progress"
+    },
+    {
+      "id": "taiyin_true_fire",
+      "display": "太阴真火（权）",
+      "description": "昆吾火禁相关至宝级火种权。unique 权重，得之需镇火之法，否则反噬。",
+      "novel_anchor": "太阴真火",
+      "rarity": "unique_weight"
+    },
+    {
+      "id": "ascension_talisman",
+      "display": "飞升辅助符",
+      "description": "化神渡劫飞升时稳固神魂/空间的辅助符。不保证成功，只降惨败权重。",
+      "novel_anchor": "飞升",
+      "rarity": "high"
+    },
+    {
+      "id": "space_anchor_talisman",
+      "display": "空间锚定符",
+      "description": "飞升通道中防被乱流撕碎的锚定。与飞升辅助符合用更稳。",
+      "novel_anchor": "飞升通道",
+      "rarity": "high"
+    },
+    {
+      "id": "lian_shen_shu",
+      "display": "炼神术",
+      "rarity": "unique",
+      "description": "广寒核心。神识质变秘法/功法，unique，禁开局全抄与商店直售。",
+      "novel_anchor": "广寒炼神术"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "rarity": "scarce",
+      "description": "合体关键丹。广寒/功勋/任务向，无坊市无限货。",
+      "novel_anchor": "合体"
+    },
+    {
+      "id": "tai_yang_jing_huo",
+      "display": "太阳精火",
+      "rarity": "unique_limited",
+      "description": "火狱至阳精火。取之有冷却/次数；回阳真水主材之一。",
+      "novel_anchor": "火狱/化神"
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "rarity": "unique",
+      "description": "化神关键灵物。太阳精火与太阴结构合成；禁交易复制。",
+      "novel_anchor": "化神"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "display": "魔元丹",
+      "rarity": "scarce",
+      "description": "化神成功率修正。紫灵线/黑市，非无限。",
+      "novel_anchor": "化神"
+    },
+    {
+      "id": "bu_tian_dan",
+      "display": "补天丹",
+      "rarity": "high",
+      "description": "高阶续命与破境辅助。虚天竞争与星宫配额叙事，参考价极高。",
+      "novel_anchor": "补天丹/虚天"
+    },
+    {
+      "id": "tai_yi_qing_shan",
+      "display": "太乙青山",
+      "rarity": "scarce",
+      "description": "洞天/山体至宝结构，抬升洞府与合体根基。",
+      "novel_anchor": "广寒"
+    }
+  ],
+  "v143": true
+}

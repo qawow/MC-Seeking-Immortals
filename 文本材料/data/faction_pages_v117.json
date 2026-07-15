@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "source": "v117 势力一页纸",
+  "pages": [
+    {
+      "id": "faction_page_huangfeng_valley",
+      "display": "黄枫谷（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】黄枫谷。域：tiannan。立场：righteous。特长：丹道、地火、外门贡献。敌对：鬼灵门等；竞争：七派资源。特产：丹、地火时辰。主线：修行线+血色。货：低中阶丹方与材料。NPC：赵执事、丹堂管事。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_yanyue_sect",
+      "display": "掩月宗（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】掩月宗。域：tiannan。立场：righteous。特长：阴柔、幻媚、双修边界。与合欢有渊源张力。任务偏社交与幻术。禁公开邪修行径于山门内。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_spirit_beast_mountain",
+      "display": "灵兽山（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】灵兽山。域：tiannan。立场：righteous。特长：御兽契约。虐待灵兽扣声望。可卖契约符与兽粮。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_qingxu_gate",
+      "display": "清虚门（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】清虚门。域：tiannan。立场：righteous。特长：清修符阵。厌战，给身法恢复任务。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_giant_sword_gate",
+      "display": "巨剑门（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】巨剑门。域：tiannan。立场：righteous。特长：重剑试炼。剑冢认主。刚猛直给。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_ghost_spirit_gate",
+      "display": "鬼灵门（势力一页纸）",
+      "type": "faction_page",
+      "region": "yinming",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】鬼灵门。域：yinming。立场：demonic。特长：鬼道阴修。正道声望互斥。阴罗、冥河衔接。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_hehuan_sect",
+      "display": "合欢宗（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】合欢宗。域：tiannan。立场：demonic。特长：幻术双修。高风险社交。声望阈值锁深线。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_star_palace",
+      "display": "星宫（势力一页纸）",
+      "type": "faction_page",
+      "region": "chaotic_sea",
+      "alignment": "order",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】星宫。域：chaotic_sea。立场：order。特长：外海法度。制式剑、通缉、巡察。与逆星对立。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_inverse_star",
+      "display": "逆星盟（势力一页纸）",
+      "type": "faction_page",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】逆星盟。域：chaotic_sea。立场：rebel。特长：走私情报。灰市、钥碎、可能背刺。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_mulan",
+      "display": "慕兰（势力一页纸）",
+      "type": "faction_page",
+      "region": "mulan",
+      "alignment": "war",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】慕兰。域：mulan。立场：war。特长：法士骑射。圣禽禁忌。天澜战场。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_tianyuan",
+      "display": "天渊城（势力一页纸）",
+      "type": "faction_page",
+      "region": "tianyuan",
+      "alignment": "order",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】天渊城。域：tianyuan。立场：order。特长：功勋服役。飞升后秩序。军功隔离。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_qianzhu",
+      "display": "千竹教（势力一页纸）",
+      "type": "faction_page",
+      "region": "extreme_west_thousand_bamboo",
+      "alignment": "neutral",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】千竹教。域：extreme_west_thousand_bamboo。立场：neutral。特长：傀儡大衍。机关塔、零件、残篇。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_dajin_auction",
+      "display": "大晋拍卖行（势力一页纸）",
+      "type": "faction_page",
+      "region": "great_jin_central",
+      "alignment": "neutral",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】大晋拍卖行。域：great_jin_central。立场：neutral。特长：顶级流通。降尘庚精过眼。抽成与鉴定。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_demonic_six",
+      "display": "魔道六宗集合（势力一页纸）",
+      "type": "faction_page",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】魔道六宗集合。域：tiannan_north_waste。立场：demonic。特长：六宗深入。北荒据点。与正道边战。血牙米等窄通货。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    },
+    {
+      "id": "faction_page_nether_court",
+      "display": "阴司势力（势力一页纸）",
+      "type": "faction_page",
+      "region": "nether_river",
+      "alignment": "ghost",
+      "tags": [
+        "faction_page_v117"
+      ],
+      "description": "【势力一页纸】阴司势力。域：nether_river。立场：ghost。特长：渡魂交易。摆渡、定神、神乳线索锁。玩法三连：①接本势力日常 ②声望阈值解锁货架 ③主线/秘境挂钩。敌对后果：拒售、盘查、追杀令。同盟：联防与折扣。专属货示例：见 sect_shelves / merchant_shops 同域条目。具名脸：见 named_npcs_v116 同 sect。"
+    }
+  ]
+}

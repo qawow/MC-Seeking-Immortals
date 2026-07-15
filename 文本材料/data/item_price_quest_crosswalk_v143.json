@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "source": "v143 关键药材/丹药物价 ↔ 任务奖励勾稽（贴原著）",
+  "disclaimer": "价格取自 herb_compendium / pill_formulary；与 quest_reward_economy_v142 对齐校验，非代码。",
+  "currency_note": "默认下品灵石；区间 [min,max]",
+  "key_herbs": [
+    {
+      "id": "yu_sui_zhi",
+      "display": "玉髓芝",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "primary_use": "筑基丹主料之一",
+      "rarity_tier": 3,
+      "growth_condition": "灵气充裕秘境；血色禁地有产",
+      "novel_note": "血色药田高价值点；筑基丹主料之一",
+      "sources": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "description_v143": "玉髓芝：筑基丹主料之一。参考价下品灵石 [10, 50]。血色药田高价值点；筑基丹主料之一"
+    },
+    {
+      "id": "zi_hou_hua",
+      "display": "紫猴花",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "primary_use": "筑基丹主料之二",
+      "rarity_tier": 3,
+      "growth_condition": "同血色禁地区域",
+      "novel_note": "血色药田；筑基丹主料之二",
+      "sources": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "description_v143": "紫猴花：筑基丹主料之二。参考价下品灵石 [10, 50]。血色药田；筑基丹主料之二"
+    },
+    {
+      "id": "tian_ling_guo",
+      "display": "天灵果",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "primary_use": "筑基丹主料之三",
+      "rarity_tier": 3,
+      "growth_condition": "血色禁地灵树结果",
+      "novel_note": "血色药田；筑基丹主料之三",
+      "sources": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "description_v143": "天灵果：筑基丹主料之三。参考价下品灵石 [10, 50]。血色药田；筑基丹主料之三"
+    },
+    {
+      "id": "ling_zhu_guo",
+      "display": "灵烛果",
+      "price_low_stone": [
+        3000,
+        30000
+      ],
+      "primary_use": "炼制造化丹主材料",
+      "rarity_tier": 7,
+      "growth_condition": "数尺高翠绿灵草结火红果实；不可移植，摘后药性流失极快",
+      "novel_note": "坠魔谷 unique；造化主材，一生一次结构",
+      "sources": [
+        "zhuimo_valley#zm_candle",
+        "quest:lingzhu_fruit_run"
+      ],
+      "unique": true,
+      "lifetime_once_related": "zaohua",
+      "description_v143": "灵烛果：炼制造化丹主材料。参考价下品灵石 [3000, 30000]。坠魔谷 unique；造化主材，一生一次结构"
+    },
+    {
+      "id": "yin_zhi_ma_living",
+      "display": "阴芝马（活体）",
+      "price_low_stone": [
+        80000,
+        500000
+      ],
+      "primary_use": "培婴丹主料",
+      "rarity_tier": 6,
+      "growth_condition": null,
+      "novel_note": "阴阳窟活捕；培婴主料，击杀贬值",
+      "sources": [
+        "yinyang_ku#yy_yinzhi",
+        "quest:peiying_material_hunt"
+      ],
+      "prefer_live": true,
+      "description_v143": "阴芝马（活体）：培婴丹主料。参考价下品灵石 [80000, 500000]。阴阳窟活捕；培婴主料，击杀贬值"
+    },
+    {
+      "id": "xuan_tian_xian_teng",
+      "display": "玄天仙藤（幼苗）",
+      "price_low_stone": null,
+      "primary_use": "可结玄天灵果，无视一界法则",
+      "rarity_tier": 12,
+      "growth_condition": "开天辟地混沌初生时就已存在的最古老藤蔓类灵根",
+      "novel_note": "玄天仙藤幼苗——无视一界法则级奇物，极稀",
+      "sources": [
+        "late_game_hook",
+        "not_shop"
+      ],
+      "unique_weight": true,
+      "description_v143": "玄天仙藤（幼苗）：可结玄天灵果，无视一界法则。参考价下品灵石 议价/无市。玄天仙藤幼苗——无视一界法则级奇物，极稀"
+    }
+  ],
+  "key_pills": [
+    {
+      "id": "zhu_ji_dan",
+      "display": "筑基丹",
+      "price_low_stone": [
+        500,
+        2000
+      ],
+      "tier": 1,
+      "novel_note": "筑基关口；血色三主料拼图；坊市有但贵且掺假",
+      "description_v143": "筑基丹：参考价 [500, 2000]。筑基关口；血色三主料拼图；坊市有但贵且掺假"
+    },
+    {
+      "id": "zhu_ji_dan_advanced",
+      "display": "筑基丹（大晋级）",
+      "price_low_stone": [
+        1000,
+        4000
+      ],
+      "tier": 1,
+      "novel_note": "大晋级筑基丹，品质/成功率叙事更高",
+      "description_v143": "筑基丹（大晋级）：参考价 [1000, 4000]。大晋级筑基丹，品质/成功率叙事更高"
+    },
+    {
+      "id": "pei_ying_dan",
+      "display": "培婴丹",
+      "price_low_stone": [
+        50000,
+        500000
+      ],
+      "tier": 4,
+      "novel_note": "培婴关口；阴芝马活捕链；非街边货",
+      "description_v143": "培婴丹：参考价 [50000, 500000]。培婴关口；阴芝马活捕链；非街边货"
+    },
+    {
+      "id": "bu_tian_dan",
+      "display": "补天丹",
+      "price_low_stone": [
+        20000,
+        200000
+      ],
+      "tier": 3,
+      "novel_note": "补天丹——虚天/星宫配额叙事，高阶续命与破境辅助",
+      "description_v143": "补天丹：参考价 [20000, 200000]。补天丹——虚天/星宫配额叙事，高阶续命与破境辅助"
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "price_low_stone": [
+        100000,
+        1000000
+      ],
+      "tier": 4,
+      "novel_note": "回阳真水——化神关键，火狱太阳精火+太阴结构，禁无限复制",
+      "description_v143": "回阳真水：参考价 [100000, 1000000]。回阳真水——化神关键，火狱太阳精火+太阴结构，禁无限复制"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "price_low_stone": null,
+      "tier": 5,
+      "novel_note": "虚灵丹/太虚妙灵丹——合体关键，广寒等机缘，功勋/任务向",
+      "description_v143": "虚灵丹（太虚妙灵丹）：参考价 无公开市价/任务向。虚灵丹/太虚妙灵丹——合体关键，广寒等机缘，功勋/任务向"
+    },
+    {
+      "id": "yang_jing_dan",
+      "display": "养精丹",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "tier": 1,
+      "novel_note": "前期养精，任务小奖常见",
+      "description_v143": "养精丹：参考价 [10, 50]。前期养精，任务小奖常见"
+    },
+    {
+      "id": "ju_ling_dan",
+      "display": "聚灵丹",
+      "price_low_stone": [
+        20,
+        100
+      ],
+      "tier": 1,
+      "novel_note": "聚灵辅助，洞府修炼友好",
+      "description_v143": "聚灵丹：参考价 [20, 100]。聚灵辅助，洞府修炼友好"
+    }
+  ],
+  "quest_links": [
+    {
+      "quest_id": "blood_forbidden_run",
+      "loot_price_anchor": [
+        {
+          "item": "yu_sui_zhi",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "item": "zi_hou_hua",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "item": "tian_ling_guo",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        }
+      ],
+      "reward_economy_band": "expected_loot_cash_equiv_low [30,400] — 与药点稀有度一致：非人人满载三主料",
+      "craft_sink": {
+        "pill": "zhu_ji_dan",
+        "price_low_stone": [
+          500,
+          2000
+        ]
+      },
+      "novel_anchor": "血色禁地采药→拼筑基丹"
+    },
+    {
+      "quest_id": "huangfeng_blood_quota",
+      "token_vs_market": "试炼令不上市价直售；贡献 25–40 换令，避免灵石直接买破宗门秩序",
+      "novel_anchor": "宗门配额"
+    },
+    {
+      "quest_id": "lingzhu_fruit_run",
+      "loot_price_anchor": [
+        {
+          "item": "ling_zhu_guo",
+          "price_low_stone": [
+            3000,
+            30000
+          ],
+          "unique": true
+        }
+      ],
+      "reward_economy_band": "cash_equiv_if_sold 可参考价，但优先造化一生一次，不鼓励纯倒卖刷钱",
+      "novel_anchor": "灵烛果/造化"
+    },
+    {
+      "quest_id": "peiying_material_hunt",
+      "loot_price_anchor": [
+        {
+          "item": "yin_zhi_ma_living",
+          "price_low_stone": [
+            80000,
+            500000
+          ]
+        }
+      ],
+      "craft_sink": {
+        "pill": "pei_ying_dan",
+        "price_low_stone": [
+          50000,
+          500000
+        ],
+        "craft_chance": [
+          0.15,
+          0.35
+        ]
+      },
+      "live_vs_kill": "活捕价值用全价带；击杀材约 5%–20% 等价",
+      "novel_anchor": "阴芝马→培婴丹"
+    },
+    {
+      "quest_id": "xutian_window_prepare",
+      "related_pills": [
+        {
+          "item": "bu_tian_dan",
+          "price_low_stone": [
+            20000,
+            200000
+          ],
+          "unique_contest_in_palace": true
+        }
+      ],
+      "novel_anchor": "虚天宝库含补天丹等 unique 竞争"
+    },
+    {
+      "quest_id": "tianyuan_landing_register",
+      "cash_policy": "飞升后不以海量灵石奖，防通胀；权限与功勋为主",
+      "novel_anchor": "飞升落地"
+    }
+  ],
+  "balance_checks": [
+    {
+      "check": "foundation_pill_vs_blood_loot",
+      "ok_if": "三主料全齐市价仍可低于/接近丹价带，丹师与炉为额外 sink",
+      "status": "aligned"
+    },
+    {
+      "check": "lingzhu_not_infinite_gold",
+      "ok_if": "unique + 造化 once",
+      "status": "aligned"
+    },
+    {
+      "check": "peiying_live_capture_premium",
+      "ok_if": "活捕 >> 击杀",
+      "status": "aligned"
+    },
+    {
+      "check": "butian_not_shop_spam",
+      "ok_if": "高价+虚天/配额叙事",
+      "status": "aligned"
+    },
+    {
+      "check": "huiyang_no_copy",
+      "ok_if": "unique_mark 化神线",
+      "status": "aligned"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "v146 全任务线描述",
+  "delivered": [
+    "23 full quest line descriptions",
+    "mortal_qixuan_entry starter chain",
+    "docs/QUEST_LINES_FULL_v146.md",
+    "chapter 0 linked"
+  ],
+  "honest_gaps_still": [
+    "旧 legacy 战役 id（mulan_war_campaign 等）仍非逐步可玩长文",
+    "每线未写全部分支对话逐句"
+  ],
+  "status": "23 条任务线完整叙事描述完成（含开局）"
+}

@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v93 灵兽/虫宠培养结构（非普通击杀掉落）",
+  "disclaimer": "成长数值为结构量级",
+  "companions": [
+    {
+      "id": "shi_jin_chong",
+      "display": "噬金虫",
+      "type": "insect_swarm",
+      "start_tier": 1,
+      "cap_tier_structure": 13,
+      "feed": [
+        "金系矿材",
+        "金系妖丹",
+        "霓裳草催熟",
+        "特殊晶石",
+        "黑色晶石(虫王)"
+      ],
+      "abilities": [
+        "噬金克金",
+        "群攻",
+        "变异三色",
+        "虫王"
+      ],
+      "obtain": "乱星海偶得/培养线",
+      "bond": "活体培养，击杀价值远低于活体",
+      "growth_stages": [
+        {
+          "stage": "幼虫群",
+          "combat": "低阶清杂"
+        },
+        {
+          "stage": "成虫群",
+          "combat": "结丹威胁"
+        },
+        {
+          "stage": "三色变异",
+          "combat": "元婴辅助"
+        },
+        {
+          "stage": "伪虫王/虫王",
+          "combat": "化神+主战"
+        }
+      ],
+      "setting": {
+        "lore": "主角标志虫群；天澜草原暴露会引追杀。"
+      },
+      "description": "能力：噬金克金、群攻、变异三色、虫王。主角标志虫群；天澜草原暴露会引追杀。"
+    },
+    {
+      "id": "ti_hun_shou",
+      "display": "啼魂兽",
+      "type": "soul_beast",
+      "obtain": "元瑶线赠/契约",
+      "abilities": [
+        "吸魂啖鬼",
+        "克炼尸鬼物",
+        "进阶化形",
+        "定魄"
+      ],
+      "feed": [
+        "精魂",
+        "鬼物",
+        "尸气",
+        "阴兽"
+      ],
+      "evolution": [
+        "碧绿幼体",
+        "乌黑多鼻孔",
+        "化形"
+      ],
+      "true_spirit_hint": "真灵级潜力结构",
+      "setting": {
+        "lore": "阴冥/鬼修克星；可飞升真仙界线。"
+      },
+      "description": "能力：吸魂啖鬼、克炼尸鬼物、进阶化形、定魄。阴冥/鬼修克星；可飞升真仙界线。"
+    },
+    {
+      "id": "xue_yu_zhizhu",
+      "display": "血玉蜘蛛",
+      "type": "control_beast",
+      "obtain": "卵培养（古传送线）",
+      "abilities": [
+        "蛛丝束缚",
+        "毒",
+        "拉鼎辅助结构"
+      ],
+      "feed": [
+        "血食",
+        "妖兽"
+      ],
+      "setting": {
+        "lore": "虚天殿拉鼎、战场控制。"
+      },
+      "description": "能力：蛛丝束缚、毒、拉鼎辅助结构。虚天殿拉鼎、战场控制。"
+    },
+    {
+      "id": "liu_yi_shuang_gong",
+      "display": "六翼霜蚣",
+      "type": "insect_mount",
+      "obtain": "御灵宗线/擒获",
+      "abilities": [
+        "冰寒",
+        "飞行",
+        "合体进阶（十二合一结构）"
+      ],
+      "risk": "灵界法力大进可能失控",
+      "setting": {
+        "lore": "驱虫术配套；后期可叛/再契约。"
+      },
+      "description": "能力：冰寒、飞行、合体进阶（十二合一结构）。驱虫术配套；后期可叛/再契约。"
+    },
+    {
+      "id": "tu_jia_long",
+      "display": "土甲龙",
+      "type": "detector_beast",
+      "obtain": "大衍神君线后收服",
+      "abilities": [
+        "防御",
+        "寻天材地宝"
+      ],
+      "setting": {
+        "lore": "寻宝辅助宠物。"
+      },
+      "description": "能力：防御、寻天材地宝。寻宝辅助宠物。"
+    },
+    {
+      "id": "tian_lan_shou",
+      "display": "天澜圣兽（分身/本体线）",
+      "type": "contract_true_spirit_edge",
+      "obtain": "天澜草原收服分身",
+      "abilities": [
+        "圣兽战力",
+        "帝流浆",
+        "银蝌文传授",
+        "渡劫需求"
+      ],
+      "bond": "契约/互利，非奴役简单化",
+      "setting": {
+        "lore": "人界顶级灵兽线；化形雷劫可助。"
+      },
+      "description": "能力：圣兽战力、帝流浆、银蝌文传授、渡劫需求。人界顶级灵兽线；化形雷劫可助。"
+    },
+    {
+      "id": "bao_lin_shou",
+      "display": "豹麟兽",
+      "type": "spirit_realm_pet",
+      "obtain": "灵界收服",
+      "abilities": [
+        "食阴寒进阶",
+        "化形",
+        "暗兽内丹强化"
+      ],
+      "setting": {
+        "lore": "地渊线成长宠。"
+      },
+      "description": "能力：食阴寒进阶、化形、暗兽内丹强化。地渊线成长宠。"
+    },
+    {
+      "id": "bing_feng",
+      "display": "冰凤",
+      "type": "ally_not_pet",
+      "note": "真灵血脉盟友，非普通灵兽栏",
+      "abilities": [
+        "空间神通",
+        "冰系"
+      ],
+      "setting": {
+        "lore": "飞升节点搭档结构。"
+      },
+      "description": "能力：空间神通、冰系。飞升节点搭档结构。"
+    },
+    {
+      "id": "zhi_xian",
+      "display": "芝仙",
+      "type": "plant_spirit",
+      "obtain": "捕获",
+      "use": [
+        "身外化身躯壳",
+        "助九曲灵参开智"
+      ],
+      "setting": {
+        "lore": "兵解后仍有大用。"
+      },
+      "description": "能力：。兵解后仍有大用。"
+    },
+    {
+      "id": "qu_er",
+      "display": "曲儿（九曲灵参化形）",
+      "type": "plant_spirit_child",
+      "obtain": "九曲灵参+芝仙助开智",
+      "setting": {
+        "lore": "灵参人格化；可操纵芝仙躯修炼。"
+      },
+      "description": "能力：。灵参人格化；可操纵芝仙躯修炼。"
+    },
+    {
+      "id": "yin_yue_xueling",
+      "display": "银月/雪玲",
+      "type": "artifact_spirit_ally",
+      "note": "器灵/妖狼魂，非普通兽栏",
+      "abilities": [
+        "幻术",
+        "七星月体后期",
+        "情报"
+      ],
+      "setting": {
+        "lore": "本命法宝器灵线，跨人灵两界。"
+      },
+      "description": "能力：幻术、七星月体后期、情报。本命法宝器灵线，跨人灵两界。"
+    },
+    {
+      "id": "yuling_wuxing_infant",
+      "display": "五行灵婴（至木等）",
+      "type": "spirit_infant",
+      "faction": "yuling_zong",
+      "use": [
+        "第二元婴材料/风险",
+        "吞噬元神"
+      ],
+      "risk": "反噬极高",
+      "setting": {
+        "lore": "可炼第二元婴；需离魂术等处理灵智。"
+      },
+      "description": "能力：。可炼第二元婴；需离魂术等处理灵智。"
+    }
+  ],
+  "care_rules": {
+    "loyalty": "投食/契约/禁制三轨",
+    "realm_sync": "宠阶不宜长期高于主人过多（反噬结构）",
+    "sect_ban": "部分宗门禁魔虫/鬼兽入门"
+  },
+  "economy": {
+    "feed_cost_day_low_stone": {
+      "low_insect": [
+        1,
+        10
+      ],
+      "foundation_beast": [
+        20,
+        100
+      ],
+      "nascent_ally": [
+        500,
+        5000
+      ]
+    },
+    "market_live_vs_dead": "活体×3~10"
+  }
+}

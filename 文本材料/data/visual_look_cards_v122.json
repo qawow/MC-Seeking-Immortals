@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "source": "v122 外貌与样式卡索引",
+  "stack": [
+    "v118",
+    "v119",
+    "v120",
+    "v121",
+    "v122"
+  ],
+  "counts": {
+    "entries": 1350,
+    "pills": 114,
+    "artifacts": 217,
+    "techniques": 346,
+    "beasts": 42,
+    "npcs": 168
+  },
+  "description": "查阅 look_* / style_tech_* ；正文 item_descriptions_v122"
+}

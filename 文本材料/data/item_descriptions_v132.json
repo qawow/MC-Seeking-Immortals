@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v132 多方块续扩",
+  "items": [
+    {
+      "id": "v132_multiblock",
+      "display": "多方块续扩",
+      "type": "meta",
+      "description": "总53结构，本卷+32，均含完整 structure"
+    }
+  ]
+}

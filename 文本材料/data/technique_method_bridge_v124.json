@@ -1,0 +1,23 @@
+{
+  "schema_version": 2,
+  "source": "v124 原著桥",
+  "dayan_unlocks": [
+    "divine_sense",
+    "puppet"
+  ],
+  "shishen_spike": {
+    "id": "shishen_spike",
+    "requires": "dayan_art",
+    "not": [
+      "sense_needle",
+      "soul_chop",
+      "changchun_gong"
+    ]
+  },
+  "jingshen_spike": {
+    "id": "jingshen_spike",
+    "requires": "dayan_art"
+  },
+  "qingyuan": "qingyuan_sword_art -> sword.json",
+  "changchun": "changchun_gong -> elemental low + wind_ride + dingshen"
+}

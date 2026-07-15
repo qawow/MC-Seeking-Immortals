@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v109 物品详释：合并桥 + 千竹/冥河/阴罗冢",
+  "items": [
+    {
+      "id": "merge_bridge_book",
+      "display": "设定包合并桥册",
+      "type": "lore_book",
+      "ref": "data/merge_bridge_v109.json",
+      "description": "原包 catalogs + v92系统 + v104深挖 三层读法与冲突裁决。"
+    },
+    {
+      "id": "dayan_fragment_full",
+      "display": "大衍决残篇（详释）",
+      "type": "manual_page",
+      "tags": ["quest", "scarce"],
+      "source": "千竹机关塔",
+      "description": "神识推演向。多层拼合；完整功法不保底一层。"
+    },
+    {
+      "id": "puppet_core_blank_full",
+      "display": "傀儡核胚（详释）",
+      "type": "material",
+      "tags": ["craft_mat", "scarce"],
+      "price": [500, 20000],
+      "description": "炼傀坯。塔内与拍卖双源。"
+    },
+    {
+      "id": "mechanism_scrap_full",
+      "display": "机关零件（详释）",
+      "type": "material",
+      "tags": ["craft_mat", "trade"],
+      "price": [20, 800],
+      "description": "低中阶量产。一层二层主掉。"
+    },
+    {
+      "id": "qianzhu_trial_token_full",
+      "display": "千竹试炼令（详释）",
+      "type": "token",
+      "tags": ["quest", "token"],
+      "description": "入塔。任务/贡献/极西人情。"
+    },
+    {
+      "id": "tower_secret_box_full",
+      "display": "机关秘匣（详释）",
+      "type": "container",
+      "tags": ["quest", "scarce"],
+      "description": "五层。残篇或核胚。"
+    },
+    {
+      "id": "stone_spirit_shard_core",
+      "display": "石灵碎核",
+      "type": "material",
+      "tags": ["craft_mat"],
+      "price": [300, 8000],
+      "description": "石灵傀。岩傀与阵眼辅。"
+    },
+    {
+      "id": "bamboo_armor_plate",
+      "display": "竹甲片",
+      "type": "material",
+      "tags": ["craft_mat", "trade"],
+      "price": [5, 80],
+      "description": "巡傀掉落。轻甲辅。"
+    },
+    {
+      "id": "realm_loadout_qianzhu",
+      "display": "千竹塔战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["破核锥结构", "疗伤", "探路符", "远程符", "阵盘常识简"],
+      "description": "筑基~结丹推荐。"
+    },
+    {
+      "id": "yin_material_full",
+      "display": "阴材（详释）",
+      "type": "material",
+      "tags": ["craft_mat", "trade"],
+      "price": [50, 3000],
+      "description": "冥河分层品质。炼阴器辅。"
+    },
+    {
+      "id": "ghost_manual_nether",
+      "display": "鬼功残篇·冥河",
+      "type": "manual_page",
+      "tags": ["scarce", "demonic"],
+      "description": "心性风险。可与冢中鬼功拼谱。"
+    },
+    {
+      "id": "nether_river_chest_full",
+      "display": "冥河宝匣（详释）",
+      "type": "container",
+      "tags": ["quest", "scarce"],
+      "description": "三层。阴宝/线索。"
+    },
+    {
+      "id": "yin_ward_pill_full",
+      "display": "阴御丹（详释）",
+      "type": "pill",
+      "tags": ["consumable", "trade"],
+      "price": [100, 2000],
+      "description": "短时抗阴。雾岸门槛药。"
+    },
+    {
+      "id": "ferry_toll_token_full",
+      "display": "渡资令（详释）",
+      "type": "consumable",
+      "tags": ["quest"],
+      "description": "二层渡口。灵石/阴材/人情。"
+    },
+    {
+      "id": "minghe_shenru_clue_v109",
+      "display": "冥河神乳线索（冢河）",
+      "type": "intel",
+      "tags": ["unique", "quest", "no_trade"],
+      "description": "与广寒后终局对齐。禁日常刷本体。"
+    },
+    {
+      "id": "realm_loadout_nether",
+      "display": "冥河战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["阴御丹", "定神", "净符", "高疗", "阳火折"],
+      "description": "分层建议同一包加量。"
+    },
+    {
+      "id": "yin_pearl_full",
+      "display": "阴珠（详释）",
+      "type": "material",
+      "tags": ["scarce", "black_market", "craft_mat"],
+      "price": [500, 15000],
+      "description": "阴罗冢核心掉落。品阶随层。"
+    },
+    {
+      "id": "ghost_manual_catacomb",
+      "display": "冢中鬼功",
+      "type": "manual_page",
+      "tags": ["demonic", "scarce"],
+      "description": "幡厅/将军冢。非冥河同一本。"
+    },
+    {
+      "id": "corpse_general_seal_full",
+      "display": "尸将令残（详释）",
+      "type": "token",
+      "tags": ["quest"],
+      "description": "镇低阶尸或交阴罗任务。"
+    },
+    {
+      "id": "tian_shi_clue_catacomb",
+      "display": "天尸珠线索·将军冢",
+      "type": "intel",
+      "tags": ["quest", "no_trade"],
+      "description": "不掉成品珠。与鬼灵长老黑架对齐。"
+    },
+    {
+      "id": "realm_loadout_yinluo",
+      "display": "阴罗冢战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["解毒+", "定神", "净佛雷", "破甲", "易容", "照明"],
+      "description": "正道必带易容。"
+    },
+    {
+      "id": "yinluo_rep_boost_note",
+      "display": "阴罗声望加分记",
+      "type": "meta",
+      "description": "通关三层+可抬鬼灵/阴罗权重。"
+    },
+    {
+      "id": "orig_loot_dayan_align",
+      "display": "原包掉落对齐·大衍",
+      "type": "meta",
+      "loot_tier": "dayan_fragment",
+      "deep": "secret_realm_qianzhu_tower_v109",
+      "description": "secret_realms.json loot_tiers 与深挖 key_items 对齐。"
+    },
+    {
+      "id": "orig_loot_nether_align",
+      "display": "原包掉落对齐·冥河",
+      "type": "meta",
+      "loot_tiers": ["yin_material", "ghost_cultivation_manual", "nether_river_chest", "yin_ward_pill"],
+      "deep": "secret_realm_nether_river_v109",
+      "description": "清单与场景一一对应。"
+    },
+    {
+      "id": "orig_loot_yinluo_align",
+      "display": "原包掉落对齐·阴罗冢",
+      "type": "meta",
+      "loot_tiers": ["ghost_cultivation_manual", "yin_pearl"],
+      "deep": "secret_realm_yinluo_catacomb_v109",
+      "description": "清单与场景一一对应。"
+    },
+    {
+      "id": "orig_boss_align_v109",
+      "display": "原包 BOSS 对齐表",
+      "type": "meta",
+      "map": {
+        "puppet_tower_lord": "千竹五层",
+        "stone_spirit_puppet": "千竹四层",
+        "nether_river_guardian": "冥河三层",
+        "yin_corpses_general": "阴罗四层"
+      },
+      "description": "beast 词条 id 与 secret_realms bosses 同名。"
+    },
+    {
+      "id": "conflict_rule_card_v109",
+      "display": "合并冲突裁决卡",
+      "type": "rule_item",
+      "rules": [
+        "瓶/绿液→garden+numeric+audit",
+        "秘境门槛→secret_realms + deep",
+        "物价→numeric/market",
+        "同名生物→id+别名表",
+        "货架→sect_shelves；商店清单→merchant_shops"
+      ],
+      "description": "merge_bridge 人读卡。"
+    },
+    {
+      "id": "still_shallow_list_v109",
+      "display": "仍浅秘境清单",
+      "type": "meta",
+      "list": [
+        "demon_gold_mountain",
+        "minor_asura_realm",
+        "jiuxian_seclusion",
+        "wild_ancient_tomb",
+        "wild_ancient_ruins",
+        "tianlan_secret_grotto",
+        "chaotic_sea_abyss_rift",
+        "spirit_grass_valley",
+        "seven_meridian_cave",
+        "ancient_cultivator_ruins"
+      ],
+      "description": "原包 19 境中待后续深挖。"
+    },
+    {
+      "id": "deep_cover_count_v109",
+      "display": "深挖覆盖计数",
+      "type": "meta",
+      "covered": [
+        "blood_forbidden",
+        "void_palace",
+        "fallen_demon_valley",
+        "kunwu_mountain",
+        "guanghan_realm",
+        "diyuan",
+        "thousand_bamboo_puppet_tower",
+        "nether_river_land",
+        "yin_mountain_catacomb"
+      ],
+      "count": 9,
+      "of": 19,
+      "description": "含区域级 diyuan/天渊等桥接。"
+    },
+    {
+      "id": "numeric_mechanism_scrap",
+      "display": "数值锚·机关零件",
+      "type": "meta",
+      "price": [20, 800],
+      "description": "千竹经济尺。"
+    },
+    {
+      "id": "numeric_yin_pearl",
+      "display": "数值锚·阴珠",
+      "type": "meta",
+      "price": [500, 15000],
+      "description": "魔道黑市尺。"
+    },
+    {
+      "id": "numeric_yin_ward_pill",
+      "display": "数值锚·阴御丹",
+      "type": "meta",
+      "price": [100, 2000],
+      "description": "冥河门槛药。"
+    },
+    {
+      "id": "numeric_puppet_core",
+      "display": "数值锚·傀儡核胚",
+      "type": "meta",
+      "price": [500, 20000],
+      "description": "结丹期稀材。"
+    },
+    {
+      "id": "crossref_qianzhu_orig",
+      "display": "交叉·千竹原包",
+      "type": "meta",
+      "secret_realms_id": "thousand_bamboo_puppet_tower",
+      "description": "layers 5, realm_min FOUNDATION。"
+    },
+    {
+      "id": "crossref_nether_orig",
+      "display": "交叉·冥河原包",
+      "type": "meta",
+      "secret_realms_id": "nether_river_land",
+      "description": "layers 3；与终局相位共用。"
+    },
+    {
+      "id": "crossref_yinluo_guiling",
+      "display": "交叉·阴罗与鬼灵货架",
+      "type": "meta",
+      "shelf": "sect_shelves_more_v107",
+      "description": "声望与追杀咬合。"
+    },
+    {
+      "id": "crossref_dayan_manual",
+      "display": "交叉·大衍与功法目录",
+      "type": "meta",
+      "hint": "残篇拼合后写入 manuals 进度，不直接覆盖完整青元等",
+      "description": "功法冲突矩阵仍适用。"
+    },
+    {
+      "id": "lore_qianzhu_one_line",
+      "display": "千竹一句话",
+      "type": "lore",
+      "text": "停轮破核，残篇慢慢拼，莫在塔里杀红眼。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_nether_one_line",
+      "display": "冥河一句话",
+      "type": "lore",
+      "text": "浅层采阴，中层付渡资，深层别当日常刷。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_yinluo_one_line",
+      "display": "阴罗冢一句话",
+      "type": "lore",
+      "text": "破幡斩将取阴珠，天尸只给线索不给现货。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_merge_one_line",
+      "display": "合并一句话",
+      "type": "lore",
+      "text": "原包是货架，深挖是剧本，红线以后期审计为准。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "read_order_merged_card",
+      "display": "合并阅读顺序卡",
+      "type": "meta",
+      "order": [
+        "CATALOG_MASTER",
+        "merge_bridge_v109",
+        "CONSISTENCY_AUDIT",
+        "data_manifest",
+        "economy_index content_counts_v109",
+        "catalogs",
+        "deep 专页"
+      ],
+      "description": "新人入口。"
+    },
+    {
+      "id": "data_manifest_bridge_note",
+      "display": "manifest 与深挖并行说明",
+      "type": "meta",
+      "description": "data_manifest 继续索引原包路径；深挖文件进 economy catalog_refs 与 merge_bridge。"
+    },
+    {
+      "id": "beast_bestiary_bridge_note",
+      "display": "原包 42 兽与后期图鉴",
+      "type": "meta",
+      "orig": 42,
+      "expansion": "bestiary_v95–v109",
+      "description": "UI 合并 id；原包 setting/learn 字段保留。"
+    },
+    {
+      "id": "merchant_vs_sect_shelf",
+      "display": "商店清单 vs 宗门货架",
+      "type": "meta",
+      "merchant_shops": 46,
+      "sect_shelves": 6,
+      "description": "原包 46 店是点位清单；六宗门货架是声望价与永不进货。"
+    },
+    {
+      "id": "designer_slice_merge_ready",
+      "display": "切片验收·合并桥",
+      "type": "meta",
+      "checks": ["三层角色清晰", "冲突裁决可读", "id_bridge 九境", "仍浅清单"],
+      "description": "v109。"
+    },
+    {
+      "id": "designer_slice_qianzhu_ready",
+      "display": "切片验收·千竹塔",
+      "type": "meta",
+      "checks": ["五层", "二 boss", "大衍残篇", "破核配装"],
+      "description": "对齐原包 layers 5。"
+    },
+    {
+      "id": "designer_slice_nether_ready",
+      "display": "切片验收·冥河",
+      "type": "meta",
+      "checks": ["三层", "渡资", "阴御丹", "神乳线索 unique"],
+      "description": "对齐原包。"
+    },
+    {
+      "id": "designer_slice_yinluo_ready",
+      "display": "切片验收·阴罗冢",
+      "type": "meta",
+      "checks": ["四层", "尸将", "阴珠", "鬼灵声望", "天尸线索"],
+      "description": "对齐原包。"
+    },
+    {
+      "id": "deep_dive_index_v109",
+      "display": "v109 深挖索引",
+      "type": "meta",
+      "files": [
+        "merge_bridge_v109.json",
+        "secret_realm_qianzhu_tower_v109.json",
+        "secret_realm_nether_river_v109.json",
+        "secret_realm_yinluo_catacomb_v109.json"
+      ],
+      "description": "机读入口。"
+    },
+    {
+      "id": "v109_accept",
+      "display": "v109 验收签",
+      "type": "meta",
+      "checks": ["合并桥", "千竹", "冥河", "阴罗冢", "生物说明", "无代码"],
+      "description": "本版完成。"
+    }
+  ]
+}

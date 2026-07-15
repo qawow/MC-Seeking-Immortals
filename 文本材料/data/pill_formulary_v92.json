@@ -1,0 +1,848 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 丹方/丹药体系。衍生于原著丹方结构；数值为模组量级及结构用途",
+  "disclaimer": "丹方为主辅料结构表示，不等于精确药量占比；境界阶位为归类参考",
+  "pill_tiers": [
+    {
+      "tier": 1,
+      "name": "初级灵丹",
+      "realm": "QI_REFINING"
+    },
+    {
+      "tier": 2,
+      "name": "中阶灵丹",
+      "realm": "FOUNDATION"
+    },
+    {
+      "tier": 3,
+      "name": "高阶灵丹",
+      "realm": "CORE_FORMATION"
+    },
+    {
+      "tier": 4,
+      "name": "顶阶灵丹",
+      "realm": "NASCENT_SOUL"
+    },
+    {
+      "tier": 5,
+      "name": "圣级灵丹",
+      "realm": "DEITY_TRANSFORMATION_PLUS"
+    }
+  ],
+  "pills": [
+    {
+      "id": "zhu_ji_dan",
+      "display": "筑基丹",
+      "realm_target": "QI_REFINING_LATE_to_FOUNDATION",
+      "tier": 1,
+      "main_ingredients": [
+        "玉髓芝",
+        "紫猴花",
+        "天灵果",
+        "千年灵草"
+      ],
+      "effect": "突破筑基瓶颈",
+      "usage_limit": "服用1-2粒后抗性大增，多服无效",
+      "price_low_stone": [
+        500,
+        2000
+      ],
+      "source_tags": [
+        "血色禁地",
+        "拍卖",
+        "宗门配额"
+      ],
+      "setting": {
+        "lore": "炼气期最重要的突破丹；七派/魔道/天星城皆有出产。"
+      },
+      "description": "炼气末最关键突破丹。主药玉髓芝、紫猴花、天灵果加药引。禁地自采可大幅降低成本；市售有掺假。大晋有更高规格替代方。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "筑基丹：参考价 [500, 2000]。筑基关口；血色三主料拼图；坊市有但贵且掺假",
+      "v143": true,
+      "description_v145": "炼气末最关键突破丹。主药玉髓芝、紫猴花、天灵果加药引。禁地自采可大幅降低成本；市售有掺假。大晋有更高规格替代方。",
+      "main_ingredients_detail": [
+        {
+          "id": "yu_sui_zhi",
+          "name": "玉髓芝",
+          "role": "主药一",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "zi_hou_hua",
+          "name": "紫猴花",
+          "role": "主药二",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "tian_ling_guo",
+          "name": "天灵果",
+          "role": "主药三",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "qian_nian_ling_cao",
+          "name": "千年灵草",
+          "role": "主药四/药引基",
+          "qty": 1,
+          "source": "禁地/洞府/拍卖",
+          "price_low_stone": [
+            50,
+            300
+          ]
+        }
+      ],
+      "success_base_v145": 0.35,
+      "quest_chain_v145": [
+        "blood_forbidden_run",
+        "huangfeng_blood_quota"
+      ],
+      "v145": true
+    },
+    {
+      "id": "yang_jing_dan",
+      "display": "养精丹",
+      "realm_target": "QI_REFINING_to_FOUNDATION",
+      "tier": 1,
+      "effect": "内伤外伤皆有效，保命续伤",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "setting": {
+        "lore": "低阶通用疗伤丹药，韩立早期常用。"
+      },
+      "description": "内伤外伤皆有效，保命续伤。低阶通用疗伤丹药，韩立早期常用。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "养精丹：参考价 [10, 50]。前期养精，任务小奖常见",
+      "v143": true
+    },
+    {
+      "id": "ju_ling_dan",
+      "display": "聚灵丹",
+      "realm_target": "QI_REFINING_to_FOUNDATION",
+      "tier": 1,
+      "effect": "增进修为积累",
+      "price_low_stone": [
+        20,
+        100
+      ],
+      "setting": {
+        "lore": "韩立在黄枫谷常炼的低阶修行灵丹。"
+      },
+      "description": "增进修为积累。韩立在黄枫谷常炼的低阶修行灵丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "聚灵丹：参考价 [20, 100]。聚灵辅助，洞府修炼友好",
+      "v143": true
+    },
+    {
+      "id": "lian_qi_san",
+      "display": "炼气散",
+      "realm_target": "QI_REFINING",
+      "tier": 1,
+      "effect": "炼气期修为增进",
+      "price_low_stone": [
+        1,
+        10
+      ],
+      "setting": {
+        "lore": "最基础的炼气期丹药结构。"
+      },
+      "description": "炼气期修为增进。最基础的炼气期丹药结构。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "jiang_chen_dan",
+      "display": "降尘丹",
+      "realm_target": "FOUNDATION_LATE_to_CORE_FORMATION",
+      "tier": 2,
+      "main_ingredients": [
+        "六级以上妖兽内丹"
+      ],
+      "effect": "增加结丹几率",
+      "price_low_stone": [
+        3000,
+        15000
+      ],
+      "setting": {
+        "lore": "韩立灭古长老所得；外界极难购得。"
+      },
+      "description": "增加结丹几率。韩立灭古长老所得；外界极难购得。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "jing_sui_dan_basic",
+      "display": "金髓丸（通用版）",
+      "realm_target": "FOUNDATION_to_CORE_FORMATION",
+      "tier": 2,
+      "effect": "增进修为（可多次服用）",
+      "price_low_stone": [
+        200,
+        1000
+      ],
+      "setting": {
+        "lore": "结丹期可多次服用的修为增进丹。"
+      },
+      "description": "增进修为（可多次服用）。结丹期可多次服用的修为增进丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "ling_sui_dan",
+      "display": "灵髓丸",
+      "realm_target": "FOUNDATION",
+      "tier": 2,
+      "effect": "筑基期可多次服用增进修为",
+      "price_low_stone": [
+        80,
+        400
+      ],
+      "setting": {
+        "lore": "原著中有提及但未特写的筑基期通用修为丹。"
+      },
+      "description": "筑基期可多次服用增进修为。原著中有提及但未特写的筑基期通用修为丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "bu_tian_dan",
+      "display": "补天丹",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "effect": "弥补灵根不纯、精炼先天灵根",
+      "price_low_stone": [
+        20000,
+        200000
+      ],
+      "setting": {
+        "lore": "虚天殿内出世引发乱星海正魔大战之物。"
+      },
+      "description": "精炼先天/弥补灵根叙事。虚天宝库 unique 竞争物之一，不作坊市无限货。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "补天丹：参考价 [20000, 200000]。补天丹——虚天/星宫配额叙事，高阶续命与破境辅助",
+      "v143": true,
+      "description_v145": "精炼先天/弥补灵根叙事。虚天宝库 unique 竞争物之一，不作坊市无限货。",
+      "main_ingredients_detail": [
+        {
+          "name": "虚天殿补天主药（秘）",
+          "role": "主",
+          "qty": 1,
+          "unique_contest": true,
+          "source": "xutian_palace treasure_core"
+        }
+      ],
+      "success_base_v145": 0.25,
+      "quest_chain_v145": [
+        "xutian_window_prepare"
+      ],
+      "v145": true
+    },
+    {
+      "id": "ding_ling_dan",
+      "display": "定灵丹（安魂丹）",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "effect": "定心安魂减轻心魔，增进修为，辅助结婴",
+      "price_low_stone": [
+        8000,
+        50000
+      ],
+      "setting": {
+        "lore": "结婴期减轻心魔入侵之辅助丹；韩立在试剑大会取得丹方。"
+      },
+      "description": "定心安魂减轻心魔，增进修为，辅助结婴。结婴期减轻心魔入侵之辅助丹；韩立在试剑大会取得丹方。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "jiu_qu_ling_shen_dan",
+      "display": "九曲灵参丹",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "main_ingredients": [
+        "九曲灵参",
+        "玛瑙角",
+        "千叶露"
+      ],
+      "effect": "大幅度增加结婴几率",
+      "price_low_stone": [
+        30000,
+        200000
+      ],
+      "setting": {
+        "lore": "古修士传承丹方；极为罕见。"
+      },
+      "description": "大幅度增加结婴几率。古修士传承丹方；极为罕见。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "zao_hua_dan",
+      "display": "造化丹",
+      "realm_target": "NASCENT_SOUL_to_DEITY_TRANSFORMATION",
+      "tier": 4,
+      "main_ingredients": [
+        "灵烛果"
+      ],
+      "effect": "体验境界突破瓶颈，化神以下有效；只能服一次",
+      "price_low_stone": [
+        50000,
+        300000
+      ],
+      "setting": {
+        "lore": "服用后堕入幻境体验境界；韩立以此体验突破。"
+      },
+      "description": "体验境界突破瓶颈，化神以下有效；只能服一次。服用后堕入幻境体验境界；韩立以此体验突破。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v145": "以灵烛果为主药。服后入幻境体验更高境界瓶颈，化神以下有效，一生一次。果本身 unique 争夺，不鼓励纯倒卖刷钱。",
+      "main_ingredients_detail": [
+        {
+          "id": "ling_zhu_guo",
+          "name": "灵烛果",
+          "role": "唯一主药",
+          "qty": 1,
+          "unique": true,
+          "source": "zhuimo_valley zm_candle",
+          "price_low_stone": [
+            3000,
+            30000
+          ]
+        }
+      ],
+      "success_base_v145": 0.4,
+      "quest_chain_v145": [
+        "lingzhu_fruit_run",
+        "zhuimo_token"
+      ],
+      "v145": true
+    },
+    {
+      "id": "pei_ying_dan",
+      "display": "培婴丹",
+      "realm_target": "NASCENT_SOUL",
+      "tier": 4,
+      "main_ingredients": [
+        "阴芝马血肉"
+      ],
+      "effect": "洗筋易髓，壮大元婴，突破修炼瓶颈",
+      "price_low_stone": [
+        50000,
+        500000
+      ],
+      "setting": {
+        "lore": "上古宗门镇宗灵药；韩立与富成在阴阳窟捕捉阴芝马炼制。"
+      },
+      "description": "洗筋易髓，壮大元婴，突破修炼瓶颈。上古宗门镇宗灵药；韩立与富成在阴阳窟捕捉阴芝马炼制。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "培婴丹：参考价 [50000, 500000]。培婴关口；阴芝马活捕链；非街边货",
+      "v143": true,
+      "description_v145": "壮大元婴、洗筋易髓。主料阴芝马——活捕远优于击杀。窟外协作炼丹结构；成率不高，非街边货。",
+      "main_ingredients_detail": [
+        {
+          "id": "yin_zhi_ma_living",
+          "name": "阴芝马（活体优先）",
+          "role": "主",
+          "qty": 1,
+          "prefer_live": true,
+          "kill_quality_penalty": 0.7,
+          "source": "yinyang_ku yy_yinzhi",
+          "price_low_stone": [
+            80000,
+            500000
+          ]
+        }
+      ],
+      "success_base_v145": 0.22,
+      "quest_chain_v145": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ],
+      "v145": true
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "realm_target": "NASCENT_SOUL_to_DEITY_TRANSFORMATION",
+      "tier": 4,
+      "main_ingredients": [
+        "太阳精火",
+        "寒髓"
+      ],
+      "effect": "白骨生肉，无限修补肉身；延长四分之一寿元",
+      "price_low_stone": [
+        100000,
+        1000000
+      ],
+      "setting": {
+        "lore": "神话级疗伤秘药；原著中韩立耗时多年炼成数瓶。"
+      },
+      "description": "白骨生肉，无限修补肉身；延长四分之一寿元。神话级疗伤秘药；原著中韩立耗时多年炼成数瓶。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "回阳真水：参考价 [100000, 1000000]。回阳真水——化神关键，火狱太阳精火+太阴结构，禁无限复制",
+      "v143": true,
+      "description_v145": "太阳精火与寒髓（太阴/五寒焰结构）相合。化神关键灵物，禁无限复制与开放交易。",
+      "main_ingredients_detail": [
+        {
+          "id": "tai_yang_jing_huo",
+          "name": "太阳精火",
+          "role": "至阳",
+          "qty": 1,
+          "unique_limited": true,
+          "source": "huoyu core"
+        },
+        {
+          "id": "han_sui",
+          "name": "寒髓",
+          "role": "至阴",
+          "qty": 1,
+          "source": "五寒焰/太阴结构"
+        }
+      ],
+      "success_base_v145": 0.3,
+      "quest_chain_v145": [
+        "deity_huoyu_path"
+      ],
+      "v145": true
+    },
+    {
+      "id": "jiang_yun_dan",
+      "display": "绛云丹",
+      "realm_target": "NASCENT_SOUL_MID",
+      "tier": 4,
+      "effect": "元婴中期增进修为",
+      "note": "元婴初期服用药性浪费且可能导致经脉撕裂",
+      "price_low_stone": [
+        20000,
+        100000
+      ],
+      "setting": {
+        "lore": "专供元婴中期提升修为的高阶丹药。"
+      },
+      "description": "元婴中期增进修为。专供元婴中期提升修为的高阶丹药。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xue_po_wan",
+      "display": "雪魄丸",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "effect": "冰寒属性功法更进一步",
+      "specialty": "冰寒系",
+      "price_low_stone": [
+        10000,
+        60000
+      ],
+      "setting": {
+        "lore": "辅助冰寒功法修炼之药；小极宫一系相关。"
+      },
+      "description": "冰寒属性功法更进一步。辅助冰寒功法修炼之药；小极宫一系相关。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xuan_bing_dan",
+      "display": "玄冰丹",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "main_ingredients": [
+        "玄冰花"
+      ],
+      "effect": "冰寒功法辅助",
+      "setting": {
+        "lore": "韩立赴小极宫采集玄冰花所炼之丹。"
+      },
+      "description": "冰寒功法辅助。韩立赴小极宫采集玄冰花所炼之丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "display": "魔元丹",
+      "realm_target": "NASCENT_SOUL_LATE",
+      "tier": 4,
+      "effect": "魔道功法冲刺化神辅助",
+      "price_low_stone": [
+        50000,
+        300000
+      ],
+      "setting": {
+        "lore": "呼老魔所有；韩立以万年玄玉换得，后助化神突破。"
+      },
+      "description": "魔道功法冲刺化神辅助。呼老魔所有；韩立以万年玄玉换得，后助化神突破。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "kong_que_dan",
+      "display": "空白（结构位）",
+      "realm_target": "NASCENT_SOUL_LATE",
+      "tier": 4,
+      "effect": "结丹后期冲刺元婴辅助类",
+      "price_low_stone": [
+        15000,
+        80000
+      ],
+      "setting": {
+        "lore": "多为元婴期修士自炼自用，极少在坊市流通。"
+      },
+      "description": "结丹后期冲刺元婴辅助类。多为元婴期修士自炼自用，极少在坊市流通。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "realm_target": "BODY_INTEGRATION_to_GREAT_VEHICLE",
+      "tier": 5,
+      "effect": "大幅增进修为，增突破合体瓶颈几率",
+      "setting": {
+        "lore": "合体期丹药；灵界广寒界中有产；韩立曾得。"
+      },
+      "description": "合体关键。广寒/功勋/任务向，无坊市无限货。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "虚灵丹（太虚妙灵丹）：参考价 无公开市价/任务向。虚灵丹/太虚妙灵丹——合体关键，广寒等机缘，功勋/任务向",
+      "v143": true,
+      "description_v145": "合体关键。广寒/功勋/任务向，无坊市无限货。",
+      "main_ingredients_detail": [
+        {
+          "name": "虚灵主药（广寒等）",
+          "role": "主",
+          "qty": 1,
+          "source": "guanghan_realm"
+        }
+      ],
+      "success_base_v145": 0.2,
+      "quest_chain_v145": [
+        "guanghan_endgame_path"
+      ],
+      "v145": true
+    },
+    {
+      "id": "zhen_chan_ye",
+      "display": "真蟾液",
+      "realm_target": "DEITY_TRANSFORMATION_to_VOID_REFINEMENT",
+      "tier": 5,
+      "main_ingredients": [
+        "真蟾兽内丹等"
+      ],
+      "effect": "化神期增进修为",
+      "setting": {
+        "lore": "灵界化神期丹药结构；韩立在天渊城购得丹方。"
+      },
+      "description": "化神期增进修为。灵界化神期丹药结构；韩立在天渊城购得丹方。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "teng_long_dan",
+      "display": "腾龙丹",
+      "realm_target": "VOID_REFINEMENT",
+      "tier": 5,
+      "effect": "炼虚期增进修为",
+      "setting": {
+        "lore": "灵界炼虚期高价值修行丹药。"
+      },
+      "description": "炼虚期增进修为。灵界炼虚期高价值修行丹药。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "si_ling_wan",
+      "display": "饲灵丸",
+      "realm_target": "insect_beast",
+      "tier": 2,
+      "effect": "培育灵兽/灵虫进阶",
+      "main_ingredients": [
+        "灵兽粪便",
+        "灵药"
+      ],
+      "price_low_stone": [
+        50,
+        300
+      ],
+      "setting": {
+        "lore": "古修士专门培育灵兽之药；韩立曾炼制喂养噬金虫。"
+      },
+      "description": "培育灵兽/灵虫进阶。古修士专门培育灵兽之药；韩立曾炼制喂养噬金虫。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "shi_xue_dan",
+      "display": "嗜血丹（概念结构）",
+      "realm_target": "QI_REFINING_to_CORE_FORMATION",
+      "tier": 2,
+      "effect": "短时提升战斗力但有后遗症",
+      "setting": {
+        "lore": "魔道常用战斗丹药。"
+      },
+      "description": "短时提升战斗力但有后遗症。魔道常用战斗丹药。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "hui_su_wan",
+      "display": "回煞丸",
+      "realm_target": "CORE_FORMATION_to_NASCENT_SOUL",
+      "tier": 3,
+      "effect": "激发真元瞬间恢复法力并提升修为；过后损伤元气",
+      "setting": {
+        "lore": "天煞宗秘制丹药；有爆发力但副作用明显。"
+      },
+      "description": "激发真元瞬间恢复法力并提升修为；过后损伤元气。天煞宗秘制丹药；有爆发力但副作用明显。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xue_ning_dan",
+      "display": "血凝丹（概念结构）",
+      "realm_target": "CORE_FORMATION",
+      "tier": 3,
+      "effect": "结丹期修炼辅助",
+      "setting": {
+        "lore": "韩立黑煞教案相关。"
+      },
+      "description": "结丹期修炼辅助。韩立黑煞教案相关。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "zhu_ji_dan_advanced",
+      "display": "筑基丹（大晋级）",
+      "realm_target": "QI_REFINING_LATE_to_FOUNDATION",
+      "tier": 1,
+      "main_ingredients": [
+        "玉髓芝类替代"
+      ],
+      "effect": "突破筑基（大晋版本药力略高）",
+      "price_low_stone": [
+        1000,
+        4000
+      ],
+      "region": "dajin",
+      "setting": {
+        "lore": "大晋流通的筑基丹版本，价高但品质略胜。"
+      },
+      "description": "大晋地产与更稳丹引，成率叙事高于天南坊市货。",
+      "appearance": "玉瓶封存灵丹（结构默认）",
+      "description_v143": "筑基丹（大晋级）：参考价 [1000, 4000]。大晋级筑基丹，品质/成功率叙事更高",
+      "v143": true,
+      "description_v145": "大晋地产与更稳丹引，成率叙事高于天南坊市货。",
+      "success_base_v145": 0.45,
+      "quest_chain_v145": null,
+      "v145": true
+    },
+    {
+      "id": "hui_sha_wan",
+      "display": "回煞丸",
+      "realm_target": "NASCENT_SOUL",
+      "tier": 4,
+      "effect": "瞬间恢复大半法力并略增修为，事后损元气",
+      "faction": "tiansha_zong",
+      "price_low_stone": [
+        8000,
+        50000
+      ],
+      "setting": {
+        "lore": "天煞宗秘制；战中回蓝爆发，有后遗。"
+      },
+      "description": "瞬间恢复大半法力并略增修为，事后损元气。天煞宗秘制；战中回蓝爆发，有后遗。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "yuqing_dan",
+      "display": "玉清丹",
+      "realm_target": "DEITY_TRANSFORMATION",
+      "tier": 5,
+      "effect": "化神期修为增进",
+      "price_unit": "tianyuan_merit",
+      "price_merit": [
+        15,
+        40
+      ],
+      "setting": {
+        "lore": "天渊城可购化神丹方/成品结构。"
+      },
+      "description": "化神期修为增进。天渊城可购化神丹方/成品结构。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "kui_shui_zhenling_dan",
+      "display": "葵水真灵丹",
+      "realm_target": "DEITY_TRANSFORMATION_PLUS",
+      "tier": 5,
+      "main_ingredients": [
+        "墨麒麟鳞片"
+      ],
+      "effect": "水系真灵向丹药",
+      "price_unit": "auction_spirit",
+      "setting": {
+        "lore": "需墨麒麟鳞等；灵界拍卖。"
+      },
+      "description": "水系真灵向丹药。需墨麒麟鳞等；灵界拍卖。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "zhen_hun_dan",
+      "display": "真魂丹",
+      "realm_target": "GREAT_VEHICLE",
+      "tier": 5,
+      "effect": "大乘级神魂/修为奇效",
+      "price_note": "不可标价",
+      "setting": {
+        "lore": "斩杀真仙马良等节点产出；终局流通。"
+      },
+      "description": "大乘级神魂/修为奇效。斩杀真仙马良等节点产出；终局流通。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "mie_chen_dan",
+      "display": "灭尘丹",
+      "realm_target": "DEITY_TRANSFORMATION",
+      "tier": 5,
+      "effect": "任务目标/特殊效用",
+      "price_unit": "quest",
+      "setting": {
+        "lore": "木族任务关联目标丹。"
+      },
+      "description": "任务目标/特殊效用。木族任务关联目标丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "sha_dan",
+      "display": "煞丹",
+      "realm_target": "FOUNDATION_to_CORE",
+      "tier": 2,
+      "effect": "延寿近金丹但持续释放煞气侵蚀神智",
+      "alignment": "demonic",
+      "price_low_stone": [
+        2000,
+        20000
+      ],
+      "setting": {
+        "lore": "黑煞教路线；有巨大负面。"
+      },
+      "description": "延寿近金丹但持续释放煞气侵蚀神智。黑煞教路线；有巨大负面。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xuan_mu_huaying",
+      "display": "玄牡化婴大法关联丹辅",
+      "realm_target": "NASCENT_SOUL",
+      "tier": 4,
+      "effect": "辅助第二元婴/归一相关",
+      "price_note": "功法配套非单丹",
+      "setting": {
+        "lore": "辛如音遗物线；结构占位。"
+      },
+      "description": "辅助第二元婴/归一相关。辛如音遗物线；结构占位。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "bailian_jiedu_dan",
+      "display": "百炼解毒丹",
+      "realm_target": "FOUNDATION_to_NASCENT",
+      "tier": 2,
+      "effect": "解中低阶毒与部分十绝毒初期",
+      "price_low_stone": [
+        100,
+        2000
+      ],
+      "setting": {
+        "lore": "通用解毒结构丹。"
+      },
+      "description": "解中低阶毒与部分十绝毒初期。通用解毒结构丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "wuxing_xue_ning_dan",
+      "display": "五行血凝丹",
+      "realm_target": "FOUNDATION",
+      "tier": 2,
+      "effect": "黑煞教相关；增进/邪修结构",
+      "alignment": "demonic",
+      "price_low_stone": [
+        500,
+        5000
+      ],
+      "source_tags": [
+        "黑煞教"
+      ],
+      "setting": {
+        "lore": "覆灭黑煞教所得结构丹。"
+      },
+      "description": "黑煞教相关；增进/邪修结构。覆灭黑煞教所得结构丹。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    },
+    {
+      "id": "xuan_bing_dan_full",
+      "display": "玄冰丹",
+      "realm_target": "NASCENT_SOUL",
+      "tier": 4,
+      "main_ingredients": [
+        "玄冰花"
+      ],
+      "effect": "寒系修为/寒焰相关",
+      "price_low_stone": [
+        15000,
+        80000
+      ],
+      "setting": {
+        "lore": "小极宫采玄冰花所炼。"
+      },
+      "description": "寒系修为/寒焰相关。小极宫采玄冰花所炼。",
+      "appearance": "玉瓶封存灵丹（结构默认）"
+    }
+  ],
+  "quality_grades": [
+    {
+      "id": "low",
+      "display": "下品",
+      "effect_mult": 0.8,
+      "fail_risk": 0.15
+    },
+    {
+      "id": "mid",
+      "display": "中品",
+      "effect_mult": 1.0,
+      "fail_risk": 0.08
+    },
+    {
+      "id": "high",
+      "display": "上品",
+      "effect_mult": 1.25,
+      "fail_risk": 0.04
+    },
+    {
+      "id": "top",
+      "display": "极品",
+      "effect_mult": 1.6,
+      "fail_risk": 0.02,
+      "note": "极难炼出"
+    }
+  ],
+  "alchemy_rules": {
+    "furnace_tiers": [
+      "凡炉",
+      "灵炉",
+      "宝炉",
+      "古鼎"
+    ],
+    "flame_types": [
+      "凡火",
+      "地火",
+      "丹火",
+      "异火（乾蓝等）"
+    ],
+    "success_factors": [
+      "丹方完整度",
+      "火候",
+      "神识",
+      "药材药龄",
+      "炉鼎"
+    ],
+    "batch_size_hint": "低阶可批炼，顶阶常一炉数粒"
+  },
+  "v143_key_crosswalk": "item_price_quest_crosswalk_v143.json",
+  "v145": true
+}

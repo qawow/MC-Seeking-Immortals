@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "source": "v125 层数表+六宗术包",
+  "items": [
+    {
+      "id": "v125_layer_matrix",
+      "display": "功法层数×可学术",
+      "type": "meta",
+      "description": "共109张功法表；反查术法261。长春13层；青元/大衍阶段带。"
+    },
+    {
+      "id": "v125_six_sects",
+      "display": "六宗分宗术包",
+      "type": "meta",
+      "description": "鬼灵门21术；合欢宗10术；天魔宗19术；青罗宗8术；万狐宗8术；血巫教8术"
+    },
+    {
+      "id": "v125_accept",
+      "display": "验收",
+      "type": "meta",
+      "description": "双线同时完成。无代码。",
+      "checks": [
+        "层数对照表",
+        "术法反查索引",
+        "六宗各有术包",
+        "失神/惊神层门槛",
+        "无悬空requires"
+      ]
+    }
+  ]
+}

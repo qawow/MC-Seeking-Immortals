@@ -1,0 +1,440 @@
+{
+  "schema_version": 1,
+  "source": "v132 多方块结构索引",
+  "total": 53,
+  "by_type": {
+    "array_block": 9,
+    "crop_block": 1,
+    "multiblock_controller": 8,
+    "ore": 3,
+    "single_block": 6,
+    "structure": 24,
+    "utility_block": 2
+  },
+  "entries": [
+    {
+      "id": "alchemy_furnace_g1",
+      "display": "一品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "1×1×2（宽×深×高）",
+      "novel_anchor": "七玄门/黄枫谷外门弟子的入门丹炉气质；韩立早期炼辟谷丹时所用。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "display": "二品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×3（宽×深×高）",
+      "novel_anchor": "黄枫谷内门弟子常用丹炉；韩立筑基后所得。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "display": "三品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "3×3×4（宽×深×高）",
+      "novel_anchor": "落云宗/星宫等大宗门丹堂配置；韩立结丹后炼丹所用。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "earth_fire_alchemy_room",
+      "display": "地火炼丹室（结构）",
+      "type": "structure",
+      "dimensions": "5×5×4（宽×深×高）",
+      "novel_anchor": "韩立在黄枫谷结丹后获得地火室使用权，大幅提升炼丹效率；落云宗、星宫等亦有地火室。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "refinement_forge_g1",
+      "display": "一品炼器台",
+      "type": "multiblock_controller",
+      "dimensions": "2×1×2",
+      "novel_anchor": "凡间铁匠铺的修仙版；散修起步炼器。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "refinement_forge_g3",
+      "display": "三品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "3×3×3",
+      "novel_anchor": "大宗门或炼器师世家配置；韩立在天南/乱星海所得炼器阵。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "talisman_table",
+      "display": "制符台",
+      "type": "single_block",
+      "dimensions": "1×1×1",
+      "novel_anchor": "天符门/散修符师必备；韩立早期制符营生之器。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵基",
+      "type": "array_block",
+      "dimensions": "3×3×1（基础），可扩展至 5×5 或 7×7",
+      "novel_anchor": "修仙者洞府标配；韩立自黄枫谷外门起便设法布置聚灵阵。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "teleport_array_pedestal",
+      "display": "传送阵基座",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "novel_anchor": "乱星海各岛之间传送阵；虚天殿前传送阵。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "puppet_assembly_bench",
+      "display": "傀儡组装台",
+      "type": "single_block",
+      "dimensions": "2×1×2",
+      "novel_anchor": "千竹教/大衍诀修炼者必备；韩立筑基后大量使用。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "spirit_herb_planter",
+      "display": "灵草圃",
+      "type": "crop_block",
+      "dimensions": "1×1×1（单格），可连片成圃",
+      "novel_anchor": "韩立药园气质；黄枫谷药田与掌天瓶催熟。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "low_spirit_iron_ore",
+      "display": "低阶灵铁矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "novel_anchor": "天南各宗矿脉常见矿石。",
+      "realm_hint": null
+    },
+    {
+      "id": "yin_essence_ore_block",
+      "display": "阴元矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "novel_anchor": "阴冥之地/鬼道相关材料。",
+      "realm_hint": null
+    },
+    {
+      "id": "kunwu_copper_ore",
+      "display": "昆吾铜矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "novel_anchor": "昆吾山封印相关材料；韩立昆吾线所得。",
+      "realm_hint": null
+    },
+    {
+      "id": "spirit_vein_tap",
+      "display": "灵脉引流管",
+      "type": "utility_block",
+      "dimensions": "1×1×1",
+      "novel_anchor": null,
+      "realm_hint": null
+    },
+    {
+      "id": "ice_crystal_cooler",
+      "display": "冰鉴（炼器降温）",
+      "type": "utility_block",
+      "dimensions": "1×1×1",
+      "novel_anchor": null,
+      "realm_hint": null
+    },
+    {
+      "id": "immortal_alchemy_cauldron",
+      "display": "仙品丹鼎",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×5",
+      "novel_anchor": "仙界药王谷/真言门丹堂级配置。",
+      "realm_hint": "TRUE_IMMORTAL"
+    },
+    {
+      "id": "time_acceleration_array",
+      "display": "时间加速阵基",
+      "type": "array_block",
+      "dimensions": "5×5×1",
+      "novel_anchor": "时间法则应用；韩立掌天瓶气质的高阶表达。",
+      "realm_hint": "TAIYI_GOLDEN_IMMORTAL"
+    },
+    {
+      "id": "wuxing_world_seed_block",
+      "display": "幻世种子（放置）",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "novel_anchor": "大五行幻世诀的实体化表现；真言门镇派神通。",
+      "realm_hint": "TAIYI_GOLDEN_IMMORTAL"
+    },
+    {
+      "id": "cave_dwelling_core",
+      "display": "洞府核心",
+      "type": "structure",
+      "dimensions": "1×1×1（但需满足洞府整体结构条件）",
+      "novel_anchor": "修仙者必备洞府；韩立在各阶段均有洞府。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "sect_formation_hub",
+      "display": "护宗大阵枢纽",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "novel_anchor": "落云宗、黄枫谷、星宫等护宗大阵的枢纽。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "infant_fire_alchemy_room",
+      "display": "婴火炼丹室（结构）",
+      "type": "structure",
+      "dimensions": "7×7×5",
+      "novel_anchor": "元婴后高阶炼丹；大宗门核心丹房气质，非黄枫谷初阶地火室。",
+      "realm_hint": "NASCENT_SOUL"
+    },
+    {
+      "id": "spirit_fire_brazier",
+      "display": "灵火铜鼎（供火）",
+      "type": "multiblock_controller",
+      "dimensions": "1×1×2",
+      "novel_anchor": "散修与内门作坊常用移动火源。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "bao_ding_socket",
+      "display": "古鼎/宝鼎承座",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "novel_anchor": "虚天鼎等古宝使用时的承座设定；与炼器蓝图 facility 对齐。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "puppet_workshop",
+      "display": "傀儡工坊（结构）",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "novel_anchor": "千竹教、韩立大衍傀儡线的作坊气质。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "puppet_core_forge",
+      "display": "傀儡核心炼台",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×2",
+      "novel_anchor": "傀儡术关键耗材生产点。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "spirit_beast_pen",
+      "display": "灵兽笼舍",
+      "type": "structure",
+      "dimensions": "3×3×3（单间），可拼联",
+      "novel_anchor": "灵兽山/御兽修士标配。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "beast_contract_altar",
+      "display": "御兽契坛",
+      "type": "structure",
+      "dimensions": "2×2×1",
+      "novel_anchor": "御兽、灵兽山入门仪式气质。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "formation_flag_post",
+      "display": "阵旗桩",
+      "type": "array_block",
+      "dimensions": "1×1×2",
+      "novel_anchor": "一切布阵的基础组件。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "kill_array_hub",
+      "display": "杀阵枢纽",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "novel_anchor": "洞府防护与秘境杀阵。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "illusion_array_hub",
+      "display": "幻阵枢纽",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "novel_anchor": "掩月宗、秘境试炼常见。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "spirit_well",
+      "display": "聚灵井",
+      "type": "structure",
+      "dimensions": "2×2×2",
+      "novel_anchor": "洞府灵泉/聚灵池的井状简化。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "soul_banner_altar",
+      "display": "魂幡祭坛",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "novel_anchor": "鬼灵门、阴罗宗、韩立早期鬼道线。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "blood_sacrifice_altar",
+      "display": "血祭坛",
+      "type": "structure",
+      "dimensions": "3×3×1",
+      "novel_anchor": "魔道血祭气质，六宗相关。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "corpse_refinement_pit",
+      "display": "炼尸坑",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "novel_anchor": "鬼灵门炼尸。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "meditation_chamber",
+      "display": "静室",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "novel_anchor": "修士闭关静室通例。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "dual_cultivation_chamber",
+      "display": "双修静室",
+      "type": "structure",
+      "dimensions": "4×4×3",
+      "novel_anchor": "合欢宗/掩月双修设定的空间载体（克制表述）。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "star_palace_teleport_gate",
+      "display": "星宫巡海传送门",
+      "type": "array_block",
+      "dimensions": "5×5×3",
+      "novel_anchor": "乱星海星宫秩序交通网。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "inverse_star_smuggle_dock",
+      "display": "逆星暗港趸船阵",
+      "type": "structure",
+      "dimensions": "5×3×2",
+      "novel_anchor": "逆星盟割据与走私线。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "immortal_teleport_grand_array",
+      "display": "仙界传送大阵",
+      "type": "array_block",
+      "dimensions": "9×9×2",
+      "novel_anchor": "仙界城池与宗门间的主干交通。",
+      "realm_hint": "TRUE_IMMORTAL"
+    },
+    {
+      "id": "true_word_lecture_platform",
+      "display": "真言授业台",
+      "type": "structure",
+      "dimensions": "5×5×2",
+      "novel_anchor": "真言门山门教学。",
+      "realm_hint": "TRUE_IMMORTAL"
+    },
+    {
+      "id": "reincarnation_trade_desk",
+      "display": "轮回殿交易案",
+      "type": "structure",
+      "dimensions": "2×1×2",
+      "novel_anchor": "轮回殿交易气质。",
+      "realm_hint": "TRUE_IMMORTAL"
+    },
+    {
+      "id": "kunwu_seal_pillar",
+      "display": "昆吾封镇柱",
+      "type": "structure",
+      "dimensions": "1×1×4",
+      "novel_anchor": "昆吾山封印。",
+      "realm_hint": "CORE_FORMATION"
+    },
+    {
+      "id": "auction_display_dais",
+      "display": "拍卖会展台",
+      "type": "structure",
+      "dimensions": "2×2×1",
+      "novel_anchor": "大晋拍卖会。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "spirit_stone_vault",
+      "display": "灵石库",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "novel_anchor": "宗门府库。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "scripture_pavilion_shelf",
+      "display": "藏经阁书架",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "novel_anchor": "黄枫谷藏经阁等。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "contribution_stele",
+      "display": "贡献碑",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "novel_anchor": "宗门日常。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "flying_boat_dock",
+      "display": "飞舟泊桩",
+      "type": "structure",
+      "dimensions": "3×5×2",
+      "novel_anchor": "修士长途交通。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "spirit_field_irrigation",
+      "display": "灵田灌溉阵盘",
+      "type": "array_block",
+      "dimensions": "1×1×1",
+      "novel_anchor": "药园自动化。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "pill_cabinet",
+      "display": "丹柜",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "novel_anchor": "丹师与宗门丹堂。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "weapon_rack_artifact",
+      "display": "法宝架",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "novel_anchor": "洞府陈设。",
+      "realm_hint": "FOUNDATION"
+    },
+    {
+      "id": "blood_forbidden_entry_stele",
+      "display": "血色禁地界碑",
+      "type": "structure",
+      "dimensions": "1×1×3",
+      "novel_anchor": "血色禁地入口。",
+      "realm_hint": "QI_REFINING"
+    },
+    {
+      "id": "xutian_palace_gate_fragment",
+      "display": "虚天殿门残件",
+      "type": "structure",
+      "dimensions": "3×1×4",
+      "novel_anchor": "虚天殿。",
+      "realm_hint": "CORE_FORMATION"
+    }
+  ]
+}

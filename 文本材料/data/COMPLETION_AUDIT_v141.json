@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "v141 任务可玩化+描述精修",
+  "delivered": [
+    "20 playable quest chains with steps/rewards",
+    "key method/technique/item/realm/region description polish",
+    "key_item_descriptions_v141"
+  ],
+  "honest_gaps_still": [
+    "非关键术法仍为轻量模板句",
+    "广寒真仙战钩子级",
+    "奖励数值未全部钉死到经济表"
+  ],
+  "status": "20 任务可玩步骤完成；关键描述贴原著"
+}

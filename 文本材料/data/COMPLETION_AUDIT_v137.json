@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "v137 设定完善审计",
+  "previous": "v136 维度通行",
+  "delivered_this_version": [
+    "开局原型与里程碑路线 opening_starts_and_paths_v137",
+    "区域结构出现表 region_structure_presence_v137（非势力战地图）",
+    "通行数值表 dimension_travel_costs_v137",
+    "交叉引用矩阵 setting_crosslink_matrix_v137",
+    "秘境条目挂 travel/structures",
+    "具名角色种子 named_npc_seeds_v137（诚实半成品）"
+  ],
+  "already_strong": [
+    "多方块 86：外观/建造/状态机/联机/材料价",
+    "维度通行办法总表 v136",
+    "仙界可玩环 v130",
+    "天南-灵界闭环 v129",
+    "功法术法归类 v123-v128"
+  ],
+  "honest_gaps_still": [
+    "功法/术法 element 等字段仍大量为空（历史债，需专项回填）",
+    "仙界具名角色仅种子，非全量百科",
+    "法则层「原文摘录级」仍非抄书",
+    "道祖全权能不展开",
+    "部分区域卡未独立成 region_cards 百科全书",
+    "开局路线未逐条绑死全部 quest id"
+  ],
+  "suggested_next": [
+    "technique element/path 专项回填",
+    "region_cards 百科（天南省/岛/仙域）",
+    "NPC 种子扩写对话模板",
+    "秘境逐层刷怪与结构坐标示意"
+  ],
+  "status": "设定横向粘合增强：开局→结构→通行数值→秘境交叉→NPC种子"
+}

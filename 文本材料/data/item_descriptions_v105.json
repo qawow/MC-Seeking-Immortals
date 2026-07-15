@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v105 物品详释：昆吾 / 阴阳窟 / 天渊地渊 配套",
+  "items": [
+    {
+      "id": "kunwu_clue_piece",
+      "display": "昆吾入口线索",
+      "type": "intel",
+      "tags": ["quest", "account_bound"],
+      "description": "拼图开启昆吾。多方情报玉简可补全。"
+    },
+    {
+      "id": "kunwu_intel_jade",
+      "display": "昆吾情报玉简",
+      "type": "intel",
+      "tags": ["trade", "quest"],
+      "price": [1000, 30000],
+      "description": "加分项。假情报风险。"
+    },
+    {
+      "id": "ba_ling_chi_full",
+      "display": "八灵尺（详释）",
+      "type": "tongtian",
+      "tags": ["unique", "quest", "no_trade"],
+      "use": ["镇魔", "通天战", "飞升前后"],
+      "description": "昆吾顶格。全局唯一，禁早掉炼气/结丹期。"
+    },
+    {
+      "id": "hei_feng_qi_can_full",
+      "display": "黑风旗残（详释）",
+      "type": "tongtian_damaged",
+      "tags": ["quest", "scarce"],
+      "use": ["赤魂幡素材", "残修"],
+      "description": "损而不灭。炼幡线关键。"
+    },
+    {
+      "id": "tai_yin_zhen_huo_full",
+      "display": "太阴真火（详释）",
+      "type": "flame",
+      "tags": ["quest", "scarce"],
+      "description": "至阴真火。与太阳精火等对照回阳链。"
+    },
+    {
+      "id": "tong_ling_huo_ding_full",
+      "display": "通灵火鼎（详释）",
+      "type": "fabao",
+      "tags": ["quest", "scarce"],
+      "description": "高级炉鼎。炼器炼丹双用结构。"
+    },
+    {
+      "id": "gui_ling_pai_full",
+      "display": "圭灵牌（详释）",
+      "type": "token",
+      "tags": ["quest"],
+      "description": "昆吾权限/收服/禁制钥匙。"
+    },
+    {
+      "id": "wu_zi_tong_xin_mo_full",
+      "display": "五子同心魔（详释）",
+      "type": "gubao",
+      "tags": ["quest", "demonic", "scarce"],
+      "description": "五子联攻。截杀线争夺。"
+    },
+    {
+      "id": "xue_ren_full",
+      "display": "血刃（详释）",
+      "type": "pseudo_lingbao",
+      "tags": ["quest", "scarce"],
+      "description": "杀伐重。心性风险；非正道标配。"
+    },
+    {
+      "id": "po_jie_fu_full",
+      "display": "破界符（详释）",
+      "type": "consumable",
+      "tags": ["quest", "scarce", "consumable"],
+      "charges": 1,
+      "description": "飞升钥匙。无节点则险。"
+    },
+    {
+      "id": "node_intel_canque",
+      "display": "空间节点资料·残缺",
+      "type": "intel",
+      "tags": ["quest"],
+      "risk": "高",
+      "description": "可飞升但事故率高。"
+    },
+    {
+      "id": "node_intel_biaozhun",
+      "display": "空间节点资料·标准",
+      "type": "intel",
+      "tags": ["quest", "scarce"],
+      "risk": "中",
+      "description": "常规飞升配置。"
+    },
+    {
+      "id": "node_intel_xiangjin",
+      "display": "空间节点资料·详尽",
+      "type": "intel",
+      "tags": ["unique", "quest", "no_trade"],
+      "risk": "低",
+      "description": "唯一向。昆吾顶层核心之一。"
+    },
+    {
+      "id": "qingzhu_reclaim_mark",
+      "display": "青竹剑夺回印记",
+      "type": "event",
+      "tags": ["quest", "account_bound"],
+      "description": "本命剑组失而复得。非商店。"
+    },
+    {
+      "id": "ascent_kit_kunwu",
+      "display": "飞升启程匣（昆吾后）",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["破界符", "节点资料", "六丁线索", "灵界立足包"],
+      "description": "通关昆吾后的飞升包结构。"
+    },
+    {
+      "id": "kunwu_construct_core",
+      "display": "昆吾构装核",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [2000, 30000],
+      "description": "傀儡/阵眼。外殿哨掉落。"
+    },
+    {
+      "id": "kunwu_jinhuo_sha",
+      "display": "金火砂",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [500, 8000],
+      "description": "昆吾火金辅材。"
+    },
+    {
+      "id": "realm_loadout_kunwu",
+      "display": "昆吾元婴战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["净魔", "火抗", "寒焰对冲", "高疗", "逃遁", "分身探路符"],
+      "description": "recommended_loadout 物化。"
+    },
+    {
+      "id": "yinzhi_live_capture_kit",
+      "display": "阴芝马活捕套",
+      "type": "kit",
+      "tags": ["trade", "quest"],
+      "contains": ["活物袋", "阴禁制", "麻痹针结构", "麝引"],
+      "price": [1000, 20000],
+      "description": "培婴线必备。死料方案非最优。"
+    },
+    {
+      "id": "yin_zhi_ma_live_item",
+      "display": "阴芝马（活体）",
+      "type": "creature_item",
+      "tags": ["quest", "scarce", "craft_mat", "no_trade"],
+      "description": "培婴主料。禁坊市；协作炼丹消耗。"
+    },
+    {
+      "id": "yin_zhi_ma_flesh_item",
+      "display": "阴芝马血肉",
+      "type": "material",
+      "tags": ["quest", "craft_mat"],
+      "description": "死料。成丹率与药力双降。"
+    },
+    {
+      "id": "yin_zhi_herb_item",
+      "display": "阴芝",
+      "type": "herb",
+      "tags": ["trade", "craft_mat", "scarce"],
+      "price": [2000, 30000],
+      "description": "窟内阴药。培婴辅。"
+    },
+    {
+      "id": "pei_ying_dan_full",
+      "display": "培婴丹（详释）",
+      "type": "pill",
+      "tags": ["scarce", "quest", "no_trade"],
+      "effect": "结婴三助之一",
+      "description": "阴阳窟终点。有价无市；不进普通货架。"
+    },
+    {
+      "id": "peiying_ready_box",
+      "display": "培婴丹协作箱",
+      "type": "kit",
+      "tags": ["quest", "scarce"],
+      "contains": ["辅药", "人情契", "炉时券", "解毒应急"],
+      "description": "富成协作结构。材料齐后开启。"
+    },
+    {
+      "id": "yin_sha_sand",
+      "display": "阴砂",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2000],
+      "description": "外窟尸偶掉落。阴符辅。"
+    },
+    {
+      "id": "shuang_ji_cai",
+      "display": "双极材",
+      "type": "material",
+      "tags": ["trade", "craft_mat"],
+      "price": [1000, 15000],
+      "description": "阴阳双头兽。短时平衡丹辅。"
+    },
+    {
+      "id": "yin_sha_jing",
+      "display": "阴煞晶",
+      "type": "material",
+      "tags": ["black_market", "craft_mat"],
+      "price": [3000, 40000],
+      "description": "夜叉成体。鬼器核。"
+    },
+    {
+      "id": "yinyang_poison_kit",
+      "display": "阴阳窟抗毒包",
+      "type": "kit",
+      "tags": ["trade"],
+      "contains": ["百炼解毒+", "阴抗符", "定神", "阳火符"],
+      "price": [500, 8000],
+      "description": "入窟门槛消耗。"
+    },
+    {
+      "id": "realm_loadout_yinyang",
+      "display": "阴阳窟战备包",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["抗毒包", "活捕套", "高疗", "佛门净物结构"],
+      "description": "绕夜叉、抓马导向。"
+    },
+    {
+      "id": "tianyuan_entry_registry",
+      "display": "天渊入境籍",
+      "type": "token",
+      "tags": ["quest", "merit_only"],
+      "description": "关卡司察验此。飞升后第一物。"
+    },
+    {
+      "id": "tianyuan_merit_account",
+      "display": "天渊功勋账户玉",
+      "type": "currency_tool",
+      "tags": ["merit_only", "account_bound"],
+      "description": "功勋余额载体。与灵石隔离。"
+    },
+    {
+      "id": "tianyuan_id_plaque",
+      "display": "天渊身份玉牌",
+      "type": "token",
+      "tags": ["account_bound"],
+      "description": "城内通行。丢失重办耗功勋。"
+    },
+    {
+      "id": "yuqing_dan_merit",
+      "display": "玉清丹（功勋店）",
+      "type": "pill",
+      "tags": ["merit_only", "consumable"],
+      "merit": [15, 40],
+      "description": "化神修为/疗伤结构丹。声望0即可基础兑。"
+    },
+    {
+      "id": "tenglong_dan_merit",
+      "display": "腾龙丹（功勋店）",
+      "type": "pill",
+      "tags": ["merit_only", "consumable"],
+      "merit": [20, 50],
+      "description": "化神巩固向。"
+    },
+    {
+      "id": "zhenchan_ye_merit",
+      "display": "真蟾液（功勋）",
+      "type": "liquid",
+      "tags": ["merit_only", "consumable"],
+      "merit": [30, 100],
+      "rep": 60,
+      "description": "特效药液。高声望优先。"
+    },
+    {
+      "id": "tianlei_mu_merit",
+      "display": "天雷木（功勋）",
+      "type": "wood",
+      "tags": ["merit_only", "craft_mat"],
+      "merit": [20, 80],
+      "description": "雷系炼器。地渊雷材可降价。"
+    },
+    {
+      "id": "moqilin_lin_merit",
+      "display": "墨麒麟鳞（功勋）",
+      "type": "material",
+      "tags": ["merit_only", "scarce", "craft_mat"],
+      "merit": [40, 120],
+      "rep": 85,
+      "description": "顶阶兑换。崇拜声望。"
+    },
+    {
+      "id": "hujie_booking",
+      "display": "护劫阵预约符",
+      "type": "service",
+      "tags": ["merit_only"],
+      "merit": 100,
+      "rep": 60,
+      "description": "化神/炼虚天劫辅助。租地邻位更佳。"
+    },
+    {
+      "id": "lingdi_lease_mid",
+      "display": "灵地中档租约",
+      "type": "service",
+      "tags": ["merit_only"],
+      "rep": 30,
+      "description": "月租结构。灵石沉洞。"
+    },
+    {
+      "id": "auction_seat_top",
+      "display": "天渊顶阶拍卖席",
+      "type": "token",
+      "tags": ["merit_only", "scarce"],
+      "rep": 85,
+      "description": "界面级拍品资格。"
+    },
+    {
+      "id": "diyuan_pass",
+      "display": "地渊营地通行",
+      "type": "token",
+      "tags": ["merit_only"],
+      "rep_diyuan": 20,
+      "description": "浅层任务许可。"
+    },
+    {
+      "id": "diyuan_pass_deep",
+      "display": "地渊深层许可",
+      "type": "token",
+      "tags": ["merit_only"],
+      "rep_diyuan": 50,
+      "description": "豹麟/王级任务。"
+    },
+    {
+      "id": "an_shou_nei_dan",
+      "display": "暗兽内丹",
+      "type": "material",
+      "tags": ["craft_mat", "quest"],
+      "description": "回收功勋。护送/清剿掉落。"
+    },
+    {
+      "id": "shi_yan_xin",
+      "display": "石炎心",
+      "type": "material",
+      "tags": ["craft_mat", "trade"],
+      "price": null,
+      "merit_buyback": true,
+      "description": "中层石炎兽。火器核。"
+    },
+    {
+      "id": "an_shi_he",
+      "display": "暗蚀核",
+      "type": "material",
+      "tags": ["craft_mat", "scarce"],
+      "description": "暗蚀兽。蚀法研究，自用慎。"
+    },
+    {
+      "id": "lei_jin_diyuan",
+      "display": "冥雷筋",
+      "type": "material",
+      "tags": ["craft_mat", "merit_only"],
+      "description": "冥雷幼掉落。兑功勋或自炼。"
+    },
+    {
+      "id": "bao_lin_feed_token",
+      "display": "豹麟口粮令",
+      "type": "quest",
+      "tags": ["quest", "bond"],
+      "description": "深层猎食任务交付。推进养成。"
+    },
+    {
+      "id": "bao_lin_bond_plaque",
+      "display": "豹麟契约牌",
+      "type": "bond",
+      "tags": ["bond", "quest", "no_trade"],
+      "description": "伙伴归属。不进商店。"
+    },
+    {
+      "id": "spirit_arrival_kit",
+      "display": "灵界立足包",
+      "type": "kit",
+      "tags": ["quest", "no_trade"],
+      "contains": ["功勋介绍", "天渊地图", "玉清丹1", "防骗简", "入境籍"],
+      "description": "飞升第一周。"
+    },
+    {
+      "id": "merit_isolation_notice",
+      "display": "功勋隔离告示",
+      "type": "rule_item",
+      "description": "禁止与灵石无限双向兑。天渊秩序。"
+    },
+    {
+      "id": "diyuan_mission_board",
+      "display": "地渊任务板简",
+      "type": "meta",
+      "missions": ["运补", "浅清", "中猎", "深精", "豹麟猎食"],
+      "merit_ranges": [[5, 20], [8, 25], [15, 40], [30, 80], [10, 30]],
+      "description": "日常循环。"
+    },
+    {
+      "id": "tianyuan_map_item",
+      "display": "天渊城坊图",
+      "type": "map",
+      "tags": ["trade", "merit_only"],
+      "description": "注册司发放/补办。"
+    },
+    {
+      "id": "diyuan_layer_map",
+      "display": "地渊分层简图",
+      "type": "map",
+      "tags": ["merit_only"],
+      "layers": ["营地", "浅", "中", "深"],
+      "description": "声望解锁更深标注。"
+    },
+    {
+      "id": "kunwu_zone_map",
+      "display": "昆吾分区简图",
+      "type": "map",
+      "tags": ["scarce", "quest"],
+      "zones": ["山道", "外殿", "火禁", "镇魔", "顶层", "追杀廊"],
+      "description": "线索拼合后可能获得。"
+    },
+    {
+      "id": "yinyang_zone_map",
+      "display": "阴阳窟简图",
+      "type": "map",
+      "tags": ["trade", "quest"],
+      "zones": ["外雾", "分途", "夜叉巢", "马层"],
+      "description": "标夜叉高危，劝绕。"
+    },
+    {
+      "id": "crossref_kunwu_quest",
+      "display": "主线交叉·昆吾",
+      "type": "meta",
+      "quest_chain": "dajin_kunwu",
+      "description": "与 main_quest_rewards 对齐。"
+    },
+    {
+      "id": "crossref_yinyang_quest",
+      "display": "主线交叉·培婴",
+      "type": "meta",
+      "quest_step": "阴阳窟培婴",
+      "description": "结婴三助之一。"
+    },
+    {
+      "id": "crossref_spirit_diyuan",
+      "display": "主线交叉·天渊地渊",
+      "type": "meta",
+      "quest_chain": "spirit_diyuan",
+      "description": "灵界开篇。"
+    },
+    {
+      "id": "numeric_merit_yuqing",
+      "display": "数值锚·玉清丹功勋",
+      "type": "meta",
+      "merit": [15, 40],
+      "description": "功勋店尺。"
+    },
+    {
+      "id": "numeric_merit_hujie",
+      "display": "数值锚·护劫100",
+      "type": "meta",
+      "merit": 100,
+      "description": "大额沉洞。"
+    },
+    {
+      "id": "numeric_yinzhi_price",
+      "display": "数值锚·阴芝",
+      "type": "meta",
+      "price": [2000, 30000],
+      "description": "培婴辅材市价。"
+    },
+    {
+      "id": "designer_slice_kunwu_ready",
+      "display": "切片验收·昆吾",
+      "type": "meta",
+      "checks": ["线索", "六区", "八灵", "节点等级", "撤离"],
+      "description": "手册切片4。"
+    },
+    {
+      "id": "designer_slice_peiying_ready",
+      "display": "切片验收·培婴",
+      "type": "meta",
+      "checks": ["活捕", "抗毒", "协作箱", "夺丹伏击"],
+      "description": "结婴线。"
+    },
+    {
+      "id": "designer_slice_spirit_ready",
+      "display": "切片验收·灵界底盘",
+      "type": "meta",
+      "checks": ["入境", "功勋隔离", "租地", "地渊五任务", "豹麟"],
+      "description": "手册切片5。"
+    },
+    {
+      "id": "lore_kunwu_one_line",
+      "display": "昆吾一句话",
+      "type": "lore",
+      "text": "镇魔、通天、飞升钥匙，三线交汇于此。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_yinyang_one_line",
+      "display": "阴阳窟一句话",
+      "type": "lore",
+      "text": "活马胜死料，协作炼培婴。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "lore_tianyuan_one_line",
+      "display": "天渊地渊一句话",
+      "type": "lore",
+      "text": "城中换安全，渊中换成长，功勋不作灵石。",
+      "description": "加载文案。"
+    },
+    {
+      "id": "deep_dive_index_v105",
+      "display": "v105 深挖索引",
+      "type": "meta",
+      "files": [
+        "secret_realm_kunwu_v105.json",
+        "secret_realm_yinyang_ku_v105.json",
+        "region_tianyuan_diyuan_v105.json"
+      ],
+      "description": "机读入口。"
+    },
+    {
+      "id": "v105_accept",
+      "display": "v105 验收签",
+      "type": "meta",
+      "checks": ["昆吾", "阴阳窟", "天渊地渊", "生物说明", "无代码"],
+      "description": "本版完成。"
+    }
+  ]
+}

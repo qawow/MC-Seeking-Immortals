@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v96 NPC 商人/丹师/器师名册与库存人格（结构）",
+  "disclaimer": "人名有原著有结构；库存为模板",
+  "vendors": [
+    {
+      "id": "vendor_tainan_xiaohui",
+      "display": "太南小会杂摊修士",
+      "location": "tainan_xiaohui_stalls",
+      "realm": "QI_REFINING",
+      "personality": "势利、欺生",
+      "stock_focus": ["低阶符", "凡器", "情报"],
+      "price_mod": 1.1,
+      "bargain": 0.05,
+      "description": "五年一会的流动摊；升仙令消息贵。"
+    },
+    {
+      "id": "vendor_hfg_pill",
+      "display": "黄枫谷坊市丹铺掌柜",
+      "location": "huangfenggu_market",
+      "realm": "FOUNDATION",
+      "personality": "圆滑、怕得罪内门",
+      "stock_focus": ["聚灵丹", "养精丹", "灵髓丸"],
+      "refuse": ["大批筑基丹公开卖"],
+      "description": "筑基丹多内部消化；散修难买。"
+    },
+    {
+      "id": "vendor_hfg_tool",
+      "display": "黄枫谷法器铺",
+      "stock_focus": ["中上品法器", "阵盘", "地火时租票"],
+      "description": "韩立早期炼器/购阵对象结构。"
+    },
+    {
+      "id": "vendor_yuejing_secret",
+      "display": "越京秘店老板",
+      "location": "yuejing_secret_shop",
+      "personality": "鬼祟、两头吃",
+      "stock_focus": ["敛息术", "弄焰诀", "来路不明符宝"],
+      "risk": "魔道眼线",
+      "description": "黑煞教线索可从此线引出。"
+    },
+    {
+      "id": "vendor_tianxing_secret",
+      "display": "天星宗坊市秘店",
+      "location": "tianxing_city_market",
+      "realm": "CORE_FORMATION",
+      "personality": "只认灵石",
+      "stock_focus": ["顶级法器", "海兽丹", "结丹材"],
+      "price_mod": 1.2,
+      "description": "秘店货优于明摊；韩立曾入。"
+    },
+    {
+      "id": "vendor_cujinge",
+      "display": "寸金阁执事",
+      "location": "heishi_cujinge_market",
+      "personality": "精明、重规矩",
+      "stock_focus": ["玛瑙角", "拍卖代理", "外星海材"],
+      "description": "兽潮前后坐地起价。"
+    },
+    {
+      "id": "vendor_tianjing_zhenren",
+      "display": "天晶真人（交换会）",
+      "location": "tiannan_trade_fair",
+      "realm": "NASCENT_SOUL",
+      "personality": "老谋、以物易物",
+      "stock_focus": ["上古傀儡", "赤精芝类", "情报"],
+      "mode": "barter",
+      "description": "元婴交换会核心NPC结构。"
+    },
+    {
+      "id": "vendor_jinjing_surface",
+      "display": "晋京丹阁供奉",
+      "location": "jinjing_surface",
+      "realm": "CORE_FORMATION",
+      "personality": "官气、势利",
+      "stock_focus": ["结丹结婴丹", "正道符", "庚精消息"],
+      "price_mod": 1.3,
+      "description": "大晋明面顶价。"
+    },
+    {
+      "id": "vendor_jinjing_under",
+      "display": "地下拍卖掮客",
+      "location": "jinjing_underground",
+      "personality": "狠厉、记仇",
+      "stock_focus": ["墨金", "五行玉", "禁术", "魔髓钻兑换"],
+      "risk": "拍完跟踪",
+      "description": "韩立换宝后易被盯。"
+    },
+    {
+      "id": "vendor_tianfu",
+      "display": "天符门符师",
+      "location": "tianfu_men_shop",
+      "personality": "清高、重门规",
+      "stock_focus": ["黄玄地天符", "代画", "降灵/化灵任务"],
+      "description": "归还降灵符可改关系。"
+    },
+    {
+      "id": "vendor_xiaojigong",
+      "display": "小极宫执事",
+      "location": "xiaojigong_trade",
+      "personality": "冷淡、只认寒焰同道",
+      "stock_focus": ["玄冰花", "玄玉", "寒焰辅材"],
+      "access": "邀约/关系",
+      "description": "外来者加价或不售。"
+    },
+    {
+      "id": "vendor_tianyuan",
+      "display": "天渊坊市功勋吏",
+      "location": "tianyuan_city_market",
+      "currency": "tianyuan_merit",
+      "personality": "公事公办",
+      "stock_focus": ["玉清丹", "真蟾液", "天雷木", "灵地租"],
+      "description": "飞升修士主补给。"
+    },
+    {
+      "id": "vendor_diyuan_camp",
+      "display": "地渊营地军需",
+      "location": "diyuan_camp_vendor",
+      "personality": "粗豪、回收赃物",
+      "stock_focus": ["疗伤", "寒抗", "阵旗", "妖材回收"],
+      "buyback_rate": [0.4, 0.7],
+      "description": "试炼临时货摊。"
+    },
+    {
+      "id": "alchemist_leiwanghe",
+      "display": "雷万鹤（丹方/交易）",
+      "type": "named_alchemist",
+      "realm": "CORE_FORMATION_plus",
+      "trades": ["丹方", "人情"],
+      "description": "韩立换丹方对象结构；非坐商店。"
+    },
+    {
+      "id": "refiner_huangqing",
+      "display": "皇清观炼器师",
+      "type": "refiner_npc",
+      "location": "dajin",
+      "teaches": ["炼器术入门~高阶"],
+      "stock_focus": ["器胚", "矿材"],
+      "description": "韩立学炼器混入线。"
+    },
+    {
+      "id": "fucheng_alchemist",
+      "display": "富成",
+      "type": "named_alchemist",
+      "realm": "NASCENT_SOUL",
+      "focus": ["培婴丹"],
+      "coop": "阴阳窟抓阴芝马",
+      "description": "合作炼丹NPC；非货架商人。"
+    },
+    {
+      "id": "xiangzhili_tianfu",
+      "display": "向之礼",
+      "type": "named_power",
+      "faction": "tianfu_men",
+      "trades": ["化灵符", "灵影术", "人情"],
+      "description": "天符门高层；报酬看立场。"
+    },
+    {
+      "id": "sect_contribution_clerk",
+      "display": "宗门功绩库执事（模板）",
+      "locations": ["huangfeng_gu", "luoyun_zong"],
+      "currency": "contribution",
+      "personality": "刻板",
+      "stock_focus": ["丹配额", "洞府权", "功法权限"],
+      "description": "各宗通用模板。"
+    },
+    {
+      "id": "war_merit_quartermaster",
+      "display": "九国盟军需",
+      "currency": "tiannan_war_merit",
+      "stock_focus": ["庚精", "玄天仙藤根茎", "疗伤批"],
+      "description": "赌战/边功兑换。"
+    },
+    {
+      "id": "yuling_egg_seller",
+      "display": "御灵宗虫卵商",
+      "faction": "yuling_zong",
+      "stock_focus": ["灵虫卵", "驱虫入门"],
+      "description": "虫修入门货源。"
+    },
+    {
+      "id": "guiling_black",
+      "display": "鬼灵门阴货商",
+      "alignment": "demonic",
+      "stock_focus": ["尸材", "鬼物", "炼尸入门"],
+      "risk": "正道通缉",
+      "description": "魔道专供。"
+    },
+    {
+      "id": "sea_beast_butcher",
+      "display": "天星城海兽屠户",
+      "stock_focus": ["新鲜妖丹", "海兽皮骨"],
+      "buyback_rate": [0.5, 0.8],
+      "description": "回收玩家猎杀海兽。"
+    },
+    {
+      "id": "info_broker_generic",
+      "display": "情报贩子（模板）",
+      "stock_focus": ["秘境开启", "追杀榜", "拍卖预告", "庚精消息"],
+      "price": [50, 5000],
+      "reliability": [0.5, 0.9],
+      "description": "假情报概率随价升。"
+    }
+  ],
+  "dialogue_hooks": {
+    "low_rep": "加价或驱赶",
+    "high_rep": "暗货/任务",
+    "mask_break": "报警或追杀"
+  }
+}

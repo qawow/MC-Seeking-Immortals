@@ -1,0 +1,1483 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v103 中文命名/别名/常用外号对照（检索用）",
+  "disclaimer": "一物多名时 primary 为推荐显示名；aliases 含原著别称与口语",
+  "entries": [
+    {
+      "id": "palm_bottle",
+      "primary": "掌天瓶",
+      "aliases": [
+        "小瓶",
+        "绿液瓶",
+        "神秘小瓶"
+      ],
+      "type": "unique"
+    },
+    {
+      "id": "green_liquid",
+      "primary": "绿液",
+      "aliases": [
+        "瓶中绿液",
+        "催熟液"
+      ],
+      "type": "catalyst"
+    },
+    {
+      "id": "han_li",
+      "primary": "韩立",
+      "aliases": [
+        "寒立",
+        "厉飞雨",
+        "散修韩"
+      ],
+      "type": "person"
+    },
+    {
+      "id": "nangong_wan",
+      "primary": "南宫婉",
+      "aliases": [
+        "婉儿",
+        "掩月宗宗主"
+      ],
+      "type": "person"
+    },
+    {
+      "id": "zhu_ji_dan",
+      "primary": "筑基丹",
+      "aliases": [
+        "筑基灵丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "jiang_chen_dan",
+      "primary": "降尘丹",
+      "aliases": [
+        "结丹丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "ding_ling_dan",
+      "primary": "定灵丹",
+      "aliases": [
+        "安魂丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "jiu_qu_ling_shen_dan",
+      "primary": "九曲灵参丹",
+      "aliases": [
+        "灵参丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "pei_ying_dan",
+      "primary": "培婴丹",
+      "aliases": [
+        "绿色上古丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "zao_hua_dan",
+      "primary": "造化丹",
+      "aliases": [
+        "造化灵丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "bu_tian_dan",
+      "primary": "补天丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "primary": "魔元丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "xu_ling_dan",
+      "primary": "虚灵丹",
+      "aliases": [
+        "太虚妙灵丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "primary": "回阳真水",
+      "aliases": [
+        "回阳水"
+      ],
+      "type": "elixir"
+    },
+    {
+      "id": "yu_sui_zhi",
+      "primary": "玉髓芝",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "zi_hou_hua",
+      "primary": "紫猴花",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "tian_ling_guo",
+      "primary": "天灵果",
+      "aliases": [],
+      "type": "fruit"
+    },
+    {
+      "id": "qian_nian_ling_cao",
+      "primary": "千年灵草",
+      "aliases": [
+        "千年药"
+      ],
+      "type": "herb"
+    },
+    {
+      "id": "jiu_qu_ling_shen",
+      "primary": "九曲灵参",
+      "aliases": [
+        "活参",
+        "曲儿原型"
+      ],
+      "type": "herb_living"
+    },
+    {
+      "id": "qu_er",
+      "primary": "曲儿",
+      "aliases": [
+        "人参果童子结构",
+        "灵参化形"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "ling_zhu_guo",
+      "primary": "灵烛果",
+      "aliases": [],
+      "type": "fruit"
+    },
+    {
+      "id": "ni_chang_cao",
+      "primary": "霓裳草",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "ban_yao_cao",
+      "primary": "伴妖草",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "yang_hun_mu",
+      "primary": "养魂木",
+      "aliases": [
+        "神木"
+      ],
+      "type": "wood"
+    },
+    {
+      "id": "xuan_tian_teng",
+      "primary": "玄天仙藤",
+      "aliases": [
+        "玄天藤",
+        "织纤原型"
+      ],
+      "type": "living"
+    },
+    {
+      "id": "zhi_xian",
+      "primary": "织纤",
+      "aliases": [
+        "玄天生物"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "geng_jing",
+      "primary": "庚精",
+      "aliases": [
+        "庚金之精"
+      ],
+      "type": "material"
+    },
+    {
+      "id": "jin_lei_zhu",
+      "primary": "金雷竹",
+      "aliases": [],
+      "type": "wood"
+    },
+    {
+      "id": "qing_zhu_feng_yun_jian",
+      "primary": "青竹蜂云剑",
+      "aliases": [
+        "青竹剑",
+        "蜂云剑组",
+        "七十二飞剑"
+      ],
+      "type": "fabao_set"
+    },
+    {
+      "id": "da_geng_jian_zhen",
+      "primary": "大庚剑阵",
+      "aliases": [
+        "庚金剑阵"
+      ],
+      "type": "array"
+    },
+    {
+      "id": "xutian_ding",
+      "primary": "虚天鼎",
+      "aliases": [
+        "小鼎",
+        "通天灵宝鼎"
+      ],
+      "type": "tongtian"
+    },
+    {
+      "id": "qian_lan_bing_yan",
+      "primary": "乾蓝冰焰",
+      "aliases": [
+        "乾蓝焰"
+      ],
+      "type": "flame"
+    },
+    {
+      "id": "ba_ling_chi",
+      "primary": "八灵尺",
+      "aliases": [
+        "八灵宝尺"
+      ],
+      "type": "tongtian"
+    },
+    {
+      "id": "feng_lei_chi",
+      "primary": "风雷翅",
+      "aliases": [
+        "风雷双翅"
+      ],
+      "type": "escape"
+    },
+    {
+      "id": "yuan_ci_shen_shan",
+      "primary": "元磁神山",
+      "aliases": [
+        "神山"
+      ],
+      "type": "gubao"
+    },
+    {
+      "id": "yuan_ci_shen_guang",
+      "primary": "元磁神光",
+      "aliases": [
+        "元磁功法"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "wu_zi_tong_xin_mo",
+      "primary": "五子同心魔",
+      "aliases": [
+        "五子魔"
+      ],
+      "type": "gubao"
+    },
+    {
+      "id": "gui_luo_fan",
+      "primary": "鬼罗幡",
+      "aliases": [],
+      "type": "fabao"
+    },
+    {
+      "id": "chi_hun_fan",
+      "primary": "赤魂幡",
+      "aliases": [],
+      "type": "fabao"
+    },
+    {
+      "id": "hei_feng_qi",
+      "primary": "黑风旗",
+      "aliases": [
+        "黑风旗残"
+      ],
+      "type": "tongtian_damaged"
+    },
+    {
+      "id": "xue_ren",
+      "primary": "血刃",
+      "aliases": [],
+      "type": "pseudo_lingbao"
+    },
+    {
+      "id": "san_yan_shan",
+      "primary": "三焰扇",
+      "aliases": [],
+      "type": "fabao"
+    },
+    {
+      "id": "qi_yan_shan",
+      "primary": "七焰扇",
+      "aliases": [],
+      "type": "fabao"
+    },
+    {
+      "id": "hun_yuan_bo",
+      "primary": "混元钵",
+      "aliases": [],
+      "type": "fabao"
+    },
+    {
+      "id": "jin_gang_zhao",
+      "primary": "金刚罩",
+      "aliases": [],
+      "type": "fabao_semi"
+    },
+    {
+      "id": "shi_jin_chong",
+      "primary": "噬金虫",
+      "aliases": [
+        "金虫",
+        "噬金虫群"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "ti_hun_shou",
+      "primary": "啼魂兽",
+      "aliases": [
+        "啼魂"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "xue_yu_zhizhu",
+      "primary": "血玉蜘蛛",
+      "aliases": [
+        "血玉蛛"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "liu_yi_shuang_gong",
+      "primary": "六翼霜蚣",
+      "aliases": [
+        "霜蚣"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "tu_jia_long",
+      "primary": "土甲龙",
+      "aliases": [],
+      "type": "companion"
+    },
+    {
+      "id": "tian_lan_shou",
+      "primary": "天澜圣兽",
+      "aliases": [
+        "圣兽"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "bao_lin_shou",
+      "primary": "豹麟兽",
+      "aliases": [
+        "豹麟"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "bing_feng",
+      "primary": "冰凤",
+      "aliases": [],
+      "type": "companion"
+    },
+    {
+      "id": "yin_yue",
+      "primary": "银月",
+      "aliases": [
+        "雪灵狐",
+        "雪云狐线"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "tian_jue_mo_shi",
+      "primary": "天绝魔尸",
+      "aliases": [
+        "第二元婴载体"
+      ],
+      "type": "companion"
+    },
+    {
+      "id": "qing_yuan_jian_jue",
+      "primary": "青元剑诀",
+      "aliases": [
+        "青元诀"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "da_yan_jue",
+      "primary": "大衍诀",
+      "aliases": [
+        "大衍神君功法"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "lian_shen_shu",
+      "primary": "炼神术",
+      "aliases": [
+        "炼神七层"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "fan_sheng_zhen_mo",
+      "primary": "梵圣真魔功",
+      "aliases": [
+        "梵圣功",
+        "法体功"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "ming_wang_jue",
+      "primary": "明王诀",
+      "aliases": [],
+      "type": "manual"
+    },
+    {
+      "id": "tuo_tian_mo_gong",
+      "primary": "托天魔功",
+      "aliases": [
+        "托天功"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "xuan_yin_jing",
+      "primary": "玄阴经",
+      "aliases": [],
+      "type": "manual"
+    },
+    {
+      "id": "san_zhuan_zhong_yuan",
+      "primary": "三转重元功",
+      "aliases": [
+        "三转重元"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "jing_zhe_shi_er_bian",
+      "primary": "惊蛰十二变",
+      "aliases": [
+        "惊蛰变"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "bai_mai_lian_bao",
+      "primary": "百脉炼宝决",
+      "aliases": [
+        "百脉炼宝"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "xuan_tian_lian_qi",
+      "primary": "玄天炼器术",
+      "aliases": [],
+      "type": "manual"
+    },
+    {
+      "id": "xue_se_jin_di",
+      "primary": "血色禁地",
+      "aliases": [
+        "禁地"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "xu_tian_dian",
+      "primary": "虚天殿",
+      "aliases": [
+        "虚天殿秘境"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "zhui_mo_gu",
+      "primary": "坠魔谷",
+      "aliases": [
+        "坠魔"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "kun_wu_shan",
+      "primary": "昆吾山",
+      "aliases": [
+        "昆吾"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "yin_yang_ku",
+      "primary": "阴阳窟",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "luan_xing_hai",
+      "primary": "乱星海",
+      "aliases": [
+        "内星海",
+        "外星海"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "tian_xing_cheng",
+      "primary": "天星城",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "tian_yuan_cheng",
+      "primary": "天渊城",
+      "aliases": [
+        "天渊"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "di_yuan",
+      "primary": "地渊",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "guang_han_jie",
+      "primary": "广寒界",
+      "aliases": [
+        "广寒"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "xiao_ji_gong",
+      "primary": "小极宫",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "huo_yu",
+      "primary": "火狱",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "yin_ming",
+      "primary": "阴冥之地",
+      "aliases": [
+        "阴冥"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "mo_qi_zhi_yuan",
+      "primary": "魔气之渊",
+      "aliases": [
+        "魔渊"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "yun_meng",
+      "primary": "云梦山",
+      "aliases": [
+        "云梦圣地"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "mu_lan",
+      "primary": "慕兰草原",
+      "aliases": [
+        "慕兰"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "huang_feng_gu",
+      "primary": "黄枫谷",
+      "aliases": [],
+      "type": "place"
+    },
+    {
+      "id": "tai_yang_jing_huo",
+      "primary": "太阳精火",
+      "aliases": [
+        "至阳之火"
+      ],
+      "type": "flame"
+    },
+    {
+      "id": "tai_yin_zhen_huo",
+      "primary": "太阴真火",
+      "aliases": [],
+      "type": "flame"
+    },
+    {
+      "id": "shi_ling_tian_huo",
+      "primary": "噬灵天火",
+      "aliases": [
+        "噬灵火"
+      ],
+      "type": "flame"
+    },
+    {
+      "id": "wu_han_yan",
+      "primary": "五寒焰",
+      "aliases": [
+        "五种寒焰"
+      ],
+      "type": "flame_set"
+    },
+    {
+      "id": "han_sui",
+      "primary": "寒髓",
+      "aliases": [],
+      "type": "essence"
+    },
+    {
+      "id": "mo_sui_zuan",
+      "primary": "魔髓钻",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "chi_ling_ruan_yu",
+      "primary": "叱灵软玉",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "bei_ji_yuan_jing",
+      "primary": "北极元晶",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "di_liu_jiang",
+      "primary": "帝流浆",
+      "aliases": [],
+      "type": "liquid"
+    },
+    {
+      "id": "ming_he_shen_ru",
+      "primary": "冥河神乳",
+      "aliases": [
+        "神乳"
+      ],
+      "type": "liquid_endgame"
+    },
+    {
+      "id": "po_jie_fu",
+      "primary": "破界符",
+      "aliases": [],
+      "type": "consumable"
+    },
+    {
+      "id": "liu_ding_tian_jia",
+      "primary": "六丁天甲符",
+      "aliases": [
+        "六丁天甲"
+      ],
+      "type": "consumable"
+    },
+    {
+      "id": "da_nuo_yi_ling",
+      "primary": "大挪移令",
+      "aliases": [
+        "挪移令"
+      ],
+      "type": "token"
+    },
+    {
+      "id": "zhui_mo_ling",
+      "primary": "坠魔令",
+      "aliases": [],
+      "type": "token"
+    },
+    {
+      "id": "xu_tian_can_tu",
+      "primary": "虚天残图",
+      "aliases": [
+        "虚天图"
+      ],
+      "type": "map"
+    },
+    {
+      "id": "node_intel",
+      "primary": "空间节点资料",
+      "aliases": [
+        "节点",
+        "飞升资料"
+      ],
+      "type": "intel"
+    },
+    {
+      "id": "jie_zi_kong_jian",
+      "primary": "芥子空间",
+      "aliases": [
+        "芥子"
+      ],
+      "type": "space"
+    },
+    {
+      "id": "hua_jie_zhu",
+      "primary": "化界珠",
+      "aliases": [],
+      "type": "space"
+    },
+    {
+      "id": "yuan_he_wu_ji_shan",
+      "primary": "元合五极山",
+      "aliases": [
+        "五极山",
+        "后天玄天"
+      ],
+      "type": "xuantian"
+    },
+    {
+      "id": "tai_yi_qing_shan",
+      "primary": "太乙青山",
+      "aliases": [],
+      "type": "treasure"
+    },
+    {
+      "id": "zhen_hun_dan",
+      "primary": "真魂丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "yin_zhi_ma",
+      "primary": "阴芝马",
+      "aliases": [],
+      "type": "beast"
+    },
+    {
+      "id": "ma_nao_jiao",
+      "primary": "玛瑙角",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "qian_ye_lu",
+      "primary": "千叶露",
+      "aliases": [],
+      "type": "liquid"
+    },
+    {
+      "id": "long_lin_guo",
+      "primary": "龙鳞果",
+      "aliases": [],
+      "type": "fruit"
+    },
+    {
+      "id": "wan_nian_xuan_yu",
+      "primary": "万年玄玉",
+      "aliases": [
+        "玄玉"
+      ],
+      "type": "jade"
+    },
+    {
+      "id": "xuan_bing_hua",
+      "primary": "玄冰花",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "tian_lei_mu",
+      "primary": "天雷木",
+      "aliases": [],
+      "type": "wood"
+    },
+    {
+      "id": "zhen_chan_ye",
+      "primary": "真蟾液",
+      "aliases": [],
+      "type": "liquid"
+    },
+    {
+      "id": "mo_qi_lin",
+      "primary": "墨麒麟",
+      "aliases": [
+        "墨麒麟鳞"
+      ],
+      "type": "beast_part"
+    },
+    {
+      "id": "xue_yan",
+      "primary": "血焰",
+      "aliases": [
+        "血焰魔",
+        "古魔血焰"
+      ],
+      "type": "boss"
+    },
+    {
+      "id": "yuan_cha",
+      "primary": "元刹",
+      "aliases": [],
+      "type": "boss"
+    },
+    {
+      "id": "ma_liang",
+      "primary": "马良",
+      "aliases": [
+        "真仙马良"
+      ],
+      "type": "person"
+    },
+    {
+      "id": "feng_xi",
+      "primary": "风希",
+      "aliases": [],
+      "type": "person"
+    },
+    {
+      "id": "jin_jiao_wang",
+      "primary": "金蛟王",
+      "aliases": [],
+      "type": "beast"
+    },
+    {
+      "id": "you_tian_kun_peng",
+      "primary": "游天鲲鹏",
+      "aliases": [
+        "鲲鹏"
+      ],
+      "type": "zhenling"
+    },
+    {
+      "id": "bi_jiu",
+      "primary": "碧鸠",
+      "aliases": [
+        "碧嘴鸠毒"
+      ],
+      "type": "poison"
+    },
+    {
+      "id": "wan_du_hun_yuan_shen",
+      "primary": "万毒混元身",
+      "aliases": [
+        "毒体"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "dian_dao_wu_xing",
+      "primary": "颠倒五行阵",
+      "aliases": [
+        "五行阵"
+      ],
+      "type": "array"
+    },
+    {
+      "id": "ju_ling_zhen",
+      "primary": "聚灵阵",
+      "aliases": [],
+      "type": "array"
+    },
+    {
+      "id": "low_stone",
+      "primary": "下品灵石",
+      "aliases": [
+        "灵石",
+        "下灵石"
+      ],
+      "type": "currency"
+    },
+    {
+      "id": "top_stone",
+      "primary": "极品灵石",
+      "aliases": [
+        "极灵石"
+      ],
+      "type": "currency"
+    },
+    {
+      "id": "tianyuan_merit",
+      "primary": "天渊功勋",
+      "aliases": [
+        "功勋"
+      ],
+      "type": "currency"
+    },
+    {
+      "id": "tiannan_merit",
+      "primary": "天南军功",
+      "aliases": [
+        "军功"
+      ],
+      "type": "currency"
+    },
+    {
+      "id": "blood_forbidden_deep",
+      "primary": "血色禁地",
+      "aliases": [
+        "禁地试炼",
+        "血雾秘境"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "xutian_deep",
+      "primary": "虚天殿",
+      "aliases": [
+        "虚天秘境",
+        "通天争夺"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "zhuimo_deep",
+      "primary": "坠魔谷",
+      "aliases": [
+        "坠魔秘境",
+        "灵烛谷结构"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "gang_yin_sha",
+      "primary": "罡银沙",
+      "aliases": [
+        "银沙"
+      ],
+      "type": "material"
+    },
+    {
+      "id": "butian_dan",
+      "primary": "补天丹",
+      "aliases": [
+        "补天灵丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "kunwu_shan",
+      "primary": "昆吾山",
+      "aliases": [
+        "昆吾",
+        "昆吾殿"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "yinyang_ku",
+      "primary": "阴阳窟",
+      "aliases": [
+        "培婴窟"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "tianyuan_cheng",
+      "primary": "天渊城",
+      "aliases": [
+        "天渊"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "di_yuan_full",
+      "primary": "地渊",
+      "aliases": [
+        "地渊营地"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "yuqing_dan",
+      "primary": "玉清丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "tianfu_men",
+      "primary": "天符门",
+      "aliases": [
+        "符门"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "yuling_zong",
+      "primary": "御灵宗",
+      "aliases": [
+        "御灵"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "manyue_zong",
+      "primary": "掩月宗",
+      "aliases": [
+        "掩月"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "luoyun_zong",
+      "primary": "落云宗",
+      "aliases": [
+        "落云"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "guiling_men",
+      "primary": "鬼灵门",
+      "aliases": [
+        "鬼灵"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "liulian_dian",
+      "primary": "六连殿",
+      "aliases": [
+        "六连"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "tianxing_cheng",
+      "primary": "天星城",
+      "aliases": [
+        "天星"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "xing_gong",
+      "primary": "星宫",
+      "aliases": [
+        "星宫势力"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "da_jin",
+      "primary": "大晋",
+      "aliases": [
+        "晋朝",
+        "晋京"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "shennian_laoyin",
+      "primary": "神念烙印",
+      "aliases": [
+        "烙印"
+      ],
+      "type": "mechanic"
+    },
+    {
+      "id": "du_zhan_tai",
+      "primary": "赌战台",
+      "aliases": [
+        "赌斗台"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "jie_zi_yao_yuan",
+      "primary": "芥子药园",
+      "aliases": [
+        "芥子园"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "qianzhu_tower",
+      "primary": "千竹机关塔",
+      "aliases": [
+        "千竹塔",
+        "机关塔"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "nether_river",
+      "primary": "冥河之地",
+      "aliases": [
+        "冥河",
+        "阴河"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "yinluo_catacomb",
+      "primary": "阴罗冢",
+      "aliases": [
+        "阴罗墓冢"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "dayan_jue",
+      "primary": "大衍决",
+      "aliases": [
+        "大衍"
+      ],
+      "type": "manual"
+    },
+    {
+      "id": "yin_pearl",
+      "primary": "阴珠",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "seven_meridian_cave",
+      "primary": "七脉试炼洞",
+      "aliases": [
+        "七派试炼洞"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "ancient_cultivator_ruins",
+      "primary": "古修洞府",
+      "aliases": [
+        "古修残府"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "tianlan_secret_grotto",
+      "primary": "天澜秘境",
+      "aliases": [
+        "天澜洞天"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "wind_spirit_stone",
+      "primary": "风灵石",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "mulan_fashi_captain",
+      "primary": "慕兰法师队长",
+      "aliases": [],
+      "type": "npc"
+    },
+    {
+      "id": "demon_gold_mountain",
+      "primary": "魔金山脉",
+      "aliases": [
+        "魔金岭"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "minor_asura_realm",
+      "primary": "小修罗界",
+      "aliases": [
+        "修罗小界"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "jiuxian_seclusion",
+      "primary": "九仙山秘境",
+      "aliases": [
+        "九仙山"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "wild_ancient_tomb",
+      "primary": "荒冢秘穴",
+      "aliases": [
+        "荒冢"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "wild_ancient_ruins",
+      "primary": "蛮荒上古遗迹",
+      "aliases": [
+        "蛮荒遗迹"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "chaotic_sea_abyss_rift",
+      "primary": "乱星海深渊裂隙",
+      "aliases": [
+        "深渊裂隙"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "spirit_grass_valley",
+      "primary": "灵缈园",
+      "aliases": [
+        "灵缈园残片"
+      ],
+      "type": "place"
+    },
+    {
+      "id": "void_pearl",
+      "primary": "虚空珠",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "killing_intent_crystal",
+      "primary": "杀意晶",
+      "aliases": [],
+      "type": "material"
+    },
+    {
+      "id": "catalog_align_v112",
+      "primary": "原包目录对齐",
+      "aliases": [
+        "catalog详释"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "bigu_pill",
+      "primary": "辟谷丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "yellow_essence",
+      "primary": "黄精",
+      "aliases": [],
+      "type": "herb"
+    },
+    {
+      "id": "foundation_pill",
+      "primary": "筑基丹",
+      "aliases": [
+        "筑基灵丹"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "jiangchen_pill",
+      "primary": "降尘丹",
+      "aliases": [
+        "jiangying_pill"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "forget_dust_pill",
+      "primary": "忘尘丹",
+      "aliases": [
+        "wangchen_pill"
+      ],
+      "type": "pill"
+    },
+    {
+      "id": "nascent_soul_pill",
+      "primary": "培婴丹",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "gold_devour_beetle",
+      "primary": "噬金虫",
+      "aliases": [
+        "噬金"
+      ],
+      "type": "beast"
+    },
+    {
+      "id": "soul_weeping_beast",
+      "primary": "啼魂兽",
+      "aliases": [
+        "啼魂"
+      ],
+      "type": "beast"
+    },
+    {
+      "id": "ink_flood_dragon",
+      "primary": "墨蛟",
+      "aliases": [],
+      "type": "beast"
+    },
+    {
+      "id": "changchun_gong",
+      "primary": "长春功",
+      "aliases": [],
+      "type": "method"
+    },
+    {
+      "id": "qingyuan_sword_art",
+      "primary": "青元剑诀",
+      "aliases": [
+        "青元"
+      ],
+      "type": "method"
+    },
+    {
+      "id": "huangfeng_valley",
+      "primary": "黄枫谷",
+      "aliases": [
+        "黄枫"
+      ],
+      "type": "sect"
+    },
+    {
+      "id": "dayan_sage",
+      "primary": "大衍神君",
+      "aliases": [
+        "大衍"
+      ],
+      "type": "figure"
+    },
+    {
+      "id": "qixuan_men",
+      "primary": "七玄门",
+      "aliases": [],
+      "type": "sect"
+    },
+    {
+      "id": "qingyuan_sword_ray",
+      "primary": "青元剑芒",
+      "aliases": [],
+      "type": "technique"
+    },
+    {
+      "id": "tech_deep",
+      "primary": "术法深解",
+      "aliases": [
+        "v116术法"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "named_npcs_v116",
+      "primary": "具名NPC册",
+      "aliases": [],
+      "type": "meta"
+    },
+    {
+      "id": "quest_deep_v117",
+      "primary": "任务链深稿",
+      "aliases": [
+        "主线分镜"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "ultra_foundation_pill",
+      "primary": "筑基丹超长专解",
+      "aliases": [],
+      "type": "pill"
+    },
+    {
+      "id": "visual_style_v118",
+      "primary": "视觉样式手册",
+      "aliases": [
+        "外貌特效"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "visual_storyboards_v119",
+      "primary": "视觉分镜板",
+      "aliases": [
+        "BOSS分镜"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "visual_effect_sheets_v120",
+      "primary": "效果表现表",
+      "aliases": [
+        "施法表",
+        "装备演出"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "visual_fx_pipeline_v121",
+      "primary": "视效管线",
+      "aliases": [
+        "粒子圣经",
+        "逐帧特效"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "visual_look_cards_v122",
+      "primary": "外貌样式卡",
+      "aliases": [
+        "五感卡",
+        "剪影"
+      ],
+      "type": "meta"
+    },
+    {
+      "id": "shishen_spike",
+      "primary": "失神刺",
+      "aliases": [
+        "简化惊神刺"
+      ],
+      "type": "technique"
+    },
+    {
+      "id": "jingshen_spike",
+      "primary": "惊神刺",
+      "aliases": [
+        "大衍神通"
+      ],
+      "type": "technique"
+    },
+    {
+      "id": "dayan_art_sense",
+      "primary": "大衍诀",
+      "aliases": [
+        "大衍决",
+        "神识傀儡双修"
+      ],
+      "type": "manual"
+    }
+  ],
+  "search_tips": [
+    "UI 显示用 primary",
+    "搜索匹配 aliases + primary + id",
+    "type 可做图鉴分页"
+  ]
+}

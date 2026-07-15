@@ -15,7 +15,7 @@
         "damage_base": 38,
         "tags": []
       },
-      "description": "佛光：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "佛光：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 19。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
         "combat_style": "佛修克魔",
         "synergy": [
@@ -32,7 +32,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sarira_shield",
@@ -47,7 +60,7 @@
         "damage_base": 0,
         "tags": []
       },
-      "description": "舍利护体：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "舍利护体：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 12。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
         "combat_style": "佛修克魔",
         "synergy": [
@@ -64,7 +77,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_subdue_palm",
@@ -79,7 +105,7 @@
         "damage_base": 45,
         "tags": []
       },
-      "description": "降魔掌：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "降魔掌：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 22。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
         "combat_style": "佛修克魔",
         "synergy": [
@@ -96,7 +122,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "zen_pulse",
@@ -111,7 +150,7 @@
         "damage_base": 30,
         "tags": []
       },
-      "description": "禅波：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "禅波：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 15。佛修：降魔、金光、定心，克魔气与心魔。",
       "setting": {
         "combat_style": "佛修克魔",
         "synergy": [
@@ -128,7 +167,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "vajra_palm",
@@ -136,11 +188,11 @@
       "school": "buddhist",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "金刚掌：buddhist法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "金刚掌：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 18。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "yang",
         "damage_base": 37,
         "tags": [
           "buddhist"
@@ -168,7 +220,21 @@
         "prerequisite_methods": [
           "dajin_buddhist_base"
         ]
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "dajin_buddhist_base",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dajin_buddhist_vajra",
@@ -181,9 +247,10 @@
         "damage_base": 45,
         "tags": [
           "buddhist"
-        ]
+        ],
+        "element": "yang"
       },
-      "description": "佛修金刚杵一击。",
+      "description": "大晋金刚杵：buddhist派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 18。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -207,7 +274,407 @@
         "prerequisite_methods": [
           "dajin_buddhist_base"
         ]
-      }
+      },
+      "element": "yang",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "dajin_buddhist_base",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "vajra_body_flash",
+      "display": "金刚不坏闪",
+      "school": "buddhist",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "金刚不坏闪：buddhist派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 15。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「buddhist_vajra_body_art」体系解锁。",
+      "setting": {
+        "combat_style": "金刚诀",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金刚诀",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "buddhist_vajra_body_art"
+      },
+      "requires_method": "buddhist_vajra_body_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "earth",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "buddhist_vajra_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_demon_subdue",
+      "display": "天澜降魔印",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "天澜降魔功",
+      "effect": {
+        "type": "strike",
+        "element": "light",
+        "damage_base": 40,
+        "tags": [
+          "buddhist",
+          "anti_demon"
+        ]
+      },
+      "description": "天澜降魔印：buddhist派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 22。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「tianlan_temple_vajra_art」体系解锁。",
+      "requires_method": "tianlan_temple_vajra_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianlan_temple_vajra_art"
+      },
+      "tags": [
+        "v127",
+        "tianlan",
+        "light",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "降魔印击，克魔气。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "light",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "tianlan_temple_vajra_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_vajra_body",
+      "display": "天澜金刚体",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "天澜降魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "body",
+          "buddhist"
+        ]
+      },
+      "description": "天澜金刚体：buddhist派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「tianlan_temple_vajra_art」体系解锁。",
+      "requires_method": "tianlan_temple_vajra_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianlan_temple_vajra_art"
+      },
+      "tags": [
+        "v127",
+        "tianlan",
+        "earth",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "佛门炼体硬化。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "earth",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "tianlan_temple_vajra_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_zen_shock",
+      "display": "天澜禅音震",
+      "school": "buddhist",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "天澜降魔功",
+      "effect": {
+        "type": "aoe",
+        "element": "light",
+        "damage_base": 45,
+        "tags": [
+          "buddhist"
+        ]
+      },
+      "description": "天澜禅音震：buddhist派术法，属性倾向 light。境界门槛 CORE_FORMATION，耗灵约 30。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「tianlan_temple_vajra_art」体系解锁。",
+      "requires_method": "tianlan_temple_vajra_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianlan_temple_vajra_art"
+      },
+      "tags": [
+        "v127",
+        "tianlan",
+        "light",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "禅音范围震慑心魔。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "light",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "tianlan_temple_vajra_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_war_front_oath",
+      "display": "天澜前线誓",
+      "school": "buddhist",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 40,
+      "source": "天澜降魔功",
+      "effect": {
+        "type": "buff_zone",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "war",
+          "buff"
+        ]
+      },
+      "description": "天澜前线誓：buddhist派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 40。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「tianlan_temple_vajra_art」体系解锁。",
+      "requires_method": "tianlan_temple_vajra_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tianlan_temple_vajra_art"
+      },
+      "tags": [
+        "v127",
+        "tianlan",
+        "mulan_war",
+        "light",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "慕兰大战气质：友方抗魔气。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "light",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "tianlan_temple_vajra_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_zen_barrier",
+      "display": "大晋禅障",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "大晋佛修基础",
+      "effect": {
+        "type": "buff_self",
+        "element": "light",
+        "damage_base": 0
+      },
+      "description": "大晋禅障：buddhist派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 18。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
+      "requires_method": "dajin_buddhist_base",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dajin_buddhist_base"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "禅障。",
+        "v129": true
+      },
+      "faction_id": "dajin_buddhist",
+      "region": "dajin",
+      "element": "light",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "dajin_buddhist_base",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_subdue_demon_chant",
+      "display": "降魔梵音",
+      "school": "buddhist",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "大晋佛修基础",
+      "effect": {
+        "type": "aoe",
+        "element": "light",
+        "damage_base": 42
+      },
+      "description": "降魔梵音：buddhist派术法，属性倾向 light。境界门槛 CORE_FORMATION，耗灵约 32。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「dajin_buddhist_base」体系解锁。",
+      "requires_method": "dajin_buddhist_base",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dajin_buddhist_base"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "梵音。",
+        "v129": true
+      },
+      "faction_id": "dajin_buddhist",
+      "region": "dajin",
+      "element": "light",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "dajin_buddhist_base",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "vajra_body_layer2",
+      "display": "金刚体·进",
+      "school": "buddhist",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "金刚诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "金刚体·进：buddhist派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 20。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「buddhist_vajra_body_art」体系解锁。",
+      "requires_method": "buddhist_vajra_body_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "buddhist_vajra_body_art"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金刚进。",
+        "v129": true
+      },
+      "faction_id": "dajin_buddhist",
+      "region": "dajin",
+      "element": "earth",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "buddhist_vajra_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "buddhist_vajra_body_art_auto_3",
+      "display": "金刚诀·式3",
+      "school": "buddhist",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "金刚诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "金刚诀·式3：buddhist派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。佛修：降魔、金光、定心，克魔气与心魔。 常随功法「buddhist_vajra_body_art」体系解锁。",
+      "requires_method": "buddhist_vajra_body_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "buddhist_vajra_body_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "buddhist",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "buddhist",
+      "alignment": "righteous",
+      "source_method": "buddhist_vajra_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

@@ -1,0 +1,815 @@
+{
+  "schema_version": 1,
+  "source": "v114 任务链与宗门速查",
+  "quest_chains": [
+    {
+      "id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 5,
+      "desc_id": "quest_huangfeng_cultivation_path"
+    },
+    {
+      "id": "chaotic_sea_politics",
+      "display": "乱星海势力线",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 6,
+      "desc_id": "quest_chaotic_sea_politics"
+    },
+    {
+      "id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线",
+      "region": "mulan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_mulan_tianlan_war"
+    },
+    {
+      "id": "ghost_path",
+      "display": "鬼道线",
+      "region": null,
+      "realm_span": null,
+      "steps": 6,
+      "desc_id": "quest_ghost_path"
+    },
+    {
+      "id": "high_realm_endgame",
+      "display": "高境界终局",
+      "region": null,
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_high_realm_endgame"
+    },
+    {
+      "id": "spirit_realm_rise",
+      "display": "灵界上升线",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "steps": 6,
+      "desc_id": "quest_spirit_realm_rise"
+    },
+    {
+      "id": "craft_master",
+      "display": "百艺精通",
+      "region": null,
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_craft_master"
+    },
+    {
+      "id": "dajin_kunwu_line",
+      "display": "大晋昆吾线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 4,
+      "desc_id": "quest_dajin_kunwu_line"
+    },
+    {
+      "id": "ancient_demon_line",
+      "display": "古魔封印线",
+      "region": "tiannan",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_ancient_demon_line"
+    },
+    {
+      "id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "steps": 4,
+      "desc_id": "quest_qixuan_mortal_path"
+    },
+    {
+      "id": "huadao_blade_path",
+      "display": "化刀坞刀道",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": 3,
+      "desc_id": "quest_huadao_blade_path"
+    },
+    {
+      "id": "giant_sword_gate_path",
+      "display": "巨剑门传承",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": 3,
+      "desc_id": "quest_giant_sword_gate_path"
+    },
+    {
+      "id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_qianzhu_puppet_path"
+    },
+    {
+      "id": "yuling_puppet_path",
+      "display": "御灵兽傀线",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "steps": 3,
+      "desc_id": "quest_yuling_puppet_path"
+    },
+    {
+      "id": "dajin_clan_line",
+      "display": "大晋世家线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 4,
+      "desc_id": "quest_dajin_clan_line"
+    },
+    {
+      "id": "demonic_six_path",
+      "display": "魔道六宗线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 5,
+      "desc_id": "quest_demonic_six_path"
+    },
+    {
+      "id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线",
+      "region": "yin_underworld",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_yin_cluster_pilgrim"
+    },
+    {
+      "id": "barbarian_kings_line",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "steps": 4,
+      "desc_id": "quest_barbarian_kings_line"
+    },
+    {
+      "id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "steps": 4,
+      "desc_id": "quest_spirit_eighteen_clans"
+    },
+    {
+      "id": "star_palace_internal_politics",
+      "display": "星宫派系线",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_star_palace_internal_politics"
+    },
+    {
+      "id": "mulan_war_campaign",
+      "display": "慕兰天澜战役",
+      "region": "mulan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 6,
+      "desc_id": "quest_mulan_war_campaign"
+    },
+    {
+      "id": "mulan_fashi_path",
+      "display": "慕兰法士道途",
+      "region": "mulan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_mulan_fashi_path"
+    },
+    {
+      "id": "tianlan_defense_line",
+      "display": "天澜御兽线",
+      "region": "tianlan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_tianlan_defense_line"
+    },
+    {
+      "id": "wutu_mulan_feud_line",
+      "display": "突兀慕兰世仇",
+      "region": "mulan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_wutu_mulan_feud_line"
+    },
+    {
+      "id": "fallen_demon_expedition",
+      "display": "坠魔谷探谷",
+      "region": "fallen_demon_valley",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_fallen_demon_expedition"
+    },
+    {
+      "id": "dajin_wanbao_route",
+      "display": "大晋商路",
+      "region": "dajin",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_dajin_wanbao_route"
+    },
+    {
+      "id": "yin_luo_ghost_sect",
+      "display": "阴罗殿线",
+      "region": "yinming",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_yin_luo_ghost_sect"
+    },
+    {
+      "id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山",
+      "region": "kunwu",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_kunwu_mountain_expedition"
+    },
+    {
+      "id": "tianyuan_merit_path",
+      "display": "天渊功勋线",
+      "region": "tianyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_tianyuan_merit_path"
+    },
+    {
+      "id": "spirit_realm_border",
+      "display": "灵界边境",
+      "region": "spirit_realm_border",
+      "realm_span": null,
+      "steps": 2,
+      "desc_id": "quest_spirit_realm_border"
+    },
+    {
+      "id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道",
+      "region": null,
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_ghost_sect_ban_arc"
+    },
+    {
+      "id": "fengyuan_explorer",
+      "display": "风元探索",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_fengyuan_explorer"
+    },
+    {
+      "id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_barbarian_king_hunt"
+    },
+    {
+      "id": "human_clan_neutral_intro",
+      "display": "世家引荐",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 2,
+      "desc_id": "quest_human_clan_neutral_intro"
+    },
+    {
+      "id": "clan_array_mo_line",
+      "display": "莫家阵法线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_clan_array_mo_line"
+    },
+    {
+      "id": "clan_refinement_yu_line",
+      "display": "俞家炼器线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_clan_refinement_yu_line"
+    },
+    {
+      "id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_clan_alchemy_gu_line"
+    },
+    {
+      "id": "clan_talisman_ning_line",
+      "display": "宁家符箓线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_clan_talisman_ning_line"
+    },
+    {
+      "id": "human_clan_league_hub",
+      "display": "世家联盟总线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_human_clan_league_hub"
+    },
+    {
+      "id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_spirit_eighteen_pilgrimage"
+    },
+    {
+      "id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途",
+      "region": null,
+      "realm_span": [
+        "VOID_REFINING",
+        "TRIBULATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_void_great_cultivation_arc"
+    },
+    {
+      "id": "diyuan_depth_delve",
+      "display": "地渊深层",
+      "region": "diyuan",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_diyuan_depth_delve"
+    },
+    {
+      "id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界",
+      "region": null,
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_mortal_to_spirit_bridge"
+    },
+    {
+      "id": "inverse_star_recruit",
+      "display": "逆星入盟",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_inverse_star_recruit"
+    },
+    {
+      "id": "inverse_star_smuggle_arc",
+      "display": "走私补给线",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_inverse_star_smuggle_arc"
+    },
+    {
+      "id": "inverse_star_void_heist",
+      "display": "虚天情报战",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_inverse_star_void_heist"
+    },
+    {
+      "id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "steps": 5,
+      "desc_id": "quest_chaotic_sea_civil_war"
+    },
+    {
+      "id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门",
+      "region": null,
+      "realm_span": null,
+      "steps": 3,
+      "desc_id": "quest_chain_seven_sect_outer_to_inner"
+    },
+    {
+      "id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役",
+      "region": "mulan_border",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_chain_mulan_war_campaign"
+    },
+    {
+      "id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链",
+      "region": null,
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_chain_void_palace_expedition"
+    },
+    {
+      "id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置",
+      "region": null,
+      "realm_span": null,
+      "steps": 6,
+      "desc_id": "quest_chain_ascension_spirit_world"
+    },
+    {
+      "id": "chain_tianyuan_enlist",
+      "display": "天渊城服役",
+      "region": "spirit_world",
+      "realm_span": null,
+      "steps": 4,
+      "desc_id": "quest_chain_tianyuan_enlist"
+    },
+    {
+      "id": "blood_forbidden_campaign",
+      "display": "血色禁地历练",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": 6,
+      "desc_id": "quest_blood_forbidden_campaign"
+    },
+    {
+      "id": "void_palace_campaign",
+      "display": "虚天殿探宝",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 6,
+      "desc_id": "quest_void_palace_campaign"
+    },
+    {
+      "id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘",
+      "region": "fallen_demon_valley",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "steps": 5,
+      "desc_id": "quest_fallen_demon_campaign"
+    },
+    {
+      "id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝",
+      "region": "kunwu",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 5,
+      "desc_id": "quest_kunwu_mountain_campaign"
+    },
+    {
+      "id": "nether_river_campaign",
+      "display": "冥河之地行",
+      "region": "nether_river",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 5,
+      "desc_id": "quest_nether_river_campaign"
+    },
+    {
+      "id": "diyuan_campaign",
+      "display": "地渊探脉",
+      "region": "diyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_FUSION"
+      ],
+      "steps": 5,
+      "desc_id": "quest_diyuan_campaign"
+    },
+    {
+      "id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "steps": 5,
+      "desc_id": "quest_dajin_righteous_demon_line"
+    },
+    {
+      "id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_yanyue_illusion_path"
+    },
+    {
+      "id": "tianfu_talisman_path",
+      "display": "天符门制符线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_tianfu_talisman_path"
+    },
+    {
+      "id": "demonic_six_expanded",
+      "display": "魔道六宗深入线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "steps": 4,
+      "desc_id": "quest_demonic_six_expanded"
+    }
+  ],
+  "sects": [
+    {
+      "id": "huangfeng_valley",
+      "display": "黄枫谷",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_huangfeng",
+      "desc_id": "sect_huangfeng_valley"
+    },
+    {
+      "id": "yanyue_sect",
+      "display": "掩月宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_yanyue",
+      "desc_id": "sect_yanyue_sect"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "display": "灵兽山",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_lingshou",
+      "desc_id": "sect_spirit_beast_mountain"
+    },
+    {
+      "id": "qingxu_gate",
+      "display": "清虚门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_qingxu",
+      "desc_id": "sect_qingxu_gate"
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_huadao",
+      "desc_id": "sect_huadao_wu"
+    },
+    {
+      "id": "tianque_fort",
+      "display": "天阙堡",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_tianque",
+      "desc_id": "sect_tianque_fort"
+    },
+    {
+      "id": "giant_sword_gate",
+      "display": "巨剑门",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_jujian",
+      "desc_id": "sect_giant_sword_gate"
+    },
+    {
+      "id": "qixuan_men",
+      "display": "七玄门",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "reputation_id": "sect_qixuan",
+      "desc_id": "sect_qixuan_men"
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "display": "鬼灵门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_guiling",
+      "desc_id": "sect_ghost_spirit_gate"
+    },
+    {
+      "id": "hehuan_sect",
+      "display": "合欢宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_hehuan",
+      "desc_id": "sect_hehuan_sect"
+    },
+    {
+      "id": "moyan_gate",
+      "display": "魔焰门",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_moyan",
+      "desc_id": "sect_moyan_gate"
+    },
+    {
+      "id": "tiansha_sect",
+      "display": "天煞宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_tiansha",
+      "desc_id": "sect_tiansha_sect"
+    },
+    {
+      "id": "yuling_sect",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_yuling",
+      "desc_id": "sect_yuling_sect"
+    },
+    {
+      "id": "qianhuan_sect",
+      "display": "千幻宗",
+      "region": "tiannan",
+      "alignment": "demonic",
+      "reputation_id": "sect_qianhuan",
+      "desc_id": "sect_qianhuan_sect"
+    },
+    {
+      "id": "luoyun_sect",
+      "display": "落云宗",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_luoyun",
+      "desc_id": "sect_luoyun_sect"
+    },
+    {
+      "id": "star_palace",
+      "display": "星宫",
+      "region": "chaotic_sea",
+      "alignment": "lawful",
+      "reputation_id": "faction_star_palace",
+      "desc_id": "sect_star_palace"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "display": "逆星盟",
+      "region": "chaotic_sea",
+      "alignment": "rebel",
+      "reputation_id": "faction_inverse_star",
+      "desc_id": "sect_inverse_star_alliance"
+    },
+    {
+      "id": "qianzhu_teach",
+      "display": "千竹教",
+      "region": "extreme_west",
+      "alignment": "neutral",
+      "reputation_id": "sect_qianzhu",
+      "desc_id": "sect_qianzhu_teach"
+    },
+    {
+      "id": "mulan_fashi_council",
+      "display": "慕兰神师府",
+      "region": "mulan",
+      "alignment": "tribal_faith",
+      "reputation_id": "faction_mulan",
+      "desc_id": "sect_mulan_fashi_council"
+    },
+    {
+      "id": "tianlan_temple",
+      "display": "天澜圣殿",
+      "region": "tianlan",
+      "alignment": "tribal_faith",
+      "reputation_id": "faction_tianlan",
+      "desc_id": "sect_tianlan_temple"
+    },
+    {
+      "id": "qianzhu_sect",
+      "display": "千竹教",
+      "region": "tiannan",
+      "alignment": "righteous",
+      "reputation_id": "sect_qianzhu",
+      "desc_id": "sect_qianzhu_sect"
+    },
+    {
+      "id": "yuling_sect_secret",
+      "display": "御灵宗",
+      "region": "tiannan",
+      "alignment": "neutral",
+      "reputation_id": "sect_yuling",
+      "desc_id": "sect_yuling_sect_secret"
+    },
+    {
+      "id": "guiling_gate",
+      "display": "鬼灵门",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_guiling_gate",
+      "desc_id": "sect_guiling_gate"
+    },
+    {
+      "id": "tianmo_sect",
+      "display": "天魔宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_tianmo",
+      "desc_id": "sect_tianmo_sect"
+    },
+    {
+      "id": "qingluo_sect",
+      "display": "青罗宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_qingluo",
+      "desc_id": "sect_qingluo_sect"
+    },
+    {
+      "id": "wanhu_sect",
+      "display": "万狐宗",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_wanhu",
+      "desc_id": "sect_wanhu_sect"
+    },
+    {
+      "id": "xuewu_sect",
+      "display": "血巫教",
+      "region": "tiannan_north_waste",
+      "alignment": "demonic",
+      "reputation_id": "sect_xuewu",
+      "desc_id": "sect_xuewu_sect"
+    },
+    {
+      "id": "dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉",
+      "region": "dajin",
+      "alignment": "neutral_righteous",
+      "reputation_id": null,
+      "desc_id": "sect_dajin_buddhist_temple_line"
+    }
+  ],
+  "methods_count": 91,
+  "recipes_count": 55,
+  "techniques_count": 18,
+  "spawn_tables": 17,
+  "events": 71,
+  "description": "制作入口。"
+}

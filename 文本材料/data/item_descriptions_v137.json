@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v137",
+  "items": [
+    {
+      "id": "v137_polish",
+      "display": "设定完善包",
+      "type": "meta",
+      "description": "开局路线+区域结构表+通行数值+交叉矩阵+NPC种子"
+    }
+  ]
+}

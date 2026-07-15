@@ -1,0 +1,40 @@
+{
+  "schema_version": 2,
+  "source": "v127 双七派名单注册",
+  "primary_list_v126": {
+    "name": "原著向主名单",
+    "ids": [
+      "huangfeng_valley",
+      "yanyue_sect",
+      "spirit_beast_mountain",
+      "qingxu_gate",
+      "huadao_wu",
+      "tianque_fort",
+      "giant_sword_gate"
+    ],
+    "file": "tiannan_seven_sects_packs_v126.json"
+  },
+  "alternate_list_v127": {
+    "name": "lore备选名单",
+    "ids": [
+      "huangfeng_valley",
+      "yanyue_sect",
+      "tianfu_gate",
+      "tianque_fort",
+      "tianlan_temple",
+      "lingyun_sect",
+      "qingyan_sect"
+    ],
+    "file": "tiannan_alternate_seven_packs_v127.json",
+    "source_lore": "tiannan_seven_sects_lore.json"
+  },
+  "luoyun_not_in_seven": {
+    "note": "落云宗为后期主线宗，不计入七派名额，单独 late_game 包",
+    "file": "luoyun_late_game_pack_v127.json"
+  },
+  "switch_rule": "详见 opening_list_and_reputation_rules_v128.json；开局 primary|alternate；中期可转名单不洗功法",
+  "v128": {
+    "opening_and_rep_rules": "opening_list_and_reputation_rules_v128.json",
+    "chaotic_sea_packs": "chaotic_sea_factions_packs_v128.json"
+  }
+}

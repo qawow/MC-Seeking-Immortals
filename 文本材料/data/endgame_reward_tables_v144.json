@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "source": "v144 化神/广寒终局奖励细表（贴原著）",
+  "disclaimer": "unique/限次/无保底；不以灵石海量奖；成功率结构保留。",
+  "guanghan": {
+    "quest_id": "guanghan_endgame_path",
+    "ref": "endgame_guanghan_v143.json",
+    "steps_rewards": [
+      {
+        "step": 1,
+        "summary": "界面资格",
+        "rewards": {
+          "flag": "guanghan_access",
+          "merit_or_item": "interface_token"
+        },
+        "cash_low": [
+          0,
+          0
+        ],
+        "notes": "资格门"
+      },
+      {
+        "step": 2,
+        "summary": "赴途生存",
+        "rewards": {
+          "loot_tables": [
+            "ice_po_crystal",
+            "space_dust",
+            "han_sui_si"
+          ],
+          "cash_equiv_low": [
+            500,
+            8000
+          ]
+        }
+      },
+      {
+        "step": 3,
+        "summary": "界内考校",
+        "rewards": {
+          "unique_chance": {
+            "lian_shen_shu": "quest_unique_once"
+          },
+          "scarce": {
+            "xu_ling_dan": 0.12,
+            "tai_yi_qing_shan_clue": 0.1,
+            "jin_zhuan_wen": 0.15
+          },
+          "no_pity": true
+        },
+        "notes": "炼神术不保底不复制"
+      },
+      {
+        "step": 4,
+        "summary": "真仙威压事件",
+        "rewards": {
+          "survival_flag": true,
+          "optional_weight": "maliang_event",
+          "cash_low": [
+            0,
+            0
+          ],
+          "rep_shifts_optional": true
+        },
+        "notes": "存活即奖；非Boss掉落表"
+      },
+      {
+        "step": 5,
+        "summary": "合体冲击",
+        "rewards": {
+          "need": [
+            "xu_ling_dan",
+            "wash_spirit_done",
+            "stable_dongtian"
+          ],
+          "success_flag": "body_integration",
+          "fail": "重伤"
+        }
+      }
+    ],
+    "item_policies": {
+      "lian_shen_shu": {
+        "unique": true,
+        "trade": false,
+        "ng_plus_full_copy": false,
+        "shop": false
+      },
+      "xu_ling_dan": {
+        "scarce": true,
+        "shop": "merit_or_quest_only",
+        "price_open_market": null
+      },
+      "tai_yi_qing_shan": {
+        "scarce": true,
+        "trade": "limited"
+      }
+    }
+  },
+  "deity_huoyu": {
+    "quest_id": "deity_huoyu_path",
+    "ref": "endgame_deity_huoyu_v143.json",
+    "base_success": 0.08,
+    "steps_rewards": [
+      {
+        "step": 1,
+        "id": "xiaojigong_cold",
+        "rewards": {
+          "set": "wu_han_yan",
+          "scarce_mat": "wan_nian_xuan_yu",
+          "xuan_yu_price_low": [
+            50000,
+            400000
+          ]
+        },
+        "risk": "反目争夺"
+      },
+      {
+        "step": 2,
+        "id": "manhuzi_cave",
+        "rewards": {
+          "manual": "tuo_tian_mo_gong",
+          "script": "yin_ke_wen"
+        }
+      },
+      {
+        "step": 3,
+        "id": "fansheng_complete",
+        "rewards": {
+          "manual": "fan_sheng_zhen_mo",
+          "flag": "fa_ti_formed",
+          "success_mod": 0.08
+        }
+      },
+      {
+        "step": 4,
+        "id": "jinjiao_longlin",
+        "rewards": {
+          "mat": "long_lin_guo",
+          "yao_dan_metal": true
+        }
+      },
+      {
+        "step": 5,
+        "id": "huoyu_taiyang",
+        "rewards": {
+          "unique_limited": "tai_yang_jing_huo",
+          "cooldown": true,
+          "attempts_structure": "limited"
+        },
+        "loot_side": {
+          "cash_equiv_low": [
+            2000,
+            30000
+          ],
+          "fire_mats": true
+        }
+      },
+      {
+        "step": 6,
+        "id": "huiyang_combine",
+        "rewards": {
+          "unique": "hui_yang_zhen_shui",
+          "no_trade": true,
+          "success_mod": 0.06
+        }
+      },
+      {
+        "step": 7,
+        "id": "moyuan_exchange",
+        "rewards": {
+          "scarce": "mo_yuan_dan",
+          "success_mod": 0.1,
+          "bond_optional": "zi_ling"
+        }
+      },
+      {
+        "step": 8,
+        "id": "deity_breakthrough",
+        "rewards": {
+          "on_success": {
+            "realm": "DEITY_TRANSFORMATION",
+            "flag": "deity_ok"
+          },
+          "on_fail": {
+            "injury": true,
+            "realm_drop_risk": true,
+            "keep_unique_policy": "do_not_consume_huiyang_if_configured"
+          },
+          "success_formula": "0.08 + mods (cap 建议 ≤0.45)"
+        }
+      },
+      {
+        "step": 9,
+        "id": "ascent",
+        "rewards": {
+          "items_hint": [
+            "破界符",
+            "节点资料",
+            "六丁天甲结构"
+          ],
+          "next_quest": "tianyuan_landing_register",
+          "cash_low": [
+            0,
+            0
+          ],
+          "unlock": "tianyuan_entry"
+        }
+      }
+    ],
+    "success_cap_note": "堆满修正仍建议硬顶，防必成化神",
+    "item_policies": {
+      "tai_yang_jing_huo": {
+        "unique_limited": true,
+        "trade": false,
+        "farm_infinite": false
+      },
+      "hui_yang_zhen_shui": {
+        "unique": true,
+        "trade": false,
+        "copy": false
+      },
+      "mo_yuan_dan": {
+        "scarce": true,
+        "black_market": true
+      },
+      "wu_han_yan": {
+        "set": true,
+        "contest": true
+      }
+    }
+  },
+  "economy_tie": {
+    "no_spirit_stone_flood": true,
+    "crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+    "market_policy_ref": "market_shelf_price_align_v144.json"
+  }
+}

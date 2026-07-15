@@ -16,7 +16,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "五雷正法：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "五雷正法：道门雷法代表。对魔气、鬼物、邪祟有额外伤害与震慑；施展耗灵高，宜在聚灵或雷雨天借势。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -35,7 +35,20 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "thunder",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "thunder",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_desc_polish": true
     },
     {
       "id": "pure_yang_sword",
@@ -51,7 +64,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "纯阳剑气：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "纯阳剑气：dao派术法，属性倾向 yang。境界门槛 QI_REFINING，耗灵约 21。剑意锋锐。 常随功法「taixu_gong」体系解锁。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -70,7 +83,21 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "yang",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "taoist_seal",
@@ -86,7 +113,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "道家法印：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "道家法印：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。 常随功法「taixu_gong」体系解锁。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -105,7 +132,20 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cloud_walk",
@@ -121,7 +161,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "云游步：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "云游步：dao派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。 常随功法「taixu_gong」体系解锁。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -140,7 +180,20 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "wind",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "wind",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "immortal_rope",
@@ -156,7 +209,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "捆仙绳术：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "捆仙绳术：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 16。 常随功法「taixu_gong」体系解锁。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -175,7 +228,20 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "bagua_seal",
@@ -191,7 +257,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "八卦印：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "八卦印：dao派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 22。 常随功法「taixu_gong」体系解锁。",
       "requires_method": "taixu_gong",
       "setting": {
         "combat_style": "杂学秘术",
@@ -210,7 +276,20 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dao_nature_breath",
@@ -218,11 +297,11 @@
       "school": "dao",
       "tier": "spell",
       "realm_min": "QI_REFINING",
-      "description": "自然吐纳：dao法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "自然吐纳：dao派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 10。 常随功法「taixu_gong」体系解锁。",
       "spirit_cost_base": 10,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "thunder",
         "damage_base": 25,
         "tags": [
           "dao"
@@ -247,7 +326,1157 @@
         "prerequisite_methods": [
           "taixu_gong"
         ]
-      }
+      },
+      "element": "thunder",
+      "path": "dao",
+      "alignment": "righteous",
+      "tags": [
+        "thunder",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "source_method": "taixu_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingxu_clear_mind",
+      "display": "清虚涤念",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "清虚玄功",
+      "effect": {
+        "type": "cleanse",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "dao"
+        ]
+      },
+      "description": "清虚涤念：dao派术法，属性倾向 light。境界门槛 QI_REFINING，耗灵约 12。 常随功法「qingxu_pure_tao_art」体系解锁。",
+      "setting": {
+        "combat_style": "清虚门涤念定心。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "清虚门涤念定心。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qingxu_pure_tao_art"
+      },
+      "requires_method": "qingxu_pure_tao_art",
+      "tags": [
+        "seven_sects",
+        "qingxu_gate",
+        "v124",
+        "v126",
+        "novel_canon",
+        "light",
+        "righteous",
+        "spell"
+      ],
+      "seven_sect_id": "qingxu_gate",
+      "element": "light",
+      "path": "qingxu_gate",
+      "alignment": "righteous",
+      "source_method": "qingxu_pure_tao_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "taiyi_xuan_light",
+      "display": "太玄清光",
+      "school": "dao",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "beam",
+        "element": "light",
+        "damage_base": 35
+      },
+      "description": "太玄清光：dao派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 20。 常随功法「taiyi_sect_art」体系解锁。",
+      "setting": {
+        "combat_style": "太一门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "太一门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "taiyi_sect_art"
+      },
+      "requires_method": "taiyi_sect_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "taiyi_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "great_vehicle_seal",
+      "display": "大乘印",
+      "school": "dao",
+      "realm_min": "GREAT_VEHICLE",
+      "spirit_cost_base": 80,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "control",
+        "element": "neutral",
+        "damage_base": 50
+      },
+      "description": "大乘印：dao派术法，属性倾向 neutral。境界门槛 GREAT_VEHICLE，耗灵约 80。 常随功法「great_vehicle_dao」体系解锁。",
+      "setting": {
+        "combat_style": "大乘道典",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "大乘道典",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "GREAT_VEHICLE",
+        "requires_method": "great_vehicle_dao"
+      },
+      "requires_method": "great_vehicle_dao",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "great_vehicle_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingxu_sword_clear",
+      "display": "清虚剑意",
+      "school": "dao",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "清虚门",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 32,
+        "tags": [
+          "sword",
+          "dao"
+        ]
+      },
+      "description": "清虚剑意：dao派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。剑意锋锐。 常随功法「qingxu_pure_tao_art」体系解锁。",
+      "requires_method": "qingxu_pure_tao_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingxu_pure_tao_art"
+      },
+      "tags": [
+        "seven_sects",
+        "qingxu_gate",
+        "v126",
+        "metal",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "清虚清剑一击，克浊魔气。",
+        "v126": true,
+        "seven_sect": "qingxu_gate"
+      },
+      "seven_sect_id": "qingxu_gate",
+      "element": "metal",
+      "path": "qingxu_gate",
+      "alignment": "righteous",
+      "source_method": "qingxu_pure_tao_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingxu_wind_step",
+      "display": "清虚步",
+      "school": "dao",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "清虚门",
+      "effect": {
+        "type": "dash",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "movement"
+        ]
+      },
+      "description": "清虚步：dao派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 10。 常随功法「qingxu_pure_tao_art」体系解锁。",
+      "requires_method": "qingxu_pure_tao_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qingxu_pure_tao_art"
+      },
+      "tags": [
+        "seven_sects",
+        "qingxu_gate",
+        "v126",
+        "wind",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "清修身法。",
+        "v126": true,
+        "seven_sect": "qingxu_gate"
+      },
+      "seven_sect_id": "qingxu_gate",
+      "element": "wind",
+      "path": "qingxu_gate",
+      "alignment": "righteous",
+      "source_method": "qingxu_pure_tao_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingxu_seal_noise",
+      "display": "清虚封喧",
+      "school": "dao",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "清虚门",
+      "effect": {
+        "type": "cleanse",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "dao"
+        ]
+      },
+      "description": "清虚封喧：dao派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 16。 常随功法「qingxu_pure_tao_art」体系解锁。",
+      "requires_method": "qingxu_pure_tao_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingxu_pure_tao_art"
+      },
+      "tags": [
+        "seven_sects",
+        "qingxu_gate",
+        "v126",
+        "light",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "定心除幻噪。",
+        "v126": true,
+        "seven_sect": "qingxu_gate"
+      },
+      "seven_sect_id": "qingxu_gate",
+      "element": "light",
+      "path": "qingxu_gate",
+      "alignment": "righteous",
+      "source_method": "qingxu_pure_tao_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingxu_cloud_sword_array",
+      "display": "清云小剑阵",
+      "school": "dao",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 36,
+      "source": "清虚门",
+      "effect": {
+        "type": "field",
+        "element": "metal",
+        "damage_base": 40,
+        "tags": [
+          "array"
+        ]
+      },
+      "description": "清云小剑阵：dao派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 36。剑意锋锐。 常随功法「qingxu_pure_tao_art」体系解锁。",
+      "requires_method": "qingxu_pure_tao_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qingxu_pure_tao_art"
+      },
+      "tags": [
+        "seven_sects",
+        "qingxu_gate",
+        "v126",
+        "metal",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "清虚剑阵领域。",
+        "v126": true,
+        "seven_sect": "qingxu_gate"
+      },
+      "seven_sect_id": "qingxu_gate",
+      "element": "metal",
+      "path": "qingxu_gate",
+      "alignment": "righteous",
+      "source_method": "qingxu_pure_tao_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xiaji_clear_channel",
+      "display": "小极通脉",
+      "school": "dao",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 20,
+      "source": "小极宫玄功",
+      "effect": {
+        "type": "buff_self",
+        "element": "light",
+        "damage_base": 0
+      },
+      "description": "小极通脉：dao派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 20。 常随功法「xiaji_palace_art」体系解锁。",
+      "requires_method": "xiaji_palace_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "xiaji_palace_art"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "通脉。",
+        "v129": true
+      },
+      "faction_id": "xiaji_palace",
+      "region": "dajin",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "xiaji_palace_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xiaji_ice_flame_aid",
+      "display": "小极寒焰辅",
+      "school": "dao",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 25,
+      "source": "小极宫玄功",
+      "effect": {
+        "type": "buff_self",
+        "element": "ice",
+        "damage_base": 0
+      },
+      "description": "小极寒焰辅：dao派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 25。 常随功法「xiaji_palace_art」体系解锁。",
+      "requires_method": "xiaji_palace_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "xiaji_palace_art"
+      },
+      "tags": [
+        "v129",
+        "ice",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "寒焰辅。",
+        "v129": true
+      },
+      "faction_id": "xiaji_palace",
+      "region": "dajin",
+      "element": "ice",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "xiaji_palace_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "great_vehicle_dao_light",
+      "display": "大乘道光",
+      "school": "dao",
+      "realm_min": "GREAT_VEHICLE",
+      "spirit_cost_base": 60,
+      "source": "大乘道典",
+      "effect": {
+        "type": "beam",
+        "element": "light",
+        "damage_base": 90
+      },
+      "description": "大乘道光：dao派术法，属性倾向 light。境界门槛 GREAT_VEHICLE，耗灵约 60。 常随功法「great_vehicle_dao」体系解锁。",
+      "requires_method": "great_vehicle_dao",
+      "learn_requirements": {
+        "realm_min": "GREAT_VEHICLE",
+        "requires_method": "great_vehicle_dao"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "道光。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "great_vehicle_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "great_vehicle_world_press",
+      "display": "大乘界压",
+      "school": "dao",
+      "realm_min": "GREAT_VEHICLE",
+      "spirit_cost_base": 80,
+      "source": "大乘道典",
+      "effect": {
+        "type": "field",
+        "element": "neutral",
+        "damage_base": 70
+      },
+      "description": "大乘界压：dao派术法，属性倾向 neutral。境界门槛 GREAT_VEHICLE，耗灵约 80。 常随功法「great_vehicle_dao」体系解锁。",
+      "requires_method": "great_vehicle_dao",
+      "learn_requirements": {
+        "realm_min": "GREAT_VEHICLE",
+        "requires_method": "great_vehicle_dao"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "界压。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "great_vehicle_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guanghan_star_align",
+      "display": "广寒星列",
+      "school": "dao",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 35,
+      "source": "广寒星图诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "light",
+        "damage_base": 0
+      },
+      "description": "广寒星列：dao派术法，属性倾向 light。境界门槛 VOID_REFINEMENT，耗灵约 35。 常随功法「guanghan_star_map_art」体系解锁。",
+      "requires_method": "guanghan_star_map_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "guanghan_star_map_art"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "星列。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "guanghan_star_map_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "taiyi2_v129_1",
+      "display": "太一·击",
+      "school": "dao",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "太一门太玄功",
+      "effect": {
+        "type": "projectile",
+        "element": "light",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "太一·击：dao派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 12。 常随功法「taiyi_sect_art」体系解锁。",
+      "requires_method": "taiyi_sect_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "taiyi_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "太一补全第1式。",
+        "v129": true
+      },
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "taiyi_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "taiyi2_v129_2",
+      "display": "太一·护",
+      "school": "dao",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "太一门太玄功",
+      "effect": {
+        "type": "buff_self",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "太一·护：dao派术法，属性倾向 light。境界门槛 CORE_FORMATION，耗灵约 18。 常随功法「taiyi_sect_art」体系解锁。",
+      "requires_method": "taiyi_sect_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "taiyi_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "太一补全第2式。",
+        "v129": true
+      },
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "taiyi_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "taiyi2_v129_3",
+      "display": "太一·爆",
+      "school": "dao",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "太一门太玄功",
+      "effect": {
+        "type": "aoe",
+        "element": "light",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "太一·爆：dao派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 24。 常随功法「taiyi_sect_art」体系解锁。",
+      "requires_method": "taiyi_sect_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "taiyi_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "太一补全第3式。",
+        "v129": true
+      },
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "taiyi_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guanghan_star_map_art_auto_3",
+      "display": "广寒星图诀·式3",
+      "school": "dao",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 14,
+      "source": "广寒星图诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "广寒星图诀·式3：dao派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 14。 常随功法「guanghan_star_map_art」体系解锁。",
+      "requires_method": "guanghan_star_map_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "guanghan_star_map_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "guanghan_star_map_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_word_bolt",
+      "display": "真言弹",
+      "school": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "真言诀",
+      "effect": {
+        "type": "projectile",
+        "element": "light",
+        "damage_base": 55,
+        "tags": [
+          "true_word"
+        ]
+      },
+      "description": "真言弹：dao派术法，属性倾向 light。境界门槛 TRUE_IMMORTAL，耗灵约 30。 常随功法「zhenyan_true_word_art」体系解锁。",
+      "requires_method": "zhenyan_true_word_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "zhenyan_true_word_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "言出弹光。真言入门攻击。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "zhenyan_true_word_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_command_bind",
+      "display": "真言缚",
+      "school": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "真言诀",
+      "effect": {
+        "type": "control",
+        "element": "light",
+        "damage_base": 25,
+        "tags": [
+          "true_word"
+        ]
+      },
+      "description": "真言缚：dao派术法，属性倾向 light。境界门槛 TRUE_IMMORTAL，耗灵约 35。 常随功法「zhenyan_true_word_art」体系解锁。",
+      "requires_method": "zhenyan_true_word_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "zhenyan_true_word_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "一言暂缚敌仙躯。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "zhenyan_true_word_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_voice_shield",
+      "display": "真言盾",
+      "school": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 28,
+      "source": "真言诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "true_word"
+        ]
+      },
+      "description": "真言盾：dao派术法，属性倾向 light。境界门槛 TRUE_IMMORTAL，耗灵约 28。守御为主。 常随功法「zhenyan_true_word_art」体系解锁。",
+      "requires_method": "zhenyan_true_word_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "zhenyan_true_word_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "真言护罩。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "zhenyan_true_word_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_lesson_seal",
+      "display": "授业印",
+      "school": "dao",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 20,
+      "source": "真言长老典",
+      "effect": {
+        "type": "utility",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "authority"
+        ]
+      },
+      "description": "授业印：dao派术法，属性倾向 neutral。境界门槛 GOLDEN_IMMORTAL，耗灵约 20。 常随功法「zhenyan_elder_canon」体系解锁。",
+      "requires_method": "zhenyan_elder_canon",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "zhenyan_elder_canon"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "长老授业/禁制权限。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "zhenyan_elder_canon",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_world_seed",
+      "display": "幻世种子",
+      "school": "dao",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "summon_field",
+        "element": "neutral",
+        "damage_base": 30,
+        "tags": [
+          "five_elements",
+          "world"
+        ]
+      },
+      "description": "幻世种子：dao派术法，属性倾向 neutral。境界门槛 TRUE_IMMORTAL，耗灵约 40。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "种下一枚五行幻世胚。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_full_world",
+      "display": "大五行幻世",
+      "school": "dao",
+      "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+      "spirit_cost_base": 80,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "domain",
+        "element": "neutral",
+        "damage_base": 90,
+        "tags": [
+          "five_elements",
+          "ultimate",
+          "world"
+        ]
+      },
+      "description": "大五行幻世：dao派术法，属性倾向 neutral。境界门槛 TAIYI_GOLDEN_IMMORTAL，耗灵约 80。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "五行幻世展开（高阶领域）。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heaven_patrol_aura",
+      "display": "巡天威",
+      "school": "dao",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "天庭律修诀",
+      "effect": {
+        "type": "buff_zone",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "authority"
+        ]
+      },
+      "description": "巡天威：dao派术法，属性倾向 light。境界门槛 GOLDEN_IMMORTAL，耗灵约 30。 常随功法「heavenly_court_law_art」体系解锁。",
+      "requires_method": "heavenly_court_law_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "heavenly_court_law_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "巡天威压友方。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heavenly_court",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heavenly_court",
+      "element": "light",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "heavenly_court_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dao_ancestor_glimpse_domain",
+      "display": "道祖窥影域",
+      "school": "dao",
+      "realm_min": "DAO_ANCESTOR_BAND",
+      "spirit_cost_base": 120,
+      "source": "道祖窥影",
+      "effect": {
+        "type": "domain",
+        "element": "neutral",
+        "damage_base": 100,
+        "tags": [
+          "endgame"
+        ]
+      },
+      "description": "道祖窥影域：dao派术法，属性倾向 neutral。境界门槛 DAO_ANCESTOR_BAND，耗灵约 120。 常随功法「dao_ancestor_glimpse」体系解锁。",
+      "requires_method": "dao_ancestor_glimpse",
+      "learn_requirements": {
+        "realm_min": "DAO_ANCESTOR_BAND",
+        "requires_method": "dao_ancestor_glimpse"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "终局窥影领域，非全知全能。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "dao_ancestor_glimpse",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dao_ancestor_silence",
+      "display": "道寂",
+      "school": "dao",
+      "realm_min": "DAO_ANCESTOR_BAND",
+      "spirit_cost_base": 100,
+      "source": "道祖窥影",
+      "effect": {
+        "type": "control",
+        "element": "neutral",
+        "damage_base": 40,
+        "tags": [
+          "endgame"
+        ]
+      },
+      "description": "道寂：dao派术法，属性倾向 neutral。境界门槛 DAO_ANCESTOR_BAND，耗灵约 100。 常随功法「dao_ancestor_glimpse」体系解锁。",
+      "requires_method": "dao_ancestor_glimpse",
+      "learn_requirements": {
+        "realm_min": "DAO_ANCESTOR_BAND",
+        "requires_method": "dao_ancestor_glimpse"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短暂道寂压技。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "dao_ancestor_glimpse",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dao_ancestor_glimpse_xian_3",
+      "display": "道祖窥影（终局）·仙式3",
+      "school": "dao",
+      "realm_min": "DAO_ANCESTOR_BAND",
+      "spirit_cost_base": 30,
+      "source": "道祖窥影（终局）",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 50,
+        "tags": [
+          "v130_fill"
+        ]
+      },
+      "description": "道祖窥影（终局）·仙式3：dao派术法，属性倾向 neutral。境界门槛 DAO_ANCESTOR_BAND，耗灵约 30。 常随功法「dao_ancestor_glimpse」体系解锁。",
+      "requires_method": "dao_ancestor_glimpse",
+      "learn_requirements": {
+        "realm_min": "DAO_ANCESTOR_BAND",
+        "requires_method": "dao_ancestor_glimpse"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "fill_min3",
+        "neutral",
+        "dao",
+        "righteous",
+        "spell"
+      ],
+      "setting": {
+        "lore": "道祖窥影（终局）仙界补式。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "neutral",
+      "path": "dao",
+      "alignment": "righteous",
+      "source_method": "dao_ancestor_glimpse",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

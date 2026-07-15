@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "source": "v115",
+  "creatures": [
+    {
+      "id": "trib_spirit_minor_soul_trial",
+      "display": "元婴小劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次3。非野刷。"
+    },
+    {
+      "id": "trib_spirit_heart_demon_or_thunder",
+      "display": "化神心魔/雷劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次5。非野刷。"
+    },
+    {
+      "id": "trib_spirit_void_thunder",
+      "display": "炼虚雷劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次9。非野刷。"
+    },
+    {
+      "id": "trib_spirit_body_soul_dual",
+      "display": "合体双劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次12。非野刷。"
+    },
+    {
+      "id": "trib_spirit_great_ascension_thunder",
+      "display": "大乘天劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次18。非野刷。"
+    },
+    {
+      "id": "trib_spirit_final_ascension",
+      "display": "飞升仙劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次27。非野刷。"
+    },
+    {
+      "id": "trib_spirit_beast_shape_shift_minor",
+      "display": "妖兽化形小劫具象（结构）",
+      "category": "zhenling",
+      "threat": 8,
+      "tags": [
+        "v115"
+      ],
+      "description": "渡劫实例专属。波次3。非野刷。"
+    },
+    {
+      "id": "faction_envoy_huangfeng_valley",
+      "display": "黄枫谷使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。alchemy_strong。非野刷。"
+    },
+    {
+      "id": "faction_envoy_yanyue_sect",
+      "display": "掩月宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。illusion_array。非野刷。"
+    },
+    {
+      "id": "faction_envoy_spirit_beast_mountain",
+      "display": "灵兽山使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。beast_tamer。非野刷。"
+    },
+    {
+      "id": "faction_envoy_qingxu_gate",
+      "display": "清虚门使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。talisman_specialist。非野刷。"
+    },
+    {
+      "id": "faction_envoy_huadao_wu",
+      "display": "化刀坞使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_tianque_fort",
+      "display": "天阙堡使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_giant_sword_gate",
+      "display": "巨剑门使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_qixuan_men",
+      "display": "七玄门使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_ghost_spirit_gate",
+      "display": "鬼灵门使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_hehuan_sect",
+      "display": "合欢宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_moyan_gate",
+      "display": "魔焰门使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_tiansha_sect",
+      "display": "天煞宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_yuling_sect",
+      "display": "御灵宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_qianhuan_sect",
+      "display": "千幻宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_luoyun_sect",
+      "display": "落云宗使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_star_palace",
+      "display": "星宫使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。order_maintainer。非野刷。"
+    },
+    {
+      "id": "faction_envoy_inverse_star_alliance",
+      "display": "逆星盟使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。rebel_faction。非野刷。"
+    },
+    {
+      "id": "faction_envoy_qianzhu_teach",
+      "display": "千竹教使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_mulan_fashi_council",
+      "display": "慕兰神师府使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。None。非野刷。"
+    },
+    {
+      "id": "faction_envoy_tianlan_temple",
+      "display": "天澜圣殿使者（结构）",
+      "category": "humanoid_other",
+      "threat": 2,
+      "tags": [
+        "v115"
+      ],
+      "description": "势力信使。holy_beast_cult。非野刷。"
+    },
+    {
+      "id": "encounter_blood_forbidden",
+      "display": "遭遇·blood_forbidden",
+      "category": "humanoid_other",
+      "threat": 5,
+      "tags": [
+        "v115"
+      ],
+      "description": "【遭遇包】血色妖兽潮+夺名额。"
+    },
+    {
+      "id": "encounter_void_palace",
+      "display": "遭遇·void_palace",
+      "category": "humanoid_other",
+      "threat": 5,
+      "tags": [
+        "v115"
+      ],
+      "description": "【遭遇包】虚天殿卫+夺宝。"
+    },
+    {
+      "id": "encounter_chaotic_sea",
+      "display": "遭遇·chaotic_sea",
+      "category": "humanoid_other",
+      "threat": 5,
+      "tags": [
+        "v115"
+      ],
+      "description": "【遭遇包】海兽+星宫+劫修。"
+    },
+    {
+      "id": "encounter_diyuan",
+      "display": "遭遇·diyuan",
+      "category": "humanoid_other",
+      "threat": 5,
+      "tags": [
+        "v115"
+      ],
+      "description": "【遭遇包】地渊虫+夺宝。"
+    },
+    {
+      "id": "encounter_spirit_border",
+      "display": "遭遇·spirit_border",
+      "category": "humanoid_other",
+      "threat": 5,
+      "tags": [
+        "v115"
+      ],
+      "description": "【遭遇包】灵界边高压+本地妖。"
+    },
+    {
+      "id": "figure_echo_dayan_sage",
+      "display": "大衍神君影（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v115"
+      ],
+      "description": "纪年人物残影。创千竹教傀儡术。"
+    },
+    {
+      "id": "figure_echo_seal_saints",
+      "display": "封魔诸圣影（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v115"
+      ],
+      "description": "纪年人物残影。集体封印，无单一主角。"
+    },
+    {
+      "id": "figure_echo_nine_nation_alliance",
+      "display": "九国盟影（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v115"
+      ],
+      "description": "纪年人物残影。抗魔联盟。"
+    },
+    {
+      "id": "figure_echo_qixuan_men",
+      "display": "七玄门影（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v115"
+      ],
+      "description": "纪年人物残影。新手江湖门派。"
+    },
+    {
+      "id": "figure_echo_player",
+      "display": "入道者（玩家）影（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v115"
+      ],
+      "description": "纪年人物残影。创角默认年。"
+    },
+    {
+      "id": "spirit_root_tester_npc",
+      "display": "测灵根执事",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "开局测灵。",
+      "tags": [
+        "v115"
+      ]
+    },
+    {
+      "id": "lifespan_reaper_echo",
+      "display": "寿元将尽残响",
+      "category": "shi_gui",
+      "threat": 0,
+      "description": "寿元叙事。",
+      "tags": [
+        "v115"
+      ]
+    },
+    {
+      "id": "v115_scribe",
+      "display": "v115司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "timeline_guide_v115。",
+      "tags": [
+        "v115"
+      ]
+    }
+  ]
+}

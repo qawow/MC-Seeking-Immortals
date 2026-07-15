@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v98 境界突破条件与失败惩罚。贴原著瓶颈结构",
+  "disclaimer": "成功率为结构量级；可按难度档整体缩放",
+  "realms_order": [
+    "MORTAL",
+    "QI_REFINING",
+    "FOUNDATION",
+    "CORE_FORMATION",
+    "NASCENT_SOUL",
+    "DEITY_TRANSFORMATION",
+    "VOID_REFINEMENT",
+    "BODY_INTEGRATION",
+    "GREAT_VEHICLE",
+    "MAHAYANA_to_TRUE_IMMORTAL"
+  ],
+  "breakthroughs": [
+    {
+      "id": "mortal_to_qi",
+      "from": "MORTAL",
+      "to": "QI_REFINING",
+      "display": "凡人引气入体",
+      "requirements": {
+        "spirit_root": "可测灵根或特殊机缘",
+        "manual": "长春功等入门功法",
+        "environment": "灵气尚可之地",
+        "items_optional": ["升仙令资格", "炼气散"]
+      },
+      "process": ["测灵根", "拜师/散修自修", "引气周天"],
+      "base_success": 0.7,
+      "fail": {
+        "common": "无功返回凡人",
+        "severe": "经脉微损（少见）"
+      },
+      "time_structure": "数月~数年",
+      "description": "入仙门槛。无灵根极难；假灵根可修但慢。"
+    },
+    {
+      "id": "qi_layers",
+      "from": "QI_REFINING_N",
+      "to": "QI_REFINING_N+1",
+      "display": "炼气层层推进",
+      "requirements": {
+        "manual_layer": "功法对应层",
+        "pills": ["聚灵丹", "炼气散"],
+        "stones": "少量下品灵石"
+      },
+      "base_success": 0.85,
+      "fail": {"common": "停滞，浪费丹药"},
+      "bottleneck": {
+        "layer_7_plus": "渐难",
+        "layer_11_13": "需筑基准备"
+      },
+      "description": "十三层结构常见；后期需筑基丹。"
+    },
+    {
+      "id": "qi_to_foundation",
+      "from": "QI_REFINING_LATE",
+      "to": "FOUNDATION",
+      "display": "筑基",
+      "requirements": {
+        "realm": "炼气十一~十三层",
+        "critical_pill": "筑基丹（1~2粒有效）",
+        "support": ["灵脉洞府", "聚灵阵", "安全闭关"],
+        "body": "无重伤、经脉完整"
+      },
+      "process": ["液化灵气", "开辟丹田稳固", "出关巩固"],
+      "base_success": 0.35,
+      "modifiers": [
+        {"cond": "伪劣筑基丹", "delta": -0.25},
+        {"cond": "真灵根/异灵根", "delta": 0.1},
+        {"cond": "聚灵阵+灵脉", "delta": 0.05},
+        {"cond": "第二粒筑基丹", "delta": 0.15, "note": "抗性后第三粒近无效"}
+      ],
+      "fail": {
+        "common": "跌回炼气高阶，经脉损伤",
+        "severe": "灵根受损、终身难再筑基",
+        "death_rare": "走火爆体（伪丹/强行）"
+      },
+      "cooldown_retry": "疗伤数月~数年+再备丹",
+      "description": "人界第一道硬门槛。筑基丹是经济与战乱核心。"
+    },
+    {
+      "id": "foundation_layers",
+      "from": "FOUNDATION_early",
+      "to": "FOUNDATION_late",
+      "display": "筑基期修炼",
+      "requirements": {
+        "pills": ["灵髓丸", "金髓丸"],
+        "manual": "正修功法中层"
+      },
+      "base_success": 0.75,
+      "fail": {"common": "瓶颈停滞"},
+      "description": "相对平滑；资源决定速度。"
+    },
+    {
+      "id": "foundation_to_core",
+      "from": "FOUNDATION_PEAK",
+      "to": "CORE_FORMATION",
+      "display": "结丹",
+      "requirements": {
+        "critical_pill": "降尘丹等结丹丹",
+        "support_tech": ["三转重元功（可选）"],
+        "resources": "海量中品灵石+丹药",
+        "safe_cave": "长期闭关无扰"
+      },
+      "process": ["压缩真元", "凝结金丹", "度心魔/反噬"],
+      "base_success": 0.2,
+      "modifiers": [
+        {"cond": "降尘丹", "delta": 0.2},
+        {"cond": "三转重元成功", "delta": 0.15},
+        {"cond": "真元不纯/心魔重", "delta": -0.15},
+        {"cond": "散功期被袭击", "delta": -0.5}
+      ],
+      "fail": {
+        "common": "金丹破碎，大跌筑基，重伤",
+        "severe": "经脉尽废、修为尽失",
+        "death": "自爆金丹级事故"
+      },
+      "description": "乱星海前后主线门槛。降尘丹+安全环境极关键。"
+    },
+    {
+      "id": "core_layers",
+      "from": "CORE_FORMATION",
+      "to": "CORE_FORMATION_late",
+      "display": "结丹期推进",
+      "requirements": {"pills": ["结丹修为丹", "绛云丹类"], "fabao": "本命法宝同步"},
+      "base_success": 0.7,
+      "description": "法宝与神识并进。"
+    },
+    {
+      "id": "core_to_nascent",
+      "from": "CORE_FORMATION_PEAK",
+      "to": "NASCENT_SOUL",
+      "display": "结婴/化婴",
+      "requirements": {
+        "pills_any_of": ["定灵丹", "九曲灵参丹", "培婴丹"],
+        "support": ["安魂环境", "心性关"],
+        "optional": ["造化丹体验更高境（一生一次）"]
+      },
+      "process": ["碎丹成婴", "元婴出窍稳固", "心魔劫"],
+      "base_success": 0.15,
+      "modifiers": [
+        {"cond": "定灵丹", "delta": 0.12},
+        {"cond": "九曲灵参丹", "delta": 0.12},
+        {"cond": "培婴丹", "delta": 0.1},
+        {"cond": "多丹叠用递减", "note": "非无限叠加"},
+        {"cond": "心魔未解", "delta": -0.2}
+      ],
+      "fail": {
+        "common": "金丹重创，跌境结丹中低",
+        "severe": "元婴流产，终生止步结丹",
+        "death": "神魂溃散"
+      },
+      "description": "天南元婴稀缺原因。云梦/虚天/阴阳窟资源链服务此关。"
+    },
+    {
+      "id": "nascent_mid",
+      "from": "NASCENT_SOUL_early",
+      "to": "NASCENT_SOUL_late",
+      "display": "元婴期修炼",
+      "requirements": {
+        "pills": ["元婴修为丹", "回煞丸仅战斗"],
+        "body_optional": ["明王诀", "龙鳞果", "炼体"]
+      },
+      "base_success": 0.6,
+      "fail": {"common": "瓶颈；走火需疗"},
+      "description": "寿元大增；争的是化神资格。"
+    },
+    {
+      "id": "nascent_to_deity",
+      "from": "NASCENT_SOUL_PEAK",
+      "to": "DEITY_TRANSFORMATION",
+      "display": "化神",
+      "requirements": {
+        "critical": ["魔元丹等化神丹", "极品灵石海量", "顶阶功法（元磁/法体）"],
+        "optional_power": ["五寒焰", "回阳真水", "本命通天/古宝"],
+        "environment": "绝对安全闭关（数十年起）"
+      },
+      "process": ["元婴化神识与天地交感", "渡化神天劫", "稳固神变"],
+      "tribulation": {
+        "type": "major",
+        "waves_typical": [5, 9],
+        "aids": ["护劫阵", "寒髓", "肉身强度"]
+      },
+      "base_success": 0.08,
+      "modifiers": [
+        {"cond": "魔元丹+资源包", "delta": 0.1},
+        {"cond": "法体双修有成", "delta": 0.08},
+        {"cond": "天劫准备不足", "delta": -0.2}
+      ],
+      "fail": {
+        "common": "元婴重创，跌境",
+        "severe": "化神失败成活死人/假死闭关",
+        "death": "天劫劈灭形神"
+      },
+      "description": "人界顶尖门槛。小极宫寒焰、火狱太阳精火、魔陀山交换皆服务此线。"
+    },
+    {
+      "id": "deity_to_void",
+      "from": "DEITY_TRANSFORMATION",
+      "to": "VOID_REFINEMENT",
+      "display": "炼虚",
+      "requirements": {
+        "realm_place": "灵界灵气",
+        "pills": ["腾龙丹", "玉清丹等"],
+        "insight": "法则感悟",
+        "optional": ["造化体验余韵", "炼神术"]
+      },
+      "tribulation": {"type": "major", "waves_typical": [9, 12]},
+      "base_success": 0.12,
+      "fail": {
+        "common": "化神后期停滞",
+        "severe": "法则反噬、神识损伤",
+        "death": "天劫"
+      },
+      "description": "人界几乎不可达；飞升后主线。"
+    },
+    {
+      "id": "void_to_integration",
+      "from": "VOID_REFINEMENT",
+      "to": "BODY_INTEGRATION",
+      "display": "合体",
+      "requirements": {
+        "critical_pill": "虚灵丹",
+        "support": ["洗灵池", "净灵莲减隐患"],
+        "body_law": "法体合一"
+      },
+      "base_success": 0.1,
+      "fail": {
+        "common": "炼虚巅峰卡住",
+        "severe": "法体撕裂",
+        "death": "合体失败神形俱灭"
+      },
+      "description": "广寒界虚灵丹线。"
+    },
+    {
+      "id": "integration_to_great",
+      "from": "BODY_INTEGRATION",
+      "to": "GREAT_VEHICLE",
+      "display": "大乘",
+      "requirements": {
+        "law": "完整法则道果结构",
+        "resources": "界面级",
+        "optional": ["真魂丹", "冥河交易"]
+      },
+      "tribulation": {"type": "major", "waves_typical": [12, 18]},
+      "base_success": 0.06,
+      "fail": {"severe": "道基崩", "death": "天劫/心魔"},
+      "description": "灵界顶端；战力质变。"
+    },
+    {
+      "id": "great_to_true_immortal",
+      "from": "GREAT_VEHICLE",
+      "to": "TRUE_IMMORTAL",
+      "display": "渡真仙劫/飞升仙界",
+      "requirements": {
+        "tribulation": "二十七重等结构",
+        "space": "飞升通道/节点",
+        "body_soul": "形神俱备"
+      },
+      "base_success": 0.03,
+      "fail": {
+        "common": "重伤跌境",
+        "death": "形神俱灭",
+        "special": "被截杀/界面风暴"
+      },
+      "description": "终局门槛。人界偷渡灵界≠真仙。"
+    }
+  ],
+  "special_paths": [
+    {
+      "id": "sanzhuan",
+      "display": "三转重元",
+      "for": "foundation_to_core",
+      "risk": "散功期战力暴跌",
+      "benefit": "结丹率结构提升",
+      "description": "必须绝对安全闭关。"
+    },
+    {
+      "id": "zaohua_once",
+      "display": "造化丹幻境",
+      "for": "any_high_bottleneck",
+      "limit": "一生一次结构",
+      "benefit": "体验更高境，破心障",
+      "description": "不直接给人境界，给感悟。"
+    },
+    {
+      "id": "body_dual",
+      "display": "法体双修",
+      "for": "nascent_to_deity_plus",
+      "manuals": ["明王诀", "托天", "梵圣真魔", "百脉炼宝"],
+      "benefit": "抗劫与战力",
+      "description": "韩立主路线。"
+    },
+    {
+      "id": "second_yuanying",
+      "display": "第二元婴",
+      "req": ["至木灵婴等", "离魂术", "天绝魔尸"],
+      "benefit": "分修魔功/保命",
+      "risk": "反噬夺舍",
+      "description": "魔道高阶手段。"
+    }
+  ],
+  "tribulation_table": {
+    "minor": {"when": "化形/小境界", "fail": "跌境重伤"},
+    "major": {"when": "化神起大境界", "fail": "身陨或入魔"},
+    "immortal": {"when": "真仙", "fail": "形神俱灭"}
+  },
+  "retry_economy": {
+    "qi_to_foundation": "再攒1-2枚筑基丹+疗伤",
+    "foundation_to_core": "降尘难求，可能终生",
+    "core_to_nascent": "定灵/参丹级资源",
+    "nascent_to_deity": "以百年计准备"
+  }
+}

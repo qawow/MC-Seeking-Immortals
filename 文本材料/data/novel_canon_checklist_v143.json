@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source": "v140 原著贴合检查清单（设定层）",
+  "do": [
+    "血色=周期炼气试炼；虚天=高阶窗口夺宝；昆吾=线索元婴；坠魔=火域灵烛/造化",
+    "unique 宝物不保底",
+    "南宫婉/曲儿等为权重事件，不强制玩家身份",
+    "飞升本体单向，分身下界",
+    "星宫 vs 逆星对立",
+    "培婴材料阴芝马倾向活捕",
+    "大衍完整不保底"
+  ],
+  "dont": [
+    "不要仙界自由回人界刷资源",
+    "不要人人一鼎虚天",
+    "不要把所有秘境做成同构刷怪塔",
+    "不要忽略抗火/抗阴/抗毒等门槛"
+  ],
+  "covered_secret_diagrams": [
+    "blood_forbidden",
+    "xutian_palace",
+    "thousand_bamboo_puppet_tower",
+    "kunwu_mountain",
+    "zhuimo_valley",
+    "yinyang_ku",
+    "nether_river_land",
+    "yin_mountain_catacomb",
+    "tianlan_secret_grotto",
+    "ancient_cultivator_ruins",
+    "seven_meridian_cave"
+  ],
+  "region_detail_packs": [
+    "v139 tiannan+sea",
+    "v140 dajin+mulan+spirit+immortal"
+  ],
+  "dialogue_links": "dialogue_effect_quest_links_v140.json",
+  "v143_add": [
+    "炼神术 unique 不继承全抄",
+    "真仙威压事件不可野刷",
+    "太阳精火/回阳真水 limited unique",
+    "药丹价格与任务奖励已勾稽关键链"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v108 星宫 / 大晋 专页（贴原著结丹后至元婴舞台）",
+  "disclaimer": "星宫神念烙印与大晋帝都秩序。数值为结构量级。无代码",
+  "id": "xinggong_dajin",
+  "display": "星宫与大晋",
+  "aliases": ["天星城星宫", "大晋王朝", "晋京"],
+  "realm_band": ["CORE_FORMATION", "NASCENT_SOUL"],
+  "xinggong": {
+    "display": "星宫",
+    "role": "乱星海顶级势力之一；神念烙印、星宫令、高层敌对风险",
+    "hub": "天星城相关",
+    "rep_faction": "xinggong",
+    "entry": {
+      "need": ["天星立足", "情报", "实力或人情"],
+      "risk": "神念烙印后难叛；敌对=全海域高压"
+    },
+    "thresholds": [
+      {"at": -40, "lock": ["星宫追杀", "烙印惩罚结构"]},
+      {"at": 0, "unlock": ["外围情报", "星宫令线索"]},
+      {"at": 30, "unlock": ["任务板", "中层交易"]},
+      {"at": 60, "unlock": ["核心人情", "禁地情报权重+"]}
+    ],
+    "key_mechanics": [
+      {
+        "id": "shennian_laoyin",
+        "display": "神念烙印",
+        "tags": ["account_bound", "balance_risk"],
+        "effect": "身份绑定/追踪/叛逃惩罚",
+        "description": "星宫控制手段。玩家侧应有拒绝/破印高代价路径，不可无脑强上。"
+      },
+      {
+        "id": "xinggong_ling",
+        "display": "星宫令",
+        "tags": ["token", "scarce"],
+        "use": ["通行", "任务", "假令风险"]
+      },
+      {
+        "id": "wan_baozong_contest",
+        "display": "万宝楼/拍卖竞争结构",
+        "note": "与星宫利益交错，非单一友好"
+      }
+    ],
+    "zones": [
+      {
+        "id": "outer_envoy",
+        "display": "星宫外使区",
+        "threat": [5, 7],
+        "spawns": ["星宫外使护卫", "情报贩"],
+        "loot": ["星宫令线索", "海图加注"]
+      },
+      {
+        "id": "mind_seal_hall",
+        "display": "烙印殿结构",
+        "threat": [6, 8],
+        "spawns": ["烙印司察", "禁制灵"],
+        "loot": ["无常规；事件向"],
+        "note": "接受/拒绝烙印分叉"
+      },
+      {
+        "id": "inner_star_court",
+        "display": "内廷",
+        "threat": [7, 9],
+        "spawns": ["内廷修士", "星宫长老影"],
+        "loot": ["高阶情报", "敌对则死战"]
+      }
+    ],
+    "events": [
+      {"id": "seal_choice", "display": "烙印抉择"},
+      {"id": "false_ling", "display": "假星宫令事件"},
+      {"id": "hostile_purge", "display": "敌对清剿"},
+      {"id": "intel_trade", "display": "虚天/外海情报交易"}
+    ]
+  },
+  "dajin": {
+    "display": "大晋",
+    "role": "人界顶级王朝修仙秩序；晋京坊市、赌战、宗门林立",
+    "hubs": ["晋京", "周边州府", "慕兰边缘交接"],
+    "rep_faction": "dajin_court",
+    "thresholds": [
+      {"at": -30, "lock": ["官差盘查+", "坊市拒售"]},
+      {"at": 0, "unlock": ["晋京落地", "基础坊市"]},
+      {"at": 25, "unlock": ["中档拍场", "赌战观礼"]},
+      {"at": 50, "unlock": ["官面人情", "州府令"]},
+      {"at": 80, "unlock": ["顶层拍席", "军功折算优"]}
+    ],
+    "districts": [
+      {
+        "id": "jinjing_gate",
+        "display": "晋京城门司",
+        "services": ["验籍", "税", "禁物清单"]
+      },
+      {
+        "id": "auction_row",
+        "display": "寸金阁等拍场结构",
+        "services": ["拍卖", "鉴定", "禁抢拍"]
+      },
+      {
+        "id": "duel_arena",
+        "display": "赌战台",
+        "services": ["观礼", "押注结构", "庚精级顶赏线索"]
+      },
+      {
+        "id": "sect_alley",
+        "display": "宗门驻京别院街",
+        "services": ["人情", "交换会接口"]
+      },
+      {
+        "id": "black_under",
+        "display": "地下黑市",
+        "services": ["禁货", "假身份", "高风险"]
+      }
+    ],
+    "key_items": [
+      {"id": "jin_jing_pass", "display": "晋京路引"},
+      {"id": "duel_token", "display": "赌战台令"},
+      {"id": "geng_jing_prize_clue", "display": "庚精顶赏线索"},
+      {"id": "court_favor_jade", "display": "官面人情玉"},
+      {"id": "state_warrant", "display": "州府协拿令"}
+    ],
+    "economy": {
+      "auction_premium": 1.5,
+      "tax_gate": [0.05, 0.15],
+      "geng_jing_anchor": [20000, 120000],
+      "black_market_mod": 1.3
+    }
+  },
+  "travel_links": {
+    "from_sea": ["tianxing → 陆路/传送结构 → jinjing"],
+    "to_kunwu": ["jinjing → kunwu 线索拼图"],
+    "to_yinyang": ["晋京外围 → 阴阳窟"],
+    "to_mulan": ["边界 → 慕兰草原"]
+  },
+  "recommended_loadout": {
+    "must": ["易容/敛息", "中高阶疗伤", "本命法宝", "晋京路引", "拍场礼仪"],
+    "nice": ["星宫令真伪鉴定", "赌战情报", "官面人情"],
+    "avoid": ["城内开杀", "假令硬闯星宫", "抢拍唯一物"]
+  },
+  "cross_ref": {
+    "quest": ["chaotic_core 后半", "dajin_kunwu"],
+    "travel": ["tianxing", "jinjing", "kunwu"],
+    "reputation": ["xinggong", "dajin_court", "tianxing_city"]
+  },
+  "description": "结丹后权力舞台：星宫烙印与大晋秩序。资源在拍场与人情，死亡在规矩之外。"
+}

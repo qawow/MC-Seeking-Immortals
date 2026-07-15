@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v142",
+  "items": [
+    {
+      "id": "v142",
+      "display": "奖励钉表与描述精修",
+      "type": "meta",
+      "description": "20 任务奖励数值；功法/术法/结构 lore 贴原著"
+    }
+  ]
+}

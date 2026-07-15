@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source": "v128 乱星海+开局声望",
+  "items": [
+    {
+      "id": "v128_chaotic",
+      "display": "乱星海三方",
+      "type": "meta",
+      "description": "星宫19；逆星盟13；妙音门6；乱星海中立航行3"
+    },
+    {
+      "id": "v128_rep",
+      "display": "开局与互斥",
+      "type": "meta",
+      "description": "主/备选切换；硬互斥正道↔魔道、星宫↔逆星；规则9条"
+    },
+    {
+      "id": "v128_accept",
+      "display": "验收",
+      "type": "meta",
+      "checks": [
+        "乱星海精表",
+        "妙音门",
+        "开局切换",
+        "声望互斥",
+        "元磁门槛",
+        "无代码"
+      ],
+      "description": "双线同时完成"
+    }
+  ]
+}

@@ -1,0 +1,530 @@
+{
+  "schema_version": 1,
+  "source": "v117 原包42兽叙事深稿",
+  "creatures": [
+    {
+      "id": "beast_narr_twin_pupil_rat",
+      "catalog_id": "twin_pupil_rat",
+      "display": "双瞳鼠（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】双瞳鼠。摘要：双瞳看穿迷雾，喜灵浓处筑窝。。lore：双瞳可穿迷雾，修士常欲擒为灵宠。。生态位：scout_pet。战法：辅助探路。栖息：灵脉洞窟。弱点：['fire_noise']。域：['tiannan', 'caves']。掉落：['beast_fur_low', 'spirit_dust']。驯化：hard / 可宠：True。战：低威胁。侦：双瞳破雾。驯：灵食诱捕。掉：皮毛低阶。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_red_leopard_beast",
+      "catalog_id": "red_leopard_beast",
+      "display": "红狸兽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】红狸兽。摘要：敏捷、嗅觉超常。。lore：敏捷、嗅觉超常。。生态位：spirit_pet_candidate。战法：敏捷、嗅觉超常。。栖息：tiannan,forest。弱点：None。域：['tiannan', 'forest']。掉落：['beast_hide_low']。驯化：medium / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_fire_horn_deer",
+      "catalog_id": "fire_horn_deer",
+      "display": "炙角鹿（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】炙角鹿。摘要：火红独角。。lore：火红独角。。生态位：wild_beast。战法：火红独角。。栖息：tiannan,hills。弱点：None。域：['tiannan', 'hills']。掉落：['beast_horn_fire', 'beast_meat']。驯化：medium / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_wind_screech_hawk",
+      "catalog_id": "wind_screech_hawk",
+      "display": "风啸鹰（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】风啸鹰。摘要：驯养放哨侦察。。lore：高空巡猎，难驯。。生态位：aerial_scout。战法：风刃俯冲。栖息：None。弱点：None。域：['tiannan', 'mulan']。掉落：['feather_wind', 'beast_bone']。驯化：easy / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_scent_spirit_beast",
+      "catalog_id": "scent_spirit_beast",
+      "display": "嗅灵兽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】嗅灵兽。摘要：查违禁物品。。lore：对灵草灵药气味极敏感。。生态位：tracker。战法：嗅探灵药。栖息：药园山林。弱点：None。域：['tiannan', 'sect']。掉落：['beast_fur_mid']。驯化：easy / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_giant_centipede",
+      "catalog_id": "giant_centipede",
+      "display": "巨型蜈蚣（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】巨型蜈蚣。摘要：黑色甲壳。。lore：黑色甲壳。。生态位：wild_beast。战法：黑色甲壳。。栖息：tiannan,caves。弱点：None。域：['tiannan', 'caves']。掉落：['chitin', 'venom_sac']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_ink_flood_dragon",
+      "catalog_id": "ink_flood_dragon",
+      "display": "墨蛟（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】墨蛟。摘要：低阶蛟形。。lore：低阶蛟形。。生态位：wild_beast。战法：低阶蛟形。。栖息：tiannan,river。弱点：None。域：['tiannan', 'river']。掉落：['scale_water', 'demon_core_fragment']。驯化：none / 可宠：False。战：毒雾+绞尾三阶段雏形。克：火雷。掉：皮骨鳞。禁低阶单刷。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_heart_bore_worm",
+      "catalog_id": "heart_bore_worm",
+      "display": "钻心虫（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】钻心虫。摘要：沿血脉钻心。。lore：沿血脉钻心。。生态位：wild_beast。战法：沿血脉钻心。。栖息：tiannan,demonic。弱点：None。域：['tiannan', 'demonic']。掉落：['yin_silk']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_fire_crow",
+      "catalog_id": "fire_crow",
+      "display": "火鸦（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】火鸦。摘要：火属性远程。。lore：火属性远程。。生态位：wild_beast。战法：火属性远程。。栖息：tiannan,volcano。弱点：None。域：['tiannan', 'volcano']。掉落：['feather_fire', 'beast_core_t4']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_green_vine_demon",
+      "catalog_id": "green_vine_demon",
+      "display": "青木妖藤（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】青木妖藤。摘要：束缚毒回血。。lore：束缚毒回血。。生态位：wild_beast。战法：束缚毒回血。。栖息：tiannan,jungle。弱点：None。域：['tiannan', 'jungle']。掉落：['vine_fiber', 'wood_essence']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_mystic_water_turtle",
+      "catalog_id": "mystic_water_turtle",
+      "display": "玄水龟（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】玄水龟。摘要：高防水系控制。。lore：高防水系控制。。生态位：wild_beast。战法：高防水系控制。。栖息：chaotic_sea,tiannan。弱点：None。域：['chaotic_sea', 'tiannan']。掉落：['turtle_shell', 'water_pearl']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_thunder_horn_tiger",
+      "catalog_id": "thunder_horn_tiger",
+      "display": "雷角虎（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】雷角虎。摘要：冲锋雷击。。lore：冲锋雷击。。生态位：wild_beast。战法：冲锋雷击。。栖息：tiannan。弱点：None。域：['tiannan']。掉落：['tiger_bone', 'thunder_horn']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_demon_core_bear",
+      "catalog_id": "demon_core_bear",
+      "display": "妖丹熊（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】妖丹熊。摘要：结丹初，体内结妖丹。。lore：结丹初，体内结妖丹。。生态位：wild_beast。战法：结丹初，体内结妖丹。。栖息：tiannan,mountain。弱点：None。域：['tiannan', 'mountain']。掉落：['demon_core_low', 'bear_gall']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_baby_carp_demon",
+      "catalog_id": "baby_carp_demon",
+      "display": "婴鲤兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】婴鲤兽。摘要：娃娃脸鱼尾，水罡神雷。。lore：娃娃脸鱼尾，水罡神雷。。生态位：wild_beast。战法：娃娃脸鱼尾，水罡神雷。。栖息：chaotic_sea。弱点：None。域：['chaotic_sea']。掉落：['demon_core_mid', 'carp_scale']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_ice_soul_serpent",
+      "catalog_id": "ice_soul_serpent",
+      "display": "冰魄蛇（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】冰魄蛇。摘要：冰冻毒。。lore：冰冻毒。。生态位：wild_beast。战法：冰冻毒。。栖息：tiannan,snow。弱点：None。域：['tiannan', 'snow']。掉落：['ice_fang', 'serpent_skin']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_spirit_fox",
+      "catalog_id": "spirit_fox",
+      "display": "灵狐（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】灵狐。摘要：幻术闪避可驯服。。lore：灵狐一脉，化形后智力接近人族。。生态位：illusion_support。战法：幻术干扰。栖息：None。弱点：None。域：['tiannan', 'forest']。掉落：['fox_tail', 'illusion_core']。驯化：hard / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_shape_shift_trial_beast",
+      "catalog_id": "shape_shift_trial_beast",
+      "display": "化形试炼兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】化形试炼兽。摘要：七级渡劫化形模板。。lore：七级渡劫化形模板。。生态位：wild_beast。战法：七级渡劫化形模板。。栖息：global。弱点：None。域：['global']。掉落：['demon_core_high', 'shape_shift_scroll']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_thunder_jiao",
+      "catalog_id": "thunder_jiao",
+      "display": "雷劫蛟（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】雷劫蛟。摘要：雷暴秘境Boss雏形。。lore：蛟类化龙前躯，雷劫伴生。。生态位：boss_beast。战法：雷水双系。栖息：None。弱点：None。域：['chaotic_sea', 'storm']。掉落：['jiao_horn', 'thunder_demon_core']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_silver_wing_yaksha",
+      "catalog_id": "silver_wing_yaksha",
+      "display": "银翅夜叉（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】银翅夜叉。摘要：炼尸/妖 hybrid，风土遁幻术。。lore：炼尸/妖 hybrid，风土遁幻术。。生态位：wild_beast。战法：炼尸/妖 hybrid，风土遁幻术。。栖息：tiannan,zhuimo。弱点：None。域：['tiannan', 'zhuimo']。掉落：['corpse_marrow', 'silver_wing']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_wind_split_beast",
+      "catalog_id": "wind_split_beast",
+      "display": "裂风兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】裂风兽。摘要：妖王级，学人族技术。。lore：妖王级，学人族技术。。生态位：wild_beast。战法：妖王级，学人族技术。。栖息：chaotic_sea。弱点：None。域：['chaotic_sea']。掉落：['wind_core', 'beast_king_token']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_earth_armor_dragon",
+      "catalog_id": "earth_armor_dragon",
+      "display": "土甲龙（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】土甲龙。摘要：寻宝天赋。。lore：寻宝天赋。。生态位：wild_beast。战法：寻宝天赋。。栖息：dajin,caves。弱点：None。域：['dajin', 'caves']。掉落：['dragon_scale_earth', 'treasure_sense_buff']。驯化：quest_only / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_fire_jiao_adult",
+      "catalog_id": "fire_jiao_adult",
+      "display": "离火蛟（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】离火蛟。摘要：海域蛟龙。。lore：海域蛟龙。。生态位：wild_beast。战法：海域蛟龙。。栖息：chaotic_sea,ocean。弱点：None。域：['chaotic_sea', 'ocean']。掉落：['jiao_blood', 'demon_core_peak']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_suanni_beast",
+      "catalog_id": "suanni_beast",
+      "display": "狻猊兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】狻猊兽。摘要：上古兽形。。lore：上古兽形。。生态位：wild_beast。战法：上古兽形。。栖息：dajin。弱点：None。域：['dajin']。掉落：['suanni_mane', 'ancient_blood']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_four_ear_gold_ape",
+      "catalog_id": "four_ear_gold_ape",
+      "display": "四耳金猿（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】四耳金猿。摘要：金黄巨猴凶恶。。lore：金黄巨猴凶恶。。生态位：wild_beast。战法：金黄巨猴凶恶。。栖息：dajin,kunwu。弱点：None。域：['dajin', 'kunwu']。掉落：['ape_bone', 'gold_fur']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_gold_body_moon_corpse",
+      "catalog_id": "gold_body_moon_corpse",
+      "display": "金身月尸（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】金身月尸。摘要：人界顶阶炼尸，金遁。。lore：人界顶阶炼尸，金遁。。生态位：wild_beast。战法：人界顶阶炼尸，金遁。。栖息：tiannan。弱点：None。域：['tiannan']。掉落：['moon_corpse_core']。驯化：none / 可宠：False。战：金遁。佛雷克。魔道事件。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_six_wing_frost_centipede",
+      "catalog_id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】六翼霜蚣。摘要：冰龙血统灵虫。。lore：冰龙血统灵虫。。生态位：wild_beast。战法：冰龙血统灵虫。。栖息：spirit_realm,ancient。弱点：None。域：['spirit_realm', 'ancient']。掉落：['frost_wing', 'true_dragon_blood_trace']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_leopard_qilin_beast",
+      "catalog_id": "leopard_qilin_beast",
+      "display": "豹麟兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】豹麟兽。摘要：麒麟血脉，元婴实力幼体。。lore：麒麟血脉，元婴实力幼体。。生态位：wild_beast。战法：麒麟血脉，元婴实力幼体。。栖息：spirit_realm。弱点：None。域：['spirit_realm']。掉落：['qilin_blood', 'beast_soul']。驯化：legendary / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_mirage_sand_beast",
+      "catalog_id": "mirage_sand_beast",
+      "display": "蜃兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】蜃兽。摘要：双蛇首蛙身，幻化。。lore：双蛇首蛙身，幻化。。生态位：wild_beast。战法：双蛇首蛙身，幻化。。栖息：chaotic_sea,desert。弱点：None。域：['chaotic_sea', 'desert']。掉落：['mirage_pearl', 'illusion_true_essence']。驯化：none / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_sky_tiger_beast",
+      "catalog_id": "sky_tiger_beast",
+      "display": "天虎兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】天虎兽。摘要：土风法术瞬移。。lore：土风法术瞬移。。生态位：wild_beast。战法：土风法术瞬移。。栖息：mulan。弱点：None。域：['mulan']。掉落：['sky_tiger_wing', 'mulan_spirit_feather']。驯化：faction_mulan / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_holy_peacock",
+      "catalog_id": "holy_peacock",
+      "display": "圣禽（青孔雀）（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】圣禽（青孔雀）。摘要：慕兰供奉，妖火。。lore：慕兰供奉，妖火。。生态位：wild_beast。战法：慕兰供奉，妖火。。栖息：mulan,spirit_realm。弱点：None。域：['mulan', 'spirit_realm']。掉落：['holy_bird_plume', 'peacock_true_fire']。驯化：none / 可宠：False。战：妖火屏。猎杀毁慕兰声望。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "泣魂兽（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】泣魂兽。摘要：冥河阴兽，啼哭可乱人心神，常伴尸气。。lore：冥河阴兽，啼哭可乱人心神，常伴尸气。。生态位：wild_beast。战法：冥河阴兽，啼哭可乱人心神，常伴尸气。。栖息：nether_river。弱点：None。域：['nether_river']。掉落：['soul_moss', 'yin_coffin_nail', 'beast_blood_vial']。驯化：very_hard / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】幻焰蛾。摘要：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。lore：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。生态位：wild_beast。战法：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。栖息：fallen_demon_valley。弱点：None。域：['fallen_demon_valley']。掉落：['fire_feather', 'demon_core_mid', 'beast_soul_essence']。驯化：hard / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_gold_devour_beetle",
+      "catalog_id": "gold_devour_beetle",
+      "display": "噬金虫（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】噬金虫。摘要：啃噬五金法宝灵光，群居奇虫。。lore：天下奇虫，专噬五金之精。。生态位：artifact_counter。战法：虫群啃宝。栖息：None。弱点：None。域：['chaotic_sea', 'spirit_world']。掉落：['gold_devour_larva', 'beetle_shell']。驯化：legendary / 可宠：True。战：噬宝光。养成优先。灾厄事件才群。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_soul_weeping_beast",
+      "catalog_id": "soul_weeping_beast",
+      "display": "啼魂兽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】啼魂兽。摘要：尖啸伤魂，对鬼物克制极强。。lore：对阴魂鬼物有天然克制。。生态位：anti_ghost。战法：神魂尖啸。栖息：None。弱点：None。域：['demonic_ruins']。掉落：[]。驯化：legendary / 可宠：True。战：尖啸伤魂。活捕。定神珠。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_mountain_giant_ape",
+      "catalog_id": "mountain_giant_ape",
+      "display": "山岳巨猿（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】山岳巨猿。摘要：力大无穷，可化形前兆。。lore：力大无穷，可化形前兆。。生态位：wild_beast。战法：力大无穷，可化形前兆。。栖息：barbarian_wasteland。弱点：None。域：['barbarian_wasteland']。掉落：[]。驯化：impossible / 可宠：False。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_blood_jiao",
+      "catalog_id": "blood_jiao",
+      "display": "血蛟（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】血蛟。摘要：海域凶蛟，妖丹珍贵。。lore：海域凶蛟，妖丹珍贵。。生态位：wild_beast。战法：海域凶蛟，妖丹珍贵。。栖息：chaotic_sea。弱点：None。域：['chaotic_sea']。掉落：['jiao_scale', 'demon_core_high']。驯化：None / 可宠：False。战：血海冲锋。海域。妖丹贵。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "beast_narr_three_tailed_fox",
+      "catalog_id": "three_tailed_fox",
+      "display": "三尾妖狐（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】三尾妖狐。摘要：擅幻术，灵狐一脉。。lore：擅幻术，灵狐一脉。。生态位：spirit_pet_candidate。战法：擅幻术，灵狐一脉。。栖息：tiannan。弱点：None。域：['tiannan']。掉落：[]。驯化：very_hard / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_iron_lion_beast",
+      "catalog_id": "iron_lion_beast",
+      "display": "铁甲狮兽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】铁甲狮兽。摘要：体修型妖兽，皮糙肉厚。。lore：体修型妖兽，皮糙肉厚。。生态位：spirit_pet_candidate。战法：体修型妖兽，皮糙肉厚。。栖息：tiannan。弱点：None。域：['tiannan']。掉落：[]。驯化：hard / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_cloud_silk_spider",
+      "catalog_id": "cloud_silk_spider",
+      "display": "云丝蛛（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】云丝蛛。摘要：吐丝缚敌，可炼蛛丝材料。。lore：吐丝缚敌，可炼蛛丝材料。。生态位：spirit_pet_candidate。战法：吐丝缚敌，可炼蛛丝材料。。栖息：caves。弱点：None。域：['caves']。掉落：['spirit_silk']。驯化：medium / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_flame_salamander",
+      "catalog_id": "flame_salamander",
+      "display": "火蜥兽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】火蜥兽。摘要：火系低阶妖兽，内丹可入药。。lore：火系低阶妖兽，内丹可入药。。生态位：spirit_pet_candidate。战法：火系低阶妖兽，内丹可入药。。栖息：volcano。弱点：None。域：['volcano']。掉落：[]。驯化：medium / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_ice_phoenix_chick",
+      "catalog_id": "ice_phoenix_chick",
+      "display": "冰凤幼禽（叙事深稿）",
+      "category": "lingshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】冰凤幼禽。摘要：灵界珍禽幼体，极难驯服。。lore：灵界珍禽幼体，极难驯服。。生态位：spirit_pet_candidate。战法：灵界珍禽幼体，极难驯服。。栖息：polar。弱点：None。域：['polar']。掉落：[]。驯化：legendary / 可宠：True。战：按元素与威胁设计阶段；掉：见 loot；驯：视灵智。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "beast_narr_void_mantis",
+      "catalog_id": "void_mantis",
+      "display": "虚空螳螂（叙事深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "beast_narr_v117"
+      ],
+      "description": "【原包兽叙事深稿】虚空螳螂。摘要：灵界虫族，前肢如刃。。lore：灵界虫族，前肢如刃。。生态位：wild_beast。战法：灵界虫族，前肢如刃。。栖息：spirit_world。弱点：None。域：['spirit_world']。掉落：[]。驯化：None / 可宠：False。战：空间斩。领域锁。灵界。遭遇脚本：①远程预警 ②交战或绕行 ③残血逃跑/狂暴 ④尸体检定。与 spawn 权重、秘境表合并时以 id 去重。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "v117_quest_spirit",
+      "display": "剧情司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 quest_chains_deep_v117。",
+      "tags": [
+        "v117"
+      ]
+    },
+    {
+      "id": "v117_dialogue_spirit",
+      "display": "对话司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 npc_dialogues_v117。",
+      "tags": [
+        "v117"
+      ]
+    }
+  ]
+}

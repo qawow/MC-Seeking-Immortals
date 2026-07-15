@@ -1,0 +1,1098 @@
+{
+  "schema_version": 1,
+  "source": "v116 功法正文深解",
+  "items": [
+    {
+      "id": "method_deep_changchun_gong",
+      "catalog_id": "changchun_gong",
+      "display": "长春功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "huangfeng_valley",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】长春功（changchun_gong）。来源势力/渠道：huangfeng_valley。路径标签：balanced。灵根/属性门槛：wood。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：elemental。原包正文：黄枫谷流传的基础木属性功法，炼气期可修至筑基；后续需转修更高剑诀或宗门秘传。。战斗气质：低阶木系术法与符箓过渡，后期必须转修剑诀或其他宗门秘传。。突破提示：炼气十三层圆满后需筑基丹或机缘筑基；功法本身不提供结丹路径。。黄枫外门木系根基。主稳、主养、不强攻。筑基后几乎必须转青元剑诀或他途，久滞则战力落后同阶。地火房与外门贡献是日常。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qingyuan_sword_art",
+      "catalog_id": "qingyuan_sword_art",
+      "display": "青元剑诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "huangfeng_valley",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】青元剑诀（qingyuan_sword_art）。来源势力/渠道：huangfeng_valley。路径标签：sword。灵根/属性门槛：{\"required_any\": [\"metal\", \"wood\"], \"bonus\": [\"metal\"]}。修炼类型：qi。可修境界上限参考：筑基。前置功法：changchun_gong。解锁术法流派：sword。原包正文：青元剑诀：以灵力凝剑芒、御剑伤敌，筑基后主流剑修路径；需长春功等打底。。战斗气质：远程剑芒、剑阵前置；依赖飞剑或剑器法宝。。突破提示：筑基后凝剑芒；结丹后可剑光分化、御剑更远。。原著气质剑修主轴之一。凝剑芒、御剑、破防。需长春等打底。金属性或木金双灵根更贴。与竹系飞剑仿品、青元剑芒术法联动。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_xuan_yin_art",
+      "catalog_id": "xuan_yin_art",
+      "display": "玄阴诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】玄阴诀（xuan_yin_art）。来源势力/渠道：散修/秘境。路径标签：xuan_yin。灵根/属性门槛：{\"bonus\": [\"yin_virtual\"], \"forbidden\": [\"pure_yang_body\"]}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：xuan_yin。原包正文：玄阴诀：魔道阴属性功法，可习摄魂、阴火一类法术；与鬼修阴体路线可衔接但非同一路。。战斗气质：摄魂、阴火、鬼幡类；正道声望下降。。突破提示：见境界瓶颈与丹药。魔道阴属性。摄魂、阴火、与鬼修可衔接但非同一条路。正道声望受损；心性不稳易走火。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_dayan_art",
+      "catalog_id": "dayan_art",
+      "display": "大衍诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "dayan_sage_legacy",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】大衍诀（dayan_art）。来源势力/渠道：dayan_sage_legacy。路径标签：puppet。灵根/属性门槛：{\"requires_divine_sense\": \"above_average\"}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：puppet。原包正文：大衍诀：傀儡术核心功法，凝炼神识分神操控傀体，结丹后威能方显。。战斗气质：傀儡群战、神识分神；单体弱。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_lieyan_gong",
+      "catalog_id": "lieyan_gong",
+      "display": "烈焰功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】烈焰功（lieyan_gong）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：烈焰功：火属性入门，可修火弹、炎爆一类低阶火术。。战斗气质：烈焰功 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_beast_transformation_art",
+      "catalog_id": "beast_transformation_art",
+      "display": "妖修化形诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】妖修化形诀（beast_transformation_art）。来源势力/渠道：散修/秘境。路径标签：正统气修等。灵根/属性门槛：不限。修炼类型：demon。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：妖修化形诀：修炼系功法，门槛境界 CORE_FORMATION。。战斗气质：化形、妖躯、血脉神通。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_ghost_nether_art",
+      "catalog_id": "ghost_nether_art",
+      "display": "冥河鬼修诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】冥河鬼修诀（ghost_nether_art）。来源势力/渠道：散修/秘境。路径标签：正统气修等。灵根/属性门槛：不限。修炼类型：ghost。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：ghost。原包正文：冥河鬼修诀：鬼道专属，凝阴体、驭阴魂；与人族正道声望冲突。。战斗气质：阴体、驭鬼、冥河遁；怕至阳雷法。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_spirit_art_mulan",
+      "catalog_id": "spirit_art_mulan",
+      "display": "慕兰灵术总纲（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】慕兰灵术总纲（spirit_art_mulan）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：fashi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：慕兰灵术总纲：修炼系功法，门槛境界 QI_REFINING。。战斗气质：慕兰灵术总纲 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_star_palace_art",
+      "catalog_id": "star_palace_art",
+      "display": "星宫镇海诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】星宫镇海诀（star_palace_art）。来源势力/渠道：散修/秘境。路径标签：formation。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：formation。原包正文：星宫镇海诀：乱星海秩序阵营功法，偏重阵法与海域禁制。。战斗气质：海域禁制、镇封、潮阵。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_inverse_star_art",
+      "catalog_id": "inverse_star_art",
+      "display": "逆星秘典（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】逆星秘典（inverse_star_art）。来源势力/渠道：散修/秘境。路径标签：covert。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：['demonic', 'movement']。原包正文：逆星秘典：乱星海割据势力秘传，擅隐匿、走私与破禁。。战斗气质：隐匿、破禁、走私逃脱。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianfu_spirit_scripture",
+      "catalog_id": "tianfu_spirit_scripture",
+      "display": "天符灵经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "tianfu_sect",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天符灵经（tianfu_spirit_scripture）。来源势力/渠道：tianfu_sect。路径标签：talisman。灵根/属性门槛：wood。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天符灵经：talisman系功法，门槛境界 QI_REFINING。。战斗气质：天符灵经 所属道途：talisman。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_yanyue_cycle_art",
+      "catalog_id": "yanyue_cycle_art",
+      "display": "素女轮回功（仿）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "yanyue_sect",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】素女轮回功（仿）（yanyue_cycle_art）。来源势力/渠道：yanyue_sect。路径标签：dual_cultivation。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：素女轮回功（仿）：dual_cultivation系功法，门槛境界 FOUNDATION。。战斗气质：素女轮回功（仿） 所属道途：dual_cultivation。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_lingshou_beast_mind_art",
+      "catalog_id": "lingshou_beast_mind_art",
+      "display": "驭兽心法（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "spirit_beast_mountain",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】驭兽心法（lingshou_beast_mind_art）。来源势力/渠道：spirit_beast_mountain。路径标签：beast。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：驭兽心法：beast系功法，门槛境界 QI_REFINING。。战斗气质：驭兽心法 所属道途：beast。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qingxu_pure_tao_art",
+      "catalog_id": "qingxu_pure_tao_art",
+      "display": "清虚玄功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "qingxu_gate",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】清虚玄功（qingxu_pure_tao_art）。来源势力/渠道：qingxu_gate。路径标签：tao。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：清虚玄功：tao系功法，门槛境界 QI_REFINING。。战斗气质：清虚玄功 所属道途：tao。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_huadao_blade_intent",
+      "catalog_id": "huadao_blade_intent",
+      "display": "化刀诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "huadao_wu",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】化刀诀（huadao_blade_intent）。来源势力/渠道：huadao_wu。路径标签：blade。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：化刀诀：blade系功法，门槛境界 QI_REFINING。。战斗气质：化刀诀 所属道途：blade。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_mulan_wind_spirit_art",
+      "catalog_id": "mulan_wind_spirit_art",
+      "display": "天风灵诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天风灵诀（mulan_wind_spirit_art）。来源势力/渠道：散修/秘境。路径标签：fashi。灵根/属性门槛：不限。修炼类型：fashi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：fashi。原包正文：慕兰法士风灵诀：借天地灵气施法，不循传统丹田路线，需慕兰传承或特殊任务解锁。。战斗气质：风灵墙、沙刃；不消耗丹田灵力而借天地灵气。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianlan_holy_beast_art",
+      "catalog_id": "tianlan_holy_beast_art",
+      "display": "天澜圣兽诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天澜圣兽诀（tianlan_holy_beast_art）。来源势力/渠道：散修/秘境。路径标签：beast_spirit。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天澜圣兽诀：beast_spirit系功法，门槛境界 QI_REFINING。。战斗气质：天澜圣兽诀 所属道途：beast_spirit。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tiannan_border_guard_art",
+      "catalog_id": "tiannan_border_guard_art",
+      "display": "天南守边诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天南守边诀（tiannan_border_guard_art）。来源势力/渠道：散修/秘境。路径标签：defense。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天南守边诀：defense系功法，门槛境界 FOUNDATION。。战斗气质：天南守边诀 所属道途：defense。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_chaotic_sea_nav_art",
+      "catalog_id": "chaotic_sea_nav_art",
+      "display": "星海御浪诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】星海御浪诀（chaotic_sea_nav_art）。来源势力/渠道：散修/秘境。路径标签：water。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：星海御浪诀：water系功法，门槛境界 FOUNDATION。。战斗气质：星海御浪诀 所属道途：water。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_demonic_blood_art_generic",
+      "catalog_id": "demonic_blood_art_generic",
+      "display": "血煞功（魔道）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】血煞功（魔道）（demonic_blood_art_generic）。来源势力/渠道：散修/秘境。路径标签：demonic。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：血煞功（魔道）：demonic系功法，门槛境界 FOUNDATION。。战斗气质：血煞功（魔道） 所属道途：demonic。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_star_palace_sea_art",
+      "catalog_id": "star_palace_sea_art",
+      "display": "镇海诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】镇海诀（star_palace_sea_art）。来源势力/渠道：散修/秘境。路径标签：water。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：镇海诀：water系功法，门槛境界 FOUNDATION。。战斗气质：镇海诀 所属道途：water。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_inverse_star_shadow_art",
+      "catalog_id": "inverse_star_shadow_art",
+      "display": "逆星潜行诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】逆星潜行诀（inverse_star_shadow_art）。来源势力/渠道：散修/秘境。路径标签：stealth。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：逆星潜行诀：stealth系功法，门槛境界 FOUNDATION。。战斗气质：逆星潜行诀 所属道途：stealth。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_dajin_clan_ancestor_art",
+      "catalog_id": "dajin_clan_ancestor_art",
+      "display": "世家祖传诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】世家祖传诀（dajin_clan_ancestor_art）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：世家祖传诀：mixed系功法，门槛境界 QI_REFINING。。战斗气质：世家祖传诀 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_kunwu_ice_guard_art",
+      "catalog_id": "kunwu_ice_guard_art",
+      "display": "昆吾寒罡诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】昆吾寒罡诀（kunwu_ice_guard_art）。来源势力/渠道：散修/秘境。路径标签：ice。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：昆吾寒罡诀：ice系功法，门槛境界 CORE_FORMATION。。战斗气质：昆吾寒罡诀 所属道途：ice。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_yanyue_illusion_art",
+      "catalog_id": "yanyue_illusion_art",
+      "display": "掩月幻心诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "视功法",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】掩月幻心诀（yanyue_illusion_art）。来源势力/渠道：散修/秘境。路径标签：illusion。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：视功法。前置功法：无硬前置。解锁术法流派：illusion。原包正文：掩月幻心诀：illusion系功法，门槛境界 见条目。。战斗气质：掩月幻心诀 所属道途：illusion。。突破提示：门槛 见条目；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_huangfeng_alchemy_scripture",
+      "catalog_id": "huangfeng_alchemy_scripture",
+      "display": "黄枫丹经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】黄枫丹经（huangfeng_alchemy_scripture）。来源势力/渠道：散修/秘境。路径标签：alchemy。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：黄枫丹经：alchemy系功法，门槛境界 QI_REFINING。。战斗气质：黄枫丹经 所属道途：alchemy。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qixuan_mortal_art",
+      "catalog_id": "qixuan_mortal_art",
+      "display": "七玄凡诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】七玄凡诀（qixuan_mortal_art）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：七玄凡诀：mixed系功法，门槛境界 QI_REFINING。。战斗气质：七玄凡诀 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_giant_sword_art",
+      "catalog_id": "giant_sword_art",
+      "display": "巨剑诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】巨剑诀（giant_sword_art）。来源势力/渠道：散修/秘境。路径标签：metal。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：sword。原包正文：巨剑诀：metal系功法，门槛境界 QI_REFINING。。战斗气质：巨剑诀 所属道途：metal。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qixuan_azure_pearl_art",
+      "catalog_id": "qixuan_azure_pearl_art",
+      "display": "青珠诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】青珠诀（qixuan_azure_pearl_art）。来源势力/渠道：散修/秘境。路径标签：water。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：青珠诀：water系功法，门槛境界 QI_REFINING。。战斗气质：青珠诀 所属道途：water。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qianzhu_puppet_art",
+      "catalog_id": "qianzhu_puppet_art",
+      "display": "千竹傀儡术（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】千竹傀儡术（qianzhu_puppet_art）。来源势力/渠道：散修/秘境。路径标签：puppet。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：puppet。原包正文：千竹傀儡术：puppet系功法，门槛境界 QI_REFINING。。战斗气质：低阶木傀驱策，高阶转大衍。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_yuling_beast_puppet_art",
+      "catalog_id": "yuling_beast_puppet_art",
+      "display": "御灵兽傀诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】御灵兽傀诀（yuling_beast_puppet_art）。来源势力/渠道：散修/秘境。路径标签：puppet。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：御灵兽傀诀：puppet系功法，门槛境界 FOUNDATION。。战斗气质：御灵兽傀诀 所属道途：puppet。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_dayan_true_solution",
+      "catalog_id": "dayan_true_solution",
+      "display": "大衍真解（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】大衍真解（dayan_true_solution）。来源势力/渠道：散修/秘境。路径标签：puppet。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：大衍真解：puppet系功法，门槛境界 CORE_FORMATION。。战斗气质：大衍真解 所属道途：puppet。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_guiling_soul_art",
+      "catalog_id": "guiling_soul_art",
+      "display": "鬼灵摄魂诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】鬼灵摄魂诀（guiling_soul_art）。来源势力/渠道：散修/秘境。路径标签：ghost。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：鬼灵门摄魂诀：炼尸、摄魂、阴火并修，魔道六宗之一。。战斗气质：炼尸、驱尸、阴火；需尸材资源。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_hehuan_mind_art",
+      "catalog_id": "hehuan_mind_art",
+      "display": "合欢媚心诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】合欢媚心诀（hehuan_mind_art）。来源势力/渠道：散修/秘境。路径标签：dual。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：合欢心法：媚术与双修并重，女修居多，擅乱敌心神。。战斗气质：媚术、心神扰乱、双修增益。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianmo_body_art",
+      "catalog_id": "tianmo_body_art",
+      "display": "天魔炼体诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天魔炼体诀（tianmo_body_art）。来源势力/渠道：散修/秘境。路径标签：body。灵根/属性门槛：不限。修炼类型：body。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天魔炼体诀：魔体强化、血祭狂战，肉身承压极高。。战斗气质：肉身强横、血祭爆发；灵力术法为辅。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qingluo_poison_art",
+      "catalog_id": "qingluo_poison_art",
+      "display": "青罗毒经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】青罗毒经（qingluo_poison_art）。来源势力/渠道：散修/秘境。路径标签：poison。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：青罗毒经：毒虫毒雾并用，持续伤害强。。战斗气质：毒虫、毒雾、持续伤害。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_wanhu_phantom_art",
+      "catalog_id": "wanhu_phantom_art",
+      "display": "万狐幻形诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】万狐幻形诀（wanhu_phantom_art）。来源势力/渠道：散修/秘境。路径标签：illusion。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：万狐幻心诀：幻术惑心，擅规避正面厮杀。。战斗气质：幻境、分身、规避锁定。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_xuewu_blood_art",
+      "catalog_id": "xuewu_blood_art",
+      "display": "血巫咒经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】血巫咒经（xuewu_blood_art）。来源势力/渠道：散修/秘境。路径标签：blood。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：血巫咒经：血咒与巫术，以精血换瞬时威能。。战斗气质：血咒、精血换威能。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianlan_beast_soul_art",
+      "catalog_id": "tianlan_beast_soul_art",
+      "display": "天澜御兽诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天澜御兽诀（tianlan_beast_soul_art）。来源势力/渠道：散修/秘境。路径标签：beast。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：fashi_spirit_art。原包正文：天澜御兽诀：beast系功法，门槛境界 QI_REFINING。。战斗气质：天澜御兽诀 所属道途：beast。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_yin_luo_ghost_art",
+      "catalog_id": "yin_luo_ghost_art",
+      "display": "阴罗鬼诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】阴罗鬼诀（yin_luo_ghost_art）。来源势力/渠道：散修/秘境。路径标签：ghost。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：ghost。原包正文：阴罗鬼诀：ghost系功法，门槛境界 QI_REFINING。。战斗气质：阴罗鬼诀 所属道途：ghost。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_taixu_gong",
+      "catalog_id": "taixu_gong",
+      "display": "太虚功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】太虚功（taixu_gong）。来源势力/渠道：散修/秘境。路径标签：dao。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：太虚功：道修入门，重吐纳与心境，不偏执单一元素。。战斗气质：太虚功 所属道途：dao。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_jinxuan_gong",
+      "catalog_id": "jinxuan_gong",
+      "display": "金玄功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】金玄功（jinxuan_gong）。来源势力/渠道：散修/秘境。路径标签：metal。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：金玄功：金系灵力淬体，利于剑修与金刃术。。战斗气质：金玄功 所属道途：metal。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_muyuan_gong",
+      "catalog_id": "muyuan_gong",
+      "display": "木元功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】木元功（muyuan_gong）。来源势力/渠道：散修/秘境。路径标签：wood。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：木元功：木系生机，与丹草、疗伤术相性佳。。战斗气质：木元功 所属道途：wood。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_shuiyuan_gong",
+      "catalog_id": "shuiyuan_gong",
+      "display": "水元功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】水元功（shuiyuan_gong）。来源势力/渠道：散修/秘境。路径标签：water。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：水元功：水系柔劲，善防御与控场。。战斗气质：水元功 所属道途：water。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_huoyuan_gong",
+      "catalog_id": "huoyuan_gong",
+      "display": "火元功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】火元功（huoyuan_gong）。来源势力/渠道：散修/秘境。路径标签：fire。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：火元功：火系爆发，攻伐见长。。战斗气质：火元功 所属道途：fire。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tuyuan_gong",
+      "catalog_id": "tuyuan_gong",
+      "display": "土元功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】土元功（tuyuan_gong）。来源势力/渠道：散修/秘境。路径标签：earth。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：土元功：土系厚重，善防御与土遁。。战斗气质：土元功 所属道途：earth。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_qingmu_gong",
+      "catalog_id": "qingmu_gong",
+      "display": "青木诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】青木诀（qingmu_gong）。来源势力/渠道：散修/秘境。路径标签：wood。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：青木诀：筑基木系功法，黄枫一系常见过渡。。战斗气质：青木诀 所属道途：wood。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_lieyan_zhenjing",
+      "catalog_id": "lieyan_zhenjing",
+      "display": "烈焰真经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】烈焰真经（lieyan_zhenjing）。来源势力/渠道：散修/秘境。路径标签：fire。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：烈焰真经：筑基火系正宗，火术威力上浮。。战斗气质：烈焰真经 所属道途：fire。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_xuanbing_zhenjing",
+      "catalog_id": "xuanbing_zhenjing",
+      "display": "玄冰真经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】玄冰真经（xuanbing_zhenjing）。来源势力/渠道：散修/秘境。路径标签：ice。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：玄冰真经：筑基冰系，克火、善控速。。战斗气质：玄冰真经 所属道途：ice。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_jinyi_gong",
+      "catalog_id": "jinyi_gong",
+      "display": "金翼功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】金翼功（jinyi_gong）。来源势力/渠道：散修/秘境。路径标签：metal。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：金翼功：metal系功法，门槛境界 FOUNDATION。。战斗气质：金翼功 所属道途：metal。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_yanyue_gong",
+      "catalog_id": "yanyue_gong",
+      "display": "掩月诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "yanyue_sect",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】掩月诀（yanyue_gong）。来源势力/渠道：yanyue_sect。路径标签：illusion。灵根/属性门槛：{\"bonus\": [\"water\", \"wood\"], \"note\": \"女修阴柔灵气更佳\"}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：掩月诀：幻术与女修阴柔灵气并用，掩月宗传承。。战斗气质：幻术、隐匿、媚惑；正面强攻弱。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_luoyun_dan_dao",
+      "catalog_id": "luoyun_dan_dao",
+      "display": "落云丹道诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "luoyun_sect",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】落云丹道诀（luoyun_dan_dao）。来源势力/渠道：luoyun_sect。路径标签：alchemy。灵根/属性门槛：{\"bonus\": [\"wood\", \"fire\"]}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：落云宗丹道诀：以丹道感悟灵气运转，斗法偏弱、炼丹加成显著。。战斗气质：灵焰、丹火术；炼丹成功率加成。。突破提示：丹道感悟可助突破，但斗法神通偏弱。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianfu_scripture",
+      "catalog_id": "tianfu_scripture",
+      "display": "天符灵诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天符灵诀（tianfu_scripture）。来源势力/渠道：散修/秘境。路径标签：talisman。灵根/属性门槛：{\"bonus\": [\"wood\", \"metal\"]}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：talisman。原包正文：天符灵诀：制符宗门核心，以神识绘符引天地之力。。战斗气质：制符施符、符宝前置；神识消耗偏高。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tiannan_seven_sect_base",
+      "catalog_id": "tiannan_seven_sect_base",
+      "display": "天南七派基础功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天南七派基础功（tiannan_seven_sect_base）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天南七派基础功：各派入门共性框架，需拜入具体宗门后转修专精。。战斗气质：天南七派基础功 所属道途：mixed。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_dajin_buddhist_base",
+      "catalog_id": "dajin_buddhist_base",
+      "display": "大晋佛修基础（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】大晋佛修基础（dajin_buddhist_base）。来源势力/渠道：散修/秘境。路径标签：buddhist。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：大晋佛修基础：buddhist系功法，门槛境界 FOUNDATION。。战斗气质：金刚护体、降魔杵；克魔克鬼。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_void_refining_scripture",
+      "catalog_id": "void_refining_scripture",
+      "display": "炼虚真经（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "VOID_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】炼虚真经（void_refining_scripture）。来源势力/渠道：散修/秘境。路径标签：void。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：VOID_REFINING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：炼虚真经：炼虚期参悟空间法则，法术多带裂隙、领域特性。。战斗气质：空间裂隙、领域雏形；灵界规则。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_great_vehicle_dao",
+      "catalog_id": "great_vehicle_dao",
+      "display": "大乘道典（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "GREAT_VEHICLE",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】大乘道典（great_vehicle_dao）。来源势力/渠道：散修/秘境。路径标签：dao。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：大乘。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：大乘道典：灵界高阶道修总纲，法相、领域类神通前置。。战斗气质：法相、天地元气调动；大乘标志。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_spirit_severing_art",
+      "catalog_id": "spirit_severing_art",
+      "display": "炼神诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "SPIRIT_SEVERING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】炼神诀（spirit_severing_art）。来源势力/渠道：散修/秘境。路径标签：spirit。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：SPIRIT_SEVERING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：炼神诀：炼神期锤炼神魂与法则，杀伐神通代价极大。。战斗气质：法则感悟、神魂杀伐；代价极大。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_barbarian_body_art",
+      "catalog_id": "barbarian_body_art",
+      "display": "蛮荒炼体诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "VOID_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】蛮荒炼体诀（barbarian_body_art）。来源势力/渠道：散修/秘境。路径标签：body。灵根/属性门槛：不限。修炼类型：body。可修境界上限参考：VOID_REFINING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：蛮荒炼体诀：灵界蛮荒体修，以妖兽精血淬体。。战斗气质：妖血淬体、近战碾压。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_tianyuan_guard_art",
+      "catalog_id": "tianyuan_guard_art",
+      "display": "天渊守城诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "SPIRIT_SEVERING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】天渊守城诀（tianyuan_guard_art）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：SPIRIT_SEVERING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：天渊守城诀：天渊城守军与修士共修，兼顾阵防与对妖。。战斗气质：合阵、守城、对妖加成。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_fallen_demon_art",
+      "catalog_id": "fallen_demon_art",
+      "display": "坠魔功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "NASCENT_SOUL",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】坠魔功（fallen_demon_art）。来源势力/渠道：散修/秘境。路径标签：demonic。灵根/属性门槛：不限。修炼类型：demon。可修境界上限参考：元婴。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：坠魔功：坠魔谷魔气浸染之道，易心魔，擅魔化变身。。战斗气质：魔化变身、魔气侵蚀；心魔风险高。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_blood_demon_art",
+      "catalog_id": "blood_demon_art",
+      "display": "血魔功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】血魔功（blood_demon_art）。来源势力/渠道：散修/秘境。路径标签：demonic。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：血魔功：以血炼法，攻伐凌厉，易入魔。。战斗气质：血魔功 所属道途：demonic。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_xuantian_ice_art",
+      "catalog_id": "xuantian_ice_art",
+      "display": "玄天冰魄功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】玄天冰魄功（xuantian_ice_art）。来源势力/渠道：散修/秘境。路径标签：ice。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：玄天冰魄功：极寒灵力，封冻、碎冰并重。。战斗气质：玄天冰魄功 所属道途：ice。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_wudang_sword_art",
+      "catalog_id": "wudang_sword_art",
+      "display": "武当剑诀（仿）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】武当剑诀（仿）（wudang_sword_art）。来源势力/渠道：散修/秘境。路径标签：sword。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：武当剑诀（仿）：sword系功法，门槛境界 FOUNDATION。。战斗气质：武当剑诀（仿） 所属道途：sword。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_nangong_wangzu_art",
+      "catalog_id": "nangong_wangzu_art",
+      "display": "南宫王族秘传（仿）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】南宫王族秘传（仿）（nangong_wangzu_art）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：南宫王族秘传（仿）：mixed系功法，门槛境界 CORE_FORMATION。。战斗气质：南宫王族秘传（仿） 所属道途：mixed。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_lingzu_pearl_art",
+      "catalog_id": "lingzu_pearl_art",
+      "display": "灵族凝珠诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "SPIRIT_SEVERING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】灵族凝珠诀（lingzu_pearl_art）。来源势力/渠道：散修/秘境。路径标签：spirit。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：SPIRIT_SEVERING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：灵族凝珠诀：灵族秘传，凝珠射劲与珠光护体。。战斗气质：灵珠、珠光护体。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_qi_refining",
+      "catalog_id": "generic_cultivation_qi_refining",
+      "display": "QI_REFINING通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】QI_REFINING通修诀（通称）（generic_cultivation_qi_refining）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：QI_REFINING通修诀（通称）：mixed系功法，门槛境界 QI_REFINING。。战斗气质：QI_REFINING通修诀（通称） 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_foundation",
+      "catalog_id": "generic_cultivation_foundation",
+      "display": "FOUNDATION通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】FOUNDATION通修诀（通称）（generic_cultivation_foundation）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：FOUNDATION通修诀（通称）：mixed系功法，门槛境界 FOUNDATION。。战斗气质：FOUNDATION通修诀（通称） 所属道途：mixed。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_core_formation",
+      "catalog_id": "generic_cultivation_core_formation",
+      "display": "CORE_FORMATION通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】CORE_FORMATION通修诀（通称）（generic_cultivation_core_formation）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：CORE_FORMATION通修诀（通称）：mixed系功法，门槛境界 CORE_FORMATION。。战斗气质：CORE_FORMATION通修诀（通称） 所属道途：mixed。。突破提示：门槛 CORE_FORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_nascent_soul",
+      "catalog_id": "generic_cultivation_nascent_soul",
+      "display": "NASCENT_SOUL通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "NASCENT_SOUL",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】NASCENT_SOUL通修诀（通称）（generic_cultivation_nascent_soul）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：元婴。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：NASCENT_SOUL通修诀（通称）：mixed系功法，门槛境界 NASCENT_SOUL。。战斗气质：NASCENT_SOUL通修诀（通称） 所属道途：mixed。。突破提示：门槛 NASCENT_SOUL；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_deity_transformation",
+      "catalog_id": "generic_cultivation_deity_transformation",
+      "display": "DEITY_TRANSFORMATION通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "DEITY_TRANSFORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】DEITY_TRANSFORMATION通修诀（通称）（generic_cultivation_deity_transformation）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：化神。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：DEITY_TRANSFORMATION通修诀（通称）：mixed系功法，门槛境界 DEITY_TRANSFORMATION。。战斗气质：DEITY_TRANSFORMATION通修诀（通称） 所属道途：mixed。。突破提示：门槛 DEITY_TRANSFORMATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_void_refining",
+      "catalog_id": "generic_cultivation_void_refining",
+      "display": "VOID_REFINING通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "VOID_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】VOID_REFINING通修诀（通称）（generic_cultivation_void_refining）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：VOID_REFINING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：VOID_REFINING通修诀（通称）：mixed系功法，门槛境界 VOID_REFINING。。战斗气质：VOID_REFINING通修诀（通称） 所属道途：mixed。。突破提示：门槛 VOID_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_great_vehicle",
+      "catalog_id": "generic_cultivation_great_vehicle",
+      "display": "GREAT_VEHICLE通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "GREAT_VEHICLE",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】GREAT_VEHICLE通修诀（通称）（generic_cultivation_great_vehicle）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：大乘。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：GREAT_VEHICLE通修诀（通称）：mixed系功法，门槛境界 GREAT_VEHICLE。。战斗气质：GREAT_VEHICLE通修诀（通称） 所属道途：mixed。。突破提示：门槛 GREAT_VEHICLE；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_generic_cultivation_spirit_severing",
+      "catalog_id": "generic_cultivation_spirit_severing",
+      "display": "SPIRIT_SEVERING通修诀（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "SPIRIT_SEVERING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】SPIRIT_SEVERING通修诀（通称）（generic_cultivation_spirit_severing）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：SPIRIT_SEVERING。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：SPIRIT_SEVERING通修诀（通称）：mixed系功法，门槛境界 SPIRIT_SEVERING。。战斗气质：SPIRIT_SEVERING通修诀（通称） 所属道途：mixed。。突破提示：门槛 SPIRIT_SEVERING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_sword",
+      "catalog_id": "sect_specialty_sword",
+      "display": "sword专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】sword专精入门（通称）（sect_specialty_sword）。来源势力/渠道：散修/秘境。路径标签：sword。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：sword专精入门（通称）：sword系功法，门槛境界 FOUNDATION。。战斗气质：sword专精入门（通称） 所属道途：sword。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_body",
+      "catalog_id": "sect_specialty_body",
+      "display": "body专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】body专精入门（通称）（sect_specialty_body）。来源势力/渠道：散修/秘境。路径标签：body。灵根/属性门槛：不限。修炼类型：body。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：body专精入门（通称）：body系功法，门槛境界 FOUNDATION。。战斗气质：body专精入门（通称） 所属道途：body。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_talisman",
+      "catalog_id": "sect_specialty_talisman",
+      "display": "talisman专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】talisman专精入门（通称）（sect_specialty_talisman）。来源势力/渠道：散修/秘境。路径标签：talisman。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：talisman专精入门（通称）：talisman系功法，门槛境界 FOUNDATION。。战斗气质：talisman专精入门（通称） 所属道途：talisman。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_formation",
+      "catalog_id": "sect_specialty_formation",
+      "display": "formation专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】formation专精入门（通称）（sect_specialty_formation）。来源势力/渠道：散修/秘境。路径标签：formation。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：formation专精入门（通称）：formation系功法，门槛境界 FOUNDATION。。战斗气质：formation专精入门（通称） 所属道途：formation。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_puppet",
+      "catalog_id": "sect_specialty_puppet",
+      "display": "puppet专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】puppet专精入门（通称）（sect_specialty_puppet）。来源势力/渠道：散修/秘境。路径标签：puppet。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：puppet专精入门（通称）：puppet系功法，门槛境界 FOUNDATION。。战斗气质：puppet专精入门（通称） 所属道途：puppet。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_alchemy",
+      "catalog_id": "sect_specialty_alchemy",
+      "display": "alchemy专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】alchemy专精入门（通称）（sect_specialty_alchemy）。来源势力/渠道：散修/秘境。路径标签：alchemy。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：alchemy专精入门（通称）：alchemy系功法，门槛境界 FOUNDATION。。战斗气质：alchemy专精入门（通称） 所属道途：alchemy。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_ghost",
+      "catalog_id": "sect_specialty_ghost",
+      "display": "ghost专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】ghost专精入门（通称）（sect_specialty_ghost）。来源势力/渠道：散修/秘境。路径标签：ghost。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：ghost专精入门（通称）：ghost系功法，门槛境界 FOUNDATION。。战斗气质：ghost专精入门（通称） 所属道途：ghost。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_sect_specialty_demonic",
+      "catalog_id": "sect_specialty_demonic",
+      "display": "demonic专精入门（通称）（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】demonic专精入门（通称）（sect_specialty_demonic）。来源势力/渠道：散修/秘境。路径标签：demonic。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：demonic专精入门（通称）：demonic系功法，门槛境界 FOUNDATION。。战斗气质：demonic专精入门（通称） 所属道途：demonic。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_kunwu_seal_art",
+      "catalog_id": "kunwu_seal_art",
+      "display": "坤吴印诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "kunwu_mountain",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】坤吴印诀（kunwu_seal_art）。来源势力/渠道：kunwu_mountain。路径标签：formation。灵根/属性门槛：{\"required_any\": [\"earth\", \"metal\", \"ice\"]}。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：formation。原包正文：坤吴印诀：大晋坤吴山阵宗核心，以印引阵、以阵镇魔；高阶与古印碎片共鸣。。战斗气质：印击、封阵、镇压；海域与山地阵势加成。。突破提示：大晋坤吴山一脉；印诀与阵纹并重，高阶与古宝坤吴印共鸣。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_lingwu_sect_art",
+      "catalog_id": "lingwu_sect_art",
+      "display": "灵武门炼体诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】灵武门炼体诀（lingwu_sect_art）。来源势力/渠道：散修/秘境。路径标签：body。灵根/属性门槛：不限。修炼类型：body。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：灵武门：天南体修小宗，炼体与低阶武技并用。。战斗气质：灵武门炼体诀 所属道途：body。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_juvenile_sect_art",
+      "catalog_id": "juvenile_sect_art",
+      "display": "幼童门心法（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】幼童门心法（juvenile_sect_art）。来源势力/渠道：散修/秘境。路径标签：mixed。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：幼童门：天南小派，功法平庸，以收徒闻名。。战斗气质：幼童门心法 所属道途：mixed。。突破提示：门槛 QI_REFINING；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_huangjin_sect_art",
+      "catalog_id": "huangjin_sect_art",
+      "display": "皇金宗金罡诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】皇金宗金罡诀（huangjin_sect_art）。来源势力/渠道：散修/秘境。路径标签：metal。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：大晋皇金宗：金系攻伐正宗。。战斗气质：皇金宗金罡诀 所属道途：metal。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_taiyi_sect_art",
+      "catalog_id": "taiyi_sect_art",
+      "display": "太一门太玄功（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "FOUNDATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】太一门太玄功（taiyi_sect_art）。来源势力/渠道：散修/秘境。路径标签：dao。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：筑基。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：大晋太一门：道修正宗，兼修阵法。。战斗气质：太一门太玄功 所属道途：dao。。突破提示：门槛 FOUNDATION；具体突破条件见境界系统。。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_beast_taming_basic",
+      "catalog_id": "beast_taming_basic",
+      "display": "御兽基础诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "散修/秘境",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】御兽基础诀（beast_taming_basic）。来源势力/渠道：散修/秘境。路径标签：beast_taming。灵根/属性门槛：不限。修炼类型：auxiliary。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：散修与宗门共用的驯兽入门：精血认主、御兽环、灵兽袋。。战斗气质：beast_taming。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_buddhist_vajra_body_art",
+      "catalog_id": "buddhist_vajra_body_art",
+      "display": "金刚诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "大晋佛修",
+      "realm_max": "QI_REFINING",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】金刚诀（buddhist_vajra_body_art）。来源势力/渠道：大晋佛修。路径标签：正统气修等。灵根/属性门槛：不限。修炼类型：qi。可修境界上限参考：炼气。前置功法：无硬前置。解锁术法流派：见术法库。原包正文：。战斗气质：综合。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_artifact_refining_basic",
+      "catalog_id": "artifact_refining_basic",
+      "display": "炼器基础诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "tianque_fort",
+      "realm_max": "CORE_FORMATION",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】炼器基础诀（artifact_refining_basic）。来源势力/渠道：tianque_fort。路径标签：artifact_craft。灵根/属性门槛：earth。修炼类型：auxiliary。可修境界上限参考：结丹。前置功法：无硬前置。解锁术法流派：artifact。原包正文：天阙堡等炼器宗门的外门基础：控火、胚体、铭文入门；不直接提供战斗神通，需配合炼器台与材料。。战斗气质：以符箓护体、法器御敌为主，本体战力偏弱。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    },
+    {
+      "id": "method_deep_treasure_appraisal_art",
+      "catalog_id": "treasure_appraisal_art",
+      "display": "鉴宝诀（功法深解）",
+      "type": "cultivation_method_deep",
+      "source": "wanbao_pavilion",
+      "realm_max": "NASCENT_SOUL",
+      "tags": [
+        "method_deep_v116"
+      ],
+      "description": "【功法深解】鉴宝诀（treasure_appraisal_art）。来源势力/渠道：wanbao_pavilion。路径标签：treasure_trade。灵根/属性门槛：none。修炼类型：auxiliary。可修境界上限参考：元婴。前置功法：无硬前置。解锁术法流派：treasure。原包正文：万宝楼一脉的辅修功法：观气辨宝、估阶议价；修至高层可在拍卖中识破伪宝与压价陷阱。。战斗气质：几乎不参与斗法，情报与竞价为核心。。突破提示：见境界瓶颈与丹药。转修规则：放弃本功转修通常折损进度并可能心魔检定；正魔冲突见冲突矩阵。残篇只能点亮部分层，不可伪造成完整顶级功。宗门秘传需贡献/师承/考核，不进散修无限货架。日修效率受体质、灵根倍率、洞府聚灵与丹药辅助共同修正；丹药收益递减。与同门 rival 比较时，战力看术法搭配与法宝，不只看功法名字。"
+    }
+  ]
+}

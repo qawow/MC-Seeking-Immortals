@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v139",
+  "items": [
+    {
+      "id": "v139",
+      "display": "三线同扩",
+      "type": "meta",
+      "description": "秘境层示意3+宗门卡+岛卡+对话分支树"
+    }
+  ]
+}

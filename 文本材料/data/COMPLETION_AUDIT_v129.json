@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "v129 补全审计",
+  "counts": {
+    "methods": 122,
+    "techniques": 696,
+    "combat_zero_tech": 0,
+    "combat_under_3": 0,
+    "quest_reward_rows": 62,
+    "orphans": 0,
+    "dups": 0
+  },
+  "completed_tracks": [
+    "v123分类",
+    "v124原著归类",
+    "v125层数+六宗",
+    "v126主七派+青元",
+    "v127落云+备选七派",
+    "v128乱星海+开局声望",
+    "v129大晋+灵界+声望任务矩阵"
+  ],
+  "definition_of_done": {
+    "playable_tiannan_to_lingjie": true,
+    "no_orphan_requires": true,
+    "no_dup_ids": true,
+    "no_zero_combat_methods": true,
+    "opening_rep_rules": true,
+    "all_quest_chains_reward_rows": true,
+    "immortal_realm_full": false,
+    "combat_methods_min_3_tech": true
+  },
+  "honest_gaps": [
+    "仙界时间法则/大五行幻世诀全树未录",
+    "少术自动补式为可玩占位非逐字原文名",
+    "misc物理迁文件未全搬",
+    "声望数值可再平衡"
+  ],
+  "status": "人界–灵界可玩闭环；战斗功法均≥3术；仙界法则树仍为后续扩展"
+}

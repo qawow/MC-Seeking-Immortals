@@ -16,7 +16,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "瞬步：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "瞬步：movement派术法，属性倾向 space。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "遁术位移",
         "cast_bias": "dash",
@@ -31,7 +31,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "space",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "space",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "earth_escape",
@@ -47,7 +59,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "土遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "土遁：movement派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
       "setting": {
         "cast_type": "instant",
         "target": "self",
@@ -76,7 +88,19 @@
           "earth",
           "mountain"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wind_ride",
@@ -92,7 +116,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "御风：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "御风：movement派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。 常随功法「changchun_gong」体系解锁。",
       "setting": {
         "combat_style": "遁术位移",
         "cast_bias": "dash",
@@ -107,7 +131,26 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "requires_method": "changchun_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "changchun",
+        "huangfeng_valley",
+        "wind",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "wind",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "five_elements_escape",
@@ -123,7 +166,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "五行遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "五行遁：movement派术法，属性倾向 mixed。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
       "setting": {
         "combat_style": "遁术位移",
         "cast_bias": "dash",
@@ -138,7 +181,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "mixed",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "mixed",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "shadow_flash",
@@ -154,7 +209,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "影闪：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "影闪：movement派术法，属性倾向 dark。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "遁术位移",
         "cast_bias": "dash",
@@ -169,7 +224,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "dark",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "dark",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "river_escape",
@@ -185,7 +252,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "水遁：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "水遁：movement派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 12。保命逃遁。",
       "setting": {
         "combat_style": "遁术位移",
         "cast_bias": "dash",
@@ -200,7 +267,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "water",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "smuggle_rift_step",
@@ -214,9 +293,10 @@
         "type": "teleport_short",
         "tags": [
           "smuggle"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "暗港遁步：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "暗港遁步：movement派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 16。保命逃遁。 常随功法「inverse_star_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "遁术位移",
@@ -236,7 +316,23 @@
         "prerequisite_methods": [
           "inverse_star_art"
         ]
-      }
+      },
+      "faction_id": "inverse_star_alliance",
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "water_escape",
@@ -245,13 +341,14 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "water",
-      "description": "水遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "水遁术：movement派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 18。保命逃遁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "dash",
         "tags": [
           "movement"
-        ]
+        ],
+        "element": "water"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -274,7 +371,18 @@
             "water"
           ]
         }
-      }
+      },
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wind_escape",
@@ -283,13 +391,14 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "wind",
-      "description": "风遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "风遁术：movement派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。保命逃遁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "dash",
         "tags": [
           "movement"
-        ]
+        ],
+        "element": "wind"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -312,7 +421,18 @@
             "wind"
           ]
         }
-      }
+      },
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "fire_escape",
@@ -321,13 +441,14 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "fire",
-      "description": "火遁术：movement法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "火遁术：movement派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。凝火杀伐。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "dash",
         "tags": [
           "movement"
-        ]
+        ],
+        "element": "fire"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -350,7 +471,19 @@
             "fire"
           ]
         }
-      }
+      },
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "light_body",
@@ -358,13 +491,14 @@
       "school": "movement",
       "tier": "spell",
       "realm_min": "QI_REFINING",
-      "description": "轻身术：movement法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "轻身术：movement派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "spirit_cost_base": 10,
       "effect": {
         "type": "dash",
         "tags": [
           "movement"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -381,7 +515,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "inverse_star_shadow_step",
@@ -393,9 +538,10 @@
         "type": "dash",
         "tags": [
           "stealth"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "短距遁走并降低被神识锁定概率。",
+      "description": "逆星影步：movement派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -415,7 +561,774 @@
         "reputation": {
           "star_palace": "hostile"
         }
-      }
+      },
+      "faction_id": "inverse_star_alliance",
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lianxi_shu",
+      "display": "敛息术",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 5,
+      "source": "敛息术心法",
+      "effect": {
+        "type": "buff_self",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "stealth"
+        ]
+      },
+      "description": "敛息术：movement派术法，属性倾向 void。境界门槛 QI_REFINING，耗灵约 5。 常随功法「lianxi_shu_method」体系解锁。",
+      "setting": {
+        "combat_style": "收敛灵压与气息，降低被探查概率。韩立保命核心手段之一。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "收敛灵压与气息，降低被探查概率。韩立保命核心手段之一。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lianxi_shu_method"
+      },
+      "requires_method": "lianxi_shu_method",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "void",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "element": "void",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "lianxi_shu_method",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyan_bu",
+      "display": "罗烟步",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "七玄/凡俗武学过渡",
+      "effect": {
+        "type": "dash",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "martial_to_immortal"
+        ]
+      },
+      "description": "罗烟步：movement派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 8。",
+      "setting": {
+        "combat_style": "凡俗身法向灵力化身法过渡。早期韩立所用。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "凡俗身法向灵力化身法过渡。早期韩立所用。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": null
+      },
+      "requires_method": null,
+      "tags": [
+        "novel_canon",
+        "v124",
+        "early",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jifeng_burst",
+      "display": "疾风九变·闪",
+      "school": "movement",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 35,
+      "source": "疾风九变",
+      "effect": {
+        "type": "dash",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "burst"
+        ]
+      },
+      "description": "疾风九变·闪：movement派术法，属性倾向 wind。境界门槛 NASCENT_SOUL，耗灵约 35。 常随功法「jifeng_jiubian」体系解锁。",
+      "setting": {
+        "combat_style": "疾风九变爆发位移。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "疾风九变爆发位移。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "jifeng_jiubian"
+      },
+      "requires_method": "jifeng_jiubian",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "jifeng_jiubian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "inverse_shadow_step",
+      "display": "逆星潜步",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "dash",
+        "element": "void",
+        "damage_base": 0
+      },
+      "description": "逆星潜步：movement派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_shadow_art」体系解锁。",
+      "setting": {
+        "combat_style": "逆星潜行",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "逆星潜行",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "inverse_star_shadow_art"
+      },
+      "requires_method": "inverse_star_shadow_art",
+      "tags": [
+        "v124",
+        "chaotic_sea",
+        "inverse_star",
+        "fill_zero_method",
+        "v128",
+        "void",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "inverse_star_alliance",
+      "element": "void",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_shadow_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingyun_cloud_flash",
+      "display": "灵云闪",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "灵云剑风诀",
+      "effect": {
+        "type": "dash",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "movement"
+        ]
+      },
+      "description": "灵云闪：movement派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 16。 常随功法「lingyun_sword_wind_art」体系解锁。",
+      "requires_method": "lingyun_sword_wind_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lingyun_sword_wind_art"
+      },
+      "tags": [
+        "v127",
+        "lingyun",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "剑修遁术。",
+        "v127": true,
+        "sect": "lingyun_sect",
+        "track": null
+      },
+      "sect_id": "lingyun_sect",
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "lingyun_sword_wind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingyun_void_step",
+      "display": "灵云虚步",
+      "school": "movement",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 35,
+      "source": "灵云剑风诀",
+      "effect": {
+        "type": "teleport_short",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "movement"
+        ]
+      },
+      "description": "灵云虚步：movement派术法，属性倾向 wind。境界门槛 NASCENT_SOUL，耗灵约 35。 常随功法「lingyun_sword_wind_art」体系解锁。",
+      "requires_method": "lingyun_sword_wind_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "lingyun_sword_wind_art"
+      },
+      "tags": [
+        "v127",
+        "lingyun",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短距虚踏。",
+        "v127": true,
+        "sect": "lingyun_sect",
+        "track": null
+      },
+      "sect_id": "lingyun_sect",
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "lingyun_sword_wind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "inverse_star_smuggle_route",
+      "display": "逆星走私线",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "逆星秘典",
+      "effect": {
+        "type": "utility",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "smuggle"
+        ]
+      },
+      "description": "逆星走私线：movement派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 12。 常随功法「inverse_star_art」体系解锁。",
+      "requires_method": "inverse_star_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "inverse_star_art"
+      },
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "void",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "标记暗港路线（系统：走私任务）。",
+        "v128": true,
+        "faction": "inverse_star_alliance"
+      },
+      "faction_id": "inverse_star_alliance",
+      "element": "void",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "inverse_star_double_feint",
+      "display": "逆星双佯",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "逆星潜行诀",
+      "effect": {
+        "type": "dash",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "feint"
+        ]
+      },
+      "description": "逆星双佯：movement派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_shadow_art」体系解锁。",
+      "requires_method": "inverse_star_shadow_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "inverse_star_shadow_art"
+      },
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "void",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "残影佯攻位移。",
+        "v128": true,
+        "faction": "inverse_star_alliance"
+      },
+      "faction_id": "inverse_star_alliance",
+      "element": "void",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_shadow_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "inverse_star_shadow_art_auto_3",
+      "display": "逆星潜行诀·式3",
+      "school": "movement",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "逆星潜行诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "逆星潜行诀·式3：movement派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。 常随功法「inverse_star_shadow_art」体系解锁。",
+      "requires_method": "inverse_star_shadow_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "inverse_star_shadow_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "inverse_star_shadow_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lianxi_shu_method_auto_2",
+      "display": "敛息术心法·式2",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "敛息术心法",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "敛息术心法·式2：movement派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。 常随功法「lianxi_shu_method」体系解锁。",
+      "requires_method": "lianxi_shu_method",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lianxi_shu_method"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "lianxi_shu_method",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lianxi_shu_method_auto_3",
+      "display": "敛息术心法·式3",
+      "school": "movement",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 20,
+      "source": "敛息术心法",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "敛息术心法·式3：movement派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 20。 常随功法「lianxi_shu_method」体系解锁。",
+      "requires_method": "lianxi_shu_method",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lianxi_shu_method"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "lianxi_shu_method",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jifeng_jiubian_auto_2",
+      "display": "疾风九变·式2",
+      "school": "movement",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 14,
+      "source": "疾风九变",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "疾风九变·式2：movement派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 14。 常随功法「jifeng_jiubian」体系解锁。",
+      "requires_method": "jifeng_jiubian",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "jifeng_jiubian"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "jifeng_jiubian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jifeng_jiubian_auto_3",
+      "display": "疾风九变·式3",
+      "school": "movement",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 20,
+      "source": "疾风九变",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "疾风九变·式3：movement派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 20。 常随功法「jifeng_jiubian」体系解锁。",
+      "requires_method": "jifeng_jiubian",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "jifeng_jiubian"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "movement",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "jifeng_jiubian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "time_skip_step",
+      "display": "时隙步",
+      "school": "movement",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "时间法则经",
+      "effect": {
+        "type": "dash",
+        "element": "time",
+        "damage_base": 0,
+        "tags": [
+          "time"
+        ]
+      },
+      "description": "时隙步：movement派术法，属性倾向 time。境界门槛 GOLDEN_IMMORTAL，耗灵约 40。 常随功法「time_law_scripture」体系解锁。",
+      "requires_method": "time_law_scripture",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "time_law_scripture"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "time",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "借时隙位移。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_time",
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "law_type": "law_time",
+      "element": "time",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "time_law_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heifeng_wind_ride",
+      "display": "黑风驰",
+      "school": "movement",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 25,
+      "source": "黑风海御风诀",
+      "effect": {
+        "type": "dash",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "sail"
+        ]
+      },
+      "description": "黑风驰：movement派术法，属性倾向 wind。境界门槛 TRUE_IMMORTAL，耗灵约 25。 常随功法「heifeng_sea_art」体系解锁。",
+      "requires_method": "heifeng_sea_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "heifeng_sea_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "黑风海驰行。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heifeng_sea",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heifeng_sea",
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "heifeng_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heifeng_storm_brace",
+      "display": "黑风抗劫",
+      "school": "movement",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "黑风海御风诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "defense"
+        ]
+      },
+      "description": "黑风抗劫：movement派术法，属性倾向 wind。境界门槛 TRUE_IMMORTAL，耗灵约 30。 常随功法「heifeng_sea_art」体系解锁。",
+      "requires_method": "heifeng_sea_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "heifeng_sea_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wind",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "抗风劫。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heifeng_sea",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heifeng_sea",
+      "element": "wind",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "heifeng_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "void_immortal_blink",
+      "display": "虚空仙瞬",
+      "school": "movement",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "虚空仙遁经",
+      "effect": {
+        "type": "teleport_short",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "space"
+        ]
+      },
+      "description": "虚空仙瞬：movement派术法，属性倾向 void。境界门槛 GOLDEN_IMMORTAL，耗灵约 40。 常随功法「void_immortal_space_art」体系解锁。",
+      "requires_method": "void_immortal_space_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "void_immortal_space_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "void",
+        "movement",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "空间瞬移。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_space",
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "law_type": "law_space",
+      "element": "void",
+      "path": "movement",
+      "alignment": "neutral",
+      "source_method": "void_immortal_space_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

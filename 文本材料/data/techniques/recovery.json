@@ -16,7 +16,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "回气术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "回气术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 15。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -31,7 +31,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "detoxify",
@@ -47,7 +59,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "解毒术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "解毒术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -62,7 +74,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_recovery",
@@ -78,7 +102,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "凝神术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "凝神术：recovery派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -93,7 +117,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "body_repair",
@@ -109,7 +144,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "疗伤术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "疗伤术：recovery派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 20。疗伤续战。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -124,7 +159,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "water",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "group_heal",
@@ -140,7 +187,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "群体疗伤：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "群体疗伤：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 25。疗伤续战。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -155,7 +202,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "revive_weak",
@@ -171,7 +230,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "续命术：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "续命术：recovery派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "护体疗伤",
         "cast_bias": "buff",
@@ -186,7 +245,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_shield",
@@ -194,13 +265,14 @@
       "school": "recovery",
       "tier": "spell",
       "realm_min": "QI_REFINING",
-      "description": "灵力护罩：recovery法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "灵力护罩：recovery派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "spirit_cost_base": 10,
       "effect": {
         "type": "buff",
         "tags": [
           "defense"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -217,7 +289,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "tribulation_thunder_ward",
@@ -225,13 +308,14 @@
       "school": "recovery",
       "tier": "spell",
       "realm_min": "NASCENT_SOUL",
-      "description": "护劫雷罩：recovery法术，需境界 NASCENT_SOUL 以上方可施展。",
+      "description": "护劫雷罩：recovery派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 34。雷法震邪。",
       "spirit_cost_base": 34,
       "effect": {
         "type": "buff",
         "tags": [
           "defense"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -248,7 +332,335 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "NASCENT_SOUL"
-      }
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sanzhuan_rebuild",
+      "display": "三转固元",
+      "school": "recovery",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "三转重元功",
+      "effect": {
+        "type": "heal_spirit",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "rebuild"
+        ]
+      },
+      "description": "三转固元：recovery派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。 常随功法「sanzhuan_zhongyuan_gong」体系解锁。",
+      "setting": {
+        "combat_style": "三转重元功稳固灵力。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "三转重元功稳固灵力。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sanzhuan_zhongyuan_gong"
+      },
+      "requires_method": "sanzhuan_zhongyuan_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "huangfeng_valley",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "neutral",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "sanzhuan_zhongyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_pill_emergency",
+      "display": "落云急丹引",
+      "school": "recovery",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 10,
+      "source": "落云丹道诀",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "pill",
+          "utility"
+        ]
+      },
+      "description": "落云急丹引：recovery派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 10。 常随功法「luoyun_dan_dao」体系解锁。",
+      "requires_method": "luoyun_dan_dao",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "luoyun_dan_dao"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "craft",
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "加速吞服疗伤丹生效（系统表现）。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "luoyun_dan_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sanzhuan2_v129_1",
+      "display": "三转·击",
+      "school": "recovery",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "三转重元功",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "三转·击：recovery派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。 常随功法「sanzhuan_zhongyuan_gong」体系解锁。",
+      "requires_method": "sanzhuan_zhongyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sanzhuan_zhongyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "setting": {
+        "lore": "三转补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "sanzhuan_zhongyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sanzhuan2_v129_2",
+      "display": "三转·护",
+      "school": "recovery",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "三转重元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "三转·护：recovery派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「sanzhuan_zhongyuan_gong」体系解锁。",
+      "requires_method": "sanzhuan_zhongyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sanzhuan_zhongyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "setting": {
+        "lore": "三转补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "sanzhuan_zhongyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sanzhuan2_v129_3",
+      "display": "三转·爆",
+      "school": "recovery",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "三转重元功",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "三转·爆：recovery派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 24。 常随功法「sanzhuan_zhongyuan_gong」体系解锁。",
+      "requires_method": "sanzhuan_zhongyuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sanzhuan_zhongyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "recovery",
+        "spell"
+      ],
+      "setting": {
+        "lore": "三转补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "sanzhuan_zhongyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "medicine_king_pill_boost",
+      "display": "药王丹效引",
+      "school": "recovery",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 15,
+      "source": "药王仙经",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "alchemy"
+        ]
+      },
+      "description": "药王丹效引：recovery派术法，属性倾向 wood。境界门槛 TRUE_IMMORTAL，耗灵约 15。 常随功法「medicine_king_immortal_art」体系解锁。",
+      "requires_method": "medicine_king_immortal_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "medicine_king_immortal_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "强化仙丹生效。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "medicine_king_immortal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "medicine_king_detox",
+      "display": "药王解灵毒",
+      "school": "recovery",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 20,
+      "source": "药王仙经",
+      "effect": {
+        "type": "cleanse",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "alchemy"
+        ]
+      },
+      "description": "药王解灵毒：recovery派术法，属性倾向 wood。境界门槛 TRUE_IMMORTAL，耗灵约 20。 常随功法「medicine_king_immortal_art」体系解锁。",
+      "requires_method": "medicine_king_immortal_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "medicine_king_immortal_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wood",
+        "recovery",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "解仙毒。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "wood",
+      "path": "recovery",
+      "alignment": "neutral",
+      "source_method": "medicine_king_immortal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v143": true
 }

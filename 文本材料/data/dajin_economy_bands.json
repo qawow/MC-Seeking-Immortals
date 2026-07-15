@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "source": "汇编：灵石四级 + 价格体系宜重平衡；下列为结构价带非原著精确",
+  "region": "dajin",
+  "currency": {
+    "tiers": [
+      {"id": "low_spirit_stone", "display": "下品灵石", "ratio_to_low": 1},
+      {"id": "mid_spirit_stone", "display": "中品灵石", "ratio_to_low": 100},
+      {"id": "high_spirit_stone", "display": "上品灵石", "ratio_to_low": 10000},
+      {"id": "top_spirit_stone", "display": "极品灵石", "ratio_to_low": 1000000}
+    ],
+    "note": "兑换比为常见二次创作结构，可按模组产出重平衡"
+  },
+  "price_bands_low_spirit_stone": {
+    "qi_refining_consumable": {"min": 1, "max": 50, "examples": ["低阶符", "回灵丹初阶"]},
+    "foundation_gear": {"min": 80, "max": 800, "examples": ["筑基期法器", "中阶符一批"]},
+    "core_formation_treasure": {"min": 2000, "max": 30000, "examples": ["结丹法宝残件", "培婴相关材料传闻价"]},
+    "nascent_auction_lot": {"min": 50000, "max": 500000, "examples": ["庚精级", "古宝残片", "高阶傀儡材"]},
+    "identity_cover_service": {"min": 500, "max": 5000, "vendor": "tianji_fu"},
+    "guest_elder_retainer_month": {"min": 300, "max": 3000, "note": "客卿长老月例结构"}
+  },
+  "tax_and_toll": {
+    "city_entry_permit": 20,
+    "auction_commission_pct": 5,
+    "underground_auction_risk": "stolen_goods_flag_chance"
+  },
+  "vs_tiannan_multiplier": {
+    "same_item_price": 1.3,
+    "supply_density": 1.8,
+    "note": "大晋同阶物资更贵但供应更足"
+  }
+}

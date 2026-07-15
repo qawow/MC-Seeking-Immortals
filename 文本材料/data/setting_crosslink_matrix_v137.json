@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "source": "v137 设定交叉引用矩阵",
+  "secret_realm_links": [
+    {
+      "secret_realm_id": "blood_forbidden",
+      "travel_access_id": "secret_blood_forbidden",
+      "structures": [
+        "blood_forbidden_entry_stele",
+        "blood_forbidden_blood_pool",
+        "blood_forbidden_trial_altar",
+        "blood_forbidden_exit_array"
+      ],
+      "node": "node_blood_forbidden_entry",
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "void_palace",
+      "travel_access_id": "secret_xutian",
+      "structures": [
+        "xutian_main_hall",
+        "xutian_trap_corridor",
+        "xutian_key_socket",
+        "xutian_palace_gate_fragment"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "fallen_demon_valley",
+      "travel_access_id": "secret_zhuimo",
+      "structures": [
+        "fallen_demon_rift"
+      ],
+      "node": null,
+      "dimension_hint": "demon_rift"
+    },
+    {
+      "secret_realm_id": "kunwu_mountain",
+      "travel_access_id": "secret_kunwu",
+      "structures": [
+        "kunwu_seal_hall",
+        "kunwu_seal_pillar",
+        "kunwu_frost_forge"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "nether_river_land",
+      "travel_access_id": "secret_nether_river",
+      "structures": [
+        "soul_banner_altar"
+      ],
+      "node": null,
+      "dimension_hint": "yin_ming_pocket"
+    },
+    {
+      "secret_realm_id": "guanghan_realm",
+      "travel_access_id": "spirit_to_guanghan",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "spirit_fengyuan"
+    },
+    {
+      "secret_realm_id": "demon_gold_mountain",
+      "travel_access_id": "secret_demon_gold_mountain",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "minor_asura_realm",
+      "travel_access_id": "secret_minor_asura_realm",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "diyuan",
+      "travel_access_id": "spirit_to_diyuan",
+      "structures": [
+        "asura_trial_ring"
+      ],
+      "node": null,
+      "dimension_hint": "spirit_fengyuan"
+    },
+    {
+      "secret_realm_id": "jiuxian_seclusion",
+      "travel_access_id": "secret_jiuxian_seclusion",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "ancient_cultivator_ruins",
+      "travel_access_id": "secret_ancient_cultivator_ruins",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "wild_ancient_tomb",
+      "travel_access_id": "secret_wild_ancient_tomb",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "thousand_bamboo_puppet_tower",
+      "travel_access_id": "secret_qianzhu",
+      "structures": [
+        "qianzhu_mechanism_tower",
+        "qianzhu_control_console"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "wild_ancient_ruins",
+      "travel_access_id": "secret_wild_ancient_ruins",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "tianlan_secret_grotto",
+      "travel_access_id": "mulan_tianlan",
+      "structures": [
+        "tianlan_bell_tower"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "chaotic_sea_abyss_rift",
+      "travel_access_id": "mortal_chaotic_sea_internal",
+      "structures": [
+        "chaotic_sea_island_lighthouse"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "spirit_grass_valley",
+      "travel_access_id": "secret_spirit_grass_valley",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "yin_mountain_catacomb",
+      "travel_access_id": "secret_nether_or_ghost",
+      "structures": [
+        "corpse_refinement_pit",
+        "soul_banner_altar"
+      ],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    },
+    {
+      "secret_realm_id": "seven_meridian_cave",
+      "travel_access_id": "secret_seven_meridian_cave",
+      "structures": [],
+      "node": null,
+      "dimension_hint": "mortal_instance"
+    }
+  ],
+  "dimension_layer_links": [
+    {
+      "layer": "mortal",
+      "dim": "seeking_immortals:mortal_world",
+      "travel_doc": "dimension_travel_methods_v136",
+      "structures_region": "tiannan_sect/chaotic_sea/dajin_kunwu"
+    },
+    {
+      "layer": "spirit",
+      "dims": [
+        "tianyuan",
+        "spirit_fengyuan"
+      ],
+      "travel": [
+        "mortal_to_tianyuan",
+        "tianyuan_to_fengyuan"
+      ]
+    },
+    {
+      "layer": "immortal",
+      "dim": "immortal_realm",
+      "travel": [
+        "spirit_to_immortal",
+        "immortal_internal"
+      ]
+    },
+    {
+      "layer": "yin",
+      "dim": "yin_ming_pocket",
+      "travel": [
+        "mortal_to_yin"
+      ]
+    },
+    {
+      "layer": "demon_event",
+      "dim": "demon_rift",
+      "travel": [
+        "mortal_to_demon_rift"
+      ]
+    }
+  ],
+  "system_glue": [
+    {
+      "system": "multiblock_states",
+      "ref": "block_items_catalog operational_states",
+      "affects": "teleport/array reliability"
+    },
+    {
+      "system": "multiplayer_sequences",
+      "ref": "multiblock_multiplayer_sequences_v135",
+      "affects": "repair/contest/teleport interrupt"
+    },
+    {
+      "system": "material_prices",
+      "ref": "multiblock_material_prices_v135",
+      "affects": "build economy"
+    },
+    {
+      "system": "ascension",
+      "ref": "ascension_flow.json",
+      "affects": "dimension unlock"
+    },
+    {
+      "system": "reputation",
+      "ref": "faction_graph + xianjie_reputation",
+      "affects": "gates and shops"
+    }
+  ]
+}

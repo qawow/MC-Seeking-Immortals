@@ -1,0 +1,753 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v97 物品详释再续：阵材/日常/剧情边角",
+  "items": [
+    {
+      "id": "zhen_qi",
+      "display": "阵旗",
+      "type": "array_part",
+      "appearance": "绘符纹的灵旗，成套有五色",
+      "use": "布阵眼、标方位",
+      "price": [20, 2000],
+      "description": "阵法耗材。低阶凡丝可绘，高阶需妖皮灵绢。"
+    },
+    {
+      "id": "zhen_pan",
+      "display": "阵盘",
+      "type": "array_part",
+      "appearance": "圆盘，刻阵图",
+      "use": "阵法核心控制器",
+      "price": [100, 20000],
+      "description": "品阶决定可撑阵级；损则阵崩。"
+    },
+    {
+      "id": "zhen_yan_shi",
+      "display": "阵眼石",
+      "type": "array_part",
+      "use": "固定阵眼、储灵",
+      "price": [50, 5000],
+      "description": "护府阵中心；被拔则防护尽失。"
+    },
+    {
+      "id": "ling_juan",
+      "display": "灵绢符纸",
+      "type": "craft",
+      "price": [1, 50],
+      "description": "制符底材；天符门用更佳灵绢。"
+    },
+    {
+      "id": "ling_mo",
+      "display": "灵墨",
+      "type": "craft",
+      "price": [2, 100],
+      "description": "溶妖血/灵草汁；影响符成率。"
+    },
+    {
+      "id": "dan_lu_low",
+      "display": "凡铁丹炉",
+      "type": "tool",
+      "price": [30, 200],
+      "description": "炼气丹师入门炉；易炸炉。"
+    },
+    {
+      "id": "dan_lu_mid",
+      "display": "灵纹丹炉",
+      "type": "tool",
+      "price": [500, 8000],
+      "description": "筑基~结丹炼丹；稳火。"
+    },
+    {
+      "id": "bao_ding_generic",
+      "display": "宝鼎（通用）",
+      "type": "tool",
+      "price": [10000, 200000],
+      "description": "元婴级鼎；虚天鼎为顶格特例。"
+    },
+    {
+      "id": "qi_pei",
+      "display": "器胚",
+      "type": "craft",
+      "price": [50, 5000],
+      "description": "炼器半成品；可继续开锋开阵。"
+    },
+    {
+      "id": "shou_wei_ling_pai",
+      "display": "守围令牌",
+      "type": "token",
+      "use": "进出山门大阵",
+      "price": "宗门发放",
+      "description": "假令牌查验失败即敌对。"
+    },
+    {
+      "id": "wai_men_ling",
+      "display": "外门弟子令",
+      "type": "token",
+      "description": "黄枫谷等外门身份。"
+    },
+    {
+      "id": "nei_men_ling",
+      "display": "内门弟子令",
+      "type": "token",
+      "description": "权限：功绩库、药园、部分功法。"
+    },
+    {
+      "id": "zhanglao_ling",
+      "display": "长老令",
+      "type": "token",
+      "description": "落云/星宫等长老权；可调资源。"
+    },
+    {
+      "id": "shengxian_ling_detail",
+      "display": "升仙令（详）",
+      "type": "token",
+      "price": [50, 300],
+      "description": "参加升仙大会或等价入门资格；凡人到修士关键。"
+    },
+    {
+      "id": "yao_yuan_key",
+      "display": "药园管事令",
+      "type": "token",
+      "description": "合法种植与收割权限；可藏私。"
+    },
+    {
+      "id": "dihuo_ticket",
+      "display": "地火室时券",
+      "type": "service",
+      "price": [20, 500],
+      "description": "按日租用地火；宗门内价低于坊市。"
+    },
+    {
+      "id": "chuan_song_fei",
+      "display": "传送阵费用凭证",
+      "type": "service",
+      "price": [100, 20000],
+      "description": "星宫/宗门传送网票价随距离。"
+    },
+    {
+      "id": "qingbao_juan",
+      "display": "情报玉简",
+      "type": "info",
+      "price": [50, 5000],
+      "description": "内容真伪看卖家；庚精消息可虚。"
+    },
+    {
+      "id": "xuan_tian_teng_root",
+      "display": "玄天仙藤根茎",
+      "type": "living",
+      "source": "赌战赏",
+      "description": "需醇液/回阳水救活；后期玄天线。"
+    },
+    {
+      "id": "chun_ye",
+      "display": "灵眼醇液（结构）",
+      "type": "liquid",
+      "source": "云梦圣地",
+      "use": "救藤、培目",
+      "description": "圣地核心产物；易被魔道盯。"
+    },
+    {
+      "id": "lingyan_tree_root_item",
+      "display": "灵眼之树根部",
+      "type": "herb_treasure",
+      "source": "试剑禁地",
+      "description": "培灵目；与明清灵水同线。"
+    },
+    {
+      "id": "ding_ling_dan_detail",
+      "display": "定灵丹（再详）",
+      "type": "pill",
+      "effect": "安魂定心、助结婴",
+      "price": [20000, 100000],
+      "description": "云梦试剑顶级奖励；市面有价无市。"
+    },
+    {
+      "id": "zaohua_dan_detail",
+      "display": "造化丹（再详）",
+      "type": "pill",
+      "main": "灵烛果",
+      "limit": "一身体会一次结构",
+      "description": "坠入造化幻境体验更高境界；果须即摘即炼。"
+    },
+    {
+      "id": "peiying_dan_detail",
+      "display": "培婴丹（再详）",
+      "type": "pill",
+      "appearance": "绿色上古丹",
+      "main": "阴芝马",
+      "description": "洗筋易髓壮元婴；富成线合作产物。"
+    },
+    {
+      "id": "moyuan_dan_detail",
+      "display": "魔元丹（再详）",
+      "type": "pill",
+      "source": "魔陀山交换",
+      "use": "化神冲阶包之一",
+      "description": "常配五寒焰与极品灵石。"
+    },
+    {
+      "id": "xu_ling_dan_detail",
+      "display": "虚灵丹（再详）",
+      "type": "pill",
+      "realm": "BODY_INTEGRATION",
+      "description": "合体突破辅助；广寒界等产出。"
+    },
+    {
+      "id": "zhen_hun_dan_detail",
+      "display": "真魂丹（再详）",
+      "type": "pill",
+      "source": "斩马良",
+      "description": "大乘级神魂奇丹；可售惊动灵界。"
+    },
+    {
+      "id": "qingzhu_jian_single",
+      "display": "青竹蜂云剑（单柄）",
+      "type": "fabao",
+      "materials": ["金雷竹", "庚精"],
+      "description": "七十二柄之一；失两柄于古魔后可夺回。"
+    },
+    {
+      "id": "fenglei_chi_detail",
+      "display": "风雷翅（详）",
+      "type": "escape",
+      "upgrade": ["鲲鹏羽", "天凤翎"],
+      "description": "人界顶级遁器；雷遁为主，后增风遁。"
+    },
+    {
+      "id": "san_yan_shan_detail",
+      "display": "三焰扇（详）",
+      "type": "fabao",
+      "materials": ["赤火蛟鳞", "昊阳翎", "乌凤翎"],
+      "description": "大晋自炼火系扇；昆吾一扇惊敌。"
+    },
+    {
+      "id": "qi_yan_shan_detail",
+      "display": "七焰扇（详）",
+      "type": "fabao",
+      "source_bp": "坠魔谷火蟾线",
+      "description": "蓝图级火扇；材料更苛。"
+    },
+    {
+      "id": "feizhen_detail",
+      "display": "晶化妖丹飞针",
+      "type": "fabao",
+      "materials": ["晶化妖丹"],
+      "description": "遁速极快的偷袭针；含奇毒。"
+    },
+    {
+      "id": "chi_hun_fan_detail",
+      "display": "赤魂幡（详）",
+      "type": "fabao",
+      "materials": ["黑风旗残", "鬼罗幡"],
+      "description": "空间+魔幡融合体；昆吾后续。"
+    },
+    {
+      "id": "ba_ling_chi_detail",
+      "display": "八灵尺（详）",
+      "type": "tongtian",
+      "abilities": ["八灵虚影", "定宝", "佛音"],
+      "description": "镇魔塔通天灵宝；飞升或损。"
+    },
+    {
+      "id": "xu_tian_ding_detail",
+      "display": "虚天鼎（详）",
+      "type": "tongtian",
+      "abilities": ["乾蓝冰焰", "炼丹", "通宝诀"],
+      "description": "虚天殿第一争夺物结构。"
+    },
+    {
+      "id": "yuan_ci_shan_detail",
+      "display": "元磁神山（详）",
+      "type": "gubao",
+      "manual": "元磁神光",
+      "description": "可外放可入体；化神前后核心。"
+    },
+    {
+      "id": "wuzi_detail",
+      "display": "五子同心魔（详）",
+      "type": "gubao",
+      "abilities": ["五子联攻", "融焰"],
+      "description": "乾老魔标配；截杀所得。"
+    },
+    {
+      "id": "gui_luo_detail",
+      "display": "鬼罗幡（详）",
+      "type": "fabao",
+      "faction": "阴罗宗",
+      "description": "可集十八杆结构；修需魔髓钻等。"
+    },
+    {
+      "id": "jiangmo_detail",
+      "display": "降魔杖（详）",
+      "type": "fabao",
+      "effect": "克邪祟，奇重",
+      "description": "昆吾佛修成名杖。"
+    },
+    {
+      "id": "xue_ren_detail",
+      "display": "血刃（详）",
+      "type": "pseudo_lingbao",
+      "description": "仿魔龙刃；玲珑转交。"
+    },
+    {
+      "id": "po_jie_detail",
+      "display": "破界符（详）",
+      "type": "consumable",
+      "charges": 1,
+      "description": "破空间障壁；飞升物资。"
+    },
+    {
+      "id": "node_intel_detail",
+      "display": "空间节点资料（详）",
+      "type": "intel",
+      "grades": ["残缺", "标准", "详尽十余节点"],
+      "description": "玲珑分人给料；详尽版是飞升关键。"
+    },
+    {
+      "id": "palm_bottle_policy",
+      "display": "掌天瓶（设计说明）",
+      "type": "unique",
+      "economy_risk": "极高",
+      "rules": ["禁止坊市", "绿液次数帽", "长冷却", "勿与芥子无帽叠乘"],
+      "description": "原著核心外挂；模组仅能作严格规则物。"
+    },
+    {
+      "id": "green_liquid_detail",
+      "display": "瓶中绿液（详）",
+      "type": "catalyst",
+      "effect": "大幅缩灵药药龄",
+      "description": "人界资源碾压源；必须数值封印。"
+    },
+    {
+      "id": "jiezi_detail",
+      "display": "芥子空间（详）",
+      "type": "space",
+      "use": ["闭关", "种药", "藏宝"],
+      "obtain": "元智线炼法",
+      "description": "化神前长期修炼核心空间。"
+    },
+    {
+      "id": "huajie_detail",
+      "display": "化界珠（详）",
+      "materials": ["帝流浆"],
+      "description": "空间神通载体。"
+    },
+    {
+      "id": "dilu_detail",
+      "display": "帝流浆（详）",
+      "source": "天澜圣兽渡劫",
+      "description": "圣兽级灵液。"
+    },
+    {
+      "id": "huiyang_detail",
+      "display": "回阳真水（详）",
+      "compose": ["太阳精火", "寒髓"],
+      "effect": "白骨生肉、延寿结构、活藤",
+      "description": "人界顶疗愈。"
+    },
+    {
+      "id": "taiyang_fire_detail",
+      "display": "太阳精火（详）",
+      "source": "火狱",
+      "description": "至阳之火；融阴成阴阳极火。"
+    },
+    {
+      "id": "taiyin_fire_detail",
+      "display": "太阴真火（详）",
+      "source": "昆吾铸灵殿",
+      "description": "噬灵天火前置。"
+    },
+    {
+      "id": "shiling_detail",
+      "display": "噬灵天火（详）",
+      "evolve": "可持续吞噬异火",
+      "abilities": ["心寒入体", "化形火鸟"],
+      "description": "成长型火种。"
+    },
+    {
+      "id": "qianlan_detail",
+      "display": "乾蓝冰焰（详）",
+      "source": "虚天鼎系",
+      "description": "小极宫寒焰体系核心之一。"
+    },
+    {
+      "id": "geng_jing_detail",
+      "display": "庚精（详）",
+      "appearance": "豆粒亦贵",
+      "use": "青竹剑、大庚阵、金法宝",
+      "price": [20000, 120000],
+      "description": "天南奇缺，大晋略多。"
+    },
+    {
+      "id": "jin_lei_zhu_detail",
+      "display": "金雷竹",
+      "type": "wood",
+      "use": "青竹蜂云剑主材",
+      "source": "乱星海妙音门线等",
+      "description": "奇竹难移栽；雷金双性。"
+    },
+    {
+      "id": "mo_sui_detail",
+      "display": "魔髓钻（详）",
+      "source": "魔气之渊",
+      "use": ["修幡", "黑市通货"],
+      "description": "可换五行玉庚精。"
+    },
+    {
+      "id": "jinghua_dan_detail",
+      "display": "晶化妖丹（详）",
+      "use": "飞针",
+      "description": "长年晶化含奇毒。"
+    },
+    {
+      "id": "tianshi_detail",
+      "display": "天尸珠（详）",
+      "effect": "法体突进，含尸毒",
+      "source": "炫烨王",
+      "description": "炼体奇物。"
+    },
+    {
+      "id": "jingang_detail",
+      "display": "金刚罩（详）",
+      "effect": "佛光罩，体内培",
+      "description": "舍利半成品炼；助八灵尺。"
+    },
+    {
+      "id": "yanghun_detail",
+      "display": "养魂木（详）",
+      "effect": "养魂、壮神识、寄魂",
+      "source": "虚天殿",
+      "description": "神木级。"
+    },
+    {
+      "id": "wannian_ru_detail",
+      "display": "万年灵乳（详）",
+      "effect": "培神识疗伤顶级",
+      "source": "虚天殿二层",
+      "description": "元瑶线可见。"
+    },
+    {
+      "id": "jiuqu_detail",
+      "display": "九曲灵参（详）",
+      "living": true,
+      "use": "参丹/开智曲儿",
+      "likes": "麝兰兽粪",
+      "description": "活体灵药标杆。"
+    },
+    {
+      "id": "lingzhu_detail",
+      "display": "灵烛果（详）",
+      "taboo": "不可移植，药性速失",
+      "use": "造化丹",
+      "description": "坠魔谷核心果实。"
+    },
+    {
+      "id": "longlin_detail",
+      "display": "龙鳞果（详）",
+      "use": "淬骨炼体",
+      "interval": "约半月一颗结构",
+      "description": "金蛟王线移植。"
+    },
+    {
+      "id": "nichang_detail",
+      "display": "霓裳草（详）",
+      "effect": "诱八级下妖兽、催虫繁殖",
+      "growth": "百年一叶，十三叶",
+      "description": "韩立工具草。"
+    },
+    {
+      "id": "banyao_detail",
+      "display": "伴妖草（详）",
+      "effect": "色深浅示巢穴妖兽强度",
+      "description": "探巢指南针。"
+    },
+    {
+      "id": "hansui_detail",
+      "display": "寒髓（详）",
+      "use": ["回阳水", "护劫", "换人"],
+      "description": "至寒奇珍。"
+    },
+    {
+      "id": "xueya_detail",
+      "display": "血牙米（详）",
+      "region": "demon",
+      "effect": "精血肉身",
+      "description": "体修硬通货。"
+    },
+    {
+      "id": "minghe_detail",
+      "display": "冥河神乳（详）",
+      "use": "大乘交易、虫王",
+      "description": "不可标价。"
+    },
+    {
+      "id": "top_stone_detail",
+      "display": "极品灵石（详）",
+      "ratio": 1000000,
+      "use": ["化神", "大阵", "矿战"],
+      "description": "人界货币顶。"
+    },
+    {
+      "id": "storage_bag_loot_note",
+      "display": "储物袋（战利品说明）",
+      "type": "meta",
+      "description": "见 storage_bag_loot_templates_v94；本命宝宜拆材。"
+    },
+    {
+      "id": "merit_token_tiannan",
+      "display": "天南军功令",
+      "type": "currency",
+      "description": "赌战与边功兑换庚精等。"
+    },
+    {
+      "id": "merit_token_tianyuan",
+      "display": "天渊功勋录",
+      "type": "currency",
+      "description": "灵地租、护劫、真蟾液等。"
+    },
+    {
+      "id": "puppet_core_item",
+      "display": "傀儡核心",
+      "type": "material",
+      "price": [1000, 50000],
+      "description": "人形/兽形傀儡之心。"
+    },
+    {
+      "id": "xuanguang_detail",
+      "display": "眩光晶（详）",
+      "use": "傀儡",
+      "description": "大衍傀儡硬通货。"
+    },
+    {
+      "id": "poshi_detail",
+      "display": "魄石（详）",
+      "source": "阴冥",
+      "description": "可换上古傀儡术。"
+    },
+    {
+      "id": "jinque_detail",
+      "display": "金阙玉书页（详）",
+      "contents": ["百脉炼宝决", "玄天炼器术"],
+      "description": "灵界转折书页。"
+    },
+    {
+      "id": "fansheng_pian_detail",
+      "display": "梵圣真片（详）",
+      "use": "拼梵圣真魔功",
+      "description": "坊市极罕残片。"
+    },
+    {
+      "id": "yinkui_wen_item",
+      "display": "银蝌文识（知识）",
+      "type": "knowledge",
+      "source": "天澜圣兽",
+      "description": "开蛮胡子洞府等。"
+    },
+    {
+      "id": "liuding_detail",
+      "display": "六丁天甲符（详）",
+      "trade": false,
+      "source": "南宫婉",
+      "description": "飞升级护身符宝。"
+    },
+    {
+      "id": "hualing_detail",
+      "display": "化灵符（详）",
+      "faction": "天符门",
+      "description": "压箱底战符。"
+    },
+    {
+      "id": "jiangling_detail",
+      "display": "降灵符（详）",
+      "materials": ["高阶精魂"],
+      "description": "归还可换化灵符/灵影术。"
+    },
+    {
+      "id": "tianleizi_detail",
+      "display": "天雷子（详）",
+      "effect": "雷爆翻盘",
+      "description": "可破魔功护体节点。"
+    },
+    {
+      "id": "leizhu_detail",
+      "display": "雷珠（详）",
+      "materials": ["天雷木", "雷纹"],
+      "description": "灵界量产雷爆物。"
+    },
+    {
+      "id": "huisha_detail",
+      "display": "回煞丸（详）",
+      "side": "损元气",
+      "description": "元婴死斗药。"
+    },
+    {
+      "id": "biyan_detail",
+      "display": "碧焰酒（详）",
+      "source": "风希",
+      "side": "火毒",
+      "description": "结丹后期辅助。"
+    },
+    {
+      "id": "yuanming_detail",
+      "display": "元明灯（详）",
+      "source": "边界大战",
+      "description": "可换海量宝物的战场宝。"
+    },
+    {
+      "id": "kunxian_detail",
+      "display": "困仙环（详）",
+      "note": "未认主",
+      "description": "交换会硬通货法宝。"
+    },
+    {
+      "id": "yuruyi_detail",
+      "display": "玉如意（详）",
+      "source": "虚天殿",
+      "description": "古宝档。"
+    },
+    {
+      "id": "hunyuan_detail",
+      "display": "混元钵（详）",
+      "source": "古长老",
+      "description": "收摄镇压法宝。"
+    },
+    {
+      "id": "yanghuan_detail",
+      "display": "阳环（详）",
+      "source": "掩月宗",
+      "description": "南宫婉线。"
+    },
+    {
+      "id": "xuemo_detail",
+      "display": "血魔剑（详）",
+      "source": "掩月宗",
+      "description": "魔性剑。"
+    },
+    {
+      "id": "tongling_ding_detail",
+      "display": "通灵火鼎（详）",
+      "source": "铸灵殿",
+      "description": "炼器成功率辅助。"
+    },
+    {
+      "id": "guiling_pai_detail",
+      "display": "圭灵牌（详）",
+      "use": "收圭灵",
+      "description": "昆吾殿关键。"
+    },
+    {
+      "id": "tianjing_bei_detail",
+      "display": "天晶碑（详）",
+      "use": "封印真魔气",
+      "description": "玲珑线封印物。"
+    },
+    {
+      "id": "miexian_detail",
+      "display": "灭仙珠（详）",
+      "effect": "禁敌宝",
+      "counter": "八灵尺",
+      "description": "阴罗/寒焰线可见。"
+    },
+    {
+      "id": "beijiyuan_jing_detail",
+      "display": "北极元晶（详）",
+      "use": "北极元山",
+      "source": "坠魔谷",
+      "description": "五极山组件。"
+    },
+    {
+      "id": "gangyin_detail",
+      "display": "罡银沙（详）",
+      "source": "坠魔外谷",
+      "description": "炼器材。"
+    },
+    {
+      "id": "chiling_detail",
+      "display": "叱灵软玉（详）",
+      "source": "魔气之渊",
+      "description": "修幡禁制材。"
+    },
+    {
+      "id": "haoyang_detail",
+      "display": "昊阳翎（详）",
+      "source": "岳阳宫",
+      "description": "三焰扇材。"
+    },
+    {
+      "id": "wufeng_detail",
+      "display": "乌凤翎（详）",
+      "source": "苦竹岛",
+      "description": "比试奖品。"
+    },
+    {
+      "id": "kunpeng_detail",
+      "display": "鲲鹏翎（详）",
+      "source": "外星海奇遇",
+      "description": "真灵翎，嵌翅。"
+    },
+    {
+      "id": "chihuojiao_detail",
+      "display": "赤火蛟鳞（详）",
+      "source": "临江屠蛟",
+      "description": "三焰扇主鳞。"
+    },
+    {
+      "id": "mojin_detail",
+      "display": "墨金（详）",
+      "source": "地下拍",
+      "description": "黑市金材。"
+    },
+    {
+      "id": "wuxingyu_detail",
+      "display": "五行玉（详）",
+      "description": "五行炼器；魔髓钻可换。"
+    },
+    {
+      "id": "tianleimu_detail",
+      "display": "天雷木（详）",
+      "merit": [20, 80],
+      "description": "天渊雷系核心。"
+    },
+    {
+      "id": "moqilin_detail",
+      "display": "墨麒麟鳞（详）",
+      "use": "葵水真灵丹",
+      "description": "天渊拍卖级。"
+    },
+    {
+      "id": "xuanbinghua_detail",
+      "display": "玄冰花（详）",
+      "source": "小极宫",
+      "description": "玄冰丹主花。"
+    },
+    {
+      "id": "wannianxuanyu_detail",
+      "display": "万年玄玉（详）",
+      "use": "换魔元丹",
+      "description": "北地通货。"
+    },
+    {
+      "id": "manao_detail",
+      "display": "玛瑙角（详）",
+      "use": "九曲灵参丹",
+      "description": "寸金阁硬货。"
+    },
+    {
+      "id": "qianye_detail",
+      "display": "千叶露（详）",
+      "use": "结婴辅液",
+      "description": "黑石城流通。"
+    },
+    {
+      "id": "chijing_detail",
+      "display": "赤精芝（详）",
+      "source": "天南交易会",
+      "description": "元婴交换灵药。"
+    },
+    {
+      "id": "zhuji_syao",
+      "display": "筑基四主药包",
+      "contains": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "description": "血色禁地经济核心；约支撑廿丹结构。"
+    }
+  ]
+}

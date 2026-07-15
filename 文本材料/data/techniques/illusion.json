@@ -17,7 +17,7 @@
       },
       "tier": "spell",
       "requires_method": "yanyue_illusion_art",
-      "description": "镜影术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "镜影术：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 8。 常随功法「yanyue_illusion_art」体系解锁。",
       "setting": {
         "combat_style": "幻术隐匿",
         "cast_bias": "debuff_buff",
@@ -36,7 +36,23 @@
         "prerequisite_methods": [
           "yanyue_illusion_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_illusion_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "hundred_illusion",
@@ -52,7 +68,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "百幻术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "百幻术：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 17。 常随功法「yanyue_gong」体系解锁。",
       "requires_method": "yanyue_gong",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -72,7 +88,23 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mind_confusion",
@@ -89,7 +121,7 @@
       },
       "tier": "spell",
       "requires_method": "yanyue_illusion_art",
-      "description": "迷心术：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "迷心术：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 9。 常随功法「yanyue_illusion_art」体系解锁。",
       "setting": {
         "combat_style": "幻术隐匿",
         "cast_bias": "debuff_buff",
@@ -108,7 +140,23 @@
         "prerequisite_methods": [
           "yanyue_illusion_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_illusion_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "void_step",
@@ -124,7 +172,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "虚步：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "虚步：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 11。 常随功法「yanyue_gong」体系解锁。",
       "requires_method": "yanyue_gong",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -144,7 +192,23 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dream_snare",
@@ -160,7 +224,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "梦缚：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "梦缚：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 13。 常随功法「yanyue_gong」体系解锁。",
       "requires_method": "yanyue_gong",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -180,7 +244,23 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "clone_image",
@@ -196,7 +276,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "分身幻影：illusion法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "分身幻影：illusion派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 12。 常随功法「yanyue_gong」体系解锁。",
       "requires_method": "yanyue_gong",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -216,7 +296,23 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yanyue_phantom_array",
@@ -233,7 +329,7 @@
           "array"
         ]
       },
-      "description": "掩月幻阵：illusion神通，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "掩月幻阵：illusion派术法，属性倾向 illusion。境界门槛 CORE_FORMATION，耗灵约 38。借阵力。 常随功法「yanyue_illusion_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -255,7 +351,22 @@
           "yanyue_illusion_art"
         ],
         "prerequisite_mode": "all"
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "secret"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_illusion_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "veil_of_moon",
@@ -272,7 +383,7 @@
           "stealth"
         ]
       },
-      "description": "月纱障：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "月纱障：illusion派术法，属性倾向 illusion。境界门槛 FOUNDATION，耗灵约 20。 常随功法「yanyue_illusion_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "幻术隐匿",
@@ -292,7 +403,23 @@
         "prerequisite_methods": [
           "yanyue_illusion_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_illusion_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "invisibility_basic",
@@ -300,14 +427,15 @@
       "school": "illusion",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "隐匿术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "隐匿术：illusion派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "buff",
         "tags": [
           "illusion",
           "stealth"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -329,7 +457,22 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "neutral",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "illusion_mist",
@@ -337,14 +480,15 @@
       "school": "illusion",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "幻雾术：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "幻雾术：illusion派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "buff",
         "tags": [
           "illusion",
           "stealth"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -366,7 +510,22 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "neutral",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "inverse_star_veil",
@@ -374,14 +533,15 @@
       "school": "illusion",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "逆星匿形：illusion法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "逆星匿形：illusion派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "buff",
         "tags": [
           "illusion",
           "stealth"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "requires_method": "yanyue_gong",
@@ -403,7 +563,28 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "notes_v123": "保留为主 id；misc 侧已更名",
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "v126",
+        "seven_sects",
+        "yanyue_sect",
+        "chaotic_sea",
+        "inverse_star",
+        "not_inverse_main",
+        "v128",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "inverse_star_alliance",
+      "element": "neutral",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yanyue_moon_illusion",
@@ -416,9 +597,10 @@
         "tags": [
           "stealth",
           "illusion"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "掩月宗幻术，短暂隐匿身形。",
+      "description": "掩月幻身：illusion派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -440,7 +622,21 @@
         "prerequisite_methods": [
           "yanyue_gong"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "neutral",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wanhu_nine_illusion",
@@ -452,9 +648,10 @@
         "type": "aoe",
         "tags": [
           "illusion"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "多重重影乱敌判断。",
+      "description": "九尾幻境：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。 常随功法「wanhu_phantom_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 26,
@@ -476,10 +673,1197 @@
         "prerequisite_methods": [
           "wanhu_phantom_art"
         ]
-      }
+      },
+      "six_sect_id": "wanhu_sect",
+      "tags": [
+        "v125",
+        "wanhu_sect",
+        "neutral",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyue_mirage",
+      "display": "掩月幻景",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "掩月诀",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 15,
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "掩月幻景：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 20。 常随功法「yanyue_gong」体系解锁。",
+      "setting": {
+        "combat_style": "掩月基础幻景。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "掩月基础幻景。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yanyue_gong"
+      },
+      "requires_method": "yanyue_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "yanyue_sect",
+        "v126",
+        "novel_canon",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_charm_art",
+      "display": "合欢魅术",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "合欢功",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 10,
+        "tags": [
+          "charm"
+        ]
+      },
+      "description": "合欢魅术：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 22。 常随功法「hehuan_mind_art」体系解锁。",
+      "setting": {
+        "combat_style": "合欢宗魅心控制。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "合欢宗魅心控制。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "hehuan_mind_art"
+      },
+      "requires_method": "hehuan_mind_art",
+      "tags": [
+        "novel_canon",
+        "hehuan_sect",
+        "v124",
+        "six_sects",
+        "v125",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "suyu_cycle_drain",
+      "display": "素女轮回吸",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 35,
+      "source": "素女轮回功",
+      "effect": {
+        "type": "drain",
+        "element": "yin",
+        "damage_base": 30,
+        "tags": [
+          "dual"
+        ]
+      },
+      "description": "素女轮回吸：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 35。 常随功法「yanyue_cycle_art」体系解锁。",
+      "setting": {
+        "combat_style": "双修轮回吸补（战斗表现克制）。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "双修轮回吸补（战斗表现克制）。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yanyue_cycle_art"
+      },
+      "requires_method": "yanyue_cycle_art",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "yanyue_sect",
+        "v126",
+        "novel_canon",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_cycle_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yinyang_cycle_balance",
+      "display": "阴阳轮回调",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "阴阳轮回决",
+      "requires_method": "yin_yang_lunhui_jue",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "dual"
+        ]
+      },
+      "description": "阴阳轮回调：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 30。 常随功法「yin_yang_lunhui_jue」体系解锁。",
+      "tags": [
+        "v124",
+        "novel_canon",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yin_yang_lunhui_jue"
+      },
+      "setting": {
+        "lore": "元瑶线气质",
+        "v124": true
+      },
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yin_yang_lunhui_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_gaze",
+      "display": "合欢秋波",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "合欢宗",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 12,
+        "tags": [
+          "charm"
+        ]
+      },
+      "description": "合欢秋波：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「hehuan_mind_art」体系解锁。",
+      "requires_method": "hehuan_mind_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "hehuan_mind_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "hehuan_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "入门媚眼，降敌专注。",
+        "combat_style": "illusion",
+        "six_sect": "hehuan_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_dream_mist",
+      "display": "合欢迷梦雾",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "合欢宗",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 15,
+        "tags": [
+          "charm",
+          "mist"
+        ]
+      },
+      "description": "合欢迷梦雾：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 24。 常随功法「hehuan_mind_art」体系解锁。",
+      "requires_method": "hehuan_mind_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "hehuan_mind_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "hehuan_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "雾中幻梦，短控。",
+        "combat_style": "illusion",
+        "six_sect": "hehuan_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_dual_siphon",
+      "display": "合欢摄元",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 35,
+      "source": "合欢宗",
+      "effect": {
+        "type": "drain",
+        "element": "yin",
+        "damage_base": 36,
+        "tags": [
+          "dual",
+          "drain"
+        ]
+      },
+      "description": "合欢摄元：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 35。 常随功法「hehuan_mind_art」体系解锁。",
+      "requires_method": "hehuan_mind_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "hehuan_mind_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "hehuan_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "双修向战斗摄元（克制表现）。",
+        "combat_style": "illusion",
+        "six_sect": "hehuan_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_heart_lock",
+      "display": "合欢锁心",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "合欢宗",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "charm"
+        ]
+      },
+      "description": "合欢锁心：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「hehuan_mind_art」体系解锁。",
+      "requires_method": "hehuan_mind_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "hehuan_mind_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "hehuan_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "锁敌心神，强控。",
+        "combat_style": "illusion",
+        "six_sect": "hehuan_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "hehuan_domain_bliss",
+      "display": "合欢欲域",
+      "school": "illusion",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 60,
+      "source": "合欢宗",
+      "effect": {
+        "type": "field",
+        "element": "yin",
+        "damage_base": 30,
+        "tags": [
+          "domain"
+        ]
+      },
+      "description": "合欢欲域：illusion派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 60。 常随功法「hehuan_mind_art」体系解锁。",
+      "requires_method": "hehuan_mind_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "hehuan_mind_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "hehuan_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "领域内持续媚乱。",
+        "combat_style": "illusion",
+        "six_sect": "hehuan_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "hehuan_sect",
+      "element": "yin",
+      "path": "hehuan_sect",
+      "alignment": "neutral",
+      "source_method": "hehuan_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wanhu_fox_fire",
+      "display": "万狐狐火",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "万狐宗",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 28,
+        "tags": [
+          "fox"
+        ]
+      },
+      "description": "万狐狐火：illusion派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。凝火杀伐。 常随功法「wanhu_phantom_art」体系解锁。",
+      "requires_method": "wanhu_phantom_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "fire",
+        "wanhu_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "狐火弹。",
+        "combat_style": "illusion",
+        "six_sect": "wanhu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "wanhu_sect",
+      "element": "fire",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wanhu_afterimage",
+      "display": "狐影分身",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "万狐宗",
+      "effect": {
+        "type": "buff_self",
+        "element": "void",
+        "damage_base": 0,
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "狐影分身：illusion派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 22。 常随功法「wanhu_phantom_art」体系解锁。",
+      "requires_method": "wanhu_phantom_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "void",
+        "wanhu_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "残影迷惑。",
+        "combat_style": "illusion",
+        "six_sect": "wanhu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "wanhu_sect",
+      "element": "void",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wanhu_charm_tail",
+      "display": "狐尾媚惑",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "万狐宗",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 18,
+        "tags": [
+          "charm"
+        ]
+      },
+      "description": "狐尾媚惑：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 30。 常随功法「wanhu_phantom_art」体系解锁。",
+      "requires_method": "wanhu_phantom_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "wanhu_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "狐媚控制，异于合欢正统媚功。",
+        "combat_style": "illusion",
+        "six_sect": "wanhu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "wanhu_sect",
+      "element": "yin",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wanhu_nine_tail_mirage",
+      "display": "九尾幻域",
+      "school": "illusion",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "万狐宗",
+      "effect": {
+        "type": "field",
+        "element": "yin",
+        "damage_base": 35,
+        "tags": [
+          "domain"
+        ]
+      },
+      "description": "九尾幻域：illusion派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 55。 常随功法「wanhu_phantom_art」体系解锁。",
+      "requires_method": "wanhu_phantom_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "wanhu_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "幻域大成。",
+        "combat_style": "illusion",
+        "six_sect": "wanhu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "wanhu_sect",
+      "element": "yin",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wanhu_beast_shift",
+      "display": "妖狐化形",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "万狐宗",
+      "effect": {
+        "type": "transform",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "transform"
+        ]
+      },
+      "description": "妖狐化形：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「wanhu_phantom_art」体系解锁。",
+      "requires_method": "wanhu_phantom_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "wanhu_phantom_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "neutral",
+        "wanhu_sect",
+        "spell"
+      ],
+      "setting": {
+        "lore": "半妖狐形态。",
+        "combat_style": "illusion",
+        "six_sect": "wanhu_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "wanhu_sect",
+      "element": "neutral",
+      "path": "wanhu_sect",
+      "alignment": "neutral",
+      "source_method": "wanhu_phantom_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyue_moon_veil",
+      "display": "掩月纱",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "掩月宗",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "掩月纱：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yanyue_gong」体系解锁。",
+      "requires_method": "yanyue_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yanyue_gong"
+      },
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "月纱隐匿。",
+        "v126": true,
+        "seven_sect": "yanyue_sect"
+      },
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyue_heart_mirror",
+      "display": "掩月心镜",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 28,
+      "source": "掩月宗",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 22,
+        "tags": [
+          "illusion"
+        ]
+      },
+      "description": "掩月心镜：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 28。 常随功法「yanyue_illusion_art」体系解锁。",
+      "requires_method": "yanyue_illusion_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yanyue_illusion_art"
+      },
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "心镜照破敌意。",
+        "v126": true,
+        "seven_sect": "yanyue_sect"
+      },
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "yanyue_illusion_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_note_pierce",
+      "display": "妙音穿心调",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "妙音玄律",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 34,
+        "tags": [
+          "sound"
+        ]
+      },
+      "description": "妙音穿心调：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 20。 常随功法「miaoyin_sound_art」体系解锁。",
+      "requires_method": "miaoyin_sound_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "miaoyin_sound_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "音刃穿神识边缘。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_sound_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_charm_song",
+      "display": "妙音摄魂曲",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "妙音玄律",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 16,
+        "tags": [
+          "sound",
+          "charm"
+        ]
+      },
+      "description": "妙音摄魂曲：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 24。神魂手段，慎用。 常随功法「miaoyin_sound_art」体系解锁。",
+      "requires_method": "miaoyin_sound_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "miaoyin_sound_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短控摄神，异于合欢媚术。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_sound_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_resonance_shield",
+      "display": "妙音护律",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "妙音玄律",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "sound"
+        ]
+      },
+      "description": "妙音护律：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「miaoyin_sound_art」体系解锁。",
+      "requires_method": "miaoyin_sound_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "miaoyin_sound_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "音障护体。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_sound_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_zither_domain",
+      "display": "妙音琴域",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 42,
+      "source": "妙音琴诀",
+      "effect": {
+        "type": "field",
+        "element": "yin",
+        "damage_base": 38,
+        "tags": [
+          "domain",
+          "sound"
+        ]
+      },
+      "description": "妙音琴域：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 42。 常随功法「miaoyin_zither_secret」体系解锁。",
+      "requires_method": "miaoyin_zither_secret",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "miaoyin_zither_secret"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "琴域压神。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_zither_secret",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_finale_kill",
+      "display": "妙音杀调",
+      "school": "illusion",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "妙音琴诀",
+      "effect": {
+        "type": "soul_attack",
+        "element": "yin",
+        "damage_base": 72,
+        "tags": [
+          "sound",
+          "ultimate"
+        ]
+      },
+      "description": "妙音杀调：illusion派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 55。 常随功法「miaoyin_zither_secret」体系解锁。",
+      "requires_method": "miaoyin_zither_secret",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "miaoyin_zither_secret"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "杀调点名。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_zither_secret",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyuecyc2_v129_1",
+      "display": "素女·击",
+      "school": "illusion",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "素女轮回功",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "素女·击：illusion派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「yanyue_cycle_art」体系解锁。",
+      "requires_method": "yanyue_cycle_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yanyue_cycle_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "素女补全第1式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yanyue_cycle_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyuecyc2_v129_2",
+      "display": "素女·护",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "素女轮回功",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "素女·护：illusion派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 18。 常随功法「yanyue_cycle_art」体系解锁。",
+      "requires_method": "yanyue_cycle_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yanyue_cycle_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "素女补全第2式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yanyue_cycle_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yanyuecyc2_v129_3",
+      "display": "素女·爆",
+      "school": "illusion",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "素女轮回功",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "素女·爆：illusion派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 24。 常随功法「yanyue_cycle_art」体系解锁。",
+      "requires_method": "yanyue_cycle_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "yanyue_cycle_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "illusion",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "素女补全第3式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yanyue_cycle_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yin_yang_lunhui_jue_auto_2",
+      "display": "阴阳轮回决·式2",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 14,
+      "source": "阴阳轮回决",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "阴阳轮回决·式2：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 14。 常随功法「yin_yang_lunhui_jue」体系解锁。",
+      "requires_method": "yin_yang_lunhui_jue",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yin_yang_lunhui_jue"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "illusion",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yin_yang_lunhui_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yin_yang_lunhui_jue_auto_3",
+      "display": "阴阳轮回决·式3",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 20,
+      "source": "阴阳轮回决",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "阴阳轮回决·式3：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 20。 常随功法「yin_yang_lunhui_jue」体系解锁。",
+      "requires_method": "yin_yang_lunhui_jue",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yin_yang_lunhui_jue"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "illusion",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "yin_yang_lunhui_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_zither_secret_auto_3",
+      "display": "妙音琴诀·式3",
+      "school": "illusion",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 14,
+      "source": "妙音琴诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "妙音琴诀·式3：illusion派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 14。 常随功法「miaoyin_zither_secret」体系解锁。",
+      "requires_method": "miaoyin_zither_secret",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "miaoyin_zither_secret"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "illusion",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "illusion",
+      "alignment": "neutral",
+      "source_method": "miaoyin_zither_secret",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
   "method_gate": {
     "yanyue_illusion_art": "掩月幻心诀"
-  }
+  },
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v143": true
 }

@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "source": "v138 区域卡百科（可玩摘要）",
+  "disclaimer": "非抄书；粘合 travel/structures/factions/secret realms",
+  "cards": [
+    {
+      "id": "region_tiannan",
+      "display": "天南",
+      "dimension": "seeking_immortals:mortal_world",
+      "tier": "early_mid",
+      "summary": "人界修仙前期主舞台。越国七派、药园与血色禁地周期、散修坊市并存。出天南多走乱星海或大晋。",
+      "subregions": [
+        "huangfeng",
+        "yanyue",
+        "qingxu",
+        "markets",
+        "borders_mulan"
+      ],
+      "factions": [
+        "huangfeng_valley",
+        "yanyue",
+        "qingxu",
+        "other_seven_sects",
+        "scatter"
+      ],
+      "structures_ref": "region_structure_presence_v137#tiannan_sect",
+      "travel": [
+        "mortal_intra_tiannan",
+        "mortal_tiannan_to_chaotic_sea",
+        "mortal_tiannan_to_dajin",
+        "mortal_tiannan_to_mulan"
+      ],
+      "secret_realms": [
+        "blood_forbidden",
+        "void_palace"
+      ],
+      "nodes": [
+        "node_tiannan_huangfeng",
+        "node_yanyue",
+        "node_qingxu",
+        "node_blood_forbidden_entry"
+      ],
+      "opening": [
+        "start_huangfeng_outer",
+        "start_yanyue",
+        "start_scatter",
+        "start_qixuan"
+      ],
+      "risks": [
+        "sect_war",
+        "blood_forbidden_death",
+        "demonic_hunt"
+      ],
+      "novel_anchor": "韩立天南前中期",
+      "detail_ref": "region_cards_detail_v139.json#tiannan_sect_cards",
+      "sect_card_count": 14,
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_chaotic_sea",
+      "display": "乱星海",
+      "dimension": "seeking_immortals:mortal_world",
+      "tier": "mid",
+      "summary": "岛链外海。星宫秩序网与逆星暗线对峙，虚天窗口前后人潮。无船无阵，十有八九葬海。",
+      "factions": [
+        "star_palace",
+        "inverse_star_alliance",
+        "miaoyin_men"
+      ],
+      "structures_ref": "region_structure_presence_v137#chaotic_sea",
+      "travel": [
+        "mortal_tiannan_to_chaotic_sea",
+        "mortal_chaotic_sea_internal"
+      ],
+      "secret_realms": [
+        "chaotic_sea_abyss_rift",
+        "thousand_bamboo_puppet_tower"
+      ],
+      "nodes": [
+        "node_chaotic_sea_hub",
+        "node_star_palace",
+        "node_inverse_star_hideout",
+        "node_miaoyin"
+      ],
+      "opening": [
+        "start_chaotic_sea"
+      ],
+      "risks": [
+        "patrol",
+        "storm",
+        "island_war"
+      ],
+      "novel_anchor": "乱星海篇章",
+      "detail_ref": "region_cards_detail_v139.json#chaotic_sea_island_cards",
+      "island_card_count": 7,
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_dajin",
+      "display": "大晋",
+      "dimension": "seeking_immortals:mortal_world",
+      "tier": "mid_high",
+      "summary": "人界中后期富庶修仙地。关隘、拍卖、昆吾与阴阳窟等线索秘境。身份与世家耳目严于天南。",
+      "factions": [
+        "dajin_clans",
+        "wanbao",
+        "kunwu_related"
+      ],
+      "structures_ref": "region_structure_presence_v137#dajin_kunwu",
+      "travel": [
+        "mortal_tiannan_to_dajin"
+      ],
+      "secret_realms": [
+        "kunwu_mountain"
+      ],
+      "nodes": [
+        "node_dajin_wanbao"
+      ],
+      "risks": [
+        "clan_inspection",
+        "seal_incident"
+      ],
+      "novel_anchor": "大晋/昆吾线",
+      "detail_ref_v140": "region_cards_detail_v140.json#dajin_cards",
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_mulan",
+      "display": "慕兰草原",
+      "dimension": "seeking_immortals:mortal_world",
+      "tier": "mid",
+      "summary": "草原战线。慕兰符师与风灵石、天澜佛力对峙。战时边关可锁。",
+      "factions": [
+        "mulan",
+        "tianlan_temple"
+      ],
+      "structures_ref": "region_structure_presence_v137#mulan_tianlan",
+      "travel": [
+        "mortal_tiannan_to_mulan"
+      ],
+      "secret_realms": [
+        "tianlan_secret_grotto"
+      ],
+      "nodes": [
+        "node_mulan_steppe",
+        "node_tiannan_border"
+      ],
+      "risks": [
+        "war_lockdown",
+        "battlefield"
+      ],
+      "novel_anchor": "慕兰之战",
+      "detail_ref_v140": "region_cards_detail_v140.json#mulan_cards",
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_yin_nether",
+      "display": "阴司·冥河界域",
+      "dimension": "seeking_immortals:yin_ming_pocket",
+      "tier": "special",
+      "summary": "鬼道与阴司口袋维度。入口依赖鬼道功法/祭坛/任务，久留伤魂。",
+      "travel": [
+        "mortal_to_yin"
+      ],
+      "secret_realms": [
+        "nether_river_land",
+        "yin_mountain_catacomb"
+      ],
+      "structures": [
+        "soul_banner_altar",
+        "corpse_refinement_pit"
+      ],
+      "nodes": [
+        "node_yin_ming_gate"
+      ],
+      "risks": [
+        "soul_damage",
+        "eject",
+        "ghost_transform"
+      ],
+      "playable": "partial"
+    },
+    {
+      "id": "region_tianyuan",
+      "display": "天渊城",
+      "dimension": "seeking_immortals:tianyuan",
+      "tier": "spirit_entry",
+      "summary": "飞升落地城。登记、驻军贡献、管制门入风元；回人界仅分身。",
+      "travel": [
+        "mortal_to_tianyuan",
+        "tianyuan_to_fengyuan",
+        "tianyuan_avatar_to_mortal"
+      ],
+      "structures_ref": "region_structure_presence_v137#spirit_tianyuan",
+      "npcs": [
+        "npc_tianyuan_registrar"
+      ],
+      "risks": [
+        "registration_fail",
+        "fee_gate"
+      ],
+      "novel_anchor": "飞升后灵界入口",
+      "detail_ref_v140": "region_cards_detail_v140.json#spirit_cards",
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_fengyuan",
+      "display": "灵界·风元大陆",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "tier": "spirit",
+      "summary": "灵界腹地。大族、地渊、广寒机缘。灵气远胜人界，政治不亚于杀伐。",
+      "travel": [
+        "tianyuan_to_fengyuan",
+        "spirit_fengyuan_internal",
+        "spirit_to_diyuan",
+        "spirit_to_guanghan",
+        "spirit_to_immortal"
+      ],
+      "structures_ref": "region_structure_presence_v137#spirit_fengyuan",
+      "secret_realms": [
+        "diyuan",
+        "guanghan_realm",
+        "jiuxian_seclusion"
+      ],
+      "risks": [
+        "asura",
+        "clan_politics"
+      ],
+      "novel_anchor": "灵界篇章",
+      "detail_ref_v140": "region_cards_detail_v140.json#spirit_cards",
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_diyuan",
+      "display": "地渊",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "tier": "spirit_danger",
+      "summary": "风元下的危险试炼层。修罗圈与凶兽。进入靠试炼令或任务。",
+      "travel": [
+        "spirit_to_diyuan"
+      ],
+      "structures": [
+        "asura_trial_ring"
+      ],
+      "secret_realms": [
+        "diyuan",
+        "minor_asura_realm"
+      ],
+      "risks": [
+        "high_death",
+        "extract_fail"
+      ],
+      "detail_ref_v140": "region_cards_detail_v140.json#spirit_cards"
+    },
+    {
+      "id": "region_xianjie",
+      "display": "仙界",
+      "dimension": "seeking_immortals:immortal_realm",
+      "tier": "endgame",
+      "summary": "真仙起步上层界面。真言、轮回、天庭、黑风、灰界并立。默认不可自由下界刷人界资源。",
+      "travel": [
+        "spirit_to_immortal",
+        "immortal_internal",
+        "immortal_to_gray",
+        "immortal_no_free_return"
+      ],
+      "structures_ref": "region_structure_presence_v137#xianjie",
+      "factions": [
+        "zhenyan_men",
+        "reincarnation_hall",
+        "heavenly_court",
+        "heifeng",
+        "gray_realm"
+      ],
+      "nodes": [
+        "gate_spirit_to_immortal",
+        "node_immortal_hub",
+        "node_immortal_zhenyan",
+        "node_immortal_heifeng"
+      ],
+      "npcs": [
+        "npc_zhenyan_elder_template",
+        "npc_reincarnation_clerk",
+        "npc_heavenly_court_inspector",
+        "npc_heifeng_captain",
+        "npc_gray_border_guide"
+      ],
+      "risks": [
+        "faction_hostility",
+        "law_backlash"
+      ],
+      "novel_anchor": "仙界可玩环 v130",
+      "detail_ref_v140": "region_cards_detail_v140.json#immortal_camp_cards",
+      "v141_summary_polish": true
+    },
+    {
+      "id": "region_heifeng_sea",
+      "display": "黑风海（仙界）",
+      "dimension": "seeking_immortals:immortal_realm",
+      "tier": "endgame",
+      "summary": "仙界险海。航道、走私与灰界接壤气质。需航海类功法或船队。",
+      "travel": [
+        "immortal_internal",
+        "immortal_to_gray"
+      ],
+      "nodes": [
+        "node_immortal_heifeng"
+      ],
+      "npcs": [
+        "npc_heifeng_captain"
+      ],
+      "detail_ref_v140": "region_cards_detail_v140.json#immortal_camp_cards"
+    },
+    {
+      "id": "region_secret_instance",
+      "display": "秘境实例层（总述）",
+      "dimension": "instance:secret_realm",
+      "tier": "varies",
+      "summary": "挂靠父维度的限时/令牌实例。入口结构+窗口+出口阵/超时踢回。",
+      "travel": "secret_* in dimension_travel_methods_v136",
+      "examples": [
+        "blood_forbidden",
+        "xutian",
+        "qianzhu",
+        "yinyang_ku",
+        "kunwu"
+      ],
+      "crossref": "setting_crosslink_matrix_v137"
+    }
+  ],
+  "v139_detail": true,
+  "v140": true,
+  "v141": true
+}

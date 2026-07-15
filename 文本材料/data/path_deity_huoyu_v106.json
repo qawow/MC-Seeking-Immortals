@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v106 火狱回阳与化神准备链（贴原著人界顶关）",
+  "disclaimer": "元婴后期~化神。回阳真水合成标记唯一。与昆吾飞升包并行可",
+  "id": "deity_prepare_huoyu",
+  "display": "火狱·回阳·化神准备",
+  "realm_band": ["NASCENT_SOUL_late", "DEITY_TRANSFORMATION"],
+  "pipeline": [
+    {
+      "step": 1,
+      "id": "xiaojigong_cold",
+      "display": "小极宫寒焰",
+      "hub": "xiaojigong",
+      "rewards": ["五寒焰", "万年玄玉", "乾蓝鼎结构"],
+      "risk": "反目线争夺五寒焰",
+      "rep": "xiaojigong"
+    },
+    {
+      "step": 2,
+      "id": "manhuzi_cave",
+      "display": "蛮胡子洞府",
+      "rewards": ["托天魔功", "银蝌文"],
+      "note": "法体/魔功拼图"
+    },
+    {
+      "step": 3,
+      "id": "fansheng_complete",
+      "display": "梵圣真魔功拼成",
+      "rewards": ["梵圣真魔功", "法体成型"],
+      "need": ["托天", "相关残篇"]
+    },
+    {
+      "step": 4,
+      "id": "jinjiao_longlin",
+      "display": "金蛟与龙鳞果",
+      "rewards": ["龙鳞果秘术", "金属性妖丹"],
+      "zone": "outer_sea_deep"
+    },
+    {
+      "step": 5,
+      "id": "huoyu_taiyang",
+      "display": "火狱取太阳精火",
+      "hub": "huoyu",
+      "rewards": ["太阳精火"],
+      "hazards": ["至阳", "炎犬", "火域崩塌"],
+      "need": ["极高火抗", "寒焰对冲", "逃遁"]
+    },
+    {
+      "step": 6,
+      "id": "huiyang_combine",
+      "display": "回阳真水合成",
+      "need": ["太阳精火", "太阴相关/寒髓等结构辅"],
+      "rewards": ["回阳真水"],
+      "unique_mark": "回阳合成标记",
+      "description": "化神关键灵物之一。禁无限复制"
+    },
+    {
+      "step": 7,
+      "id": "moyuan_exchange",
+      "display": "魔元丹交换",
+      "rewards": ["魔元丹"],
+      "bond": "zi_ling_bond",
+      "note": "紫灵线推进"
+    },
+    {
+      "step": 8,
+      "id": "deity_breakthrough",
+      "display": "化神冲击",
+      "kit": "化神资源捆",
+      "base_success": 0.08,
+      "mods": ["魔元包+0.10", "法体+0.08", "回阳辅助结构"],
+      "fail": "重伤/掉境风险结构，不吞唯一剧情物"
+    },
+    {
+      "step": 9,
+      "id": "ascent",
+      "display": "飞升灵界",
+      "need": ["破界符", "节点资料", "六丁天甲"],
+      "rewards": ["灵界立足包", "功勋账户"]
+    }
+  ],
+  "huoyu_zones": [
+    {
+      "id": "smoke_road",
+      "display": "烟道外围",
+      "threat": [7, 9],
+      "spawns": ["火狱烟道炎犬", "烬蛾", "热浪灵"],
+      "loot": ["炎犬牙", "烬粉", "火髓"]
+    },
+    {
+      "id": "lava_sea",
+      "display": "熔岩海",
+      "threat": [8, 10],
+      "spawns": ["熔岩巨蜥结构", "火蛟影"],
+      "loot": ["熔岩晶", "火蛟鳞线索"]
+    },
+    {
+      "id": "core_sun_fire",
+      "display": "太阳精火核心",
+      "threat": [9, 11],
+      "spawns": ["精火守护灵", "至阳反噬"],
+      "loot": ["太阳精火"],
+      "rules": "取火有次数/冷却结构，非无限采"
+    }
+  ],
+  "key_items": [
+    {"id": "wu_han_yan", "display": "五寒焰", "tags": ["quest", "scarce", "set"]},
+    {"id": "wan_nian_xuan_yu", "display": "万年玄玉", "price": [50000, 400000], "tags": ["auction", "scarce"]},
+    {"id": "tuo_tian_mo_gong", "display": "托天魔功", "tags": ["quest", "manual"]},
+    {"id": "yin_ke_wen", "display": "银蝌文", "tags": ["quest", "script"]},
+    {"id": "fan_sheng_zhen_mo", "display": "梵圣真魔功", "tags": ["quest", "scarce"]},
+    {"id": "long_lin_guo", "display": "龙鳞果", "tags": ["quest", "scarce", "craft_mat"]},
+    {"id": "tai_yang_jing_huo", "display": "太阳精火", "tags": ["quest", "unique", "scarce"]},
+    {"id": "hui_yang_zhen_shui", "display": "回阳真水", "tags": ["unique", "quest", "no_trade"]},
+    {"id": "mo_yuan_dan", "display": "魔元丹", "tags": ["scarce", "quest", "black_market"]},
+    {"id": "deity_resource_bundle", "display": "化神资源捆", "tags": ["quest"]}
+  ],
+  "recommended_loadout": {
+    "must": ["避火纱", "寒焰/五寒", "本命法宝", "法体进度", "高疗", "净心"],
+    "nice": ["风雷翅", "分身探核", "紫灵人情"],
+    "avoid": ["无火抗入核", "回阳无限刷", "魔元丹坊市量贩"]
+  },
+  "numeric": {
+    "deity_base_success": 0.08,
+    "mo_yuan_pack_delta": 0.1,
+    "body_dual_delta": 0.08,
+    "xuan_yu_price": [50000, 400000]
+  },
+  "cross_ref": {
+    "quest": "deity_prepare",
+    "travel": ["xiaojigong", "huoyu", "feisheng_node"],
+    "kunwu": "飞升包可并行"
+  },
+  "description": "人界终章流水线：寒焰法体→精火回阳→魔元化神→破界飞升。每环都有唯一/稀缺帽。"
+}

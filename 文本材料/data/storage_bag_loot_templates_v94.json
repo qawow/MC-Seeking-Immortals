@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v94 储物袋/储物镯战利品模板。按境界与阵营；权重可重平衡",
+  "disclaimer": "非原著逐袋统计；具名NPC可覆盖模板",
+  "roll_rules": {
+    "stone_always": true,
+    "pill_chance": 0.55,
+    "tool_chance": 0.4,
+    "manual_chance": 0.15,
+    "material_chance": 0.45,
+    "special_chance": 0.08,
+    "empty_trash_chance": 0.2,
+    "note": "结构概率，可整体缩放"
+  },
+  "templates": [
+    {
+      "id": "qi_refining_outer",
+      "display": "炼气外门/散修袋",
+      "realm": "QI_REFINING",
+      "stones_low": [5, 80],
+      "pills": [
+        {"name": "炼气散", "qty": [1, 5], "w": 40},
+        {"name": "养精丹", "qty": [0, 2], "w": 20},
+        {"name": "聚灵丹", "qty": [0, 2], "w": 15}
+      ],
+      "tools": [
+        {"name": "下品飞剑", "w": 30},
+        {"name": "黄符数张", "w": 40},
+        {"name": "破损法器", "w": 20}
+      ],
+      "misc": ["凡粮", "伤药", "身份令牌"],
+      "expected_value": [20, 150]
+    },
+    {
+      "id": "qi_refining_inner",
+      "display": "炼气内门袋",
+      "realm": "QI_REFINING_LATE",
+      "stones_low": [50, 300],
+      "pills": [
+        {"name": "聚灵丹", "qty": [2, 8], "w": 35},
+        {"name": "养精丹", "qty": [1, 5], "w": 25},
+        {"name": "筑基丹", "qty": [0, 1], "w": 3}
+      ],
+      "tools": [
+        {"name": "中品法器", "w": 35},
+        {"name": "上品法器", "w": 10},
+        {"name": "玄符", "w": 20}
+      ],
+      "manuals": [
+        {"name": "基础功法残篇", "w": 15}
+      ],
+      "expected_value": [100, 800]
+    },
+    {
+      "id": "foundation_standard",
+      "display": "筑基修士袋",
+      "realm": "FOUNDATION",
+      "stones_low": [200, 5000],
+      "pills": [
+        {"name": "灵髓丸", "qty": [1, 6], "w": 30},
+        {"name": "金髓丸", "qty": [0, 3], "w": 15},
+        {"name": "疗伤丹", "qty": [1, 5], "w": 25}
+      ],
+      "tools": [
+        {"name": "上品法器套", "w": 40},
+        {"name": "准法宝", "w": 15},
+        {"name": "遁符", "w": 25},
+        {"name": "阵盘残", "w": 10}
+      ],
+      "materials": [
+        {"name": "五级妖丹", "w": 20},
+        {"name": "灵草若干", "w": 30}
+      ],
+      "expected_value": [500, 8000]
+    },
+    {
+      "id": "foundation_elite",
+      "display": "筑基精英/长老记名",
+      "realm": "FOUNDATION_LATE",
+      "stones_low": [1000, 12000],
+      "pills": [
+        {"name": "降尘丹", "qty": [0, 1], "w": 5},
+        {"name": "金髓丸", "qty": [2, 8], "w": 25}
+      ],
+      "tools": [
+        {"name": "本命法器", "w": 50},
+        {"name": "护身符宝", "w": 20}
+      ],
+      "special": [
+        {"name": "虚天残图碎片", "w": 2},
+        {"name": "秘术玉简", "w": 8}
+      ],
+      "expected_value": [3000, 25000]
+    },
+    {
+      "id": "core_formation",
+      "display": "结丹修士袋",
+      "realm": "CORE_FORMATION",
+      "stones_low": [5000, 80000],
+      "pills": [
+        {"name": "结丹修为丹", "qty": [1, 10], "w": 30},
+        {"name": "补天/特殊丹线索", "w": 3},
+        {"name": "疗伤顶丹", "qty": [1, 4], "w": 25}
+      ],
+      "tools": [
+        {"name": "本命法宝", "w": 70},
+        {"name": "副法宝1-3", "w": 40},
+        {"name": "地符", "w": 25}
+      ],
+      "materials": [
+        {"name": "六~八级妖丹", "w": 35},
+        {"name": "炼器材", "w": 30},
+        {"name": "庚精碎（极低）", "w": 2}
+      ],
+      "manuals": [
+        {"name": "宗门秘术残", "w": 20}
+      ],
+      "expected_value": [10000, 120000]
+    },
+    {
+      "id": "nascent_soul",
+      "display": "元婴修士袋",
+      "realm": "NASCENT_SOUL",
+      "stones_low": [50000, 800000],
+      "pills": [
+        {"name": "定灵/培婴相关", "w": 10},
+        {"name": "元婴修为丹", "qty": [2, 15], "w": 40},
+        {"name": "回煞丸等战斗丹", "w": 15}
+      ],
+      "tools": [
+        {"name": "本命法宝", "w": 90},
+        {"name": "古宝残/副宝", "w": 25},
+        {"name": "天符", "w": 15},
+        {"name": "傀儡", "w": 10}
+      ],
+      "materials": [
+        {"name": "八级以上妖丹", "w": 30},
+        {"name": "顶阶灵药", "w": 25},
+        {"name": "庚精/稀金", "w": 8}
+      ],
+      "special": [
+        {"name": "洞府坐标玉简", "w": 12},
+        {"name": "禁制钥匙", "w": 8},
+        {"name": "通宝诀残页", "w": 3}
+      ],
+      "expected_value": [80000, 1000000]
+    },
+    {
+      "id": "deity_transformation",
+      "display": "化神储物",
+      "realm": "DEITY_TRANSFORMATION",
+      "currency_note": "人界极品灵石+灵界通货混",
+      "stones_top": [1, 20],
+      "content_focus": ["灵地契", "护劫物", "化神丹方", "法则感悟物", "通天残"],
+      "expected_value": "不标常规灵石"
+    },
+    {
+      "id": "demonic_cultivator",
+      "display": "魔道修士袋修正",
+      "overlay_on": ["foundation_standard", "core_formation", "nascent_soul"],
+      "bonus": [
+        {"name": "魔功残篇", "w": 25},
+        {"name": "炼尸/血食材", "w": 20},
+        {"name": "鬼罗幡碎片", "w": 5},
+        {"name": "煞丹/邪丹", "w": 10}
+      ],
+      "penalty_tags": ["正道回收折价", "身份暴露风险"]
+    },
+    {
+      "id": "righteous_elder",
+      "display": "正道长老袋修正",
+      "overlay_on": ["core_formation", "nascent_soul"],
+      "bonus": [
+        {"name": "宗门令牌", "w": 40},
+        {"name": "功绩凭证", "w": 20},
+        {"name": "正道符宝", "w": 25},
+        {"name": "弟子名册残", "w": 10}
+      ]
+    },
+    {
+      "id": "alchemist_bag",
+      "display": "丹师袋",
+      "overlay_on": ["foundation_standard", "core_formation"],
+      "bonus": [
+        {"name": "丹方玉简", "w": 40},
+        {"name": "未炼药材", "w": 50},
+        {"name": "丹炉（品阶随境界）", "w": 30},
+        {"name": "成品丹一批", "w": 35}
+      ]
+    },
+    {
+      "id": "refiner_bag",
+      "display": "器师袋",
+      "bonus": [
+        {"name": "矿材", "w": 50},
+        {"name": "器胚", "w": 30},
+        {"name": "炼器法残", "w": 25},
+        {"name": "地火标记", "w": 10}
+      ]
+    },
+    {
+      "id": "talisman_master_bag",
+      "display": "符师袋",
+      "bonus": [
+        {"name": "符纸灵墨", "w": 50},
+        {"name": "成品符一批", "w": 40},
+        {"name": "符谱残", "w": 20}
+      ]
+    },
+    {
+      "id": "puppet_master_bag",
+      "display": "傀儡师袋",
+      "bonus": [
+        {"name": "魄石", "w": 25},
+        {"name": "傀儡核心", "w": 20},
+        {"name": "眩光晶", "w": 15},
+        {"name": "上古傀儡术残", "w": 8}
+      ]
+    },
+    {
+      "id": "sea_cultivator",
+      "display": "乱星海修士修正",
+      "bonus": [
+        {"name": "海兽妖丹", "w": 40},
+        {"name": "航海图残", "w": 15},
+        {"name": "岛礁坐标", "w": 10}
+      ]
+    },
+    {
+      "id": "mulan_fashi",
+      "display": "慕兰法师袋",
+      "region": "mulan",
+      "bonus": [
+        {"name": "图腾物", "w": 30},
+        {"name": "血祭材", "w": 20},
+        {"name": "圣物碎片", "w": 5}
+      ],
+      "currency_alt": "法师体系资源"
+    },
+    {
+      "id": "spirit_realm_guard",
+      "display": "天渊卫储物",
+      "realm": "DEITY_TRANSFORMATION_PLUS",
+      "currency": "tianyuan_merit_token",
+      "bonus": [
+        {"name": "任务凭证", "w": 40},
+        {"name": "雷系消耗品", "w": 25},
+        {"name": "地渊地图残", "w": 10}
+      ]
+    }
+  ],
+  "named_overrides": [
+    {
+      "npc": "古长老（六连殿）",
+      "template": "core_formation",
+      "guaranteed": ["降尘丹", "混元钵"]
+    },
+    {
+      "npc": "黑煞教众",
+      "template": "foundation_standard+demonic",
+      "guaranteed_chance": {"虚天残图": 0.05, "五行血凝丹": 0.2}
+    },
+    {
+      "npc": "乾老魔",
+      "template": "nascent_soul+demonic",
+      "guaranteed": ["五子同心魔", "鬼罗幡", "降魔杖可能在袋"]
+    },
+    {
+      "npc": "阴罗宗长老",
+      "guaranteed_pool": ["鬼罗幡", "灭仙珠", "炼尸之法"]
+    },
+    {
+      "npc": "星宫执事",
+      "bonus": ["星宫令", "贿赂空间"]
+    }
+  ],
+  "salvage_rules": {
+    "bound_fabao": "本命法宝难用，可拆材 0.2~0.5 价",
+    "sect_token": "上交换功绩或销毁",
+    "contraband": "正道坊市收购×0.5 或地下×0.9"
+  }
+}

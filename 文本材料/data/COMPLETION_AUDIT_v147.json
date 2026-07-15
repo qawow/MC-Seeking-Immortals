@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source": "v147 任务线描述扩充",
+  "delivered": [
+    "core deepened 23 with branches/dialogues/failure/closing",
+    "extra lines 12 (mulan war, xianjie, xutian/kunwu runs)",
+    "total 35",
+    "docs/QUEST_LINES_FULL_v147.md"
+  ],
+  "honest_gaps_still": [
+    "慕兰子链步骤仍较短",
+    "非全部分支都有完整数值表",
+    "原著具名角色全对话不求全"
+  ],
+  "status": "全任务线描述显著加厚完成"
+}

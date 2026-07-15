@@ -1,0 +1,1463 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v112 原包 beast_bestiary 42兽+灵宠说明加深",
+  "creatures": [
+    {
+      "id": "orig_beast_twin_pupil_rat",
+      "catalog_id": "twin_pupil_rat",
+      "display": "双瞳鼠（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        1,
+        1
+      ],
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "habitat": [
+        "灵脉洞窟"
+      ],
+      "abilities": [
+        "辅助探路"
+      ],
+      "drops": [
+        "beast_fur_low",
+        "spirit_dust"
+      ],
+      "tameable": true,
+      "tame_difficulty": "hard",
+      "weakness": [
+        "fire_noise"
+      ],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】双瞳鼠。双瞳可穿迷雾，修士常欲擒为灵宠。 双瞳看穿迷雾，喜灵浓处筑窝。 双瞳可破简易迷障，灵宠向。火光与巨响易惊逃。天南洞窟常见，筑基前可遇。 位阶参考：1。元素/气机：neutral。 生态位：scout_pet。战斗气质：辅助探路。 栖息：灵脉洞窟。弱点结构：fire_noise。 掉落线索：beast_fur_low,spirit_dust。 驯化：hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_red_leopard_beast",
+      "catalog_id": "red_leopard_beast",
+      "display": "红狸兽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        1,
+        1
+      ],
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "habitat": [
+        "tiannan,forest"
+      ],
+      "abilities": [
+        "敏捷、嗅觉超常。"
+      ],
+      "drops": [
+        "beast_hide_low"
+      ],
+      "tameable": true,
+      "tame_difficulty": "medium",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】红狸兽。敏捷、嗅觉超常。 敏捷、嗅觉超常。  位阶参考：1。元素/气机：wood。 生态位：spirit_pet_candidate。战斗气质：敏捷、嗅觉超常。。 栖息：tiannan,forest。弱点结构：未标。 掉落线索：beast_hide_low。 驯化：medium。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_fire_horn_deer",
+      "catalog_id": "fire_horn_deer",
+      "display": "炙角鹿（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        2,
+        2
+      ],
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "hills"
+      ],
+      "habitat": [
+        "tiannan,hills"
+      ],
+      "abilities": [
+        "火红独角。"
+      ],
+      "drops": [
+        "beast_horn_fire",
+        "beast_meat"
+      ],
+      "tameable": false,
+      "tame_difficulty": "medium",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】炙角鹿。火红独角。 火红独角。  位阶参考：2。元素/气机：fire。 生态位：wild_beast。战斗气质：火红独角。。 栖息：tiannan,hills。弱点结构：未标。 掉落线索：beast_horn_fire,beast_meat。 驯化：medium。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_wind_screech_hawk",
+      "catalog_id": "wind_screech_hawk",
+      "display": "风啸鹰（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        2,
+        2
+      ],
+      "element": "wind",
+      "regions": [
+        "tiannan",
+        "mulan"
+      ],
+      "habitat": [
+        "tiannan,mulan"
+      ],
+      "abilities": [
+        "风刃俯冲"
+      ],
+      "drops": [
+        "feather_wind",
+        "beast_bone"
+      ],
+      "tameable": true,
+      "tame_difficulty": "easy",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】风啸鹰。高空巡猎，难驯。 驯养放哨侦察。  位阶参考：2。元素/气机：wind。 生态位：aerial_scout。战斗气质：风刃俯冲。 栖息：tiannan,mulan。弱点结构：未标。 掉落线索：feather_wind,beast_bone。 驯化：easy。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_scent_spirit_beast",
+      "catalog_id": "scent_spirit_beast",
+      "display": "嗅灵兽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        2,
+        2
+      ],
+      "element": "neutral",
+      "regions": [
+        "tiannan",
+        "sect"
+      ],
+      "habitat": [
+        "药园山林"
+      ],
+      "abilities": [
+        "嗅探灵药"
+      ],
+      "drops": [
+        "beast_fur_mid"
+      ],
+      "tameable": true,
+      "tame_difficulty": "easy",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】嗅灵兽。对灵草灵药气味极敏感。 查违禁物品。  位阶参考：2。元素/气机：neutral。 生态位：tracker。战斗气质：嗅探灵药。 栖息：药园山林。弱点结构：未标。 掉落线索：beast_fur_mid。 驯化：easy。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_giant_centipede",
+      "catalog_id": "giant_centipede",
+      "display": "巨型蜈蚣（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        3,
+        3
+      ],
+      "element": "poison",
+      "regions": [
+        "tiannan",
+        "caves"
+      ],
+      "habitat": [
+        "tiannan,caves"
+      ],
+      "abilities": [
+        "黑色甲壳。"
+      ],
+      "drops": [
+        "chitin",
+        "venom_sac"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】巨型蜈蚣。黑色甲壳。 黑色甲壳。  位阶参考：3。元素/气机：poison。 生态位：wild_beast。战斗气质：黑色甲壳。。 栖息：tiannan,caves。弱点结构：未标。 掉落线索：chitin,venom_sac。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_ink_flood_dragon",
+      "catalog_id": "ink_flood_dragon",
+      "display": "墨蛟（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        3,
+        3
+      ],
+      "element": "water",
+      "regions": [
+        "tiannan",
+        "river"
+      ],
+      "habitat": [
+        "tiannan,river"
+      ],
+      "abilities": [
+        "低阶蛟形。"
+      ],
+      "drops": [
+        "scale_water",
+        "demon_core_fragment"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】墨蛟。低阶蛟形。 低阶蛟形。 墨蛟盘水脉，毒雾与绞杀并重。乱星海/内陆深潭皆有传闻。结丹级威胁，皮骨可炼器。 位阶参考：3。元素/气机：water。 生态位：wild_beast。战斗气质：低阶蛟形。。 栖息：tiannan,river。弱点结构：未标。 掉落线索：scale_water,demon_core_fragment。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_heart_bore_worm",
+      "catalog_id": "heart_bore_worm",
+      "display": "钻心虫（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        3,
+        3
+      ],
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "demonic"
+      ],
+      "habitat": [
+        "tiannan,demonic"
+      ],
+      "abilities": [
+        "沿血脉钻心。"
+      ],
+      "drops": [
+        "yin_silk"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】钻心虫。沿血脉钻心。 沿血脉钻心。 专蚀心脉与木石芯，群居则毁阵基。惧焚烟与金系锐器。 位阶参考：3。元素/气机：yin。 生态位：wild_beast。战斗气质：沿血脉钻心。。 栖息：tiannan,demonic。弱点结构：未标。 掉落线索：yin_silk。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_fire_crow",
+      "catalog_id": "fire_crow",
+      "display": "火鸦（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "fire",
+      "regions": [
+        "tiannan",
+        "volcano"
+      ],
+      "habitat": [
+        "tiannan,volcano"
+      ],
+      "abilities": [
+        "火属性远程。"
+      ],
+      "drops": [
+        "feather_fire",
+        "beast_core_t4"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】火鸦。火属性远程。 火属性远程。  位阶参考：4。元素/气机：fire。 生态位：wild_beast。战斗气质：火属性远程。。 栖息：tiannan,volcano。弱点结构：未标。 掉落线索：feather_fire,beast_core_t4。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_green_vine_demon",
+      "catalog_id": "green_vine_demon",
+      "display": "青木妖藤（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "wood",
+      "regions": [
+        "tiannan",
+        "jungle"
+      ],
+      "habitat": [
+        "tiannan,jungle"
+      ],
+      "abilities": [
+        "束缚毒回血。"
+      ],
+      "drops": [
+        "vine_fiber",
+        "wood_essence"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】青木妖藤。束缚毒回血。 束缚毒回血。  位阶参考：4。元素/气机：wood。 生态位：wild_beast。战斗气质：束缚毒回血。。 栖息：tiannan,jungle。弱点结构：未标。 掉落线索：vine_fiber,wood_essence。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_mystic_water_turtle",
+      "catalog_id": "mystic_water_turtle",
+      "display": "玄水龟（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "water",
+      "regions": [
+        "chaotic_sea",
+        "tiannan"
+      ],
+      "habitat": [
+        "chaotic_sea,tiannan"
+      ],
+      "abilities": [
+        "高防水系控制。"
+      ],
+      "drops": [
+        "turtle_shell",
+        "water_pearl"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】玄水龟。高防水系控制。 高防水系控制。  位阶参考：4。元素/气机：water。 生态位：wild_beast。战斗气质：高防水系控制。。 栖息：chaotic_sea,tiannan。弱点结构：未标。 掉落线索：turtle_shell,water_pearl。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_thunder_horn_tiger",
+      "catalog_id": "thunder_horn_tiger",
+      "display": "雷角虎（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "thunder",
+      "regions": [
+        "tiannan"
+      ],
+      "habitat": [
+        "tiannan"
+      ],
+      "abilities": [
+        "冲锋雷击。"
+      ],
+      "drops": [
+        "tiger_bone",
+        "thunder_horn"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】雷角虎。冲锋雷击。 冲锋雷击。  位阶参考：4。元素/气机：thunder。 生态位：wild_beast。战斗气质：冲锋雷击。。 栖息：tiannan。弱点结构：未标。 掉落线索：tiger_bone,thunder_horn。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_demon_core_bear",
+      "catalog_id": "demon_core_bear",
+      "display": "妖丹熊（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        5,
+        5
+      ],
+      "element": "earth",
+      "regions": [
+        "tiannan",
+        "mountain"
+      ],
+      "habitat": [
+        "tiannan,mountain"
+      ],
+      "abilities": [
+        "结丹初，体内结妖丹。"
+      ],
+      "drops": [
+        "demon_core_low",
+        "bear_gall"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】妖丹熊。结丹初，体内结妖丹。 结丹初，体内结妖丹。  位阶参考：5。元素/气机：earth。 生态位：wild_beast。战斗气质：结丹初，体内结妖丹。。 栖息：tiannan,mountain。弱点结构：未标。 掉落线索：demon_core_low,bear_gall。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_baby_carp_demon",
+      "catalog_id": "baby_carp_demon",
+      "display": "婴鲤兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        6,
+        6
+      ],
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "habitat": [
+        "chaotic_sea"
+      ],
+      "abilities": [
+        "娃娃脸鱼尾，水罡神雷。"
+      ],
+      "drops": [
+        "demon_core_mid",
+        "carp_scale"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】婴鲤兽。娃娃脸鱼尾，水罡神雷。 娃娃脸鱼尾，水罡神雷。  位阶参考：6。元素/气机：water。 生态位：wild_beast。战斗气质：娃娃脸鱼尾，水罡神雷。。 栖息：chaotic_sea。弱点结构：未标。 掉落线索：demon_core_mid,carp_scale。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_ice_soul_serpent",
+      "catalog_id": "ice_soul_serpent",
+      "display": "冰魄蛇（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        6,
+        6
+      ],
+      "element": "ice",
+      "regions": [
+        "tiannan",
+        "snow"
+      ],
+      "habitat": [
+        "tiannan,snow"
+      ],
+      "abilities": [
+        "冰冻毒。"
+      ],
+      "drops": [
+        "ice_fang",
+        "serpent_skin"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】冰魄蛇。冰冻毒。 冰冻毒。  位阶参考：6。元素/气机：ice。 生态位：wild_beast。战斗气质：冰冻毒。。 栖息：tiannan,snow。弱点结构：未标。 掉落线索：ice_fang,serpent_skin。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_spirit_fox",
+      "catalog_id": "spirit_fox",
+      "display": "灵狐（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        6,
+        6
+      ],
+      "element": "illusion",
+      "regions": [
+        "tiannan",
+        "forest"
+      ],
+      "habitat": [
+        "tiannan,forest"
+      ],
+      "abilities": [
+        "幻术干扰"
+      ],
+      "drops": [
+        "fox_tail",
+        "illusion_core"
+      ],
+      "tameable": true,
+      "tame_difficulty": "hard",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】灵狐。灵狐一脉，化形后智力接近人族。 幻术闪避可驯服。  位阶参考：6。元素/气机：illusion。 生态位：illusion_support。战斗气质：幻术干扰。 栖息：tiannan,forest。弱点结构：未标。 掉落线索：fox_tail,illusion_core。 驯化：hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_shape_shift_trial_beast",
+      "catalog_id": "shape_shift_trial_beast",
+      "display": "化形试炼兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        7,
+        7
+      ],
+      "element": "mixed",
+      "regions": [
+        "global"
+      ],
+      "habitat": [
+        "global"
+      ],
+      "abilities": [
+        "七级渡劫化形模板。"
+      ],
+      "drops": [
+        "demon_core_high",
+        "shape_shift_scroll"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】化形试炼兽。七级渡劫化形模板。 七级渡劫化形模板。  位阶参考：7。元素/气机：mixed。 生态位：wild_beast。战斗气质：七级渡劫化形模板。。 栖息：global。弱点结构：未标。 掉落线索：demon_core_high,shape_shift_scroll。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_thunder_jiao",
+      "catalog_id": "thunder_jiao",
+      "display": "雷劫蛟（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        7,
+        7
+      ],
+      "element": "thunder",
+      "regions": [
+        "chaotic_sea",
+        "storm"
+      ],
+      "habitat": [
+        "chaotic_sea,storm"
+      ],
+      "abilities": [
+        "雷水双系"
+      ],
+      "drops": [
+        "jiao_horn",
+        "thunder_demon_core"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】雷劫蛟。蛟类化龙前躯，雷劫伴生。 雷暴秘境Boss雏形。  位阶参考：7。元素/气机：thunder。 生态位：boss_beast。战斗气质：雷水双系。 栖息：chaotic_sea,storm。弱点结构：未标。 掉落线索：jiao_horn,thunder_demon_core。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_silver_wing_yaksha",
+      "catalog_id": "silver_wing_yaksha",
+      "display": "银翅夜叉（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        8
+      ],
+      "element": "yin",
+      "regions": [
+        "tiannan",
+        "zhuimo"
+      ],
+      "habitat": [
+        "tiannan,zhuimo"
+      ],
+      "abilities": [
+        "炼尸/妖 hybrid，风土遁幻术。"
+      ],
+      "drops": [
+        "corpse_marrow",
+        "silver_wing"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】银翅夜叉。炼尸/妖 hybrid，风土遁幻术。 炼尸/妖 hybrid，风土遁幻术。  位阶参考：8。元素/气机：yin。 生态位：wild_beast。战斗气质：炼尸/妖 hybrid，风土遁幻术。。 栖息：tiannan,zhuimo。弱点结构：未标。 掉落线索：corpse_marrow,silver_wing。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_wind_split_beast",
+      "catalog_id": "wind_split_beast",
+      "display": "裂风兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        9,
+        9
+      ],
+      "element": "wind",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "habitat": [
+        "chaotic_sea"
+      ],
+      "abilities": [
+        "妖王级，学人族技术。"
+      ],
+      "drops": [
+        "wind_core",
+        "beast_king_token"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】裂风兽。妖王级，学人族技术。 妖王级，学人族技术。  位阶参考：9。元素/气机：wind。 生态位：wild_beast。战斗气质：妖王级，学人族技术。。 栖息：chaotic_sea。弱点结构：未标。 掉落线索：wind_core,beast_king_token。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_earth_armor_dragon",
+      "catalog_id": "earth_armor_dragon",
+      "display": "土甲龙（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        9,
+        9
+      ],
+      "element": "earth",
+      "regions": [
+        "dajin",
+        "caves"
+      ],
+      "habitat": [
+        "dajin,caves"
+      ],
+      "abilities": [
+        "寻宝天赋。"
+      ],
+      "drops": [
+        "dragon_scale_earth",
+        "treasure_sense_buff"
+      ],
+      "tameable": false,
+      "tame_difficulty": "quest_only",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】土甲龙。寻宝天赋。 寻宝天赋。  位阶参考：9。元素/气机：earth。 生态位：wild_beast。战斗气质：寻宝天赋。。 栖息：dajin,caves。弱点结构：未标。 掉落线索：dragon_scale_earth,treasure_sense_buff。 驯化：quest_only。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_fire_jiao_adult",
+      "catalog_id": "fire_jiao_adult",
+      "display": "离火蛟（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        10,
+        10
+      ],
+      "element": "fire",
+      "regions": [
+        "chaotic_sea",
+        "ocean"
+      ],
+      "habitat": [
+        "chaotic_sea,ocean"
+      ],
+      "abilities": [
+        "海域蛟龙。"
+      ],
+      "drops": [
+        "jiao_blood",
+        "demon_core_peak"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】离火蛟。海域蛟龙。 海域蛟龙。  位阶参考：10。元素/气机：fire。 生态位：wild_beast。战斗气质：海域蛟龙。。 栖息：chaotic_sea,ocean。弱点结构：未标。 掉落线索：jiao_blood,demon_core_peak。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_suanni_beast",
+      "catalog_id": "suanni_beast",
+      "display": "狻猊兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        10,
+        10
+      ],
+      "element": "fire",
+      "regions": [
+        "dajin"
+      ],
+      "habitat": [
+        "dajin"
+      ],
+      "abilities": [
+        "上古兽形。"
+      ],
+      "drops": [
+        "suanni_mane",
+        "ancient_blood"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】狻猊兽。上古兽形。 上古兽形。  位阶参考：10。元素/气机：fire。 生态位：wild_beast。战斗气质：上古兽形。。 栖息：dajin。弱点结构：未标。 掉落线索：suanni_mane,ancient_blood。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_four_ear_gold_ape",
+      "catalog_id": "four_ear_gold_ape",
+      "display": "四耳金猿（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        11,
+        11
+      ],
+      "element": "metal",
+      "regions": [
+        "dajin",
+        "kunwu"
+      ],
+      "habitat": [
+        "dajin,kunwu"
+      ],
+      "abilities": [
+        "金黄巨猴凶恶。"
+      ],
+      "drops": [
+        "ape_bone",
+        "gold_fur"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】四耳金猿。金黄巨猴凶恶。 金黄巨猴凶恶。  位阶参考：11。元素/气机：metal。 生态位：wild_beast。战斗气质：金黄巨猴凶恶。。 栖息：dajin,kunwu。弱点结构：未标。 掉落线索：ape_bone,gold_fur。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_gold_body_moon_corpse",
+      "catalog_id": "gold_body_moon_corpse",
+      "display": "金身月尸（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        11,
+        11
+      ],
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "habitat": [
+        "tiannan"
+      ],
+      "abilities": [
+        "人界顶阶炼尸，金遁。"
+      ],
+      "drops": [
+        "moon_corpse_core"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】金身月尸。人界顶阶炼尸，金遁。 人界顶阶炼尸，金遁。  位阶参考：11。元素/气机：metal。 生态位：wild_beast。战斗气质：人界顶阶炼尸，金遁。。 栖息：tiannan。弱点结构：未标。 掉落线索：moon_corpse_core。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_six_wing_frost_centipede",
+      "catalog_id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        12,
+        12
+      ],
+      "element": "ice",
+      "regions": [
+        "spirit_realm",
+        "ancient"
+      ],
+      "habitat": [
+        "spirit_realm,ancient"
+      ],
+      "abilities": [
+        "冰龙血统灵虫。"
+      ],
+      "drops": [
+        "frost_wing",
+        "true_dragon_blood_trace"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】六翼霜蚣。冰龙血统灵虫。 冰龙血统灵虫。  位阶参考：12。元素/气机：ice。 生态位：wild_beast。战斗气质：冰龙血统灵虫。。 栖息：spirit_realm,ancient。弱点结构：未标。 掉落线索：frost_wing,true_dragon_blood_trace。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_leopard_qilin_beast",
+      "catalog_id": "leopard_qilin_beast",
+      "display": "豹麟兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        12,
+        12
+      ],
+      "element": "mixed",
+      "regions": [
+        "spirit_realm"
+      ],
+      "habitat": [
+        "spirit_realm"
+      ],
+      "abilities": [
+        "麒麟血脉，元婴实力幼体。"
+      ],
+      "drops": [
+        "qilin_blood",
+        "beast_soul"
+      ],
+      "tameable": false,
+      "tame_difficulty": "legendary",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】豹麟兽。麒麟血脉，元婴实力幼体。 麒麟血脉，元婴实力幼体。  位阶参考：12。元素/气机：mixed。 生态位：wild_beast。战斗气质：麒麟血脉，元婴实力幼体。。 栖息：spirit_realm。弱点结构：未标。 掉落线索：qilin_blood,beast_soul。 驯化：legendary。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_mirage_sand_beast",
+      "catalog_id": "mirage_sand_beast",
+      "display": "蜃兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        13,
+        13
+      ],
+      "element": "illusion",
+      "regions": [
+        "chaotic_sea",
+        "desert"
+      ],
+      "habitat": [
+        "chaotic_sea,desert"
+      ],
+      "abilities": [
+        "双蛇首蛙身，幻化。"
+      ],
+      "drops": [
+        "mirage_pearl",
+        "illusion_true_essence"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】蜃兽。双蛇首蛙身，幻化。 双蛇首蛙身，幻化。  位阶参考：13。元素/气机：illusion。 生态位：wild_beast。战斗气质：双蛇首蛙身，幻化。。 栖息：chaotic_sea,desert。弱点结构：未标。 掉落线索：mirage_pearl,illusion_true_essence。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_sky_tiger_beast",
+      "catalog_id": "sky_tiger_beast",
+      "display": "天虎兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        13,
+        13
+      ],
+      "element": "earth_wind",
+      "regions": [
+        "mulan"
+      ],
+      "habitat": [
+        "mulan"
+      ],
+      "abilities": [
+        "土风法术瞬移。"
+      ],
+      "drops": [
+        "sky_tiger_wing",
+        "mulan_spirit_feather"
+      ],
+      "tameable": false,
+      "tame_difficulty": "faction_mulan",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】天虎兽。土风法术瞬移。 土风法术瞬移。  位阶参考：13。元素/气机：earth_wind。 生态位：wild_beast。战斗气质：土风法术瞬移。。 栖息：mulan。弱点结构：未标。 掉落线索：sky_tiger_wing,mulan_spirit_feather。 驯化：faction_mulan。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_holy_peacock",
+      "catalog_id": "holy_peacock",
+      "display": "圣禽（青孔雀）（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        13,
+        13
+      ],
+      "element": "fire",
+      "regions": [
+        "mulan",
+        "spirit_realm"
+      ],
+      "habitat": [
+        "mulan,spirit_realm"
+      ],
+      "abilities": [
+        "慕兰供奉，妖火。"
+      ],
+      "drops": [
+        "holy_bird_plume",
+        "peacock_true_fire"
+      ],
+      "tameable": false,
+      "tame_difficulty": "none",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】圣禽（青孔雀）。慕兰供奉，妖火。 慕兰供奉，妖火。  位阶参考：13。元素/气机：fire。 生态位：wild_beast。战斗气质：慕兰供奉，妖火。。 栖息：mulan,spirit_realm。弱点结构：未标。 掉落线索：holy_bird_plume,peacock_true_fire。 驯化：none。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "泣魂兽（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "yin",
+      "regions": [
+        "nether_river"
+      ],
+      "habitat": [
+        "nether_river"
+      ],
+      "abilities": [
+        "冥河阴兽，啼哭可乱人心神，常伴尸气。"
+      ],
+      "drops": [
+        "soul_moss",
+        "yin_coffin_nail",
+        "beast_blood_vial"
+      ],
+      "tameable": false,
+      "tame_difficulty": "very_hard",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】泣魂兽。冥河阴兽，啼哭可乱人心神，常伴尸气。 冥河阴兽，啼哭可乱人心神，常伴尸气。  位阶参考：4。元素/气机：yin。 生态位：wild_beast。战斗气质：冥河阴兽，啼哭可乱人心神，常伴尸气。。 栖息：nether_river。弱点结构：未标。 掉落线索：soul_moss,yin_coffin_nail,beast_blood_vial。 驯化：very_hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        8
+      ],
+      "element": "fire",
+      "regions": [
+        "fallen_demon_valley"
+      ],
+      "habitat": [
+        "fallen_demon_valley"
+      ],
+      "abilities": [
+        "堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。"
+      ],
+      "drops": [
+        "fire_feather",
+        "demon_core_mid",
+        "beast_soul_essence"
+      ],
+      "tameable": false,
+      "tame_difficulty": "hard",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】幻焰蛾。堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。 堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。  位阶参考：8。元素/气机：fire。 生态位：wild_beast。战斗气质：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。 栖息：fallen_demon_valley。弱点结构：未标。 掉落线索：fire_feather,demon_core_mid,beast_soul_essence。 驯化：hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_gold_devour_beetle",
+      "catalog_id": "gold_devour_beetle",
+      "display": "噬金虫（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        5,
+        5
+      ],
+      "element": "metal",
+      "regions": [
+        "chaotic_sea",
+        "spirit_world"
+      ],
+      "habitat": [
+        "chaotic_sea,spirit_world"
+      ],
+      "abilities": [
+        "虫群啃宝"
+      ],
+      "drops": [
+        "gold_devour_larva",
+        "beetle_shell"
+      ],
+      "tameable": true,
+      "tame_difficulty": "legendary",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】噬金虫。天下奇虫，专噬五金之精。 啃噬五金法宝灵光，群居奇虫。  位阶参考：5。元素/气机：metal。 生态位：artifact_counter。战斗气质：虫群啃宝。 栖息：chaotic_sea,spirit_world。弱点结构：未标。 掉落线索：gold_devour_larva,beetle_shell。 驯化：legendary。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_soul_weeping_beast",
+      "catalog_id": "soul_weeping_beast",
+      "display": "啼魂兽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        6,
+        6
+      ],
+      "element": "yin",
+      "regions": [
+        "demonic_ruins"
+      ],
+      "habitat": [
+        "demonic_ruins"
+      ],
+      "abilities": [
+        "神魂尖啸"
+      ],
+      "drops": [],
+      "tameable": true,
+      "tame_difficulty": "legendary",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】啼魂兽。对阴魂鬼物有天然克制。 尖啸伤魂，对鬼物克制极强。  位阶参考：6。元素/气机：yin。 生态位：anti_ghost。战斗气质：神魂尖啸。 栖息：demonic_ruins。弱点结构：未标。 掉落线索：见 loot_table。 驯化：legendary。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_mountain_giant_ape",
+      "catalog_id": "mountain_giant_ape",
+      "display": "山岳巨猿（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        7,
+        7
+      ],
+      "element": "earth",
+      "regions": [
+        "barbarian_wasteland"
+      ],
+      "habitat": [
+        "barbarian_wasteland"
+      ],
+      "abilities": [
+        "力大无穷，可化形前兆。"
+      ],
+      "drops": [],
+      "tameable": false,
+      "tame_difficulty": "impossible",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】山岳巨猿。力大无穷，可化形前兆。 力大无穷，可化形前兆。  位阶参考：7。元素/气机：earth。 生态位：wild_beast。战斗气质：力大无穷，可化形前兆。。 栖息：barbarian_wasteland。弱点结构：未标。 掉落线索：见 loot_table。 驯化：impossible。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_blood_jiao",
+      "catalog_id": "blood_jiao",
+      "display": "血蛟（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        8,
+        8
+      ],
+      "element": "water",
+      "regions": [
+        "chaotic_sea"
+      ],
+      "habitat": [
+        "chaotic_sea"
+      ],
+      "abilities": [
+        "海域凶蛟，妖丹珍贵。"
+      ],
+      "drops": [
+        "jiao_scale",
+        "demon_core_high"
+      ],
+      "tameable": false,
+      "tame_difficulty": null,
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】血蛟。海域凶蛟，妖丹珍贵。 海域凶蛟，妖丹珍贵。  位阶参考：8。元素/气机：water。 生态位：wild_beast。战斗气质：海域凶蛟，妖丹珍贵。。 栖息：chaotic_sea。弱点结构：未标。 掉落线索：jiao_scale,demon_core_high。 驯化：False。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_three_tailed_fox",
+      "catalog_id": "three_tailed_fox",
+      "display": "三尾妖狐（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        5,
+        5
+      ],
+      "element": "illusion",
+      "regions": [
+        "tiannan"
+      ],
+      "habitat": [
+        "tiannan"
+      ],
+      "abilities": [
+        "擅幻术，灵狐一脉。"
+      ],
+      "drops": [],
+      "tameable": true,
+      "tame_difficulty": "very_hard",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】三尾妖狐。擅幻术，灵狐一脉。 擅幻术，灵狐一脉。  位阶参考：5。元素/气机：illusion。 生态位：spirit_pet_candidate。战斗气质：擅幻术，灵狐一脉。。 栖息：tiannan。弱点结构：未标。 掉落线索：见 loot_table。 驯化：very_hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_iron_lion_beast",
+      "catalog_id": "iron_lion_beast",
+      "display": "铁甲狮兽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        4,
+        4
+      ],
+      "element": "metal",
+      "regions": [
+        "tiannan"
+      ],
+      "habitat": [
+        "tiannan"
+      ],
+      "abilities": [
+        "体修型妖兽，皮糙肉厚。"
+      ],
+      "drops": [],
+      "tameable": true,
+      "tame_difficulty": "hard",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】铁甲狮兽。体修型妖兽，皮糙肉厚。 体修型妖兽，皮糙肉厚。  位阶参考：4。元素/气机：metal。 生态位：spirit_pet_candidate。战斗气质：体修型妖兽，皮糙肉厚。。 栖息：tiannan。弱点结构：未标。 掉落线索：见 loot_table。 驯化：hard。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_cloud_silk_spider",
+      "catalog_id": "cloud_silk_spider",
+      "display": "云丝蛛（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        3,
+        3
+      ],
+      "element": "wood",
+      "regions": [
+        "caves"
+      ],
+      "habitat": [
+        "caves"
+      ],
+      "abilities": [
+        "吐丝缚敌，可炼蛛丝材料。"
+      ],
+      "drops": [
+        "spirit_silk"
+      ],
+      "tameable": true,
+      "tame_difficulty": "medium",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】云丝蛛。吐丝缚敌，可炼蛛丝材料。 吐丝缚敌，可炼蛛丝材料。  位阶参考：3。元素/气机：wood。 生态位：spirit_pet_candidate。战斗气质：吐丝缚敌，可炼蛛丝材料。。 栖息：caves。弱点结构：未标。 掉落线索：spirit_silk。 驯化：medium。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_flame_salamander",
+      "catalog_id": "flame_salamander",
+      "display": "火蜥兽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        2,
+        2
+      ],
+      "element": "fire",
+      "regions": [
+        "volcano"
+      ],
+      "habitat": [
+        "volcano"
+      ],
+      "abilities": [
+        "火系低阶妖兽，内丹可入药。"
+      ],
+      "drops": [],
+      "tameable": true,
+      "tame_difficulty": "medium",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】火蜥兽。火系低阶妖兽，内丹可入药。 火系低阶妖兽，内丹可入药。  位阶参考：2。元素/气机：fire。 生态位：spirit_pet_candidate。战斗气质：火系低阶妖兽，内丹可入药。。 栖息：volcano。弱点结构：未标。 掉落线索：见 loot_table。 驯化：medium。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_ice_phoenix_chick",
+      "catalog_id": "ice_phoenix_chick",
+      "display": "冰凤幼禽（原包加深）",
+      "category": "lingshou",
+      "tier_hint": [
+        9,
+        9
+      ],
+      "element": "ice",
+      "regions": [
+        "polar"
+      ],
+      "habitat": [
+        "polar"
+      ],
+      "abilities": [
+        "灵界珍禽幼体，极难驯服。"
+      ],
+      "drops": [],
+      "tameable": true,
+      "tame_difficulty": "legendary",
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】冰凤幼禽。灵界珍禽幼体，极难驯服。 灵界珍禽幼体，极难驯服。  位阶参考：9。元素/气机：ice。 生态位：spirit_pet_candidate。战斗气质：灵界珍禽幼体，极难驯服。。 栖息：polar。弱点结构：未标。 掉落线索：见 loot_table。 驯化：legendary。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_beast_void_mantis",
+      "catalog_id": "void_mantis",
+      "display": "虚空螳螂（原包加深）",
+      "category": "yaoshou",
+      "tier_hint": [
+        10,
+        10
+      ],
+      "element": "void",
+      "regions": [
+        "spirit_world"
+      ],
+      "habitat": [
+        "spirit_world"
+      ],
+      "abilities": [
+        "灵界虫族，前肢如刃。"
+      ],
+      "drops": [],
+      "tameable": false,
+      "tame_difficulty": null,
+      "weakness": [],
+      "threat": 3,
+      "tags": [
+        "original_bestiary",
+        "aligned_v112"
+      ],
+      "description": "【原包图鉴加深】虚空螳螂。灵界虫族，前肢如刃。 灵界虫族，前肢如刃。  位阶参考：10。元素/气机：void。 生态位：wild_beast。战斗气质：灵界虫族，前肢如刃。。 栖息：spirit_world。弱点结构：未标。 掉落线索：见 loot_table。 驯化：False。 与后期 bestiary_v* 同名时以 id 合并，不重复当新种。 真灵/剧情唯一体不进日常刷表。"
+    },
+    {
+      "id": "orig_pet_gold_devouring_beetle",
+      "catalog_id": "gold_devouring_beetle",
+      "display": "噬金虫（原包灵宠加深）",
+      "category": "lingshou",
+      "tags": [
+        "original_bestiary",
+        "spirit_pet",
+        "aligned_v112"
+      ],
+      "description": "【原包灵宠】噬金虫。金属克星虫群，王可化形。 养成向，非野刷灾厄体。",
+      "threat": 1,
+      "tameable": true
+    },
+    {
+      "id": "orig_pet_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "啼魂兽（原包灵宠加深）",
+      "category": "lingshou",
+      "tags": [
+        "original_bestiary",
+        "spirit_pet",
+        "aligned_v112"
+      ],
+      "description": "【原包灵宠】啼魂兽。吸魂噬鬼，猿形巨口。 养成向，非野刷灾厄体。",
+      "threat": 1,
+      "tameable": true
+    },
+    {
+      "id": "orig_pet_musk_orchid_beast",
+      "catalog_id": "musk_orchid_beast",
+      "display": "麝兰兽（原包灵宠加深）",
+      "category": "lingshou",
+      "tags": [
+        "original_bestiary",
+        "spirit_pet",
+        "aligned_v112"
+      ],
+      "description": "【原包灵宠】麝兰兽。安神定魂气味。 养成向，非野刷灾厄体。",
+      "threat": 1,
+      "tameable": true
+    },
+    {
+      "id": "orig_pet_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（原包灵宠加深）",
+      "category": "lingshou",
+      "tags": [
+        "original_bestiary",
+        "spirit_pet",
+        "aligned_v112"
+      ],
+      "description": "【原包灵宠】幻焰蛾。短隐身幻化。 养成向，非野刷灾厄体。",
+      "threat": 1,
+      "tameable": true
+    },
+    {
+      "id": "orig_pet_iron_wood_great_ape_puppet",
+      "catalog_id": "iron_wood_great_ape_puppet",
+      "display": "巨猿傀儡（战兽级）（原包灵宠加深）",
+      "category": "lingshou",
+      "tags": [
+        "original_bestiary",
+        "spirit_pet",
+        "aligned_v112"
+      ],
+      "description": "【原包灵宠】巨猿傀儡（战兽级）。 养成向，非野刷灾厄体。",
+      "threat": 1,
+      "tameable": true
+    }
+  ]
+}

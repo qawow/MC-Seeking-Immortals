@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v99 灵兽/灵虫养成阶段（贴原著成长节点）",
+  "disclaimer": "阶段为结构；数值可调",
+  "care_global": {
+    "feed": ["饲灵丸", "属性对口妖肉", "灵草"],
+    "injury": "战损需闭关养",
+    "betrayal_risk": "虐养/强行吸精血→反噬",
+    "space": "芥子/洞府巢箱"
+  },
+  "companions": [
+    {
+      "id": "shi_jin_chong",
+      "display": "噬金虫",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "虫卵/幼虫",
+          "obtain": "机缘购卵/秘境",
+          "ability": ["噬凡金"],
+          "feed": ["金属矿砂", "低阶法器废料"],
+          "combat": "弱",
+          "description": "需保温灵气，勿用灵火乱烤。"
+        },
+        {
+          "stage": 1,
+          "name": "成虫群",
+          "ability": ["群噬法器", "破防"],
+          "feed": ["法器", "妖兽骨骼金性"],
+          "combat": "结丹以下法器威胁",
+          "description": "数量即战力。霓裳草可催繁殖。"
+        },
+        {
+          "stage": 2,
+          "name": "异变/金色深化",
+          "ability": ["噬灵金", "破部分法宝"],
+          "req": "长期喂宝+战",
+          "description": "引人觊觎；天澜线暴露风险。"
+        },
+        {
+          "stage": 3,
+          "name": "虫王路线",
+          "ability": ["王级统御", "界面战力结构"],
+          "req": ["黑色晶石（螟虫之母）", "冥河神乳等"],
+          "description": "终局养成。资源与剧情双绑定。"
+        }
+      ],
+      "counters": ["极端火域", "克虫秘术", "主人神识崩溃"],
+      "notes": "禁止野外无脑刷成灾；只养成。"
+    },
+    {
+      "id": "ti_hun_shou",
+      "display": "啼魂兽",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "幼兽",
+          "obtain": "元瑶线",
+          "ability": ["嗅鬼", "弱噬魂"],
+          "feed": ["鬼物", "魂火", "低阶精魂"],
+          "description": "阴冥成长最快。"
+        },
+        {
+          "stage": 1,
+          "name": "成兽",
+          "ability": ["噬魂", "破隐", "惧阳仍在"],
+          "feed": ["中高阶鬼物", "炼尸残"],
+          "description": "阴罗/鬼灵门天敌型伙伴。"
+        },
+        {
+          "stage": 2,
+          "name": "异变/进阶",
+          "ability": ["强噬魂", "辅助搜魂抗性"],
+          "req": "持续魂食+主人神识",
+          "description": "与大衍神识流绝配。"
+        }
+      ],
+      "counters": ["纯阳环境过久", "佛门超度阵"],
+      "bond": "元瑶情谊影响稳定"
+    },
+    {
+      "id": "xue_yu_zhizhu",
+      "display": "血玉蜘蛛",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "卵",
+          "obtain": "灵矿地道",
+          "description": "保温孵化。"
+        },
+        {
+          "stage": 1,
+          "name": "幼蛛",
+          "ability": ["弱丝", "侦察"],
+          "feed": ["虫", "小妖血"]
+        },
+        {
+          "stage": 2,
+          "name": "成蛛",
+          "ability": ["血玉丝牢", "剧毒", "伏击"],
+          "feed": ["妖兽血", "饲灵丸"],
+          "description": "结丹期可靠伏击手。"
+        },
+        {
+          "stage": 3,
+          "name": "蛛后级（可选）",
+          "ability": ["领域丝网", "产卵"],
+          "description": "洞府守卫核心。"
+        }
+      ],
+      "counters": ["火", "广域斩击"]
+    },
+    {
+      "id": "liu_yi_shuang_gong",
+      "display": "六翼霜蚣",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "幼蚣",
+          "obtain": "御灵宗线/野",
+          "ability": ["寒毒", "飞行初"]
+        },
+        {
+          "stage": 1,
+          "name": "六翼成体",
+          "ability": ["霜寒领域", "高速飞杀", "甲防"],
+          "feed": ["寒属性材", "妖丹"],
+          "description": "结丹~元婴主力虫战力。"
+        },
+        {
+          "stage": 2,
+          "name": "化形边缘",
+          "ability": ["智开", "法术协同"],
+          "req": "海量资源+时间",
+          "description": "可沟通战术。"
+        }
+      ],
+      "counters": ["极阳火", "重金锤击"]
+    },
+    {
+      "id": "tu_jia_long",
+      "display": "土甲龙",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "幼龙/蛋",
+          "obtain": "大衍神君线",
+          "ability": ["土遁", "甲防"]
+        },
+        {
+          "stage": 1,
+          "name": "战力体",
+          "ability": ["土矛", "重甲抗打", "载人"],
+          "feed": ["土属性矿", "妖肉"],
+          "description": "傀儡/神识流肉盾。"
+        },
+        {
+          "stage": 2,
+          "name": "完全体",
+          "ability": ["土域", "阵基活物"],
+          "description": "护府与攻坚。"
+        }
+      ]
+    },
+    {
+      "id": "tian_lan_shou",
+      "display": "天澜圣兽",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "契约幼体/虚弱",
+          "obtain": "天澜草原剧情",
+          "ability": ["圣兽威压淡"],
+          "description": "非普通驯养；契约与人情。"
+        },
+        {
+          "stage": 1,
+          "name": "恢复期",
+          "ability": ["支援一击", "传送/秘术线索"],
+          "feed": "特殊",
+          "description": "银蝌文、圣鼎等回报。"
+        },
+        {
+          "stage": 2,
+          "name": "圣兽态",
+          "ability": ["渡劫级战力结构", "帝流浆关联"],
+          "description": "事件驱动，不刷等级。"
+        }
+      ],
+      "rules": ["不可当普通宠物打野升级"]
+    },
+    {
+      "id": "bao_lin_shou",
+      "display": "豹麟兽",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "幼兽",
+          "obtain": "地渊",
+          "ability": ["噬物成长", "速度"],
+          "feed": ["暗兽肉", "高阶妖丹"],
+          "description": "吃的是战力。"
+        },
+        {
+          "stage": 1,
+          "name": "成兽",
+          "ability": ["暗蚀", "爆发扑杀"],
+          "description": "化神期主力灵兽。"
+        },
+        {
+          "stage": 2,
+          "name": "王级向",
+          "ability": ["暗域", "抗魔"],
+          "req": "地渊深层/广寒猎食",
+          "description": "界面级养成。"
+        }
+      ]
+    },
+    {
+      "id": "bing_feng",
+      "display": "冰凤",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "盟友雏/伤",
+          "obtain": "北地剧情",
+          "description": "友非奴。"
+        },
+        {
+          "stage": 1,
+          "name": "冰凤成体",
+          "ability": ["冰凤真火对照寒焰", "飞行"],
+          "description": "寒系最强援之一。"
+        }
+      ],
+      "rules": ["关系坏则离去或敌对"]
+    },
+    {
+      "id": "zhi_xian",
+      "display": "织纤（玄天生物）",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "藤/幼",
+          "obtain": "玄天仙藤救活后",
+          "need": ["醇液", "回阳水"],
+          "description": "先救活再养成。"
+        },
+        {
+          "stage": 1,
+          "name": "通灵",
+          "ability": ["斩灵", "通天材质性"],
+          "description": "通天灵宝级活物武器。"
+        },
+        {
+          "stage": 2,
+          "name": "完全人格",
+          "ability": ["自主战", "进化"],
+          "description": "后期核心伙伴。"
+        }
+      ]
+    },
+    {
+      "id": "qu_er",
+      "display": "曲儿（九曲灵参化）",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "活参",
+          "ability": ["逃土", "药力"],
+          "likes": "麝兰兽粪"
+        },
+        {
+          "stage": 1,
+          "name": "开智",
+          "ability": ["人言", "辅助炼丹"],
+          "description": "药人伙伴。"
+        },
+        {
+          "stage": 2,
+          "name": "人参果形态结构",
+          "ability": ["强辅助", "战场药力"],
+          "description": "长期羁绊养成。"
+        }
+      ]
+    },
+    {
+      "id": "yin_yue_xueling",
+      "display": "银月（雪灵狐）",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "狐修化形",
+          "obtain": "雪云狐/尸魈线",
+          "ability": ["幻术", "速度", "侦查"]
+        },
+        {
+          "stage": 1,
+          "name": "道侣/伙伴稳态",
+          "ability": ["战术配合", "双修可选结构"],
+          "description": "高智伙伴，非坐骑。"
+        }
+      ],
+      "rules": ["尊重自主；虐则叛"]
+    },
+    {
+      "id": "yuling_wuxing_infant",
+      "display": "五营婴/木之精灵等",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "收服",
+          "obtain": "秘境/昆吾相关结构",
+          "ability": ["五行辅助"]
+        },
+        {
+          "stage": 1,
+          "name": "协同",
+          "ability": ["阵法/木系增幅"],
+          "description": "辅助型，不主砍。"
+        }
+      ]
+    },
+    {
+      "id": "tian_jue_mo_shi",
+      "display": "天绝魔尸",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "炼制",
+          "req": ["炼尸之法", "尸材", "魔功"],
+          "description": "自炼非野驯。"
+        },
+        {
+          "stage": 1,
+          "name": "寄第二元婴",
+          "ability": ["分身魔功", "保命"],
+          "risk": "反噬",
+          "description": "韩立第二元婴载体结构。"
+        }
+      ]
+    },
+    {
+      "id": "generic_mount",
+      "display": "通用坐骑（墨鳞马等）",
+      "stages": [
+        {"stage": 0, "name": "驯化", "ability": ["骑乘"]},
+        {"stage": 1, "name": "战骑", "ability": ["践踏", "抗刃"], "feed": ["饲灵丸"]}
+      ]
+    }
+  ],
+  "feed_economy": {
+    "si_ling_wan": "基础口粮",
+    "attribute_meat": "成长加速",
+    "high_dan": "瓶颈突破辅助",
+    "overfeed_treasure": "噬金可，普通兽暴毙风险"
+  },
+  "combat_slots": {
+    "active_field": 1,
+    "swarm_exception": "噬金虫群算一单位多实体",
+    "switch_cd_structure": "短"
+  }
+}

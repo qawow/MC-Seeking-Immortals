@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 符箓体系：黄玄地天 × 三等阶 + 特殊符宝",
+  "disclaimer": "品阶与价格为结构量级",
+  "rank_matrix": {
+    "ranks": [
+      {
+        "id": "huang",
+        "display": "黄符",
+        "realm": "QI_REFINING",
+        "power": 1
+      },
+      {
+        "id": "xuan",
+        "display": "玄符",
+        "realm": "FOUNDATION",
+        "power": 3
+      },
+      {
+        "id": "di",
+        "display": "地符",
+        "realm": "CORE_FORMATION",
+        "power": 10
+      },
+      {
+        "id": "tian",
+        "display": "天符",
+        "realm": "NASCENT_SOUL",
+        "power": 40
+      }
+    ],
+    "grades": [
+      {
+        "id": "low",
+        "display": "下等",
+        "mult": 1.0
+      },
+      {
+        "id": "mid",
+        "display": "中等",
+        "mult": 1.5
+      },
+      {
+        "id": "high",
+        "display": "上等",
+        "mult": 2.2
+      }
+    ],
+    "note": "天符门等大宗可出地符/天符；散修多黄玄"
+  },
+  "craft_rules": {
+    "materials": [
+      "符纸（兽皮/灵皮）",
+      "灵墨",
+      "符笔",
+      "画符时灵力"
+    ],
+    "success_factors": [
+      "神识",
+      "符道熟练",
+      "材料品阶"
+    ],
+    "fail_result": "材料损毁或废符",
+    "faction_bonus": {
+      "tianfu_men": "+成功率与高等符谱",
+      "wanmiao_guan": "符道专精（天南）"
+    }
+  },
+  "talismans": [
+    {
+      "id": "fireball_talisman",
+      "display": "火球符",
+      "rank": "huang",
+      "grade_typical": "low",
+      "effect": "单体火伤",
+      "price_low_stone": [
+        1,
+        5
+      ],
+      "realm_min": "QI_REFINING",
+      "description": "火球符，huang阶符箓。"
+    },
+    {
+      "id": "earth_spike_talisman",
+      "display": "地刺符",
+      "rank": "huang",
+      "effect": "控制/刺伤",
+      "price_low_stone": [
+        1,
+        8
+      ],
+      "realm_min": "QI_REFINING",
+      "description": "地刺符，huang阶符箓。"
+    },
+    {
+      "id": "golden_light_shield",
+      "display": "金光盾符",
+      "rank": "huang",
+      "grade_typical": "mid",
+      "effect": "短时护盾",
+      "price_low_stone": [
+        5,
+        20
+      ],
+      "realm_min": "QI_REFINING",
+      "description": "金光盾符，huang阶符箓。"
+    },
+    {
+      "id": "speed_talisman",
+      "display": "神行符",
+      "rank": "huang",
+      "effect": "短时加速",
+      "price_low_stone": [
+        3,
+        15
+      ],
+      "description": "神行符，huang阶符箓。"
+    },
+    {
+      "id": "invisibility_talisman",
+      "display": "隐身符",
+      "rank": "xuan",
+      "effect": "低阶隐匿，高阶神识可破",
+      "price_low_stone": [
+        30,
+        150
+      ],
+      "realm_min": "FOUNDATION",
+      "description": "隐身符，xuan阶符箓。"
+    },
+    {
+      "id": "thunder_talisman_xuan",
+      "display": "玄级雷符",
+      "rank": "xuan",
+      "effect": "雷系爆发",
+      "price_low_stone": [
+        50,
+        300
+      ],
+      "description": "玄级雷符，xuan阶符箓。"
+    },
+    {
+      "id": "armor_talisman_di",
+      "display": "地级甲符",
+      "rank": "di",
+      "effect": "结丹级防护",
+      "price_low_stone": [
+        500,
+        4000
+      ],
+      "realm_min": "CORE_FORMATION",
+      "description": "地级甲符，di阶符箓。"
+    },
+    {
+      "id": "escape_talisman_di",
+      "display": "地级遁符",
+      "rank": "di",
+      "effect": "中距逃遁",
+      "price_low_stone": [
+        800,
+        6000
+      ],
+      "description": "地级遁符，di阶符箓。"
+    },
+    {
+      "id": "hua_ling_fu",
+      "display": "化灵符",
+      "rank": "tian",
+      "grade_typical": "high",
+      "effect": "天符门秘制级；剧情/高端战斗用途",
+      "faction": "tianfu_men",
+      "price_low_stone": [
+        20000,
+        150000
+      ],
+      "setting": {
+        "lore": "天符门压箱底级符箓结构；客卿长老线报酬。"
+      },
+      "description": "化灵符，tian阶符箓。"
+    },
+    {
+      "id": "jiang_ling_fu",
+      "display": "降灵符",
+      "rank": "di_to_tian",
+      "effect": "封印/转化精魂为可用灵符结构",
+      "special": "可以高阶妖魂炼制",
+      "price_low_stone": [
+        5000,
+        80000
+      ],
+      "setting": {
+        "lore": "天符门传承相关；韩立以毒蛟等精魂炼降灵符。"
+      },
+      "description": "降灵符，di_to_tian阶符箓。"
+    },
+    {
+      "id": "liu_ding_tian_jia",
+      "display": "六丁天甲符",
+      "rank": "tian_plus",
+      "effect": "元婴级顶级护身",
+      "price_note": "不可常规购买",
+      "cross_ref_artifact": "liu_ding_tian_jia_fu",
+      "setting": {
+        "lore": "符宝一体；空间节点保命。"
+      },
+      "description": "六丁天甲符，tian_plus阶符箓。"
+    },
+    {
+      "id": "jiugong_tianqian_fu",
+      "display": "九宫天乾符",
+      "rank": "tian",
+      "effect": "困禁高阶妖兽/强敌",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "price_unit": "spirit_realm",
+      "setting": {
+        "lore": "灵界困敌符宝结构；冥雷兽等节点。"
+      },
+      "description": "九宫天乾符，tian阶符箓。"
+    },
+    {
+      "id": "po_jie_fu",
+      "display": "破界符",
+      "rank": "tian_plus",
+      "effect": "辅助破空间节点/界膜",
+      "price_note": "剧情关键，非坊市",
+      "setting": {
+        "lore": "飞升/破界任务消耗件。"
+      },
+      "description": "破界符，tian_plus阶符箓。"
+    },
+    {
+      "id": "wanli_fu",
+      "display": "万里符（传音符高级）",
+      "rank": "xuan_to_di",
+      "effect": "超远传音/传讯",
+      "price_low_stone": [
+        100,
+        2000
+      ],
+      "setting": {
+        "lore": "宗门调度与散修联络硬通货。"
+      },
+      "description": "万里符（传音符高级），xuan_to_di阶符箓。"
+    },
+    {
+      "id": "dingshen_fu",
+      "display": "定神符",
+      "rank": "huang",
+      "effect": "定神防低阶幻术",
+      "price_low_stone": [
+        2,
+        10
+      ],
+      "setting": {
+        "lore": "长春功系基础法术也可符化。"
+      },
+      "description": "定神符，huang阶符箓。"
+    },
+    {
+      "id": "blood_escape_fu",
+      "display": "血影遁符（魔道）",
+      "rank": "di",
+      "effect": "耗精血瞬遁",
+      "alignment": "demonic",
+      "price_low_stone": [
+        1000,
+        10000
+      ],
+      "setting": {
+        "lore": "玄阴经血影遁的符箓化结构（可选）。"
+      },
+      "description": "血影遁符（魔道），di阶符箓。"
+    }
+  ],
+  "price_formula_hint": {
+    "base": "rank.power * grade.mult * 10",
+    "note": "仅作坊市均价提示，秘制符可×10~100"
+  },
+  "shop_stock_by_region": {
+    "tiannan_market": [
+      "huang",
+      "xuan",
+      "rare_di"
+    ],
+    "dajin_tianfu": [
+      "huang",
+      "xuan",
+      "di",
+      "tian_rare"
+    ],
+    "chaotic_sea": [
+      "huang",
+      "xuan",
+      "di"
+    ],
+    "tianyuan_city": [
+      "di",
+      "tian",
+      "special_spirit"
+    ]
+  }
+}

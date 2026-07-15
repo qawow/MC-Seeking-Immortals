@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v99 物品详释：配装件/毒药解/灵兽养成物资/说明补全",
+  "items": [
+    {
+      "id": "si_ling_wan_full",
+      "display": "饲灵丸",
+      "type": "pill_feed",
+      "appearance": "土黄色密丸，带腥香",
+      "effect": "灵兽灵虫基础口粮，稳血气",
+      "craft": ["灵兽粪净制", "灵药渣", "属性矿粉可选"],
+      "price": [20, 200],
+      "description": "洞府标配。对口属性矿粉可微调成长方向；不可替代高阶妖丹突破口粮。"
+    },
+    {
+      "id": "nichang_feed_use",
+      "display": "霓裳草（饲用说明）",
+      "type": "herb",
+      "effect": "诱八级下妖兽；催灵虫繁殖",
+      "use_with": ["噬金虫", "血玉蛛", "霜蚣幼"],
+      "description": "韩立工具草。喂虫前控量，防虫群暴食失控。"
+    },
+    {
+      "id": "black_crystal_mingchong",
+      "display": "黑色晶石（螟虫）",
+      "type": "evolve_key",
+      "source": "螟虫之母",
+      "use": "噬金虫王进化关键",
+      "description": "不可标价的剧情材。无此则虫王线锁死。"
+    },
+    {
+      "id": "minghe_shenru_feed",
+      "display": "冥河神乳（养成）",
+      "type": "liquid_endgame",
+      "use": ["大乘交易", "虫王/真灵级喂养结构"],
+      "description": "终局资源。一滴可换一域人情。"
+    },
+    {
+      "id": "bi_jiu_duye",
+      "display": "碧鸠毒涎",
+      "type": "poison",
+      "source": "碧嘴鸠",
+      "use": ["十绝碧鸠", "以毒炼毒", "淬兵"],
+      "danger": "接触需手套/禁制",
+      "price": [2000, 20000],
+      "description": "十绝毒载体。毒圣门收购；正道持有可能被盘查。"
+    },
+    {
+      "id": "bi_jiu_antidote",
+      "display": "碧鸠专解丹（结构）",
+      "type": "antidote",
+      "covers": ["碧鸠"],
+      "price": [5000, 40000],
+      "description": "专解>百炼。南疆任务奖励或毒门内购。"
+    },
+    {
+      "id": "feng_du_nang",
+      "display": "风毒囊",
+      "type": "poison",
+      "source": "风毒蝎后",
+      "use": ["淬暗器", "风毒领域材料"],
+      "description": "中毒禁强遁。配套定经散。"
+    },
+    {
+      "id": "ding_jing_san",
+      "display": "定经散",
+      "type": "antidote",
+      "covers": ["风毒游经"],
+      "price": [800, 8000],
+      "description": "稳住经脉后再作清毒。"
+    },
+    {
+      "id": "qing_xue_dan_item",
+      "display": "清血丹",
+      "type": "antidote",
+      "covers": ["血煞", "轻尸毒"],
+      "price": [100, 1500],
+      "description": "战场量产清血。重尸毒需佛门或专解。"
+    },
+    {
+      "id": "shi_du_zhuanjie",
+      "display": "尸毒专解",
+      "type": "antidote",
+      "covers": ["尸毒", "僵毒雾"],
+      "synergy": ["佛门净水"],
+      "description": "鬼道线必备。"
+    },
+    {
+      "id": "gu_mo_qingjing",
+      "display": "清魔凝露（结构）",
+      "type": "cleanse",
+      "covers": ["轻中度魔气侵"],
+      "fails_on": ["元刹级真魔气"],
+      "description": "渊任务后净化用。真魔气靠封印物。"
+    },
+    {
+      "id": "du_shen_men_token",
+      "display": "毒圣门令牌",
+      "type": "token",
+      "effect": "毒门驻地通行、毒材折扣",
+      "risk": "正道区暴露身份",
+      "description": "双面刃身份物。"
+    },
+    {
+      "id": "wan_du_hua_xin",
+      "display": "万毒花心",
+      "type": "material",
+      "use": ["万毒混元身", "顶级毒丹"],
+      "description": "万毒谷核心材。炼体毒修硬通货。"
+    },
+    {
+      "id": "jin_chan_qiao",
+      "display": "金蝉壳",
+      "type": "material",
+      "use": ["符纸高级基", "一闪替身法辅材"],
+      "price": [200, 3000],
+      "description": "金蝉蜕壳虫掉落。符师喜欢。"
+    },
+    {
+      "id": "jiao_zhu_hai",
+      "display": "鲛珠",
+      "type": "material",
+      "source": "海御鲛人",
+      "use": ["水法宝", "呼吸丹辅", "货币（海族）"],
+      "price": [500, 15000],
+      "description": "海族贸易硬货。抢与买声望差极大。"
+    },
+    {
+      "id": "xing_sha_sha",
+      "display": "星杀砂",
+      "type": "material",
+      "source": "七杀星影试炼",
+      "use": ["星宫贡献", "杀伐类炼器"],
+      "description": "试炼积分物实体化。"
+    },
+    {
+      "id": "jian_yi_jing",
+      "display": "剑意结晶",
+      "type": "material",
+      "source": ["古剑灵", "飞剑冢"],
+      "use": ["青元感悟", "剑胚开锋"],
+      "price": [3000, 50000],
+      "description": "剑修养成触媒。"
+    },
+    {
+      "id": "shou_mu_xin",
+      "display": "寿木心",
+      "type": "material",
+      "source": "寿元树妖",
+      "use": ["延寿丹结构", "木系通灵器"],
+      "description": "夺寿因果叙事材。用前三思。"
+    },
+    {
+      "id": "tu_teng_gu_ban",
+      "display": "图腾骨板",
+      "type": "material",
+      "source": "慕兰图腾巨兽",
+      "use": ["破敌图腾研究", "战甲"],
+      "description": "战争掉落。可交军需换功。"
+    },
+    {
+      "id": "bai_ze_mao",
+      "display": "白泽伪种毛",
+      "type": "material",
+      "use": ["破幻衣", "鉴定符辅"],
+      "description": "极珍。真白泽不掉落。"
+    },
+    {
+      "id": "huo_yan_jing_item",
+      "display": "火眼晶",
+      "type": "material",
+      "source": "三眼火狪",
+      "use": ["探查法器", "火目类"],
+      "price": [1000, 12000],
+      "description": "天眼术之外的硬件补充。"
+    },
+    {
+      "id": "yin_yang_shuang_ji_dan",
+      "display": "双极丹（狮）",
+      "type": "pill_special",
+      "source": "阴阳狮子兽",
+      "effect": "短时平衡阴阳法力",
+      "description": "双修/阴阳功法友好。"
+    },
+    {
+      "id": "bing_po_jing",
+      "display": "冰魄晶",
+      "type": "material",
+      "source": "广寒冰魄",
+      "use": ["寒焰培", "冰法宝", "玄冰丹辅"],
+      "description": "界面寒材。人界难求。"
+    },
+    {
+      "id": "mo_zhu_si",
+      "display": "魔蛛丝",
+      "type": "material",
+      "source": "魔界血蛛",
+      "use": ["魔器", "捆仙"],
+      "description": "韧而邪。正道炼需净煞。"
+    },
+    {
+      "id": "tong_ling_mu_xin",
+      "display": "通灵木心",
+      "type": "material",
+      "source": "木族守林使",
+      "use": ["木系灵宝", "傀儡躯干"],
+      "description": "外交或战场两来路。"
+    },
+    {
+      "id": "shi_yan_xin",
+      "display": "石炎心",
+      "type": "material",
+      "source": "地渊石炎兽",
+      "use": ["火土炼器", "阵眼"],
+      "merit_region": "diyuan",
+      "description": "天渊任务回收价高。"
+    },
+    {
+      "id": "lei_rong_yu",
+      "display": "雷绒羽",
+      "type": "material",
+      "source": "雷鹏幼雏",
+      "use": ["风雷翅维修", "雷衣"],
+      "price": [800, 10000],
+      "description": "翅材消耗品。成体鹏羽另论。"
+    },
+    {
+      "id": "jin_jiao_jiao",
+      "display": "金蛟角",
+      "type": "material",
+      "source": "金角蛟",
+      "use": ["金系尖兵法宝", "角号传讯"],
+      "price": [10000, 80000],
+      "description": "金蛟王角为传说级；此为精英角。"
+    },
+    {
+      "id": "suo_hun_lian_huan",
+      "display": "锁魂链环",
+      "type": "material",
+      "source": "玄冥鬼差",
+      "use": ["炼锁魂器", "禁制"],
+      "description": "阴修器材。正道可缴毁。"
+    },
+    {
+      "id": "jiang_jun_gu_pai",
+      "display": "尸谷将军骨牌",
+      "type": "token_loot",
+      "effect": "短时号令低阶尸（邪）/换功绩（正）",
+      "description": "双阵营用途不同。"
+    },
+    {
+      "id": "yun_he_yu",
+      "display": "云鹤羽",
+      "type": "material",
+      "source": "落云护山鹤",
+      "use": ["轻身衣", "传讯符辅"],
+      "description": "宗门内正常拔取；盗杀扣贡献。"
+    },
+    {
+      "id": "mei_xiang_nang",
+      "display": "魅香囊",
+      "type": "material",
+      "source": "合欢魅影",
+      "use": ["幻香", "合欢功法辅", "反制研究"],
+      "description": "持有过久可能惹魅障。"
+    },
+    {
+      "id": "qi_yue_pai_lingshou",
+      "display": "麒麟阁契约牌",
+      "type": "token",
+      "use": "合法拥有展示兽",
+      "description": "购买灵兽的所有权凭证。"
+    },
+    {
+      "id": "chen_chuan_dai_can",
+      "display": "沉船储物残袋",
+      "type": "loot_container",
+      "source": "外星海深水鬼事件",
+      "content": "随机低中阶储物表",
+      "description": "海难经济的一部分。"
+    },
+    {
+      "id": "xue_lian_ban",
+      "display": "雪莲残瓣",
+      "type": "herb",
+      "source": "雪莲田/守护兽",
+      "use": ["寒药", "疗伤高级"],
+      "price": [500, 8000],
+      "description": "完整雪莲更贵；残瓣量产。"
+    },
+    {
+      "id": "mo_nang_pi",
+      "display": "魔囊皮",
+      "type": "material",
+      "source": "魔气吞噬兽",
+      "use": ["吸法储袋实验", "魔器"],
+      "description": "不稳定。炼器失败率高。"
+    },
+    {
+      "id": "loadout_qi_pack",
+      "display": "炼气生存包",
+      "type": "kit",
+      "contains": ["火球符20", "金光盾10", "定神10", "养精5", "隐身3", "小储物袋"],
+      "price": [80, 300],
+      "description": "对应 loadout QI_REFINING。"
+    },
+    {
+      "id": "loadout_foundation_pack",
+      "display": "筑基出行包",
+      "type": "kit",
+      "contains": ["上品法器或维修材", "灵髓丸", "地遁符", "敛息", "中储物"],
+      "price": [800, 5000],
+      "description": "猎妖与跑商基础。"
+    },
+    {
+      "id": "loadout_core_pack",
+      "display": "结丹战备包",
+      "type": "kit",
+      "contains": ["本命保养材", "天雷子", "护府阵旗", "疗伤高阶", "虫粮"],
+      "description": "结丹散修推荐。"
+    },
+    {
+      "id": "loadout_nascent_pack",
+      "display": "元婴死斗包",
+      "type": "kit",
+      "contains": ["回煞丸1", "替身/遁", "阵盘", "分身维护", "寒髓或护劫材"],
+      "description": "一人敌宗门时的底牌包。"
+    },
+    {
+      "id": "loadout_poison_nanjiang",
+      "display": "南疆抗毒包",
+      "type": "kit",
+      "contains": ["百炼解毒×5", "清血×3", "定经散", "碧鸠专解1", "火符清虫"],
+      "description": "ten_poisons 表推荐。"
+    },
+    {
+      "id": "loadout_nether_pack",
+      "display": "阴冥行装",
+      "type": "kit",
+      "contains": ["安魂", "阳火种", "啼魂口粮", "魄石袋", "净魔轻剂"],
+      "description": "法力异常区生存。"
+    },
+    {
+      "id": "loadout_sea_pack",
+      "display": "星海航行包",
+      "type": "kit",
+      "contains": ["抗压符", "海图残", "高阶解毒", "修船材", "万里符"],
+      "description": "内外星海通用。"
+    },
+    {
+      "id": "body_dual_feed",
+      "display": "炼体日程包",
+      "type": "kit",
+      "contains": ["龙鳞果日程", "淬骨辅助", "疗伤", "明王痛楚缓解结构药"],
+      "description": "法体双修资源链。"
+    },
+    {
+      "id": "puppet_restock",
+      "display": "傀儡补材包",
+      "type": "kit",
+      "contains": ["魄石", "眩光晶", "核心胚", "金属关节"],
+      "description": "大衍傀儡流维护。"
+    },
+    {
+      "id": "insect_restock",
+      "display": "虫修补给包",
+      "type": "kit",
+      "contains": ["饲灵丸", "霓裳草", "金属废料", "寒/毒属性口粮"],
+      "description": "噬金/霜蚣/蛛通用。"
+    },
+    {
+      "id": "escape_restock",
+      "display": "逃控流维护",
+      "type": "kit",
+      "contains": ["风雷翅修羽", "血影成本精血药", "敛息符", "困敌阵旗"],
+      "description": "活着才有输出。"
+    },
+    {
+      "id": "zhuji_four_bundle",
+      "display": "筑基四主药捆",
+      "type": "bundle",
+      "contains": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "price": [80, 400],
+      "description": "血色禁地经济核心捆。约支撑批量筑基丹结构。"
+    },
+    {
+      "id": "jiedan_resource_bundle",
+      "display": "结丹资源捆",
+      "type": "bundle",
+      "contains": ["降尘丹线索", "中品灵石堆", "护关符", "三转玉简可选"],
+      "description": "冲结丹用。"
+    },
+    {
+      "id": "jieying_resource_bundle",
+      "display": "结婴资源捆",
+      "type": "bundle",
+      "contains": ["定灵或参丹或培婴择一", "安魂环境租", "心性辅助"],
+      "description": "三选一核心+环境。"
+    },
+    {
+      "id": "huashen_resource_bundle",
+      "display": "化神资源捆",
+      "type": "bundle",
+      "contains": ["魔元丹", "极品灵石", "寒焰/回阳线索", "护劫"],
+      "description": "以十年计的准备捆。"
+    },
+    {
+      "id": "qingzhu_weixiu",
+      "display": "青竹剑维修材",
+      "type": "repair",
+      "contains": ["金雷竹屑", "庚精粉", "本命精血"],
+      "description": "剑组战损恢复。失剑夺回后必用。"
+    },
+    {
+      "id": "fenglei_weixiu",
+      "display": "风雷翅维修材",
+      "type": "repair",
+      "contains": ["雷绒羽", "鹏骨胶", "风系晶"],
+      "description": "逃命家当，损了优先修。"
+    },
+    {
+      "id": "guiluo_weixiu",
+      "display": "鬼罗幡维修材",
+      "type": "repair",
+      "contains": ["魔髓钻", "叱灵软玉", "魂布"],
+      "description": "修幡如修命。"
+    },
+    {
+      "id": "tongtian_yang",
+      "display": "通天灵宝温养材（通性）",
+      "type": "repair",
+      "rule": "一宝一诀，不可混用",
+      "examples": ["虚天鼎通宝诀材", "八灵尺佛髓材"],
+      "description": "通宝诀日常。"
+    },
+    {
+      "id": "yuling_egg_pack",
+      "display": "御灵虫卵礼盒",
+      "type": "shop",
+      "contains": ["随机低阶虫卵", "入门驱虫简"],
+      "price": [100, 2000],
+      "description": "御灵宗外销。"
+    },
+    {
+      "id": "gui_ling_shicai",
+      "display": "炼尸素材包",
+      "type": "shop_dark",
+      "contains": ["尸骨", "阴煞", "入门炼尸法残"],
+      "risk": "正道通缉",
+      "description": "鬼灵门黑市。"
+    },
+    {
+      "id": "tianfu_paper_ink",
+      "display": "天符门纸墨套",
+      "type": "craft",
+      "contains": ["灵绢", "灵墨", "符谱页"],
+      "bonus": "天符门身份+成率",
+      "description": "符师职业耗材。"
+    },
+    {
+      "id": "dihuo_month_pass",
+      "display": "地火月票",
+      "type": "service",
+      "price": [200, 3000],
+      "description": "比时券划算的长租。"
+    },
+    {
+      "id": "lingdi_lease",
+      "display": "天渊灵地租约",
+      "type": "service",
+      "currency": "tianyuan_merit",
+      "effect": "聚灵+安全闭关",
+      "description": "化神修士刚需。"
+    },
+    {
+      "id": "hujie_zhen_ticket",
+      "display": "护劫阵预约符",
+      "type": "service",
+      "merit": 100,
+      "description": "天渊兑；人界需自布或请人。"
+    },
+    {
+      "id": "info_gengjing",
+      "display": "庚精情报玉简",
+      "type": "info",
+      "reliability": [0.4, 0.85],
+      "price": [100, 5000],
+      "description": "假情报常见。价高略真。"
+    },
+    {
+      "id": "info_xutian",
+      "display": "虚天殿开启预言简",
+      "type": "info",
+      "effect": "主线节点提示",
+      "description": "乱星海阶段关键。"
+    },
+    {
+      "id": "map_blood_forbidden",
+      "display": "血色禁地简图",
+      "type": "map",
+      "effect": "四主药点权重提示",
+      "description": "试炼前买，死了不退。"
+    },
+    {
+      "id": "map_zhuimo",
+      "display": "坠魔谷残图",
+      "type": "map",
+      "effect": "外谷资源/内谷危险分区",
+      "description": "有图仍高死。"
+    },
+    {
+      "id": "map_kunwu",
+      "display": "昆吾入口线索",
+      "type": "map",
+      "effect": "开启昆吾线",
+      "description": "多线拼图，不单卖全图。"
+    },
+    {
+      "id": "contract_tianlan",
+      "display": "天澜契约信物",
+      "type": "bond",
+      "use": "圣兽关系",
+      "description": "不可交易的情谊物。"
+    },
+    {
+      "id": "bond_nangong",
+      "display": "双修信物（南宫）",
+      "type": "bond",
+      "items_hint": ["六丁天甲", "落云归属"],
+      "description": "道侣线关键，非货架。"
+    },
+    {
+      "id": "bond_yuanyao",
+      "display": "元瑶灵兽托付",
+      "type": "bond",
+      "effect": "啼魂归属稳定",
+      "description": "人情绑定养成。"
+    },
+    {
+      "id": "qu_er_snack",
+      "display": "曲儿偏好「点心」",
+      "type": "feed_special",
+      "contains": ["麝兰兽粪制品", "灵土"],
+      "description": "活参开智后的羁绊道具。"
+    },
+    {
+      "id": "yin_yue_gift",
+      "display": "银月喜好物",
+      "type": "gift",
+      "examples": ["幻术玉简", "雪域珍饰"],
+      "description": "高智伙伴好感。"
+    },
+    {
+      "id": "zhi_xian_yang",
+      "display": "织纤温养液",
+      "type": "feed_special",
+      "contains": ["醇液", "回阳稀释结构", "灵雨"],
+      "description": "玄天藤活物日常。"
+    },
+    {
+      "id": "second_yuanying_kit",
+      "display": "第二元婴准备套",
+      "type": "kit",
+      "contains": ["离魂术", "天绝魔尸", "至木灵婴线索", "魔功分修"],
+      "risk": "反噬夺舍",
+      "description": "魔道高阶保命线。"
+    },
+    {
+      "id": "sanzhuan_kit",
+      "display": "三转重元执行套",
+      "type": "kit",
+      "contains": ["散功护符", "海量丹", "死士护关", "时间"],
+      "description": "结丹率换脆弱期。"
+    },
+    {
+      "id": "zaohua_ready",
+      "display": "造化丹急炼箱",
+      "type": "kit",
+      "contains": ["灵烛果保鲜禁制", "辅药", "元婴精血针", "便携炉"],
+      "description": "摘果后倒计时。"
+    },
+    {
+      "id": "peiying_ready",
+      "display": "培婴丹协作箱",
+      "type": "kit",
+      "contains": ["阴芝马活体禁制", "丹方", "富成人情", "阴药"],
+      "description": "阴阳窟后半程。"
+    },
+    {
+      "id": "top_stone_stack",
+      "display": "极品灵石（堆）",
+      "type": "currency",
+      "use": ["化神", "大阵", "矿战"],
+      "description": "人界货币顶。堆而非单。"
+    },
+    {
+      "id": "mid_high_stone_chest",
+      "display": "中上品灵石箱",
+      "type": "currency",
+      "description": "结丹元婴跑商单位。"
+    },
+    {
+      "id": "war_merit_badge",
+      "display": "九国盟军功章",
+      "type": "currency",
+      "exchange": ["庚精", "藤根茎", "疗伤"],
+      "description": "边界赌战。"
+    },
+    {
+      "id": "tianyuan_badge",
+      "display": "天渊功勋印",
+      "type": "currency",
+      "exchange": ["灵地", "护劫", "真蟾", "天雷木"],
+      "description": "飞升修士主币。"
+    },
+    {
+      "id": "storage_bag_scan_charm",
+      "display": "储物袋检视符",
+      "type": "utility",
+      "effect": "降低开袋禁制风险",
+      "description": "见 storage_bag_loot 模板。"
+    },
+    {
+      "id": "identity_mask_high",
+      "display": "高阶易容全套",
+      "type": "stealth",
+      "contains": ["换形诀运转", "敛息", "面具法器"],
+      "break": "法力低于三成/强神识",
+      "description": "潜入大晋/魔道用。"
+    },
+    {
+      "id": "sect_contrib_note",
+      "display": "宗门贡献契",
+      "type": "currency",
+      "use": ["功法权限", "丹配额", "洞府"],
+      "description": "黄枫/落云等通用。"
+    },
+    {
+      "id": "auction_paddle",
+      "display": "拍卖腰牌",
+      "type": "token",
+      "effect": "入场资格",
+      "venues": ["晋京地下", "寸金阁", "天渊"],
+      "description": "无牌不得举牌。"
+    },
+    {
+      "id": "poison_ten_sample_box",
+      "display": "十绝毒样箱（封）",
+      "type": "quest",
+      "effect": "教学/任务鉴定",
+      "risk": "解封即死危机",
+      "description": "毒门考核道具。"
+    },
+    {
+      "id": "antidote_cabinet",
+      "display": "洞府解毒柜",
+      "type": "furniture",
+      "contains": "常见解+空瓶位",
+      "description": "药园主与旅修刚需家具。"
+    },
+    {
+      "id": "beast_stable",
+      "display": "灵兽厩（洞府）",
+      "type": "furniture",
+      "effect": "安定多宠、降暴毙",
+      "description": "养成系统基础设施。"
+    },
+    {
+      "id": "insect_nest_box",
+      "display": "虫巢箱",
+      "type": "furniture",
+      "effect": "虫群繁殖与温控",
+      "description": "噬金/蛛/蚣温床。"
+    },
+    {
+      "id": "array_flag_set_wuxing",
+      "display": "颠倒五行旗组",
+      "type": "array",
+      "price": [5000, 50000],
+      "description": "护府困敌。见阵法图鉴。"
+    },
+    {
+      "id": "juling_flag_set",
+      "display": "聚灵阵旗组",
+      "type": "array",
+      "price": [100, 2000],
+      "description": "洞府修炼效率。"
+    },
+    {
+      "id": "geng_jian_zhen_ready",
+      "display": "大庚剑阵布置包",
+      "type": "array",
+      "req": ["剑组", "庚精", "神识"],
+      "description": "元婴剑修终极战场件。"
+    },
+    {
+      "id": "desc_palm_bottle_reminder",
+      "display": "掌天瓶（再强调）",
+      "type": "unique",
+      "rules": ["禁交易", "绿液次数帽", "长冷却", "防与芥子叠爆经济"],
+      "description": "任何配装表不得把瓶当常规增长器。"
+    },
+    {
+      "id": "desc_green_liquid_cap",
+      "display": "绿液使用规则简",
+      "type": "rule_item",
+      "effect": "设计备忘：药龄催熟有年度/次数上限",
+      "description": "平衡用元规则，可做成世界书。"
+    },
+    {
+      "id": "companion_care_manual",
+      "display": "灵兽养护通则玉简",
+      "type": "manual",
+      "content": "喂养、战损、反噬、槽位",
+      "description": "对应 spirit_beast_growth_v99。"
+    },
+    {
+      "id": "poison_field_manual",
+      "display": "毒物识别简",
+      "type": "manual",
+      "content": "十类毒向量与急救",
+      "description": "对应 ten_poisons_antidotes_v99。"
+    },
+    {
+      "id": "loadout_manual",
+      "display": "境界配装建言简",
+      "type": "manual",
+      "content": "凡人至大乘推荐件",
+      "description": "对应 loadout_by_realm_v99。"
+    }
+  ]
+}

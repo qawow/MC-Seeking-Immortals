@@ -1,0 +1,624 @@
+{
+  "schema_version": 1,
+  "source": "v139 区域卡细化：天南宗门驻地 + 乱星海岛",
+  "disclaimer": "摘要级驻地/岛屿卡，非全百科",
+  "tiannan_sect_cards": [
+    {
+      "id": "sect_card_huangfeng_gu",
+      "sect_id": "huangfeng_gu",
+      "display": "黄枫谷",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "wood_herb",
+        "herb",
+        "generalist"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "综合散功",
+        "药园",
+        "玩家友好开局"
+      ],
+      "summary": "综合药园、玩家友好开局",
+      "node": "node_tiannan_huangfeng",
+      "structures_typical": [
+        "cave_dwelling_core",
+        "spirit_gathering_array",
+        "spirit_herb_planter",
+        "alchemy_furnace_g1",
+        "contribution_stele",
+        "inner_sect_task_board"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_huangfeng_gu",
+      "opening_if_any": "start_huangfeng_outer",
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_yanyue_zong",
+      "sect_id": "yanyue_zong",
+      "display": "掩月宗",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "demonic_dual",
+        "moon_charm"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "双修分支",
+        "七派之首"
+      ],
+      "summary": "七派之首气质、双修/魔道分支",
+      "node": "node_yanyue",
+      "structures_typical": [
+        "dual_cultivation_chamber",
+        "illusion_array_hub",
+        "blood_sacrifice_altar",
+        "sect_formation_hub"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_yanyue_zong",
+      "opening_if_any": "start_yanyue",
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_qingxu_men",
+      "sect_id": "qingxu_men",
+      "display": "清虚门",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "sword",
+        "sword"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "剑修清修"
+      ],
+      "summary": "剑修清修",
+      "node": "node_qingxu",
+      "structures_typical": [
+        "weapon_rack_artifact",
+        "meditation_chamber",
+        "refinement_forge_g1"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_qingxu_men",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_lingshou_shan",
+      "sect_id": "lingshou_shan",
+      "display": "灵兽山",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "beast",
+        "beast_tame"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "灵兽",
+        "可倒戈御灵"
+      ],
+      "summary": "灵兽御兽",
+      "node": null,
+      "structures_typical": [
+        "spirit_beast_pen",
+        "beast_contract_altar",
+        "spirit_beast_evolution_pool"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_lingshou_shan",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_huadao_wu",
+      "sect_id": "huadao_wu",
+      "display": "化刀坞",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "blade",
+        "blade"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "刀法器修"
+      ],
+      "summary": "刀法器修",
+      "node": null,
+      "structures_typical": [
+        "refinement_forge_g1",
+        "weapon_rack_artifact",
+        "spirit_fire_brazier"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_huadao_wu",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_tianque_bao",
+      "sect_id": "tianque_bao",
+      "display": "天阙堡",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "fortress",
+        "defense"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "堡垒防御"
+      ],
+      "summary": "堡垒防御",
+      "node": null,
+      "structures_typical": [
+        "sect_formation_hub",
+        "kill_array_hub",
+        "formation_flag_post",
+        "tianyuan_wall_segment"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_tianque_bao",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_jujian_men",
+      "sect_id": "jujian_men",
+      "display": "巨剑门",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "heavy_sword",
+        "heavy_sword"
+      ],
+      "camp": "yue_seven",
+      "specialty": [
+        "重剑"
+      ],
+      "summary": "重剑",
+      "node": null,
+      "structures_typical": [
+        "weapon_rack_artifact",
+        "refinement_forge_g3",
+        "meditation_chamber"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_jujian_men",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_luoyun_zong",
+      "sect_id": "luoyun_zong",
+      "display": "落云宗",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "cloud",
+        "generalist"
+      ],
+      "camp": "tiandao_meng",
+      "specialty": [
+        "云梦山",
+        "后期玩家长老向"
+      ],
+      "summary": "云梦山、后期长老向",
+      "node": null,
+      "structures_typical": [
+        "scripture_pavilion_shelf",
+        "sect_formation_hub",
+        "meditation_chamber"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_luoyun_zong",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_qianzhu_jiao",
+      "sect_id": "qianzhu_jiao",
+      "display": "千竹教",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "puppet",
+        "puppet"
+      ],
+      "camp": "extreme_west",
+      "specialty": [
+        "傀儡",
+        "大衍决关联"
+      ],
+      "summary": "傀儡与大衍关联",
+      "node": null,
+      "structures_typical": [
+        "puppet_workshop",
+        "puppet_assembly_bench",
+        "qianzhu_control_console"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_qianzhu_jiao",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_wanmiao_guan",
+      "sect_id": "wanmiao_guan",
+      "display": "万妙观",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "talisman",
+        "talisman"
+      ],
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "符道"
+      ],
+      "summary": "符道",
+      "node": null,
+      "structures_typical": [
+        "talisman_table",
+        "scripture_pavilion_shelf"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_wanmiao_guan",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_shenbing_men",
+      "sect_id": "shenbing_men",
+      "display": "神兵门",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "refinement",
+        "artifact"
+      ],
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "炼器"
+      ],
+      "summary": "炼器",
+      "node": null,
+      "structures_typical": [
+        "refinement_forge_g3",
+        "spirit_fire_brazier",
+        "ice_crystal_cooler"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_shenbing_men",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_tianxing_zong",
+      "sect_id": "tianxing_zong",
+      "display": "天星宗",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "formation",
+        "array"
+      ],
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "阵法"
+      ],
+      "summary": "阵法",
+      "node": null,
+      "structures_typical": [
+        "spirit_gathering_array",
+        "array_maintenance_obelisk",
+        "teleport_array_pedestal"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_tianxing_zong",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_hehuan_zong",
+      "sect_id": "hehuan_zong",
+      "display": "合欢宗",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "demonic_dual",
+        "dual_cultivation",
+        "charm"
+      ],
+      "camp": "modao_liuzong",
+      "specialty": [
+        "双修",
+        "采补",
+        "魔道之首"
+      ],
+      "summary": "魔道双修采补",
+      "node": null,
+      "structures_typical": [
+        "dual_cultivation_chamber",
+        "illusion_array_hub"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_hehuan_zong",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    },
+    {
+      "id": "sect_card_guiling_men",
+      "sect_id": "guiling_men",
+      "display": "鬼灵门",
+      "region_parent": "region_tiannan",
+      "dimension": "seeking_immortals:mortal_world",
+      "path_tags": [
+        "ghost",
+        "ghost",
+        "blood"
+      ],
+      "camp": "modao_liuzong",
+      "specialty": [
+        "鬼道",
+        "血祭",
+        "九魂"
+      ],
+      "summary": "鬼道血祭",
+      "node": null,
+      "structures_typical": [
+        "soul_banner_altar",
+        "corpse_refinement_pit",
+        "blood_sacrifice_altar"
+      ],
+      "travel": [
+        "mortal_intra_tiannan",
+        "fixed_teleport_array"
+      ],
+      "rep_id_hint": "rep_guiling_men",
+      "opening_if_any": null,
+      "risks": [
+        "sect_war",
+        "contribution_gate",
+        "inner_outer_acl"
+      ]
+    }
+  ],
+  "chaotic_sea_island_cards": [
+    {
+      "id": "island_star_palace_core",
+      "display": "星宫本岛/核心岛",
+      "control": "star_palace",
+      "summary": "秩序中枢，传送网与补天丹配额叙事。",
+      "structures": [
+        "star_palace_teleport_gate",
+        "sect_formation_hub",
+        "spirit_stone_vault",
+        "auction_display_dais"
+      ],
+      "nodes": [
+        "node_star_palace",
+        "node_chaotic_sea_hub"
+      ],
+      "travel": [
+        "mortal_chaotic_sea_internal"
+      ],
+      "risks": [
+        "registration",
+        "law_enforcement"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_outer_market",
+      "display": "外星海坊市岛",
+      "control": "neutral_merchants",
+      "summary": "散修与商队集散，税与海盗并存。",
+      "structures": [
+        "market_stall_counter",
+        "warehouse_loading_bay",
+        "flying_boat_dock",
+        "chaotic_sea_island_lighthouse"
+      ],
+      "nodes": [
+        "node_chaotic_sea_hub"
+      ],
+      "risks": [
+        "pirate",
+        "tax"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_inverse_hide",
+      "display": "逆星暗岛",
+      "control": "inverse_star_alliance",
+      "summary": "走私与匿踪，星宫通缉目标。",
+      "structures": [
+        "inverse_star_smuggle_dock",
+        "illusion_array_hub",
+        "ownership_stele"
+      ],
+      "nodes": [
+        "node_inverse_star_hideout"
+      ],
+      "risks": [
+        "patrol_raid",
+        "betrayal"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_miaoyin",
+      "display": "妙音门驻岛",
+      "control": "miaoyin_men",
+      "summary": "音律门派，共鸣台与客卿往来。",
+      "structures": [
+        "miaoyin_resonance_platform",
+        "meditation_chamber",
+        "scripture_pavilion_shelf"
+      ],
+      "nodes": [
+        "node_miaoyin"
+      ],
+      "risks": [
+        "faction_quest_only"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_lighthouse_chain",
+      "display": "灯塔链礁",
+      "control": "shared_or_contested",
+      "summary": "破雾导航节点，可被海盗破坏。",
+      "structures": [
+        "chaotic_sea_island_lighthouse",
+        "flying_boat_dock"
+      ],
+      "nodes": [],
+      "risks": [
+        "sabotage",
+        "storm"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_abyss_edge",
+      "display": "深渊裂隙边缘岛",
+      "control": "none",
+      "summary": "高阶海兽与走私航线，连 chaotic_sea_abyss_rift。",
+      "structures": [
+        "fallen_demon_rift"
+      ],
+      "secret_realm": "chaotic_sea_abyss_rift",
+      "risks": [
+        "high_beast",
+        "rift_event"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    },
+    {
+      "id": "island_xutian_window",
+      "display": "虚天窗口集结岛",
+      "control": "multi_faction",
+      "summary": "虚天殿开启前多方集结、钥碎片交易。",
+      "structures": [
+        "market_stall_counter",
+        "auction_display_dais",
+        "teleport_array_pedestal"
+      ],
+      "secret_realm": "xutian_palace",
+      "risks": [
+        "espionage",
+        "pre_contest_pvp"
+      ],
+      "region_parent": "region_chaotic_sea",
+      "dimension": "seeking_immortals:mortal_world"
+    }
+  ],
+  "extends": "region_cards_v138.json"
+}

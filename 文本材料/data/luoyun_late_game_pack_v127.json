@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "source": "v127 落云宗后期线",
+  "pack": {
+    "sect_id": "luoyun_sect",
+    "display": "落云宗",
+    "track": "late_game_elder",
+    "role": "云梦山后期玩家长老向；丹道+护宗+元婴权限",
+    "novel_arc": [
+      {
+        "when": "入落云",
+        "methods": [
+          "luoyun_cloud_dream_art",
+          "luoyun_dan_dao"
+        ],
+        "note": "结丹后投宗气质"
+      },
+      {
+        "when": "元婴长老",
+        "methods": [
+          "luoyun_elder_seal_art"
+        ],
+        "note": "韩立长老线"
+      },
+      {
+        "when": "兼容青元",
+        "methods": [
+          "qingyuan_sword_art"
+        ],
+        "note": "托剑技兼容，不强制转修"
+      }
+    ],
+    "methods": [
+      "luoyun_cloud_dream_art",
+      "luoyun_elder_seal_art",
+      "luoyun_dan_dao"
+    ],
+    "compatible_player_methods": [
+      "qingyuan_sword_art",
+      "dayan_art",
+      "yuanci_shenguang_art"
+    ],
+    "method_layer_tables": [
+      {
+        "method_id": "luoyun_cloud_dream_art",
+        "display": "落云梦诀",
+        "total_layers": 4,
+        "layer_model": "luoyun_late_v127",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "入宗云基",
+            "realm_band": "CORE_FORMATION",
+            "unlock_technique_ids": [
+              "luoyun_cloud_mist_escape",
+              "luoyun_cloud_blade"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_cloud_mist_escape",
+              "luoyun_cloud_blade"
+            ],
+            "note": "雾遁与云刃"
+          },
+          {
+            "layer": 2,
+            "layer_name": "丹火战转",
+            "realm_band": "CORE_FORMATION",
+            "unlock_technique_ids": [
+              "luoyun_cloud_mist_escape",
+              "luoyun_cloud_blade",
+              "luoyun_spirit_flame_combat",
+              "luoyun_cloud_sword_assist"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_spirit_flame_combat",
+              "luoyun_cloud_sword_assist"
+            ],
+            "note": "丹火战用、托剑"
+          },
+          {
+            "layer": 3,
+            "layer_name": "护宗协同",
+            "realm_band": "CORE_FORMATION",
+            "unlock_technique_ids": [
+              "luoyun_cloud_mist_escape",
+              "luoyun_cloud_blade",
+              "luoyun_spirit_flame_combat",
+              "luoyun_cloud_sword_assist",
+              "luoyun_sect_guard_array"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_sect_guard_array"
+            ],
+            "note": "小阵"
+          },
+          {
+            "layer": 4,
+            "layer_name": "长老预备",
+            "realm_band": "NASCENT_SOUL",
+            "unlock_technique_ids": [
+              "luoyun_cloud_mist_escape",
+              "luoyun_cloud_blade",
+              "luoyun_spirit_flame_combat",
+              "luoyun_cloud_sword_assist",
+              "luoyun_sect_guard_array"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_cloud_mist_escape"
+            ],
+            "note": "境界够可接印诀"
+          }
+        ],
+        "v127": true
+      },
+      {
+        "method_id": "luoyun_elder_seal_art",
+        "display": "落云长老印诀",
+        "total_layers": 3,
+        "layer_model": "luoyun_elder_v127",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "长老印",
+            "realm_band": "NASCENT_SOUL",
+            "unlock_technique_ids": [
+              "luoyun_elder_seal",
+              "luoyun_message_talisman_net"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_elder_seal",
+              "luoyun_message_talisman_net"
+            ],
+            "note": "戒律与传讯"
+          },
+          {
+            "layer": 2,
+            "layer_name": "大阵节点",
+            "realm_band": "NASCENT_SOUL",
+            "unlock_technique_ids": [
+              "luoyun_elder_seal",
+              "luoyun_message_talisman_net",
+              "luoyun_grand_array_node"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_grand_array_node"
+            ],
+            "note": "护宗大阵"
+          },
+          {
+            "layer": 3,
+            "layer_name": "宗门话事",
+            "realm_band": "DEITY_TRANSFORMATION",
+            "unlock_technique_ids": [
+              "luoyun_elder_seal",
+              "luoyun_message_talisman_net",
+              "luoyun_grand_array_node"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_grand_array_node",
+              "luoyun_elder_seal"
+            ],
+            "note": "更高权限叙事"
+          }
+        ],
+        "v127": true
+      },
+      {
+        "method_id": "luoyun_dan_dao",
+        "display": "落云丹道诀",
+        "total_layers": 3,
+        "layer_model": "luoyun_craft_v127",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "稳炉",
+            "realm_band": "FOUNDATION",
+            "unlock_technique_ids": [
+              "luoyun_refine_flame_steady",
+              "luoyun_spirit_flame"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_refine_flame_steady",
+              "luoyun_spirit_flame"
+            ],
+            "note": "炉火"
+          },
+          {
+            "layer": 2,
+            "layer_name": "急丹",
+            "realm_band": "FOUNDATION",
+            "unlock_technique_ids": [
+              "luoyun_refine_flame_steady",
+              "luoyun_spirit_flame",
+              "luoyun_pill_emergency"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_pill_emergency"
+            ],
+            "note": "战疗辅助"
+          },
+          {
+            "layer": 3,
+            "layer_name": "丹道大成",
+            "realm_band": "CORE_FORMATION",
+            "unlock_technique_ids": [
+              "luoyun_refine_flame_steady",
+              "luoyun_spirit_flame",
+              "luoyun_pill_emergency"
+            ],
+            "unlock_new_this_layer": [
+              "luoyun_spirit_flame",
+              "luoyun_refine_flame_steady"
+            ],
+            "note": "顶级丹职"
+          }
+        ],
+        "v127": true
+      }
+    ],
+    "techniques": [
+      {
+        "id": "luoyun_cloud_sword_assist",
+        "display": "落云托剑",
+        "requires_method": "luoyun_cloud_dream_art",
+        "realm_min": "CORE_FORMATION",
+        "file": "sword.json"
+      },
+      {
+        "id": "luoyun_spirit_flame",
+        "display": "落云灵焰",
+        "requires_method": "luoyun_dan_dao",
+        "realm_min": "FOUNDATION",
+        "file": "elemental.json"
+      },
+      {
+        "id": "luoyun_cloud_mist_escape",
+        "display": "落云雾遁",
+        "requires_method": "luoyun_cloud_dream_art",
+        "realm_min": "CORE_FORMATION",
+        "file": "elemental.json"
+      },
+      {
+        "id": "luoyun_cloud_blade",
+        "display": "落云刃",
+        "requires_method": "luoyun_cloud_dream_art",
+        "realm_min": "CORE_FORMATION",
+        "file": "elemental.json"
+      },
+      {
+        "id": "luoyun_spirit_flame_combat",
+        "display": "落云丹火（战）",
+        "requires_method": "luoyun_cloud_dream_art",
+        "realm_min": "FOUNDATION",
+        "file": "elemental.json"
+      },
+      {
+        "id": "luoyun_refine_flame_steady",
+        "display": "落云稳炉火",
+        "requires_method": "luoyun_dan_dao",
+        "realm_min": "FOUNDATION",
+        "file": "elemental.json"
+      },
+      {
+        "id": "luoyun_sect_guard_array",
+        "display": "落云护宗小阵",
+        "requires_method": "luoyun_cloud_dream_art",
+        "realm_min": "CORE_FORMATION",
+        "file": "formation.json"
+      },
+      {
+        "id": "luoyun_elder_seal",
+        "display": "落云长老印",
+        "requires_method": "luoyun_elder_seal_art",
+        "realm_min": "NASCENT_SOUL",
+        "file": "formation.json"
+      },
+      {
+        "id": "luoyun_message_talisman_net",
+        "display": "落云传讯网",
+        "requires_method": "luoyun_elder_seal_art",
+        "realm_min": "NASCENT_SOUL",
+        "file": "formation.json"
+      },
+      {
+        "id": "luoyun_grand_array_node",
+        "display": "落云大阵节点催",
+        "requires_method": "luoyun_elder_seal_art",
+        "realm_min": "NASCENT_SOUL",
+        "file": "formation.json"
+      },
+      {
+        "id": "luoyun_pill_emergency",
+        "display": "落云急丹引",
+        "requires_method": "luoyun_dan_dao",
+        "realm_min": "FOUNDATION",
+        "file": "recovery.json"
+      }
+    ],
+    "technique_count": 11
+  },
+  "han_li_hooks": [
+    "入落云宗、云梦山",
+    "元婴任长老",
+    "与南宫婉线、护宗",
+    "青元/大衍/元磁可并存"
+  ]
+}

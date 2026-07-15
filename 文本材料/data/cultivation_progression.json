@@ -183,5 +183,46 @@
     "tribulation_rules.json",
     "beast_tier_schema.json",
     "tribulation_master_schema.json"
+  ],
+  "v130_xianjie_extension": {
+    "file": "immortal_realms_v130.json",
+    "note": "飞升后境界见 immortal_realms_v130.json；人界 realms 列表保持兼容"
+  },
+  "extended_realms_v130": [
+    {
+      "id": "TRUE_IMMORTAL",
+      "display": "真仙",
+      "order": 10,
+      "region": "xianjie",
+      "note": "初入仙途"
+    },
+    {
+      "id": "GOLDEN_IMMORTAL",
+      "display": "金仙",
+      "order": 11,
+      "region": "xianjie",
+      "note": "金仙境"
+    },
+    {
+      "id": "TAIYI_GOLDEN_IMMORTAL",
+      "display": "太乙金仙",
+      "order": 12,
+      "region": "xianjie",
+      "note": "太乙"
+    },
+    {
+      "id": "DALUO_GOLDEN_IMMORTAL",
+      "display": "大罗金仙",
+      "order": 13,
+      "region": "xianjie",
+      "note": "大罗"
+    },
+    {
+      "id": "DAO_ANCESTOR_BAND",
+      "display": "道祖带（终局）",
+      "order": 14,
+      "region": "xianjie",
+      "note": "可玩终局带，不展开全权能"
+    }
   ]
 }

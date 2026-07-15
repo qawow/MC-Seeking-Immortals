@@ -18,7 +18,10 @@
       "setting": {
         "lore": "黄枫谷"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "黄枫谷：越国七派之一，药园与综合传承见长，玩家友好开局。贡献制严，血色配额看贡献与门派选拔。战力非七派最强，胜在稳与资源线。",
+      "description": "黄枫谷：越国七派之一，药园与综合传承见长，玩家友好开局。贡献制严，血色配额看贡献与门派选拔。战力非七派最强，胜在稳与资源线。",
+      "v144": true
     },
     {
       "id": "yanyue_sect",
@@ -29,7 +32,10 @@
       "setting": {
         "lore": "掩月宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "掩月宗：七派之首气质，双修与魔道手段并立，与正道关隘摩擦多。人情与仇怨都重，禁地与外事话语权大。",
+      "description": "掩月宗：七派之首气质，双修与魔道手段并立，与正道关隘摩擦多。人情与仇怨都重，禁地与外事话语权大。",
+      "v144": true
     },
     {
       "id": "spirit_beast_mountain",
@@ -40,7 +46,10 @@
       "setting": {
         "lore": "灵兽山"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "灵兽山：御兽、血脉与契约。可与御灵宗有倒戈/竞合叙事。洞府多灵兽设施。",
+      "description": "灵兽山：御兽、血脉与契约。可与御灵宗有倒戈/竞合叙事。洞府多灵兽设施。",
+      "v144": true
     },
     {
       "id": "qingxu_gate",
@@ -51,7 +60,10 @@
       "setting": {
         "lore": "清虚门"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "清虚门：剑修清修，门风冷淡，重剑心日课。",
+      "description": "清虚门：剑修清修，门风冷淡，重剑心日课。",
+      "v144": true
     },
     {
       "id": "huadao_wu",
@@ -60,7 +72,10 @@
       "setting": {
         "lore": "化刀坞"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "化刀坞：刀法器修，重兵刃炼与杀伐。",
+      "description": "化刀坞：刀法器修，重兵刃炼与杀伐。",
+      "v144": true
     },
     {
       "id": "tianque_fort",
@@ -69,7 +84,10 @@
       "setting": {
         "lore": "天阙堡"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "天阙堡：堡垒防御与阵守，边战友好。",
+      "description": "天阙堡：堡垒防御与阵守，边战友好。",
+      "v144": true
     },
     {
       "id": "giant_sword_gate",
@@ -78,7 +96,10 @@
       "setting": {
         "lore": "巨剑门"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "巨剑门：重剑开山，灵耗高，宜体魄并修。",
+      "description": "巨剑门：重剑开山，灵耗高，宜体魄并修。",
+      "v144": true
     },
     {
       "id": "qixuan_men",
@@ -87,7 +108,10 @@
       "setting": {
         "lore": "七玄门"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "七玄门：凡人武馆/入仙跳板气质，墨大夫线启蒙，非常规高阶仙门。",
+      "description": "七玄门：凡人武馆/入仙跳板气质，墨大夫线启蒙，非常规高阶仙门。",
+      "v144": true
     },
     {
       "id": "ghost_spirit_gate",
@@ -96,7 +120,10 @@
       "setting": {
         "lore": "鬼灵门"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "鬼灵门：鬼道摄魂炼尸，与阴罗、冥河浅层相合；正道声望 reciprocal。",
+      "description": "鬼灵门：鬼道摄魂炼尸，与阴罗、冥河浅层相合；正道声望 reciprocal。",
+      "v144": true
     },
     {
       "id": "hehuan_sect",
@@ -105,7 +132,10 @@
       "setting": {
         "lore": "合欢宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "合欢宗：魔道双修采补，心性与因果风险高。",
+      "description": "合欢宗：魔道双修采补，心性与因果风险高。",
+      "v144": true
     },
     {
       "id": "moyan_gate",
@@ -114,7 +144,10 @@
       "setting": {
         "lore": "魔焰门"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "魔焰门：魔焰火毒，攻伐狠、污名重。",
+      "description": "魔焰门：魔焰火毒，攻伐狠、污名重。",
+      "v144": true
     },
     {
       "id": "tiansha_sect",
@@ -123,7 +156,10 @@
       "setting": {
         "lore": "天煞宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "天煞宗：煞功附身，险修。",
+      "description": "天煞宗：煞功附身，险修。",
+      "v144": true
     },
     {
       "id": "yuling_sect",
@@ -132,7 +168,10 @@
       "setting": {
         "lore": "御灵宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "御灵宗：驱虫灵婴御兽，与灵兽山竞合。",
+      "description": "御灵宗：驱虫灵婴御兽，与灵兽山竞合。",
+      "v144": true
     },
     {
       "id": "qianhuan_sect",
@@ -141,7 +180,10 @@
       "setting": {
         "lore": "千幻宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "千幻宗：幻术渗透，侦察与刺杀友好。",
+      "description": "千幻宗：幻术渗透，侦察与刺杀友好。",
+      "v144": true
     },
     {
       "id": "luoyun_sect",
@@ -150,7 +192,10 @@
       "setting": {
         "lore": "落云宗"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "落云宗：云梦山，中后期长老/客卿向舞台。",
+      "description": "落云宗：云梦山，中后期长老/客卿向舞台。",
+      "v144": true
     },
     {
       "id": "star_palace",
@@ -165,7 +210,10 @@
         "reputation": {
           "register_required": true
         }
-      }
+      },
+      "lore_v144": "星宫：乱星海秩序中枢。登记、传送网、征税与补天级配额叙事；与逆星死对立。",
+      "description": "星宫：乱星海秩序中枢。登记、传送网、征税与补天级配额叙事；与逆星死对立。",
+      "v144": true
     },
     {
       "id": "inverse_star_alliance",
@@ -180,7 +228,10 @@
         "reputation": {
           "hostile_to": "star_palace"
         }
-      }
+      },
+      "lore_v144": "逆星盟：反星宫暗线，走私暗港，暗号接头，高风险高回报。",
+      "description": "逆星盟：反星宫暗线，走私暗港，暗号接头，高风险高回报。",
+      "v144": true
     },
     {
       "id": "qianzhu_teach",
@@ -189,7 +240,10 @@
       "setting": {
         "lore": "千竹教"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "千竹教：傀儡机关，大衍残篇权重，完整大衍不保底。",
+      "description": "千竹教：傀儡机关，大衍残篇权重，完整大衍不保底。",
+      "v144": true
     },
     {
       "id": "mulan_fashi_council",
@@ -198,7 +252,10 @@
       "setting": {
         "lore": "慕兰神师府"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "慕兰神师府：草原符师与风灵石军功经济，战时锁边。",
+      "description": "慕兰神师府：草原符师与风灵石军功经济，战时锁边。",
+      "v144": true
     },
     {
       "id": "tianlan_temple",
@@ -209,7 +266,24 @@
       "setting": {
         "lore": "天澜圣殿"
       },
-      "learn_requirements": {}
+      "learn_requirements": {},
+      "lore_v144": "天澜圣殿：佛力降魔，与慕兰对峙的另一端。",
+      "description": "天澜圣殿：佛力降魔，与慕兰对峙的另一端。",
+      "v144": true
+    },
+    {
+      "id": "miaoyin_men",
+      "display": "妙音门",
+      "region": "chaotic_sea",
+      "archetype": "sound_illusion",
+      "note": "音律摄神；名义长老线",
+      "setting": {
+        "lore": "乱星海妙音门"
+      },
+      "learn_requirements": {},
+      "lore_v144": "妙音门：音律神识，乱星海中立偏门，共鸣台与客卿往来。",
+      "description": "妙音门：音律神识，乱星海中立偏门，共鸣台与客卿往来。",
+      "v144": true
     }
   ],
   "edges": [
@@ -282,6 +356,20 @@
       "type": "war",
       "weight": -50,
       "virtual_node": true
+    },
+    {
+      "from": "miaoyin_men",
+      "to": "star_palace",
+      "type": "trade",
+      "weight": 20,
+      "note": "可交好"
+    },
+    {
+      "from": "miaoyin_men",
+      "to": "inverse_star_alliance",
+      "type": "rivalry",
+      "weight": -10,
+      "note": "谨慎往来"
     }
   ],
   "virtual_nodes": [
@@ -310,5 +398,7 @@
         "delta": -10
       }
     }
-  ]
+  ],
+  "v128": true,
+  "v144": true
 }

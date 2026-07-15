@@ -1,0 +1,928 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 灵药图鉴。整理自原著提及灵药与丹方关联；价格带为结构量级",
+  "disclaimer": "多灵药出自血色禁地、灵渺园、灵界等；生长环境与炼丹用途为结构参考，非精确原文",
+  "categories": {
+    "spirit_plant": {
+      "display": "灵草/灵药",
+      "note": "可入炼丹或生服"
+    },
+    "spirit_fruit": {
+      "display": "灵果",
+      "note": "以果实形态为主"
+    },
+    "spirit_fungus_moss": {
+      "display": "灵菌灵苔",
+      "note": "非常见草木"
+    },
+    "refined_essence": {
+      "display": "精粹/玉液",
+      "note": "半加工或精炼态"
+    },
+    "tribulation_aid": {
+      "display": "渡劫辅助",
+      "note": "特定渡劫用途"
+    },
+    "ingredient_only": {
+      "display": "主辅料",
+      "note": "仅用于炼制，不可直接服"
+    }
+  },
+  "herbs": [
+    {
+      "id": "yu_sui_zhi",
+      "display": "玉髓芝",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "筑基丹主料之一",
+      "growth_condition": "灵气充裕秘境；血色禁地有产",
+      "rarity_tier": 3,
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "setting": {
+        "lore": "炼气突破筑基的必要主药结构之一；禁地周期刷新。"
+      },
+      "appearance": "玉色灵芝，髓光内蕴",
+      "description": "筑基丹主料之一。炼气突破筑基的必要主药结构之一；禁地周期刷新。",
+      "description_v143": "玉髓芝：筑基丹主料之一。参考价下品灵石 [10, 50]。血色药田高价值点；筑基丹主料之一",
+      "quest_sources_v143": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "v143": true
+    },
+    {
+      "id": "zi_hou_hua",
+      "display": "紫猴花",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "筑基丹主料之二",
+      "growth_condition": "同血色禁地区域",
+      "rarity_tier": 3,
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "setting": {
+        "lore": "与玉髓芝、天灵果、千年灵草并称筑基丹四大主料。"
+      },
+      "appearance": "紫色灵花，花形如猿猴意象",
+      "description": "筑基丹主料之二。与玉髓芝、天灵果、千年灵草并称筑基丹四大主料。",
+      "description_v143": "紫猴花：筑基丹主料之二。参考价下品灵石 [10, 50]。血色药田；筑基丹主料之二",
+      "quest_sources_v143": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "v143": true
+    },
+    {
+      "id": "tian_ling_guo",
+      "display": "天灵果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "筑基丹主料之三",
+      "growth_condition": "血色禁地灵树结果",
+      "rarity_tier": 3,
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "setting": {
+        "lore": "血色试炼核心产出之一；每批可炼约廿粒筑基丹。"
+      },
+      "appearance": "灵树所结天灵之果",
+      "description": "筑基丹主料之三。血色试炼核心产出之一；每批可炼约廿粒筑基丹。",
+      "description_v143": "天灵果：筑基丹主料之三。参考价下品灵石 [10, 50]。血色药田；筑基丹主料之三",
+      "quest_sources_v143": [
+        "blood_forbidden#bf_herb_ring",
+        "quest:blood_forbidden_run"
+      ],
+      "v143": true
+    },
+    {
+      "id": "nian_lian_cao",
+      "display": "霓裳草（诱妖草）",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_use": "诱妖/催熟妖兽繁殖",
+      "growth_condition": "野生稀有，每百年展一片叶，十三片全开约千三百年",
+      "rarity_tier": 4,
+      "price_low_stone": [
+        50,
+        300
+      ],
+      "special": "可吸引八级以下妖兽",
+      "setting": {
+        "lore": "韩立常用以诱杀妖兽获取内丹；亦可催熟部分灵虫。"
+      },
+      "appearance": "十三片圆筒卷叶，百年展一叶",
+      "description": "诱妖/催熟妖兽繁殖。韩立常用以诱杀妖兽获取内丹；亦可催熟部分灵虫。"
+    },
+    {
+      "id": "ban_yao_cao",
+      "display": "伴妖草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": "鉴定妖兽洞穴",
+      "growth_condition": "妖兽巢穴附近；颜色（黑/灰）与附近妖兽等级相关",
+      "rarity_tier": 2,
+      "price_low_stone": [
+        20,
+        80
+      ],
+      "setting": {
+        "lore": "伴妖草色预示妖兽强度，越深色越强。"
+      },
+      "appearance": "妖巢旁生长，色分黑灰示强弱",
+      "description": "鉴定妖兽洞穴。伴妖草色预示妖兽强度，越深色越强。"
+    },
+    {
+      "id": "xue_ya_mi",
+      "display": "血牙米",
+      "category": "refined_essence",
+      "realm_band": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "增进精血、改善肉身",
+      "growth_condition": "需特殊妖兽精血持续浇灌；巨型米粒形",
+      "rarity_tier": 6,
+      "price_unit": "粒",
+      "price_low_stone": [
+        500,
+        5000
+      ],
+      "setting": {
+        "lore": "体修/精血类丹药替代或强化用途；灵界也有类似产物。"
+      },
+      "appearance": "硕大如牙的赤红米粒",
+      "description": "增进精血、改善肉身。体修/精血类丹药替代或强化用途；灵界也有类似产物。"
+    },
+    {
+      "id": "yin_zao",
+      "display": "阴枣",
+      "category": "refined_essence",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "阴寒丹药辅料或生服",
+      "growth_condition": "长在阴年阴月阴日出生者坟墓上，三百年成果；再用冤魂怨气秘术炼七七四十九日",
+      "rarity_tier": 5,
+      "price_low_stone": [
+        200,
+        2000
+      ],
+      "setting": {
+        "lore": "阴属性罕见材料；鬼道秘术常用。"
+      },
+      "description": "阴寒丹药辅料或生服。阴属性罕见材料；鬼道秘术常用。"
+    },
+    {
+      "id": "jiu_qu_ling_shen",
+      "display": "九曲灵参",
+      "category": "spirit_plant",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "九曲灵参丹（增结婴几率）/ 化形灵参",
+      "growth_condition": "天地灵气所化，幻化成动物/昆虫四处活动，喜钻土入木",
+      "rarity_tier": 7,
+      "price_low_stone": [
+        5000,
+        50000
+      ],
+      "special": "配合玛瑙角、千叶露可炼九曲灵参丹",
+      "setting": {
+        "lore": "灵性极高的天地灵药；韩立在虚天殿得之，后进化为可化形灵参。"
+      },
+      "appearance": "善幻形钻土的活体灵参",
+      "description": "九曲灵参丹（增结婴几率）/ 化形灵参。灵性极高的天地灵药；韩立在虚天殿得之，后进化为可化形灵参。"
+    },
+    {
+      "id": "qi_xia_lian",
+      "display": "七霞莲",
+      "category": "spirit_plant",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "凡人服可起死回生白骨生肉，修士服可修为大涨连跳一阶",
+      "growth_condition": "传说级灵药，极难遇见",
+      "rarity_tier": 9,
+      "price_low_stone": [
+        50000,
+        500000
+      ],
+      "setting": {
+        "lore": "传说级灵药；原著中药力描述极高，模组中宜设稀有限制。"
+      },
+      "appearance": "七色霞光莲",
+      "description": "凡人服可起死回生白骨生肉，修士服可修为大涨连跳一阶。传说级灵药；原著中药力描述极高，模组中宜设稀有限制。"
+    },
+    {
+      "id": "ling_zhu_guo",
+      "display": "灵烛果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "炼制造化丹主材料",
+      "growth_condition": "数尺高翠绿灵草结火红果实；不可移植，摘后药性流失极快",
+      "rarity_tier": 7,
+      "price_low_stone": [
+        3000,
+        30000
+      ],
+      "special": "生吞可增进修为但不如炼丹",
+      "setting": {
+        "lore": "韩立在坠魔谷争抢之物；造化丹体验境界突破对化神下有效。"
+      },
+      "appearance": "果如红烛，叶翠绿",
+      "description": "炼制造化丹主材料。韩立在坠魔谷争抢之物；造化丹体验境界突破对化神下有效。",
+      "description_v143": "灵烛果：炼制造化丹主材料。参考价下品灵石 [3000, 30000]。坠魔谷 unique；造化主材，一生一次结构",
+      "quest_sources_v143": [
+        "zhuimo_valley#zm_candle",
+        "quest:lingzhu_fruit_run"
+      ],
+      "v143": true
+    },
+    {
+      "id": "yin_ning_cao",
+      "display": "阴凝草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "阴寒类丹药最佳药引",
+      "growth_condition": "百年期阴寒药性最强",
+      "rarity_tier": 4,
+      "price_low_stone": [
+        100,
+        800
+      ],
+      "setting": {
+        "lore": "炼制冰寒/阴属性丹药提升三分药性。"
+      },
+      "appearance": "阴寒药引草，百年期药性最强",
+      "description": "阴寒类丹药最佳药引。炼制冰寒/阴属性丹药提升三分药性。"
+    },
+    {
+      "id": "bing_ling_guo",
+      "display": "冰灵果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": "增进冰寒灵力",
+      "growth_condition": "拇指大小晶莹浆果，鲜美甘甜",
+      "rarity_tier": 4,
+      "price_low_stone": [
+        100,
+        500
+      ],
+      "setting": {
+        "lore": "冰属性灵果；可提升冰寒功法修行速度。"
+      },
+      "appearance": "拇指大晶莹浆果如珠",
+      "description": "增进冰寒灵力。冰属性灵果；可提升冰寒功法修行速度。"
+    },
+    {
+      "id": "han_sui",
+      "display": "寒髓",
+      "category": "refined_essence",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "渡化形雷劫保命 / 回阳真水主料",
+      "growth_condition": "万年冰玉中孕育；北夜小极宫传承宝物",
+      "rarity_tier": 9,
+      "price_low_stone": [
+        50000,
+        500000
+      ],
+      "special": "妖兽化形雷劫绝佳保命之物",
+      "setting": {
+        "lore": "极寒至宝；炼制回阳真水可白骨生肉延寿四分之一。"
+      },
+      "appearance": "冰玉中孕之至寒精髓",
+      "description": "渡化形雷劫保命 / 回阳真水主料。极寒至宝；炼制回阳真水可白骨生肉延寿四分之一。"
+    },
+    {
+      "id": "yang_hun_mu",
+      "display": "养魂木",
+      "category": "spirit_plant",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "滋养魂魄元神，壮大神识",
+      "growth_condition": "三大神木之一；佩带可慢慢壮大神识",
+      "rarity_tier": 8,
+      "price_low_stone": [
+        10000,
+        100000
+      ],
+      "special": "可寄居魂魄保证神智不散",
+      "setting": {
+        "lore": "韩立在虚天殿所得；大衍诀修炼者之绝配。"
+      },
+      "appearance": "可佩戴的养魂神木",
+      "description": "滋养魂魄元神，壮大神识。韩立在虚天殿所得；大衍诀修炼者之绝配。"
+    },
+    {
+      "id": "long_lin_guo",
+      "display": "龙鳞果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "脱胎换骨、炼体辅助",
+      "growth_condition": "移植需金蛟王级材料",
+      "rarity_tier": 9,
+      "price_low_stone": [
+        30000,
+        300000
+      ],
+      "setting": {
+        "lore": "仙家之果；服后脱胎换骨，对明王诀/炼体大有奇效。"
+      },
+      "appearance": "龙鳞纹灵果",
+      "description": "脱胎换骨、炼体辅助。仙家之果；服后脱胎换骨，对明王诀/炼体大有奇效。"
+    },
+    {
+      "id": "xuan_tian_xian_teng",
+      "display": "玄天仙藤（幼苗）",
+      "category": "spirit_plant",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "IMMORTAL"
+      ],
+      "primary_use": "可结玄天灵果，无视一界法则",
+      "growth_condition": "开天辟地混沌初生时就已存在的最古老藤蔓类灵根",
+      "rarity_tier": 12,
+      "price_note": "无定价，一界至宝",
+      "traits": [
+        "无视界面法则",
+        "所结灵果可登混沌万灵榜",
+        "需回阳水复活"
+      ],
+      "setting": {
+        "lore": "创世级灵根；在模组内不产出十六阶以上物品，仅作最终叙事物参考。"
+      },
+      "appearance": "玄天级藤本活物",
+      "description": "可结玄天灵果，无视一界法则。创世级灵根；在模组内不产出十六阶以上物品，仅作最终叙事物参考。",
+      "description_v143": "玄天仙藤（幼苗）：可结玄天灵果，无视一界法则。参考价下品灵石 议价/无市。玄天仙藤幼苗——无视一界法则级奇物，极稀",
+      "quest_sources_v143": [
+        "late_game_hook",
+        "not_shop"
+      ],
+      "v143": true
+    },
+    {
+      "id": "chi_jing_zhi",
+      "display": "赤精芝",
+      "category": "spirit_plant",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "炼丹辅助",
+      "growth_condition": "韩立在天南交易会所得",
+      "rarity_tier": 6,
+      "price_low_stone": [
+        1000,
+        5000
+      ],
+      "setting": {
+        "lore": "罕见的赤色灵芝类灵药，入丹可增效力。"
+      },
+      "appearance": "赤色精芝",
+      "description": "炼丹辅助。罕见的赤色灵芝类灵药，入丹可增效力。"
+    },
+    {
+      "id": "xue_ling_cao",
+      "display": "血灵草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "炼气筑基低级丹方辅料",
+      "growth_condition": "像普通药材红油花的灵草",
+      "rarity_tier": 2,
+      "price_low_stone": [
+        2,
+        15
+      ],
+      "setting": {
+        "lore": "低阶灵草，易获取。"
+      },
+      "description": "炼气筑基低级丹方辅料。低阶灵草，易获取。"
+    },
+    {
+      "id": "qi_xing_cao",
+      "display": "七星草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING"
+      ],
+      "primary_use": "制作符纸的材料",
+      "growth_condition": "常见",
+      "rarity_tier": 1,
+      "price_low_stone": [
+        1,
+        3
+      ],
+      "setting": {
+        "lore": "符纸基础材料。"
+      },
+      "description": "制作符纸的材料。符纸基础材料。"
+    },
+    {
+      "id": "han_yan_cao",
+      "display": "寒烟草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "低级丹方辅料",
+      "growth_condition": "白茸茸小草，一茎五叶，浑身洁白",
+      "rarity_tier": 2,
+      "price_low_stone": [
+        5,
+        25
+      ],
+      "setting": {
+        "lore": "低阶寒属性草药。"
+      },
+      "description": "低级丹方辅料。低阶寒属性草药。"
+    },
+    {
+      "id": "jiu_yi_xiang_rang",
+      "display": "麝兰兽粪便",
+      "category": "ingredient_only",
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": "九曲灵参喜食",
+      "rarity_tier": 3,
+      "setting": {
+        "lore": "特殊用途材料；非通用。"
+      },
+      "description": "九曲灵参喜食。特殊用途材料；非通用。"
+    },
+    {
+      "id": "mo_jiao_dan",
+      "display": "玛瑙角",
+      "category": "ingredient_only",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "九曲灵参丹辅料",
+      "rarity_tier": 5,
+      "setting": {
+        "lore": "妖兽角类材料入药。"
+      },
+      "description": "九曲灵参丹辅料。妖兽角类材料入药。"
+    },
+    {
+      "id": "qian_lu",
+      "display": "千叶露",
+      "category": "spirit_plant",
+      "realm_band": [
+        "CORE_FORMATION"
+      ],
+      "primary_use": "九曲灵参丹辅料 / 通用炼丹辅料",
+      "rarity_tier": 4,
+      "setting": {
+        "lore": "采集自特定灵叶上的灵露。"
+      },
+      "description": "九曲灵参丹辅料 / 通用炼丹辅料。采集自特定灵叶上的灵露。"
+    },
+    {
+      "id": "sheng_tong_flower",
+      "display": "通天灵花（概念）",
+      "category": "spirit_plant",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "rarity_tier": 11,
+      "setting": {
+        "lore": "代表性玄天仙藤之花或类似创世灵株所结之花；模组中仅作概念标签。"
+      },
+      "description": "代表性玄天仙藤之花或类似创世灵株所结之花；模组中仅作概念标签。"
+    },
+    {
+      "id": "qian_nian_ling_cao",
+      "display": "千年灵草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": "筑基丹主料之四",
+      "growth_condition": "血色禁地/高龄药园",
+      "rarity_tier": 3,
+      "price_low_stone": [
+        10,
+        60
+      ],
+      "setting": {
+        "lore": "筑基四主药之一；泛指达千年药龄的通用灵草位。"
+      },
+      "description": "筑基丹主料之四。筑基四主药之一；泛指达千年药龄的通用灵草位。"
+    },
+    {
+      "id": "mu_sheng_zhu",
+      "display": "木生珠",
+      "category": "refined_essence",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "木系神通/培婴",
+      "rarity_tier": 6,
+      "price_low_stone": [
+        80000,
+        400000
+      ],
+      "setting": {
+        "lore": "木属性至宝级珠；可长期炼化。"
+      },
+      "description": "木系神通/培婴。木属性至宝级珠；可长期炼化。"
+    },
+    {
+      "id": "di_di_guo",
+      "display": "芝龙果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": "蛮荒任务目标/高阶灵果",
+      "rarity_tier": 6,
+      "price_unit": "tianyuan_merit",
+      "price_merit": [
+        50,
+        200
+      ],
+      "setting": {
+        "lore": "木族/蛮荒协作线目标物结构。"
+      },
+      "description": "蛮荒任务目标/高阶灵果。木族/蛮荒协作线目标物结构。"
+    },
+    {
+      "id": "hong_luo_guo",
+      "display": "红罗果",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "primary_use": "广寒界/秘境仙药",
+      "rarity_tier": 6,
+      "price_note": "秘境专属",
+      "setting": {
+        "lore": "宫殿药园级灵果结构。"
+      },
+      "description": "广寒界/秘境仙药。宫殿药园级灵果结构。"
+    },
+    {
+      "id": "shi_du_cao",
+      "display": "蚀毒草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "毒功/炼毒丹",
+      "rarity_tier": 4,
+      "price_low_stone": [
+        2000,
+        20000
+      ],
+      "setting": {
+        "lore": "剧毒灵草；毒圣门友好。"
+      },
+      "description": "毒功/炼毒丹。剧毒灵草；毒圣门友好。"
+    },
+    {
+      "id": "jiu_yan_cao",
+      "display": "九焰草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "primary_use": "火系高阶辅药",
+      "rarity_tier": 6,
+      "price_note": "灵界交易",
+      "setting": {
+        "lore": "戎族追杀线可获；高阶火材药。"
+      },
+      "description": "火系高阶辅药。戎族追杀线可获；高阶火材药。"
+    },
+    {
+      "id": "qing_ling_guo_he",
+      "display": "青灵果核",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": "培植/交易",
+      "rarity_tier": 5,
+      "price_unit": "spirit_realm",
+      "setting": {
+        "lore": "灵界木系果核结构。"
+      },
+      "description": "培植/交易。灵界木系果核结构。"
+    },
+    {
+      "id": "jing_ling_chi_water",
+      "display": "净灵莲/洗灵池关联",
+      "category": "spirit_plant",
+      "realm_band": [
+        "BODY_INTEGRATION",
+        "GREAT_VEHICLE"
+      ],
+      "primary_use": "配合虚灵丹去隐患",
+      "rarity_tier": 7,
+      "price_note": "界面级",
+      "setting": {
+        "lore": "与虚灵丹联用结构；不可坊市常售。"
+      },
+      "description": "配合虚灵丹去隐患。与虚灵丹联用结构；不可坊市常售。"
+    },
+    {
+      "id": "xuan_bing_hua",
+      "display": "玄冰花",
+      "category": "spirit_plant",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "炼玄冰丹",
+      "growth_condition": "北地极寒/小极宫",
+      "rarity_tier": 5,
+      "price_low_stone": [
+        15000,
+        80000
+      ],
+      "setting": {
+        "lore": "小极宫线寒系灵花。"
+      },
+      "appearance": "极寒之地冰晶灵花",
+      "description": "炼玄冰丹。小极宫线寒系灵花。"
+    },
+    {
+      "id": "wannian_xuan_yu",
+      "display": "万年玄玉",
+      "category": "refined_essence",
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": "换魔元丹/寒焰培炼",
+      "growth_condition": "玄玉洞",
+      "rarity_tier": 6,
+      "price_low_stone": [
+        50000,
+        400000
+      ],
+      "setting": {
+        "lore": "小极宫/寒焰线硬通货。"
+      },
+      "appearance": "万年寒玉，触手冰骨",
+      "description": "换魔元丹/寒焰培炼。小极宫/寒焰线硬通货。"
+    },
+    {
+      "id": "wannian_lingru_herb",
+      "display": "万年灵乳",
+      "category": "refined_essence",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "培神识疗伤顶级",
+      "rarity_tier": 6,
+      "price_low_stone": [
+        40000,
+        300000
+      ],
+      "setting": {
+        "lore": "虚天殿二层等产出。"
+      },
+      "appearance": "乳白至宝级灵乳",
+      "description": "培神识疗伤顶级。虚天殿二层等产出。"
+    },
+    {
+      "id": "qian_ling_cao",
+      "display": "千灵草",
+      "category": "spirit_plant",
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": "交易/炼丹辅料",
+      "rarity_tier": 3,
+      "price_low_stone": [
+        200,
+        2000
+      ],
+      "setting": {
+        "lore": "交易会常见中阶灵草。"
+      },
+      "description": "交易/炼丹辅料。交易会常见中阶灵草。"
+    },
+    {
+      "id": "du_fu_mu",
+      "display": "毒符木",
+      "category": "wood_related",
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "毒符/炼器",
+      "rarity_tier": 4,
+      "price_low_stone": [
+        3000,
+        25000
+      ],
+      "setting": {
+        "lore": "火龙童子求而难得的材料结构。"
+      },
+      "description": "毒符/炼器。火龙童子求而难得的材料结构。"
+    },
+    {
+      "id": "mu_ling_hua",
+      "display": "木铃花",
+      "category": "spirit_plant",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": "换金髓晶虫等",
+      "rarity_tier": 5,
+      "price_unit": "spirit_realm",
+      "setting": {
+        "lore": "灵界交易灵花。"
+      },
+      "description": "换金髓晶虫等。灵界交易灵花。"
+    },
+    {
+      "id": "jin_sui_jing_chong",
+      "display": "金髓晶虫",
+      "category": "refined_essence",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": "金髓炼体",
+      "rarity_tier": 6,
+      "price_unit": "spirit_realm",
+      "setting": {
+        "lore": "体修关键材。"
+      },
+      "description": "金髓炼体。体修关键材。"
+    },
+    {
+      "id": "jin_mu_shanhu_sha",
+      "display": "金母珊瑚沙",
+      "category": "refined_essence",
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": "炼体辅材",
+      "rarity_tier": 5,
+      "price_unit": "spirit_realm",
+      "description": "炼体辅材。"
+    },
+    {
+      "id": "kong_yun_jing",
+      "display": "空云晶",
+      "category": "crystal_herb_edge",
+      "realm_band": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "primary_use": "空间/炼器",
+      "rarity_tier": 6,
+      "price_unit": "spirit_realm",
+      "description": "空间/炼器。"
+    },
+    {
+      "id": "xue_xing",
+      "display": "血杏",
+      "category": "spirit_fruit",
+      "realm_band": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "primary_use": "高阶灵果",
+      "rarity_tier": 5,
+      "price_unit": "spirit_realm",
+      "description": "高阶灵果。"
+    },
+    {
+      "id": "yin_zhi_ma_living",
+      "display": "阴芝马（活体）",
+      "category": "ingredient_only",
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": "培婴丹主料",
+      "rarity_tier": 6,
+      "price_low_stone": [
+        80000,
+        500000
+      ],
+      "setting": {
+        "lore": "阴阳窟捕捉；血肉入药。"
+      },
+      "description": "培婴丹主料。阴阳窟捕捉；血肉入药。",
+      "description_v143": "阴芝马（活体）：培婴丹主料。参考价下品灵石 [80000, 500000]。阴阳窟活捕；培婴主料，击杀贬值",
+      "quest_sources_v143": [
+        "yinyang_ku#yy_yinzhi",
+        "quest:peiying_material_hunt"
+      ],
+      "v143": true
+    }
+  ],
+  "herb_interactions": [
+    {
+      "herbs": [
+        "yu_sui_zhi",
+        "zi_hou_hua",
+        "tian_ling_guo",
+        "千年灵草"
+      ],
+      "product": "zhu_ji_dan",
+      "note": "筑基丹四大主料"
+    },
+    {
+      "herbs": [
+        "jiu_qu_ling_shen",
+        "玛瑙角",
+        "千叶露"
+      ],
+      "product": "jiu_qu_ling_shen_dan",
+      "note": "增结婴几率"
+    },
+    {
+      "herbs": [
+        "ling_zhu_guo"
+      ],
+      "product": "zao_hua_dan",
+      "note": "主料"
+    },
+    {
+      "herbs": [
+        "han_sui",
+        "太阳精火"
+      ],
+      "product": "hui_yang_zhen_shui",
+      "note": "回阳真水"
+    },
+    {
+      "herbs": [
+        "long_lin_guo"
+      ],
+      "product": "淬骨诀",
+      "note": "炼体辅助，非丹药"
+    }
+  ],
+  "price_reference": {
+    "note": "下品灵石价带；LORE纯结构，按模组产出重平衡"
+  },
+  "v143_key_crosswalk": "item_price_quest_crosswalk_v143.json"
+}

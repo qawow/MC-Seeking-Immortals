@@ -17,7 +17,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "小剑阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "小剑阵：formation派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 20。剑意锋锐。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -36,7 +36,20 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "metal",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "illusion_formation",
@@ -53,7 +66,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "迷踪阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "迷踪阵：formation派术法，属性倾向 illusion。境界门槛 FOUNDATION，耗灵约 12。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -72,7 +85,20 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "illusion",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "illusion",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_gather_array",
@@ -89,7 +115,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "聚灵阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "聚灵阵：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -108,7 +134,19 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "thunder_trap_array",
@@ -125,7 +163,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "雷劫阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "雷劫阵：formation派术法，属性倾向 thunder。境界门槛 FOUNDATION，耗灵约 27。雷法震邪。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -144,7 +182,21 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "thunder",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "thunder",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "seal_array",
@@ -161,7 +213,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "封灵阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "封灵阵：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 15。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -180,7 +232,19 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "kill_sword_formation",
@@ -197,7 +261,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "杀阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "杀阵：formation派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 30。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -216,7 +280,20 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "metal",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "defense_formation",
@@ -233,7 +310,7 @@
       },
       "tier": "spell",
       "requires_method": "kunwu_seal_art",
-      "description": "守阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "守阵：formation派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "setting": {
         "combat_style": "阵法控场",
         "cast_bias": "control_ritual",
@@ -252,7 +329,20 @@
         "prerequisite_methods": [
           "kunwu_seal_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sea_lock_array",
@@ -269,7 +359,7 @@
           "sea_control"
         ]
       },
-      "description": "镇海锁阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "镇海锁阵：formation派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 24。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阵法控场",
@@ -289,7 +379,24 @@
         "prerequisite_methods": [
           "star_palace_art"
         ]
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "water",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "star_palace_patrol_beacon",
@@ -303,9 +410,10 @@
         "type": "utility",
         "tags": [
           "patrol"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "巡海信标：formation法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "巡海信标：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 18。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阵法控场",
@@ -325,7 +433,23 @@
         "prerequisite_methods": [
           "star_palace_art"
         ]
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "formation_trap_basic",
@@ -333,13 +457,14 @@
       "school": "formation",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "困敌小阵：formation法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "困敌小阵：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "control",
         "tags": [
           "formation"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "requires_method": "star_palace_art",
@@ -361,7 +486,23 @@
         "prerequisite_methods": [
           "star_palace_art"
         ]
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "star_palace_seal",
@@ -369,13 +510,14 @@
       "school": "formation",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "镇海印：formation法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "镇海印：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "control",
         "tags": [
           "formation"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "requires_method": "star_palace_art",
@@ -397,7 +539,23 @@
         "prerequisite_methods": [
           "star_palace_art"
         ]
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "kunwu_seal_strike",
@@ -410,9 +568,10 @@
         "damage_base": 70,
         "tags": [
           "seal"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "印诀引阵力镇压一片区域。",
+      "description": "坤吴印击：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 26,
@@ -433,7 +592,18 @@
         "learn_source": [
           "kunwu_seal_manual"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "star_palace_tidal_lock",
@@ -445,9 +615,10 @@
         "type": "control",
         "tags": [
           "sea_terrain"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "星宫海域禁制，迟滞敌方遁速。",
+      "description": "镇海潮封：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 26,
@@ -467,22 +638,38 @@
         "reputation": {
           "star_palace": "friendly"
         }
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "tianyuan_joint_array",
       "display": "天渊合阵击",
       "school": "formation",
-      "realm_min": "SPIRIT_SEVERING",
+      "realm_min": "VOID_REFINEMENT",
       "requires_method": "tianyuan_guard_art",
       "effect": {
         "type": "aoe",
         "damage_base": 120,
         "tags": [
           "anti_demon"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "多人阵力合一，对妖族额外伤害。",
+      "description": "天渊合阵击：formation派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 —。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「tianyuan_guard_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -499,14 +686,1077 @@
           "manual_slip"
         ],
         "prerequisite_mode": "all",
-        "realm_min": "SPIRIT_SEVERING",
+        "realm_min": "VOID_REFINEMENT",
         "prerequisite_methods": [
           "tianyuan_guard_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "source_method": "tianyuan_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_sea_seal_array",
+      "display": "镇海星阵",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 40,
+      "source": "星宫镇海诀",
+      "effect": {
+        "type": "field",
+        "element": "water",
+        "damage_base": 25,
+        "tags": [
+          "array"
+        ]
+      },
+      "description": "镇海星阵：formation派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 40。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_art」体系解锁。",
+      "setting": {
+        "combat_style": "星宫镇海向法阵展开。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "area",
+        "lore": "星宫镇海向法阵展开。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "star_palace_art"
+      },
+      "requires_method": "star_palace_art",
+      "tags": [
+        "v124",
+        "star_palace",
+        "novel_canon",
+        "chaotic_sea",
+        "v128",
+        "water",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "star_palace",
+      "element": "water",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_formation_intro",
+      "display": "阵修入门盘",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "field",
+        "element": "neutral",
+        "damage_base": 15
+      },
+      "description": "阵修入门盘：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「sect_specialty_formation」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "area",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_formation"
+      },
+      "requires_method": "sect_specialty_formation",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_formation",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianque_wall_array",
+      "display": "天阙壁阵",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 28,
+      "source": "天阙堡",
+      "effect": {
+        "type": "field",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "array",
+          "defense"
+        ]
+      },
+      "description": "天阙壁阵：formation派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 28。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「tianque_fort_art」体系解锁。",
+      "requires_method": "tianque_fort_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianque_fort_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "tianque_fort",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "展开堡壁法阵。",
+        "v126": true,
+        "seven_sect": "tianque_fort"
+      },
+      "seven_sect_id": "tianque_fort",
+      "element": "earth",
+      "path": "tianque_fort",
+      "alignment": "neutral",
+      "source_method": "tianque_fort_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianque_fortress_domain",
+      "display": "天阙要塞域",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 45,
+      "source": "天阙堡",
+      "effect": {
+        "type": "field",
+        "element": "earth",
+        "damage_base": 30,
+        "tags": [
+          "domain"
+        ]
+      },
+      "description": "天阙要塞域：formation派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 45。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「tianque_fort_art」体系解锁。",
+      "requires_method": "tianque_fort_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianque_fort_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "tianque_fort",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "要塞领域减伤。",
+        "v126": true,
+        "seven_sect": "tianque_fort"
+      },
+      "seven_sect_id": "tianque_fort",
+      "element": "earth",
+      "path": "tianque_fort",
+      "alignment": "neutral",
+      "source_method": "tianque_fort_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_sect_guard_array",
+      "display": "落云护宗小阵",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 35,
+      "source": "落云梦诀",
+      "effect": {
+        "type": "field",
+        "element": "neutral",
+        "damage_base": 18,
+        "tags": [
+          "array",
+          "defense"
+        ]
+      },
+      "description": "落云护宗小阵：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 35。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「luoyun_cloud_dream_art」体系解锁。",
+      "requires_method": "luoyun_cloud_dream_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "luoyun_cloud_dream_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "临时护宗节点。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "luoyun_cloud_dream_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_elder_seal",
+      "display": "落云长老印",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 40,
+      "source": "落云长老印诀",
+      "effect": {
+        "type": "control",
+        "element": "neutral",
+        "damage_base": 30,
+        "tags": [
+          "seal",
+          "authority"
+        ]
+      },
+      "description": "落云长老印：formation派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 40。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「luoyun_elder_seal_art」体系解锁。",
+      "requires_method": "luoyun_elder_seal_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "luoyun_elder_seal_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "elder",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "长老戒律印，压制内门斗法。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "luoyun_elder_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_message_talisman_net",
+      "display": "落云传讯网",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 15,
+      "source": "落云长老印诀",
+      "effect": {
+        "type": "utility",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "utility",
+          "comms"
+        ]
+      },
+      "description": "落云传讯网：formation派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 15。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「luoyun_elder_seal_art」体系解锁。",
+      "requires_method": "luoyun_elder_seal_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "luoyun_elder_seal_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "宗内紧急传讯（非战斗主伤）。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "luoyun_elder_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_grand_array_node",
+      "display": "落云大阵节点催",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "落云长老印诀",
+      "effect": {
+        "type": "field",
+        "element": "neutral",
+        "damage_base": 50,
+        "tags": [
+          "array",
+          "ultimate"
+        ]
+      },
+      "description": "落云大阵节点催：formation派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 55。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「luoyun_elder_seal_art」体系解锁。",
+      "requires_method": "luoyun_elder_seal_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "luoyun_elder_seal_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "elder",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "接入护宗大阵输出一波。需在宗门地图。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "luoyun_elder_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingyan_array_stone",
+      "display": "青岩阵石植",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "青岩厚土诀",
+      "effect": {
+        "type": "summon",
+        "element": "earth",
+        "damage_base": 15,
+        "tags": [
+          "array",
+          "stone"
+        ]
+      },
+      "description": "青岩阵石植：formation派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 24。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「qingyan_earth_guard_art」体系解锁。",
+      "requires_method": "qingyan_earth_guard_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingyan_earth_guard_art"
+      },
+      "tags": [
+        "v127",
+        "qingyan",
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "布置阵石节点。",
+        "v127": true,
+        "sect": "qingyan_sect",
+        "track": null
+      },
+      "sect_id": "qingyan_sect",
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "qingyan_earth_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingyan_border_bastion",
+      "display": "青岩边堡阵",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 50,
+      "source": "青岩厚土诀",
+      "effect": {
+        "type": "field",
+        "element": "earth",
+        "damage_base": 35,
+        "tags": [
+          "defense",
+          "border"
+        ]
+      },
+      "description": "青岩边堡阵：formation派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 50。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「qingyan_earth_guard_art」体系解锁。",
+      "requires_method": "qingyan_earth_guard_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "qingyan_earth_guard_art"
+      },
+      "tags": [
+        "v127",
+        "qingyan",
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "边境协防大阵气质。",
+        "v127": true,
+        "sect": "qingyan_sect",
+        "track": null
+      },
+      "sect_id": "qingyan_sect",
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "qingyan_earth_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_palace_register_seal",
+      "display": "星宫注册印",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 10,
+      "source": "星宫律典",
+      "effect": {
+        "type": "utility",
+        "element": "light",
+        "damage_base": 0,
+        "tags": [
+          "authority"
+        ]
+      },
+      "description": "星宫注册印：formation派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 10。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_law_art」体系解锁。",
+      "requires_method": "star_palace_law_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "star_palace_law_art"
+      },
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "light",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "乱星海身份注册灵印（系统：解锁星宫任务）。",
+        "v128": true,
+        "faction": "star_palace"
+      },
+      "faction_id": "star_palace",
+      "element": "light",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_palace_law_bind",
+      "display": "星宫律锁",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 24,
+      "source": "星宫律典",
+      "effect": {
+        "type": "control",
+        "element": "light",
+        "damage_base": 20,
+        "tags": [
+          "law"
+        ]
+      },
+      "description": "星宫律锁：formation派术法，属性倾向 light。境界门槛 FOUNDATION，耗灵约 24。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_law_art」体系解锁。",
+      "requires_method": "star_palace_law_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "star_palace_law_art"
+      },
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "light",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "执法锁敌短控。",
+        "v128": true,
+        "faction": "star_palace"
+      },
+      "faction_id": "star_palace",
+      "element": "light",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_palace_fleet_signal",
+      "display": "星宫舰队号",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "星宫律典",
+      "effect": {
+        "type": "buff_zone",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "command"
+        ]
+      },
+      "description": "星宫舰队号：formation派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 18。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「star_palace_law_art」体系解锁。",
+      "requires_method": "star_palace_law_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "star_palace_law_art"
+      },
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "water",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "友方巡海增益。",
+        "v128": true,
+        "faction": "star_palace"
+      },
+      "faction_id": "star_palace",
+      "element": "water",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "star_palace_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "kunwu_seal_reinforce",
+      "display": "昆吾封固",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "昆吾印诀",
+      "effect": {
+        "type": "field",
+        "element": "earth",
+        "damage_base": 15
+      },
+      "description": "昆吾封固：formation派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 22。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
+      "requires_method": "kunwu_seal_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "kunwu_seal_art"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "封固。",
+        "v129": true
+      },
+      "faction_id": "kunwu",
+      "region": "dajin",
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "kunwu_tower_bind",
+      "display": "昆吾镇魔塔印",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "昆吾印诀",
+      "effect": {
+        "type": "control",
+        "element": "earth",
+        "damage_base": 40
+      },
+      "description": "昆吾镇魔塔印：formation派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 55。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「kunwu_seal_art」体系解锁。",
+      "requires_method": "kunwu_seal_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "kunwu_seal_art"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "镇魔塔印。",
+        "v129": true
+      },
+      "faction_id": "kunwu",
+      "region": "dajin",
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "kunwu_seal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianyuan_wall_array",
+      "display": "天渊城垣阵",
+      "school": "formation",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 40,
+      "source": "天渊守城诀",
+      "effect": {
+        "type": "field",
+        "element": "earth",
+        "damage_base": 35
+      },
+      "description": "天渊城垣阵：formation派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 40。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「tianyuan_guard_art」体系解锁。",
+      "requires_method": "tianyuan_guard_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "tianyuan_guard_art"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "城垣。",
+        "v129": true
+      },
+      "faction_id": "tianyuan",
+      "region": "lingjie",
+      "element": "earth",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "tianyuan_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectform2_v129_1",
+      "display": "阵专·击",
+      "school": "formation",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "formation专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "阵专·击：formation派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「sect_specialty_formation」体系解锁。",
+      "requires_method": "sect_specialty_formation",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_formation"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "阵专补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_formation",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectform2_v129_2",
+      "display": "阵专·护",
+      "school": "formation",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "formation专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "阵专·护：formation派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 18。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「sect_specialty_formation」体系解锁。",
+      "requires_method": "sect_specialty_formation",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_formation"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "阵专补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_formation",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectform2_v129_3",
+      "display": "阵专·爆",
+      "school": "formation",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "formation专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "阵专·爆：formation派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 24。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「sect_specialty_formation」体系解锁。",
+      "requires_method": "sect_specialty_formation",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_formation"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "阵专补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_formation",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_sect_array",
+      "display": "真言护宗大阵催",
+      "school": "formation",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 60,
+      "source": "真言长老典",
+      "effect": {
+        "type": "field",
+        "element": "light",
+        "damage_base": 50,
+        "tags": [
+          "array"
+        ]
+      },
+      "description": "真言护宗大阵催：formation派术法，属性倾向 light。境界门槛 GOLDEN_IMMORTAL，耗灵约 60。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「zhenyan_elder_canon」体系解锁。",
+      "requires_method": "zhenyan_elder_canon",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "zhenyan_elder_canon"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "接入真言门大阵。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "light",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "zhenyan_elder_canon",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_cycle_array",
+      "display": "五行轮转阵",
+      "school": "formation",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 50,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "field",
+        "element": "neutral",
+        "damage_base": 40,
+        "tags": [
+          "five_elements",
+          "array"
+        ]
+      },
+      "description": "五行轮转阵：formation派术法，属性倾向 neutral。境界门槛 GOLDEN_IMMORTAL，耗灵约 50。借阵力。 阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "五行相生相克轮转。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heaven_law_bind",
+      "display": "天法律锁",
+      "school": "formation",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "天庭律修诀",
+      "effect": {
+        "type": "control",
+        "element": "light",
+        "damage_base": 30,
+        "tags": [
+          "law"
+        ]
+      },
+      "description": "天法律锁：formation派术法，属性倾向 light。境界门槛 TRUE_IMMORTAL，耗灵约 35。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「heavenly_court_law_art」体系解锁。",
+      "requires_method": "heavenly_court_law_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "heavenly_court_law_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "仙官锁拿。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heavenly_court",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heavenly_court",
+      "element": "light",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "heavenly_court_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heaven_edict",
+      "display": "天敕",
+      "school": "formation",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 45,
+      "source": "天庭律修诀",
+      "effect": {
+        "type": "debuff",
+        "element": "light",
+        "damage_base": 40,
+        "tags": [
+          "law"
+        ]
+      },
+      "description": "天敕：formation派术法，属性倾向 light。境界门槛 GOLDEN_IMMORTAL，耗灵约 45。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「heavenly_court_law_art」体系解锁。",
+      "requires_method": "heavenly_court_law_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "heavenly_court_law_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "light",
+        "formation",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "天敕减益。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heavenly_court",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heavenly_court",
+      "element": "light",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "heavenly_court_law_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "zhenyan_elder_canon_xian_3",
+      "display": "真言长老典·仙式3",
+      "school": "formation",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "真言长老典",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 50,
+        "tags": [
+          "v130_fill"
+        ]
+      },
+      "description": "真言长老典·仙式3：formation派术法，属性倾向 neutral。境界门槛 GOLDEN_IMMORTAL，耗灵约 30。阵法术：布阵、破阵、阵眼维护；与阵旗、阵盘结构联动。 常随功法「zhenyan_elder_canon」体系解锁。",
+      "requires_method": "zhenyan_elder_canon",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "zhenyan_elder_canon"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "fill_min3",
+        "neutral",
+        "formation",
+        "spell"
+      ],
+      "setting": {
+        "lore": "真言长老典仙界补式。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "element": "neutral",
+      "path": "formation",
+      "alignment": "neutral",
+      "source_method": "zhenyan_elder_canon",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
   "method_gates": {
     "star_palace_art": "星宫镇海诀"
-  }
+  },
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

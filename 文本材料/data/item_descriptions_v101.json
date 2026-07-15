@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v101 物品详释：经济标签/任务奖励/摘要配套说明",
+  "items": [
+    {
+      "id": "tag_legend_sheet",
+      "display": "经济标签图例简",
+      "type": "meta",
+      "content": "trade/auction/quest/unique/no_trade/merit_only…",
+      "description": "对应 item_economy_tags_v101。策划查表用。"
+    },
+    {
+      "id": "filter_shop_safe",
+      "display": "安全货架过滤器",
+      "type": "meta",
+      "rule": "仅 trade",
+      "description": "生成坊市时排除 unique/no_trade。"
+    },
+    {
+      "id": "filter_never_vendor",
+      "display": "永不进货清单",
+      "type": "meta",
+      "items": ["掌天瓶", "绿液", "八灵尺", "炼神术", "真魂丹"],
+      "description": "balance_risk + unique。"
+    },
+    {
+      "id": "quest_pack_mortal",
+      "display": "凡人入仙任务包",
+      "type": "kit",
+      "chain": "mortal_to_immortal",
+      "contains": ["升仙令", "小剑符宝"],
+      "description": "主线第一步奖励结构。"
+    },
+    {
+      "id": "quest_pack_blood",
+      "display": "血色禁地结算包",
+      "type": "kit",
+      "chain": "huangfeng_qi",
+      "contains": ["筑基四主药捆", "禁地声望"],
+      "description": "试炼结束按存活发放。"
+    },
+    {
+      "id": "quest_pack_xutian",
+      "display": "虚天殿结算池",
+      "type": "loot_pool",
+      "chain": "xutian_raid",
+      "possible": ["虚天鼎", "养魂木", "九曲灵参", "补天丹", "玄阴经"],
+      "rules": "unique 竞争归属",
+      "description": "多人夺宝时一人唯一。"
+    },
+    {
+      "id": "quest_pack_border",
+      "display": "赌战顶赏包",
+      "type": "kit",
+      "chain": "border_war",
+      "contains": ["庚精", "玄天藤根茎", "元明灯"],
+      "description": "军功顶档。"
+    },
+    {
+      "id": "quest_pack_kunwu",
+      "display": "昆吾通关包",
+      "type": "kit",
+      "chain": "dajin_kunwu",
+      "contains": ["八灵尺", "破界符", "节点资料", "黑风旗残"],
+      "unique": true,
+      "description": "防重复；详尽节点唯一。"
+    },
+    {
+      "id": "quest_pack_ascend",
+      "display": "飞升结算包",
+      "type": "kit",
+      "chain": "deity_prepare",
+      "contains": ["六丁天甲", "灵界立足包", "功勋账户"],
+      "description": "人界终章。"
+    },
+    {
+      "id": "quest_pack_guanghan",
+      "display": "广寒收获包",
+      "type": "kit",
+      "chain": "guanghan_maliang",
+      "contains": ["炼神术", "虚灵丹", "太乙青山"],
+      "description": "炼虚合体关键。"
+    },
+    {
+      "id": "bestiary_summary_book",
+      "display": "《万妖名录》一页摘要",
+      "type": "lore_book",
+      "ref": "bestiary_summary_v101",
+      "description": "211+ 生物短表。可作图鉴目录。"
+    },
+    {
+      "id": "csv_export_note",
+      "display": "生物摘要表（戏中册）",
+      "type": "meta",
+      "files": ["bestiary_summary_v101.csv", "bestiary_summary_v101.json"],
+      "description": "策划导表用设定物。"
+    },
+    {
+      "id": "main_quest_codex",
+      "display": "主线任务总录",
+      "type": "lore_book",
+      "ref": "main_quest_rewards_v101",
+      "chains": 13,
+      "description": "凡人至冥河链奖励对照。"
+    },
+    {
+      "id": "reward_rule_unique_once",
+      "display": "唯一奖励规则简",
+      "type": "rule_item",
+      "rule": "unique_once + 失败不吞唯一剧情物",
+      "description": "突破失败不丢八灵尺等。"
+    },
+    {
+      "id": "shop_unlock_phase_token",
+      "display": "阶段货架解锁牌",
+      "type": "meta",
+      "effect": "按主线 chain 完成开商品",
+      "description": "与 tags trade 交集生成库存。"
+    },
+    {
+      "id": "yufeng_jin",
+      "display": "风貂筋",
+      "type": "material",
+      "source": "疾风貂",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2000],
+      "description": "软甲与身法辅助材。"
+    },
+    {
+      "id": "tong_pi",
+      "display": "铜皮",
+      "type": "material",
+      "source": "铜皮灵牛",
+      "tags": ["trade", "craft_mat"],
+      "price": [50, 800],
+      "description": "中低阶护甲。"
+    },
+    {
+      "id": "yu_mi",
+      "display": "玉蜜",
+      "type": "material",
+      "source": "玉蜂",
+      "tags": ["trade", "craft_mat", "consumable"],
+      "price": [20, 300],
+      "description": "疗伤丹辅；可直接服微量。"
+    },
+    {
+      "id": "bing_ke_xia",
+      "display": "玄冰虾壳",
+      "type": "material",
+      "source": "玄冰虾",
+      "tags": ["trade", "craft_mat"],
+      "price": [80, 1500],
+      "description": "寒符纸与寒衣。"
+    },
+    {
+      "id": "jin_fen_e",
+      "display": "烬粉",
+      "type": "material",
+      "source": "烬蛾",
+      "tags": ["trade", "craft_mat"],
+      "price": [40, 600],
+      "description": "弄焰诀辅粉。"
+    },
+    {
+      "id": "jing_lin",
+      "display": "镜鳞",
+      "type": "material",
+      "source": "镜鳞鱼",
+      "tags": ["trade", "craft_mat"],
+      "price": [60, 1200],
+      "description": "破幻衣辅材。"
+    },
+    {
+      "id": "gu_yu",
+      "display": "骨羽",
+      "type": "material",
+      "source": "白骨鹫",
+      "tags": ["black_market", "demonic", "craft_mat"],
+      "price": [200, 4000],
+      "description": "鬼修飞梭材。"
+    },
+    {
+      "id": "lian_she_dan",
+      "display": "莲蛇胆",
+      "type": "material",
+      "source": "莲纹蛇",
+      "tags": ["trade", "craft_mat"],
+      "price": [150, 3000],
+      "description": "解毒与幻香双用。"
+    },
+    {
+      "id": "yun_jiao",
+      "display": "云角",
+      "type": "material",
+      "source": "云角羊",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2500],
+      "description": "轻身法器。"
+    },
+    {
+      "id": "xu_man_ke",
+      "display": "虚螨壳",
+      "type": "material",
+      "source": "虚空螨",
+      "tags": ["scarce", "craft_mat", "quest"],
+      "price": [5000, 50000],
+      "description": "空间稳定器辅材。"
+    },
+    {
+      "id": "shi_wen_gui_ban",
+      "display": "石纹龟板",
+      "type": "material",
+      "source": "石纹龟",
+      "tags": ["trade", "craft_mat"],
+      "price": [30, 500],
+      "description": "小阵盘基底。"
+    },
+    {
+      "id": "fu_yi_nang",
+      "display": "蝠声囊",
+      "type": "material",
+      "source": "夜啼蝠妖",
+      "tags": ["trade", "craft_mat"],
+      "price": [40, 700],
+      "description": "声波符辅。"
+    },
+    {
+      "id": "sha_xi_xian",
+      "display": "流沙蜥毒腺",
+      "type": "poison",
+      "source": "流沙蜥",
+      "tags": ["trade", "black_market", "craft_mat"],
+      "price": [80, 1500],
+      "description": "南疆淬刃。"
+    },
+    {
+      "id": "zha_lu_zha",
+      "display": "炸炉药渣",
+      "type": "junk",
+      "source": "药泥怪",
+      "tags": ["trade"],
+      "price": [1, 20],
+      "description": "可炼饲灵丸低配。"
+    },
+    {
+      "id": "shi_zhen_yi_suan",
+      "display": "噬阵蚁酸",
+      "type": "material",
+      "source": "噬阵蚁",
+      "tags": ["trade", "craft_mat"],
+      "price": [50, 900],
+      "description": "破敌阵眼实验材；自用慎。"
+    },
+    {
+      "id": "escort_contract",
+      "display": "押镖契约",
+      "type": "quest",
+      "tags": ["quest"],
+      "reward_hint": ["灵石", "声望"],
+      "description": "触发劫匪修士刷新。"
+    },
+    {
+      "id": "herb_guard_contract",
+      "display": "护药契约",
+      "type": "quest",
+      "tags": ["quest", "sect_only"],
+      "description": "盗药灵貂群任务。"
+    },
+    {
+      "id": "sea_escort_flag",
+      "display": "巡海令旗",
+      "type": "quest",
+      "tags": ["quest"],
+      "description": "星海海盗任务。"
+    },
+    {
+      "id": "war_merit_slip_big",
+      "display": "大额军功票",
+      "type": "currency",
+      "tags": ["merit_only", "quest"],
+      "source": "慕兰大祭祀",
+      "description": "顶赏进度货币。"
+    },
+    {
+      "id": "gate_key_generic",
+      "display": "秘境门关匙（结构）",
+      "type": "token",
+      "tags": ["quest", "consumable"],
+      "description": "门关兽战后掉落/转化。"
+    },
+    {
+      "id": "anti_tail_charm",
+      "display": "反盯梢符",
+      "type": "consumable",
+      "tags": ["trade", "consumable"],
+      "price": [200, 3000],
+      "description": "降低拍场盯梢触发。"
+    },
+    {
+      "id": "black_market_insurance",
+      "display": "黑市平安符（假）",
+      "type": "junk",
+      "tags": ["black_market"],
+      "price": [500, 5000],
+      "description": "骗术商品。不降低执法傀仇恨。"
+    },
+    {
+      "id": "bond_gift_generic",
+      "display": "道侣赠礼匣",
+      "type": "gift",
+      "tags": ["bond", "quest"],
+      "description": "情敌线或复合线道具。"
+    },
+    {
+      "id": "contrib_token_fixed",
+      "display": "修补贡献令",
+      "type": "currency",
+      "tags": ["sect_only", "quest"],
+      "description": "内务盗令任务交还。"
+    },
+    {
+      "id": "merit_drill_pass",
+      "display": "演武场日券",
+      "type": "service",
+      "tags": ["merit_only"],
+      "merit": [1, 5],
+      "description": "刷功勋演武兽。"
+    },
+    {
+      "id": "chain_wolf_bell",
+      "display": "头狼任务铃",
+      "type": "quest",
+      "tags": ["quest"],
+      "description": "多区狩猎链信物。"
+    },
+    {
+      "id": "array_repair_kit_small",
+      "display": "小修阵包",
+      "type": "kit",
+      "tags": ["trade"],
+      "contains": ["阵旗补", "阵盘胶"],
+      "price": [50, 500],
+      "description": "噬阵蚁灾后修复。"
+    },
+    {
+      "id": "alchemy_fail_insurance",
+      "display": "丹房保险契（戏）",
+      "type": "service",
+      "tags": ["trade"],
+      "price": [100, 2000],
+      "description": "炸炉后清药泥怪费用折扣。"
+    },
+    {
+      "id": "space_dust",
+      "display": "空间尘",
+      "type": "material",
+      "source": "虚空螨",
+      "tags": ["scarce", "craft_mat"],
+      "price": [3000, 40000],
+      "description": "化界/节点维修辅。"
+    },
+    {
+      "id": "tag_currency_low_stack",
+      "display": "下品灵石（堆）",
+      "type": "currency",
+      "tags": ["currency", "trade"],
+      "price": 1,
+      "description": "标签统一后的基础币。"
+    },
+    {
+      "id": "tag_no_trade_reminder_bottle",
+      "display": "瓶戒禁令告示",
+      "type": "rule_item",
+      "tags": ["no_trade", "balance_risk"],
+      "description": "再次强调瓶与绿液永不进货架。"
+    },
+    {
+      "id": "quest_crossref_card",
+      "display": "任务交叉索引卡",
+      "type": "meta",
+      "links": ["timeline", "tags", "breakthrough", "spawns"],
+      "description": "main_quest_rewards.cross_ref 物化。"
+    },
+    {
+      "id": "designer_checklist_v101",
+      "display": "v101 策划验收清单",
+      "type": "meta",
+      "checks": ["生物摘要可检索", "物品可按标签过滤", "主线奖励无重复 unique"],
+      "description": "交付验收用。"
+    },
+    {
+      "id": "category_yaoshou_primer",
+      "display": "妖兽门类导读",
+      "type": "lore_book",
+      "count_hint": 85,
+      "description": "摘要 by_category 导读。"
+    },
+    {
+      "id": "category_lingshou_primer",
+      "display": "灵兽门类导读",
+      "type": "lore_book",
+      "count_hint": 31,
+      "description": "可驯与祥瑞向。"
+    },
+    {
+      "id": "category_chong_primer",
+      "display": "灵虫门类导读",
+      "type": "lore_book",
+      "count_hint": 22,
+      "description": "虫修与害虫。"
+    },
+    {
+      "id": "category_shigui_primer",
+      "display": "尸鬼门类导读",
+      "type": "lore_book",
+      "count_hint": 20,
+      "description": "阴冥鬼道。"
+    },
+    {
+      "id": "category_zhenling_primer",
+      "display": "真灵门类导读",
+      "type": "lore_book",
+      "count_hint": 10,
+      "description": "事件向，不日常刷。"
+    },
+    {
+      "id": "humanoid_faction_primer",
+      "display": "人形势力单位导读",
+      "type": "lore_book",
+      "count_hint": 26,
+      "description": "修士/执法/任务敌。"
+    },
+    {
+      "id": "drop_table_trade_only",
+      "display": "仅流通掉落表示例",
+      "type": "meta",
+      "rule": "drops 全带 trade",
+      "example_creature": "tag_filter_demo_beast",
+      "description": "经济沙箱测试。"
+    },
+    {
+      "id": "drop_table_quest_flag",
+      "display": "任务标志掉落示例",
+      "type": "meta",
+      "example": "gate_key_generic",
+      "description": "不进商店，只推进度。"
+    },
+    {
+      "id": "ui_bestiary_search_hint",
+      "display": "图鉴检索提示简",
+      "type": "meta",
+      "fields": ["id", "display", "category", "threat", "habitat"],
+      "description": "对接 summary CSV 列。"
+    },
+    {
+      "id": "ui_shop_tag_hint",
+      "display": "商店标签提示简",
+      "type": "meta",
+      "presets": ["shop_safe", "auction_floor", "black_only"],
+      "description": "filter_presets。"
+    },
+    {
+      "id": "ui_quest_tracker_hint",
+      "display": "任务追踪提示简",
+      "type": "meta",
+      "fields": ["chain", "step", "rewards", "unique"],
+      "description": "主线 UI 结构。"
+    },
+    {
+      "id": "balance_audit_v101",
+      "display": "经济审计备忘 v101",
+      "type": "rule_item",
+      "points": ["瓶绿液双禁", "功勋与灵石隔离", "unique 不进拍卖底价"],
+      "description": "长期平衡。"
+    },
+    {
+      "id": "content_count_plaque",
+      "display": "世界包规模碑（戏）",
+      "type": "lore",
+      "text": "生物二百+ 物品详释五百+",
+      "description": "版本纪念。非数值道具。"
+    },
+    {
+      "id": "next_version_seed_jkl",
+      "display": "后续扩展种子条",
+      "type": "meta",
+      "ideas": ["地图连接图", "声望阈值表", "多周目继承规则"],
+      "description": "v101 后可选方向。"
+    }
+  ]
+}

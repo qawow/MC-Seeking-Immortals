@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v102 物品详释：旅行/声望/多周目经济规则配套",
+  "items": [
+    {
+      "id": "travel_map_master",
+      "display": "人界-灵界交通总图（戏中）",
+      "type": "map",
+      "ref": "travel_routes_v102",
+      "description": "枢纽与路线总览。不含精确坐标防剧透全图。"
+    },
+    {
+      "id": "route_ticket_tianxing",
+      "display": "天星城法舟票",
+      "type": "ticket",
+      "tags": ["trade", "consumable"],
+      "price": [50, 2000],
+      "route": "内星海航线",
+      "description": "ship_sea 模式消耗。"
+    },
+    {
+      "id": "teleport_fee_token",
+      "display": "传送阵费契",
+      "type": "service",
+      "tags": ["trade"],
+      "price": [100, 5000],
+      "description": "枢纽短传。声望高折扣。"
+    },
+    {
+      "id": "border_pass_allied",
+      "display": "盟军边关通关文牒",
+      "type": "token",
+      "tags": ["quest", "merit_only"],
+      "need_rep": {"tiannan_allied": 20},
+      "description": "边界旅行必需。"
+    },
+    {
+      "id": "sea_chart_inner",
+      "display": "内星海海图",
+      "type": "map",
+      "tags": ["trade"],
+      "price": [100, 3000],
+      "description": "降航道妖鲨事件权重。"
+    },
+    {
+      "id": "sea_chart_outer",
+      "display": "外星海深域海图",
+      "type": "map",
+      "tags": ["trade", "scarce"],
+      "price": [1000, 20000],
+      "description": "可绕风暴灵。"
+    },
+    {
+      "id": "cold_resist_cloak",
+      "display": "北地寒抗斗篷",
+      "type": "gear",
+      "tags": ["trade"],
+      "price": [500, 8000],
+      "description": "晋京-小极宫雪道减伤。"
+    },
+    {
+      "id": "heat_resist_robe",
+      "display": "避火纱袍",
+      "type": "gear",
+      "tags": ["trade"],
+      "price": [800, 12000],
+      "description": "火狱烟道旅行。"
+    },
+    {
+      "id": "nether_yang_lamp",
+      "display": "阴冥阳灯",
+      "type": "tool",
+      "tags": ["trade"],
+      "price": [300, 5000],
+      "description": "降路魂威胁。"
+    },
+    {
+      "id": "fenglei_fuel",
+      "display": "风雷翅催动辅材",
+      "type": "consumable",
+      "tags": ["trade", "craft_mat"],
+      "price": [200, 4000],
+      "description": "长途翅遁消耗。"
+    },
+    {
+      "id": "danuoyi_charge_note",
+      "display": "大挪移令使用记录简",
+      "type": "meta",
+      "tags": ["account_bound", "unique"],
+      "description": "古点传送次数结构。"
+    },
+    {
+      "id": "pojie_ready_kit",
+      "display": "破界启程匣",
+      "type": "kit",
+      "tags": ["quest"],
+      "contains": ["破界符", "节点资料", "六丁", "灵界立足包"],
+      "description": "飞升节点旅行包。"
+    },
+    {
+      "id": "instance_window_calendar",
+      "display": "秘境开启历",
+      "type": "lore_book",
+      "content": "血色/虚天/坠魔窗口",
+      "description": "instance_windows 物化。"
+    },
+    {
+      "id": "rep_ledger_huangfeng",
+      "display": "黄枫谷功过簿",
+      "type": "meta",
+      "faction": "huangfeng",
+      "description": "声望阈值可视化。"
+    },
+    {
+      "id": "rep_token_inner",
+      "display": "内门荐书",
+      "type": "token",
+      "tags": ["sect_only", "quest"],
+      "need_rep": {"huangfeng": 20},
+      "description": "解锁内门任务板。"
+    },
+    {
+      "id": "rep_token_zhuji_quota",
+      "display": "筑基丹配额券",
+      "type": "token",
+      "tags": ["sect_only", "scarce"],
+      "need_rep": {"huangfeng": 40},
+      "description": "内部价抽签。"
+    },
+    {
+      "id": "rep_token_yunmeng_exam",
+      "display": "云梦试剑名帖",
+      "type": "token",
+      "tags": ["quest"],
+      "need_rep": {"yunmeng": 10},
+      "description": "圣地报名。"
+    },
+    {
+      "id": "rep_token_dingling_right",
+      "display": "定灵丹兑换权",
+      "type": "token",
+      "tags": ["scarce", "quest"],
+      "need_rep": {"yunmeng": 40},
+      "description": "非实物丹，是购买权。"
+    },
+    {
+      "id": "rep_token_allied_supply",
+      "display": "盟军补给凭证",
+      "type": "token",
+      "tags": ["merit_only"],
+      "need_rep": {"tiannan_allied": 20},
+      "description": "战争补给箱。"
+    },
+    {
+      "id": "rep_token_top_reward",
+      "display": "顶赏候选牌",
+      "type": "token",
+      "tags": ["merit_only", "scarce"],
+      "need_rep": {"tiannan_allied": 80},
+      "description": "庚精/藤权重+。"
+    },
+    {
+      "id": "rep_token_black_vip",
+      "display": "地下黑市贵宾契",
+      "type": "token",
+      "tags": ["black_market"],
+      "need_rep": {"jinjing_underground": 40},
+      "description": "墨金庚精场次。"
+    },
+    {
+      "id": "rep_token_tianyuan_lease",
+      "display": "天渊灵地中档租约",
+      "type": "service",
+      "tags": ["merit_only"],
+      "need_rep": {"tianyuan": 30},
+      "description": "声望锁租约档。"
+    },
+    {
+      "id": "rep_token_hujie",
+      "display": "护劫预约符（声望）",
+      "type": "service",
+      "tags": ["merit_only"],
+      "need_rep": {"tianyuan": 60},
+      "merit": 100,
+      "description": "与 v99 护劫衔接。"
+    },
+    {
+      "id": "bond_token_liuding",
+      "display": "六丁天甲（情谊解锁）",
+      "type": "consumable",
+      "tags": ["bond", "no_trade", "quest"],
+      "need_rep": {"nangong_bond": 80},
+      "description": "道侣高阈值奖励。"
+    },
+    {
+      "id": "bond_token_tihun",
+      "display": "啼魂托付契",
+      "type": "bond",
+      "tags": ["bond", "quest"],
+      "need_rep": {"yuanyao_bond": 30},
+      "description": "元瑶线。"
+    },
+    {
+      "id": "bond_token_tianlan",
+      "display": "天澜支援令",
+      "type": "bond",
+      "tags": ["bond", "quest"],
+      "need_rep": {"tianlan_bond": 40},
+      "description": "圣兽一击结构。"
+    },
+    {
+      "id": "wanted_poster_player",
+      "display": "玩家通缉令（生成物）",
+      "type": "meta",
+      "tags": ["quest"],
+      "trigger": "rep≤-40",
+      "description": "猎修刷新信号。"
+    },
+    {
+      "id": "mask_kit_travel",
+      "display": "旅行易容全套",
+      "type": "stealth",
+      "tags": ["trade"],
+      "price": [500, 15000],
+      "description": "暂避声望猎修；破除补扣。"
+    },
+    {
+      "id": "rep_gift_huangfeng",
+      "display": "黄枫礼盒",
+      "type": "gift",
+      "tags": ["sect_only", "trade"],
+      "effect": "+声望小",
+      "price": [100, 2000],
+      "description": "送礼阈值道具。"
+    },
+    {
+      "id": "rep_gift_yunmeng",
+      "display": "云梦剑穗礼",
+      "type": "gift",
+      "tags": ["trade"],
+      "effect": "+云梦声望",
+      "description": "杀剑狐则无效。"
+    },
+    {
+      "id": "ng_memory_jade",
+      "display": "残忆玉简（NG+）",
+      "type": "manual_hint",
+      "tags": ["unique", "account_bound", "no_trade"],
+      "effect": "开局多一条功法线索",
+      "description": "只继承阅历不继承碾压。"
+    },
+    {
+      "id": "ng_scar_title",
+      "display": "轮回疤称号",
+      "type": "title",
+      "tags": ["account_bound", "no_trade"],
+      "description": "NPC 特殊对话。无属性碾压。"
+    },
+    {
+      "id": "ng_map_fog_moth_dust",
+      "display": "破雾蛾尘",
+      "type": "consumable",
+      "tags": ["no_trade"],
+      "effect": "地图迷雾-30%结构",
+      "description": "无灵石价值。"
+    },
+    {
+      "id": "bottle_year_counter",
+      "display": "绿液年度计数符（系统）",
+      "type": "rule_item",
+      "tags": ["balance_risk", "no_trade"],
+      "description": "难度档 1/3/6/12 次/年。"
+    },
+    {
+      "id": "bottle_cd_hourglass",
+      "display": "瓶冷却沙漏（系统）",
+      "type": "rule_item",
+      "tags": ["balance_risk", "no_trade"],
+      "description": "两次催熟间隔月~季。"
+    },
+    {
+      "id": "jizi_garden_cap_seal",
+      "display": "芥子药园叠乘封禁印",
+      "type": "rule_item",
+      "tags": ["balance_risk"],
+      "description": "禁绿液与芥子无帽叠乘。"
+    },
+    {
+      "id": "dump_sale_brand",
+      "display": "抛售追查烙印",
+      "type": "debuff_token",
+      "tags": ["balance_risk"],
+      "trigger": "批量卖催熟草",
+      "description": "引发审计虚影与压价。"
+    },
+    {
+      "id": "dan_resist_marker",
+      "display": "丹抗印记",
+      "type": "rule_item",
+      "tags": ["balance_risk"],
+      "description": "同种修为丹递减。"
+    },
+    {
+      "id": "merit_isolation_edict",
+      "display": "功勋-灵石隔离令",
+      "type": "rule_item",
+      "tags": ["merit_only"],
+      "description": "禁无限双向兑。"
+    },
+    {
+      "id": "unique_global_ledger",
+      "display": "唯一物全局簿",
+      "type": "meta",
+      "tracks": ["瓶", "鼎", "尺", "炼神", "真魂", "详尽节点"],
+      "description": "跨周目计数仍为1。"
+    },
+    {
+      "id": "insect_softcap_bell",
+      "display": "虫群软顶警铃",
+      "type": "rule_item",
+      "description": "噬金超阶段帽警报。"
+    },
+    {
+      "id": "difficulty_plaque_story",
+      "display": "难度碑·剧情",
+      "type": "meta",
+      "liquid_year": 12,
+      "price_mod": 0.8,
+      "description": "newgame_plus_economy 预设。"
+    },
+    {
+      "id": "difficulty_plaque_standard",
+      "display": "难度碑·标准",
+      "type": "meta",
+      "liquid_year": 6,
+      "price_mod": 1.0,
+      "description": "默认档。"
+    },
+    {
+      "id": "difficulty_plaque_hard",
+      "display": "难度碑·艰苦",
+      "type": "meta",
+      "liquid_year": 3,
+      "price_mod": 1.3,
+      "description": "资源紧张。"
+    },
+    {
+      "id": "difficulty_plaque_legend",
+      "display": "难度碑·近原著",
+      "type": "meta",
+      "liquid_year": 1,
+      "price_mod": 1.6,
+      "no_ng": true,
+      "description": "苦难档。禁 NG+。"
+    },
+    {
+      "id": "exploit_blacklist_scroll",
+      "display": "漏洞黑名单卷",
+      "type": "rule_item",
+      "content": ["绿液卖爆", "复制储物", "重复唯一奖", "多开瓶", "炼神开局"],
+      "description": "设计红线。"
+    },
+    {
+      "id": "audit_checklist_jade",
+      "display": "经济审计玉简",
+      "type": "meta",
+      "checks": ["unique=1", "绿液未超", "防早掉", "never_vendor", "失败不吞唯一"],
+      "description": "版本验收。"
+    },
+    {
+      "id": "travel_blocker_beast_tide_flag",
+      "display": "兽潮封航旗",
+      "type": "world_flag",
+      "effect": "星海时间×3或关闭",
+      "description": "travel blockers。"
+    },
+    {
+      "id": "travel_blocker_war_flag",
+      "display": "战争军令旗",
+      "type": "world_flag",
+      "effect": "边界需军令",
+      "description": "与声望盟军联动。"
+    },
+    {
+      "id": "travel_blocker_exposure_flag",
+      "display": "身份暴露追杀旗",
+      "type": "world_flag",
+      "trigger": ["噬金暴露", "魔功公然"],
+      "description": "枢纽追杀事件。"
+    },
+    {
+      "id": "hub_pass_tianyuan",
+      "display": "天渊入境籍",
+      "type": "token",
+      "tags": ["merit_only", "quest"],
+      "description": "关卡司察验此物。"
+    },
+    {
+      "id": "hub_pass_diyuan",
+      "display": "地渊营地通行",
+      "type": "token",
+      "tags": ["merit_only"],
+      "need_rep": {"diyuan_corps": 20},
+      "description": "浅层任务许可。"
+    },
+    {
+      "id": "storm_crystal",
+      "display": "风暴晶",
+      "type": "material",
+      "source": "航路风暴灵",
+      "tags": ["trade", "craft_mat"],
+      "price": [1000, 15000],
+      "description": "风雷炼器。"
+    },
+    {
+      "id": "rift_core",
+      "display": "裂隙核",
+      "type": "material",
+      "source": "节点裂隙潜伏兽",
+      "tags": ["scarce", "craft_mat", "quest"],
+      "price": [8000, 80000],
+      "description": "空间稳固材。"
+    },
+    {
+      "id": "ember_hound_fang",
+      "display": "炎犬牙",
+      "type": "material",
+      "source": "火狱炎犬",
+      "tags": ["trade", "craft_mat"],
+      "price": [200, 4000],
+      "description": "火器锋材。"
+    },
+    {
+      "id": "ice_wolf_pelt_north",
+      "display": "北地冰狼皮",
+      "type": "material",
+      "source": "雪道冰狼",
+      "tags": ["trade", "craft_mat"],
+      "price": [150, 3500],
+      "description": "寒抗衣。"
+    },
+    {
+      "id": "route_shark_skin",
+      "display": "航道鲨皮",
+      "type": "material",
+      "source": "航道妖鲨",
+      "tags": ["trade", "craft_mat"],
+      "price": [100, 2500],
+      "description": "防水甲。"
+    },
+    {
+      "id": "space_dust_v102",
+      "display": "空间尘（旅行）",
+      "type": "material",
+      "source": "裂隙兽",
+      "tags": ["scarce", "craft_mat"],
+      "description": "与虚螨壳同系。"
+    },
+    {
+      "id": "road_toll_bundle",
+      "display": "买路财袋",
+      "type": "currency",
+      "tags": ["trade"],
+      "price": [10, 200],
+      "description": "炼气路匪和解项。"
+    },
+    {
+      "id": "escort_hire_contract",
+      "display": "雇佣护卫契",
+      "type": "service",
+      "tags": ["trade"],
+      "price": [500, 20000],
+      "need_rep": "exalted 可免费友军",
+      "description": "旅行安全。"
+    },
+    {
+      "id": "reputation_primer_book",
+      "display": "《势力往来录》",
+      "type": "lore_book",
+      "ref": "reputation_unlocks_v102",
+      "description": "22 势力阈值导读。"
+    },
+    {
+      "id": "travel_primer_book",
+      "display": "《修士行路经》",
+      "type": "lore_book",
+      "ref": "travel_routes_v102",
+      "description": "交通与秘境窗口。"
+    },
+    {
+      "id": "ng_plus_primer_book",
+      "display": "《轮回经济戒》",
+      "type": "lore_book",
+      "ref": "newgame_plus_economy_v102",
+      "description": "继承白名单与瓶戒。"
+    },
+    {
+      "id": "sink_tax_array_fee",
+      "display": "阵耗沉洞说明",
+      "type": "rule_item",
+      "description": "灵石出口：护府/聚灵/传送。"
+    },
+    {
+      "id": "war_shop_limit_token",
+      "display": "军功店限购牌",
+      "type": "rule_item",
+      "tags": ["merit_only"],
+      "description": "战争消耗保险丝。"
+    },
+    {
+      "id": "auction_soft_cap_gavel",
+      "display": "拍卖软顶槌（系统）",
+      "type": "rule_item",
+      "description": "同季天价次数有限。"
+    },
+    {
+      "id": "age_cap_herb_seal",
+      "display": "药龄催熟上限印",
+      "type": "rule_item",
+      "tags": ["balance_risk"],
+      "description": "单株止于万年档结构。"
+    },
+    {
+      "id": "cross_week_unique_seal",
+      "display": "跨周目唯一封印",
+      "type": "rule_item",
+      "description": "第二周目不刷第二鼎尺。"
+    },
+    {
+      "id": "start_bonus_only_memory",
+      "display": "开局仅忆礼盒",
+      "type": "kit",
+      "tags": ["no_trade"],
+      "contains": ["残忆玉简", "称号", "破雾"],
+      "forbids": ["灵石堆", "通天", "绿液"],
+      "description": "NG+ 合法开局。"
+    },
+    {
+      "id": "designer_gate_mno",
+      "display": "v102 连接层验收",
+      "type": "meta",
+      "checks": ["路线可达主线", "声望锁商店", "瓶规则四难度齐全"],
+      "description": "M/N/O 交付验收。"
+    },
+    {
+      "id": "content_plaque_v102",
+      "display": "世界包碑 v102",
+      "type": "lore",
+      "text": "旅行·声望·轮回经济三连接",
+      "description": "版本纪念。"
+    },
+    {
+      "id": "next_seed_v103",
+      "display": "后续种子 v103+",
+      "type": "meta",
+      "ideas": ["天气/天劫日历", "多结局旗帜表", "模组UI文案包"],
+      "description": "仍无代码，仅设定方向。"
+    }
+  ]
+}

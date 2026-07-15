@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v94 灵界/魔界物品价带与通货（结构）",
+  "disclaimer": "与人界灵石仅弱换算；优先功勋/灵液/魔晶",
+  "currencies": {
+    "spirit_realm_stone": {
+      "display": "灵界灵石/灵晶",
+      "note": "人界下品灵石不可直接等价",
+      "rough_to_human_low": "1 灵界基础单位 ≈ 1e4~1e6 人界下品（仅叙事）"
+    },
+    "tianyuan_merit": {
+      "display": "天渊功勋",
+      "sinks": ["灵地", "护劫阵", "深层通行证", "丹配额"]
+    },
+    "tribe_contribution": {
+      "display": "种族贡献（天鹏/木族等）",
+      "note": "真血/圣地权限"
+    },
+    "demon_crystal": {
+      "display": "魔晶",
+      "region": "demon_realm",
+      "use": ["魔器", "魔功", "圣祖交易"]
+    },
+    "blood_tooth_rice": {
+      "display": "血牙米（亦可当硬通货）",
+      "cross_ref": "herb xue_ya_mi"
+    }
+  },
+  "price_bands_merit": [
+    {"item": "普通化神丹药", "merit": [10, 40]},
+    {"item": "玉清丹", "merit": [15, 40]},
+    {"item": "真蟾液", "merit": [30, 100]},
+    {"item": "天雷木", "merit": [20, 80]},
+    {"item": "墨麒麟鳞×1", "merit": [40, 120]},
+    {"item": "灵地年租", "merit": [30, 200]},
+    {"item": "护劫阵", "merit": [100, 100]},
+    {"item": "地渊深层通行证", "merit": [50, 150]},
+    {"item": "炼虚级材料碎", "merit": [80, 300]},
+    {"item": "合体见闻/情报", "merit": [20, 100]}
+  ],
+  "spirit_realm_key_items": [
+    {
+      "id": "sr_tenglong_dan",
+      "display": "腾龙丹",
+      "use": "化神~炼虚修为",
+      "obtain": ["自炼", "坊市"],
+      "merit_or_price": [20, 80]
+    },
+    {
+      "id": "sr_xu_ling_dan",
+      "display": "虚灵丹",
+      "use": "合体突破辅助；配合洗灵池",
+      "rarity": 7,
+      "source": "广寒界等"
+    },
+    {
+      "id": "sr_lian_shen_shu",
+      "display": "炼神术玉简",
+      "use": "神识倍增",
+      "rarity": 8,
+      "trade": "几乎不可买"
+    },
+    {
+      "id": "sr_taiyi_qingshan",
+      "display": "太乙青山",
+      "band": "gu_bao_plus",
+      "source": "广寒界"
+    },
+    {
+      "id": "sr_xuantian_zhanling",
+      "display": "玄天斩灵剑（藤果通灵）",
+      "type": "xuantian_related",
+      "note": "活物/成长，非坊市"
+    },
+    {
+      "id": "sr_tianpeng_blood",
+      "display": "天鹏真血",
+      "use": "惊蛰/血脉",
+      "currency": "tribe_quest"
+    },
+    {
+      "id": "sr_kunpeng_relic",
+      "display": "鲲鹏舍利/真羽",
+      "use": "风雷翅/血脉"
+    },
+    {
+      "id": "sr_minghe_milk",
+      "display": "冥河神乳",
+      "rarity": 8,
+      "trade": "大乘契约"
+    },
+    {
+      "id": "sr_yi_mo_jin",
+      "display": "异魔金",
+      "region": "demon_or_border",
+      "use": "极山炼制"
+    },
+    {
+      "id": "sr_zhen_hun_dan",
+      "display": "真魂丹",
+      "source": "斩真仙级",
+      "trade": "大乘可售"
+    }
+  ],
+  "demon_realm_key_items": [
+    {
+      "id": "dr_xue_ya_mi",
+      "display": "血牙米",
+      "use": "精血肉身"
+    },
+    {
+      "id": "dr_mo_jing",
+      "display": "魔晶（通用）",
+      "use": "通货"
+    },
+    {
+      "id": "dr_tianwai_mohe",
+      "display": "天外魔核",
+      "use": "修魔甲"
+    },
+    {
+      "id": "dr_niepan_related",
+      "display": "涅槃魔功相关",
+      "note": "圣祖级，非卖"
+    },
+    {
+      "id": "dr_zhen_mo_qi",
+      "display": "真魔气容器",
+      "risk": "侵蚀",
+      "use": "魔功催动"
+    },
+    {
+      "id": "dr_shengzu_relic",
+      "display": "圣祖遗物（魔晶傀儡/墨灵圣舟等）",
+      "rarity": 8
+    }
+  ],
+  "conversion_policy": {
+    "human_to_spirit": "不建议固定汇率；用任务/飞升赠予启动包",
+    "starter_pack_structure": {
+      "on_ascend": ["基础灵界石", "天渊登记", "低阶疗伤", "地图残"]
+    }
+  },
+  "shops_ref": ["tianyuan_city_market", "diyuan_camp_vendor", "sizhu_pre_mogin"]
+}

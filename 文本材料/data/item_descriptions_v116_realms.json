@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "source": "v116 收官七境二遍说明",
+  "items": [
+    {
+      "id": "realm_deep2_wild_ancient_tomb",
+      "catalog_id": "wild_ancient_tomb",
+      "display": "荒冢秘穴（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "tomb_e1",
+          "layer": 1,
+          "title": "半塌墓碑",
+          "text": "碑文可辨「某散修埋骨」，挖开触发游魂或小窖。"
+        },
+        {
+          "id": "tomb_e2",
+          "layer": 1,
+          "title": "盗洞交汇",
+          "text": "与另一队盗墓散修狭路，可交易残图或开战。"
+        },
+        {
+          "id": "tomb_e3",
+          "layer": 2,
+          "title": "伏尸雨",
+          "text": "土墙崩塌，伏尸成群，火系优。"
+        },
+        {
+          "id": "tomb_e4",
+          "layer": 2,
+          "title": "古药隙",
+          "text": "石缝古药，采时检定，失败惊动尸潮。"
+        },
+        {
+          "id": "tomb_e5",
+          "layer": 3,
+          "title": "主棺开缝",
+          "text": "鬼修残魂苏醒前有10息布置净符/定神。"
+        },
+        {
+          "id": "tomb_e6",
+          "layer": 3,
+          "title": "夺舍检定",
+          "text": "神识不稳者进入夺舍事件，失败短暂失控。"
+        },
+        {
+          "id": "tomb_e7",
+          "layer": 3,
+          "title": "棺底暗格",
+          "text": "击败后暗格：阴材+中阶符纸，可能有鬼修遗物。"
+        },
+        {
+          "id": "tomb_e8",
+          "layer": "any",
+          "title": "引魂灯异响",
+          "text": "持阴器者吸引额外游魂，也提高阴材权重。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "显形",
+          "desc": "鬼火飞射+摄神轻，破隐身。"
+        },
+        {
+          "phase": 2,
+          "name": "夺舍",
+          "desc": "点名神识最低角色，需定神/清心。"
+        },
+        {
+          "phase": 3,
+          "name": "残躯",
+          "desc": "半实体化，惧阳火/净佛，破核即散。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】荒冢秘穴（wild_ancient_tomb）。境界带：['FOUNDATION', 'CORE_FORMATION']，最低：FOUNDATION，层数：3。原描述：筑基阴穴。比阴罗冢散乱，鬼修是核心威胁。。环境：荒坟叠叠，阴而不如阴罗冢系统化；危害：['游魂', '墓毒', '鬼修夺舍', '坍塌']；收益：['阴材', '古药', '中阶符纸']。入场：{'need': ['筑基+', '定神', '阴抗/净符'], 'from': ['天南/大晋边缘荒地', '散修残图'], 'blockers': ['无定神硬闯三层鬼修']}。层区：[{\"id\": \"tomb_outer\", \"display\": \"一层·冢外坡\", \"threat\": [3, 5], \"spawns\": [\"荒冢游魂\", \"盗墓散修\", \"墓鼠\"], \"loot\": [\"yin_material 低\", \"破符纸\"]}, {\"id\": \"tomb_corridor\", \"display\": \"二层·尸道\", \"threat\": [4, 6], \"spawns\": [\"伏尸\", \"墓毒雾\", \"机关棺\"], \"loot\": [\"ancient_herb 权重\", \"中阴材\"]}, {\"id\": \"tomb_crypt\", \"display\": \"三层·主棺堂\", \"threat\": [5, 7], \"spawns\": [\"ghost_cultivator\", \"夺舍残影\", \"寻宝队\"], \"loot_pool\": [\"yin_material\", \"ancient_herb\", \"talisman_paper_mid\"], \"boss_hint\": \"ghost_cultivator\"}]。关键物：[{\"id\": \"yin_material_tomb\", \"display\": \"荒冢阴材\", \"tags\": [\"craft_mat\", \"trade\"], \"price\": [40, 2500]}, {\"id\": \"ancient_herb_tomb\", \"display\": \"冢中古药\", \"tags\": [\"herb\", \"scarce\"], \"price\": [100, 4000]}, {\"id\": \"talisman_paper_mid\", \"display\": \"中阶符纸\", \"tags\": [\"craft_mat\", \"trade\"], \"price\": [30, 800]}, {\"id\": \"ghost_cultivator_relic\", \"display\": \"鬼修遗物\", \"tags\": [\"quest\", \"scarce\"]}]。BOSS：[{\"id\": \"ghost_cultivator\", \"display\": \"鬼修残魂\", \"tier_hint\": [5, 7], \"mechanics\": [\"摄魂\", \"夺舍尝试\", \"惧净佛阳火\"], \"description\": \"原包 boss。定神+净法。\"}]。推荐配装：{'must': ['定神', '净符', '解毒', '中疗'], 'nice': ['引魂灯结构', '队友'], 'avoid': ['无定神硬抗摄魂', '独开主棺喊价']}。掉落对齐：['yin_material', 'ancient_herb', 'talisman_paper_mid']。对齐 yin_material / ancient_herb / talisman_paper_mid；无筑基丹。。层内事件表：[1]半塌墓碑：碑文可辨「某散修埋骨」，挖开触发游魂或小窖。 [1]盗洞交汇：与另一队盗墓散修狭路，可交易残图或开战。 [2]伏尸雨：土墙崩塌，伏尸成群，火系优。 [2]古药隙：石缝古药，采时检定，失败惊动尸潮。 [3]主棺开缝：鬼修残魂苏醒前有10息布置净符/定神。 [3]夺舍检定：神识不稳者进入夺舍事件，失败短暂失控。 [3]棺底暗格：击败后暗格：阴材+中阶符纸，可能有鬼修遗物。 [any]引魂灯异响：持阴器者吸引额外游魂，也提高阴材权重。。BOSS阶段：P1显形—鬼火飞射+摄神轻，破隐身。 P2夺舍—点名神识最低角色，需定神/清心。 P3残躯—半实体化，惧阳火/净佛，破核即散。。NPC钩：['盗墓散修可买残图', '附近村落求镇尸任务']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_wild_ancient_ruins",
+      "catalog_id": "wild_ancient_ruins",
+      "display": "蛮荒上古遗迹（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "ruin_e1",
+          "layer": 1,
+          "title": "沙暴迷途",
+          "text": "无图降视野，水粮加速消耗。"
+        },
+        {
+          "id": "ruin_e2",
+          "layer": 1,
+          "title": "巨蜥巢",
+          "text": "可绕行或取蜥皮灵铁。"
+        },
+        {
+          "id": "ruin_e3",
+          "layer": 2,
+          "title": "石廊禁足",
+          "text": "触阵禁足，破禁符或蛮力。"
+        },
+        {
+          "id": "ruin_e4",
+          "layer": 2,
+          "title": "残篇夹层",
+          "text": "墙上古功残页，神识拓印。"
+        },
+        {
+          "id": "ruin_e5",
+          "layer": 3,
+          "title": "药圃伦理",
+          "text": "火攻清怪会烧毁 spirit_herb_high 权重。"
+        },
+        {
+          "id": "ruin_e6",
+          "layer": 3,
+          "title": "采药仇家",
+          "text": "第三方队争药。"
+        },
+        {
+          "id": "ruin_e7",
+          "layer": 4,
+          "title": "石卫苏醒",
+          "text": "核心外露窗口输出。"
+        },
+        {
+          "id": "ruin_e8",
+          "layer": "any",
+          "title": "兽潮预警",
+          "text": "外围刷新蛮兽，拖延增难。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "岩甲",
+          "desc": "高减伤，需破甲/土遁规避震地。"
+        },
+        {
+          "phase": 2,
+          "name": "禁脉",
+          "desc": "古禁脉冲打断施法。"
+        },
+        {
+          "phase": 3,
+          "name": "碎核",
+          "desc": "核心暴露，爆发期，失败则石卫狂暴短时。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】蛮荒上古遗迹（wild_ancient_ruins）。境界带：['CORE_FORMATION', 'NASCENT_SOUL']，最低：CORE_FORMATION，层数：4。原描述：大晋蛮荒机缘本。凶险与古残篇并存。。环境：上古战场与遗构，灵气紊乱；危害：['石卫', '蛮兽', '古禁反噬', '沙暴/毒瘴']；收益：['古功残篇', '高阶灵草', '低阶灵铁']。入场：{'need': ['结丹+', '破禁/蛮力', '补给充足'], 'from': ['大晋蛮荒', '边军任务', '残图'], 'blockers': ['兽潮期硬闯中心', '无水无粮长征']}。层区：[{\"id\": \"ruin_outskirts\", \"display\": \"一层·遗迹外围\", \"threat\": [5, 7], \"spawns\": [\"蛮荒巨蜥\", \"拾荒散修\", \"风沙\"], \"loot\": [\"low_spirit_iron\", \"兽材\"]}, {\"id\": \"ruin_gallery\", \"display\": \"二层·石廊\", \"threat\": [6, 8], \"spawns\": [\"石纹守卫轻\", \"古禁触手\", \"夺宝队\"], \"loot\": [\"ancient_manual_fragment 权重\", \"spirit_herb_high 低\"]}, {\"id\": \"ruin_garden\", \"display\": \"三层·荒药圃残\", \"threat\": [6, 8], \"spawns\": [\"药守兽\", \"毒藤\", \"采药仇家\"], \"loot\": [\"spirit_herb_high\"]}, {\"id\": \"ruin_core\", \"display\": \"四层·石卫核心\", \"threat\": [7, 9], \"spawns\": [\"ruin_s。关键物：[{\"id\": \"ancient_manual_fragment\", \"display\": \"上古功法残篇\", \"tags\": [\"manual_page\", \"scarce\"]}, {\"id\": \"spirit_herb_high\", \"display\": \"高阶灵草（遗迹）\", \"tags\": [\"herb\", \"scarce\"], \"price\": [500, 20000]}, {\"id\": \"low_spirit_iron\", \"display\": \"低阶灵铁\", \"tags\": [\"craft_mat\", \"trade\"], \"price\": [50, 1500]}, {\"id\": \"barbarian_ruin_map\", \"display\": \"蛮荒遗迹图\", \"tags\": [\"map\", \"quest\"]}]。BOSS：[{\"id\": \"ruin_stone_guardian\", \"display\": \"遗迹石卫\", \"tier_hint\": [7, 9], \"mechanics\": [\"岩甲\", \"震地\", \"古禁脉冲\", \"核心外露\"], \"description\": \"原包 boss。破甲窗口输出。\"}]。推荐配装：{'must': ['破甲', '高疗', '破禁', '水粮', '逃遁'], 'nice': ['分身探路', '阵盘'], 'avoid': ['无图深入核心', '药圃内火攻毁材']}。掉落对齐：['ancient_manual_fragment', 'spirit_herb_high', 'low_spirit_iron']。ancient_manual_fragment / spirit_herb_high / low_spirit_iron。层内事件表：[1]沙暴迷途：无图降视野，水粮加速消耗。 [1]巨蜥巢：可绕行或取蜥皮灵铁。 [2]石廊禁足：触阵禁足，破禁符或蛮力。 [2]残篇夹层：墙上古功残页，神识拓印。 [3]药圃伦理：火攻清怪会烧毁 spirit_herb_high 权重。 [3]采药仇家：第三方队争药。 [4]石卫苏醒：核心外露窗口输出。 [any]兽潮预警：外围刷新蛮兽，拖延增难。。BOSS阶段：P1岩甲—高减伤，需破甲/土遁规避震地。 P2禁脉—古禁脉冲打断施法。 P3碎核—核心暴露，爆发期，失败则石卫狂暴短时。。NPC钩：['大晋边军回收残篇', '蛮荒向导']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_chaotic_sea_abyss_rift",
+      "catalog_id": "chaotic_sea_abyss_rift",
+      "display": "乱星海深渊裂隙（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "abyss_e1",
+          "layer": 1,
+          "title": "压力伤",
+          "text": "无抗压丹持续掉血。"
+        },
+        {
+          "id": "abyss_e2",
+          "layer": 1,
+          "title": "海鲨围舟",
+          "text": "护舟甲优先。"
+        },
+        {
+          "id": "abyss_e3",
+          "layer": 2,
+          "title": "暗流偏航",
+          "text": "深图检定，失败回层。"
+        },
+        {
+          "id": "abyss_e4",
+          "layer": 3,
+          "title": "元婴夺宝",
+          "text": "假盟真刀，虚空珠传闻。"
+        },
+        {
+          "id": "abyss_e5",
+          "layer": 4,
+          "title": "幼蛟报警",
+          "text": "击杀过快引 boss 提前。"
+        },
+        {
+          "id": "abyss_e6",
+          "layer": 5,
+          "title": "裂心脉冲",
+          "text": "虚空乱流打断逃遁。"
+        },
+        {
+          "id": "abyss_e7",
+          "layer": "any",
+          "title": "六连殿禁令",
+          "text": "持禁令降敌对巡修权重。"
+        },
+        {
+          "id": "abyss_e8",
+          "layer": "any",
+          "title": "星宫通缉",
+          "text": "负声望额外追兵。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "水牢",
+          "desc": "禁飞/减速，破水牢优先。"
+        },
+        {
+          "phase": 2,
+          "name": "撕舟",
+          "desc": "载具耐久归零则落水惩罚。"
+        },
+        {
+          "phase": 3,
+          "name": "虚空吐息",
+          "desc": "高伤直线，惧重雷金破鳞。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】乱星海深渊裂隙（chaotic_sea_abyss_rift）。境界带：['NASCENT_SOUL', 'DEITY_optional']，最低：NASCENT_SOUL，层数：5。原描述：元婴深海裂隙。蛟与虚空珠是主收益。。环境：海底裂隙，压力与虚空乱流；危害：['深压', '虚空乱流', '海蛟', '夺宝舰队']；收益：['海妖核心', '虚空珠', '深域材料']。入场：{'need': ['元婴+', '法舟/水遁质变', '深海图'], 'from': ['外星海', '虚天后深域', '六连殿禁令区'], 'blockers': ['结丹硬闯', '无舟无翅']}。层区：[{\"id\": \"rift_rim\", \"display\": \"一层·裂隙缘\", \"threat\": [6, 8], \"spawns\": [\"深渊海鲨\", \"裂隙巡修\", \"压力伤\"], \"loot\": [\"sea_demon_core 低\"]}, {\"id\": \"rift_shaft\", \"display\": \"二层·竖井暗流\", \"threat\": [7, 8], \"spawns\": [\"暗流鳗\", \"虚空乱流点\"], \"loot\": [\"void_pearl 低\"]}, {\"id\": \"rift_shelf\", \"display\": \"三层·裂架平台\", \"threat\": [7, 9], \"spawns\": [\"海妖卫\", \"夺宝元婴修\"], \"loot\": [\"sea_demon_core\", \"赃物\"]}, {\"id\": \"rift_nest\", \"display\": \"四层·蛟巢外\", \"threat\": [8, 9], \"spawns\": [\"幼渊蛟\", \"护巢兽\"], \"loot\": [\"蛟材\"]}, {\"id\": \"rift_heart\", \"display\": \"。关键物：[{\"id\": \"sea_demon_core\", \"display\": \"海妖核心\", \"tags\": [\"craft_mat\", \"scarce\"], \"price\": [2000, 50000]}, {\"id\": \"void_pearl\", \"display\": \"虚空珠\", \"tags\": [\"scarce\", \"craft_mat\"], \"price\": [5000, 80000]}, {\"id\": \"abyss_chart\", \"display\": \"深渊裂隙图\", \"tags\": [\"map\", \"scarce\"]}, {\"id\": \"pressure_ward_pill\", \"display\": \"抗压丹\", \"tags\": [\"pill\", \"consumable\"], \"price\": [200, 5000]}]。BOSS：[{\"id\": \"abyss_jiao\", \"display\": \"深渊蛟\", \"tier_hint\": [8, 10], \"mechanics\": [\"水牢\", \"撕舟\", \"虚空吐息\", \"惧重雷金\"], \"description\": \"原包 boss。元婴海战天花板向。\"}]。推荐配装：{'must': ['抗压', '本命法宝', '逃遁翅/舟', '高疗', '深图'], 'nice': ['噬金破甲', '队友元婴'], 'avoid': ['独闯五层', '裂心炫耀虚空珠']}。掉落对齐：['sea_demon_core', 'void_pearl']。sea_demon_core / void_pearl；极稀。层内事件表：[1]压力伤：无抗压丹持续掉血。 [1]海鲨围舟：护舟甲优先。 [2]暗流偏航：深图检定，失败回层。 [3]元婴夺宝：假盟真刀，虚空珠传闻。 [4]幼蛟报警：击杀过快引 boss 提前。 [5]裂心脉冲：虚空乱流打断逃遁。 [any]六连殿禁令：持禁令降敌对巡修权重。 [any]星宫通缉：负声望额外追兵。。BOSS阶段：P1水牢—禁飞/减速，破水牢优先。 P2撕舟—载具耐久归零则落水惩罚。 P3虚空吐息—高伤直线，惧重雷金破鳞。。NPC钩：['外海船队包租', '星宫巡舰']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_demon_gold_mountain",
+      "catalog_id": "demon_gold_mountain",
+      "display": "魔金山脉（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "gold_e1",
+          "layer": 1,
+          "title": "魔金尘",
+          "text": "无抗金符神识刺痛。"
+        },
+        {
+          "id": "gold_e2",
+          "layer": 2,
+          "title": "矿脉塌方",
+          "text": "限时逃生。"
+        },
+        {
+          "id": "gold_e3",
+          "layer": 3,
+          "title": "血祭低语",
+          "text": "心性检定，失败追圣魔血欲望。"
+        },
+        {
+          "id": "gold_e4",
+          "layer": 4,
+          "title": "金卫亲兵",
+          "text": "先清小怪再将。"
+        },
+        {
+          "id": "gold_e5",
+          "layer": "any",
+          "title": "炼虚巡猎",
+          "text": "同阶夺矿。"
+        },
+        {
+          "id": "gold_e6",
+          "layer": "any",
+          "title": "抛售审计",
+          "text": "出图后圣魔血当街卖触发审计。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "金刃域",
+          "desc": "环绕伤害，站位外围。"
+        },
+        {
+          "phase": 2,
+          "name": "魔金甲",
+          "desc": "破金手段窗口。"
+        },
+        {
+          "phase": 3,
+          "name": "血祭强化",
+          "desc": "残血狂暴，净法可削。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】魔金山脉（demon_gold_mountain）。境界带：['VOID_REFINEMENT', 'BODY_INTEGRATION_optional']，最低：VOID_REFINEMENT，层数：4。原描述：灵界炼虚金脉。魔金与圣魔血高稀缺。。环境：魔金矿息刺神识，金气如刃；危害：['魔金尘', '金魔卫', '矿脉塌陷', '圣魔血诱敌']；收益：['魔金矿', '圣魔血', '魔金宝匣']。入场：{'need': ['炼虚+', '金抗/破金手段', '灵界向资格'], 'from': ['灵界边缘', '魔道金脉任务'], 'blockers': ['元婴及以下常规禁入', '无金抗硬吃魔金尘']}。层区：[{\"id\": \"gold_foothills\", \"display\": \"一层·金麓\", \"threat\": [8, 9], \"spawns\": [\"魔金砂蝎\", \"矿奴残魄\", \"拾荒炼虚\"], \"loot\": [\"demon_gold_ore 低\"]}, {\"id\": \"gold_veins\", \"display\": \"二层·矿脉廊\", \"threat\": [8, 10], \"spawns\": [\"金魔卫轻\", \"魔金尘暴\"], \"loot\": [\"demon_gold_ore\"]}, {\"id\": \"blood_shrine\", \"display\": \"三层·血祭残坛\", \"threat\": [9, 10], \"spawns\": [\"血祭残影\", \"夺血修\"], \"loot\": [\"holy_demon_blood 权重\"]}, {\"id\": \"general_peak\", \"display\": \"四层·金魔将台\", \"threat\": [9, 11], \"spawns\": [\"gold_demon_general\", \"金卫亲兵\"], \"loot_pool\": [\"demon。关键物：[{\"id\": \"demon_gold_ore\", \"display\": \"魔金矿\", \"tags\": [\"craft_mat\", \"scarce\"], \"price\": [3000, 60000]}, {\"id\": \"holy_demon_blood\", \"display\": \"圣魔血\", \"tags\": [\"scarce\", \"quest\", \"balance_risk\"], \"price\": [10000, 150000]}, {\"id\": \"demon_gold_chest\", \"display\": \"魔金宝匣\", \"tags\": [\"quest\", \"scarce\"]}, {\"id\": \"gold_ward_talisman\", \"display\": \"抗金符\", \"tags\": [\"consumable\"], \"price\": [500, 8000]}]。BOSS：[{\"id\": \"gold_demon_general\", \"display\": \"金魔将\", \"tier_hint\": [9, 11], \"mechanics\": [\"金刃域\", \"魔金甲\", \"血祭强化\", \"惧至阴/破金专破\"], \"description\": \"原包 boss。炼虚战场。\"}]。推荐配装：{'must': ['抗金', '破金', '顶级疗', '逃遁', '神识稳固'], 'nice': ['队友炼虚', '阵盘'], 'avoid': ['圣魔血当街交易无审计', '元婴硬闯']}。掉落对齐：['demon_gold_ore', 'holy_demon_blood', 'demon_gold_chest']。demon_gold_ore / holy_demon_blood / demon_gold_chest。层内事件表：[1]魔金尘：无抗金符神识刺痛。 [2]矿脉塌方：限时逃生。 [3]血祭低语：心性检定，失败追圣魔血欲望。 [4]金卫亲兵：先清小怪再将。 [any]炼虚巡猎：同阶夺矿。 [any]抛售审计：出图后圣魔血当街卖触发审计。。BOSS阶段：P1金刃域—环绕伤害，站位外围。 P2魔金甲—破金手段窗口。 P3血祭强化—残血狂暴，净法可削。。NPC钩：['魔道金脉供货商', '正道斥候']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_minor_asura_realm",
+      "catalog_id": "minor_asura_realm",
+      "display": "小修罗界（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "asura_e1",
+          "layer": 1,
+          "title": "杀意侵蚀",
+          "text": "无清心叠层，满层强制敌对。"
+        },
+        {
+          "id": "asura_e2",
+          "layer": 2,
+          "title": "锻台争夺",
+          "text": "甲材点 PvE/PvP。"
+        },
+        {
+          "id": "asura_e3",
+          "layer": 3,
+          "title": "投影劝战",
+          "text": "可止杀手段降阶段。"
+        },
+        {
+          "id": "asura_e4",
+          "layer": "any",
+          "title": "心魔回响",
+          "text": "复读玩家最近击杀。"
+        },
+        {
+          "id": "asura_e5",
+          "layer": "any",
+          "title": "试炼令失效",
+          "text": "超时踢出小界。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "杀意域",
+          "desc": "持续神识压。"
+        },
+        {
+          "phase": 2,
+          "name": "斩神识",
+          "desc": "点名高输出。"
+        },
+        {
+          "phase": 3,
+          "name": "愈战愈狂",
+          "desc": "时间越长越强，速战或止杀。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】小修罗界（minor_asura_realm）。境界带：['BODY_INTEGRATION', 'MAHAYANA_optional']，最低：BODY_INTEGRATION，层数：3。原描述：合体杀意试炼。投影非真神，掉落仍极稀。。环境：血雾与杀意凝实，时空狭小；危害：['杀意侵蚀', '修罗投影', '无休战']；收益：['杀意晶', '修罗甲材', '试炼匣']。入场：{'need': ['合体+', '杀意承受', '心性稳'], 'from': ['灵界杀域入口', '修罗试炼令'], 'blockers': ['杀意反噬未解', '心魔未清']}。层区：[{\"id\": \"asura_mist\", \"display\": \"一层·杀雾原\", \"threat\": [9, 10], \"spawns\": [\"杀意残兵\", \"血雾狼\"], \"loot\": [\"killing_intent_crystal 低\"]}, {\"id\": \"asura_forge\", \"display\": \"二层·甲锻台\", \"threat\": [9, 11], \"spawns\": [\"修罗锻卫\", \"夺甲者\"], \"loot\": [\"asura_armor 材\"]}, {\"id\": \"asura_throne\", \"display\": \"三层·修罗影殿\", \"threat\": [10, 12], \"spawns\": [\"asura_avatar\", \"杀意潮\"], \"loot_pool\": [\"killing_intent_crystal\", \"asura_armor\", \"asura_trial_chest\"], \"boss_hint\": \"asura_avatar\"}]。关键物：[{\"id\": \"killing_intent_crystal\", \"display\": \"杀意晶\", \"tags\": [\"scarce\", \"craft_mat\", \"balance_risk\"], \"price\": [8000, 120000]}, {\"id\": \"asura_armor\", \"display\": \"修罗甲材/残甲\", \"tags\": [\"scarce\", \"craft_mat\"], \"price\": [10000, 200000]}, {\"id\": \"asura_trial_chest\", \"display\": \"修罗试炼匣\", \"tags\": [\"quest\", \"scarce\"]}, {\"id\": \"asura_trial_token\", \"display\": \"修罗试炼令\", \"tags\": [\"token\", \"quest\"]}]。BOSS：[{\"id\": \"asura_avatar\", \"display\": \"修罗投影\", \"tier_hint\": [10, 12], \"mechanics\": [\"杀意域\", \"斩神识\", \"愈战愈狂\", \"惧清心/止杀手段\"], \"description\": \"原包 boss。非实体真修罗，是投影试炼。\"}]。推荐配装：{'must': ['清心', '止杀符结构', '顶级防御', '神识护盾'], 'nice': ['队友轮换', '杀意转化功法'], 'avoid': ['无心性准备硬闯', '杀意晶滥用走火']}。掉落对齐：['killing_intent_crystal', 'asura_armor', 'asura_trial_chest']。killing_intent_crystal / asura_armor / asura_trial_chest；投影非真体。层内事件表：[1]杀意侵蚀：无清心叠层，满层强制敌对。 [2]锻台争夺：甲材点 PvE/PvP。 [3]投影劝战：可止杀手段降阶段。 [any]心魔回响：复读玩家最近击杀。 [any]试炼令失效：超时踢出小界。。BOSS阶段：P1杀意域—持续神识压。 P2斩神识—点名高输出。 P3愈战愈狂—时间越长越强，速战或止杀。。NPC钩：['试炼令发放者', '止杀符商人']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_jiuxian_seclusion",
+      "catalog_id": "jiuxian_seclusion",
+      "display": "九仙山秘境（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "jx_e1",
+          "layer": "1-3",
+          "title": "道问入门",
+          "text": "答心性题可减层压。"
+        },
+        {
+          "id": "jx_e2",
+          "layer": "4-6",
+          "title": "劫丝预演",
+          "text": "小段渡劫模拟。"
+        },
+        {
+          "id": "jx_e3",
+          "layer": "7-8",
+          "title": "心魔完型",
+          "text": "具现执念。"
+        },
+        {
+          "id": "jx_e4",
+          "layer": "9",
+          "title": "劝退选项",
+          "text": "主动退峰仍可能残篇。"
+        },
+        {
+          "id": "jx_e5",
+          "layer": "any",
+          "title": "周目软顶",
+          "text": "峰顶匣限次。"
+        },
+        {
+          "id": "jx_e6",
+          "layer": "any",
+          "title": "非大众审计",
+          "text": "组队开黑刷被记录。"
+        }
+      ],
+      "boss_phases": [
+        {
+          "phase": 1,
+          "name": "天压",
+          "desc": "全队承压。"
+        },
+        {
+          "phase": 2,
+          "name": "道问",
+          "desc": "答题/战意二选。"
+        },
+        {
+          "phase": 3,
+          "name": "劫云",
+          "desc": "预演雷劫，辅物有效。"
+        }
+      ],
+      "description": "【收官秘境二遍深稿】九仙山秘境（jiuxian_seclusion）。境界带：['GREAT_VEHICLE', 'TRUE_IMMORTAL_prep']，最低：GREAT_VEHICLE，层数：9。原描述：大乘九峰。闭关试炼气质，掉落服务渡劫与高阶拼图。。环境：九峰试炼，天压与道韵交织；危害：['层压递增', '心魔峰', '劫云预演', '时限']；收益：['高阶功法残', '渡劫辅物', '峰顶匣']。入场：{'need': ['大乘+', '渡劫准备', '闭关资格/机缘'], 'from': ['灵界九仙山结构', '大乘闭关任务'], 'blockers': ['合体及以下', '当大众副本刷']}。层区：[{\"id\": \"peak_1_3\", \"display\": \"一~三峰·入门压\", \"threat\": [10, 11], \"spawns\": [\"峰灵轻\", \"心魔芽\"], \"loot\": [\"high_order_manual_fragment 低\"]}, {\"id\": \"peak_4_6\", \"display\": \"四~六峰·道考\", \"threat\": [11, 12], \"spawns\": [\"道考灵\", \"劫丝\"], \"loot\": [\"tribulation_aid_item 权重\"]}, {\"id\": \"peak_7_8\", \"display\": \"七~八峰·濒顶\", \"threat\": [11, 12], \"spawns\": [\"峰卫\", \"心魔完型\"], \"loot\": [\"高阶残篇\"]}, {\"id\": \"peak_9\", \"display\": \"九峰·绝顶\", \"threat\": [12, 13], \"spawns\": [\"peak_trial_spirit\"], \"loot_pool\": [\"high_order_manual_fragment\", \"tri。关键物：[{\"id\": \"high_order_manual_fragment\", \"display\": \"高阶功法残篇\", \"tags\": [\"manual_page\", \"scarce\", \"unique_path\"]}, {\"id\": \"tribulation_aid_item\", \"display\": \"渡劫辅物\", \"tags\": [\"scarce\", \"consumable\", \"balance_risk\"]}, {\"id\": \"jiuxian_peak_chest\", \"display\": \"九仙峰顶匣\", \"tags\": [\"quest\", \"scarce\", \"unique_path\"]}, {\"id\": \"jiuxian_seclusion_token\", \"display\": \"九仙闭关令\", \"tags\": [\"token\", \"quest\"]}]。BOSS：[{\"id\": \"peak_trial_spirit\", \"display\": \"峰顶试炼灵\", \"tier_hint\": [12, 13], \"mechanics\": [\"天压\", \"道问\", \"劫云预演\", \"可劝退\"], \"description\": \"原包 boss。考校大于击杀；劝退亦可能给残篇。\"}]。推荐配装：{'must': ['渡劫准备包', '清心', '本命圆满', '时间充裕'], 'nice': ['道侣护法结构', '劫引物'], 'avoid': ['当日常刷', '未大乘闯峰']}。掉落对齐：['high_order_manual_fragment', 'tribulation_aid_item', 'jiuxian_peak_chest']。high_order_manual_fragment / tribulation_aid_item / jiuxian_peak_chest。层内事件表：[1-3]道问入门：答心性题可减层压。 [4-6]劫丝预演：小段渡劫模拟。 [7-8]心魔完型：具现执念。 [9]劝退选项：主动退峰仍可能残篇。 [any]周目软顶：峰顶匣限次。 [any]非大众审计：组队开黑刷被记录。。BOSS阶段：P1天压—全队承压。 P2道问—答题/战意二选。 P3劫云—预演雷劫，辅物有效。。NPC钩：['闭关令执事', '护法位申请']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    },
+    {
+      "id": "realm_deep2_spirit_grass_valley",
+      "catalog_id": "spirit_grass_valley",
+      "display": "灵缈园（残片）（秘境二遍）",
+      "type": "secret_realm_deep2",
+      "tags": [
+        "realm_deep2_v116"
+      ],
+      "events": [
+        {
+          "id": "garden_e1",
+          "layer": 1,
+          "title": "篱灵验令",
+          "text": "残图令降敌意。"
+        },
+        {
+          "id": "garden_e2",
+          "layer": 2,
+          "title": "迷香过浓",
+          "text": "净香不足幻境。"
+        },
+        {
+          "id": "garden_e3",
+          "layer": 2,
+          "title": "节制采收",
+          "text": "超软顶触发禁制灵驱逐。"
+        },
+        {
+          "id": "garden_e4",
+          "layer": 3,
+          "title": "时乱",
+          "text": "短时加速药龄表现，出园结算。"
+        },
+        {
+          "id": "garden_e5",
+          "layer": "any",
+          "title": "抛售审计",
+          "text": "万年药洪峰卖触发坊市审计。"
+        },
+        {
+          "id": "garden_e6",
+          "layer": "any",
+          "title": "绿液协同",
+          "text": "与 garden_liquid 年帽交叉。"
+        }
+      ],
+      "boss_phases": [],
+      "description": "【收官秘境二遍深稿】灵缈园（残片）（spirit_grass_valley）。境界带：['DEITY_TRANSFORMATION', 'VOID_optional']，最低：DEITY_TRANSFORMATION，层数：3。原描述：化神残园。万年药与种子，无 BOSS，防无限印钞。。环境：残破仙园，药香与禁制并存；危害：['药守', '迷香过浓', '时乱', '采尽反噬']；收益：['万年药', '灵缈种', '药方残']。入场：{'need': ['化神+', '药园机缘/残图', '绿液规则自觉'], 'from': ['灵界药谷残片', '化神后机缘'], 'blockers': ['当日常无限采万年药', '绿液无帽叠乘']}。层区：[{\"id\": \"garden_rim\", \"display\": \"一层·残篱\", \"threat\": [9, 10], \"spawns\": [\"药篱灵\", \"迷香蜂\"], \"loot\": [\"spirit_grass_seed 低\"]}, {\"id\": \"garden_beds\", \"display\": \"二层·残畦\", \"threat\": [9, 11], \"spawns\": [\"药守兽\", \"时乱影\"], \"loot\": [\"ten_thousand_year_herb 权重\", \"seed\"]}, {\"id\": \"garden_heart\", \"display\": \"三层·园心残殿\", \"threat\": [10, 11], \"spawns\": [\"园心禁制灵\", \"无固定大BOSS\"], \"loot_pool\": [\"ten_thousand_year_herb\", \"spirit_grass_seed\"], \"boss_hint\": null, \"note\": \"原包 bosses null；禁制灵可驱散\"}]。关键物：[{\"id\": \"ten_thousand_year_herb\", \"display\": \"万年灵药（园）\", \"tags\": [\"herb\", \"scarce\", \"balance_risk\"], \"price\": [20000, 200000]}, {\"id\": \"spirit_grass_seed\", \"display\": \"灵缈草种\", \"tags\": [\"seed\", \"scarce\"]}, {\"id\": \"garden_shard_map\", \"display\": \"灵缈残图\", \"tags\": [\"map\", \"quest\"]}, {\"id\": \"overharvest_ward\", \"display\": \"采药节制戒\", \"tags\": [\"rule_item\"]}]。BOSS：[]。推荐配装：{'must': ['辨药', '节制采收', '净香', '逃遁'], 'nice': ['药园经验', '绿液次数预留'], 'avoid': ['一次采空', '万年药洪峰抛售']}。掉落对齐：['ten_thousand_year_herb', 'spirit_grass_seed']。ten_thousand_year_herb / spirit_grass_seed；无BOSS。层内事件表：[1]篱灵验令：残图令降敌意。 [2]迷香过浓：净香不足幻境。 [2]节制采收：超软顶触发禁制灵驱逐。 [3]时乱：短时加速药龄表现，出园结算。 [any]抛售审计：万年药洪峰卖触发坊市审计。 [any]绿液协同：与 garden_liquid 年帽交叉。。BOSS阶段：无BOSS或多阶段不适用。NPC钩：['药园残谱商人', '审计执事']。规则：九仙非大众；灵缈软顶；修罗投影；魔金审计；深渊抗压——见 CONSISTENCY_AUDIT。"
+    }
+  ]
+}

@@ -1,0 +1,4461 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v115",
+  "disclaimer": "无代码",
+  "items": [
+    {
+      "id": "tl_mengmei_five_realms",
+      "display": "时间线·五界分立（加长）",
+      "type": "timeline",
+      "description": "人界灵界阴司魔界仙界规则固化；界面压制与飞升代价定调。主线人界→灵界。"
+    },
+    {
+      "id": "tl_tiannan_qi_entry",
+      "display": "时间线·天南炼气入门（加长）",
+      "type": "timeline",
+      "description": "测灵根、七派或散修。长春功/辟谷/贡献/七脉。无筑基丹保底。"
+    },
+    {
+      "id": "tl_foundation_blood",
+      "display": "时间线·筑基与血色禁地（加长）",
+      "type": "timeline",
+      "description": "筑基丹极稀；血色名额、禁地药、降尘级机缘。争夺与狂暴。"
+    },
+    {
+      "id": "tl_core_void_palace",
+      "display": "时间线·结丹与虚天殿（加长）",
+      "type": "timeline",
+      "description": "虚天殿开启；鼎/尺争夺。通天完整不进货架。"
+    },
+    {
+      "id": "tl_chaotic_sea",
+      "display": "时间线·乱星海（加长）",
+      "type": "timeline",
+      "description": "星宫、内海魔道、六连殿。深渊裂隙元婴后。"
+    },
+    {
+      "id": "tl_nascent_yin_yang",
+      "display": "时间线·元婴阴阳窟昆吾（加长）",
+      "type": "timeline",
+      "description": "培婴凝婴、阴冥、昆吾收束。小劫启用。"
+    },
+    {
+      "id": "tl_dajin_mulan",
+      "display": "时间线·大晋慕兰（加长）",
+      "type": "timeline",
+      "description": "正魔边、天澜风战场。军功隔离。庚精拍卖顶。"
+    },
+    {
+      "id": "tl_diyuan_tianyuan",
+      "display": "时间线·地渊天渊（加长）",
+      "type": "timeline",
+      "description": "地渊凶险、天渊功勋。飞升铺垫。"
+    },
+    {
+      "id": "tl_ascend_spirit",
+      "display": "时间线·飞升灵界（加长）",
+      "type": "timeline",
+      "description": "界面与灵气变化。化神丹/火狱。人界化神受压。"
+    },
+    {
+      "id": "tl_spirit_void_asura",
+      "display": "时间线·炼虚合体（加长）",
+      "type": "timeline",
+      "description": "魔金、小修罗投影。圣魔血/杀意晶高风险。"
+    },
+    {
+      "id": "tl_guanghan_end",
+      "display": "时间线·广寒终局（加长）",
+      "type": "timeline",
+      "description": "广寒、九仙、冥河神乳线索 unique。多周目 never_list。"
+    },
+    {
+      "id": "tl_numeric_nodes",
+      "display": "时间线·数值节点",
+      "type": "meta",
+      "nodes": {
+        "筑基丹": [
+          500,
+          2000
+        ],
+        "降尘": [
+          3000,
+          15000
+        ],
+        "结丹丹": [
+          5000,
+          40000
+        ],
+        "培婴": [
+          8000,
+          80000
+        ],
+        "化神丹": [
+          50000,
+          500000
+        ],
+        "庚精": [
+          20000,
+          120000
+        ]
+      },
+      "description": "与 numeric_overview 同步。"
+    },
+    {
+      "id": "chronicle_M1_five_realms",
+      "catalog_id": "M1_five_realms",
+      "display": "五界分立（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】五界分立。类型historical。纪元mengmei。约年None。域global。摘要：人界、灵界、阴司、上古魔界、仙界规则固化。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_M2_true_spirit_fall",
+      "catalog_id": "M2_true_spirit_fall",
+      "display": "真灵陨落纪（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】真灵陨落纪。类型historical。纪元mengmei。约年-1000000。域global。摘要：真灵强者陨落，身躯化冥河、广寒残片等秘境。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_M3_xiaolu_realm",
+      "catalog_id": "M3_xiaolu_realm",
+      "display": "修罗界崩（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】修罗界崩。类型historical。纪元mengmei。约年-200000。域global。摘要：修罗界崩溃，碎片偶现为小修罗界。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_M4_holy_bird_mulan",
+      "catalog_id": "M4_holy_bird_mulan",
+      "display": "圣禽临凡（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】圣禽临凡。类型historical。纪元mengmei。约年-120000。域mulan。摘要：青孔雀一脉被慕兰兽族供奉之始。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_M5_tianlan_oath",
+      "catalog_id": "M5_tianlan_oath",
+      "display": "天澜圣兽约（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】天澜圣兽约。类型historical。纪元mengmei。约年-120000。域mulan,tianlan。摘要：突兀族立圣兽之印，与慕兰世仇并立约。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A1_kunwu_peak",
+      "catalog_id": "A1_kunwu_peak",
+      "display": "昆吾灵山鼎盛（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】昆吾灵山鼎盛。类型historical。纪元shanggu。约年-70000。域dajin。摘要：人界第一灵山，道佛儒魔并修。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A2_stone_puppet",
+      "catalog_id": "A2_stone_puppet",
+      "display": "石灵傀儡术兴盛（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】石灵傀儡术兴盛。类型historical。纪元shanggu。约年-60000。域global。摘要：妖魄封石像，上古傀儡高峰。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A3_dayan_sage",
+      "catalog_id": "A3_dayan_sage",
+      "display": "千竹祖师悟衍（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】千竹祖师悟衍。类型historical。纪元shanggu。约年-55000。域qianzhu。摘要：大衍神君创大衍诀与机关傀儡术。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A4_void_palace_built",
+      "catalog_id": "A4_void_palace_built",
+      "display": "虚天殿建成（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】虚天殿建成。类型historical。纪元shanggu。约年-50000。域chaotic_sea。摘要：乱星海上古修士建玉殿沉入虚空。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A5_blood_forbidden_hermits",
+      "catalog_id": "A5_blood_forbidden_hermits",
+      "display": "血色禁地隐居潮（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】血色禁地隐居潮。类型historical。纪元shanggu。约年-40000。域tiannan。摘要：越国古修入禁地闭关坐化。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A6_first_demon_war_kunwu",
+      "catalog_id": "A6_first_demon_war_kunwu",
+      "display": "人魔大战（第一次）（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】人魔大战（第一次）。类型historical。纪元shanggu。约年-32000。域dajin。摘要：昆吾山与魔族大军交锋，灵山受损。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_A7_peiying_formula_peak",
+      "catalog_id": "A7_peiying_formula_peak",
+      "display": "培婴丹方鼎盛（纪年）",
+      "type": "chronicle_event",
+      "era": "shanggu",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】培婴丹方鼎盛。类型historical。纪元shanggu。约年-30000。域global。摘要：化神辅助丹方后随宗灭失传。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D1_demon_invasion",
+      "catalog_id": "D1_demon_invasion",
+      "display": "上古魔界裂隙大开（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】上古魔界裂隙大开。类型historical。纪元fengmo。约年-29800。域global。摘要：古魔侵入人界，上界协助封印。。玩法：realm_cap_spirit_transformation_early,demon_corruption_zones。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D2_spirit_vein_damage",
+      "catalog_id": "D2_spirit_vein_damage",
+      "display": "灵气脉络伤损（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】灵气脉络伤损。类型historical。纪元fengmo。约年-29500。域global。摘要：灵脉被魔气污染，环境永久劣化。。玩法：spirit_density_penalty_regions。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D3_realm_cap_fall",
+      "catalog_id": "D3_realm_cap_fall",
+      "display": "化神上限跌落（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】化神上限跌落。类型historical。纪元fengmo。约年-28500。域global。摘要：人界难达化神中后期。。玩法：realm_cap_spirit_transformation_early。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D4_zhuimo_valley",
+      "catalog_id": "D4_zhuimo_valley",
+      "display": "坠魔谷战役（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】坠魔谷战役。类型historical。纪元fengmo。约年-28000。域tiannan。摘要：魔修大能设阵互战形成坠魔谷。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D5_seal_treaty",
+      "catalog_id": "D5_seal_treaty",
+      "display": "封魔阵立约（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】封魔阵立约。类型historical。纪元fengmo。约年-27500。域global。摘要：封印主要裂隙，非全部。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D6_mojin_mountain",
+      "catalog_id": "D6_mojin_mountain",
+      "display": "魔金山脉形成（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】魔金山脉形成。类型historical。纪元fengmo。约年-27000。域spirit_realm。摘要：始祖魔修自爆，魔气山脉。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_D7_demonization_spread",
+      "catalog_id": "D7_demonization_spread",
+      "display": "魔化神通入人间（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】魔化神通入人间。类型historical。纪元fengmo。约年-26000。域global。摘要：古魔残党可魔化法宝与修士。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K1_seven_sects",
+      "catalog_id": "K1_seven_sects",
+      "display": "越国七派立宗（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】越国七派立宗。类型historical。纪元zhuguo。约年-15000。域tiannan。摘要：黄枫谷、掩月宗等格局形成。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K2_six_demon_sects",
+      "catalog_id": "K2_six_demon_sects",
+      "display": "魔道六宗北迁（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】魔道六宗北迁。类型historical。纪元zhuguo。约年-12000。域tiannan。摘要：天罗国魔宗与正教对峙。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K3_mulan_tianlan_war_1",
+      "catalog_id": "K3_mulan_tianlan_war_1",
+      "display": "慕兰突兀千年战（第一期）（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】慕兰突兀千年战（第一期）。类型historical。纪元zhuguo。约年-10000。域mulan,tianlan。摘要：圣印立约重申。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K4_star_palace",
+      "catalog_id": "K4_star_palace",
+      "display": "乱星海星宫建立（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】乱星海星宫建立。类型historical。纪元zhuguo。约年-8000。域chaotic_sea。摘要：征收灵石庇护。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K5_inverse_star",
+      "catalog_id": "K5_inverse_star",
+      "display": "逆星盟成形（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】逆星盟成形。类型historical。纪元zhuguo。约年-3000。域chaotic_sea。摘要：黑市繁荣。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K6_dajin_clans",
+      "catalog_id": "K6_dajin_clans",
+      "display": "大晋世家崛起（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】大晋世家崛起。类型historical。纪元zhuguo。约年-3500。域dajin。摘要：真灵世家把持南疆。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K7_nine_nation_alliance",
+      "catalog_id": "K7_nine_nation_alliance",
+      "display": "九国盟组建（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】九国盟组建。类型historical。纪元zhuguo。约年-1800。域tiannan。摘要：联合抗魔。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K8_luoyun_sect",
+      "catalog_id": "K8_luoyun_sect",
+      "display": "天道盟与落云宗（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】天道盟与落云宗。类型historical。纪元zhuguo。约年-1200。域tiannan。摘要：炼丹著称。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K9_mulan_tianlan_escalation",
+      "catalog_id": "K9_mulan_tianlan_escalation",
+      "display": "慕兰突兀战烈度升级（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】慕兰突兀战烈度升级。类型historical。纪元zhuguo。约年-300。域mulan,tianlan。摘要：法士出征、天澜圣殿。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_K10_qixuan_decline",
+      "catalog_id": "K10_qixuan_decline",
+      "display": "七玄门衰微（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】七玄门衰微。类型historical。纪元zhuguo。约年-200。域tiannan。摘要：江湖门派，粗浅长春功。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P1_spirit_depletion_debate",
+      "catalog_id": "P1_spirit_depletion_debate",
+      "display": "灵脉枯竭论起（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】灵脉枯竭论起。类型historical。纪元lingshuai。约年-5000。域global。摘要：筑基丹限制外流。。玩法：economy_scarcity。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P2_spirit_transformation_rare",
+      "catalog_id": "P2_spirit_transformation_rare",
+      "display": "化神修士绝迹人间（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】化神修士绝迹人间。类型historical。纪元lingshuai。约年-3000。域global。摘要：多赴灵界或坐化。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P3_smuggle_ascension",
+      "catalog_id": "P3_smuggle_ascension",
+      "display": "偷渡灵界盛行（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】偷渡灵界盛行。类型historical。纪元lingshuai。约年-1500。域global。摘要：空间裂缝高风险。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P4_tianyuan_open",
+      "catalog_id": "P4_tianyuan_open",
+      "display": "天渊城仍通人界（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】天渊城仍通人界。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：灵界人族据点修炼加倍。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P5_present_era",
+      "catalog_id": "P5_present_era",
+      "display": "当前纪年（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】当前纪年。类型historical。纪元lingshuai。约年12960。域global。摘要：世界现在。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P6_void_palace_next",
+      "catalog_id": "P6_void_palace_next",
+      "display": "虚天殿下次浮现（预测）（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】虚天殿下次浮现（预测）。类型historical。纪元lingshuai。约年13050。域chaotic_sea。摘要：距默认今+90年。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_P7_player_entry",
+      "catalog_id": "P7_player_entry",
+      "display": "玩家入场（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】玩家入场。类型historical。纪元lingshuai。约年12960。域global。摘要：记名弟子/散修入场。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L1_tianyuan_founded",
+      "catalog_id": "L1_tianyuan_founded",
+      "display": "天渊城开城（纪年）",
+      "type": "chronicle_event",
+      "era": "zhuguo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】天渊城开城。类型historical。纪元zhuguo。约年-20000。域spirit_realm。摘要：人妖共守前哨。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L2_treasure_fair",
+      "catalog_id": "L2_treasure_fair",
+      "display": "万宝大会定例（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】万宝大会定例。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：每千年一届。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L3_diyuan",
+      "catalog_id": "L3_diyuan",
+      "display": "地渊分层勘探（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】地渊分层勘探。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：飞灵族腹地地下城。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L4_minghe",
+      "catalog_id": "L4_minghe",
+      "display": "冥河之地（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】冥河之地。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：蜉蝣族秘境，鬼物。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L5_guanghai",
+      "catalog_id": "L5_guanghai",
+      "display": "广寒界断续现世（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】广寒界断续现世。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：需广寒令，灵气×10。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L6_human_weak_northwest",
+      "catalog_id": "L6_human_weak_northwest",
+      "display": "人族西北弱势（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】人族西北弱势。类型historical。纪元lingshuai。约年None。域spirit_realm。摘要：风元大陆边角。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_Y1_yinsi_realm",
+      "catalog_id": "Y1_yinsi_realm",
+      "display": "阴司之界（纪年）",
+      "type": "chronicle_event",
+      "era": "mengmei",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】阴司之界。类型historical。纪元mengmei。约年None。域global。摘要：亡魂归处，连冥河秘境。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_Y2_ancient_demon_realm",
+      "catalog_id": "Y2_ancient_demon_realm",
+      "display": "上古魔界未灭（纪年）",
+      "type": "chronicle_event",
+      "era": "fengmo",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】上古魔界未灭。类型historical。纪元fengmo。约年None。域global。摘要：封魔后仍渗透。。玩法：。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_Y3_demon_remnant_awaken",
+      "catalog_id": "Y3_demon_remnant_awaken",
+      "display": "古魔余孽苏醒暗流（纪年）",
+      "type": "chronicle_event",
+      "era": "lingshuai",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】古魔余孽苏醒暗流。类型historical。纪元lingshuai。约年12900。域global。摘要：玩家时代危机。。玩法：world_crisis_flag。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_cycle_blood_forbidden",
+      "catalog_id": "cycle_blood_forbidden",
+      "display": "血色禁地衰弱期（纪年）",
+      "type": "chronicle_event",
+      "era": null,
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】血色禁地衰弱期。类型cyclic。纪元None。约年None。域tiannan。摘要：风禁衰弱，筑基以下可入五日。。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_cycle_void_palace",
+      "catalog_id": "cycle_void_palace",
+      "display": "虚天殿浮现（纪年）",
+      "type": "chronicle_event",
+      "era": null,
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】虚天殿浮现。类型cyclic。纪元None。约年None。域chaotic_sea。摘要：乱星海第一秘境。。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_cycle_treasure_fair",
+      "catalog_id": "cycle_treasure_fair",
+      "display": "万宝大会（纪年）",
+      "type": "chronicle_event",
+      "era": null,
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】万宝大会。类型cyclic。纪元None。约年None。域spirit_realm。摘要：九仙山拍卖。。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_mulan_tianlan_war_minor",
+      "catalog_id": "mulan_tianlan_war_minor",
+      "display": "慕兰突兀边境冲突（纪年）",
+      "type": "chronicle_event",
+      "era": null,
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】慕兰突兀边境冲突。类型cyclic。纪元None。约年None。域mulan,tianlan。摘要：小规模阵营事件。。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_E_mulan_invasion_wave",
+      "catalog_id": "E_mulan_invasion_wave",
+      "display": "E_mulan_invasion_wave（纪年）",
+      "type": "chronicle_event",
+      "era": "human_realm",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元human_realm。约年None。域。摘要：。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_E_tianlan_saint_beast",
+      "catalog_id": "E_tianlan_saint_beast",
+      "display": "E_tianlan_saint_beast（纪年）",
+      "type": "chronicle_event",
+      "era": "human_realm",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元human_realm。约年None。域。摘要：。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_E_void_palace_cycle",
+      "catalog_id": "E_void_palace_cycle",
+      "display": "E_void_palace_cycle（纪年）",
+      "type": "chronicle_event",
+      "era": "human_realm",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元human_realm。约年None。域。摘要：。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_E_ancient_demon_seal_weak",
+      "catalog_id": "E_ancient_demon_seal_weak",
+      "display": "E_ancient_demon_seal_weak（纪年）",
+      "type": "chronicle_event",
+      "era": "human_realm",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元human_realm。约年None。域。摘要：。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_L3_void_realm_cultivation_norm",
+      "catalog_id": "L3_void_realm_cultivation_norm",
+      "display": "L3_void_realm_cultivation_norm（纪年）",
+      "type": "chronicle_event",
+      "era": "spirit_realm",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元spirit_realm。约年None。域diyuan,wild_land。摘要：灵界炼虚常态：地渊与荒原争资源。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_E_mortal_cap_enforcement",
+      "catalog_id": "E_mortal_cap_enforcement",
+      "display": "E_mortal_cap_enforcement（纪年）",
+      "type": "chronicle_event",
+      "era": "post_ancient_demon",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元post_ancient_demon。约年None。域。摘要：人界天道压制促飞升灵界。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "chronicle_B_buddhist_dajin_spread",
+      "catalog_id": "B_buddhist_dajin_spread",
+      "display": "B_buddhist_dajin_spread（纪年）",
+      "type": "chronicle_event",
+      "era": "history",
+      "tags": [
+        "original_chronicle",
+        "v115"
+      ],
+      "description": "【纪年】None。类型None。纪元history。约年None。域。摘要：佛修与道门并存，诛魔卫道。。玩法：氛围/解锁。周期优先于随机刷。"
+    },
+    {
+      "id": "figure_dayan_sage",
+      "catalog_id": "dayan_sage",
+      "display": "大衍神君（纪年人物）",
+      "type": "notable_figure",
+      "tags": [
+        "v115"
+      ],
+      "description": "【人物】大衍神君。约年-55000。创千竹教傀儡术。背景提及，合规仿名。"
+    },
+    {
+      "id": "figure_seal_saints",
+      "catalog_id": "seal_saints",
+      "display": "封魔诸圣（纪年人物）",
+      "type": "notable_figure",
+      "tags": [
+        "v115"
+      ],
+      "description": "【人物】封魔诸圣。约年-27500。集体封印，无单一主角。背景提及，合规仿名。"
+    },
+    {
+      "id": "figure_nine_nation_alliance",
+      "catalog_id": "nine_nation_alliance",
+      "display": "九国盟（纪年人物）",
+      "type": "notable_figure",
+      "tags": [
+        "v115"
+      ],
+      "description": "【人物】九国盟。约年-1800。抗魔联盟。背景提及，合规仿名。"
+    },
+    {
+      "id": "figure_qixuan_men",
+      "catalog_id": "qixuan_men",
+      "display": "七玄门（纪年人物）",
+      "type": "notable_figure",
+      "tags": [
+        "v115"
+      ],
+      "description": "【人物】七玄门。约年-200。新手江湖门派。背景提及，合规仿名。"
+    },
+    {
+      "id": "figure_player",
+      "catalog_id": "player",
+      "display": "入道者（玩家）（纪年人物）",
+      "type": "notable_figure",
+      "tags": [
+        "v115"
+      ],
+      "description": "【人物】入道者（玩家）。约年12960。创角默认年。背景提及，合规仿名。"
+    },
+    {
+      "id": "chronicle_tbd_T1",
+      "display": "纪年待定·T1",
+      "type": "meta",
+      "description": "问：古魔入侵精确战争年数。处理：保持约五百年，不精确。"
+    },
+    {
+      "id": "chronicle_tbd_T2",
+      "display": "纪年待定·T2",
+      "type": "meta",
+      "description": "问：道历0与现实对应。处理：无，纯虚构。"
+    },
+    {
+      "id": "chronicle_tbd_T3",
+      "display": "纪年待定·T3",
+      "type": "meta",
+      "description": "问：各派创派精确年。处理：按需再填。"
+    },
+    {
+      "id": "chronicle_tbd_T4",
+      "display": "纪年待定·T4",
+      "type": "meta",
+      "description": "问：境界名与模组对齐。处理：见 WORLD_SETTING_BIBLE 对照表。"
+    },
+    {
+      "id": "faction_node_huangfeng_valley",
+      "catalog_id": "huangfeng_valley",
+      "display": "黄枫谷（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】黄枫谷。域tiannan。原型alchemy_strong。炼丹强宗；地火室、筑基丹配额。"
+    },
+    {
+      "id": "faction_node_yanyue_sect",
+      "catalog_id": "yanyue_sect",
+      "display": "掩月宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】掩月宗。域tiannan。原型illusion_array。阵法/幻术强宗。"
+    },
+    {
+      "id": "faction_node_spirit_beast_mountain",
+      "catalog_id": "spirit_beast_mountain",
+      "display": "灵兽山（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】灵兽山。域tiannan。原型beast_tamer。御兽强宗。"
+    },
+    {
+      "id": "faction_node_qingxu_gate",
+      "catalog_id": "qingxu_gate",
+      "display": "清虚门（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】清虚门。域tiannan。原型talisman_specialist。制符见长。"
+    },
+    {
+      "id": "faction_node_huadao_wu",
+      "catalog_id": "huadao_wu",
+      "display": "化刀坞（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】化刀坞。域tiannan。原型None。化刀坞。"
+    },
+    {
+      "id": "faction_node_tianque_fort",
+      "catalog_id": "tianque_fort",
+      "display": "天阙堡（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】天阙堡。域tiannan。原型None。天阙堡。"
+    },
+    {
+      "id": "faction_node_giant_sword_gate",
+      "catalog_id": "giant_sword_gate",
+      "display": "巨剑门（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】巨剑门。域tiannan。原型None。巨剑门。"
+    },
+    {
+      "id": "faction_node_qixuan_men",
+      "catalog_id": "qixuan_men",
+      "display": "七玄门（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】七玄门。域tiannan。原型None。七玄门。"
+    },
+    {
+      "id": "faction_node_ghost_spirit_gate",
+      "catalog_id": "ghost_spirit_gate",
+      "display": "鬼灵门（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】鬼灵门。域tiannan。原型None。鬼灵门。"
+    },
+    {
+      "id": "faction_node_hehuan_sect",
+      "catalog_id": "hehuan_sect",
+      "display": "合欢宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】合欢宗。域tiannan。原型None。合欢宗。"
+    },
+    {
+      "id": "faction_node_moyan_gate",
+      "catalog_id": "moyan_gate",
+      "display": "魔焰门（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】魔焰门。域tiannan。原型None。魔焰门。"
+    },
+    {
+      "id": "faction_node_tiansha_sect",
+      "catalog_id": "tiansha_sect",
+      "display": "天煞宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】天煞宗。域tiannan。原型None。天煞宗。"
+    },
+    {
+      "id": "faction_node_yuling_sect",
+      "catalog_id": "yuling_sect",
+      "display": "御灵宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】御灵宗。域tiannan。原型None。御灵宗。"
+    },
+    {
+      "id": "faction_node_qianhuan_sect",
+      "catalog_id": "qianhuan_sect",
+      "display": "千幻宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】千幻宗。域tiannan。原型None。千幻宗。"
+    },
+    {
+      "id": "faction_node_luoyun_sect",
+      "catalog_id": "luoyun_sect",
+      "display": "落云宗（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】落云宗。域tiannan。原型None。落云宗。"
+    },
+    {
+      "id": "faction_node_star_palace",
+      "catalog_id": "star_palace",
+      "display": "星宫（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】星宫。域chaotic_sea。原型order_maintainer。星宫体系，逆星盟对立。"
+    },
+    {
+      "id": "faction_node_inverse_star_alliance",
+      "catalog_id": "inverse_star_alliance",
+      "display": "逆星盟（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】逆星盟。域chaotic_sea。原型rebel_faction。乱星海割据。"
+    },
+    {
+      "id": "faction_node_qianzhu_teach",
+      "catalog_id": "qianzhu_teach",
+      "display": "千竹教（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】千竹教。域extreme_west。原型None。千竹教。"
+    },
+    {
+      "id": "faction_node_mulan_fashi_council",
+      "catalog_id": "mulan_fashi_council",
+      "display": "慕兰神师府（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】慕兰神师府。域mulan。原型None。慕兰神师府。"
+    },
+    {
+      "id": "faction_node_tianlan_temple",
+      "catalog_id": "tianlan_temple",
+      "display": "天澜圣殿（势力节点）",
+      "type": "faction_node",
+      "tags": [
+        "v115"
+      ],
+      "description": "【势力】天澜圣殿。域tianlan。原型holy_beast_cult。圣禽祭祀体系。"
+    },
+    {
+      "id": "faction_edge_huangfeng_valley_hehuan_sect_rivalry",
+      "display": "关系·huangfeng_valley→hehuan_sect",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】huangfeng_valley→hehuan_sect，rivalry，权重-40。。"
+    },
+    {
+      "id": "faction_edge_huangfeng_valley_ghost_spirit_gate_war",
+      "display": "关系·huangfeng_valley→ghost_spirit_gate",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】huangfeng_valley→ghost_spirit_gate，war，权重-70。。"
+    },
+    {
+      "id": "faction_edge_yanyue_sect_hehuan_sect_rivalry",
+      "display": "关系·yanyue_sect→hehuan_sect",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】yanyue_sect→hehuan_sect，rivalry，权重-30。同源合欢。"
+    },
+    {
+      "id": "faction_edge_spirit_beast_mountain_yuling_sect_secret_tie",
+      "display": "关系·spirit_beast_mountain→yuling_sect",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】spirit_beast_mountain→yuling_sect，secret_tie，权重20。。"
+    },
+    {
+      "id": "faction_edge_star_palace_inverse_star_alliance_war",
+      "display": "关系·star_palace→inverse_star_alliance",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】star_palace→inverse_star_alliance，war，权重-80。。"
+    },
+    {
+      "id": "faction_edge_star_palace_inverse_star_alliance_trade",
+      "display": "关系·star_palace→inverse_star_alliance",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】star_palace→inverse_star_alliance，trade，权重10。走私。"
+    },
+    {
+      "id": "faction_edge_mulan_fashi_council_tianlan_temple_war",
+      "display": "关系·mulan_fashi_council→tianlan_temple",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】mulan_fashi_council→tianlan_temple，war，权重-60。。"
+    },
+    {
+      "id": "faction_edge_mulan_fashi_council_tianlan_temple_alliance",
+      "display": "关系·mulan_fashi_council→tianlan_temple",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】mulan_fashi_council→tianlan_temple，alliance，权重5。圣印不可互杀条约为底线。"
+    },
+    {
+      "id": "faction_edge_luoyun_sect_huangfeng_valley_trade",
+      "display": "关系·luoyun_sect→huangfeng_valley",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】luoyun_sect→huangfeng_valley，trade，权重50。。"
+    },
+    {
+      "id": "faction_edge_qianzhu_teach_qingxu_gate_trade",
+      "display": "关系·qianzhu_teach→qingxu_gate",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】qianzhu_teach→qingxu_gate，trade，权重25。。"
+    },
+    {
+      "id": "faction_edge_nine_nation_alliance_ghost_spirit_gate_war",
+      "display": "关系·nine_nation_alliance→ghost_spirit_gate",
+      "type": "faction_edge",
+      "tags": [
+        "v115"
+      ],
+      "description": "【关系】nine_nation_alliance→ghost_spirit_gate，war，权重-50。。"
+    },
+    {
+      "id": "realm_QI_REFINING",
+      "catalog_id": "QI_REFINING",
+      "display": "炼气（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】炼气。子层13。灵力/子层100。寿元约120年。渡劫False。炼气期，引气入体，寿元与凡人相近略增。。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_FOUNDATION",
+      "catalog_id": "FOUNDATION",
+      "display": "筑基（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】筑基。子层4。灵力/子层800。寿元约250年。渡劫False。筑基期，真元液化，可御器飞行。。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_CORE_FORMATION",
+      "catalog_id": "CORE_FORMATION",
+      "display": "结丹（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】结丹。子层3。灵力/子层5000。寿元约600年。渡劫False。结丹期，金丹凝成，宗门中坚。。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_NASCENT_SOUL",
+      "catalog_id": "NASCENT_SOUL",
+      "display": "元婴（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】元婴。子层3。灵力/子层25000。寿元约1200年。渡劫minor_soul_trial。元婴期，可元婴出窍，一方老祖。。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_DEITY_TRANSFORMATION",
+      "catalog_id": "DEITY_TRANSFORMATION",
+      "display": "化神（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】化神。子层3。灵力/子层100000。寿元约2500年。渡劫heart_demon_or_thunder。化神期，人界顶阶，可寻界面。。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_VOID_REFINEMENT",
+      "catalog_id": "VOID_REFINEMENT",
+      "display": "炼虚（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】炼虚。子层3。灵力/子层400000。寿元约5000年。渡劫void_thunder。炼虚。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_BODY_INTEGRATION",
+      "catalog_id": "BODY_INTEGRATION",
+      "display": "合体（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】合体。子层3。灵力/子层1500000。寿元约10000年。渡劫body_soul_dual。合体。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_GREAT_VEHICLE",
+      "catalog_id": "GREAT_VEHICLE",
+      "display": "大乘（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】大乘。子层3。灵力/子层6000000。寿元约100000年。渡劫great_ascension_thunder。大乘。突破丹物服从稀缺。"
+    },
+    {
+      "id": "realm_TRIBULATION_LAND",
+      "catalog_id": "TRIBULATION_LAND",
+      "display": "渡劫期（境界）",
+      "type": "cultivation_realm",
+      "tags": [
+        "v115"
+      ],
+      "description": "【境界】渡劫期。子层1。灵力/子层None。寿元约None年。渡劫final_ascension。渡劫期。突破丹物服从稀缺。"
+    },
+    {
+      "id": "bottleneck_FOUNDATION",
+      "display": "瓶颈·FOUNDATION",
+      "type": "bottleneck",
+      "tags": [
+        "v115"
+      ],
+      "description": "【瓶颈】FOUNDATION。类型pill_or_sect_resource。需对应丹/妖丹/宗门资源，失败有代价。勿吞唯一物。"
+    },
+    {
+      "id": "bottleneck_CORE_FORMATION",
+      "display": "瓶颈·CORE_FORMATION",
+      "type": "bottleneck",
+      "tags": [
+        "v115"
+      ],
+      "description": "【瓶颈】CORE_FORMATION。类型pill_and_demon_core。需对应丹/妖丹/宗门资源，失败有代价。勿吞唯一物。"
+    },
+    {
+      "id": "bottleneck_DEITY_TRANSFORMATION",
+      "display": "瓶颈·DEITY_TRANSFORMATION",
+      "type": "bottleneck",
+      "tags": [
+        "v115"
+      ],
+      "description": "【瓶颈】DEITY_TRANSFORMATION。类型tribulation_and_spirit_density。需对应丹/妖丹/宗门资源，失败有代价。勿吞唯一物。"
+    },
+    {
+      "id": "bottleneck_VOID_REFINEMENT",
+      "display": "瓶颈·VOID_REFINEMENT",
+      "type": "bottleneck",
+      "tags": [
+        "v115"
+      ],
+      "description": "【瓶颈】VOID_REFINEMENT。类型artificial_root_or_rare_manual。需对应丹/妖丹/宗门资源，失败有代价。勿吞唯一物。"
+    },
+    {
+      "id": "root_grade_inferior",
+      "catalog_id": "inferior",
+      "display": "灵根品阶·下品",
+      "type": "spirit_root_grade",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根品阶】下品。倍率0.7。测灵生成；后天改良极难。"
+    },
+    {
+      "id": "root_grade_common",
+      "catalog_id": "common",
+      "display": "灵根品阶·凡品",
+      "type": "spirit_root_grade",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根品阶】凡品。倍率1.0。测灵生成；后天改良极难。"
+    },
+    {
+      "id": "root_grade_superior",
+      "catalog_id": "superior",
+      "display": "灵根品阶·上品",
+      "type": "spirit_root_grade",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根品阶】上品。倍率1.25。测灵生成；后天改良极难。"
+    },
+    {
+      "id": "root_grade_heavenly",
+      "catalog_id": "heavenly",
+      "display": "灵根品阶·天灵根（单属）",
+      "type": "spirit_root_grade",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根品阶】天灵根（单属）。倍率1.6。测灵生成；后天改良极难。"
+    },
+    {
+      "id": "root_grade_variant",
+      "catalog_id": "variant",
+      "display": "灵根品阶·变异灵根",
+      "type": "spirit_root_grade",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根品阶】变异灵根。倍率1.45。测灵生成；后天改良极难。"
+    },
+    {
+      "id": "root_el_metal",
+      "display": "灵根属性·metal",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】metal。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_wood",
+      "display": "灵根属性·wood",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】wood。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_water",
+      "display": "灵根属性·water",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】water。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_fire",
+      "display": "灵根属性·fire",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】fire。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_earth",
+      "display": "灵根属性·earth",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】earth。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_wind",
+      "display": "灵根属性·wind",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】wind。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_thunder",
+      "display": "灵根属性·thunder",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】thunder。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_ice",
+      "display": "灵根属性·ice",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】ice。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_yin",
+      "display": "灵根属性·yin",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】yin。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "root_el_yang",
+      "display": "灵根属性·yang",
+      "type": "spirit_root_element",
+      "tags": [
+        "v115"
+      ],
+      "description": "【灵根属性】yang。决定功法属性解锁。金木水火土及冰雷等变异。"
+    },
+    {
+      "id": "const_tongyu_fengsui",
+      "catalog_id": "tongyu_fengsui",
+      "display": "通玉凤髓（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】通玉凤髓。稀有legendary。加成{\"cultivation\": 1.15, \"wood\": 1.2}。先天为主。"
+    },
+    {
+      "id": "const_dragon_chant",
+      "catalog_id": "dragon_chant",
+      "display": "龙吟之体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】龙吟之体。稀有epic。加成{\"thunder_tribulation\": -0.1}。先天为主。"
+    },
+    {
+      "id": "const_self_govern",
+      "catalog_id": "self_govern",
+      "display": "自治之体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】自治之体。稀有rare。加成{\"debuff_resist\": 0.2}。先天为主。"
+    },
+    {
+      "id": "const_undying",
+      "catalog_id": "undying",
+      "display": "不灭之体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】不灭之体。稀有mythic。加成{\"death_save\": true}。先天为主。"
+    },
+    {
+      "id": "const_vajra_undamage",
+      "catalog_id": "vajra_undamage",
+      "display": "金刚不坏（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】金刚不坏。稀有epic。加成{\"physical_resist\": 0.25}。先天为主。"
+    },
+    {
+      "id": "const_gold_forge",
+      "catalog_id": "gold_forge",
+      "display": "锻金之体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】锻金之体。稀有rare。加成{\"metal\": 1.3, \"forging\": 1.2}。先天为主。"
+    },
+    {
+      "id": "const_nine_spirit_sword",
+      "catalog_id": "nine_spirit_sword",
+      "display": "九灵剑体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】九灵剑体。稀有legendary。加成{\"sword\": 1.35}。先天为主。"
+    },
+    {
+      "id": "const_void_shadow",
+      "catalog_id": "void_shadow",
+      "display": "虚影之体（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】虚影之体。稀有epic。加成{\"illusion\": 1.25, \"escape\": 1.15}。先天为主。"
+    },
+    {
+      "id": "const_true_spirit_bloodline_generic",
+      "catalog_id": "true_spirit_bloodline_generic",
+      "display": "真灵血脉（泛）（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】真灵血脉（泛）。稀有variable。加成{\"bloodline_awaken\": true}。先天为主。"
+    },
+    {
+      "id": "const_spirit_body_mild",
+      "catalog_id": "spirit_body_mild",
+      "display": "灵体（弱）（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】灵体（弱）。稀有None。加成{}。先天为主。"
+    },
+    {
+      "id": "const_fire_spirit_root_variant",
+      "catalog_id": "fire_spirit_root_variant",
+      "display": "变异火灵根（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】变异火灵根。稀有None。加成{}。先天为主。"
+    },
+    {
+      "id": "const_sword_intent_body",
+      "catalog_id": "sword_intent_body",
+      "display": "剑意灵躯（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】剑意灵躯。稀有None。加成{}。先天为主。"
+    },
+    {
+      "id": "const_yin_yang_unbalanced",
+      "catalog_id": "yin_yang_unbalanced",
+      "display": "阴阳不调（体质）",
+      "type": "constitution",
+      "tags": [
+        "v115"
+      ],
+      "description": "【体质】阴阳不调。稀有None。加成{}。先天为主。"
+    },
+    {
+      "id": "puppet_puppet_core_blank",
+      "catalog_id": "puppet_core_blank",
+      "display": "傀儡灵核（空）（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】傀儡灵核（空）。档T0。用途puppet_craft_base。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_ironwood_frame",
+      "catalog_id": "ironwood_frame",
+      "display": "铁木机架（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】铁木机架。档T0。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_turtle_plating",
+      "catalog_id": "turtle_plating",
+      "display": "龟甲覆片（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】龟甲覆片。档T2。用途defense_upgrade。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_thunder_fire_orb",
+      "catalog_id": "thunder_fire_orb",
+      "display": "雷火珠（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】雷火珠。档T2。用途giant_turtle_skill。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_stone_spirit_core",
+      "catalog_id": "stone_spirit_core",
+      "display": "石灵核心（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】石灵核心。档T3。用途stone_spirit_puppet。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_dayan_solution_fragment",
+      "catalog_id": "dayan_solution_fragment",
+      "display": "大衍诀残页（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】大衍诀残页。档T5。用途unlock_dayan_puppet。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_ancient_puppet_method",
+      "catalog_id": "ancient_puppet_method",
+      "display": "上古傀儡术（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】上古傀儡术。档T3。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_puppet_repair_kit",
+      "catalog_id": "puppet_repair_kit",
+      "display": "傀儡修缮包（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】傀儡修缮包。档None。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_giant_ape_puppet_blueprint",
+      "catalog_id": "giant_ape_puppet_blueprint",
+      "display": "巨猿傀儡图（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】巨猿傀儡图。档T1。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_giant_turtle_shell_blank",
+      "catalog_id": "giant_turtle_shell_blank",
+      "display": "巨龟甲胚（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】巨龟甲胚。档T2。用途giant_turtle_puppet。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_puppet_joint_bearing",
+      "catalog_id": "puppet_joint_bearing",
+      "display": "机括轴承（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】机括轴承。档T1。用途puppet_mobility。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_refinement_forge_hammer",
+      "catalog_id": "refinement_forge_hammer",
+      "display": "炼器锤（低阶）（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】炼器锤（低阶）。档T0。用途refinement_station。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_puppet_limb_iron",
+      "catalog_id": "puppet_limb_iron",
+      "display": "铁制傀儡肢（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】铁制傀儡肢。档common。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_puppet_array_core",
+      "catalog_id": "puppet_array_core",
+      "display": "傀儡阵芯（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】傀儡阵芯。档rare。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "puppet_giant_turtle_shell_plate",
+      "catalog_id": "giant_turtle_shell_plate",
+      "display": "巨龟壳板（傀儡部件）",
+      "type": "puppet_part",
+      "tags": [
+        "v115"
+      ],
+      "description": "【傀儡】巨龟壳板。档legendary。用途None。千竹/大衍线。"
+    },
+    {
+      "id": "formation_portable_spirit_gather_disk",
+      "catalog_id": "portable_spirit_gather_disk",
+      "display": "聚灵阵盘（便携）（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】聚灵阵盘（便携）。阵spirit_gather。品basic。次数10。"
+    },
+    {
+      "id": "formation_portable_illusion_maze_flag",
+      "catalog_id": "portable_illusion_maze_flag",
+      "display": "迷踪阵旗（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】迷踪阵旗。阵illusion_maze。品basic。次数5。"
+    },
+    {
+      "id": "formation_portable_kill_sword_disk",
+      "catalog_id": "portable_kill_sword_disk",
+      "display": "杀阵盘（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】杀阵盘。阵kill_sword。品mid。次数3。"
+    },
+    {
+      "id": "formation_portable_defense_wall_disk",
+      "catalog_id": "portable_defense_wall_disk",
+      "display": "守阵盘（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】守阵盘。阵defense_wall。品basic。次数8。"
+    },
+    {
+      "id": "formation_teleport_array_core",
+      "catalog_id": "teleport_array_core",
+      "display": "传送阵核心（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】传送阵核心。阵teleport_array。品mid。次数None。"
+    },
+    {
+      "id": "formation_thunder_array_stake",
+      "catalog_id": "thunder_array_stake",
+      "display": "引雷阵桩（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】引雷阵桩。阵thunder_tribulation_array。品high。次数1。"
+    },
+    {
+      "id": "formation_array_blueprint_scroll",
+      "catalog_id": "array_blueprint_scroll",
+      "display": "阵图残卷（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】阵图残卷。阵None。品None。次数None。"
+    },
+    {
+      "id": "formation_nine_dragon_flame_array_disk",
+      "catalog_id": "nine_dragon_flame_array_disk",
+      "display": "九龙火阵盘（仿）（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】九龙火阵盘（仿）。阵nine_dragon_flame_barrier。品high。次数1。"
+    },
+    {
+      "id": "formation_portable_seal_disk",
+      "catalog_id": "portable_seal_disk",
+      "display": "封禁阵盘（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】封禁阵盘。阵seal_barrier。品mid。次数4。"
+    },
+    {
+      "id": "formation_spirit_gather_flag_set",
+      "catalog_id": "spirit_gather_flag_set",
+      "display": "聚灵阵旗组（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】聚灵阵旗组。阵spirit_gather。品basic。次数12。"
+    },
+    {
+      "id": "formation_nine_palace_disk",
+      "catalog_id": "nine_palace_disk",
+      "display": "九宫阵盘（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】九宫阵盘。阵None。品None。次数None。"
+    },
+    {
+      "id": "formation_spirit_gather_flag",
+      "catalog_id": "spirit_gather_flag",
+      "display": "聚灵阵旗（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】聚灵阵旗。阵None。品None。次数None。"
+    },
+    {
+      "id": "formation_kill_array_core",
+      "catalog_id": "kill_array_core",
+      "display": "杀阵核心（阵法道具）",
+      "type": "formation_item",
+      "tags": [
+        "v115"
+      ],
+      "description": "【阵】杀阵核心。阵None。品None。次数None。"
+    },
+    {
+      "id": "currency_spirit_stone_shard",
+      "catalog_id": "spirit_stone_shard",
+      "display": "灵石碎片（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】灵石碎片。档fragment。兑换{\"to\": \"low_spirit_stone\", \"rate\": 10}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_low_spirit_stone",
+      "catalog_id": "low_spirit_stone",
+      "display": "下品灵石（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】下品灵石。档low。兑换{}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_mid_spirit_stone",
+      "catalog_id": "mid_spirit_stone",
+      "display": "中品灵石（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】中品灵石。档mid。兑换{\"from_low\": 100}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_high_spirit_stone",
+      "catalog_id": "high_spirit_stone",
+      "display": "上品灵石（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】上品灵石。档high。兑换{\"from_mid\": 100}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_top_spirit_stone",
+      "catalog_id": "top_spirit_stone",
+      "display": "极品灵石（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】极品灵石。档top。兑换{\"from_high\": 100}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_yin_stone",
+      "catalog_id": "yin_stone",
+      "display": "阴石（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】阴石。档yin。兑换{}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_sect_contribution_token",
+      "catalog_id": "sect_contribution_token",
+      "display": "宗门贡献符（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】宗门贡献符。档faction。兑换{}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_alliance_merit_token",
+      "catalog_id": "alliance_merit_token",
+      "display": "功勋令（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】功勋令。档faction。兑换{}。与贡献军功隔离。"
+    },
+    {
+      "id": "currency_war_contribution_token",
+      "catalog_id": "war_contribution_token",
+      "display": "战勋牌（通货）",
+      "type": "currency",
+      "tags": [
+        "v115"
+      ],
+      "description": "【通货】战勋牌。档faction。兑换{}。与贡献军功隔离。"
+    },
+    {
+      "id": "trib_minor_soul_trial",
+      "catalog_id": "minor_soul_trial",
+      "display": "元婴小劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】元婴小劫。触发NASCENT_SOUL。波次3，伤/波40。失败：realm_drop_one_sub,injury_debuff。非日常本。"
+    },
+    {
+      "id": "trib_heart_demon_or_thunder",
+      "catalog_id": "heart_demon_or_thunder",
+      "display": "化神心魔/雷劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】化神心魔/雷劫。触发DEITY_TRANSFORMATION。波次5，伤/波None。失败：death,demonization_chance。非日常本。"
+    },
+    {
+      "id": "trib_void_thunder",
+      "catalog_id": "void_thunder",
+      "display": "炼虚雷劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】炼虚雷劫。触发VOID_REFINEMENT。波次9，伤/波120。失败：。非日常本。"
+    },
+    {
+      "id": "trib_body_soul_dual",
+      "catalog_id": "body_soul_dual",
+      "display": "合体双劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】合体双劫。触发BODY_INTEGRATION。波次12，伤/波None。失败：。非日常本。"
+    },
+    {
+      "id": "trib_great_ascension_thunder",
+      "catalog_id": "great_ascension_thunder",
+      "display": "大乘天劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】大乘天劫。触发GREAT_VEHICLE。波次18，伤/波None。失败：severe_injury,lifespan_burn。非日常本。"
+    },
+    {
+      "id": "trib_final_ascension",
+      "catalog_id": "final_ascension",
+      "display": "飞升仙劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】飞升仙劫。触发TRIBULATION_LAND。波次27，伤/波None。失败：。非日常本。"
+    },
+    {
+      "id": "trib_beast_shape_shift_minor",
+      "catalog_id": "beast_shape_shift_minor",
+      "display": "妖兽化形小劫（渡劫）",
+      "type": "tribulation",
+      "tags": [
+        "v115"
+      ],
+      "description": "【渡劫】妖兽化形小劫。触发None。波次3，伤/波25。失败：stay_beast_form,tier_drop_one。非日常本。"
+    },
+    {
+      "id": "dim_seeking_immortals_mortal_world",
+      "catalog_id": "seeking_immortals:mortal_world",
+      "display": "人界（主世界）（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】人界（主世界）。宇宙锚mortal_realm。可玩/主世界：True。灵气normal。境界帽DEITY_TRANSFORMATION。主世界 Overworld；人界全境与秘境父维默认。。"
+    },
+    {
+      "id": "dim_seeking_immortals_tianyuan",
+      "catalog_id": "seeking_immortals:tianyuan",
+      "display": "天渊城（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】天渊城。宇宙锚spirit_realm。可玩/主世界：None。灵气None。境界帽None。飞升落点；修炼约 2× 结构倍率。。"
+    },
+    {
+      "id": "dim_seeking_immortals_spirit_fengyuan",
+      "catalog_id": "seeking_immortals:spirit_fengyuan",
+      "display": "灵界·风元大陆（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】灵界·风元大陆。宇宙锚spirit_realm。可玩/主世界：None。灵气None。境界帽GREAT_VEHICLE。风元大陆；炼虚后内容。。"
+    },
+    {
+      "id": "dim_seeking_immortals_yin_ming_pocket",
+      "catalog_id": "seeking_immortals:yin_ming_pocket",
+      "display": "冥河界域（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】冥河界域。宇宙锚yin_underworld_cluster。可玩/主世界：None。灵气None。境界帽None。冥河口袋界；筑基或鬼道。。"
+    },
+    {
+      "id": "dim_seeking_immortals_demon_rift",
+      "catalog_id": "seeking_immortals:demon_rift",
+      "display": "魔界裂隙（临时）（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】魔界裂隙（临时）。宇宙锚ancient_demon_realm。可玩/主世界：None。灵气None。境界帽None。魔界裂隙副本；事件开放。。"
+    },
+    {
+      "id": "dim_seeking_immortals_immortal_realm",
+      "catalog_id": "seeking_immortals:immortal_realm",
+      "display": "仙界（位面）",
+      "type": "dimension",
+      "tags": [
+        "v115"
+      ],
+      "description": "【位面】仙界。宇宙锚immortal_realm。可玩/主世界：False。灵气None。境界帽None。仙界占位 DLC。。"
+    },
+    {
+      "id": "cosmo_mortal_realm",
+      "display": "五界·人界",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】人界。可玩True。人界：天南、大晋、乱星海海域皆属此界，化神后受界面压制。。"
+    },
+    {
+      "id": "cosmo_spirit_realm",
+      "display": "五界·灵界",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】灵界。可玩True。灵界：天渊城、风元大陆等；灵气与妖兽阶位高于人界。。"
+    },
+    {
+      "id": "cosmo_yin_underworld_cluster",
+      "display": "五界·阴司之界",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】阴司之界。可玩partial。阴司集群：冥河、阴冥非完整主界，秘境式进入。。"
+    },
+    {
+      "id": "cosmo_ancient_demon_realm",
+      "display": "五界·上古魔界",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】上古魔界。可玩event。上古魔界：裂隙事件，非常驻。。"
+    },
+    {
+      "id": "cosmo_immortal_realm",
+      "display": "五界·仙界",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】仙界。可玩False。仙界：大乘飞升占位。。"
+    },
+    {
+      "id": "cosmo_spirit_world_interface",
+      "display": "五界·灵界界面节点",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】灵界界面节点。可玩None。化神后期可寻界面裂缝，飞升或偷渡灵界。。"
+    },
+    {
+      "id": "cosmo_tianyuan_city_district",
+      "display": "五界·天渊城",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】天渊城。可玩None。人妖两族前线，灵气浓郁，修炼速度约为外界一倍。。"
+    },
+    {
+      "id": "cosmo_yin_underworld_gate",
+      "display": "五界·阴司入口",
+      "type": "cosmology",
+      "tags": [
+        "v115"
+      ],
+      "description": "【宇宙】阴司入口。可玩None。鬼道修士与阴罗殿势力交汇。。"
+    },
+    {
+      "id": "hook_huangfeng_entry",
+      "catalog_id": "huangfeng_entry",
+      "display": "黄枫谷入门（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】黄枫谷入门。域tiannan。境QI_REFINING。奖励：sect_token,changchun_gong。黄枫谷入门。循环钩低阶。"
+    },
+    {
+      "id": "hook_blood_forbidden_run",
+      "catalog_id": "blood_forbidden_run",
+      "display": "血色禁地一行（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】血色禁地一行。域None。境None。奖励：见链。血色禁地一行。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_palace_key",
+      "catalog_id": "void_palace_key",
+      "display": "虚天殿钥（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天殿钥。域None。境None。奖励：见链。虚天殿钥。循环钩低阶。"
+    },
+    {
+      "id": "hook_mulan_side",
+      "catalog_id": "mulan_side",
+      "display": "慕兰边军（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】慕兰边军。域None。境None。奖励：见链。慕兰边军。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianlan_side",
+      "catalog_id": "tianlan_side",
+      "display": "天澜圣印（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天澜圣印。域None。境None。奖励：见链。天澜圣印。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_contact",
+      "catalog_id": "inverse_star_contact",
+      "display": "逆星盟接触（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】逆星盟接触。域chaotic_sea。境None。奖励：见链。逆星盟接触。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_expedition",
+      "catalog_id": "kunwu_expedition",
+      "display": "昆吾远征（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】昆吾远征。域kunwu。境None。奖励：见链。昆吾远征。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_river_pilgrim",
+      "catalog_id": "nether_river_pilgrim",
+      "display": "冥河朝圣（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】冥河朝圣。域None。境None。奖励：见链。冥河朝圣。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_patrol",
+      "catalog_id": "star_palace_patrol",
+      "display": "星宫巡防（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】星宫巡防。域chaotic_sea。境None。奖励：见链。星宫巡防。循环钩低阶。"
+    },
+    {
+      "id": "hook_beast_tide_defense",
+      "catalog_id": "beast_tide_defense",
+      "display": "兽潮守城（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】兽潮守城。域chaotic_sea。境None。奖励：见链。兽潮守城。循环钩低阶。"
+    },
+    {
+      "id": "hook_alchemy_apprentice",
+      "catalog_id": "alchemy_apprentice",
+      "display": "丹童试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】丹童试炼。域tiannan。境QI_REFINING。奖励：recipe_bigu,alchemy_furnace_g1。丹童试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_sect_fire_room",
+      "catalog_id": "sect_fire_room",
+      "display": "地火室资格（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】地火室资格。域tiannan。境None。奖励：见链。地火室资格。循环钩低阶。"
+    },
+    {
+      "id": "hook_stolen_jade_slip",
+      "catalog_id": "stolen_jade_slip",
+      "display": "失窃玉简（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】失窃玉简。域chaotic_sea。境None。奖励：recipe_condensation。失窃玉简。循环钩低阶。"
+    },
+    {
+      "id": "hook_yinming_escape",
+      "catalog_id": "yinming_escape",
+      "display": "阴冥脱困（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】阴冥脱困。域yinming。境None。奖励：ghost_cultivation_fragment。阴冥脱困。循环钩低阶。"
+    },
+    {
+      "id": "hook_fallen_demon_scout",
+      "catalog_id": "fallen_demon_scout",
+      "display": "坠魔谷前哨（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】坠魔谷前哨。域fallen_demon_valley。境None。奖励：见链。坠魔谷前哨。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianyuan_enlist",
+      "catalog_id": "tianyuan_enlist",
+      "display": "天渊城征召（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天渊城征召。域tianyuan。境None。奖励：wind_feather_raft_blueprint。天渊城征召。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_seal_research",
+      "catalog_id": "kunwu_seal_research",
+      "display": "封魔阵残卷（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】封魔阵残卷。域kunwu。境None。奖励：formation_catalog.seal_demon_array。封魔阵残卷。循环钩低阶。"
+    },
+    {
+      "id": "hook_herb_gather_contract",
+      "catalog_id": "herb_gather_contract",
+      "display": "灵草收购（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵草收购。域None。境None。奖励：spirit_stone_low,contribution_small。灵草收购。循环钩低阶。"
+    },
+    {
+      "id": "hook_pirate_bounty",
+      "catalog_id": "pirate_bounty",
+      "display": "海盗悬赏（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】海盗悬赏。域chaotic_sea。境None。奖励：见链。海盗悬赏。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_sabotage",
+      "catalog_id": "inverse_star_sabotage",
+      "display": "逆星暗线（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】逆星暗线。域chaotic_sea。境None。奖励：见链。逆星暗线。循环钩低阶。"
+    },
+    {
+      "id": "hook_dajin_auction_preview",
+      "catalog_id": "dajin_auction_preview",
+      "display": "大晋拍卖预览（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】大晋拍卖预览。域dajin。境None。奖励：见链。大晋拍卖预览。循环钩低阶。"
+    },
+    {
+      "id": "hook_spirit_pet_tame",
+      "catalog_id": "spirit_pet_tame",
+      "display": "灵兽驯服（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵兽驯服。域None。境None。奖励：spirit_pet_contract。灵兽驯服。循环钩低阶。"
+    },
+    {
+      "id": "hook_puppet_maintain",
+      "catalog_id": "puppet_maintain",
+      "display": "傀儡检修（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】傀儡检修。域None。境None。奖励：见链。傀儡检修。循环钩低阶。"
+    },
+    {
+      "id": "hook_chaotic_sea_convoy",
+      "catalog_id": "chaotic_sea_convoy",
+      "display": "乱星海护航（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】乱星海护航。域chaotic_sea。境None。奖励：spirit_stone_low,star_palace_rep。乱星海护航。循环钩低阶。"
+    },
+    {
+      "id": "hook_dajin_caravan",
+      "catalog_id": "dajin_caravan",
+      "display": "大晋商队（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】大晋商队。域dajin。境None。奖励：trade_discount_token。大晋商队。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianyuan_demon_contract",
+      "catalog_id": "tianyuan_demon_contract",
+      "display": "天渊诛魔契约（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天渊诛魔契约。域tianyuan。境None。奖励：alliance_merit。天渊诛魔契约。循环钩低阶。"
+    },
+    {
+      "id": "hook_treasure_fair_invite",
+      "catalog_id": "treasure_fair_invite",
+      "display": "万宝大会请柬（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】万宝大会请柬。域spirit_fengyuan。境None。奖励：见链。万宝大会请柬。循环钩低阶。"
+    },
+    {
+      "id": "hook_diyuan_scout",
+      "catalog_id": "diyuan_scout",
+      "display": "地渊侦察（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】地渊侦察。域None。境None。奖励：spatial_law_fragment_chance。地渊侦察。循环钩低阶。"
+    },
+    {
+      "id": "hook_guanghan_moon_hunt",
+      "catalog_id": "guanghan_moon_hunt",
+      "display": "广寒月兽（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】广寒月兽。域None。境None。奖励：见链。广寒月兽。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_gold_mine_run",
+      "catalog_id": "demon_gold_mine_run",
+      "display": "魔金山矿脉（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魔金山矿脉。域None。境None。奖励：见链。魔金山矿脉。循环钩低阶。"
+    },
+    {
+      "id": "hook_asura_trial",
+      "catalog_id": "asura_trial",
+      "display": "修罗试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】修罗试炼。域None。境None。奖励：killing_intent_crystal。修罗试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_jiuxian_seclusion_permit",
+      "catalog_id": "jiuxian_seclusion_permit",
+      "display": "九仙闭关许可（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】九仙闭关许可。域None。境None。奖励：见链。九仙闭关许可。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_sect_alchemy_trial",
+      "catalog_id": "hook_sect_alchemy_trial",
+      "display": "宗门炼丹考核（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】宗门炼丹考核。域None。境None。奖励：contribution,recipe_unlock。宗门炼丹考核。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_talisman_gate_exam",
+      "catalog_id": "hook_talisman_gate_exam",
+      "display": "制符殿考核（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】制符殿考核。域None。境None。奖励：talisman_recipe。制符殿考核。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_beast_taming_hunt",
+      "catalog_id": "hook_beast_taming_hunt",
+      "display": "灵兽山驭兽试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵兽山驭兽试炼。域None。境None。奖励：beast_contract_talisman。灵兽山驭兽试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_void_palace_rumor",
+      "catalog_id": "hook_void_palace_rumor",
+      "display": "虚天殿异象（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天殿异象。域None。境None。奖励：void_palace_map_fragment。虚天殿异象。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_mulan_border_patrol",
+      "catalog_id": "hook_mulan_border_patrol",
+      "display": "天南慕兰边境巡防（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天南慕兰边境巡防。域mulan。境None。奖励：wind_blade_talisman,reputation。天南慕兰边境巡防。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_puppet_tower_trial",
+      "catalog_id": "hook_puppet_tower_trial",
+      "display": "机关塔试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】机关塔试炼。域None。境None。奖励：puppet_core_blank,dayan_fragment。机关塔试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_tianyuan_demon_hunt",
+      "catalog_id": "hook_tianyuan_demon_hunt",
+      "display": "天渊斩魔契约（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天渊斩魔契约。域tianyuan。境None。奖励：merit_points,spirit_realm_gate_fee_discount。天渊斩魔契约。循环钩低阶。"
+    },
+    {
+      "id": "hook_island_tax_evasion",
+      "catalog_id": "island_tax_evasion",
+      "display": "逃税岛主委托（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】逃税岛主委托。域chaotic_sea。境None。奖励：spirit_stone,karma_ambiguous。逃税岛主委托。循环钩低阶。"
+    },
+    {
+      "id": "hook_chaotic_sea_ferry_escort",
+      "catalog_id": "chaotic_sea_ferry_escort",
+      "display": "灵舟护航（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵舟护航。域chaotic_sea。境None。奖励：spirit_stone_shard,chaotic_sea_antidote。灵舟护航。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_ghost_yin_body",
+      "catalog_id": "hook_ghost_yin_body",
+      "display": "阴体凝形（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】阴体凝形。域None。境None。奖励：yin_body_condense_unlock,yin_stone。阴体凝形。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_ghost_soul_anchor",
+      "catalog_id": "hook_ghost_soul_anchor",
+      "display": "魂锚稳固（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魂锚稳固。域None。境None。奖励：soul_anchor_rite_unlock。魂锚稳固。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_ghost_nether_core",
+      "catalog_id": "hook_ghost_nether_core",
+      "display": "冥河结冥核（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】冥河结冥核。域None。境None。奖励：nether_core_form_unlock,poluo_beads。冥河结冥核。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_river_guardian",
+      "catalog_id": "nether_river_guardian",
+      "display": "冥河守关（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】冥河守关。域None。境None。奖励：yin_soul_burst_unlock,ghost_cultivation_manual。冥河守关。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_intel",
+      "catalog_id": "kunwu_intel",
+      "display": "昆吾情报（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】昆吾情报。域dajin。境None。奖励：kunwu_map_fragment。昆吾情报。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_territory_patrol",
+      "catalog_id": "clan_territory_patrol",
+      "display": "世家领地巡护（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】世家领地巡护。域dajin。境None。奖励：spirit_stone,reputation_dajin。世家领地巡护。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_rift_closure",
+      "catalog_id": "demon_rift_closure",
+      "display": "魔界裂隙稳固（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魔界裂隙稳固。域fallen_demon_valley。境None。奖励：seal_reinforcement_token。魔界裂隙稳固。循环钩低阶。"
+    },
+    {
+      "id": "hook_yanyue_array_trial",
+      "catalog_id": "yanyue_array_trial",
+      "display": "掩月阵试（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】掩月阵试。域tiannan。境None。奖励：illusion_scroll。掩月阵试。循环钩低阶。"
+    },
+    {
+      "id": "hook_qingxu_talisman_exam",
+      "catalog_id": "qingxu_talisman_exam",
+      "display": "清虚符考（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】清虚符考。域tiannan。境None。奖励：talisman_paper_mid。清虚符考。循环钩低阶。"
+    },
+    {
+      "id": "hook_lingshou_contract_beast",
+      "catalog_id": "lingshou_contract_beast",
+      "display": "灵兽契约（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵兽契约。域tiannan。境None。奖励：beast_contract_token。灵兽契约。循环钩低阶。"
+    },
+    {
+      "id": "hook_huangfeng_inner_promotion",
+      "catalog_id": "huangfeng_inner_promotion",
+      "display": "黄枫内门晋升（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】黄枫内门晋升。域None。境None。奖励：contribution_rank_inner,foundation_pill_quota。黄枫内门晋升。循环钩低阶。"
+    },
+    {
+      "id": "hook_mulan_spirit_charge_drill",
+      "catalog_id": "mulan_spirit_charge_drill",
+      "display": "慕兰灵石充能操演（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】慕兰灵石充能操演。域mulan。境None。奖励：mulan_fashi_charge_pack。慕兰灵石充能操演。循环钩低阶。"
+    },
+    {
+      "id": "hook_qixuan_village_intro",
+      "catalog_id": "qixuan_village_intro",
+      "display": "七玄山村（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】七玄山村。域tiannan。境None。奖励：mortal_quest_token。七玄山村。循环钩低阶。"
+    },
+    {
+      "id": "hook_qixuan_herb_errand",
+      "catalog_id": "qixuan_herb_errand",
+      "display": "七玄采药（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】七玄采药。域tiannan。境None。奖励：herb_bundle_low。七玄采药。循环钩低阶。"
+    },
+    {
+      "id": "hook_qixuan_sect_trial",
+      "catalog_id": "qixuan_sect_trial",
+      "display": "七玄入门试（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】七玄入门试。域None。境None。奖励：qixuan_mortal_art_scroll。七玄入门试。循环钩低阶。"
+    },
+    {
+      "id": "hook_qixuan_decline_legacy",
+      "catalog_id": "qixuan_decline_legacy",
+      "display": "衰落遗册（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】衰落遗册。域None。境None。奖励：qixuan_azure_pearl_art_fragment。衰落遗册。循环钩低阶。"
+    },
+    {
+      "id": "hook_huadao_entry",
+      "catalog_id": "huadao_entry",
+      "display": "化刀坞入门（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】化刀坞入门。域None。境None。奖励：huadao_blade_intent_hint。化刀坞入门。循环钩低阶。"
+    },
+    {
+      "id": "hook_huadao_forge_contract",
+      "catalog_id": "huadao_forge_contract",
+      "display": "铸刀委托（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】铸刀委托。域None。境None。奖励：refine_material_mid。铸刀委托。循环钩低阶。"
+    },
+    {
+      "id": "hook_huadao_duel_trial",
+      "catalog_id": "huadao_duel_trial",
+      "display": "刀意试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】刀意试炼。域None。境None。奖励：huadao_blade_intent_page。刀意试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_giant_sword_entry",
+      "catalog_id": "giant_sword_entry",
+      "display": "巨剑门入门（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】巨剑门入门。域None。境None。奖励：giant_sword_art_hint。巨剑门入门。循环钩低阶。"
+    },
+    {
+      "id": "hook_giant_sword_relic_restore",
+      "catalog_id": "giant_sword_relic_restore",
+      "display": "巨剑残片重铸（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】巨剑残片重铸。域None。境None。奖励：silver_giant_sword_blueprint。巨剑残片重铸。循环钩低阶。"
+    },
+    {
+      "id": "hook_qianzhu_puppet_apprentice",
+      "catalog_id": "qianzhu_puppet_apprentice",
+      "display": "千竹傀儡学徒（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】千竹傀儡学徒。域None。境None。奖励：basic_wood_puppet_blueprint。千竹傀儡学徒。循环钩低阶。"
+    },
+    {
+      "id": "hook_thousand_bamboo_tower_run",
+      "catalog_id": "thousand_bamboo_tower_run",
+      "display": "千竹傀儡塔（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】千竹傀儡塔。域None。境None。奖励：dayan_fragment,puppet_core_blank。千竹傀儡塔。循环钩低阶。"
+    },
+    {
+      "id": "hook_dayan_fragment_quest",
+      "catalog_id": "dayan_fragment_quest",
+      "display": "大衍残页搜集（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】大衍残页搜集。域None。境None。奖励：dayan_art_scroll。大衍残页搜集。循环钩低阶。"
+    },
+    {
+      "id": "hook_yuling_secret_contact",
+      "catalog_id": "yuling_secret_contact",
+      "display": "御灵宗暗线（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】御灵宗暗线。域None。境None。奖励：yuling_contact_token。御灵宗暗线。循环钩低阶。"
+    },
+    {
+      "id": "hook_beast_soul_bind_puppet",
+      "catalog_id": "beast_soul_bind_puppet",
+      "display": "兽魂封傀（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】兽魂封傀。域None。境None。奖励：beast_puppet_core。兽魂封傀。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_ancestor_trial",
+      "catalog_id": "clan_ancestor_trial",
+      "display": "世家祖传试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】世家祖传试炼。域dajin。境None。奖励：dajin_clan_ancestor_art_page。世家祖传试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_demonic_north_rumor",
+      "catalog_id": "demonic_north_rumor",
+      "display": "魔道北迁传闻（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魔道北迁传闻。域tiannan。境None。奖励：demonic_karma_token。魔道北迁传闻。循环钩低阶。"
+    },
+    {
+      "id": "hook_guiling_gate_recruit",
+      "catalog_id": "guiling_gate_recruit",
+      "display": "鬼灵门招募（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】鬼灵门招募。域None。境None。奖励：guiling_soul_art_fragment。鬼灵门招募。循环钩低阶。"
+    },
+    {
+      "id": "hook_hehuan_sect_trial",
+      "catalog_id": "hehuan_sect_trial",
+      "display": "合欢试心（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】合欢试心。域None。境None。奖励：hehuan_mind_art_hint。合欢试心。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianmo_blood_rite",
+      "catalog_id": "tianmo_blood_rite",
+      "display": "天魔血祭（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天魔血祭。域None。境None。奖励：tianmo_body_art_page。天魔血祭。循环钩低阶。"
+    },
+    {
+      "id": "hook_righteous_bounty_hunt",
+      "catalog_id": "righteous_bounty_hunt",
+      "display": "正道悬赏（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】正道悬赏。域None。境None。奖励：spirit_stone,rep_loss_demonic。正道悬赏。循环钩低阶。"
+    },
+    {
+      "id": "hook_barbarian_border_contact",
+      "catalog_id": "barbarian_border_contact",
+      "display": "蛮荒边境接触（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】蛮荒边境接触。域barbarian_wasteland。境None。奖励：barbarian_map。蛮荒边境接触。循环钩低阶。"
+    },
+    {
+      "id": "hook_king_tribute_quest",
+      "catalog_id": "king_tribute_quest",
+      "display": "妖王朝贡试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】妖王朝贡试炼。域barbarian_wasteland。境None。奖励：barbarian_king_token。妖王朝贡试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_spatial_rift_escape",
+      "catalog_id": "spatial_rift_escape",
+      "display": "空间裂缝脱险（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】空间裂缝脱险。域barbarian_wasteland。境None。奖励：space_rift_shard。空间裂缝脱险。循环钩低阶。"
+    },
+    {
+      "id": "hook_yin_cluster_ferry_toll",
+      "catalog_id": "yin_cluster_ferry_toll",
+      "display": "冥河渡费（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】冥河渡费。域nether_river。境None。奖励：ferry_pass。冥河渡费。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_river_fog_event",
+      "catalog_id": "nether_river_fog_event",
+      "display": "冥河雾散（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】冥河雾散。域nether_river。境None。奖励：nether_mist_flower。冥河雾散。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_generic_tribute",
+      "catalog_id": "clan_generic_tribute",
+      "display": "异族朝贡（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】异族朝贡。域spirit_fengyuan。境None。奖励：specialty_item,rep_clan。异族朝贡。循环钩低阶。"
+    },
+    {
+      "id": "hook_illusion_trial",
+      "catalog_id": "illusion_trial",
+      "display": "天狐幻试（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天狐幻试。域None。境None。奖励：illusion_pearl。天狐幻试。循环钩低阶。"
+    },
+    {
+      "id": "hook_wind_hunt_race",
+      "catalog_id": "wind_hunt_race",
+      "display": "飞灵竞猎（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】飞灵竞猎。域None。境None。奖励：wind_feather。飞灵竞猎。循环钩低阶。"
+    },
+    {
+      "id": "hook_vein_guard_patrol",
+      "catalog_id": "vein_guard_patrol",
+      "display": "石人巡脉（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】石人巡脉。域None。境None。奖励：spirit_stone_vein_map。石人巡脉。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_hunt_weekly",
+      "catalog_id": "demon_hunt_weekly",
+      "display": "天渊猎魔周常（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天渊猎魔周常。域tianyuan。境None。奖励：border_merit_token。天渊猎魔周常。循环钩低阶。"
+    },
+    {
+      "id": "hook_spatial_node_calibration",
+      "catalog_id": "spatial_node_calibration",
+      "display": "传送阵校准（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】传送阵校准。域tiannan。境None。奖励：teleport_array_license。传送阵校准。循环钩低阶。"
+    },
+    {
+      "id": "hook_rift_stabilize_mortal",
+      "catalog_id": "rift_stabilize_mortal",
+      "display": "人界裂缝稳固（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】人界裂缝稳固。域tiannan。境None。奖励：space_rift_shard。人界裂缝稳固。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_dock_permit",
+      "catalog_id": "star_palace_dock_permit",
+      "display": "星宫泊船许可（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】星宫泊船许可。域chaotic_sea。境None。奖励：chaotic_sea_teleport_permit。星宫泊船许可。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_smuggle_run",
+      "catalog_id": "inverse_star_smuggle_run",
+      "display": "逆星走私线（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】逆星走私线。域chaotic_sea。境None。奖励：inverse_star_cipher。逆星走私线。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_palace_key_fragment_turnin",
+      "catalog_id": "void_palace_key_fragment_turnin",
+      "display": "虚天钥残片上缴（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天钥残片上缴。域chaotic_sea。境None。奖励：void_palace_map_fragment。虚天钥残片上缴。循环钩低阶。"
+    },
+    {
+      "id": "hook_pirate_loot_turnin",
+      "catalog_id": "pirate_loot_turnin",
+      "display": "海盗赃物销赃（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】海盗赃物销赃。域chaotic_sea。境None。奖励：black_market_credit。海盗赃物销赃。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_branch_enforcement",
+      "catalog_id": "star_palace_branch_enforcement",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：patrol_merit_bonus。。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_branch_commerce",
+      "catalog_id": "star_palace_branch_commerce",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：tax_reduction_deal。。循环钩低阶。"
+    },
+    {
+      "id": "hook_internal_tax_vote",
+      "catalog_id": "internal_tax_vote",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域outer_sea_market。境None。奖励：island_tax_rate_tag。。循环钩低阶。"
+    },
+    {
+      "id": "hook_protect_mortal_fleet",
+      "catalog_id": "protect_mortal_fleet",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域outer_sea_market。境None。奖励：pearl_raw_bulk。。循环钩低阶。"
+    },
+    {
+      "id": "hook_tiannan_defense_mobilize",
+      "catalog_id": "tiannan_defense_mobilize",
+      "display": "天南动员（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天南动员。域tiannan。境None。奖励：war_merit_huangfeng。天南动员。循环钩低阶。"
+    },
+    {
+      "id": "hook_fashi_soul_array_battle",
+      "catalog_id": "fashi_soul_array_battle",
+      "display": "法士护阵战（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】法士护阵战。域mulan。境None。奖励：fashi_soul_crystal。法士护阵战。循环钩低阶。"
+    },
+    {
+      "id": "hook_holy_bird_blessing_quest",
+      "catalog_id": "holy_bird_blessing_quest",
+      "display": "圣禽祝福（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】圣禽祝福。域mulan。境None。奖励：holy_bird_blessing_buff。圣禽祝福。循环钩低阶。"
+    },
+    {
+      "id": "hook_war_ceasefire_negotiation",
+      "catalog_id": "war_ceasefire_negotiation",
+      "display": "停战谈判（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】停战谈判。域mulan。境None。奖励：mulan_pass_or_truce_token。停战谈判。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianlan_oath_renew",
+      "catalog_id": "tianlan_oath_renew",
+      "display": "天澜誓约（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天澜誓约。域None。境None。奖励：tianlan_beast_contract_hint。天澜誓约。循环钩低阶。"
+    },
+    {
+      "id": "hook_mulan_fashi_initiation",
+      "catalog_id": "mulan_fashi_initiation",
+      "display": "法士入门（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】法士入门。域None。境None。奖励：mulan_wind_spirit_art_page。法士入门。循环钩低阶。"
+    },
+    {
+      "id": "hook_wutu_raid_mulan_camp",
+      "catalog_id": "wutu_raid_mulan_camp",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域wutu_border。境None。奖励：wutu_wolf_pelt。。循环钩低阶。"
+    },
+    {
+      "id": "hook_mulan_counter_hunt",
+      "catalog_id": "mulan_counter_hunt",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：mulan_rep。。循环钩低阶。"
+    },
+    {
+      "id": "hook_feud_truce_broker",
+      "catalog_id": "feud_truce_broker",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域mulan。境None。奖励：dual_rep_neutral,truce_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_wutu_scout_contact",
+      "catalog_id": "wutu_scout_contact",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：wutu_side_quest_unlock。。循环钩低阶。"
+    },
+    {
+      "id": "hook_seal_weak_event",
+      "catalog_id": "seal_weak_event",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域fallen_demon_valley。境None。奖励：node_fallen_demon_rift_open。。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_qi_purge_side",
+      "catalog_id": "demon_qi_purge_side",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：demon_qi_purge_pill_recipe_hint。。循环钩低阶。"
+    },
+    {
+      "id": "hook_auction_invite_dajin",
+      "catalog_id": "auction_invite_dajin",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域dajin。境None。奖励：auction_invitation。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_rumor",
+      "catalog_id": "kunwu_rumor",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域dajin。境None。奖励：kunwu_map_fragment。。循环钩低阶。"
+    },
+    {
+      "id": "hook_yin_luo_initiation",
+      "catalog_id": "yin_luo_initiation",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：yin_luo_ghost_art_page。。循环钩低阶。"
+    },
+    {
+      "id": "hook_soul_banner_quest",
+      "catalog_id": "soul_banner_quest",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：soul_banner_fragment。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_puppet_king",
+      "catalog_id": "kunwu_puppet_king",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域kunwu。境None。奖励：kunwu_layer_chest。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_map_fragment_turnin",
+      "catalog_id": "kunwu_map_fragment_turnin",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域dajin。境None。奖励：kunwu_mountain_access。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_cold_snap_survive",
+      "catalog_id": "kunwu_cold_snap_survive",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域kunwu。境None。奖励：cold_resist_charm_hint。。循环钩低阶。"
+    },
+    {
+      "id": "hook_righteous_sect_ghost_hunt",
+      "catalog_id": "righteous_sect_ghost_hunt",
+      "display": "正道追魂（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】正道追魂。域None。境None。奖励：bounty_tag。正道追魂。循环钩低阶。"
+    },
+    {
+      "id": "hook_ghost_expose_event",
+      "catalog_id": "ghost_expose_event",
+      "display": "鬼修身份暴露（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】鬼修身份暴露。域None。境None。奖励：见链。鬼修身份暴露。循环钩低阶。"
+    },
+    {
+      "id": "hook_sect_ban_lift_rare_quest",
+      "catalog_id": "sect_ban_lift_rare_quest",
+      "display": "洗髓改息（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】洗髓改息。域None。境None。奖励：temporary_sect_access。洗髓改息。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianyuan_merit_enlist",
+      "catalog_id": "tianyuan_merit_enlist",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：merit_points,spirit_realm_gate_voucher。。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_beast_siege_defense",
+      "catalog_id": "demon_beast_siege_defense",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域tianyuan。境None。奖励：merit_points_bulk。。循环钩低阶。"
+    },
+    {
+      "id": "hook_diyuan_permit_apply",
+      "catalog_id": "diyuan_permit_apply",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域tianyuan。境None。奖励：diyuan_access_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_fengyuan_clan_intro",
+      "catalog_id": "fengyuan_clan_intro",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域spirit_fengyuan。境None。奖励：fengyuan_map。。循环钩低阶。"
+    },
+    {
+      "id": "hook_spirit_fengyuan_border_patrol",
+      "catalog_id": "spirit_fengyuan_border_patrol",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域spirit_fengyuan_border。境None。奖励：merit_points_small。。循环钩低阶。"
+    },
+    {
+      "id": "hook_barbarian_beast_tide_survive",
+      "catalog_id": "barbarian_beast_tide_survive",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域barbarian_wasteland。境None。奖励：barbarian_survival_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_barbarian_king_token_hunt",
+      "catalog_id": "barbarian_king_token_hunt",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域barbarian_wasteland。境None。奖励：barbarian_king_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_king_territory_intrusion",
+      "catalog_id": "king_territory_intrusion",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域barbarian_wasteland。境None。奖励：见链。。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_guest_register",
+      "catalog_id": "clan_guest_register",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域spirit_fengyuan。境None。奖励：clan_guest_pass。。循环钩低阶。"
+    },
+    {
+      "id": "hook_array_disk_commission",
+      "catalog_id": "array_disk_commission",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：array_disk_fragment。。循环钩低阶。"
+    },
+    {
+      "id": "hook_formation_trial_mo",
+      "catalog_id": "formation_trial_mo",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：rep_clan_array。。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_feud_mediation_optional",
+      "catalog_id": "clan_feud_mediation_optional",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：dual_clan_rep。。循环钩低阶。"
+    },
+    {
+      "id": "hook_spirit_ore_escort",
+      "catalog_id": "spirit_ore_escort",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：spirit_ore_bundle。。循环钩低阶。"
+    },
+    {
+      "id": "hook_refinement_apprentice_yu",
+      "catalog_id": "refinement_apprentice_yu",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：refinement_manual_hint。。循环钩低阶。"
+    },
+    {
+      "id": "hook_artifact_appraisal_quest",
+      "catalog_id": "artifact_appraisal_quest",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：artifact_identify_scroll。。循环钩低阶。"
+    },
+    {
+      "id": "hook_herb_tribute_gu",
+      "catalog_id": "herb_tribute_gu",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：spirit_pill_voucher。。循环钩低阶。"
+    },
+    {
+      "id": "hook_alchemy_furnace_access",
+      "catalog_id": "alchemy_furnace_access",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：alchemy_furnace_slot。。循环钩低阶。"
+    },
+    {
+      "id": "hook_pill_quality_audit",
+      "catalog_id": "pill_quality_audit",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：pill_quality_rank_up_chance_tag。。循环钩低阶。"
+    },
+    {
+      "id": "hook_talisman_blank_order",
+      "catalog_id": "talisman_blank_order",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：talisman_blank_high。。循环钩低阶。"
+    },
+    {
+      "id": "hook_talisman_inscription_lesson",
+      "catalog_id": "talisman_inscription_lesson",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：talisman_skill_xp_tag。。循环钩低阶。"
+    },
+    {
+      "id": "hook_clan_raid_defense_ning",
+      "catalog_id": "clan_raid_defense_ning",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：rep_clan_talisman。。循环钩低阶。"
+    },
+    {
+      "id": "hook_barbarian_council_audience",
+      "catalog_id": "barbarian_council_audience",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域barbarian_wasteland。境None。奖励：barbarian_trade_pact。。循环钩低阶。"
+    },
+    {
+      "id": "hook_ancient_ruin_explore",
+      "catalog_id": "ancient_ruin_explore",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域spirit_fengyuan。境None。奖励：ancient_ruin_chest。。循环钩低阶。"
+    },
+    {
+      "id": "hook_illusion_pearl_trade",
+      "catalog_id": "illusion_pearl_trade",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：illusion_pearl。。循环钩低阶。"
+    },
+    {
+      "id": "hook_ancient_wood_core_donate",
+      "catalog_id": "ancient_wood_core_donate",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：rep_shuyao。。循环钩低阶。"
+    },
+    {
+      "id": "hook_wind_feather_craft_order",
+      "catalog_id": "wind_feather_craft_order",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：wind_feather。。循环钩低阶。"
+    },
+    {
+      "id": "hook_spirit_eighteen_pilgrimage",
+      "catalog_id": "spirit_eighteen_pilgrimage",
+      "display": "十八族巡礼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】十八族巡礼。域spirit_fengyuan。境None。奖励：spirit_clan_stamp_book。十八族巡礼。循环钩低阶。"
+    },
+    {
+      "id": "hook_barbarian_tribute_run",
+      "catalog_id": "barbarian_tribute_run",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域barbarian_wasteland。境None。奖励：beast_material_bulk。。循环钩低阶。"
+    },
+    {
+      "id": "hook_diyuan_core_probe",
+      "catalog_id": "diyuan_core_probe",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域diyuan。境None。奖励：diyuan_layer_chest。。循环钩低阶。"
+    },
+    {
+      "id": "hook_wild_land_rumor",
+      "catalog_id": "wild_land_rumor",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域wild_land。境None。奖励：wild_land_map。。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianhu",
+      "catalog_id": "tianhu",
+      "display": "tianhu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】tianhu。域spirit_fengyuan。境None。奖励：rep_fox_illusion_maze,specialty_item。tianhu。循环钩低阶。"
+    },
+    {
+      "id": "hook_shuyao",
+      "catalog_id": "shuyao",
+      "display": "shuyao（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】shuyao。域spirit_fengyuan。境None。奖励：rep_root_network_repair,specialty_item。shuyao。循环钩低阶。"
+    },
+    {
+      "id": "hook_shiren",
+      "catalog_id": "shiren",
+      "display": "shiren（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】shiren。域spirit_fengyuan。境None。奖励：rep_stone_heart_awakening,specialty_item。shiren。循环钩低阶。"
+    },
+    {
+      "id": "hook_feiling",
+      "catalog_id": "feiling",
+      "display": "feiling（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】feiling。域spirit_fengyuan。境None。奖励：rep_sky_feather_raid,specialty_item。feiling。循环钩低阶。"
+    },
+    {
+      "id": "hook_jinyi",
+      "catalog_id": "jinyi",
+      "display": "jinyi（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】jinyi。域spirit_fengyuan。境None。奖励：rep_gold_wing_array_drill,specialty_item。jinyi。循环钩低阶。"
+    },
+    {
+      "id": "hook_yaksha",
+      "catalog_id": "yaksha",
+      "display": "yaksha（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】yaksha。域spirit_fengyuan。境None。奖励：rep_night_battle_trial,specialty_item。yaksha。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianyuan_city",
+      "catalog_id": "tianyuan_city",
+      "display": "tianyuan_city（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】tianyuan_city。域spirit_fengyuan。境None。奖励：rep_border_wall_reinforce,specialty_item。tianyuan_city。循环钩低阶。"
+    },
+    {
+      "id": "hook_langzu",
+      "catalog_id": "langzu",
+      "display": "langzu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】langzu。域spirit_fengyuan。境None。奖励：rep_moon_howl_ritual,specialty_item。langzu。循环钩低阶。"
+    },
+    {
+      "id": "hook_huzhu",
+      "catalog_id": "huzhu",
+      "display": "huzhu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】huzhu。域spirit_fengyuan。境None。奖励：rep_tiger_territory_mark,specialty_item。huzhu。循环钩低阶。"
+    },
+    {
+      "id": "hook_shezu",
+      "catalog_id": "shezu",
+      "display": "shezu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】shezu。域spirit_fengyuan。境None。奖励：rep_venom_sac_refine,specialty_item。shezu。循环钩低阶。"
+    },
+    {
+      "id": "hook_guizu",
+      "catalog_id": "guizu",
+      "display": "guizu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】guizu。域spirit_fengyuan。境None。奖励：rep_turtle_shell_array,specialty_item。guizu。循环钩低阶。"
+    },
+    {
+      "id": "hook_tianpeng",
+      "catalog_id": "tianpeng",
+      "display": "tianpeng（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】tianpeng。域spirit_fengyuan。境None。奖励：rep_roc_sky_duel,specialty_item。tianpeng。循环钩低阶。"
+    },
+    {
+      "id": "hook_mayi",
+      "catalog_id": "mayi",
+      "display": "mayi（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】mayi。域spirit_fengyuan。境None。奖励：rep_ant_tunnel_map,specialty_item。mayi。循环钩低阶。"
+    },
+    {
+      "id": "hook_muyao",
+      "catalog_id": "muyao",
+      "display": "muyao（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】muyao。域spirit_fengyuan。境None。奖励：rep_wood_spirit_bloom,specialty_item。muyao。循环钩低阶。"
+    },
+    {
+      "id": "hook_shuiyue",
+      "catalog_id": "shuiyue",
+      "display": "shuiyue（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】shuiyue。域spirit_fengyuan。境None。奖励：rep_crystal_tide_gather,specialty_item。shuiyue。循环钩低阶。"
+    },
+    {
+      "id": "hook_jinhai",
+      "catalog_id": "jinhai",
+      "display": "jinhai（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】jinhai。域spirit_fengyuan。境None。奖励：rep_gold_sea_salvage,specialty_item。jinhai。循环钩低阶。"
+    },
+    {
+      "id": "hook_mozu",
+      "catalog_id": "mozu",
+      "display": "mozu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】mozu。域spirit_fengyuan。境None。奖励：rep_demon_blood_oath,specialty_item。mozu。循环钩低阶。"
+    },
+    {
+      "id": "hook_lingzu",
+      "catalog_id": "lingzu",
+      "display": "lingzu（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】lingzu。域spirit_fengyuan。境None。奖励：rep_spirit_pearl_hunt,specialty_item。lingzu。循环钩低阶。"
+    },
+    {
+      "id": "hook_diyuan_core_crystal_boss",
+      "catalog_id": "diyuan_core_crystal_boss",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域diyuan。境None。奖励：diyuan_core_crystal。。循环钩低阶。"
+    },
+    {
+      "id": "hook_ascension_gate_rumor",
+      "catalog_id": "ascension_gate_rumor",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：ascension_map_fragment。。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_contact_rumor",
+      "catalog_id": "inverse_star_contact_rumor",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：inverse_star_contact_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_cipher_trial",
+      "catalog_id": "inverse_star_cipher_trial",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：inverse_star_cipher_token。。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_oath",
+      "catalog_id": "inverse_star_oath",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：rep_inverse_star。。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_patrol_dodge",
+      "catalog_id": "star_palace_patrol_dodge",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：见链。。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_palace_intel_sell",
+      "catalog_id": "void_palace_intel_sell",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：spirit_stone_high_bulk。。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_key_fragment_rumor",
+      "catalog_id": "void_key_fragment_rumor",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：见链。。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_spy_expose_optional",
+      "catalog_id": "star_palace_spy_expose_optional",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域None。境None。奖励：rep_star_palace。。循环钩低阶。"
+    },
+    {
+      "id": "hook_inverse_star_ambush_event",
+      "catalog_id": "inverse_star_ambush_event",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：inverse_star_smuggler_pack。。循环钩低阶。"
+    },
+    {
+      "id": "hook_chaotic_sea_neutral_ending_optional",
+      "catalog_id": "chaotic_sea_neutral_ending_optional",
+      "display": "乱星海中立（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】乱星海中立。域None。境None。奖励：见链。乱星海中立。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_enforcement_raid",
+      "catalog_id": "star_palace_enforcement_raid",
+      "display": "None（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】None。域chaotic_sea。境None。奖励：见链。。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_seven_sect_trial",
+      "catalog_id": "hook_seven_sect_trial",
+      "display": "七派入门试炼（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】七派入门试炼。域None。境None。奖励：outer_disciple_token。七派入门试炼。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_luoyun_alchemy_apprentice",
+      "catalog_id": "hook_luoyun_alchemy_apprentice",
+      "display": "落云丹堂学徒（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】落云丹堂学徒。域None。境None。奖励：alchemy_manual_low。落云丹堂学徒。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_tianfu_talisman_exam",
+      "catalog_id": "hook_tianfu_talisman_exam",
+      "display": "天符制符考核（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】天符制符考核。域None。境None。奖励：talisman_recipe_mid。天符制符考核。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_star_palace_register",
+      "catalog_id": "hook_star_palace_register",
+      "display": "星宫登记（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】星宫登记。域chaotic_sea。境None。奖励：sea_pass。星宫登记。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_inverse_star_contact",
+      "catalog_id": "hook_inverse_star_contact",
+      "display": "逆星暗线（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】逆星暗线。域None。境None。奖励：smuggle_route。逆星暗线。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_kunwu_array_study",
+      "catalog_id": "hook_kunwu_array_study",
+      "display": "坤吴阵学（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】坤吴阵学。域dajin。境None。奖励：formation_scroll_mid。坤吴阵学。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_blood_forbidden_ticket",
+      "catalog_id": "hook_blood_forbidden_ticket",
+      "display": "血色禁地名额（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】血色禁地名额。域None。境None。奖励：realm_entry_blood。血色禁地名额。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_void_palace_key_hunt",
+      "catalog_id": "hook_void_palace_key_hunt",
+      "display": "虚天钥碎片（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天钥碎片。域None。境None。奖励：void_key_fragment。虚天钥碎片。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_dayan_ruin_probe",
+      "catalog_id": "hook_dayan_ruin_probe",
+      "display": "大衍遗迹探查（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】大衍遗迹探查。域None。境None。奖励：dayan_fragment_chance。大衍遗迹探查。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_spirit_beast_capture",
+      "catalog_id": "hook_spirit_beast_capture",
+      "display": "灵兽山驯兽委托（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】灵兽山驯兽委托。域None。境None。奖励：beast_taming_manual,spirit_beast_bridle。灵兽山驯兽委托。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_demonic_six_recruit",
+      "catalog_id": "hook_demonic_six_recruit",
+      "display": "魔道六宗招揽（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魔道六宗招揽。域None。境None。奖励：demonic_manual_low。叛宗风险极高。。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_wanbao_consignment",
+      "catalog_id": "hook_wanbao_consignment",
+      "display": "万宝楼寄售（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】万宝楼寄售。域tiannan。境None。奖励：spirit_stone,auction_slot。万宝楼寄售。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_barbarian_relic_escort",
+      "catalog_id": "hook_barbarian_relic_escort",
+      "display": "蛮荒遗迹护送（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】蛮荒遗迹护送。域barbarian_wasteland。境None。奖励：ancient_fragment_chance。蛮荒遗迹护送。循环钩低阶。"
+    },
+    {
+      "id": "hook_hook_yin_luo_ghost_contract",
+      "catalog_id": "hook_yin_luo_ghost_contract",
+      "display": "阴罗鬼契（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】阴罗鬼契。域yin_underworld。境None。奖励：ghost_path_hint。阴罗鬼契。循环钩低阶。"
+    },
+    {
+      "id": "hook_blood_forbidden_outer_layer",
+      "catalog_id": "blood_forbidden_outer_layer",
+      "display": "血色禁地外层（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】血色禁地外层。域tiannan。境QI_REFINING。奖励：blood_forbidden_herb。外层猎妖取药，禁制压制下妖兽仍狂暴。。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_palace_cycle_notice",
+      "catalog_id": "void_palace_cycle_notice",
+      "display": "虚天殿周期预告（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天殿周期预告。域chaotic_sea。境CORE_FORMATION。奖励：见链。三百年周期将现，岛修搜集虚天钥碎片。。循环钩低阶。"
+    },
+    {
+      "id": "hook_void_key_fragment_hunt",
+      "catalog_id": "void_key_fragment_hunt",
+      "display": "虚天钥碎片（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】虚天钥碎片。域chaotic_sea。境CORE_FORMATION。奖励：void_key_fragment。碎片散落于遗迹与海兽巢，凑齐方可入殿。。循环钩低阶。"
+    },
+    {
+      "id": "hook_fallen_demon_seal_weaken",
+      "catalog_id": "fallen_demon_seal_weaken",
+      "display": "坠魔谷封印松动（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】坠魔谷封印松动。域fallen_demon_valley。境NASCENT_SOUL。奖励：见链。古魔入侵遗留封印削弱，元婴修士方可一探。。循环钩低阶。"
+    },
+    {
+      "id": "hook_fallen_demon_outer_gorge",
+      "catalog_id": "fallen_demon_outer_gorge",
+      "display": "坠魔外谷（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】坠魔外谷。域fallen_demon_valley。境NASCENT_SOUL。奖励：demon_qi_sample。魔雾弥漫，需驱魔丹护体。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_open_permit",
+      "catalog_id": "kunwu_open_permit",
+      "display": "昆吾入山令（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】昆吾入山令。域kunwu。境CORE_FORMATION。奖励：kunwu_permit_token。大晋许可与寒潮准备，缺一不可。。循环钩低阶。"
+    },
+    {
+      "id": "hook_kunwu_outer_array",
+      "catalog_id": "kunwu_outer_array",
+      "display": "昆吾外阵（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】昆吾外阵。域kunwu。境CORE_FORMATION。奖励：见链。上古阵纹残留，破禁需阵法或蛮力二选一。。循环钩低阶。"
+    },
+    {
+      "id": "hook_refinement_apprentice",
+      "catalog_id": "refinement_apprentice",
+      "display": "炼器坊学徒（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】炼器坊学徒。域tiannan。境FOUNDATION。奖励：forge_hammer_low。学习熔炼与阵纹铭刻，炸炉渣可回收。。循环钩低阶。"
+    },
+    {
+      "id": "hook_talisman_apprentice",
+      "catalog_id": "talisman_apprentice",
+      "display": "制符堂学徒（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】制符堂学徒。域tiannan。境QI_REFINING。奖励：talisman_paper_low。符纸、灵墨、神识三要素定符品。。循环钩低阶。"
+    },
+    {
+      "id": "hook_demon_qi_purge_prep",
+      "catalog_id": "demon_qi_purge_prep",
+      "display": "备驱魔之物（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】备驱魔之物。域tiannan。境NASCENT_SOUL。奖励：demon_qi_purge_pill。入坠魔谷前必备丹药与辟邪符。。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_ferry_ticket",
+      "catalog_id": "nether_ferry_ticket",
+      "display": "购冥河渡票（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】购冥河渡票。域nether_river。境FOUNDATION。奖励：nether_ferry_token。鬼船索价灵石，敛魂符可减阴伤。。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_river_fog_entry",
+      "catalog_id": "nether_river_fog_entry",
+      "display": "阴雾入冥河（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】阴雾入冥河。域nether_river。境FOUNDATION。奖励：见链。白日阳修受损，宜夜行或备纯阳符。。循环钩低阶。"
+    },
+    {
+      "id": "hook_nether_soul_shoal",
+      "catalog_id": "nether_soul_shoal",
+      "display": "魂滩（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魂滩。域nether_river。境FOUNDATION。奖励：soul_gathering_stone。。循环钩低阶。"
+    },
+    {
+      "id": "hook_diyuan_rift_mouth",
+      "catalog_id": "diyuan_rift_mouth",
+      "display": "地渊裂隙口（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】地渊裂隙口。域diyuan。境VOID_REFINEMENT。奖励：见链。重压初显，未持令者神识受创。。循环钩低阶。"
+    },
+    {
+      "id": "hook_yanyue_formation_support",
+      "catalog_id": "yanyue_formation_support",
+      "display": "燕乐破阵支援（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】燕乐破阵支援。域tiannan。境FOUNDATION。奖励：见链。天南对慕兰战时，阵法宗门破护族大阵。。循环钩低阶。"
+    },
+    {
+      "id": "hook_star_palace_patrol_quest",
+      "catalog_id": "star_palace_patrol_quest",
+      "display": "星宫巡防任务（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】星宫巡防任务。域chaotic_sea。境None。奖励：patrol_merit,rep_star_palace。协助执法队清剿海盗据点，提升星宫声望。。循环钩低阶。"
+    },
+    {
+      "id": "hook_dajin_border_rumor",
+      "catalog_id": "dajin_border_rumor",
+      "display": "边境传闻（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】边境传闻。域dajin。境None。奖励：见链。正魔边境又有摩擦，坊市悬赏更新。。循环钩低阶。"
+    },
+    {
+      "id": "hook_dajin_righteous_patrol_hook",
+      "catalog_id": "dajin_righteous_patrol_hook",
+      "display": "正道巡边（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】正道巡边。域dajin。境None。奖励：见链。协助世家或佛寺清剿魔道探子。。循环钩低阶。"
+    },
+    {
+      "id": "hook_dajin_demon_infiltrate_hook",
+      "catalog_id": "dajin_demon_infiltrate_hook",
+      "display": "魔道渗透（任务钩）",
+      "type": "quest_hook",
+      "tags": [
+        "v115"
+      ],
+      "description": "【钩】魔道渗透。域dajin。境None。奖励：见链。合欢或阴罗外围任务，正道声望受限。。循环钩低阶。"
+    },
+    {
+      "id": "region_card_barbarian_wasteland",
+      "catalog_id": "barbarian_wasteland",
+      "display": "蛮荒之地（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】蛮荒之地。见区域卡原文。region_cards/barbarian_wasteland.json。"
+    },
+    {
+      "id": "region_card_chaotic_sea",
+      "catalog_id": "chaotic_sea",
+      "display": "乱星海（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】乱星海。见区域卡原文。region_cards/chaotic_sea.json。"
+    },
+    {
+      "id": "region_card_dajin",
+      "catalog_id": "dajin",
+      "display": "大晋（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】大晋。见区域卡原文。region_cards/dajin.json。"
+    },
+    {
+      "id": "region_card_extreme_west",
+      "catalog_id": "extreme_west",
+      "display": "极西千竹（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】极西千竹。见区域卡原文。region_cards/extreme_west_thousand_bamboo.json。"
+    },
+    {
+      "id": "region_card_fallen_demon_valley",
+      "catalog_id": "fallen_demon_valley",
+      "display": "坠魔谷（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】坠魔谷。见区域卡原文。region_cards/fallen_demon_valley.json。"
+    },
+    {
+      "id": "region_card_great_jin_central",
+      "catalog_id": "great_jin_central",
+      "display": "大晋中心（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】大晋中心。见区域卡原文。region_cards/great_jin_central.json。"
+    },
+    {
+      "id": "region_card_inverse_star_hideout",
+      "catalog_id": "inverse_star_hideout",
+      "display": "逆星暗港（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】逆星暗港。见区域卡原文。region_cards/inverse_star_hideout.json。"
+    },
+    {
+      "id": "region_card_kunwu",
+      "catalog_id": "kunwu",
+      "display": "昆吾山（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】昆吾山。见区域卡原文。region_cards/kunwu.json。"
+    },
+    {
+      "id": "region_card_mulan",
+      "catalog_id": "mulan",
+      "display": "慕兰草原（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】慕兰草原。与突兀族世仇；天虎兽产地；法士专精。region_cards/mulan.json。"
+    },
+    {
+      "id": "region_card_mulan_grassland",
+      "catalog_id": "mulan_grassland",
+      "display": "慕兰草原（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】慕兰草原。见区域卡原文。region_cards/mulan_grassland.json。"
+    },
+    {
+      "id": "region_card_nether_river",
+      "catalog_id": "nether_river",
+      "display": "冥河（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】冥河。见区域卡原文。region_cards/nether_river.json。"
+    },
+    {
+      "id": "region_card_outer_sea_market",
+      "catalog_id": "outer_sea_market",
+      "display": "外海坊市（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】外海坊市。见区域卡原文。region_cards/outer_sea_market.json。"
+    },
+    {
+      "id": "region_card_qixuan_village",
+      "catalog_id": "qixuan_village",
+      "display": "七玄门周边（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】七玄门周边。见区域卡原文。region_cards/qixuan_village.json。"
+    },
+    {
+      "id": "region_card_spirit_fengyuan",
+      "catalog_id": "spirit_fengyuan",
+      "display": "风元大陆（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】风元大陆。见区域卡原文。region_cards/spirit_fengyuan.json。"
+    },
+    {
+      "id": "region_card_spirit_realm_border",
+      "catalog_id": "spirit_realm_border",
+      "display": "灵界边境荒原（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】灵界边境荒原。见区域卡原文。region_cards/spirit_realm_border.json。"
+    },
+    {
+      "id": "region_card_star_palace_city",
+      "catalog_id": "star_palace_city",
+      "display": "天星城（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】天星城。见区域卡原文。region_cards/star_palace_city.json。"
+    },
+    {
+      "id": "region_card_tianlan",
+      "catalog_id": "tianlan",
+      "display": "天澜草原边境（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】天澜草原边境。见区域卡原文。region_cards/tianlan.json。"
+    },
+    {
+      "id": "region_card_tiannan",
+      "catalog_id": "tiannan",
+      "display": "天南（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】天南。世俗与修仙脱节；血色禁地五年一开。region_cards/tiannan.json。"
+    },
+    {
+      "id": "region_card_tiannan_north_waste",
+      "catalog_id": "tiannan_north_waste",
+      "display": "天南荒原（魔道）（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】天南荒原（魔道）。见区域卡原文。region_cards/tiannan_north_waste.json。"
+    },
+    {
+      "id": "region_card_tianyuan",
+      "catalog_id": "tianyuan",
+      "display": "天渊城（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】天渊城。见区域卡原文。region_cards/tianyuan.json。"
+    },
+    {
+      "id": "region_card_wutu_border",
+      "catalog_id": "wutu_border",
+      "display": "突兀族边境营（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】突兀族边境营。见区域卡原文。region_cards/wutu_border.json。"
+    },
+    {
+      "id": "region_card_yinming",
+      "catalog_id": "yinming",
+      "display": "阴冥（区域卡）",
+      "type": "region_card",
+      "tags": [
+        "v115"
+      ],
+      "description": "【区域卡】阴冥。见区域卡原文。region_cards/yinming.json。"
+    },
+    {
+      "id": "v115_index",
+      "display": "v115 索引",
+      "type": "meta",
+      "counts": {
+        "chronicle": 56,
+        "hooks": 208,
+        "realms": 9,
+        "total": 440
+      },
+      "description": "纪年+时间线+成长+灵根体质+阵傀通货+渡劫+钩+区域卡。"
+    },
+    {
+      "id": "mainline_read_order_v115",
+      "display": "主线阅读顺序",
+      "type": "meta",
+      "order": [
+        "炼气",
+        "血色",
+        "虚天",
+        "乱星海",
+        "元婴",
+        "大晋慕兰",
+        "地渊天渊",
+        "飞升",
+        "灵界",
+        "广寒"
+      ],
+      "description": "与 tl_* 一致。"
+    },
+    {
+      "id": "v115_accept",
+      "display": "v115 验收签",
+      "type": "meta",
+      "checks": [
+        "纪年",
+        "钩208",
+        "境界",
+        "时间线",
+        "无代码"
+      ],
+      "description": "本版完成。"
+    }
+  ]
+}

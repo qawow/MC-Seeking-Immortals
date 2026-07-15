@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "source": "v138 术法字段回填报告",
+  "stats": {
+    "files": 20,
+    "techniques": 747,
+    "filled_element": 714,
+    "filled_path": 747,
+    "filled_alignment": 741,
+    "filled_tags": 137,
+    "filled_source_method_alias": 631,
+    "already_had_element": 33
+  },
+  "verify": {
+    "total_techniques": 747,
+    "empty_element_after": 0
+  },
+  "rules": [
+    "element: effect.element > element_required > school default",
+    "path: six_sect_id/seven_sect_id > school meta path",
+    "alignment: school meta",
+    "source_method alias of requires_method",
+    "tags ensure contain element/path/alignment/tier"
+  ],
+  "cultivation_methods": {
+    "total": 136,
+    "filled": {
+      "element": 123,
+      "school": 136,
+      "alignment": 136,
+      "methods": 136
+    },
+    "empty_after": {}
+  }
+}

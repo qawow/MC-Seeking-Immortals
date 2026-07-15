@@ -1,0 +1,964 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 炼器/阵法/傀儡材料。原著提及材料的结构归类；价格为可重平衡量级",
+  "disclaimer": "非精确原文配方；用途与稀有度为模组结构参考",
+  "material_categories": {
+    "metal_ore": "金属矿材",
+    "crystal": "晶石类",
+    "beast_part": "妖材",
+    "flame_water": "异火异水",
+    "wood_bone": "神木骨骸",
+    "poison": "毒物",
+    "space_seal": "空间封印材",
+    "puppet_part": "傀儡材",
+    "misc_rare": "杂项稀珍"
+  },
+  "rarity_scale": {
+    "1": "坊市常见",
+    "2": "小宗门库存",
+    "3": "禁地/猎妖可得",
+    "4": "元婴级流通",
+    "5": "拍卖主拍",
+    "6": "化神级稀珍",
+    "7": "界面级/不可常购"
+  },
+  "materials": [
+    {
+      "id": "geng_jing",
+      "display": "庚精",
+      "category": "metal_ore",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "青竹蜂云剑等飞剑炼入",
+        "大庚剑阵材料",
+        "金属性法宝精炼"
+      ],
+      "price_low_stone": [
+        20000,
+        120000
+      ],
+      "sources": [
+        "天南赌战赏赐",
+        "大晋拍卖",
+        "坠魔谷/秘境"
+      ],
+      "setting": {
+        "lore": "金属性极品灵材；韩立为集庚精炼剑、赴边界赌战。天南极难凑齐，大晋流通略宽。"
+      },
+      "description": "用途：青竹蜂云剑等飞剑炼入、大庚剑阵材料、金属性法宝精炼。金属性极品灵材；韩立为集庚精炼剑、赴边界赌战。天南极难凑齐，大晋流通略宽。"
+    },
+    {
+      "id": "qing_jin_shi",
+      "display": "青金石（吸灵石）",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "隔绝灵力攻击的炼器材",
+        "特殊阵基"
+      ],
+      "special": "法术灵力对其几乎无效，仅巨力可毁",
+      "price_low_stone": [
+        800,
+        8000
+      ],
+      "setting": {
+        "lore": "罕见炼器材，可作特殊防御与阵基；非主流攻击材。"
+      },
+      "description": "用途：隔绝灵力攻击的炼器材、特殊阵基。罕见炼器材，可作特殊防御与阵基；非主流攻击材。"
+    },
+    {
+      "id": "jing_hua_yao_dan",
+      "display": "晶化妖丹",
+      "category": "beast_part",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "飞针类法宝主材",
+        "奇毒关联"
+      ],
+      "special": "长年搁置晶质化，含奇毒；炼飞针遁速极快",
+      "price_low_stone": [
+        5000,
+        40000
+      ],
+      "setting": {
+        "lore": "韩立在大晋以晶化妖丹炼飞针；偷袭利器结构。"
+      },
+      "description": "用途：飞针类法宝主材、奇毒关联。韩立在大晋以晶化妖丹炼飞针；偷袭利器结构。"
+    },
+    {
+      "id": "han_sui_material",
+      "display": "寒髓",
+      "category": "flame_water",
+      "rarity_tier": 6,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "回阳真水主料",
+        "化形雷劫保命辅助",
+        "寒焰/玄玉相关"
+      ],
+      "sources": [
+        "万年冰玉孕育",
+        "北夜小极宫传承关联"
+      ],
+      "price_low_stone": [
+        80000,
+        500000
+      ],
+      "cross_ref_herb": "han_sui",
+      "setting": {
+        "lore": "至寒精髓；既可炼药亦可护劫。大晋/小极宫线关键物。"
+      },
+      "description": "用途：回阳真水主料、化形雷劫保命辅助、寒焰/玄玉相关。至寒精髓；既可炼药亦可护劫。大晋/小极宫线关键物。"
+    },
+    {
+      "id": "hua_shen_ni",
+      "display": "化神泥（幻形膏）",
+      "category": "misc_rare",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "复杂法器塑形",
+        "受损自修复结构"
+      ],
+      "special": "可随意变形炼器；可吸收大半法力攻击",
+      "price_low_stone": [
+        15000,
+        100000
+      ],
+      "setting": {
+        "lore": "上古级炼器材标签；适合异形法宝与自修复器胚。"
+      },
+      "description": "用途：复杂法器塑形、受损自修复结构。上古级炼器材标签；适合异形法宝与自修复器胚。"
+    },
+    {
+      "id": "jiang_huang_jing",
+      "display": "姜黄晶",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "土御性法宝"
+      ],
+      "growth_condition": "南疆西部沙漠千尺下结构",
+      "price_low_stone": [
+        2000,
+        20000
+      ],
+      "setting": {
+        "lore": "坚硬、纳土属性灵气佳；土系法宝上佳材。"
+      },
+      "description": "用途：土御性法宝。坚硬、纳土属性灵气佳；土系法宝上佳材。"
+    },
+    {
+      "id": "xuan_guang_jing",
+      "display": "眩光晶",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": [
+        "大衍人形傀儡材",
+        "迷眩类阵器"
+      ],
+      "price_low_stone": [
+        1500,
+        12000
+      ],
+      "setting": {
+        "lore": "乳黄紫晕，令人眩晕；傀儡与幻阵共用材。"
+      },
+      "description": "用途：大衍人形傀儡材、迷眩类阵器。乳黄紫晕，令人眩晕；傀儡与幻阵共用材。"
+    },
+    {
+      "id": "tai_yang_jing_shi",
+      "display": "太阳精石",
+      "category": "crystal",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "太阳精火关联",
+        "火系至宝辅材",
+        "回阳真水间接"
+      ],
+      "growth_condition": "地火深处，需太阳精火凝炼结构",
+      "price_low_stone": [
+        30000,
+        200000
+      ],
+      "setting": {
+        "lore": "至阳晶石；火狱/地火线产出。与寒髓阴阳成对。"
+      },
+      "description": "用途：太阳精火关联、火系至宝辅材、回阳真水间接。至阳晶石；火狱/地火线产出。与寒髓阴阳成对。"
+    },
+    {
+      "id": "tian_jing_bei",
+      "display": "天晶碑（飞仙石）",
+      "category": "space_seal",
+      "rarity_tier": 6,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "加固昆吾类封印",
+        "重压阵基"
+      ],
+      "special": "奇重；注灵力后可轻若无物",
+      "price_low_stone": [
+        100000,
+        800000
+      ],
+      "setting": {
+        "lore": "昆吾封印关键材；界面级任务/战役掉落，不宜日常坊市。"
+      },
+      "description": "用途：加固昆吾类封印、重压阵基。昆吾封印关键材；界面级任务/战役掉落，不宜日常坊市。"
+    },
+    {
+      "id": "yin_ling_shui",
+      "display": "阴灵水（沉水）",
+      "category": "flame_water",
+      "rarity_tier": 4,
+      "realm_band": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "法器临时附阴火",
+        "阴修炼器",
+        "落石化金类效果结构"
+      ],
+      "sources": [
+        "阴冥之地",
+        "重阴秘境"
+      ],
+      "price_low_stone": [
+        1000,
+        15000
+      ],
+      "setting": {
+        "lore": "阴气凝成粘稠黑水；阴冥篇常见采集物。"
+      },
+      "description": "用途：法器临时附阴火、阴修炼器、落石化金类效果结构。阴气凝成粘稠黑水；阴冥篇常见采集物。"
+    },
+    {
+      "id": "ben_ming_lin_pian",
+      "display": "本命鳞片（蛟类）",
+      "category": "beast_part",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "炼器辅材",
+        "换取庚精等交易"
+      ],
+      "special": "灌注精元法力，次于妖丹",
+      "price_low_stone": [
+        3000,
+        30000
+      ],
+      "setting": {
+        "lore": "八级毒蛟等本命鳞可炼器或高价交易。"
+      },
+      "description": "用途：炼器辅材、换取庚精等交易。八级毒蛟等本命鳞可炼器或高价交易。"
+    },
+    {
+      "id": "yao_dan_t6",
+      "display": "六级妖丹",
+      "category": "beast_part",
+      "rarity_tier": 3,
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": [
+        "降尘丹等主料",
+        "炼器注灵",
+        "部分魔功"
+      ],
+      "price_low_stone": [
+        800,
+        5000
+      ],
+      "setting": {
+        "lore": "结丹门槛材料结构；猎妖主产出。"
+      },
+      "description": "用途：降尘丹等主料、炼器注灵、部分魔功。结丹门槛材料结构；猎妖主产出。"
+    },
+    {
+      "id": "yao_dan_t8",
+      "display": "八级妖丹",
+      "category": "beast_part",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "高阶丹药",
+        "本命法宝精炼",
+        "化形失败残骸"
+      ],
+      "price_low_stone": [
+        20000,
+        150000
+      ],
+      "setting": {
+        "lore": "化形前后妖修内丹；乱星海外星海常见高阶猎物。"
+      },
+      "description": "用途：高阶丹药、本命法宝精炼、化形失败残骸。化形前后妖修内丹；乱星海外星海常见高阶猎物。"
+    },
+    {
+      "id": "bi_jiu_du",
+      "display": "碧鸠（十绝毒之一）",
+      "category": "poison",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "剧毒暗器",
+        "毒功修炼",
+        "诱大毒虫"
+      ],
+      "special": "气味极刺鼻",
+      "price_low_stone": [
+        10000,
+        80000
+      ],
+      "setting": {
+        "lore": "碧嘴鸠口水提炼；十绝毒体系占位之一。"
+      },
+      "description": "用途：剧毒暗器、毒功修炼、诱大毒虫。碧嘴鸠口水提炼；十绝毒体系占位之一。"
+    },
+    {
+      "id": "po_shi",
+      "display": "魄石",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "上古傀儡修复",
+        "神识类阵器"
+      ],
+      "price_low_stone": [
+        5000,
+        50000
+      ],
+      "sources": [
+        "天南交易会",
+        "秘境"
+      ],
+      "setting": {
+        "lore": "天晶真人急缺以修傀儡；可换上古傀儡术。"
+      },
+      "description": "用途：上古傀儡修复、神识类阵器。天晶真人急缺以修傀儡；可换上古傀儡术。"
+    },
+    {
+      "id": "manao_jiao",
+      "display": "玛瑙角",
+      "category": "beast_part",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "九曲灵参丹辅料"
+      ],
+      "price_low_stone": [
+        8000,
+        40000
+      ],
+      "setting": {
+        "lore": "与九曲灵参、千叶露并列结婴丹关键材。"
+      },
+      "description": "用途：九曲灵参丹辅料。与九曲灵参、千叶露并列结婴丹关键材。"
+    },
+    {
+      "id": "qian_ye_lu",
+      "display": "千叶露",
+      "category": "flame_water",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "九曲灵参丹辅料",
+        "木系丹药"
+      ],
+      "price_low_stone": [
+        5000,
+        30000
+      ],
+      "cross_ref_herb": "qian_lu",
+      "setting": {
+        "lore": "结婴辅助丹关键液体材。"
+      },
+      "description": "用途：九曲灵参丹辅料、木系丹药。结婴辅助丹关键液体材。"
+    },
+    {
+      "id": "geng_jin_bamboo",
+      "display": "金雷竹（金雷竹叶）",
+      "category": "wood_bone",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "青竹蜂云剑本源材",
+        "换新青元剑诀叙事"
+      ],
+      "price_low_stone": [
+        50000,
+        300000
+      ],
+      "setting": {
+        "lore": "青元剑系本源灵竹；叶可换功法/提炼飞剑。"
+      },
+      "description": "用途：青竹蜂云剑本源材、换新青元剑诀叙事。青元剑系本源灵竹；叶可换功法/提炼飞剑。"
+    },
+    {
+      "id": "yuan_ci_kuang",
+      "display": "元磁矿脉碎片",
+      "category": "metal_ore",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "元磁神光/元磁山关联",
+        "克制五行类炼器"
+      ],
+      "sources": [
+        "乱星海星宫一带"
+      ],
+      "price_low_stone": [
+        40000,
+        250000
+      ],
+      "setting": {
+        "lore": "星宫元磁体系材料结构；人界顶阶金属矿标签。"
+      },
+      "description": "用途：元磁神光/元磁山关联、克制五行类炼器。星宫元磁体系材料结构；人界顶阶金属矿标签。"
+    },
+    {
+      "id": "yi_mo_jin",
+      "display": "异魔金（含变异）",
+      "category": "metal_ore",
+      "rarity_tier": 6,
+      "realm_band": [
+        "BODY_INTEGRATION",
+        "GREAT_VEHICLE"
+      ],
+      "primary_use": [
+        "阴阳大五行极山等灵界炼器",
+        "魔界矿脉"
+      ],
+      "price_unit": "merit_or_spirit_realm_currency",
+      "price_note": "灵界/魔界计价，非人界下品灵石",
+      "setting": {
+        "lore": "灵界后期炼极山关键材；私矿与拍卖双渠道。"
+      },
+      "description": "用途：阴阳大五行极山等灵界炼器、魔界矿脉。灵界后期炼极山关键材；私矿与拍卖双渠道。"
+    },
+    {
+      "id": "tian_lei_mu",
+      "display": "天雷木",
+      "category": "wood_bone",
+      "rarity_tier": 5,
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "primary_use": [
+        "雷珠/雷帕",
+        "雷纹炼器"
+      ],
+      "sources": [
+        "天渊城交易",
+        "地渊外围"
+      ],
+      "price_unit": "tianyuan_merit",
+      "price_merit": [
+        20,
+        80
+      ],
+      "setting": {
+        "lore": "灵界雷系炼器材；飞升修士常用。"
+      },
+      "description": "用途：雷珠/雷帕、雷纹炼器。灵界雷系炼器材；飞升修士常用。"
+    },
+    {
+      "id": "mo_qilin_lin",
+      "display": "墨麒麟鳞片",
+      "category": "beast_part",
+      "rarity_tier": 6,
+      "realm_band": [
+        "DEITY_TRANSFORMATION",
+        "BODY_INTEGRATION"
+      ],
+      "primary_use": [
+        "葵水真灵丹等灵界丹方"
+      ],
+      "price_unit": "tianyuan_merit_or_auction",
+      "price_merit": [
+        40,
+        120
+      ],
+      "setting": {
+        "lore": "真灵远亲级妖材结构；天渊拍卖偶见。"
+      },
+      "description": "用途：葵水真灵丹等灵界丹方。真灵远亲级妖材结构；天渊拍卖偶见。"
+    },
+    {
+      "id": "ming_he_shen_ru",
+      "display": "冥河神乳",
+      "category": "flame_water",
+      "rarity_tier": 7,
+      "realm_band": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "primary_use": [
+        "顶级培灵",
+        "噬金虫王培育关联",
+        "大乘交易"
+      ],
+      "price_note": "不可常规标价",
+      "setting": {
+        "lore": "冥河之地至宝级；任务/契约换取，不作坊市商品。"
+      },
+      "description": "用途：顶级培灵、噬金虫王培育关联、大乘交易。冥河之地至宝级；任务/契约换取，不作坊市商品。"
+    },
+    {
+      "id": "di_liu_jiang",
+      "display": "帝流浆",
+      "category": "refined_misc",
+      "rarity_tier": 6,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "化界珠等",
+        "空间类炼器"
+      ],
+      "price_low_stone": [
+        100000,
+        600000
+      ],
+      "setting": {
+        "lore": "天澜圣兽渡劫关联产出结构；空间至宝辅材。"
+      },
+      "description": "用途：化界珠等、空间类炼器。天澜圣兽渡劫关联产出结构；空间至宝辅材。"
+    },
+    {
+      "id": "xuan_tian_can_bao",
+      "display": "玄天残宝碎片",
+      "category": "misc_rare",
+      "rarity_tier": 7,
+      "realm_band": [
+        "BODY_INTEGRATION",
+        "GREAT_VEHICLE"
+      ],
+      "primary_use": [
+        "仿玄天/残宝拼合",
+        "法则感悟触媒"
+      ],
+      "price_note": "大乘级争夺物",
+      "setting": {
+        "lore": "玄天之宝碎片级；不进普通经济，只进战役与终局拍卖。"
+      },
+      "description": "用途：仿玄天/残宝拼合、法则感悟触媒。玄天之宝碎片级；不进普通经济，只进战役与终局拍卖。"
+    },
+    {
+      "id": "puppet_core_ancient",
+      "display": "上古傀儡核心",
+      "category": "puppet_part",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "傀儡修复/进阶",
+        "大衍傀儡"
+      ],
+      "price_low_stone": [
+        25000,
+        180000
+      ],
+      "setting": {
+        "lore": "千竹教/天晶真人线；与魄石、眩光晶配套。"
+      },
+      "description": "用途：傀儡修复/进阶、大衍傀儡。千竹教/天晶真人线；与魄石、眩光晶配套。"
+    },
+    {
+      "id": "blood_jade_spider_silk",
+      "display": "血玉蜘蛛丝",
+      "category": "beast_part",
+      "rarity_tier": 3,
+      "realm_band": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_use": [
+        "束缚类法器",
+        "阵线",
+        "交易硬通货"
+      ],
+      "price_low_stone": [
+        200,
+        2000
+      ],
+      "setting": {
+        "lore": "血色禁地/魔道战场常见中阶妖材。"
+      },
+      "description": "用途：束缚类法器、阵线、交易硬通货。血色禁地/魔道战场常见中阶妖材。"
+    },
+    {
+      "id": "ling_yan_tree_root",
+      "display": "灵眼之树根部",
+      "category": "wood_bone",
+      "rarity_tier": 5,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "洗目/灵目",
+        "定灵相关",
+        "秘境争夺"
+      ],
+      "price_low_stone": [
+        30000,
+        200000
+      ],
+      "setting": {
+        "lore": "试剑大会/圣地争夺物；与定灵丹、明清灵水同线。"
+      },
+      "description": "用途：洗目/灵目、定灵相关、秘境争夺。试剑大会/圣地争夺物；与定灵丹、明清灵水同线。"
+    },
+    {
+      "id": "ming_qing_ling_shui",
+      "display": "明清灵水（配方级）",
+      "category": "flame_water",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "洗目清神",
+        "圣地秘制"
+      ],
+      "price_low_stone": [
+        8000,
+        50000
+      ],
+      "setting": {
+        "lore": "配方与成品皆珍；落云/百巧圣地线。"
+      },
+      "description": "用途：洗目清神、圣地秘制。配方与成品皆珍；落云/百巧圣地线。"
+    },
+    {
+      "id": "low_spirit_stone_vein_sand",
+      "display": "下品灵石矿砂",
+      "category": "crystal",
+      "rarity_tier": 1,
+      "realm_band": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_use": [
+        "提炼灵石",
+        "阵基填充"
+      ],
+      "price_low_stone": [
+        1,
+        5
+      ],
+      "setting": {
+        "lore": "基础经济产出；灵矿驻地日常。"
+      },
+      "description": "用途：提炼灵石、阵基填充。基础经济产出；灵矿驻地日常。"
+    },
+    {
+      "id": "mo_jin",
+      "display": "墨金",
+      "category": "metal_ore",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "炼器",
+        "傀儡"
+      ],
+      "price_low_stone": [
+        20000,
+        100000
+      ],
+      "sources": [
+        "大晋地下拍卖"
+      ],
+      "setting": {
+        "lore": "地下拍卖硬通货材。"
+      },
+      "description": "用途：炼器、傀儡。地下拍卖硬通货材。"
+    },
+    {
+      "id": "wuxing_yu",
+      "display": "五行玉",
+      "category": "crystal",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "五行炼器",
+        "培法"
+      ],
+      "price_low_stone": [
+        15000,
+        90000
+      ],
+      "setting": {
+        "lore": "魔髓钻可换。"
+      },
+      "description": "用途：五行炼器、培法。魔髓钻可换。"
+    },
+    {
+      "id": "lei_ling_jing",
+      "display": "雷灵晶",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "雷系炼器"
+      ],
+      "price_low_stone": [
+        5000,
+        40000
+      ],
+      "sources": [
+        "晋西坊市"
+      ],
+      "description": "用途：雷系炼器。"
+    },
+    {
+      "id": "jin_yan_shi",
+      "display": "金焰石",
+      "category": "crystal",
+      "rarity_tier": 4,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "火金炼器"
+      ],
+      "price_low_stone": [
+        4000,
+        30000
+      ],
+      "description": "用途：火金炼器。"
+    },
+    {
+      "id": "hao_yang_ling_yu",
+      "display": "昊阳鸟翎羽",
+      "category": "beast_part",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "火系法宝",
+        "三焰扇"
+      ],
+      "price_low_stone": [
+        20000,
+        120000
+      ],
+      "sources": [
+        "岳阳宫"
+      ],
+      "description": "用途：火系法宝、三焰扇。"
+    },
+    {
+      "id": "wu_feng_ling",
+      "display": "乌凤之翎",
+      "category": "beast_part",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "风雷翅强化/火系"
+      ],
+      "price_low_stone": [
+        30000,
+        180000
+      ],
+      "sources": [
+        "苦竹岛"
+      ],
+      "description": "用途：风雷翅强化/火系。"
+    },
+    {
+      "id": "kunpeng_ling",
+      "display": "游天鲲鹏翎羽",
+      "category": "beast_part",
+      "rarity_tier": 7,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_use": [
+        "风雷翅风遁"
+      ],
+      "price_note": "真灵级",
+      "description": "用途：风雷翅风遁。"
+    },
+    {
+      "id": "chi_huo_jiao_lin",
+      "display": "赤火蛟鳞",
+      "category": "beast_part",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "三焰扇"
+      ],
+      "price_low_stone": [
+        15000,
+        90000
+      ],
+      "sources": [
+        "临江府屠蛟"
+      ],
+      "description": "用途：三焰扇。"
+    },
+    {
+      "id": "beijiyuan_jing",
+      "display": "北极元晶",
+      "category": "crystal",
+      "rarity_tier": 6,
+      "realm_band": [
+        "NASCENT_SOUL",
+        "GREAT_VEHICLE"
+      ],
+      "primary_use": [
+        "北极元山"
+      ],
+      "sources": [
+        "坠魔谷"
+      ],
+      "price_low_stone": [
+        80000,
+        500000
+      ],
+      "description": "用途：北极元山。"
+    },
+    {
+      "id": "mo_sui_zuan_mat",
+      "display": "魔髓钻",
+      "category": "misc_rare",
+      "rarity_tier": 5,
+      "realm_band": [
+        "NASCENT_SOUL"
+      ],
+      "primary_use": [
+        "修鬼罗幡",
+        "黑市通货"
+      ],
+      "price_low_stone": [
+        25000,
+        150000
+      ],
+      "description": "用途：修鬼罗幡、黑市通货。"
+    }
+  ],
+  "trade_rules": {
+    "tiannan_vs_dajin": "同材大晋供给更足、标价略高",
+    "chaotic_sea": "海兽材、元磁材溢价",
+    "spirit_realm": "改用功勋/灵界通货，人界灵石仅作参考换算",
+    "black_market_risk": "地下拍卖可出禁材，附 stolen_goods / demonic_flag 风险"
+  },
+  "bundle_recipes_structural": [
+    {
+      "id": "bundle_zhuji_four",
+      "display": "筑基四主药包",
+      "items": [
+        "玉髓芝",
+        "紫猴花",
+        "天灵果",
+        "千年灵草"
+      ],
+      "yield_hint": "约可支撑一批筑基丹（结构约二十粒量级）"
+    },
+    {
+      "id": "bundle_jiuqu_infant",
+      "display": "九曲结婴材包",
+      "items": [
+        "九曲灵参",
+        "玛瑙角",
+        "千叶露"
+      ]
+    },
+    {
+      "id": "bundle_huiyang",
+      "display": "回阳真水材",
+      "items": [
+        "太阳精火/太阳精石关联",
+        "寒髓"
+      ]
+    },
+    {
+      "id": "bundle_geng_sword",
+      "display": "大庚剑材",
+      "items": [
+        "庚精",
+        "金雷竹系飞剑胚"
+      ]
+    }
+  ]
+}

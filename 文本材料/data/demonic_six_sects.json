@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "source": "汇编 魔道六宗北迁；专精标签非全量照搬",
   "chronicle": "K_demonic_six_north_migration",
   "region_primary": "tiannan_north_waste",
@@ -151,78 +151,60 @@
     {
       "sect": "guiling_gate",
       "method": "xuan_yin_art",
-      "skill_tree": "ghost_xuan_yin",
+      "skill_tree": "six_guiling_gate",
       "status": "ok",
-      "requires_method_gate": "techniques/demonic.json"
+      "technique_count": 21,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "guiling_gate",
       "method": "guiling_soul_art",
-      "skill_tree": "ghost_xuan_yin",
+      "skill_tree": "six_guiling_gate",
       "status": "ok",
-      "requires_method_gate": "techniques/demonic.json"
+      "technique_count": 21,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "hehuan_sect",
       "method": "hehuan_mind_art",
-      "skill_tree": "demonic_hehuan",
+      "skill_tree": "six_hehuan_sect",
       "status": "ok",
-      "requires_method_gate": "techniques/demonic.json"
+      "technique_count": 10,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "tianmo_sect",
       "method": "tianmo_body_art",
-      "skill_tree": "demonic_tianmo",
+      "skill_tree": "six_tianmo_sect",
       "status": "ok",
-      "requires_method_gate": "techniques/demonic.json"
+      "technique_count": 19,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "qingluo_sect",
       "method": "qingluo_poison_art",
-      "skill_tree": null,
-      "status": "missing_tree",
-      "requires_method_gate": "techniques/demonic.json"
+      "skill_tree": "six_qingluo_sect",
+      "status": "ok",
+      "technique_count": 8,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "wanhu_sect",
       "method": "wanhu_phantom_art",
-      "skill_tree": null,
-      "status": "missing_tree",
-      "requires_method_gate": "techniques/demonic.json"
+      "skill_tree": "six_wanhu_sect",
+      "status": "ok",
+      "technique_count": 8,
+      "requires_method_gate": "techniques/* v125"
     },
     {
       "sect": "xuewu_sect",
       "method": "xuewu_blood_art",
-      "skill_tree": null,
-      "status": "missing_tree",
-      "requires_method_gate": "techniques/demonic.json"
+      "skill_tree": "six_xuewu_sect",
+      "status": "ok",
+      "technique_count": 8,
+      "requires_method_gate": "techniques/* v125"
     }
   ],
-  "missing_trees_recommended": [
-    {
-      "sect": "hehuan_sect",
-      "tree_id": "hehuan_dual",
-      "method_root": "hehuan_mind_art"
-    },
-    {
-      "sect": "tianmo_sect",
-      "tree_id": "tianmo_body",
-      "method_root": "tianmo_body_art"
-    },
-    {
-      "sect": "qingluo_sect",
-      "tree_id": "qingluo_poison",
-      "method_root": "qingluo_poison_art"
-    },
-    {
-      "sect": "wanhu_sect",
-      "tree_id": "wanhu_phantom",
-      "method_root": "wanhu_phantom_art"
-    },
-    {
-      "sect": "xuewu_sect",
-      "tree_id": "xuewu_blood",
-      "method_root": "xuewu_blood_art"
-    }
-  ]
+  "missing_trees_recommended": [],
+  "v125_technique_packs": true
 }

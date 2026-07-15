@@ -1,0 +1,1725 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v113 原著关键物加长 + 46店货架说明 + 数值锚",
+  "disclaimer": "无代码。加长优先原著节点物；价为量级",
+  "items": [
+    {
+      "id": "long_foundation_pill",
+      "catalog_id": "foundation_pill",
+      "display": "筑基丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce",
+        "auction",
+        "original_catalog"
+      ],
+      "price": [
+        500,
+        2000
+      ],
+      "realm": "QI_REFINING→FOUNDATION",
+      "description": "天南修士跨入筑基的核心丹。原著中丹方与主药（玉髓芝、紫猴花、天灵果、千年灵草等）极稀，宗门多以贡献/任务控量，坊市有价无市或天价。服用需炼气大圆满与稳固经脉，失败轻则经脉受损、重则终身难筑。本包：不进外门无限货架；血色禁地/拍卖/人情为主要来源；绿液催主药受年帽。假丹与毒丹事件需鉴定符。"
+    },
+    {
+      "id": "long_jiangchen_pill",
+      "catalog_id": "jiangchen_pill",
+      "display": "降尘丹（加长）",
+      "type": "pill",
+      "tags": [
+        "unique_event",
+        "auction",
+        "scarce"
+      ],
+      "price": [
+        3000,
+        15000
+      ],
+      "realm": "FOUNDATION→CORE 辅助气质",
+      "description": "原著中结丹前后关键、远贵于寻常筑基辅药。事件掉落（如血色相关）与顶级拍卖并立，禁止货架保底刷新。药效结构：洗髓降尘、稳固将结之丹气。假货横行，寸金阁/万宝楼级鉴定。与 forget_dust/wangchen 等同名异 id 时 UI 合并显示名「降尘丹」。"
+    },
+    {
+      "id": "long_forget_dust_pill",
+      "catalog_id": "forget_dust_pill",
+      "display": "忘尘丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce"
+      ],
+      "price": [
+        800,
+        6000
+      ],
+      "description": "定心忘尘、抑心魔杂念。筑基后闭关与秘境前常用。非筑基丹替代品。与降尘丹勿混淆。"
+    },
+    {
+      "id": "long_wangchen_pill",
+      "catalog_id": "wangchen_pill",
+      "display": "忘尘丹·别 id（加长）",
+      "type": "pill",
+      "tags": [
+        "alias"
+      ],
+      "description": "与 forget_dust_pill 同名气质，catalog 双 id。制作时合并显示，避免两套库存。"
+    },
+    {
+      "id": "long_jiangying_pill",
+      "catalog_id": "jiangying_pill",
+      "display": "降尘丹·别 id（加长）",
+      "type": "pill",
+      "tags": [
+        "alias",
+        "scarce"
+      ],
+      "description": "与 jiangchen_pill 同名向。唯一事件逻辑只走一条 id，另一作别名映射。"
+    },
+    {
+      "id": "long_jiedan_pill",
+      "catalog_id": "jiedan_pill",
+      "display": "结丹丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce",
+        "auction"
+      ],
+      "price": [
+        5000,
+        40000
+      ],
+      "description": "结丹辅助丹类总名。真·结丹成功仍靠功法、心性、灵物与机缘；丹只降风险不保过。元婴前拍卖硬通货。"
+    },
+    {
+      "id": "long_nascent_soul_pill",
+      "catalog_id": "nascent_soul_pill",
+      "display": "培婴丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce",
+        "no_common_shop"
+      ],
+      "price": [
+        8000,
+        80000
+      ],
+      "description": "元婴前后培婴/固婴结构。有价无市；阴阳窟、顶层拍、宗门核心人情。禁日常刷。"
+    },
+    {
+      "id": "long_ningying_pill",
+      "catalog_id": "ningying_pill",
+      "display": "凝婴丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce"
+      ],
+      "description": "凝婴相关。与培婴丹阶段分工：一偏结婴过程，一偏稳固。具体以功法匹配为准。"
+    },
+    {
+      "id": "long_huashen_pill",
+      "catalog_id": "huashen_pill",
+      "display": "化神丹（加长）",
+      "type": "pill",
+      "tags": [
+        "scarce",
+        "balance_risk"
+      ],
+      "price": [
+        50000,
+        500000
+      ],
+      "description": "化神门槛辅丹。灵界级稀缺。失败不吞唯一剧情物。接火狱/化神链。"
+    },
+    {
+      "id": "long_condensation_pill",
+      "catalog_id": "condensation_pill",
+      "display": "凝气丹类（加长）",
+      "type": "pill",
+      "price": [
+        5,
+        80
+      ],
+      "description": "炼气期聚气常见丹。外门贡献可换。药性平和，叠服收益递减。"
+    },
+    {
+      "id": "long_bigu_pill",
+      "catalog_id": "bigu_pill",
+      "display": "辟谷丹（加长）",
+      "type": "pill",
+      "price": [
+        2,
+        30
+      ],
+      "description": "短时不食人间烟火。赶路、闭关、秘境前。不可替代灵气。"
+    },
+    {
+      "id": "long_antidote_pill",
+      "catalog_id": "antidote_pill",
+      "display": "解毒丹（加长）",
+      "type": "pill",
+      "price": [
+        10,
+        200
+      ],
+      "description": "通用解毒。阴罗/荒冢/虫毒需专解或更高品。"
+    },
+    {
+      "id": "long_four_main_bundle",
+      "display": "筑基四主药捆（设定）",
+      "type": "herb_bundle",
+      "tags": [
+        "scarce",
+        "quest"
+      ],
+      "price": [
+        80,
+        400
+      ],
+      "description": "玉髓芝、紫猴花、天灵果、千年灵草结构捆。血色争夺与药园长线双路径。天然仍稀；绿液催受年帽与单株药龄上限。"
+    },
+    {
+      "id": "long_blood_forbidden_herb",
+      "catalog_id": "blood_forbidden_herb",
+      "display": "血色禁地灵药（加长）",
+      "type": "herb",
+      "tags": [
+        "scarce"
+      ],
+      "description": "禁地周期产出。狂暴妖兽与名额制。禁地外仿品多。"
+    },
+    {
+      "id": "long_kunwu_ice_lotus",
+      "catalog_id": "kunwu_ice_lotus",
+      "display": "昆吾冰莲（加长）",
+      "type": "herb",
+      "tags": [
+        "scarce"
+      ],
+      "description": "昆吾寒脉。配寒功与八灵尺线。非日常园种。"
+    },
+    {
+      "id": "long_yellow_essence",
+      "catalog_id": "yellow_essence",
+      "display": "黄精（加长）",
+      "type": "herb",
+      "price": [
+        1,
+        20
+      ],
+      "description": "天南常见辅药。入低阶聚气方。药园可种。"
+    },
+    {
+      "id": "long_green_bamboo_cloud_sword",
+      "catalog_id": "green_bamboo_cloud_sword",
+      "display": "青竹灵云剑·仿（加长）",
+      "type": "artifact",
+      "tags": [
+        "replica",
+        "flying_sword"
+      ],
+      "price": [
+        200,
+        5000
+      ],
+      "description": "合规仿品：气质贴近青竹蜂云剑一脉，非原著唯一实体。木/风灵性，轻灵可飞剑御敌。认主祭炼。真·剧情飞剑另 id 且 unique。"
+    },
+    {
+      "id": "long_green_bamboo_leaf_sword",
+      "catalog_id": "green_bamboo_leaf_sword",
+      "display": "竹叶剑（加长）",
+      "type": "artifact",
+      "description": "竹系法器。低于灵云仿剑。外门常见。"
+    },
+    {
+      "id": "long_void_heaven_ruler_shard",
+      "catalog_id": "void_heaven_ruler_shard",
+      "display": "虚天尺碎片（加长）",
+      "type": "artifact",
+      "tags": [
+        "shard",
+        "scarce"
+      ],
+      "description": "虚天殿线。碎片可祭炼残威，完整尺不进货架。"
+    },
+    {
+      "id": "long_eight_spirit_ruler_shard",
+      "catalog_id": "eight_spirit_ruler_shard",
+      "display": "八灵尺碎片（加长）",
+      "type": "artifact",
+      "tags": [
+        "shard",
+        "scarce"
+      ],
+      "description": "昆吾线。完整八灵尺唯一向。"
+    },
+    {
+      "id": "long_void_heaven_cauldron_shard",
+      "catalog_id": "void_heaven_cauldron_shard",
+      "display": "虚天鼎碎片（加长）",
+      "type": "material",
+      "tags": [
+        "shard",
+        "unique_path"
+      ],
+      "description": "虚天鼎争夺结构。完整鼎 unique，碎片叙事。"
+    },
+    {
+      "id": "long_void_sky_cauldron_replica",
+      "catalog_id": "void_sky_cauldron_replica",
+      "display": "虚天鼎·仿（加长）",
+      "type": "artifact",
+      "tags": [
+        "replica"
+      ],
+      "description": "仿器。炼丹/镇压气机弱于真鼎。可流通。"
+    },
+    {
+      "id": "long_silver_giant_sword",
+      "catalog_id": "silver_giant_sword",
+      "display": "银色巨剑（加长）",
+      "type": "artifact",
+      "tags": [
+        "quest",
+        "blood_forbidden"
+      ],
+      "description": "血色禁地气质掉落。沉重破甲。非通天。"
+    },
+    {
+      "id": "long_copper_bell_charm",
+      "catalog_id": "copper_bell_charm",
+      "display": "铜钟护符（加长）",
+      "type": "artifact",
+      "description": "低阶护身。驱低阶阴物。血色/古修常见。"
+    },
+    {
+      "id": "long_soul_summon_bell",
+      "catalog_id": "soul_summon_bell",
+      "display": "引魂钟（加长）",
+      "type": "artifact",
+      "tags": [
+        "demonic_optional"
+      ],
+      "description": "拘魂引鬼。正道慎用，魔道常用。冥河/阴罗加成。"
+    },
+    {
+      "id": "long_xuanhuang_mirror",
+      "catalog_id": "xuanhuang_mirror",
+      "display": "玄黄镜（加长）",
+      "type": "artifact",
+      "tags": [
+        "scarce"
+      ],
+      "description": "照邪固定。碎片版另 id。高阶照影破幻。"
+    },
+    {
+      "id": "long_star_palace_sword",
+      "catalog_id": "star_palace_standard_sword",
+      "display": "星宫制式飞剑（加长）",
+      "type": "artifact",
+      "tags": [
+        "sect_only"
+      ],
+      "description": "星宫编制。失窃引发追杀令权重。"
+    },
+    {
+      "id": "long_geng_gold_inlay",
+      "catalog_id": "geng_gold_inlay",
+      "display": "庚精嵌材（加长）",
+      "type": "material",
+      "tags": [
+        "scarce",
+        "auction"
+      ],
+      "price": [
+        20000,
+        120000
+      ],
+      "description": "庚精相关嵌料/分材。大晋赌战顶赏与拍卖锚。完整庚精块更稀。不在野刷。"
+    },
+    {
+      "id": "long_holy_demon_blood",
+      "catalog_id": "holy_demon_blood",
+      "display": "圣魔血（加长·再注）",
+      "type": "material",
+      "tags": [
+        "balance_risk"
+      ],
+      "price": [
+        10000,
+        150000
+      ],
+      "description": "魔金山脉。炼魔功辅。滥用走火；当街抛售审计。"
+    },
+    {
+      "id": "long_kunwu_copper",
+      "catalog_id": "kunwu_copper",
+      "display": "昆吾铜（加长）",
+      "type": "material",
+      "tags": [
+        "scarce"
+      ],
+      "description": "昆吾山特产铜材。炼器火脉。"
+    },
+    {
+      "id": "long_true_spirit_blood_drop",
+      "catalog_id": "true_spirit_blood_drop",
+      "display": "真灵精血（加长）",
+      "type": "material",
+      "tags": [
+        "unique_path",
+        "scarce"
+      ],
+      "description": "真灵级。不日常掉。伙伴/血脉线。"
+    },
+    {
+      "id": "long_space_crystal",
+      "catalog_id": "space_crystal",
+      "display": "空间晶石（加长）",
+      "type": "material",
+      "tags": [
+        "scarce"
+      ],
+      "description": "储物/传送辅。虚空珠更上位。"
+    },
+    {
+      "id": "long_green_bamboo_spirit_wood",
+      "catalog_id": "green_bamboo_spirit_wood",
+      "display": "青竹灵木（加长）",
+      "type": "material",
+      "description": "竹系飞剑/法器胎木。黄枫/竹林产地。"
+    },
+    {
+      "id": "long_loadout_qi_refining",
+      "display": "炼气立足包（加长）",
+      "type": "kit",
+      "contains": [
+        "凝气丹",
+        "辟谷",
+        "小疗",
+        "低阶符",
+        "铁木器",
+        "鉴定符"
+      ],
+      "description": "黄枫外门/七脉向。"
+    },
+    {
+      "id": "long_loadout_foundation",
+      "display": "筑基战备包（加长）",
+      "type": "kit",
+      "contains": [
+        "筑基后稳固药",
+        "中疗",
+        "飞剑或法器",
+        "遁符",
+        "解毒",
+        "储物"
+      ],
+      "description": "血色前。"
+    },
+    {
+      "id": "long_loadout_core",
+      "display": "结丹战备包（加长）",
+      "type": "kit",
+      "contains": [
+        "本命法宝",
+        "高疗",
+        "分品逃遁",
+        "神识稳",
+        "易容"
+      ],
+      "description": "虚天/乱星海。"
+    },
+    {
+      "id": "long_loadout_nascent",
+      "display": "元婴战备包（加长）",
+      "type": "kit",
+      "contains": [
+        "培婴向",
+        "抗压",
+        "深图",
+        "本命圆满",
+        "顶级疗"
+      ],
+      "description": "深渊/昆吾/阴阳。"
+    },
+    {
+      "id": "anchor_foundation_pill",
+      "display": "锚·筑基丹",
+      "type": "meta",
+      "price": [
+        500,
+        2000
+      ]
+    },
+    {
+      "id": "anchor_jiangchen",
+      "display": "锚·降尘丹",
+      "type": "meta",
+      "price": [
+        3000,
+        15000
+      ]
+    },
+    {
+      "id": "anchor_jiedan",
+      "display": "锚·结丹丹",
+      "type": "meta",
+      "price": [
+        5000,
+        40000
+      ]
+    },
+    {
+      "id": "anchor_peiying",
+      "display": "锚·培婴丹",
+      "type": "meta",
+      "price": [
+        8000,
+        80000
+      ]
+    },
+    {
+      "id": "anchor_huashen",
+      "display": "锚·化神丹",
+      "type": "meta",
+      "price": [
+        50000,
+        500000
+      ]
+    },
+    {
+      "id": "anchor_geng",
+      "display": "锚·庚精",
+      "type": "meta",
+      "price": [
+        20000,
+        120000
+      ]
+    },
+    {
+      "id": "anchor_four_herb",
+      "display": "锚·四主药捆",
+      "type": "meta",
+      "price": [
+        80,
+        400
+      ]
+    },
+    {
+      "id": "anchor_void_pearl",
+      "display": "锚·虚空珠",
+      "type": "meta",
+      "price": [
+        5000,
+        80000
+      ]
+    },
+    {
+      "id": "anchor_wannian",
+      "display": "锚·万年药",
+      "type": "meta",
+      "price": [
+        20000,
+        200000
+      ]
+    },
+    {
+      "id": "v113_accept",
+      "display": "v113 验收签",
+      "type": "meta",
+      "checks": [
+        "关键物加长",
+        "42兽加长",
+        "46店货架",
+        "数值锚",
+        "无代码"
+      ],
+      "description": "本版完成。"
+    },
+    {
+      "id": "shop_huangfeng_contribution_hall",
+      "catalog_id": "huangfeng_contribution_hall",
+      "display": "黄枫谷贡献堂（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "huangfeng_valley",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#huangfeng_valley",
+      "npc_archetype": "elder_alchemist",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】黄枫谷贡献堂。域：tiannan。势力：huangfeng_valley。通货：sect_contribution（宗门贡献，禁无限兑灵石）。库存引用：sect_contribution_shop.json#huangfeng_valley。掌柜原型：elder_alchemist。气质：黄枫谷贡献堂。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_herb_market",
+      "catalog_id": "tiannan_herb_market",
+      "display": "天南坊市灵草摊（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南坊市灵草摊。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南坊市灵草摊。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_luoyun_contribution_hall",
+      "catalog_id": "luoyun_contribution_hall",
+      "display": "落云宗贡献殿（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "luoyun_sect",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#luoyun_sect",
+      "npc_archetype": "master_alchemist",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】落云宗贡献殿。域：tiannan。势力：luoyun_sect。通货：sect_contribution（宗门贡献，禁无限兑灵石）。库存引用：sect_contribution_shop.json#luoyun_sect。掌柜原型：master_alchemist。气质：落云宗贡献殿。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_chaotic_sea_island_general",
+      "catalog_id": "chaotic_sea_island_general",
+      "display": "乱星海岛杂货（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】乱星海岛杂货。域：chaotic_sea。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：乱星海岛杂货。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_inverse_star_black_market",
+      "catalog_id": "inverse_star_black_market",
+      "display": "逆星盟黑市（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】逆星盟黑市。域：chaotic_sea。势力：inverse_star_alliance。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：逆星盟黑市。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_dajin_wanbao_pavilion",
+      "catalog_id": "dajin_wanbao_pavilion",
+      "display": "大晋万宝阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "dajin",
+      "faction": "neutral",
+      "currency": "mid_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】大晋万宝阁。域：dajin。势力：neutral。通货：mid_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：大晋万宝阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_nether_ferry_vendor",
+      "catalog_id": "nether_ferry_vendor",
+      "display": "冥河渡夫（货架说明）",
+      "type": "merchant_shop",
+      "region": "nether_river",
+      "faction": "neutral",
+      "currency": "yin_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】冥河渡夫。域：nether_river。势力：neutral。通货：yin_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：冥河渡夫。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tianyuan_merit_exchange",
+      "catalog_id": "tianyuan_merit_exchange",
+      "display": "天渊功勋殿（货架说明）",
+      "type": "merchant_shop",
+      "region": "tianyuan",
+      "faction": "neutral",
+      "currency": "alliance_merit",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天渊功勋殿。域：tianyuan。势力：neutral。通货：alliance_merit（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天渊功勋殿。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_fengyuan_clan_auction",
+      "catalog_id": "fengyuan_clan_auction",
+      "display": "风元氏族拍卖行（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "neutral",
+      "currency": "high_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】风元氏族拍卖行。域：spirit_fengyuan。势力：neutral。通货：high_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：风元氏族拍卖行。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_mulan_fashi_supply",
+      "catalog_id": "mulan_fashi_supply",
+      "display": "慕兰法士物资站（货架说明）",
+      "type": "merchant_shop",
+      "region": "mulan",
+      "faction": "mulan_council",
+      "currency": "war_contribution",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】慕兰法士物资站。域：mulan。势力：mulan_council。通货：war_contribution（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：慕兰法士物资站。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_puppet_lane",
+      "catalog_id": "tiannan_puppet_lane",
+      "display": "天南傀儡巷（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南傀儡巷。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南傀儡巷。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_formation_lane",
+      "catalog_id": "tiannan_formation_lane",
+      "display": "天南阵法坊（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南阵法坊。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南阵法坊。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_talisman_lane",
+      "catalog_id": "tiannan_talisman_lane",
+      "display": "天南制符阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南制符阁。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南制符阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_demonic_dual_market",
+      "catalog_id": "tiannan_demonic_dual_market",
+      "display": "天南魔市（双修货）（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南魔市（双修货）。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南魔市（双修货）。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_hehuan_contribution_pavilion",
+      "catalog_id": "hehuan_contribution_pavilion",
+      "display": "合欢宗贡献楼（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "hehuan_sect",
+      "currency": "sect_contribution",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】合欢宗贡献楼。域：tiannan。势力：hehuan_sect。通货：sect_contribution（宗门贡献，禁无限兑灵石）。库存引用：默认域货。掌柜原型：merchant。气质：合欢宗贡献楼。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_tiannan_refinement_forge",
+      "catalog_id": "tiannan_refinement_forge",
+      "display": "天南炼器坊（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天南炼器坊。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天南炼器坊。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_star_palace_merit_hall",
+      "catalog_id": "star_palace_merit_hall",
+      "display": "星宫功勋殿（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "currency": "sect_contribution",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】星宫功勋殿。域：chaotic_sea。势力：star_palace。通货：sect_contribution（宗门贡献，禁无限兑灵石）。库存引用：默认域货。掌柜原型：merchant。气质：星宫功勋殿。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_star_palace_patrol_supply",
+      "catalog_id": "star_palace_patrol_supply",
+      "display": "星宫巡防补给（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "currency": "spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": 1.0,
+      "description": "【原包商店】星宫巡防补给。域：chaotic_sea。势力：star_palace。通货：spirit_stone（灵石通货）。库存引用：默认域货。掌柜原型：merchant。气质：星宫巡防补给。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_qixuan_village_stall",
+      "catalog_id": "qixuan_village_stall",
+      "display": "七玄村货摊（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": 1.0,
+      "description": "【原包商店】七玄村货摊。域：tiannan。势力：neutral。通货：spirit_stone（灵石通货）。库存引用：默认域货。掌柜原型：merchant。气质：七玄村货摊。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_qianzhu_puppet_hall",
+      "catalog_id": "qianzhu_puppet_hall",
+      "display": "千竹傀儡堂（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "qianzhu_sect",
+      "currency": "contribution",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】千竹傀儡堂。域：tiannan。势力：qianzhu_sect。通货：contribution（贡献类）。库存引用：默认域货。掌柜原型：merchant。气质：千竹傀儡堂。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_pirate_black_market_outer_sea",
+      "catalog_id": "pirate_black_market_outer_sea",
+      "display": "外海黑市（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "pirate_scatter",
+      "currency": "spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": 1.0,
+      "description": "【原包商店】外海黑市。域：chaotic_sea。势力：pirate_scatter。通货：spirit_stone（灵石通货）。库存引用：默认域货。掌柜原型：merchant。气质：外海黑市。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_outer_sea_public_stall",
+      "catalog_id": "outer_sea_public_stall",
+      "display": "外海公开摊位（货架说明）",
+      "type": "merchant_shop",
+      "region": "outer_sea_market",
+      "faction": "neutral",
+      "currency": "spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": 1.0,
+      "description": "【原包商店】外海公开摊位。域：outer_sea_market。势力：neutral。通货：spirit_stone（灵石通货）。库存引用：默认域货。掌柜原型：merchant。气质：外海公开摊位。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_tianhu_exchange",
+      "catalog_id": "spirit_clan_tianhu_exchange",
+      "display": "天狐族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "tianhu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天狐族特产阁。域：spirit_fengyuan。势力：tianhu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天狐族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_shuyao_exchange",
+      "catalog_id": "spirit_clan_shuyao_exchange",
+      "display": "树妖族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "shuyao",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】树妖族特产阁。域：spirit_fengyuan。势力：shuyao。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：树妖族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_shiren_exchange",
+      "catalog_id": "spirit_clan_shiren_exchange",
+      "display": "石人族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "shiren",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】石人族特产阁。域：spirit_fengyuan。势力：shiren。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：石人族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_feiling_exchange",
+      "catalog_id": "spirit_clan_feiling_exchange",
+      "display": "飞灵族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "feiling",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】飞灵族特产阁。域：spirit_fengyuan。势力：feiling。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：飞灵族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_jinyi_exchange",
+      "catalog_id": "spirit_clan_jinyi_exchange",
+      "display": "金翼族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "jinyi",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】金翼族特产阁。域：spirit_fengyuan。势力：jinyi。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：金翼族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_yaksha_exchange",
+      "catalog_id": "spirit_clan_yaksha_exchange",
+      "display": "夜叉族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "yaksha",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】夜叉族特产阁。域：spirit_fengyuan。势力：yaksha。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：夜叉族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_tianyuan_city_exchange",
+      "catalog_id": "spirit_clan_tianyuan_city_exchange",
+      "display": "天渊城特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "tianyuan_city",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】天渊城特产阁。域：spirit_fengyuan。势力：tianyuan_city。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：天渊城特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_langzu_exchange",
+      "catalog_id": "spirit_clan_langzu_exchange",
+      "display": "狼族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "langzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】狼族特产阁。域：spirit_fengyuan。势力：langzu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：狼族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_zhizu_exchange",
+      "catalog_id": "spirit_clan_zhizu_exchange",
+      "display": "蛛族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "zhizu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】蛛族特产阁。域：spirit_fengyuan。势力：zhizu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：蛛族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_shezu_exchange",
+      "catalog_id": "spirit_clan_shezu_exchange",
+      "display": "蛇族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "shezu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】蛇族特产阁。域：spirit_fengyuan。势力：shezu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：蛇族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_xiongzu_exchange",
+      "catalog_id": "spirit_clan_xiongzu_exchange",
+      "display": "熊族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "xiongzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】熊族特产阁。域：spirit_fengyuan。势力：xiongzu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：熊族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_huzhu_exchange",
+      "catalog_id": "spirit_clan_huzhu_exchange",
+      "display": "虎族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "huzhu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】虎族特产阁。域：spirit_fengyuan。势力：huzhu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：虎族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_yuzu_exchange",
+      "catalog_id": "spirit_clan_yuzu_exchange",
+      "display": "鱼族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "yuzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】鱼族特产阁。域：spirit_fengyuan。势力：yuzu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：鱼族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_niaozu_exchange",
+      "catalog_id": "spirit_clan_niaozu_exchange",
+      "display": "鸟族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "niaozu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】鸟族特产阁。域：spirit_fengyuan。势力：niaozu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：鸟族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_guizu_exchange",
+      "catalog_id": "spirit_clan_guizu_exchange",
+      "display": "龟族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "guizu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】龟族特产阁。域：spirit_fengyuan。势力：guizu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：龟族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_shouzu_exchange",
+      "catalog_id": "spirit_clan_shouzu_exchange",
+      "display": "兽族（泛）特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "shouzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】兽族（泛）特产阁。域：spirit_fengyuan。势力：shouzu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：兽族（泛）特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_mozu_exchange",
+      "catalog_id": "spirit_clan_mozu_exchange",
+      "display": "魔族支系特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "mozu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】魔族支系特产阁。域：spirit_fengyuan。势力：mozu。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：魔族支系特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_renzu_lingjie_exchange",
+      "catalog_id": "spirit_clan_renzu_lingjie_exchange",
+      "display": "灵界人族特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "renzu_lingjie",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】灵界人族特产阁。域：spirit_fengyuan。势力：renzu_lingjie。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：灵界人族特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_spirit_clan_barbarian_council_exchange",
+      "catalog_id": "spirit_clan_barbarian_council_exchange",
+      "display": "蛮荒妖王议会特产阁（货架说明）",
+      "type": "merchant_shop",
+      "region": "spirit_fengyuan",
+      "faction": "barbarian_council",
+      "currency": "spirit_stone_mid",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】蛮荒妖王议会特产阁。域：spirit_fengyuan。势力：barbarian_council。通货：spirit_stone_mid（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：蛮荒妖王议会特产阁。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_wanbao_auction_house_tiannan",
+      "catalog_id": "wanbao_auction_house_tiannan",
+      "display": "万宝楼（天南分会）（货架说明）",
+      "type": "merchant_shop",
+      "region": "tiannan",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "wanbao_auctioneer",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】万宝楼（天南分会）。域：tiannan。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：wanbao_auctioneer。气质：天南最大商会之一，拍卖古宝残片与稀有丹药。。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_chaotic_sea_black_market",
+      "catalog_id": "chaotic_sea_black_market",
+      "display": "乱星海黑市（货架说明）",
+      "type": "merchant_shop",
+      "region": "chaotic_sea",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】乱星海黑市。域：chaotic_sea。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：逆星盟势力渗透，走私禁品。。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_dajin_spirit_stone_bank",
+      "catalog_id": "dajin_spirit_stone_bank",
+      "display": "大晋灵石庄（货架说明）",
+      "type": "merchant_shop",
+      "region": "dajin",
+      "faction": "neutral",
+      "currency": "low_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】大晋灵石庄。域：dajin。势力：neutral。通货：low_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：灵石兑换与保管，费率随品阶上升。。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_kunwu_array_material_shop",
+      "catalog_id": "kunwu_array_material_shop",
+      "display": "坤吴阵材铺（货架说明）",
+      "type": "merchant_shop",
+      "region": "dajin",
+      "faction": "kunwu_lineage",
+      "currency": "mid_spirit_stone",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】坤吴阵材铺。域：dajin。势力：kunwu_lineage。通货：mid_spirit_stone（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：坤吴阵材铺。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_yin_luo_ghost_trade",
+      "catalog_id": "yin_luo_ghost_trade",
+      "display": "阴罗鬼市（货架说明）",
+      "type": "merchant_shop",
+      "region": "yin_underworld",
+      "faction": "neutral",
+      "currency": "yin_pearl",
+      "stock_ref": "",
+      "npc_archetype": "merchant",
+      "tags": [
+        "original_shop",
+        "aligned_v113"
+      ],
+      "price_mod_hint": null,
+      "description": "【原包商店】阴罗鬼市。域：yin_underworld。势力：neutral。通货：yin_pearl（见经济隔离表）。库存引用：默认域货。掌柜原型：merchant。气质：阴罗鬼市。与 sect_shelves 声望架并行：本条是点位清单；永不进货物（瓶/绿液/通天完整/真魂等）两边皆禁。负声望拒售或溢价；鉴定/收购/回购规则随坊市档位。"
+    },
+    {
+      "id": "shop_region_rollup_v113",
+      "display": "商店域分布",
+      "type": "meta",
+      "by_region": {
+        "tiannan": 12,
+        "chaotic_sea": 6,
+        "dajin": 3,
+        "nether_river": 1,
+        "tianyuan": 1,
+        "spirit_fengyuan": 20,
+        "mulan": 1,
+        "outer_sea_market": 1,
+        "yin_underworld": 1
+      },
+      "total": 46,
+      "description": "46 店按 region 统计，便于旅行表挂钩。"
+    },
+    {
+      "id": "long_pill_soul_gathering_pill",
+      "catalog_id": "soul_gathering_pill",
+      "display": "聚魂丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "recovery",
+      "effect": "restore_spirit_30pct",
+      "description": "【加长丹解】聚魂丹。类别：recovery。功效结构：restore_spirit_30pct。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_bone_marrow_pill",
+      "catalog_id": "bone_marrow_pill",
+      "display": "洗髓丸（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "cultivation",
+      "effect": null,
+      "description": "【加长丹解】洗髓丸。类别：cultivation。功效结构：None。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_calm_spirit_pill",
+      "catalog_id": "calm_spirit_pill",
+      "display": "清虚丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "special",
+      "effect": "pet_mind_clarity",
+      "description": "【加长丹解】清虚丹。类别：special。功效结构：pet_mind_clarity。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_dingyan_pill",
+      "catalog_id": "dingyan_pill",
+      "display": "定颜丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "special",
+      "effect": "freeze_appearance",
+      "description": "【加长丹解】定颜丹。类别：special。功效结构：freeze_appearance。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_blood_qi_pill",
+      "catalog_id": "blood_qi_pill",
+      "display": "血气丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "special",
+      "effect": "lifespan_plus_decades",
+      "description": "【加长丹解】血气丹。类别：special。功效结构：lifespan_plus_decades。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_marrow_extract_pill",
+      "catalog_id": "marrow_extract_pill",
+      "display": "抽髓丸（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "poison",
+      "effect": "power_now_lifespan_debt",
+      "description": "【加长丹解】抽髓丸。类别：poison。功效结构：power_now_lifespan_debt。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_ice_fire_pill",
+      "catalog_id": "ice_fire_pill",
+      "display": "冰火丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "cultivation",
+      "effect": null,
+      "description": "【加长丹解】冰火丹。类别：cultivation。功效结构：None。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_spirit_recovery_pill",
+      "catalog_id": "spirit_recovery_pill",
+      "display": "回灵丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "recovery",
+      "effect": "restore_mana_50pct",
+      "description": "【加长丹解】回灵丹。类别：recovery。功效结构：restore_mana_50pct。境界参考上限：CORE_FORMATION。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_body_tempering_pill",
+      "catalog_id": "body_tempering_pill",
+      "display": "淬体丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "cultivation",
+      "effect": "physique_plus",
+      "description": "【加长丹解】淬体丹。类别：cultivation。功效结构：physique_plus。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_demon_suppress_pill",
+      "catalog_id": "demon_suppress_pill",
+      "display": "镇魔丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "special",
+      "effect": "suppress_demon_qi_24h",
+      "description": "【加长丹解】镇魔丹。类别：special。功效结构：suppress_demon_qi_24h。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_mana_shield_pill",
+      "catalog_id": "mana_shield_pill",
+      "display": "护灵丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "recovery",
+      "effect": "temp_mana_shield",
+      "description": "【加长丹解】护灵丹。类别：recovery。功效结构：temp_mana_shield。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_huoyuan_pill",
+      "catalog_id": "huoyuan_pill",
+      "display": "火元丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "cultivation",
+      "effect": null,
+      "description": "【加长丹解】火元丹。类别：cultivation。功效结构：None。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_longevity_fruit_pill",
+      "catalog_id": "longevity_fruit_pill",
+      "display": "长生丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "special",
+      "effect": "max_lifespan_plus",
+      "description": "【加长丹解】长生丹。类别：special。功效结构：max_lifespan_plus。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_poison_dragon_pearl",
+      "catalog_id": "poison_dragon_pearl",
+      "display": "毒龙珠（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "poison",
+      "effect": "force_power_side_effect",
+      "description": "【加长丹解】毒龙珠。类别：poison。功效结构：force_power_side_effect。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_marrow_repair_pill",
+      "catalog_id": "marrow_repair_pill",
+      "display": "修髓丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "recovery",
+      "effect": "save_life_self_damage",
+      "description": "【加长丹解】修髓丹。类别：recovery。功效结构：save_life_self_damage。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_void_condense_pill",
+      "catalog_id": "void_condense_pill",
+      "display": "炼虚丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "breakthrough",
+      "effect": null,
+      "description": "【加长丹解】炼虚丹。类别：breakthrough。功效结构：None。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_blood_essence_pill",
+      "catalog_id": "blood_essence_pill",
+      "display": "血精丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": null,
+      "effect": "blood_cultivation_boost",
+      "description": "【加长丹解】血精丹。类别：None。功效结构：blood_cultivation_boost。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_pill_demonic_blood_pill",
+      "catalog_id": "demonic_blood_pill",
+      "display": "魔血丹（加长）",
+      "type": "pill",
+      "tags": [
+        "longform_v113",
+        "original_catalog"
+      ],
+      "category": "poison",
+      "effect": null,
+      "description": "【加长丹解】魔血丹。类别：poison。功效结构：None。境界参考上限：None。使用场景：按类别——疗伤则战后/秘境，攻伐则短时爆发，神魂则定神抗摄，炼体则皮肉筋骨。禁与同名剧情唯一丹重复刷取；高品走拍卖与宗门。炼制需对应丹方与火候，失败炸炉伤人。"
+    },
+    {
+      "id": "long_art_xuanguang_mirror",
+      "catalog_id": "xuanguang_mirror",
+      "display": "玄光镜（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "ancient_treasure",
+      "description": "【加长宝解】玄光镜。品阶：ancient_treasure。类型：soul_attack。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_evil_illusion_mirror",
+      "catalog_id": "evil_illusion_mirror",
+      "display": "邪幻镜（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "mid",
+      "description": "【加长宝解】邪幻镜。品阶：mid。类型：illusion。驱动境界：FOUNDATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_qingning_mirror",
+      "catalog_id": "qingning_mirror",
+      "display": "青凝镜（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "mid",
+      "description": "【加长宝解】青凝镜。品阶：mid。类型：defense。驱动境界：FOUNDATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_void_key",
+      "catalog_id": "void_key",
+      "display": "虚天殿密钥（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "high",
+      "description": "【加长宝解】虚天殿密钥。品阶：high。类型：quest_key。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_void_palace_chain",
+      "catalog_id": "void_palace_chain",
+      "display": "镇海链（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "high",
+      "description": "【加长宝解】镇海链。品阶：high。类型：control。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_kunwu_seal_fragment",
+      "catalog_id": "kunwu_seal_fragment",
+      "display": "昆吾令碎片（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "ancient_treasure",
+      "description": "【加长宝解】昆吾令碎片。品阶：ancient_treasure。类型：material_artifact。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_demon_refining_pot",
+      "catalog_id": "demon_refining_pot",
+      "display": "炼妖壶（仿）（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "ancient_treasure",
+      "description": "【加长宝解】炼妖壶（仿）。品阶：ancient_treasure。类型：beast_refine。驱动境界：NASCENT_SOUL。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_gold_demon_chain",
+      "catalog_id": "gold_demon_chain",
+      "display": "金蚨子母刃（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "high",
+      "description": "【加长宝解】金蚨子母刃。品阶：high。类型：offense。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_black_moon_ruler",
+      "catalog_id": "black_moon_ruler",
+      "display": "黑月尺（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "ancient_treasure",
+      "description": "【加长宝解】黑月尺。品阶：ancient_treasure。类型：offense。驱动境界：NASCENT_SOUL。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_green_copper_bell",
+      "catalog_id": "green_copper_bell",
+      "display": "青铜古钟（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "ancient_treasure",
+      "description": "【加长宝解】青铜古钟。品阶：ancient_treasure。类型：control。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_soul_scattering_mirror_shard",
+      "catalog_id": "soul_scattering_mirror_shard",
+      "display": "灭魂镜碎片（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "high",
+      "description": "【加长宝解】灭魂镜碎片。品阶：high。类型：material_artifact。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_xuanhuang_mirror_shard",
+      "catalog_id": "xuanhuang_mirror_shard",
+      "display": "玄黄镜碎片（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "high",
+      "description": "【加长宝解】玄黄镜碎片。品阶：high。类型：material_artifact。驱动境界：CORE_FORMATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_void_refining_bell",
+      "catalog_id": "void_refining_bell",
+      "display": "炼虚钟（灵宝模板）（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "spirit_treasure",
+      "description": "【加长宝解】炼虚钟（灵宝模板）。品阶：spirit_treasure。类型：space_control。驱动境界：VOID_REFINEMENT。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    },
+    {
+      "id": "long_art_potian_shovel",
+      "catalog_id": "potian_shovel",
+      "display": "破天锹（加长）",
+      "type": "artifact",
+      "tags": [
+        "longform_v113"
+      ],
+      "tier": "mid",
+      "description": "【加长宝解】破天锹。品阶：mid。类型：offense。驱动境界：FOUNDATION。标签：。碎片/仿品可流通；完整通天与角色唯一遵守合规与 never_list。祭炼认主，神识不足强催反噬。"
+    }
+  ]
+}

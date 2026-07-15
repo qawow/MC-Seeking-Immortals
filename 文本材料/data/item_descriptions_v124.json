@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source": "v124 原著功法术法补全说明",
+  "items": [
+    {
+      "id": "v124_dayan",
+      "display": "大衍/失神刺归类",
+      "type": "meta",
+      "description": "大衍诀=神识+傀儡双解锁。惊神刺正统、失神刺简化，均 requires dayan_art。神念针为泛用弱版。"
+    },
+    {
+      "id": "v124_qingyuan",
+      "display": "青元剑诀术包",
+      "type": "meta",
+      "description": "剑芒/剑丝/剑光分化/本命御剑/辟邪神雷（剑载）"
+    },
+    {
+      "id": "v124_coverage",
+      "display": "覆盖说明",
+      "type": "meta",
+      "description": "人界主线功法神通优先；灵界梵圣/百脉/炼神/惊蛰/天煞已录；仙界时间法则等未全量（避免假全） 缺口：仙界：真言门大五行幻世诀、时间法则具名技未全录；部分六宗各异血炼分支仍用泛魔功；青元剑诀原文层数对应表可再细；misc 物理迁校仍待下轮"
+    },
+    {
+      "id": "v124_accept",
+      "display": "验收",
+      "type": "meta",
+      "description": "无代码。原著主线功法术法补全+归类审计。",
+      "checks": [
+        "失神刺挂大衍",
+        "大衍双school",
+        "青元术包",
+        "长春低阶",
+        "元磁归元磁功",
+        "无悬空requires"
+      ]
+    }
+  ]
+}

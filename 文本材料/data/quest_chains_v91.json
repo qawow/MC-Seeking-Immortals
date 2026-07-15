@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "source": "v91 任务链种子；与势力/战争表挂钩",
+  "chains": [
+    {
+      "id": "dajin_entry",
+      "display": "入晋线",
+      "region": "dajin",
+      "realm_span": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "steps": [
+        {"hook": "dajin_arrival_identity", "summary": "身份与通行"},
+        {"hook": "tianji_fu_rumor_buy", "summary": "天机府买线索"},
+        {"hook": "huangqing_artifact_apprentice", "optional": true},
+        {"hook": "tianfu_guest_elder", "optional": true},
+        {"hook": "jin_auction_gengjing", "summary": "拍卖庚精级材料"},
+        {"hook": "kunwu_mountain_open", "summary": "昆吾开启"}
+      ],
+      "factions_ref": "dajin_factions.json",
+      "setting": {
+        "lore": "自大晋边缘入晋京，情报、炼器、符道、拍卖与昆吾并行，不绑死单一宗门。"
+      }
+    },
+    {
+      "id": "dajin_demonic_path",
+      "display": "大晋魔道线",
+      "region": "dajin",
+      "realm_span": ["FOUNDATION", "NASCENT_SOUL"],
+      "steps": [
+        {"hook": "yinluo_flag_materials"},
+        {"hook": "yinyang_ku_expedition"},
+        {"hook": "mulan_front_support", "optional": true, "summary": "支援天南边界"}
+      ],
+      "exclusive_with": ["dajin_orthodox_pure"],
+      "setting": {
+        "lore": "阴罗/九幽路线；正道声望恶化，可换鬼道收益与战场介入。"
+      }
+    },
+    {
+      "id": "mulan_frontline",
+      "display": "慕兰前线",
+      "region": "tiannan",
+      "realm_span": ["FOUNDATION", "NASCENT_SOUL"],
+      "steps": [
+        {"hook": "jiuguo_patrol"},
+        {"hook": "mulan_scout_ambush"},
+        {"hook": "huanglongshan_defense"},
+        {"hook": "duel_wager_war", "optional": true},
+        {"hook": "mulan_settlement_permit", "phase": "settlement"}
+      ],
+      "war_ref": "mulan_tiannan_war.json",
+      "currency": "tiannan_war_merit"
+    },
+    {
+      "id": "yue_exodus",
+      "display": "七派北撤",
+      "region": "tiannan",
+      "realm_span": ["FOUNDATION", "CORE_FORMATION"],
+      "steps": [
+        {"hook": "jingu_monthly_skirmish"},
+        {"hook": "lingshou_defection", "branch": "collapse"},
+        {"hook": "huangfeng_bait_breakout", "branch": "huangfeng"},
+        {"hook": "family_abandoned_event", "optional": true}
+      ],
+      "setting": {
+        "lore": "金鼓原崩盘后撤入九国盟；护送/断后/趁乱三选。"
+      }
+    },
+    {
+      "id": "spirit_tianyuan_diyuan",
+      "display": "天渊地渊线",
+      "region": "spirit_realm",
+      "realm_span": ["DEITY_TRANSFORMATION", "GREAT_VEHICLE"],
+      "steps": [
+        {"hook": "spirit_arrival_tianyuan"},
+        {"hook": "tianyuan_enlist"},
+        {"hook": "diyuan_first_patrol"},
+        {"hook": "merit_shelter_array", "optional": true},
+        {"hook": "wood_clan_contract", "optional": true},
+        {"hook": "diyuan_deep_permit_run"}
+      ],
+      "merit_ref": "spirit_realm_diyuan_compendium.json#merit_system"
+    }
+  ]
+}

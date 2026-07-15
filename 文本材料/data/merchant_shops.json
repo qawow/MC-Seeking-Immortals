@@ -10,14 +10,16 @@
       "stock_ref": "sect_contribution_shop.json#huangfeng_valley",
       "npc_archetype": "elder_alchemist",
       "setting": {
-        "lore": "黄枫谷贡献堂"
+        "lore": "黄枫谷贡献堂",
+        "lore_v144": "黄枫谷贡献堂：外门差事与内门限额兑换。试炼令、丹方残页、低阶法器为主，严控筑基资源外流。"
       },
       "learn_requirements": {
         "trade": {
           "region": "tiannan",
           "currency": "sect_contribution"
         }
-      }
+      },
+      "v144": true
     },
     {
       "id": "tiannan_herb_market",
@@ -155,7 +157,8 @@
           "region": "tiannan",
           "currency": "sect_contribution"
         }
-      }
+      },
+      "v144": true
     },
     {
       "id": "chaotic_sea_island_general",
@@ -721,7 +724,8 @@
           "region": "tiannan",
           "currency": "sect_contribution"
         }
-      }
+      },
+      "v144": true
     },
     {
       "id": "tiannan_refinement_forge",
@@ -806,14 +810,16 @@
         }
       ],
       "setting": {
-        "lore": "星宫功勋殿"
+        "lore": "星宫功勋殿",
+        "lore_v144": "星宫相关商署：登记、航线、征税与稀有配额（补天线索级）并立，逆星敌对者拒服。"
       },
       "learn_requirements": {
         "trade": {
           "region": "chaotic_sea",
           "currency": "sect_contribution"
         }
-      }
+      },
+      "v144": true
     },
     {
       "id": "star_palace_patrol_supply",
@@ -842,14 +848,16 @@
         }
       ],
       "setting": {
-        "lore": "星宫巡防补给"
+        "lore": "星宫巡防补给",
+        "lore_v144": "星宫相关商署：登记、航线、征税与稀有配额（补天线索级）并立，逆星敌对者拒服。"
       },
       "learn_requirements": {
         "trade": {
           "region": "chaotic_sea",
           "currency": "low_spirit_stone"
         }
-      }
+      },
+      "v144": true
     },
     {
       "id": "qixuan_village_stall",
@@ -1679,5 +1687,7 @@
   "economy_ref": "economy_spirit_stone_master.json",
   "economy_price_bands_ref": "economy_price_bands.json",
   "economy_shop_guidance_ref": "economy_shop_price_guidance.json",
-  "spirit_eighteen_shops_note": "每族一兑换点，价档为结构量级非原著精确价；日常摊价应对齐 master 中 price_anchors"
+  "spirit_eighteen_shops_note": "每族一兑换点，价档为结构量级非原著精确价；日常摊价应对齐 master 中 price_anchors",
+  "v144": true,
+  "price_align_ref": "market_shelf_price_align_v144.json"
 }

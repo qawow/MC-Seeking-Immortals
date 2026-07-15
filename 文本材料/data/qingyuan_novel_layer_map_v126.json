@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "source": "v126 青元剑诀原著锚点×13层可玩对照",
+  "disclaimer": "层名与锚点为可玩设计+剧情对齐，非原文目录照抄",
+  "method": {
+    "method_id": "qingyuan_sword_art",
+    "display": "青元剑诀",
+    "total_layers": 13,
+    "layer_model": "novel_anchored_13_playable",
+    "source_note": "原著对「第N层」有提及但非教科书目录。本表做成13层可玩刻度，每层附 novel_anchor（剧情/境界锚点）与 playable_unlock（可学术id）。勿当作原文逐字层名。",
+    "path": "sword",
+    "school": "sword",
+    "prerequisite_methods": [
+      "changchun_gong"
+    ],
+    "creator": "青元子",
+    "obtained_via": "李化元记名/机缘",
+    "layers": [
+      {
+        "layer": 1,
+        "layer_name": "第一层·剑气初凝",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "筑基后初修剑诀",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_ray",
+          "sword_shield"
+        ],
+        "note": "筑基后初修剑诀"
+      },
+      {
+        "layer": 2,
+        "layer_name": "第二层·剑芒成形",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "可稳定施展剑芒",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_ray",
+          "flying_sword_strike",
+          "sword_shield"
+        ],
+        "note": "可稳定施展剑芒"
+      },
+      {
+        "layer": 3,
+        "layer_name": "第三层·御剑小成",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "御剑斩、短距剑遁",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_ray",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi"
+        ],
+        "note": "御剑斩、短距剑遁"
+      },
+      {
+        "layer": 4,
+        "layer_name": "第四层·剑丝初现",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "剑气细化切割",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_silk",
+          "green_bamboo_sword_qi",
+          "sword_escape",
+          "dual_sword_dance"
+        ],
+        "note": "剑气细化切割"
+      },
+      {
+        "layer": 5,
+        "layer_name": "第五层·剑意渐显",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "韩立筑基中期气质；小剑阵雏形",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "qingyuan_layer5_intent"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_silk",
+          "qingyuan_layer5_intent",
+          "sword_formation_basic",
+          "dual_sword_dance",
+          "invisible_sword"
+        ],
+        "note": "韩立筑基中期气质；小剑阵雏形"
+      },
+      {
+        "layer": 6,
+        "layer_name": "第六层·筑基圆满剑",
+        "realm_band": "FOUNDATION",
+        "novel_anchor": "备结丹；人剑合一雏形",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_layer5_intent"
+        ],
+        "unlock_new_this_layer": [
+          "sword_merge",
+          "invisible_sword",
+          "sword_formation_basic",
+          "qingyuan_sword_silk"
+        ],
+        "note": "备结丹；人剑合一雏形"
+      },
+      {
+        "layer": 7,
+        "layer_name": "第七层·结丹剑基",
+        "realm_band": "CORE_FORMATION",
+        "novel_anchor": "结丹后剑基稳固",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "qingyuan_layer5_intent"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_pill_intent",
+          "sword_merge",
+          "qingyuan_bamboo_cloud_drive"
+        ],
+        "note": "结丹后剑基稳固"
+      },
+      {
+        "layer": 8,
+        "layer_name": "第八层·本命剑成",
+        "realm_band": "CORE_FORMATION",
+        "novel_anchor": "青竹蜂云剑本命御使（需本命剑）",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_layer5_intent"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_pill_intent"
+        ],
+        "note": "青竹蜂云剑本命御使（需本命剑）"
+      },
+      {
+        "layer": 9,
+        "layer_name": "第九层·元婴剑阶",
+        "realm_band": "NASCENT_SOUL",
+        "novel_anchor": "原著元婴前后「九层」气质锚点；剑光分化",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "qingyuan_layer5_intent",
+          "qingyuan_layer9_split_mastery"
+        ],
+        "unlock_new_this_layer": [
+          "thousand_sword_array",
+          "qingyuan_layer9_split_mastery",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "qingyuan_bamboo_cloud_drive"
+        ],
+        "note": "原著元婴前后「九层」气质锚点；剑光分化"
+      },
+      {
+        "layer": 10,
+        "layer_name": "第十层·剑光分化大成",
+        "realm_band": "NASCENT_SOUL",
+        "novel_anchor": "一剑多芒熟练",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "sword_domain",
+          "qingyuan_layer5_intent",
+          "qingyuan_layer9_split_mastery"
+        ],
+        "unlock_new_this_layer": [
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "sword_domain"
+        ],
+        "note": "一剑多芒熟练"
+      },
+      {
+        "layer": 11,
+        "layer_name": "第十一层·剑域展开",
+        "realm_band": "NASCENT_SOUL",
+        "novel_anchor": "剑域/万剑归宗气质",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "sword_domain",
+          "wan_sword_return",
+          "qingyuan_layer5_intent",
+          "qingyuan_layer9_split_mastery"
+        ],
+        "unlock_new_this_layer": [
+          "sword_domain",
+          "wan_sword_return",
+          "qingyuan_sword_light_split"
+        ],
+        "note": "剑域/万剑归宗气质"
+      },
+      {
+        "layer": 12,
+        "layer_name": "第十二层·辟邪雷载",
+        "realm_band": "NASCENT_SOUL",
+        "novel_anchor": "青竹蜂云剑辟邪神雷",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "sword_domain",
+          "wan_sword_return",
+          "pixie_thunder_sword",
+          "qingyuan_layer5_intent",
+          "qingyuan_layer9_split_mastery"
+        ],
+        "unlock_new_this_layer": [
+          "pixie_thunder_sword",
+          "sword_domain",
+          "wan_sword_return"
+        ],
+        "note": "青竹蜂云剑辟邪神雷"
+      },
+      {
+        "layer": 13,
+        "layer_name": "第十三层·青元圆满带",
+        "realm_band": "DEITY_TRANSFORMATION",
+        "novel_anchor": "化神前大圆满气质；之后主修可转元磁等",
+        "unlock_technique_ids": [
+          "qingyuan_sword_ray",
+          "sword_shield",
+          "flying_sword_strike",
+          "sword_escape",
+          "green_bamboo_sword_qi",
+          "qingyuan_sword_silk",
+          "dual_sword_dance",
+          "sword_formation_basic",
+          "invisible_sword",
+          "sword_merge",
+          "qingyuan_sword_pill_intent",
+          "qingyuan_bamboo_cloud_drive",
+          "green_bamboo_sword_ray",
+          "qingyuan_sword_light_split",
+          "thousand_sword_array",
+          "sword_domain",
+          "wan_sword_return",
+          "pixie_thunder_sword",
+          "qingyuan_layer5_intent",
+          "qingyuan_layer9_split_mastery"
+        ],
+        "unlock_new_this_layer": [
+          "pixie_thunder_sword",
+          "sword_domain",
+          "qingyuan_sword_light_split",
+          "wan_sword_return"
+        ],
+        "note": "化神前大圆满气质；之后主修可转元磁等"
+      }
+    ],
+    "han_li_timeline_hints": [
+      {
+        "when": "筑基后黄枫谷",
+        "layer_hint": "1-5",
+        "note": "得诀开修，剑芒御剑"
+      },
+      {
+        "when": "结丹前后",
+        "layer_hint": "6-8",
+        "note": "本命青竹蜂云剑"
+      },
+      {
+        "when": "元婴",
+        "layer_hint": "9-11",
+        "note": "约第九层气质+剑域"
+      },
+      {
+        "when": "化神前",
+        "layer_hint": "12-13",
+        "note": "辟邪雷、圆满带"
+      }
+    ]
+  },
+  "mapping_from_v125_7bands": [
+    {
+      "v125_band": 1,
+      "v126_layers": [
+        1,
+        2
+      ]
+    },
+    {
+      "v125_band": 2,
+      "v126_layers": [
+        3,
+        4
+      ]
+    },
+    {
+      "v125_band": 3,
+      "v126_layers": [
+        5,
+        6
+      ]
+    },
+    {
+      "v125_band": 4,
+      "v126_layers": [
+        7,
+        8
+      ]
+    },
+    {
+      "v125_band": 5,
+      "v126_layers": [
+        9,
+        10
+      ]
+    },
+    {
+      "v125_band": 6,
+      "v126_layers": [
+        11,
+        12
+      ]
+    },
+    {
+      "v125_band": 7,
+      "v126_layers": [
+        13
+      ]
+    }
+  ]
+}

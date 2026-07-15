@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "source": "v133",
+  "items": [
+    {
+      "id": "v133_mb",
+      "display": "多方块v133",
+      "type": "meta",
+      "description": "总74；全量build_stages/materials；+21秘境场景"
+    }
+  ]
+}

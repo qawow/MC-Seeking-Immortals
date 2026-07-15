@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 洞府/药园/灵田产出周期（结构）",
+  "disclaimer": "周期为可重平衡量级；绿液催熟需单独冷却帽",
+  "spirit_vein_tiers": [
+    {
+      "tier": 1,
+      "display": "一品灵脉",
+      "realm_fit": ["QI_REFINING", "FOUNDATION"],
+      "cultivation_mult": 1.15,
+      "herb_slots": 4,
+      "daily_stone_gen": [0, 2],
+      "price_or_contrib": [500, 5000]
+    },
+    {
+      "tier": 2,
+      "display": "二品灵脉",
+      "realm_fit": ["FOUNDATION", "CORE_FORMATION"],
+      "cultivation_mult": 1.3,
+      "herb_slots": 8,
+      "daily_stone_gen": [2, 10],
+      "price_low_stone": [10000, 80000]
+    },
+    {
+      "tier": 3,
+      "display": "三品灵脉",
+      "realm_fit": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "cultivation_mult": 1.5,
+      "herb_slots": 12,
+      "daily_stone_gen": [10, 50],
+      "price_low_stone": [80000, 400000]
+    },
+    {
+      "tier": 4,
+      "display": "顶阶灵地（人界）",
+      "realm_fit": ["NASCENT_SOUL", "DEITY_TRANSFORMATION"],
+      "cultivation_mult": 1.8,
+      "herb_slots": 20,
+      "note": "宗门核心/散修难占"
+    },
+    {
+      "tier": "tianyuan",
+      "display": "天渊灵地",
+      "currency": "tianyuan_merit",
+      "cultivation_mult": 2.0,
+      "rent_merit_year": [30, 200]
+    }
+  ],
+  "facilities": [
+    {
+      "id": "yaoyuan_basic",
+      "display": "基础药园",
+      "req": "一品灵脉+",
+      "worker": ["药奴", "弟子", "傀儡"],
+      "output_cycle_days": 30,
+      "crops_low": ["低阶灵草", "疗伤草"],
+      "risk": "兽害/盗采"
+    },
+    {
+      "id": "yaoyuan_huangfeng",
+      "display": "黄枫谷药园职",
+      "req": "宗门任务",
+      "perk": "合法种植筑基辅药；接近禁地主药种子线",
+      "output_cycle_days": 30,
+      "setting": {"lore": "韩立早期职业；可藏私药。"}
+    },
+    {
+      "id": "difire_room",
+      "display": "地火室",
+      "use": ["炼丹", "炼器"],
+      "rent_day": [20, 500],
+      "owner_bonus": "自有洞府则无租"
+    },
+    {
+      "id": "liandan_room",
+      "display": "炼丹室",
+      "use": ["批丹"],
+      "rent_day": [20, 500]
+    },
+    {
+      "id": "lianqi_room",
+      "display": "炼器房",
+      "use": ["法器法宝"],
+      "rent_day": [20, 2000]
+    },
+    {
+      "id": "puppet_workshop",
+      "display": "傀儡工坊",
+      "materials_sink": ["魄石", "核心", "木材晶材"]
+    },
+    {
+      "id": "insect_nest",
+      "display": "虫巢",
+      "for": ["噬金虫", "霜蚣", "血玉蛛"],
+      "feed_day_low_stone": [1, 500],
+      "risk": "逃逸伤人"
+    },
+    {
+      "id": "juling_array",
+      "display": "聚灵阵",
+      "upkeep_stones_day": [1, 20],
+      "cultivation_mult_add": 0.1
+    },
+    {
+      "id": "guard_array",
+      "display": "护府大阵",
+      "examples": ["颠倒五行阵"],
+      "upkeep_stones_day": [5, 100]
+    },
+    {
+      "id": "jiezi_space_farm",
+      "display": "芥子空间农田",
+      "cultivation_mult": 2.0,
+      "herb_age_mult": 1.5,
+      "note": "时间流速结构可配置；防与绿液叠爆"
+    }
+  ],
+  "crop_cycles": [
+    {
+      "crop": "低阶灵草",
+      "base_days": 30,
+      "vein_min": 1,
+      "yield": [5, 20],
+      "price_unit": [2, 20]
+    },
+    {
+      "crop": "筑基辅药",
+      "base_days": 90,
+      "vein_min": 1,
+      "yield": [1, 5],
+      "note": "主药仍多靠禁地"
+    },
+    {
+      "crop": "结丹材草",
+      "base_days": 180,
+      "vein_min": 2,
+      "yield": [1, 3]
+    },
+    {
+      "crop": "千年药龄目标",
+      "base_days": 365000,
+      "note": "自然千年不可玩；靠秘境/绿液/灵界",
+      "green_liquid_policy": "每次缩短药龄百分比+长冷却+有限次数"
+    },
+    {
+      "crop": "霓裳草",
+      "base_days": 36500,
+      "special": "百年展一叶，十三叶约1300年",
+      "use": "诱妖"
+    },
+    {
+      "crop": "金雷竹",
+      "base_days": "极长",
+      "vein_min": 3,
+      "note": "乱星海奇竹；难移栽"
+    },
+    {
+      "crop": "玄天仙藤",
+      "base_days": "特殊",
+      "req": ["活根茎", "醇液/回阳水"],
+      "output": "成长后通灵"
+    }
+  ],
+  "production_formulas_structural": {
+    "monthly_herb_value": "slots * vein_mult * crop_price * (1 - pest_loss)",
+    "pest_loss_default": 0.1,
+    "steal_risk_if_no_array": 0.15
+  },
+  "npc_roles": [
+    {"role": "药园管事", "wage_month": [10, 100]},
+    {"role": "阵法维护", "wage_month": [50, 500]},
+    {"role": "护院筑基", "wage_month": [100, 1000]},
+    {"role": "护院结丹", "wage_month": [1000, 10000]}
+  ]
+}

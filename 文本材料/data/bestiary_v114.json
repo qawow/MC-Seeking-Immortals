@@ -1,0 +1,881 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v114 刷怪生态+区域+宗门巡卫",
+  "creatures": [
+    {
+      "id": "eco_red_leopard_beast",
+      "catalog_id": "red_leopard_beast",
+      "display": "红狸兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tiannan",
+          "biome": "forest",
+          "tier": 1,
+          "weight": 30
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】红狸兽 于：tiannan/forest(w30)。摘要：敏捷、嗅觉超常。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_spirit_fox",
+      "catalog_id": "spirit_fox",
+      "display": "灵狐（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tiannan",
+          "biome": "forest",
+          "tier": 6,
+          "weight": 2
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】灵狐 于：tiannan/forest(w2)。摘要：幻术闪避可驯服。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_green_vine_demon",
+      "catalog_id": "green_vine_demon",
+      "display": "青木妖藤（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tiannan",
+          "biome": "forest",
+          "tier": 4,
+          "weight": 5
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】青木妖藤 于：tiannan/forest(w5)。摘要：束缚毒回血。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_ink_flood_dragon",
+      "catalog_id": "ink_flood_dragon",
+      "display": "墨蛟（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tiannan",
+          "biome": "river",
+          "tier": 3,
+          "weight": 15
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】墨蛟 于：tiannan/river(w15)。摘要：低阶蛟形。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_mystic_water_turtle",
+      "catalog_id": "mystic_water_turtle",
+      "display": "玄水龟（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tiannan",
+          "biome": "river",
+          "tier": 4,
+          "weight": 8
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】玄水龟 于：tiannan/river(w8)。摘要：高防水系控制。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_baby_carp_demon",
+      "catalog_id": "baby_carp_demon",
+      "display": "婴鲤兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "chaotic_sea",
+          "biome": "ocean",
+          "tier": 6,
+          "weight": 12
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】婴鲤兽 于：chaotic_sea/ocean(w12)。摘要：娃娃脸鱼尾，水罡神雷。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_fire_jiao_adult",
+      "catalog_id": "fire_jiao_adult",
+      "display": "离火蛟（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "chaotic_sea",
+          "biome": "ocean",
+          "tier": 10,
+          "weight": 2
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】离火蛟 于：chaotic_sea/ocean(w2)。摘要：海域蛟龙。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_wind_screech_hawk",
+      "catalog_id": "wind_screech_hawk",
+      "display": "风啸鹰（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "mulan",
+          "biome": "savanna",
+          "tier": 2,
+          "weight": 20
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】风啸鹰 于：mulan/savanna(w20)。摘要：驯养放哨侦察。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_sky_tiger_beast",
+      "catalog_id": "sky_tiger_beast",
+      "display": "天虎兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "mulan",
+          "biome": "savanna",
+          "tier": 13,
+          "weight": 1
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】天虎兽 于：mulan/savanna(w1)。摘要：土风法术瞬移。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_ice_soul_serpent",
+      "catalog_id": "ice_soul_serpent",
+      "display": "冰魄蛇（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "dajin",
+          "biome": "mountain",
+          "tier": 7,
+          "weight": 5
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】冰魄蛇 于：dajin/mountain(w5)。摘要：冰冻毒。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_earth_armor_dragon",
+      "catalog_id": "earth_armor_dragon",
+      "display": "土甲龙（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "dajin",
+          "biome": "mountain",
+          "tier": 8,
+          "weight": 3
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】土甲龙 于：dajin/mountain(w3)。摘要：寻宝天赋。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "泣魂兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "nether_river",
+          "biome": "yin",
+          "tier": 4,
+          "weight": 20
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】泣魂兽 于：nether_river/yin(w20)。摘要：冥河阴兽，啼哭可乱人心神，常伴尸气。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_gold_body_moon_corpse",
+      "catalog_id": "gold_body_moon_corpse",
+      "display": "金身月尸（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "nether_river",
+          "biome": "yin",
+          "tier": 11,
+          "weight": 2
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】金身月尸 于：nether_river/yin(w2)。摘要：人界顶阶炼尸，金遁。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_suanni_beast",
+      "catalog_id": "suanni_beast",
+      "display": "狻猊兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "fallen_demon_valley",
+          "biome": null,
+          "tier": 9,
+          "weight": 6
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】狻猊兽 于：fallen_demon_valley/None(w6)。摘要：上古兽形。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "fallen_demon_valley",
+          "biome": null,
+          "tier": 8,
+          "weight": 4
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】幻焰蛾 于：fallen_demon_valley/None(w4)。摘要：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_mountain_giant_ape",
+      "catalog_id": "mountain_giant_ape",
+      "display": "山岳巨猿（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tianyuan",
+          "biome": "wild_land",
+          "tier": 7,
+          "weight": 12
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】山岳巨猿 于：tianyuan/wild_land(w12)。摘要：力大无穷，可化形前兆。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_void_mantis",
+      "catalog_id": "void_mantis",
+      "display": "虚空螳螂（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tianyuan",
+          "biome": "wild_land",
+          "tier": 10,
+          "weight": 3
+        },
+        {
+          "region": "diyuan",
+          "biome": "rift",
+          "tier": 10,
+          "weight": 10
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】虚空螳螂 于：tianyuan/wild_land(w3); diyuan/rift(w10)。摘要：灵界虫族，前肢如刃。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_shape_shift_trial_beast",
+      "catalog_id": "shape_shift_trial_beast",
+      "display": "化形试炼兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "tianyuan",
+          "biome": "wild_land",
+          "tier": 7,
+          "weight": 5
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】化形试炼兽 于：tianyuan/wild_land(w5)。摘要：七级渡劫化形模板。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_four_ear_gold_ape",
+      "catalog_id": "four_ear_gold_ape",
+      "display": "四耳金猿（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "diyuan",
+          "biome": "rift",
+          "tier": 11,
+          "weight": 4
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】四耳金猿 于：diyuan/rift(w4)。摘要：金黄巨猴凶恶。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_gold_devour_beetle",
+      "catalog_id": "gold_devour_beetle",
+      "display": "噬金虫（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "spirit_fengyuan",
+          "biome": "plains",
+          "tier": 5,
+          "weight": 15
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】噬金虫 于：spirit_fengyuan/plains(w15)。摘要：啃噬五金法宝灵光，群居奇虫。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "eco_wind_split_beast",
+      "catalog_id": "wind_split_beast",
+      "display": "裂风兽（生态刷怪）",
+      "category": "yaoshou",
+      "tags": [
+        "ecology_v114"
+      ],
+      "spawn_locs": [
+        {
+          "region": "spirit_fengyuan",
+          "biome": "plains",
+          "tier": 9,
+          "weight": 6
+        }
+      ],
+      "threat": 2,
+      "description": "【生态】裂风兽 于：spirit_fengyuan/plains(w6)。摘要：妖王级，学人族技术。。权重高=常见；极低=稀有邂逅。"
+    },
+    {
+      "id": "region_eco_tiannan",
+      "display": "区域生态·tiannan",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】tiannan：子表2，兽种约5。green_vine_demon, ink_flood_dragon, mystic_water_turtle, red_leopard_beast, spirit_fox。"
+    },
+    {
+      "id": "region_eco_chaotic_sea",
+      "display": "区域生态·chaotic_sea",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】chaotic_sea：子表3，兽种约2。baby_carp_demon, fire_jiao_adult。"
+    },
+    {
+      "id": "region_eco_mulan",
+      "display": "区域生态·mulan",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】mulan：子表2，兽种约2。sky_tiger_beast, wind_screech_hawk。"
+    },
+    {
+      "id": "region_eco_dajin",
+      "display": "区域生态·dajin",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】dajin：子表1，兽种约2。earth_armor_dragon, ice_soul_serpent。"
+    },
+    {
+      "id": "region_eco_nether_river",
+      "display": "区域生态·nether_river",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】nether_river：子表1，兽种约2。gold_body_moon_corpse, soul_weep_beast。"
+    },
+    {
+      "id": "region_eco_fallen_demon_valley",
+      "display": "区域生态·fallen_demon_valley",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】fallen_demon_valley：子表1，兽种约2。phantom_flame_moth, suanni_beast。"
+    },
+    {
+      "id": "region_eco_blood_forbidden",
+      "display": "区域生态·blood_forbidden",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】blood_forbidden：子表1，兽种约0。。"
+    },
+    {
+      "id": "region_eco_kunwu",
+      "display": "区域生态·kunwu",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】kunwu：子表1，兽种约0。。"
+    },
+    {
+      "id": "region_eco_mulan_border",
+      "display": "区域生态·mulan_border",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】mulan_border：子表1，兽种约0。。"
+    },
+    {
+      "id": "region_eco_tianyuan",
+      "display": "区域生态·tianyuan",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】tianyuan：子表2，兽种约3。mountain_giant_ape, shape_shift_trial_beast, void_mantis。"
+    },
+    {
+      "id": "region_eco_diyuan",
+      "display": "区域生态·diyuan",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】diyuan：子表1，兽种约2。four_ear_gold_ape, void_mantis。"
+    },
+    {
+      "id": "region_eco_spirit_fengyuan",
+      "display": "区域生态·spirit_fengyuan",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "region_ecology",
+        "v114"
+      ],
+      "description": "【区域生态】spirit_fengyuan：子表1，兽种约2。gold_devour_beetle, wind_split_beast。"
+    },
+    {
+      "id": "sect_patrol_huangfeng_valley",
+      "display": "黄枫谷山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】黄枫谷，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_yanyue_sect",
+      "display": "掩月宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】掩月宗，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_spirit_beast_mountain",
+      "display": "灵兽山山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】灵兽山，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qingxu_gate",
+      "display": "清虚门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】清虚门，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_huadao_wu",
+      "display": "化刀坞山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】化刀坞，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_tianque_fort",
+      "display": "天阙堡山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】天阙堡，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_giant_sword_gate",
+      "display": "巨剑门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】巨剑门，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qixuan_men",
+      "display": "七玄门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】七玄门，中立。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_ghost_spirit_gate",
+      "display": "鬼灵门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】鬼灵门，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_hehuan_sect",
+      "display": "合欢宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】合欢宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_moyan_gate",
+      "display": "魔焰门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】魔焰门，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_tiansha_sect",
+      "display": "天煞宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】天煞宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_yuling_sect",
+      "display": "御灵宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】御灵宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qianhuan_sect",
+      "display": "千幻宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】千幻宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_luoyun_sect",
+      "display": "落云宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】落云宗，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_star_palace",
+      "display": "星宫山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】星宫，lawful。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_inverse_star_alliance",
+      "display": "逆星盟山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】逆星盟，rebel。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qianzhu_teach",
+      "display": "千竹教山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】千竹教，中立。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_mulan_fashi_council",
+      "display": "慕兰神师府山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】慕兰神师府，tribal_faith。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_tianlan_temple",
+      "display": "天澜圣殿山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】天澜圣殿，tribal_faith。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qianzhu_sect",
+      "display": "千竹教山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】千竹教，正道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_yuling_sect_secret",
+      "display": "御灵宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】御灵宗，中立。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_guiling_gate",
+      "display": "鬼灵门山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】鬼灵门，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_tianmo_sect",
+      "display": "天魔宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】天魔宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_qingluo_sect",
+      "display": "青罗宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】青罗宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_wanhu_sect",
+      "display": "万狐宗山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】万狐宗，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_xuewu_sect",
+      "display": "血巫教山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】血巫教，魔道。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "sect_patrol_dajin_buddhist_temple_line",
+      "display": "大晋佛寺一脉山门巡卫（结构）",
+      "category": "humanoid_other",
+      "threat": 3,
+      "tags": [
+        "sect_npc",
+        "v114"
+      ],
+      "description": "【宗门巡卫】大晋佛寺一脉，neutral_righteous。负声望盘查/驱逐/追杀。非野刷种。"
+    },
+    {
+      "id": "eco_rule_weight_zero",
+      "display": "规则·零权重真灵",
+      "category": "zhenling",
+      "threat": 0,
+      "tags": [
+        "rule"
+      ],
+      "description": "真灵不进常规 weights 或 weight=0。"
+    },
+    {
+      "id": "eco_rule_overhunt",
+      "display": "规则·过度狩猎",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "rule"
+      ],
+      "description": "连猎稀有种降 weight、升仇敌事件。"
+    },
+    {
+      "id": "quest_hook_spirit",
+      "display": "任务钩灵（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "tags": [
+        "v114"
+      ],
+      "description": "指向 quest_sect_guide_v114。"
+    }
+  ]
+}

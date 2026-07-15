@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "source": "v135 多方块联机交互时序",
+  "disclaimer": "设定层时序，非代码实现；锁与冲突以可玩规则描述",
+  "global_lock_model": {
+    "lock_types": [
+      {
+        "id": "interaction_lock",
+        "display": "交互锁",
+        "duration_sec": [
+          1,
+          5
+        ],
+        "note": "短操作：inspect/开关阵"
+      },
+      {
+        "id": "channel_lock",
+        "display": "引导锁",
+        "duration_sec": [
+          5,
+          60
+        ],
+        "note": "修理/供能/认主，可打断"
+      },
+      {
+        "id": "contest_lock",
+        "display": "争夺锁",
+        "duration_sec": [
+          10,
+          120
+        ],
+        "note": "夺阵/夺点，双方可对抗"
+      },
+      {
+        "id": "build_lock",
+        "display": "建造锁",
+        "duration_sec": [
+          30,
+          600
+        ],
+        "note": "建造阶段，同格互斥"
+      }
+    ],
+    "priority": [
+      "admin_event",
+      "contest_lock",
+      "channel_lock",
+      "build_lock",
+      "interaction_lock"
+    ],
+    "break_channel_by": [
+      "damage",
+      "crowd_control",
+      "owner_cancel",
+      "out_of_range"
+    ],
+    "ownership": {
+      "fields": [
+        "owner_player_id",
+        "owner_faction_id",
+        "acl_allies",
+        "acl_enemies"
+      ],
+      "stele_link": "ownership_stele",
+      "cave_link": "cave_dwelling_core"
+    }
+  },
+  "sequences": [
+    {
+      "id": "seq_repair_race",
+      "display": "抢修时序",
+      "applies_to": [
+        "any_structure_with_operational_states"
+      ],
+      "support_structures": [
+        "structure_repair_bench"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "actor": "player_A",
+          "action": "inspect",
+          "result": "see state=damaged|critical, hp"
+        },
+        {
+          "t": 1,
+          "actor": "player_A",
+          "action": "start_repair_channel",
+          "lock": "channel_lock",
+          "consume": "repair_materials_preview"
+        },
+        {
+          "t": 1,
+          "actor": "player_B",
+          "action": "start_repair_channel",
+          "lock": "channel_lock",
+          "conflict": "second_channel_queued_or_steal_progress"
+        },
+        {
+          "t": "1..T",
+          "rules": [
+            "同时引导时：进度条分离，先完成者应用状态提升",
+            "后完成者若状态已 intact：材料部分返还 50%",
+            "引导中受击：进度回退 30%–100%（视 damage）",
+            "邻接 structure_repair_bench：引导时间 ×0.7"
+          ]
+        },
+        {
+          "t": "T_end",
+          "actor": "winner",
+          "action": "apply_repair",
+          "state_change": "damaged→intact 或 critical→damaged"
+        },
+        {
+          "t": "T_end+1",
+          "broadcast": "structure_state_update to nearby clients"
+        }
+      ],
+      "edge_cases": [
+        "双方同时完成：时间戳更早者生效；并列则 owner 优先，否则随机",
+        "敌对阵营修理：需破认主或战争旗，否则交互拒绝"
+      ]
+    },
+    {
+      "id": "seq_array_contest",
+      "display": "夺阵时序",
+      "applies_to": [
+        "array_block",
+        "sect_formation_hub",
+        "kill_array_hub",
+        "illusion_array_hub",
+        "spirit_gathering_array",
+        "teleport_array_pedestal",
+        "star_palace_teleport_gate"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "actor": "attacker",
+          "action": "begin_contest",
+          "lock": "contest_lock",
+          "req": "in_range + hostile_or_unclaimed"
+        },
+        {
+          "t": 0,
+          "side_effect": "array_efficiency → reduced (defenders still get partial effect)"
+        },
+        {
+          "t": "0..T",
+          "attacker": "channel_capture_progress",
+          "defender": [
+            "interrupt_attacker",
+            "repair_array_if_damaged",
+            "pull_flag (formation_flag_post) to force damaged",
+            "call_reinforcements_event"
+          ]
+        },
+        {
+          "t": "mid",
+          "optional": "array_maintenance_obelisk reduces overload damage on defender side"
+        },
+        {
+          "t": "T_success_attacker",
+          "result": "owner_faction → attacker; state may drop to damaged; attune reset"
+        },
+        {
+          "t": "T_fail_attacker",
+          "result": "attacker locked out 60s; array returns intact if hp enough"
+        }
+      ],
+      "scoring": {
+        "capture_time_base_sec": 45,
+        "modifiers": [
+          {
+            "if": "defender_online_nearby",
+            "capture_time_mult": 1.5
+          },
+          {
+            "if": "array_damaged",
+            "capture_time_mult": 0.75
+          },
+          {
+            "if": "array_critical",
+            "capture_time_mult": 0.5
+          },
+          {
+            "if": "sect_formation_hub",
+            "capture_time_mult": 2.0,
+            "need": "war_flag_or_siege_event"
+          }
+        ]
+      },
+      "pvp_rules": [
+        "夺阵区域默认允许 PvP（势力战地图）",
+        "和平区夺阵需宣战令",
+        "传送阵夺权后冷却 3 分钟禁止使用"
+      ]
+    },
+    {
+      "id": "seq_build_coop",
+      "display": "协作建造时序",
+      "applies_to": [
+        "any_with_build_stages"
+      ],
+      "support_structures": [
+        "structure_blueprint_table"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "actor": "leader",
+          "action": "place_blueprint_ghost",
+          "lock": "build_lock_on_cells"
+        },
+        {
+          "t": 1,
+          "actors": "allies",
+          "action": "deposit_materials_to_site_chest",
+          "shared": true
+        },
+        {
+          "t": 2,
+          "actors": "allies",
+          "action": "advance_stage",
+          "note": "多人可分摊不同 stage 的 requires"
+        },
+        {
+          "t": "stage_complete",
+          "result": "unlock next build_stage; ghost visual update"
+        },
+        {
+          "t": "all_stages_done",
+          "result": "structure intact + owner=leader; allies on acl"
+        }
+      ],
+      "rules": [
+        "同格 build_lock 互斥敌对建造",
+        "蓝图台可投影当前 stage",
+        "中途拆 blueprint：已交材料 80% 返还公共箱"
+      ]
+    },
+    {
+      "id": "seq_overhaul_siege",
+      "display": "大修与围攻穿插",
+      "applies_to": [
+        "disabled_or_critical_structures"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "owner": "start_overhaul_channel",
+          "lock": "channel_lock_long"
+        },
+        {
+          "t": "0..T",
+          "raider": "can_damage_to_cancel_overhaul",
+          "note": "大修被打断材料损失 20%"
+        },
+        {
+          "t": "success",
+          "state": "intact",
+          "may_lose_upgrade_tier": true
+        }
+      ]
+    },
+    {
+      "id": "seq_fuel_steal",
+      "display": "供能争夺（灵石槽）",
+      "applies_to": [
+        "structures_with_recharge_or_spirit_slots"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "actor": "user",
+          "action": "open_fuel_ui",
+          "lock": "interaction_lock"
+        },
+        {
+          "t": 1,
+          "actor": "thief",
+          "action": "try_extract_stones",
+          "req": "not_owner + lockpick_or_break_seal"
+        },
+        {
+          "t": "result",
+          "branches": [
+            "success: stones transferred, array may → damaged if starved",
+            "fail: alarm + ownership_stele ping"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seq_teleport_interrupt",
+      "display": "传送打断时序",
+      "applies_to": [
+        "teleport_array_pedestal",
+        "star_palace_teleport_gate",
+        "immortal_teleport_grand_array"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "actor": "traveler",
+          "action": "start_teleport_channel",
+          "lock": "channel_lock"
+        },
+        {
+          "t": "0..cast",
+          "attacker": "damage_or_silence",
+          "result": "cancel + spatial_backlash chance"
+        },
+        {
+          "t": "success",
+          "result": "swap_map; mid-teleport destroy array → backlash both ends"
+        }
+      ]
+    },
+    {
+      "id": "seq_flag_tug",
+      "display": "拔旗/护旗",
+      "applies_to": [
+        "formation_flag_post"
+      ],
+      "steps": [
+        {
+          "t": 0,
+          "attacker": "channel_pull_flag",
+          "lock": "contest_lock",
+          "time_sec": 8
+        },
+        {
+          "t": "defender",
+          "action": "stand_on_flag_or_cc_attacker",
+          "note": "站桩加速保护"
+        },
+        {
+          "t": "pulled",
+          "linked_array": "force transition toward damaged",
+          "flag_item": "drop_or_inventory"
+        }
+      ]
+    }
+  ],
+  "network_sync_hints": [
+    "state + hp + owner + lock_holder 需广播 AOI",
+    "channel progress 可用 5–10Hz 插值",
+    "材料提交以服务器权威结算"
+  ],
+  "anti_abuse": [
+    "同一玩家对同结构 repair 成功 CD 10s",
+    "夺阵成功后保护时间 120s（仅防御方效率恢复）",
+    "空号小号抢修：贡献记 leader，防刷材料返还"
+  ]
+}

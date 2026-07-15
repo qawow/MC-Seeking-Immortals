@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v93 修炼辅助物：聚灵、洞府、阵盘、寿元、瓶颈",
+  "categories": ["聚灵", "洞府", "阵法组件", "瓶颈辅助", "寿元", "神识", "炼体"],
+  "items": [
+    {
+      "id": "spirit_vein_low",
+      "display": "一品灵脉驻地权",
+      "category": "洞府",
+      "effect": "炼气-筑基修炼效率+结构",
+      "price_low_stone": [500, 5000],
+      "or_contribution": true
+    },
+    {
+      "id": "spirit_vein_mid",
+      "display": "中品灵脉洞府",
+      "category": "洞府",
+      "effect": "结丹修炼适宜",
+      "price_low_stone": [20000, 150000]
+    },
+    {
+      "id": "spirit_land_tianyuan",
+      "display": "天渊灵地租约",
+      "category": "洞府",
+      "currency": "tianyuan_merit",
+      "price_merit": [30, 200]
+    },
+    {
+      "id": "juling_zhen_small",
+      "display": "小型聚灵阵",
+      "category": "阵法组件",
+      "materials": ["灵石", "阵旗", "阵盘"],
+      "price_low_stone": [100, 2000],
+      "upkeep_stones_day": [1, 10]
+    },
+    {
+      "id": "diandao_wuxing_set",
+      "display": "颠倒五行阵套",
+      "category": "阵法组件",
+      "use": "困敌护府",
+      "price_low_stone": [5000, 50000],
+      "cross_ref": "artifact_catalog"
+    },
+    {
+      "id": "sanzhuan_aid",
+      "display": "三转重元辅助丹膳包",
+      "category": "瓶颈辅助",
+      "effect": "配合散功重炼，提高结丹结构几率",
+      "price_low_stone": [1000, 8000]
+    },
+    {
+      "id": "infant_chance_set",
+      "display": "结婴辅助套",
+      "category": "瓶颈辅助",
+      "contains": ["定灵丹", "九曲灵参丹", "培婴丹可选"],
+      "price_note": "单件见丹表，套装溢价0.9×总和"
+    },
+    {
+      "id": "zaohua_experience",
+      "display": "造化丹幻境次数",
+      "category": "瓶颈辅助",
+      "limit": 1,
+      "effect": "化神下体验境界",
+      "pill_ref": "zao_hua_dan"
+    },
+    {
+      "id": "moyuan_breakthrough",
+      "display": "魔元丹冲阶包",
+      "category": "瓶颈辅助",
+      "with": ["极品灵石", "五种寒焰"],
+      "target": "DEITY_TRANSFORMATION"
+    },
+    {
+      "id": "yanghun_mu_wear",
+      "display": "养魂木佩件",
+      "category": "神识",
+      "effect": "缓慢增神识、寄魂",
+      "price_low_stone": [30000, 200000]
+    },
+    {
+      "id": "dayan_training",
+      "display": "大衍神识修炼室时券",
+      "category": "神识",
+      "effect": "结构加速大衍诀修炼",
+      "price_low_stone": [500, 5000]
+    },
+    {
+      "id": "longlin_guo_course",
+      "display": "龙鳞果+淬骨疗程",
+      "category": "炼体",
+      "effect": "定期服果炼淬骨/明王",
+      "interval_days": 15,
+      "price_note": "果见灵药表"
+    },
+    {
+      "id": "tianshi_zhu_body",
+      "display": "天尸珠炼体",
+      "category": "炼体",
+      "effect": "法体突进，附尸毒风险",
+      "rarity": 6
+    },
+    {
+      "id": "huiyang_life",
+      "display": "回阳真水延寿",
+      "category": "寿元",
+      "effect": "延寿约四分之一结构（单次逻辑需规则）",
+      "rarity": 7
+    },
+    {
+      "id": "shelter_array_token",
+      "display": "护劫阵一次",
+      "category": "渡劫",
+      "currency": "tianyuan_merit",
+      "price_merit": 100,
+      "ref": "spirit_realm_diyuan_compendium"
+    },
+    {
+      "id": "han_sui_tribulation",
+      "display": "寒髓护劫",
+      "category": "渡劫",
+      "effect": "化形/雷劫保命辅助结构",
+      "rarity": 6
+    },
+    {
+      "id": "top_stone_array_battery",
+      "display": "极品灵石阵基",
+      "category": "聚灵",
+      "effect": "大阵/冲阶耗材",
+      "rarity": 6
+    },
+    {
+      "id": "puppet_guard_core",
+      "display": "护府傀儡（结丹~元婴）",
+      "category": "洞府",
+      "price_low_stone": [10000, 200000],
+      "upkeep": "魄石/灵石"
+    },
+    {
+      "id": "lianqi_room_rent",
+      "display": "地火室/炼器房时租",
+      "category": "洞府",
+      "price_low_stone": [20, 500],
+      "per": "日"
+    },
+    {
+      "id": "liandan_room_rent",
+      "display": "炼丹室时租",
+      "category": "洞府",
+      "price_low_stone": [20, 500],
+      "per": "日"
+    }
+  ],
+  "efficiency_bands_structural": {
+    "no_aid": 1.0,
+    "low_vein": 1.2,
+    "mid_vein_plus_array": 1.5,
+    "jiezi_or_top_land": 2.0,
+    "note": "仅设计参考，防绿液叠乘爆炸需单独帽"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source": "v121 视效管线索引",
+  "pipeline": [
+    "particle_system_bible_v121",
+    "material_shader_language_v121",
+    "trail_ribbon_styles_v121",
+    "screen_fx_budget_v121",
+    "frame_tech_*",
+    "frame_pill_*",
+    "state_art_*",
+    "hitloc_beast_*",
+    "cine_*",
+    "hitreact_*"
+  ],
+  "stack": [
+    "v118",
+    "v119",
+    "v120",
+    "v121"
+  ],
+  "counts": {
+    "entries_v121": 1142,
+    "techniques": 346,
+    "pills": 114,
+    "artifacts": 217
+  },
+  "description": "美术/特效查阅主索引",
+  "also_see": [
+    "visual_look_cards_v122.json",
+    "VISUAL_BIBLE_v122.md"
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v99 各境界推荐装备/配装（贴韩立成长与散修通用结构）",
+  "disclaimer": "推荐向，非强制；本命路线优先青元剑修模板",
+  "loadouts": [
+    {
+      "realm": "MORTAL",
+      "display": "凡人",
+      "core": ["凡兵", "罗烟步", "眨眼剑法", "基础解毒/疗伤药"],
+      "optional": ["升仙令", "小剑符宝"],
+      "avoid": ["依赖灵石的法器"],
+      "description": "以身法暗器保命，寻入仙机缘。"
+    },
+    {
+      "realm": "QI_REFINING",
+      "display": "炼气",
+      "weapon": ["下品~中品飞剑", "火球符批量"],
+      "armor": ["轻甲法器", "金光盾符"],
+      "utility": ["隐身符", "定神符", "小储物袋", "养精丹", "聚灵丹"],
+      "manual": ["长春功", "基础术法"],
+      "pet": [],
+      "priority": "囤筑基四药/筑基丹线索",
+      "price_band_low_stone": [50, 500],
+      "description": "符箓消耗战；神识弱，勿硬刚筑基。"
+    },
+    {
+      "realm": "FOUNDATION",
+      "display": "筑基",
+      "weapon": ["上品法器", "准法宝", "青竹剑胚起步"],
+      "armor": ["中品护甲", "颠倒五行阵旗入门"],
+      "utility": ["中储物袋", "灵髓/金髓丸", "敛息术", "地遁符"],
+      "manual": ["青元剑诀前层", "大衍诀线索"],
+      "pet": ["血玉蜘蛛卵", "低阶灵兽"],
+      "priority": "结丹丹材、本命法宝",
+      "price_band_low_stone": [500, 8000],
+      "description": "可独行猎妖；防结丹以上。"
+    },
+    {
+      "realm": "CORE_FORMATION",
+      "display": "结丹",
+      "weapon": ["本命法宝", "青竹蜂云剑组（推进）", "风雷翅目标"],
+      "armor": ["法宝级护体", "护府颠倒五行"],
+      "utility": ["储物镯", "降尘后巩固丹", "碧焰酒（慎）", "天雷子"],
+      "manual": ["青元中高层", "玄阴经分身可选"],
+      "pet": ["噬金虫培养", "六翼霜蚣", "啼魂线索"],
+      "priority": "结婴三丹线、虚天残图",
+      "price_band_low_stone": [5000, 80000],
+      "description": "一方散修强者；元婴仍是天敌。"
+    },
+    {
+      "realm": "NASCENT_SOUL",
+      "display": "元婴",
+      "weapon": ["完整剑组+大庚剑阵", "风雷翅", "三焰/七焰扇", "古宝/准通天"],
+      "armor": ["托天/明王炼体", "金刚罩", "护劫准备"],
+      "utility": ["芥子空间", "回煞丸", "鬼罗幡/赤魂", "培婴/定灵余"],
+      "manual": ["梵圣真魔拼图", "元磁神光", "惊蛰准备"],
+      "pet": ["噬金虫群", "啼魂", "土甲龙", "银月", "豹麟（灵界）"],
+      "priority": "化神包：魔元丹、极品灵石、寒焰、回阳",
+      "price_band_low_stone": [50000, 2000000],
+      "description": "人界顶尖。配装以逃、阵、分身、炼体四条腿。"
+    },
+    {
+      "realm": "DEITY_TRANSFORMATION",
+      "display": "化神",
+      "weapon": ["元磁神山入体", "通天灵宝", "噬灵天火"],
+      "armor": ["涅槃圣体", "玄天级负荷"],
+      "utility": ["天渊功勋货", "腾龙/玉清丹", "护劫阵", "灵地租"],
+      "manual": ["炼神术", "惊蛰十二变", "百脉炼宝"],
+      "pet": ["豹麟兽", "真蟾相关", "虫王路线"],
+      "priority": "炼虚法则感悟+界面资源",
+      "currency": "tianyuan_merit + top_stone",
+      "description": "人界难久留；灵界才是舞台。"
+    },
+    {
+      "realm": "VOID_REFINEMENT",
+      "display": "炼虚",
+      "weapon": ["法则兵器", "太乙青山类", "后天玄天推进"],
+      "armor": ["法体合一防"],
+      "utility": ["虚灵丹准备", "洗灵", "广寒令"],
+      "manual": ["炼神高层", "青元灵界层"],
+      "description": "配装重法则相性，不单堆品阶。"
+    },
+    {
+      "realm": "BODY_INTEGRATION",
+      "display": "合体",
+      "weapon": ["元合五极山线", "真灵血变"],
+      "armor": ["合体肉身"],
+      "utility": ["虚灵后巩固", "魔界血牙米等"],
+      "description": "一人可压一域；配装服务大战与渡劫。"
+    },
+    {
+      "realm": "GREAT_VEHICLE",
+      "display": "大乘",
+      "weapon": ["界面级宝", "真魂相关"],
+      "utility": ["冥河交易", "真仙劫准备"],
+      "description": "标配即战略武器；日常猎杀无意义。"
+    }
+  ],
+  "archetypes": [
+    {
+      "id": "sword_qingyuan",
+      "display": "青元剑修",
+      "focus": ["剑组", "剑阵", "青元诀"],
+      "weak": "纯肉搏无剑时"
+    },
+    {
+      "id": "body_dual",
+      "display": "法体双修",
+      "focus": ["明王", "托天", "梵圣", "龙鳞果"],
+      "weak": "炼体资源链断裂"
+    },
+    {
+      "id": "insect_master",
+      "display": "虫修",
+      "focus": ["噬金", "霜蚣", "御虫阵"],
+      "weak": "火域/克虫法"
+    },
+    {
+      "id": "puppet_spirit",
+      "display": "傀儡神识",
+      "focus": ["大衍", "魄石", "眩光晶", "土甲龙"],
+      "weak": "材料断供"
+    },
+    {
+      "id": "escape_control",
+      "display": "逃控流",
+      "focus": ["风雷翅", "血影遁", "敛息", "困敌阵"],
+      "weak": "禁空/锁遁"
+    }
+  ],
+  "swap_rules": {
+    "lose_life_weapon": "优先拆材再炼，勿死磕认主宝",
+    "faction_change": "魔道宝正道区隐藏",
+    "ascend": "破界符+节点资料+六丁类压箱"
+  }
+}

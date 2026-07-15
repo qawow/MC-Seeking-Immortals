@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "source": "汇编：宗门主修方向标签；天南四大势力 + 七派/六宗专精",
+  "region": "tiannan",
+  "war_ref": "mulan_tiannan_war.json",
+  "sects": [
+    {
+      "id": "taizhen_men",
+      "display": "太真门",
+      "camp": "zhengdao_meng",
+      "specialty": [
+        "正道总坛",
+        "古宝",
+        "元婴后期话事"
+      ],
+      "skill_tags": [
+        "orthodox_core"
+      ],
+      "lore_v144": "太真门：正道总坛、古宝、元婴后期话事。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "hehuan_zong",
+      "display": "合欢宗",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "双修",
+        "采补",
+        "魔道之首"
+      ],
+      "skill_tags": [
+        "dual_cultivation",
+        "charm"
+      ],
+      "lore_v144": "合欢宗：魔道双修采补，心性与因果风险高。",
+      "v144": true
+    },
+    {
+      "id": "yuling_zong",
+      "display": "御灵宗",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "驱虫",
+        "灵婴",
+        "御兽"
+      ],
+      "skill_tags": [
+        "insect",
+        "spirit_infant"
+      ],
+      "lore_v144": "御灵宗：驱虫、灵婴、御兽。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "guiling_men",
+      "display": "鬼灵门",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "鬼道",
+        "血祭",
+        "九魂"
+      ],
+      "skill_tags": [
+        "ghost",
+        "blood"
+      ],
+      "lore_v144": "鬼灵门：鬼道摄魂炼尸，与阴罗、冥河浅层相合；正道声望 reciprocal。",
+      "v144": true
+    },
+    {
+      "id": "tiansha_zong",
+      "display": "天煞宗",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "煞功",
+        "附身秘术"
+      ],
+      "skill_tags": [
+        "fiend_qi"
+      ],
+      "lore_v144": "天煞宗：煞功、附身秘术。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "qianhuan_zong",
+      "display": "千幻宗",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "幻术",
+        "渗透"
+      ],
+      "skill_tags": [
+        "illusion",
+        "infiltrate"
+      ],
+      "lore_v144": "千幻宗：幻术、渗透。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "moyan_men",
+      "display": "魔焰门",
+      "camp": "modao_liuzong",
+      "specialty": [
+        "魔焰",
+        "火毒"
+      ],
+      "skill_tags": [
+        "demon_flame"
+      ],
+      "lore_v144": "魔焰门：魔焰、火毒。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "yanyue_zong",
+      "display": "掩月宗",
+      "camp": "yue_seven",
+      "specialty": [
+        "双修分支",
+        "七派之首"
+      ],
+      "skill_tags": [
+        "moon_charm"
+      ],
+      "lore_v144": "掩月宗：七派之首气质，双修与魔道手段并立，与正道关隘摩擦多。人情与仇怨都重，禁地与外事话语权大。",
+      "v144": true
+    },
+    {
+      "id": "lingshou_shan",
+      "display": "灵兽山",
+      "camp": "yue_seven",
+      "specialty": [
+        "灵兽",
+        "可倒戈御灵"
+      ],
+      "skill_tags": [
+        "beast_tame"
+      ],
+      "lore_v144": "灵兽山：御兽、血脉与契约。可与御灵宗有倒戈/竞合叙事。洞府多灵兽设施。",
+      "v144": true
+    },
+    {
+      "id": "huangfeng_gu",
+      "display": "黄枫谷",
+      "camp": "yue_seven",
+      "specialty": [
+        "综合散功",
+        "药园",
+        "玩家友好开局"
+      ],
+      "skill_tags": [
+        "herb",
+        "generalist"
+      ],
+      "player_start": true,
+      "lore_v144": "黄枫谷：越国七派之一，药园与综合传承见长，玩家友好开局。贡献制严，血色配额看贡献与门派选拔。战力非七派最强，胜在稳与资源线。",
+      "v144": true
+    },
+    {
+      "id": "qingxu_men",
+      "display": "清虚门",
+      "camp": "yue_seven",
+      "specialty": [
+        "剑修清修"
+      ],
+      "skill_tags": [
+        "sword"
+      ],
+      "lore_v144": "清虚门：剑修清修，门风冷淡，重剑心日课。",
+      "v144": true
+    },
+    {
+      "id": "huadao_wu",
+      "display": "化刀坞",
+      "camp": "yue_seven",
+      "specialty": [
+        "刀法器修"
+      ],
+      "skill_tags": [
+        "blade"
+      ],
+      "lore_v144": "化刀坞：刀法器修，重兵刃炼与杀伐。",
+      "v144": true
+    },
+    {
+      "id": "tianque_bao",
+      "display": "天阙堡",
+      "camp": "yue_seven",
+      "specialty": [
+        "堡垒防御"
+      ],
+      "skill_tags": [
+        "defense"
+      ],
+      "lore_v144": "天阙堡：堡垒防御。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "jujian_men",
+      "display": "巨剑门",
+      "camp": "yue_seven",
+      "specialty": [
+        "重剑"
+      ],
+      "skill_tags": [
+        "heavy_sword"
+      ],
+      "lore_v144": "巨剑门：重剑开山，灵耗高，宜体魄并修。",
+      "v144": true
+    },
+    {
+      "id": "luoyun_zong",
+      "display": "落云宗",
+      "camp": "tiandao_meng",
+      "specialty": [
+        "云梦山",
+        "后期玩家长老向"
+      ],
+      "skill_tags": [
+        "generalist"
+      ],
+      "lore_v144": "落云宗：云梦山、后期玩家长老向。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "gujian_men",
+      "display": "古剑门",
+      "camp": "tiandao_meng",
+      "specialty": [
+        "剑丝",
+        "剑修强"
+      ],
+      "skill_tags": [
+        "sword_silk"
+      ],
+      "lore_v144": "古剑门：剑丝、剑修强。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "baiqiao_yuan",
+      "display": "百巧院",
+      "camp": "tiandao_meng",
+      "specialty": [
+        "百艺",
+        "火功",
+        "傀儡观礼"
+      ],
+      "skill_tags": [
+        "craft",
+        "fire"
+      ],
+      "lore_v144": "百巧院：百艺、火功、傀儡观礼。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "luanming_zong",
+      "display": "鸾鸣宗",
+      "camp": "tiandao_meng",
+      "specialty": [
+        "道侣联手",
+        "盟主级"
+      ],
+      "skill_tags": [
+        "dual_combat"
+      ],
+      "lore_v144": "鸾鸣宗：道侣联手、盟主级。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "huayi_men",
+      "display": "化意门",
+      "camp": "jiuguo_meng",
+      "specialty": [
+        "九国盟话事",
+        "边防"
+      ],
+      "skill_tags": [
+        "border"
+      ],
+      "lore_v144": "化意门：九国盟话事、边防。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "tianxing_zong",
+      "display": "天星宗",
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "阵法"
+      ],
+      "skill_tags": [
+        "array"
+      ],
+      "lore_v144": "天星宗：阵法。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "shenbing_men",
+      "display": "神兵门",
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "炼器"
+      ],
+      "skill_tags": [
+        "artifact"
+      ],
+      "lore_v144": "神兵门：炼器。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "wanmiao_guan",
+      "display": "万妙观",
+      "camp": "yuanwu_orthodox",
+      "specialty": [
+        "符道"
+      ],
+      "skill_tags": [
+        "talisman"
+      ],
+      "lore_v144": "万妙观：符道。天南修仙版图中的一门势力，贡献与战事规则见战争/声望包。",
+      "v144_light": true
+    },
+    {
+      "id": "qianzhu_jiao",
+      "display": "千竹教",
+      "camp": "extreme_west",
+      "specialty": [
+        "傀儡",
+        "大衍决关联"
+      ],
+      "skill_tags": [
+        "puppet"
+      ],
+      "region": "jixi",
+      "lore_v144": "千竹教：傀儡机关，大衍残篇权重，完整大衍不保底。",
+      "v144": true
+    }
+  ],
+  "camp_reputation_ids": {
+    "zhengdao_meng": "rep_zhengdao",
+    "modao_liuzong": "rep_modao",
+    "tiandao_meng": "rep_tiandao",
+    "jiuguo_meng": "rep_jiuguo",
+    "mulan": "rep_mulan"
+  },
+  "mutual_exclusion_notes": [
+    "正道盟与魔道六宗长期敌对，声望双高需特殊中立身份",
+    "黄枫谷等七派线与魔道扩张线在金鼓原阶段互斥",
+    "慕兰声望过高触发天南通缉"
+  ],
+  "v144": true
+}

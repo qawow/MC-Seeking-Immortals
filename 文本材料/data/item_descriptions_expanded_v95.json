@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 关键物品详释：外观/来源/用法/禁忌/价带。补全说明用",
+  "disclaimer": "lore 贴原著结构；数值可重平衡",
+  "items": [
+    {
+      "id": "zhu_ji_dan",
+      "display": "筑基丹",
+      "type": "pill",
+      "appearance": "普通灵丹外形，坊市多以玉瓶封存",
+      "main_ingredients": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "effect": "助炼气后期冲击筑基；液化灵气关键",
+      "usage": "突破前服；1~2粒后抗性大增，多服无效",
+      "sources": ["血色禁地主药自炼", "宗门配额", "拍卖", "截杀储物袋极低概率"],
+      "price_low_stone": [500, 2000],
+      "taboo": "伪劣丹爆灵根/走火",
+      "lore": "人界底层最硬通货之一；七派与魔道皆争。"
+    },
+    {
+      "id": "jiang_chen_dan",
+      "display": "降尘丹",
+      "type": "pill",
+      "effect": "显著提高结丹几率",
+      "main_ingredients": ["六级以上妖兽内丹等"],
+      "sources": ["击杀古长老等", "极难购买"],
+      "price_low_stone": [3000, 15000],
+      "lore": "筑基到结丹的门槛丹；有此则散修也敢冲结丹。"
+    },
+    {
+      "id": "ding_ling_dan",
+      "display": "定灵丹（安魂丹）",
+      "type": "pill",
+      "effect": "增进修为、定心安魂、减轻心魔，使结婴较易",
+      "sources": ["云梦圣地试剑", "顶阶拍卖"],
+      "price_low_stone": [20000, 100000],
+      "lore": "结婴三大辅助之一结构。"
+    },
+    {
+      "id": "jiu_qu_ling_shen_dan",
+      "display": "九曲灵参丹",
+      "type": "pill",
+      "main_ingredients": ["九曲灵参", "玛瑙角", "千叶露"],
+      "effect": "提高结婴几率",
+      "lore": "与定灵、培婴同档的结婴药线。"
+    },
+    {
+      "id": "pei_ying_dan",
+      "display": "培婴丹",
+      "type": "pill",
+      "appearance": "绿色，上古宗门镇宗级",
+      "main_ingredients": ["阴芝马血肉"],
+      "effect": "洗筋易髓、壮大元婴、易破瓶颈",
+      "sources": ["阴阳窟捕捉后炼制（富成线）"],
+      "price_note": "有价无市",
+      "lore": "元婴修士梦寐以求。"
+    },
+    {
+      "id": "zao_hua_dan",
+      "display": "造化丹",
+      "type": "pill",
+      "main_ingredients": ["灵烛果"],
+      "effect": "堕入幻境体验境界，助化神下突破；一生一次结构",
+      "sources": ["坠魔谷摘灵烛果自炼"],
+      "taboo": "果摘后药性速失",
+      "lore": "名震一方卷关键丹。"
+    },
+    {
+      "id": "bu_tian_dan",
+      "display": "补天丹",
+      "type": "pill",
+      "effect": "大补；与虚天殿争夺绑定",
+      "sources": ["虚天殿内殿"],
+      "price_note": "不标价",
+      "lore": "与虚天鼎同场的顶奖结构。"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "display": "魔元丹",
+      "type": "pill",
+      "effect": "化神冲阶关键辅助",
+      "sources": ["魔陀山等以万年玄玉交换"],
+      "lore": "常与五寒焰、极品灵石同用。"
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "type": "elixir_water",
+      "compose": ["太阳精火", "寒髓"],
+      "effect": "白骨生肉、修肉身、延寿约四分之一结构；可活玄天仙藤",
+      "appearance": "至阳至阴交融灵液",
+      "taboo": "材料皆界面级稀珍",
+      "lore": "人界顶级疗愈/延寿秘药。"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "type": "pill",
+      "effect": "合体大进、增突破率；配合洗灵池/净灵莲可减隐患",
+      "sources": ["广寒界等"],
+      "lore": "灵界合体线关键。"
+    },
+    {
+      "id": "geng_jing",
+      "display": "庚精",
+      "type": "material",
+      "appearance": "金属性至精，豆粒即贵",
+      "use": ["青竹蜂云剑", "大庚剑阵", "金属法宝"],
+      "sources": ["赌战赏", "大晋拍卖", "坠魔消息"],
+      "price_low_stone": [20000, 120000],
+      "lore": "天南一精难求；大晋略宽。"
+    },
+    {
+      "id": "yu_sui_zhi",
+      "display": "玉髓芝",
+      "type": "herb",
+      "appearance": "灵芝类，玉髓光泽",
+      "use": "筑基丹主料之一",
+      "habitat": "血色禁地等",
+      "price_low_stone": [10, 50],
+      "lore": "与紫猴花、天灵果、千年灵草并称筑基四主药。"
+    },
+    {
+      "id": "zi_hou_hua",
+      "display": "紫猴花",
+      "type": "herb",
+      "use": "筑基丹主料之二",
+      "habitat": "血色禁地",
+      "lore": "花形名紫猴；禁地周期刷新。"
+    },
+    {
+      "id": "tian_ling_guo",
+      "display": "天灵果",
+      "type": "fruit",
+      "use": "筑基丹主料之三",
+      "habitat": "禁地灵树",
+      "lore": "一批主药约支撑廿粒筑基丹结构。"
+    },
+    {
+      "id": "jiu_qu_ling_shen",
+      "display": "九曲灵参",
+      "type": "herb_living",
+      "appearance": "天地灵气所化，能幻形善钻土",
+      "use": "九曲灵参丹；开智成曲儿",
+      "likes": "麝兰兽粪便结构",
+      "lore": "虚天殿内重要收获。"
+    },
+    {
+      "id": "ling_zhu_guo",
+      "display": "灵烛果",
+      "type": "fruit",
+      "appearance": "果如红烛，草翠绿",
+      "use": "造化丹主料；生吞亦增修为",
+      "taboo": "不可移植；摘后药性速失",
+      "habitat": "坠魔谷",
+      "lore": "元婴级夺宝焦点之一。"
+    },
+    {
+      "id": "long_lin_guo",
+      "display": "龙鳞果",
+      "type": "fruit",
+      "effect": "脱胎换骨级炼体；配合淬骨诀",
+      "sources": ["金蛟王线移植秘术"],
+      "usage": "约半月一颗结构炼化",
+      "lore": "人界肉身极限突破关键。"
+    },
+    {
+      "id": "ni_chang_cao",
+      "display": "霓裳草（诱妖草）",
+      "type": "herb",
+      "appearance": "十三片圆筒卷叶，百年展一片",
+      "effect": "吸引八级下妖兽、催繁殖",
+      "use": "诱杀、催熟灵虫",
+      "lore": "韩立常用工具草。"
+    },
+    {
+      "id": "han_sui",
+      "display": "寒髓",
+      "type": "essence",
+      "appearance": "万年冰玉中孕，至寒",
+      "use": ["回阳真水", "护劫", "换紫灵自由等"],
+      "sources": ["北地/小极宫关联", "肖老儿线"],
+      "lore": "至寒奇珍。"
+    },
+    {
+      "id": "yang_hun_mu",
+      "display": "养魂木",
+      "type": "divine_wood",
+      "effect": "佩戴滋养魂魄、壮大神识、可寄魂",
+      "sources": ["虚天殿二层等"],
+      "lore": "三大神木之一结构。"
+    },
+    {
+      "id": "xuan_tian_xian_teng",
+      "display": "玄天仙藤",
+      "type": "living_treasure",
+      "use": "醇液救活；回阳水浇灌；后果通灵玄天斩灵剑结构",
+      "sources": ["赌战赏根茎", "圣地醇液线"],
+      "lore": "跨人灵两界的成长型玄天相关。"
+    },
+    {
+      "id": "qingzhu_fengyun_jian",
+      "display": "青竹蜂云剑",
+      "type": "fabao_set",
+      "count": 72,
+      "materials": ["金雷竹", "庚精"],
+      "manual": "青元剑诀",
+      "abilities": ["剑芒", "剑丝", "大庚/春黎/青蟠剑阵结构"],
+      "lore": "主角本命剑组；可失而复得（坠魔古魔线）。"
+    },
+    {
+      "id": "xu_tian_ding",
+      "display": "虚天鼎",
+      "type": "tongtian_or_gubao",
+      "appearance": "古鼎，内蕴乾蓝冰焰等",
+      "abilities": ["炼丹至宝", "空间/冰焰", "需通宝诀"],
+      "sources": ["虚天殿"],
+      "lore": "乱星海第一争夺物结构之一。"
+    },
+    {
+      "id": "fenglei_chi",
+      "display": "风雷翅",
+      "type": "escape_gear",
+      "materials": ["雷鹏骨骸", "可嵌鲲鹏羽、天凤翎"],
+      "abilities": ["雷遁", "后期风遁"],
+      "lore": "人界顶级遁器。"
+    },
+    {
+      "id": "ba_ling_chi",
+      "display": "八灵尺",
+      "type": "tongtian",
+      "abilities": ["八灵兽虚影", "定敌法宝", "佛音克魔道鬼修"],
+      "sources": ["昆吾镇魔塔"],
+      "taboo": "飞升节点可能损毁",
+      "lore": "人界第二件通天级结构（相对虚天鼎）。"
+    },
+    {
+      "id": "yuan_ci_shen_shan",
+      "display": "元磁神山",
+      "type": "gubao",
+      "abilities": ["元磁神光克五行", "可炼入体内"],
+      "sources": ["星宫/凌玉灵线"],
+      "manual": "元磁神光",
+      "lore": "化神前后核心至宝。"
+    },
+    {
+      "id": "wuzi_tongxin_mo",
+      "display": "五子同心魔",
+      "type": "gubao_demonic",
+      "abilities": ["五子联攻约元婴后期结构", "融五寒焰"],
+      "sources": ["乾老魔"],
+      "lore": "昆吾截杀所得。"
+    },
+    {
+      "id": "gui_luo_fan",
+      "display": "鬼罗幡",
+      "type": "fabao_demonic",
+      "faction": "阴罗宗",
+      "abilities": ["鬼物幡阵", "可与黑风旗残炼赤魂幡"],
+      "lore": "阴罗标志；可集多杆。"
+    },
+    {
+      "id": "palm_heaven_bottle",
+      "display": "掌天瓶",
+      "type": "unique",
+      "appearance": "小绿瓶",
+      "abilities": ["绿液催熟灵药", "后期时间法则"],
+      "economy_risk": "极高",
+      "design_policy": "仅传说/严格冷却次数，禁止坊市",
+      "lore": "原著核心机缘；模组需防破经济。"
+    },
+    {
+      "id": "shengxian_ling",
+      "display": "升仙令",
+      "type": "token",
+      "use": "入正式修仙界/试炼资格结构",
+      "price_low_stone": [50, 300],
+      "lore": "凡人到修士的门票。"
+    },
+    {
+      "id": "xutian_cantu",
+      "display": "虚天残图",
+      "type": "map",
+      "use": "拼合定位虚天殿",
+      "sources": ["黑煞教", "夺宝", "拍卖"],
+      "lore": "多片残图驱动乱星海主线。"
+    },
+    {
+      "id": "da_nuoyi_ling",
+      "display": "大挪移令",
+      "type": "token",
+      "use": "配合古传送阵远距传送",
+      "sources": ["灵矿地道混战"],
+      "lore": "遁走乱星海关键三宝之一。"
+    },
+    {
+      "id": "zhuimo_ling",
+      "display": "坠魔令",
+      "type": "token",
+      "use": "入坠魔谷",
+      "sources": ["鬼灵门受迫发放等"],
+      "lore": "元婴级副本门票。"
+    },
+    {
+      "id": "po_jie_fu",
+      "display": "破界符",
+      "type": "consumable",
+      "effect": "破空间障壁/节点辅助",
+      "charges": 1,
+      "sources": ["昆吾玲珑索要转交"],
+      "lore": "飞升物资。"
+    },
+    {
+      "id": "liu_ding_tian_jia_fu",
+      "display": "六丁天甲符",
+      "type": "consumable_guard",
+      "effect": "顶级护身",
+      "sources": ["南宫婉所赠结构"],
+      "lore": "空间节点保命符宝。"
+    },
+    {
+      "id": "hua_ling_fu",
+      "display": "化灵符",
+      "type": "talisman",
+      "faction": "天符门",
+      "effect": "天符门压箱底级战符",
+      "price_low_stone": [20000, 150000],
+      "lore": "客卿/归还降灵符线报酬。"
+    },
+    {
+      "id": "jiang_ling_fu",
+      "display": "降灵符",
+      "type": "talisman",
+      "effect": "以高阶精魂炼制的特殊符",
+      "materials": ["八级毒蛟精魂等"],
+      "lore": "天符门传承相关。"
+    },
+    {
+      "id": "tianleizi",
+      "display": "天雷子",
+      "type": "consumable",
+      "effect": "雷爆翻盘",
+      "price_low_stone": [500, 5000],
+      "lore": "可破黑煞教主等节点。"
+    },
+    {
+      "id": "jiezi_space",
+      "display": "芥子空间",
+      "type": "space",
+      "effect": "随身洞天：闭关、藏宝、种药",
+      "obtain": "炼制法（元智大师结构）",
+      "lore": "化神前长期闭关核心。"
+    },
+    {
+      "id": "di_liu_jiang",
+      "display": "帝流浆",
+      "type": "liquid",
+      "effect": "炼化界珠等空间物",
+      "sources": ["天澜圣兽渡劫"],
+      "lore": "圣兽级产出。"
+    },
+    {
+      "id": "mo_sui_zuan",
+      "display": "魔髓钻",
+      "type": "material",
+      "use": ["修鬼罗幡", "地下拍卖通货"],
+      "sources": ["魔气之渊"],
+      "lore": "可换五行玉、庚精。"
+    },
+    {
+      "id": "jing_hua_yao_dan",
+      "display": "晶化妖丹",
+      "type": "material",
+      "appearance": "长年晶化，含奇毒",
+      "use": "飞针法宝；遁速极快",
+      "sources": ["参王大会等"],
+      "lore": "偷袭利器主材。"
+    },
+    {
+      "id": "tian_shi_zhu",
+      "display": "天尸珠",
+      "type": "body_treasure",
+      "effect": "改善体质、法体突进；含尸毒",
+      "sources": ["炫烨王"],
+      "lore": "炼体奇物。"
+    },
+    {
+      "id": "jin_gang_zhao",
+      "display": "金刚罩",
+      "type": "fabao_semi",
+      "effect": "佛光护罩；体内培养",
+      "sources": ["舍利炼制半成品/炫烨"],
+      "lore": "可配合八灵尺佛光。"
+    },
+    {
+      "id": "space_node_intel",
+      "display": "空间节点资料",
+      "type": "intel",
+      "grades": ["残缺", "标准", "详尽十余节点"],
+      "effect": "指引偷渡灵界",
+      "sources": ["昆吾玲珑"],
+      "lore": "飞升成败关键情报。"
+    },
+    {
+      "id": "jinque_yushu",
+      "display": "金阙玉书（外页）",
+      "type": "manual_page",
+      "contents_examples": ["百脉炼宝决", "玄天炼器术"],
+      "lore": "灵界炼器/炼体转折物。"
+    },
+    {
+      "id": "top_spirit_stone",
+      "display": "极品灵石",
+      "type": "currency",
+      "ratio_to_low": 1000000,
+      "use": ["化神冲阶", "大阵", "妖族争夺矿"],
+      "lore": "人界货币顶层；外星海可因矿开战。"
+    },
+    {
+      "id": "xue_ya_mi",
+      "display": "血牙米",
+      "type": "food_essence",
+      "appearance": "巨型米粒，需精血浇灌结构",
+      "effect": "增进精血肉身",
+      "sources": ["魔界等"],
+      "lore": "体修硬通货。"
+    },
+    {
+      "id": "ming_he_shen_ru",
+      "display": "冥河神乳",
+      "type": "liquid_endgame",
+      "effect": "顶级培灵；噬金虫王关联",
+      "sources": ["冥河之地大乘交易"],
+      "price_note": "不可标价",
+      "lore": "灵界至宝级。"
+    },
+    {
+      "id": "zhen_hun_dan",
+      "display": "真魂丹",
+      "type": "pill_endgame",
+      "sources": ["斩真仙马良等"],
+      "effect": "大乘级神魂/修为奇效",
+      "lore": "可售一粒震惊灵界。"
+    },
+    {
+      "id": "chi_jing_zhi",
+      "display": "赤精芝",
+      "type": "herb",
+      "use": "高阶炼丹材",
+      "sources": ["天南交易会"],
+      "price_low_stone": [8000, 40000],
+      "lore": "元婴交换会亮相灵药。"
+    },
+    {
+      "id": "po_shi",
+      "display": "魄石",
+      "type": "material",
+      "use": "上古傀儡修复、神识阵器",
+      "sources": ["阴冥大量", "交易会"],
+      "lore": "可换上古傀儡术。"
+    },
+    {
+      "id": "manao_jiao",
+      "display": "玛瑙角",
+      "type": "material",
+      "use": "九曲灵参丹辅料",
+      "sources": ["黑石城寸金阁等"],
+      "price_low_stone": [8000, 40000]
+    },
+    {
+      "id": "qianlan_bingyan",
+      "display": "乾蓝冰焰",
+      "type": "flame",
+      "appearance": "蓝色至寒冰焰",
+      "sources": ["虚天鼎/小极宫系"],
+      "use": ["炼丹", "冻敌", "融五焰"],
+      "lore": "小极宫三大寒焰之一结构。"
+    },
+    {
+      "id": "shiling_tianhuo",
+      "display": "噬灵天火",
+      "type": "flame",
+      "evolve": "太阴+太阳等融合再吞噬",
+      "abilities": ["吞噬异火", "心寒入体", "化火鸟/童子"],
+      "lore": "可持续成长的火种。"
+    },
+    {
+      "id": "hunyuan_bo",
+      "display": "混元钵",
+      "type": "fabao",
+      "abilities": ["收摄镇压"],
+      "sources": ["古长老"],
+      "lore": "结丹期成名法宝结构。"
+    },
+    {
+      "id": "san_yan_shan",
+      "display": "三焰扇",
+      "type": "fabao",
+      "materials": ["赤火蛟鳞", "昊阳翎", "乌凤翎", "多焰"],
+      "lore": "大晋搜集材料自炼。"
+    },
+    {
+      "id": "hei_feng_qi",
+      "display": "黑风旗（残）",
+      "type": "tongtian_damaged",
+      "abilities": ["空间/真魔气相关", "可炼赤魂幡"],
+      "sources": ["昆吾元刹"],
+      "lore": "通天残仍惊世。"
+    },
+    {
+      "id": "xue_ren",
+      "display": "血刃",
+      "type": "pseudo_lingbao",
+      "abilities": ["仿魔龙刃杀伐"],
+      "sources": ["万年尸熊→玲珑→韩立"],
+      "lore": "昆吾尾声关键刃。"
+    },
+    {
+      "id": "yuan_ming_deng",
+      "display": "元明灯",
+      "type": "fabao",
+      "abilities": ["战场扭转级"],
+      "sources": ["边界大战陆夫人"],
+      "lore": "可换大量宝物。"
+    },
+    {
+      "id": "taiyi_qingshan",
+      "display": "太乙青山",
+      "type": "treasure_spirit",
+      "abilities": ["太乙青光如虚刃"],
+      "sources": ["广寒界"],
+      "lore": "后天难炼的造化光。"
+    },
+    {
+      "id": "yuan_he_wuji_shan",
+      "display": "元合五极山",
+      "type": "xuantian_acquired",
+      "materials": ["五座极山"],
+      "manual": "玄天炼器术",
+      "lore": "后天玄天灵宝结构；终局级。"
+    }
+  ]
+}

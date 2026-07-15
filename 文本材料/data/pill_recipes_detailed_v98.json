@@ -1,0 +1,1234 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v98 丹方逐步材料表。主药贴原著；辅料为结构完整配方，剂量非精确占比",
+  "disclaimer": "辅料可替换同阶同类；失败毁材见 fail_rules",
+  "alchemy_steps_generic": [
+    "检材去杂",
+    "文火提汁/煅丹",
+    "主药入炉",
+    "辅药分批",
+    "收丹封灵",
+    "温养去火毒"
+  ],
+  "fail_rules": {
+    "explode_chance_base": 0.1,
+    "wrong_fire": "炸炉+主药全毁",
+    "low_skill": "出废丹或药力减半",
+    "bao_ding_bonus": "虚天鼎等大幅降失败"
+  },
+  "recipes": [
+    {
+      "id": "zhu_ji_dan",
+      "display": "筑基丹",
+      "tier": 1,
+      "realm_craft": "FOUNDATION_alchemist_or_better_with_difire",
+      "main": [
+        {
+          "name": "玉髓芝",
+          "role": "主药一",
+          "qty": 1,
+          "note": "禁地核心"
+        },
+        {
+          "name": "紫猴花",
+          "role": "主药二",
+          "qty": 1
+        },
+        {
+          "name": "天灵果",
+          "role": "主药三",
+          "qty": 1
+        },
+        {
+          "name": "千年灵草",
+          "role": "主药四/药引基",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "低阶灵草若干",
+          "role": "调和",
+          "qty": "一把"
+        },
+        {
+          "name": "妖兽精血（低阶）",
+          "role": "定型",
+          "qty": "数滴",
+          "optional": true
+        },
+        {
+          "name": "清灵泉水",
+          "role": "溶药",
+          "qty": 1
+        }
+      ],
+      "tools": [
+        "灵纹丹炉",
+        "地火"
+      ],
+      "batch_hint": "一批主药约廿粒结构",
+      "time_days": [
+        3,
+        15
+      ],
+      "output": "筑基丹",
+      "fail_risk": 0.2,
+      "description": "人界底层最重要突破丹。四主药缺一不可；韩立血色禁地线即为此。",
+      "main_ids": [
+        {
+          "id": "yu_sui_zhi",
+          "name": "玉髓芝",
+          "role": "主药一",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "zi_hou_hua",
+          "name": "紫猴花",
+          "role": "主药二",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "tian_ling_guo",
+          "name": "天灵果",
+          "role": "主药三",
+          "qty": 1,
+          "source": "blood_forbidden herb_ring",
+          "price_low_stone": [
+            10,
+            50
+          ]
+        },
+        {
+          "id": "qian_nian_ling_cao",
+          "name": "千年灵草",
+          "role": "主药四/药引基",
+          "qty": 1,
+          "source": "禁地/洞府/拍卖",
+          "price_low_stone": [
+            50,
+            300
+          ]
+        }
+      ],
+      "success_base": 0.35,
+      "success_mods": [
+        {
+          "good_furnace": 0.1
+        },
+        {
+          "alchemist_skill": 0.1
+        },
+        {
+          "adulterated_mat": -0.2
+        }
+      ],
+      "furnace_min": "alchemy_furnace_g1",
+      "furnace_prefer": "alchemy_furnace_g2",
+      "output_price_low_stone": [
+        500,
+        2000
+      ],
+      "quest_chain": [
+        "blood_forbidden_run",
+        "huangfeng_blood_quota"
+      ],
+      "novel_anchor": "筑基丹；血色三主料经典拼图",
+      "description_v145": "炼气末最关键突破丹。主药玉髓芝、紫猴花、天灵果加药引。禁地自采可大幅降低成本；市售有掺假。大晋有更高规格替代方。",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "yang_jing_dan",
+      "display": "养精丹",
+      "tier": 1,
+      "main": [
+        {
+          "name": "疗伤灵草",
+          "role": "主",
+          "qty": 2
+        }
+      ],
+      "aux": [
+        {
+          "name": "凡参/灵参须",
+          "role": "补气",
+          "qty": 1
+        },
+        {
+          "name": "兽血（净）",
+          "role": "和药",
+          "qty": "少许"
+        },
+        {
+          "name": "蜂蜜/灵蜜",
+          "role": "赋形",
+          "qty": 1
+        }
+      ],
+      "tools": [
+        "凡炉可"
+      ],
+      "time_days": [
+        1,
+        3
+      ],
+      "description": "量产疗伤丹；辅料易得。"
+    },
+    {
+      "id": "ju_ling_dan",
+      "display": "聚灵丹",
+      "tier": 1,
+      "main": [
+        {
+          "name": "聚灵草/低阶灵草",
+          "role": "主",
+          "qty": 3
+        }
+      ],
+      "aux": [
+        {
+          "name": "灵石粉（下品）",
+          "role": "增灵",
+          "qty": "一撮"
+        },
+        {
+          "name": "清水",
+          "role": "溶",
+          "qty": 1
+        }
+      ],
+      "description": "炼气日常丹；筑基后效减。"
+    },
+    {
+      "id": "lian_qi_san",
+      "display": "炼气散",
+      "tier": 1,
+      "main": [
+        {
+          "name": "凡药+微量灵草",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "淀粉赋形",
+          "role": "辅",
+          "qty": 1
+        }
+      ],
+      "description": "入门最廉价修炼辅散。"
+    },
+    {
+      "id": "ling_sui_dan",
+      "display": "灵髓丸",
+      "tier": 2,
+      "main": [
+        {
+          "name": "中阶灵髓草",
+          "role": "主",
+          "qty": 2
+        }
+      ],
+      "aux": [
+        {
+          "name": "五级以下妖丹粉",
+          "role": "增效",
+          "qty": "半枚",
+          "optional": true
+        },
+        {
+          "name": "灵泉水",
+          "role": "溶",
+          "qty": 1
+        },
+        {
+          "name": "筑基期精血",
+          "role": "开灵",
+          "qty": "一滴",
+          "optional": true
+        }
+      ],
+      "description": "筑基中期修为丹。"
+    },
+    {
+      "id": "jin_sui_wan",
+      "display": "金髓丸",
+      "tier": 2,
+      "main": [
+        {
+          "name": "金髓类灵药",
+          "role": "主",
+          "qty": 2
+        }
+      ],
+      "aux": [
+        {
+          "name": "金属性矿粉",
+          "role": "定金",
+          "qty": 1
+        },
+        {
+          "name": "六级下妖丹",
+          "role": "核",
+          "qty": "碎"
+        },
+        {
+          "name": "灵泉水",
+          "role": "溶",
+          "qty": 1
+        }
+      ],
+      "description": "筑基后期至结丹前常用。"
+    },
+    {
+      "id": "jiang_chen_dan",
+      "display": "降尘丹",
+      "tier": 3,
+      "main": [
+        {
+          "name": "六级以上妖兽内丹",
+          "role": "主核",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "结丹辅草一束",
+          "role": "调和",
+          "qty": 3
+        },
+        {
+          "name": "庚金/五行之精微量",
+          "role": "定形",
+          "qty": "可选"
+        },
+        {
+          "name": "筑基巅峰精血",
+          "role": "认主药性",
+          "qty": 1
+        }
+      ],
+      "tools": [
+        "高阶丹炉",
+        "地火"
+      ],
+      "time_days": [
+        10,
+        40
+      ],
+      "fail_risk": 0.35,
+      "description": "结丹关键。古长老袋中可见；市面有价无市。"
+    },
+    {
+      "id": "bu_tian_dan",
+      "display": "补天丹",
+      "tier": 4,
+      "main": [
+        {
+          "name": "虚天殿内补天主药（秘）",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "万年药龄灵药",
+          "role": "辅",
+          "qty": "多"
+        },
+        {
+          "name": "顶阶妖丹",
+          "role": "核",
+          "qty": 1
+        }
+      ],
+      "obtain_pref": "虚天殿现成丹/争夺",
+      "description": "结构上极少自炼；以夺宝为主。",
+      "main_ids": [
+        {
+          "name": "虚天殿补天主药（秘）",
+          "role": "主",
+          "qty": 1,
+          "unique_contest": true,
+          "source": "xutian_palace treasure_core"
+        }
+      ],
+      "success_base": 0.25,
+      "success_mods": null,
+      "furnace_min": null,
+      "furnace_prefer": null,
+      "output_price_low_stone": [
+        20000,
+        200000
+      ],
+      "quest_chain": [
+        "xutian_window_prepare"
+      ],
+      "novel_anchor": "补天丹；虚天出世",
+      "description_v145": "精炼先天/弥补灵根叙事。虚天宝库 unique 竞争物之一，不作坊市无限货。",
+      "shop_policy": "not_open_market",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "ding_ling_dan",
+      "display": "定灵丹（安魂丹）",
+      "tier": 4,
+      "main": [
+        {
+          "name": "安魂主药（云梦系）",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "宁神花",
+          "role": "定心",
+          "qty": 2
+        },
+        {
+          "name": "魂安草",
+          "role": "安魂",
+          "qty": 2
+        },
+        {
+          "name": "高阶精魂液",
+          "role": "定魂",
+          "qty": 1
+        },
+        {
+          "name": "元婴期修士护丹",
+          "role": "条件",
+          "optional": true
+        }
+      ],
+      "source": "云梦试剑/圣地",
+      "description": "结婴三大辅助之一。配方严控。"
+    },
+    {
+      "id": "jiu_qu_ling_shen_dan",
+      "display": "九曲灵参丹",
+      "tier": 4,
+      "main": [
+        {
+          "name": "九曲灵参",
+          "role": "主",
+          "qty": 1
+        },
+        {
+          "name": "玛瑙角",
+          "role": "主辅",
+          "qty": 1
+        },
+        {
+          "name": "千叶露",
+          "role": "主辅",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "结婴辅草",
+          "role": "调和",
+          "qty": 3
+        },
+        {
+          "name": "高阶妖丹粉",
+          "role": "开灵",
+          "qty": 1
+        },
+        {
+          "name": "灵泉水",
+          "role": "溶",
+          "qty": 1
+        }
+      ],
+      "description": "原著明确三主材；活参难求。"
+    },
+    {
+      "id": "zao_hua_dan",
+      "display": "造化丹",
+      "tier": 4,
+      "main": [
+        {
+          "name": "灵烛果",
+          "role": "唯一主药",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "造化辅药一束",
+          "role": "引幻境",
+          "qty": 3
+        },
+        {
+          "name": "元婴精血",
+          "role": "开药",
+          "qty": 1
+        }
+      ],
+      "time_critical": "果摘后药性速失，需即炼",
+      "limit": "一身体会一次结构",
+      "description": "坠魔谷核心丹。生吞果仅增修为，炼丹方得造化幻境。",
+      "main_ids": [
+        {
+          "id": "ling_zhu_guo",
+          "name": "灵烛果",
+          "role": "唯一主药",
+          "qty": 1,
+          "unique": true,
+          "source": "zhuimo_valley zm_candle",
+          "price_low_stone": [
+            3000,
+            30000
+          ]
+        }
+      ],
+      "success_base": 0.4,
+      "success_mods": null,
+      "furnace_min": null,
+      "furnace_prefer": null,
+      "output_price_low_stone": null,
+      "quest_chain": [
+        "lingzhu_fruit_run",
+        "zhuimo_token"
+      ],
+      "novel_anchor": "造化丹；灵烛果；一生一次体验破境",
+      "description_v145": "以灵烛果为主药。服后入幻境体验更高境界瓶颈，化神以下有效，一生一次。果本身 unique 争夺，不鼓励纯倒卖刷钱。",
+      "lifetime_once": true,
+      "output_policy": "lifetime_once_consume",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "pei_ying_dan",
+      "display": "培婴丹",
+      "tier": 4,
+      "main": [
+        {
+          "name": "阴芝马血肉",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "上古丹方辅药",
+          "role": "洗髓",
+          "qty": "套"
+        },
+        {
+          "name": "阴属性灵药",
+          "role": "定阴",
+          "qty": 3
+        },
+        {
+          "name": "元婴修士丹火",
+          "role": "条件",
+          "qty": 1
+        }
+      ],
+      "coop": "富成线",
+      "description": "绿色上古镇宗丹结构；阴阳窟前端。",
+      "main_ids": [
+        {
+          "id": "yin_zhi_ma_living",
+          "name": "阴芝马（活体优先）",
+          "role": "主",
+          "qty": 1,
+          "prefer_live": true,
+          "kill_quality_penalty": 0.7,
+          "source": "yinyang_ku yy_yinzhi",
+          "price_low_stone": [
+            80000,
+            500000
+          ]
+        }
+      ],
+      "aux_ids": [
+        {
+          "name": "上古丹方辅药套",
+          "role": "洗髓",
+          "qty": 1
+        },
+        {
+          "name": "阴属性灵药×3",
+          "role": "定阴",
+          "qty": 3
+        },
+        {
+          "name": "元婴丹火条件",
+          "role": "炉火",
+          "qty": 1,
+          "need_realm": "NASCENT_SOUL_alchemist"
+        }
+      ],
+      "success_base": 0.22,
+      "success_mods": [
+        {
+          "live_main": 0.12
+        },
+        {
+          "kill_main": -0.15
+        },
+        {
+          "coop_alchemist": 0.08
+        },
+        {
+          "furnace_g3": 0.08
+        }
+      ],
+      "furnace_min": "alchemy_furnace_g3",
+      "furnace_prefer": null,
+      "output_price_low_stone": [
+        50000,
+        500000
+      ],
+      "quest_chain": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ],
+      "novel_anchor": "培婴丹；阴芝马活捕；富成协作气质",
+      "description_v145": "壮大元婴、洗筋易髓。主料阴芝马——活捕远优于击杀。窟外协作炼丹结构；成率不高，非街边货。",
+      "structure_coop": "yinyang_ku alchemy_coop / yy_alchemy_coop",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "tier": 5,
+      "main": [
+        {
+          "name": "太阳精火",
+          "role": "至阳",
+          "qty": 1
+        },
+        {
+          "name": "寒髓",
+          "role": "至阴",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "容器法宝",
+          "role": "融炼载体",
+          "qty": 1
+        },
+        {
+          "name": "神识护持",
+          "role": "防反噬",
+          "qty": 1
+        }
+      ],
+      "type": "elixir_not_standard_pill",
+      "description": "阴阳交融成水。白骨生肉、延寿、活玄天藤。",
+      "main_ids": [
+        {
+          "id": "tai_yang_jing_huo",
+          "name": "太阳精火",
+          "role": "至阳",
+          "qty": 1,
+          "unique_limited": true,
+          "source": "huoyu core"
+        },
+        {
+          "id": "han_sui",
+          "name": "寒髓",
+          "role": "至阴",
+          "qty": 1,
+          "source": "五寒焰/太阴结构"
+        }
+      ],
+      "success_base": 0.3,
+      "success_mods": null,
+      "furnace_min": null,
+      "furnace_prefer": null,
+      "output_price_low_stone": null,
+      "quest_chain": [
+        "deity_huoyu_path"
+      ],
+      "novel_anchor": "回阳真水；化神关键",
+      "description_v145": "太阳精火与寒髓（太阴/五寒焰结构）相合。化神关键灵物，禁无限复制与开放交易。",
+      "unique_output": true,
+      "no_trade": true,
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "xuan_bing_dan",
+      "display": "玄冰丹",
+      "tier": 3,
+      "main": [
+        {
+          "name": "玄冰花",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "寒属性灵草",
+          "role": "辅",
+          "qty": 2
+        },
+        {
+          "name": "冰蟾浆/玄冰虫壳",
+          "role": "定寒",
+          "qty": 1,
+          "optional": true
+        },
+        {
+          "name": "寒泉水",
+          "role": "溶",
+          "qty": 1
+        }
+      ],
+      "description": "小极宫寒焰修士丹。"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "display": "魔元丹",
+      "tier": 5,
+      "main": [
+        {
+          "name": "魔元主药（魔陀山系）",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "高阶魔材",
+          "role": "辅",
+          "qty": 2
+        },
+        {
+          "name": "化神精血",
+          "role": "开",
+          "qty": 1
+        }
+      ],
+      "trade": "万年玄玉可换",
+      "description": "化神冲阶包组件。"
+    },
+    {
+      "id": "xu_ling_dan",
+      "display": "虚灵丹（太虚妙灵丹）",
+      "tier": 5,
+      "main": [
+        {
+          "name": "虚灵主药（广寒等）",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "合体级灵药",
+          "role": "辅",
+          "qty": 3
+        },
+        {
+          "name": "洗灵池/净灵莲配合",
+          "role": "减隐患",
+          "optional": true
+        }
+      ],
+      "description": "合体突破辅助。",
+      "main_ids": [
+        {
+          "name": "虚灵主药（广寒等）",
+          "role": "主",
+          "qty": 1,
+          "source": "guanghan_realm"
+        }
+      ],
+      "success_base": 0.2,
+      "success_mods": null,
+      "furnace_min": null,
+      "furnace_prefer": null,
+      "output_price_low_stone": null,
+      "quest_chain": [
+        "guanghan_endgame_path"
+      ],
+      "novel_anchor": "虚灵丹；合体",
+      "description_v145": "合体关键。广寒/功勋/任务向，无坊市无限货。",
+      "shop_policy": "merit_or_quest_only",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "zhen_chan_ye",
+      "display": "真蟾液",
+      "tier": 5,
+      "main": [
+        {
+          "name": "真蟾兽内丹/精华",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "化神溶剂灵液",
+          "role": "萃",
+          "qty": 1
+        },
+        {
+          "name": "定型寒/土辅药",
+          "role": "辅",
+          "qty": 1
+        }
+      ],
+      "description": "天渊紧俏；可兑功勋。"
+    },
+    {
+      "id": "teng_long_dan",
+      "display": "腾龙丹",
+      "tier": 5,
+      "main": [
+        {
+          "name": "龙属/腾龙主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "化神灵草束",
+          "role": "辅",
+          "qty": 3
+        },
+        {
+          "name": "高阶妖丹",
+          "role": "核",
+          "qty": 1
+        }
+      ],
+      "description": "化神~炼虚修为丹。"
+    },
+    {
+      "id": "yuqing_dan",
+      "display": "玉清丹",
+      "tier": 5,
+      "main": [
+        {
+          "name": "玉清主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "灵界基础灵草",
+          "role": "辅",
+          "qty": 2
+        }
+      ],
+      "currency": "tianyuan_merit",
+      "description": "天渊基础高阶丹。"
+    },
+    {
+      "id": "kui_shui_zhenling_dan",
+      "display": "葵水真灵丹",
+      "tier": 5,
+      "main": [
+        {
+          "name": "墨麒麟鳞片",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "葵水灵液",
+          "role": "辅",
+          "qty": 1
+        },
+        {
+          "name": "真灵血丝（极低）",
+          "role": "开灵",
+          "optional": true
+        }
+      ],
+      "description": "真灵级丹结构；天渊拍卖。"
+    },
+    {
+      "id": "zhen_hun_dan",
+      "display": "真魂丹",
+      "tier": 5,
+      "main": [
+        {
+          "name": "真仙级魂材",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "大乘辅药",
+          "role": "辅",
+          "qty": "套"
+        }
+      ],
+      "source": "斩马良等",
+      "description": "几乎不可自炼日常；战利品向。"
+    },
+    {
+      "id": "hui_sha_wan",
+      "display": "回煞丸",
+      "tier": 4,
+      "main": [
+        {
+          "name": "煞气结晶/回元主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "元婴精血",
+          "role": "爆元",
+          "qty": 1
+        },
+        {
+          "name": "剧毒调和（可控）",
+          "role": "激性",
+          "qty": 1
+        },
+        {
+          "name": "疗伤辅药",
+          "role": "缓冲",
+          "qty": 1
+        }
+      ],
+      "side_effect": "损元气，禁连服",
+      "description": "死斗翻盘丹。"
+    },
+    {
+      "id": "wuxing_xue_ning_dan",
+      "display": "五行血凝丹",
+      "tier": 2,
+      "alignment": "demonic",
+      "main": [
+        {
+          "name": "五行之血药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "生灵精血",
+          "role": "邪引",
+          "qty": 1
+        },
+        {
+          "name": "魔草",
+          "role": "辅",
+          "qty": 2
+        }
+      ],
+      "source": "黑煞教",
+      "description": "正道禁丹。"
+    },
+    {
+      "id": "sha_dan",
+      "display": "煞丹",
+      "tier": 3,
+      "alignment": "demonic",
+      "main": [
+        {
+          "name": "煞气核心",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "玄阴经煞丹术辅药",
+          "role": "套",
+          "qty": 1
+        },
+        {
+          "name": "精血",
+          "role": "凝",
+          "qty": 1
+        }
+      ],
+      "description": "魔功急进；隐患大。"
+    },
+    {
+      "id": "bailian_jiedu_dan",
+      "display": "百炼解毒丹",
+      "tier": 2,
+      "main": [
+        {
+          "name": "解毒主草",
+          "role": "主",
+          "qty": 2
+        }
+      ],
+      "aux": [
+        {
+          "name": "蛇胆",
+          "role": "以毒攻毒",
+          "qty": 1
+        },
+        {
+          "name": "甘草类灵草",
+          "role": "和",
+          "qty": 2
+        },
+        {
+          "name": "清灵水",
+          "role": "溶",
+          "qty": 1
+        }
+      ],
+      "description": "对普通毒有效；十绝毒需专解。"
+    },
+    {
+      "id": "si_ling_wan",
+      "display": "饲灵丸",
+      "tier": 2,
+      "main": [
+        {
+          "name": "灵兽粪便（净制）",
+          "role": "主",
+          "qty": 1
+        },
+        {
+          "name": "灵药渣/灵草",
+          "role": "主",
+          "qty": 2
+        }
+      ],
+      "aux": [
+        {
+          "name": "矿粉按属性",
+          "role": "定向喂养",
+          "qty": 1
+        }
+      ],
+      "description": "喂灵兽/灵虫；属性对口加成。"
+    },
+    {
+      "id": "jiang_yun_dan",
+      "display": "绛云丹",
+      "tier": 3,
+      "main": [
+        {
+          "name": "绛云主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "火属性灵草",
+          "role": "辅",
+          "qty": 2
+        },
+        {
+          "name": "中阶妖丹",
+          "role": "核",
+          "qty": "碎"
+        }
+      ],
+      "description": "中高阶修为/疗伤结构丹。"
+    },
+    {
+      "id": "xue_po_wan",
+      "display": "雪魄丸",
+      "tier": 3,
+      "main": [
+        {
+          "name": "雪魄主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "寒髓碎片/寒药",
+          "role": "定魄",
+          "qty": 1
+        },
+        {
+          "name": "安魂草",
+          "role": "辅",
+          "qty": 1
+        }
+      ],
+      "description": "寒系/神魂向结构丹。"
+    },
+    {
+      "id": "mie_chen_dan",
+      "display": "灭尘丹",
+      "tier": 3,
+      "main": [
+        {
+          "name": "灭尘主药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "净化灵草",
+          "role": "辅",
+          "qty": 2
+        }
+      ],
+      "description": "祛体杂质、助突破前清理结构。"
+    },
+    {
+      "id": "shi_xue_dan",
+      "display": "嗜血丹",
+      "tier": 2,
+      "alignment": "demonic",
+      "main": [
+        {
+          "name": "精血凝物",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "魔草",
+          "role": "辅",
+          "qty": 1
+        }
+      ],
+      "description": "邪修战力丹；后遗症。"
+    },
+    {
+      "id": "xue_ning_dan",
+      "display": "血凝丹",
+      "tier": 2,
+      "main": [
+        {
+          "name": "凝血灵药",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "兽血",
+          "role": "辅",
+          "qty": 1
+        }
+      ],
+      "description": "外伤急救结构。"
+    },
+    {
+      "id": "zhu_ji_dan_advanced",
+      "display": "筑基丹（大晋级）",
+      "tier": 1,
+      "main": [
+        {
+          "name": "玉髓芝类或大晋替代主药",
+          "role": "主",
+          "qty": 4
+        }
+      ],
+      "aux": [
+        {
+          "name": "大晋地产灵草",
+          "role": "辅",
+          "qty": 3
+        },
+        {
+          "name": "更稳丹引",
+          "role": "成率+",
+          "qty": 1
+        }
+      ],
+      "price_mod": 1.2,
+      "description": "药力/成率略优于天南通货结构。",
+      "main_ids": [
+        {
+          "name": "玉髓芝类或大晋替代主药",
+          "role": "主",
+          "qty": 4
+        }
+      ],
+      "success_base": 0.45,
+      "success_mods": null,
+      "furnace_min": null,
+      "furnace_prefer": "alchemy_furnace_g2",
+      "output_price_low_stone": [
+        1000,
+        4000
+      ],
+      "quest_chain": null,
+      "novel_anchor": "大晋级筑基丹",
+      "description_v145": "大晋地产与更稳丹引，成率叙事高于天南坊市货。",
+      "region": "dajin",
+      "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+      "v145_aligned": true
+    },
+    {
+      "id": "xuan_mu_huaying_aux",
+      "display": "玄牡化婴辅助丹方",
+      "tier": 4,
+      "main": [
+        {
+          "name": "双修药引",
+          "role": "主",
+          "qty": 1
+        }
+      ],
+      "aux": [
+        {
+          "name": "阴元/阳元对应药",
+          "role": "辅",
+          "qty": 2
+        },
+        {
+          "name": "安魂草",
+          "role": "防走火",
+          "qty": 1
+        }
+      ],
+      "note": "剧情向，慎做玩法核心",
+      "description": "与化婴秘术配套的结构丹辅。"
+    }
+  ],
+  "substitution_rules": {
+    "same_element": "同属性低一阶×2 可尝试替一阶",
+    "green_liquid_aged": "绿液催熟药龄可顶千年需求（次数帽）",
+    "forbidden": "主药四缺一不可硬替筑基丹"
+  },
+  "v145_alignment": {
+    "aligned_recipes": [
+      "zhu_ji_dan",
+      "zhu_ji_dan_advanced",
+      "pei_ying_dan",
+      "zao_hua_dan",
+      "bu_tian_dan",
+      "hui_yang_zhen_shui",
+      "xu_ling_dan"
+    ],
+    "principle": "三主料/阴芝马/灵烛/精火 与任务、秘境、物价、unique 政策一致"
+  }
+}

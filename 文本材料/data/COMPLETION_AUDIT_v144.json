@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "source": "v144 货架对齐+终局奖励细表+势力NPC",
+  "delivered": [
+    "market_shelf_price_align_v144",
+    "endgame_reward_tables_v144",
+    "faction_lore_compendium_v144",
+    "npcs 13",
+    "quest_chains 22"
+  ],
+  "honest_gaps_still": [
+    "全部 14+ 坊市货架商品未逐条改价（关键名已对齐）",
+    "原著具名角色（韩立线全NPC）仍不求全",
+    "小极宫/万宝等仍非全百科"
+  ],
+  "status": "货架关键价对齐；终局奖励可执行细表；势力NPC贴原著描述"
+}

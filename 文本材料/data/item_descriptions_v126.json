@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "source": "v126 七派精表+青元13层",
+  "items": [
+    {
+      "id": "v126_qingyuan13",
+      "display": "青元13层原著锚点",
+      "type": "meta",
+      "description": "13层可玩刻度+novel_anchor；第九层对齐元婴气质；圆满带化神前。"
+    },
+    {
+      "id": "v126_seven",
+      "display": "天南七派精表",
+      "type": "meta",
+      "description": "黄枫谷58术；掩月宗29术；灵兽山6术；清虚门5术；化刀坞6术；天阙堡4术；巨剑门6术"
+    },
+    {
+      "id": "v126_accept",
+      "display": "验收",
+      "type": "meta",
+      "description": "双线同时。无代码。",
+      "checks": [
+        "青元13层锚点",
+        "七派各有精表与术",
+        "备选七派名单注明",
+        "矩阵已更新"
+      ]
+    }
+  ]
+}

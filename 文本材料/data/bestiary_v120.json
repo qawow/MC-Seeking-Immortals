@@ -1,0 +1,2200 @@
+{
+  "schema_version": 1,
+  "source": "v120 兽动画表+NPC表情",
+  "creatures": [
+    {
+      "id": "anim_beast_twin_pupil_rat",
+      "display": "双瞳鼠（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "双瞳鼠：双瞳看穿迷雾，喜灵浓处筑窝。",
+      "description": "双瞳鼠：双瞳看穿迷雾，喜灵浓处筑窝。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_red_leopard_beast",
+      "display": "红狸兽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "红狸兽：敏捷、嗅觉超常。",
+      "description": "红狸兽：敏捷、嗅觉超常。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_fire_horn_deer",
+      "display": "炙角鹿（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "炙角鹿：火红独角。",
+      "description": "炙角鹿：火红独角。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_wind_screech_hawk",
+      "display": "风啸鹰（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "风啸鹰：驯养放哨侦察。",
+      "description": "风啸鹰：驯养放哨侦察。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_scent_spirit_beast",
+      "display": "嗅灵兽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "嗅灵兽：查违禁物品。",
+      "description": "嗅灵兽：查违禁物品。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_giant_centipede",
+      "display": "巨型蜈蚣（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "巨型蜈蚣：黑色甲壳。",
+      "description": "巨型蜈蚣：黑色甲壳。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_ink_flood_dragon",
+      "display": "墨蛟（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "description": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_heart_bore_worm",
+      "display": "钻心虫（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "甲壳/鳞粉/复眼细节",
+      "description": "甲壳/鳞粉/复眼细节",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_fire_crow",
+      "display": "火鸦（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "火鸦：火属性远程。",
+      "description": "火鸦：火属性远程。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_green_vine_demon",
+      "display": "青木妖藤（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "青木妖藤：束缚毒回血。",
+      "description": "青木妖藤：束缚毒回血。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_mystic_water_turtle",
+      "display": "玄水龟（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "玄水龟：高防水系控制。",
+      "description": "玄水龟：高防水系控制。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_thunder_horn_tiger",
+      "display": "雷角虎（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "雷角虎：冲锋雷击。",
+      "description": "雷角虎：冲锋雷击。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_demon_core_bear",
+      "display": "妖丹熊（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "妖丹熊：结丹初，体内结妖丹。",
+      "description": "妖丹熊：结丹初，体内结妖丹。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_baby_carp_demon",
+      "display": "婴鲤兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "婴鲤兽：娃娃脸鱼尾，水罡神雷。",
+      "description": "婴鲤兽：娃娃脸鱼尾，水罡神雷。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_ice_soul_serpent",
+      "display": "冰魄蛇（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "冰魄蛇：冰冻毒。",
+      "description": "冰魄蛇：冰冻毒。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_spirit_fox",
+      "display": "灵狐（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "灵狐：幻术闪避可驯服。",
+      "description": "灵狐：幻术闪避可驯服。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_shape_shift_trial_beast",
+      "display": "化形试炼兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "化形试炼兽：七级渡劫化形模板。",
+      "description": "化形试炼兽：七级渡劫化形模板。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_thunder_jiao",
+      "display": "雷劫蛟（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "description": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_silver_wing_yaksha",
+      "display": "银翅夜叉（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "银翅夜叉：炼尸/妖 hybrid，风土遁幻术。",
+      "description": "银翅夜叉：炼尸/妖 hybrid，风土遁幻术。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_wind_split_beast",
+      "display": "裂风兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "裂风兽：妖王级，学人族技术。",
+      "description": "裂风兽：妖王级，学人族技术。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_earth_armor_dragon",
+      "display": "土甲龙（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "description": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_fire_jiao_adult",
+      "display": "离火蛟（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "description": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_suanni_beast",
+      "display": "狻猊兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "狻猊兽：上古兽形。",
+      "description": "狻猊兽：上古兽形。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_four_ear_gold_ape",
+      "display": "四耳金猿（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "长臂巨力、面有智光",
+      "description": "长臂巨力、面有智光",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_gold_body_moon_corpse",
+      "display": "金身月尸（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "金漆干尸关节反折",
+      "description": "金漆干尸关节反折",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_six_wing_frost_centipede",
+      "display": "六翼霜蚣（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "六翼霜蚣：冰龙血统灵虫。",
+      "description": "六翼霜蚣：冰龙血统灵虫。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_leopard_qilin_beast",
+      "display": "豹麟兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "豹麟兽：麒麟血脉，元婴实力幼体。",
+      "description": "豹麟兽：麒麟血脉，元婴实力幼体。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_mirage_sand_beast",
+      "display": "蜃兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜃兽：双蛇首蛙身，幻化。",
+      "description": "蜃兽：双蛇首蛙身，幻化。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_sky_tiger_beast",
+      "display": "天虎兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "天虎兽：土风法术瞬移。",
+      "description": "天虎兽：土风法术瞬移。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_holy_peacock",
+      "display": "圣禽（青孔雀）（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "华羽开屏、冠羽",
+      "description": "华羽开屏、冠羽",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_soul_weep_beast",
+      "display": "泣魂兽（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "泣魂兽：冥河阴兽，啼哭可乱人心神，常伴尸气。",
+      "description": "泣魂兽：冥河阴兽，啼哭可乱人心神，常伴尸气。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_phantom_flame_moth",
+      "display": "幻焰蛾（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "甲壳/鳞粉/复眼细节",
+      "description": "甲壳/鳞粉/复眼细节",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_gold_devour_beetle",
+      "display": "噬金虫（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "甲壳/鳞粉/复眼细节",
+      "description": "甲壳/鳞粉/复眼细节",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_soul_weeping_beast",
+      "display": "啼魂兽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "啼魂兽：尖啸伤魂，对鬼物克制极强。",
+      "description": "啼魂兽：尖啸伤魂，对鬼物克制极强。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_mountain_giant_ape",
+      "display": "山岳巨猿（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "长臂巨力、面有智光",
+      "description": "长臂巨力、面有智光",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_blood_jiao",
+      "display": "血蛟（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "description": "蜿体鳞层、须眉杀气、盘/游姿态",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "anim_beast_three_tailed_fox",
+      "display": "三尾妖狐（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "三尾妖狐：擅幻术，灵狐一脉。",
+      "description": "三尾妖狐：擅幻术，灵狐一脉。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_iron_lion_beast",
+      "display": "铁甲狮兽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "铁甲狮兽：体修型妖兽，皮糙肉厚。",
+      "description": "铁甲狮兽：体修型妖兽，皮糙肉厚。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_cloud_silk_spider",
+      "display": "云丝蛛（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "云丝蛛：吐丝缚敌，可炼蛛丝材料。",
+      "description": "云丝蛛：吐丝缚敌，可炼蛛丝材料。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_flame_salamander",
+      "display": "火蜥兽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "火蜥兽：火系低阶妖兽，内丹可入药。",
+      "description": "火蜥兽：火系低阶妖兽，内丹可入药。",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_ice_phoenix_chick",
+      "display": "冰凤幼禽（动画表）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "华羽开屏、冠羽",
+      "description": "华羽开屏、冠羽",
+      "threat": 3,
+      "tameable": true
+    },
+    {
+      "id": "anim_beast_void_mantis",
+      "display": "虚空螳螂（动画表）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v120"
+      ],
+      "appearance": "虚空螳螂：灵界虫族，前肢如刃。",
+      "description": "虚空螳螂：灵界虫族，前肢如刃。",
+      "threat": 3,
+      "tameable": false
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_great_elder",
+      "display": "星宫·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_qingxu_quiet",
+      "display": "清虚门·静修堂主（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_jujian_forge",
+      "display": "巨剑门·剑冢执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_hehuan_host",
+      "display": "合欢宗·堂主（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_star_palace_censor",
+      "display": "星宫·巡察使（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_inverse_star_broker",
+      "display": "逆星·灰市掮客（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['半笑', '眨眼接头', '变脸切割']"
+    },
+    {
+      "id": "expr_npc_npc_liulian_envoy",
+      "display": "六连殿·联络修（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['半笑', '眨眼接头', '变脸切割']"
+    },
+    {
+      "id": "expr_npc_npc_dajin_border_general",
+      "display": "大晋边军·校尉（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_fashi",
+      "display": "慕兰·法师长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_mulan_scout_chief",
+      "display": "慕兰·斥候长（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_qianzhu_mechanic",
+      "display": "千竹·机关长老（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['皱眉看火', '点头', '嫌弃炸炉']"
+    },
+    {
+      "id": "expr_npc_npc_kunwu_guide",
+      "display": "昆吾·火脉向导（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_nether_ferryman",
+      "display": "冥河·摆渡残影（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_xutian_observer",
+      "display": "虚天殿·观殿人（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['审', '斥', '允']"
+    },
+    {
+      "id": "expr_npc_npc_diyuan_miner",
+      "display": "地渊·矿脉包工头（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "expr_npc_npc_asura_trial_warden",
+      "display": "修罗界·试炼令使（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['招呼', '嘱咐', '担忧']"
+    },
+    {
+      "id": "expr_npc_npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['威默', '微颔', '目压']"
+    },
+    {
+      "id": "expr_npc_npc_garden_auditor",
+      "display": "灵缈园·采药审计（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['扫描', '拔势', '收势']"
+    },
+    {
+      "id": "expr_npc_npc_wandering_appraiser",
+      "display": "散修·鉴宝张（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['半笑', '眨眼接头', '变脸切割']"
+    },
+    {
+      "id": "expr_npc_npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事（表情）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v120"
+      ],
+      "threat": 1,
+      "description": "表情组['势利笑', '公事脸', '驱赶']"
+    },
+    {
+      "id": "v120_vfx_director",
+      "display": "视效总监（结构）",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 visual_effect_sheets_v120 / item_descriptions_v120",
+      "tags": [
+        "v120"
+      ]
+    }
+  ]
+}

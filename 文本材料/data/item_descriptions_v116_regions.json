@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "source": "v116 区域卡深稿",
+  "items": [
+    {
+      "id": "region_deep_barbarian_wasteland",
+      "catalog_id": "barbarian_wasteland",
+      "display": "蛮荒之地（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "蛮荒之地·主聚落/山门/港埠",
+        "蛮荒之地·坊市或黑市节点",
+        "蛮荒之地·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】蛮荒之地（barbarian_wasteland）。蛮荒：兽王、上古遗迹、高阶草与灵铁。结丹后试胆。结构化字段：灵气=1.4；气候=None；最低境界参考=VOID_REFINING；势力=['barbarian_council']；传送/门户=None；日常事件=['barbarian_beast_tide', 'king_territory_intrusion']；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['barbarian_border_contact', 'barbarian_king_token_hunt']。建议具名点：蛮荒之地·主聚落/山门/港埠；蛮荒之地·坊市或黑市节点；蛮荒之地·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_chaotic_sea",
+      "catalog_id": "chaotic_sea",
+      "display": "乱星海（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "乱星海·主聚落/山门/港埠",
+        "乱星海·坊市或黑市节点",
+        "乱星海·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】乱星海（chaotic_sea）。乱星海外岛棋布。星宫号令外海秩序，逆星与魔道潜流。航线：外岛市集—内海深域—六连殿势力交错。特产海材、妖丹、星宫制式器。中期结丹元婴经济与声望主场。风险：海兽、风暴、劫修、阵营通缉。结构化字段：灵气=mid_high；气候=ocean_storm；最低境界参考=None；势力=['star_palace', 'inverse_star_alliance', 'free_cultivator_islands']；传送/门户=['tiannan_to_chaotic_sea_ferry']；日常事件=['chaotic_sea_pirate_raid', 'chaotic_sea_beast_tide', 'ghost_fog_truce']；秘境=['void_palace']；商店=None；特产=None；经济注=岛税、走私、拍卖与虚天殿情报；禁途=None；任务钩=None。建议具名点：乱星海·主聚落/山门/港埠；乱星海·坊市或黑市节点；乱星海·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_dajin",
+      "catalog_id": "dajin",
+      "display": "大晋（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "大晋·主聚落/山门/港埠",
+        "大晋·坊市或黑市节点",
+        "大晋·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】大晋（dajin）。大晋正魔边与世家林立。赌战、拍卖、庚精级硬通货传闻。南接昆吾气质遗迹，北有蛮荒材料。玩法：边军功勋、世家联姻任务、正魔战场事件。勿在京畿当街抛售禁忌物。结构化字段：灵气=1.15；气候=None；最低境界参考=None；势力=['dajin_clans_generic', 'wanbao_pavilion_generic']；传送/门户=None；日常事件=None；秘境=['kunwu_mountain_generic']；商店=None；特产=['refinement', 'auction', 'clan_politics']；经济注=None；禁途=None；任务钩=None。建议具名点：大晋·主聚落/山门/港埠；大晋·坊市或黑市节点；大晋·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_extreme_west",
+      "catalog_id": "extreme_west",
+      "display": "极西千竹（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "极西千竹·主聚落/山门/港埠",
+        "极西千竹·坊市或黑市节点",
+        "极西千竹·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】极西千竹（extreme_west）。极西千竹：傀儡传承、竹海、大衍残篇气质。机关塔关联。结构化字段：灵气=mid；气候=None；最低境界参考=None；势力=['thousand_bamboo_sect']；传送/门户=None；日常事件=None；秘境=['thousand_bamboo_puppet_tower']；商店=None；特产=['ironwood', 'puppet_core_blank']；经济注=None；禁途=None；任务钩=None。建议具名点：极西千竹·主聚落/山门/港埠；极西千竹·坊市或黑市节点；极西千竹·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_fallen_demon_valley",
+      "catalog_id": "fallen_demon_valley",
+      "display": "坠魔谷（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "坠魔谷·主聚落/山门/港埠",
+        "坠魔谷·坊市或黑市节点",
+        "坠魔谷·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】坠魔谷（fallen_demon_valley）。坠魔谷：古魔残留、裂隙、魔化风险。中高阶，禁炼气旅游。幻焰蛾等群灾。结构化字段：灵气=None；气候=None；最低境界参考=NASCENT_SOUL；势力=None；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=None。建议具名点：坠魔谷·主聚落/山门/港埠；坠魔谷·坊市或黑市节点；坠魔谷·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_great_jin_central",
+      "catalog_id": "great_jin_central",
+      "display": "大晋中心（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "大晋中心·主聚落/山门/港埠",
+        "大晋中心·坊市或黑市节点",
+        "大晋中心·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】大晋中心（great_jin_central）。大晋腹心：律法与世家眼线密。高价拍卖、情报贵。适合结丹后带足伪装与逃遁。结构化字段：灵气=high；气候=temperate_high_spirit；最低境界参考=None；势力=['great_jin_clans', 'wanbao_pavilion', 'refinement_halls']；传送/门户=['cross_region_array']；日常事件=great_jin_auction_week；秘境=None；商店=None；特产=['kunwu_copper', 'ancient_artifact_fragment']；经济注=None；禁途=None；任务钩=None。建议具名点：大晋中心·主聚落/山门/港埠；大晋中心·坊市或黑市节点；大晋中心·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_inverse_star_hideout",
+      "catalog_id": "inverse_star_hideout",
+      "display": "逆星暗港（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "逆星暗港·主聚落/山门/港埠",
+        "逆星暗港·坊市或黑市节点",
+        "逆星暗港·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】逆星暗港（inverse_star_hideout）。逆星隐点：黑市、走私、虚空钥匙碎片传闻。高风险高情报。结构化字段：灵气=None；气候=None；最低境界参考=None；势力=None；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['inverse_star_contact', 'stolen_jade_slip']。建议具名点：逆星暗港·主聚落/山门/港埠；逆星暗港·坊市或黑市节点；逆星暗港·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_kunwu",
+      "catalog_id": "kunwu",
+      "display": "昆吾山（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "昆吾山·主聚落/山门/港埠",
+        "昆吾山·坊市或黑市节点",
+        "昆吾山·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】昆吾山（kunwu）。昆吾火山地脉与古禁。寒热交攻，傀儡与古宝碎片。八灵尺线与火脉材料。非日常旅游点。结构化字段：灵气=1.2；气候=extreme_cold；最低境界参考=None；势力=['dajin_clans_generic']；传送/门户=None；日常事件=['kunwu_cold_snap']；秘境=kunwu_mountain；商店=None；特产=None；经济注=None；禁途=None；任务钩=None。建议具名点：昆吾山·主聚落/山门/港埠；昆吾山·坊市或黑市节点；昆吾山·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_mulan",
+      "catalog_id": "mulan",
+      "display": "慕兰草原（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "慕兰草原·主聚落/山门/港埠",
+        "慕兰草原·坊市或黑市节点",
+        "慕兰草原·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】慕兰草原（mulan）。慕兰草原骑射与法士。圣禽供奉气质，与天澜战场纠缠。军功/骨哨/风灵石经济。猎杀圣禽向目标会毁声望。结构化字段：灵气=0.95；气候=steppe_dry；最低境界参考=None；势力=['mulan_fashi_council', 'mulan_beast_god', 'wutu_clan_generic']；传送/门户=[{'id': 'holy_bird_altar', 'type': 'blessing', 'reputation_min': 30}, {'id': 'border_war_camp', 'type': 'faction_war', 'cycle': 'mulan_tianlan_war_minor'}]；日常事件=['nomad_migration', 'fashi_patrol', 'beast_tame_festival']；秘境=None；商店=None；特产=None；经济注=法士灵术强；圣禽祝福需声望；禁途=['demonic_core_unless_oath']；任务钩=['mulan_fashi_path', 'mulan_war_campaign']。建议具名点：慕兰草原·主聚落/山门/港埠；慕兰草原·坊市或黑市节点；慕兰草原·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_mulan_grassland",
+      "catalog_id": "mulan_grassland",
+      "display": "慕兰草原（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "慕兰草原·主聚落/山门/港埠",
+        "慕兰草原·坊市或黑市节点",
+        "慕兰草原·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】慕兰草原（mulan_grassland）。开阔风原，兽潮与斥候。适合风抗、远程、狼骑遭遇。与天澜秘境入口联动。结构化字段：灵气=low_mid；气候=windy_steppe；最低境界参考=None；势力=['mulan_tribes', 'tiannan_border_guards']；传送/门户=['tiannan_teleport_array']；日常事件=daily_random_events.json#mulan；秘境=None；商店=None；特产=['wind_herb', 'beast_hide']；经济注=None；禁途=['demonic_core_uncontrolled']；任务钩=None。建议具名点：慕兰草原·主聚落/山门/港埠；慕兰草原·坊市或黑市节点；慕兰草原·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_nether_river",
+      "catalog_id": "nether_river",
+      "display": "冥河（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "冥河·主聚落/山门/港埠",
+        "冥河·坊市或黑市节点",
+        "冥河·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】冥河（nether_river）。冥河阴司集群入口气质。鬼物、阴材、定神刚需。神乳线索 unique，不进保底。结构化字段：灵气=yin；气候=None；最低境界参考=None；势力=None；传送/门户=None；日常事件=['nether_river_fog', 'ghost_boat']；秘境=['nether_river_land']；商店=['nether_ferry_vendor']；特产=None；经济注=None；禁途=None；任务钩=None。建议具名点：冥河·主聚落/山门/港埠；冥河·坊市或黑市节点；冥河·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_outer_sea_market",
+      "catalog_id": "outer_sea_market",
+      "display": "外海坊市（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "外海坊市·主聚落/山门/港埠",
+        "外海坊市·坊市或黑市节点",
+        "外海坊市·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】外海坊市（outer_sea_market）。外海免税与黑市并存的市集。价随航线与战争浮动。假货多，需鉴定。结构化字段：灵气=mid；气候=None；最低境界参考=None；势力=None；传送/门户=None；日常事件=['chaotic_sea_pirate_raid']；秘境=None；商店=['outer_sea_public_stall', 'pirate_black_market_outer_sea']；特产=None；经济注=None；禁途=None；任务钩=['star_palace_dock_permit']。建议具名点：外海坊市·主聚落/山门/港埠；外海坊市·坊市或黑市节点；外海坊市·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_qixuan_village",
+      "catalog_id": "qixuan_village",
+      "display": "七玄门周边（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "七玄门周边·主聚落/山门/港埠",
+        "七玄门周边·坊市或黑市节点",
+        "七玄门周边·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】七玄门周边（qixuan_village）。七玄门凡人江湖起点气质。测灵、入道前故事、低阶冲突。灵气稀薄。结构化字段：灵气=low；气候=None；最低境界参考=None；势力=['qixuan_men']；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['qixuan_mortal_path']。建议具名点：七玄门周边·主聚落/山门/港埠；七玄门周边·坊市或黑市节点；七玄门周边·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_spirit_fengyuan",
+      "catalog_id": "spirit_fengyuan",
+      "display": "风元大陆（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "风元大陆·主聚落/山门/港埠",
+        "风元大陆·坊市或黑市节点",
+        "风元大陆·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】风元大陆（spirit_fengyuan）。灵界风元大陆气质。灵气浓、妖阶高。人族初入需适应与靠山。结构化字段：灵气=1.25；气候=temperate_spirit_rich；最低境界参考=None；势力=['human_clan_league_generic', 'demon_clan_generic', 'barbarian_council']；传送/门户=None；日常事件=['fengyuan_clan_feud', 'spirit_storm']；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['fengyuan_explorer', 'barbarian_king_hunt']。建议具名点：风元大陆·主聚落/山门/港埠；风元大陆·坊市或黑市节点；风元大陆·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_spirit_realm_border",
+      "catalog_id": "spirit_realm_border",
+      "display": "灵界边境荒原（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "灵界边境荒原·主聚落/山门/港埠",
+        "灵界边境荒原·坊市或黑市节点",
+        "灵界边境荒原·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】灵界边境荒原（spirit_realm_border）。灵界边缘适应带。高压灵气、本地巡检、飞升新手任务。结构化字段：灵气=1.3；气候=None；最低境界参考=SPIRIT_SEVERING；势力=None；传送/门户=None；日常事件=['wild_land_beast_horde', 'spatial_rift_flutter']；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=None。建议具名点：灵界边境荒原·主聚落/山门/港埠；灵界边境荒原·坊市或黑市节点；灵界边境荒原·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_star_palace_city",
+      "catalog_id": "star_palace_city",
+      "display": "天星城（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "天星城·主聚落/山门/港埠",
+        "天星城·坊市或黑市节点",
+        "天星城·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】天星城（star_palace_city）。星宫治下城。制式剑、法度、通缉网。接乱星海声望主线。结构化字段：灵气=high；气候=None；最低境界参考=None；势力=None；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['chaotic_sea_politics']。建议具名点：天星城·主聚落/山门/港埠；天星城·坊市或黑市节点；天星城·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_tianlan",
+      "catalog_id": "tianlan",
+      "display": "天澜草原边境（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "天澜草原边境·主聚落/山门/港埠",
+        "天澜草原边境·坊市或黑市节点",
+        "天澜草原边境·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】天澜草原边境（tianlan）。天澜战场与圣兽传说交叠。战时刷怪权重上升，风石溢价。可战可谈取决于阵营。结构化字段：灵气=None；气候=None；最低境界参考=None；势力=['tianlan_temple']；传送/门户=None；日常事件=['mulan_scout_clash', 'tianlan_patrol']；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=None。建议具名点：天澜草原边境·主聚落/山门/港埠；天澜草原边境·坊市或黑市节点；天澜草原边境·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_tiannan",
+      "catalog_id": "tiannan",
+      "display": "天南（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "天南·主聚落/山门/港埠",
+        "天南·坊市或黑市节点",
+        "天南·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】天南（tiannan）。天南为炼气筑基主舞台。越国周边七派林立，黄枫谷以丹闻名，掩月阴柔，清虚清修，巨剑刚猛，灵兽山御兽，化刀坞近身兵刃，天阙堡城防。坊市有：宗门山脚市、散修乱市、边军过路市。灵脉节点：黄枫后山、禁地外围、边境荒脉。日常：外门贡献、采药、七脉试炼、筑基丹争夺传闻。风险：邪修夺丹、妖兽出没、七派摩擦。结构化字段：灵气=1.0；气候=temperate_humid；最低境界参考=None；势力=['huangfeng_valley', 'yanyue_sect', 'spirit_beast_mountain', 'qingxu_gate', 'huadao_wu', 'qixuan_men']；传送/门户=[{'id': 'market_huangfeng', 'type': 'market', 'realm_min': 'qi_refining'}, {'id': 'blood_forbidden_gate', 'type': 'secret_realm', 'cycle': 'cycle_blood_forbidden'}]；日常事件=['sect_recruitment_spring', 'bandit_cultivator_road', 'spirit_herb_gatherers']；秘境=['blood_forbidden']；商店=None；特产=None；经济注=筑基丹宗门管控；散修坊市溢价10%；禁途=[]；任务钩=['huangfeng_cultivation_path', 'mulan_tianlan_war']。建议具名点：天南·主聚落/山门/港埠；天南·坊市或黑市节点；天南·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_tiannan_north_waste",
+      "catalog_id": "tiannan_north_waste",
+      "display": "天南荒原（魔道）（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "天南荒原（魔道）·主聚落/山门/港埠",
+        "天南荒原（魔道）·坊市或黑市节点",
+        "天南荒原（魔道）·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】天南荒原（魔道）（tiannan_north_waste）。天南北部荒原。散修、盗墓、低阶秘境入口。补给线长。结构化字段：灵气=low_corrupt；气候=None；最低境界参考=None；势力=demonic_six_sects.json；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['demonic_six_path']。建议具名点：天南荒原（魔道）·主聚落/山门/港埠；天南荒原（魔道）·坊市或黑市节点；天南荒原（魔道）·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_tianyuan",
+      "catalog_id": "tianyuan",
+      "display": "天渊城（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "天渊城·主聚落/山门/港埠",
+        "天渊城·坊市或黑市节点",
+        "天渊城·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】天渊城（tianyuan）。天渊城为灵界功勋与秩序节点。飞升后的「新外门」。密度高、规矩多、本地修士眼高于顶。结构化字段：灵气=2.0；气候=None；最低境界参考=None；势力=['tianyuan_guard_generic']；传送/门户=None；日常事件=['demon_beast_siege', 'merit_patrol']；秘境=['diyuan']；商店=None；特产=None；经济注=None；禁途=None；任务钩=['tianyuan_merit_path', 'spirit_realm_border']。建议具名点：天渊城·主聚落/山门/港埠；天渊城·坊市或黑市节点；天渊城·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_wutu_border",
+      "catalog_id": "wutu_border",
+      "display": "突兀族边境营（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "突兀族边境营·主聚落/山门/港埠",
+        "突兀族边境营·坊市或黑市节点",
+        "突兀族边境营·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】突兀族边境营（wutu_border）。五途/边地摩擦带（设定名位）。多方敌对，适合赏金与护送。结构化字段：灵气=0.85；气候=None；最低境界参考=None；势力=['wutu_clan_generic']；传送/门户=None；日常事件=['wutu_raid_mulan_camp', 'nomad_migration']；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['wutu_scout_contact', 'feud_truce_broker']。建议具名点：突兀族边境营·主聚落/山门/港埠；突兀族边境营·坊市或黑市节点；突兀族边境营·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    },
+    {
+      "id": "region_deep_yinming",
+      "catalog_id": "yinming",
+      "display": "阴冥（区域深稿）",
+      "type": "region_deep",
+      "tags": [
+        "region_deep_v116"
+      ],
+      "places": [
+        "阴冥·主聚落/山门/港埠",
+        "阴冥·坊市或黑市节点",
+        "阴冥·灵脉/危险边缘"
+      ],
+      "description": "【区域深稿】阴冥（yinming）。阴冥鬼修道场向。与鬼灵门、阴罗冢气质衔接。正道慎入，魔道如归。结构化字段：灵气=yin_heavy；气候=None；最低境界参考=None；势力=None；传送/门户=None；日常事件=None；秘境=None；商店=None；特产=None；经济注=None；禁途=None；任务钩=['yinming_escape']。建议具名点：阴冥·主聚落/山门/港埠；阴冥·坊市或黑市节点；阴冥·灵脉/危险边缘。旅行：与 travel 表同 region 对齐；补给、鉴定、逃遁三件套。声望：本地敌对势力负值会拒售/盘查/追杀。刷怪：见 spawn_tables 同域生态；真灵不进常规权重。"
+    }
+  ]
+}

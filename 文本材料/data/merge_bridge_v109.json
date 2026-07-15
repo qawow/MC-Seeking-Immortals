@@ -1,0 +1,567 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v109–v147",
+  "disclaimer": "无代码。原包 data_manifest 与后期深挖并行；冲突时：唯一物/红线以后期 numeric+audit 为准，场景展开以 secret_realm_* 深挖为准，目录清单以原包 catalogs 为准",
+  "id": "merge_bridge_v109",
+  "display": "设定包合并桥",
+  "layers": {
+    "original_pack": {
+      "role": "基础目录与可加载清单",
+      "entry": [
+        "data_manifest.json",
+        "README_WORLDPACK.md"
+      ],
+      "core_catalogs": [
+        "pills_catalog.json",
+        "materials_catalog.json",
+        "artifacts_catalog.json",
+        "spirit_herbs_catalog.json",
+        "manuals_catalog.json",
+        "consumables_catalog.json",
+        "beast_bestiary.json",
+        "secret_realms.json",
+        "merchant_shops.json",
+        "quest_chains.json",
+        "sects.json",
+        "spawn_tables.json",
+        "alchemy_recipes.json"
+      ],
+      "counts_snapshot": {
+        "pills": 114,
+        "materials": 221,
+        "artifacts": 217,
+        "herbs": 79,
+        "manuals": 21,
+        "consumables": 57,
+        "beasts_orig": 42,
+        "spirit_pets_orig": 5,
+        "secret_realms_list": 19,
+        "shops": 46,
+        "quest_chains": 62,
+        "sects": 28
+      }
+    },
+    "expansion_v92_v103": {
+      "role": "经济/成长/词条系统层",
+      "entry": "item_economy_index_v92.json",
+      "highlights": [
+        "compendium 系列",
+        "market_shelves / travel / reputation",
+        "breakthrough / loadout / poisons",
+        "bestiary_v95–v103 扩充词条",
+        "item_descriptions 分卷"
+      ]
+    },
+    "deep_dive_v104_v108": {
+      "role": "主线秘境与终局场景展开",
+      "files": [
+        "secret_realm_blood_forbidden_v104.json",
+        "secret_realm_xutian_v104.json",
+        "secret_realm_zhuimo_v104.json",
+        "secret_realm_kunwu_v105.json",
+        "secret_realm_yinyang_ku_v105.json",
+        "region_tianyuan_diyuan_v105.json",
+        "secret_realm_guanghan_maliang_v106.json",
+        "path_deity_huoyu_v106.json",
+        "sect_shelves_v106.json",
+        "sect_shelves_more_v107.json",
+        "region_chaotic_sea_liulian_v107.json",
+        "region_xinggong_dajin_v108.json",
+        "garden_liquid_calendar_v108.json"
+      ],
+      "docs": [
+        "docs/CATALOG_MASTER_v107.md",
+        "docs/CONSISTENCY_AUDIT_v108.md",
+        "docs/DESIGNER_HANDBOOK_v103.md"
+      ]
+    },
+    "v109_new": {
+      "role": "原包清单中尚未深挖的秘境 + 合并桥",
+      "files": [
+        "merge_bridge_v109.json",
+        "secret_realm_qianzhu_tower_v109.json",
+        "secret_realm_nether_river_v109.json",
+        "secret_realm_yinluo_catacomb_v109.json",
+        "bestiary_v109.json",
+        "item_descriptions_v109.json"
+      ]
+    },
+    "v110_new": {
+      "role": "七脉/古修/天澜深挖",
+      "files": [
+        "secret_realm_seven_meridian_v110.json",
+        "secret_realm_ancient_ruins_v110.json",
+        "secret_realm_tianlan_grotto_v110.json",
+        "bestiary_v110.json",
+        "item_descriptions_v110.json"
+      ]
+    },
+    "v111_new": {
+      "role": "原包19境收官",
+      "files": [
+        "secret_realms_final_seven_v111.json",
+        "bestiary_v111.json",
+        "item_descriptions_v111.json"
+      ]
+    },
+    "v112_new": {
+      "role": "原包 catalogs 全量详释对齐 + 42兽加深",
+      "files": [
+        "item_descriptions_v112.json",
+        "bestiary_v112.json",
+        "catalog_description_align_v112.json"
+      ]
+    },
+    "v113_new": {
+      "role": "关键物加长+42兽加长+46店货架",
+      "files": [
+        "item_descriptions_v113.json",
+        "bestiary_v113.json",
+        "merchant_shops_guide_v113.json"
+      ]
+    },
+    "v114_new": {
+      "role": "任务链/宗门/功法/丹方/刷怪/事件全量说明",
+      "files": [
+        "item_descriptions_v114.json",
+        "bestiary_v114.json",
+        "quest_sect_guide_v114.json"
+      ]
+    },
+    "v115_new": {
+      "role": "主线时间线+纪年+境界灵根+渡劫+任务钩",
+      "files": [
+        "item_descriptions_v115.json",
+        "bestiary_v115.json",
+        "timeline_guide_v115.json"
+      ]
+    },
+    "v116_new": {
+      "role": "模板层全面加深：术法/功法/区域/orig/七境二遍/NPC",
+      "files": [
+        "item_descriptions_v116_techniques.json",
+        "item_descriptions_v116_methods.json",
+        "item_descriptions_v116_regions.json",
+        "item_descriptions_v116_orig_deep.json",
+        "item_descriptions_v116_realms.json",
+        "item_descriptions_v116_npcs.json",
+        "item_descriptions_v116.json",
+        "named_npcs_v116.json",
+        "region_cards_deep_v116.json",
+        "secret_realms_final_seven_deep_v116.json",
+        "bestiary_v116.json",
+        "catalog_description_align_v116.json"
+      ]
+    },
+    "v117_new": {
+      "role": "主线剧情深稿+核心秘境三遍+关键物超长+势力页+对话+兽叙事",
+      "files": [
+        "item_descriptions_v117.json",
+        "quest_chains_deep_v117.json",
+        "faction_pages_v117.json",
+        "npc_dialogues_v117.json",
+        "bestiary_v117.json",
+        "secret_realm_blood_forbidden_third_v117.json",
+        "secret_realm_xutian_third_v117.json",
+        "secret_realm_zhuimo_third_v117.json",
+        "secret_realm_kunwu_third_v117.json",
+        "secret_realm_yinyang_ku_third_v117.json"
+      ]
+    },
+    "v118_new": {
+      "role": "外貌/效果/特效样式/场景视觉",
+      "files": [
+        "item_descriptions_v118.json",
+        "visual_style_v118.json",
+        "bestiary_v118.json"
+      ]
+    },
+    "v119_new": {
+      "role": "分镜板/BOSS阶段/肖像/图标规格",
+      "files": [
+        "item_descriptions_v119.json",
+        "visual_storyboards_v119.json",
+        "bestiary_v119.json"
+      ]
+    },
+    "v120_new": {
+      "role": "效果表现表/施法/装备演出/动画外貌/UI视觉",
+      "files": [
+        "item_descriptions_v120.json",
+        "visual_effect_sheets_v120.json",
+        "bestiary_v120.json"
+      ]
+    },
+    "v121_new": {
+      "role": "粒子材质拖尾+逐帧+状态机+秘境镜头",
+      "files": [
+        "item_descriptions_v121.json",
+        "visual_fx_pipeline_v121.json",
+        "bestiary_v121.json"
+      ]
+    },
+    "v122_new": {
+      "role": "五感外貌卡+剪影+效果样式+阵营配色",
+      "files": [
+        "item_descriptions_v122.json",
+        "visual_look_cards_v122.json",
+        "bestiary_v122.json"
+      ]
+    },
+    "v123_new": {
+      "role": "功法术法分类修正 P0+P1",
+      "files": [
+        "cultivation_methods.json",
+        "techniques/",
+        "method_path_taxonomy_v123.json",
+        "technique_method_bridge_v123.json",
+        "classification_patch_v123.json",
+        "item_descriptions_v123.json",
+        "docs/CLASSIFICATION_FIX_v123.md"
+      ]
+    },
+    "v124_new": {
+      "role": "原著功法术法补全与归类",
+      "files": [
+        "cultivation_methods.json",
+        "techniques/",
+        "novel_canon_audit_v124.json",
+        "technique_method_bridge_v124.json",
+        "item_descriptions_v124.json",
+        "docs/NOVEL_CANON_METHODS_v124.md"
+      ]
+    },
+    "v125_new": {
+      "role": "功法层数对照表 + 六宗分宗术包",
+      "files": [
+        "method_layer_technique_matrix_v125.json",
+        "six_sects_technique_packs_v125.json",
+        "demonic_six_sects.json",
+        "docs/METHOD_LAYER_AND_SIX_SECTS_v125.md",
+        "cultivation_methods.json",
+        "techniques/"
+      ]
+    },
+    "v126_new": {
+      "role": "天南七派精表 + 青元13层原著锚点",
+      "files": [
+        "tiannan_seven_sects_packs_v126.json",
+        "qingyuan_novel_layer_map_v126.json",
+        "method_layer_technique_matrix_v126.json",
+        "docs/SEVEN_SECTS_AND_QINGYUAN_v126.md"
+      ]
+    },
+    "v127_new": {
+      "role": "落云后期线 + 备选七派精表 + 双名单注册",
+      "files": [
+        "luoyun_late_game_pack_v127.json",
+        "tiannan_alternate_seven_packs_v127.json",
+        "tiannan_seven_lists_registry_v127.json",
+        "method_layer_technique_matrix_v127.json",
+        "docs/LUOYUN_AND_ALT_SEVEN_v127.md"
+      ]
+    },
+    "v128_new": {
+      "role": "乱星海星宫/逆星/妙音精表 + 开局名单与声望互斥",
+      "files": [
+        "chaotic_sea_factions_packs_v128.json",
+        "opening_list_and_reputation_rules_v128.json",
+        "method_layer_technique_matrix_v128.json",
+        "docs/CHAOTIC_SEA_AND_REP_v128.md",
+        "faction_graph.json"
+      ]
+    },
+    "v129_new": {
+      "role": "大晋+灵界+声望任务全矩阵+审计",
+      "files": [
+        "dajin_line_packs_v129.json",
+        "lingjie_high_realm_packs_v129.json",
+        "reputation_thresholds_and_quest_rewards_v129.json",
+        "COMPLETION_AUDIT_v129.json",
+        "docs/DAJIN_LINGJIE_REP_COMPLETION_v129.md"
+      ]
+    },
+    "v130_new": {
+      "role": "仙界扩展：真言门/大五行幻世/时间法则/轮回/天庭/黑风/灰界",
+      "files": [
+        "xianjie_immortal_packs_v130.json",
+        "immortal_realms_v130.json",
+        "xianjie_reputation_and_gates_v130.json",
+        "xianjie_quest_chains_v130.json",
+        "method_layer_technique_matrix_v130.json",
+        "COMPLETION_AUDIT_v130.json",
+        "docs/XIANJIE_IMMORTAL_EXPANSION_v130.md",
+        "cultivation_methods.json",
+        "techniques/"
+      ]
+    },
+    "v131_new": {
+      "role": "多方块结构描述扩充（尺寸/部件/外观/功能/原著锚点）",
+      "files": [
+        "block_items_catalog.json",
+        "docs/MULTIBLOCK_STRUCTURE_EXPANSION_v131.md"
+      ]
+    },
+    "v132_new": {
+      "role": "多方块结构继续扩充",
+      "files": [
+        "block_items_catalog.json",
+        "multiblock_structure_index_v132.json",
+        "docs/MULTIBLOCK_STRUCTURE_EXPANSION_v132.md"
+      ]
+    },
+    "v133_new": {
+      "role": "多方块：全量建造阶段+材料，秘境内置结构",
+      "files": [
+        "block_items_catalog.json",
+        "multiblock_structure_index_v133.json",
+        "multiblock_build_materials_v133.json",
+        "docs/MULTIBLOCK_STRUCTURE_EXPANSION_v133.md"
+      ]
+    },
+    "v134_new": {
+      "role": "多方块：建造精修 + 损坏/升级/交互状态机",
+      "files": [
+        "block_items_catalog.json",
+        "multiblock_operational_states_v134.json",
+        "multiblock_structure_index_v134.json",
+        "docs/MULTIBLOCK_STRUCTURE_EXPANSION_v134.md"
+      ]
+    },
+    "v135_new": {
+      "role": "多方块联机时序 + 材料目录定价对齐",
+      "files": [
+        "block_items_catalog.json",
+        "multiblock_multiplayer_sequences_v135.json",
+        "multiblock_material_prices_v135.json",
+        "materials_catalog.json",
+        "docs/MULTIBLOCK_STRUCTURE_EXPANSION_v135.md"
+      ]
+    },
+    "v136_new": {
+      "role": "前往各维度办法总表（飞升/界门/秘境/阴司/魔隙/仙界）",
+      "files": [
+        "dimension_travel_methods_v136.json",
+        "docs/DIMENSION_TRAVEL_METHODS_v136.md",
+        "dimensions_catalog.json",
+        "dimension_registry.json",
+        "spatial_nodes_catalog.json",
+        "travel_routes_v102.json",
+        "ascension_flow.json",
+        "spirit_realm_interface.json"
+      ]
+    },
+    "v137_new": {
+      "role": "设定横向完善：开局、区域结构、通行数值、交叉引用、NPC种子",
+      "files": [
+        "opening_starts_and_paths_v137.json",
+        "region_structure_presence_v137.json",
+        "dimension_travel_costs_v137.json",
+        "setting_crosslink_matrix_v137.json",
+        "named_npc_seeds_v137.json",
+        "COMPLETION_AUDIT_v137.json",
+        "docs/SETTING_POLISH_v137.md"
+      ]
+    },
+    "v138_new": {
+      "role": "术法字段回填 + 区域卡 + NPC对话模板",
+      "files": [
+        "techniques/*.json",
+        "technique_field_fill_report_v138.json",
+        "region_cards_v138.json",
+        "npc_dialogue_templates_v138.json",
+        "npc_dialogue_templates.json",
+        "docs/SETTING_POLISH_v138.md"
+      ]
+    },
+    "v139_new": {
+      "role": "秘境层结构刷怪掉落 + 宗门/岛区域卡 + 对话声望分支",
+      "files": [
+        "secret_realm_layer_diagrams_v139.json",
+        "region_cards_detail_v139.json",
+        "npc_dialogue_branches_v139.json",
+        "docs/SETTING_EXPAND_TRIPLE_v139.md"
+      ]
+    },
+    "v140_new": {
+      "role": "贴原著：秘境层扩全、大晋慕兰灵界仙界区域、对话任务硬链接",
+      "files": [
+        "secret_realm_layer_diagrams_v140.json",
+        "region_cards_detail_v140.json",
+        "dialogue_effect_quest_links_v140.json",
+        "novel_canon_checklist_v140.json",
+        "docs/SETTING_CANON_EXPAND_v140.md"
+      ]
+    },
+    "v141_new": {
+      "role": "20 任务链步骤奖励 + 功法术法物品秘境区域描述贴原著",
+      "files": [
+        "quest_chains_playable_v141.json",
+        "key_item_descriptions_v141.json",
+        "docs/SETTING_QUESTS_DESC_v141.md",
+        "cultivation_methods.json",
+        "techniques/*",
+        "secret_realms.json",
+        "region_cards_v138.json"
+      ]
+    },
+    "v142_new": {
+      "role": "任务奖励经济钉表 + 主线功法术法结构描述贴原著",
+      "files": [
+        "quest_reward_economy_v142.json",
+        "quest_chains_playable_v141.json",
+        "cultivation_methods.json",
+        "techniques/*",
+        "block_items_catalog.json",
+        "docs/SETTING_ECONOMY_DESC_v142.md"
+      ]
+    },
+    "v143_new": {
+      "role": "药材丹药物价与任务勾稽；广寒/化神终局加深；术法描述批量贴原著",
+      "files": [
+        "item_price_quest_crosswalk_v143.json",
+        "endgame_guanghan_v143.json",
+        "endgame_deity_huoyu_v143.json",
+        "secret_realm_layer_diagrams_v143.json",
+        "quest_chains_playable_v141.json",
+        "docs/SETTING_CROSSWALK_ENDGAME_v143.md"
+      ]
+    },
+    "v144_new": {
+      "role": "坊市货架勾稽价对齐；终局奖励细表；势力与NPC原著向描述",
+      "files": [
+        "market_shelf_price_align_v144.json",
+        "market_shelves_v94.json",
+        "sect_contribution_shop.json",
+        "endgame_reward_tables_v144.json",
+        "faction_lore_compendium_v144.json",
+        "named_npc_seeds_v137.json",
+        "docs/SETTING_MARKET_FACTION_v144.md"
+      ]
+    },
+    "v145_new": {
+      "role": "关键生物原著描述；主线章节与可玩任务全挂接；丹方材料全链对齐",
+      "files": [
+        "bestiary_key_novel_v145.json",
+        "main_story_quest_map_v145.json",
+        "pill_chain_alignment_v145.json",
+        "pill_recipes_detailed_v98.json",
+        "main_story_chapters.json",
+        "docs/SETTING_BESTIARY_STORY_PILL_v145.md"
+      ]
+    },
+    "v146_new": {
+      "role": "全任务线完整叙事描述 + 凡人开局专链",
+      "files": [
+        "quest_lines_full_descriptions_v146.json",
+        "docs/QUEST_LINES_FULL_v146.md",
+        "quest_chains_playable_v141.json",
+        "main_story_quest_map_v145.json"
+      ]
+    },
+    "v147_new": {
+      "role": "全任务线加深分支/对话/失败/收束；慕兰战役、虚天/昆吾正片、仙界总述",
+      "files": [
+        "quest_lines_full_descriptions_v147.json",
+        "docs/QUEST_LINES_FULL_v147.md"
+      ]
+    }
+  },
+  "id_bridge": {
+    "secret_realms": {
+      "blood_forbidden": "secret_realm_blood_forbidden_v104.json",
+      "void_palace": "secret_realm_xutian_v104.json",
+      "fallen_demon_valley": "secret_realm_zhuimo_v104.json",
+      "kunwu_mountain": "secret_realm_kunwu_v105.json",
+      "guanghan_realm": "secret_realm_guanghan_maliang_v106.json",
+      "diyuan": "region_tianyuan_diyuan_v105.json",
+      "thousand_bamboo_puppet_tower": "secret_realm_qianzhu_tower_v109.json",
+      "nether_river_land": "secret_realm_nether_river_v109.json",
+      "yin_mountain_catacomb": "secret_realm_yinluo_catacomb_v109.json",
+      "seven_meridian_cave": "secret_realm_seven_meridian_v110.json",
+      "ancient_cultivator_ruins": "secret_realm_ancient_ruins_v110.json",
+      "tianlan_secret_grotto": "secret_realm_tianlan_grotto_v110.json",
+      "wild_ancient_tomb": "secret_realms_final_seven_v111.json#wild_ancient_tomb",
+      "wild_ancient_ruins": "secret_realms_final_seven_v111.json#wild_ancient_ruins",
+      "chaotic_sea_abyss_rift": "secret_realms_final_seven_v111.json#chaotic_sea_abyss_rift",
+      "demon_gold_mountain": "secret_realms_final_seven_v111.json#demon_gold_mountain",
+      "minor_asura_realm": "secret_realms_final_seven_v111.json#minor_asura_realm",
+      "jiuxian_seclusion": "secret_realms_final_seven_v111.json#jiuxian_seclusion",
+      "spirit_grass_valley": "secret_realms_final_seven_v111.json#spirit_grass_valley"
+    },
+    "regions": {
+      "chaotic_sea": "region_chaotic_sea_liulian_v107.json",
+      "tianyuan_diyuan": "region_tianyuan_diyuan_v105.json",
+      "xinggong_dajin": "region_xinggong_dajin_v108.json"
+    },
+    "bestiary": {
+      "original": "beast_bestiary.json",
+      "expansion_index": "bestiary_index_v97.json",
+      "summary": "bestiary_summary_v101.json",
+      "note": "UI 以 id 合并；原包 42 兽 + 后期 v95–v109 扩充"
+    },
+    "items": {
+      "original_catalogs": [
+        "pills_catalog",
+        "materials_catalog",
+        "artifacts_catalog",
+        "spirit_herbs_catalog"
+      ],
+      "descriptions": "item_descriptions_v95–v109 分卷",
+      "economy": "item_economy_index_v92.json"
+    },
+    "catalog_descriptions": "catalog_description_align_v112.json",
+    "merchant_shops_guide": "merchant_shops_guide_v113.json",
+    "quest_sect_guide": "quest_sect_guide_v114.json",
+    "timeline_guide": "timeline_guide_v115.json",
+    "description_align_v116": "catalog_description_align_v116.json",
+    "named_npcs": "named_npcs_v116.json",
+    "quest_deep": "quest_chains_deep_v117.json",
+    "faction_pages": "faction_pages_v117.json",
+    "npc_dialogues": "npc_dialogues_v117.json",
+    "visual_style": "visual_style_v118.json",
+    "visual_storyboards": "visual_storyboards_v119.json",
+    "visual_effect_sheets": "visual_effect_sheets_v120.json",
+    "visual_fx_pipeline": "visual_fx_pipeline_v121.json",
+    "visual_look_cards": "visual_look_cards_v122.json"
+  },
+  "conflict_resolution": [
+    {
+      "topic": "掌天瓶/绿液",
+      "winner": "garden_liquid_calendar_v108 + numeric_overview + CONSISTENCY_AUDIT"
+    },
+    {
+      "topic": "秘境层数/门槛",
+      "winner": "secret_realms.json 清单 + 对应 deep 专页展开"
+    },
+    {
+      "topic": "物价",
+      "winner": "numeric_overview / market 锚；原包 ECONOMY_DESIGN 为气质参考"
+    },
+    {
+      "topic": "生物同名",
+      "winner": "id 为准，display 走 name_alias_glossary"
+    },
+    {
+      "topic": "货架",
+      "winner": "sect_shelves_v106/v107 为声望货架；merchant_shops 为原包商店清单"
+    }
+  ],
+  "still_shallow_after_v109": [],
+  "read_order_merged": [
+    "docs/CATALOG_MASTER_v107.md",
+    "data/merge_bridge_v109.json",
+    "docs/CONSISTENCY_AUDIT_v108.md",
+    "data/data_manifest.json",
+    "data/item_economy_index_v92.json → content_counts_v109",
+    "原包 catalogs 按需",
+    "deep 专页按主线"
+  ],
+  "description": "一张图看懂：原包是货架与注册表，v92+ 是系统与词条，v104+ 是主线场景剧本。v109 起把原包 19 秘境逐步补深挖。",
+  "still_shallow_after_v110": [],
+  "still_shallow_after_v111": [],
+  "coverage": {
+    "secret_realms_orig": 19,
+    "deep_covered": 19
+  }
+}

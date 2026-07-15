@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "source": "v137 种子 + v144 原著向描述扩写",
+  "disclaimer": "补 v130 honest_gaps 的「具名角色」一层；对话与日程未全写",
+  "npcs": [
+    {
+      "id": "npc_zhenyan_elder_template",
+      "display": "真言门长老（模板）",
+      "faction": "zhenyan_men",
+      "realm": "TRUE_IMMORTAL_plus",
+      "role": "授业/任务发放",
+      "structure": "true_word_lecture_platform",
+      "dialogue_hooks": [
+        "outer_trial",
+        "wuxing_intro"
+      ],
+      "dialogue_archetype": "zhenyan_lecturer",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "授业台上口舌即法。外门只听法，内门才谈幻世。厌灰界气味。",
+      "novel_anchor": "真言门",
+      "location": "真言授业台",
+      "services": [
+        "lesson",
+        "wuxing_gate"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_reincarnation_clerk",
+      "display": "轮回殿接引吏",
+      "faction": "reincarnation_hall",
+      "realm": "TRUE_IMMORTAL",
+      "role": "契约与交易",
+      "structure": "reincarnation_trade_desk",
+      "rep": "rep_reincarnation_hall",
+      "dialogue_archetype": "reincarnation_clerk",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "契约先于货物。跑腿引见后才开基础货架；天庭红人加税或审计。",
+      "novel_anchor": "轮回殿",
+      "location": "轮回殿交易案",
+      "services": [
+        "contract",
+        "soul_trade",
+        "forbidden_guide"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_heavenly_court_inspector",
+      "display": "天庭巡察使",
+      "faction": "heavenly_court",
+      "realm": "GOLDEN_IMMORTAL_band",
+      "role": "律法与通缉",
+      "rep": "rep_heavenly_court",
+      "conflict_with": [
+        "gray_realm",
+        "heifeng_smuggle"
+      ],
+      "dialogue_archetype": "heavenly_inspector",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "查名册、缉灰界、弹黑风私枭。对话短，动手快。",
+      "novel_anchor": "天庭秩序",
+      "location": "仙界通衢/巡察驻地",
+      "services": [
+        "warrant",
+        "arrest",
+        "report_gray"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_heifeng_captain",
+      "display": "黑风海船队舵主",
+      "faction": "heifeng",
+      "realm": "TRUE_IMMORTAL",
+      "role": "航海/走私边界",
+      "node": "node_immortal_heifeng",
+      "dialogue_archetype": "heifeng_captain",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "听旗听风。可接灰界雾航，天庭红人拒载。价随风浪。",
+      "novel_anchor": "黑风海",
+      "location": "黑风海港",
+      "services": [
+        "sail",
+        "smuggle_border"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_gray_border_guide",
+      "display": "灰界边境引路人",
+      "faction": "gray_realm",
+      "realm": "TRUE_IMMORTAL",
+      "role": "高风险向导",
+      "rep": "rep_gray_realm",
+      "risk": "betrayal_or_tax",
+      "dialogue_archetype": "gray_guide",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "无名无姓。雾起时走，预付，背叛风险写在脸上。",
+      "novel_anchor": "灰界",
+      "location": "灰界雾境边缘",
+      "services": [
+        "guide",
+        "betrayal_risk"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_tianyuan_registrar",
+      "display": "天渊驻军登记官",
+      "faction": "tianyuan_garrison",
+      "realm": "VOID_REFINEMENT_plus",
+      "role": "飞升落地登记、界门收费",
+      "dimension": "tianyuan",
+      "dialogue_archetype": "tianyuan_registrar",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "飞升者落地第一人。只登记与收费，不听人界旧怨。反复强调：回人界用分身。",
+      "novel_anchor": "飞升后天渊",
+      "location": "天渊城登记司",
+      "services": [
+        "register",
+        "fengyuan_gate_fee",
+        "garrison_quests"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_star_palace_clerk",
+      "display": "星宫注册吏",
+      "faction": "star_palace",
+      "region": "chaotic_sea",
+      "role": "传送网注册",
+      "structure": "star_palace_teleport_gate",
+      "dialogue_archetype": "star_palace_registrar",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "乱星海航线与传送登记。对逆星痕迹敏感，月例与注册费明码。老面孔可开高级航线。",
+      "novel_anchor": "星宫秩序",
+      "location": "星宫本岛/枢纽登记处",
+      "services": [
+        "registration",
+        "teleport_permit",
+        "tax"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_huangfeng_contribution",
+      "display": "黄枫谷执事",
+      "faction": "huangfeng",
+      "region": "tiannan",
+      "role": "贡献与禁地配额",
+      "structures": [
+        "contribution_stele",
+        "inner_sect_task_board"
+      ],
+      "dialogue_archetype": "sect_contribution_clerk",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "description": "负责外门任务核销与禁地配额。说话短，认贡献不认人情。可对接血色试炼令兑换。",
+      "novel_anchor": "七派执事气质",
+      "location": "黄枫谷贡献堂/任务殿",
+      "services": [
+        "quest_board",
+        "blood_forbidden_quota",
+        "contribution_exchange"
+      ],
+      "v144": true
+    },
+    {
+      "id": "npc_wanbao_auctioneer",
+      "display": "万宝楼拍卖执事",
+      "faction": "wanbao",
+      "region": "dajin",
+      "realm": "CORE_FORMATION_plus",
+      "description": "晋京/大晋拍卖场冷面执事。虚天、昆吾前夕人潮时最忙。假货发现即驱，不退鉴宝费。",
+      "novel_anchor": "万宝楼气质",
+      "location": "拍卖展台",
+      "services": [
+        "auction",
+        "appraisal"
+      ],
+      "structures": [
+        "auction_display_dais"
+      ],
+      "dialogue_archetype": "market_vendor",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "v144": true
+    },
+    {
+      "id": "npc_blood_forbidden_steward",
+      "display": "禁地窗口执事",
+      "faction": "seven_sects_joint",
+      "region": "tiannan",
+      "description": "七派轮值看界碑的执事。只验令、看窗口，不保证你活着出来。",
+      "novel_anchor": "血色禁地",
+      "location": "blood_forbidden_entry_stele",
+      "services": [
+        "enter_instance"
+      ],
+      "dialogue_archetype": "secret_realm_guide",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "v144": true
+    },
+    {
+      "id": "npc_qianzhu_mechanic",
+      "display": "千竹机关师",
+      "faction": "qianzhu_jiao",
+      "description": "认竹简与齿轮纹。可鉴定大衍残页，不卖完整大衍。总控台规矩讲三遍。",
+      "novel_anchor": "千竹/大衍",
+      "location": "puppet_workshop / qianzhu_control_console",
+      "services": [
+        "identify_dayan_page",
+        "tower_trial_permit"
+      ],
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "v144": true
+    },
+    {
+      "id": "npc_mulan_fashi",
+      "display": "慕兰符师",
+      "faction": "mulan",
+      "region": "mulan",
+      "description": "风符与军功兑换。战时敌对阵营不交易。可指引天澜秘境军功令。",
+      "novel_anchor": "慕兰之战",
+      "location": "mulan_fashi_camp",
+      "services": [
+        "wind_talisman",
+        "military_merit",
+        "tianlan_access"
+      ],
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "v144": true
+    },
+    {
+      "id": "npc_xiaojigong_envoy",
+      "display": "小极宫来使（钩子）",
+      "faction": "xiaojigong",
+      "region": "dajin",
+      "description": "寒焰与昆吾后程反目钩子。非全百科势力代表，只在五寒焰/出山追杀线出现。",
+      "novel_anchor": "小极宫钩子",
+      "services": [
+        "wuhan_yan_contest",
+        "pursuit_hook"
+      ],
+      "note": "诚实半成品，不作完整宗门百科",
+      "dialogue_ref": "npc_dialogue_templates_v138.json",
+      "v144": true
+    }
+  ],
+  "still_not_done": [
+    "仙界全部具名原著角色百科",
+    "每名 NPC 完整日程与好感曲线",
+    "道祖级实体不展开",
+    "小极宫等仅钩子非全势力百科"
+  ],
+  "v138": true,
+  "v144": true
+}

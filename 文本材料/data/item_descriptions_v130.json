@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "source": "v130 仙界",
+  "items": [
+    {
+      "id": "v130_wuxing",
+      "display": "大五行幻世诀",
+      "type": "meta",
+      "description": "真言门镇派；层表至太乙幻世"
+    },
+    {
+      "id": "v130_time",
+      "display": "时间法则",
+      "type": "meta",
+      "description": "迟滞/加速/时锁/逆转/时停囚"
+    },
+    {
+      "id": "v130_accept",
+      "display": "验收",
+      "type": "meta",
+      "checks": [
+        "真言门",
+        "大五行",
+        "时间法则",
+        "轮回殿",
+        "飞升链",
+        "层矩阵",
+        "无悬空"
+      ],
+      "description": "仙界可玩扩展完成：真言/五行幻世/时间法则/轮回/天庭/黑风/灰界+飞升链；道祖仅窥影"
+    }
+  ]
+}

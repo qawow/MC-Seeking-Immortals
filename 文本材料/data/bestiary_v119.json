@@ -1,0 +1,2746 @@
+{
+  "schema_version": 1,
+  "source": "v119 肖像深稿（兽+NPC）",
+  "creatures": [
+    {
+      "id": "portrait_beast_twin_pupil_rat",
+      "catalog_id": "twin_pupil_rat",
+      "display": "双瞳鼠（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 1 调整。表皮/被覆：褐毛油亮。眼：双瞳同心。声：吱鸣短促。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】双瞳鼠。体长/体量感按阶 1 调整。表皮/被覆：褐毛油亮。眼：双瞳同心。声：吱鸣短促。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：双瞳看穿迷雾，喜灵浓处筑窝。。战法：辅助探路。栖息：灵脉洞窟。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_twin_pupil_rat（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_red_leopard_beast",
+      "catalog_id": "red_leopard_beast",
+      "display": "红狸兽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 1 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】红狸兽。体长/体量感按阶 1 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：敏捷、嗅觉超常。。战法：敏捷、嗅觉超常。。栖息：tiannan,forest。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_red_leopard_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_fire_horn_deer",
+      "catalog_id": "fire_horn_deer",
+      "display": "炙角鹿（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】炙角鹿。体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：火红独角。。战法：火红独角。。栖息：tiannan,hills。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_fire_horn_deer（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_wind_screech_hawk",
+      "catalog_id": "wind_screech_hawk",
+      "display": "风啸鹰（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】风啸鹰。体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：驯养放哨侦察。。战法：风刃俯冲。栖息：None。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_wind_screech_hawk（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_scent_spirit_beast",
+      "catalog_id": "scent_spirit_beast",
+      "display": "嗅灵兽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】嗅灵兽。体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：查违禁物品。。战法：嗅探灵药。栖息：药园山林。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_scent_spirit_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_giant_centipede",
+      "catalog_id": "giant_centipede",
+      "display": "巨型蜈蚣（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】巨型蜈蚣。体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：黑色甲壳。。战法：黑色甲壳。。栖息：tiannan,caves。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_giant_centipede（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_ink_flood_dragon",
+      "catalog_id": "ink_flood_dragon",
+      "display": "墨蛟（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 3 调整。表皮/被覆：鳞如墨玉，腹淡灰。眼：竖瞳金浊。声：低沉水鸣。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】墨蛟。体长/体量感按阶 3 调整。表皮/被覆：鳞如墨玉，腹淡灰。眼：竖瞳金浊。声：低沉水鸣。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：低阶蛟形。。战法：低阶蛟形。。栖息：tiannan,river。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_ink_flood_dragon（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_heart_bore_worm",
+      "catalog_id": "heart_bore_worm",
+      "display": "钻心虫（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】钻心虫。体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：沿血脉钻心。。战法：沿血脉钻心。。栖息：tiannan,demonic。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_heart_bore_worm（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_fire_crow",
+      "catalog_id": "fire_crow",
+      "display": "火鸦（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】火鸦。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：火属性远程。。战法：火属性远程。。栖息：tiannan,volcano。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_fire_crow（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_green_vine_demon",
+      "catalog_id": "green_vine_demon",
+      "display": "青木妖藤（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】青木妖藤。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：束缚毒回血。。战法：束缚毒回血。。栖息：tiannan,jungle。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_green_vine_demon（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_mystic_water_turtle",
+      "catalog_id": "mystic_water_turtle",
+      "display": "玄水龟（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】玄水龟。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：高防水系控制。。战法：高防水系控制。。栖息：chaotic_sea,tiannan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_mystic_water_turtle（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_thunder_horn_tiger",
+      "catalog_id": "thunder_horn_tiger",
+      "display": "雷角虎（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】雷角虎。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：冲锋雷击。。战法：冲锋雷击。。栖息：tiannan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_thunder_horn_tiger（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_demon_core_bear",
+      "catalog_id": "demon_core_bear",
+      "display": "妖丹熊（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 5 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】妖丹熊。体长/体量感按阶 5 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：结丹初，体内结妖丹。。战法：结丹初，体内结妖丹。。栖息：tiannan,mountain。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_demon_core_bear（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_baby_carp_demon",
+      "catalog_id": "baby_carp_demon",
+      "display": "婴鲤兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】婴鲤兽。体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：娃娃脸鱼尾，水罡神雷。。战法：娃娃脸鱼尾，水罡神雷。。栖息：chaotic_sea。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_baby_carp_demon（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_ice_soul_serpent",
+      "catalog_id": "ice_soul_serpent",
+      "display": "冰魄蛇（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】冰魄蛇。体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：冰冻毒。。战法：冰冻毒。。栖息：tiannan,snow。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_ice_soul_serpent（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_spirit_fox",
+      "catalog_id": "spirit_fox",
+      "display": "灵狐（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】灵狐。体长/体量感按阶 6 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：幻术闪避可驯服。。战法：幻术干扰。栖息：None。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_spirit_fox（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_shape_shift_trial_beast",
+      "catalog_id": "shape_shift_trial_beast",
+      "display": "化形试炼兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】化形试炼兽。体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：七级渡劫化形模板。。战法：七级渡劫化形模板。。栖息：global。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_shape_shift_trial_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_thunder_jiao",
+      "catalog_id": "thunder_jiao",
+      "display": "雷劫蛟（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】雷劫蛟。体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：雷暴秘境Boss雏形。。战法：雷水双系。栖息：None。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_thunder_jiao（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_silver_wing_yaksha",
+      "catalog_id": "silver_wing_yaksha",
+      "display": "银翅夜叉（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 8 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】银翅夜叉。体长/体量感按阶 8 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：炼尸/妖 hybrid，风土遁幻术。。战法：炼尸/妖 hybrid，风土遁幻术。。栖息：tiannan,zhuimo。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_silver_wing_yaksha（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_wind_split_beast",
+      "catalog_id": "wind_split_beast",
+      "display": "裂风兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】裂风兽。体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：妖王级，学人族技术。。战法：妖王级，学人族技术。。栖息：chaotic_sea。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_wind_split_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_earth_armor_dragon",
+      "catalog_id": "earth_armor_dragon",
+      "display": "土甲龙（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】土甲龙。体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：寻宝天赋。。战法：寻宝天赋。。栖息：dajin,caves。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_earth_armor_dragon（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_fire_jiao_adult",
+      "catalog_id": "fire_jiao_adult",
+      "display": "离火蛟（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 10 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】离火蛟。体长/体量感按阶 10 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：海域蛟龙。。战法：海域蛟龙。。栖息：chaotic_sea,ocean。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_fire_jiao_adult（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_suanni_beast",
+      "catalog_id": "suanni_beast",
+      "display": "狻猊兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 10 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】狻猊兽。体长/体量感按阶 10 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：上古兽形。。战法：上古兽形。。栖息：dajin。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_suanni_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_four_ear_gold_ape",
+      "catalog_id": "four_ear_gold_ape",
+      "display": "四耳金猿（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 11 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】四耳金猿。体长/体量感按阶 11 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：金黄巨猴凶恶。。战法：金黄巨猴凶恶。。栖息：dajin,kunwu。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_four_ear_gold_ape（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_gold_body_moon_corpse",
+      "catalog_id": "gold_body_moon_corpse",
+      "display": "金身月尸（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 11 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】金身月尸。体长/体量感按阶 11 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：人界顶阶炼尸，金遁。。战法：人界顶阶炼尸，金遁。。栖息：tiannan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_gold_body_moon_corpse（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_six_wing_frost_centipede",
+      "catalog_id": "six_wing_frost_centipede",
+      "display": "六翼霜蚣（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 12 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】六翼霜蚣。体长/体量感按阶 12 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：冰龙血统灵虫。。战法：冰龙血统灵虫。。栖息：spirit_realm,ancient。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_six_wing_frost_centipede（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_leopard_qilin_beast",
+      "catalog_id": "leopard_qilin_beast",
+      "display": "豹麟兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 12 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】豹麟兽。体长/体量感按阶 12 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：麒麟血脉，元婴实力幼体。。战法：麒麟血脉，元婴实力幼体。。栖息：spirit_realm。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_leopard_qilin_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_mirage_sand_beast",
+      "catalog_id": "mirage_sand_beast",
+      "display": "蜃兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 13 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】蜃兽。体长/体量感按阶 13 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：双蛇首蛙身，幻化。。战法：双蛇首蛙身，幻化。。栖息：chaotic_sea,desert。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_mirage_sand_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_sky_tiger_beast",
+      "catalog_id": "sky_tiger_beast",
+      "display": "天虎兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 13 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】天虎兽。体长/体量感按阶 13 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：土风法术瞬移。。战法：土风法术瞬移。。栖息：mulan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_sky_tiger_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_holy_peacock",
+      "catalog_id": "holy_peacock",
+      "display": "圣禽（青孔雀）（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 13 调整。表皮/被覆：青翠华羽。眼：智金。声：清越长鸣。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】圣禽（青孔雀）。体长/体量感按阶 13 调整。表皮/被覆：青翠华羽。眼：智金。声：清越长鸣。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：慕兰供奉，妖火。。战法：慕兰供奉，妖火。。栖息：mulan,spirit_realm。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_holy_peacock（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_soul_weep_beast",
+      "catalog_id": "soul_weep_beast",
+      "display": "泣魂兽（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": false,
+      "description": "【肖像深稿】泣魂兽。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：冥河阴兽，啼哭可乱人心神，常伴尸气。。战法：冥河阴兽，啼哭可乱人心神，常伴尸气。。栖息：nether_river。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_soul_weep_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_phantom_flame_moth",
+      "catalog_id": "phantom_flame_moth",
+      "display": "幻焰蛾（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 8 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】幻焰蛾。体长/体量感按阶 8 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。战法：堕魔谷群居妖蛾，鳞粉引幻火，遇风则燎原。。栖息：fallen_demon_valley。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_phantom_flame_moth（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_gold_devour_beetle",
+      "catalog_id": "gold_devour_beetle",
+      "display": "噬金虫（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 5 调整。表皮/被覆：金黑甲。眼：复眼映金。声：细碎啮金。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】噬金虫。体长/体量感按阶 5 调整。表皮/被覆：金黑甲。眼：复眼映金。声：细碎啮金。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：啃噬五金法宝灵光，群居奇虫。。战法：虫群啃宝。栖息：None。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_gold_devour_beetle（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_soul_weeping_beast",
+      "catalog_id": "soul_weeping_beast",
+      "display": "啼魂兽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 6 调整。表皮/被覆：灰白薄毛。眼：无瞳白。声：远哭近无声。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】啼魂兽。体长/体量感按阶 6 调整。表皮/被覆：灰白薄毛。眼：无瞳白。声：远哭近无声。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：尖啸伤魂，对鬼物克制极强。。战法：神魂尖啸。栖息：None。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_soul_weeping_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_mountain_giant_ape",
+      "catalog_id": "mountain_giant_ape",
+      "display": "山岳巨猿（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】山岳巨猿。体长/体量感按阶 7 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：力大无穷，可化形前兆。。战法：力大无穷，可化形前兆。。栖息：barbarian_wasteland。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_mountain_giant_ape（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_blood_jiao",
+      "catalog_id": "blood_jiao",
+      "display": "血蛟（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 8 调整。表皮/被覆：赤鳞血沟。眼：血红。声：海啸低吼。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】血蛟。体长/体量感按阶 8 调整。表皮/被覆：赤鳞血沟。眼：血红。声：海啸低吼。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：海域凶蛟，妖丹珍贵。。战法：海域凶蛟，妖丹珍贵。。栖息：chaotic_sea。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_blood_jiao（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_three_tailed_fox",
+      "catalog_id": "three_tailed_fox",
+      "display": "三尾妖狐（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 5 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】三尾妖狐。体长/体量感按阶 5 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：擅幻术，灵狐一脉。。战法：擅幻术，灵狐一脉。。栖息：tiannan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_three_tailed_fox（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_iron_lion_beast",
+      "catalog_id": "iron_lion_beast",
+      "display": "铁甲狮兽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】铁甲狮兽。体长/体量感按阶 4 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：体修型妖兽，皮糙肉厚。。战法：体修型妖兽，皮糙肉厚。。栖息：tiannan。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_iron_lion_beast（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_cloud_silk_spider",
+      "catalog_id": "cloud_silk_spider",
+      "display": "云丝蛛（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】云丝蛛。体长/体量感按阶 3 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：吐丝缚敌，可炼蛛丝材料。。战法：吐丝缚敌，可炼蛛丝材料。。栖息：caves。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_cloud_silk_spider（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_flame_salamander",
+      "catalog_id": "flame_salamander",
+      "display": "火蜥兽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 3,
+      "tameable": true,
+      "description": "【肖像深稿】火蜥兽。体长/体量感按阶 2 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：火系低阶妖兽，内丹可入药。。战法：火系低阶妖兽，内丹可入药。。栖息：volcano。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_flame_salamander（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_ice_phoenix_chick",
+      "catalog_id": "ice_phoenix_chick",
+      "display": "冰凤幼禽（肖像深稿）",
+      "category": "lingshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": true,
+      "description": "【肖像深稿】冰凤幼禽。体长/体量感按阶 9 调整。表皮/被覆：见名与元素。眼：妖光一点。声：低吼或虫振。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：灵界珍禽幼体，极难驯服。。战法：灵界珍禽幼体，极难驯服。。栖息：polar。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_ice_phoenix_chick（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_beast_void_mantis",
+      "catalog_id": "void_mantis",
+      "display": "虚空螳螂（肖像深稿）",
+      "category": "yaoshou",
+      "tags": [
+        "visual_v119",
+        "portrait"
+      ],
+      "appearance": "体长/体量感按阶 10 调整。表皮/被覆：半透甲。眼：复眼折射空间。声：刃振高频。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。",
+      "combat_sheet": {
+        "idle": "巡逻或盘踞，气息粒子随元素",
+        "aggro": "锁定玩家，镜头微拉近",
+        "attack_cycle": "前摇姿势 → 判定帧闪光 → 后摇可取消窗口",
+        "hit_react": "受击闪白+材质抖动",
+        "death": "倒地，妖气回旋，可剥物高亮"
+      },
+      "threat": 4,
+      "tameable": false,
+      "description": "【肖像深稿】虚空螳螂。体长/体量感按阶 10 调整。表皮/被覆：半透甲。眼：复眼折射空间。声：刃振高频。动态：警戒时脊毛/鳞微竖；攻击前摇必有肢体蓄力姿势。 原摘要：灵界虫族，前肢如刃。。战法：灵界虫族，前肢如刃。。栖息：spirit_world。战斗表：{\"idle\": \"巡逻或盘踞，气息粒子随元素\", \"aggro\": \"锁定玩家，镜头微拉近\", \"attack_cycle\": \"前摇姿势 → 判定帧闪光 → 后摇可取消窗口\", \"hit_react\": \"受击闪白+材质抖动\", \"death\": \"倒地，妖气回旋，可剥物高亮\"}。掉落拾取：尸体可互动物件描边青色。与 vis_beast_void_mantis（v118）叠加使用：v118 总览，本条制作肖像。"
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。黄枫谷·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。黄枫谷·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。黄枫谷·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。黄枫谷·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。黄枫谷·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。掩月宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。掩月宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。掩月宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。掩月宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。掩月宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。灵兽山·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。灵兽山·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。灵兽山·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。灵兽山·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。灵兽山·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。清虚门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。清虚门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。清虚门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。清虚门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。清虚门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。化刀坞·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。化刀坞·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。化刀坞·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。化刀坞·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。化刀坞·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。天阙堡·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。天阙堡·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。天阙堡·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。天阙堡·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。天阙堡·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。巨剑门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。巨剑门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。巨剑门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。巨剑门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。巨剑门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。七玄门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。七玄门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。七玄门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。七玄门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。七玄门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。鬼灵门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。鬼灵门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。鬼灵门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。鬼灵门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。鬼灵门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。合欢宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。合欢宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。合欢宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。合欢宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。合欢宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。魔焰门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。魔焰门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。魔焰门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。魔焰门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。魔焰门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。天煞宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。天煞宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。天煞宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。天煞宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。天煞宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。御灵宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。御灵宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。御灵宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。御灵宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。御灵宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。千幻宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。千幻宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。千幻宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。千幻宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。千幻宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。落云宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。落云宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。落云宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。落云宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。落云宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。星宫·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_great_elder",
+      "display": "星宫·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。星宫·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。星宫·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。星宫·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。星宫·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。逆星盟·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。逆星盟·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。逆星盟·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。逆星盟·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。逆星盟·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。千竹教·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。千竹教·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。千竹教·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。千竹教·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。千竹教·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。慕兰神师府·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。慕兰神师府·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。慕兰神师府·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。慕兰神师府·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。慕兰神师府·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。天澜圣殿·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。天澜圣殿·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。天澜圣殿·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。天澜圣殿·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。天澜圣殿·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。千竹教·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。千竹教·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。千竹教·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。千竹教·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。千竹教·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。御灵宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。御灵宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。御灵宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。御灵宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。御灵宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。鬼灵门·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。鬼灵门·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。鬼灵门·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。鬼灵门·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。鬼灵门·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。天魔宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。天魔宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。天魔宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。天魔宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。天魔宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。青罗宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。青罗宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。青罗宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。青罗宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。青罗宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。万狐宗·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。万狐宗·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。万狐宗·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。万狐宗·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。万狐宗·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。血巫教·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。血巫教·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。血巫教·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。血巫教·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。血巫教·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。大晋佛寺一脉·掌门/代掌。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。大晋佛寺一脉·大长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。大晋佛寺一脉·丹堂执事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。大晋佛寺一脉·外门执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。大晋佛寺一脉·巡卫队长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。黄枫谷·丹堂管事。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。黄枫谷·外门赵执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。掩月宗·影堂引路人。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。灵兽山·御兽长。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qingxu_quiet",
+      "display": "清虚门·静修堂主（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。清虚门·静修堂主。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_jujian_forge",
+      "display": "巨剑门·剑冢执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。巨剑门·剑冢执事。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。七玄门·门主（江湖）。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。鬼灵门·引渡使。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_hehuan_host",
+      "display": "合欢宗·堂主（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。合欢宗·堂主。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_star_palace_censor",
+      "display": "星宫·巡察使（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。星宫·巡察使。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_inverse_star_broker",
+      "display": "逆星·灰市掮客（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "半张脸常在阴影，笑只牵一边嘴 / 斗篷多层，内衬储袋",
+      "description": "NPC肖像。逆星·灰市掮客。半张脸常在阴影，笑只牵一边嘴",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_liulian_envoy",
+      "display": "六连殿·联络修（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。六连殿·联络修。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "半张脸常在阴影，笑只牵一边嘴 / 斗篷多层，内衬储袋",
+      "description": "NPC肖像。大晋·拍卖行掌柜。半张脸常在阴影，笑只牵一边嘴",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_dajin_border_general",
+      "display": "大晋边军·校尉（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。大晋边军·校尉。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_fashi",
+      "display": "慕兰·法师长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。慕兰·法师长老。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_mulan_scout_chief",
+      "display": "慕兰·斥候长（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。慕兰·斥候长。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。天渊城·功勋吏。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_qianzhu_mechanic",
+      "display": "千竹·机关长老（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "鼻翼常有药味，指黄 / 耐火短袍，多层袖防溅",
+      "description": "NPC肖像。千竹·机关长老。鼻翼常有药味，指黄",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_kunwu_guide",
+      "display": "昆吾·火脉向导（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。昆吾·火脉向导。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_nether_ferryman",
+      "display": "冥河·摆渡残影（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。冥河·摆渡残影。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。血色禁地·守界修。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_xutian_observer",
+      "display": "虚天殿·观殿人（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "法令纹深，目光秤人 / 深色长袍+执法纹佩",
+      "description": "NPC肖像。虚天殿·观殿人。法令纹深，目光秤人",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_diyuan_miner",
+      "display": "地渊·矿脉包工头（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。地渊·矿脉包工头。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_asura_trial_warden",
+      "display": "修罗界·试炼令使（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "可亲但藏锋，握手时试探气机 / 便于赶路的半正式修袍",
+      "description": "NPC肖像。修罗界·试炼令使。可亲但藏锋，握手时试探气机",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "印堂气沉，眉目少波，说话时袍角不起无风 / 袍制九章或本宗至尊色，冠或发簪法宝化",
+      "description": "NPC肖像。九仙山·守峰人。印堂气沉，眉目少波，说话时袍角不起无风",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_garden_auditor",
+      "display": "灵缈园·采药审计（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "下颌线硬，扫描式眨眼 / 劲装甲叶，靴底铁钉",
+      "description": "NPC肖像。灵缈园·采药审计。下颌线硬，扫描式眨眼",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_wandering_appraiser",
+      "display": "散修·鉴宝张（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "半张脸常在阴影，笑只牵一边嘴 / 斗篷多层，内衬储袋",
+      "description": "NPC肖像。散修·鉴宝张。半张脸常在阴影，笑只牵一边嘴",
+      "threat": 1
+    },
+    {
+      "id": "portrait_npc_npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事（肖像）",
+      "category": "humanoid_other",
+      "tags": [
+        "visual_v119"
+      ],
+      "appearance": "脸皮笑意薄，眼珠转得快 / 青灰外门袍，腰牌醒目",
+      "description": "NPC肖像。七脉试炼·评分执事。脸皮笑意薄，眼珠转得快",
+      "threat": 1
+    },
+    {
+      "id": "v119_fx_librarian",
+      "display": "特效司书",
+      "category": "humanoid_other",
+      "threat": 0,
+      "description": "指向 visual_storyboards_v119 与 item_descriptions_v119。",
+      "tags": [
+        "v119"
+      ]
+    }
+  ]
+}

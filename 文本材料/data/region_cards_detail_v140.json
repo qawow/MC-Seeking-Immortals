@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "source": "v140 区域细化（贴原著）：大晋/慕兰/灵界/仙界营",
+  "extends": [
+    "region_cards_v138.json",
+    "region_cards_detail_v139.json"
+  ],
+  "dajin_cards": [
+    {
+      "id": "dajin_jin_capital_rim",
+      "display": "晋京外围",
+      "summary": "大晋修仙中心辐射区。关隘、世家耳目、拍卖与情报集散。身份检查严于天南。",
+      "novel_anchor": "大晋京畿/晋京活动圈",
+      "structures": [
+        "auction_display_dais",
+        "warehouse_loading_bay",
+        "market_stall_counter",
+        "teleport_array_pedestal"
+      ],
+      "nodes": [
+        "node_dajin_wanbao"
+      ],
+      "risks": [
+        "clan_inspection",
+        "identity_check"
+      ],
+      "travel": [
+        "mortal_tiannan_to_dajin"
+      ]
+    },
+    {
+      "id": "dajin_wanbao_auction",
+      "display": "万宝楼/拍卖圈",
+      "summary": "高价法宝、材料、情报交易。虚天/昆吾前夕人潮。",
+      "novel_anchor": "万宝楼气质拍卖",
+      "structures": [
+        "auction_display_dais",
+        "spirit_stone_vault",
+        "ownership_stele"
+      ],
+      "risks": [
+        "price_gouging",
+        "espionage"
+      ]
+    },
+    {
+      "id": "dajin_kunwu_approach",
+      "display": "昆吾接近区",
+      "summary": "入山前线索拼图、猎队与魔气前兆。非开放景区。",
+      "novel_anchor": "昆吾山线前置",
+      "structures": [
+        "kunwu_seal_pillar",
+        "field_repair_tent"
+      ],
+      "secret_realm": "kunwu_mountain",
+      "risks": [
+        "incomplete_clue",
+        "demon_qi"
+      ]
+    },
+    {
+      "id": "dajin_yinyang_rim",
+      "display": "阴阳窟外围",
+      "summary": "阴毒地气，活捕阴芝马产业链与盗猎。",
+      "novel_anchor": "阴阳窟",
+      "structures": [
+        "yinyang_cave_gate",
+        "alchemy_furnace_g3"
+      ],
+      "secret_realm": "yinyang_ku",
+      "risks": [
+        "poison",
+        "live_capture_fail"
+      ]
+    },
+    {
+      "id": "dajin_xiaojigong_hook",
+      "display": "小极宫相关钩子区",
+      "summary": "不单独立国全图；作昆吾/大晋任务反目与追杀钩子。",
+      "novel_anchor": "小极宫势力钩子（非全百科）",
+      "risks": [
+        "betrayal_pursuit"
+      ],
+      "quest_hooks": [
+        "kunwu_exit_pursuit",
+        "dajin_faction_turn"
+      ]
+    }
+  ],
+  "mulan_cards": [
+    {
+      "id": "mulan_steppe_front",
+      "display": "慕兰草原前线",
+      "summary": "风砂、军阵、斥候。战时封锁边关传送。",
+      "novel_anchor": "慕兰之战前线",
+      "structures": [
+        "field_repair_tent",
+        "formation_flag_post",
+        "flying_boat_dock"
+      ],
+      "nodes": [
+        "node_mulan_steppe",
+        "node_tiannan_border"
+      ],
+      "risks": [
+        "war_lockdown",
+        "battlefield"
+      ],
+      "travel": [
+        "mortal_tiannan_to_mulan"
+      ]
+    },
+    {
+      "id": "mulan_fashi_camp",
+      "display": "慕兰符师营",
+      "summary": "风符、风灵石配额、军功兑换。",
+      "novel_anchor": "慕兰符师体系",
+      "structures": [
+        "talisman_table",
+        "spirit_stone_vault"
+      ],
+      "economy": [
+        "wind_spirit_stone",
+        "military_merit"
+      ]
+    },
+    {
+      "id": "tianlan_temple_side",
+      "display": "天澜侧（佛力）",
+      "summary": "佛钟、降魔、与慕兰对峙的另一端气质。",
+      "novel_anchor": "天澜/佛修战线对照",
+      "structures": [
+        "tianlan_bell_tower",
+        "meditation_chamber"
+      ],
+      "risks": [
+        "sect_war_alignment"
+      ]
+    },
+    {
+      "id": "tianlan_grotto_access",
+      "display": "天澜秘境接入",
+      "summary": "军功令/向导开启的风系秘境。",
+      "secret_realm": "tianlan_secret_grotto",
+      "structures": [
+        "formation_flag_post"
+      ]
+    }
+  ],
+  "spirit_cards": [
+    {
+      "id": "spirit_tianyuan_register",
+      "display": "天渊登记与驻军",
+      "summary": "飞升落地第一站。登记、贡献、界门费。分身下界说明在此重复强调。",
+      "novel_anchor": "飞升后天渊城气质",
+      "dimension": "seeking_immortals:tianyuan",
+      "structures": [
+        "tianyuan_wall_segment",
+        "contribution_stele",
+        "teleport_array_pedestal"
+      ],
+      "npcs": [
+        "npc_tianyuan_registrar"
+      ],
+      "travel": [
+        "mortal_to_tianyuan",
+        "tianyuan_to_fengyuan",
+        "tianyuan_avatar_to_mortal"
+      ]
+    },
+    {
+      "id": "spirit_fengyuan_clans",
+      "display": "风元大族活动带",
+      "summary": "灵气远胜人界；大族政治、洞府、高阶丹器。",
+      "novel_anchor": "灵界风元大陆",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "structures": [
+        "cave_dwelling_core",
+        "spirit_gathering_array",
+        "infant_fire_alchemy_room",
+        "spirit_beast_pen"
+      ],
+      "risks": [
+        "clan_politics"
+      ]
+    },
+    {
+      "id": "spirit_diyuan_edge",
+      "display": "地渊边缘",
+      "summary": "修罗试炼与凶兽；入渊靠令/任务。",
+      "novel_anchor": "地渊",
+      "structures": [
+        "asura_trial_ring"
+      ],
+      "secret_realm": "diyuan",
+      "travel": [
+        "spirit_to_diyuan"
+      ]
+    },
+    {
+      "id": "spirit_jiuxian_guanghan_hook",
+      "display": "九仙/广寒机缘钩",
+      "summary": "高阶闭关与广寒相关许可；不展开全文战。",
+      "novel_anchor": "九仙山/广寒界钩子",
+      "travel": [
+        "spirit_to_guanghan"
+      ],
+      "secret_realm": "guanghan_realm",
+      "note": "终局向，细则见 guanghan 包"
+    }
+  ],
+  "immortal_camp_cards": [
+    {
+      "id": "xian_zhenyan",
+      "display": "真言门",
+      "summary": "真言授业、大五行幻世入门。外门听法→内门幻世资格。",
+      "novel_anchor": "仙界真言门/五行幻世可玩环",
+      "structures": [
+        "true_word_lecture_platform",
+        "wuxing_world_seed_block"
+      ],
+      "rep": "rep_zhenyan",
+      "npcs": [
+        "npc_zhenyan_elder_template"
+      ],
+      "quests": [
+        "zhenyan_outer_lesson",
+        "wuxing_intro"
+      ]
+    },
+    {
+      "id": "xian_reincarnation",
+      "display": "轮回殿",
+      "summary": "契约、魂货、禁忌路引；与天庭互斥税。",
+      "novel_anchor": "轮回殿交易气质",
+      "structures": [
+        "reincarnation_trade_desk"
+      ],
+      "rep": "rep_reincarnation_hall",
+      "npcs": [
+        "npc_reincarnation_clerk"
+      ]
+    },
+    {
+      "id": "xian_heavenly_court",
+      "display": "天庭巡察面",
+      "summary": "律法、通缉、灰界敌对。",
+      "novel_anchor": "天庭秩序面",
+      "rep": "rep_heavenly_court",
+      "npcs": [
+        "npc_heavenly_court_inspector"
+      ]
+    },
+    {
+      "id": "xian_heifeng",
+      "display": "黑风海航道",
+      "summary": "险海、船队、接灰界。",
+      "novel_anchor": "黑风海",
+      "nodes": [
+        "node_immortal_heifeng"
+      ],
+      "npcs": [
+        "npc_heifeng_captain"
+      ],
+      "rep": "rep_heifeng"
+    },
+    {
+      "id": "xian_gray_border",
+      "display": "灰界边境",
+      "summary": "高风险向导、雾境、与天庭对立。",
+      "novel_anchor": "灰界",
+      "npcs": [
+        "npc_gray_border_guide"
+      ],
+      "rep": "rep_gray_realm",
+      "risks": [
+        "betrayal",
+        "fog_loss"
+      ]
+    }
+  ]
+}

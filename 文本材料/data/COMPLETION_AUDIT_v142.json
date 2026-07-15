@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "source": "v142 奖励钉表+描述精修",
+  "delivered": [
+    "quest_reward_economy 20",
+    "methods_touched 85",
+    "tech_files 15 tech_ops 74",
+    "block_blurbs 19"
+  ],
+  "honest_gaps_still": [
+    "非主线功法/术法仍有模板句",
+    "奖励区间未与每一味具体药材价逐条勾稽",
+    "广寒全文仍钩子"
+  ],
+  "status": "经济钉表完成；主线描述继续贴原著"
+}

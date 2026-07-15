@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "source": "v136 维度通行",
+  "items": [
+    {
+      "id": "v136_travel",
+      "display": "维度通行总表",
+      "type": "meta",
+      "description": "26 条通行路线；补仙界/回程/秘境/阴司魔隙"
+    },
+    {
+      "id": "v136_rule",
+      "display": "飞升单向与分身下界",
+      "type": "meta",
+      "description": "人界→天渊单向；回人界仅分身；仙界默认不自由下界"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v96 符箓详释与矩阵数值结构",
+  "ranks": [
+    {
+      "rank": "黄",
+      "realm": "QI_REFINING",
+      "grades": 3,
+      "price_each": [1, 20],
+      "examples": [
+        {"name": "火球符", "effect": "单体火伤", "description": "最常见攻击黄符。"},
+        {"name": "金光盾符", "effect": "短时护盾", "description": "炼气对轰保命。"},
+        {"name": "定神符", "effect": "抗幻", "description": "长春功可学；极便宜。"},
+        {"name": "隐身符", "effect": "短隐", "description": "黄~玄皆有，品阶决定时长。"},
+        {"name": "轻身符", "effect": "加速", "description": "逃窜辅助。"}
+      ]
+    },
+    {
+      "rank": "玄",
+      "realm": "FOUNDATION",
+      "grades": 3,
+      "price_each": [30, 300],
+      "examples": [
+        {"name": "玄冰符", "effect": "减速冰封", "description": "控场。"},
+        {"name": "玄雷符", "effect": "雷击破防", "description": "对金属甲有效。"},
+        {"name": "遁地符（低）", "effect": "短距遁", "description": "地符上位前的过渡。"}
+      ]
+    },
+    {
+      "rank": "地",
+      "realm": "CORE_FORMATION",
+      "grades": 3,
+      "price_each": [500, 8000],
+      "examples": [
+        {"name": "地遁符", "effect": "中距逃遁", "description": "结丹标配跑路符。"},
+        {"name": "地火符", "effect": "大范围火攻", "description": "攻城破阵。"},
+        {"name": "禁空符（结构）", "effect": "短时禁飞", "description": "战场控制。"}
+      ]
+    },
+    {
+      "rank": "天",
+      "realm": "NASCENT_SOUL",
+      "grades": 3,
+      "price_each": [5000, 100000],
+      "examples": [
+        {"name": "天雷符", "effect": "元婴级雷爆", "description": "天符门精品。"},
+        {"name": "天甲符", "effect": "强护", "description": "低于六丁天甲一档的量产天符。"},
+        {"name": "万里符", "effect": "远讯", "description": "跨域求援。"}
+      ]
+    }
+  ],
+  "special_talismans": [
+    {
+      "id": "jiang_ling_fu",
+      "display": "降灵符",
+      "rank_special": true,
+      "materials": ["高阶精魂", "符胚"],
+      "effect": "以降灵秘法封魂镇压",
+      "faction": "天符门",
+      "price": [5000, 80000],
+      "description": "需精魂炼制；归还可换人情。"
+    },
+    {
+      "id": "hua_ling_fu",
+      "display": "化灵符",
+      "rank_special": true,
+      "effect": "天符门压箱底战符",
+      "price": [20000, 150000],
+      "description": "客卿/高层赏赐；威力可越阶保命。"
+    },
+    {
+      "id": "liu_ding_tian_jia",
+      "display": "六丁天甲符",
+      "rank_special": true,
+      "effect": "顶级护身一次",
+      "trade": false,
+      "description": "南宫婉所赠结构；飞升节点保命。"
+    },
+    {
+      "id": "po_jie_fu",
+      "display": "破界符",
+      "rank_special": true,
+      "effect": "破空间障壁",
+      "charges": 1,
+      "description": "昆吾所得；飞升物资。"
+    },
+    {
+      "id": "jiugong_tianqian",
+      "display": "九宫天乾符",
+      "region": "spirit_realm",
+      "effect": "困高阶妖兽",
+      "description": "灵界自炼结构符。"
+    },
+    {
+      "id": "jia_yuan_fu",
+      "display": "甲元符",
+      "region": "spirit_realm",
+      "effect": "护体",
+      "description": "化神级护符。"
+    },
+    {
+      "id": "tianleizi_as_fu",
+      "display": "天雷子",
+      "type": "throwable",
+      "effect": "雷爆",
+      "price": [500, 5000],
+      "description": "类符宝投掷物；可破魔功护体结构。"
+    }
+  ],
+  "craft_rules": {
+    "need": ["符纸", "灵墨", "神识", "符谱"],
+    "fail_destroys_paper": true,
+    "tianfu_men_bonus": 0.15,
+    "batch_huang": "可流水线"
+  },
+  "description": "黄玄地天四阶×三等为常见矩阵；特殊符不进矩阵乱刷。"
+}

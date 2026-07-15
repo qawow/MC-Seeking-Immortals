@@ -1,0 +1,244 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v100 坊市物价总表（按地区合并）。单位默认下品灵石；另注功勋/贡献",
+  "disclaimer": "区间为结构量级；战争/兽潮/拍卖可×1.5~5",
+  "currency": {
+    "low_stone": 1,
+    "mid_stone": 100,
+    "high_stone": 10000,
+    "top_stone": 1000000,
+    "tiannan_merit": "军功令，不直接换灵石",
+    "tianyuan_merit": "天渊功勋",
+    "sect_contrib": "宗门贡献"
+  },
+  "global_modifiers": {
+    "beast_tide": 1.8,
+    "war": 2.0,
+    "auction_premium": 1.5,
+    "black_market": 1.3,
+    "sect_internal": 0.7,
+    "reputation_friend": 0.9,
+    "reputation_hostile": 1.5
+  },
+  "regions": [
+    {
+      "id": "tainan_xiaohui",
+      "display": "太南小会",
+      "band": "mortal_qi",
+      "items": [
+        {"name": "升仙令", "price": [50, 300]},
+        {"name": "黄符", "price": [1, 15]},
+        {"name": "凡器", "price": [1, 20]},
+        {"name": "情报", "price": [10, 100]}
+      ]
+    },
+    {
+      "id": "huangfeng_market",
+      "display": "黄枫谷坊市",
+      "band": "qi_foundation",
+      "items": [
+        {"name": "聚灵丹", "price": [20, 100]},
+        {"name": "养精丹", "price": [10, 50]},
+        {"name": "灵髓丸", "price": [80, 400]},
+        {"name": "中品法器", "price": [50, 300]},
+        {"name": "上品法器", "price": [200, 1500]},
+        {"name": "小储物袋", "price": [20, 80]},
+        {"name": "筑基丹", "price": [500, 2000], "note": "多内部配额"},
+        {"name": "地火时券", "price": [20, 200]}
+      ]
+    },
+    {
+      "id": "tianxing_city",
+      "display": "天星城/内星海",
+      "band": "foundation_core",
+      "items": [
+        {"name": "金髓丸", "price": [200, 1200]},
+        {"name": "海兽妖丹", "price": [100, 5000]},
+        {"name": "准法宝", "price": [1500, 8000]},
+        {"name": "降尘丹", "price": [3000, 15000], "scarce": true},
+        {"name": "传送费", "price": [100, 5000]},
+        {"name": "秘店顶级法器", "price": [2000, 20000], "mod": 1.2}
+      ]
+    },
+    {
+      "id": "heishi_cujinge",
+      "display": "黑石城寸金阁",
+      "band": "core_nascent",
+      "items": [
+        {"name": "玛瑙角", "price": [8000, 45000]},
+        {"name": "千叶露", "price": [5000, 35000]},
+        {"name": "外星海珍材", "price": [1000, 80000]},
+        {"name": "兽潮后百货", "price": "×1.8"}
+      ]
+    },
+    {
+      "id": "tiannan_trade_fair",
+      "display": "天南元婴交换会",
+      "band": "nascent",
+      "mode": "barter",
+      "items": [
+        {"name": "赤精芝", "barter": "等价元婴宝"},
+        {"name": "上古傀儡术", "barter": "珍材/人情"},
+        {"name": "困仙环", "price": [20000, 100000]}
+      ]
+    },
+    {
+      "id": "jinjing_surface",
+      "display": "晋京明面",
+      "band": "core_nascent",
+      "mod": 1.3,
+      "items": [
+        {"name": "结丹结婴丹", "price": [5000, 80000]},
+        {"name": "庚精消息", "price": [500, 20000]},
+        {"name": "正道符天符", "price": [5000, 100000]}
+      ]
+    },
+    {
+      "id": "jinjing_underground",
+      "display": "晋京地下拍卖",
+      "band": "nascent",
+      "mod": 1.5,
+      "risk": "跟踪",
+      "items": [
+        {"name": "墨金", "price": [18000, 100000]},
+        {"name": "五行玉", "price": [12000, 90000]},
+        {"name": "庚精", "price": [20000, 120000]},
+        {"name": "禁术玉简", "price": [10000, 200000]},
+        {"name": "魔髓钻（收购）", "price": "可换上列"}
+      ]
+    },
+    {
+      "id": "xiaojigong",
+      "display": "小极宫交易",
+      "band": "nascent",
+      "access": "关系",
+      "items": [
+        {"name": "玄冰花", "price": [15000, 90000]},
+        {"name": "万年玄玉", "price": [50000, 400000]},
+        {"name": "寒焰辅材", "price": [5000, 100000]}
+      ]
+    },
+    {
+      "id": "tianfu_men",
+      "display": "天符门",
+      "band": "foundation_nascent",
+      "items": [
+        {"name": "黄符", "price": [1, 20]},
+        {"name": "玄符", "price": [30, 300]},
+        {"name": "地符", "price": [500, 8000]},
+        {"name": "天符", "price": [5000, 100000]},
+        {"name": "化灵符", "price": [20000, 150000], "scarce": true},
+        {"name": "降灵符", "price": [5000, 80000]}
+      ]
+    },
+    {
+      "id": "tianyuan_city",
+      "display": "天渊城",
+      "band": "deity_plus",
+      "currency": "tianyuan_merit",
+      "items": [
+        {"name": "玉清丹", "merit": [15, 40]},
+        {"name": "真蟾液", "merit": [30, 100]},
+        {"name": "天雷木", "merit": [20, 80]},
+        {"name": "墨麒麟鳞", "merit": [40, 120]},
+        {"name": "护劫阵", "merit": 100},
+        {"name": "灵地租", "merit": "月租档"}
+      ]
+    },
+    {
+      "id": "diyuan_camp",
+      "display": "地渊营地",
+      "band": "deity_void",
+      "buyback": [0.4, 0.7],
+      "items": [
+        {"name": "疗伤高阶", "price": "功勋或灵石"},
+        {"name": "寒抗/火抗", "price": "中"},
+        {"name": "妖材回收", "rate": "四至七成"}
+      ]
+    },
+    {
+      "id": "yuling_shop",
+      "display": "御灵宗虫卵商",
+      "items": [
+        {"name": "低阶虫卵", "price": [50, 2000]},
+        {"name": "金背妖螂卵", "price": [100, 3000]},
+        {"name": "驱虫入门", "price": [20, 200]}
+      ]
+    },
+    {
+      "id": "guiling_black",
+      "display": "鬼灵门阴货",
+      "alignment": "demonic",
+      "items": [
+        {"name": "尸材包", "price": [100, 5000]},
+        {"name": "鬼物", "price": [200, 10000]},
+        {"name": "炼尸入门", "price": [500, 8000]}
+      ]
+    },
+    {
+      "id": "sea_butcher",
+      "display": "天星海兽屠户",
+      "buyback": [0.5, 0.8],
+      "items": [
+        {"name": "新鲜妖丹", "price": "按阶"},
+        {"name": "海兽皮骨", "price": "按阶"}
+      ]
+    }
+  ],
+  "commodity_master": [
+    {"name": "下品灵石", "price": 1},
+    {"name": "中品灵石", "price": 100},
+    {"name": "上品灵石", "price": 10000},
+    {"name": "极品灵石", "price": 1000000},
+    {"name": "筑基丹", "price": [500, 2000]},
+    {"name": "降尘丹", "price": [3000, 15000]},
+    {"name": "定灵丹", "price": [20000, 100000]},
+    {"name": "九曲灵参丹", "price": [30000, 150000]},
+    {"name": "培婴丹", "price": "有价无市"},
+    {"name": "造化丹", "price": "不流通"},
+    {"name": "回阳真水", "price": "不流通"},
+    {"name": "庚精", "price": [20000, 120000]},
+    {"name": "金雷竹", "price": "有价无市"},
+    {"name": "虚天鼎", "price": "不可标价"},
+    {"name": "八灵尺", "price": "不可标价"},
+    {"name": "掌天瓶", "price": "禁止交易"},
+    {"name": "绿液", "price": "禁止交易"},
+    {"name": "玛瑙角", "price": [8000, 45000]},
+    {"name": "千叶露", "price": [5000, 35000]},
+    {"name": "魔髓钻", "price": [30000, 200000]},
+    {"name": "墨金", "price": [18000, 100000]},
+    {"name": "五行玉", "price": [12000, 90000]},
+    {"name": "玄冰花", "price": [15000, 90000]},
+    {"name": "万年玄玉", "price": [50000, 400000]},
+    {"name": "魄石", "price": [5000, 50000]},
+    {"name": "眩光晶", "price": [3000, 30000]},
+    {"name": "天雷木", "merit": [20, 80]},
+    {"name": "真蟾液", "merit": [30, 100]},
+    {"name": "饲灵丸", "price": [20, 200]},
+    {"name": "百炼解毒丹", "price": [50, 800]},
+    {"name": "回煞丸", "price": [8000, 50000]},
+    {"name": "储物袋小", "price": [20, 80]},
+    {"name": "储物袋中", "price": [100, 800]},
+    {"name": "储物镯", "price": [1000, 50000]},
+    {"name": "阵旗组聚灵", "price": [100, 2000]},
+    {"name": "颠倒五行旗组", "price": [5000, 50000]},
+    {"name": "黄符", "price": [1, 20]},
+    {"name": "玄符", "price": [30, 300]},
+    {"name": "地符", "price": [500, 8000]},
+    {"name": "天符", "price": [5000, 100000]},
+    {"name": "六级妖丹", "price": [500, 5000]},
+    {"name": "七级妖丹", "price": [2000, 20000]},
+    {"name": "八级妖丹", "price": [10000, 100000]},
+    {"name": "九级妖丹", "price": [50000, 500000]},
+    {"name": "十级+妖丹", "price": "拍卖/不标"}
+  ],
+  "tier_price_rules": {
+    "faqi_low": [5, 40],
+    "faqi_mid": [50, 300],
+    "faqi_high": [200, 1500],
+    "zhun_fabao": [1500, 8000],
+    "fabao": [5000, 100000],
+    "gubao": [50000, 2000000],
+    "tongtian": "不可标价"
+  }
+}

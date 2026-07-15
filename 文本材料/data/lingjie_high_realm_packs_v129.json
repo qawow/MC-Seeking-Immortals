@@ -1,0 +1,587 @@
+{
+  "schema_version": 1,
+  "source": "v129 灵界高阶",
+  "pack": {
+    "region": "lingjie",
+    "methods": [
+      "fansheng_zhenmogong",
+      "baipulse_lianbao_jue",
+      "wuzang_duanyuan_gong",
+      "lian_shen_shu",
+      "jingzhe_shier_bian",
+      "void_refining_scripture",
+      "great_vehicle_dao",
+      "tianyuan_guard_art",
+      "diyuan_asura_art",
+      "guanghan_star_map_art",
+      "tiansha_zhenyu_gong"
+    ],
+    "techniques": [
+      {
+        "id": "diyuan_asura_slash",
+        "display": "地渊修罗斩",
+        "requires_method": "diyuan_asura_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "demonic.json"
+      },
+      {
+        "id": "diyuan_blood_mist",
+        "display": "地渊血雾",
+        "requires_method": "diyuan_asura_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "demonic.json"
+      },
+      {
+        "id": "void_refine_space_sense",
+        "display": "炼虚空感",
+        "requires_method": "void_refining_scripture",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "secret_arts.json"
+      },
+      {
+        "id": "void_rift_step",
+        "display": "虚空裂步",
+        "requires_method": "void_refining_scripture",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "secret_arts.json"
+      },
+      {
+        "id": "jingzhe_partial_change",
+        "display": "惊蛰化形（残）",
+        "requires_method": "jingzhe_shier_bian",
+        "realm_min": "DEITY_TRANSFORMATION",
+        "file": "fashi.json"
+      },
+      {
+        "id": "jingzhe_second_blood",
+        "display": "惊蛰二变",
+        "requires_method": "jingzhe_shier_bian",
+        "realm_min": "DEITY_TRANSFORMATION",
+        "file": "fashi.json"
+      },
+      {
+        "id": "jingzhe_wing_storm",
+        "display": "惊蛰翼暴",
+        "requires_method": "jingzhe_shier_bian",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "fashi.json"
+      },
+      {
+        "id": "great_vehicle_seal",
+        "display": "大乘印",
+        "requires_method": "great_vehicle_dao",
+        "realm_min": "GREAT_VEHICLE",
+        "file": "dao.json"
+      },
+      {
+        "id": "great_vehicle_dao_light",
+        "display": "大乘道光",
+        "requires_method": "great_vehicle_dao",
+        "realm_min": "GREAT_VEHICLE",
+        "file": "dao.json"
+      },
+      {
+        "id": "great_vehicle_world_press",
+        "display": "大乘界压",
+        "requires_method": "great_vehicle_dao",
+        "realm_min": "GREAT_VEHICLE",
+        "file": "dao.json"
+      },
+      {
+        "id": "guanghan_star_align",
+        "display": "广寒星列",
+        "requires_method": "guanghan_star_map_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "dao.json"
+      },
+      {
+        "id": "fansheng_golden_body",
+        "display": "梵圣金身",
+        "requires_method": "fansheng_zhenmogong",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "baipulse_weaponize",
+        "display": "百脉兵骨",
+        "requires_method": "baipulse_lianbao_jue",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "tiansha_prison_force",
+        "display": "天煞镇狱劲",
+        "requires_method": "tiansha_zhenyu_gong",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "wuzang_mana_well",
+        "display": "五藏法泉",
+        "requires_method": "wuzang_duanyuan_gong",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "fansheng_nirvana_flash",
+        "display": "梵圣涅槃闪",
+        "requires_method": "fansheng_zhenmogong",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "fansheng_magic_fist",
+        "display": "梵圣魔拳",
+        "requires_method": "fansheng_zhenmogong",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "baipulse_sword_bone",
+        "display": "百脉剑骨",
+        "requires_method": "baipulse_lianbao_jue",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "baipulse_full_armor",
+        "display": "百脉通宝铠",
+        "requires_method": "baipulse_lianbao_jue",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "wuzang_overflow",
+        "display": "五藏溢法",
+        "requires_method": "wuzang_duanyuan_gong",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "wuzang_organ_shield",
+        "display": "五藏器盾",
+        "requires_method": "wuzang_duanyuan_gong",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "tiansha_xuanqiao_open",
+        "display": "天煞玄窍",
+        "requires_method": "tiansha_zhenyu_gong",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "body.json"
+      },
+      {
+        "id": "tiansha_prison_domain",
+        "display": "天煞狱域",
+        "requires_method": "tiansha_zhenyu_gong",
+        "realm_min": "GREAT_VEHICLE",
+        "file": "body.json"
+      },
+      {
+        "id": "tianyuan_guard_stance",
+        "display": "天渊卫姿态",
+        "requires_method": "tianyuan_guard_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "body.json"
+      },
+      {
+        "id": "lian_shen_focus",
+        "display": "炼神专注",
+        "requires_method": "lian_shen_shu",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "divine_sense.json"
+      },
+      {
+        "id": "lian_shen_layer2",
+        "display": "炼神二层",
+        "requires_method": "lian_shen_shu",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "divine_sense.json"
+      },
+      {
+        "id": "lian_shen_spike",
+        "display": "炼神刺",
+        "requires_method": "lian_shen_shu",
+        "realm_min": "BODY_INTEGRATION",
+        "file": "divine_sense.json"
+      },
+      {
+        "id": "guanghan_map_probe",
+        "display": "广寒图探",
+        "requires_method": "guanghan_star_map_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "divine_sense.json"
+      },
+      {
+        "id": "tianyuan_joint_array",
+        "display": "天渊合阵击",
+        "requires_method": "tianyuan_guard_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "formation.json"
+      },
+      {
+        "id": "tianyuan_wall_array",
+        "display": "天渊城垣阵",
+        "requires_method": "tianyuan_guard_art",
+        "realm_min": "VOID_REFINEMENT",
+        "file": "formation.json"
+      }
+    ],
+    "method_layer_tables": [
+      {
+        "method_id": "fansheng_zhenmogong",
+        "display": "梵圣真魔功",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "金身",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "fansheng_golden_body",
+              "fansheng_magic_fist"
+            ],
+            "unlock_new_this_layer": [
+              "fansheng_golden_body",
+              "fansheng_magic_fist"
+            ],
+            "note": "体"
+          },
+          {
+            "layer": 2,
+            "layer_name": "涅槃",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "fansheng_golden_body",
+              "fansheng_magic_fist",
+              "fansheng_nirvana_flash"
+            ],
+            "unlock_new_this_layer": [
+              "fansheng_nirvana_flash"
+            ],
+            "note": "涅"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "baipulse_lianbao_jue",
+        "display": "百脉炼宝诀",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "剑骨",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "baipulse_weaponize",
+              "baipulse_sword_bone"
+            ],
+            "unlock_new_this_layer": [
+              "baipulse_weaponize",
+              "baipulse_sword_bone"
+            ],
+            "note": "骨"
+          },
+          {
+            "layer": 2,
+            "layer_name": "通铠",
+            "realm_band": "BODY_INTEGRATION",
+            "unlock_technique_ids": [
+              "baipulse_weaponize",
+              "baipulse_sword_bone",
+              "baipulse_full_armor"
+            ],
+            "unlock_new_this_layer": [
+              "baipulse_full_armor"
+            ],
+            "note": "铠"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "wuzang_duanyuan_gong",
+        "display": "五藏锻元功",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "法泉",
+            "realm_band": "BODY_INTEGRATION",
+            "unlock_technique_ids": [
+              "wuzang_mana_well",
+              "wuzang_overflow"
+            ],
+            "unlock_new_this_layer": [
+              "wuzang_mana_well",
+              "wuzang_overflow"
+            ],
+            "note": "贮"
+          },
+          {
+            "layer": 2,
+            "layer_name": "器盾",
+            "realm_band": "BODY_INTEGRATION",
+            "unlock_technique_ids": [
+              "wuzang_mana_well",
+              "wuzang_overflow",
+              "wuzang_organ_shield"
+            ],
+            "unlock_new_this_layer": [
+              "wuzang_organ_shield"
+            ],
+            "note": "盾"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "lian_shen_shu",
+        "display": "炼神术",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "专注",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "lian_shen_focus",
+              "lian_shen_layer2"
+            ],
+            "unlock_new_this_layer": [
+              "lian_shen_focus",
+              "lian_shen_layer2"
+            ],
+            "note": "增"
+          },
+          {
+            "layer": 2,
+            "layer_name": "刺",
+            "realm_band": "BODY_INTEGRATION",
+            "unlock_technique_ids": [
+              "lian_shen_focus",
+              "lian_shen_layer2",
+              "lian_shen_spike"
+            ],
+            "unlock_new_this_layer": [
+              "lian_shen_spike"
+            ],
+            "note": "禁"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "jingzhe_shier_bian",
+        "display": "惊蛰十二变",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "变",
+            "realm_band": "DEITY_TRANSFORMATION",
+            "unlock_technique_ids": [
+              "jingzhe_partial_change",
+              "jingzhe_second_blood"
+            ],
+            "unlock_new_this_layer": [
+              "jingzhe_partial_change",
+              "jingzhe_second_blood"
+            ],
+            "note": "血"
+          },
+          {
+            "layer": 2,
+            "layer_name": "翼",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "jingzhe_partial_change",
+              "jingzhe_second_blood",
+              "jingzhe_wing_storm"
+            ],
+            "unlock_new_this_layer": [
+              "jingzhe_wing_storm"
+            ],
+            "note": "翼"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "tiansha_zhenyu_gong",
+        "display": "天煞镇狱功",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "狱",
+            "realm_band": "BODY_INTEGRATION",
+            "unlock_technique_ids": [
+              "tiansha_prison_force",
+              "tiansha_xuanqiao_open"
+            ],
+            "unlock_new_this_layer": [
+              "tiansha_prison_force",
+              "tiansha_xuanqiao_open"
+            ],
+            "note": "窍"
+          },
+          {
+            "layer": 2,
+            "layer_name": "域",
+            "realm_band": "GREAT_VEHICLE",
+            "unlock_technique_ids": [
+              "tiansha_prison_force",
+              "tiansha_xuanqiao_open",
+              "tiansha_prison_domain"
+            ],
+            "unlock_new_this_layer": [
+              "tiansha_prison_domain"
+            ],
+            "note": "域"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "void_refining_scripture",
+        "display": "炼虚真经",
+        "total_layers": 1,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "空",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "void_refine_space_sense",
+              "void_rift_step"
+            ],
+            "unlock_new_this_layer": [
+              "void_refine_space_sense",
+              "void_rift_step"
+            ],
+            "note": "空"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "great_vehicle_dao",
+        "display": "大乘道典",
+        "total_layers": 2,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "道",
+            "realm_band": "GREAT_VEHICLE",
+            "unlock_technique_ids": [
+              "great_vehicle_seal",
+              "great_vehicle_dao_light"
+            ],
+            "unlock_new_this_layer": [
+              "great_vehicle_seal",
+              "great_vehicle_dao_light"
+            ],
+            "note": "光"
+          },
+          {
+            "layer": 2,
+            "layer_name": "界",
+            "realm_band": "GREAT_VEHICLE",
+            "unlock_technique_ids": [
+              "great_vehicle_seal",
+              "great_vehicle_dao_light",
+              "great_vehicle_world_press"
+            ],
+            "unlock_new_this_layer": [
+              "great_vehicle_world_press"
+            ],
+            "note": "压"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "tianyuan_guard_art",
+        "display": "天渊守城诀",
+        "total_layers": 1,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "卫",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "tianyuan_guard_stance",
+              "tianyuan_wall_array"
+            ],
+            "unlock_new_this_layer": [
+              "tianyuan_guard_stance",
+              "tianyuan_wall_array"
+            ],
+            "note": "守"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "diyuan_asura_art",
+        "display": "地渊修罗诀",
+        "total_layers": 1,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "修罗",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "diyuan_asura_slash",
+              "diyuan_blood_mist"
+            ],
+            "unlock_new_this_layer": [
+              "diyuan_asura_slash",
+              "diyuan_blood_mist"
+            ],
+            "note": "渊"
+          }
+        ],
+        "v129": true
+      },
+      {
+        "method_id": "guanghan_star_map_art",
+        "display": "广寒星图诀",
+        "total_layers": 1,
+        "layer_model": "lingjie_v129",
+        "layers": [
+          {
+            "layer": 1,
+            "layer_name": "星",
+            "realm_band": "VOID_REFINEMENT",
+            "unlock_technique_ids": [
+              "guanghan_star_align",
+              "guanghan_map_probe"
+            ],
+            "unlock_new_this_layer": [
+              "guanghan_star_align",
+              "guanghan_map_probe"
+            ],
+            "note": "图"
+          }
+        ],
+        "v129": true
+      }
+    ],
+    "technique_count": 30
+  },
+  "honest_gap": "仙界法则树未全录"
+}

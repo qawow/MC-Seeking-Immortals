@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "source": "v130 仙界扩展后审计",
+  "previous": "v129 人界–灵界闭环",
+  "counts": {
+    "methods": 136,
+    "techniques": 747,
+    "immortal_methods": 14,
+    "immortal_factions": 6,
+    "immortal_quest_chains": 6,
+    "orphans": 0,
+    "dups": 0,
+    "immortal_combat_under_3": 0
+  },
+  "xianjie_delivered": [
+    "境界延伸 TRUE_IMMORTAL→DAO_ANCESTOR_BAND",
+    "真言门+大五行幻世诀层表与术包",
+    "时间法则经+逆转残篇",
+    "轮回殿/天庭/黑风海/灰界",
+    "仙剑/虚空/仙体/药王/道祖窥影",
+    "飞升与法则门槛、仙界任务链",
+    "与青元/大衍/炼虚桥接技"
+  ],
+  "honest_gaps_still": [
+    "仙界具名角色全量NPC未在本卷展开",
+    "每条法则的「第N层原文摘录」仍非抄书级",
+    "道祖全权能/多重宇宙级神通不展开",
+    "仙界全部散修宗门百科未求全"
+  ],
+  "definition_of_done": {
+    "tiannan_to_lingjie_loop": true,
+    "xianjie_playable_loop": true,
+    "zhenyan_and_wuxing": true,
+    "time_law_tree": true,
+    "no_orphan_requires": true,
+    "dao_ancestor_omnipotence": false
+  },
+  "status": "仙界可玩扩展完成：真言/五行幻世/时间法则/轮回/天庭/黑风/灰界+飞升链；道祖仅窥影"
+}
