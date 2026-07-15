@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-15: mod_version=0.1.501 protocol 18. Wave501: CultivationStatsScreen is rebuilt as a responsive cultivation chronicle with Foundation/Combat/Practice tabs, wide-screen player portrait rail, scrollable clipped pages, skill icon cards, compact movement slider, and ink/jade/bronze/cinnabar styling. Existing breakthrough/method/skill/inventory actions remain unchanged. Focused ScreenLayoutTest and full build passed. No packet field/order/encoding/registration change.
+
 > CURRENT TRUTH 2026-07-15: mod_version=0.1.500 protocol 18. Wave500: alchemy lids are placeable multiblock parts on furnace top; T1/T2 require only lid (no array nodes); T3+ outer ring + T4 magma; GUI lid slot disabled; lidTier from world lid block. No packet field change.
 
 > CURRENT TRUTH 2026-07-15: mod_version=0.1.499 protocol 18. Wave499: alchemy furnace FORMED multiblock + dedicated array node (legacy array compatible); GUI slot authority for formula/lid/fire; formed texture/particles; earth-fire room stays parallel. No packet field change.

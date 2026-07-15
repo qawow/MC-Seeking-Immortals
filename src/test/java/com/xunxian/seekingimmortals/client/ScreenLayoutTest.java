@@ -100,13 +100,21 @@ class ScreenLayoutTest {
     }
 
     @Test
-    void cultivationStatsColumnsCollapseForNarrowScreens() {
-        assertFalse(CultivationStatsScreen.calculateLayout(120, 90).twoColumns(),
-                "very narrow cultivation stats screens should use one column");
-        assertFalse(CultivationStatsScreen.calculateLayout(320, 180).twoColumns(),
-                "small scaled cultivation stats screens should use one column");
-        assertTrue(CultivationStatsScreen.calculateLayout(854, 480).twoColumns(),
-                "wide cultivation stats screens should use two columns");
+    void cultivationStatsPortraitRailOnlyAppearsOnWideScreens() {
+        assertFalse(CultivationStatsScreen.calculateLayout(120, 90).wide(),
+                "very narrow cultivation journals should hide the portrait rail");
+        assertFalse(CultivationStatsScreen.calculateLayout(320, 180).wide(),
+                "small scaled cultivation journals should hide the portrait rail");
+        assertTrue(CultivationStatsScreen.calculateLayout(854, 480).wide(),
+                "wide cultivation journals should show the portrait rail");
+    }
+
+    @Test
+    void cultivationStatsScrollClampsToPageBounds() {
+        assertEquals(0, CultivationStatsScreen.clampScroll(-20, 400, 200));
+        assertEquals(80, CultivationStatsScreen.clampScroll(80, 400, 200));
+        assertEquals(200, CultivationStatsScreen.clampScroll(500, 400, 200));
+        assertEquals(0, CultivationStatsScreen.clampScroll(40, 120, 200));
     }
 
     @Test
@@ -221,16 +229,36 @@ class ScreenLayoutTest {
         CultivationStatsScreen.PanelLayout layout = CultivationStatsScreen.calculateLayout(screenWidth, screenHeight);
 
         assertPanelFits(screenWidth, screenHeight, layout.panelWidth(), layout.panelHeight());
-        assertTrue(layout.contentTop() >= layout.top(), "stats content must start inside the panel");
-        assertTrue(layout.contentBottom() <= layout.slider().y(), "stats content must leave room for the slider");
-        assertTrue(layout.leftColumnWidth() > 0, "left stats column width must stay positive");
-        assertTrue(layout.rightColumnWidth() > 0, "right stats column width must stay positive");
-        if (layout.twoColumns()) {
-            assertTrue(layout.rightColumnX() >= layout.leftColumnX() + layout.leftColumnWidth(),
-                    "two-column stats layout must separate the right column");
+        assertRectInside(screenWidth, screenHeight, layout.header(), "journal header");
+        assertRectInside(screenWidth, screenHeight, layout.content(), "journal content");
+        assertRectInside(screenWidth, screenHeight, layout.foundationTab(), "foundation tab");
+        assertRectInside(screenWidth, screenHeight, layout.combatTab(), "combat tab");
+        assertRectInside(screenWidth, screenHeight, layout.studyTab(), "study tab");
+        assertTrue(layout.foundationTab().bottom() <= layout.content().y(),
+                "journal tabs must stay above the content viewport");
+        assertTrue(layout.content().bottom() <= layout.breakthroughButton().y(),
+                "journal content must leave room for footer actions");
+        assertFalse(layout.foundationTab().intersects(layout.combatTab()),
+                "foundation and combat tabs must not overlap");
+        assertFalse(layout.combatTab().intersects(layout.studyTab()),
+                "combat and study tabs must not overlap");
+        assertTrue(layout.pageViewport(CultivationStatsScreen.StatsTab.FOUNDATION).height() > 0,
+                "foundation page viewport must remain usable");
+        assertTrue(layout.pageViewport(CultivationStatsScreen.StatsTab.COMBAT).height() > 0,
+                "combat page viewport must remain usable");
+        assertTrue(layout.pageViewport(CultivationStatsScreen.StatsTab.STUDY).height() > 0,
+                "study page viewport must remain usable");
+        if (layout.wide()) {
+            assertRectInside(screenWidth, screenHeight, layout.profile(), "portrait rail");
+            assertTrue(layout.profile().right() <= layout.content().x(),
+                    "wide portrait rail must not overlap journal content");
         } else {
-            assertTrue(layout.rightColumnX() == layout.leftColumnX(),
-                    "single-column stats layout should reuse the left column origin");
+            assertEquals(0, layout.profile().width(),
+                    "compact journals must reclaim portrait rail width");
+        }
+        if (layout.showsMovementSlider()) {
+            assertTrue(layout.pageViewport(CultivationStatsScreen.StatsTab.COMBAT).bottom() <= layout.slider().y(),
+                    "combat content must leave room for the movement slider");
         }
     }
 
@@ -241,7 +269,9 @@ class ScreenLayoutTest {
         assertRectInside(screenWidth, screenHeight, layout.methodTreeButton(), "method tree button");
         assertRectInside(screenWidth, screenHeight, layout.skillTreeButton(), "skill tree button");
         assertRectInside(screenWidth, screenHeight, layout.closeButton(), "close button");
-        assertRectInside(screenWidth, screenHeight, layout.slider(), "movement speed slider");
+        if (layout.showsMovementSlider()) {
+            assertRectInside(screenWidth, screenHeight, layout.slider(), "movement speed slider");
+        }
         assertFalse(layout.breakthroughButton().intersects(layout.closeButton()),
                 "cultivation stats buttons must not overlap");
         assertFalse(layout.breakthroughButton().intersects(layout.methodTreeButton()),

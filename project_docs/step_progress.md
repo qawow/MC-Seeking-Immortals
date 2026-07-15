@@ -1,3 +1,17 @@
+## 446. 2026-07-15 0.1.501 cultivation chronicle UI
+
+  Step   Status   Notes
+  ---   ---   ---
+  Pre-change dirty-tree review         Done 224-file Wave487-500 tree reviewed; checkpoint commit `91486c5`
+  Backup                               Done `.bak/20260715_173906_0.1.501_cultivation_journal_ui/`
+  Responsive journal layout            Done Foundation/Combat/Practice tabs, wide portrait rail, compact single-column fallback
+  Overflow and interaction             Done scissored mouse-wheel pages, dynamic scroll reset, compact movement slider with pending-sync grace
+  Visual language                      Done ink green, old bronze, jade, spirit cyan and restrained cinnabar; player model and skill icons reused
+  Existing behavior                    Done breakthrough, method tree, skill tree, close/inventory return and server intent packets preserved
+  Version/protocol                     Done `0.1.500` -> `0.1.501`; protocol remains `18` because no packet surface changed
+  Verification                         Done focused `ScreenLayoutTest` BUILD SUCCESSFUL; full Gradle build BUILD SUCCESSFUL in 34s
+  Live smoke                           Pending GUI Scale 2/3 player facing, long-name truncation and scroll-end visual check
+
 ## 445. 2026-07-15 0.1.500 lid-block multiblock rework
 
   Step   Status   Notes

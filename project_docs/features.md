@@ -1,3 +1,5 @@
+0.1.501 feature note: CultivationStatsScreen now presents a responsive cultivation chronicle instead of a single overflowing attribute sheet. Foundation, Combat, and Practice tabs keep every section reachable through clipped mouse-wheel pages; wide layouts add a live player portrait rail while compact layouts reclaim that space. The screen uses an original ink-green, old-bronze, jade, spirit-cyan, and cinnabar visual language, reuses shipped skill icons, preserves all existing actions, and changes no network packet surface. Focused layout tests and the full Gradle build pass.
+
 0.1.495 feature note: full Chinese cleanup of residual catalog index display fields (quest hooks, manifest, loot tables, economy bands, secret realms, spirit roots, etc.).
 
 0.1.494 feature note: Chinese localization pass for remaining English item display names, bilingual artifact hover tooltips, bulk carrier descriptions, and selected catalog index displays.
