@@ -1,3 +1,16 @@
+## 450. 2026-07-15 文本材料 v147 拆解为 17 份任务简报 + worktree
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260715_task_briefs/project_docs/step_progress.md`
+  Corpus audit                         Done 365 dirty entries all under `文本材料/` (40 M + 325 ??)
+  Corpus commit                        Done docs-only v147 batch (schema v55); no mod_version bump
+  Task briefs                          Done `project_docs/task_briefs/README.md` + M00–M16 (17 briefs)
+  Update note                          Done `project_docs/updates/20260715_task_briefs_and_worktrees.md`
+  Worktrees                            Done 17 branches `task/mXX-*` under `D:/codex/mc-mod-worktrees/`
+  Version/protocol                     Unchanged `0.1.504` / protocol `19` (docs-only)
+  Full verification                    Skipped docs-only; known red inherited by M00 (747 vs 346 techniques, `body.json.json`)
+
 ## 449. 2026-07-15 0.1.504 all remaining client screens
 
   Step   Status   Notes
