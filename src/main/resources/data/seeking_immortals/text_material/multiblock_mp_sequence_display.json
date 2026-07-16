@@ -1,0 +1,456 @@
+{
+  "schema_version": 1,
+  "source": "M07 export from multiblock_multiplayer_sequences_v135 for Patchouli (M16 display)",
+  "sequences": [
+    {
+      "id": "seq_repair_race",
+      "display": "抢修时序",
+      "applies_to": [
+        "any_structure_with_operational_states"
+      ],
+      "support_structures": [
+        "structure_repair_bench"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": "player_A",
+          "action": "inspect",
+          "lock": null,
+          "result": "see state=damaged|critical, hp",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": 1,
+          "actor": "player_A",
+          "action": "start_repair_channel",
+          "lock": "channel_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 3,
+          "t": 1,
+          "actor": "player_B",
+          "action": "start_repair_channel",
+          "lock": "channel_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 4,
+          "t": "1..T",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": [
+            "同时引导时：进度条分离，先完成者应用状态提升",
+            "后完成者若状态已 intact：材料部分返还 50%",
+            "引导中受击：进度回退 30%–100%（视 damage）",
+            "邻接 structure_repair_bench：引导时间 ×0.7"
+          ],
+          "state_change": null,
+          "broadcast": null,
+          "note": [
+            "同时引导时：进度条分离，先完成者应用状态提升",
+            "后完成者若状态已 intact：材料部分返还 50%",
+            "引导中受击：进度回退 30%–100%（视 damage）",
+            "邻接 structure_repair_bench：引导时间 ×0.7"
+          ]
+        },
+        {
+          "order": 5,
+          "t": "T_end",
+          "actor": "winner",
+          "action": "apply_repair",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": "damaged→intact 或 critical→damaged",
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 6,
+          "t": "T_end+1",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": "structure_state_update to nearby clients",
+          "note": ""
+        }
+      ],
+      "edge_cases": [
+        "双方同时完成：时间戳更早者生效；并列则 owner 优先，否则随机",
+        "敌对阵营修理：需破认主或战争旗，否则交互拒绝"
+      ]
+    },
+    {
+      "id": "seq_array_contest",
+      "display": "夺阵时序",
+      "applies_to": [
+        "array_block",
+        "sect_formation_hub",
+        "kill_array_hub",
+        "illusion_array_hub",
+        "spirit_gathering_array",
+        "teleport_array_pedestal",
+        "star_palace_teleport_gate"
+      ],
+      "support_structures": [],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": "attacker",
+          "action": "begin_contest",
+          "lock": "contest_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": 0,
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 3,
+          "t": "0..T",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 4,
+          "t": "mid",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 5,
+          "t": "T_success_attacker",
+          "actor": null,
+          "action": "owner_faction → attacker; state may drop to damaged; attune reset",
+          "lock": null,
+          "result": "owner_faction → attacker; state may drop to damaged; attune reset",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 6,
+          "t": "T_fail_attacker",
+          "actor": null,
+          "action": "attacker locked out 60s; array returns intact if hp enough",
+          "lock": null,
+          "result": "attacker locked out 60s; array returns intact if hp enough",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    },
+    {
+      "id": "seq_build_coop",
+      "display": "协作建造时序",
+      "applies_to": [
+        "any_with_build_stages"
+      ],
+      "support_structures": [
+        "structure_blueprint_table"
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": "leader",
+          "action": "place_blueprint_ghost",
+          "lock": "build_lock_on_cells",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": 1,
+          "actor": null,
+          "action": "deposit_materials_to_site_chest",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 3,
+          "t": 2,
+          "actor": null,
+          "action": "advance_stage",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": "多人可分摊不同 stage 的 requires"
+        },
+        {
+          "order": 4,
+          "t": "stage_complete",
+          "actor": null,
+          "action": "unlock next build_stage; ghost visual update",
+          "lock": null,
+          "result": "unlock next build_stage; ghost visual update",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 5,
+          "t": "all_stages_done",
+          "actor": null,
+          "action": "structure intact + owner=leader; allies on acl",
+          "lock": null,
+          "result": "structure intact + owner=leader; allies on acl",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    },
+    {
+      "id": "seq_overhaul_siege",
+      "display": "大修与围攻穿插",
+      "applies_to": [
+        "disabled_or_critical_structures"
+      ],
+      "support_structures": [],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": null,
+          "action": "",
+          "lock": "channel_lock_long",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": "0..T",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": "大修被打断材料损失 20%"
+        },
+        {
+          "order": 3,
+          "t": "success",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    },
+    {
+      "id": "seq_fuel_steal",
+      "display": "供能争夺（灵石槽）",
+      "applies_to": [
+        "structures_with_recharge_or_spirit_slots"
+      ],
+      "support_structures": [],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": "user",
+          "action": "open_fuel_ui",
+          "lock": "interaction_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": 1,
+          "actor": "thief",
+          "action": "try_extract_stones",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 3,
+          "t": "result",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    },
+    {
+      "id": "seq_teleport_interrupt",
+      "display": "传送打断时序",
+      "applies_to": [
+        "teleport_array_pedestal",
+        "star_palace_teleport_gate",
+        "immortal_teleport_grand_array"
+      ],
+      "support_structures": [],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": "traveler",
+          "action": "start_teleport_channel",
+          "lock": "channel_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": "0..cast",
+          "actor": null,
+          "action": "cancel + spatial_backlash chance",
+          "lock": null,
+          "result": "cancel + spatial_backlash chance",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 3,
+          "t": "success",
+          "actor": null,
+          "action": "swap_map; mid-teleport destroy array → backlash both ends",
+          "lock": null,
+          "result": "swap_map; mid-teleport destroy array → backlash both ends",
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    },
+    {
+      "id": "seq_flag_tug",
+      "display": "拔旗/护旗",
+      "applies_to": [
+        "formation_flag_post"
+      ],
+      "support_structures": [],
+      "steps": [
+        {
+          "order": 1,
+          "t": 0,
+          "actor": null,
+          "action": "",
+          "lock": "contest_lock",
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        },
+        {
+          "order": 2,
+          "t": "defender",
+          "actor": null,
+          "action": "stand_on_flag_or_cc_attacker",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": "站桩加速保护"
+        },
+        {
+          "order": 3,
+          "t": "pulled",
+          "actor": null,
+          "action": "",
+          "lock": null,
+          "result": null,
+          "rules": null,
+          "state_change": null,
+          "broadcast": null,
+          "note": ""
+        }
+      ],
+      "edge_cases": []
+    }
+  ]
+}

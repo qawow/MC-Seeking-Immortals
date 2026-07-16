@@ -1,0 +1,1689 @@
+{
+  "schema_version": 1,
+  "source": "M07 station pattern registry (code validator keys + data templates)",
+  "stations": [
+    {
+      "id": "alchemy_furnace_g1",
+      "display": "一品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "1×1×2（宽×深×高）",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "alchemy_furnace_shell",
+        "tier": 1
+      }
+    },
+    {
+      "id": "alchemy_furnace_g2",
+      "display": "二品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×3（宽×深×高）",
+      "size": {
+        "w": 2,
+        "h": 3,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "alchemy_furnace_shell",
+        "tier": 2
+      }
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "display": "三品丹炉",
+      "type": "multiblock_controller",
+      "dimensions": "3×3×4（宽×深×高）",
+      "size": {
+        "w": 3,
+        "h": 4,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "alchemy_furnace_shell",
+        "tier": 3
+      }
+    },
+    {
+      "id": "earth_fire_alchemy_room",
+      "display": "地火炼丹室（结构）",
+      "type": "structure",
+      "dimensions": "5×5×4（宽×深×高）",
+      "size": {
+        "w": 5,
+        "h": 4,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "sect_earth_fire_room"
+      }
+    },
+    {
+      "id": "refinement_forge_g1",
+      "display": "一品炼器台",
+      "type": "multiblock_controller",
+      "dimensions": "2×1×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "refinement_forge"
+      }
+    },
+    {
+      "id": "refinement_forge_g3",
+      "display": "三品炼器阵",
+      "type": "multiblock_controller",
+      "dimensions": "3×3×3",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "refinement_forge_g3"
+      }
+    },
+    {
+      "id": "talisman_table",
+      "display": "制符台",
+      "type": "single_block",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "talisman_table"
+      }
+    },
+    {
+      "id": "spirit_gathering_array",
+      "display": "聚灵阵基",
+      "type": "array_block",
+      "dimensions": "3×3×1（基础），可扩展至 5×5 或 7×7",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 225,
+      "pattern": {
+        "validator": "spirit_gathering_formation",
+        "radius": 2
+      }
+    },
+    {
+      "id": "teleport_array_pedestal",
+      "display": "传送阵基座",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 225,
+      "pattern": {
+        "validator": "fixed_teleport_array"
+      }
+    },
+    {
+      "id": "puppet_assembly_bench",
+      "display": "傀儡组装台",
+      "type": "single_block",
+      "dimensions": "2×1×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "puppet_assembly_bench"
+      }
+    },
+    {
+      "id": "spirit_herb_planter",
+      "display": "灵草圃",
+      "type": "crop_block",
+      "dimensions": "1×1×1（单格），可连片成圃",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 100,
+      "pattern": {
+        "validator": "spirit_herb_planter"
+      }
+    },
+    {
+      "id": "low_spirit_iron_ore",
+      "display": "低阶灵铁矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "unmined",
+      "max_hp": 30,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "yin_essence_ore_block",
+      "display": "阴元矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "unmined",
+      "max_hp": 30,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "kunwu_copper_ore",
+      "display": "昆吾铜矿",
+      "type": "ore",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "unmined",
+      "max_hp": 30,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "spirit_vein_tap",
+      "display": "灵脉引流管",
+      "type": "utility_block",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 100,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "ice_crystal_cooler",
+      "display": "冰鉴（炼器降温）",
+      "type": "utility_block",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 100,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "immortal_alchemy_cauldron",
+      "display": "仙品丹鼎",
+      "type": "multiblock_controller",
+      "dimensions": "5×5×5",
+      "size": {
+        "w": 5,
+        "h": 5,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1000,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "time_acceleration_array",
+      "display": "时间加速阵基",
+      "type": "array_block",
+      "dimensions": "5×5×1",
+      "size": {
+        "w": 5,
+        "h": 1,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 375,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "wuxing_world_seed_block",
+      "display": "幻世种子（放置）",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "cave_dwelling_core",
+      "display": "洞府核心",
+      "type": "structure",
+      "dimensions": "1×1×1（但需满足洞府整体结构条件）",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "sect_formation_hub",
+      "display": "护宗大阵枢纽",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "size": {
+        "w": 5,
+        "h": 3,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1125,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "infant_fire_alchemy_room",
+      "display": "婴火炼丹室（结构）",
+      "type": "structure",
+      "dimensions": "7×7×5",
+      "size": {
+        "w": 7,
+        "h": 5,
+        "d": 7
+      },
+      "radius": 3,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 900,
+      "pattern": {
+        "validator": "ring",
+        "radius": 3,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "spirit_fire_brazier",
+      "display": "灵火铜鼎（供火）",
+      "type": "multiblock_controller",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "bao_ding_socket",
+      "display": "古鼎/宝鼎承座",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "puppet_workshop",
+      "display": "傀儡工坊（结构）",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "size": {
+        "w": 5,
+        "h": 3,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "puppet_core_forge",
+      "display": "傀儡核心炼台",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "spirit_beast_pen",
+      "display": "灵兽笼舍",
+      "type": "structure",
+      "dimensions": "3×3×3（单间），可拼联",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "beast_contract_altar",
+      "display": "御兽契坛",
+      "type": "structure",
+      "dimensions": "2×2×1",
+      "size": {
+        "w": 2,
+        "h": 1,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "formation_flag_post",
+      "display": "阵旗桩",
+      "type": "array_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 150,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "kill_array_hub",
+      "display": "杀阵枢纽",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 337,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "illusion_array_hub",
+      "display": "幻阵枢纽",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 337,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "spirit_well",
+      "display": "聚灵井",
+      "type": "structure",
+      "dimensions": "2×2×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "soul_banner_altar",
+      "display": "魂幡祭坛",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "blood_sacrifice_altar",
+      "display": "血祭坛",
+      "type": "structure",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "blood_sacrifice_altar"
+      }
+    },
+    {
+      "id": "corpse_refinement_pit",
+      "display": "炼尸坑",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "meditation_chamber",
+      "display": "静室",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "dual_cultivation_chamber",
+      "display": "双修静室",
+      "type": "structure",
+      "dimensions": "4×4×3",
+      "size": {
+        "w": 4,
+        "h": 3,
+        "d": 4
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "star_palace_teleport_gate",
+      "display": "星宫巡海传送门",
+      "type": "array_block",
+      "dimensions": "5×5×3",
+      "size": {
+        "w": 5,
+        "h": 3,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 375,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "inverse_star_smuggle_dock",
+      "display": "逆星暗港趸船阵",
+      "type": "structure",
+      "dimensions": "5×3×2",
+      "size": {
+        "w": 5,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "immortal_teleport_grand_array",
+      "display": "仙界传送大阵",
+      "type": "array_block",
+      "dimensions": "9×9×2",
+      "size": {
+        "w": 9,
+        "h": 2,
+        "d": 9
+      },
+      "radius": 4,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1050,
+      "pattern": {
+        "validator": "long_range_teleport_array"
+      }
+    },
+    {
+      "id": "true_word_lecture_platform",
+      "display": "真言授业台",
+      "type": "structure",
+      "dimensions": "5×5×2",
+      "size": {
+        "w": 5,
+        "h": 2,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1500,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "reincarnation_trade_desk",
+      "display": "轮回殿交易案",
+      "type": "structure",
+      "dimensions": "2×1×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "kunwu_seal_pillar",
+      "display": "昆吾封镇柱",
+      "type": "structure",
+      "dimensions": "1×1×4",
+      "size": {
+        "w": 1,
+        "h": 4,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "auction_display_dais",
+      "display": "拍卖会展台",
+      "type": "structure",
+      "dimensions": "2×2×1",
+      "size": {
+        "w": 2,
+        "h": 1,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "spirit_stone_vault",
+      "display": "灵石库",
+      "type": "structure",
+      "dimensions": "3×3×3",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "scripture_pavilion_shelf",
+      "display": "藏经阁书架",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "contribution_stele",
+      "display": "贡献碑",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "flying_boat_dock",
+      "display": "飞舟泊桩",
+      "type": "structure",
+      "dimensions": "3×5×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "spirit_field_irrigation",
+      "display": "灵田灌溉阵盘",
+      "type": "array_block",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 150,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "pill_cabinet",
+      "display": "丹柜",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "weapon_rack_artifact",
+      "display": "法宝架",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "blood_forbidden_entry_stele",
+      "display": "血色禁地界碑",
+      "type": "structure",
+      "dimensions": "1×1×3",
+      "size": {
+        "w": 1,
+        "h": 3,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "xutian_palace_gate_fragment",
+      "display": "虚天殿门残件",
+      "type": "structure",
+      "dimensions": "3×1×4",
+      "size": {
+        "w": 3,
+        "h": 4,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "blood_forbidden_blood_pool",
+      "display": "血色禁地血池",
+      "type": "structure",
+      "dimensions": "5×5×2",
+      "size": {
+        "w": 5,
+        "h": 2,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "blood_forbidden_trial_altar",
+      "display": "血色禁地试炼坛",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "blood_forbidden_exit_array",
+      "display": "血色禁地出口阵",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 225,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "xutian_main_hall",
+      "display": "虚天殿主殿厅堂",
+      "type": "structure",
+      "dimensions": "11×11×6",
+      "size": {
+        "w": 11,
+        "h": 6,
+        "d": 11
+      },
+      "radius": 5,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 4,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "xutian_trap_corridor",
+      "display": "虚天殿机关廊",
+      "type": "structure",
+      "dimensions": "3×15×3",
+      "size": {
+        "w": 3,
+        "h": 3,
+        "d": 15
+      },
+      "radius": 7,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 4,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "xutian_key_socket",
+      "display": "虚天钥孔台",
+      "type": "structure",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "kunwu_seal_hall",
+      "display": "昆吾封印大殿",
+      "type": "structure",
+      "dimensions": "9×9×5",
+      "size": {
+        "w": 9,
+        "h": 5,
+        "d": 9
+      },
+      "radius": 4,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 1050,
+      "pattern": {
+        "validator": "ring",
+        "radius": 4,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "kunwu_frost_forge",
+      "display": "昆吾寒罡锻台",
+      "type": "multiblock_controller",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "qianzhu_mechanism_tower",
+      "display": "千竹机关塔层",
+      "type": "structure",
+      "dimensions": "7×7×4（单层，可叠）",
+      "size": {
+        "w": 7,
+        "h": 4,
+        "d": 7
+      },
+      "radius": 3,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 900,
+      "pattern": {
+        "validator": "ring",
+        "radius": 3,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "qianzhu_control_console",
+      "display": "千竹总控台",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "fallen_demon_rift",
+      "display": "坠魔裂隙口",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "size": {
+        "w": 5,
+        "h": 3,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "yinyang_cave_gate",
+      "display": "阴阳窟窟门",
+      "type": "structure",
+      "dimensions": "3×1×4",
+      "size": {
+        "w": 3,
+        "h": 4,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "chaotic_sea_island_lighthouse",
+      "display": "乱星海灯塔阵",
+      "type": "structure",
+      "dimensions": "3×3×8",
+      "size": {
+        "w": 3,
+        "h": 8,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 450,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "miaoyin_resonance_platform",
+      "display": "妙音共鸣台",
+      "type": "structure",
+      "dimensions": "4×4×2",
+      "size": {
+        "w": 4,
+        "h": 2,
+        "d": 4
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "tianlan_bell_tower",
+      "display": "天澜佛钟楼",
+      "type": "structure",
+      "dimensions": "4×4×6",
+      "size": {
+        "w": 4,
+        "h": 6,
+        "d": 4
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "palm_heaven_bottle_stand",
+      "display": "掌天瓶承架",
+      "type": "structure",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "spirit_herb_greenhouse",
+      "display": "灵药暖室",
+      "type": "structure",
+      "dimensions": "5×5×3",
+      "size": {
+        "w": 5,
+        "h": 3,
+        "d": 5
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "market_stall_counter",
+      "display": "坊市摊柜",
+      "type": "single_block",
+      "dimensions": "1×2×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "warehouse_loading_bay",
+      "display": "货栈装卸台",
+      "type": "structure",
+      "dimensions": "4×3×2",
+      "size": {
+        "w": 4,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "tianyuan_wall_segment",
+      "display": "天渊城垣段",
+      "type": "structure",
+      "dimensions": "5×2×4",
+      "size": {
+        "w": 5,
+        "h": 4,
+        "d": 2
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 750,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "asura_trial_ring",
+      "display": "地渊修罗试炼圈",
+      "type": "structure",
+      "dimensions": "7×7×1",
+      "size": {
+        "w": 7,
+        "h": 1,
+        "d": 7
+      },
+      "radius": 3,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 900,
+      "pattern": {
+        "validator": "ring",
+        "radius": 3,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "structure_repair_bench",
+      "display": "结构修复台",
+      "type": "multiblock_controller",
+      "dimensions": "2×2×2",
+      "size": {
+        "w": 2,
+        "h": 2,
+        "d": 2
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "structure_blueprint_table",
+      "display": "结构蓝图台",
+      "type": "single_block",
+      "dimensions": "1×1×1",
+      "size": {
+        "w": 1,
+        "h": 1,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "array_maintenance_obelisk",
+      "display": "阵法维稳碑",
+      "type": "array_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 150,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "furnace_safety_array",
+      "display": "丹炉防爆小阵",
+      "type": "array_block",
+      "dimensions": "3×3×1",
+      "size": {
+        "w": 3,
+        "h": 1,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 225,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_gathering_array"
+      }
+    },
+    {
+      "id": "ownership_stele",
+      "display": "认主石碑",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 80,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "spirit_beast_evolution_pool",
+      "display": "灵兽化形池",
+      "type": "structure",
+      "dimensions": "4×4×2",
+      "size": {
+        "w": 4,
+        "h": 2,
+        "d": 4
+      },
+      "radius": 2,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 600,
+      "pattern": {
+        "validator": "ring",
+        "radius": 2,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "tribulation_platform",
+      "display": "渡劫台",
+      "type": "structure",
+      "dimensions": "7×7×1",
+      "size": {
+        "w": 7,
+        "h": 1,
+        "d": 7
+      },
+      "radius": 3,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 900,
+      "pattern": {
+        "validator": "thunder_tribulation_altar"
+      }
+    },
+    {
+      "id": "inner_sect_task_board",
+      "display": "内门任务牌",
+      "type": "single_block",
+      "dimensions": "1×1×2",
+      "size": {
+        "w": 1,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 120,
+      "pattern": {
+        "validator": "single_core",
+        "core_role": "any_solid"
+      }
+    },
+    {
+      "id": "capture_point_obelisk",
+      "display": "据点方尖碑",
+      "type": "structure",
+      "dimensions": "1×1×3",
+      "size": {
+        "w": 1,
+        "h": 3,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 300,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "field_repair_tent",
+      "display": "野战修缮帐",
+      "type": "structure",
+      "dimensions": "3×3×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 3
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 200,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "siege_spirit_ram",
+      "display": "灵能攻城槌",
+      "type": "structure",
+      "dimensions": "3×1×2",
+      "size": {
+        "w": 3,
+        "h": 2,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 400,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    },
+    {
+      "id": "war_banner_pole",
+      "display": "战旗杆",
+      "type": "structure",
+      "dimensions": "1×1×3",
+      "size": {
+        "w": 1,
+        "h": 3,
+        "d": 1
+      },
+      "radius": 1,
+      "large": false,
+      "default_state": "intact",
+      "max_hp": 150,
+      "pattern": {
+        "validator": "ring",
+        "radius": 1,
+        "ring_role": "spirit_ore"
+      }
+    }
+  ]
+}

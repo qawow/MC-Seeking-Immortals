@@ -4524,5 +4524,10 @@
   "item.seeking_immortals.palm_heaven_bottle": "Palm Heaven Bottle",
   "item.seeking_immortals.green_liquid_drop": "Green Liquid",
   "message.seeking_immortals.auction.realm_too_low": "Your realm is too low for this lot (requires %s).",
-  "message.seeking_immortals.auction.spirit_realm_only": "This lot is available only through Spirit Realm auctions."
+  "message.seeking_immortals.auction.spirit_realm_only": "This lot is available only through Spirit Realm auctions.",
+  "message.seeking_immortals.formation_item.placed": "Placed formation part: %s",
+  "message.seeking_immortals.formation_item.activated": "Formation item activated: %s (%s)",
+  "message.seeking_immortals.formation_item.failed": "Formation item failed: %s",
+  "message.seeking_immortals.formation_item.inspect": "%s is an inspection-only diagram and cannot deploy a free field.",
+  "message.seeking_immortals.formation_item.realm_too_low": "Your realm is too low to deploy this formation (requires %s)."
 }

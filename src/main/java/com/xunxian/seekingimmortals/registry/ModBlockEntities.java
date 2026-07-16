@@ -23,6 +23,7 @@ public final class ModBlockEntities {
                             ModBlocks.ALCHEMY_FURNACE_TIER_5.get())
                     .build(null));
 
+    /** M07: all placeable formation cores share FormationCoreBlockEntity for persistence compatibility. */
     public static final RegistryObject<BlockEntityType<FormationCoreBlockEntity>> FORMATION_CORE =
             BLOCK_ENTITIES.register("formation_core", () -> BlockEntityType.Builder
                     .of(FormationCoreBlockEntity::new,
@@ -32,8 +33,15 @@ public final class ModBlockEntities {
                             ModBlocks.SEAL_DEMON_FORMATION_CORE.get(),
                             ModBlocks.ILLUSION_MAZE_FORMATION_CORE.get(),
                             ModBlocks.FIVE_ELEMENTS_MOUNTAIN_FORMATION_CORE.get(),
+                            ModBlocks.NINE_DRAGON_FLAME_BARRIER_FORMATION_CORE.get(),
+                            ModBlocks.INVERTED_FIVE_ELEMENTS_FORMATION_CORE.get(),
+                            ModBlocks.VAJRA_PRISON_FORMATION_CORE.get(),
+                            ModBlocks.MULAN_WIND_RIDE_FORMATION_CORE.get(),
+                            ModBlocks.BARRIER_SECT_PROTECTION_FORMATION_CORE.get(),
                             ModBlocks.SPIRIT_GATHERING_MINOR_FORMATION_CORE.get(),
-                            ModBlocks.SWORD_ARRAY_BAGUA_FORMATION_CORE.get())
+                            ModBlocks.DEMON_SEAL_PILLAR_FORMATION_CORE.get(),
+                            ModBlocks.SWORD_ARRAY_BAGUA_FORMATION_CORE.get(),
+                            ModBlocks.THUNDER_TRIBULATION_ARRAY_FORMATION_CORE.get())
                     .build(null));
 
     private ModBlockEntities() {}

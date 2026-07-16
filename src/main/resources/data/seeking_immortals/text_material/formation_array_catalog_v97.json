@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v97 阵法图鉴详释。贴原著用途与品阶结构",
+  "disclaimer": "材料数量为结构，非精确配方",
+  "grade_bands": [
+    {"grade": 1, "realm": "QI_REFINING", "display": "初级阵"},
+    {"grade": 2, "realm": "FOUNDATION", "display": "中级阵"},
+    {"grade": 3, "realm": "CORE_FORMATION", "display": "高级阵"},
+    {"grade": 4, "realm": "NASCENT_SOUL", "display": "元婴级阵"},
+    {"grade": 5, "realm": "DEITY_PLUS", "display": "化神/界面级阵"}
+  ],
+  "arrays": [
+    {
+      "id": "juling_zhen",
+      "display": "聚灵阵",
+      "grade": 2,
+      "type": "辅助修炼",
+      "effect": "汇聚灵气，提高修炼与药园效率",
+      "materials": ["阵旗", "阵盘", "灵石供能"],
+      "upkeep_stones_day": [1, 20],
+      "price_set": [100, 2000],
+      "description": "洞府标配。品阶决定聚灵范围与效率；无灵脉时效果大减。"
+    },
+    {
+      "id": "diandao_wuxing",
+      "display": "颠倒五行阵",
+      "grade": 3,
+      "type": "困敌/护府",
+      "effect": "五行倒转困敌，可护府可战场",
+      "materials": ["五行之材", "阵旗多面", "阵盘"],
+      "price_set": [5000, 50000],
+      "mastery": "阵法师加成",
+      "description": "韩立常用护府/困敌结构。结丹以上布置更稳；破阵需同阶神识或外力。"
+    },
+    {
+      "id": "juling_kill_combo",
+      "display": "聚灵杀阵（结构）",
+      "grade": 3,
+      "type": "攻伐",
+      "effect": "聚灵后反喷杀敌",
+      "description": "由聚灵变体或叠阵而成；耗灵石猛。"
+    },
+    {
+      "id": "wuxing_huanying",
+      "display": "五行幻影阵",
+      "grade": 2,
+      "type": "幻阵",
+      "effect": "迷敌五感",
+      "counter": "天眼/强神识/定神类",
+      "description": "低中阶逃遁与埋伏常用。"
+    },
+    {
+      "id": "jin_guang_fang",
+      "display": "金光防护阵（宗门制式）",
+      "grade": 2,
+      "type": "防护",
+      "effect": "抵挡低阶法术与凡人兵器",
+      "faction_use": "七派外门/坊市",
+      "description": "量产防护；元婴一击可破。"
+    },
+    {
+      "id": "xue_luo_zhao",
+      "display": "血罗罩",
+      "grade": 4,
+      "type": "战场大罩",
+      "effect": "困锁一域修士，内外隔绝",
+      "source": "边界大战/魔道",
+      "description": "赌战被困名场面；破罩需强攻或内应。"
+    },
+    {
+      "id": "geng_jian_zhen",
+      "display": "大庚剑阵",
+      "grade": 4,
+      "type": "剑阵/本命",
+      "effect": "庚精飞剑剑丝绞杀，持久布阵",
+      "req": ["青元剑诀高阶", "青竹蜂云剑组", "庚精"],
+      "description": "剑修终极手段之一。布置耗神识；大成可越阶杀敌结构。"
+    },
+    {
+      "id": "chunli_jianzhen",
+      "display": "春黎剑阵",
+      "grade": 5,
+      "type": "剑阵",
+      "effect": "木系幻剑，炼虚后",
+      "req": ["飞剑提纯", "青元后续层"],
+      "description": "灵界剑阵进阶。"
+    },
+    {
+      "id": "qingpan_jianzhen",
+      "display": "青蟠剑阵",
+      "grade": 5,
+      "type": "剑阵",
+      "effect": "七十二剑化青龙",
+      "description": "合体级剑阵结构；场面与消耗皆巨。"
+    },
+    {
+      "id": "juling_gu_chuan",
+      "display": "古传送阵",
+      "grade": 4,
+      "type": "传送",
+      "effect": "跨域传送，需大挪移令等钥匙",
+      "materials": ["古阵组件", "修复阵师", "海量灵石"],
+      "source": "灵矿地道",
+      "description": "遁走乱星海关键。损坏则需齐云霄/辛如音级阵师修复。"
+    },
+    {
+      "id": "xinggong_teleport",
+      "display": "星宫传送阵网",
+      "grade": 4,
+      "type": "传送",
+      "faction": "星宫",
+      "effect": "内星海枢纽传送",
+      "description": "需令牌与费用；执事可卡人。"
+    },
+    {
+      "id": "miaoyin_teleport",
+      "display": "妙音门传送阵",
+      "grade": 3,
+      "type": "传送",
+      "description": "内星海逃遁线之一。"
+    },
+    {
+      "id": "yin_yang_ku_ban",
+      "display": "阴阳窟禁制群",
+      "grade": 4,
+      "type": "遗迹禁制",
+      "effect": "困敌、养阴、护阴芝马",
+      "description": "非玩家轻易布设；探索需破禁。"
+    },
+    {
+      "id": "kunwu_seals",
+      "display": "昆吾封印/镇魔塔阵",
+      "grade": 5,
+      "type": "封印",
+      "effect": "镇压元刹分魂与真魔气",
+      "key_items": ["化龙玺", "天晶碑", "八灵尺"],
+      "description": "界面级封印工程；开启即大副本。"
+    },
+    {
+      "id": "xutian_neijin",
+      "display": "虚天殿内禁",
+      "grade": 5,
+      "type": "遗迹",
+      "effect": "分层筛选、夺宝乱战",
+      "description": "不可学布，只可闯与借。"
+    },
+    {
+      "id": "beijiyuan_guang",
+      "display": "北极元光禁区",
+      "grade": 4,
+      "type": "环境杀阵",
+      "effect": "灵力异动即被银丝洞穿",
+      "counter": "不动灵力/特殊宝物",
+      "description": "昆吾截杀乾老魔的环境结构；后可炼北极元山。"
+    },
+    {
+      "id": "huju_zhen_generic",
+      "display": "护劫阵",
+      "grade": 4,
+      "type": "渡劫",
+      "effect": "削弱雷劫余波、护周遭",
+      "currency": "tianyuan_merit",
+      "price_merit": 100,
+      "description": "天渊可兑；人界需自布或请人。"
+    },
+    {
+      "id": "huangsha_zhen",
+      "display": "黄沙阵",
+      "grade": 4,
+      "type": "困杀",
+      "source": "大晋",
+      "effect": "沙海迷困，耗法力",
+      "description": "冯家密窟归途等可见。"
+    },
+    {
+      "id": "huanmiao_tianxiang",
+      "display": "幻妙天象",
+      "grade": 5,
+      "type": "幻境大阵",
+      "source": "昆吾",
+      "effect": "困向之礼级强者",
+      "description": "顶阶幻禁；强突极易迷失。"
+    },
+    {
+      "id": "wubianhai_fengyin",
+      "display": "无边海封印大阵",
+      "grade": 5,
+      "type": "界面封印",
+      "effect": "镇魔气、护人界边缘",
+      "quest": "七灵岛修复",
+      "description": "三大修士级任务；破则魔气外泄成漩涡。"
+    },
+    {
+      "id": "liandao_huoyan",
+      "display": "地火阵/引火阵",
+      "grade": 2,
+      "type": "炼器辅助",
+      "effect": "稳定引出地火",
+      "description": "地火室基础设施。"
+    },
+    {
+      "id": "yangsheng_muyu",
+      "display": "养魂木共鸣小阵（结构）",
+      "grade": 3,
+      "type": "神识",
+      "effect": "加速神识恢复",
+      "req": ["养魂木"],
+      "description": "洞府神识修炼辅助。"
+    },
+    {
+      "id": "chongqun_yuzhen",
+      "display": "虫群御阵",
+      "grade": 3,
+      "type": "御虫",
+      "faction": "御灵宗",
+      "effect": "虫群攻防一体",
+      "description": "驱虫术+阵旗；噬金/霜蚣可嵌入。"
+    },
+    {
+      "id": "gui_luo_fan_zhen",
+      "display": "鬼罗幡阵",
+      "grade": 4,
+      "type": "魔阵",
+      "req": ["鬼罗幡多杆"],
+      "effect": "鬼物潮+封印",
+      "alignment": "demonic",
+      "description": "阴罗宗标志；杆数决定威能。"
+    },
+    {
+      "id": "dayan_fenshen_monitor",
+      "display": "大衍分神监视网（结构）",
+      "grade": 4,
+      "type": "神识",
+      "req": ["大衍诀", "万珑珠类"],
+      "effect": "灵地监视、预警",
+      "description": "天渊灵地常用。"
+    },
+    {
+      "id": "lei_zhen_double",
+      "display": "双重雷阵",
+      "grade": 5,
+      "type": "逃遁/爆发",
+      "source": "灵界雷修协作",
+      "description": "雷云子线逃杀结构。"
+    },
+    {
+      "id": "liangyi_weichen",
+      "display": "两仪微尘阵",
+      "grade": 5,
+      "type": "献祭/困杀",
+      "danger": "可献祭阵中生灵",
+      "description": "马良之战明尊启动结构；极恶。"
+    },
+    {
+      "id": "wuxing_yankong",
+      "display": "五行湮空阵",
+      "grade": 5,
+      "type": "上古奇阵",
+      "effect": "化尘重塑考验肉身",
+      "req_body": "天煞镇狱功圆满结构",
+      "description": "上古十大奇阵标签；非日常。"
+    },
+    {
+      "id": "juling_island_guard",
+      "display": "岛礁护岛阵",
+      "grade": 3,
+      "type": "护府",
+      "region": "chaotic_sea",
+      "description": "小寰岛/雾中岛级洞府防护模板。"
+    },
+    {
+      "id": "sect_mountain_guard",
+      "display": "宗门山门大阵",
+      "grade": 4,
+      "type": "护宗",
+      "effect": "抗魔道攻山、识别令牌",
+      "description": "七派/落云等标配；战时加持功绩消耗。"
+    },
+    {
+      "id": "mulan_totem_field",
+      "display": "慕兰图腾力场",
+      "grade": 3,
+      "type": "战场",
+      "effect": "强化法师与战兽",
+      "description": "天南战争对面体系；破图腾可削弱一军。"
+    },
+    {
+      "id": "ju_ling_zhu_boost",
+      "display": "聚灵珠小范围阵效",
+      "grade": 3,
+      "type": "便携聚灵",
+      "req": ["聚灵珠"],
+      "description": "随身洞府级聚灵，弱于固定大阵。"
+    },
+    {
+      "id": "jiezi_boundary",
+      "display": "芥子空间边界",
+      "grade": 5,
+      "type": "空间",
+      "effect": "隔绝内外，自有流速",
+      "description": "炼成芥子后的固有空间法则，非传统阵旗。"
+    },
+    {
+      "id": "xian_teng_nurture",
+      "display": "玄天仙藤养阵（结构）",
+      "grade": 4,
+      "type": "培宝",
+      "req": ["活藤", "醇液/回阳水"],
+      "description": "养藤专用环境阵。"
+    },
+    {
+      "id": "yin_ming_natural",
+      "display": "阴冥地脉异境",
+      "grade": 4,
+      "type": "环境",
+      "effect": "法力受限、阴气充盈",
+      "description": "天然大阵；适合阴修与啼魂。"
+    },
+    {
+      "id": "guwu_shachang",
+      "display": "上古战场残阵",
+      "grade": 4,
+      "type": "遗迹",
+      "habitat": "坠魔谷",
+      "effect": "空间裂缝、随机禁制",
+      "description": "不可控；是坠魔高死率来源。"
+    }
+  ],
+  "break_rules_structural": {
+    "same_realm_force": "硬破耗时耗宝",
+    "higher_realm": "碾压破",
+    "key_item": "令牌/阵眼优先",
+    "insider": "内应降难度"
+  },
+  "shop_availability": {
+    "common": ["聚灵阵", "初级幻阵", "护岛阵旗"],
+    "auction": ["颠倒五行", "高阶阵盘"],
+    "quest_only": ["古传送", "通天封印组件"]
+  }
+}

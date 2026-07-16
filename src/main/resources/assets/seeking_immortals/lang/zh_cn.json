@@ -4524,5 +4524,10 @@
   "item.seeking_immortals.palm_heaven_bottle": "掌天瓶",
   "item.seeking_immortals.green_liquid_drop": "绿液",
   "message.seeking_immortals.auction.realm_too_low": "境界不足，无法竞拍该拍品（需要 %s）。",
-  "message.seeking_immortals.auction.spirit_realm_only": "该拍品仅在灵界拍卖渠道开放。"
+  "message.seeking_immortals.auction.spirit_realm_only": "该拍品仅在灵界拍卖渠道开放。",
+  "message.seeking_immortals.formation_item.placed": "已放置阵材：%s",
+  "message.seeking_immortals.formation_item.activated": "阵盘/阵旗生效：%s（%s）",
+  "message.seeking_immortals.formation_item.failed": "阵材未能激活：%s",
+  "message.seeking_immortals.formation_item.inspect": "%s 仅供查阅阵图，不会免费展开阵场。",
+  "message.seeking_immortals.formation_item.realm_too_low": "境界不足，无法展开该阵法（需要 %s）。"
 }

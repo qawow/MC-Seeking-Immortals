@@ -159,6 +159,21 @@ public final class ModEvents {
         }
     }
 
+    /** M07: invalidate station formed cache when nearby blocks change (large structure dirty flags). */
+    @SubscribeEvent
+    public static void onBlockPlace(net.minecraftforge.event.level.BlockEvent.EntityPlaceEvent event) {
+        if (event.getLevel() instanceof ServerLevel serverLevel) {
+            com.xunxian.seekingimmortals.structure.MultiblockStationService.markDirty(serverLevel, event.getPos());
+        }
+    }
+
+    @SubscribeEvent
+    public static void onBlockBreak(net.minecraftforge.event.level.BlockEvent.BreakEvent event) {
+        if (event.getLevel() instanceof ServerLevel serverLevel) {
+            com.xunxian.seekingimmortals.structure.MultiblockStationService.markDirty(serverLevel, event.getPos());
+        }
+    }
+
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
