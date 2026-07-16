@@ -1,3 +1,33 @@
+## 467. 2026-07-17 M13 / M15 主线集成
+
+  Step   Status   Notes
+  ---   ---   ---
+  Diff review                          Done M13 39 files（+5,957/-136）；M15 20 files（+2,325/-25）；两边 diff --check 通过
+  Backup                               Done `.bak/20260717_050100_merge_m13_m15/`
+  Merge M13                            Done `b2d92442` → `17ffc985` fast-forward
+  Merge M15                            Done 4 conflicts；文档与 zh/en lang 均保留双边内容，ModEvents 自动合并
+  Version/protocol                     Done `0.1.508` → `0.1.509`；无 packet/channel 变化，protocol 保持 22
+  Full verification                    Done `./gradlew build` BUILD SUCCESSFUL in 1m1s（11 tasks）
+  Update note                          Done `project_docs/updates/20260717_merge_m13_m15.md`
+
+## 466. 2026-07-17 M15 法宝与器灵落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_044010_m15_artifacts/`
+  Corpus ship                          Done item_synergy + artifact_tier_map → artifacts/（18 源文件）
+  ArtifactDataService expand           Done 217 + eleven/taxonomy/grade/synergy/drops/auction/draft/ancient
+  Ownership / spirit                   Done UUID 认主、祭炼层数、器灵觉醒（层≥5+结丹+本命）
+  Active skills                        Done effect/type/id → M02 techniqueId；SP/CD 服务端校验
+  Power suppress                       Done realm_power_scale 越阶 cost/CD/damage
+  Synergy hooks                        Done LivingHurt 攻击/防御倍率（不绕伤害管线）
+  FlyingAuthority                      Done isFlyingCapable 语料判定
+  Draft reconcile                      Done 22 draft 全可解析；unique 限制集合
+  Tests                                Done M15ArtifactCorpusTest + artifact/* 全绿
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.508）；protocol 22
+  Full verification                    Done `bash ./gradlew.lf --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m15_artifacts.md`
+
 ## 465. 2026-07-17 M13 维度与飞升落地
 
   Step   Status   Notes

@@ -14,10 +14,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * M15: shipped artifact corpus authority (217 catalog + tier/synergy/drops/auction/draft).
+ * Reads {@code data/seeking_immortals/artifacts/} only.
+ */
 public final class ArtifactDataService {
     private static final String ROOT = "data/seeking_immortals/artifacts/";
     private static final List<String> SOURCE_FILES = List.of(
@@ -25,6 +30,8 @@ public final class ArtifactDataService {
             "artifact_tier_rules.json",
             "artifact_eleven_tier_map.json",
             "artifact_taxonomy_111.json",
+            "artifact_tier_map.json",
+            "item_synergy.json",
             "refinement_system.json",
             "refinement_recipes.json",
             "refine_manual_index.json",
@@ -67,9 +74,25 @@ public final class ArtifactDataService {
         Map<String, TalismanTreasureTemplate> talismanTemplates =
                 parseTalismanTemplates(roots.get("talisman_treasure_templates.json"));
         FailureLootTable failureLoot = parseFailureLoot(roots.get("refinement_failure_loot.json"));
+        Map<Integer, ElevenTier> elevenTiers = parseElevenTier(roots.get("artifact_eleven_tier_map.json"));
+        Map<String, Integer> elevenIdMap = parseElevenIdMap(roots.get("artifact_eleven_tier_map.json"));
+        Map<String, TaxonomySection> taxonomy = parseTaxonomy(roots.get("artifact_taxonomy_111.json"));
+        Map<Integer, GradeBand> gradeBands = parseGradeBands(roots.get("artifact_tier_map.json"));
+        Map<String, int[]> tierTagToGrade = parseTierTagToGrade(roots.get("artifact_tier_map.json"));
+        List<SynergyRule> synergies = parseSynergies(roots.get("item_synergy.json"));
+        List<ArtifactCombo> combos = parseCombos(roots.get("item_synergy.json"));
+        Map<String, List<DropEntry>> realmDrops = parseRealmDrops(roots.get("artifact_realm_drops.json"));
+        Map<String, FactionSpecialty> factionSpecialties =
+                parseFactionSpecialties(roots.get("artifact_faction_specialty.json"));
+        List<AuctionStock> wanbaoStock = parseWanbaoStock(roots.get("wanbao_auction_artifacts.json"));
+        List<AuctionLot> auctionLots = parseAuctionLots(roots.get("wanbao_auction_artifacts.json"));
+        List<DraftItem> draftItems = parseDraft(roots.get("moditems_artifacts_draft.json"));
+        Map<String, AncientEntry> ancientEntries = parseAncient(roots.get("ancient_treasure_index.json"));
 
         return new Snapshot(artifacts, tierRules, realmPowerScale, recipes, vehicles, priorities,
-                talismanTemplates, failureLoot, entryCounts);
+                talismanTemplates, failureLoot, elevenTiers, elevenIdMap, taxonomy, gradeBands,
+                tierTagToGrade, synergies, combos, realmDrops, factionSpecialties, wanbaoStock,
+                auctionLots, draftItems, ancientEntries, entryCounts);
     }
 
     private static JsonObject readObject(String file) {
@@ -100,6 +123,11 @@ public final class ArtifactDataService {
                 continue;
             }
             int gameTier = getInt(object, "game_tier", getInt(object, "artifact_grade", 0));
+            String compliance = "";
+            if (object.has("compliance")) {
+                JsonElement c = object.get("compliance");
+                compliance = c.isJsonPrimitive() ? c.getAsString() : c.toString();
+            }
             artifacts.put(id, new ArtifactDefinition(
                     id,
                     getString(object, "display", id),
@@ -108,7 +136,13 @@ public final class ArtifactDataService {
                     getString(object, "effect", ""),
                     getString(object, "realm_min", ""),
                     gameTier,
-                    stringList(object.get("tags"))
+                    stringList(object.get("tags")),
+                    getString(object, "element", ""),
+                    getString(object, "binds", ""),
+                    compliance,
+                    object.has("consumable") && object.get("consumable").isJsonPrimitive()
+                            && object.get("consumable").getAsBoolean(),
+                    getInt(object, "uses", 0)
             ));
         }
         return unmodifiableMap(artifacts);
@@ -248,9 +282,241 @@ public final class ArtifactDataService {
         return List.copyOf(loot);
     }
 
+    private static Map<Integer, ElevenTier> parseElevenTier(JsonObject root) {
+        Map<Integer, ElevenTier> map = new LinkedHashMap<>();
+        for (JsonElement element : getArray(root, "game_tiers")) {
+            JsonObject object = asObject(element, "eleven tier");
+            int tier = getInt(object, "tier", 0);
+            if (tier <= 0) {
+                continue;
+            }
+            map.put(tier, new ElevenTier(
+                    tier,
+                    getString(object, "display", "T" + tier),
+                    getString(object, "mod_tier", ""),
+                    getString(object, "realm_typical", ""),
+                    stringList(object.get("examples"))
+            ));
+        }
+        return Collections.unmodifiableMap(new LinkedHashMap<>(map));
+    }
+
+    private static Map<String, Integer> parseElevenIdMap(JsonObject root) {
+        Map<String, Integer> map = new LinkedHashMap<>();
+        JsonObject object = getObject(root, "artifact_id_map");
+        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+            if (entry.getValue() != null && entry.getValue().isJsonPrimitive()
+                    && entry.getValue().getAsJsonPrimitive().isNumber()) {
+                map.put(entry.getKey(), entry.getValue().getAsInt());
+            }
+        }
+        return unmodifiableMap(map);
+    }
+
+    private static Map<String, TaxonomySection> parseTaxonomy(JsonObject root) {
+        Map<String, TaxonomySection> map = new LinkedHashMap<>();
+        JsonObject sections = getObject(root, "sections");
+        for (Map.Entry<String, JsonElement> entry : sections.entrySet()) {
+            if (!entry.getValue().isJsonObject()) {
+                continue;
+            }
+            JsonObject object = entry.getValue().getAsJsonObject();
+            map.put(entry.getKey(), new TaxonomySection(
+                    entry.getKey(),
+                    getString(object, "display", entry.getKey()),
+                    stringList(object.get("types")),
+                    stringList(object.get("examples"))
+            ));
+        }
+        return unmodifiableMap(map);
+    }
+
+    private static Map<Integer, GradeBand> parseGradeBands(JsonObject root) {
+        Map<Integer, GradeBand> map = new LinkedHashMap<>();
+        for (JsonElement element : getArray(root, "grades")) {
+            JsonObject object = asObject(element, "grade band");
+            int grade = getInt(object, "grade", 0);
+            if (grade <= 0) {
+                continue;
+            }
+            map.put(grade, new GradeBand(
+                    grade,
+                    getString(object, "display", "G" + grade),
+                    getString(object, "realm_equiv", ""),
+                    getString(object, "loot_band", "")
+            ));
+        }
+        return Collections.unmodifiableMap(new LinkedHashMap<>(map));
+    }
+
+    private static Map<String, int[]> parseTierTagToGrade(JsonObject root) {
+        Map<String, int[]> map = new LinkedHashMap<>();
+        JsonObject object = getObject(root, "tier_tag_to_grade");
+        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
+            if (!entry.getValue().isJsonArray()) {
+                continue;
+            }
+            JsonArray arr = entry.getValue().getAsJsonArray();
+            int min = arr.size() > 0 && arr.get(0).isJsonPrimitive() ? arr.get(0).getAsInt() : 0;
+            int max = arr.size() > 1 && arr.get(1).isJsonPrimitive() ? arr.get(1).getAsInt() : min;
+            map.put(entry.getKey(), new int[]{min, max});
+        }
+        return Collections.unmodifiableMap(new LinkedHashMap<>(map));
+    }
+
+    private static List<SynergyRule> parseSynergies(JsonObject root) {
+        List<SynergyRule> list = new ArrayList<>();
+        for (JsonElement element : getArray(root, "synergies")) {
+            JsonObject object = asObject(element, "synergy");
+            List<String> items = stringList(object.get("items"));
+            if (items.size() < 2) {
+                continue;
+            }
+            list.add(new SynergyRule(items, getString(object, "relation", ""), getString(object, "note", "")));
+        }
+        return List.copyOf(list);
+    }
+
+    private static List<ArtifactCombo> parseCombos(JsonObject root) {
+        List<ArtifactCombo> list = new ArrayList<>();
+        for (JsonElement element : getArray(root, "artifact_combos")) {
+            JsonObject object = asObject(element, "artifact combo");
+            List<String> arts = stringList(object.get("artifacts"));
+            if (arts.size() < 2) {
+                continue;
+            }
+            list.add(new ArtifactCombo(arts, getString(object, "bonus", ""), getString(object, "note", "")));
+        }
+        return List.copyOf(list);
+    }
+
+    private static Map<String, List<DropEntry>> parseRealmDrops(JsonObject root) {
+        Map<String, List<DropEntry>> map = new LinkedHashMap<>();
+        JsonObject realms = getObject(root, "realms");
+        for (Map.Entry<String, JsonElement> entry : realms.entrySet()) {
+            if (!entry.getValue().isJsonObject()) {
+                continue;
+            }
+            List<DropEntry> pool = new ArrayList<>();
+            for (JsonElement el : getArray(entry.getValue().getAsJsonObject(), "artifact_pool")) {
+                JsonObject object = asObject(el, "drop");
+                String id = getString(object, "id", "");
+                if (!id.isBlank()) {
+                    pool.add(new DropEntry(id, getInt(object, "weight", 1), getString(object, "tier", "")));
+                }
+            }
+            map.put(entry.getKey(), List.copyOf(pool));
+        }
+        // diyuan layers + barbarian territories also contribute pools
+        JsonObject diyuan = getObject(root, "diyuan_by_layer");
+        for (Map.Entry<String, JsonElement> entry : diyuan.entrySet()) {
+            if (!entry.getValue().isJsonObject()) {
+                continue;
+            }
+            List<DropEntry> pool = new ArrayList<>();
+            for (JsonElement el : getArray(entry.getValue().getAsJsonObject(), "artifact_pool")) {
+                JsonObject object = asObject(el, "drop");
+                String id = getString(object, "id", "");
+                if (!id.isBlank()) {
+                    pool.add(new DropEntry(id, getInt(object, "weight", 1), getString(object, "tier", "")));
+                }
+            }
+            if (!pool.isEmpty()) {
+                map.put("diyuan_" + entry.getKey(), List.copyOf(pool));
+            }
+        }
+        return unmodifiableMap(map);
+    }
+
+    private static Map<String, FactionSpecialty> parseFactionSpecialties(JsonObject root) {
+        Map<String, FactionSpecialty> map = new LinkedHashMap<>();
+        for (JsonElement element : getArray(root, "factions")) {
+            JsonObject object = asObject(element, "faction specialty");
+            String id = getString(object, "faction_id", "");
+            if (id.isBlank()) {
+                continue;
+            }
+            map.put(id, new FactionSpecialty(
+                    id,
+                    getString(object, "display", id),
+                    getString(object, "specialty", ""),
+                    stringList(object.get("artifact_bias")),
+                    stringList(object.get("shop_artifacts"))
+            ));
+        }
+        return unmodifiableMap(map);
+    }
+
+    private static List<AuctionStock> parseWanbaoStock(JsonObject root) {
+        List<AuctionStock> list = new ArrayList<>();
+        for (JsonElement element : getArray(root, "wanbao_pavilion_stock")) {
+            JsonObject object = asObject(element, "wanbao stock");
+            String id = getString(object, "artifact_id", "");
+            if (!id.isBlank()) {
+                list.add(new AuctionStock(
+                        id,
+                        getString(object, "display", id),
+                        getString(object, "price_band", ""),
+                        getString(object, "realm_gate", "")
+                ));
+            }
+        }
+        return List.copyOf(list);
+    }
+
+    private static List<AuctionLot> parseAuctionLots(JsonObject root) {
+        List<AuctionLot> list = new ArrayList<>();
+        for (JsonElement element : getArray(root, "great_jin_auction_lots")) {
+            JsonObject object = asObject(element, "auction lot");
+            String id = getString(object, "artifact_id", "");
+            if (!id.isBlank()) {
+                list.add(new AuctionLot(
+                        id,
+                        getString(object, "lot_tier", ""),
+                        getInt(object, "start_bid_mid_stone", 0)
+                ));
+            }
+        }
+        return List.copyOf(list);
+    }
+
+    private static List<DraftItem> parseDraft(JsonObject root) {
+        List<DraftItem> list = new ArrayList<>();
+        for (JsonElement element : getArray(root, "items")) {
+            JsonObject object = asObject(element, "draft item");
+            String registry = getString(object, "registry", "");
+            if (!registry.isBlank()) {
+                list.add(new DraftItem(
+                        registry,
+                        getString(object, "class", ""),
+                        getString(object, "tier", ""),
+                        getInt(object, "game_tier", 0),
+                        getInt(object, "max_stack", 1)
+                ));
+            }
+        }
+        return List.copyOf(list);
+    }
+
+    private static Map<String, AncientEntry> parseAncient(JsonObject root) {
+        Map<String, AncientEntry> map = new LinkedHashMap<>();
+        for (JsonElement element : getArray(root, "entries")) {
+            JsonObject object = asObject(element, "ancient entry");
+            String id = getString(object, "id", "");
+            if (!id.isBlank()) {
+                map.put(id, new AncientEntry(
+                        id,
+                        getString(object, "kind", ""),
+                        getString(object, "effect", "")
+                ));
+            }
+        }
+        return unmodifiableMap(map);
+    }
+
     private static int countEntries(JsonObject root) {
         for (String key : List.of("artifacts", "recipes", "game_tiers", "templates", "entries", "factions",
-                "vehicles", "items", "grade_mismatch_rules")) {
+                "vehicles", "items", "synergies", "artifact_combos", "grade_mismatch_rules", "grades")) {
             JsonElement element = root.get(key);
             if (element != null && element.isJsonArray()) {
                 return element.getAsJsonArray().size();
@@ -259,7 +525,7 @@ public final class ArtifactDataService {
         int total = 0;
         for (String key : List.of("tiers", "sections", "realms", "barbarian_king_territories",
                 "diyuan_by_layer", "wanbao_pavilion_stock", "great_jin_auction_lots", "components",
-                "by_tier")) {
+                "by_tier", "artifact_id_map", "tier_tag_to_grade")) {
             JsonElement element = root.get(key);
             if (element == null) {
                 continue;
@@ -326,6 +592,10 @@ public final class ArtifactDataService {
         return Collections.unmodifiableMap(new LinkedHashMap<>(values));
     }
 
+    private static <K, T> Map<K, T> unmodifiableMap(Map<K, T> values, boolean ignored) {
+        return Collections.unmodifiableMap(new LinkedHashMap<>(values));
+    }
+
     private static <T> Map<String, List<T>> unmodifiableListMap(Map<String, List<T>> values) {
         Map<String, List<T>> copy = new LinkedHashMap<>();
         values.forEach((key, list) -> copy.put(key, List.copyOf(list)));
@@ -345,6 +615,19 @@ public final class ArtifactDataService {
             Map<String, List<String>> priorityIds,
             Map<String, TalismanTreasureTemplate> talismanTreasureTemplates,
             FailureLootTable refinementFailureLoot,
+            Map<Integer, ElevenTier> elevenTiers,
+            Map<String, Integer> elevenIdMap,
+            Map<String, TaxonomySection> taxonomy,
+            Map<Integer, GradeBand> gradeBands,
+            Map<String, int[]> tierTagToGrade,
+            List<SynergyRule> synergies,
+            List<ArtifactCombo> artifactCombos,
+            Map<String, List<DropEntry>> realmDrops,
+            Map<String, FactionSpecialty> factionSpecialties,
+            List<AuctionStock> wanbaoStock,
+            List<AuctionLot> auctionLots,
+            List<DraftItem> draftItems,
+            Map<String, AncientEntry> ancientEntries,
             Map<String, Integer> sourceFileEntryCounts
     ) {
         public Snapshot {
@@ -354,6 +637,19 @@ public final class ArtifactDataService {
             flightVehicles = unmodifiableMap(flightVehicles);
             priorityIds = unmodifiableMap(priorityIds);
             talismanTreasureTemplates = unmodifiableMap(talismanTreasureTemplates);
+            elevenTiers = Collections.unmodifiableMap(new LinkedHashMap<>(elevenTiers));
+            elevenIdMap = unmodifiableMap(elevenIdMap);
+            taxonomy = unmodifiableMap(taxonomy);
+            gradeBands = Collections.unmodifiableMap(new LinkedHashMap<>(gradeBands));
+            tierTagToGrade = Collections.unmodifiableMap(new LinkedHashMap<>(tierTagToGrade));
+            synergies = List.copyOf(synergies);
+            artifactCombos = List.copyOf(artifactCombos);
+            realmDrops = unmodifiableListMap(realmDrops);
+            factionSpecialties = unmodifiableMap(factionSpecialties);
+            wanbaoStock = List.copyOf(wanbaoStock);
+            auctionLots = List.copyOf(auctionLots);
+            draftItems = List.copyOf(draftItems);
+            ancientEntries = unmodifiableMap(ancientEntries);
             sourceFileEntryCounts = unmodifiableMap(sourceFileEntryCounts);
         }
 
@@ -390,6 +686,49 @@ public final class ArtifactDataService {
                     .filter(Objects::nonNull)
                     .toList();
         }
+
+        public int resolvedGameTier(String artifactId) {
+            ArtifactDefinition def = artifacts.get(artifactId);
+            if (def != null && def.gameTier() > 0) {
+                return def.gameTier();
+            }
+            Integer mapped = elevenIdMap.get(artifactId);
+            return mapped == null ? 0 : mapped;
+        }
+
+        public boolean isUniqueRestricted(String artifactId) {
+            ArtifactDefinition def = artifacts.get(artifactId);
+            if (def == null) {
+                return false;
+            }
+            String tier = def.tier() == null ? "" : def.tier().toLowerCase(Locale.ROOT);
+            if ("spirit_treasure".equals(tier) || "ancient_treasure".equals(tier) || "legendary".equals(tier)) {
+                return true;
+            }
+            if (def.gameTier() >= 10) {
+                return true;
+            }
+            String compliance = def.compliance() == null ? "" : def.compliance().toLowerCase(Locale.ROOT);
+            return compliance.contains("unique") || compliance.contains("canonical");
+        }
+
+        public boolean isFlyingCapable(String artifactId) {
+            ArtifactDefinition def = artifacts.get(artifactId);
+            if (def == null) {
+                return false;
+            }
+            String type = def.type() == null ? "" : def.type().toLowerCase(Locale.ROOT);
+            if (type.contains("flying") || "movement".equals(type) || type.contains("vehicle")) {
+                return true;
+            }
+            String id = artifactId == null ? "" : artifactId.toLowerCase(Locale.ROOT);
+            return id.contains("flying") || id.contains("cloud_boots") || id.contains("wind_escape")
+                    || id.contains("wheels") || id.contains("sail");
+        }
+
+        public List<DropEntry> dropsForRealm(String realmId) {
+            return realmDrops.getOrDefault(realmId, List.of());
+        }
     }
 
     public record ArtifactDefinition(
@@ -400,10 +739,21 @@ public final class ArtifactDataService {
             String effect,
             String realmMin,
             int gameTier,
-            List<String> tags
+            List<String> tags,
+            String element,
+            String binds,
+            String compliance,
+            boolean consumable,
+            int uses
     ) {
         public ArtifactDefinition {
             tags = List.copyOf(tags);
+        }
+
+        /** Backward-compatible compact constructor used by older call sites/tests. */
+        public ArtifactDefinition(String id, String display, String tier, String type, String effect,
+                                  String realmMin, int gameTier, List<String> tags) {
+            this(id, display, tier, type, effect, realmMin, gameTier, tags, "", "", "", false, 0);
         }
     }
 
@@ -445,4 +795,49 @@ public final class ArtifactDataService {
     }
 
     public record FailureLootEntry(String id, int weight, int countMin, int countMax) {}
+
+    public record ElevenTier(int tier, String display, String modTier, String realmTypical, List<String> examples) {
+        public ElevenTier {
+            examples = List.copyOf(examples);
+        }
+    }
+
+    public record TaxonomySection(String id, String display, List<String> types, List<String> examples) {
+        public TaxonomySection {
+            types = List.copyOf(types);
+            examples = List.copyOf(examples);
+        }
+    }
+
+    public record GradeBand(int grade, String display, String realmEquiv, String lootBand) {}
+
+    public record SynergyRule(List<String> items, String relation, String note) {
+        public SynergyRule {
+            items = List.copyOf(items);
+        }
+    }
+
+    public record ArtifactCombo(List<String> artifacts, String bonus, String note) {
+        public ArtifactCombo {
+            artifacts = List.copyOf(artifacts);
+        }
+    }
+
+    public record DropEntry(String id, int weight, String tier) {}
+
+    public record FactionSpecialty(String factionId, String display, String specialty,
+                                   List<String> artifactBias, List<String> shopArtifacts) {
+        public FactionSpecialty {
+            artifactBias = List.copyOf(artifactBias);
+            shopArtifacts = List.copyOf(shopArtifacts);
+        }
+    }
+
+    public record AuctionStock(String artifactId, String display, String priceBand, String realmGate) {}
+
+    public record AuctionLot(String artifactId, String lotTier, int startBidMidStone) {}
+
+    public record DraftItem(String registry, String itemClass, String tier, int gameTier, int maxStack) {}
+
+    public record AncientEntry(String id, String kind, String effect) {}
 }
