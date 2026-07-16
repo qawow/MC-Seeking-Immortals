@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 身份/声望/伪装（影响货架与追杀）",
+  "reputation_tracks": [
+    {"id": "tiannan_righteous", "display": "天南正道"},
+    {"id": "tiannan_demonic", "display": "天南魔道"},
+    {"id": "chaotic_sea", "display": "乱星海"},
+    {"id": "dajin", "display": "大晋"},
+    {"id": "tianyuan", "display": "天渊"},
+    {"id": "yao_tribe", "display": "妖族部落"}
+  ],
+  "thresholds": {
+    "hostile": -50,
+    "unfriendly": -20,
+    "neutral": 0,
+    "friendly": 30,
+    "honored": 60,
+    "exalted": 90
+  },
+  "effects": {
+    "hostile": ["拒售", "巡逻主动攻击", "悬赏"],
+    "friendly": ["9折", "任务货"],
+    "exalted": ["秘库", "长老会邀请"]
+  },
+  "identity_masks": [
+    {
+      "id": "lianxi_shu",
+      "display": "敛息术",
+      "effect": "隐藏修为品阶一段",
+      "break_on": ["大战出手", "神识强探"]
+    },
+    {
+      "id": "huanxing_jue",
+      "display": "换形诀",
+      "effect": "改容貌身材肤色",
+      "break_on": ["法力消耗超七成结构"]
+    },
+    {
+      "id": "lingying_shu",
+      "display": "灵影术",
+      "effect": "高阶隐匿/影遁结构",
+      "source": "天符门线"
+    },
+    {
+      "id": "fake_token",
+      "display": "伪造令牌",
+      "risk": "查验失败敌对",
+      "price": [100, 5000]
+    }
+  ],
+  "bounty_examples": [
+    {"cause": "灭门/夺宝", "heat": 40, "region": "local"},
+    {"cause": "杀星宫执事", "heat": 60, "region": "chaotic_sea"},
+    {"cause": "昆吾通天物暴露", "heat": 80, "region": "dajin"},
+    {"cause": "噬金虫王暴露", "heat": 70, "region": "multi"}
+  ],
+  "shop_link": "faction_shop_stock_v94 / market_shelves_v94 的 reputation_gates"
+}

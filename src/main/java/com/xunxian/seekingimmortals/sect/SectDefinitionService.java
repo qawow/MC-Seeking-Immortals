@@ -471,6 +471,8 @@ public final class SectDefinitionService {
         NOT_PLAYABLE,
         LOCKED,
         ALREADY_MEMBER,
-        OTHER_SECT
+        OTHER_SECT,
+        /** M08/M01 corpus gate or ghost ban rejection. */
+        ENTRY_DENIED
     }
 }

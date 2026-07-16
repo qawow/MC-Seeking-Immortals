@@ -589,7 +589,10 @@ public final class WorldpackGameplayService {
                     .orElseGet(() -> adjustMarketCostForShop(shopId, entry, baseCost, List.of(), false));
             // Wave46: reputation discount table (friendly 5%, honored 12%, max 20%).
             double repDiscount = ReputationService.shopDiscountMultiplier(player, shopId);
-            return Math.max(1, (int) Math.round(effectAdjusted * repDiscount));
+            // M08: active faction conflict tax/blockade multiplies market prices.
+            double conflictMul = com.xunxian.seekingimmortals.sect.FactionConflictEventService
+                    .activePriceMultiplier(player);
+            return Math.max(1, (int) Math.round(effectAdjusted * repDiscount * conflictMul));
         };
     }
 
@@ -767,10 +770,12 @@ public final class WorldpackGameplayService {
     private static WorldpackSavedData.EventRoll refreshDailyEvent(ServerPlayer player, PlayerCultivation cultivation,
                                                                   WorldpackSavedData savedData, WorldpackDataService.Snapshot snapshot,
                                                                   String regionId) {
-        // M06: expanded candidates + hook dispatch live in DailyEventScheduler.
+        // M06: expanded candidates + hook dispatch + encounter spawn live in DailyEventScheduler.
         WorldpackSavedData.EventRoll roll = com.xunxian.seekingimmortals.region.DailyEventScheduler
                 .ensurePlayerEvent(player, regionId);
         cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick());
+        // M08: player-scoped faction conflict authority (rep/price). Region-wide hooks fire inside scheduler.
+        com.xunxian.seekingimmortals.sect.FactionConflictEventService.onDailyEvent(player, regionId, roll.eventId());
         return roll;
     }
 

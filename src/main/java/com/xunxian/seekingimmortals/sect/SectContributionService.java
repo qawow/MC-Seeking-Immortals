@@ -85,6 +85,22 @@ public final class SectContributionService {
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
             QuestProgress progress = cultivation.getSevenMysteriesQuest();
             normalizeSectState(progress);
+            // M08: corpus + M01 ProgressionGateApi + ghost ban before mutating quest progress.
+            SectMasterDataService.EntryCheck entryCheck = SectMasterDataService.canEnter(player, sectId);
+            if (!entryCheck.allowed()) {
+                if (entryCheck.reason() != null && entryCheck.reason().startsWith("ghost_ban")) {
+                    GhostSectBanService.markDetected(player, "apply:" + sectId);
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.sect.apply_ghost_ban", sectId));
+                } else {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.sect.apply_entry_denied",
+                            sectId,
+                            entryCheck.reason() == null ? "" : entryCheck.reason()));
+                }
+                syncSect(player, cultivation, openScreen);
+                return;
+            }
             SectDefinitionService.ApplyResult result = SectDefinitionService.apply(progress, sectId);
             switch (result.status()) {
                 case SUCCESS -> {
@@ -109,6 +125,10 @@ public final class SectContributionService {
                             displaySect(progress)));
                     syncSect(player, cultivation, openScreen);
                 }
+                case ENTRY_DENIED, NOT_PLAYABLE -> player.sendSystemMessage(Component.translatable(
+                        "message.seeking_immortals.sect.apply_entry_denied",
+                        sectId,
+                        result.status().name().toLowerCase(Locale.ROOT)));
             }
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.sect.no_data")));
         return applied[0];

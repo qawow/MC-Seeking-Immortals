@@ -1,3 +1,19 @@
+## 458. 2026-07-16 M08 宗门与势力落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_233440_m08_sects_factions/`
+  FactionGraphService                  Done faction_graph + species + deep packs
+  ReputationUnlockService              Done reputation_unlocks_v102 阈值/解锁查询
+  SectContributionShopService          Done contribution shop + shelves；禁无限兑换
+  FactionConflictEventService          Done 接 M06 DailyEventScheduler 路径；声望/物价
+  GhostSectBan + SectMasterData        Done 鬼修禁令 + M01 入门门槛
+  missions/dialogues                   Done 30/30 已齐
+  Tests                                Done sect/* 聚焦测试
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.506）；protocol 保持 21
+  Update note                          Done `project_docs/updates/20260716_m08_sects_factions.md`
+  Merge to main                        Done 与 M06 合并；refreshDailyEvent 保留 scheduler + player-scoped conflict
+
 ## 457. 2026-07-16 M06 区域与世界事件落地
 
   Step   Status   Notes
@@ -30,7 +46,8 @@
   Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
   Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m02_techniques.md`
-## 456. 2026-07-16 M03 物品目录与批量注册
+
+## 456b. 2026-07-16 M03 物品目录与批量注册
 
   Step   Status   Notes
   ---   ---   ---

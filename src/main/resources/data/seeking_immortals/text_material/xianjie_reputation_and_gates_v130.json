@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "source": "v130 仙界声望与门槛",
+  "reputation_ids": {
+    "rep_zhenyan": {
+      "display": "真言门声望",
+      "camp": "zhenyan_men"
+    },
+    "rep_reincarnation_hall": {
+      "display": "轮回殿声望",
+      "camp": "reincarnation_hall"
+    },
+    "rep_heavenly_court": {
+      "display": "天庭声望",
+      "camp": "heavenly_court"
+    },
+    "rep_heifeng": {
+      "display": "黑风海声望",
+      "camp": "heifeng_sea"
+    },
+    "rep_gray_realm": {
+      "display": "灰界了解度",
+      "camp": "gray_realm",
+      "note": "高了解≠友好"
+    }
+  },
+  "gates": [
+    {
+      "id": "ascend_true_immortal",
+      "need": "TRIBULATION_LAND success / 飞升剧情旗",
+      "unlock_region": "xianjie"
+    },
+    {
+      "id": "join_zhenyan",
+      "need": "TRUE_IMMORTAL + 机缘/推荐",
+      "unlock_methods": [
+        "zhenyan_true_word_art"
+      ]
+    },
+    {
+      "id": "great_five_elements",
+      "need": "zhenyan_true_word_art 入门 + rep_zhenyan>=friendly",
+      "unlock_methods": [
+        "great_five_elements_world_art"
+      ]
+    },
+    {
+      "id": "time_law_entry",
+      "need": "GOLDEN_IMMORTAL + 时间法则机缘",
+      "unlock_methods": [
+        "time_law_scripture"
+      ]
+    },
+    {
+      "id": "time_reversion",
+      "need": "time_law_scripture 高阶 + TAIYI",
+      "unlock_methods": [
+        "time_reversion_fragment"
+      ]
+    },
+    {
+      "id": "reincarnation_hall",
+      "need": "TRUE_IMMORTAL + 轮回殿接触",
+      "unlock_methods": [
+        "reincarnation_hall_art"
+      ]
+    },
+    {
+      "id": "dao_ancestor_band",
+      "need": "DALUO + 终局旗",
+      "unlock_methods": [
+        "dao_ancestor_glimpse"
+      ]
+    }
+  ],
+  "mutual_rules": [
+    {
+      "id": "court_vs_gray",
+      "sides": [
+        "rep_heavenly_court",
+        "rep_gray_realm"
+      ],
+      "rule": "天庭友好时灰界任务报酬降/敌对升"
+    },
+    {
+      "id": "zhenyan_vs_court_soft",
+      "sides": [
+        "rep_zhenyan",
+        "rep_heavenly_court"
+      ],
+      "rule": "软竞合，可双高但互有支线互斥"
+    }
+  ],
+  "action_deltas": [
+    {
+      "action": "zhenyan_inner_task",
+      "rep": "rep_zhenyan",
+      "delta": 8
+    },
+    {
+      "action": "learn_wuxing_world",
+      "rep": "rep_zhenyan",
+      "delta": 15
+    },
+    {
+      "action": "reincarnation_trade",
+      "rep": "rep_reincarnation_hall",
+      "delta": 5
+    },
+    {
+      "action": "heaven_patrol_assist",
+      "rep": "rep_heavenly_court",
+      "delta": 10
+    },
+    {
+      "action": "gray_realm_raid",
+      "rep": "rep_gray_realm",
+      "delta": 10,
+      "also": [
+        {
+          "rep": "rep_heavenly_court",
+          "delta": -8
+        }
+      ]
+    }
+  ]
+}

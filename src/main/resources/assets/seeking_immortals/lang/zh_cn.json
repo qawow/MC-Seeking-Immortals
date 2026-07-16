@@ -4394,5 +4394,8 @@
   "command.seeking_immortals.region.items.header": "区域 %s 物品：%s 项",
   "command.seeking_immortals.region.items.entry": "- %s | %s | %s | %s",
   "command.seeking_immortals.region.routes.header": "路线 %s → %s：直接边 %s，连通=%s",
-  "command.seeking_immortals.region.routes.entry": "- %s | %s→%s | days=%s-%s | fee=%s"
+  "command.seeking_immortals.region.routes.entry": "- %s | %s→%s | days=%s-%s | fee=%s",
+  "message.seeking_immortals.faction_conflict.daily_trigger": "区域冲突触发：%s（%s）",
+  "message.seeking_immortals.sect.apply_ghost_ban": "鬼修身份被拒：宗门 %s 禁收/追杀标记已生效。",
+  "message.seeking_immortals.sect.apply_entry_denied": "入门被拒：%s（%s）"
 }

@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v102 声望阈值与解锁表（势力友好/敌对门槛）",
+  "disclaimer": "阈值 0-100 结构分；可用 -100~100 敌对轴。数值可整体缩放",
+  "scale": {
+    "min": -100,
+    "max": 100,
+    "hostile": [-100, -40],
+    "unfriendly": [-39, -10],
+    "neutral": [-9, 20],
+    "friendly": [21, 50],
+    "honored": [51, 80],
+    "exalted": [81, 100]
+  },
+  "factions": [
+    {
+      "id": "huangfeng",
+      "display": "黄枫谷",
+      "gains": ["任务", "贡献", "禁地表现", "上交灵药"],
+      "losses": ["杀同门", "盗园", "投魔"],
+      "thresholds": [
+        {"at": 0, "unlock": ["外门基础坊市"]},
+        {"at": 20, "unlock": ["内门任务板", "地火时券折扣"]},
+        {"at": 40, "unlock": ["筑基丹配额抽签", "功法阁一层"]},
+        {"at": 60, "unlock": ["药园主事权", "秘传申请"]},
+        {"at": -40, "lock": ["山门", "触发追拿"]}
+      ]
+    },
+    {
+      "id": "yueling_qipai",
+      "display": "越国七派总体",
+      "thresholds": [
+        {"at": 30, "unlock": ["跨派任务", "小会高级摊"]},
+        {"at": -50, "lock": ["七派联防追杀"]}
+      ]
+    },
+    {
+      "id": "guiling_men",
+      "display": "鬼灵门",
+      "axis": "敌对默认对正道",
+      "thresholds": [
+        {"at": -60, "effect": "王蝉线强化追杀"},
+        {"at": 20, "unlock": ["阴货渠道"], "note": "需易容/卧底"}
+      ]
+    },
+    {
+      "id": "tianxing_city",
+      "display": "天星城/乱星海秩序",
+      "thresholds": [
+        {"at": 0, "unlock": ["城居", "基础海图"]},
+        {"at": 25, "unlock": ["秘店介绍信", "传送折扣"]},
+        {"at": 50, "unlock": ["星宫线索商人", "高级法舟位"]},
+        {"at": -30, "lock": ["巡海队盘查+"]}
+      ]
+    },
+    {
+      "id": "liulian_dian",
+      "display": "六连殿",
+      "thresholds": [
+        {"at": 20, "unlock": ["客卿任务", "降尘情报"]},
+        {"at": 50, "unlock": ["核心委托"], "note": "古长老线后可跳"},
+        {"at": -40, "lock": ["殿杀"]}
+      ]
+    },
+    {
+      "id": "yunmeng",
+      "display": "云梦圣地",
+      "thresholds": [
+        {"at": 10, "unlock": ["试剑报名"]},
+        {"at": 40, "unlock": ["定灵丹兑换权结构", "灵眼树相关"]},
+        {"at": 70, "unlock": ["圣地深层许可"]},
+        {"at": -20, "lock": ["试剑除名", "剑狐敌对"]}
+      ]
+    },
+    {
+      "id": "yinluo_zong",
+      "display": "阴罗宗",
+      "thresholds": [
+        {"at": -50, "effect": "四长老级敌意"},
+        {"at": 30, "unlock": ["鬼罗修幡渠道"], "note": "魔道身份"}
+      ]
+    },
+    {
+      "id": "tiannan_allied",
+      "display": "九国盟军/天南正道",
+      "thresholds": [
+        {"at": 20, "unlock": ["参战资格", "补给箱"]},
+        {"at": 50, "unlock": ["中层军功店", "疗伤批"]},
+        {"at": 80, "unlock": ["顶赏候选", "庚精/藤线索权重+"]},
+        {"at": -40, "lock": ["通敌罪"]}
+      ]
+    },
+    {
+      "id": "mulan",
+      "display": "慕兰草原",
+      "thresholds": [
+        {"at": -30, "effect": "战场默认敌"},
+        {"at": 40, "unlock": ["停战贸易结构", "图腾知识"], "note": "罕见"}
+      ]
+    },
+    {
+      "id": "dayan_legacy",
+      "display": "大衍神君遗产认可",
+      "thresholds": [
+        {"at": 30, "unlock": ["傀儡术完整", "土甲龙稳定"]},
+        {"at": 60, "unlock": ["极西洞府深层"]}
+      ]
+    },
+    {
+      "id": "dajin_orthodox",
+      "display": "大晋正道",
+      "thresholds": [
+        {"at": 0, "unlock": ["明面坊市"]},
+        {"at": 35, "unlock": ["天符门高级符", "官面拍卖"]},
+        {"at": -25, "lock": ["明面通缉"], "note": "地下仍可进"}
+      ]
+    },
+    {
+      "id": "jinjing_underground",
+      "display": "晋京地下黑市",
+      "thresholds": [
+        {"at": 15, "unlock": ["基础黑货"]},
+        {"at": 40, "unlock": ["墨金/五行玉/庚精场次"]},
+        {"at": 70, "unlock": ["禁术柜"]},
+        {"at": -50, "lock": ["执法傀全图"]}
+      ]
+    },
+    {
+      "id": "xiaojigong",
+      "display": "小极宫",
+      "thresholds": [
+        {"at": 20, "unlock": ["寒焰辅材", "玄冰花"]},
+        {"at": 50, "unlock": ["万年玄玉交易", "寒焰交流"]},
+        {"at": -40, "effect": "反目线：五寒焰争夺战"}
+      ]
+    },
+    {
+      "id": "tianfu_men",
+      "display": "天符门",
+      "thresholds": [
+        {"at": 25, "unlock": ["地符批发", "符谱一层"]},
+        {"at": 55, "unlock": ["天符申请", "化灵符任务"]},
+        {"at": 80, "unlock": ["降灵符人情线"]}
+      ]
+    },
+    {
+      "id": "yuling_zong",
+      "display": "御灵宗",
+      "thresholds": [
+        {"at": 20, "unlock": ["虫卵礼盒", "饲灵丸配方"]},
+        {"at": 50, "unlock": ["中阶虫种", "驱虫秘传"]}
+      ]
+    },
+    {
+      "id": "tianyuan",
+      "display": "天渊城",
+      "thresholds": [
+        {"at": 0, "unlock": ["注册", "基础功勋店"]},
+        {"at": 30, "unlock": ["灵地租中档", "玉清/腾龙"]},
+        {"at": 60, "unlock": ["护劫预约", "真蟾液"]},
+        {"at": 85, "unlock": ["顶阶拍卖席", "墨麒麟级"]},
+        {"at": -30, "lock": ["巡城执法"]}
+      ]
+    },
+    {
+      "id": "diyuan_corps",
+      "display": "地渊军功体系",
+      "thresholds": [
+        {"at": 20, "unlock": ["浅层任务", "回收价+"]},
+        {"at": 50, "unlock": ["豹麟相关", "深层许可"]},
+        {"at": 75, "unlock": ["精英小队", "真蟾优先"]}
+      ]
+    },
+    {
+      "id": "xinggong",
+      "display": "星宫",
+      "thresholds": [
+        {"at": 40, "unlock": ["元磁试炼"]},
+        {"at": 70, "unlock": ["元磁神山线推进"]}
+      ]
+    },
+    {
+      "id": "nangong_bond",
+      "display": "南宫婉情谊",
+      "type": "bond",
+      "thresholds": [
+        {"at": 20, "unlock": ["通信", "小援"]},
+        {"at": 50, "unlock": ["阳环/血魔线", "落云归属"]},
+        {"at": 80, "unlock": ["六丁天甲", "双修稳态"]}
+      ]
+    },
+    {
+      "id": "yuanyao_bond",
+      "display": "元瑶/啼魂线",
+      "type": "bond",
+      "thresholds": [
+        {"at": 30, "unlock": ["啼魂稳定归属"]},
+        {"at": 60, "unlock": ["阴冥深层向导"]}
+      ]
+    },
+    {
+      "id": "tianlan_bond",
+      "display": "天澜圣兽契约",
+      "type": "bond",
+      "thresholds": [
+        {"at": 40, "unlock": ["圣兽支援一次结构"]},
+        {"at": 70, "unlock": ["银蝌文/圣鼎回报"]}
+      ]
+    },
+    {
+      "id": "zi_ling_bond",
+      "display": "紫灵线",
+      "type": "bond",
+      "thresholds": [
+        {"at": 30, "unlock": ["魔陀人情"]},
+        {"at": 60, "unlock": ["魔元丹交换协助"]}
+      ]
+    }
+  ],
+  "global_rules": {
+    "kill_same_faction": -15,
+    "complete_major_quest": [5, 25],
+    "public_demonic_cast": [-10, -30],
+    "war_merit_to_rep": "军功可部分兑换盟军声望",
+    "mask_identity": "易容可避免部分损失，破除后补扣"
+  },
+  "description": "声望驱动商店、秘境、军功店与道侣线；敌对轴触发追杀与锁门。"
+}
