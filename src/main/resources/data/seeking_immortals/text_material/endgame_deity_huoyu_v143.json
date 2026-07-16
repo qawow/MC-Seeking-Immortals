@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "source": "v143 化神·火狱·回阳链加深（贴原著）",
+  "disclaimer": "化神准备管线可玩化；回阳/太阳精火 unique 标记；成功率结构非点满必成。",
+  "id": "path_deity_huoyu",
+  "display": "火狱·回阳·化神准备",
+  "novel_anchor": "小极宫寒焰→蛮胡子/托天→梵圣真魔拼图→金蛟龙鳞→火狱太阳精火→回阳真水→魔元丹→化神冲击→飞升",
+  "pipeline_playable": [
+    {
+      "step": 1,
+      "id": "xiaojigong_cold",
+      "display": "小极宫寒焰",
+      "hub": "xiaojigong",
+      "rewards": [
+        "五寒焰",
+        "万年玄玉",
+        "乾蓝鼎结构"
+      ],
+      "risk": "反目线争夺五寒焰",
+      "rep": "xiaojigong",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 2,
+      "id": "manhuzi_cave",
+      "display": "蛮胡子洞府",
+      "rewards": [
+        "托天魔功",
+        "银蝌文"
+      ],
+      "note": "法体/魔功拼图",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 3,
+      "id": "fansheng_complete",
+      "display": "梵圣真魔功拼成",
+      "rewards": [
+        "梵圣真魔功",
+        "法体成型"
+      ],
+      "need": [
+        "托天",
+        "相关残篇"
+      ],
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 4,
+      "id": "jinjiao_longlin",
+      "display": "金蛟与龙鳞果",
+      "rewards": [
+        "龙鳞果秘术",
+        "金属性妖丹"
+      ],
+      "zone": "outer_sea_deep",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 5,
+      "id": "huoyu_taiyang",
+      "display": "火狱取太阳精火",
+      "hub": "huoyu",
+      "rewards": [
+        "太阳精火"
+      ],
+      "hazards": [
+        "至阳",
+        "炎犬",
+        "火域崩塌"
+      ],
+      "need": [
+        "极高火抗",
+        "寒焰对冲",
+        "逃遁"
+      ],
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 6,
+      "id": "huiyang_combine",
+      "display": "回阳真水合成",
+      "need": [
+        "太阳精火",
+        "太阴相关/寒髓等结构辅"
+      ],
+      "rewards": [
+        "回阳真水"
+      ],
+      "unique_mark": "回阳合成标记",
+      "description": "化神关键灵物之一。禁无限复制",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 7,
+      "id": "moyuan_exchange",
+      "display": "魔元丹交换",
+      "rewards": [
+        "魔元丹"
+      ],
+      "bond": "zi_ling_bond",
+      "note": "紫灵线推进",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 8,
+      "id": "deity_breakthrough",
+      "display": "化神冲击",
+      "kit": "化神资源捆",
+      "base_success": 0.08,
+      "mods": [
+        "魔元包+0.10",
+        "法体+0.08",
+        "回阳辅助结构"
+      ],
+      "fail": "重伤/掉境风险结构，不吞唯一剧情物",
+      "playable_note": "见 quest_chain.steps 同 id"
+    },
+    {
+      "step": 9,
+      "id": "ascent",
+      "display": "飞升灵界",
+      "need": [
+        "破界符",
+        "节点资料",
+        "六丁天甲"
+      ],
+      "rewards": [
+        "灵界立足包",
+        "功勋账户"
+      ],
+      "playable_note": "见 quest_chain.steps 同 id"
+    }
+  ],
+  "huoyu_layers": [
+    {
+      "id": "hy_smoke",
+      "display": "烟道外围",
+      "threat": [
+        7,
+        9
+      ],
+      "structures": [
+        {
+          "id": "spirit_fire_brazier",
+          "role": "火狱地标",
+          "pos": "smoke"
+        },
+        {
+          "id": "field_repair_tent",
+          "role": "前哨",
+          "pos": "camp"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "huoyu_smoke_fire_hound",
+          "display": "huoyu_smoke_fire_hound"
+        },
+        {
+          "id": "cinder_moth",
+          "display": "cinder_moth"
+        },
+        {
+          "id": "heatwave_spirit",
+          "display": "heatwave_spirit"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "fire_hound_fang",
+          "chance": 0.35
+        },
+        {
+          "table": "cinder_powder",
+          "chance": 0.3
+        },
+        {
+          "table": "fire_marrow",
+          "chance": 0.2
+        }
+      ],
+      "boss": null,
+      "map_hint": null,
+      "notes": [],
+      "novel_anchor": "火狱外围"
+    },
+    {
+      "id": "hy_lava",
+      "display": "熔岩海",
+      "threat": [
+        8,
+        10
+      ],
+      "structures": [
+        {
+          "id": "fallen_demon_rift",
+          "role": "熔岩裂意象",
+          "pos": "sea"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "lava_monitor_struct",
+          "display": "lava_monitor_struct"
+        },
+        {
+          "id": "fire_jiao_shadow",
+          "display": "fire_jiao_shadow"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "lava_crystal",
+          "chance": 0.3
+        },
+        {
+          "table": "fire_jiao_scale_clue",
+          "chance": 0.15
+        }
+      ],
+      "boss": null,
+      "map_hint": null,
+      "notes": [],
+      "novel_anchor": "熔岩海"
+    },
+    {
+      "id": "hy_core",
+      "display": "太阳精火核心",
+      "threat": [
+        9,
+        11
+      ],
+      "structures": [
+        {
+          "id": "kunwu_frost_forge",
+          "role": "寒焰对冲台（需自备五寒焰）",
+          "pos": "core"
+        },
+        {
+          "id": "infant_fire_alchemy_room",
+          "role": "至阳环境",
+          "pos": "edge"
+        }
+      ],
+      "spawns": [
+        {
+          "id": "jinghuo_guardian",
+          "display": "jinghuo_guardian"
+        },
+        {
+          "id": "extreme_yang_backlash",
+          "display": "extreme_yang_backlash"
+        }
+      ],
+      "loot_tables": [
+        {
+          "table": "tai_yang_jing_huo",
+          "chance": "unique_limited",
+          "unique": true,
+          "cooldown": true
+        }
+      ],
+      "boss": {
+        "id": "jinghuo_guardian",
+        "display": "精火守护灵"
+      },
+      "map_hint": null,
+      "notes": [
+        "取火有次数/冷却",
+        "需极高火抗+寒焰对冲+逃遁"
+      ],
+      "novel_anchor": "太阳精火——化神关键"
+    }
+  ],
+  "key_items_desc": [
+    {
+      "id": "wu_han_yan",
+      "display": "五寒焰",
+      "description": "小极宫一线寒焰集合。火狱取太阳精火时作对冲；反目线可争夺。"
+    },
+    {
+      "id": "tai_yang_jing_huo",
+      "display": "太阳精火",
+      "description": "火狱核心至阳之火。取之有限次；与太阴/寒髓等合成回阳真水。禁止无限采。"
+    },
+    {
+      "id": "hui_yang_zhen_shui",
+      "display": "回阳真水",
+      "description": "化神关键灵物。太阳精火+太阴相关结构合成；unique 标记，禁交易复制。"
+    },
+    {
+      "id": "mo_yuan_dan",
+      "display": "魔元丹",
+      "description": "化神成功率修正物之一。可接紫灵线/黑市，非无限货。"
+    },
+    {
+      "id": "fan_sheng_zhen_mo",
+      "display": "梵圣真魔功",
+      "description": "法体/魔功拼图完成态。托天等残篇合成，心性风险高。"
+    }
+  ],
+  "breakthrough": {
+    "base_success": 0.08,
+    "mods": [
+      {
+        "id": "mo_yuan_pack",
+        "delta": 0.1,
+        "display": "魔元包"
+      },
+      {
+        "id": "fa_ti",
+        "delta": 0.08,
+        "display": "法体成型"
+      },
+      {
+        "id": "hui_yang",
+        "delta": 0.06,
+        "display": "回阳辅助"
+      },
+      {
+        "id": "loadout_prep",
+        "delta": 0.03,
+        "display": "渡劫台与辅助符"
+      }
+    ],
+    "fail": "重伤/掉境风险；不吞已获得的唯一剧情物（回阳标记保留规则可配置）",
+    "structure": "tribulation_platform"
+  },
+  "quest_chain": {
+    "id": "deity_huoyu_path",
+    "display": "化神·火狱准备链",
+    "realm_span": [
+      "NASCENT_SOUL_late",
+      "DEITY_TRANSFORMATION"
+    ],
+    "steps": [
+      {
+        "step": 1,
+        "id": "xiaojigong_cold",
+        "do": "小极宫寒焰线，取五寒焰",
+        "risk": "反目"
+      },
+      {
+        "step": 2,
+        "id": "manhuzi_cave",
+        "do": "蛮胡子洞府：托天魔功/银蝌文"
+      },
+      {
+        "step": 3,
+        "id": "fansheng_complete",
+        "do": "拼成梵圣真魔功，法体成型"
+      },
+      {
+        "step": 4,
+        "id": "jinjiao_longlin",
+        "do": "外海深：金蛟与龙鳞果"
+      },
+      {
+        "step": 5,
+        "id": "huoyu_taiyang",
+        "do": "火狱取太阳精火",
+        "place": "hy_core",
+        "unique": "tai_yang_jing_huo"
+      },
+      {
+        "step": 6,
+        "id": "huiyang_combine",
+        "do": "合成回阳真水",
+        "unique": "hui_yang_zhen_shui"
+      },
+      {
+        "step": 7,
+        "id": "moyuan_exchange",
+        "do": "魔元丹交换/紫灵线",
+        "optional_bond": "zi_ling"
+      },
+      {
+        "step": 8,
+        "id": "deity_breakthrough",
+        "do": "化神冲击",
+        "base_success": 0.08
+      },
+      {
+        "step": 9,
+        "id": "ascent",
+        "do": "飞升灵界：破界符/节点/六丁天甲等",
+        "next": "tianyuan_landing_register"
+      }
+    ]
+  },
+  "source_ref": "path_deity_huoyu_v106.json",
+  "cross_ref": [
+    "ascension_flow.json",
+    "ascension_loadout_v95.json",
+    "quest_chains_playable_v141.json"
+  ],
+  "rewards_detail_ref": "endgame_reward_tables_v144.json#deity_huoyu",
+  "v144": true
+}

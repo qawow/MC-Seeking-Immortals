@@ -4411,6 +4411,13 @@
   "message.seeking_immortals.worldpack.realm_timeout": "秘境 %s 时限已到，强制遣返。",
   "message.seeking_immortals.worldpack.realm_death_eject": "你在秘境 %s 中陨落，残魂被遣返入口。",
   "message.seeking_immortals.worldpack.trial_traps_armed": "秘境 %s 阵法机关已布设（%s 处，M07 场效果）。",
-  "message.seeking_immortals.boss.loot_granted": "Boss %s 掉落结算：%s 组（首通=%s）"
-
+  "message.seeking_immortals.boss.loot_granted": "Boss %s 掉落结算：%s 组（首通=%s）",
+  "message.seeking_immortals.main_story.realm_locked": "主线章节 %s 未解锁：需要境界 %s（当前 %s）",
+  "message.seeking_immortals.main_story.region_locked": "主线章节 %s 未解锁：需要区域 %s（当前 %s）",
+  "message.seeking_immortals.main_story.rep_locked": "主线章节 %s 未解锁：需要声望 %s ≥ %s（当前 %s）",
+  "message.seeking_immortals.main_story.secret_locked": "主线章节 %s 未解锁：需要通关秘境 %s",
+  "message.seeking_immortals.quest_reward.unique_already": "唯一剧情奖励已领取：%s",
+  "message.seeking_immortals.quest_reward.unique_granted": "获得唯一剧情奖励：%s",
+  "message.seeking_immortals.timeline.unknown": "未知时间线阶段：%s",
+  "message.seeking_immortals.timeline.unlocked": "时间线解锁：%s"
 }

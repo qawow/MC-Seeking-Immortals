@@ -1,3 +1,35 @@
+## 464. 2026-07-17 M09 / M11 主线集成
+
+  Step   Status   Notes
+  ---   ---   ---
+  Diff review                          Done M09 38 files（+6,296/-163）；M11 42 files（+13,785/-202）；两边 diff --check 通过
+  Backup                               Done `.bak/20260717_042514_merge_m09_m11/`
+  Merge M09                            Done `a854bba5` → `36bb2ded` fast-forward
+  Merge M11                            Done 4 conflicts；文档与 zh/en lang 均保留双边内容，ModEvents 自动合并
+  Version/protocol                     Done `0.1.507` → `0.1.508`；tracker encoded capacity 32→72，protocol `21` → `22`
+  Full verification                    Done `./gradlew build` BUILD SUCCESSFUL in 1m3s（11 tasks）
+  Update note                          Done `project_docs/updates/20260717_merge_m09_m11.md`
+
+## 463. 2026-07-17 M11 任务与主线落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_040504_m11_quests_story/`
+  Publish corpus                       Done quest_chains/playable/map/rewards/lines/timeline/chronicle/faction/endgame → text_material + indexes
+  ExtendedCatalogService               Done schema18 fields: stepHooks/alchemy/skillTree + StoryChapter.questChainRefs
+  QuestLineService (35)                Done QUEST_LINES_FULL_v147 + chapter index + cross-ref
+  MainStorySoftService                 Done data-driven refs + realm/region/rep/secret unlock gates
+  QuestHookRuntime                     Done DialogueNodeReached + kill/craft/pickup + M06 daily + M09 clear
+  QuestRewardService                   Done main_quest_rewards_v101 + unique once ledger
+  TimelineChronicleService             Done hanli phases + chronicle count bridge
+  FtbQuestBridgeService                Done 9 chapters ↔ 62 chains mapping (no FTB required for query)
+  Tracker capacity                     Done SyncQuestTracker MAX_LINES 32→72; action assembly 72
+  DialogueActionExecutor               Done offer/turnin settle into TextQuestChainService
+  Tests                                Done M11QuestCorpusTest + quest/* green
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.507）；protocol 保持 21
+  Full verification                    Done `bash ./gradlew.unix --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m11_quests_story.md`
+
 ## 462. 2026-07-17 M09 秘境副本落地
 
   Step   Status   Notes

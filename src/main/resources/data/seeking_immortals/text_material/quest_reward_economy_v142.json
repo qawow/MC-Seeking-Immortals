@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "source": "v142 任务奖励数值钉表（贴原著经济带）",
+  "disclaimer": "可玩经济；与 realm_wealth_bands / balance_knobs 对齐。区间为 [min,max]。",
+  "currency": {
+    "low_spirit_stone": "下品灵石",
+    "mid_spirit_stone": "中品=100下品",
+    "high_spirit_stone": "上品=100中品",
+    "contribution": "宗门/天渊贡献点",
+    "immortal_spirit_stone": "仙灵石（仙界）",
+    "rep": "声望点",
+    "merit_tianyuan": "天渊功勋"
+  },
+  "realm_quest_pay_band": {
+    "QI_REFINING": {
+      "cash_low": [
+        5,
+        80
+      ],
+      "contribution": [
+        1,
+        15
+      ]
+    },
+    "FOUNDATION": {
+      "cash_low": [
+        50,
+        800
+      ],
+      "contribution": [
+        5,
+        40
+      ]
+    },
+    "CORE_FORMATION": {
+      "cash_low": [
+        500,
+        8000
+      ],
+      "contribution": [
+        20,
+        100
+      ]
+    },
+    "NASCENT_SOUL": {
+      "cash_low": [
+        5000,
+        80000
+      ],
+      "contribution": [
+        50,
+        200
+      ]
+    },
+    "VOID_REFINEMENT": {
+      "cash_low": [
+        0,
+        0
+      ],
+      "merit_tianyuan": [
+        20,
+        200
+      ],
+      "contribution": [
+        50,
+        500
+      ]
+    },
+    "TRUE_IMMORTAL": {
+      "immortal_spirit_stone": [
+        1,
+        15
+      ],
+      "rep": [
+        3,
+        20
+      ]
+    }
+  },
+  "quests": [
+    {
+      "quest_id": "huangfeng_blood_quota",
+      "display": "黄枫谷·禁地配额",
+      "realm_band": "QI_REFINING",
+      "rewards_numeric": {
+        "step_cash_low_total": [
+          15,
+          60
+        ],
+        "contribution_cost_to_token": [
+          25,
+          40
+        ],
+        "rep_huangfeng_gu": [
+          2,
+          5
+        ],
+        "item": {
+          "blood_forbidden_token": 1
+        }
+      },
+      "unique_or_once": null,
+      "notes": [
+        "贡献换令，非卖店打折令",
+        "死不退贡献"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "realm_band": "QI_REFINING-FOUNDATION",
+      "rewards_numeric": {
+        "expected_loot_cash_equiv_low": [
+          30,
+          400
+        ],
+        "herb_nodes_value_low": [
+          20,
+          300
+        ],
+        "sect_turnin_bonus_contribution": [
+          5,
+          20
+        ],
+        "death_penalty": "bag_rules_configurable"
+      },
+      "unique_or_once": null,
+      "notes": [
+        "药田高价值点稀有",
+        "人祸掉落不计入保底"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭权重",
+      "realm_band": "QI_REFINING-FOUNDATION",
+      "rewards_numeric": {
+        "jiao_materials_cash_equiv_low": [
+          80,
+          500
+        ],
+        "or_favor_flag": true,
+        "rep_shift_optional": {
+          "yanyue_or_personal": [
+            0,
+            10
+          ]
+        }
+      },
+      "unique_or_once": null,
+      "notes": [
+        "可选权重",
+        "非强制南宫线"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "star_palace_register",
+      "display": "星宫登记",
+      "realm_band": "FOUNDATION-CORE",
+      "rewards_numeric": {
+        "registration_fee_low": [
+          100,
+          400
+        ],
+        "monthly_fee_low": [
+          20,
+          80
+        ],
+        "rep_star_palace": [
+          5,
+          8
+        ],
+        "teleport_discount_pct": [
+          10,
+          25
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "逆星高声望拒登"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "inverse_star_intro",
+      "display": "逆星接头",
+      "realm_band": "FOUNDATION-CORE",
+      "rewards_numeric": {
+        "first_job_cash_low": [
+          150,
+          600
+        ],
+        "rep_inverse_star": [
+          5,
+          12
+        ],
+        "rep_star_palace": [
+          -8,
+          -3
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "与星宫互斥累加"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "tianyuan_landing_register",
+      "display": "天渊落地登记",
+      "realm_band": "VOID_REFINEMENT",
+      "rewards_numeric": {
+        "cash_low": [
+          0,
+          0
+        ],
+        "merit_tianyuan": [
+          10,
+          30
+        ],
+        "flag": "tianyuan_registered"
+      },
+      "unique_or_once": null,
+      "notes": [
+        "飞升后无大量灵石奖，重权限"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "tianyuan_to_fengyuan_gate",
+      "display": "界门入风元",
+      "realm_band": "VOID_REFINEMENT",
+      "rewards_numeric": {
+        "contribution_cost": 500,
+        "return_contribution_cost": 300,
+        "garrison_quest_contrib_each": [
+          15,
+          40
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "钉死 v136/v137 贡献费"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "zhenyan_outer_lesson",
+      "display": "真言外门听法",
+      "realm_band": "TRUE_IMMORTAL",
+      "rewards_numeric": {
+        "immortal_spirit_stone": [
+          0,
+          2
+        ],
+        "rep_zhenyan": [
+          5,
+          10
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "重声望与资格"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "wuxing_intro",
+      "display": "大五行幻世入门",
+      "realm_band": "TRUE_IMMORTAL",
+      "rewards_numeric": {
+        "rep_zhenyan": [
+          8,
+          15
+        ],
+        "method_progress": "wuxing_entry",
+        "immortal_spirit_stone": [
+          1,
+          5
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "资格门，非卖课"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "reincarnation_intro",
+      "display": "轮回殿引见",
+      "realm_band": "TRUE_IMMORTAL",
+      "rewards_numeric": {
+        "rep_reincarnation_hall": [
+          6,
+          12
+        ],
+        "run_risk": "high",
+        "shop_unlock": true
+      },
+      "unique_or_once": null,
+      "notes": [
+        "天庭高声望加税"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "court_hunt_gray",
+      "display": "天庭缉灰",
+      "realm_band": "TRUE_IMMORTAL",
+      "rewards_numeric": {
+        "rep_heavenly_court": [
+          8,
+          15
+        ],
+        "rep_gray_realm": [
+          -20,
+          -10
+        ],
+        "immortal_spirit_stone": [
+          2,
+          8
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "heifeng_gray_sail",
+      "display": "黑风接灰界",
+      "realm_band": "TRUE_IMMORTAL",
+      "rewards_numeric": {
+        "sail_fee_immortal_stone": [
+          3,
+          12
+        ],
+        "rep_heifeng": [
+          3,
+          8
+        ],
+        "fail_loss_chance": 0.15
+      },
+      "unique_or_once": null,
+      "notes": [],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "xutian_window_prepare",
+      "display": "虚天窗口筹备",
+      "realm_band": "CORE-NASCENT",
+      "rewards_numeric": {
+        "intel_cost_low": [
+          500,
+          5000
+        ],
+        "fragment_trade_low": [
+          1000,
+          20000
+        ],
+        "prep_consumable_low": [
+          800,
+          8000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "残图拼合成本",
+        "入场≠通关"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "kunwu_clue_assemble",
+      "display": "昆吾线索拼合",
+      "realm_band": "NASCENT_late",
+      "rewards_numeric": {
+        "clue_jade_each_low": [
+          2000,
+          15000
+        ],
+        "pieces_needed": [
+          3,
+          6
+        ],
+        "fire_resist_prep_low": [
+          3000,
+          20000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "非周期野刷"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "zhuimo_token",
+      "display": "坠魔令获取",
+      "realm_band": "NASCENT",
+      "rewards_numeric": {
+        "token_market_low": [
+          8000,
+          50000
+        ],
+        "or_quest_reward": true,
+        "fire_prep_low": [
+          2000,
+          12000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "lingzhu_fruit_run",
+      "display": "灵烛果争夺",
+      "realm_band": "NASCENT",
+      "rewards_numeric": {
+        "fruit_unique": true,
+        "cash_equiv_if_sold_low": [
+          50000,
+          500000
+        ],
+        "lifetime_once_flag": "zaohua_path",
+        "contest_death_risk": "high"
+      },
+      "unique_or_once": "lingzhu_fruit",
+      "notes": [
+        "不保底",
+        "造化一生一次挂钩"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "yinyang_ku_intel",
+      "display": "阴阳窟情报",
+      "realm_band": "NASCENT",
+      "rewards_numeric": {
+        "intel_detox_prep_low": [
+          3000,
+          18000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "peiying_material_hunt",
+      "display": "培婴·阴芝马",
+      "realm_band": "NASCENT",
+      "rewards_numeric": {
+        "live_capture_value_low": [
+          20000,
+          120000
+        ],
+        "kill_material_value_low": [
+          3000,
+          15000
+        ],
+        "peiying_dan_craft_chance": [
+          0.15,
+          0.35
+        ],
+        "peiying_dan_market_low": [
+          80000,
+          400000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "活捕>>击杀",
+        "丹非必成"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "qianzhu_tower_trial",
+      "display": "千竹塔试炼",
+      "realm_band": "FOUNDATION-CORE",
+      "rewards_numeric": {
+        "part_loot_low": [
+          100,
+          2000
+        ],
+        "dayan_page_weight": [
+          0.08,
+          0.2
+        ],
+        "console_control_bonus_rep": [
+          0,
+          5
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [],
+      "ref_chain": "quest_chains_playable_v141.json"
+    },
+    {
+      "quest_id": "dayan_clue",
+      "display": "大衍残篇线索",
+      "realm_band": "FOUNDATION-NASCENT",
+      "rewards_numeric": {
+        "page_black_market_low": [
+          500,
+          8000
+        ],
+        "full_art_pity": false,
+        "favor_quest_cash_low": [
+          200,
+          3000
+        ]
+      },
+      "unique_or_once": null,
+      "notes": [
+        "完整大衍不保底不直售"
+      ],
+      "ref_chain": "quest_chains_playable_v141.json"
+    }
+  ],
+  "price_crosswalk_ref": "item_price_quest_crosswalk_v143.json",
+  "v143": true
+}

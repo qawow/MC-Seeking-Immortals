@@ -7,12 +7,33 @@
     "lingfu_sect",
     "ghost_spirit_gate"
   ],
-  "quests": [],
+  "quests": [
+    {
+      "id": "huangfeng_blood_quota",
+      "display": "黄枫谷·血色禁地配额",
+      "ref": "quest_chains_playable_v141.json",
+      "region": "tiannan"
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "ref": "quest_chains_playable_v141.json",
+      "region": "blood_forbidden"
+    },
+    {
+      "id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭事件（权重·可选）",
+      "ref": "quest_chains_playable_v141.json",
+      "region": "blood_forbidden"
+    }
+  ],
   "dimension_registry_ref": "dimension_registry.json",
   "hub_regions": [
     "tiannan",
     "huangfeng_valley",
     "yanyue_sect"
   ],
-  "mulan_war_ref": "mulan_tianlan_war.json"
+  "mulan_war_ref": "mulan_tianlan_war.json",
+  "all_playable_ref": "quest_chains_playable_v141.json",
+  "v141": true
 }

@@ -343,6 +343,11 @@ public final class ModEvents {
                 && event.getSource().getEntity() instanceof ServerPlayer killer) {
             if (com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.isTrialMob(mob)) {
                 com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.onTrialMobKilled(killer, mob);
+                // M11: advance quest hooks on secret-realm kill clears.
+                String realmId = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialRealm(mob);
+                String kind = com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.trialKind(mob);
+                String layer = "guardian".equals(kind) ? "core" : "mid";
+                com.xunxian.seekingimmortals.quest.QuestHookRuntime.onSecretRealmClear(killer, realmId, layer);
             }
             if (com.xunxian.seekingimmortals.worldpack.BossEncounterService.isBossMob(mob)) {
                 com.xunxian.seekingimmortals.worldpack.BossEncounterService.onBossKilled(killer, mob);

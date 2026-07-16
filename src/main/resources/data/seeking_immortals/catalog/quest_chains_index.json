@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 19,
+  "source": "M11 quest_chains schema18",
   "chains": [
     {
       "id": "huangfeng_cultivation_path",
@@ -14,6 +15,15 @@
       "rewards_finale": [
         "core_earth_fire",
         "contribution_rank_inner"
+      ],
+      "alchemy_loop_ref": "alchemy_recipes.json#huangfeng_loop",
+      "skill_tree_ref": "alchemy_huangfeng",
+      "step_hooks": [
+        "huangfeng_entry",
+        "alchemy_apprentice",
+        "herb_gather_contract",
+        "blood_forbidden_run",
+        "sect_fire_room"
       ]
     },
     {
@@ -26,40 +36,79 @@
       ],
       "step_count": 6,
       "main_chapter_ref": "chapter_3_chaotic_sea",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "star_palace_patrol",
+        "inverse_star_contact",
+        "stolen_jade_slip",
+        "inverse_star_sabotage",
+        "pirate_bounty",
+        "void_palace_key"
+      ]
     },
     {
       "id": "mulan_tianlan_war",
       "display": "慕兰天澜战线",
       "region": "mulan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "mulan_side",
+        "beast_tide_defense",
+        "mulan_scout_clash"
+      ]
     },
     {
       "id": "ghost_path",
       "display": "鬼道线",
-      "region": "",
-      "realm_span": "",
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 6,
       "main_chapter_ref": "",
       "rewards_finale": [
         "yin_soul_stage",
         "ghost_nether_art_full_page"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "yinming_escape",
+        "hook_ghost_yin_body",
+        "nether_river_pilgrim",
+        "hook_ghost_soul_anchor",
+        "hook_ghost_nether_core",
+        "nether_river_guardian"
       ]
     },
     {
       "id": "high_realm_endgame",
       "display": "高境界终局",
-      "region": "",
+      "region": "unknown",
       "realm_span": [
         "CORE_FORMATION",
         "DEITY_TRANSFORMATION"
       ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "kunwu_expedition",
+        "kunwu_seal_research",
+        "fallen_demon_scout",
+        "tianyuan_enlist"
+      ]
     },
     {
       "id": "spirit_realm_rise",
@@ -71,16 +120,39 @@
       ],
       "step_count": 6,
       "main_chapter_ref": "chapter_6_spirit_realm",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "tianyuan_demon_contract",
+        "treasure_fair_invite",
+        "diyuan_scout",
+        "asura_trial",
+        "jiuxian_seclusion_permit",
+        "tianyuan_enlist"
+      ]
     },
     {
       "id": "craft_master",
       "display": "百艺精通",
-      "region": "",
-      "realm_span": "",
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": [
+        "alchemy_huangfeng",
+        "puppet_dayan"
+      ],
+      "step_hooks": [
+        "alchemy_apprentice",
+        "puppet_maintain",
+        "kunwu_seal_research",
+        "sect_fire_room"
+      ]
     },
     {
       "id": "dajin_kunwu_line",
@@ -95,6 +167,14 @@
       "rewards_finale": [
         "kunwu_seal_fragment",
         "ancient_treasure_appraisal_lens"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "dajin_auction_preview",
+        "kunwu_intel",
+        "kunwu_expedition",
+        "kunwu_seal_research"
       ]
     },
     {
@@ -110,6 +190,14 @@
       "rewards_finale": [
         "seal_reinforcement_token",
         "anti_demon_talisman_bulk"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fallen_demon_scout",
+        "kunwu_seal_research",
+        "blood_forbidden_run",
+        "demon_rift_closure"
       ]
     },
     {
@@ -125,6 +213,14 @@
       "rewards_finale": [
         "qixuan_mortal_art_scroll",
         "spirit_stone_shard"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "qixuan_village_intro",
+        "qixuan_herb_errand",
+        "qixuan_sect_trial",
+        "qixuan_decline_legacy"
       ]
     },
     {
@@ -139,6 +235,13 @@
       "main_chapter_ref": "",
       "rewards_finale": [
         "huadao_blade_intent_page"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "huadao_entry",
+        "huadao_forge_contract",
+        "huadao_duel_trial"
       ]
     },
     {
@@ -154,6 +257,13 @@
       "rewards_finale": [
         "silver_giant_sword_blueprint",
         "giant_sword_art"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "giant_sword_entry",
+        "blood_forbidden_run",
+        "giant_sword_relic_restore"
       ]
     },
     {
@@ -169,6 +279,14 @@
       "rewards_finale": [
         "dayan_art_scroll",
         "puppet_core_blank_bulk"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "qianzhu_puppet_apprentice",
+        "thousand_bamboo_tower_run",
+        "dayan_fragment_quest",
+        "puppet_maintain"
       ]
     },
     {
@@ -184,6 +302,13 @@
       "rewards_finale": [
         "yuling_beast_puppet_art",
         "beast_puppet_core"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "yuling_secret_contact",
+        "beast_soul_bind_puppet",
+        "lingshou_contract_beast"
       ]
     },
     {
@@ -199,6 +324,14 @@
       "rewards_finale": [
         "dajin_clan_ancestor_art",
         "clan_seal_token"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "clan_territory_patrol",
+        "dajin_auction_preview",
+        "clan_ancestor_trial",
+        "kunwu_expedition"
       ]
     },
     {
@@ -214,18 +347,36 @@
       "rewards_finale": [
         "demonic_core_material",
         "sect_method_scroll"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "demonic_north_rumor",
+        "guiling_gate_recruit",
+        "hehuan_sect_trial",
+        "tianmo_blood_rite",
+        "righteous_bounty_hunt"
       ]
     },
     {
       "id": "yin_cluster_pilgrim",
       "display": "阴司朝圣线",
       "region": "yin_underworld",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
       "rewards_finale": [
         "yin_protect_talisman_bulk",
         "nether_river_map"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "yinming_escape",
+        "nether_river_pilgrim",
+        "nether_river_fog_event"
       ]
     },
     {
@@ -241,6 +392,14 @@
       "rewards_finale": [
         "barbarian_king_token",
         "ancient_beast_core"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "diyuan_scout",
+        "barbarian_border_contact",
+        "king_tribute_quest",
+        "spatial_rift_escape"
       ]
     },
     {
@@ -256,16 +415,34 @@
       "rewards_finale": [
         "spirit_clan_grand_token",
         "specialty_item_bundle"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "tianyuan_enlist",
+        "clan_generic_tribute",
+        "treasure_fair_invite",
+        "asura_trial"
       ]
     },
     {
       "id": "star_palace_internal_politics",
       "display": "星宫派系线",
       "region": "chaotic_sea",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "star_palace_patrol",
+        "star_palace_branch_enforcement",
+        "star_palace_branch_commerce",
+        "internal_tax_vote"
+      ]
     },
     {
       "id": "mulan_war_campaign",
@@ -280,292 +457,537 @@
       "rewards_finale": [
         "war_campaign_token",
         "rep_faction_major"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "mulan_scout_clash",
+        "mulan_side",
+        "tiannan_defense_mobilize",
+        "fashi_soul_array_battle",
+        "holy_bird_blessing_quest",
+        "war_ceasefire_negotiation"
       ]
     },
     {
       "id": "mulan_fashi_path",
       "display": "慕兰法士道途",
       "region": "mulan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "fashi_mulan",
+      "step_hooks": [
+        "mulan_fashi_initiation",
+        "holy_bird_altar_visit",
+        "tianhu_beast_tame_optional"
+      ]
     },
     {
       "id": "tianlan_defense_line",
       "display": "天澜御兽线",
       "region": "tianlan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "tianlan_oath_renew",
+        "tianlan_beast_soul_call_training",
+        "mulan_war_campaign"
+      ]
     },
     {
       "id": "wutu_mulan_feud_line",
       "display": "突兀慕兰世仇",
       "region": "mulan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "wutu_raid_mulan_camp",
+        "mulan_counter_hunt",
+        "feud_truce_broker"
+      ]
     },
     {
       "id": "fallen_demon_expedition",
       "display": "坠魔谷探谷",
       "region": "fallen_demon_valley",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fallen_demon_scout",
+        "seal_weak_event",
+        "demon_qi_purge_side",
+        "ancient_demon_projection_boss"
+      ]
     },
     {
       "id": "dajin_wanbao_route",
       "display": "大晋商路",
       "region": "dajin",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "auction_invite_dajin",
+        "dajin_clan_feud_choice",
+        "kunwu_rumor"
+      ]
     },
     {
       "id": "yin_luo_ghost_sect",
       "display": "阴罗殿线",
       "region": "yinming",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "yin_luo_initiation",
+        "soul_banner_quest",
+        "nether_ferry_pass"
+      ]
     },
     {
       "id": "kunwu_mountain_expedition",
       "display": "昆吾山探山",
       "region": "kunwu",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
       "rewards_finale": [
         "kunwu_seal_fragment",
         "kunwu_puppet_core"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "kunwu_intel",
+        "kunwu_map_fragment_turnin",
+        "kunwu_cold_snap_survive",
+        "kunwu_puppet_king"
       ]
     },
     {
       "id": "tianyuan_merit_path",
       "display": "天渊功勋线",
       "region": "tianyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "tianyuan_merit_enlist",
+        "demon_beast_siege_defense",
+        "diyuan_permit_apply"
+      ]
     },
     {
       "id": "spirit_realm_border",
       "display": "灵界边境",
       "region": "spirit_realm_border",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 2,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "wild_land_beast_horde",
+        "spatial_rift_flutter_survive"
+      ]
     },
     {
       "id": "ghost_sect_ban_arc",
       "display": "鬼修禁入正道",
-      "region": "",
-      "realm_span": "",
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "ghost_expose_event",
+        "righteous_sect_ghost_hunt",
+        "sect_ban_lift_rare_quest"
+      ]
     },
     {
       "id": "fengyuan_explorer",
       "display": "风元探索",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fengyuan_clan_intro",
+        "spirit_fengyuan_border_patrol",
+        "wild_land_rumor"
+      ]
     },
     {
       "id": "barbarian_king_hunt",
       "display": "蛮荒妖王线",
       "region": "barbarian_wasteland",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "barbarian_border_contact",
+        "barbarian_beast_tide_survive",
+        "barbarian_king_token_hunt"
+      ]
     },
     {
       "id": "human_clan_neutral_intro",
       "display": "世家引荐",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 2,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "clan_array_mo_line",
       "display": "莫家阵法线",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "clan_refinement_yu_line",
       "display": "俞家炼器线",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "clan_alchemy_gu_line",
       "display": "谷家丹道线",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "clan_talisman_ning_line",
       "display": "宁家符箓线",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "human_clan_league_hub",
       "display": "世家联盟总线",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fengyuan_clan_intro",
+        "clan_guest_register",
+        "dajin_clan_feud"
+      ]
     },
     {
       "id": "spirit_eighteen_pilgrimage",
       "display": "灵界十八族巡礼",
       "region": "spirit_fengyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fengyuan_clan_intro",
+        "spirit_eighteen_pilgrimage",
+        "tianyuan_enlist"
+      ]
     },
     {
       "id": "void_great_cultivation_arc",
       "display": "炼虚大乘道途",
-      "region": "",
+      "region": "unknown",
       "realm_span": [
         "VOID_REFINING",
         "TRIBULATION"
       ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "void_rift_surge",
+        "diyuan_core_probe",
+        "great_vehicle_insight",
+        "tribulation_cloud_gather"
+      ]
     },
     {
       "id": "diyuan_depth_delve",
       "display": "地渊深层",
       "region": "diyuan",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "diyuan_permit_apply",
+        "diyuan_pressure_wave",
+        "diyuan_core_probe",
+        "diyuan_core_crystal_boss"
+      ]
     },
     {
       "id": "mortal_to_spirit_bridge",
       "display": "人界化神·赴灵界",
-      "region": "",
-      "realm_span": "",
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "mortal_realm_cap_insight",
+        "ascension_gate_rumor",
+        "spirit_realm_gate_voucher"
+      ]
     },
     {
       "id": "inverse_star_recruit",
       "display": "逆星入盟",
       "region": "chaotic_sea",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "inverse_star_smuggle_arc",
       "display": "走私补给线",
       "region": "chaotic_sea",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "inverse_star_void_heist",
       "display": "虚天情报战",
       "region": "chaotic_sea",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "chaotic_sea_civil_war",
       "display": "星宫逆星对峙",
       "region": "chaotic_sea",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 5,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "star_palace_patrol_quest",
+        "inverse_star_ambush_event",
+        "star_palace_enforcement_raid",
+        "inverse_star_smuggle_run",
+        "chaotic_sea_neutral_ending_optional"
+      ]
     },
     {
       "id": "chain_seven_sect_outer_to_inner",
       "display": "七派外门晋升内门",
-      "region": "",
-      "realm_span": "",
-      "step_count": 0,
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
+      "step_count": 3,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "chain_mulan_war_campaign",
       "display": "慕兰大战战役",
       "region": "mulan_border",
-      "realm_span": "",
+      "realm_span": [
+        "QI_REFINING"
+      ],
       "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "mulan_scout_clash",
+        "fashi_soul_array_battle",
+        "holy_bird_blessing_quest",
+        "war_ceasefire_negotiation"
+      ]
     },
     {
       "id": "chain_void_palace_expedition",
       "display": "虚天殿探险链",
-      "region": "",
-      "realm_span": "",
-      "step_count": 0,
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
+      "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "chain_ascension_spirit_world",
       "display": "飞升灵界前置",
-      "region": "",
-      "realm_span": "",
-      "step_count": 0,
+      "region": "unknown",
+      "realm_span": [
+        "QI_REFINING"
+      ],
+      "step_count": 6,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "chain_tianyuan_enlist",
       "display": "天渊城服役",
       "region": "spirit_world",
-      "realm_span": "",
-      "step_count": 0,
+      "realm_span": [
+        "QI_REFINING"
+      ],
+      "step_count": 4,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": []
     },
     {
       "id": "blood_forbidden_campaign",
@@ -581,6 +1003,16 @@
         "foundation_pill_material",
         "blood_forbidden_herb",
         "contribution_rank_inner"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "blood_forbidden_rumor",
+        "hook_blood_forbidden_ticket",
+        "blood_forbidden_entry_scar",
+        "blood_forbidden_outer_layer",
+        "blood_forbidden_inner_layer",
+        "blood_jiao_guardian"
       ]
     },
     {
@@ -597,6 +1029,16 @@
         "void_key_fragment",
         "void_palace_cold_jade",
         "ancient_spirit_treasure_shard"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "void_palace_cycle_notice",
+        "void_key_fragment_hunt",
+        "void_palace_outer_hall",
+        "void_palace_herb_garden",
+        "void_palace_cold_jade_hall",
+        "void_palace_treasury"
       ]
     },
     {
@@ -613,6 +1055,15 @@
         "demon_qi_purge_pill",
         "space_rift_compass",
         "fallen_demon_chest"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "fallen_demon_seal_weaken",
+        "demon_qi_purge_prep",
+        "fallen_demon_outer_gorge",
+        "fallen_demon_rift_layer",
+        "ancient_demon_projection"
       ]
     },
     {
@@ -629,6 +1080,15 @@
         "kunwu_core_ore",
         "kunwu_puppet_core",
         "kunwu_seal_fragment"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "kunwu_open_permit",
+        "kunwu_outer_array",
+        "kunwu_mine_tunnel",
+        "kunwu_puppet_hall",
+        "kunwu_peak_seal"
       ]
     },
     {
@@ -645,6 +1105,15 @@
         "soul_gathering_stone",
         "ghost_cultivation_manual",
         "nether_river_chest"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "nether_ferry_ticket",
+        "nether_river_fog_entry",
+        "nether_soul_shoal",
+        "nether_ghost_hall",
+        "nether_river_guardian"
       ]
     },
     {
@@ -661,6 +1130,15 @@
         "spirit_vein_shard",
         "diyuan_core_crystal",
         "pressure_resist_charm"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "diyuan_permit_apply",
+        "diyuan_rift_mouth",
+        "diyuan_shallow_mine",
+        "diyuan_pressure_zone",
+        "diyuan_ancient_beast"
       ]
     },
     {
@@ -673,7 +1151,16 @@
       ],
       "step_count": 5,
       "main_chapter_ref": "",
-      "rewards_finale": []
+      "rewards_finale": [],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "dajin_border_rumor",
+        "dajin_righteous_patrol_hook",
+        "dajin_demon_infiltrate_hook",
+        "wanbao_auction_lead",
+        "kunwu_expedition"
+      ]
     },
     {
       "id": "yanyue_illusion_path",
@@ -688,6 +1175,14 @@
       "rewards_finale": [
         "yanyue_inner_token",
         "illusion_manual_fragment"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "illusion_yanyue",
+      "step_hooks": [
+        "yanyue_entry_trial",
+        "illusion_array_practice",
+        "seven_sect_tournament",
+        "inner_veil_secret"
       ]
     },
     {
@@ -703,6 +1198,14 @@
       "rewards_finale": [
         "talisman_master_seal",
         "high_talisman_recipe_scroll"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "tianfu_talisman",
+      "step_hooks": [
+        "tianfu_paper_grind",
+        "low_talisman_cert",
+        "mid_talisman_inner",
+        "high_talisman_secret"
       ]
     },
     {
@@ -718,6 +1221,14 @@
       "rewards_finale": [
         "demonic_core_material",
         "sect_method_scroll"
+      ],
+      "alchemy_loop_ref": "",
+      "skill_tree_ref": "",
+      "step_hooks": [
+        "demonic_north_rumor",
+        "sect_branch_choice",
+        "righteous_bounty_hunt",
+        "north_waste_ruin"
       ]
     }
   ]

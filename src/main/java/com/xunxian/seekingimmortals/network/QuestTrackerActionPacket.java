@@ -80,7 +80,8 @@ public record QuestTrackerActionPacket(String action) {
                         + " contrib=" + progress.getContribution());
             });
             for (String line : TextQuestChainService.buildTrackerLines(player)) {
-                if (lines.size() >= 24) {
+                // M11: align with SyncQuestTrackerPacket.MAX_LINES (72).
+                if (lines.size() >= 72) {
                     break;
                 }
                 // Skip empty placeholder when we already have mainline + status.

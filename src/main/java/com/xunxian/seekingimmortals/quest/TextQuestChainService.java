@@ -213,6 +213,7 @@ public final class TextQuestChainService {
             // Wave454: single authority finale path (ledger prevents double grant with FTB bridge).
             grantAuthorityFinaleReward(player, id);
             grantBranchFinaleBonus(player, id);
+            QuestRewardService.onTextChainFinished(player, id);
             FtbRewardBridgeService.onTextQuestFinished(player, id);
             // Wave457: finishing a chain with main_chapter_ref auto-completes that chapter flag.
             maybeCompleteMainStory(player, chain);
@@ -811,12 +812,14 @@ public final class TextQuestChainService {
             return lines;
         }
         int shown = 0;
+        // M11: raise active-chain tracker capacity to cover full 62-chain concurrent tracking.
+        final int maxActive = 64;
         for (ChainProgress chain : listProgress(player)) {
             if (chain.stage() <= 0 && !chain.complete()) {
                 continue;
             }
             lines.add(formatTrackerLine(player, chain));
-            if (++shown >= 20) {
+            if (++shown >= maxActive) {
                 break;
             }
         }

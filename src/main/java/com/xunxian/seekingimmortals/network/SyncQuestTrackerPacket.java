@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public record SyncQuestTrackerPacket(List<String> lines) {
-    private static final int MAX_LINES = 32;
+    /** M11: 62 chains + status/mainline headers; protocol 22 covers the expanded encoded count range. */
+    private static final int MAX_LINES = 72;
     private static final int MAX_LEN = 160;
 
     public static void send(ServerPlayer player, List<String> lines) {
