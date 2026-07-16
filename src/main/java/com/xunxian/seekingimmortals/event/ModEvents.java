@@ -146,6 +146,10 @@ public final class ModEvents {
         }
         if (event.level instanceof ServerLevel serverLevel) {
             FormationFieldService.serverTick(serverLevel);
+            // M06: daily event day-roll is overworld-driven and server-authoritative.
+            if (serverLevel.dimension() == ServerLevel.OVERWORLD) {
+                com.xunxian.seekingimmortals.region.DailyEventScheduler.serverTick(serverLevel.getServer());
+            }
         }
     }
 
@@ -155,7 +159,9 @@ public final class ModEvents {
         handleCatalogPillTimers(event.player);
         CultivationHelper.get(event.player).ifPresent(cultivation -> {
             cultivation.tickCultivationBoost();
-            SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(event.player.level(), event.player.blockPosition());
+            String preferredRegion = cultivation.getWorldpackCurrentRegionId();
+            SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(
+                    event.player.level(), event.player.blockPosition(), preferredRegion);
             boolean onCushion = isSittingOnMeditationCushion(event.player);
             ItemStack bonusStone = getBestHeldSpiritStone(event.player, cultivation);
             int stoneBonus = getMatchingPassiveBonus(bonusStone, cultivation);
@@ -382,9 +388,12 @@ public final class ModEvents {
         FlyingAuthority.clearAll(player);
         CultivationHelper.get(player).ifPresent(cultivation -> {
             TribulationService.handleDimensionChange(player, cultivation);
+            // M06: re-resolve region after dimension change and resync worldpack snapshot.
+            com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(player);
             refreshCultivationAttributeState(player, cultivation);
             SyncCultivationDataPacket.send(player, cultivation);
             SyncSkillDataPacket.send(player, cultivation);
+            WorldpackGameplayService.sync(player, false);
         });
     }
 
@@ -484,6 +493,8 @@ public final class ModEvents {
                 givePatchouliGuideBook(serverPlayer);
                 // Wave467: claim offline auction outbid refunds.
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
+                // M06: resolve region from dimension/biome before worldpack sync.
+                com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(serverPlayer);
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 SyncSkillDataPacket.send(serverPlayer, cultivation);

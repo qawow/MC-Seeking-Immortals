@@ -3716,5 +3716,20 @@
   "message.seeking_immortals.spell.generic_melee.success": "Melee sword intent strikes.",
   "message.seeking_immortals.spell.generic_illusion.success": "Illusion clouds the mind.",
   "message.seeking_immortals.spell.generic_control.success": "Control field spreads.",
-  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s."
+  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s.",
+  "message.seeking_immortals.aura.detector.region": "Region: %s (region aura x%s)",
+  "message.seeking_immortals.leyline_compass.found_region": "§d§l[Leyline Compass]§r Region: %s. Tremor to the %s, about %s blocks, %s leyline.",
+  "message.seeking_immortals.leyline_compass.not_found_region": "§7§l[Leyline Compass]§r Region: %s. No strong leyline nearby.",
+  "tooltip.seeking_immortals.leyline_compass.region": "Recorded region: %s",
+  "command.seeking_immortals.region.daily_events.status": "Daily events: enabled=%s, expanded=%s, hooks=%s",
+  "command.seeking_immortals.region.daily_events.toggle": "Daily event scheduling set to: %s",
+  "command.seeking_immortals.region.daily_events.need_server": "Must be run on a server world",
+  "command.seeking_immortals.region.daily_events.rolled": "Forced reroll of all region daily events",
+  "command.seeking_immortals.region.here": "Current region: %s (%s), aura x%s, dim %s",
+  "command.seeking_immortals.region.list.header": "Region registry: %s entries, %s author cards",
+  "command.seeking_immortals.region.list.entry": "- %s | %s | aura=%s | dim=%s | worldpack=%s",
+  "command.seeking_immortals.region.items.header": "Region %s items: %s",
+  "command.seeking_immortals.region.items.entry": "- %s | %s | %s | %s",
+  "command.seeking_immortals.region.routes.header": "Routes %s -> %s: direct=%s, connected=%s",
+  "command.seeking_immortals.region.routes.entry": "- %s | %s->%s | days=%s-%s | fee=%s"
 }

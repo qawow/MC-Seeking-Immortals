@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.spiritual;
 
+import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -31,6 +32,13 @@ public final class SpiritualAuraManager {
     private SpiritualAuraManager() {}
 
     public static AuraInfo getAuraInfo(Level level, BlockPos pos) {
+        return getAuraInfo(level, pos, null);
+    }
+
+    /**
+     * M06: optional preferred region id (player worldpack state) fine-tunes concentration.
+     */
+    public static AuraInfo getAuraInfo(Level level, BlockPos pos, String preferredRegionId) {
         double dimensionMultiplier = getDimensionMultiplier(level);
         double biomeMultiplier = getBiomeMultiplier(level, pos);
         ChunkPos chunkPos = new ChunkPos(pos);
@@ -38,11 +46,24 @@ public final class SpiritualAuraManager {
         int formationBonus = getFormationBonus(level, pos);
         AuraNature nature = getAuraNature(level);
         boolean cluster = isLeylineCluster(level, chunkPos);
-        int concentration = Math.max(1, (int)Math.round(BASE_AURA * dimensionMultiplier * biomeMultiplier * leylineMultiplier + formationBonus));
+        String regionId = RegionRegistry.resolveRegionId(level, pos, preferredRegionId);
+        double regionMultiplier = getRegionMultiplier(regionId);
+        int concentration = Math.max(1, (int) Math.round(
+                BASE_AURA * dimensionMultiplier * biomeMultiplier * leylineMultiplier * regionMultiplier + formationBonus));
         if (cluster) {
             concentration += 25;
         }
-        return new AuraInfo(concentration, dimensionMultiplier, biomeMultiplier, leylineMultiplier, formationBonus, nature, leylineMultiplier >= 3.0D, cluster);
+        return new AuraInfo(concentration, dimensionMultiplier, biomeMultiplier, leylineMultiplier, formationBonus,
+                nature, leylineMultiplier >= 3.0D, cluster, regionId, regionMultiplier);
+    }
+
+    public static double getRegionMultiplier(String regionId) {
+        double value = RegionRegistry.auraMultiplier(regionId);
+        if (value <= 0.0D) {
+            return 1.0D;
+        }
+        // Clamp extreme author densities so formation/leyline still dominate local spikes.
+        return Math.max(0.5D, Math.min(2.5D, value));
     }
 
     public static int adjustSpiritualPowerGain(int baseGain, AuraInfo auraInfo) {
@@ -264,7 +285,20 @@ public final class SpiritualAuraManager {
     }
 
     public record AuraInfo(int concentration, double dimensionMultiplier, double biomeMultiplier, double leylineMultiplier,
-                           int formationBonus, AuraNature nature, boolean leyline, boolean cluster) {}
+                           int formationBonus, AuraNature nature, boolean leyline, boolean cluster,
+                           String regionId, double regionMultiplier) {
+        public AuraInfo {
+            regionId = regionId == null ? "" : regionId;
+            regionMultiplier = regionMultiplier <= 0.0D ? 1.0D : regionMultiplier;
+        }
+
+        /** Backward-compatible constructor for tests and callers without region context. */
+        public AuraInfo(int concentration, double dimensionMultiplier, double biomeMultiplier, double leylineMultiplier,
+                        int formationBonus, AuraNature nature, boolean leyline, boolean cluster) {
+            this(concentration, dimensionMultiplier, biomeMultiplier, leylineMultiplier, formationBonus,
+                    nature, leyline, cluster, "", 1.0D);
+        }
+    }
 
     public record LeylineTarget(int blockX, int blockZ, double multiplier, double distance) {}
 

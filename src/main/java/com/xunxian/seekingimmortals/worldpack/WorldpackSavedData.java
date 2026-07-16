@@ -84,12 +84,28 @@ public class WorldpackSavedData extends SavedData {
         });
     }
 
+    public Optional<EventRoll> peekDailyEvent(String regionId) {
+        return Optional.ofNullable(dailyEvents.get(regionId == null ? "" : regionId));
+    }
+
     public EventRoll getOrRollDailyEvent(String regionId, WorldpackDataService.Snapshot snapshot, long gameTime, RandomSource random) {
+        return getOrRollDailyEvent(regionId, snapshot, gameTime, random, snapshot.eventsForRegion(regionId));
+    }
+
+    /**
+     * M06: allow expanded multi-region candidates from text_material daily_random_events.
+     */
+    public EventRoll getOrRollDailyEvent(String regionId, WorldpackDataService.Snapshot snapshot, long gameTime,
+                                         RandomSource random, List<WorldpackDataService.DailyEvent> candidateOverride) {
         EventRoll current = dailyEvents.get(regionId);
-        if (current != null && current.isActive(gameTime) && snapshot.findDailyEvent(current.eventId()).isPresent()) {
+        if (current != null && current.isActive(gameTime)
+                && (snapshot.findDailyEvent(current.eventId()).isPresent()
+                || containsEvent(candidateOverride, current.eventId()))) {
             return current;
         }
-        List<WorldpackDataService.DailyEvent> candidates = snapshot.eventsForRegion(regionId);
+        List<WorldpackDataService.DailyEvent> candidates = candidateOverride == null || candidateOverride.isEmpty()
+                ? snapshot.eventsForRegion(regionId)
+                : candidateOverride;
         if (candidates.isEmpty()) {
             EventRoll empty = new EventRoll(regionId, "", gameTime + 24000L);
             dailyEvents.put(regionId, empty);
@@ -102,6 +118,18 @@ public class WorldpackSavedData extends SavedData {
         dailyEvents.put(regionId, rolled);
         setDirty();
         return rolled;
+    }
+
+    private static boolean containsEvent(List<WorldpackDataService.DailyEvent> candidates, String eventId) {
+        if (candidates == null || eventId == null || eventId.isBlank()) {
+            return false;
+        }
+        for (WorldpackDataService.DailyEvent event : candidates) {
+            if (eventId.equals(event.id())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     static WorldpackDataService.DailyEvent chooseWeighted(List<WorldpackDataService.DailyEvent> events, RandomSource random) {

@@ -1,3 +1,19 @@
+## 457. 2026-07-16 M06 区域与世界事件落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_225956_m06_regions_events/`
+  RegionRegistry 归一                  Done worldpack + region_cards + biomes 合成；对外唯一权威
+  itemsForRegion                       Done RegionItemsService
+  Daily events scheduler/hooks         Done DailyEventScheduler + RegionEventConfig + 命令开关
+  Biome / travel graph                 Done RegionBiomeMap + TravelRouteGraph（发布 travel_routes.json）
+  Aura / leyline region hook           Done SpiritualAuraManager regionMultiplier + 测灵盘/寻脉罗盘
+  Player region resolve/sync           Done 登录/跨维度 resolveAndSync；复用 SyncWorldpackDataPacket
+  Tests                                Done RegionRegistryTest + Aura + Worldpack 聚焦绿
+  Version                              Unchanged 任务红线不升 mod_version；protocol 保持 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m06_regions_events.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes

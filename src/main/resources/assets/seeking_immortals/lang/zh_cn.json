@@ -3726,5 +3726,20 @@
   "message.seeking_immortals.spell.generic_melee.success": "近身剑意斩落。",
   "message.seeking_immortals.spell.generic_illusion.success": "幻术弥散，心神受扰。",
   "message.seeking_immortals.spell.generic_control.success": "禁锢之力扩散。",
-  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。"
+  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。",
+  "message.seeking_immortals.aura.detector.region": "所属区域：%s（区域灵气倍率 %s）",
+  "message.seeking_immortals.leyline_compass.found_region": "§d§l【寻脉罗盘】§r 当前区域：%s。罗盘微震，%s方向约 %s 格外有 %s 灵脉波动。",
+  "message.seeking_immortals.leyline_compass.not_found_region": "§7§l【寻脉罗盘】§r 当前区域：%s。附近灵机平稳，未发现明显灵脉。",
+  "tooltip.seeking_immortals.leyline_compass.region": "记录区域：%s",
+  "command.seeking_immortals.region.daily_events.status": "每日事件：启用=%s，扩展事件=%s，钩子=%s",
+  "command.seeking_immortals.region.daily_events.toggle": "每日事件调度已设置为：%s",
+  "command.seeking_immortals.region.daily_events.need_server": "需要在服务器世界中执行",
+  "command.seeking_immortals.region.daily_events.rolled": "已强制重掷全部区域每日事件",
+  "command.seeking_immortals.region.here": "当前区域：%s（%s），灵气倍率 %s，维度 %s",
+  "command.seeking_immortals.region.list.header": "区域注册表：共 %s 条，其中语料卡片 %s 张",
+  "command.seeking_immortals.region.list.entry": "- %s | %s | aura=%s | dim=%s | worldpack=%s",
+  "command.seeking_immortals.region.items.header": "区域 %s 物品：%s 项",
+  "command.seeking_immortals.region.items.entry": "- %s | %s | %s | %s",
+  "command.seeking_immortals.region.routes.header": "路线 %s → %s：直接边 %s，连通=%s",
+  "command.seeking_immortals.region.routes.entry": "- %s | %s→%s | days=%s-%s | fee=%s"
 }
