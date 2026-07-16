@@ -1,0 +1,30 @@
+{
+  "id": "demon_gold_body_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.demon_gold_body_pill",
+  "output_items": {
+    "low": "seeking_immortals:demon_gold_body_pill",
+    "medium": "seeking_immortals:demon_gold_body_pill",
+    "high": "seeking_immortals:demon_gold_body_pill",
+    "supreme": "seeking_immortals:demon_gold_body_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 60,
+  "cook_ticks": 680,
+  "success_rate": 0.22,
+  "explosion_chance": 0.1536,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 5,
+  "min_control_realm": "VOID_REFINEMENT",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:demon_gold_ore",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:holy_demon_blood",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:demon_core_low"
+    },
+    {
+      "item": "seeking_immortals:demon_core_low"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:yellow_umbrella",
+    "count": 1
+  },
+  "success_rate": 0.5,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

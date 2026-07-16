@@ -8,15 +8,15 @@
     "supreme": "seeking_immortals:poison_dragon_pearl_supreme"
   },
   "output_count": 1,
-  "mana_cost": 90,
-  "cook_ticks": 1240,
-  "success_rate": 0.38,
-  "explosion_chance": 0.16,
-  "required_furnace_tier": 5,
-  "ideal_fire_tier": 5,
-  "min_control_realm": "NASCENT_SOUL",
+  "mana_cost": 40,
+  "cook_ticks": 480,
+  "success_rate": 0.3,
+  "explosion_chance": 0.12,
+  "required_furnace_tier": 3,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
   "controlled": false,
-  "requires_earth_fire_room": false,
+  "requires_earth_fire_room": true,
   "ingredients": [
     {
       "item": "seeking_immortals:dragon_scale",

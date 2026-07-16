@@ -1,0 +1,40 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:turtle_shell"
+    },
+    {
+      "item": "seeking_immortals:turtle_shell"
+    },
+    {
+      "item": "seeking_immortals:turtle_shell"
+    },
+    {
+      "item": "seeking_immortals:turtle_shell"
+    },
+    {
+      "item": "seeking_immortals:demon_core_mid"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:giant_turtle_puppet_core",
+    "count": 1
+  },
+  "success_rate": 0.42,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 3
+}

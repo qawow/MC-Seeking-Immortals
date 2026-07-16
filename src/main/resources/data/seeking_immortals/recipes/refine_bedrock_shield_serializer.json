@@ -1,0 +1,22 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:earth_spine_root"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:bedrock_shield",
+    "count": 1
+  },
+  "success_rate": 0.46,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

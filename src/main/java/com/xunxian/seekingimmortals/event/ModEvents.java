@@ -153,6 +153,10 @@ public final class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
         handleCatalogPillTimers(event.player);
+        // M04: re-assert palm bottle uniqueness occasionally
+        if (event.player instanceof ServerPlayer serverPlayer && serverPlayer.tickCount % 100 == 0) {
+            com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
+        }
         CultivationHelper.get(event.player).ifPresent(cultivation -> {
             cultivation.tickCultivationBoost();
             SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(event.player.level(), event.player.blockPosition());
@@ -484,6 +488,8 @@ public final class ModEvents {
                 givePatchouliGuideBook(serverPlayer);
                 // Wave467: claim offline auction outbid refunds.
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
+                // M04: 掌天瓶唯一性服务端强制
+                com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 SyncSkillDataPacket.send(serverPlayer, cultivation);

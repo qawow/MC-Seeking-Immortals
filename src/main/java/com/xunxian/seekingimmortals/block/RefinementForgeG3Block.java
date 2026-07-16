@@ -1,15 +1,11 @@
 package com.xunxian.seekingimmortals.block;
 
-import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
+import com.xunxian.seekingimmortals.craft.RefinementForgeCraftHelper;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.RefinementForgeG3Structure;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -22,8 +18,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * Text-material refinement_forge_g3. Larger multiblock than g1 forge; still routes
- * through ArtifactRefinementService for the first available catalog recipe.
+ * Text-material refinement_forge_g3 (forge grade 3).
  */
 public class RefinementForgeG3Block extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
@@ -59,22 +54,9 @@ public class RefinementForgeG3Block extends Block {
                     check.blockedAperture()), false);
             return InteractionResult.CONSUME;
         }
-
-        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer, 3);
-        if (recipeId == null || recipeId.isBlank()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g3.no_recipe"), false);
-            return InteractionResult.CONSUME;
-        }
-        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId, 3);
-        ServerLevel serverLevel = serverPlayer.serverLevel();
-        if (ok) {
-            serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.1D, pos.getZ() + 0.5D,
-                    20, 0.5D, 0.35D, 0.5D, 0.02D);
-            serverLevel.sendParticles(ParticleTypes.FLAME, pos.getX() + 0.5D, pos.getY() + 1.2D, pos.getZ() + 0.5D,
-                    16, 0.4D, 0.3D, 0.4D, 0.01D);
-            serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.85F, 0.85F);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge_g3.activated"), true);
-        }
+        RefinementForgeCraftHelper.tryCraft(serverPlayer, pos, 3,
+                "message.seeking_immortals.refinement_forge_g3.activated",
+                "message.seeking_immortals.refinement_forge_g3.no_recipe");
         return InteractionResult.CONSUME;
     }
 }

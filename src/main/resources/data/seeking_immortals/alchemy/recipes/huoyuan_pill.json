@@ -1,0 +1,30 @@
+{
+  "id": "huoyuan_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.huoyuan_pill",
+  "output_items": {
+    "low": "seeking_immortals:fire_origin_pill",
+    "medium": "seeking_immortals:fire_origin_pill_mid",
+    "high": "seeking_immortals:fire_origin_pill_high",
+    "supreme": "seeking_immortals:fire_origin_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 320,
+  "success_rate": 0.6,
+  "explosion_chance": 0.09,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:phoenix_feather_flower",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:fire_element_spirit_stone",
+      "count": 1
+    }
+  ]
+}

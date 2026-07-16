@@ -8,13 +8,13 @@
     "supreme": "seeking_immortals:fasting_pill_supreme"
   },
   "output_count": 1,
-  "mana_cost": 12,
+  "mana_cost": 20,
   "cook_ticks": 320,
-  "success_rate": 0.88,
-  "explosion_chance": 0.01,
+  "success_rate": 0.75,
+  "explosion_chance": 0.075,
   "required_furnace_tier": 1,
   "ideal_fire_tier": 1,
-  "min_control_realm": "MORTAL",
+  "min_control_realm": "QI_REFINING",
   "controlled": false,
   "requires_earth_fire_room": false,
   "ingredients": [

@@ -21,7 +21,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
-import java.util.Locale;
 
 public class CatalogPillItem extends Item {
     public static final String FASTING_TICKS_KEY = "SeekingImmortalsFastingTicks";
@@ -350,7 +349,7 @@ public class CatalogPillItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> tooltip, TooltipFlag flag) {
-        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.quality." + quality.name().toLowerCase(Locale.ROOT))
+        tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.quality." + quality.designId())
                 .withStyle(style -> style.withColor(quality.getColor())));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill." + type.id()).withStyle(ChatFormatting.GRAY));
         tooltip.add(Component.translatable("tooltip.seeking_immortals.catalog_pill.min_realm",

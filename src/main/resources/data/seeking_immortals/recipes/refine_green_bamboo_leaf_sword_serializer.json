@@ -1,0 +1,40 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:ironwood"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:green_bamboo_leaf_sword",
+    "count": 1
+  },
+  "success_rate": 0.7,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 1
+}

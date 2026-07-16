@@ -1,3 +1,19 @@
+## 457. 2026-07-16 M04 炼制与生产落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_220623_m04_craft/`
+  Alchemy recipes 114+                 Done datapack 129 files; name_map 114; AlchemyRecipeManager reload
+  PillQuality alignment                Done LOW/MIDDLE/HIGH/PERFECT + multipliers 0.7/1.0/1.25/1.5
+  Pill effects                         Done PillEffectCatalog + BulkPillItem; CatalogPillType all live
+  Refinement G1-G3                     Done RefinementForgeCraftHelper + 45 serializer recipes
+  Talisman/Puppet                      Done services 24/7 + stations retained (corpus shipped)
+  Garden liquid redline                Done GardenLiquidService year-cap/cooldown/unique bottle + planter gate
+  Tests                                Done M04CraftProductionTest + BreakthroughAidLogicTest update
+  Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
+  Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m04_craft_production.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes

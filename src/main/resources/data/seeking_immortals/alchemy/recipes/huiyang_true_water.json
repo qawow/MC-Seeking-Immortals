@@ -1,0 +1,34 @@
+{
+  "id": "huiyang_true_water",
+  "display_translation": "alchemy_recipe.seeking_immortals.huiyang_true_water",
+  "output_items": {
+    "low": "seeking_immortals:return_yang_true_water",
+    "medium": "seeking_immortals:return_yang_true_water_mid",
+    "high": "seeking_immortals:return_yang_true_water_high",
+    "supreme": "seeking_immortals:return_yang_true_water_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 60,
+  "cook_ticks": 640,
+  "success_rate": 0.12,
+  "explosion_chance": 0.138,
+  "required_furnace_tier": 5,
+  "ideal_fire_tier": 5,
+  "min_control_realm": "NASCENT_SOUL",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:primordial_essence",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:time_sand",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:celestial_crystal",
+      "count": 1
+    }
+  ]
+}

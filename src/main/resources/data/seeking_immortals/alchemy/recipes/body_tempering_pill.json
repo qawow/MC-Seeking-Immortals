@@ -8,10 +8,10 @@
     "supreme": "seeking_immortals:body_tempering_pill_supreme"
   },
   "output_count": 1,
-  "mana_cost": 24,
-  "cook_ticks": 460,
+  "mana_cost": 20,
+  "cook_ticks": 320,
   "success_rate": 0.62,
-  "explosion_chance": 0.04,
+  "explosion_chance": 0.088,
   "required_furnace_tier": 1,
   "ideal_fire_tier": 2,
   "min_control_realm": "QI_REFINING",

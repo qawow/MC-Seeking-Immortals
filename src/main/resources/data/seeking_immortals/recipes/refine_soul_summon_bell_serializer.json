@@ -1,0 +1,31 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:soul_gathering_stone"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:soul_summon_bell",
+    "count": 1
+  },
+  "success_rate": 0.52,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 2
+}

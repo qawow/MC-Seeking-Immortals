@@ -1,0 +1,30 @@
+{
+  "id": "great_vehicle_ascension_aid_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.great_vehicle_ascension_aid_pill",
+  "output_items": {
+    "low": "seeking_immortals:great_vehicle_ascension_aid_pill",
+    "medium": "seeking_immortals:great_vehicle_ascension_aid_pill",
+    "high": "seeking_immortals:great_vehicle_ascension_aid_pill",
+    "supreme": "seeking_immortals:great_vehicle_ascension_aid_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 72,
+  "cook_ticks": 780,
+  "success_rate": 0.15,
+  "explosion_chance": 0.162,
+  "required_furnace_tier": 5,
+  "ideal_fire_tier": 5,
+  "min_control_realm": "MAHAYANA",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:thunder_soothing_pill",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:void_marrow",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "longevity_fruit_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.longevity_fruit_pill",
+  "output_items": {
+    "low": "seeking_immortals:longevity_pill",
+    "medium": "seeking_immortals:longevity_pill_mid",
+    "high": "seeking_immortals:longevity_pill_high",
+    "supreme": "seeking_immortals:longevity_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 50,
+  "cook_ticks": 560,
+  "success_rate": 0.22,
+  "explosion_chance": 0.128,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
+  "controlled": true,
+  "requires_earth_fire_room": true,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:immortal_ginseng",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:time_sand",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:primordial_essence",
+      "count": 1
+    }
+  ]
+}

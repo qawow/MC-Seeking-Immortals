@@ -1,0 +1,34 @@
+{
+  "id": "bu_tian_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.bu_tian_pill",
+  "output_items": {
+    "low": "seeking_immortals:bu_tian_pill",
+    "medium": "seeking_immortals:bu_tian_pill",
+    "high": "seeking_immortals:bu_tian_pill",
+    "supreme": "seeking_immortals:bu_tian_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 72,
+  "cook_ticks": 780,
+  "success_rate": 0.15,
+  "explosion_chance": 0.162,
+  "required_furnace_tier": 5,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
+  "controlled": true,
+  "requires_earth_fire_room": true,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:coral_spirit_pearl",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:star_moon_grass",
+      "count": 3
+    },
+    {
+      "item": "seeking_immortals:space_crystal",
+      "count": 1
+    }
+  ]
+}

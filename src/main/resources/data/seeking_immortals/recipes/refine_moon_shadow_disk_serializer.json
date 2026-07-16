@@ -1,0 +1,31 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:yin_essence_ore"
+    },
+    {
+      "item": "seeking_immortals:yin_essence_ore"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:moon_shadow_disk",
+    "count": 1
+  },
+  "success_rate": 0.46,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

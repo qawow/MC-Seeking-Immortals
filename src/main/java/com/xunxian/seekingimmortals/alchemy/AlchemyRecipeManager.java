@@ -94,11 +94,21 @@ public class AlchemyRecipeManager extends SimpleJsonResourceReloadListener {
         JsonObject outputs = object.has("output_items")
                 ? GsonHelper.getAsJsonObject(object, "output_items")
                 : GsonHelper.getAsJsonObject(object, "outputs");
+        // Accept both design names (middle/perfect) and legacy (medium/supreme).
         return List.of(
-                parseItem(GsonHelper.getAsString(outputs, "low")),
-                parseItem(GsonHelper.getAsString(outputs, "medium")),
-                parseItem(GsonHelper.getAsString(outputs, "high")),
-                parseItem(GsonHelper.getAsString(outputs, "supreme")));
+                parseItem(firstString(outputs, "low", "inferior")),
+                parseItem(firstString(outputs, "middle", "medium", "standard")),
+                parseItem(firstString(outputs, "high", "superior")),
+                parseItem(firstString(outputs, "perfect", "supreme", "peerless")));
+    }
+
+    private static String firstString(JsonObject object, String... keys) {
+        for (String key : keys) {
+            if (object.has(key)) {
+                return GsonHelper.getAsString(object, key);
+            }
+        }
+        throw new IllegalArgumentException("missing output quality key among " + String.join("/", keys));
     }
 
     private static List<AlchemyRecipe.IngredientRequirement> parseIngredients(JsonObject object) {

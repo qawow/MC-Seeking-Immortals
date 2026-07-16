@@ -1,0 +1,30 @@
+{
+  "id": "heqi_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.heqi_pill",
+  "output_items": {
+    "low": "seeking_immortals:heqi_pill",
+    "medium": "seeking_immortals:heqi_pill",
+    "high": "seeking_immortals:heqi_pill",
+    "supreme": "seeking_immortals:heqi_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 24,
+  "cook_ticks": 380,
+  "success_rate": 0.7,
+  "explosion_chance": 0.096,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 2,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_mushroom",
+      "count": 4
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "bone_marrow_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.bone_marrow_pill",
+  "output_items": {
+    "low": "seeking_immortals:marrow_cleansing_pill",
+    "medium": "seeking_immortals:marrow_cleansing_pill_mid",
+    "high": "seeking_immortals:marrow_cleansing_pill_high",
+    "supreme": "seeking_immortals:marrow_cleansing_pill_supreme"
+  },
+  "output_count": 1,
+  "mana_cost": 30,
+  "cook_ticks": 400,
+  "success_rate": 0.5,
+  "explosion_chance": 0.1,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:immortal_ginseng",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:spirit_beast_bone",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 2
+    }
+  ]
+}

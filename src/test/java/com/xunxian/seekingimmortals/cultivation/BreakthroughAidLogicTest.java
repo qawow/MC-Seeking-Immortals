@@ -46,14 +46,11 @@ class BreakthroughAidLogicTest {
     }
 
     @Test
-    void futureSystemCatalogPillsAreExplicitlyDisabled() {
-        assertTrue(CatalogPillType.CLEAR_VOID.futureSystemDisabled());
-        assertTrue(CatalogPillType.FORGET_DUST.futureSystemDisabled());
-        assertTrue(CatalogPillType.APPEARANCE_FIXING.futureSystemDisabled());
-        assertFalse(CatalogPillType.SPIRIT_GATHERING.futureSystemDisabled());
-        assertFalse(CatalogPillType.BODY_TEMPERING.futureSystemDisabled());
-        assertFalse(CatalogPillType.PRESSURE_RESIST.futureSystemDisabled());
-        assertFalse(CatalogPillType.RETURN_YANG_TRUE_WATER.futureSystemDisabled());
+    void catalogPillEffectsAreLiveForAllMappedTypes() {
+        // M04: catalog pill consume effects are enabled for every CatalogPillType.
+        for (CatalogPillType type : CatalogPillType.values()) {
+            assertFalse(type.futureSystemDisabled(), type.name() + " should not be future-disabled");
+        }
     }
 
     @Test

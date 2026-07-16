@@ -1,0 +1,34 @@
+{
+  "id": "tribulation_guard_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.tribulation_guard_pill",
+  "output_items": {
+    "low": "seeking_immortals:tribulation_guard_pill",
+    "medium": "seeking_immortals:tribulation_guard_pill",
+    "high": "seeking_immortals:tribulation_guard_pill",
+    "supreme": "seeking_immortals:tribulation_guard_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 320,
+  "success_rate": 0.55,
+  "explosion_chance": 0.105,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "QI_REFINING",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 3
+    },
+    {
+      "item": "seeking_immortals:dragon_blood_grass",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:beast_core",
+      "count": 1
+    }
+  ]
+}

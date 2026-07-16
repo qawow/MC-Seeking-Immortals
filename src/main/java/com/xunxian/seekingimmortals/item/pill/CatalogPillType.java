@@ -47,9 +47,7 @@ public enum CatalogPillType {
     }
 
     public boolean futureSystemDisabled() {
-        return switch (this) {
-            case CLEAR_VOID, FORGET_DUST, APPEARANCE_FIXING -> true;
-            default -> false;
-        };
+        // M04: catalog effects are live for all mapped types.
+        return false;
     }
 }

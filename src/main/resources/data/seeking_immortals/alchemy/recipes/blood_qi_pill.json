@@ -8,13 +8,13 @@
     "supreme": "seeking_immortals:blood_qi_pill_supreme"
   },
   "output_count": 1,
-  "mana_cost": 80,
-  "cook_ticks": 1080,
-  "success_rate": 0.48,
-  "explosion_chance": 0.1,
+  "mana_cost": 50,
+  "cook_ticks": 560,
+  "success_rate": 0.25,
+  "explosion_chance": 0.125,
   "required_furnace_tier": 4,
   "ideal_fire_tier": 4,
-  "min_control_realm": "CORE_FORMATION",
+  "min_control_realm": "SOUL_TRANSFORMATION",
   "controlled": false,
   "requires_earth_fire_room": true,
   "ingredients": [

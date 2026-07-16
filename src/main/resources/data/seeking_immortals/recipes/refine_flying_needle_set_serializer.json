@@ -1,0 +1,28 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:low_spirit_iron"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:flying_needle_set",
+    "count": 1
+  },
+  "success_rate": 0.65,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 1
+}

@@ -8,15 +8,15 @@
     "supreme": "seeking_immortals:essence_condensing_pill_supreme"
   },
   "output_count": 1,
-  "mana_cost": 60,
-  "cook_ticks": 1000,
-  "success_rate": 0.52,
-  "explosion_chance": 0.08,
-  "required_furnace_tier": 3,
-  "ideal_fire_tier": 3,
-  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "mana_cost": 50,
+  "cook_ticks": 560,
+  "success_rate": 0.4,
+  "explosion_chance": 0.11,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
   "controlled": false,
-  "requires_earth_fire_room": false,
+  "requires_earth_fire_room": true,
   "ingredients": [
     {
       "item": "seeking_immortals:phoenix_feather_flower",

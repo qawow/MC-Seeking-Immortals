@@ -1,0 +1,25 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:soul_gathering_stone"
+    },
+    {
+      "item": "seeking_immortals:soul_gathering_stone"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:soul_capturing_bell",
+    "count": 1
+  },
+  "success_rate": 0.4,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

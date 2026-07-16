@@ -1,0 +1,30 @@
+{
+  "id": "demon_qi_purge_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.demon_qi_purge_pill",
+  "output_items": {
+    "low": "seeking_immortals:demon_qi_purge_pill",
+    "medium": "seeking_immortals:demon_qi_purge_pill",
+    "high": "seeking_immortals:demon_qi_purge_pill",
+    "supreme": "seeking_immortals:demon_qi_purge_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 48,
+  "cook_ticks": 580,
+  "success_rate": 0.42,
+  "explosion_chance": 0.1296,
+  "required_furnace_tier": 3,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:demon_corruption_fungus",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:thunder_stone",
+      "count": 1
+    }
+  ]
+}
