@@ -232,14 +232,14 @@
     "formation_item_behaviors.json"
   ],
   "validation": {
-    "json_count": 131,
-    "region_cards_count": 20,
+    "json_count": 246,
+    "region_cards_count": 22,
     "techniques_total_ref": "techniques/index.json#total_techniques",
-    "last_expand": "v43"
+    "last_expand": "M00-M16 unified 0.2.0"
   },
   "last_pack": "seeking_immortals_items_v57.zip",
   "neo_loader_doc": "docs/NEOFORGE_DATA_LOADER.md",
-  "last_expand": "M07 formations multiblock 2026-07-16",
+  "last_expand": "M00-M16 unified 0.2.0 2026-07-17",
   "minecraft_target": "1.20.1-forge-47",
   "last_items_pack": "seeking_immortals_items_v58_full.zip",
   "last_cultivation_pack": "seeking_immortals_cultivation_v59.zip"

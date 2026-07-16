@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# AI preflight gate: ensure shippable changes bump mod_version (0.1.X).
+# AI preflight gate: ensure shippable changes bump numeric SemVer mod_version (X.Y.Z).
 # Linux/bash port of scripts/preflight.ps1. Flags mirror the PowerShell version:
 #   --skip-version-bump-check / -SkipVersionBumpCheck
 #   --record-state-only       / -RecordStateOnly
@@ -188,8 +188,8 @@ if [[ "$SKIP_VERSION_BUMP_CHECK" -eq 1 ]]; then
   exit 0
 fi
 
-if [[ ! "$MOD_VERSION" =~ ^0\.1\.[0-9]+$ ]]; then
-  echo "mod_version '$MOD_VERSION' does not match required 0.1.X format." >&2
+if [[ ! "$MOD_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "mod_version '$MOD_VERSION' does not match required numeric X.Y.Z format." >&2
   exit 1
 fi
 
@@ -219,7 +219,7 @@ if CHANGED_RAW=$(get_changed_paths_from_git "$REPO_ROOT"); then
       echo "AI preflight failed: shippable code/resource/build changes exist, but gradle.properties did not change mod_version."
       echo
       echo "Required flow:"
-      echo "  1. Bump mod_version in gradle.properties by one 0.1.X patch version."
+      echo "  1. Bump mod_version in gradle.properties by one patch version."
       echo "  2. Re-run ./gradlew build."
       echo
       echo "Changed shippable paths:"
@@ -256,7 +256,7 @@ if [[ -f "$STATE_PATH" ]]; then
       echo "AI preflight failed: shippable tracked files changed since the last successful build fingerprint, but mod_version is still $MOD_VERSION."
       echo
       echo "Required flow:"
-      echo "  1. Bump mod_version in gradle.properties by one 0.1.X patch version."
+      echo "  1. Bump mod_version in gradle.properties by one patch version."
       echo "  2. Re-run ./gradlew build."
       echo
       echo "If this build is intentionally docs-only or an emergency rebuild, rerun with:"

@@ -70,7 +70,7 @@ M16 图鉴百科      → 无下游（只读展示层）；消费全部模块的
 
 1. 动手前读 `project_docs/ai_handoff.md`、`project_docs/step_progress.md`，涉及物品/系统/版本/规划再读 items/pending_requests/features/missing_and_placeholders。
 2. 修改任何既有文件前备份到 `.bak/<时间戳>/`（保留相对路径）。
-3. 代码/资源/数据包改动 → `mod_version` 升一个 patch（`0.1.X`）；改包字段/顺序/类型 → 同时升 `ModNetwork.PROTOCOL_VERSION`；纯文档不升。
+3. 代码/资源/数据包改动 → `mod_version` 升一个 patch（数字三段式 `X.Y.Z`）；改包字段/顺序/类型或不兼容通道行为 → 同时升 `ModNetwork.PROTOCOL_VERSION`；纯文档不升。
 4. 改完跑 `./gradlew build`，失败必须修复或以精确失败信息记录阻塞。
 5. 完成后更新 project_docs 并在 `project_docs/updates/` 加更新说明。
 6. 只暂存本任务文件；中文提交主题+正文；本地 commit 即终点，**严禁 push / PR / 任何远程操作**。

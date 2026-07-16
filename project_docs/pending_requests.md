@@ -1,3 +1,5 @@
+0.2.0 pending update: M00-M16 十七模块已合并并完成全局构建，运行时文本材料清单同步至全部发布 JSON。仍待实机验证：客户端/专服/多人烟测、M04 全炼丹公式定向入口、M05 跨币种经济回归、M07/M13 飞舟船坞结构统一、M13 飞升备份防复制、M14 状态消费接线、M15 器灵成长链，以及高保真美术与专用妖兽实体。
+
 0.1.495 pending update: catalog index display Chinese localization shipped (222). Remaining deferred: human live-smoke re-sign, studio art, dedicated beast entities.
 
 0.1.494 pending update: zh item name + artifact tooltip localization shipped. Remaining deferred: residual ~220 catalog-index English display ids (chronicle/event internals), human live-smoke re-sign, studio art.

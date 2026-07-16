@@ -9,7 +9,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 - Mod id: `seeking_immortals`
 - Java: 17
 - Build system: ForgeGradle 6.x via Gradle Wrapper
-- Current version: `0.1.80` in `gradle.properties`
+- Current version: `0.2.0` in `gradle.properties`
 - Theme: original 凡人流修仙 gameplay — 灵力、境界、灵根、寿元、功法/术法、灵石、丹药、材料、符箓、聚灵阵、修仙 UI and combat attributes.
 
 This working directory is commonly used without Git history. Before modifying existing files, create a backup under `.bak/<timestamp>/` or `backups/<timestamp>/` and report the rollback path.
@@ -30,7 +30,7 @@ This working directory is commonly used without Git history. Before modifying ex
 ./gradlew runData
 ```
 
-**Required:** after every code change, run `./gradlew build` and report the result. Before release/build-oriented work, update `mod_version` in `gradle.properties` using the `0.1.X` format.
+**Required:** after every code change, run `./gradlew build` and report the result. Before release/build-oriented work, update `mod_version` in `gradle.properties` using numeric `X.Y.Z` SemVer.
 
 ## Mandatory AI Workflow
 
@@ -39,7 +39,7 @@ Codex and Claude Code must follow the same fixed order on this repository:
 1. Read current state docs before substantive work: `project_docs/ai_handoff.md` and `project_docs/step_progress.md`; also read `items.md`, `pending_requests.md`, `features.md`, and `missing_and_placeholders.md` when the task touches items, gameplay systems, version progress, or planned features.
 2. Classify the change before editing:
    - **Docs-only / comments-only / ignore-file maintenance**: no `mod_version` bump required.
-   - **Code, resources, data packs, build logic, gameplay behavior, config that ships with the mod, or generated runtime behavior**: bump `mod_version` in `gradle.properties` by one patch version (`0.1.X`) before the final build.
+   - **Code, resources, data packs, build logic, gameplay behavior, config that ships with the mod, or generated runtime behavior**: bump `mod_version` in `gradle.properties` by one patch version (`X.Y.Z`) before the final build.
    - **Network packet field/order/type changes or incompatible channel behavior**: bump both `mod_version` and `ModNetwork.PROTOCOL_VERSION`.
 3. Create a backup of every existing file that will be edited under `.bak/<timestamp>/` or `backups/<timestamp>/`, preserving relative paths.
 4. Implement the smallest scoped change that satisfies the task.
@@ -272,7 +272,7 @@ Current packets registered in `ModNetwork`:
 - `ReleaseTechniquePacket`
 - `SetTechniqueSlotPacket`
 
-`ModNetwork.PROTOCOL_VERSION` is currently `7`. If packet fields/order change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
+`ModNetwork.PROTOCOL_VERSION` is currently `23`. If packet fields/order or incompatible channel behavior change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
 
 Client state mirrors:
 

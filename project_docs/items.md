@@ -1,3 +1,5 @@
+0.2.0 item/data note: M00-M16 共 17 个模块已统一进入主线；本发布汇总不新增额外物品 id，保留各模块既有注册与双语资源。运行时 text-material manifest 覆盖全部 289 个发布 JSON（其中 techniques 21）；M16 新增 lore 同步/动作消息使协议统一升至 23。
+
 0.1.486 item/data note: No new item ids or registry entries. Manual consumption now grants source methods only after at least one valid technique learn; embark fee preflight reserves any additional quest-stage item cost before consuming either path. Wanbao auction access data now permits the first bid at zero reputation. Protocol 17 unchanged.
 
 0.1.456 item/data note: No new item ids. Artifact/refine depth reuses ArtifactCatalogItem + NatalBindingService + existing forge grades. Protocol 13 unchanged.

@@ -1,9 +1,9 @@
-# Text Material Runtime Coverage (0.1.431)
+# Text Material Runtime Coverage (0.2.0)
 
 | Layer | Status | Evidence |
 |---|---|---|
-| Data ship (all 文本材料/data JSON) | Done | text_material/** + TextMaterialManifestService |
-| Techniques 346/346 | Done | SkillType/SkillEffectRegistry |
+| Data ship (all published JSON) | Done | text_material/** + TextMaterialManifestService, 289/289 indexed |
+| Techniques author corpus 747 | Done | TechniqueDataManager + SkillType/SkillEffectRegistry |
 | Multiblock portals/buildings/rituals | Done | pocket/ancient/cycle/hidden/king + forges/altars/formations |
 | Spells non-vanilla core | Done | SpellEffect libs + custom projectiles/servitors |
 | Spatial travel + requires hard gates | Done | Wave40-43 |

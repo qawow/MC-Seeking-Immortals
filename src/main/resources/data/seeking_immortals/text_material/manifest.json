@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "文本材料/data",
-  "catalog_files": 188,
+  "catalog_files": 268,
   "technique_files": 21,
-  "total_files": 209,
+  "total_files": 289,
   "files": [
     {
       "id": "alchemy_recipes",
@@ -242,7 +242,7 @@
     {
       "id": "data_manifest",
       "file": "data_manifest.json",
-      "entries": 46,
+      "entries": 62,
       "primary_key": "files"
     },
     {
@@ -386,7 +386,7 @@
     {
       "id": "item_id_aliases",
       "file": "item_id_aliases.json",
-      "entries": 5,
+      "entries": 9,
       "primary_key": "aliases"
     },
     {
@@ -650,7 +650,7 @@
     {
       "id": "npc_dialogue_templates",
       "file": "npc_dialogue_templates.json",
-      "entries": 23,
+      "entries": 12,
       "primary_key": "archetypes"
     },
     {
@@ -788,7 +788,7 @@
     {
       "id": "spatial_nodes_catalog",
       "file": "spatial_nodes_catalog.json",
-      "entries": 25,
+      "entries": 33,
       "primary_key": "nodes"
     },
     {
@@ -1258,6 +1258,486 @@
       "file": "method_layer_technique_matrix_v130.json",
       "entries": 136,
       "primary_key": "method_layer_tables"
+    },
+    {
+      "id": "ascension_loadout_v95",
+      "file": "ascension_loadout_v95.json",
+      "entries": 5,
+      "primary_key": "post_arrival_priorities"
+    },
+    {
+      "id": "auction_catalog_v93",
+      "file": "auction_catalog_v93.json",
+      "entries": 9,
+      "primary_key": "venues"
+    },
+    {
+      "id": "beast_bestiary_runtime",
+      "file": "beast_bestiary_runtime.json",
+      "entries": 1890,
+      "primary_key": "creatures"
+    },
+    {
+      "id": "beast_materials_loot_v92",
+      "file": "beast_materials_loot_v92.json",
+      "entries": 18,
+      "primary_key": "named_creature_loot"
+    },
+    {
+      "id": "bestiary_index_v97",
+      "file": "bestiary_index_v97.json",
+      "entries": 1848,
+      "primary_key": "creatures"
+    },
+    {
+      "id": "bestiary_summary_v101",
+      "file": "bestiary_summary_v101.json",
+      "entries": 1848,
+      "primary_key": "creatures"
+    },
+    {
+      "id": "chaotic_sea_factions_packs_v128",
+      "file": "chaotic_sea_factions_packs_v128.json",
+      "entries": 4,
+      "primary_key": "factions"
+    },
+    {
+      "id": "dajin_economy_bands",
+      "file": "dajin_economy_bands.json",
+      "entries": 6,
+      "primary_key": "price_bands_low_spirit_stone"
+    },
+    {
+      "id": "dajin_line_packs_v129",
+      "file": "dajin_line_packs_v129.json",
+      "entries": 7,
+      "primary_key": "factions"
+    },
+    {
+      "id": "dialogue_effect_quest_links_v140",
+      "file": "dialogue_effect_quest_links_v140.json",
+      "entries": 24,
+      "primary_key": "xianjie_chain_hooks_imported"
+    },
+    {
+      "id": "dimension_travel_costs_v137",
+      "file": "dimension_travel_costs_v137.json",
+      "entries": 18,
+      "primary_key": "entries"
+    },
+    {
+      "id": "dimension_travel_methods_v136",
+      "file": "dimension_travel_methods_v136.json",
+      "entries": 26,
+      "primary_key": "access_routes"
+    },
+    {
+      "id": "ecology_habitats_v95",
+      "file": "ecology_habitats_v95.json",
+      "entries": 18,
+      "primary_key": "habitats"
+    },
+    {
+      "id": "endgame_deity_huoyu_v143",
+      "file": "endgame_deity_huoyu_v143.json",
+      "entries": 9,
+      "primary_key": "pipeline_playable"
+    },
+    {
+      "id": "endgame_guanghan_v143",
+      "file": "endgame_guanghan_v143.json",
+      "entries": 6,
+      "primary_key": "quest_chain"
+    },
+    {
+      "id": "endgame_reward_tables_v144",
+      "file": "endgame_reward_tables_v144.json",
+      "entries": 6,
+      "primary_key": "deity_huoyu"
+    },
+    {
+      "id": "faction_lore_compendium_v144",
+      "file": "faction_lore_compendium_v144.json",
+      "entries": 21,
+      "primary_key": "factions"
+    },
+    {
+      "id": "faction_pages_v117",
+      "file": "faction_pages_v117.json",
+      "entries": 15,
+      "primary_key": "pages"
+    },
+    {
+      "id": "faction_shop_stock_v94",
+      "file": "faction_shop_stock_v94.json",
+      "entries": 15,
+      "primary_key": "factions"
+    },
+    {
+      "id": "formation_array_catalog_v97",
+      "file": "formation_array_catalog_v97.json",
+      "entries": 36,
+      "primary_key": "arrays"
+    },
+    {
+      "id": "formation_field_params",
+      "file": "formation_field_params.json",
+      "entries": 56,
+      "primary_key": "fields"
+    },
+    {
+      "id": "formation_item_behaviors",
+      "file": "formation_item_behaviors.json",
+      "entries": 13,
+      "primary_key": "items"
+    },
+    {
+      "id": "garden_liquid_calendar_v108",
+      "file": "garden_liquid_calendar_v108.json",
+      "entries": 10,
+      "primary_key": "plant_profiles"
+    },
+    {
+      "id": "hanli_timeline_items_v100",
+      "file": "hanli_timeline_items_v100.json",
+      "entries": 7,
+      "primary_key": "timeline"
+    },
+    {
+      "id": "identity_reputation_v95",
+      "file": "identity_reputation_v95.json",
+      "entries": 6,
+      "primary_key": "reputation_tracks"
+    },
+    {
+      "id": "immortal_realms_v130",
+      "file": "immortal_realms_v130.json",
+      "entries": 5,
+      "primary_key": "realms"
+    },
+    {
+      "id": "item_economy_index_v92",
+      "file": "item_economy_index_v92.json",
+      "entries": 220,
+      "primary_key": "catalog_refs"
+    },
+    {
+      "id": "item_economy_tags_v101",
+      "file": "item_economy_tags_v101.json",
+      "entries": 134,
+      "primary_key": "items"
+    },
+    {
+      "id": "loadout_by_realm_v99",
+      "file": "loadout_by_realm_v99.json",
+      "entries": 9,
+      "primary_key": "loadouts"
+    },
+    {
+      "id": "luoyun_late_game_pack_v127",
+      "file": "luoyun_late_game_pack_v127.json",
+      "entries": 10,
+      "primary_key": "pack"
+    },
+    {
+      "id": "main_quest_rewards_v101",
+      "file": "main_quest_rewards_v101.json",
+      "entries": 13,
+      "primary_key": "chains"
+    },
+    {
+      "id": "main_story_quest_map_v145",
+      "file": "main_story_quest_map_v145.json",
+      "entries": 12,
+      "primary_key": "v147_extra_campaigns"
+    },
+    {
+      "id": "market_price_master_v100",
+      "file": "market_price_master_v100.json",
+      "entries": 45,
+      "primary_key": "commodity_master"
+    },
+    {
+      "id": "market_shelf_price_align_v144",
+      "file": "market_shelf_price_align_v144.json",
+      "entries": 8,
+      "primary_key": "open_market"
+    },
+    {
+      "id": "market_shelves_v94",
+      "file": "market_shelves_v94.json",
+      "entries": 14,
+      "primary_key": "markets"
+    },
+    {
+      "id": "merchant_shops_guide_v113",
+      "file": "merchant_shops_guide_v113.json",
+      "entries": 46,
+      "primary_key": "shops"
+    },
+    {
+      "id": "mortal_to_spirit_bridge",
+      "file": "mortal_to_spirit_bridge.json",
+      "entries": 6,
+      "primary_key": "gates"
+    },
+    {
+      "id": "multiblock_build_materials_v133",
+      "file": "multiblock_build_materials_v133.json",
+      "entries": 149,
+      "primary_key": "material_ids"
+    },
+    {
+      "id": "multiblock_material_prices_v135",
+      "file": "multiblock_material_prices_v135.json",
+      "entries": 245,
+      "primary_key": "materials"
+    },
+    {
+      "id": "multiblock_mp_sequence_display",
+      "file": "multiblock_mp_sequence_display.json",
+      "entries": 7,
+      "primary_key": "sequences"
+    },
+    {
+      "id": "multiblock_multiplayer_sequences_v135",
+      "file": "multiblock_multiplayer_sequences_v135.json",
+      "entries": 7,
+      "primary_key": "sequences"
+    },
+    {
+      "id": "multiblock_operational_states_v134",
+      "file": "multiblock_operational_states_v134.json",
+      "entries": 8,
+      "primary_key": "interaction_verbs"
+    },
+    {
+      "id": "multiblock_station_patterns",
+      "file": "multiblock_station_patterns.json",
+      "entries": 86,
+      "primary_key": "stations"
+    },
+    {
+      "id": "multiblock_structure_index",
+      "file": "multiblock_structure_index.json",
+      "entries": 86,
+      "primary_key": "entries"
+    },
+    {
+      "id": "multiblock_structure_index_v132",
+      "file": "multiblock_structure_index_v132.json",
+      "entries": 53,
+      "primary_key": "entries"
+    },
+    {
+      "id": "multiblock_structure_index_v133",
+      "file": "multiblock_structure_index_v133.json",
+      "entries": 74,
+      "primary_key": "entries"
+    },
+    {
+      "id": "multiblock_structure_index_v134",
+      "file": "multiblock_structure_index_v134.json",
+      "entries": 82,
+      "primary_key": "entries"
+    },
+    {
+      "id": "multiblock_structure_index_v135",
+      "file": "multiblock_structure_index_v135.json",
+      "entries": 15,
+      "primary_key": "top_build_costs"
+    },
+    {
+      "id": "name_alias_glossary_v103",
+      "file": "name_alias_glossary_v103.json",
+      "entries": 196,
+      "primary_key": "entries"
+    },
+    {
+      "id": "named_npc_loot_rewards_v97",
+      "file": "named_npc_loot_rewards_v97.json",
+      "entries": 48,
+      "primary_key": "entries"
+    },
+    {
+      "id": "named_npc_seeds_v137",
+      "file": "named_npc_seeds_v137.json",
+      "entries": 13,
+      "primary_key": "npcs"
+    },
+    {
+      "id": "named_npcs_v116",
+      "file": "named_npcs_v116.json",
+      "entries": 168,
+      "primary_key": "npcs"
+    },
+    {
+      "id": "newgame_plus_economy_v102",
+      "file": "newgame_plus_economy_v102.json",
+      "entries": 8,
+      "primary_key": "economy_fuses"
+    },
+    {
+      "id": "npc_dialogue_branches_v139",
+      "file": "npc_dialogue_branches_v139.json",
+      "entries": 12,
+      "primary_key": "trees"
+    },
+    {
+      "id": "npc_dialogue_templates_v138",
+      "file": "npc_dialogue_templates_v138.json",
+      "entries": 12,
+      "primary_key": "archetypes"
+    },
+    {
+      "id": "npc_dialogues_v117",
+      "file": "npc_dialogues_v117.json",
+      "entries": 10,
+      "primary_key": "dialogues"
+    },
+    {
+      "id": "npc_vendor_roster_v96",
+      "file": "npc_vendor_roster_v96.json",
+      "entries": 23,
+      "primary_key": "vendors"
+    },
+    {
+      "id": "numeric_overview_v103",
+      "file": "numeric_overview_v103.json",
+      "entries": 89,
+      "primary_key": "price_anchors_low_stone"
+    },
+    {
+      "id": "opening_list_and_reputation_rules_v128",
+      "file": "opening_list_and_reputation_rules_v128.json",
+      "entries": 17,
+      "primary_key": "reputation_ids"
+    },
+    {
+      "id": "quest_chains_playable_v141",
+      "file": "quest_chains_playable_v141.json",
+      "entries": 23,
+      "primary_key": "chains"
+    },
+    {
+      "id": "quest_lines_full_descriptions_v147",
+      "file": "quest_lines_full_descriptions_v147.json",
+      "entries": 35,
+      "primary_key": "lines"
+    },
+    {
+      "id": "quest_reward_economy_v142",
+      "file": "quest_reward_economy_v142.json",
+      "entries": 20,
+      "primary_key": "quests"
+    },
+    {
+      "id": "realm_breakthrough_v98",
+      "file": "realm_breakthrough_v98.json",
+      "entries": 13,
+      "primary_key": "breakthroughs"
+    },
+    {
+      "id": "region_spawn_tables_v98",
+      "file": "region_spawn_tables_v98.json",
+      "entries": 24,
+      "primary_key": "regions"
+    },
+    {
+      "id": "reputation_thresholds_and_quest_rewards_v129",
+      "file": "reputation_thresholds_and_quest_rewards_v129.json",
+      "entries": 68,
+      "primary_key": "quest_chain_rewards"
+    },
+    {
+      "id": "reputation_unlocks_v102",
+      "file": "reputation_unlocks_v102.json",
+      "entries": 22,
+      "primary_key": "factions"
+    },
+    {
+      "id": "sect_shelves_more_v107",
+      "file": "sect_shelves_more_v107.json",
+      "entries": 3,
+      "primary_key": "sects"
+    },
+    {
+      "id": "sect_shelves_v106",
+      "file": "sect_shelves_v106.json",
+      "entries": 3,
+      "primary_key": "sects"
+    },
+    {
+      "id": "spirit_beast_companion_v93",
+      "file": "spirit_beast_companion_v93.json",
+      "entries": 12,
+      "primary_key": "companions"
+    },
+    {
+      "id": "spirit_beast_growth_v99",
+      "file": "spirit_beast_growth_v99.json",
+      "entries": 14,
+      "primary_key": "companions"
+    },
+    {
+      "id": "status_effects",
+      "file": "status_effects.json",
+      "entries": 22,
+      "primary_key": "effects"
+    },
+    {
+      "id": "ten_poisons_antidotes_v99",
+      "file": "ten_poisons_antidotes_v99.json",
+      "entries": 12,
+      "primary_key": "ten_poisons"
+    },
+    {
+      "id": "tiannan_seven_lists_registry_v127",
+      "file": "tiannan_seven_lists_registry_v127.json",
+      "entries": 4,
+      "primary_key": "alternate_list_v127"
+    },
+    {
+      "id": "tiannan_seven_sects_packs_v126",
+      "file": "tiannan_seven_sects_packs_v126.json",
+      "entries": 7,
+      "primary_key": "sects"
+    },
+    {
+      "id": "timeline_guide_v115",
+      "file": "timeline_guide_v115.json",
+      "entries": 11,
+      "primary_key": "mainline_order"
+    },
+    {
+      "id": "travel_routes",
+      "file": "travel_routes.json",
+      "entries": 30,
+      "primary_key": "routes"
+    },
+    {
+      "id": "visual_look_cards_v122",
+      "file": "visual_look_cards_v122.json",
+      "entries": 6,
+      "primary_key": "counts"
+    },
+    {
+      "id": "visual_style_v118",
+      "file": "visual_style_v118.json",
+      "entries": 11,
+      "primary_key": "palette"
+    },
+    {
+      "id": "xianjie_quest_chains_v130",
+      "file": "xianjie_quest_chains_v130.json",
+      "entries": 6,
+      "primary_key": "chains"
+    },
+    {
+      "id": "xianjie_reputation_and_gates_v130",
+      "file": "xianjie_reputation_and_gates_v130.json",
+      "entries": 7,
+      "primary_key": "gates"
     }
   ],
   "total_entries": 3985

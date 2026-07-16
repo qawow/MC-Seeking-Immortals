@@ -152,8 +152,8 @@ def main() -> int:
         print("WARNING: AI preflight version bump check skipped by --skip-version-bump-check.", file=sys.stderr)
         return 0
 
-    if not re.match(r"^0\.1\.\d+$", version):
-        print(f"mod_version '{version}' does not match required 0.1.X format.", file=sys.stderr)
+    if not re.fullmatch(r"\d+\.\d+\.\d+", version):
+        print(f"mod_version '{version}' does not match required numeric X.Y.Z format.", file=sys.stderr)
         return 1
 
     changed_paths = changed_paths_from_git(root)
@@ -172,7 +172,7 @@ def main() -> int:
                 "AI preflight failed: shippable code/resource/build changes exist, "
                 "but gradle.properties did not change mod_version.\n\n"
                 "Required flow:\n"
-                "  1. Bump mod_version in gradle.properties by one 0.1.X patch version.\n"
+                "  1. Bump mod_version in gradle.properties by one patch version.\n"
                 "  2. Re-run ./gradlew build.\n\n"
                 f"Changed shippable paths:\n{joined}",
                 file=sys.stderr,
@@ -234,7 +234,7 @@ def main() -> int:
             f"AI preflight failed: shippable tracked files changed since the last successful "
             f"build fingerprint, but mod_version is still {version}.\n\n"
             "Required flow:\n"
-            "  1. Bump mod_version in gradle.properties by one 0.1.X patch version.\n"
+            "  1. Bump mod_version in gradle.properties by one patch version.\n"
             "  2. Re-run ./gradlew build.\n\n"
             "If this build is intentionally docs-only or an emergency rebuild, rerun with:\n"
             "  ./gradlew build -PaiSkipVersionBumpCheck=true",

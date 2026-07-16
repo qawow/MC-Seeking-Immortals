@@ -1,3 +1,18 @@
+## 469. 2026-07-17 0.2.0 十七模块统一里程碑
+
+  Step   Status   Notes
+  ---   ---   ---
+  Module ancestry                      Done M00-M16 共 17 个 task 分支 tip 全部为 main 祖先
+  Pre-release full build               Done `./gradlew build --no-daemon` at 0.1.509，BUILD SUCCESSFUL in 1m
+  Release version                      Done `mod_version` 统一为 0.2.0
+  Network protocol                     Done 22 → 23；M16 追加 lore sync/action message，隔离旧 channel
+  Version gate                         Done sh / Python / PowerShell 统一接受数字三段式 X.Y.Z
+  Text-material manifest               Done 运行时发布 JSON 289/289 建索引；validation 计数更新
+  Workspace full build                 Done `./gradlew build --no-daemon`，555/555 tests，BUILD SUCCESSFUL in 56s
+  Clean release candidate build        Done HEAD + staged release patch，526/526 tests，BUILD SUCCESSFUL in 1m21s
+  Release artifact                     Done 30,865,197 bytes；SHA-256 `edaaea11120da3e9443ae6e1fcb78feef80f90fd163767fe2df1016e4a69e4b7`
+  Update note                          Done `project_docs/updates/20260717_0.2.0_17_modules_milestone.md`
+
 ## 468. 2026-07-17 M16 图鉴与百科落地
 
   Step   Status   Notes

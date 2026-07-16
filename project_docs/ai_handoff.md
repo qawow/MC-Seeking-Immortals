@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-17: `0.2.0` M00-M16 seventeen-module milestone is integrated on main. All 17 task branch tips are ancestors of main. Runtime text-material inventory is complete at 289/289 shipped JSON files (268 catalogs + 21 technique files), with a deterministic rebuild script and exact-coverage test. Cross-platform preflight now accepts numeric X.Y.Z versions. M16 lore messages and incompatible dialogue/channel work require protocol 23. The clean staged release candidate passed `./gradlew build --no-daemon` with 526/526 tests; JAR size 30,865,197 bytes, SHA-256 `edaaea11120da3e9443ae6e1fcb78feef80f90fd163767fe2df1016e4a69e4b7`. Details: project_docs/updates/20260717_0.2.0_17_modules_milestone.md.
+
 > CURRENT TRUTH 2026-07-17: M16 lore/books on `task/m16-lore-books`. Patchouli 47→87 entries ×2 langs (8 categories); glossary/numeric/visual runtime services; Bestiary/Chronicle/Compendium journal screens; SettingCatalogSummary full-category counts; SyncLoreUnlockPacket + LoreScreenActionPacket appended; lang 4510/4510 parity; Patchouli optional safe bridge. mod_version kept 0.1.509 by task redline (`-PaiSkipVersionBumpCheck=true`); protocol remains 22 (append-only packets). Full build SUCCESSFUL. Details: project_docs/updates/20260717_m16_lore_books.md.
 
 > CURRENT TRUTH 2026-07-17: main integrates M13 dimensions/ascension + M15 artifacts/spirits. Four merge conflicts (CURRENT TRUTH, step progress, zh/en lang tails) preserve both branches; ModEvents retains dimension flight policy and artifact synergy/flyer detection. Integration version is 0.1.509; protocol remains 22 because no packet/channel behavior changed. Full `./gradlew build` SUCCESSFUL. Details: project_docs/updates/20260717_merge_m13_m15.md.
@@ -816,7 +818,7 @@ cd /root/mc-mod
 5. 每完成版本迭代，同步更新 `items.md`、`pending_requests.md`、`features.md`、`missing_and_placeholders.md` 与 `updates/YYYYMMDD_版本号.md`。
 6. 修改已有代码前先做显式备份到 `.bak/<timestamp>/`。
 7. 代码修改后必须执行 `./gradlew build`。
-8. 代码、资源、数据包、构建逻辑或 gameplay/config 变更必须先将 `gradle.properties` 的 `mod_version` 按 `0.1.X` 递增；`./gradlew build` 会运行 `scripts/preflight.sh` 检查该门禁。
+8. 代码、资源、数据包、构建逻辑或 gameplay/config 变更必须先将 `gradle.properties` 的 `mod_version` 按数字三段式 `X.Y.Z` 递增；`./gradlew build` 会运行 `scripts/preflight.sh` 检查该门禁。
 9. 修改网络 packet 字段、字段顺序、编码/解码格式或不兼容通道行为时，必须同时 bump `ModNetwork.PROTOCOL_VERSION`。
 10. 客户端 UI 类必须放在 `client` 包并通过 `Dist.CLIENT` 事件隔离，避免服务端加载客户端类。
 11. 不要引入新的第三方 UI 框架，除非用户明确要求。

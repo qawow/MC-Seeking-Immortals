@@ -184,8 +184,8 @@ if ($SkipVersionBumpCheck) {
     exit 0
 }
 
-if ($modVersion -notmatch '^0\.1\.\d+$') {
-    Write-Error "mod_version '$modVersion' does not match required 0.1.X format."
+if ($modVersion -notmatch '^\d+\.\d+\.\d+$') {
+    Write-Error "mod_version '$modVersion' does not match required numeric X.Y.Z format."
 }
 
 $changedPaths = Get-ChangedPathsFromGit -Root $repoRoot
@@ -203,7 +203,7 @@ if ($null -ne $changedPaths) {
 AI preflight failed: shippable code/resource/build changes exist, but gradle.properties did not change mod_version.
 
 Required flow:
-  1. Bump mod_version in gradle.properties by one 0.1.X patch version.
+  1. Bump mod_version in gradle.properties by one patch version.
   2. Re-run ./gradlew build.
 
 Changed shippable paths:
@@ -253,7 +253,7 @@ if ($null -ne $lastState -and $lastState.fingerprint -ne $fingerprint -and $last
 AI preflight failed: shippable tracked files changed since the last successful build fingerprint, but mod_version is still $modVersion.
 
 Required flow:
-  1. Bump mod_version in gradle.properties by one 0.1.X patch version.
+  1. Bump mod_version in gradle.properties by one patch version.
   2. Re-run ./gradlew build.
 
 If this build is intentionally docs-only or an emergency rebuild, rerun with:
