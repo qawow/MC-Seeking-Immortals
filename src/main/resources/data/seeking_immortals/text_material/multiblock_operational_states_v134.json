@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "source": "v134 多方块运行状态总则",
+  "state_order_default": [
+    "intact",
+    "damaged",
+    "critical",
+    "disabled"
+  ],
+  "ore_states": [
+    "unmined",
+    "depleted"
+  ],
+  "global_rules": [
+    "默认新建结构为 intact（矿为 unmined）",
+    "效率：intact 100% / damaged 60% / critical 20% 或禁用 / disabled 0%",
+    "修理不自动满耐久除非 overhaul",
+    "升级一般要求 intact；damaged 升级失败率上升",
+    "秘境 worldgen 结构可在重置时回到 intact",
+    "炸炉/阵破/拔旗等见各结构 damage_sources"
+  ],
+  "interaction_verbs": {
+    "use": "主功能",
+    "inspect": "查看状态/归属/tier",
+    "repair": "消耗修理材料升状态",
+    "overhaul": "瘫痪大修",
+    "upgrade": "沿 upgrade 路径提升",
+    "dismantle": "拆解返还部分材料",
+    "recharge": "阵法供能",
+    "attune": "认主/势力绑定"
+  },
+  "linked_support_structures": [
+    "structure_repair_bench",
+    "structure_blueprint_table",
+    "array_maintenance_obelisk",
+    "furnace_safety_array",
+    "ownership_stele"
+  ]
+}

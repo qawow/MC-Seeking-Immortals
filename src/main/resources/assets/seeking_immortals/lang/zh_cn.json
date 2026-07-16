@@ -3726,5 +3726,8 @@
   "message.seeking_immortals.spell.generic_melee.success": "近身剑意斩落。",
   "message.seeking_immortals.spell.generic_illusion.success": "幻术弥散，心神受扰。",
   "message.seeking_immortals.spell.generic_control.success": "禁锢之力扩散。",
-  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。"
+  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。",
+  "message.seeking_immortals.formation_item.placed": "已放置阵材：%s",
+  "message.seeking_immortals.formation_item.activated": "阵盘/阵旗生效：%s（%s）",
+  "message.seeking_immortals.formation_item.failed": "阵材未能激活：%s"
 }

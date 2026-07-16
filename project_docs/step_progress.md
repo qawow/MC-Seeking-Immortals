@@ -1,3 +1,21 @@
+## 457. 2026-07-16 M07 阵法与多方块落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_223400_m07_formations/`
+  Publish structure/formation corpus   Done 86 合并索引 + station/field/item/MP 展示数据
+  Station formed API                   Done MultiblockStationService + FormationApi.isStationFormed（缓存/脏标记）
+  Field effects API                    Done FormationFieldService.getActiveFieldEffects + 目录半径/aura
+  Formation items behavior             Done FormationItemService + BaseMaterialItem use 钩子
+  Core BE / SavedData                  Done 全核心方块 BE 类型；SavedData 扩 formationId/radius/aura/free
+  Spirit gather align                  Done aura 扫描保留 + 叠加 active SPIRIT_GATHER 场
+  MP sequence export                   Done multiblock_mp_sequence_display.json（M16 展示）
+  Tests                                Done M07FormationsMultiblockTest + FormationFieldServiceTest
+  Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
+  Protocol                             Unchanged 21（无包变更）
+  Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m07_formations_multiblock.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes

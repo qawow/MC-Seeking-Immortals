@@ -19,4 +19,19 @@ class FormationFieldServiceTest {
         FormationFieldService.clearAll();
         assertEquals(0, FormationFieldService.activeCount());
     }
+
+    @Test
+    void fieldEffectContainsUsesRadius() {
+        FormationFieldService.FieldEffect effect = new FormationFieldService.FieldEffect(
+                "spirit_gather",
+                FormationFieldService.FieldKind.SPIRIT_GATHER,
+                new net.minecraft.core.BlockPos(0, 64, 0),
+                2,
+                100,
+                50,
+                "cultivation_speed_1.2",
+                false);
+        assertTrue(effect.contains(new net.minecraft.core.BlockPos(2, 64, 0)));
+        assertTrue(!effect.contains(new net.minecraft.core.BlockPos(4, 64, 0)));
+    }
 }

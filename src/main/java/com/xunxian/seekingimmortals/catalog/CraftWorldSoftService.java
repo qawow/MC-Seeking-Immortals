@@ -152,7 +152,7 @@ public final class CraftWorldSoftService {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.unknown", formationId), false);
                 return false;
             }
-            boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kindDirect.get(), 20 * 90, player);
+            boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kindDirect.get(), 20 * 90, player, formationId);
             if (ok) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
                         formationId, kindDirect.get().name()), true);
@@ -178,7 +178,7 @@ public final class CraftWorldSoftService {
                     "message.seeking_immortals.formation_catalog.missing_shards", shardCost), true);
             return false;
         }
-        boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kind.get(), 20 * 90, player);
+        boolean ok = FormationFieldService.activateFreeField(level, player.blockPosition(), kind.get(), 20 * 90, player, entry.id());
         if (ok) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.formation_catalog.deployed",
                     entry.display(), kind.get().name()), true);

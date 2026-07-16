@@ -12,6 +12,11 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+/**
+ * Shared multiblock matcher.
+ * Code-driven patterns remain primary for existing stations; M07 adds data-driven helpers
+ * that build requirements from catalog station templates (ring / single core).
+ */
 public final class MultiblockPattern {
     private MultiblockPattern() {}
 
@@ -71,5 +76,49 @@ public final class MultiblockPattern {
         return requirements.stream()
                 .map(BlockRequirement::offset)
                 .toList();
+    }
+
+    /**
+     * M07 data-driven path: build an outer-edge ring pattern from catalog radius + ring block.
+     * Used by MultiblockStationService when validator=ring and for tests that assert index→pattern.
+     */
+    public static List<BlockRequirement> ringRequirements(int radius, Supplier<? extends Block> ringBlock) {
+        Objects.requireNonNull(ringBlock);
+        int r = Math.max(1, radius);
+        List<BlockRequirement> list = new ArrayList<>();
+        for (BlockPos offset : RingFormationStructure.ringOffsets(r)) {
+            list.add(require(offset.getX(), offset.getY(), offset.getZ(), ringBlock));
+        }
+        return List.copyOf(list);
+    }
+
+    /** Data-driven single solid core check (non-air). */
+    public static List<BlockRequirement> singleCoreRequirements() {
+        return List.of(new BlockRequirement(BlockPos.ZERO, state -> !state.isAir()));
+    }
+
+    /**
+     * Build requirements for a catalog structure id when the pattern is ring/single_core.
+     * Returns empty when the station needs a specialized code validator.
+     */
+    public static List<BlockRequirement> fromCatalogStation(
+            MultiblockStructureCatalog.StructureEntry entry,
+            Supplier<? extends Block> spiritOre,
+            Supplier<? extends Block> spiritArray) {
+        if (entry == null || entry.pattern() == null) {
+            return List.of();
+        }
+        MultiblockStructureCatalog.StationPattern pattern = entry.pattern();
+        return switch (pattern.validator()) {
+            case "ring", "spirit_gathering_formation" -> {
+                String role = pattern.ringRole() == null ? "" : pattern.ringRole();
+                Supplier<? extends Block> ring = role.contains("gather") || role.contains("array")
+                        ? spiritArray : spiritOre;
+                int radius = pattern.radius() > 0 ? pattern.radius() : Math.max(1, entry.radius());
+                yield ringRequirements(radius, ring);
+            }
+            case "single_core" -> singleCoreRequirements();
+            default -> List.of();
+        };
     }
 }

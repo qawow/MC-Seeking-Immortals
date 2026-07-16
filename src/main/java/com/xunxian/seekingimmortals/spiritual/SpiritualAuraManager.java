@@ -238,6 +238,7 @@ public final class SpiritualAuraManager {
     }
 
     private static int getFormationBonus(Level level, BlockPos pos) {
+        // Backward-compatible passive array-node scan (existing behavior).
         int count = 0;
         BlockPos from = pos.offset(-FORMATION_RADIUS, -FORMATION_VERTICAL_RANGE, -FORMATION_RADIUS);
         BlockPos to = pos.offset(FORMATION_RADIUS, FORMATION_VERTICAL_RANGE, FORMATION_RADIUS);
@@ -248,7 +249,16 @@ public final class SpiritualAuraManager {
                 if (count >= MAX_FORMATION_COUNT) break;
             }
         }
-        return count * FORMATION_BONUS_PER_BLOCK;
+        int blockBonus = count * FORMATION_BONUS_PER_BLOCK;
+        // M07: active spirit-gather fields from FormationFieldService (catalog-aligned) stack softly.
+        int fieldBonus = 0;
+        try {
+            fieldBonus = com.xunxian.seekingimmortals.structure.FormationFieldService.spiritGatherAuraBonus(level, pos);
+        } catch (Throwable ignored) {
+            fieldBonus = 0;
+        }
+        // Cap total formation contribution so legacy balance stays in the same ballpark.
+        return Math.min(FORMATION_BONUS_PER_BLOCK * MAX_FORMATION_COUNT * 2, blockBonus + fieldBonus);
     }
 
     private static long mix(long seed, int chunkX, int chunkZ) {

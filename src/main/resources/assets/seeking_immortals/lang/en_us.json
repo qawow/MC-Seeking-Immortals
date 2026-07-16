@@ -3716,5 +3716,8 @@
   "message.seeking_immortals.spell.generic_melee.success": "Melee sword intent strikes.",
   "message.seeking_immortals.spell.generic_illusion.success": "Illusion clouds the mind.",
   "message.seeking_immortals.spell.generic_control.success": "Control field spreads.",
-  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s."
+  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s.",
+  "message.seeking_immortals.formation_item.placed": "Placed formation part: %s",
+  "message.seeking_immortals.formation_item.activated": "Formation item activated: %s (%s)",
+  "message.seeking_immortals.formation_item.failed": "Formation item failed: %s"
 }

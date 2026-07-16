@@ -46,6 +46,13 @@ public class BaseMaterialItem extends Item {
             }
             return InteractionResultHolder.consume(stack);
         }
+        // M07: formation flag/disk place-or-activate behavior (ids from formation_items_catalog).
+        if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
+            var formationUse = com.xunxian.seekingimmortals.structure.FormationItemService.tryUse(serverPlayer, stack);
+            if (formationUse.isPresent()) {
+                return formationUse.get();
+            }
+        }
         return super.use(level, player, hand);
     }
 

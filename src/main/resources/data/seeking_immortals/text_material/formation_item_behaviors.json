@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "source": "M07 formation item place/activate",
+  "items": [
+    {
+      "id": "portable_spirit_gather_disk",
+      "display": "聚灵阵盘（便携）",
+      "formation_id": "spirit_gather",
+      "uses": 10,
+      "place_block": "spirit_gathering_array",
+      "action": "place_block"
+    },
+    {
+      "id": "portable_illusion_maze_flag",
+      "display": "迷踪阵旗",
+      "formation_id": "illusion_maze",
+      "uses": 5,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "portable_kill_sword_disk",
+      "display": "杀阵盘",
+      "formation_id": "kill_sword",
+      "uses": 3,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "portable_defense_wall_disk",
+      "display": "守阵盘",
+      "formation_id": "defense_wall",
+      "uses": 8,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "teleport_array_core",
+      "display": "传送阵核心",
+      "formation_id": "teleport_array",
+      "uses": null,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "thunder_array_stake",
+      "display": "引雷阵桩",
+      "formation_id": "thunder_tribulation_array",
+      "uses": 1,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "array_blueprint_scroll",
+      "display": "阵图残卷",
+      "formation_id": "",
+      "uses": null,
+      "place_block": null,
+      "action": "inspect_only"
+    },
+    {
+      "id": "nine_dragon_flame_array_disk",
+      "display": "九龙火阵盘（仿）",
+      "formation_id": "nine_dragon_flame_barrier",
+      "uses": 1,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "portable_seal_disk",
+      "display": "封禁阵盘",
+      "formation_id": "seal_barrier",
+      "uses": 4,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "spirit_gather_flag_set",
+      "display": "聚灵阵旗组",
+      "formation_id": "spirit_gather",
+      "uses": 12,
+      "place_block": null,
+      "action": "activate_free_field"
+    },
+    {
+      "id": "nine_palace_disk",
+      "display": "九宫阵盘",
+      "formation_id": "",
+      "uses": null,
+      "place_block": null,
+      "action": "inspect_only"
+    },
+    {
+      "id": "spirit_gather_flag",
+      "display": "聚灵阵旗",
+      "formation_id": "",
+      "uses": null,
+      "place_block": null,
+      "action": "inspect_only"
+    },
+    {
+      "id": "kill_array_core",
+      "display": "杀阵核心",
+      "formation_id": "",
+      "uses": null,
+      "place_block": null,
+      "action": "inspect_only"
+    }
+  ]
+}

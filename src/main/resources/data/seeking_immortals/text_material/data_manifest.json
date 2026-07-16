@@ -213,7 +213,23 @@
     "novel_items_master_index.json",
     "novel_items_waves.json",
     "novel_cultivation_waves.json",
-    "novel_cultivation_master_index.json"
+    "novel_cultivation_master_index.json",
+    "formation_catalog.json",
+    "formation_items_catalog.json",
+    "multiblock_structure_index.json",
+    "multiblock_structure_index_v132.json",
+    "multiblock_structure_index_v133.json",
+    "multiblock_structure_index_v134.json",
+    "multiblock_structure_index_v135.json",
+    "multiblock_station_patterns.json",
+    "multiblock_build_materials_v133.json",
+    "multiblock_material_prices_v135.json",
+    "multiblock_operational_states_v134.json",
+    "multiblock_multiplayer_sequences_v135.json",
+    "multiblock_mp_sequence_display.json",
+    "formation_array_catalog_v97.json",
+    "formation_field_params.json",
+    "formation_item_behaviors.json"
   ],
   "validation": {
     "json_count": 131,
@@ -223,7 +239,7 @@
   },
   "last_pack": "seeking_immortals_items_v57.zip",
   "neo_loader_doc": "docs/NEOFORGE_DATA_LOADER.md",
-  "last_expand": "v45",
+  "last_expand": "M07 formations multiblock 2026-07-16",
   "minecraft_target": "1.20.1-forge-47",
   "last_items_pack": "seeking_immortals_items_v58_full.zip",
   "last_cultivation_pack": "seeking_immortals_cultivation_v59.zip"

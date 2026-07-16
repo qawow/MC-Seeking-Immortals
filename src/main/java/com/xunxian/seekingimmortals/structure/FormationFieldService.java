@@ -13,17 +13,22 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Timed formation field aura while the ring multiblock remains intact.
  * Wave49: persists active fields via FormationFieldSavedData (survive restart).
+ * M07: catalog-driven radius/params + public getActiveFieldEffects for M09/M14/M06.
  */
 public final class FormationFieldService {
     private static final int DEFAULT_DURATION_TICKS = 20 * 90;
     private static final int TICK_INTERVAL = 20;
+    private static final int RING_CHECK_INTERVAL = 20;
     private static final Map<FieldKey, ActiveField> ACTIVE = new ConcurrentHashMap<>();
 
     private FormationFieldService() {}
@@ -53,21 +58,60 @@ public final class FormationFieldService {
         }
     }
 
+    /**
+     * Stable public field effect view for combat / secret-realm / region-event consumers.
+     */
+    public record FieldEffect(
+            String formationId,
+            FieldKind kind,
+            BlockPos corePos,
+            int radius,
+            int remainingTicks,
+            int auraBonus,
+            String effect,
+            boolean freeField
+    ) {
+        public boolean contains(BlockPos pos) {
+            if (pos == null || corePos == null) {
+                return false;
+            }
+            int r = Math.max(1, radius);
+            int dx = Math.abs(pos.getX() - corePos.getX());
+            int dz = Math.abs(pos.getZ() - corePos.getZ());
+            int dy = Math.abs(pos.getY() - corePos.getY());
+            return dx <= r && dz <= r && dy <= Math.max(2, r);
+        }
+    }
+
     public static boolean activate(ServerLevel level, BlockPos corePos, FieldKind kind) {
         return activate(level, corePos, kind, null);
     }
 
     /** Wave490: optional deployer for life-skill FORMATION practice + duration scale. */
     public static boolean activate(ServerLevel level, BlockPos corePos, FieldKind kind, ServerPlayer deployer) {
+        return activate(level, corePos, kind, deployer, null);
+    }
+
+    /** M07: optional formation catalog id for parameterized radius/effect metadata. */
+    public static boolean activate(ServerLevel level, BlockPos corePos, FieldKind kind, ServerPlayer deployer, String formationId) {
         if (level == null || corePos == null || kind == null) {
             return false;
         }
-        if (!ringIntact(level, corePos, kind)) {
+        FormationFieldCatalog.FieldParams params = resolveParams(formationId, kind);
+        if (!ringIntact(level, corePos, kind, params.radius())) {
             return false;
         }
-        int duration = scaledDuration(deployer, DEFAULT_DURATION_TICKS);
+        int duration = scaledDuration(deployer, params.durationTicks() > 0 ? params.durationTicks() : DEFAULT_DURATION_TICKS);
         FieldKey key = FieldKey.of(level, corePos);
-        ActiveField field = new ActiveField(level.dimension().location().toString(), corePos.immutable(), kind, duration);
+        ActiveField field = new ActiveField(
+                level.dimension().location().toString(),
+                corePos.immutable(),
+                kind,
+                duration,
+                params.id(),
+                params.radius(),
+                params.auraBonus(),
+                params.effect());
         ACTIVE.put(key, field);
         persistField(level, field);
         grantFormationPractice(deployer, true);
@@ -78,21 +122,94 @@ public final class FormationFieldService {
      * Handheld formation deploy: free field around player without requiring a ring core.
      */
     public static boolean activateFreeField(ServerLevel level, BlockPos center, FieldKind kind, int durationTicks) {
-        return activateFreeField(level, center, kind, durationTicks, null);
+        return activateFreeField(level, center, kind, durationTicks, null, null);
     }
 
     public static boolean activateFreeField(ServerLevel level, BlockPos center, FieldKind kind, int durationTicks, ServerPlayer deployer) {
+        return activateFreeField(level, center, kind, durationTicks, deployer, null);
+    }
+
+    public static boolean activateFreeField(ServerLevel level, BlockPos center, FieldKind kind, int durationTicks, ServerPlayer deployer, String formationId) {
         if (level == null || center == null || kind == null) {
             return false;
         }
-        int duration = scaledDuration(deployer, Math.max(20 * 20, durationTicks));
+        FormationFieldCatalog.FieldParams params = resolveParams(formationId, kind);
+        int duration = scaledDuration(deployer, Math.max(20 * 20, durationTicks > 0 ? durationTicks : params.durationTicks()));
         FieldKey key = FieldKey.of(level, center);
-        ActiveField field = new ActiveField(level.dimension().location().toString(), center.immutable(), kind, duration);
+        ActiveField field = new ActiveField(
+                level.dimension().location().toString(),
+                center.immutable(),
+                kind,
+                duration,
+                params.id(),
+                params.radius(),
+                params.auraBonus(),
+                params.effect());
         field.freeField = true;
         ACTIVE.put(key, field);
         persistField(level, field);
         grantFormationPractice(deployer, false);
         return true;
+    }
+
+    /**
+     * M07 stable API: active field effects covering {@code pos} in the given level.
+     * Server-authoritative; clients should only receive display sync from consumers.
+     */
+    public static List<FieldEffect> getActiveFieldEffects(Level level, BlockPos pos) {
+        if (level == null || pos == null || ACTIVE.isEmpty()) {
+            return List.of();
+        }
+        String dim = level.dimension().location().toString();
+        List<FieldEffect> out = new ArrayList<>();
+        for (ActiveField field : ACTIVE.values()) {
+            if (!dim.equals(field.dimensionId)) {
+                continue;
+            }
+            FieldEffect effect = field.asEffect();
+            if (effect.contains(pos)) {
+                out.add(effect);
+            }
+        }
+        return List.copyOf(out);
+    }
+
+    /** Convenience overload used by brief signature {@code getActiveFieldEffects(pos)} when level is known. */
+    public static List<FieldEffect> getActiveFieldEffects(ServerLevel level, BlockPos pos) {
+        return getActiveFieldEffects((Level) level, pos);
+    }
+
+    public static int spiritGatherAuraBonus(Level level, BlockPos pos) {
+        int bonus = 0;
+        for (FieldEffect effect : getActiveFieldEffects(level, pos)) {
+            if (effect.kind() == FieldKind.SPIRIT_GATHER) {
+                bonus += Math.max(0, effect.auraBonus());
+            }
+        }
+        return bonus;
+    }
+
+    private static FormationFieldCatalog.FieldParams resolveParams(String formationId, FieldKind kind) {
+        if (formationId != null && !formationId.isBlank()) {
+            var found = FormationFieldCatalog.builtin().find(formationId);
+            if (found.isPresent()) {
+                return found.get();
+            }
+        }
+        var byKind = FormationFieldCatalog.builtin().findByKind(kind);
+        if (byKind.isPresent()) {
+            return byKind.get();
+        }
+        return new FormationFieldCatalog.FieldParams(
+                kind.name().toLowerCase(Locale.ROOT),
+                kind.name(),
+                kind,
+                kind.radius(),
+                DEFAULT_DURATION_TICKS,
+                kind == FieldKind.SPIRIT_GATHER ? 50 : 0,
+                "",
+                "",
+                kind.usesSpiritGatheringRing());
     }
 
     private static int scaledDuration(ServerPlayer deployer, int baseTicks) {
@@ -138,9 +255,22 @@ public final class FormationFieldService {
             } catch (RuntimeException ignored) {
                 kind = FieldKind.CATALOG_GENERIC;
             }
+            String formationId = stored.formationId() == null || stored.formationId().isBlank()
+                    ? kind.name().toLowerCase(Locale.ROOT)
+                    : stored.formationId();
+            FormationFieldCatalog.FieldParams params = resolveParams(formationId, kind);
+            int radius = stored.radius() > 0 ? stored.radius() : params.radius();
             FieldKey key = new FieldKey(dim, stored.corePos().asLong());
-            ActiveField field = new ActiveField(dim, stored.corePos(), kind, Math.max(1, stored.remainingTicks()));
-            field.freeField = !ringIntact(level, stored.corePos(), kind);
+            ActiveField field = new ActiveField(
+                    dim,
+                    stored.corePos(),
+                    kind,
+                    Math.max(1, stored.remainingTicks()),
+                    formationId,
+                    radius,
+                    stored.auraBonus() >= 0 ? stored.auraBonus() : params.auraBonus(),
+                    stored.effect() == null || stored.effect().isBlank() ? params.effect() : stored.effect());
+            field.freeField = stored.freeField() || !ringIntact(level, stored.corePos(), kind, radius);
             ACTIVE.put(key, field);
         }
     }
@@ -150,7 +280,6 @@ public final class FormationFieldService {
             return;
         }
         String dim = level.dimension().location().toString();
-        boolean dirty = false;
         Iterator<Map.Entry<FieldKey, ActiveField>> it = ACTIVE.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry<FieldKey, ActiveField> entry = it.next();
@@ -159,20 +288,20 @@ public final class FormationFieldService {
                 continue;
             }
             field.remainingTicks -= 1;
-            if (field.remainingTicks <= 0 || (!field.freeField && !ringIntact(level, field.corePos, field.kind))) {
+            // M07: large/any ring integrity checked on interval (dirty-friendly), not every tick.
+            boolean ringBroken = false;
+            if (!field.freeField && field.remainingTicks % RING_CHECK_INTERVAL == 0) {
+                ringBroken = !ringIntact(level, field.corePos, field.kind, field.radius);
+            }
+            if (field.remainingTicks <= 0 || ringBroken) {
                 it.remove();
                 FormationFieldSavedData.get(level).remove(field.dimensionId, field.corePos);
-                dirty = true;
                 continue;
             }
             if (field.remainingTicks % TICK_INTERVAL == 0) {
                 applyFieldPulse(level, field);
                 persistField(level, field);
-                dirty = true;
             }
-        }
-        if (dirty) {
-            // no-op: SavedData marks dirty per upsert/remove
         }
     }
 
@@ -185,18 +314,32 @@ public final class FormationFieldService {
     }
 
     private static void persistField(ServerLevel level, ActiveField field) {
-        FormationFieldSavedData.get(level).upsert(field.dimensionId, field.corePos, field.kind.name(), field.remainingTicks);
+        FormationFieldSavedData.get(level).upsert(
+                field.dimensionId,
+                field.corePos,
+                field.kind.name(),
+                field.remainingTicks,
+                field.formationId,
+                field.radius,
+                field.auraBonus,
+                field.effect,
+                field.freeField);
     }
 
     private static boolean ringIntact(Level level, BlockPos corePos, FieldKind kind) {
+        return ringIntact(level, corePos, kind, kind.radius());
+    }
+
+    private static boolean ringIntact(Level level, BlockPos corePos, FieldKind kind, int radius) {
         Block ringBlock = kind.usesSpiritGatheringRing()
                 ? ModBlocks.SPIRIT_GATHERING_ARRAY.get()
                 : ModBlocks.SPIRIT_ORE.get();
-        return RingFormationStructure.validate(level, corePos, ringBlock, kind.radius()).complete();
+        int r = Math.max(1, radius);
+        return RingFormationStructure.validate(level, corePos, ringBlock, r).complete();
     }
 
     private static void applyFieldPulse(ServerLevel level, ActiveField field) {
-        double radius = field.kind.radius() + 1.5D;
+        double radius = field.radius + 1.5D;
         AABB box = new AABB(field.corePos).inflate(radius, 2.0D, radius);
         switch (field.kind) {
             case SPIRIT_GATHER -> {
@@ -277,12 +420,25 @@ public final class FormationFieldService {
         private final FieldKind kind;
         private int remainingTicks;
         private boolean freeField;
+        private final String formationId;
+        private final int radius;
+        private final int auraBonus;
+        private final String effect;
 
-        private ActiveField(String dimensionId, BlockPos corePos, FieldKind kind, int remainingTicks) {
+        private ActiveField(String dimensionId, BlockPos corePos, FieldKind kind, int remainingTicks,
+                            String formationId, int radius, int auraBonus, String effect) {
             this.dimensionId = dimensionId;
             this.corePos = corePos;
             this.kind = kind;
             this.remainingTicks = remainingTicks;
+            this.formationId = formationId == null ? kind.name().toLowerCase(Locale.ROOT) : formationId;
+            this.radius = Math.max(1, radius);
+            this.auraBonus = Math.max(0, auraBonus);
+            this.effect = effect == null ? "" : effect;
+        }
+
+        private FieldEffect asEffect() {
+            return new FieldEffect(formationId, kind, corePos, radius, remainingTicks, auraBonus, effect, freeField);
         }
     }
 }

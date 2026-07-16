@@ -1,0 +1,108 @@
+{
+  "schema_version": 4,
+  "source": "v135 多方块索引",
+  "total": 86,
+  "with_mp_sequences": 83,
+  "with_build_cost": 86,
+  "top_build_costs": [
+    {
+      "id": "immortal_teleport_grand_array",
+      "display": "仙界传送大阵",
+      "cost_min": 101632,
+      "cost_max": 116530
+    },
+    {
+      "id": "immortal_alchemy_cauldron",
+      "display": "仙品丹鼎",
+      "cost_min": 26230,
+      "cost_max": 82500
+    },
+    {
+      "id": "time_acceleration_array",
+      "display": "时间加速阵基",
+      "cost_min": 41617,
+      "cost_max": 56280
+    },
+    {
+      "id": "wuxing_world_seed_block",
+      "display": "幻世种子（放置）",
+      "cost_min": 30018,
+      "cost_max": 30310
+    },
+    {
+      "id": "true_word_lecture_platform",
+      "display": "真言授业台",
+      "cost_min": 8751,
+      "cost_max": 16420
+    },
+    {
+      "id": "flying_boat_dock",
+      "display": "飞舟泊桩",
+      "cost_min": 1299,
+      "cost_max": 10010
+    },
+    {
+      "id": "sect_formation_hub",
+      "display": "护宗大阵枢纽",
+      "cost_min": 8135,
+      "cost_max": 9920
+    },
+    {
+      "id": "infant_fire_alchemy_room",
+      "display": "婴火炼丹室（结构）",
+      "cost_min": 3275,
+      "cost_max": 6980
+    },
+    {
+      "id": "kunwu_seal_hall",
+      "display": "昆吾封印大殿",
+      "cost_min": 427,
+      "cost_max": 6850
+    },
+    {
+      "id": "reincarnation_trade_desk",
+      "display": "轮回殿交易案",
+      "cost_min": 6024,
+      "cost_max": 6390
+    },
+    {
+      "id": "xutian_main_hall",
+      "display": "虚天殿主殿厅堂",
+      "cost_min": 223,
+      "cost_max": 4380
+    },
+    {
+      "id": "puppet_workshop",
+      "display": "傀儡工坊（结构）",
+      "cost_min": 316,
+      "cost_max": 3420
+    },
+    {
+      "id": "alchemy_furnace_g3",
+      "display": "三品丹炉",
+      "cost_min": 388,
+      "cost_max": 3210
+    },
+    {
+      "id": "tribulation_platform",
+      "display": "渡劫台",
+      "cost_min": 2056,
+      "cost_max": 3110
+    },
+    {
+      "id": "qianzhu_mechanism_tower",
+      "display": "千竹机关塔层",
+      "cost_min": 164,
+      "cost_max": 2960
+    }
+  ],
+  "by_type": {
+    "multiblock_controller": 11,
+    "structure": 45,
+    "single_block": 10,
+    "array_block": 14,
+    "crop_block": 1,
+    "ore": 3,
+    "utility_block": 2
+  }
+}

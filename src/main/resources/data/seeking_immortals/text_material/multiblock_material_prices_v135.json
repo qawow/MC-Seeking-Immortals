@@ -1,0 +1,3723 @@
+{
+  "schema_version": 1,
+  "source": "v135 多方块材料坊市参考价（下品灵石当量）",
+  "exchange": {
+    "spirit_stone_shard": 0.1,
+    "spirit_stone_low": 1,
+    "spirit_stone_mid": 10,
+    "spirit_stone_high": 100,
+    "immortal_spirit_stone": 1000
+  },
+  "disclaimer": "可玩参考价；worldgen/任务可为 0",
+  "count": 245,
+  "materials": [
+    {
+      "id": "altar_stone",
+      "display": "契坛石",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "beast_contract_altar"
+      ]
+    },
+    {
+      "id": "anchor_spike",
+      "display": "界域锚定针",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_teleport_grand_array"
+      ]
+    },
+    {
+      "id": "ancient_stone",
+      "display": "古殿石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_main_hall"
+      ]
+    },
+    {
+      "id": "anti_theft_port",
+      "display": "防盗杀阵接口",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_stone_vault"
+      ]
+    },
+    {
+      "id": "array_break_etch",
+      "display": "破阵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "siege_spirit_ram"
+      ]
+    },
+    {
+      "id": "array_disk_basic",
+      "display": "基础阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g3"
+      ]
+    },
+    {
+      "id": "array_etch",
+      "display": "炼器阵纹刻录",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g3"
+      ]
+    },
+    {
+      "id": "array_flag",
+      "display": "阵旗",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 3,
+      "used_by_sample": [
+        "spirit_gathering_array",
+        "formation_flag_post",
+        "kill_array_hub"
+      ]
+    },
+    {
+      "id": "array_flag_large",
+      "display": "大阵旗",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "sect_formation_hub"
+      ]
+    },
+    {
+      "id": "array_kit",
+      "display": "禁制包",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_trial_altar"
+      ]
+    },
+    {
+      "id": "arrow_wall",
+      "display": "箭壁模块",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_trap_corridor"
+      ]
+    },
+    {
+      "id": "auth_etch",
+      "display": "鉴钥纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_key_socket"
+      ]
+    },
+    {
+      "id": "bamboo_slip",
+      "display": "竹简",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_control_console"
+      ]
+    },
+    {
+      "id": "banner_pole",
+      "display": "幡杆",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "soul_banner_altar"
+      ]
+    },
+    {
+      "id": "barrier_kit",
+      "display": "禁制光幕组件",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_pen"
+      ]
+    },
+    {
+      "id": "battlement",
+      "display": "箭垛",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianyuan_wall_segment"
+      ]
+    },
+    {
+      "id": "bay_stone",
+      "display": "台石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "warehouse_loading_bay"
+      ]
+    },
+    {
+      "id": "beast_gate",
+      "display": "兽闸",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_trial_altar"
+      ]
+    },
+    {
+      "id": "bell_tassel",
+      "display": "旗角小铃",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "formation_flag_post"
+      ]
+    },
+    {
+      "id": "bellows",
+      "display": "风箱",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g1"
+      ]
+    },
+    {
+      "id": "bid_voice_array",
+      "display": "出价声纹阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "auction_display_dais"
+      ]
+    },
+    {
+      "id": "black_iron",
+      "display": "玄铁",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g3"
+      ]
+    },
+    {
+      "id": "black_jade_slab",
+      "display": "黑玉案面",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "reincarnation_trade_desk"
+      ]
+    },
+    {
+      "id": "black_stone",
+      "display": "黑石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "soul_banner_altar"
+      ]
+    },
+    {
+      "id": "blood_groove_liner",
+      "display": "血契凹槽衬",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "beast_contract_altar"
+      ]
+    },
+    {
+      "id": "blood_sand",
+      "display": "血砂",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "asura_trial_ring"
+      ]
+    },
+    {
+      "id": "blood_seal_slot",
+      "display": "血印槽",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "ownership_stele"
+      ]
+    },
+    {
+      "id": "blood_stone",
+      "display": "血石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_blood_pool"
+      ]
+    },
+    {
+      "id": "bloodline_array",
+      "display": "血脉引导阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_evolution_pool"
+      ]
+    },
+    {
+      "id": "board_wood",
+      "display": "牌木",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inner_sect_task_board"
+      ]
+    },
+    {
+      "id": "bone_fragment",
+      "display": "骨殖",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_blood_pool"
+      ]
+    },
+    {
+      "id": "borrow_seal",
+      "display": "借阅禁制",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "scripture_pavilion_shelf"
+      ]
+    },
+    {
+      "id": "boundary_post",
+      "display": "界壁柱",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "asura_trial_ring"
+      ]
+    },
+    {
+      "id": "broken_teleport_disk",
+      "display": "残破传送盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_exit_array"
+      ]
+    },
+    {
+      "id": "bronze_ingot",
+      "display": "青铜锭",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "alchemy_furnace_g2",
+        "spirit_fire_brazier"
+      ]
+    },
+    {
+      "id": "cabinet_wood",
+      "display": "柜木",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "pill_cabinet"
+      ]
+    },
+    {
+      "id": "calm_array_etch",
+      "display": "静心阵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "talisman_table"
+      ]
+    },
+    {
+      "id": "capture_ring",
+      "display": "占点环",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "capture_point_obelisk"
+      ]
+    },
+    {
+      "id": "challenge_dais",
+      "display": "令台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "asura_trial_ring"
+      ]
+    },
+    {
+      "id": "chisel_formation",
+      "display": "阵纹刻刀",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g3"
+      ]
+    },
+    {
+      "id": "city_brick",
+      "display": "城砖",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianyuan_wall_segment"
+      ]
+    },
+    {
+      "id": "clay_spirit",
+      "display": "灵泥",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g1"
+      ]
+    },
+    {
+      "id": "cleanse_array",
+      "display": "自清便溺阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_pen"
+      ]
+    },
+    {
+      "id": "cold_jade_box",
+      "display": "寒玉匣",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "ice_crystal_cooler"
+      ]
+    },
+    {
+      "id": "console_bamboo",
+      "display": "控台竹材",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_control_console"
+      ]
+    },
+    {
+      "id": "const_temp_talisman",
+      "display": "恒温符",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "pill_cabinet"
+      ]
+    },
+    {
+      "id": "contract_rack",
+      "display": "契约卷轴架",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "reincarnation_trade_desk"
+      ]
+    },
+    {
+      "id": "control_array_plate",
+      "display": "控火阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "earth_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "copper_hoop",
+      "display": "灵铜箍",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_vein_tap"
+      ]
+    },
+    {
+      "id": "copper_scrap",
+      "display": "粗铜",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g1"
+      ]
+    },
+    {
+      "id": "core_infuse_disk",
+      "display": "灌灵阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_workshop"
+      ]
+    },
+    {
+      "id": "corpse_chain_post",
+      "display": "锁尸链桩",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "corpse_refinement_pit"
+      ]
+    },
+    {
+      "id": "count_array",
+      "display": "点石阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_stone_vault"
+      ]
+    },
+    {
+      "id": "crate_slot",
+      "display": "货箱位",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inverse_star_smuggle_dock"
+      ]
+    },
+    {
+      "id": "crimson_disk",
+      "display": "暗红阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kill_array_hub"
+      ]
+    },
+    {
+      "id": "crimson_stone",
+      "display": "暗红石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_sacrifice_altar"
+      ]
+    },
+    {
+      "id": "crystal_array_disk",
+      "display": "水晶阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "time_acceleration_array"
+      ]
+    },
+    {
+      "id": "demon_nail",
+      "display": "镇魔钉",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_seal_pillar"
+      ]
+    },
+    {
+      "id": "demon_subdue_bell",
+      "display": "降魔钟",
+      "price_spirit_stone_low": {
+        "min": 50,
+        "max": 400
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianlan_bell_tower"
+      ]
+    },
+    {
+      "id": "demon_suppress_post",
+      "display": "镇压桩",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "fallen_demon_rift"
+      ]
+    },
+    {
+      "id": "demon_well_rim",
+      "display": "镇魔井沿",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_seal_hall"
+      ]
+    },
+    {
+      "id": "diag_etch",
+      "display": "诊断阵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "structure_repair_bench"
+      ]
+    },
+    {
+      "id": "direction_stele",
+      "display": "方位碑",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_teleport_grand_array"
+      ]
+    },
+    {
+      "id": "dragon_relief_cast",
+      "display": "真龙浮雕铸件",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_alchemy_cauldron"
+      ]
+    },
+    {
+      "id": "drawer_set",
+      "display": "多层丹屉",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "pill_cabinet"
+      ]
+    },
+    {
+      "id": "drip_array",
+      "display": "滴漏阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "palm_heaven_bottle_stand"
+      ]
+    },
+    {
+      "id": "dual_fire_mouth",
+      "display": "冰火双口",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_frost_forge"
+      ]
+    },
+    {
+      "id": "dual_futon_array",
+      "display": "双位蒲团阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "dual_cultivation_chamber"
+      ]
+    },
+    {
+      "id": "earth_fire_tap",
+      "display": "地火口组件",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "earth_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "earth_pedestal",
+      "display": "土台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "eternal_lamp",
+      "display": "长明灵灯",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "talisman_table"
+      ]
+    },
+    {
+      "id": "evolution_fluid_shell",
+      "display": "化形池壳",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_evolution_pool"
+      ]
+    },
+    {
+      "id": "feeding_trough",
+      "display": "食槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_pen"
+      ]
+    },
+    {
+      "id": "fire_charcoal",
+      "display": "灵炭",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g1"
+      ]
+    },
+    {
+      "id": "fire_pedestal",
+      "display": "火台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "fire_pipe",
+      "display": "导火铜管",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "alchemy_furnace_g2",
+        "spirit_fire_brazier"
+      ]
+    },
+    {
+      "id": "fireproof_talisman",
+      "display": "防火符",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "scripture_pavilion_shelf"
+      ]
+    },
+    {
+      "id": "fireproof_xuan_stone",
+      "display": "耐火玄石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "earth_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "fog_break_etch",
+      "display": "雾破纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "chaotic_sea_island_lighthouse"
+      ]
+    },
+    {
+      "id": "frost_jade",
+      "display": "寒玉",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_frost_forge"
+      ]
+    },
+    {
+      "id": "frost_quench",
+      "display": "霜淬槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_frost_forge"
+      ]
+    },
+    {
+      "id": "futon",
+      "display": "蒲团",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "meditation_chamber"
+      ]
+    },
+    {
+      "id": "gather_etch",
+      "display": "聚灵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_well"
+      ]
+    },
+    {
+      "id": "gather_fire_etch",
+      "display": "聚火符",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_fire_brazier"
+      ]
+    },
+    {
+      "id": "gather_stone_core",
+      "display": "聚灵石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_well"
+      ]
+    },
+    {
+      "id": "gold_rim_jade",
+      "display": "金边玉台料",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "auction_display_dais"
+      ]
+    },
+    {
+      "id": "greenhouse_frame",
+      "display": "暖架",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_greenhouse"
+      ]
+    },
+    {
+      "id": "guard_array",
+      "display": "护瓶禁制",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "palm_heaven_bottle_stand"
+      ]
+    },
+    {
+      "id": "guide_etch",
+      "display": "螺旋导灵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_vein_tap"
+      ]
+    },
+    {
+      "id": "heart_mirror_shard",
+      "display": "心镜碎片",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "illusion_array_hub"
+      ]
+    },
+    {
+      "id": "high_platform_stone",
+      "display": "高台石",
+      "price_spirit_stone_low": {
+        "min": 50,
+        "max": 400
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "flying_boat_dock"
+      ]
+    },
+    {
+      "id": "holo_array",
+      "display": "投影阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "structure_blueprint_table"
+      ]
+    },
+    {
+      "id": "ice_crystal_stone",
+      "display": "冰晶石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "ice_crystal_cooler"
+      ]
+    },
+    {
+      "id": "identity_etch",
+      "display": "识别阵纹刻画",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "cave_dwelling_core"
+      ]
+    },
+    {
+      "id": "immortal_array_disk",
+      "display": "仙级阵盘",
+      "price_spirit_stone_low": {
+        "min": 200,
+        "max": 2000
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "immortal",
+      "category": "immortal_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_alchemy_cauldron"
+      ]
+    },
+    {
+      "id": "immortal_spirit_pillar",
+      "display": "仙灵石柱",
+      "price_spirit_stone_low": {
+        "min": 200,
+        "max": 2000
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "immortal",
+      "category": "immortal_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_teleport_grand_array"
+      ]
+    },
+    {
+      "id": "immortal_spirit_stone",
+      "display": "仙灵石",
+      "price_spirit_stone_low": {
+        "min": 1000,
+        "max": 1000
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "immortal",
+      "category": "currency",
+      "used_by_structures_count": 6,
+      "used_by_sample": [
+        "immortal_alchemy_cauldron",
+        "time_acceleration_array",
+        "wuxing_world_seed_block",
+        "immortal_teleport_grand_array",
+        "true_word_lecture_platform",
+        "reincarnation_trade_desk"
+      ]
+    },
+    {
+      "id": "infant_fire_seed",
+      "display": "婴火种",
+      "price_spirit_stone_low": {
+        "min": 150,
+        "max": 1500
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "rare_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "infant_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "iron_sheet",
+      "display": "铁皮",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g1"
+      ]
+    },
+    {
+      "id": "ironwood",
+      "display": "铁木",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 4,
+      "used_by_sample": [
+        "refinement_forge_g1",
+        "puppet_assembly_bench",
+        "puppet_workshop",
+        "structure_repair_bench"
+      ]
+    },
+    {
+      "id": "irrigation_disk",
+      "display": "灌溉小盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_field_irrigation"
+      ]
+    },
+    {
+      "id": "isolation_dome",
+      "display": "隔离罩",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_evolution_pool"
+      ]
+    },
+    {
+      "id": "jade_array_disk",
+      "display": "青玉阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_gathering_array"
+      ]
+    },
+    {
+      "id": "jade_platform",
+      "display": "玉石台料",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g3"
+      ]
+    },
+    {
+      "id": "jade_rest",
+      "display": "玉托",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "weapon_rack_artifact"
+      ]
+    },
+    {
+      "id": "joint_kit",
+      "display": "关节轴包",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_assembly_bench"
+      ]
+    },
+    {
+      "id": "key_socket_stone",
+      "display": "钥孔石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_key_socket"
+      ]
+    },
+    {
+      "id": "kunwu_copper",
+      "display": "昆吾铜",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "kunwu_seal_pillar",
+        "kunwu_seal_hall"
+      ]
+    },
+    {
+      "id": "lecture_futon_zone",
+      "display": "听法蒲团区",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "true_word_lecture_platform"
+      ]
+    },
+    {
+      "id": "lightning_rod_post",
+      "display": "避劫柱",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tribulation_platform"
+      ]
+    },
+    {
+      "id": "locator_bead",
+      "display": "定位珠",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "teleport_array_pedestal"
+      ]
+    },
+    {
+      "id": "low_spirit_stone",
+      "display": "下品灵石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g1"
+      ]
+    },
+    {
+      "id": "material_crate",
+      "display": "材料箱",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "field_repair_tent"
+      ]
+    },
+    {
+      "id": "material_slot",
+      "display": "材料槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "structure_repair_bench"
+      ]
+    },
+    {
+      "id": "metal_pedestal",
+      "display": "金台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "micro_gather_etch",
+      "display": "微聚灵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "meditation_chamber"
+      ]
+    },
+    {
+      "id": "mid_spirit_stone",
+      "display": "中品灵石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_blood_pool"
+      ]
+    },
+    {
+      "id": "mist_bead",
+      "display": "迷雾珠",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "illusion_array_hub"
+      ]
+    },
+    {
+      "id": "mooring_post",
+      "display": "泊桩",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "flying_boat_dock"
+      ]
+    },
+    {
+      "id": "nurture_micro_array",
+      "display": "养器微阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "weapon_rack_artifact"
+      ]
+    },
+    {
+      "id": "obelisk_stone",
+      "display": "碑石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "array_maintenance_obelisk"
+      ]
+    },
+    {
+      "id": "octagon_platform_stone",
+      "display": "八角台石料",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "sect_formation_hub"
+      ]
+    },
+    {
+      "id": "offering_slot",
+      "display": "供品槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_sacrifice_altar"
+      ]
+    },
+    {
+      "id": "owner_lock",
+      "display": "认主锁禁制",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "pill_cabinet"
+      ]
+    },
+    {
+      "id": "patrol_disk",
+      "display": "巡海阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "star_palace_teleport_gate"
+      ]
+    },
+    {
+      "id": "platform_stone",
+      "display": "台石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tribulation_platform"
+      ]
+    },
+    {
+      "id": "platinum_array_disk",
+      "display": "白金大阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_teleport_grand_array"
+      ]
+    },
+    {
+      "id": "portable_repair_bench",
+      "display": "便携修复台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "field_repair_tent"
+      ]
+    },
+    {
+      "id": "price_tag_array",
+      "display": "价签阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "market_stall_counter"
+      ]
+    },
+    {
+      "id": "privacy_array",
+      "display": "隔绝禁制",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "dual_cultivation_chamber"
+      ]
+    },
+    {
+      "id": "puppet_port",
+      "display": "发射孔",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_mechanism_tower"
+      ]
+    },
+    {
+      "id": "purple_gold",
+      "display": "紫金",
+      "price_spirit_stone_low": {
+        "min": 150,
+        "max": 1500
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "rare_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_alchemy_cauldron"
+      ]
+    },
+    {
+      "id": "purple_sandalwood",
+      "display": "紫檀",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "talisman_table",
+        "palm_heaven_bottle_stand"
+      ]
+    },
+    {
+      "id": "quench_basin",
+      "display": "石质淬火槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g1"
+      ]
+    },
+    {
+      "id": "quench_spirit_pool",
+      "display": "淬灵池壳",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "refinement_forge_g3"
+      ]
+    },
+    {
+      "id": "rack_wood",
+      "display": "架木",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "weapon_rack_artifact"
+      ]
+    },
+    {
+      "id": "red_copper",
+      "display": "赤铜",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g3"
+      ]
+    },
+    {
+      "id": "reef_post",
+      "display": "礁湾木桩",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inverse_star_smuggle_dock"
+      ]
+    },
+    {
+      "id": "reef_stone",
+      "display": "礁石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "chaotic_sea_island_lighthouse"
+      ]
+    },
+    {
+      "id": "refine_slab",
+      "display": "炼台石",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_core_forge"
+      ]
+    },
+    {
+      "id": "refresh_talisman",
+      "display": "刷新符",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inner_sect_task_board"
+      ]
+    },
+    {
+      "id": "repair_bench",
+      "display": "检修台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "flying_boat_dock"
+      ]
+    },
+    {
+      "id": "rift_anchor",
+      "display": "裂隙锚",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "fallen_demon_rift"
+      ]
+    },
+    {
+      "id": "ring_array_kit",
+      "display": "引火环阵组件",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "infant_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "roster_pearl_array",
+      "display": "名录灵光阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "contribution_stele"
+      ]
+    },
+    {
+      "id": "safety_disk",
+      "display": "防爆盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "furnace_safety_array"
+      ]
+    },
+    {
+      "id": "sand_pit_kit",
+      "display": "测试沙场砂",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_workshop"
+      ]
+    },
+    {
+      "id": "sea_gate_stone",
+      "display": "海礁门石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "star_palace_teleport_gate"
+      ]
+    },
+    {
+      "id": "seal_casket",
+      "display": "封印匣",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_core_forge"
+      ]
+    },
+    {
+      "id": "seal_chain",
+      "display": "封链",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_seal_hall"
+      ]
+    },
+    {
+      "id": "seal_etch",
+      "display": "封印纹刻画",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kunwu_seal_pillar"
+      ]
+    },
+    {
+      "id": "seal_leak_etch",
+      "display": "封灵防漏纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_vein_tap"
+      ]
+    },
+    {
+      "id": "seal_slot",
+      "display": "轮回印鉴槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "reincarnation_trade_desk"
+      ]
+    },
+    {
+      "id": "sharp_rune_stone",
+      "display": "锋锐符石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "kill_array_hub"
+      ]
+    },
+    {
+      "id": "shield_generator",
+      "display": "防护罩发生器",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "auction_display_dais"
+      ]
+    },
+    {
+      "id": "shunt_slot",
+      "display": "分流槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "array_maintenance_obelisk"
+      ]
+    },
+    {
+      "id": "signal_lamp",
+      "display": "暗号信号灯",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inverse_star_smuggle_dock"
+      ]
+    },
+    {
+      "id": "soothe_pillar",
+      "display": "安魂符柱",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "beast_contract_altar"
+      ]
+    },
+    {
+      "id": "soul_nail",
+      "display": "镇魂钉",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "soul_banner_altar"
+      ]
+    },
+    {
+      "id": "sound_pillar",
+      "display": "音柱",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "miaoyin_resonance_platform"
+      ]
+    },
+    {
+      "id": "soundproof_brick",
+      "display": "隔音砖",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "meditation_chamber"
+      ]
+    },
+    {
+      "id": "space_array_disk",
+      "display": "空间阵盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "teleport_array_pedestal"
+      ]
+    },
+    {
+      "id": "sphere_mold",
+      "display": "球形凹模",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_core_forge"
+      ]
+    },
+    {
+      "id": "spike_pit",
+      "display": "刺坑",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_trap_corridor"
+      ]
+    },
+    {
+      "id": "spirit_bamboo",
+      "display": "灵竹",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_mechanism_tower"
+      ]
+    },
+    {
+      "id": "spirit_bamboo_fence",
+      "display": "灵竹篱",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_planter"
+      ]
+    },
+    {
+      "id": "spirit_cable",
+      "display": "缆灵索",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "flying_boat_dock"
+      ]
+    },
+    {
+      "id": "spirit_core",
+      "display": "灵核",
+      "price_spirit_stone_low": {
+        "min": 50,
+        "max": 400
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "sect_formation_hub"
+      ]
+    },
+    {
+      "id": "spirit_flame_bead",
+      "display": "灵焰珠",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "refinement_forge_g3",
+        "spirit_fire_brazier"
+      ]
+    },
+    {
+      "id": "spirit_ink_pool",
+      "display": "灵墨池",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "talisman_table"
+      ]
+    },
+    {
+      "id": "spirit_jade_pipe",
+      "display": "灵玉管",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_vein_tap"
+      ]
+    },
+    {
+      "id": "spirit_membrane",
+      "display": "灵膜",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_greenhouse"
+      ]
+    },
+    {
+      "id": "spirit_pearl",
+      "display": "灵珠",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "cave_dwelling_core"
+      ]
+    },
+    {
+      "id": "spirit_soil",
+      "display": "灵土",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_planter"
+      ]
+    },
+    {
+      "id": "spirit_stone_high",
+      "display": "上品灵石",
+      "price_spirit_stone_low": {
+        "min": 100,
+        "max": 100
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "currency",
+      "used_by_structures_count": 4,
+      "used_by_sample": [
+        "sect_formation_hub",
+        "infant_fire_alchemy_room",
+        "spirit_beast_evolution_pool",
+        "tribulation_platform"
+      ]
+    },
+    {
+      "id": "spirit_stone_low",
+      "display": "下品灵石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 1
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "currency",
+      "used_by_structures_count": 21,
+      "used_by_sample": [
+        "talisman_table",
+        "spirit_gathering_array",
+        "puppet_assembly_bench",
+        "spirit_herb_planter",
+        "ice_crystal_cooler",
+        "cave_dwelling_core",
+        "spirit_fire_brazier",
+        "beast_contract_altar"
+      ]
+    },
+    {
+      "id": "spirit_stone_mid",
+      "display": "中品灵石",
+      "price_spirit_stone_low": {
+        "min": 10,
+        "max": 10
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "currency",
+      "used_by_structures_count": 19,
+      "used_by_sample": [
+        "alchemy_furnace_g2",
+        "alchemy_furnace_g3",
+        "earth_fire_alchemy_room",
+        "refinement_forge_g3",
+        "teleport_array_pedestal",
+        "spirit_vein_tap",
+        "bao_ding_socket",
+        "puppet_workshop"
+      ]
+    },
+    {
+      "id": "spirit_stone_slot",
+      "display": "灵石槽",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "spirit_gathering_array",
+        "teleport_array_pedestal"
+      ]
+    },
+    {
+      "id": "spirit_stone_well",
+      "display": "灵石井",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "star_palace_teleport_gate"
+      ]
+    },
+    {
+      "id": "spirit_thread",
+      "display": "灵丝",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "puppet_assembly_bench",
+        "puppet_workshop"
+      ]
+    },
+    {
+      "id": "spirit_vein_interface",
+      "display": "灵脉接口",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "spirit_wood_post",
+      "display": "灵木柱",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_beast_pen"
+      ]
+    },
+    {
+      "id": "spirit_wood_shelf",
+      "display": "灵木书架",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "scripture_pavilion_shelf"
+      ]
+    },
+    {
+      "id": "stabilizer_needle",
+      "display": "稳时针",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "time_acceleration_array"
+      ]
+    },
+    {
+      "id": "stall_wood",
+      "display": "摊木",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "market_stall_counter"
+      ]
+    },
+    {
+      "id": "star_emblem",
+      "display": "星宫徽记石",
+      "price_spirit_stone_low": {
+        "min": 50,
+        "max": 400
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "high",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "star_palace_teleport_gate"
+      ]
+    },
+    {
+      "id": "star_lamp",
+      "display": "星灯",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "chaotic_sea_island_lighthouse"
+      ]
+    },
+    {
+      "id": "star_map_etch",
+      "display": "星图刻画",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_main_hall"
+      ]
+    },
+    {
+      "id": "statue_kit",
+      "display": "石像组件",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_main_hall"
+      ]
+    },
+    {
+      "id": "stealth_flag",
+      "display": "匿踪阵旗",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "inverse_star_smuggle_dock"
+      ]
+    },
+    {
+      "id": "steel_joint",
+      "display": "精钢机括",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_mechanism_tower"
+      ]
+    },
+    {
+      "id": "stele_stone",
+      "display": "碑石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 3,
+      "used_by_sample": [
+        "cave_dwelling_core",
+        "contribution_stele",
+        "ownership_stele"
+      ]
+    },
+    {
+      "id": "stone_door",
+      "display": "闭关石门",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "meditation_chamber"
+      ]
+    },
+    {
+      "id": "stone_table",
+      "display": "石台",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "structure_blueprint_table"
+      ]
+    },
+    {
+      "id": "stop_flag",
+      "display": "急停符",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "qianzhu_control_console"
+      ]
+    },
+    {
+      "id": "striker",
+      "display": "撞木",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianlan_bell_tower"
+      ]
+    },
+    {
+      "id": "supply_slot",
+      "display": "供灵槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "bao_ding_socket"
+      ]
+    },
+    {
+      "id": "suppress_nail",
+      "display": "固鼎阵钉",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "bao_ding_socket"
+      ]
+    },
+    {
+      "id": "suspend_frame",
+      "display": "悬吊框架",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_assembly_bench"
+      ]
+    },
+    {
+      "id": "taiji_lintel",
+      "display": "太极门楣",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "yinyang_cave_gate"
+      ]
+    },
+    {
+      "id": "talisman_paper_rack",
+      "display": "符纸架",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "talisman_table"
+      ]
+    },
+    {
+      "id": "temp_array",
+      "display": "温控阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_greenhouse"
+      ]
+    },
+    {
+      "id": "temp_control_etch",
+      "display": "温控阵纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "puppet_core_forge"
+      ]
+    },
+    {
+      "id": "temple_timber",
+      "display": "寺木",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianlan_bell_tower"
+      ]
+    },
+    {
+      "id": "tent_cloth",
+      "display": "帷帐布",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "field_repair_tent"
+      ]
+    },
+    {
+      "id": "thick_stone",
+      "display": "厚石料",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_stone_vault"
+      ]
+    },
+    {
+      "id": "thunder_plate",
+      "display": "接雷盘",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tribulation_platform"
+      ]
+    },
+    {
+      "id": "time_law_stone",
+      "display": "时间法则符石",
+      "price_spirit_stone_low": {
+        "min": 200,
+        "max": 2000
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "immortal",
+      "category": "immortal_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "time_acceleration_array"
+      ]
+    },
+    {
+      "id": "timer_stele",
+      "display": "时限符柱",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_exit_array"
+      ]
+    },
+    {
+      "id": "totem_etch",
+      "display": "兽形图腾刻画",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "beast_contract_altar"
+      ]
+    },
+    {
+      "id": "trap_plate",
+      "display": "压力板",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_trap_corridor"
+      ]
+    },
+    {
+      "id": "trial_stone",
+      "display": "试炼石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_trial_altar"
+      ]
+    },
+    {
+      "id": "tribulation_rod",
+      "display": "引雷针",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "immortal_alchemy_cauldron"
+      ]
+    },
+    {
+      "id": "triple_seal_door",
+      "display": "三道禁制门",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_stone_vault"
+      ]
+    },
+    {
+      "id": "true_word_pillar",
+      "display": "真言音柱",
+      "price_spirit_stone_low": {
+        "min": 200,
+        "max": 2000
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "immortal",
+      "category": "immortal_component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "true_word_lecture_platform"
+      ]
+    },
+    {
+      "id": "vent_chimney",
+      "display": "灵压阀烟囱",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "earth_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "vent_rune_stone",
+      "display": "泄压符石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "furnace_safety_array"
+      ]
+    },
+    {
+      "id": "vessel_etch",
+      "display": "血管祭纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_sacrifice_altar"
+      ]
+    },
+    {
+      "id": "wall_slot",
+      "display": "供能槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "tianyuan_wall_segment"
+      ]
+    },
+    {
+      "id": "war_banner_cloth",
+      "display": "宣战符布",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "war_banner_pole"
+      ]
+    },
+    {
+      "id": "warm_brick",
+      "display": "暖色灵砖",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "dual_cultivation_chamber"
+      ]
+    },
+    {
+      "id": "warm_jade_chip",
+      "display": "温玉片",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "alchemy_furnace_g2"
+      ]
+    },
+    {
+      "id": "water_adjacent",
+      "display": "邻接水源",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_herb_planter"
+      ]
+    },
+    {
+      "id": "water_pedestal",
+      "display": "水台",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "water_spirit_channel",
+      "display": "水灵导槽",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_field_irrigation"
+      ]
+    },
+    {
+      "id": "weigh_array",
+      "display": "称重阵",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "warehouse_loading_bay"
+      ]
+    },
+    {
+      "id": "well_rim_stone",
+      "display": "井圈青石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "spirit_well"
+      ]
+    },
+    {
+      "id": "white_jade",
+      "display": "白玉",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 2,
+      "used_by_sample": [
+        "true_word_lecture_platform",
+        "miaoyin_resonance_platform"
+      ]
+    },
+    {
+      "id": "white_jade_disk",
+      "display": "乳白玉盘",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "illusion_array_hub"
+      ]
+    },
+    {
+      "id": "white_jade_pillar",
+      "display": "白玉阵柱",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "sect_formation_hub"
+      ]
+    },
+    {
+      "id": "white_jade_slab",
+      "display": "白玉台料",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "bao_ding_socket"
+      ]
+    },
+    {
+      "id": "wood_pedestal",
+      "display": "木台",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "world_seed_core",
+      "display": "幻世种核",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "wuxing_world_seed_block"
+      ]
+    },
+    {
+      "id": "worldgen",
+      "display": "世界生成",
+      "price_spirit_stone_low": {
+        "min": 0,
+        "max": 0
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "special",
+      "category": "worldgen",
+      "used_by_structures_count": 3,
+      "used_by_sample": [
+        "low_spirit_iron_ore",
+        "yin_essence_ore_block",
+        "kunwu_copper_ore"
+      ]
+    },
+    {
+      "id": "worldgen_or_event",
+      "display": "秘境/事件生成",
+      "price_spirit_stone_low": {
+        "min": 0,
+        "max": 0
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "special",
+      "category": "worldgen",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "blood_forbidden_entry_stele"
+      ]
+    },
+    {
+      "id": "worldgen_or_quest",
+      "display": "秘境/任务生成",
+      "price_spirit_stone_low": {
+        "min": 0,
+        "max": 0
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "special",
+      "category": "worldgen",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "xutian_palace_gate_fragment"
+      ]
+    },
+    {
+      "id": "xuan_iron_post",
+      "display": "玄铁桩",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "formation_flag_post"
+      ]
+    },
+    {
+      "id": "xuan_stone_deep",
+      "display": "深青玄石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "infant_fire_alchemy_room"
+      ]
+    },
+    {
+      "id": "yang_stone",
+      "display": "阳石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "yinyang_cave_gate"
+      ]
+    },
+    {
+      "id": "yin_fire_brazier",
+      "display": "阴火盆",
+      "price_spirit_stone_low": {
+        "min": 2,
+        "max": 40
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "material",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "corpse_refinement_pit"
+      ]
+    },
+    {
+      "id": "yin_soil",
+      "display": "阴土",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "corpse_refinement_pit"
+      ]
+    },
+    {
+      "id": "yin_stone",
+      "display": "阴石",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "yinyang_cave_gate"
+      ]
+    },
+    {
+      "id": "yin_wood",
+      "display": "阴木",
+      "price_spirit_stone_low": {
+        "min": 1,
+        "max": 20
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "low",
+      "category": "bulk",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "soul_banner_altar"
+      ]
+    },
+    {
+      "id": "yinyang_floor_etch",
+      "display": "阴阳鱼地纹",
+      "price_spirit_stone_low": {
+        "min": 5,
+        "max": 80
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "component",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "dual_cultivation_chamber"
+      ]
+    },
+    {
+      "id": "zither_slot",
+      "display": "琴位",
+      "price_spirit_stone_low": {
+        "min": 3,
+        "max": 50
+      },
+      "price_note": "坊市参考价（下品灵石当量）；世界生成/任务物可为 0",
+      "tier": "mid",
+      "category": "misc",
+      "used_by_structures_count": 1,
+      "used_by_sample": [
+        "miaoyin_resonance_platform"
+      ]
+    }
+  ]
+}
