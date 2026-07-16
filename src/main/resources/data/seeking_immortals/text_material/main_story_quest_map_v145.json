@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "source": "v145 主线章节 ↔ 可玩任务链挂接",
+  "disclaimer": "章节为叙事骨架；playable_quests 对齐 quest_chains_playable_v141；legacy_refs 为旧战役 id 占位。",
+  "chapters": [
+    {
+      "id": "chapter_0_mortal",
+      "display": "凡人入世",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "region": "tiannan",
+      "playable_quests": [
+        "mortal_qixuan_entry"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "huangfeng_cultivation_path"
+      ],
+      "milestones": [
+        "测灵根",
+        "入门",
+        "炼气一层"
+      ],
+      "milestones_detail": [
+        "凡人镇/七玄门气质",
+        "测灵根",
+        "入黄枫外门或等价开局"
+      ],
+      "novel_anchor": "凡人求仙、七玄门/墨大夫启蒙气质",
+      "npcs": null,
+      "instance": null,
+      "craft": null,
+      "beasts": null,
+      "unique": null,
+      "endgame_ref": null,
+      "rules": null,
+      "note": "v146 已补凡人开局专链"
+    },
+    {
+      "id": "chapter_1_sect",
+      "display": "宗门修行",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "region": "tiannan",
+      "playable_quests": [
+        "huangfeng_blood_quota"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "huangfeng_cultivation_path",
+        "mulan_war_campaign"
+      ],
+      "milestones": [
+        "外门任务",
+        "辟谷丹",
+        "筑基准备"
+      ],
+      "milestones_detail": [
+        "贡献差事",
+        "外门→内门门槛",
+        "慕兰战可选支线"
+      ],
+      "novel_anchor": "黄枫谷修行与七派格局",
+      "npcs": [
+        "npc_huangfeng_contribution"
+      ],
+      "instance": null,
+      "craft": null,
+      "beasts": null,
+      "unique": null,
+      "endgame_ref": null,
+      "rules": null,
+      "note": null
+    },
+    {
+      "id": "chapter_2_foundation_secret",
+      "display": "筑基秘境",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "region": "tiannan",
+      "playable_quests": [
+        "huangfeng_blood_quota",
+        "blood_forbidden_run",
+        "nangong_wan_weight_optional"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "blood_forbidden_campaign"
+      ],
+      "milestones": null,
+      "milestones_detail": [
+        "试炼令",
+        "血色药田",
+        "三主料拼筑基",
+        "墨蛟权重可选"
+      ],
+      "novel_anchor": "血色禁地→筑基",
+      "npcs": null,
+      "instance": "blood_forbidden",
+      "craft": "zhu_ji_dan",
+      "beasts": [
+        "ink_flood_dragon",
+        "herb_field_guard"
+      ],
+      "unique": null,
+      "endgame_ref": null,
+      "rules": null,
+      "note": null
+    },
+    {
+      "id": "chapter_3_chaotic_sea",
+      "display": "乱星海",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "region": "chaotic_sea",
+      "playable_quests": [
+        "star_palace_register",
+        "inverse_star_intro",
+        "xutian_window_prepare",
+        "qianzhu_tower_trial",
+        "dayan_clue"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "chaotic_sea_politics"
+      ],
+      "milestones": [
+        "买灵舟",
+        "岛民登记",
+        "星宫或逆星分支"
+      ],
+      "milestones_detail": [
+        "星宫登记",
+        "逆星暗线",
+        "虚天窗口筹备",
+        "千竹/大衍"
+      ],
+      "novel_anchor": "乱星海秩序与暗线、虚天前夕",
+      "npcs": [
+        "npc_star_palace_clerk",
+        "npc_qianzhu_mechanic"
+      ],
+      "instance": null,
+      "craft": null,
+      "beasts": null,
+      "unique": null,
+      "endgame_ref": null,
+      "rules": null,
+      "note": null
+    },
+    {
+      "id": "chapter_4_great_jin",
+      "display": "大晋纵横",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "region": "dajin",
+      "playable_quests": [
+        "kunwu_clue_assemble",
+        "yinyang_ku_intel",
+        "peiying_material_hunt",
+        "xutian_window_prepare"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "void_great_cultivation_arc",
+        "kunwu_mountain_campaign"
+      ],
+      "milestones": null,
+      "milestones_detail": [
+        "晋京拍卖",
+        "昆吾线索",
+        "阴阳窟培婴",
+        "虚天夺宝窗口"
+      ],
+      "novel_anchor": "大晋、昆吾、阴阳窟、虚天",
+      "npcs": [
+        "npc_wanbao_auctioneer"
+      ],
+      "instance": null,
+      "craft": "pei_ying_dan",
+      "beasts": [
+        "silver_wing_yaksha",
+        "yin_zhi_ma"
+      ],
+      "unique": null,
+      "endgame_ref": null,
+      "rules": null,
+      "note": null
+    },
+    {
+      "id": "chapter_5_deity_transformation",
+      "display": "化神天劫",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "region": "tiannan",
+      "playable_quests": [
+        "zhuimo_token",
+        "lingzhu_fruit_run",
+        "deity_huoyu_path"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "fallen_demon_campaign"
+      ],
+      "milestones": [
+        "小劫/大劫",
+        "心魔",
+        "飞升准备"
+      ],
+      "milestones_detail": [
+        "坠魔令",
+        "灵烛果/造化一生一次",
+        "火狱太阳精火",
+        "回阳真水",
+        "化神冲击"
+      ],
+      "novel_anchor": "坠魔谷、造化、火狱回阳、化神",
+      "npcs": null,
+      "instance": null,
+      "craft": [
+        "zao_hua_dan",
+        "hui_yang_zhen_shui"
+      ],
+      "beasts": null,
+      "unique": [
+        "lingzhu_fruit",
+        "tai_yang_jing_huo",
+        "hui_yang_zhen_shui"
+      ],
+      "endgame_ref": "endgame_deity_huoyu_v143.json",
+      "rules": null,
+      "note": null
+    },
+    {
+      "id": "chapter_6_spirit_realm",
+      "display": "灵界飞升",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "VOID_REFINEMENT"
+      ],
+      "region": "tianyuan",
+      "playable_quests": [
+        "tianyuan_landing_register",
+        "tianyuan_to_fengyuan_gate",
+        "guanghan_endgame_path",
+        "zhenyan_outer_lesson",
+        "wuxing_intro",
+        "reincarnation_intro",
+        "court_hunt_gray",
+        "heifeng_gray_sail"
+      ],
+      "playable_quests_missing_in_v141": [],
+      "legacy_quest_chain_refs": [
+        "spirit_realm_rise",
+        "spirit_realm_border"
+      ],
+      "milestones": null,
+      "milestones_detail": [
+        "飞升光门",
+        "天渊登记",
+        "界门风元",
+        "广寒炼神/虚灵",
+        "真言幻世",
+        "轮回天庭黑风灰界"
+      ],
+      "novel_anchor": "飞升灵界与仙界上层界面",
+      "npcs": [
+        "npc_tianyuan_registrar",
+        "npc_zhenyan_elder_template"
+      ],
+      "instance": null,
+      "craft": null,
+      "beasts": null,
+      "unique": null,
+      "endgame_ref": "endgame_guanghan_v143.json",
+      "rules": [
+        "本体不可自由回人界刷资源",
+        "分身下界"
+      ],
+      "note": null
+    }
+  ],
+  "coverage": {
+    "chapters": 7,
+    "playable_linked_unique": 23,
+    "all_playable_chains": 23,
+    "unlinked_playable": []
+  },
+  "v147_extra_campaigns": [
+    "mulan_tiannan_war_campaign",
+    "mulan_scout_clash",
+    "fashi_soul_array_battle",
+    "holy_bird_blessing_quest",
+    "xutian_palace_run",
+    "kunwu_expedition_run",
+    "xianjie_ascension_path",
+    "zhenyan_men_path",
+    "time_law_path",
+    "reincarnation_hall_path",
+    "heifeng_and_gray",
+    "xianjie_endgame_glimpse"
+  ],
+  "full_desc_ref": "quest_lines_full_descriptions_v147.json"
+}

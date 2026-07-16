@@ -1,0 +1,1971 @@
+{
+  "schema_version": 1,
+  "source": "v141 任务骨架→可玩步骤+奖励（贴原著）",
+  "disclaimer": "可玩任务设定，非代码；事件权重可选，玩家≠强制韩立。unique/一生一次保留。",
+  "canon_policy": [
+    "血色=周期炼气试炼配额",
+    "虚天=高阶窗口夺宝 unique",
+    "昆吾=线索拼图元婴线",
+    "坠魔=火域灵烛/造化一生一次",
+    "阴阳=活捕阴芝马培婴",
+    "飞升单向；分身下界",
+    "大衍完整不保底"
+  ],
+  "chains": [
+    {
+      "id": "mortal_qixuan_entry",
+      "display": "凡人·七玄入世（开局）",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "novel_anchor": "七玄门/墨大夫启蒙气质：测灵根、入门、长春功入门",
+      "main_story_chapters_v145": [
+        "chapter_0_mortal"
+      ],
+      "giver_npc": null,
+      "prereq": [
+        "new_game"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "凡人镇求仙",
+          "do": "听闻仙门收徒/药师引介，离开凡人日常",
+          "place": "mortal_town",
+          "novel_anchor": "求仙"
+        },
+        {
+          "step": 2,
+          "summary": "测灵根",
+          "do": "测灵根属性与品阶，决定开局倾向",
+          "place": "spirit_root_test",
+          "reward": {
+            "flag": "spirit_root_rolled"
+          }
+        },
+        {
+          "step": 3,
+          "summary": "入外门",
+          "do": "入黄枫谷外门或等价开局（可配置）",
+          "place": "huangfeng_outer",
+          "reward": {
+            "flag": "outer_disciple",
+            "method": "changchun_gong_hint"
+          }
+        },
+        {
+          "step": 4,
+          "summary": "炼气入门",
+          "do": "修长春功至炼气一层，学火弹等过渡小术",
+          "reward": {
+            "realm": "QI_REFINING_1",
+            "tech_hint": [
+              "fireball"
+            ]
+          }
+        },
+        {
+          "step": 5,
+          "summary": "接宗门日课",
+          "do": "贡献碑接第一桩杂役，衔接到配额线",
+          "place": "contribution_stele",
+          "reward": {
+            "unlock": "huangfeng_blood_quota_visible"
+          }
+        }
+      ],
+      "rewards_finale": {
+        "flag": "tutorial_done",
+        "next": "huangfeng_blood_quota"
+      },
+      "next_chains": [
+        "huangfeng_blood_quota"
+      ],
+      "rewards_numeric": {
+        "cash_low": [
+          0,
+          20
+        ],
+        "contribution": [
+          0,
+          5
+        ],
+        "note": "开局不以灵石砸富"
+      },
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#mortal_qixuan_entry",
+      "tagline": "先有灵根，再有仙途。长春功只是稳活的第一步。",
+      "synopsis": "开局专链：凡人听闻求仙，测灵根，入黄枫外门（或配置等价），修长春功入炼气，接第一桩宗门杂役。贴七玄门/墨大夫启蒙气质，不强制姓名。结束后自然看见血色配额线。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "huangfeng_blood_quota",
+      "display": "黄枫谷·血色禁地配额",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING_mid",
+        "FOUNDATION"
+      ],
+      "faction": "huangfeng_gu",
+      "novel_anchor": "越国七派炼气弟子入血色禁地，宗门配额/试炼令",
+      "giver_npc": "npc_huangfeng_contribution",
+      "dialogue_tree": "tree_sect_contribution_clerk",
+      "prereq": [
+        "outer_or_inner_huangfeng_or_high_rep"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "接榜",
+          "do": "在贡献碑/内门任务牌查看禁地相关差事",
+          "need": [],
+          "place": "contribution_stele / inner_sect_task_board",
+          "reward": {},
+          "novel_anchor": "宗门差事换贡献",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "攒贡献",
+          "do": "完成外门巡山、药园、坊市跑腿等，贡献达到配额门槛",
+          "need": [
+            "contribution>=quota_threshold"
+          ],
+          "place": null,
+          "reward": {
+            "contribution": "progress"
+          },
+          "novel_anchor": "贡献制",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "核销换令",
+          "do": "找执事核销，换取试炼令/配额名额",
+          "need": [],
+          "place": "npc_huangfeng_contribution",
+          "reward": {
+            "item": "blood_forbidden_token",
+            "rep_huangfeng_gu": 3
+          },
+          "novel_anchor": "试炼令",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "窗口待命",
+          "do": "等待禁地开放周期，备足疗伤丹、遁符、基础攻术",
+          "need": [
+            "window_soon"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "数年~数十年一开的结构窗口",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "item": "blood_forbidden_token",
+        "unlock": "blood_forbidden_entry"
+      },
+      "next_chains": [
+        "blood_forbidden_run"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#huangfeng_blood_quota",
+      "rewards_numeric": {
+        "step_cash_low_total": [
+          15,
+          60
+        ],
+        "contribution_cost_to_token": [
+          25,
+          40
+        ],
+        "rep_huangfeng_gu": [
+          2,
+          5
+        ],
+        "item": {
+          "blood_forbidden_token": 1
+        }
+      },
+      "main_story_chapters_v145": [
+        "chapter_1_sect",
+        "chapter_2_foundation_secret"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#huangfeng_blood_quota",
+      "tagline": "贡献堆出来的入场券，不是人情求来的。",
+      "synopsis": "越国七派炼气弟子入血色禁地，靠的是宗门配额与试炼令。你在黄枫谷（或等价开局宗门）外门日课、药园差事与巡山中攒贡献，再经执事核销，换得一枚只在窗口期内有效的令。令不是通关保证，只是「被允许去死一回」的资格。死了贡献不退。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "region": "blood_forbidden",
+      "realm_span": [
+        "QI_REFINING_late",
+        "FOUNDATION"
+      ],
+      "novel_anchor": "血色禁地：药田、墨蛟水潭、中环争夺、窗口关闭强制遣返",
+      "prereq": [
+        "blood_forbidden_token",
+        "window_open"
+      ],
+      "instance": "blood_forbidden",
+      "layer_diagram": "secret_realm_layer_diagrams_v140.json#blood_forbidden",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "触界碑入场",
+          "do": "持令触血色界碑，收神入禁地",
+          "need": [],
+          "place": "blood_forbidden_entry_stele",
+          "reward": {},
+          "novel_anchor": "入口界碑",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "外圈适应",
+          "do": "在血雾林熟悉视野压制与低阶妖兽",
+          "need": [],
+          "place": "bf_outer_mist",
+          "reward": {
+            "loot_table": "common_herb_scrap"
+          },
+          "novel_anchor": "入门缓冲",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "药田采药",
+          "do": "药田环带采集灵草节点，注意药田卫",
+          "need": [],
+          "place": "bf_herb_ring",
+          "reward": {
+            "loot_weight": "jade_marrow_zhi / purple_monkey_flower / tianling_fruit 低概率"
+          },
+          "novel_anchor": "禁地药田经济核心；玉髓芝/紫猴花等为高价值点",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "中环周旋",
+          "do": "中环人祸大于兽祸，避免无谓仇杀或视声望抉择",
+          "need": [],
+          "place": "bf_mid_contest",
+          "reward": {},
+          "novel_anchor": "七派弟子混战气质",
+          "optional": true,
+          "fail": null
+        },
+        {
+          "step": 5,
+          "summary": "撤离",
+          "do": "窗口将尽前走出口阵；超时强制遣返/滞留极危",
+          "need": [],
+          "place": "blood_forbidden_exit_array",
+          "reward": {
+            "keep_bag_rules": "按宗门与实例规则",
+            "contribution_bonus": "if_sect_task"
+          },
+          "novel_anchor": "窗口关闭",
+          "optional": false,
+          "fail": "timeout_eject_or_death_risk"
+        }
+      ],
+      "rewards_finale": {
+        "flag": "blood_forbidden_survived",
+        "rep_optional": true
+      },
+      "optional_branch": "nangong_wan_weight_optional",
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#blood_forbidden_run",
+      "rewards_numeric": {
+        "expected_loot_cash_equiv_low": [
+          30,
+          400
+        ],
+        "herb_nodes_value_low": [
+          20,
+          300
+        ],
+        "sect_turnin_bonus_contribution": [
+          5,
+          20
+        ],
+        "death_penalty": "bag_rules_configurable"
+      },
+      "main_story_chapters_v145": [
+        "chapter_2_foundation_secret"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#blood_forbidden_run",
+      "tagline": "药在前，人在侧，窗口一关，清场不问姓名。",
+      "synopsis": "持令触界碑，神识一收，便落进血雾。外圈是缓冲，药田是经济核心，中环是人祸大于兽祸的争夺带，内圈古禁是贪者的坟。你的目标可以是采齐筑基三主料、交宗门任务、或只求活着出来。南宫婉与墨蛟不在主线强制里——那是水潭带的权重事件。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭事件（权重·可选）",
+      "region": "blood_forbidden",
+      "optional": true,
+      "novel_anchor": "血色禁地墨蛟；南宫婉线为权重事件，不强制玩家身份绑定",
+      "prereq": [
+        "in_blood_forbidden",
+        "reached_water_zone"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "发现水潭",
+          "do": "进入墨蛟水潭带，感知水压与蛟息",
+          "need": [],
+          "place": "bf_water_jiao",
+          "reward": {},
+          "novel_anchor": "墨蛟水域",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "抉择",
+          "do": "猎蛟夺材 / 救助或结盟其他弟子 / 绕开",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "可遇南宫婉相关权重，非必触发",
+          "optional": true,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "结算",
+          "do": "若击退/猎蛟：蛟筋、蛟珠；若结盟：声望/人情旗",
+          "need": [],
+          "place": "bf_water_jiao",
+          "reward": {
+            "loot": [
+              "black_jiao_sinew",
+              "jiao_pearl"
+            ],
+            "or_flag": "nangong_weight_favor"
+          },
+          "novel_anchor": "墨蛟物产；人情可留后用",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "note": "权重旗，影响后续掩月/正道观感可选"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#nangong_wan_weight_optional",
+      "rewards_numeric": {
+        "jiao_materials_cash_equiv_low": [
+          80,
+          500
+        ],
+        "or_favor_flag": true,
+        "rep_shift_optional": {
+          "yanyue_or_personal": [
+            0,
+            10
+          ]
+        }
+      },
+      "main_story_chapters_v145": [
+        "chapter_2_foundation_secret"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#nangong_wan_weight_optional",
+      "tagline": "水下有蛟，岸上有人。你可以猎、可以救、也可以绕。",
+      "synopsis": "禁地墨蛟水潭是原著重要场景气质的可玩化：凶蛟、水压、可能的他派弟子危机。本线为权重事件，不强制你扮演任何原著身份。猎蛟拿筋珠，救助或结盟拿人情旗，绕开则无事发生——三种都合法。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "star_palace_register",
+      "display": "星宫登记",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "novel_anchor": "乱星海星宫秩序：登记、征税、传送网；与逆星对立",
+      "giver_npc": "npc_star_palace_clerk",
+      "dialogue_tree": "tree_star_palace_registrar",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "抵达枢纽",
+          "do": "海船或远程阵至乱星海枢纽/星宫相关岛",
+          "need": [],
+          "place": "node_chaotic_sea_hub / node_star_palace",
+          "reward": {},
+          "novel_anchor": "入乱星海",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "缴注册",
+          "do": "向星宫吏缴纳注册费与月例说明",
+          "need": [
+            "spirit_stones"
+          ],
+          "place": null,
+          "reward": {
+            "rep_star_palace": 5,
+            "flag": "star_registered"
+          },
+          "novel_anchor": "星宫登记",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "开通传送",
+          "do": "获得星宫门/岛际传送折扣权限",
+          "need": [],
+          "place": "star_palace_teleport_gate",
+          "reward": {
+            "unlock": "star_palace_teleport_gate"
+          },
+          "novel_anchor": "星宫传送网",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "逆星警告",
+          "do": "被告知逆星痕迹过重将被驳回（规则告知）",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "星宫↔逆星对立",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "rep_star_palace": 5,
+        "unlock": "chaotic_sea_legal_travel"
+      },
+      "blocks_if": [
+        "rep_inverse_star high"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#star_palace_register",
+      "rewards_numeric": {
+        "registration_fee_low": [
+          100,
+          400
+        ],
+        "monthly_fee_low": [
+          20,
+          80
+        ],
+        "rep_star_palace": [
+          5,
+          8
+        ],
+        "teleport_discount_pct": [
+          10,
+          25
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#star_palace_register",
+      "tagline": "乱星海的规矩，星宫说了算。先登记，再谈航线。",
+      "synopsis": "入乱星海，星宫是秩序面：注册费、月例、传送网与征税。登记后你才是「有籍」散修或客修，岛际传送与合法坊市更好走。逆星痕迹过重会被当场驳回——星宫与逆星是死对立，不是可以两边满好感的社交游戏。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "inverse_star_intro",
+      "display": "逆星接头",
+      "region": "chaotic_sea",
+      "novel_anchor": "逆星盟：反星宫暗线、走私、暗港趸船",
+      "dialogue_tree": "tree_inverse_star_contact",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "暗号",
+          "do": "在坊市或暗桩对上暗号",
+          "need": [
+            "quest_cipher_or_intro_letter"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "暗线接头",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "验明",
+          "do": "若星宫声望过高则敌对；否则引入暗岛",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "防渗透",
+          "optional": false,
+          "fail": "star_spy_combat"
+        },
+        {
+          "step": 3,
+          "summary": "暗港",
+          "do": "标记逆星趸船阵，获得走私航线",
+          "need": [],
+          "place": "inverse_star_smuggle_dock",
+          "reward": {
+            "rep_inverse_star": 8,
+            "unlock": "inverse_star_smuggle_dock",
+            "rep_star_palace": -5
+          },
+          "novel_anchor": "暗港",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "首单",
+          "do": "可选完成一票走私/情报",
+          "need": [],
+          "place": null,
+          "reward": {
+            "spirit_stones": "mid",
+            "rep_inverse_star": 5
+          },
+          "novel_anchor": null,
+          "optional": true,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "flag": "inverse_contacted"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#inverse_star_intro",
+      "rewards_numeric": {
+        "first_job_cash_low": [
+          150,
+          600
+        ],
+        "rep_inverse_star": [
+          5,
+          12
+        ],
+        "rep_star_palace": [
+          -8,
+          -3
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#inverse_star_intro",
+      "tagline": "暗号对了再说话。星宫的走狗，海葬。",
+      "synopsis": "逆星盟是乱星海暗线：走私、反星宫、暗港趸船。接头靠暗号与引荐，不靠坊市广告。一旦入线，星宫声望会受损；两边都做高的人，终有一日要站队或被两边追杀。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "tianyuan_landing_register",
+      "display": "天渊落地登记",
+      "region": "tianyuan",
+      "realm_span": [
+        "VOID_REFINEMENT"
+      ],
+      "novel_anchor": "人界化神渡劫飞升后天渊城登记；本体不可随意回人界",
+      "giver_npc": "npc_tianyuan_registrar",
+      "prereq": [
+        "ascension_success",
+        "arrived_tianyuan"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "光门落地",
+          "do": "飞升通道抵达天渊",
+          "need": [],
+          "place": "gate_mortal_to_tianyuan",
+          "reward": {},
+          "novel_anchor": "飞升光门",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "登记灵位",
+          "do": "报来历、境界、人界宗门旧怨自担",
+          "need": [],
+          "place": "npc_tianyuan_registrar",
+          "reward": {
+            "flag": "tianyuan_registered"
+          },
+          "novel_anchor": "驻军/城务登记气质",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "适应灵气",
+          "do": "完成适应期（静室/聚灵），避免走火",
+          "need": [],
+          "place": "meditation_chamber",
+          "reward": {
+            "buff": "spirit_qi_acclimation"
+          },
+          "novel_anchor": "灵界灵气远浓",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "得知规则",
+          "do": "告知：界门入风元需贡献；回人界仅分身",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "分身下界规则",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "flag": "tianyuan_citizen_temp",
+        "unlock": "tianyuan_services"
+      },
+      "next_chains": [
+        "tianyuan_to_fengyuan_gate"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#tianyuan_landing_register",
+      "rewards_numeric": {
+        "cash_low": [
+          0,
+          0
+        ],
+        "merit_tianyuan": [
+          10,
+          30
+        ],
+        "flag": "tianyuan_registered"
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#tianyuan_landing_register",
+      "tagline": "人界的名头到了灵界，只是个记号。先登记，再适应灵气。",
+      "synopsis": "化神渡劫飞升成功后，光门落地天渊。登记官不听你的旧仇旧恩，只办手续：灵位、来历、驻军规矩。灵气远浓于人界，需适应期。最重要的一句会反复听到：想回人界，分身去；本体留下。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "tianyuan_to_fengyuan_gate",
+      "display": "界门入风元",
+      "region": "tianyuan",
+      "realm_span": [
+        "VOID_REFINEMENT"
+      ],
+      "novel_anchor": "天渊管制门通往灵界风元大陆，贡献费",
+      "prereq": [
+        "tianyuan_registered"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "驻军差事",
+          "do": "可选做驻军任务减费/攒贡献",
+          "need": [],
+          "place": "tianyuan_garrison board",
+          "reward": {
+            "contribution": "var"
+          },
+          "novel_anchor": "天渊驻军",
+          "optional": true,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "缴贡献",
+          "do": "缴纳约 500 贡献（设定带）",
+          "need": [
+            "contribution>=500"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "管制费",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "过门",
+          "do": "经管制界门进入风元",
+          "need": [],
+          "place": "gate_tianyuan_to_fengyuan",
+          "reward": {
+            "teleport": "spirit_fengyuan",
+            "flag": "fengyuan_accessed"
+          },
+          "novel_anchor": "入灵界腹地",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "回城说明",
+          "do": "回天渊费较低（约 300）",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "双向门不对称价",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "unlock": "spirit_fengyuan_map"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#tianyuan_to_fengyuan_gate",
+      "rewards_numeric": {
+        "contribution_cost": 500,
+        "return_contribution_cost": 300,
+        "garrison_quest_contrib_each": [
+          15,
+          40
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#tianyuan_to_fengyuan_gate",
+      "tagline": "五百贡献，少一文，门不开。",
+      "synopsis": "天渊管制门通往灵界腹地风元。费用钉死为贡献制（去 500 / 回约 300），可用驻军差事去攒。这不是惩罚玩家，而是把「灵界通行」从灵石通胀里剥离，改走功勋/贡献沉没。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "zhenyan_outer_lesson",
+      "display": "真言外门听法",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL"
+      ],
+      "novel_anchor": "仙界真言门：真言即法，外门授业",
+      "giver_npc": "npc_zhenyan_elder_template",
+      "prereq": [
+        "in_immortal_realm"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "山门登记",
+          "do": "以外门/客听身份登记",
+          "need": [],
+          "place": "node_immortal_zhenyan",
+          "reward": {
+            "rep_zhenyan": 3
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "听法",
+          "do": "在真言授业台听完一课",
+          "need": [],
+          "place": "true_word_lecture_platform",
+          "reward": {},
+          "novel_anchor": "真言授业",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "演练",
+          "do": "完成口令/真言基础演练任务",
+          "need": [],
+          "place": null,
+          "reward": {
+            "technique_unlock_hint": "zhenyan_basic",
+            "rep_zhenyan": 5
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "考核",
+          "do": "小考核通过，解锁进阶任务入口",
+          "need": [],
+          "place": null,
+          "reward": {
+            "flag": "zhenyan_outer_pass"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "rep_zhenyan": 8,
+        "next": "wuxing_intro"
+      },
+      "next_chains": [
+        "wuxing_intro"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#zhenyan_outer_lesson",
+      "rewards_numeric": {
+        "immortal_spirit_stone": [
+          0,
+          2
+        ],
+        "rep_zhenyan": [
+          5,
+          10
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#zhenyan_outer_lesson",
+      "tagline": "口舌即法。外门只许听，不许问尽。",
+      "synopsis": "仙界真言门：真言体系的入口是听法与演练，不是买技能书。外门完成小考核后，才有资格被长老多看一眼，从而接到大五行幻世入门。灰界气味重者，会被直接撵出课堂。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "wuxing_intro",
+      "display": "大五行幻世入门",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL"
+      ],
+      "novel_anchor": "大五行幻世诀/幻世种子——仙界可玩核心，非玩具",
+      "prereq": [
+        "rep_zhenyan>=50 or zhenyan_outer_pass"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "资格确认",
+          "do": "长老确认声望/听法记录",
+          "need": [],
+          "place": "npc_zhenyan_elder_template",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "观种子",
+          "do": "至幻世种子台观想，禁止妄触高层",
+          "need": [],
+          "place": "wuxing_world_seed_block",
+          "reward": {},
+          "novel_anchor": "幻世种子",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "五行入门课",
+          "do": "完成木火土金水基础轮转演练",
+          "need": [],
+          "place": null,
+          "reward": {
+            "method_progress": "wuxing_world_entry"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "小幻世试炼",
+          "do": "进入浅层幻世试炼（实例）",
+          "need": [],
+          "place": null,
+          "reward": {
+            "flag": "wuxing_intro_done",
+            "rep_zhenyan": 10
+          },
+          "novel_anchor": "幻世试炼气质",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "unlock": "wuxing_deeper_tracks"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#wuxing_intro",
+      "rewards_numeric": {
+        "rep_zhenyan": [
+          8,
+          15
+        ],
+        "method_progress": "wuxing_entry",
+        "immortal_spirit_stone": [
+          1,
+          5
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#wuxing_intro",
+      "tagline": "幻世种子不是玩具。资格够了，才许观想。",
+      "synopsis": "大五行幻世是仙界可玩核心之一：以五行轮转演道，浅层试炼可进，高层妄触有反噬。需真言声望或外门通过记录。人界不可提前刷满这条线。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "reincarnation_intro",
+      "display": "轮回殿引见",
+      "region": "xianjie",
+      "novel_anchor": "轮回殿：契约、魂货、禁忌路引；悔约魂契",
+      "giver_npc": "npc_reincarnation_clerk",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "读契",
+          "do": "阅读反噬条款",
+          "need": [],
+          "place": "reincarnation_trade_desk",
+          "reward": {},
+          "novel_anchor": "魂契",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "跑腿",
+          "do": "送无字信至灰界边缘（勿拆）",
+          "need": [
+            "risk_accept"
+          ],
+          "place": null,
+          "reward": {
+            "rep_reincarnation_hall": 8
+          },
+          "novel_anchor": "禁忌跑腿",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "开柜",
+          "do": "解锁轮回殿基础货架",
+          "need": [],
+          "place": null,
+          "reward": {
+            "unlock_shop": "reincarnation_desk"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "rep_reincarnation_hall": 8
+      },
+      "rep_conflict": {
+        "rep_heavenly_court": "tax_or_suspicion"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#reincarnation_intro",
+      "rewards_numeric": {
+        "rep_reincarnation_hall": [
+          6,
+          12
+        ],
+        "run_risk": "high",
+        "shop_unlock": true
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#reincarnation_intro",
+      "tagline": "契约在先，货物在后。反噬条请读完。",
+      "synopsis": "轮回殿做魂货、禁忌路引与契约。先跑一趟「无字信」式引见，再开基础货架。天庭红人来买，价码另算，还可能被审计——轮回与天庭互斥是设定，不是 bug。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "court_hunt_gray",
+      "display": "天庭缉灰",
+      "region": "xianjie",
+      "novel_anchor": "天庭秩序 vs 灰界；通缉与告发",
+      "giver_npc": "npc_heavenly_court_inspector",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "报备",
+          "do": "向巡察使报身份",
+          "need": [],
+          "place": "npc_heavenly_court_inspector",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "领缉令",
+          "do": "领取灰界线索/通缉任务",
+          "need": [],
+          "place": null,
+          "reward": {
+            "item": "court_warrant_gray"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "执行",
+          "do": "边境查缉或战斗，避免误伤黑风中立船（可选）",
+          "need": [],
+          "place": null,
+          "reward": {
+            "rep_heavenly_court": 10,
+            "rep_gray_realm": -15
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "回缴",
+          "do": "回缴线索或首级等价物",
+          "need": [],
+          "place": null,
+          "reward": {
+            "immortal_spirit_stone": "few"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "rep_heavenly_court": 10
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#court_hunt_gray",
+      "rewards_numeric": {
+        "rep_heavenly_court": [
+          8,
+          15
+        ],
+        "rep_gray_realm": [
+          -20,
+          -10
+        ],
+        "immortal_spirit_stone": [
+          2,
+          8
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#court_hunt_gray",
+      "tagline": "名册上的灰界走卒，格杀或绑回，由你选。",
+      "synopsis": "天庭巡察给的是秩序任务：缉灰界线索、边境查缉、与黑风私枭划清界限（可选）。完成则天庭声望升、灰界声望降。想两边做好人，会在后续对话与拒载里碰壁。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "heifeng_gray_sail",
+      "display": "黑风海接灰界",
+      "region": "heifeng_sea",
+      "novel_anchor": "黑风海险航，可接灰界；天庭红人拒载",
+      "giver_npc": "npc_heifeng_captain",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "上船规矩",
+          "do": "听旗听风，预付仙石",
+          "need": [],
+          "place": "node_immortal_heifeng",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "过险海",
+          "do": "航行事件：风暴/海兽/巡察影子",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": "ship_damage_or_throw_overboard"
+        },
+        {
+          "step": 3,
+          "summary": "雾境交接",
+          "do": "灰界引路人接应或拒接",
+          "need": [],
+          "place": null,
+          "reward": {
+            "flag": "gray_border_reached",
+            "rep_heifeng": 5
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "unlock": "gray_border_path"
+      },
+      "blocks_if": [
+        "rep_heavenly_court very_high"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#heifeng_gray_sail",
+      "rewards_numeric": {
+        "sail_fee_immortal_stone": [
+          3,
+          12
+        ],
+        "rep_heifeng": [
+          3,
+          8
+        ],
+        "fail_loss_chance": 0.15
+      },
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#heifeng_gray_sail",
+      "tagline": "听旗、听风、听舵主。天庭红人，本船不载。",
+      "synopsis": "黑风海是险航与灰色通道。舵主可送你到灰界雾境边缘，但天庭声望过高会被拒载。航行有风暴、海兽与巡察影子事件——付了钱也不保证活着靠岸。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "xutian_window_prepare",
+      "display": "虚天殿窗口筹备",
+      "region": "chaotic_sea_or_dajin",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "novel_anchor": "虚天殿数十年级窗口；残图/钥；九曲灵参、虚天鼎等 unique",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "情报",
+          "do": "收集虚天开启 rumours 与残图碎片",
+          "need": [],
+          "place": null,
+          "reward": {
+            "item_progress": "xu_tian_can_tu"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "集结岛",
+          "do": "赴虚天窗口集结岛，交易钥碎片",
+          "need": [],
+          "place": "island_xutian_window",
+          "reward": {},
+          "novel_anchor": "多方集结",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "备战",
+          "do": "结丹以上生存配置：疗伤、遁、抗禁制",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "过滤弱者",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "入殿资格",
+          "do": "窗口开时持残图/钥意触门残",
+          "need": [],
+          "place": "xutian_palace_gate_fragment",
+          "reward": {
+            "unlock": "xutian_instance_entry"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "flag": "xutian_ready"
+      },
+      "next_note": "入殿后走 layer diagram；宝库 unique 竞争",
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#xutian_window_prepare",
+      "rewards_numeric": {
+        "intel_cost_low": [
+          500,
+          5000
+        ],
+        "fragment_trade_low": [
+          1000,
+          20000
+        ],
+        "prep_consumable_low": [
+          800,
+          8000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea",
+        "chapter_4_great_jin"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#xutian_window_prepare",
+      "tagline": "残图拼起来，只是入场券。鼎只有一座。",
+      "synopsis": "虚天殿数十年级窗口。你要做的是拼残图/钥意、赴集结岛交易情报、备结丹以上的生存配置。入殿后是外殿过滤、药苑（曲儿线权重）、核心宝库 unique 竞争与撤离廊追杀——虚天鼎、乾蓝冰焰、补天丹等不可人人有份。活着出去才算赢。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "kunwu_clue_assemble",
+      "display": "昆吾线索拼合",
+      "region": "dajin",
+      "realm_span": [
+        "NASCENT_SOUL_late",
+        "DEITY_prepare"
+      ],
+      "novel_anchor": "昆吾山：线索拼图开启，非周期野刷；火域镇魔夺宝",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "晋京情报",
+          "do": "在万宝楼/晋京外围买情报玉简",
+          "need": [],
+          "place": "dajin_wanbao_auction",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "拼线索",
+          "do": "集齐入口线索（多段）",
+          "need": [
+            "kunwu_clue_pieces>=N"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "线索拼图",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "抗火净法",
+          "do": "准备火域抗性与净魔法门",
+          "need": [
+            "fire_resist_ready"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "接近区",
+          "do": "至昆吾接近区组队/潜入",
+          "need": [],
+          "place": "dajin_kunwu_approach",
+          "reward": {
+            "unlock": "kunwu_mountain_entry",
+            "flag": "kunwu_clues_done"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "unlock": "kunwu_expedition"
+      },
+      "next_note": "入山后火禁/镇魔/顶库/追杀廊见层表",
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#kunwu_clue_assemble",
+      "rewards_numeric": {
+        "clue_jade_each_low": [
+          2000,
+          15000
+        ],
+        "pieces_needed": [
+          3,
+          6
+        ],
+        "fire_resist_prep_low": [
+          3000,
+          20000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#kunwu_clue_assemble",
+      "tagline": "山不是开着等人的。线索不齐，门就是死的。",
+      "synopsis": "昆吾山是线索拼图开启的元婴后期线，不是血色那种周期野刷。晋京买情报、拼入口玉简、备抗火与净法，再到接近区组队或潜入。入山后有火禁/太阴、镇魔、顶库混战与出山追杀——小极宫等反目作钩子。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "zhuimo_token",
+      "display": "坠魔令获取",
+      "region": "high_mortal",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "novel_anchor": "坠魔谷令牌/周期；火域凶地",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "来源",
+          "do": "拍卖/猎队/任务获取坠魔令",
+          "need": [],
+          "place": null,
+          "reward": {
+            "item": "zhui_mo_ling"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "火域备装",
+          "do": "火蟾抗性、火涎处理、高阶疗伤",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "火域门槛",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "谷口",
+          "do": "持令入坠魔裂隙口",
+          "need": [],
+          "place": "fallen_demon_rift",
+          "reward": {
+            "unlock": "zhuimo_valley_entry"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "item": "zhui_mo_ling"
+      },
+      "next_chains": [
+        "lingzhu_fruit_run"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#zhuimo_token",
+      "rewards_numeric": {
+        "token_market_low": [
+          8000,
+          50000
+        ],
+        "or_quest_reward": true,
+        "fire_prep_low": [
+          2000,
+          12000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#zhuimo_token",
+      "tagline": "令在手，火在前。无抗火，等于买了个殉葬名额。",
+      "synopsis": "坠魔谷凭令/周期进入。令可来自拍卖、猎队或任务。拿到令只是开始：火蟾、烬蛾、火域规则会立刻检验你的准备。内谷远比外谷危险，灵烛果在更深处等着那些贪心而足够强的人。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "lingzhu_fruit_run",
+      "display": "灵烛果争夺",
+      "region": "zhuimo_valley",
+      "novel_anchor": "灵烛果——造化丹相关；一生一次结构；内谷极危",
+      "prereq": [
+        "in_zhuimo",
+        "zhui_mo_ling"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "外谷推入",
+          "do": "经外谷、中裂进入内谷",
+          "need": [],
+          "place": "zm_outer→zm_inner",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "定位果树",
+          "do": "发现灵烛果树点，评估守护与夺果修士",
+          "need": [],
+          "place": "zm_candle",
+          "reward": {},
+          "novel_anchor": "灵烛果点",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "争夺",
+          "do": "unique 争夺：击退守护/修士或趁乱",
+          "need": [],
+          "place": null,
+          "reward": {
+            "item": "lingzhu_fruit",
+            "unique": true
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": "death_or_fruit_lost"
+        },
+        {
+          "step": 4,
+          "summary": "造化挂钩",
+          "do": "若走造化丹线：标记一生一次炼化/提交",
+          "need": [],
+          "place": null,
+          "reward": {
+            "flag": "zaohua_path_item_secured",
+            "lifetime_once": true
+          },
+          "novel_anchor": "造化一生一次",
+          "optional": true,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "unique_item_possible": "lingzhu_fruit"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#lingzhu_fruit_run",
+      "rewards_numeric": {
+        "fruit_unique": true,
+        "cash_equiv_if_sold_low": [
+          50000,
+          500000
+        ],
+        "lifetime_once_flag": "zaohua_path",
+        "contest_death_risk": "high"
+      },
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#lingzhu_fruit_run",
+      "tagline": "果只有那一树。造化一生一次，倒卖不是正途。",
+      "synopsis": "灵烛果是坠魔谷核心奇果，与造化丹一生一次结构挂钩。你要穿过外谷与内谷魔压，在果树点与守护、夺果修士 unique 竞争。得果后可走造化炼化线——标记一生一次，不设保底，不鼓励当无限钱树。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "yinyang_ku_intel",
+      "display": "阴阳窟情报",
+      "region": "dajin",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "novel_anchor": "阴阳窟阴毒；银翅夜叉；晋京外围秘境网",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "买路引",
+          "do": "晋京外围购阴毒抗药与地图",
+          "need": [],
+          "place": "dajin_jin_capital_rim",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "抗阴抗毒",
+          "do": "准备抗毒/抗阴与活捕工具",
+          "need": [
+            "detox_yin_resist"
+          ],
+          "place": null,
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "窟门",
+          "do": "开启/找到阴阳窟门",
+          "need": [],
+          "place": "yinyang_cave_gate",
+          "reward": {
+            "unlock": "yinyang_ku_entry"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "next_chains": [
+        "peiying_material_hunt"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#yinyang_ku_intel",
+      "rewards_numeric": {
+        "intel_detox_prep_low": [
+          3000,
+          18000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#yinyang_ku_intel",
+      "tagline": "阴毒之地，先买命，再买路。",
+      "synopsis": "阴阳窟在大晋秘境网中，以阴毒、分途、夜叉与阴芝马闻名。本线是入窟前置：买抗毒抗阴、地图与活捕工具，找到窟门。没有准备就进，等于给夜叉送粮。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "peiying_material_hunt",
+      "display": "培婴材料·阴芝马",
+      "region": "yinyang_ku",
+      "novel_anchor": "阴芝马为培婴关键；优先活捕；窟外协作炼丹",
+      "prereq": [
+        "in_yinyang_ku"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "过夜叉",
+          "do": "经银翅夜叉巢或绕道（高危）",
+          "need": [],
+          "place": "yy_yezha",
+          "reward": {},
+          "novel_anchor": "银翅夜叉",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "活捕阴芝马",
+          "do": "栖息层活捕，击杀降材料品质",
+          "need": [],
+          "place": "yy_yinzhi",
+          "reward": {
+            "item": "yin_zhi_horse_live",
+            "prefer_live": true
+          },
+          "novel_anchor": "阴芝马",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "窟外炼丹",
+          "do": "协作点提交材料炼培婴丹",
+          "need": [],
+          "place": "yy_alchemy_coop / alchemy_furnace_g3",
+          "reward": {
+            "item": "peiying_dan",
+            "chance": 0.25
+          },
+          "novel_anchor": "培婴丹·富成协作气质",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "item_possible": "peiying_dan"
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#peiying_material_hunt",
+      "rewards_numeric": {
+        "live_capture_value_low": [
+          20000,
+          120000
+        ],
+        "kill_material_value_low": [
+          3000,
+          15000
+        ],
+        "peiying_dan_craft_chance": [
+          0.15,
+          0.35
+        ],
+        "peiying_dan_market_low": [
+          80000,
+          400000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#peiying_material_hunt",
+      "tagline": "活的才是丹。死的，只是一堆打折的肉。",
+      "synopsis": "培婴丹主料倾向阴芝马活体。你需经银翅夜叉巢（或绕道），在栖息层活捕，再送窟外协作炼丹点。成率不高（设定约两成上下，活捕有加成）。协作炼丹是「富成气质」的可玩化，不强制任何原著身份。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "qianzhu_tower_trial",
+      "display": "千竹机关塔试炼",
+      "region": "west_or_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "novel_anchor": "千竹教傀儡机关；大衍相关残篇；停轮优于蛮力",
+      "instance": "thousand_bamboo_puppet_tower",
+      "steps": [
+        {
+          "step": 1,
+          "summary": "入塔",
+          "do": "持试炼令/潜入进入一层竹门廊",
+          "need": [],
+          "place": "qz_l1",
+          "reward": {},
+          "novel_anchor": "机关教学层",
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "二层停轮",
+          "do": "齿轮厅优先停轮再推进",
+          "need": [],
+          "place": "qz_l2",
+          "reward": {},
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "三层破核",
+          "do": "傀营破核控场",
+          "need": [],
+          "place": "qz_l3",
+          "reward": {
+            "loot": "puppet_core_embryo_broken"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "总控",
+          "do": "争夺/使用总控台",
+          "need": [],
+          "place": "qianzhu_control_console",
+          "reward": {
+            "flag": "console_used"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 5,
+          "summary": "塔主",
+          "do": "五层塔主傀，掉落残篇权重",
+          "need": [],
+          "place": "qz_l5",
+          "reward": {
+            "loot_weight": "dayan_fragment"
+          },
+          "novel_anchor": "完整大衍不保底",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "next_chains": [
+        "dayan_clue"
+      ],
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#qianzhu_tower_trial",
+      "rewards_numeric": {
+        "part_loot_low": [
+          100,
+          2000
+        ],
+        "dayan_page_weight": [
+          0.08,
+          0.2
+        ],
+        "console_control_bonus_rep": [
+          0,
+          5
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#qianzhu_tower_trial",
+      "tagline": "停轮，破核，夺总控。蛮力是给石灵傀送的祭品。",
+      "synopsis": "千竹机关塔教你认机关纹：一层教学，二层停轮，三层傀营破核，四层石灵，五层塔主与总控。大衍残篇有权重，完整大衍不保底、不商店直售。总控台可被敌方争夺——联机时这是阵点。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "dayan_clue",
+      "display": "大衍残篇线索",
+      "region": "qianzhu",
+      "novel_anchor": "大衍决：残篇+人情线；完整版不保底不商店直售",
+      "prereq": [
+        "qianzhu_tower_progress or dayan_page"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "summary": "鉴定残篇",
+          "do": "持残页找百巧/千竹相关鉴定",
+          "need": [],
+          "place": null,
+          "reward": {
+            "flag": "dayan_page_identified"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 2,
+          "summary": "人情线",
+          "do": "完成傀儡师/千竹教人情任务换下页线索",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "人情拼残篇",
+          "optional": true,
+          "fail": null
+        },
+        {
+          "step": 3,
+          "summary": "再入塔或交易",
+          "do": "塔内权重或黑市残页，完整度累积",
+          "need": [],
+          "place": null,
+          "reward": {
+            "method_progress": "dayan_jue_fragments"
+          },
+          "novel_anchor": null,
+          "optional": false,
+          "fail": null
+        },
+        {
+          "step": 4,
+          "summary": "上限说明",
+          "do": "系统/NPC 明示：完整大衍极稀有，不保底",
+          "need": [],
+          "place": null,
+          "reward": {},
+          "novel_anchor": "防刷完整大衍",
+          "optional": false,
+          "fail": null
+        }
+      ],
+      "rewards_finale": {
+        "method_fragment": "dayan_jue",
+        "no_pity_full": true
+      },
+      "rewards_numeric_ref": "quest_reward_economy_v142.json#dayan_clue",
+      "rewards_numeric": {
+        "page_black_market_low": [
+          500,
+          8000
+        ],
+        "full_art_pity": false,
+        "favor_quest_cash_low": [
+          200,
+          3000
+        ]
+      },
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#dayan_clue",
+      "tagline": "一页一页拼。完整的那本，不卖，也不保底。",
+      "synopsis": "大衍决是神识衍算秘传。你鉴定残页、做千竹/百巧人情、再入塔或走黑市，把完整度往上堆——但系统与 NPC 都会明示：完整大衍极稀有，无保底。这是防刷与贴原著稀缺的双重钉死。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "guanghan_endgame_path",
+      "display": "广寒终局路",
+      "region": "guanghan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "novel_anchor": "广寒炼神术/虚灵丹/真仙威压钩子",
+      "endgame_ref": "endgame_guanghan_v143.json",
+      "steps": [
+        {
+          "step": 1,
+          "do": "在天渊/风元取得界面令或机缘资格",
+          "novel": "界面资格"
+        },
+        {
+          "step": 2,
+          "do": "赴广寒途：寒域适应、路途妖物",
+          "place": "gh_approach"
+        },
+        {
+          "step": 3,
+          "do": "界内考校，争炼神术资格（unique）",
+          "place": "gh_inner",
+          "unique": "lian_shen_shu"
+        },
+        {
+          "step": 4,
+          "do": "可选：真仙威压事件求生/契约/撤离",
+          "optional": true,
+          "place": "gh_true_immortal_pressure"
+        },
+        {
+          "step": 5,
+          "do": "持虚灵丹等冲击合体",
+          "place": "gh_integration_prep",
+          "pill": "xu_ling_dan"
+        }
+      ],
+      "rewards_finale": {
+        "possible": [
+          "lian_shen_shu_unique",
+          "xu_ling_dan",
+          "integration_success_flag"
+        ]
+      },
+      "no_pity": [
+        "lian_shen_shu",
+        "full_true_immortal_loot"
+      ],
+      "rewards_numeric": {
+        "unique_manual": "lian_shen_shu",
+        "scarce_pill": "xu_ling_dan",
+        "cash_low": [
+          0,
+          0
+        ],
+        "note": "终局以权能与突破物为主，不以灵石海量奖"
+      },
+      "rewards_detail_ref": "endgame_reward_tables_v144.json#guanghan",
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#guanghan_endgame_path",
+      "tagline": "炼神术只有那一部。真仙威压，不是野怪表。",
+      "synopsis": "炼虚之后的广寒向终局：界面资格、赴寒途、界内考校争炼神术（unique）、可选真仙威压事件求生，再持虚灵丹等冲击合体。真仙战不做成可刷 Boss；马良等为权重。开局继承禁止全抄炼神术，防神识经济崩盘。",
+      "description_prose_ref": true
+    },
+    {
+      "id": "deity_huoyu_path",
+      "display": "化神·火狱准备链",
+      "region": "mortal_late",
+      "realm_span": [
+        "NASCENT_SOUL_late",
+        "DEITY_TRANSFORMATION"
+      ],
+      "novel_anchor": "火狱太阳精火、回阳真水、化神冲击、飞升",
+      "endgame_ref": "endgame_deity_huoyu_v143.json",
+      "steps": [
+        {
+          "step": 1,
+          "id": "xiaojigong_cold",
+          "do": "小极宫寒焰线，取五寒焰",
+          "risk": "反目"
+        },
+        {
+          "step": 2,
+          "id": "manhuzi_cave",
+          "do": "蛮胡子洞府：托天魔功/银蝌文"
+        },
+        {
+          "step": 3,
+          "id": "fansheng_complete",
+          "do": "拼成梵圣真魔功，法体成型"
+        },
+        {
+          "step": 4,
+          "id": "jinjiao_longlin",
+          "do": "外海深：金蛟与龙鳞果"
+        },
+        {
+          "step": 5,
+          "id": "huoyu_taiyang",
+          "do": "火狱取太阳精火",
+          "place": "hy_core",
+          "unique": "tai_yang_jing_huo"
+        },
+        {
+          "step": 6,
+          "id": "huiyang_combine",
+          "do": "合成回阳真水",
+          "unique": "hui_yang_zhen_shui"
+        },
+        {
+          "step": 7,
+          "id": "moyuan_exchange",
+          "do": "魔元丹交换/紫灵线",
+          "optional_bond": "zi_ling"
+        },
+        {
+          "step": 8,
+          "id": "deity_breakthrough",
+          "do": "化神冲击",
+          "base_success": 0.08
+        },
+        {
+          "step": 9,
+          "id": "ascent",
+          "do": "飞升灵界：破界符/节点/六丁天甲等",
+          "next": "tianyuan_landing_register"
+        }
+      ],
+      "rewards_finale": {
+        "unique": [
+          "tai_yang_jing_huo",
+          "hui_yang_zhen_shui"
+        ],
+        "next": "tianyuan_landing_register"
+      },
+      "rewards_numeric": {
+        "base_success": 0.08,
+        "hui_yang_unique": true,
+        "sun_fire_limited": true,
+        "note": "成功率修正见 endgame_deity_huoyu_v143 breakthrough"
+      },
+      "next_chains": [
+        "tianyuan_landing_register"
+      ],
+      "rewards_detail_ref": "endgame_reward_tables_v144.json#deity_huoyu",
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ],
+      "full_description_ref": "quest_lines_full_descriptions_v147.json#deity_huoyu_path",
+      "tagline": "寒焰对冲，精火限次，回阳不二。化神，从来不是点满技能就成。",
+      "synopsis": "人界末期化神准备的长链：小极宫五寒焰（可反目）→蛮胡子洞府托天/银蝌→梵圣真魔法体→外海金蛟龙鳞→火狱取太阳精火（限次）→合成回阳真水（unique）→魔元丹（可接紫灵线气质）→化神冲击（基础成功率很低）→飞升物资与光门，接入天渊登记。堆资源可提高成功率，但建议硬顶，防「必成化神」。",
+      "description_prose_ref": true
+    }
+  ],
+  "v142_economy": true,
+  "v143": true,
+  "v144": true,
+  "v145_story_map": true,
+  "v146_full_descriptions_ref": "quest_lines_full_descriptions_v146.json",
+  "v147_full_descriptions_ref": "quest_lines_full_descriptions_v147.json"
+}

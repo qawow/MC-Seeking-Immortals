@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -80,10 +81,10 @@ public final class DialogueActionExecutor {
                 yield true;
             }
             case TURNIN_QUESTS, OFFER_QUEST, OPEN_QUEST, OPEN_QUEST_BOARD -> {
-                // M11 consumes dialogue progress events; here we only set soft flags / favor.
+                // M11: soft flag + favor, then authority settlement via QuestHookRuntime effect path.
                 NpcDialogueFlags.setFlag(player, "dialogue_" + normalize(nodeId) + "_" + type);
                 NpcFavorService.add(player, npcId, 1);
-                player.displayClientMessage(Component.literal("[对话] 任务相关动作已记录，待任务系统结算。"), false);
+                settleQuestEffect(player, type, effect);
                 yield true;
             }
             case ENTER_INSTANCE -> enterInstance(player, effect);
@@ -118,6 +119,60 @@ public final class DialogueActionExecutor {
                 yield true;
             }
         };
+    }
+
+    private static void settleQuestEffect(ServerPlayer player, String type, DialogueBranchService.Effect effect) {
+        if (player == null || effect == null) {
+            return;
+        }
+        List<String> questIds = new ArrayList<>();
+        String q = firstNonBlank(effect.param("q"), effect.param("quest"), effect.param("quest_id"), effect.param("id"));
+        if (!q.isBlank()) {
+            questIds.add(q);
+        }
+        String multi = effect.param("quest_ids");
+        if (multi != null && !multi.isBlank()) {
+            for (String part : multi.split("[,;\\s]+")) {
+                if (!part.isBlank()) {
+                    questIds.add(part.trim());
+                }
+            }
+        }
+        // Catalog effect links (offer_quest:xxx etc.).
+        String effectKey = normalize(type) + (q.isBlank() ? "" : ":" + normalize(q));
+        questIds.addAll(com.xunxian.seekingimmortals.quest.QuestHookRuntime.questsForEffect(effectKey));
+        questIds.addAll(com.xunxian.seekingimmortals.quest.QuestHookRuntime.questsForEffect(type));
+        String action = normalize(type);
+        for (String questId : questIds) {
+            if (questId == null || questId.isBlank()) {
+                continue;
+            }
+            String id = questId.trim();
+            if ("turnin_quests".equals(action)) {
+                if (com.xunxian.seekingimmortals.quest.TextQuestChainService.find(id).isPresent()) {
+                    var progress = com.xunxian.seekingimmortals.quest.TextQuestChainService.progressOf(player, id);
+                    if (progress.stage() > 0 && !progress.complete()) {
+                        com.xunxian.seekingimmortals.quest.TextQuestChainService.advance(player, id);
+                    }
+                } else {
+                    NpcDialogueFlags.setFlag(player, "quest_turnin_" + normalize(id));
+                }
+            } else {
+                if (com.xunxian.seekingimmortals.quest.TextQuestChainService.find(id).isPresent()) {
+                    var progress = com.xunxian.seekingimmortals.quest.TextQuestChainService.progressOf(player, id);
+                    if (progress.stage() <= 0) {
+                        com.xunxian.seekingimmortals.quest.TextQuestChainService.start(player, id);
+                    }
+                } else {
+                    NpcDialogueFlags.setFlag(player, "quest_offered_" + normalize(id));
+                }
+            }
+        }
+        if (questIds.isEmpty()) {
+            player.displayClientMessage(Component.literal("[对话] 任务相关动作已记录。"), false);
+        } else {
+            player.displayClientMessage(Component.literal("[对话] 任务结算：" + String.join(",", questIds)), false);
+        }
     }
 
     private static boolean openShop(ServerPlayer player, String npcId, DialogueBranchService.Effect effect) {

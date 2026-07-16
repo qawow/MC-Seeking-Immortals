@@ -33,10 +33,23 @@ public final class ExtendedCatalogService {
     public record QuestStartRequirements(String realmMin, String faction, String region) {}
     public record QuestChain(String id, String display, String region, String realmSpan, int stepCount,
                              String mainChapterRef, List<String> rewardsFinale,
-                             QuestStartRequirements startRequirements) {}
+                             QuestStartRequirements startRequirements,
+                             List<String> stepHooks, String alchemyLoopRef, String skillTreeRef) {
+        public QuestChain(String id, String display, String region, String realmSpan, int stepCount,
+                          String mainChapterRef, List<String> rewardsFinale,
+                          QuestStartRequirements startRequirements) {
+            this(id, display, region, realmSpan, stepCount, mainChapterRef, rewardsFinale,
+                    startRequirements, List.of(), "", "");
+        }
+    }
     public record SectEntry(String id, String display, String region, String alignment, String realmFocus, String specialty) {}
     public record ConsumableEntry(String id, String display, String category, String realmMin, String effect) {}
-    public record StoryChapter(String id, String display, String region, String realmSpan, String summary) {}
+    public record StoryChapter(String id, String display, String region, String realmSpan, String summary,
+                               List<String> questChainRefs) {
+        public StoryChapter(String id, String display, String region, String realmSpan, String summary) {
+            this(id, display, region, realmSpan, summary, List.of());
+        }
+    }
     public record DailyEvent(String id, String display, String region, int weight, List<String> effects) {}
 
     public record IdDisplay(String id, String display, String extra) {}
@@ -95,9 +108,17 @@ public final class ExtendedCatalogService {
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
                 String region = str(o, "region");
-                quests.put(id, new QuestChain(id, str(o, "display"), region, str(o, "realm_span"),
+                String realmSpan = joinOrStr(o, "realm_span");
+                if (region.isBlank()) {
+                    region = "unknown";
+                }
+                if (realmSpan.isBlank()) {
+                    realmSpan = "QI_REFINING";
+                }
+                quests.put(id, new QuestChain(id, str(o, "display"), region, realmSpan,
                         asInt(o, "step_count"), str(o, "main_chapter_ref"), stringList(o.get("rewards_finale")),
-                        new QuestStartRequirements(firstString(o.get("realm_span")), "", region)));
+                        new QuestStartRequirements(firstString(o.get("realm_span")), "", region),
+                        stringList(o.get("step_hooks")), str(o, "alchemy_loop_ref"), str(o, "skill_tree_ref")));
             }
         }
         enrichQuestStartRequirements(quests);
@@ -135,7 +156,9 @@ public final class ExtendedCatalogService {
                 JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
-                chapters.put(id, new StoryChapter(id, str(o, "display"), str(o, "region"), str(o, "realm_span"), str(o, "summary")));
+                chapters.put(id, new StoryChapter(id, str(o, "display"), str(o, "region"),
+                        joinOrStr(o, "realm_span"), str(o, "summary"),
+                        stringList(o.get("quest_chain_refs"))));
             }
         }
 
@@ -214,11 +237,66 @@ public final class ExtendedCatalogService {
             JsonObject start = object(requirements, "start");
             String realmMin = hasStart ? str(start, "realm_min") : current.startRequirements().realmMin();
             String faction = hasStart ? str(start, "faction") : current.startRequirements().faction();
-            String region = hasStart ? str(start, "region") : current.startRequirements().region();
-            quests.put(id, new QuestChain(current.id(), current.display(), current.region(), current.realmSpan(),
-                    current.stepCount(), current.mainChapterRef(), current.rewardsFinale(),
-                    new QuestStartRequirements(realmMin, faction, region)));
+            String startRegion = hasStart ? str(start, "region") : current.startRequirements().region();
+            // Prefer live step hooks / refs from full schema-18 corpus when index is thin.
+            List<String> hooks = new ArrayList<>(current.stepHooks());
+            JsonElement stepsEl = object.get("steps");
+            if (hooks.isEmpty() && stepsEl != null && stepsEl.isJsonArray()) {
+                for (JsonElement stepEl : stepsEl.getAsJsonArray()) {
+                    if (!stepEl.isJsonObject()) continue;
+                    String hook = str(stepEl.getAsJsonObject(), "hook");
+                    if (!hook.isBlank()) hooks.add(hook);
+                }
+            }
+            String alchemy = current.alchemyLoopRef().isBlank() ? str(object, "alchemy_loop_ref") : current.alchemyLoopRef();
+            String skillTree = current.skillTreeRef().isBlank() ? str(object, "skill_tree_ref") : current.skillTreeRef();
+            int stepCount = current.stepCount();
+            if (stepCount <= 0) {
+                if (stepsEl != null && stepsEl.isJsonArray()) {
+                    stepCount = stepsEl.getAsJsonArray().size();
+                } else if (stepsEl != null && stepsEl.isJsonPrimitive()) {
+                    try {
+                        stepCount = stepsEl.getAsInt();
+                    } catch (Exception ignored) {
+                        stepCount = 0;
+                    }
+                }
+            }
+            String region = current.region().isBlank() ? firstNonBlank(str(object, "region"), "unknown") : current.region();
+            if (startRegion == null || startRegion.isBlank()) {
+                startRegion = region;
+            }
+            String realmSpan = current.realmSpan().isBlank()
+                    ? firstNonBlank(joinOrStr(object, "realm_span"), "QI_REFINING") : current.realmSpan();
+            List<String> finale = current.rewardsFinale();
+            if ((finale == null || finale.isEmpty()) && object.has("rewards_finale")) {
+                finale = stringList(object.get("rewards_finale"));
+            }
+            String mainChapter = current.mainChapterRef().isBlank() ? str(object, "main_chapter_ref") : current.mainChapterRef();
+            quests.put(id, new QuestChain(current.id(), current.display(), region, realmSpan,
+                    stepCount, mainChapter, finale,
+                    new QuestStartRequirements(realmMin, faction, startRegion),
+                    List.copyOf(hooks), alchemy, skillTree));
         }
+    }
+
+    private static String firstNonBlank(String a, String b) {
+        if (a != null && !a.isBlank()) {
+            return a;
+        }
+        return b == null ? "" : b;
+    }
+
+    private static String joinOrStr(JsonObject object, String key) {
+        if (object == null || !object.has(key) || object.get(key).isJsonNull()) {
+            return "";
+        }
+        JsonElement element = object.get(key);
+        if (element.isJsonArray()) {
+            List<String> parts = stringList(element);
+            return String.join(",", parts);
+        }
+        return str(object, key);
     }
 
     private static String path(String relative) {

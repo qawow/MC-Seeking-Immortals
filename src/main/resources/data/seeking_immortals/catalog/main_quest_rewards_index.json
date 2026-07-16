@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "source": "main_quest_rewards_v101",
+  "chains": [
+    {
+      "id": "mortal_to_immortal",
+      "display": "凡人入仙",
+      "realm": "MORTAL",
+      "prereq": "",
+      "unique": [
+        "掌天瓶"
+      ],
+      "step_count": 3
+    },
+    {
+      "id": "huangfeng_qi",
+      "display": "黄枫炼气",
+      "realm": "QI_REFINING",
+      "prereq": "mortal_to_immortal",
+      "unique": [],
+      "step_count": 4
+    },
+    {
+      "id": "tiannan_foundation",
+      "display": "天南筑基乱世",
+      "realm": "FOUNDATION",
+      "prereq": "huangfeng_qi",
+      "unique": [],
+      "step_count": 4
+    },
+    {
+      "id": "chaotic_core",
+      "display": "乱星海结丹",
+      "realm": "CORE_FORMATION",
+      "prereq": "tiannan_foundation",
+      "unique": [],
+      "step_count": 5
+    },
+    {
+      "id": "xutian_raid",
+      "display": "虚天殿夺宝",
+      "realm": "CORE_FORMATION",
+      "prereq": "chaotic_core",
+      "unique": [
+        "虚天鼎默认"
+      ],
+      "step_count": 3
+    },
+    {
+      "id": "nascent_path",
+      "display": "结婴之路",
+      "realm": "CORE_to_NASCENT",
+      "prereq": "xutian_raid",
+      "unique": [],
+      "step_count": 3
+    },
+    {
+      "id": "tiannan_return",
+      "display": "天南回归与交换会",
+      "realm": "NASCENT_SOUL",
+      "prereq": "nascent_path",
+      "unique": [],
+      "step_count": 3
+    },
+    {
+      "id": "border_war",
+      "display": "边界赌战",
+      "realm": "NASCENT_SOUL",
+      "prereq": "tiannan_return",
+      "unique": [],
+      "step_count": 3
+    },
+    {
+      "id": "dayan_zhuimo",
+      "display": "大衍与坠魔",
+      "realm": "NASCENT_SOUL",
+      "prereq": "border_war",
+      "unique": [
+        "造化体验标记"
+      ],
+      "step_count": 3
+    },
+    {
+      "id": "dajin_kunwu",
+      "display": "大晋至昆吾",
+      "realm": "NASCENT_SOUL",
+      "prereq": "dayan_zhuimo",
+      "unique": [
+        "详尽节点",
+        "八灵尺"
+      ],
+      "step_count": 6
+    },
+    {
+      "id": "deity_prepare",
+      "display": "化神准备与飞升",
+      "realm": "NASCENT_to_DEITY",
+      "prereq": "dajin_kunwu",
+      "unique": [
+        "回阳合成标记"
+      ],
+      "step_count": 8
+    },
+    {
+      "id": "spirit_diyuan",
+      "display": "灵界天渊地渊",
+      "realm": "DEITY_TRANSFORMATION",
+      "prereq": "deity_prepare",
+      "unique": [],
+      "step_count": 4
+    },
+    {
+      "id": "guanghan_maliang",
+      "display": "广寒与真仙战",
+      "realm": "VOID_to_GREAT",
+      "prereq": "spirit_diyuan",
+      "unique": [
+        "炼神术",
+        "真魂丹"
+      ],
+      "step_count": 4
+    }
+  ],
+  "unique_items": [
+    "八灵尺",
+    "回阳合成标记",
+    "掌天瓶",
+    "炼神术",
+    "真魂丹",
+    "虚天鼎默认",
+    "详尽节点",
+    "造化体验标记"
+  ]
+}

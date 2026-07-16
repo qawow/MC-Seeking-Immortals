@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v101 主线任务链与奖励对照（贴韩立线，可作任务编辑器锚点）",
+  "disclaimer": "奖励为结构包；unique 不重复发放",
+  "chains": [
+    {
+      "id": "mortal_to_immortal",
+      "display": "凡人入仙",
+      "realm": "MORTAL",
+      "steps": [
+        {"step": 1, "name": "七玄门风波", "rewards": ["医术残", "长春功线索"], "unlock": []},
+        {"step": 2, "name": "墨大夫反杀", "rewards": ["掌天瓶(触发)", "生存经验"], "unique": ["掌天瓶"]},
+        {"step": 3, "name": "金光上人/升仙令", "rewards": ["升仙令", "小剑符宝", "银两"], "unlock": ["太南小会"]}
+      ]
+    },
+    {
+      "id": "huangfeng_qi",
+      "display": "黄枫炼气",
+      "realm": "QI_REFINING",
+      "prereq": "mortal_to_immortal",
+      "steps": [
+        {"step": 1, "name": "入门测灵", "rewards": ["外门令", "基础术法", "小储物袋"]},
+        {"step": 2, "name": "药园管事", "rewards": ["药园令", "灵草配额", "绿液使用教程(规则)"], "unlock": ["药园玩法"]},
+        {"step": 3, "name": "血色禁地试炼", "rewards": ["筑基四主药捆", "禁地声望", "筑基丹自炼权"], "unlock": ["region_spawn blood_forbidden"]},
+        {"step": 4, "name": "筑基冲击", "rewards": ["筑基成功状态", "筑基期坊市折扣"], "fail_retry": "再备丹"}
+      ]
+    },
+    {
+      "id": "tiannan_foundation",
+      "display": "天南筑基乱世",
+      "realm": "FOUNDATION",
+      "prereq": "huangfeng_qi",
+      "steps": [
+        {"step": 1, "name": "燕翎堡追杀", "rewards": ["鬼灵门热度", "储物袋"], "heat": "guiling"},
+        {"step": 2, "name": "灵矿地道", "rewards": ["血玉蜘蛛卵", "大挪移令", "古传送组件"], "unique_account": ["大挪移令"]},
+        {"step": 3, "name": "黑煞教覆灭", "rewards": ["虚天残图", "邪丹样", "贡献/赏金"]},
+        {"step": 4, "name": "撤离天南", "rewards": ["辛如音阵法赠礼", "乱星海船票结构"], "unlock": ["chaotic_sea"]}
+      ]
+    },
+    {
+      "id": "chaotic_core",
+      "display": "乱星海结丹",
+      "realm": "CORE_FORMATION",
+      "prereq": "tiannan_foundation",
+      "steps": [
+        {"step": 1, "name": "天星立足", "rewards": ["城居权", "海兽猎令"]},
+        {"step": 2, "name": "六连殿古长老", "rewards": ["降尘丹", "混元钵", "势力中立"]},
+        {"step": 3, "name": "结丹闭关", "rewards": ["结丹成功", "法宝认主位"], "fail": "见 realm_breakthrough"},
+        {"step": 4, "name": "风希与风雷翅", "rewards": ["风雷翅", "碧焰酒", "毒蛟材"], "risk": "双妖追杀"},
+        {"step": 5, "name": "虚天殿开启", "rewards": ["虚天殿入场", "拼图完成奖励"], "unlock": ["secret_realm xutian"]}
+      ]
+    },
+    {
+      "id": "xutian_raid",
+      "display": "虚天殿夺宝",
+      "realm": "CORE_FORMATION",
+      "prereq": "chaotic_core",
+      "steps": [
+        {"step": 1, "name": "外殿试炼", "rewards": ["中阶材", "九曲灵参线索"]},
+        {"step": 2, "name": "核心争夺", "rewards": ["虚天鼎(结构归属)", "乾蓝冰焰", "补天丹争夺结果", "玉如意", "养魂木", "万年灵乳", "玄阴经"], "unique": ["虚天鼎默认"]},
+        {"step": 3, "name": "殿后收尾", "rewards": ["九曲灵参活体", "逃出生天"], "unlock": ["曲儿线"]}
+      ]
+    },
+    {
+      "id": "nascent_path",
+      "display": "结婴之路",
+      "realm": "CORE_to_NASCENT",
+      "prereq": "xutian_raid",
+      "steps": [
+        {"step": 1, "name": "阴冥历练", "rewards": ["魄石", "阴灵水", "啼魂线触发"]},
+        {"step": 2, "name": "云梦试剑", "rewards": ["定灵丹", "灵眼树根", "圣地声望"]},
+        {"step": 3, "name": "结婴冲击", "rewards": ["元婴成功", "寿元大增"], "items_any": ["定灵丹", "九曲灵参丹", "培婴丹"]}
+      ]
+    },
+    {
+      "id": "tiannan_return",
+      "display": "天南回归与交换会",
+      "realm": "NASCENT_SOUL",
+      "prereq": "nascent_path",
+      "steps": [
+        {"step": 1, "name": "元婴交换会", "rewards": ["赤精芝", "上古傀儡术", "困仙环类"]},
+        {"step": 2, "name": "掩月接人", "rewards": ["阳环", "血魔剑", "道侣复合"], "bond": "南宫婉"},
+        {"step": 3, "name": "阴罗四长老", "rewards": ["鬼罗幡", "炼尸之法", "魔道威名"]}
+      ]
+    },
+    {
+      "id": "border_war",
+      "display": "边界赌战",
+      "realm": "NASCENT_SOUL",
+      "prereq": "tiannan_return",
+      "steps": [
+        {"step": 1, "name": "参战注册", "rewards": ["盟军令", "补给箱"]},
+        {"step": 2, "name": "战功累计", "rewards": ["军功", "战场掉落"]},
+        {"step": 3, "name": "顶赏结算", "rewards": ["庚精", "玄天仙藤根茎", "元明灯"], "unlock": ["织纤线", "剑组庚精"]}
+      ]
+    },
+    {
+      "id": "dayan_zhuimo",
+      "display": "大衍与坠魔",
+      "realm": "NASCENT_SOUL",
+      "prereq": "border_war",
+      "steps": [
+        {"step": 1, "name": "大衍神君洞府", "rewards": ["大衍诀完善", "傀儡术", "土甲龙", "眩光晶/魄石"]},
+        {"step": 2, "name": "坠魔外谷", "rewards": ["罡银沙", "火蟾蟒兽丹", "七焰扇法"]},
+        {"step": 3, "name": "灵烛与造化", "rewards": ["灵烛果", "造化丹(一生一次)"], "unique": ["造化体验标记"]}
+      ]
+    },
+    {
+      "id": "dajin_kunwu",
+      "display": "大晋至昆吾",
+      "realm": "NASCENT_SOUL",
+      "prereq": "dayan_zhuimo",
+      "steps": [
+        {"step": 1, "name": "魔气之渊", "rewards": ["魔髓钻", "叱灵软玉", "灵鳌人情"]},
+        {"step": 2, "name": "炫烨王", "rewards": ["金刚罩", "天尸珠"]},
+        {"step": 3, "name": "明王诀/寒髓", "rewards": ["明王诀", "寒髓"]},
+        {"step": 4, "name": "晋京地下拍", "rewards": ["墨金/五行玉/庚精(购)"], "cost": "魔髓钻"},
+        {"step": 5, "name": "阴阳窟培婴", "rewards": ["阴芝马", "培婴丹", "银翅夜叉材"]},
+        {"step": 6, "name": "昆吾通关", "rewards": ["八灵尺", "黑风旗残", "五子同心魔", "太阴真火", "通灵火鼎", "圭灵牌", "血刃", "破界符", "节点资料", "青竹剑夺回"], "unique": ["详尽节点", "八灵尺"]}
+      ]
+    },
+    {
+      "id": "deity_prepare",
+      "display": "化神准备与飞升",
+      "realm": "NASCENT_to_DEITY",
+      "prereq": "dajin_kunwu",
+      "steps": [
+        {"step": 1, "name": "小极宫寒焰", "rewards": ["五寒焰", "万年玄玉", "乾蓝鼎结构"]},
+        {"step": 2, "name": "蛮胡子洞府", "rewards": ["托天魔功", "银蝌文"]},
+        {"step": 3, "name": "梵圣拼成", "rewards": ["梵圣真魔功", "法体成型"]},
+        {"step": 4, "name": "金蛟与龙鳞果", "rewards": ["龙鳞果秘术", "金属性妖丹"]},
+        {"step": 5, "name": "火狱回阳", "rewards": ["太阳精火", "回阳真水"], "unique": ["回阳合成标记"]},
+        {"step": 6, "name": "魔元丹交换", "rewards": ["魔元丹", "紫灵线推进"]},
+        {"step": 7, "name": "化神冲击", "rewards": ["化神成功", "天劫经验"], "kit": "化神资源捆"},
+        {"step": 8, "name": "飞升灵界", "rewards": ["六丁天甲", "破界使用", "灵界立足包"], "unlock": ["spirit_realm"]}
+      ]
+    },
+    {
+      "id": "spirit_diyuan",
+      "display": "灵界天渊地渊",
+      "realm": "DEITY_TRANSFORMATION",
+      "prereq": "deity_prepare",
+      "steps": [
+        {"step": 1, "name": "天渊注册", "rewards": ["功勋账户", "灵地租约", "玉清丹"]},
+        {"step": 2, "name": "地渊服役", "rewards": ["豹麟兽", "真蟾液", "暗兽材", "军功"]},
+        {"step": 3, "name": "星宫元磁", "rewards": ["元磁神山", "元磁神光"]},
+        {"step": 4, "name": "金阙玉书", "rewards": ["百脉炼宝决", "玄天炼器术"]}
+      ]
+    },
+    {
+      "id": "guanghan_maliang",
+      "display": "广寒与真仙战",
+      "realm": "VOID_to_GREAT",
+      "prereq": "spirit_diyuan",
+      "steps": [
+        {"step": 1, "name": "广寒界", "rewards": ["炼神术", "太乙青山", "虚灵丹", "金篆文"], "unique": ["炼神术"]},
+        {"step": 2, "name": "合体冲击", "rewards": ["合体成功", "洗灵完成"]},
+        {"step": 3, "name": "马良之战", "rewards": ["真魂丹", "仙器残", "盗天关联结构"], "unique": ["真魂丹"]},
+        {"step": 4, "name": "大乘与冥河", "rewards": ["冥河神乳线索", "虫王黑晶线索", "界面通道"]}
+      ]
+    }
+  ],
+  "reward_rules": {
+    "unique_once": true,
+    "account_bound_no_mail": true,
+    "fail_breakthrough_no_consume_unique": "失败不吞唯一剧情物",
+    "shop_unlock_with_phase": true
+  },
+  "cross_ref": {
+    "timeline": "hanli_timeline_items_v100.json",
+    "tags": "item_economy_tags_v101.json",
+    "breakthrough": "realm_breakthrough_v98.json",
+    "spawns": "region_spawn_tables_v98.json"
+  }
+}

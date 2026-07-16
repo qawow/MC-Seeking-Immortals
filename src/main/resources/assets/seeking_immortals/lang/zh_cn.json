@@ -4402,5 +4402,13 @@
   "message.seeking_immortals.beast.realm_gate": "契约失败：境界不足（需 %s）。",
   "message.seeking_immortals.beast.stage": "灵兽 %s 成长至「%s」：亲和 %s / 成长 %s",
   "message.seeking_immortals.capture.tier_cap": "收容失败：目标 %s 阶，当前上限 %s 阶。",
-  "message.seeking_immortals.bestiary.unlocked": "图鉴解锁：%s"
+  "message.seeking_immortals.bestiary.unlocked": "图鉴解锁：%s",
+  "message.seeking_immortals.main_story.realm_locked": "主线章节 %s 未解锁：需要境界 %s（当前 %s）",
+  "message.seeking_immortals.main_story.region_locked": "主线章节 %s 未解锁：需要区域 %s（当前 %s）",
+  "message.seeking_immortals.main_story.rep_locked": "主线章节 %s 未解锁：需要声望 %s ≥ %s（当前 %s）",
+  "message.seeking_immortals.main_story.secret_locked": "主线章节 %s 未解锁：需要通关秘境 %s",
+  "message.seeking_immortals.quest_reward.unique_already": "唯一剧情奖励已领取：%s",
+  "message.seeking_immortals.quest_reward.unique_granted": "获得唯一剧情奖励：%s",
+  "message.seeking_immortals.timeline.unknown": "未知时间线阶段：%s",
+  "message.seeking_immortals.timeline.unlocked": "时间线解锁：%s"
 }

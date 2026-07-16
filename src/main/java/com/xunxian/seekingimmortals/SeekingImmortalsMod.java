@@ -5,6 +5,7 @@ import com.xunxian.seekingimmortals.combat.AttributeLimitUnlocker;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.quest.FtbCustomTaskHooks;
 import com.xunxian.seekingimmortals.quest.FtbQuestDefaults;
+import com.xunxian.seekingimmortals.quest.QuestHookRuntime;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModBlockEntities;
 import com.xunxian.seekingimmortals.registry.ModCreativeTabs;
@@ -42,5 +43,7 @@ public class SeekingImmortalsMod {
         FtbQuestDefaults.bootstrapDefaultPack();
         // Wave488: bind FTB custom tasks to sect-war / reputation authority checks.
         FtbCustomTaskHooks.register();
+        // M11: native quest hooks (dialogue / kill / craft / daily / secret-realm).
+        QuestHookRuntime.register();
     }
 }

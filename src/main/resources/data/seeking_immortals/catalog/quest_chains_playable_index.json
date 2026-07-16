@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "source": "quest_chains_playable_v141",
+  "chains": [
+    {
+      "id": "mortal_qixuan_entry",
+      "display": "凡人·七玄入世（开局）",
+      "region": "tiannan",
+      "step_count": 5,
+      "next_chains": [
+        "huangfeng_blood_quota"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_0_mortal"
+      ]
+    },
+    {
+      "id": "huangfeng_blood_quota",
+      "display": "黄枫谷·血色禁地配额",
+      "region": "tiannan",
+      "step_count": 4,
+      "next_chains": [
+        "blood_forbidden_run"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_1_sect",
+        "chapter_2_foundation_secret"
+      ]
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "region": "blood_forbidden",
+      "step_count": 5,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_2_foundation_secret"
+      ]
+    },
+    {
+      "id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭事件（权重·可选）",
+      "region": "blood_forbidden",
+      "step_count": 3,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_2_foundation_secret"
+      ]
+    },
+    {
+      "id": "star_palace_register",
+      "display": "星宫登记",
+      "region": "chaotic_sea",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ]
+    },
+    {
+      "id": "inverse_star_intro",
+      "display": "逆星接头",
+      "region": "chaotic_sea",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ]
+    },
+    {
+      "id": "tianyuan_landing_register",
+      "display": "天渊落地登记",
+      "region": "tianyuan",
+      "step_count": 4,
+      "next_chains": [
+        "tianyuan_to_fengyuan_gate"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "tianyuan_to_fengyuan_gate",
+      "display": "界门入风元",
+      "region": "tianyuan",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "zhenyan_outer_lesson",
+      "display": "真言外门听法",
+      "region": "xianjie",
+      "step_count": 4,
+      "next_chains": [
+        "wuxing_intro"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "wuxing_intro",
+      "display": "大五行幻世入门",
+      "region": "xianjie",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "reincarnation_intro",
+      "display": "轮回殿引见",
+      "region": "xianjie",
+      "step_count": 3,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "court_hunt_gray",
+      "display": "天庭缉灰",
+      "region": "xianjie",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "heifeng_gray_sail",
+      "display": "黑风海接灰界",
+      "region": "heifeng_sea",
+      "step_count": 3,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "xutian_window_prepare",
+      "display": "虚天殿窗口筹备",
+      "region": "chaotic_sea_or_dajin",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea",
+        "chapter_4_great_jin"
+      ]
+    },
+    {
+      "id": "kunwu_clue_assemble",
+      "display": "昆吾线索拼合",
+      "region": "dajin",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ]
+    },
+    {
+      "id": "zhuimo_token",
+      "display": "坠魔令获取",
+      "region": "high_mortal",
+      "step_count": 3,
+      "next_chains": [
+        "lingzhu_fruit_run"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ]
+    },
+    {
+      "id": "lingzhu_fruit_run",
+      "display": "灵烛果争夺",
+      "region": "zhuimo_valley",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ]
+    },
+    {
+      "id": "yinyang_ku_intel",
+      "display": "阴阳窟情报",
+      "region": "dajin",
+      "step_count": 3,
+      "next_chains": [
+        "peiying_material_hunt"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ]
+    },
+    {
+      "id": "peiying_material_hunt",
+      "display": "培婴材料·阴芝马",
+      "region": "yinyang_ku",
+      "step_count": 3,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_4_great_jin"
+      ]
+    },
+    {
+      "id": "qianzhu_tower_trial",
+      "display": "千竹机关塔试炼",
+      "region": "west_or_sea",
+      "step_count": 5,
+      "next_chains": [
+        "dayan_clue"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ]
+    },
+    {
+      "id": "dayan_clue",
+      "display": "大衍残篇线索",
+      "region": "qianzhu",
+      "step_count": 4,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_3_chaotic_sea"
+      ]
+    },
+    {
+      "id": "guanghan_endgame_path",
+      "display": "广寒终局路",
+      "region": "guanghan",
+      "step_count": 5,
+      "next_chains": [],
+      "main_story_chapters_v145": [
+        "chapter_6_spirit_realm"
+      ]
+    },
+    {
+      "id": "deity_huoyu_path",
+      "display": "化神·火狱准备链",
+      "region": "mortal_late",
+      "step_count": 9,
+      "next_chains": [
+        "tianyuan_landing_register"
+      ],
+      "main_story_chapters_v145": [
+        "chapter_5_deity_transformation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,539 @@
+{
+  "schema_version": 1,
+  "source": "QUEST_LINES_FULL_v147",
+  "lines": [
+    {
+      "id": "mortal_qixuan_entry",
+      "display": "凡人·七玄入世（开局）",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "chapters": [
+        "chapter_0_mortal"
+      ],
+      "leads_to": [
+        "huangfeng_blood_quota"
+      ],
+      "step_count": 5,
+      "playtime_hint": "30–90 分钟教学"
+    },
+    {
+      "id": "huangfeng_blood_quota",
+      "display": "黄枫谷·血色禁地配额",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING_mid",
+        "FOUNDATION"
+      ],
+      "chapters": [
+        "chapter_1_sect",
+        "chapter_2_foundation_secret"
+      ],
+      "leads_to": [
+        "blood_forbidden_run"
+      ],
+      "step_count": 4,
+      "playtime_hint": "1–3 小时贡献循环"
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "region": "blood_forbidden",
+      "realm_span": [
+        "QI_REFINING_late",
+        "FOUNDATION"
+      ],
+      "chapters": [
+        "chapter_2_foundation_secret"
+      ],
+      "leads_to": [
+        "nangong_wan_weight_optional",
+        "筑基丹炼制/突破"
+      ],
+      "step_count": 5,
+      "playtime_hint": "一场窗口 40–120 分钟"
+    },
+    {
+      "id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭事件（权重·可选）",
+      "region": "blood_forbidden",
+      "realm_span": [],
+      "chapters": [
+        "chapter_2_foundation_secret"
+      ],
+      "leads_to": [],
+      "step_count": 3,
+      "playtime_hint": "15–40 分钟插曲"
+    },
+    {
+      "id": "star_palace_register",
+      "display": "星宫登记",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "chapters": [
+        "chapter_3_chaotic_sea"
+      ],
+      "leads_to": [
+        "xutian_window_prepare",
+        "chaotic_sea travel"
+      ],
+      "step_count": 4,
+      "playtime_hint": "20–45 分钟"
+    },
+    {
+      "id": "inverse_star_intro",
+      "display": "逆星接头",
+      "region": "chaotic_sea",
+      "realm_span": [],
+      "chapters": [
+        "chapter_3_chaotic_sea"
+      ],
+      "leads_to": [
+        "inverse black market"
+      ],
+      "step_count": 4,
+      "playtime_hint": "30–60 分钟"
+    },
+    {
+      "id": "tianyuan_landing_register",
+      "display": "天渊落地登记",
+      "region": "tianyuan",
+      "realm_span": [
+        "VOID_REFINEMENT"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "tianyuan_to_fengyuan_gate"
+      ],
+      "step_count": 4,
+      "playtime_hint": "25–50 分钟"
+    },
+    {
+      "id": "tianyuan_to_fengyuan_gate",
+      "display": "界门入风元",
+      "region": "tianyuan",
+      "realm_span": [
+        "VOID_REFINEMENT"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "guanghan_endgame_path",
+        "spirit content"
+      ],
+      "step_count": 4,
+      "playtime_hint": "视贡献 1–4 小时"
+    },
+    {
+      "id": "zhenyan_outer_lesson",
+      "display": "真言外门听法",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "wuxing_intro"
+      ],
+      "step_count": 4,
+      "playtime_hint": "40–80 分钟"
+    },
+    {
+      "id": "wuxing_intro",
+      "display": "大五行幻世入门",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "wuxing deeper tracks"
+      ],
+      "step_count": 4,
+      "playtime_hint": "1–2 小时"
+    },
+    {
+      "id": "reincarnation_intro",
+      "display": "轮回殿引见",
+      "region": "xianjie",
+      "realm_span": [],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "reincarnation trade"
+      ],
+      "step_count": 3,
+      "playtime_hint": "45–90 分钟"
+    },
+    {
+      "id": "court_hunt_gray",
+      "display": "天庭缉灰",
+      "region": "xianjie",
+      "realm_span": [],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": "1–2 小时"
+    },
+    {
+      "id": "heifeng_gray_sail",
+      "display": "黑风海接灰界",
+      "region": "heifeng_sea",
+      "realm_span": [],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "gray_border guide"
+      ],
+      "step_count": 3,
+      "playtime_hint": "40–100 分钟"
+    },
+    {
+      "id": "xutian_window_prepare",
+      "display": "虚天殿窗口筹备",
+      "region": "chaotic_sea_or_dajin",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "chapters": [
+        "chapter_3_chaotic_sea",
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [
+        "xutian instance run"
+      ],
+      "step_count": 4,
+      "playtime_hint": "筹备 2–6 小时；殿内另计"
+    },
+    {
+      "id": "kunwu_clue_assemble",
+      "display": "昆吾线索拼合",
+      "region": "dajin",
+      "realm_span": [
+        "NASCENT_SOUL_late",
+        "DEITY_prepare"
+      ],
+      "chapters": [
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [
+        "kunwu expedition"
+      ],
+      "step_count": 4,
+      "playtime_hint": "3–8 小时拼图与筹备"
+    },
+    {
+      "id": "zhuimo_token",
+      "display": "坠魔令获取",
+      "region": "high_mortal",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "chapters": [
+        "chapter_5_deity_transformation"
+      ],
+      "leads_to": [
+        "lingzhu_fruit_run"
+      ],
+      "step_count": 3,
+      "playtime_hint": "1–3 小时获取+备装"
+    },
+    {
+      "id": "lingzhu_fruit_run",
+      "display": "灵烛果争夺",
+      "region": "zhuimo_valley",
+      "realm_span": [],
+      "chapters": [
+        "chapter_5_deity_transformation"
+      ],
+      "leads_to": [
+        "zao_hua_dan craft",
+        "deity prep"
+      ],
+      "step_count": 4,
+      "playtime_hint": "单次冲击 1–3 小时"
+    },
+    {
+      "id": "yinyang_ku_intel",
+      "display": "阴阳窟情报",
+      "region": "dajin",
+      "realm_span": [
+        "NASCENT_SOUL"
+      ],
+      "chapters": [
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [
+        "peiying_material_hunt"
+      ],
+      "step_count": 3,
+      "playtime_hint": "1–2 小时"
+    },
+    {
+      "id": "peiying_material_hunt",
+      "display": "培婴材料·阴芝马",
+      "region": "yinyang_ku",
+      "realm_span": [],
+      "chapters": [
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [
+        "nascent breakthrough"
+      ],
+      "step_count": 3,
+      "playtime_hint": "2–5 小时"
+    },
+    {
+      "id": "qianzhu_tower_trial",
+      "display": "千竹机关塔试炼",
+      "region": "west_or_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "chapters": [
+        "chapter_3_chaotic_sea"
+      ],
+      "leads_to": [
+        "dayan_clue"
+      ],
+      "step_count": 5,
+      "playtime_hint": "1.5–3 小时/次"
+    },
+    {
+      "id": "dayan_clue",
+      "display": "大衍残篇线索",
+      "region": "qianzhu",
+      "realm_span": [],
+      "chapters": [
+        "chapter_3_chaotic_sea"
+      ],
+      "leads_to": [
+        "dayan cultivation"
+      ],
+      "step_count": 4,
+      "playtime_hint": "长线碎片 数小时～数十小时"
+    },
+    {
+      "id": "guanghan_endgame_path",
+      "display": "广寒终局路",
+      "region": "guanghan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [
+        "body integration content"
+      ],
+      "step_count": 5,
+      "playtime_hint": "终局章节级 数小时～数十小时"
+    },
+    {
+      "id": "deity_huoyu_path",
+      "display": "化神·火狱准备链",
+      "region": "mortal_late",
+      "realm_span": [
+        "NASCENT_SOUL_late",
+        "DEITY_TRANSFORMATION"
+      ],
+      "chapters": [
+        "chapter_5_deity_transformation"
+      ],
+      "leads_to": [
+        "tianyuan_landing_register"
+      ],
+      "step_count": 9,
+      "playtime_hint": "超长线 数十小时级"
+    },
+    {
+      "id": "mulan_tiannan_war_campaign",
+      "display": "慕兰—天南战争战役",
+      "region": "mulan / tiannan_border",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION",
+        "NASCENT_optional"
+      ],
+      "chapters": [
+        "chapter_1_sect"
+      ],
+      "leads_to": [
+        "tianlan_secret_grotto access",
+        "border politics"
+      ],
+      "step_count": 6,
+      "playtime_hint": "战役级 可反复阶段"
+    },
+    {
+      "id": "mulan_scout_clash",
+      "display": "草原斥候",
+      "region": "mulan",
+      "realm_span": [],
+      "chapters": [
+        "chapter_1_sect"
+      ],
+      "leads_to": [
+        "mulan_tiannan_war_campaign"
+      ],
+      "step_count": 3,
+      "playtime_hint": ""
+    },
+    {
+      "id": "fashi_soul_array_battle",
+      "display": "法士护族阵",
+      "region": "mulan",
+      "realm_span": [],
+      "chapters": [
+        "chapter_1_sect"
+      ],
+      "leads_to": [
+        "mulan_tiannan_war_campaign"
+      ],
+      "step_count": 3,
+      "playtime_hint": ""
+    },
+    {
+      "id": "holy_bird_blessing_quest",
+      "display": "圣禽祈福",
+      "region": "mulan",
+      "realm_span": [],
+      "chapters": [
+        "chapter_1_sect"
+      ],
+      "leads_to": [
+        "mulan_tiannan_war_campaign"
+      ],
+      "step_count": 3,
+      "playtime_hint": ""
+    },
+    {
+      "id": "xianjie_ascension_path",
+      "display": "飞升入仙",
+      "region": "xianjie",
+      "realm_span": [
+        "TRIBULATION_LAND",
+        "TRUE_IMMORTAL"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": ""
+    },
+    {
+      "id": "zhenyan_men_path",
+      "display": "真言门修行线",
+      "region": "xianjie",
+      "realm_span": [
+        "TRUE_IMMORTAL",
+        "TAIYI_GOLDEN_IMMORTAL"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 5,
+      "playtime_hint": ""
+    },
+    {
+      "id": "time_law_path",
+      "display": "时间法则线",
+      "region": "xianjie",
+      "realm_span": [
+        "GOLDEN_IMMORTAL",
+        "DALUO_GOLDEN_IMMORTAL"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": ""
+    },
+    {
+      "id": "reincarnation_hall_path",
+      "display": "轮回殿线",
+      "region": "xianjie",
+      "realm_span": [],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": ""
+    },
+    {
+      "id": "heifeng_and_gray",
+      "display": "黑风海与灰界",
+      "region": "xianjie",
+      "realm_span": [],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": ""
+    },
+    {
+      "id": "xianjie_endgame_glimpse",
+      "display": "仙界终局窥影",
+      "region": "xianjie",
+      "realm_span": [
+        "DALUO_GOLDEN_IMMORTAL",
+        "DAO_ANCESTOR_BAND"
+      ],
+      "chapters": [
+        "chapter_6_spirit_realm"
+      ],
+      "leads_to": [],
+      "step_count": 3,
+      "playtime_hint": ""
+    },
+    {
+      "id": "xutian_palace_run",
+      "display": "虚天殿入殿行",
+      "region": "xutian_palace",
+      "realm_span": [],
+      "chapters": [
+        "chapter_3_chaotic_sea",
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [],
+      "step_count": 4,
+      "playtime_hint": ""
+    },
+    {
+      "id": "kunwu_expedition_run",
+      "display": "昆吾入山行",
+      "region": "dajin / kunwu",
+      "realm_span": [],
+      "chapters": [
+        "chapter_4_great_jin"
+      ],
+      "leads_to": [],
+      "step_count": 6,
+      "playtime_hint": ""
+    }
+  ]
+}

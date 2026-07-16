@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "source": "dialogue_effect_quest_links_v140",
+  "links": [
+    {
+      "effect": "open_shop:blood_forbidden_quota",
+      "quest_ids": [
+        "huangfeng_blood_quota",
+        "sect_blood_forbidden_quota"
+      ]
+    },
+    {
+      "effect": "grant_item:blood_forbidden_token",
+      "quest_ids": [
+        "huangfeng_blood_quota"
+      ]
+    },
+    {
+      "effect": "enter_instance:blood_forbidden",
+      "quest_ids": [
+        "blood_forbidden_run",
+        "nangong_wan_weight_optional"
+      ]
+    },
+    {
+      "effect": "open_shop:star_registration",
+      "quest_ids": [
+        "star_palace_register"
+      ]
+    },
+    {
+      "effect": "unlock:star_palace_teleport_gate",
+      "quest_ids": [
+        "star_palace_register"
+      ]
+    },
+    {
+      "effect": "mark_structure:inverse_star_smuggle_dock",
+      "quest_ids": [
+        "inverse_star_intro",
+        "inverse_cipher"
+      ]
+    },
+    {
+      "effect": "open_shop:inverse_black",
+      "quest_ids": [
+        "inverse_star_trade"
+      ]
+    },
+    {
+      "effect": "set_flag:tianyuan_registered",
+      "quest_ids": [
+        "tianyuan_landing_register"
+      ]
+    },
+    {
+      "effect": "teleport:spirit_fengyuan",
+      "quest_ids": [
+        "tianyuan_to_fengyuan_gate"
+      ]
+    },
+    {
+      "effect": "open_quest_board:tianyuan_garrison",
+      "quest_ids": [
+        "tianyuan_garrison_duty"
+      ]
+    },
+    {
+      "effect": "offer_quest:zhenyan_outer_lesson",
+      "quest_ids": [
+        "zhenyan_outer_lesson"
+      ]
+    },
+    {
+      "effect": "offer_quest:wuxing_intro",
+      "quest_ids": [
+        "wuxing_intro",
+        "great_five_elements_intro"
+      ]
+    },
+    {
+      "effect": "open_shop:reincarnation_desk",
+      "quest_ids": [
+        "reincarnation_trade"
+      ]
+    },
+    {
+      "effect": "offer_quest:reincarnation_intro",
+      "quest_ids": [
+        "reincarnation_intro"
+      ]
+    },
+    {
+      "effect": "open_quest:court_hunt_gray",
+      "quest_ids": [
+        "court_hunt_gray",
+        "heavenly_court_wanted"
+      ]
+    },
+    {
+      "effect": "offer_quest:heifeng_gray_sail",
+      "quest_ids": [
+        "heifeng_gray_sail"
+      ]
+    },
+    {
+      "effect": "start_travel:gray_border",
+      "quest_ids": [
+        "gray_border_guide"
+      ]
+    },
+    {
+      "effect": "enter_instance:xutian_hint",
+      "quest_ids": [
+        "xutian_window_prepare",
+        "xutian_key_fragment"
+      ]
+    },
+    {
+      "effect": "enter_instance:kunwu",
+      "quest_ids": [
+        "kunwu_clue_assemble",
+        "kunwu_expedition"
+      ]
+    },
+    {
+      "effect": "enter_instance:zhuimo",
+      "quest_ids": [
+        "zhuimo_token",
+        "lingzhu_fruit_run"
+      ]
+    },
+    {
+      "effect": "enter_instance:yinyang",
+      "quest_ids": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ]
+    },
+    {
+      "effect": "mark_structure:qianzhu_control_console",
+      "quest_ids": [
+        "qianzhu_tower_trial",
+        "dayan_clue"
+      ]
+    },
+    {
+      "effect": "start_teleport",
+      "quest_ids": [
+        "any_travel"
+      ]
+    }
+  ]
+}

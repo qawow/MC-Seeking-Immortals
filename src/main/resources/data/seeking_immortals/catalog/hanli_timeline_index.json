@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "source": "hanli_timeline_items_v100",
+  "phases": [
+    {
+      "phase": "凡人·七玄门",
+      "realm": "MORTAL",
+      "node_count": 3
+    },
+    {
+      "phase": "炼气·黄枫谷",
+      "realm": "QI_REFINING",
+      "node_count": 5
+    },
+    {
+      "phase": "筑基·天南乱",
+      "realm": "FOUNDATION",
+      "node_count": 5
+    },
+    {
+      "phase": "结丹·乱星海",
+      "realm": "CORE_FORMATION",
+      "node_count": 6
+    },
+    {
+      "phase": "元婴·天南回归与大晋",
+      "realm": "NASCENT_SOUL",
+      "node_count": 21
+    },
+    {
+      "phase": "化神·灵界",
+      "realm": "DEITY_TRANSFORMATION",
+      "node_count": 7
+    },
+    {
+      "phase": "炼虚合体大乘（结构摘要）",
+      "realm": "VOID_to_GREAT",
+      "node_count": 4
+    }
+  ],
+  "phase_count": 7
+}

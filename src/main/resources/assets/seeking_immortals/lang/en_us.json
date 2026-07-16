@@ -4392,5 +4392,13 @@
   "message.seeking_immortals.beast.realm_gate": "Contract failed: realm too low (need %s).",
   "message.seeking_immortals.beast.stage": "Spirit beast %s grew to '%s': affinity %s / growth %s",
   "message.seeking_immortals.capture.tier_cap": "Capture failed: target tier %s, your cap is %s.",
-  "message.seeking_immortals.bestiary.unlocked": "Bestiary unlocked: %s"
+  "message.seeking_immortals.bestiary.unlocked": "Bestiary unlocked: %s",
+  "message.seeking_immortals.main_story.realm_locked": "Main story chapter %s locked: need realm %s (current %s)",
+  "message.seeking_immortals.main_story.region_locked": "Main story chapter %s locked: need region %s (current %s)",
+  "message.seeking_immortals.main_story.rep_locked": "Main story chapter %s locked: need reputation %s >= %s (current %s)",
+  "message.seeking_immortals.main_story.secret_locked": "Main story chapter %s locked: need secret realm clear %s",
+  "message.seeking_immortals.quest_reward.unique_already": "Unique story reward already claimed: %s",
+  "message.seeking_immortals.quest_reward.unique_granted": "Unique story reward granted: %s",
+  "message.seeking_immortals.timeline.unknown": "Unknown timeline phase: %s",
+  "message.seeking_immortals.timeline.unlocked": "Timeline unlocked: %s"
 }

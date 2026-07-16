@@ -1,6 +1,6 @@
 {
-  "schema_version": 4,
-  "source": "M11 main_story_chapters schema3",
+  "schema_version": 1,
+  "source": "main_story_quest_map_v145",
   "chapters": [
     {
       "id": "chapter_0_mortal",
@@ -10,12 +10,11 @@
         "MORTAL",
         "QI_REFINING"
       ],
-      "summary": "七玄门式入门弧：凡人求仙、测灵根、入外门。",
-      "quest_chain_refs": [
-        "huangfeng_cultivation_path"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "mortal_qixuan_entry"
+      ],
+      "legacy_quest_chain_refs": [
+        "huangfeng_cultivation_path"
       ],
       "milestones": [
         "测灵根",
@@ -31,13 +30,12 @@
         "QI_REFINING",
         "FOUNDATION"
       ],
-      "summary": "黄枫谷式外门：采药、丹童、贡献点换资源。",
-      "quest_chain_refs": [
+      "playable_quests": [
+        "huangfeng_blood_quota"
+      ],
+      "legacy_quest_chain_refs": [
         "huangfeng_cultivation_path",
         "mulan_war_campaign"
-      ],
-      "playable_quests_v145": [
-        "huangfeng_blood_quota"
       ],
       "milestones": [
         "外门任务",
@@ -53,14 +51,13 @@
         "QI_REFINING",
         "FOUNDATION"
       ],
-      "summary": "血色禁地五年/十年周期开放，名额有限，内层妖兽狂暴。",
-      "quest_chain_refs": [
-        "blood_forbidden_campaign"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "huangfeng_blood_quota",
         "blood_forbidden_run",
         "nangong_wan_weight_optional"
+      ],
+      "legacy_quest_chain_refs": [
+        "blood_forbidden_campaign"
       ],
       "milestones": []
     },
@@ -72,16 +69,15 @@
         "FOUNDATION",
         "CORE_FORMATION"
       ],
-      "summary": "入星海需舟与身份，星宫征税清剿逆星。",
-      "quest_chain_refs": [
-        "chaotic_sea_politics"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "star_palace_register",
         "inverse_star_intro",
         "xutian_window_prepare",
         "qianzhu_tower_trial",
         "dayan_clue"
+      ],
+      "legacy_quest_chain_refs": [
+        "chaotic_sea_politics"
       ],
       "milestones": [
         "买灵舟",
@@ -97,16 +93,15 @@
         "CORE_FORMATION",
         "NASCENT_SOUL"
       ],
-      "summary": "大晋世家与蛮荒并存，虚天殿三百年一现。",
-      "quest_chain_refs": [
-        "void_great_cultivation_arc",
-        "kunwu_mountain_campaign"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "kunwu_clue_assemble",
         "yinyang_ku_intel",
         "peiying_material_hunt",
         "xutian_window_prepare"
+      ],
+      "legacy_quest_chain_refs": [
+        "void_great_cultivation_arc",
+        "kunwu_mountain_campaign"
       ],
       "milestones": []
     },
@@ -118,14 +113,13 @@
         "NASCENT_SOUL",
         "DEITY_TRANSFORMATION"
       ],
-      "summary": "人界顶阶突破走天劫小/大结构，非刷概率。",
-      "quest_chain_refs": [
-        "fallen_demon_campaign"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "zhuimo_token",
         "lingzhu_fruit_run",
         "deity_huoyu_path"
+      ],
+      "legacy_quest_chain_refs": [
+        "fallen_demon_campaign"
       ],
       "milestones": [
         "小劫/大劫",
@@ -141,12 +135,7 @@
         "DEITY_TRANSFORMATION",
         "VOID_REFINEMENT"
       ],
-      "summary": "飞升天渊登记，灵气倍率与功勋换资源。",
-      "quest_chain_refs": [
-        "spirit_realm_rise",
-        "spirit_realm_border"
-      ],
-      "playable_quests_v145": [
+      "playable_quests": [
         "tianyuan_landing_register",
         "tianyuan_to_fengyuan_gate",
         "guanghan_endgame_path",
@@ -155,6 +144,10 @@
         "reincarnation_intro",
         "court_hunt_gray",
         "heifeng_gray_sail"
+      ],
+      "legacy_quest_chain_refs": [
+        "spirit_realm_rise",
+        "spirit_realm_border"
       ],
       "milestones": []
     }

@@ -25,7 +25,14 @@
         "progress": {
           "realm_max": "QI_REFINING"
         }
-      }
+      },
+      "playable_quests_v145": [
+        "mortal_qixuan_entry"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "凡人求仙、七玄门/墨大夫启蒙气质",
+      "v145": true,
+      "v146": true
     },
     {
       "id": "chapter_1_sect",
@@ -52,7 +59,13 @@
           "realm_min": "QI_REFINING",
           "realm_max": "FOUNDATION"
         }
-      }
+      },
+      "playable_quests_v145": [
+        "huangfeng_blood_quota"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "黄枫谷修行与七派格局",
+      "v145": true
     },
     {
       "id": "chapter_2_foundation_secret",
@@ -78,7 +91,15 @@
           "realm_min": "QI_REFINING",
           "ticket": "blood_forbidden_token"
         }
-      }
+      },
+      "playable_quests_v145": [
+        "huangfeng_blood_quota",
+        "blood_forbidden_run",
+        "nangong_wan_weight_optional"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "血色禁地→筑基",
+      "v145": true
     },
     {
       "id": "chapter_3_chaotic_sea",
@@ -104,7 +125,17 @@
           "realm_min": "FOUNDATION",
           "region": "chaotic_sea"
         }
-      }
+      },
+      "playable_quests_v145": [
+        "star_palace_register",
+        "inverse_star_intro",
+        "xutian_window_prepare",
+        "qianzhu_tower_trial",
+        "dayan_clue"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "乱星海秩序与暗线、虚天前夕",
+      "v145": true
     },
     {
       "id": "chapter_4_great_jin",
@@ -129,7 +160,16 @@
         "progress": {
           "realm_min": "CORE_FORMATION"
         }
-      }
+      },
+      "playable_quests_v145": [
+        "kunwu_clue_assemble",
+        "yinyang_ku_intel",
+        "peiying_material_hunt",
+        "xutian_window_prepare"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "大晋、昆吾、阴阳窟、虚天",
+      "v145": true
     },
     {
       "id": "chapter_5_deity_transformation",
@@ -158,7 +198,15 @@
       ],
       "secret_realm_refs": [
         "fallen_demon_valley"
-      ]
+      ],
+      "playable_quests_v145": [
+        "zhuimo_token",
+        "lingzhu_fruit_run",
+        "deity_huoyu_path"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "坠魔谷、造化、火狱回阳、化神",
+      "v145": true
     },
     {
       "id": "chapter_6_spirit_realm",
@@ -184,7 +232,22 @@
       },
       "secret_realm_refs": [
         "diyuan"
-      ]
+      ],
+      "playable_quests_v145": [
+        "tianyuan_landing_register",
+        "tianyuan_to_fengyuan_gate",
+        "guanghan_endgame_path",
+        "zhenyan_outer_lesson",
+        "wuxing_intro",
+        "reincarnation_intro",
+        "court_hunt_gray",
+        "heifeng_gray_sail"
+      ],
+      "story_map_ref": "main_story_quest_map_v145.json",
+      "novel_anchor_v145": "飞升灵界与仙界上层界面",
+      "v145": true
     }
-  ]
+  ],
+  "v145": true,
+  "quest_map_ref": "main_story_quest_map_v145.json"
 }
