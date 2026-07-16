@@ -129,6 +129,8 @@ public final class ModEvents {
                 event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
         com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(
                 event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
+        com.xunxian.seekingimmortals.craft.GardenLiquidService.copyPersistentData(
+                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
         event.getOriginal().invalidateCaps();
     }
 
@@ -157,6 +159,10 @@ public final class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide) return;
         handleCatalogPillTimers(event.player);
+        // M04: re-assert palm bottle uniqueness occasionally
+        if (event.player instanceof ServerPlayer serverPlayer && serverPlayer.tickCount % 100 == 0) {
+            com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
+        }
         CultivationHelper.get(event.player).ifPresent(cultivation -> {
             cultivation.tickCultivationBoost();
             String preferredRegion = cultivation.getWorldpackCurrentRegionId();
@@ -527,6 +533,8 @@ public final class ModEvents {
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
                 // M06: resolve region from dimension/biome before worldpack sync.
                 com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(serverPlayer);
+                // M04: 掌天瓶唯一性服务端强制
+                com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
                 SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
                 SyncCultivationDataPacket.send(serverPlayer, cultivation);
                 SyncSkillDataPacket.send(serverPlayer, cultivation);

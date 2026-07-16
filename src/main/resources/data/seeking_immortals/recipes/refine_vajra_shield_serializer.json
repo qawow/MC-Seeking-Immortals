@@ -1,0 +1,22 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:gold_seam_stone"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:vajra_shield",
+    "count": 1
+  },
+  "success_rate": 0.42,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

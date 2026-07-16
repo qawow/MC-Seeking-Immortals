@@ -1,20 +1,11 @@
 package com.xunxian.seekingimmortals.block;
 
-import com.xunxian.seekingimmortals.artifact.ArtifactRefinementService;
-import com.xunxian.seekingimmortals.recipe.RefinementCraftingRecipe;
-import com.xunxian.seekingimmortals.registry.ModRecipes;
-import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
+import com.xunxian.seekingimmortals.craft.RefinementForgeCraftHelper;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.RefinementForgeStructure;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -27,8 +18,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * Text-material refinement forge workstation.
- * Sneak-use validates multiblock then attempts ArtifactRefinementService.refine with first catalog recipe.
+ * Text-material refinement forge workstation (G1).
+ * Sneak-use validates multiblock then crafts via datapack serializer / catalog fallback.
  */
 public class RefinementForgeBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
@@ -88,72 +79,10 @@ public class RefinementForgeBlock extends Block {
             return InteractionResult.CONSUME;
         }
 
-        // Wave54: prefer custom RecipeSerializer refinement recipes from RecipeManager.
-        ServerLevel serverLevel = serverPlayer.serverLevel();
-        SimpleContainer inv = new SimpleContainer(36);
-        for (int i = 0; i < 36; i++) {
-            inv.setItem(i, serverPlayer.getInventory().items.get(i).copy());
-        }
-        var optional = serverLevel.getRecipeManager()
-                .getRecipeFor(ModRecipes.REFINEMENT_TYPE.get(), inv, serverLevel);
-        if (optional.isPresent()) {
-            RefinementCraftingRecipe recipe = optional.get();
-            boolean success = serverPlayer.getAbilities().instabuild
-                    || serverLevel.random.nextFloat() < recipe.successRate();
-            // consume one of each ingredient from player inventory
-            if (!serverPlayer.getAbilities().instabuild) {
-                for (Ingredient ingredient : recipe.getIngredients()) {
-                    boolean consumed = false;
-                    for (int i = 0; i < serverPlayer.getInventory().items.size(); i++) {
-                        ItemStack stack = serverPlayer.getInventory().items.get(i);
-                        if (!stack.isEmpty() && ingredient.test(stack)) {
-                            stack.shrink(1);
-                            consumed = true;
-                            break;
-                        }
-                    }
-                    if (!consumed) {
-                        player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.no_recipe"), false);
-                        return InteractionResult.CONSUME;
-                    }
-                }
-            }
-            if (success) {
-                ItemStack out = recipe.assemble(inv, serverLevel.registryAccess());
-                if (!serverPlayer.getInventory().add(out.copy())) {
-                    serverPlayer.drop(out.copy(), false);
-                }
-                serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
-                        12, 0.35D, 0.25D, 0.35D, 0.01D);
-                serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.7F, 1.1F);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.activated"), true);
-            } else {
-                var salvage = ArtifactRefinementService.grantDefaultFailureLoot(serverPlayer, "low");
-                serverLevel.playSound(null, pos, SoundEvents.ANVIL_BREAK, SoundSource.BLOCKS, 0.6F, 0.8F);
-                player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.failed",
-                        recipe.getId().toString(),
-                        String.format(java.util.Locale.ROOT, "%.0f%%", recipe.successRate() * 100.0F),
-                        salvage.isEmpty() ? "-" : salvage.get(0).getHoverName().getString()), false);
-            }
-            serverPlayer.containerMenu.broadcastChanges();
-            return InteractionResult.CONSUME;
-        }
-
-        // Fallback to catalog service path.
-        String recipeId = ArtifactRefinementService.selectRecipeId(serverPlayer, 1);
-        if (recipeId == null || recipeId.isBlank()) {
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.no_recipe"), false);
-            return InteractionResult.CONSUME;
-        }
-
-        boolean ok = ArtifactRefinementService.refine(serverPlayer, recipeId, 1);
-        if (ok) {
-            serverLevel.sendParticles(ParticleTypes.LAVA, pos.getX() + 0.5D, pos.getY() + 1.0D, pos.getZ() + 0.5D,
-                    12, 0.35D, 0.25D, 0.35D, 0.01D);
-            serverLevel.playSound(null, pos, SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 0.7F, 1.1F);
-            player.displayClientMessage(Component.translatable("message.seeking_immortals.refinement_forge.activated"), true);
-        }
-        // On failure, refine() already sent failure/salvage/forge_too_low messages.
+        RefinementForgeCraftHelper.tryCraft(
+                serverPlayer, pos, 1,
+                "message.seeking_immortals.refinement_forge.activated",
+                "message.seeking_immortals.refinement_forge.no_recipe");
         return InteractionResult.CONSUME;
     }
 }

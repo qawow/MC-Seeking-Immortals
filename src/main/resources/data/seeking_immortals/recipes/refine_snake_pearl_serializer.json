@@ -1,0 +1,28 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:demon_core_fragment"
+    },
+    {
+      "item": "seeking_immortals:demon_core_fragment"
+    },
+    {
+      "item": "seeking_immortals:demon_core_fragment"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:snake_pearl",
+    "count": 1
+  },
+  "success_rate": 0.62,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 1
+}

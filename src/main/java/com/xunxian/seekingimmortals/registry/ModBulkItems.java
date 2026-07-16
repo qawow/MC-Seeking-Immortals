@@ -8,6 +8,8 @@ import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
+import com.xunxian.seekingimmortals.item.pill.BulkPillItem;
+import com.xunxian.seekingimmortals.item.pill.PillQuality;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,7 +33,8 @@ import java.util.Set;
  * Loaded from assets/seeking_immortals/catalog_bulk_items.json at class init.
  * <p>
  * M03: sole bulk registration pipeline for catalog item-id authority.
- * Unique story items (掌天瓶/绿液) are never registered here.
+ * Unique story items are excluded from generic catalog loading; M04 registers
+ * the palm bottle and green-liquid carriers explicitly below.
  */
 public final class ModBulkItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -133,13 +136,28 @@ public final class ModBulkItems {
                     GRADES.put(rid, itemGrade.toLowerCase(Locale.ROOT));
                 }
             }
+            // Explicit carriers for M04's server-authoritative unique/quota service.
+            registerGardenSpecial("palm_heaven_bottle", "artifact", "legendary", "掌天瓶（唯一，不可交易）");
+            registerGardenSpecial("green_liquid_drop", "consumable", "epic", "绿液（年配额催熟）");
             SeekingImmortalsMod.LOGGER.info("Registered {} bulk catalog item carriers", IDS.size());
         } catch (Exception e) {
             SeekingImmortalsMod.LOGGER.error("Failed loading bulk catalog items", e);
         }
     }
 
-    private static Item createItem(String catalogId, String category, String rarity, String description, String grade) {
+    private static void registerGardenSpecial(String id, String category, String rarity, String description) {
+        String rid = id.toLowerCase(Locale.ROOT);
+        if (BY_ID.containsKey(rid)) {
+            return;
+        }
+        RegistryObject<Item> reg = ITEMS.register(rid,
+                () -> createItem(rid, category, rarity, description, ""));
+        BY_ID.put(rid, reg);
+        IDS.add(rid);
+        CATEGORIES.put(rid, category.toLowerCase(Locale.ROOT));
+    }
+
+    private static Item createItem(String id, String category, String rarity, String description, String grade) {
         String cat = category == null ? "material" : category.toLowerCase(Locale.ROOT);
         MaterialCategory materialCategory = switch (cat) {
             case "pill", "consumable" -> MaterialCategory.SPIRITUAL_HERB;
@@ -164,11 +182,39 @@ public final class ModBulkItems {
         if (materialRarity == MaterialRarity.EPIC || materialRarity == MaterialRarity.LEGENDARY) {
             props = props.rarity(Rarity.EPIC);
         }
-        if ("artifact".equals(cat) || "equipment".equals(cat)) {
+        if ("artifact".equals(cat) || "equipment".equals(cat) || "palm_heaven_bottle".equals(id)) {
             props = props.stacksTo(1);
         } else if ("pill".equals(cat) || "consumable".equals(cat) || "talisman".equals(cat)) {
             props = props.stacksTo(16);
         }
-        return new CatalogCarrierItem(props, materialCategory, materialRarity, description, catalogId, grade);
+        if ("pill".equals(cat) || id.endsWith("_pill") || id.contains("_pill_") || id.endsWith("_dan")) {
+            PillQuality quality = qualityFromId(id);
+            return new BulkPillItem(props, materialCategory, materialRarity, description, basePillId(id), quality);
+        }
+        return new CatalogCarrierItem(props, materialCategory, materialRarity, description, id, grade);
+    }
+
+    private static String basePillId(String id) {
+        String path = id == null ? "" : id.toLowerCase(Locale.ROOT);
+        for (String suffix : new String[]{"_mid", "_middle", "_high", "_supreme", "_perfect", "_low"}) {
+            if (path.endsWith(suffix)) {
+                return path.substring(0, path.length() - suffix.length());
+            }
+        }
+        return path;
+    }
+
+    private static PillQuality qualityFromId(String id) {
+        String path = id == null ? "" : id.toLowerCase(Locale.ROOT);
+        if (path.endsWith("_supreme") || path.endsWith("_perfect")) {
+            return PillQuality.PERFECT;
+        }
+        if (path.endsWith("_high")) {
+            return PillQuality.HIGH;
+        }
+        if (path.endsWith("_mid") || path.endsWith("_middle")) {
+            return PillQuality.MIDDLE;
+        }
+        return PillQuality.LOW;
     }
 }

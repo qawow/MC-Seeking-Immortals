@@ -1,0 +1,37 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:wind_feather"
+    },
+    {
+      "item": "seeking_immortals:wind_feather"
+    },
+    {
+      "item": "seeking_immortals:wind_feather"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:wind_escape_sail",
+    "count": 1
+  },
+  "success_rate": 0.45,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

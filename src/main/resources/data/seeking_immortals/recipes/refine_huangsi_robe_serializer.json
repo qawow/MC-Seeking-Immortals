@@ -1,0 +1,37 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:beast_hide"
+    },
+    {
+      "item": "seeking_immortals:beast_hide"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:huangsi_robe_artifact",
+    "count": 1
+  },
+  "success_rate": 0.7,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 1
+}

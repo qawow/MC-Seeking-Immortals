@@ -1,0 +1,40 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    },
+    {
+      "item": "seeking_immortals:beast_bone_block"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:bone_wind_cart",
+    "count": 1
+  },
+  "success_rate": 0.4,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 3
+}

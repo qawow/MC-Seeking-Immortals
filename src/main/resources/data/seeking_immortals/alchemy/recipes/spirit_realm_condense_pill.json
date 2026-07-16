@@ -1,6 +1,6 @@
 {
   "id": "spirit_realm_condense_pill",
-  "display_translation": "item.seeking_immortals.spirit_realm_condense_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.spirit_realm_condense_pill",
   "output_items": {
     "low": "seeking_immortals:spirit_realm_condense_pill",
     "medium": "seeking_immortals:spirit_realm_condense_pill",
@@ -8,13 +8,13 @@
     "supreme": "seeking_immortals:spirit_realm_condense_pill"
   },
   "output_count": 1,
-  "mana_cost": 150,
-  "cook_ticks": 1800,
-  "success_rate": 0.28,
-  "explosion_chance": 0.16,
+  "mana_cost": 60,
+  "cook_ticks": 640,
+  "success_rate": 0.7,
+  "explosion_chance": 0.08,
   "required_furnace_tier": 5,
   "ideal_fire_tier": 5,
-  "min_control_realm": "SOUL_TRANSFORMATION",
+  "min_control_realm": "MORTAL",
   "controlled": true,
   "requires_earth_fire_room": false,
   "ingredients": [

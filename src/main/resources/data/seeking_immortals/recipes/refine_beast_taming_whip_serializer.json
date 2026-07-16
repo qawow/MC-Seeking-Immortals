@@ -1,0 +1,28 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:beast_hide"
+    },
+    {
+      "item": "seeking_immortals:beast_hide"
+    },
+    {
+      "item": "seeking_immortals:beast_hide"
+    },
+    {
+      "item": "seeking_immortals:beast_hide"
+    },
+    {
+      "item": "seeking_immortals:demon_core_low"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:beast_taming_whip",
+    "count": 1
+  },
+  "success_rate": 0.48,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

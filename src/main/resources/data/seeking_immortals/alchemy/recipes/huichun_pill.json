@@ -1,0 +1,30 @@
+{
+  "id": "huichun_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.huichun_pill",
+  "output_items": {
+    "low": "seeking_immortals:huichun_pill",
+    "medium": "seeking_immortals:huichun_pill",
+    "high": "seeking_immortals:huichun_pill",
+    "supreme": "seeking_immortals:huichun_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 320,
+  "success_rate": 0.82,
+  "explosion_chance": 0.078,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 2
+    }
+  ]
+}

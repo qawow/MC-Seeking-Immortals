@@ -1,183 +1,35 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "namespace": "seeking_immortals",
   "entries": [
     {
-      "pills_catalog_id": "spirit_condense_pill",
-      "canonical_recipe_id": "spirit_gathering_pill",
-      "canonical_low_item": "seeking_immortals:spirit_gathering_pill",
+      "pills_catalog_id": "bigu_pill",
+      "canonical_recipe_id": "fasting_pill_low",
+      "canonical_low_item": "seeking_immortals:fasting_pill_low",
       "quality_outputs": {
-        "low": "seeking_immortals:spirit_gathering_pill",
-        "medium": "seeking_immortals:spirit_gathering_pill_mid",
-        "high": "seeking_immortals:spirit_gathering_pill_high",
-        "supreme": "seeking_immortals:spirit_gathering_pill_supreme"
+        "low": "seeking_immortals:fasting_pill_low",
+        "medium": "seeking_immortals:fasting_pill_mid",
+        "high": "seeking_immortals:fasting_pill_high",
+        "supreme": "seeking_immortals:fasting_pill_supreme"
       },
-      "zh_cn": "聚灵丹",
-      "en_us": "Spirit Gathering Pill",
+      "zh_cn": "辟谷丹",
+      "en_us": "Fasting Pill",
       "formula_items": [
-        "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper"
+        "seeking_immortals:alchemy_formula_fasting_pill_paper"
       ],
       "formula_source": "paper",
       "materials": [
         {
           "item": "seeking_immortals:spirit_grass",
-          "zh_cn": "灵草",
-          "count": 2
+          "count": 1
         },
         {
-          "item": "seeking_immortals:spirit_iron",
-          "zh_cn": "灵铁",
+          "item": "seeking_immortals:cloud_mushroom",
           "count": 1
         }
       ],
       "required_furnace_tier": 1,
       "ideal_fire_tier": 1,
-      "min_control_realm": "MORTAL",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "huoyuan_pill",
-      "canonical_recipe_id": "fire_origin_pill",
-      "canonical_low_item": "seeking_immortals:fire_origin_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:fire_origin_pill",
-        "medium": "seeking_immortals:fire_origin_pill_mid",
-        "high": "seeking_immortals:fire_origin_pill_high",
-        "supreme": "seeking_immortals:fire_origin_pill_supreme"
-      },
-      "zh_cn": "火元丹",
-      "en_us": "Fire Origin Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_fire_origin_pill_jade"
-      ],
-      "formula_source": "jade",
-      "materials": [
-        {
-          "item": "seeking_immortals:phoenix_feather_flower",
-          "zh_cn": "凤羽花",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:fire_element_spirit_stone",
-          "zh_cn": "下品火灵石",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 2,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "ice_fire_pill",
-      "canonical_recipe_id": "ice_fire_pill",
-      "canonical_low_item": "seeking_immortals:ice_fire_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:ice_fire_pill",
-        "medium": "seeking_immortals:ice_fire_pill_mid",
-        "high": "seeking_immortals:ice_fire_pill_high",
-        "supreme": "seeking_immortals:ice_fire_pill_supreme"
-      },
-      "zh_cn": "冰火丹",
-      "en_us": "Ice-Fire Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_ice_fire_pill_jade"
-      ],
-      "formula_source": "jade",
-      "materials": [
-        {
-          "item": "seeking_immortals:phoenix_feather_flower",
-          "zh_cn": "凤羽花",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:cold_jade",
-          "zh_cn": "寒玉",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:fire_element_spirit_stone",
-          "zh_cn": "下品火灵石",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 3,
-      "ideal_fire_tier": 3,
-      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "bone_marrow_pill",
-      "canonical_recipe_id": "marrow_cleansing_pill",
-      "canonical_low_item": "seeking_immortals:marrow_cleansing_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:marrow_cleansing_pill",
-        "medium": "seeking_immortals:marrow_cleansing_pill_mid",
-        "high": "seeking_immortals:marrow_cleansing_pill_high",
-        "supreme": "seeking_immortals:marrow_cleansing_pill_supreme"
-      },
-      "zh_cn": "洗髓丸",
-      "en_us": "Marrow Cleansing Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_marrow_cleansing_pill_jade"
-      ],
-      "formula_source": "jade",
-      "materials": [
-        {
-          "item": "seeking_immortals:immortal_ginseng",
-          "zh_cn": "仙参",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:spirit_beast_bone",
-          "zh_cn": "灵兽骨",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:cloud_mushroom",
-          "zh_cn": "云雾菇",
-          "count": 2
-        }
-      ],
-      "required_furnace_tier": 2,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "body_tempering_pill",
-      "canonical_recipe_id": "body_tempering_pill",
-      "canonical_low_item": "seeking_immortals:body_tempering_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:body_tempering_pill",
-        "medium": "seeking_immortals:body_tempering_pill_mid",
-        "high": "seeking_immortals:body_tempering_pill_high",
-        "supreme": "seeking_immortals:body_tempering_pill_supreme"
-      },
-      "zh_cn": "淬体丹",
-      "en_us": "Body Tempering Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_body_tempering_pill_jade"
-      ],
-      "formula_source": "jade",
-      "materials": [
-        {
-          "item": "seeking_immortals:spirit_beast_bone",
-          "zh_cn": "灵兽骨",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:beast_core",
-          "zh_cn": "妖兽内丹",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 1,
-      "ideal_fire_tier": 2,
       "min_control_realm": "QI_REFINING",
       "controlled": false,
       "requires_earth_fire_room": false
@@ -202,23 +54,20 @@
       "materials": [
         {
           "item": "seeking_immortals:spirit_grass",
-          "zh_cn": "灵草",
           "count": 4
         },
         {
           "item": "seeking_immortals:dragon_blood_grass",
-          "zh_cn": "龙血草",
           "count": 1
         },
         {
           "item": "seeking_immortals:beast_core",
-          "zh_cn": "妖兽内丹",
           "count": 1
         }
       ],
-      "required_furnace_tier": 2,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
       "controlled": true,
       "requires_earth_fire_room": false
     },
@@ -241,23 +90,52 @@
       "materials": [
         {
           "item": "seeking_immortals:phoenix_feather_flower",
-          "zh_cn": "凤羽花",
           "count": 2
         },
         {
           "item": "seeking_immortals:dragon_blood_grass",
-          "zh_cn": "龙血草",
           "count": 1
         },
         {
           "item": "seeking_immortals:star_meteorite",
-          "zh_cn": "星陨铁",
           "count": 1
         }
       ],
-      "required_furnace_tier": 3,
-      "ideal_fire_tier": 3,
-      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": true
+    },
+    {
+      "pills_catalog_id": "huoyuan_pill",
+      "canonical_recipe_id": "fire_origin_pill",
+      "canonical_low_item": "seeking_immortals:fire_origin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:fire_origin_pill",
+        "medium": "seeking_immortals:fire_origin_pill_mid",
+        "high": "seeking_immortals:fire_origin_pill_high",
+        "supreme": "seeking_immortals:fire_origin_pill_supreme"
+      },
+      "zh_cn": "火元丹",
+      "en_us": "Fire Origin Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_fire_origin_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather_flower",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:fire_element_spirit_stone",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
       "controlled": false,
       "requires_earth_fire_room": false
     },
@@ -280,203 +158,52 @@
       "materials": [
         {
           "item": "seeking_immortals:soul_fragment",
-          "zh_cn": "魂魄碎片",
           "count": 1
         },
         {
           "item": "seeking_immortals:cloud_mushroom",
-          "zh_cn": "云雾菇",
           "count": 2
         }
       ],
       "required_furnace_tier": 2,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
       "controlled": false,
       "requires_earth_fire_room": false
     },
     {
-      "pills_catalog_id": "marrow_repair_pill",
-      "canonical_recipe_id": "marrow_repair_pill",
-      "canonical_low_item": "seeking_immortals:marrow_repair_pill",
+      "pills_catalog_id": "bone_marrow_pill",
+      "canonical_recipe_id": "marrow_cleansing_pill",
+      "canonical_low_item": "seeking_immortals:marrow_cleansing_pill",
       "quality_outputs": {
-        "low": "seeking_immortals:marrow_repair_pill",
-        "medium": "seeking_immortals:marrow_repair_pill_mid",
-        "high": "seeking_immortals:marrow_repair_pill_high",
-        "supreme": "seeking_immortals:marrow_repair_pill_supreme"
+        "low": "seeking_immortals:marrow_cleansing_pill",
+        "medium": "seeking_immortals:marrow_cleansing_pill_mid",
+        "high": "seeking_immortals:marrow_cleansing_pill_high",
+        "supreme": "seeking_immortals:marrow_cleansing_pill_supreme"
       },
-      "zh_cn": "修髓丹",
-      "en_us": "Marrow Repair Pill",
+      "zh_cn": "洗髓丸",
+      "en_us": "Marrow Cleansing Pill",
       "formula_items": [
-        "seeking_immortals:alchemy_formula_marrow_repair_pill_jade"
+        "seeking_immortals:alchemy_formula_marrow_cleansing_pill_jade"
       ],
       "formula_source": "jade",
       "materials": [
         {
-          "item": "seeking_immortals:spirit_beast_bone",
-          "zh_cn": "灵兽骨",
-          "count": 2
+          "item": "seeking_immortals:immortal_ginseng",
+          "count": 1
         },
         {
-          "item": "seeking_immortals:true_dragon_blood",
-          "zh_cn": "真龙血",
+          "item": "seeking_immortals:spirit_beast_bone",
           "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
         }
       ],
       "required_furnace_tier": 2,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "bigu_pill",
-      "canonical_recipe_id": "fasting_pill_low",
-      "canonical_low_item": "seeking_immortals:fasting_pill_low",
-      "quality_outputs": {
-        "low": "seeking_immortals:fasting_pill_low",
-        "medium": "seeking_immortals:fasting_pill_mid",
-        "high": "seeking_immortals:fasting_pill_high",
-        "supreme": "seeking_immortals:fasting_pill_supreme"
-      },
-      "zh_cn": "辟谷丹",
-      "en_us": "Fasting Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_fasting_pill_paper"
-      ],
-      "formula_source": "paper",
-      "materials": [
-        {
-          "item": "seeking_immortals:spirit_grass",
-          "zh_cn": "灵草",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:cloud_mushroom",
-          "zh_cn": "云雾菇",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 1,
-      "ideal_fire_tier": 1,
-      "min_control_realm": "MORTAL",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "calm_spirit_pill",
-      "canonical_recipe_id": "clear_void_pill",
-      "canonical_low_item": "seeking_immortals:clear_void_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:clear_void_pill",
-        "medium": "seeking_immortals:clear_void_pill_mid",
-        "high": "seeking_immortals:clear_void_pill_high",
-        "supreme": "seeking_immortals:clear_void_pill_supreme"
-      },
-      "zh_cn": "清虚丹",
-      "en_us": "Clear Void Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_clear_void_pill_paper"
-      ],
-      "formula_source": "paper",
-      "materials": [
-        {
-          "item": "seeking_immortals:cloud_mushroom",
-          "zh_cn": "云雾菇",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:void_crystal",
-          "zh_cn": "虚空结晶",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 1,
-      "ideal_fire_tier": 1,
-      "min_control_realm": "MORTAL",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "pressure_resist_pill",
-      "canonical_recipe_id": "pressure_resist_pill",
-      "canonical_low_item": "seeking_immortals:pressure_resist_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:pressure_resist_pill",
-        "medium": "seeking_immortals:pressure_resist_pill",
-        "high": "seeking_immortals:pressure_resist_pill",
-        "supreme": "seeking_immortals:pressure_resist_pill"
-      },
-      "zh_cn": "抗压丹",
-      "en_us": "Pressure-Resist Pill",
-      "formula_items": [],
-      "formula_source": "deferred",
-      "materials": [
-        {
-          "item": "seeking_immortals:diyuan_pressure_moss",
-          "zh_cn": "地渊重压苔",
-          "count": 2
-        }
-      ],
-      "required_furnace_tier": 4,
-      "ideal_fire_tier": 4,
-      "min_control_realm": "VOID_REFINEMENT",
-      "controlled": true,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "spirit_realm_condense_pill",
-      "canonical_recipe_id": "spirit_realm_condense_pill",
-      "canonical_low_item": "seeking_immortals:spirit_realm_condense_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:spirit_realm_condense_pill",
-        "medium": "seeking_immortals:spirit_realm_condense_pill",
-        "high": "seeking_immortals:spirit_realm_condense_pill",
-        "supreme": "seeking_immortals:spirit_realm_condense_pill"
-      },
-      "zh_cn": "灵界凝元丹",
-      "en_us": "Spirit Realm Condense Pill",
-      "formula_items": [],
-      "formula_source": "deferred",
-      "materials": [
-        {
-          "item": "seeking_immortals:fengyuan_clan_ginseng",
-          "zh_cn": "风元世家参",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 5,
-      "ideal_fire_tier": 5,
-      "min_control_realm": "SOUL_TRANSFORMATION",
-      "controlled": true,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "qingxin_pill",
-      "canonical_recipe_id": "qingxin_pill",
-      "canonical_low_item": "seeking_immortals:qingxin_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:qingxin_pill",
-        "medium": "seeking_immortals:qingxin_pill",
-        "high": "seeking_immortals:qingxin_pill",
-        "supreme": "seeking_immortals:qingxin_pill"
-      },
-      "zh_cn": "清心丹",
-      "en_us": "Qingxin Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_qingxin_pill_paper"
-      ],
-      "formula_source": "paper",
-      "materials": [
-        {
-          "item": "seeking_immortals:spirit_grass",
-          "zh_cn": "灵草",
-          "count": 3
-        }
-      ],
-      "required_furnace_tier": 1,
-      "ideal_fire_tier": 2,
-      "min_control_realm": "QI_REFINING",
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
       "controlled": false,
       "requires_earth_fire_room": false
     },
@@ -499,52 +226,48 @@
       "materials": [
         {
           "item": "seeking_immortals:soul_fragment",
-          "zh_cn": "魂魄碎片",
           "count": 1
         },
         {
           "item": "seeking_immortals:time_sand",
-          "zh_cn": "时光之砂",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "calm_spirit_pill",
+      "canonical_recipe_id": "clear_void_pill",
+      "canonical_low_item": "seeking_immortals:clear_void_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:clear_void_pill",
+        "medium": "seeking_immortals:clear_void_pill_mid",
+        "high": "seeking_immortals:clear_void_pill_high",
+        "supreme": "seeking_immortals:clear_void_pill_supreme"
+      },
+      "zh_cn": "清虚丹",
+      "en_us": "Clear Void Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_clear_void_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
           "count": 1
         }
       ],
       "required_furnace_tier": 1,
       "ideal_fire_tier": 1,
-      "min_control_realm": "MORTAL",
-      "controlled": false,
-      "requires_earth_fire_room": false
-    },
-    {
-      "pills_catalog_id": "dingyan_pill",
-      "canonical_recipe_id": "appearance_fixing_pill",
-      "canonical_low_item": "seeking_immortals:appearance_fixing_pill",
-      "quality_outputs": {
-        "low": "seeking_immortals:appearance_fixing_pill",
-        "medium": "seeking_immortals:appearance_fixing_pill_mid",
-        "high": "seeking_immortals:appearance_fixing_pill_high",
-        "supreme": "seeking_immortals:appearance_fixing_pill_supreme"
-      },
-      "zh_cn": "定颜丹",
-      "en_us": "Appearance Fixing Pill",
-      "formula_items": [
-        "seeking_immortals:alchemy_formula_appearance_fixing_pill_jade"
-      ],
-      "formula_source": "jade",
-      "materials": [
-        {
-          "item": "seeking_immortals:phoenix_feather",
-          "zh_cn": "凤凰羽",
-          "count": 1
-        },
-        {
-          "item": "seeking_immortals:immortal_ginseng",
-          "zh_cn": "仙参",
-          "count": 1
-        }
-      ],
-      "required_furnace_tier": 3,
-      "ideal_fire_tier": 3,
-      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "min_control_realm": "QI_REFINING",
       "controlled": false,
       "requires_earth_fire_room": false
     },
@@ -567,24 +290,53 @@
       "materials": [
         {
           "item": "seeking_immortals:immortal_ginseng",
-          "zh_cn": "仙参",
           "count": 2
         },
         {
           "item": "seeking_immortals:time_sand",
-          "zh_cn": "时光之砂",
           "count": 2
         },
         {
           "item": "seeking_immortals:primordial_essence",
-          "zh_cn": "先天本源",
           "count": 1
         }
       ],
-      "required_furnace_tier": 5,
-      "ideal_fire_tier": 5,
-      "min_control_realm": "NASCENT_SOUL",
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
       "controlled": true,
+      "requires_earth_fire_room": true
+    },
+    {
+      "pills_catalog_id": "dingyan_pill",
+      "canonical_recipe_id": "appearance_fixing_pill",
+      "canonical_low_item": "seeking_immortals:appearance_fixing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:appearance_fixing_pill",
+        "medium": "seeking_immortals:appearance_fixing_pill_mid",
+        "high": "seeking_immortals:appearance_fixing_pill_high",
+        "supreme": "seeking_immortals:appearance_fixing_pill_supreme"
+      },
+      "zh_cn": "定颜丹",
+      "en_us": "Appearance Fixing Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_appearance_fixing_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:immortal_ginseng",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
       "requires_earth_fire_room": false
     },
     {
@@ -606,23 +358,20 @@
       "materials": [
         {
           "item": "seeking_immortals:true_dragon_blood",
-          "zh_cn": "真龙血",
           "count": 1
         },
         {
           "item": "seeking_immortals:dragon_scale",
-          "zh_cn": "龙鳞",
           "count": 1
         },
         {
           "item": "seeking_immortals:dragon_blood_grass",
-          "zh_cn": "龙血草",
           "count": 2
         }
       ],
       "required_furnace_tier": 4,
       "ideal_fire_tier": 4,
-      "min_control_realm": "CORE_FORMATION",
+      "min_control_realm": "SOUL_TRANSFORMATION",
       "controlled": false,
       "requires_earth_fire_room": true
     },
@@ -645,17 +394,14 @@
       "materials": [
         {
           "item": "seeking_immortals:primordial_essence",
-          "zh_cn": "先天本源",
           "count": 1
         },
         {
           "item": "seeking_immortals:time_sand",
-          "zh_cn": "时光之砂",
           "count": 2
         },
         {
           "item": "seeking_immortals:celestial_crystal",
-          "zh_cn": "天晶石",
           "count": 1
         }
       ],
@@ -684,21 +430,18 @@
       "materials": [
         {
           "item": "seeking_immortals:spirit_beast_bone",
-          "zh_cn": "灵兽骨",
           "count": 2
         },
         {
           "item": "seeking_immortals:soul_fragment",
-          "zh_cn": "魂魄碎片",
           "count": 1
         },
         {
           "item": "seeking_immortals:true_dragon_blood",
-          "zh_cn": "真龙血",
           "count": 1
         }
       ],
-      "required_furnace_tier": 3,
+      "required_furnace_tier": 2,
       "ideal_fire_tier": 3,
       "min_control_realm": "FOUNDATION_ESTABLISHMENT",
       "controlled": false,
@@ -723,21 +466,18 @@
       "materials": [
         {
           "item": "seeking_immortals:soul_fragment",
-          "zh_cn": "魂魄碎片",
           "count": 2
         },
         {
           "item": "seeking_immortals:void_crystal",
-          "zh_cn": "虚空结晶",
           "count": 1
         },
         {
           "item": "seeking_immortals:dragon_blood_grass",
-          "zh_cn": "龙血草",
           "count": 1
         }
       ],
-      "required_furnace_tier": 3,
+      "required_furnace_tier": 2,
       "ideal_fire_tier": 3,
       "min_control_realm": "FOUNDATION_ESTABLISHMENT",
       "controlled": false,
@@ -762,23 +502,3032 @@
       "materials": [
         {
           "item": "seeking_immortals:dragon_scale",
-          "zh_cn": "龙鳞",
           "count": 2
         },
         {
           "item": "seeking_immortals:true_dragon_blood",
-          "zh_cn": "真龙血",
           "count": 1
         },
         {
           "item": "seeking_immortals:chaos_gold",
-          "zh_cn": "混沌金",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": true
+    },
+    {
+      "pills_catalog_id": "marrow_repair_pill",
+      "canonical_recipe_id": "marrow_repair_pill",
+      "canonical_low_item": "seeking_immortals:marrow_repair_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:marrow_repair_pill",
+        "medium": "seeking_immortals:marrow_repair_pill_mid",
+        "high": "seeking_immortals:marrow_repair_pill_high",
+        "supreme": "seeking_immortals:marrow_repair_pill_supreme"
+      },
+      "zh_cn": "修髓丹",
+      "en_us": "Marrow Repair Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_marrow_repair_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:true_dragon_blood",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_condense_pill",
+      "canonical_recipe_id": "spirit_gathering_pill",
+      "canonical_low_item": "seeking_immortals:spirit_gathering_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_gathering_pill",
+        "medium": "seeking_immortals:spirit_gathering_pill_mid",
+        "high": "seeking_immortals:spirit_gathering_pill_high",
+        "supreme": "seeking_immortals:spirit_gathering_pill_supreme"
+      },
+      "zh_cn": "聚灵丹",
+      "en_us": "Spirit Gathering Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_spirit_gathering_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_iron",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ice_fire_pill",
+      "canonical_recipe_id": "ice_fire_pill",
+      "canonical_low_item": "seeking_immortals:ice_fire_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ice_fire_pill",
+        "medium": "seeking_immortals:ice_fire_pill_mid",
+        "high": "seeking_immortals:ice_fire_pill_high",
+        "supreme": "seeking_immortals:ice_fire_pill_supreme"
+      },
+      "zh_cn": "冰火丹",
+      "en_us": "Ice-Fire Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_ice_fire_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:phoenix_feather_flower",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cold_jade",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:fire_element_spirit_stone",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "bu_tian_pill",
+      "canonical_recipe_id": "bu_tian_pill",
+      "canonical_low_item": "seeking_immortals:bu_tian_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:bu_tian_pill",
+        "medium": "seeking_immortals:bu_tian_pill",
+        "high": "seeking_immortals:bu_tian_pill",
+        "supreme": "seeking_immortals:bu_tian_pill"
+      },
+      "zh_cn": "补天丹",
+      "en_us": "bu_tian_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:coral_spirit_pearl",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:star_moon_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:space_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": true,
+      "requires_earth_fire_room": true
+    },
+    {
+      "pills_catalog_id": "nascent_soul_pill",
+      "canonical_recipe_id": "nascent_soul_pill",
+      "canonical_low_item": "seeking_immortals:nascent_soul_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:nascent_soul_pill",
+        "medium": "seeking_immortals:nascent_soul_pill",
+        "high": "seeking_immortals:nascent_soul_pill",
+        "supreme": "seeking_immortals:nascent_soul_pill"
+      },
+      "zh_cn": "培婴丹",
+      "en_us": "nascent_soul_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:demon_core_high",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:void_marrow",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:thunder_essence_lotus",
           "count": 1
         }
       ],
       "required_furnace_tier": 5,
       "ideal_fire_tier": 5,
       "min_control_realm": "NASCENT_SOUL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_recovery_pill",
+      "canonical_recipe_id": "spirit_recovery_pill",
+      "canonical_low_item": "seeking_immortals:spirit_recovery_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_recovery_pill",
+        "medium": "seeking_immortals:spirit_recovery_pill",
+        "high": "seeking_immortals:spirit_recovery_pill",
+        "supreme": "seeking_immortals:spirit_recovery_pill"
+      },
+      "zh_cn": "回灵丹",
+      "en_us": "spirit_recovery_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "body_tempering_pill",
+      "canonical_recipe_id": "body_tempering_pill",
+      "canonical_low_item": "seeking_immortals:body_tempering_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:body_tempering_pill",
+        "medium": "seeking_immortals:body_tempering_pill_mid",
+        "high": "seeking_immortals:body_tempering_pill_high",
+        "supreme": "seeking_immortals:body_tempering_pill_supreme"
+      },
+      "zh_cn": "淬体丹",
+      "en_us": "Body Tempering Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_body_tempering_pill_jade"
+      ],
+      "formula_source": "jade",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_beast_bone",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demon_suppress_pill",
+      "canonical_recipe_id": "demon_suppress_pill",
+      "canonical_low_item": "seeking_immortals:demon_suppress_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demon_suppress_pill",
+        "medium": "seeking_immortals:demon_suppress_pill",
+        "high": "seeking_immortals:demon_suppress_pill",
+        "supreme": "seeking_immortals:demon_suppress_pill"
+      },
+      "zh_cn": "镇魔丹",
+      "en_us": "demon_suppress_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:thunder_stone",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "antidote_pill",
+      "canonical_recipe_id": "antidote_pill",
+      "canonical_low_item": "seeking_immortals:antidote_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:antidote_pill",
+        "medium": "seeking_immortals:antidote_pill",
+        "high": "seeking_immortals:antidote_pill",
+        "supreme": "seeking_immortals:antidote_pill"
+      },
+      "zh_cn": "解毒丹",
+      "en_us": "antidote_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:purple_ganoderma",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "mana_shield_pill",
+      "canonical_recipe_id": "mana_shield_pill",
+      "canonical_low_item": "seeking_immortals:mana_shield_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:mana_shield_pill",
+        "medium": "seeking_immortals:mana_shield_pill",
+        "high": "seeking_immortals:mana_shield_pill",
+        "supreme": "seeking_immortals:mana_shield_pill"
+      },
+      "zh_cn": "护灵丹",
+      "en_us": "mana_shield_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:star_moon_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_stone_shard",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "beast_taming_pill",
+      "canonical_recipe_id": "beast_taming_pill",
+      "canonical_low_item": "seeking_immortals:beast_taming_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:beast_taming_pill",
+        "medium": "seeking_immortals:beast_taming_pill",
+        "high": "seeking_immortals:beast_taming_pill",
+        "supreme": "seeking_immortals:beast_taming_pill"
+      },
+      "zh_cn": "驭兽丹",
+      "en_us": "beast_taming_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:beast_blood_vial",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivate_speed_pill",
+      "canonical_recipe_id": "cultivate_speed_pill",
+      "canonical_low_item": "seeking_immortals:cultivate_speed_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivate_speed_pill",
+        "medium": "seeking_immortals:cultivate_speed_pill",
+        "high": "seeking_immortals:cultivate_speed_pill",
+        "supreme": "seeking_immortals:cultivate_speed_pill"
+      },
+      "zh_cn": "凝气丹",
+      "en_us": "cultivate_speed_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "jiangchen_pill",
+      "canonical_recipe_id": "jiangchen_pill",
+      "canonical_low_item": "seeking_immortals:jiangchen_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:jiangchen_pill",
+        "medium": "seeking_immortals:jiangchen_pill",
+        "high": "seeking_immortals:jiangchen_pill",
+        "supreme": "seeking_immortals:jiangchen_pill"
+      },
+      "zh_cn": "降尘丹",
+      "en_us": "jiangchen_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:yellow_essence",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huanglong_pill",
+      "canonical_recipe_id": "huanglong_pill",
+      "canonical_low_item": "seeking_immortals:huanglong_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huanglong_pill",
+        "medium": "seeking_immortals:huanglong_pill",
+        "high": "seeking_immortals:huanglong_pill",
+        "supreme": "seeking_immortals:huanglong_pill"
+      },
+      "zh_cn": "黄龙丹",
+      "en_us": "huanglong_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:demon_core_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "heqi_pill",
+      "canonical_recipe_id": "heqi_pill",
+      "canonical_low_item": "seeking_immortals:heqi_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:heqi_pill",
+        "medium": "seeking_immortals:heqi_pill",
+        "high": "seeking_immortals:heqi_pill",
+        "supreme": "seeking_immortals:heqi_pill"
+      },
+      "zh_cn": "合气丹",
+      "en_us": "heqi_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 4
+        },
+        {
+          "item": "seeking_immortals:spirit_stone_shard",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ningshen_pill",
+      "canonical_recipe_id": "ningshen_pill",
+      "canonical_low_item": "seeking_immortals:ningshen_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ningshen_pill",
+        "medium": "seeking_immortals:ningshen_pill",
+        "high": "seeking_immortals:ningshen_pill",
+        "supreme": "seeking_immortals:ningshen_pill"
+      },
+      "zh_cn": "凝神丹",
+      "en_us": "ningshen_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:soul_moss",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "yanghun_pill",
+      "canonical_recipe_id": "yanghun_pill",
+      "canonical_low_item": "seeking_immortals:yanghun_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:yanghun_pill",
+        "medium": "seeking_immortals:yanghun_pill",
+        "high": "seeking_immortals:yanghun_pill",
+        "supreme": "seeking_immortals:yanghun_pill"
+      },
+      "zh_cn": "养魂丹",
+      "en_us": "yanghun_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:soul_gathering_stone",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:sea_soul_grass",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "sea_calm_pill",
+      "canonical_recipe_id": "sea_calm_pill",
+      "canonical_low_item": "seeking_immortals:sea_calm_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:sea_calm_pill",
+        "medium": "seeking_immortals:sea_calm_pill",
+        "high": "seeking_immortals:sea_calm_pill",
+        "supreme": "seeking_immortals:sea_calm_pill"
+      },
+      "zh_cn": "定海丹",
+      "en_us": "sea_calm_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:sea_soul_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demon_heart_pill",
+      "canonical_recipe_id": "demon_heart_pill",
+      "canonical_low_item": "seeking_immortals:demon_heart_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demon_heart_pill",
+        "medium": "seeking_immortals:demon_heart_pill",
+        "high": "seeking_immortals:demon_heart_pill",
+        "supreme": "seeking_immortals:demon_heart_pill"
+      },
+      "zh_cn": "镇心丹",
+      "en_us": "demon_heart_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:demon_suppress_pill",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "snow_lotus_pill",
+      "canonical_recipe_id": "snow_lotus_pill",
+      "canonical_low_item": "seeking_immortals:snow_lotus_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:snow_lotus_pill",
+        "medium": "seeking_immortals:snow_lotus_pill",
+        "high": "seeking_immortals:snow_lotus_pill",
+        "supreme": "seeking_immortals:snow_lotus_pill"
+      },
+      "zh_cn": "雪莲丹",
+      "en_us": "snow_lotus_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:snow_lotus",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:hundred_year_ice",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demon_qi_purge_pill",
+      "canonical_recipe_id": "demon_qi_purge_pill",
+      "canonical_low_item": "seeking_immortals:demon_qi_purge_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demon_qi_purge_pill",
+        "medium": "seeking_immortals:demon_qi_purge_pill",
+        "high": "seeking_immortals:demon_qi_purge_pill",
+        "supreme": "seeking_immortals:demon_qi_purge_pill"
+      },
+      "zh_cn": "驱魔丹",
+      "en_us": "demon_qi_purge_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:demon_corruption_fungus",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:thunder_stone",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "yin_ward_pill",
+      "canonical_recipe_id": "yin_ward_pill",
+      "canonical_low_item": "seeking_immortals:yin_ward_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:yin_ward_pill",
+        "medium": "seeking_immortals:yin_ward_pill",
+        "high": "seeking_immortals:yin_ward_pill",
+        "supreme": "seeking_immortals:yin_ward_pill"
+      },
+      "zh_cn": "护阴丹",
+      "en_us": "yin_ward_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:frost_moon_flower",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:soul_moss",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "tianyuan_spirit_pill",
+      "canonical_recipe_id": "tianyuan_spirit_pill",
+      "canonical_low_item": "seeking_immortals:tianyuan_spirit_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:tianyuan_spirit_pill",
+        "medium": "seeking_immortals:tianyuan_spirit_pill",
+        "high": "seeking_immortals:tianyuan_spirit_pill",
+        "supreme": "seeking_immortals:tianyuan_spirit_pill"
+      },
+      "zh_cn": "天渊聚灵丹",
+      "en_us": "tianyuan_spirit_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:void_marrow",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:spirit_realm_sand",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "SOUL_TRANSFORMATION",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "thunder_soothing_pill",
+      "canonical_recipe_id": "thunder_soothing_pill",
+      "canonical_low_item": "seeking_immortals:thunder_soothing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:thunder_soothing_pill",
+        "medium": "seeking_immortals:thunder_soothing_pill",
+        "high": "seeking_immortals:thunder_soothing_pill",
+        "supreme": "seeking_immortals:thunder_soothing_pill"
+      },
+      "zh_cn": "避雷丹",
+      "en_us": "thunder_soothing_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:thunder_stone",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:thunder_essence_lotus",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "NASCENT_SOUL",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "heart_guard_pill",
+      "canonical_recipe_id": "heart_guard_pill",
+      "canonical_low_item": "seeking_immortals:heart_guard_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:heart_guard_pill",
+        "medium": "seeking_immortals:heart_guard_pill",
+        "high": "seeking_immortals:heart_guard_pill",
+        "supreme": "seeking_immortals:heart_guard_pill"
+      },
+      "zh_cn": "守心丹",
+      "en_us": "heart_guard_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:ningshen_pill",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_marrow",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "SOUL_TRANSFORMATION",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demon_gold_body_pill",
+      "canonical_recipe_id": "demon_gold_body_pill",
+      "canonical_low_item": "seeking_immortals:demon_gold_body_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demon_gold_body_pill",
+        "medium": "seeking_immortals:demon_gold_body_pill",
+        "high": "seeking_immortals:demon_gold_body_pill",
+        "supreme": "seeking_immortals:demon_gold_body_pill"
+      },
+      "zh_cn": "魔金锻体丹",
+      "en_us": "demon_gold_body_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:demon_gold_ore",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:holy_demon_blood",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "VOID_REFINEMENT",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "asura_mind_pill",
+      "canonical_recipe_id": "asura_mind_pill",
+      "canonical_low_item": "seeking_immortals:asura_mind_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:asura_mind_pill",
+        "medium": "seeking_immortals:asura_mind_pill",
+        "high": "seeking_immortals:asura_mind_pill",
+        "supreme": "seeking_immortals:asura_mind_pill"
+      },
+      "zh_cn": "修罗定念丹",
+      "en_us": "asura_mind_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:killing_intent_crystal",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:ningshen_pill",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "UNITY",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "luoyun_spirit_pill",
+      "canonical_recipe_id": "luoyun_spirit_pill",
+      "canonical_low_item": "seeking_immortals:luoyun_spirit_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:luoyun_spirit_pill",
+        "medium": "seeking_immortals:luoyun_spirit_pill",
+        "high": "seeking_immortals:luoyun_spirit_pill",
+        "supreme": "seeking_immortals:luoyun_spirit_pill"
+      },
+      "zh_cn": "落云聚元丹",
+      "en_us": "luoyun_spirit_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:ginseng_spirit",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:yellow_essence",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 3,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "dual_harmony_pill",
+      "canonical_recipe_id": "dual_harmony_pill",
+      "canonical_low_item": "seeking_immortals:dual_harmony_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:dual_harmony_pill",
+        "medium": "seeking_immortals:dual_harmony_pill",
+        "high": "seeking_immortals:dual_harmony_pill",
+        "supreme": "seeking_immortals:dual_harmony_pill"
+      },
+      "zh_cn": "合欢丹",
+      "en_us": "dual_harmony_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:heqi_pill",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:frost_moon_flower",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 3,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demonic_yang_gather_pill",
+      "canonical_recipe_id": "demonic_yang_gather_pill",
+      "canonical_low_item": "seeking_immortals:demonic_yang_gather_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demonic_yang_gather_pill",
+        "medium": "seeking_immortals:demonic_yang_gather_pill",
+        "high": "seeking_immortals:demonic_yang_gather_pill",
+        "supreme": "seeking_immortals:demonic_yang_gather_pill"
+      },
+      "zh_cn": "采阳丹",
+      "en_us": "demonic_yang_gather_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "great_vehicle_ascension_aid_pill",
+      "canonical_recipe_id": "great_vehicle_ascension_aid_pill",
+      "canonical_low_item": "seeking_immortals:great_vehicle_ascension_aid_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:great_vehicle_ascension_aid_pill",
+        "medium": "seeking_immortals:great_vehicle_ascension_aid_pill",
+        "high": "seeking_immortals:great_vehicle_ascension_aid_pill",
+        "supreme": "seeking_immortals:great_vehicle_ascension_aid_pill"
+      },
+      "zh_cn": "大乘护劫丹",
+      "en_us": "great_vehicle_ascension_aid_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:thunder_soothing_pill",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_marrow",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "MAHAYANA",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_beast_nurture_pill",
+      "canonical_recipe_id": "spirit_beast_nurture_pill",
+      "canonical_low_item": "seeking_immortals:spirit_beast_nurture_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_beast_nurture_pill",
+        "medium": "seeking_immortals:spirit_beast_nurture_pill",
+        "high": "seeking_immortals:spirit_beast_nurture_pill",
+        "supreme": "seeking_immortals:spirit_beast_nurture_pill"
+      },
+      "zh_cn": "灵兽育灵丹",
+      "en_us": "spirit_beast_nurture_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_mushroom",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:beast_soul_essence",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "solid_essence_pill",
+      "canonical_recipe_id": "solid_essence_pill",
+      "canonical_low_item": "seeking_immortals:solid_essence_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:solid_essence_pill",
+        "medium": "seeking_immortals:solid_essence_pill",
+        "high": "seeking_immortals:solid_essence_pill",
+        "supreme": "seeking_immortals:solid_essence_pill"
+      },
+      "zh_cn": "固元丹",
+      "en_us": "solid_essence_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_condense_pill",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:yellow_essence",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_recovery_pill_high",
+      "canonical_recipe_id": "spirit_recovery_pill_high",
+      "canonical_low_item": "seeking_immortals:spirit_recovery_pill_high",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_recovery_pill_high",
+        "medium": "seeking_immortals:spirit_recovery_pill_high",
+        "high": "seeking_immortals:spirit_recovery_pill_high",
+        "supreme": "seeking_immortals:spirit_recovery_pill_high"
+      },
+      "zh_cn": "回灵丹（中）",
+      "en_us": "spirit_recovery_pill_high",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demon_expel_pill",
+      "canonical_recipe_id": "demon_expel_pill",
+      "canonical_low_item": "seeking_immortals:demon_expel_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demon_expel_pill",
+        "medium": "seeking_immortals:demon_expel_pill",
+        "high": "seeking_immortals:demon_expel_pill",
+        "supreme": "seeking_immortals:demon_expel_pill"
+      },
+      "zh_cn": "驱魔丹",
+      "en_us": "demon_expel_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:anti_demon_herb",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:spirit_stone_shard",
+          "count": 5
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "longevity_wine_pill",
+      "canonical_recipe_id": "longevity_wine_pill",
+      "canonical_low_item": "seeking_immortals:longevity_wine_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:longevity_wine_pill",
+        "medium": "seeking_immortals:longevity_wine_pill",
+        "high": "seeking_immortals:longevity_wine_pill",
+        "supreme": "seeking_immortals:longevity_wine_pill"
+      },
+      "zh_cn": "延寿丹",
+      "en_us": "longevity_wine_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "blood_essence_pill",
+      "canonical_recipe_id": "blood_essence_pill",
+      "canonical_low_item": "seeking_immortals:blood_essence_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:blood_essence_pill",
+        "medium": "seeking_immortals:blood_essence_pill",
+        "high": "seeking_immortals:blood_essence_pill",
+        "supreme": "seeking_immortals:blood_essence_pill"
+      },
+      "zh_cn": "血精丹",
+      "en_us": "blood_essence_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "mulan_wind_pill",
+      "canonical_recipe_id": "mulan_wind_pill",
+      "canonical_low_item": "seeking_immortals:mulan_wind_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:mulan_wind_pill",
+        "medium": "seeking_immortals:mulan_wind_pill",
+        "high": "seeking_immortals:mulan_wind_pill",
+        "supreme": "seeking_immortals:mulan_wind_pill"
+      },
+      "zh_cn": "风行丹",
+      "en_us": "mulan_wind_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:wind_herb",
+          "count": 4
+        },
+        {
+          "item": "seeking_immortals:talisman_paper_mortal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "chaotic_sea_antidote",
+      "canonical_recipe_id": "chaotic_sea_antidote",
+      "canonical_low_item": "seeking_immortals:chaotic_sea_antidote",
+      "quality_outputs": {
+        "low": "seeking_immortals:chaotic_sea_antidote",
+        "medium": "seeking_immortals:chaotic_sea_antidote",
+        "high": "seeking_immortals:chaotic_sea_antidote",
+        "supreme": "seeking_immortals:chaotic_sea_antidote"
+      },
+      "zh_cn": "海毒解丹",
+      "en_us": "chaotic_sea_antidote",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "pressure_resist_pill",
+      "canonical_recipe_id": "pressure_resist_pill",
+      "canonical_low_item": "seeking_immortals:pressure_resist_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:pressure_resist_pill",
+        "medium": "seeking_immortals:pressure_resist_pill",
+        "high": "seeking_immortals:pressure_resist_pill",
+        "supreme": "seeking_immortals:pressure_resist_pill"
+      },
+      "zh_cn": "抗压丹",
+      "en_us": "Pressure-Resist Pill",
+      "formula_items": [],
+      "formula_source": "deferred",
+      "materials": [
+        {
+          "item": "seeking_immortals:diyuan_pressure_moss",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 4,
+      "ideal_fire_tier": 4,
+      "min_control_realm": "MORTAL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_realm_condense_pill",
+      "canonical_recipe_id": "spirit_realm_condense_pill",
+      "canonical_low_item": "seeking_immortals:spirit_realm_condense_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_realm_condense_pill",
+        "medium": "seeking_immortals:spirit_realm_condense_pill",
+        "high": "seeking_immortals:spirit_realm_condense_pill",
+        "supreme": "seeking_immortals:spirit_realm_condense_pill"
+      },
+      "zh_cn": "灵界凝元丹",
+      "en_us": "Spirit Realm Condense Pill",
+      "formula_items": [],
+      "formula_source": "deferred",
+      "materials": [
+        {
+          "item": "seeking_immortals:fengyuan_clan_ginseng",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 5,
+      "ideal_fire_tier": 5,
+      "min_control_realm": "MORTAL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "jiedan_pill",
+      "canonical_recipe_id": "jiedan_pill",
+      "canonical_low_item": "seeking_immortals:jiedan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:jiedan_pill",
+        "medium": "seeking_immortals:jiedan_pill",
+        "high": "seeking_immortals:jiedan_pill",
+        "supreme": "seeking_immortals:jiedan_pill"
+      },
+      "zh_cn": "结丹丹",
+      "en_us": "jiedan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ningyuan_pill",
+      "canonical_recipe_id": "ningyuan_pill",
+      "canonical_low_item": "seeking_immortals:ningyuan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ningyuan_pill",
+        "medium": "seeking_immortals:ningyuan_pill",
+        "high": "seeking_immortals:ningyuan_pill",
+        "supreme": "seeking_immortals:ningyuan_pill"
+      },
+      "zh_cn": "凝元丹（外海）",
+      "en_us": "ningyuan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huashen_pill",
+      "canonical_recipe_id": "huashen_pill",
+      "canonical_low_item": "seeking_immortals:huashen_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huashen_pill",
+        "medium": "seeking_immortals:huashen_pill",
+        "high": "seeking_immortals:huashen_pill",
+        "supreme": "seeking_immortals:huashen_pill"
+      },
+      "zh_cn": "化神丹",
+      "en_us": "huashen_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ninghun_dan",
+      "canonical_recipe_id": "ninghun_dan",
+      "canonical_low_item": "seeking_immortals:ninghun_dan",
+      "quality_outputs": {
+        "low": "seeking_immortals:ninghun_dan",
+        "medium": "seeking_immortals:ninghun_dan",
+        "high": "seeking_immortals:ninghun_dan",
+        "supreme": "seeking_immortals:ninghun_dan"
+      },
+      "zh_cn": "凝魂丹",
+      "en_us": "ninghun_dan",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "yangyuan_pill",
+      "canonical_recipe_id": "yangyuan_pill",
+      "canonical_low_item": "seeking_immortals:yangyuan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:yangyuan_pill",
+        "medium": "seeking_immortals:yangyuan_pill",
+        "high": "seeking_immortals:yangyuan_pill",
+        "supreme": "seeking_immortals:yangyuan_pill"
+      },
+      "zh_cn": "养元丹",
+      "en_us": "yangyuan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huichun_pill",
+      "canonical_recipe_id": "huichun_pill",
+      "canonical_low_item": "seeking_immortals:huichun_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huichun_pill",
+        "medium": "seeking_immortals:huichun_pill",
+        "high": "seeking_immortals:huichun_pill",
+        "supreme": "seeking_immortals:huichun_pill"
+      },
+      "zh_cn": "回春丹",
+      "en_us": "huichun_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "qingxin_pill",
+      "canonical_recipe_id": "qingxin_pill",
+      "canonical_low_item": "seeking_immortals:qingxin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:qingxin_pill",
+        "medium": "seeking_immortals:qingxin_pill",
+        "high": "seeking_immortals:qingxin_pill",
+        "supreme": "seeking_immortals:qingxin_pill"
+      },
+      "zh_cn": "清心丹",
+      "en_us": "Qingxin Pill",
+      "formula_items": [
+        "seeking_immortals:alchemy_formula_qingxin_pill_paper"
+      ],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "biyu_pill",
+      "canonical_recipe_id": "biyu_pill",
+      "canonical_low_item": "seeking_immortals:biyu_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:biyu_pill",
+        "medium": "seeking_immortals:biyu_pill",
+        "high": "seeking_immortals:biyu_pill",
+        "supreme": "seeking_immortals:biyu_pill"
+      },
+      "zh_cn": "碧玉丹",
+      "en_us": "biyu_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "xuanbing_pill",
+      "canonical_recipe_id": "xuanbing_pill",
+      "canonical_low_item": "seeking_immortals:xuanbing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:xuanbing_pill",
+        "medium": "seeking_immortals:xuanbing_pill",
+        "high": "seeking_immortals:xuanbing_pill",
+        "supreme": "seeking_immortals:xuanbing_pill"
+      },
+      "zh_cn": "玄冰丹",
+      "en_us": "xuanbing_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "lieyan_pill",
+      "canonical_recipe_id": "lieyan_pill",
+      "canonical_low_item": "seeking_immortals:lieyan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:lieyan_pill",
+        "medium": "seeking_immortals:lieyan_pill",
+        "high": "seeking_immortals:lieyan_pill",
+        "supreme": "seeking_immortals:lieyan_pill"
+      },
+      "zh_cn": "烈焰丹",
+      "en_us": "lieyan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "juyuan_pill",
+      "canonical_recipe_id": "juyuan_pill",
+      "canonical_low_item": "seeking_immortals:juyuan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:juyuan_pill",
+        "medium": "seeking_immortals:juyuan_pill",
+        "high": "seeking_immortals:juyuan_pill",
+        "supreme": "seeking_immortals:juyuan_pill"
+      },
+      "zh_cn": "聚元丹",
+      "en_us": "juyuan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "tihu_pill",
+      "canonical_recipe_id": "tihu_pill",
+      "canonical_low_item": "seeking_immortals:tihu_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:tihu_pill",
+        "medium": "seeking_immortals:tihu_pill",
+        "high": "seeking_immortals:tihu_pill",
+        "supreme": "seeking_immortals:tihu_pill"
+      },
+      "zh_cn": "替魂丹",
+      "en_us": "tihu_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "dujie_pill",
+      "canonical_recipe_id": "dujie_pill",
+      "canonical_low_item": "seeking_immortals:dujie_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:dujie_pill",
+        "medium": "seeking_immortals:dujie_pill",
+        "high": "seeking_immortals:dujie_pill",
+        "supreme": "seeking_immortals:dujie_pill"
+      },
+      "zh_cn": "渡劫丹",
+      "en_us": "dujie_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "longhu_pill",
+      "canonical_recipe_id": "longhu_pill",
+      "canonical_low_item": "seeking_immortals:longhu_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:longhu_pill",
+        "medium": "seeking_immortals:longhu_pill",
+        "high": "seeking_immortals:longhu_pill",
+        "supreme": "seeking_immortals:longhu_pill"
+      },
+      "zh_cn": "龙虎丹",
+      "en_us": "longhu_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "CORE_FORMATION",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "xueying_pill",
+      "canonical_recipe_id": "xueying_pill",
+      "canonical_low_item": "seeking_immortals:xueying_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:xueying_pill",
+        "medium": "seeking_immortals:xueying_pill",
+        "high": "seeking_immortals:xueying_pill",
+        "supreme": "seeking_immortals:xueying_pill"
+      },
+      "zh_cn": "血影丹",
+      "en_us": "xueying_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "wuxing_pill",
+      "canonical_recipe_id": "wuxing_pill",
+      "canonical_low_item": "seeking_immortals:wuxing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:wuxing_pill",
+        "medium": "seeking_immortals:wuxing_pill",
+        "high": "seeking_immortals:wuxing_pill",
+        "supreme": "seeking_immortals:wuxing_pill"
+      },
+      "zh_cn": "五行丹",
+      "en_us": "wuxing_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "tianling_pill",
+      "canonical_recipe_id": "tianling_pill",
+      "canonical_low_item": "seeking_immortals:tianling_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:tianling_pill",
+        "medium": "seeking_immortals:tianling_pill",
+        "high": "seeking_immortals:tianling_pill",
+        "supreme": "seeking_immortals:tianling_pill"
+      },
+      "zh_cn": "天灵丹",
+      "en_us": "tianling_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:immortal_ginseng",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:primordial_essence",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:time_sand",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "MORTAL",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_condense_minor",
+      "canonical_recipe_id": "spirit_condense_minor",
+      "canonical_low_item": "seeking_immortals:spirit_condense_minor",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_condense_minor",
+        "medium": "seeking_immortals:spirit_condense_minor",
+        "high": "seeking_immortals:spirit_condense_minor",
+        "supreme": "seeking_immortals:spirit_condense_minor"
+      },
+      "zh_cn": "小凝元丹",
+      "en_us": "spirit_condense_minor",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 2,
+      "ideal_fire_tier": 2,
+      "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "anti_poison_pill",
+      "canonical_recipe_id": "anti_poison_pill",
+      "canonical_low_item": "seeking_immortals:anti_poison_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:anti_poison_pill",
+        "medium": "seeking_immortals:anti_poison_pill",
+        "high": "seeking_immortals:anti_poison_pill",
+        "supreme": "seeking_immortals:anti_poison_pill"
+      },
+      "zh_cn": "解毒丹",
+      "en_us": "anti_poison_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_herb_common",
+          "count": 3
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "jiangying_pill",
+      "canonical_recipe_id": "jiangying_pill",
+      "canonical_low_item": "seeking_immortals:jiangying_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:jiangying_pill",
+        "medium": "seeking_immortals:jiangying_pill",
+        "high": "seeking_immortals:jiangying_pill",
+        "supreme": "seeking_immortals:jiangying_pill"
+      },
+      "zh_cn": "降尘丹",
+      "en_us": "jiangying_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "xiyu_pill",
+      "canonical_recipe_id": "xiyu_pill",
+      "canonical_low_item": "seeking_immortals:xiyu_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:xiyu_pill",
+        "medium": "seeking_immortals:xiyu_pill",
+        "high": "seeking_immortals:xiyu_pill",
+        "supreme": "seeking_immortals:xiyu_pill"
+      },
+      "zh_cn": "洗髓丹",
+      "en_us": "xiyu_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huanti_pill",
+      "canonical_recipe_id": "huanti_pill",
+      "canonical_low_item": "seeking_immortals:huanti_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huanti_pill",
+        "medium": "seeking_immortals:huanti_pill",
+        "high": "seeking_immortals:huanti_pill",
+        "supreme": "seeking_immortals:huanti_pill"
+      },
+      "zh_cn": "淬体丹",
+      "en_us": "huanti_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huanxue_pill",
+      "canonical_recipe_id": "huanxue_pill",
+      "canonical_low_item": "seeking_immortals:huanxue_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huanxue_pill",
+        "medium": "seeking_immortals:huanxue_pill",
+        "high": "seeking_immortals:huanxue_pill",
+        "supreme": "seeking_immortals:huanxue_pill"
+      },
+      "zh_cn": "换血丹",
+      "en_us": "huanxue_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "juling_pill",
+      "canonical_recipe_id": "juling_pill",
+      "canonical_low_item": "seeking_immortals:juling_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:juling_pill",
+        "medium": "seeking_immortals:juling_pill",
+        "high": "seeking_immortals:juling_pill",
+        "supreme": "seeking_immortals:juling_pill"
+      },
+      "zh_cn": "聚灵丹",
+      "en_us": "juling_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ningjin_pill",
+      "canonical_recipe_id": "ningjin_pill",
+      "canonical_low_item": "seeking_immortals:ningjin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ningjin_pill",
+        "medium": "seeking_immortals:ningjin_pill",
+        "high": "seeking_immortals:ningjin_pill",
+        "supreme": "seeking_immortals:ningjin_pill"
+      },
+      "zh_cn": "凝金丹",
+      "en_us": "ningjin_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ningying_pill",
+      "canonical_recipe_id": "ningying_pill",
+      "canonical_low_item": "seeking_immortals:ningying_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ningying_pill",
+        "medium": "seeking_immortals:ningying_pill",
+        "high": "seeking_immortals:ningying_pill",
+        "supreme": "seeking_immortals:ningying_pill"
+      },
+      "zh_cn": "凝婴丹",
+      "en_us": "ningying_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "wangchen_pill",
+      "canonical_recipe_id": "wangchen_pill",
+      "canonical_low_item": "seeking_immortals:wangchen_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:wangchen_pill",
+        "medium": "seeking_immortals:wangchen_pill",
+        "high": "seeking_immortals:wangchen_pill",
+        "supreme": "seeking_immortals:wangchen_pill"
+      },
+      "zh_cn": "忘尘丹",
+      "en_us": "wangchen_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "jingxin_pill",
+      "canonical_recipe_id": "jingxin_pill",
+      "canonical_low_item": "seeking_immortals:jingxin_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:jingxin_pill",
+        "medium": "seeking_immortals:jingxin_pill",
+        "high": "seeking_immortals:jingxin_pill",
+        "supreme": "seeking_immortals:jingxin_pill"
+      },
+      "zh_cn": "静心丸",
+      "en_us": "jingxin_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "jieqi_pill",
+      "canonical_recipe_id": "jieqi_pill",
+      "canonical_low_item": "seeking_immortals:jieqi_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:jieqi_pill",
+        "medium": "seeking_immortals:jieqi_pill",
+        "high": "seeking_immortals:jieqi_pill",
+        "supreme": "seeking_immortals:jieqi_pill"
+      },
+      "zh_cn": "解气丹",
+      "en_us": "jieqi_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "huiyuan_pill",
+      "canonical_recipe_id": "huiyuan_pill",
+      "canonical_low_item": "seeking_immortals:huiyuan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:huiyuan_pill",
+        "medium": "seeking_immortals:huiyuan_pill",
+        "high": "seeking_immortals:huiyuan_pill",
+        "supreme": "seeking_immortals:huiyuan_pill"
+      },
+      "zh_cn": "回元丹",
+      "en_us": "huiyuan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 2
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "yin_yang_pill",
+      "canonical_recipe_id": "yin_yang_pill",
+      "canonical_low_item": "seeking_immortals:yin_yang_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:yin_yang_pill",
+        "medium": "seeking_immortals:yin_yang_pill",
+        "high": "seeking_immortals:yin_yang_pill",
+        "supreme": "seeking_immortals:yin_yang_pill"
+      },
+      "zh_cn": "阴阳丹",
+      "en_us": "yin_yang_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "golden_core_pill",
+      "canonical_recipe_id": "golden_core_pill",
+      "canonical_low_item": "seeking_immortals:golden_core_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:golden_core_pill",
+        "medium": "seeking_immortals:golden_core_pill",
+        "high": "seeking_immortals:golden_core_pill",
+        "supreme": "seeking_immortals:golden_core_pill"
+      },
+      "zh_cn": "金丹丸",
+      "en_us": "golden_core_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "body_refine_pill",
+      "canonical_recipe_id": "body_refine_pill",
+      "canonical_low_item": "seeking_immortals:body_refine_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:body_refine_pill",
+        "medium": "seeking_immortals:body_refine_pill",
+        "high": "seeking_immortals:body_refine_pill",
+        "supreme": "seeking_immortals:body_refine_pill"
+      },
+      "zh_cn": "炼体丹",
+      "en_us": "body_refine_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "meridian_open_pill",
+      "canonical_recipe_id": "meridian_open_pill",
+      "canonical_low_item": "seeking_immortals:meridian_open_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:meridian_open_pill",
+        "medium": "seeking_immortals:meridian_open_pill",
+        "high": "seeking_immortals:meridian_open_pill",
+        "supreme": "seeking_immortals:meridian_open_pill"
+      },
+      "zh_cn": "通脉丹",
+      "en_us": "meridian_open_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_seed_pill",
+      "canonical_recipe_id": "spirit_seed_pill",
+      "canonical_low_item": "seeking_immortals:spirit_seed_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_seed_pill",
+        "medium": "seeking_immortals:spirit_seed_pill",
+        "high": "seeking_immortals:spirit_seed_pill",
+        "supreme": "seeking_immortals:spirit_seed_pill"
+      },
+      "zh_cn": "灵种丹",
+      "en_us": "spirit_seed_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ghost_cultivate_pill",
+      "canonical_recipe_id": "ghost_cultivate_pill",
+      "canonical_low_item": "seeking_immortals:ghost_cultivate_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ghost_cultivate_pill",
+        "medium": "seeking_immortals:ghost_cultivate_pill",
+        "high": "seeking_immortals:ghost_cultivate_pill",
+        "supreme": "seeking_immortals:ghost_cultivate_pill"
+      },
+      "zh_cn": "炼鬼丹",
+      "en_us": "ghost_cultivate_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "demonic_blood_pill",
+      "canonical_recipe_id": "demonic_blood_pill",
+      "canonical_low_item": "seeking_immortals:demonic_blood_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:demonic_blood_pill",
+        "medium": "seeking_immortals:demonic_blood_pill",
+        "high": "seeking_immortals:demonic_blood_pill",
+        "supreme": "seeking_immortals:demonic_blood_pill"
+      },
+      "zh_cn": "魔血丹",
+      "en_us": "demonic_blood_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "hehuan_pill",
+      "canonical_recipe_id": "hehuan_pill",
+      "canonical_low_item": "seeking_immortals:hehuan_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:hehuan_pill",
+        "medium": "seeking_immortals:hehuan_pill",
+        "high": "seeking_immortals:hehuan_pill",
+        "supreme": "seeking_immortals:hehuan_pill"
+      },
+      "zh_cn": "合欢丹",
+      "en_us": "hehuan_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "illusion_pill",
+      "canonical_recipe_id": "illusion_pill",
+      "canonical_low_item": "seeking_immortals:illusion_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:illusion_pill",
+        "medium": "seeking_immortals:illusion_pill",
+        "high": "seeking_immortals:illusion_pill",
+        "supreme": "seeking_immortals:illusion_pill"
+      },
+      "zh_cn": "幻心丹",
+      "en_us": "illusion_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "tribulation_guard_pill",
+      "canonical_recipe_id": "tribulation_guard_pill",
+      "canonical_low_item": "seeking_immortals:tribulation_guard_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:tribulation_guard_pill",
+        "medium": "seeking_immortals:tribulation_guard_pill",
+        "high": "seeking_immortals:tribulation_guard_pill",
+        "supreme": "seeking_immortals:tribulation_guard_pill"
+      },
+      "zh_cn": "护劫丹",
+      "en_us": "tribulation_guard_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "void_condense_pill",
+      "canonical_recipe_id": "void_condense_pill",
+      "canonical_low_item": "seeking_immortals:void_condense_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:void_condense_pill",
+        "medium": "seeking_immortals:void_condense_pill",
+        "high": "seeking_immortals:void_condense_pill",
+        "supreme": "seeking_immortals:void_condense_pill"
+      },
+      "zh_cn": "炼虚丹",
+      "en_us": "void_condense_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "spirit_severing_pill",
+      "canonical_recipe_id": "spirit_severing_pill",
+      "canonical_low_item": "seeking_immortals:spirit_severing_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:spirit_severing_pill",
+        "medium": "seeking_immortals:spirit_severing_pill",
+        "high": "seeking_immortals:spirit_severing_pill",
+        "supreme": "seeking_immortals:spirit_severing_pill"
+      },
+      "zh_cn": "炼神丹",
+      "en_us": "spirit_severing_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 3
+        },
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:beast_core",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": true,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "star_sea_pill",
+      "canonical_recipe_id": "star_sea_pill",
+      "canonical_low_item": "seeking_immortals:star_sea_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:star_sea_pill",
+        "medium": "seeking_immortals:star_sea_pill",
+        "high": "seeking_immortals:star_sea_pill",
+        "supreme": "seeking_immortals:star_sea_pill"
+      },
+      "zh_cn": "星海丹",
+      "en_us": "star_sea_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "barbarian_strength_pill",
+      "canonical_recipe_id": "barbarian_strength_pill",
+      "canonical_low_item": "seeking_immortals:barbarian_strength_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:barbarian_strength_pill",
+        "medium": "seeking_immortals:barbarian_strength_pill",
+        "high": "seeking_immortals:barbarian_strength_pill",
+        "supreme": "seeking_immortals:barbarian_strength_pill"
+      },
+      "zh_cn": "蛮力丹",
+      "en_us": "barbarian_strength_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "diyuan_adapt_pill",
+      "canonical_recipe_id": "diyuan_adapt_pill",
+      "canonical_low_item": "seeking_immortals:diyuan_adapt_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:diyuan_adapt_pill",
+        "medium": "seeking_immortals:diyuan_adapt_pill",
+        "high": "seeking_immortals:diyuan_adapt_pill",
+        "supreme": "seeking_immortals:diyuan_adapt_pill"
+      },
+      "zh_cn": "地渊适应丹",
+      "en_us": "diyuan_adapt_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "tianyuan_merit_pill",
+      "canonical_recipe_id": "tianyuan_merit_pill",
+      "canonical_low_item": "seeking_immortals:tianyuan_merit_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:tianyuan_merit_pill",
+        "medium": "seeking_immortals:tianyuan_merit_pill",
+        "high": "seeking_immortals:tianyuan_merit_pill",
+        "supreme": "seeking_immortals:tianyuan_merit_pill"
+      },
+      "zh_cn": "天渊功勋丹",
+      "en_us": "tianyuan_merit_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "ghost_gate_pill",
+      "canonical_recipe_id": "ghost_gate_pill",
+      "canonical_low_item": "seeking_immortals:ghost_gate_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:ghost_gate_pill",
+        "medium": "seeking_immortals:ghost_gate_pill",
+        "high": "seeking_immortals:ghost_gate_pill",
+        "supreme": "seeking_immortals:ghost_gate_pill"
+      },
+      "zh_cn": "鬼灵门阴丹",
+      "en_us": "ghost_gate_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "poison_insect_pill",
+      "canonical_recipe_id": "poison_insect_pill",
+      "canonical_low_item": "seeking_immortals:poison_insect_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:poison_insect_pill",
+        "medium": "seeking_immortals:poison_insect_pill",
+        "high": "seeking_immortals:poison_insect_pill",
+        "supreme": "seeking_immortals:poison_insect_pill"
+      },
+      "zh_cn": "毒虫丸",
+      "en_us": "poison_insect_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "blood_curse_pill",
+      "canonical_recipe_id": "blood_curse_pill",
+      "canonical_low_item": "seeking_immortals:blood_curse_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:blood_curse_pill",
+        "medium": "seeking_immortals:blood_curse_pill",
+        "high": "seeking_immortals:blood_curse_pill",
+        "supreme": "seeking_immortals:blood_curse_pill"
+      },
+      "zh_cn": "血咒丹",
+      "en_us": "blood_curse_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:dragon_blood_grass",
+          "count": 1
+        },
+        {
+          "item": "seeking_immortals:soul_fragment",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "fox_illusion_pill",
+      "canonical_recipe_id": "fox_illusion_pill",
+      "canonical_low_item": "seeking_immortals:fox_illusion_pill",
+      "quality_outputs": {
+        "low": "seeking_immortals:fox_illusion_pill",
+        "medium": "seeking_immortals:fox_illusion_pill",
+        "high": "seeking_immortals:fox_illusion_pill",
+        "supreme": "seeking_immortals:fox_illusion_pill"
+      },
+      "zh_cn": "天狐幻丹",
+      "en_us": "fox_illusion_pill",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:void_crystal",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_qi_refining",
+      "canonical_recipe_id": "cultivation_aid_qi_refining",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_qi_refining",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_qi_refining",
+        "medium": "seeking_immortals:cultivation_aid_qi_refining",
+        "high": "seeking_immortals:cultivation_aid_qi_refining",
+        "supreme": "seeking_immortals:cultivation_aid_qi_refining"
+      },
+      "zh_cn": "QI_REFINING辅修丹（通称）",
+      "en_us": "cultivation_aid_qi_refining",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_foundation",
+      "canonical_recipe_id": "cultivation_aid_foundation",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_foundation",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_foundation",
+        "medium": "seeking_immortals:cultivation_aid_foundation",
+        "high": "seeking_immortals:cultivation_aid_foundation",
+        "supreme": "seeking_immortals:cultivation_aid_foundation"
+      },
+      "zh_cn": "FOUNDATION辅修丹（通称）",
+      "en_us": "cultivation_aid_foundation",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_core_formation",
+      "canonical_recipe_id": "cultivation_aid_core_formation",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_core_formation",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_core_formation",
+        "medium": "seeking_immortals:cultivation_aid_core_formation",
+        "high": "seeking_immortals:cultivation_aid_core_formation",
+        "supreme": "seeking_immortals:cultivation_aid_core_formation"
+      },
+      "zh_cn": "CORE_FORMATION辅修丹（通称）",
+      "en_us": "cultivation_aid_core_formation",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_nascent_soul",
+      "canonical_recipe_id": "cultivation_aid_nascent_soul",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_nascent_soul",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_nascent_soul",
+        "medium": "seeking_immortals:cultivation_aid_nascent_soul",
+        "high": "seeking_immortals:cultivation_aid_nascent_soul",
+        "supreme": "seeking_immortals:cultivation_aid_nascent_soul"
+      },
+      "zh_cn": "NASCENT_SOUL辅修丹（通称）",
+      "en_us": "cultivation_aid_nascent_soul",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_deity_transformation",
+      "canonical_recipe_id": "cultivation_aid_deity_transformation",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_deity_transformation",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_deity_transformation",
+        "medium": "seeking_immortals:cultivation_aid_deity_transformation",
+        "high": "seeking_immortals:cultivation_aid_deity_transformation",
+        "supreme": "seeking_immortals:cultivation_aid_deity_transformation"
+      },
+      "zh_cn": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "en_us": "cultivation_aid_deity_transformation",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_void_refining",
+      "canonical_recipe_id": "cultivation_aid_void_refining",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_void_refining",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_void_refining",
+        "medium": "seeking_immortals:cultivation_aid_void_refining",
+        "high": "seeking_immortals:cultivation_aid_void_refining",
+        "supreme": "seeking_immortals:cultivation_aid_void_refining"
+      },
+      "zh_cn": "VOID_REFINING辅修丹（通称）",
+      "en_us": "cultivation_aid_void_refining",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_great_vehicle",
+      "canonical_recipe_id": "cultivation_aid_great_vehicle",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_great_vehicle",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_great_vehicle",
+        "medium": "seeking_immortals:cultivation_aid_great_vehicle",
+        "high": "seeking_immortals:cultivation_aid_great_vehicle",
+        "supreme": "seeking_immortals:cultivation_aid_great_vehicle"
+      },
+      "zh_cn": "GREAT_VEHICLE辅修丹（通称）",
+      "en_us": "cultivation_aid_great_vehicle",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
+      "controlled": false,
+      "requires_earth_fire_room": false
+    },
+    {
+      "pills_catalog_id": "cultivation_aid_spirit_severing",
+      "canonical_recipe_id": "cultivation_aid_spirit_severing",
+      "canonical_low_item": "seeking_immortals:cultivation_aid_spirit_severing",
+      "quality_outputs": {
+        "low": "seeking_immortals:cultivation_aid_spirit_severing",
+        "medium": "seeking_immortals:cultivation_aid_spirit_severing",
+        "high": "seeking_immortals:cultivation_aid_spirit_severing",
+        "supreme": "seeking_immortals:cultivation_aid_spirit_severing"
+      },
+      "zh_cn": "SPIRIT_SEVERING辅修丹（通称）",
+      "en_us": "cultivation_aid_spirit_severing",
+      "formula_items": [],
+      "formula_source": "paper",
+      "materials": [
+        {
+          "item": "seeking_immortals:spirit_grass",
+          "count": 2
+        },
+        {
+          "item": "seeking_immortals:cloud_mushroom",
+          "count": 1
+        }
+      ],
+      "required_furnace_tier": 1,
+      "ideal_fire_tier": 1,
+      "min_control_realm": "QI_REFINING",
       "controlled": false,
       "requires_earth_fire_room": false
     }

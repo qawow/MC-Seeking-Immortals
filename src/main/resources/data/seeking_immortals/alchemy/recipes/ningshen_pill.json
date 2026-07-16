@@ -1,0 +1,30 @@
+{
+  "id": "ningshen_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.ningshen_pill",
+  "output_items": {
+    "low": "seeking_immortals:ningshen_pill",
+    "medium": "seeking_immortals:ningshen_pill",
+    "high": "seeking_immortals:ningshen_pill",
+    "supreme": "seeking_immortals:ningshen_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 36,
+  "cook_ticks": 480,
+  "success_rate": 0.52,
+  "explosion_chance": 0.1176,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:soul_moss",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:ginseng_spirit",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "heart_guard_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.heart_guard_pill",
+  "output_items": {
+    "low": "seeking_immortals:heart_guard_pill",
+    "medium": "seeking_immortals:heart_guard_pill",
+    "high": "seeking_immortals:heart_guard_pill",
+    "supreme": "seeking_immortals:heart_guard_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 60,
+  "cook_ticks": 680,
+  "success_rate": 0.28,
+  "explosion_chance": 0.1464,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "SOUL_TRANSFORMATION",
+  "controlled": true,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:ningshen_pill",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:void_marrow",
+      "count": 1
+    }
+  ]
+}

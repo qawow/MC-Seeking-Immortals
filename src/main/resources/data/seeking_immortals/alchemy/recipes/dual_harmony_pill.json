@@ -1,0 +1,30 @@
+{
+  "id": "dual_harmony_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.dual_harmony_pill",
+  "output_items": {
+    "low": "seeking_immortals:dual_harmony_pill",
+    "medium": "seeking_immortals:dual_harmony_pill",
+    "high": "seeking_immortals:dual_harmony_pill",
+    "supreme": "seeking_immortals:dual_harmony_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 36,
+  "cook_ticks": 480,
+  "success_rate": 0.5,
+  "explosion_chance": 0.12,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:heqi_pill",
+      "count": 1
+    },
+    {
+      "item": "seeking_immortals:frost_moon_flower",
+      "count": 1
+    }
+  ]
+}

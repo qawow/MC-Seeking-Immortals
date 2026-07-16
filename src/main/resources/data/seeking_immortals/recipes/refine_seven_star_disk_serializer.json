@@ -1,0 +1,31 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:star_sand"
+    },
+    {
+      "item": "seeking_immortals:star_sand"
+    },
+    {
+      "item": "seeking_immortals:star_sand"
+    },
+    {
+      "item": "seeking_immortals:star_sand"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:seven_star_disk",
+    "count": 1
+  },
+  "success_rate": 0.38,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 3
+}

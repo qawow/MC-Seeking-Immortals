@@ -1,0 +1,22 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:hundred_year_ice"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:silver_spirit_mirror",
+    "count": 1
+  },
+  "success_rate": 0.45,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

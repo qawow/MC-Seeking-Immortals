@@ -1,0 +1,22 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:space_crystal_fragment"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    },
+    {
+      "item": "seeking_immortals:kunwu_copper"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:storage_bracelet_low",
+    "count": 1
+  },
+  "success_rate": 0.55,
+  "realm_min": "QI_REFINING",
+  "forge_grade": 2
+}

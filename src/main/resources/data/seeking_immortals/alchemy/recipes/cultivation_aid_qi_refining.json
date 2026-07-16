@@ -1,0 +1,30 @@
+{
+  "id": "cultivation_aid_qi_refining",
+  "display_translation": "alchemy_recipe.seeking_immortals.cultivation_aid_qi_refining",
+  "output_items": {
+    "low": "seeking_immortals:cultivation_aid_qi_refining",
+    "medium": "seeking_immortals:cultivation_aid_qi_refining",
+    "high": "seeking_immortals:cultivation_aid_qi_refining",
+    "supreme": "seeking_immortals:cultivation_aid_qi_refining"
+  },
+  "output_count": 1,
+  "mana_cost": 20,
+  "cook_ticks": 320,
+  "success_rate": 0.78,
+  "explosion_chance": 0.082,
+  "required_furnace_tier": 1,
+  "ideal_fire_tier": 1,
+  "min_control_realm": "QI_REFINING",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_grass",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:cloud_mushroom",
+      "count": 1
+    }
+  ]
+}

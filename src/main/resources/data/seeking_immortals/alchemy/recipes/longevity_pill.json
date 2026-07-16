@@ -8,15 +8,15 @@
     "supreme": "seeking_immortals:longevity_pill_supreme"
   },
   "output_count": 1,
-  "mana_cost": 120,
-  "cook_ticks": 1600,
-  "success_rate": 0.28,
-  "explosion_chance": 0.16,
-  "required_furnace_tier": 5,
-  "ideal_fire_tier": 5,
-  "min_control_realm": "NASCENT_SOUL",
+  "mana_cost": 50,
+  "cook_ticks": 560,
+  "success_rate": 0.22,
+  "explosion_chance": 0.128,
+  "required_furnace_tier": 4,
+  "ideal_fire_tier": 4,
+  "min_control_realm": "CORE_FORMATION",
   "controlled": true,
-  "requires_earth_fire_room": false,
+  "requires_earth_fire_room": true,
   "ingredients": [
     {
       "item": "seeking_immortals:immortal_ginseng",

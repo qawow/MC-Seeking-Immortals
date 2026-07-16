@@ -1,0 +1,30 @@
+{
+  "id": "mana_shield_pill",
+  "display_translation": "alchemy_recipe.seeking_immortals.mana_shield_pill",
+  "output_items": {
+    "low": "seeking_immortals:mana_shield_pill",
+    "medium": "seeking_immortals:mana_shield_pill",
+    "high": "seeking_immortals:mana_shield_pill",
+    "supreme": "seeking_immortals:mana_shield_pill"
+  },
+  "output_count": 1,
+  "mana_cost": 36,
+  "cook_ticks": 480,
+  "success_rate": 0.58,
+  "explosion_chance": 0.1104,
+  "required_furnace_tier": 2,
+  "ideal_fire_tier": 3,
+  "min_control_realm": "FOUNDATION_ESTABLISHMENT",
+  "controlled": false,
+  "requires_earth_fire_room": false,
+  "ingredients": [
+    {
+      "item": "seeking_immortals:star_moon_grass",
+      "count": 2
+    },
+    {
+      "item": "seeking_immortals:spirit_stone_shard",
+      "count": 3
+    }
+  ]
+}

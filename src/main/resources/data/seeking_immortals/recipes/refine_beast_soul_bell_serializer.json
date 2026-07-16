@@ -1,0 +1,28 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:ghost_wood"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    },
+    {
+      "item": "seeking_immortals:beast_blood_vial"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:beast_soul_bell",
+    "count": 1
+  },
+  "success_rate": 0.48,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

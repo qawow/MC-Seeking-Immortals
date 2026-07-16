@@ -636,16 +636,8 @@ public class AlchemyFurnaceBlockEntity extends BlockEntity {
         ServerPlayer crafter = craftingPlayerId == null ? null : serverLevel.getServer().getPlayerList().getPlayer(craftingPlayerId);
         double alchemyBonus = crafter == null ? 0.0D : AlchemyRecipeService.getAlchemySkillBonus(crafter);
         double qualityScore = normalized * 0.8D + alchemyBonus;
-        com.xunxian.seekingimmortals.item.pill.PillQuality quality;
-        if (qualityScore >= 0.95D) {
-            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.SUPREME;
-        } else if (qualityScore >= 0.75D) {
-            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.HIGH;
-        } else if (qualityScore >= 0.50D) {
-            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.MEDIUM;
-        } else {
-            quality = com.xunxian.seekingimmortals.item.pill.PillQuality.LOW;
-        }
+        com.xunxian.seekingimmortals.item.pill.PillQuality quality =
+                com.xunxian.seekingimmortals.item.pill.PillQuality.fromQualityScore(qualityScore);
         return recipe.outputForQuality(quality);
     }
 

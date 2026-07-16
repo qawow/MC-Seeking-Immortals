@@ -1,0 +1,28 @@
+{
+  "type": "seeking_immortals:refinement",
+  "group": "refinement",
+  "ingredients": [
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:spirit_silk"
+    },
+    {
+      "item": "seeking_immortals:gold_seam_stone"
+    }
+  ],
+  "result": {
+    "item": "seeking_immortals:flat_crown_replica",
+    "count": 1
+  },
+  "success_rate": 0.5,
+  "realm_min": "FOUNDATION",
+  "forge_grade": 2
+}

@@ -1,0 +1,919 @@
+{
+  "schema_version": 1,
+  "namespace": "seeking_immortals",
+  "source": "pills_catalog.json",
+  "entries": [
+    {
+      "pill_id": "bigu_pill",
+      "display": "辟谷丹",
+      "category": "special",
+      "effect": "no_food_24h",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:bigu_pill"
+    },
+    {
+      "pill_id": "foundation_pill",
+      "display": "筑基丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:foundation_pill"
+    },
+    {
+      "pill_id": "condensation_pill",
+      "display": "凝元丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:condensation_pill"
+    },
+    {
+      "pill_id": "huoyuan_pill",
+      "display": "火元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huoyuan_pill"
+    },
+    {
+      "pill_id": "soul_gathering_pill",
+      "display": "聚魂丹",
+      "category": "recovery",
+      "effect": "restore_spirit_30pct",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:soul_gathering_pill"
+    },
+    {
+      "pill_id": "bone_marrow_pill",
+      "display": "洗髓丸",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:bone_marrow_pill"
+    },
+    {
+      "pill_id": "forget_dust_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "effect": "erase_memory_12h",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:forget_dust_pill"
+    },
+    {
+      "pill_id": "calm_spirit_pill",
+      "display": "清虚丹",
+      "category": "special",
+      "effect": "pet_mind_clarity",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:calm_spirit_pill"
+    },
+    {
+      "pill_id": "longevity_fruit_pill",
+      "display": "长生丹",
+      "category": "special",
+      "effect": "max_lifespan_plus",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:longevity_fruit_pill"
+    },
+    {
+      "pill_id": "dingyan_pill",
+      "display": "定颜丹",
+      "category": "special",
+      "effect": "freeze_appearance",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:dingyan_pill"
+    },
+    {
+      "pill_id": "blood_qi_pill",
+      "display": "血气丹",
+      "category": "special",
+      "effect": "lifespan_plus_decades",
+      "realm_min": "SOUL_TRANSFORMATION",
+      "item": "seeking_immortals:blood_qi_pill"
+    },
+    {
+      "pill_id": "huiyang_true_water",
+      "display": "回阳真水",
+      "category": "special",
+      "effect": "lifespan_quarter_once",
+      "realm_min": "NASCENT_SOUL",
+      "item": "seeking_immortals:huiyang_true_water"
+    },
+    {
+      "pill_id": "marrow_extract_pill",
+      "display": "抽髓丸",
+      "category": "poison",
+      "effect": "power_now_lifespan_debt",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:marrow_extract_pill"
+    },
+    {
+      "pill_id": "soul_break_pill",
+      "display": "断魂丹",
+      "category": "poison",
+      "effect": "lethal_silent",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:soul_break_pill"
+    },
+    {
+      "pill_id": "poison_dragon_pearl",
+      "display": "毒龙珠",
+      "category": "poison",
+      "effect": "force_power_side_effect",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:poison_dragon_pearl"
+    },
+    {
+      "pill_id": "marrow_repair_pill",
+      "display": "修髓丹",
+      "category": "recovery",
+      "effect": "save_life_self_damage",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:marrow_repair_pill"
+    },
+    {
+      "pill_id": "spirit_condense_pill",
+      "display": "聚灵丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:spirit_condense_pill"
+    },
+    {
+      "pill_id": "ice_fire_pill",
+      "display": "冰火丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:ice_fire_pill"
+    },
+    {
+      "pill_id": "bu_tian_pill",
+      "display": "补天丹",
+      "category": "legendary",
+      "effect": "spirit_root_purify",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:bu_tian_pill"
+    },
+    {
+      "pill_id": "nascent_soul_pill",
+      "display": "培婴丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "NASCENT_SOUL",
+      "item": "seeking_immortals:nascent_soul_pill"
+    },
+    {
+      "pill_id": "spirit_recovery_pill",
+      "display": "回灵丹",
+      "category": "recovery",
+      "effect": "restore_mana_50pct",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:spirit_recovery_pill"
+    },
+    {
+      "pill_id": "body_tempering_pill",
+      "display": "淬体丹",
+      "category": "cultivation",
+      "effect": "physique_plus",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:body_tempering_pill"
+    },
+    {
+      "pill_id": "demon_suppress_pill",
+      "display": "镇魔丹",
+      "category": "special",
+      "effect": "suppress_demon_qi_24h",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:demon_suppress_pill"
+    },
+    {
+      "pill_id": "antidote_pill",
+      "display": "解毒丹",
+      "category": "recovery",
+      "effect": "clear_poison",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:antidote_pill"
+    },
+    {
+      "pill_id": "mana_shield_pill",
+      "display": "护灵丹",
+      "category": "recovery",
+      "effect": "temp_mana_shield",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:mana_shield_pill"
+    },
+    {
+      "pill_id": "beast_taming_pill",
+      "display": "驭兽丹",
+      "category": "special",
+      "effect": "beast_contract_bonus",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:beast_taming_pill"
+    },
+    {
+      "pill_id": "cultivate_speed_pill",
+      "display": "凝气丹",
+      "category": "cultivation",
+      "effect": "cultivation_speed_1h",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivate_speed_pill"
+    },
+    {
+      "pill_id": "jiangchen_pill",
+      "display": "降尘丹",
+      "category": "breakthrough",
+      "effect": "foundation_breakthrough_bonus",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:jiangchen_pill"
+    },
+    {
+      "pill_id": "huanglong_pill",
+      "display": "黄龙丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huanglong_pill"
+    },
+    {
+      "pill_id": "heqi_pill",
+      "display": "合气丹",
+      "category": "cultivation",
+      "effect": "dual_cultivation_compatible",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:heqi_pill"
+    },
+    {
+      "pill_id": "ningshen_pill",
+      "display": "凝神丹",
+      "category": "special",
+      "effect": "calm_inner_demon",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:ningshen_pill"
+    },
+    {
+      "pill_id": "yanghun_pill",
+      "display": "养魂丹",
+      "category": "recovery",
+      "effect": "restore_soul_minor",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:yanghun_pill"
+    },
+    {
+      "pill_id": "sea_calm_pill",
+      "display": "定海丹",
+      "category": "special",
+      "effect": "sea_sickness_immune",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:sea_calm_pill"
+    },
+    {
+      "pill_id": "demon_heart_pill",
+      "display": "镇心丹",
+      "category": "special",
+      "effect": "resist_demon_qi_corruption",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:demon_heart_pill"
+    },
+    {
+      "pill_id": "snow_lotus_pill",
+      "display": "雪莲丹",
+      "category": "recovery",
+      "effect": "clear_cold_poison",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:snow_lotus_pill"
+    },
+    {
+      "pill_id": "demon_qi_purge_pill",
+      "display": "驱魔丹",
+      "category": "special",
+      "effect": "reduce_demon_qi_stack",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:demon_qi_purge_pill"
+    },
+    {
+      "pill_id": "yin_ward_pill",
+      "display": "护阴丹",
+      "category": "special",
+      "effect": "yin_damage_resist_24h",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:yin_ward_pill"
+    },
+    {
+      "pill_id": "tianyuan_spirit_pill",
+      "display": "天渊聚灵丹",
+      "category": "cultivation",
+      "effect": "cultivation_speed_tianyuan",
+      "realm_min": "SOUL_TRANSFORMATION",
+      "item": "seeking_immortals:tianyuan_spirit_pill"
+    },
+    {
+      "pill_id": "thunder_soothing_pill",
+      "display": "避雷丹",
+      "category": "special",
+      "effect": "tribulation_lightning_reduce",
+      "realm_min": "NASCENT_SOUL",
+      "item": "seeking_immortals:thunder_soothing_pill"
+    },
+    {
+      "pill_id": "heart_guard_pill",
+      "display": "守心丹",
+      "category": "special",
+      "effect": "heart_demon_resist",
+      "realm_min": "SOUL_TRANSFORMATION",
+      "item": "seeking_immortals:heart_guard_pill"
+    },
+    {
+      "pill_id": "demon_gold_body_pill",
+      "display": "魔金锻体丹",
+      "category": "special",
+      "effect": "demon_body_temper",
+      "realm_min": "VOID_REFINEMENT",
+      "item": "seeking_immortals:demon_gold_body_pill"
+    },
+    {
+      "pill_id": "asura_mind_pill",
+      "display": "修罗定念丹",
+      "category": "special",
+      "effect": "killing_intent_control",
+      "realm_min": "UNITY",
+      "item": "seeking_immortals:asura_mind_pill"
+    },
+    {
+      "pill_id": "luoyun_spirit_pill",
+      "display": "落云聚元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:luoyun_spirit_pill"
+    },
+    {
+      "pill_id": "dual_harmony_pill",
+      "display": "合欢丹",
+      "category": "special",
+      "effect": "dual_cultivation_bonus",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:dual_harmony_pill"
+    },
+    {
+      "pill_id": "demonic_yang_gather_pill",
+      "display": "采阳丹",
+      "category": "special",
+      "effect": "demonic_dual_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:demonic_yang_gather_pill"
+    },
+    {
+      "pill_id": "great_vehicle_ascension_aid_pill",
+      "display": "大乘护劫丹",
+      "category": "special",
+      "effect": "ascension_tribulation_aid",
+      "realm_min": "MAHAYANA",
+      "item": "seeking_immortals:great_vehicle_ascension_aid_pill"
+    },
+    {
+      "pill_id": "spirit_beast_nurture_pill",
+      "display": "灵兽育灵丹",
+      "category": "special",
+      "effect": "pet_growth",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:spirit_beast_nurture_pill"
+    },
+    {
+      "pill_id": "solid_essence_pill",
+      "display": "固元丹",
+      "category": "cultivation",
+      "effect": "stabilize_foundation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:solid_essence_pill"
+    },
+    {
+      "pill_id": "spirit_recovery_pill_high",
+      "display": "回灵丹（中）",
+      "category": "cultivation",
+      "effect": "restore_mana",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:spirit_recovery_pill_high"
+    },
+    {
+      "pill_id": "demon_expel_pill",
+      "display": "驱魔丹",
+      "category": "cultivation",
+      "effect": "purge_demon_qi",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:demon_expel_pill"
+    },
+    {
+      "pill_id": "longevity_wine_pill",
+      "display": "延寿丹",
+      "category": "cultivation",
+      "effect": "lifespan_small",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:longevity_wine_pill"
+    },
+    {
+      "pill_id": "blood_essence_pill",
+      "display": "血精丹",
+      "category": "cultivation",
+      "effect": "blood_cultivation_boost",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:blood_essence_pill"
+    },
+    {
+      "pill_id": "mulan_wind_pill",
+      "display": "风行丹",
+      "category": "cultivation",
+      "effect": "movement_speed",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:mulan_wind_pill"
+    },
+    {
+      "pill_id": "chaotic_sea_antidote",
+      "display": "海毒解丹",
+      "category": "cultivation",
+      "effect": "sea_poison_cure",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:chaotic_sea_antidote"
+    },
+    {
+      "pill_id": "pressure_resist_pill",
+      "display": "抗压丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "MORTAL",
+      "item": "seeking_immortals:pressure_resist_pill"
+    },
+    {
+      "pill_id": "spirit_realm_condense_pill",
+      "display": "灵界凝元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "MORTAL",
+      "item": "seeking_immortals:spirit_realm_condense_pill"
+    },
+    {
+      "pill_id": "jiedan_pill",
+      "display": "结丹丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:jiedan_pill"
+    },
+    {
+      "pill_id": "ningyuan_pill",
+      "display": "凝元丹（外海）",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ningyuan_pill"
+    },
+    {
+      "pill_id": "huashen_pill",
+      "display": "化神丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huashen_pill"
+    },
+    {
+      "pill_id": "ninghun_dan",
+      "display": "凝魂丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ninghun_dan"
+    },
+    {
+      "pill_id": "yangyuan_pill",
+      "display": "养元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:yangyuan_pill"
+    },
+    {
+      "pill_id": "huichun_pill",
+      "display": "回春丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huichun_pill"
+    },
+    {
+      "pill_id": "qingxin_pill",
+      "display": "清心丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:qingxin_pill"
+    },
+    {
+      "pill_id": "biyu_pill",
+      "display": "碧玉丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:biyu_pill"
+    },
+    {
+      "pill_id": "xuanbing_pill",
+      "display": "玄冰丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:xuanbing_pill"
+    },
+    {
+      "pill_id": "lieyan_pill",
+      "display": "烈焰丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:lieyan_pill"
+    },
+    {
+      "pill_id": "juyuan_pill",
+      "display": "聚元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:juyuan_pill"
+    },
+    {
+      "pill_id": "tihu_pill",
+      "display": "替魂丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:tihu_pill"
+    },
+    {
+      "pill_id": "dujie_pill",
+      "display": "渡劫丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:dujie_pill"
+    },
+    {
+      "pill_id": "longhu_pill",
+      "display": "龙虎丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "CORE_FORMATION",
+      "item": "seeking_immortals:longhu_pill"
+    },
+    {
+      "pill_id": "xueying_pill",
+      "display": "血影丹",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:xueying_pill"
+    },
+    {
+      "pill_id": "wuxing_pill",
+      "display": "五行丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:wuxing_pill"
+    },
+    {
+      "pill_id": "tianling_pill",
+      "display": "天灵丹",
+      "category": "legendary",
+      "effect": "generic_cultivation",
+      "realm_min": "MORTAL",
+      "item": "seeking_immortals:tianling_pill"
+    },
+    {
+      "pill_id": "spirit_condense_minor",
+      "display": "小凝元丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "FOUNDATION_ESTABLISHMENT",
+      "item": "seeking_immortals:spirit_condense_minor"
+    },
+    {
+      "pill_id": "anti_poison_pill",
+      "display": "解毒丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:anti_poison_pill"
+    },
+    {
+      "pill_id": "jiangying_pill",
+      "display": "降尘丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:jiangying_pill"
+    },
+    {
+      "pill_id": "xiyu_pill",
+      "display": "洗髓丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:xiyu_pill"
+    },
+    {
+      "pill_id": "huanti_pill",
+      "display": "淬体丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huanti_pill"
+    },
+    {
+      "pill_id": "huanxue_pill",
+      "display": "换血丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huanxue_pill"
+    },
+    {
+      "pill_id": "juling_pill",
+      "display": "聚灵丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:juling_pill"
+    },
+    {
+      "pill_id": "ningjin_pill",
+      "display": "凝金丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ningjin_pill"
+    },
+    {
+      "pill_id": "ningying_pill",
+      "display": "凝婴丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ningying_pill"
+    },
+    {
+      "pill_id": "wangchen_pill",
+      "display": "忘尘丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:wangchen_pill"
+    },
+    {
+      "pill_id": "jingxin_pill",
+      "display": "静心丸",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:jingxin_pill"
+    },
+    {
+      "pill_id": "jieqi_pill",
+      "display": "解气丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:jieqi_pill"
+    },
+    {
+      "pill_id": "huiyuan_pill",
+      "display": "回元丹",
+      "category": "recovery",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:huiyuan_pill"
+    },
+    {
+      "pill_id": "yin_yang_pill",
+      "display": "阴阳丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:yin_yang_pill"
+    },
+    {
+      "pill_id": "golden_core_pill",
+      "display": "金丹丸",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:golden_core_pill"
+    },
+    {
+      "pill_id": "body_refine_pill",
+      "display": "炼体丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:body_refine_pill"
+    },
+    {
+      "pill_id": "meridian_open_pill",
+      "display": "通脉丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:meridian_open_pill"
+    },
+    {
+      "pill_id": "spirit_seed_pill",
+      "display": "灵种丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:spirit_seed_pill"
+    },
+    {
+      "pill_id": "ghost_cultivate_pill",
+      "display": "炼鬼丹",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ghost_cultivate_pill"
+    },
+    {
+      "pill_id": "demonic_blood_pill",
+      "display": "魔血丹",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:demonic_blood_pill"
+    },
+    {
+      "pill_id": "hehuan_pill",
+      "display": "合欢丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:hehuan_pill"
+    },
+    {
+      "pill_id": "illusion_pill",
+      "display": "幻心丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:illusion_pill"
+    },
+    {
+      "pill_id": "tribulation_guard_pill",
+      "display": "护劫丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:tribulation_guard_pill"
+    },
+    {
+      "pill_id": "void_condense_pill",
+      "display": "炼虚丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:void_condense_pill"
+    },
+    {
+      "pill_id": "spirit_severing_pill",
+      "display": "炼神丹",
+      "category": "breakthrough",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:spirit_severing_pill"
+    },
+    {
+      "pill_id": "star_sea_pill",
+      "display": "星海丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:star_sea_pill"
+    },
+    {
+      "pill_id": "barbarian_strength_pill",
+      "display": "蛮力丹",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:barbarian_strength_pill"
+    },
+    {
+      "pill_id": "diyuan_adapt_pill",
+      "display": "地渊适应丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:diyuan_adapt_pill"
+    },
+    {
+      "pill_id": "tianyuan_merit_pill",
+      "display": "天渊功勋丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:tianyuan_merit_pill"
+    },
+    {
+      "pill_id": "ghost_gate_pill",
+      "display": "鬼灵门阴丹",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:ghost_gate_pill"
+    },
+    {
+      "pill_id": "poison_insect_pill",
+      "display": "毒虫丸",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:poison_insect_pill"
+    },
+    {
+      "pill_id": "blood_curse_pill",
+      "display": "血咒丹",
+      "category": "poison",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:blood_curse_pill"
+    },
+    {
+      "pill_id": "fox_illusion_pill",
+      "display": "天狐幻丹",
+      "category": "special",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:fox_illusion_pill"
+    },
+    {
+      "pill_id": "cultivation_aid_qi_refining",
+      "display": "QI_REFINING辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_qi_refining"
+    },
+    {
+      "pill_id": "cultivation_aid_foundation",
+      "display": "FOUNDATION辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_foundation"
+    },
+    {
+      "pill_id": "cultivation_aid_core_formation",
+      "display": "CORE_FORMATION辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_core_formation"
+    },
+    {
+      "pill_id": "cultivation_aid_nascent_soul",
+      "display": "NASCENT_SOUL辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_nascent_soul"
+    },
+    {
+      "pill_id": "cultivation_aid_deity_transformation",
+      "display": "DEITY_TRANSFORMATION辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_deity_transformation"
+    },
+    {
+      "pill_id": "cultivation_aid_void_refining",
+      "display": "VOID_REFINING辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_void_refining"
+    },
+    {
+      "pill_id": "cultivation_aid_great_vehicle",
+      "display": "GREAT_VEHICLE辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_great_vehicle"
+    },
+    {
+      "pill_id": "cultivation_aid_spirit_severing",
+      "display": "SPIRIT_SEVERING辅修丹（通称）",
+      "category": "cultivation",
+      "effect": "generic_cultivation",
+      "realm_min": "QI_REFINING",
+      "item": "seeking_immortals:cultivation_aid_spirit_severing"
+    }
+  ]
+}
