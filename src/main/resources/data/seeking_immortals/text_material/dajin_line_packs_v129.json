@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "source": "v129 大晋线",
+  "region": "dajin",
+  "factions": [
+    {
+      "faction_id": "dajin_feng",
+      "display": "冯家/明王线",
+      "methods": [
+        "mingwang_jue"
+      ],
+      "role": "炼体金身",
+      "techniques": [
+        {
+          "id": "mingwang_body_harden",
+          "display": "明王金身（初）",
+          "requires_method": "mingwang_jue",
+          "realm_min": "NASCENT_SOUL",
+          "file": "body.json"
+        },
+        {
+          "id": "mingwang_layer2",
+          "display": "明王金身·二",
+          "requires_method": "mingwang_jue",
+          "realm_min": "NASCENT_SOUL",
+          "file": "body.json"
+        },
+        {
+          "id": "mingwang_layer3",
+          "display": "明王金身·三",
+          "requires_method": "mingwang_jue",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "file": "body.json"
+        },
+        {
+          "id": "mingwang_vajra_strike",
+          "display": "明王杵击",
+          "requires_method": "mingwang_jue",
+          "realm_min": "NASCENT_SOUL",
+          "file": "body.json"
+        }
+      ],
+      "technique_count": 4,
+      "method_layer_tables": [
+        {
+          "method_id": "mingwang_jue",
+          "display": "明王决",
+          "total_layers": 3,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "初层",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "mingwang_body_harden",
+                "mingwang_vajra_strike"
+              ],
+              "unlock_new_this_layer": [
+                "mingwang_body_harden",
+                "mingwang_vajra_strike"
+              ],
+              "note": "初"
+            },
+            {
+              "layer": 2,
+              "layer_name": "二层",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "mingwang_body_harden",
+                "mingwang_vajra_strike",
+                "mingwang_layer2"
+              ],
+              "unlock_new_this_layer": [
+                "mingwang_layer2"
+              ],
+              "note": "二"
+            },
+            {
+              "layer": 3,
+              "layer_name": "三层",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "mingwang_body_harden",
+                "mingwang_vajra_strike",
+                "mingwang_layer2",
+                "mingwang_layer3"
+              ],
+              "unlock_new_this_layer": [
+                "mingwang_layer3"
+              ],
+              "note": "三"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "dajin_buddhist",
+      "display": "大晋佛门",
+      "methods": [
+        "dajin_buddhist_base",
+        "buddhist_vajra_body_art"
+      ],
+      "role": "佛修",
+      "techniques": [
+        {
+          "id": "vajra_palm",
+          "display": "金刚掌",
+          "requires_method": "dajin_buddhist_base",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "dajin_buddhist_vajra",
+          "display": "大晋金刚杵",
+          "requires_method": "dajin_buddhist_base",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "vajra_body_flash",
+          "display": "金刚不坏闪",
+          "requires_method": "buddhist_vajra_body_art",
+          "realm_min": "QI_REFINING",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "dajin_zen_barrier",
+          "display": "大晋禅障",
+          "requires_method": "dajin_buddhist_base",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "dajin_subdue_demon_chant",
+          "display": "降魔梵音",
+          "requires_method": "dajin_buddhist_base",
+          "realm_min": "CORE_FORMATION",
+          "file": "buddhist.json"
+        },
+        {
+          "id": "vajra_body_layer2",
+          "display": "金刚体·进",
+          "requires_method": "buddhist_vajra_body_art",
+          "realm_min": "FOUNDATION",
+          "file": "buddhist.json"
+        }
+      ],
+      "technique_count": 6,
+      "method_layer_tables": [
+        {
+          "method_id": "dajin_buddhist_base",
+          "display": "大晋佛修基础",
+          "total_layers": 2,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "金刚",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "vajra_palm",
+                "dajin_buddhist_vajra",
+                "dajin_zen_barrier"
+              ],
+              "unlock_new_this_layer": [
+                "vajra_palm",
+                "dajin_buddhist_vajra",
+                "dajin_zen_barrier"
+              ],
+              "note": "基"
+            },
+            {
+              "layer": 2,
+              "layer_name": "梵音",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "vajra_palm",
+                "dajin_buddhist_vajra",
+                "dajin_zen_barrier",
+                "dajin_subdue_demon_chant"
+              ],
+              "unlock_new_this_layer": [
+                "dajin_subdue_demon_chant"
+              ],
+              "note": "音"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "yinluo_zong",
+      "display": "阴罗宗",
+      "methods": [
+        "yin_luo_ghost_art"
+      ],
+      "role": "鬼道",
+      "techniques": [
+        {
+          "id": "yinluo_soul_harvest",
+          "display": "阴罗摄魂",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "secret_arts.json"
+        },
+        {
+          "id": "yin_soul_devour",
+          "display": "噬魂阴风",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "QI_REFINING",
+          "file": "ghost.json"
+        },
+        {
+          "id": "soul_banner_wave",
+          "display": "招魂幡浪",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json"
+        },
+        {
+          "id": "yin_luo_ghost_cloak",
+          "display": "阴罗鬼cloak",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json"
+        },
+        {
+          "id": "ghost_king_avatar",
+          "display": "鬼王化身",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "ghost.json"
+        },
+        {
+          "id": "yinluo_banner_call",
+          "display": "阴罗召鬼",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "FOUNDATION",
+          "file": "ghost.json"
+        },
+        {
+          "id": "yinluo_nine_soul",
+          "display": "阴罗九魂锁",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "ghost.json"
+        },
+        {
+          "id": "yinluo_corpse_tide",
+          "display": "阴罗尸潮",
+          "requires_method": "yin_luo_ghost_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "ghost.json"
+        }
+      ],
+      "technique_count": 8,
+      "method_layer_tables": [
+        {
+          "method_id": "yin_luo_ghost_art",
+          "display": "阴罗鬼诀",
+          "total_layers": 4,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "入门",
+              "realm_band": "QI_REFINING",
+              "unlock_technique_ids": [
+                "yin_soul_devour",
+                "yinluo_banner_call"
+              ],
+              "unlock_new_this_layer": [
+                "yin_soul_devour",
+                "yinluo_banner_call"
+              ],
+              "note": "入"
+            },
+            {
+              "layer": 2,
+              "layer_name": "幡",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "yin_soul_devour",
+                "yinluo_banner_call",
+                "soul_banner_wave",
+                "yin_luo_ghost_cloak"
+              ],
+              "unlock_new_this_layer": [
+                "soul_banner_wave",
+                "yin_luo_ghost_cloak"
+              ],
+              "note": "幡"
+            },
+            {
+              "layer": 3,
+              "layer_name": "九魂",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "yin_soul_devour",
+                "yinluo_banner_call",
+                "soul_banner_wave",
+                "yin_luo_ghost_cloak",
+                "yinluo_soul_harvest",
+                "ghost_king_avatar",
+                "yinluo_nine_soul"
+              ],
+              "unlock_new_this_layer": [
+                "yinluo_soul_harvest",
+                "ghost_king_avatar",
+                "yinluo_nine_soul"
+              ],
+              "note": "高"
+            },
+            {
+              "layer": 4,
+              "layer_name": "尸潮",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "yin_soul_devour",
+                "yinluo_banner_call",
+                "soul_banner_wave",
+                "yin_luo_ghost_cloak",
+                "yinluo_soul_harvest",
+                "ghost_king_avatar",
+                "yinluo_nine_soul",
+                "yinluo_corpse_tide"
+              ],
+              "unlock_new_this_layer": [
+                "yinluo_corpse_tide"
+              ],
+              "note": "大"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "kunwu",
+      "display": "昆吾山",
+      "methods": [
+        "kunwu_seal_art",
+        "kunwu_ice_guard_art"
+      ],
+      "role": "封印寒罡",
+      "techniques": [
+        {
+          "id": "kunwu_frost_armor",
+          "display": "昆吾寒罡",
+          "requires_method": "kunwu_ice_guard_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "kunwu_frost_spike",
+          "display": "昆吾寒刺",
+          "requires_method": "kunwu_ice_guard_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "kunwu_absolute_zero_guard",
+          "display": "昆吾绝寒罡",
+          "requires_method": "kunwu_ice_guard_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "elemental.json"
+        },
+        {
+          "id": "small_sword_array",
+          "display": "小剑阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "illusion_formation",
+          "display": "迷踪阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "spirit_gather_array",
+          "display": "聚灵阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "thunder_trap_array",
+          "display": "雷劫阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "seal_array",
+          "display": "封灵阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "kill_sword_formation",
+          "display": "杀阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "defense_formation",
+          "display": "守阵",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "kunwu_seal_strike",
+          "display": "坤吴印击",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "kunwu_seal_reinforce",
+          "display": "昆吾封固",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "FOUNDATION",
+          "file": "formation.json"
+        },
+        {
+          "id": "kunwu_tower_bind",
+          "display": "昆吾镇魔塔印",
+          "requires_method": "kunwu_seal_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "formation.json"
+        }
+      ],
+      "technique_count": 13,
+      "method_layer_tables": [
+        {
+          "method_id": "kunwu_seal_art",
+          "display": "昆吾印诀",
+          "total_layers": 3,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "小阵",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "spirit_gather_array",
+                "defense_formation",
+                "kunwu_seal_reinforce"
+              ],
+              "unlock_new_this_layer": [
+                "spirit_gather_array",
+                "defense_formation",
+                "kunwu_seal_reinforce"
+              ],
+              "note": "阵"
+            },
+            {
+              "layer": 2,
+              "layer_name": "印击",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "spirit_gather_array",
+                "defense_formation",
+                "kunwu_seal_reinforce",
+                "kunwu_seal_strike"
+              ],
+              "unlock_new_this_layer": [
+                "kunwu_seal_strike"
+              ],
+              "note": "印"
+            },
+            {
+              "layer": 3,
+              "layer_name": "镇魔",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "spirit_gather_array",
+                "defense_formation",
+                "kunwu_seal_reinforce",
+                "kunwu_seal_strike",
+                "kunwu_tower_bind"
+              ],
+              "unlock_new_this_layer": [
+                "kunwu_tower_bind"
+              ],
+              "note": "塔"
+            }
+          ],
+          "v129": true
+        },
+        {
+          "method_id": "kunwu_ice_guard_art",
+          "display": "昆吾寒罡诀",
+          "total_layers": 2,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "寒",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "kunwu_frost_armor",
+                "kunwu_frost_spike"
+              ],
+              "unlock_new_this_layer": [
+                "kunwu_frost_armor",
+                "kunwu_frost_spike"
+              ],
+              "note": "寒"
+            },
+            {
+              "layer": 2,
+              "layer_name": "绝",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "kunwu_frost_armor",
+                "kunwu_frost_spike",
+                "kunwu_absolute_zero_guard"
+              ],
+              "unlock_new_this_layer": [
+                "kunwu_absolute_zero_guard"
+              ],
+              "note": "绝"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "dajin_ye_clan",
+      "display": "叶家皇族",
+      "methods": [
+        "dajin_ye_clan_art"
+      ],
+      "role": "皇脉",
+      "techniques": [
+        {
+          "id": "ye_clan_dark_mandate",
+          "display": "叶家暗令",
+          "requires_method": "dajin_ye_clan_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "demonic.json"
+        },
+        {
+          "id": "ye_clan_bloodline_flash",
+          "display": "叶家血脉闪",
+          "requires_method": "dajin_ye_clan_art",
+          "realm_min": "CORE_FORMATION",
+          "file": "elemental.json"
+        }
+      ],
+      "technique_count": 2,
+      "method_layer_tables": [
+        {
+          "method_id": "dajin_ye_clan_art",
+          "display": "叶家皇脉诀",
+          "total_layers": 2,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "血脉",
+              "realm_band": "CORE_FORMATION",
+              "unlock_technique_ids": [
+                "ye_clan_bloodline_flash"
+              ],
+              "unlock_new_this_layer": [
+                "ye_clan_bloodline_flash"
+              ],
+              "note": "脉"
+            },
+            {
+              "layer": 2,
+              "layer_name": "暗令",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "ye_clan_bloodline_flash",
+                "ye_clan_dark_mandate"
+              ],
+              "unlock_new_this_layer": [
+                "ye_clan_dark_mandate"
+              ],
+              "note": "令"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "dajin_clans",
+      "display": "大晋世家",
+      "methods": [
+        "dajin_clan_ancestor_art"
+      ],
+      "role": "祖传",
+      "techniques": [
+        {
+          "id": "dajin_clan_heritage_bolt",
+          "display": "世家祖传雷",
+          "requires_method": "dajin_clan_ancestor_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        },
+        {
+          "id": "dajin_clan_heritage_shield",
+          "display": "世家护灵",
+          "requires_method": "dajin_clan_ancestor_art",
+          "realm_min": "FOUNDATION",
+          "file": "elemental.json"
+        }
+      ],
+      "technique_count": 2,
+      "method_layer_tables": [
+        {
+          "method_id": "dajin_clan_ancestor_art",
+          "display": "世家祖传诀",
+          "total_layers": 1,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "祖传",
+              "realm_band": "FOUNDATION",
+              "unlock_technique_ids": [
+                "dajin_clan_heritage_bolt",
+                "dajin_clan_heritage_shield"
+              ],
+              "unlock_new_this_layer": [
+                "dajin_clan_heritage_bolt",
+                "dajin_clan_heritage_shield"
+              ],
+              "note": "祖"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    },
+    {
+      "faction_id": "xiaji_palace",
+      "display": "小极宫",
+      "methods": [
+        "xiaji_palace_art"
+      ],
+      "role": "冲阶",
+      "techniques": [
+        {
+          "id": "xiaji_clear_channel",
+          "display": "小极通脉",
+          "requires_method": "xiaji_palace_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "dao.json"
+        },
+        {
+          "id": "xiaji_ice_flame_aid",
+          "display": "小极寒焰辅",
+          "requires_method": "xiaji_palace_art",
+          "realm_min": "NASCENT_SOUL",
+          "file": "dao.json"
+        },
+        {
+          "id": "xiaji_spirit_surge",
+          "display": "小极灵涌",
+          "requires_method": "xiaji_palace_art",
+          "realm_min": "DEITY_TRANSFORMATION",
+          "file": "elemental.json"
+        }
+      ],
+      "technique_count": 3,
+      "method_layer_tables": [
+        {
+          "method_id": "xiaji_palace_art",
+          "display": "小极宫玄功",
+          "total_layers": 2,
+          "layer_model": "dajin_v129",
+          "layers": [
+            {
+              "layer": 1,
+              "layer_name": "通脉",
+              "realm_band": "NASCENT_SOUL",
+              "unlock_technique_ids": [
+                "xiaji_clear_channel",
+                "xiaji_ice_flame_aid"
+              ],
+              "unlock_new_this_layer": [
+                "xiaji_clear_channel",
+                "xiaji_ice_flame_aid"
+              ],
+              "note": "辅"
+            },
+            {
+              "layer": 2,
+              "layer_name": "灵涌",
+              "realm_band": "DEITY_TRANSFORMATION",
+              "unlock_technique_ids": [
+                "xiaji_clear_channel",
+                "xiaji_ice_flame_aid",
+                "xiaji_spirit_surge"
+              ],
+              "unlock_new_this_layer": [
+                "xiaji_spirit_surge"
+              ],
+              "note": "化"
+            }
+          ],
+          "v129": true
+        }
+      ]
+    }
+  ],
+  "quest_chain_ref": "dajin_kunwu_line"
+}

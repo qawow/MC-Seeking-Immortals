@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v106 宗门专属货架：黄枫谷 / 天符门 / 御灵宗",
+  "disclaimer": "价格为下品灵石或贡献/符币结构。受声望阈值锁。贴原著门派气质",
+  "global_rules": {
+    "sect_only": true,
+    "rep_discount": {"friendly": 0.9, "honored": 0.8, "exalted": 0.7},
+    "never_list": ["掌天瓶", "绿液", "通天完整", "真魂丹", "炼神术"]
+  },
+  "sects": [
+    {
+      "id": "huangfeng",
+      "display": "黄枫谷",
+      "region": "越国七派",
+      "currency": ["low_stone", "sect_contrib"],
+      "rep_faction": "huangfeng",
+      "flavor": "药谷底蕴，筑基前友好，丹药与地火",
+      "shelves": [
+        {
+          "id": "outer_basics",
+          "display": "外门基础架",
+          "rep_min": 0,
+          "wares": [
+            {"id": "huang_fu_pack", "display": "黄符十张", "price": [10, 30]},
+            {"id": "yang_jing_dan", "display": "养精丹", "price": [10, 50]},
+            {"id": "ju_ling_dan", "display": "聚灵丹", "price": [20, 100]},
+            {"id": "storage_bag_s", "display": "小储物袋", "price": [20, 80]},
+            {"id": "si_ling_wan", "display": "饲灵丸", "price": [20, 200]},
+            {"id": "bai_lian_jie_du", "display": "百炼解毒丹", "price": [50, 300]}
+          ]
+        },
+        {
+          "id": "inner_service",
+          "display": "内门事务架",
+          "rep_min": 20,
+          "wares": [
+            {"id": "dihuo_ticket", "display": "地火时券", "price": [20, 500]},
+            {"id": "array_juling", "display": "聚灵阵旗组", "price": [100, 2000]},
+            {"id": "herb_quota_token", "display": "药园配额令", "price": "贡献"},
+            {"id": "qingyuan_hint", "display": "剑诀指点残页", "price": "贡献高", "note": "非完整青元"}
+          ]
+        },
+        {
+          "id": "foundation_quota",
+          "display": "筑基特供",
+          "rep_min": 40,
+          "wares": [
+            {"id": "zhu_ji_dan_quota", "display": "筑基丹配额券", "price": "抽签+贡献", "scarce": true},
+            {"id": "four_herb_buy", "display": "四主药散售", "price": [10, 100], "note": "禁地后市场"},
+            {"id": "jin_sui_wan", "display": "金髓丸", "price": [200, 1200]}
+          ]
+        },
+        {
+          "id": "steward",
+          "display": "药园主事架",
+          "rep_min": 60,
+          "wares": [
+            {"id": "garden_master_seal", "display": "主事印", "price": "剧情"},
+            {"id": "mid_storage", "display": "中储物袋", "price": [100, 800]},
+            {"id": "secret_manual_apply", "display": "秘传申请契", "price": "贡献+考核"}
+          ]
+        }
+      ],
+      "blacklist_on_hostile": -40
+    },
+    {
+      "id": "tianfu_men",
+      "display": "天符门",
+      "region": "天南/大晋符道",
+      "currency": ["low_stone", "fu_gong"],
+      "rep_faction": "tianfu_men",
+      "flavor": "符箓批发与谱系，地符天符阶梯",
+      "shelves": [
+        {
+          "id": "fu_retail",
+          "display": "符箓零售",
+          "rep_min": 0,
+          "wares": [
+            {"id": "huang_fu", "display": "黄符", "price": [1, 20]},
+            {"id": "xuan_fu", "display": "玄符", "price": [30, 300]},
+            {"id": "fireball_stack", "display": "火球符捆", "price": [20, 100]},
+            {"id": "shield_stack", "display": "金光盾符捆", "price": [30, 150]},
+            {"id": "dingshen_stack", "display": "定神符捆", "price": [40, 200]}
+          ]
+        },
+        {
+          "id": "di_fu_wholesale",
+          "display": "地符批发",
+          "rep_min": 25,
+          "wares": [
+            {"id": "di_fu", "display": "地符", "price": [500, 8000]},
+            {"id": "fu_pu_layer1", "display": "符谱一层", "price": [2000, 20000]},
+            {"id": "fu_paper_mid", "display": "中品符纸", "price": [50, 500]},
+            {"id": "cinnabar_mid", "display": "中品朱砂", "price": [50, 500]}
+          ]
+        },
+        {
+          "id": "tian_fu_apply",
+          "display": "天符申请",
+          "rep_min": 55,
+          "wares": [
+            {"id": "tian_fu", "display": "天符", "price": [5000, 100000], "scarce": true},
+            {"id": "hua_ling_fu_quest", "display": "化灵符任务契", "price": "考核", "scarce": true},
+            {"id": "fu_pu_layer2", "display": "符谱二层", "price": "贡献高"}
+          ]
+        },
+        {
+          "id": "exalted_fu",
+          "display": "崇敬人情架",
+          "rep_min": 80,
+          "wares": [
+            {"id": "jiang_ling_fu_favor", "display": "降灵符人情线", "price": "剧情+人情"},
+            {"id": "custom_fu_order", "display": "定制符订单", "price": "议价"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yuling_zong",
+      "display": "御灵宗",
+      "region": "虫兽御控",
+      "currency": ["low_stone", "sect_contrib"],
+      "rep_faction": "yuling_zong",
+      "flavor": "虫卵、饲灵、驱虫秘传，忌魔道虫灾外泄",
+      "shelves": [
+        {
+          "id": "novice_insect",
+          "display": "入门虫架",
+          "rep_min": 0,
+          "wares": [
+            {"id": "si_ling_wan", "display": "饲灵丸", "price": [20, 200]},
+            {"id": "yu_mi", "display": "玉蜜", "price": [20, 300]},
+            {"id": "basic_egg_box", "display": "普通虫卵礼盒", "price": [50, 500]},
+            {"id": "insect_net", "display": "灵虫网", "price": [30, 200]}
+          ]
+        },
+        {
+          "id": "control_arts",
+          "display": "御虫架",
+          "rep_min": 20,
+          "wares": [
+            {"id": "si_ling_recipe", "display": "饲灵丸配方", "price": [500, 5000]},
+            {"id": "egg_gift_mid", "display": "中阶虫卵礼", "price": [500, 8000]},
+            {"id": "qu_chong_basic", "display": "驱虫初级", "price": [300, 3000]},
+            {"id": "ban_yao_cao", "display": "伴妖草", "price": [5, 40]}
+          ]
+        },
+        {
+          "id": "advanced_insect",
+          "display": "中高阶虫种",
+          "rep_min": 50,
+          "wares": [
+            {"id": "mid_tier_egg", "display": "中阶虫种", "price": [2000, 30000], "scarce": true},
+            {"id": "qu_chong_secret", "display": "驱虫秘传", "price": "贡献+考核"},
+            {"id": "insect_softcap_bell", "display": "虫群软顶警铃（教具）", "price": [100, 500], "note": "防噬金类失控教学"}
+          ]
+        }
+      ],
+      "rules": {
+        "no_sell_shijin_disaster": true,
+        "no_sell_true_spirit": true,
+        "exposure_risk_if_abuse": "外泄虫灾扣声望至敌对"
+      }
+    }
+  ],
+  "cross_shop_notes": [
+    "黄枫主药谷与筑基，不卖完整青元剑诀",
+    "天符主符阶梯，化灵/降灵人情锁",
+    "御灵主虫不主魔功，禁成灾虫种量贩"
+  ],
+  "description": "三宗门货架对接声望系统：外门可买消耗，高声望才开配额丹/天符/中阶虫。"
+}

@@ -274,6 +274,10 @@ public final class ShopService {
     }
 
     public static PurchaseResult buyWithSectContribution(ServerPlayer player, QuestProgress progress, String shopId, String entryId) {
+        // M08 redline: ghost-path shop bans are server-enforced.
+        if (com.xunxian.seekingimmortals.sect.GhostSectBanService.isShopDenied(player, shopId)) {
+            return new PurchaseResult(PurchaseStatus.RANK_TOO_LOW, null, null, progress.getContribution());
+        }
         Optional<Entry> entryOptional = getShop(shopId).find(entryId);
         if (entryOptional.isEmpty()) {
             return new PurchaseResult(PurchaseStatus.UNKNOWN_ENTRY, null, null, progress.getContribution());
@@ -281,6 +285,10 @@ public final class ShopService {
         Entry entry = entryOptional.get();
         if (!CURRENCY_SECT_CONTRIBUTION.equals(entry.currency())) {
             return new PurchaseResult(PurchaseStatus.UNSUPPORTED_CURRENCY, entry, null, progress.getContribution());
+        }
+        // Never sell unique redline items through contribution path.
+        if (com.xunxian.seekingimmortals.sect.SectContributionShopService.isNeverListItem(entry.itemId())) {
+            return new PurchaseResult(PurchaseStatus.BAD_ITEM, entry, null, progress.getContribution());
         }
         Item item = resolveItem(entry.itemId());
         if (item == null || item == Items.AIR) {

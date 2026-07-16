@@ -1,4 +1,18 @@
-<<<<<<< HEAD
+## 457. 2026-07-16 M08 宗门与势力落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_233440_m08_sects_factions/`
+  FactionGraphService                  Done faction_graph + species + deep packs
+  ReputationUnlockService              Done reputation_unlocks_v102 阈值/解锁查询
+  SectContributionShopService          Done contribution shop + shelves；禁无限兑换
+  FactionConflictEventService          Done 订阅 M06 refreshDailyEvent；声望/物价
+  GhostSectBan + SectMasterData        Done 鬼修禁令 + M01 入门门槛
+  missions/dialogues                   Done 30/30 已齐
+  Tests                                Done sect/* 聚焦测试
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.506）；protocol 保持 21
+  Update note                          Done `project_docs/updates/20260716_m08_sects_factions.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes
@@ -15,8 +29,8 @@
   Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
   Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m02_techniques.md`
-=======
-## 456. 2026-07-16 M03 物品目录与批量注册
+
+## 456b. 2026-07-16 M03 物品目录与批量注册
 
   Step   Status   Notes
   ---   ---   ---
@@ -32,7 +46,6 @@
   Version/protocol                     Unchanged 任务红线禁止改 `mod_version`；protocol 保持 `20`
   Update note                          Done `project_docs/updates/20260716_m03_item_catalog.md`
   Full verification                    Done `./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL（任务红线禁止 bump）
->>>>>>> task/m03-item-catalog
 
 ## 455. 2026-07-16 中文乱码修复（mojibake / 路径损坏）
 

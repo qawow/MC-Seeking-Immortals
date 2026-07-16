@@ -3703,7 +3703,6 @@
   "block.seeking_immortals.alchemy_lid_tier_4": "Tier 4 Alchemy Lid",
   "block.seeking_immortals.alchemy_lid_tier_5": "Tier 5 Alchemy Lid",
   "message.seeking_immortals.alchemy_furnace.lid_blocked": "Top of furnace is blocked; cannot place lid.",
-<<<<<<< HEAD
   "message.seeking_immortals.method.conflict": "Method conflict: %s conflicts with learned %s at grade %s (%s).",
   "message.seeking_immortals.method.techniques_granted": "Method layer unlocked %s techniques.",
   "message.seeking_immortals.spell.generic_projectile.success": "Projectile art hits for %s damage.",
@@ -3717,8 +3716,7 @@
   "message.seeking_immortals.spell.generic_melee.success": "Melee sword intent strikes.",
   "message.seeking_immortals.spell.generic_illusion.success": "Illusion clouds the mind.",
   "message.seeking_immortals.spell.generic_control.success": "Control field spreads.",
-  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s."
-=======
+  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s.",
   "item.seeking_immortals.altar_stone": "Altar Stone",
   "tooltip.seeking_immortals.material.altar_stone": "契坛石。多方块建造材料（v135 对齐）。",
   "item.seeking_immortals.anchor_spike": "Anchor Spike",
@@ -4371,6 +4369,8 @@
   "tooltip.seeking_immortals.talisman_grade.tian": "Talisman grade: tian",
   "tooltip.seeking_immortals.talisman_grade.tian_plus": "Talisman grade: tian_plus",
   "tooltip.seeking_immortals.talisman_grade.di_to_tian": "Talisman grade: di_to_tian",
-  "tooltip.seeking_immortals.talisman_grade.xuan_to_di": "Talisman grade: xuan_to_di"
->>>>>>> task/m03-item-catalog
+  "tooltip.seeking_immortals.talisman_grade.xuan_to_di": "Talisman grade: xuan_to_di",
+  "message.seeking_immortals.faction_conflict.daily_trigger": "Faction conflict triggered: %s (%s)",
+  "message.seeking_immortals.sect.apply_ghost_ban": "Ghost path rejected by sect %s; hunt mark applied.",
+  "message.seeking_immortals.sect.apply_entry_denied": "Sect entry denied: %s (%s)"
 }

@@ -1,0 +1,313 @@
+{
+  "schema_version": 3,
+  "source": "v128 开局名单切换与声望互斥",
+  "opening_lists": {
+    "primary": {
+      "id": "opening_list_primary",
+      "display": "天南七派·主名单",
+      "sect_ids": [
+        "huangfeng_valley",
+        "yanyue_sect",
+        "spirit_beast_mountain",
+        "qingxu_gate",
+        "huadao_wu",
+        "tianque_fort",
+        "giant_sword_gate"
+      ],
+      "pack_file": "tiannan_seven_sects_packs_v126.json",
+      "starting_rep_bias": {
+        "rep_zhengdao": 10,
+        "rep_modao": -10
+      },
+      "default_join_sect": "huangfeng_valley"
+    },
+    "alternate": {
+      "id": "opening_list_alternate",
+      "display": "天南七派·备选名单",
+      "sect_ids": [
+        "huangfeng_valley",
+        "yanyue_sect",
+        "tianfu_gate",
+        "tianque_fort",
+        "tianlan_temple",
+        "lingyun_sect",
+        "qingyan_sect"
+      ],
+      "pack_file": "tiannan_alternate_seven_packs_v127.json",
+      "starting_rep_bias": {
+        "rep_zhengdao": 10,
+        "rep_modao": -5
+      },
+      "default_join_sect": "huangfeng_valley",
+      "note": "含天符/天澜/灵云/青岩"
+    }
+  },
+  "overlap_sects": [
+    "huangfeng_valley",
+    "tianque_fort",
+    "yanyue_sect"
+  ],
+  "primary_only_sects": [
+    "giant_sword_gate",
+    "huadao_wu",
+    "qingxu_gate",
+    "spirit_beast_mountain"
+  ],
+  "alternate_only_sects": [
+    "lingyun_sect",
+    "qingyan_sect",
+    "tianfu_gate",
+    "tianlan_temple"
+  ],
+  "switch_rules": {
+    "character_create": "必须选择 primary 或 alternate 之一；决定初始可见宗门与任务池",
+    "mid_game_switch": {
+      "allowed": true,
+      "cost": [
+        "story_point",
+        "travel_time"
+      ],
+      "effects": [
+        "切换后另一名单宗门商店/拜师解锁",
+        "已学功法保留",
+        "声望不重置，但可能触发「跳槽」小幅正道/原宗惩罚"
+      ],
+      "forbidden_if": [
+        "on_six_sects_core_quest",
+        "rep_modao >= honored and list is zhengdao-facing"
+      ]
+    },
+    "cannot_dual_list_start": true
+  },
+  "reputation_ids": {
+    "rep_zhengdao": {
+      "display": "正道盟声望",
+      "camp": "zhengdao_meng"
+    },
+    "rep_modao": {
+      "display": "魔道六宗声望",
+      "camp": "modao_liuzong"
+    },
+    "rep_tiandao": {
+      "display": "天道盟声望",
+      "camp": "tiandao_meng"
+    },
+    "rep_jiuguo": {
+      "display": "九国盟声望",
+      "camp": "jiuguo_meng"
+    },
+    "rep_mulan": {
+      "display": "慕兰声望",
+      "camp": "mulan"
+    },
+    "rep_star_palace": {
+      "display": "星宫声望",
+      "camp": "star_palace",
+      "region": "chaotic_sea"
+    },
+    "rep_inverse_star": {
+      "display": "逆星盟声望",
+      "camp": "inverse_star_alliance",
+      "region": "chaotic_sea"
+    },
+    "rep_miaoyin": {
+      "display": "妙音门声望",
+      "camp": "miaoyin_men",
+      "region": "chaotic_sea"
+    },
+    "rep_luoyun": {
+      "display": "落云宗声望",
+      "camp": "luoyun_sect"
+    },
+    "rep_huangfeng": {
+      "display": "黄枫谷声望",
+      "camp": "huangfeng_valley"
+    },
+    "rep_yanyue": {
+      "display": "掩月宗声望",
+      "camp": "yanyue_sect"
+    },
+    "rep_dajin_court": {
+      "display": "大晋朝廷声望",
+      "camp": "dajin_court",
+      "region": "dajin"
+    },
+    "rep_yinluo": {
+      "display": "阴罗宗声望",
+      "camp": "yinluo_zong",
+      "region": "dajin"
+    },
+    "rep_kunwu": {
+      "display": "昆吾相关声望",
+      "camp": "kunwu",
+      "region": "dajin"
+    },
+    "rep_xiaji": {
+      "display": "小极宫声望",
+      "camp": "xiaji_palace",
+      "region": "dajin"
+    },
+    "rep_tianyuan": {
+      "display": "天渊城声望",
+      "camp": "tianyuan",
+      "region": "lingjie"
+    },
+    "rep_mojie": {
+      "display": "魔界声望",
+      "camp": "mojie",
+      "region": "mojie"
+    }
+  },
+  "thresholds": {
+    "hostile": -50,
+    "unfriendly": -20,
+    "neutral": 0,
+    "friendly": 30,
+    "honored": 60,
+    "exalted": 90
+  },
+  "mutual_exclusion_rules": [
+    {
+      "id": "zhengdao_vs_modao",
+      "type": "hard_mutex_high",
+      "sides": [
+        "rep_zhengdao",
+        "rep_modao"
+      ],
+      "rule": "不可同时 ≥ friendly(30)。若一侧≥honored，另一侧强制≤unfriendly。",
+      "exception": "特殊中立身份/卧底任务可暂破，结束时结算惩罚",
+      "gameplay": "七派弟子默认真道倾向；入六宗任务拉高魔道"
+    },
+    {
+      "id": "star_vs_inverse",
+      "type": "hard_mutex_high",
+      "sides": [
+        "rep_star_palace",
+        "rep_inverse_star"
+      ],
+      "rule": "不可同时 ≥ friendly。星宫注册后逆星任务降星宫；反之亦然。",
+      "exception": "双面间谍线（高风险）",
+      "weight_ref": -80
+    },
+    {
+      "id": "jingu_yuan_phase",
+      "type": "content_gate",
+      "sides": [
+        "rep_zhengdao",
+        "rep_modao"
+      ],
+      "rule": "金鼓原阶段：正道扩张线与魔道扩张线任务互斥，只能推进一条主线分支",
+      "source": "tiannan_faction_specialty.mutual_exclusion_notes"
+    },
+    {
+      "id": "mulan_wanted",
+      "type": "soft_penalty",
+      "sides": [
+        "rep_mulan",
+        "rep_zhengdao"
+      ],
+      "rule": "慕兰声望≥exalted 且未完成通商和谈时，天南正道可能通缉（rep_zhengdao 下降）",
+      "source": "mutual_exclusion_notes"
+    },
+    {
+      "id": "yanyue_vs_hehuan",
+      "type": "soft_rivalry",
+      "sides": [
+        "rep_yanyue",
+        "rep_modao"
+      ],
+      "rule": "掩月与合欢同源竞合：合欢任务↑魔道时掩月声望小幅↓",
+      "weight_ref": -30
+    },
+    {
+      "id": "huangfeng_vs_guiling",
+      "type": "war_hostility",
+      "sides": [
+        "rep_huangfeng",
+        "rep_modao"
+      ],
+      "rule": "鬼灵门/魔道血战线大幅降黄枫与正道",
+      "weight_ref": -70
+    },
+    {
+      "id": "list_switch_primary_alt",
+      "type": "opening_choice",
+      "sides": [
+        "opening_list_primary",
+        "opening_list_alternate"
+      ],
+      "rule": "开局二选一；中期可用「转宗/游历」消耗剧情点切换可见宗门商店，但不重置已学功法"
+    },
+    {
+      "id": "luoyun_late",
+      "type": "late_unlock",
+      "sides": [
+        "rep_luoyun"
+      ],
+      "rule": "落云不占七派；结丹+且未与正道彻底决裂可入"
+    },
+    {
+      "id": "yuanci_gate",
+      "type": "reward_gate",
+      "sides": [
+        "rep_star_palace"
+      ],
+      "rule": "元磁神光功法：需化神境界 + (星宫≥honored 或双圣剧情旗)"
+    }
+  ],
+  "sect_to_default_rep": {
+    "huangfeng_valley": "rep_huangfeng",
+    "yanyue_sect": "rep_yanyue",
+    "star_palace": "rep_star_palace",
+    "inverse_star_alliance": "rep_inverse_star",
+    "miaoyin_men": "rep_miaoyin",
+    "luoyun_sect": "rep_luoyun",
+    "hehuan_sect": "rep_modao",
+    "guiling_gate": "rep_modao",
+    "tianmo_sect": "rep_modao",
+    "qingluo_sect": "rep_modao",
+    "wanhu_sect": "rep_modao",
+    "xuewu_sect": "rep_modao"
+  },
+  "camp_links": {
+    "zhengdao_meng": [
+      "huangfeng_valley",
+      "yanyue_sect",
+      "spirit_beast_mountain",
+      "qingxu_gate",
+      "huadao_wu",
+      "tianque_fort",
+      "giant_sword_gate",
+      "tianfu_gate",
+      "tianlan_temple",
+      "lingyun_sect",
+      "qingyan_sect",
+      "luoyun_sect"
+    ],
+    "modao_liuzong": [
+      "guiling_gate",
+      "hehuan_sect",
+      "tianmo_sect",
+      "qingluo_sect",
+      "wanhu_sect",
+      "xuewu_sect"
+    ],
+    "chaotic_sea_order": [
+      "star_palace"
+    ],
+    "chaotic_sea_rebel": [
+      "inverse_star_alliance"
+    ],
+    "chaotic_sea_neutral_power": [
+      "miaoyin_men"
+    ]
+  },
+  "implementation_hooks": [
+    "OnNewGame: set opening_list flag; apply starting_rep_bias",
+    "OnRepChange: evaluate mutual_exclusion_rules; clamp if hard_mutex_high",
+    "OnQuestAccept: check content_gate jingu_yuan_phase",
+    "OnEnterChaoticSea: unlock rep_star_palace / rep_inverse_star / rep_miaoyin tracks",
+    "LearnMethod yuanci_shenguang_art: check yuanci_gate"
+  ],
+  "v129_rep_matrix": "reputation_thresholds_and_quest_rewards_v129.json"
+}

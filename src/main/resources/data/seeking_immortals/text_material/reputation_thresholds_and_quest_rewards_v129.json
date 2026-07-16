@@ -1,0 +1,4411 @@
+{
+  "schema_version": 1,
+  "source": "v129 声望阈值与任务奖惩矩阵",
+  "thresholds": {
+    "hostile": -50,
+    "unfriendly": -20,
+    "neutral": 0,
+    "friendly": 30,
+    "honored": 60,
+    "exalted": 90
+  },
+  "threshold_effects": {
+    "hostile": [
+      "拒入门",
+      "可能追杀",
+      "商店关闭"
+    ],
+    "unfriendly": [
+      "报酬-20%",
+      "加价"
+    ],
+    "neutral": [
+      "基础可接"
+    ],
+    "friendly": [
+      "支线解锁"
+    ],
+    "honored": [
+      "核心功法/高级货"
+    ],
+    "exalted": [
+      "长老权限/敌对阵营反感"
+    ]
+  },
+  "action_deltas": [
+    {
+      "action": "complete_sect_daily",
+      "delta": 2,
+      "note": "日常"
+    },
+    {
+      "action": "complete_sect_main_step",
+      "delta": 8,
+      "note": "主线步"
+    },
+    {
+      "action": "betray_sect",
+      "delta": -40
+    },
+    {
+      "action": "kill_sect_elder",
+      "delta": -60
+    },
+    {
+      "action": "join_modao_quest",
+      "rep": "rep_modao",
+      "delta": 10,
+      "also": [
+        {
+          "rep": "rep_zhengdao",
+          "delta": -8
+        }
+      ]
+    },
+    {
+      "action": "join_zhengdao_war",
+      "rep": "rep_zhengdao",
+      "delta": 10,
+      "also": [
+        {
+          "rep": "rep_modao",
+          "delta": -8
+        }
+      ]
+    },
+    {
+      "action": "register_star_palace",
+      "rep": "rep_star_palace",
+      "delta": 15,
+      "also": [
+        {
+          "rep": "rep_inverse_star",
+          "delta": -5
+        }
+      ]
+    },
+    {
+      "action": "inverse_star_smuggle",
+      "rep": "rep_inverse_star",
+      "delta": 12,
+      "also": [
+        {
+          "rep": "rep_star_palace",
+          "delta": -10
+        }
+      ]
+    },
+    {
+      "action": "enter_luoyun",
+      "rep": "rep_luoyun",
+      "delta": 25
+    },
+    {
+      "action": "kunwu_expedition_success",
+      "rep": "rep_kunwu",
+      "delta": 15,
+      "also": [
+        {
+          "rep": "rep_dajin_court",
+          "delta": 5
+        }
+      ]
+    },
+    {
+      "action": "tianyuan_enlist",
+      "rep": "rep_tianyuan",
+      "delta": 20
+    },
+    {
+      "action": "mojie_blood_pact",
+      "rep": "rep_mojie",
+      "delta": 15,
+      "also": [
+        {
+          "rep": "rep_zhengdao",
+          "delta": -15
+        }
+      ]
+    }
+  ],
+  "hard_mutex_clamp": [
+    {
+      "reps": [
+        "rep_zhengdao",
+        "rep_modao"
+      ],
+      "max_both_friendly": false
+    },
+    {
+      "reps": [
+        "rep_star_palace",
+        "rep_inverse_star"
+      ],
+      "max_both_friendly": false
+    }
+  ],
+  "quest_chain_rewards": [
+    {
+      "chain_id": "huangfeng_cultivation_path",
+      "display": "黄枫谷修行线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_huangfeng"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "huangfeng_entry",
+          "summary": "入门测灵根",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "alchemy_apprentice",
+          "summary": "丹童与辟谷丹",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "herb_gather_contract",
+          "summary": "外门灵草任务",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "blood_forbidden_run",
+          "summary": "血色禁地历练",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "sect_fire_room",
+          "summary": "结丹后地火室",
+          "rep_delta": {
+            "rep_huangfeng": 12
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "core_earth_fire",
+        "contribution_rank_inner"
+      ],
+      "finale_rep": {
+        "rep_huangfeng": 20,
+        "rep_zhengdao": 5
+      },
+      "unlock_methods": [
+        "sanzhuan_zhongyuan_gong"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_huangfeng",
+        "finale_rep": {
+          "rep_huangfeng": 20,
+          "rep_zhengdao": 5
+        },
+        "unlock_methods": [
+          "sanzhuan_zhongyuan_gong"
+        ]
+      }
+    },
+    {
+      "chain_id": "chaotic_sea_politics",
+      "display": "乱星海势力线",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "star_palace_patrol",
+          "summary": "star_palace_patrol",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_contact",
+          "summary": "inverse_star_contact",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "stolen_jade_slip",
+          "summary": "stolen_jade_slip",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "inverse_star_sabotage",
+          "summary": "inverse_star_sabotage",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "pirate_bounty",
+          "summary": "pirate_bounty",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "void_palace_key",
+          "summary": "虚天殿钥终章",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": [
+        {
+          "id": "star_path",
+          "rep": {
+            "rep_star_palace": 25,
+            "rep_inverse_star": -20
+          }
+        },
+        {
+          "id": "inverse_path",
+          "rep": {
+            "rep_inverse_star": 25,
+            "rep_star_palace": -20
+          }
+        }
+      ],
+      "special": {
+        "primary_rep": "rep_star_palace",
+        "branch_mutex": true,
+        "branches": [
+          {
+            "id": "star_path",
+            "rep": {
+              "rep_star_palace": 25,
+              "rep_inverse_star": -20
+            }
+          },
+          {
+            "id": "inverse_path",
+            "rep": {
+              "rep_inverse_star": 25,
+              "rep_star_palace": -20
+            }
+          }
+        ]
+      }
+    },
+    {
+      "chain_id": "mulan_tianlan_war",
+      "display": "慕兰天澜战线",
+      "region": "mulan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_mulan"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "mulan_side",
+          "summary": "mulan_side",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "beast_tide_defense",
+          "summary": "beast_tide_defense",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "mulan_scout_clash",
+          "summary": "mulan_scout_clash",
+          "rep_delta": {
+            "rep_mulan": 12
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_mulan": 20,
+        "rep_zhengdao": -5
+      },
+      "unlock_methods": [
+        "tianlan_temple_vajra_art"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_mulan",
+        "finale_rep": {
+          "rep_mulan": 20,
+          "rep_zhengdao": -5
+        },
+        "unlock_methods": [
+          "tianlan_temple_vajra_art"
+        ]
+      }
+    },
+    {
+      "chain_id": "ghost_path",
+      "display": "鬼道线",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_modao"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "yinming_escape",
+          "summary": "阴冥脱困得玄阴残卷",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "hook_ghost_yin_body",
+          "summary": "敛魂符阴体",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "nether_river_pilgrim",
+          "summary": "冥河朝圣换阴石",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "hook_ghost_soul_anchor",
+          "summary": "聚魂石魂锚",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "hook_ghost_nether_core",
+          "summary": "冥河地结冥核",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "nether_river_guardian",
+          "summary": "阴婴门槛",
+          "rep_delta": {
+            "rep_modao": 12
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "yin_soul_stage",
+        "ghost_nether_art_full_page"
+      ],
+      "finale_rep": {
+        "rep_modao": 20,
+        "rep_zhengdao": -15
+      },
+      "unlock_methods": [
+        "ghost_nether_art",
+        "xuan_yin_art"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_modao",
+        "finale_rep": {
+          "rep_modao": 20,
+          "rep_zhengdao": -15
+        },
+        "unlock_methods": [
+          "ghost_nether_art",
+          "xuan_yin_art"
+        ]
+      }
+    },
+    {
+      "chain_id": "high_realm_endgame",
+      "display": "高境界终局",
+      "region": null,
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "kunwu_expedition",
+          "summary": "kunwu_expedition",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_seal_research",
+          "summary": "kunwu_seal_research",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "fallen_demon_scout",
+          "summary": "fallen_demon_scout",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "tianyuan_enlist",
+          "summary": "tianyuan_enlist",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_tianyuan": 15,
+        "rep_kunwu": 10
+      },
+      "unlock_methods": [
+        "void_refining_scripture",
+        "lian_shen_shu"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_tianyuan",
+        "finale_rep": {
+          "rep_tianyuan": 15,
+          "rep_kunwu": 10
+        },
+        "unlock_methods": [
+          "void_refining_scripture",
+          "lian_shen_shu"
+        ]
+      }
+    },
+    {
+      "chain_id": "spirit_realm_rise",
+      "display": "灵界上升线",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "primary_reps": [
+        "rep_tianyuan"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tianyuan_demon_contract",
+          "summary": "tianyuan_demon_contract",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "treasure_fair_invite",
+          "summary": "treasure_fair_invite",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_scout",
+          "summary": "diyuan_scout",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "asura_trial",
+          "summary": "asura_trial",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "jiuxian_seclusion_permit",
+          "summary": "jiuxian_seclusion_permit",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "tianyuan_enlist",
+          "summary": "天渊入伍",
+          "rep_delta": {
+            "rep_tianyuan": 12
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_tianyuan": 25
+      },
+      "unlock_methods": [
+        "tianyuan_guard_art",
+        "fansheng_zhenmogong"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_tianyuan",
+        "finale_rep": {
+          "rep_tianyuan": 25
+        },
+        "unlock_methods": [
+          "tianyuan_guard_art",
+          "fansheng_zhenmogong"
+        ]
+      }
+    },
+    {
+      "chain_id": "craft_master",
+      "display": "百艺精通",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_huangfeng"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "alchemy_apprentice",
+          "summary": "alchemy_apprentice",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "puppet_maintain",
+          "summary": "puppet_maintain",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_seal_research",
+          "summary": "阵法进阶",
+          "rep_delta": {
+            "rep_huangfeng": 5
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "sect_fire_room",
+          "summary": "炼器地火",
+          "rep_delta": {
+            "rep_huangfeng": 12
+          },
+          "fail_rep_delta": {
+            "rep_huangfeng": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_huangfeng": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "dajin_kunwu_line",
+      "display": "大晋昆吾线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_dajin_court"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "dajin_auction_preview",
+          "summary": "dajin_auction_preview",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_intel",
+          "summary": "kunwu_intel",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_expedition",
+          "summary": "kunwu_expedition",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_seal_research",
+          "summary": "kunwu_seal_research",
+          "rep_delta": {
+            "rep_dajin_court": 12
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "kunwu_seal_fragment",
+        "ancient_treasure_appraisal_lens"
+      ],
+      "finale_rep": {
+        "rep_kunwu": 20,
+        "rep_dajin_court": 10
+      },
+      "unlock_methods": [
+        "kunwu_seal_art",
+        "mingwang_jue"
+      ],
+      "branches": null,
+      "special": {
+        "primary_rep": "rep_kunwu",
+        "finale_rep": {
+          "rep_kunwu": 20,
+          "rep_dajin_court": 10
+        },
+        "unlock_methods": [
+          "kunwu_seal_art",
+          "mingwang_jue"
+        ]
+      }
+    },
+    {
+      "chain_id": "ancient_demon_line",
+      "display": "古魔封印线",
+      "region": "tiannan",
+      "realm_span": [
+        "CORE_FORMATION",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_reps": [
+        "rep_kunwu"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fallen_demon_scout",
+          "summary": "坠魔谷侦察",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_seal_research",
+          "summary": "封印残片（可并行昆吾线）",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "blood_forbidden_run",
+          "summary": "血色禁地周期",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "demon_rift_closure",
+          "summary": "协助稳固裂隙",
+          "rep_delta": {
+            "rep_kunwu": 12
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "seal_reinforcement_token",
+        "anti_demon_talisman_bulk"
+      ],
+      "finale_rep": {
+        "rep_kunwu": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "qixuan_mortal_path",
+      "display": "七玄门凡俗线",
+      "region": "tiannan",
+      "realm_span": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "qixuan_village_intro",
+          "summary": "山村与墨大夫传闻",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "qixuan_herb_errand",
+          "summary": "采药杂役",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "qixuan_sect_trial",
+          "summary": "测灵根入外门",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "qixuan_decline_legacy",
+          "summary": "门派衰落遗册",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "qixuan_mortal_art_scroll",
+        "spirit_stone_shard"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "huadao_blade_path",
+      "display": "化刀坞刀道",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "huadao_entry",
+          "summary": "刀坞试刀",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "huadao_forge_contract",
+          "summary": "铸刀委托",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "huadao_duel_trial",
+          "summary": "刀意对决",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "huadao_blade_intent_page"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "giant_sword_gate_path",
+      "display": "巨剑门传承",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "giant_sword_entry",
+          "summary": "巨剑入门",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "blood_forbidden_run",
+          "summary": "血色禁地银巨剑线索",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "giant_sword_relic_restore",
+          "summary": "古剑残片重铸",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "silver_giant_sword_blueprint",
+        "giant_sword_art"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "qianzhu_puppet_path",
+      "display": "千竹傀儡线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "qianzhu_puppet_apprentice",
+          "summary": "傀儡童工",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "thousand_bamboo_tower_run",
+          "summary": "千竹塔历练",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "dayan_fragment_quest",
+          "summary": "大衍残页",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "puppet_maintain",
+          "summary": "维护高阶傀",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "dayan_art_scroll",
+        "puppet_core_blank_bulk"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "yuling_puppet_path",
+      "display": "御灵兽傀线",
+      "region": "tiannan",
+      "realm_span": [
+        "FOUNDATION",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "yuling_secret_contact",
+          "summary": "灵兽山暗线",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "beast_soul_bind_puppet",
+          "summary": "兽魂封傀",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "lingshou_contract_beast",
+          "summary": "lingshou_contract_beast",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "yuling_beast_puppet_art",
+        "beast_puppet_core"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "dajin_clan_line",
+      "display": "大晋世家线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_dajin_court"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "clan_territory_patrol",
+          "summary": "clan_territory_patrol",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "dajin_auction_preview",
+          "summary": "dajin_auction_preview",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "clan_ancestor_trial",
+          "summary": "祖传诀试炼",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_expedition",
+          "summary": "kunwu_expedition",
+          "rep_delta": {
+            "rep_dajin_court": 12
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "dajin_clan_ancestor_art",
+        "clan_seal_token"
+      ],
+      "finale_rep": {
+        "rep_dajin_court": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "demonic_six_path",
+      "display": "魔道六宗线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "demonic_north_rumor",
+          "summary": "北迁传闻",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "guiling_gate_recruit",
+          "summary": "guiling_gate_recruit",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "hehuan_sect_trial",
+          "summary": "hehuan_sect_trial",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "tianmo_blood_rite",
+          "summary": "tianmo_blood_rite",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "righteous_bounty_hunt",
+          "summary": "正道悬赏反噬",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "yin_cluster_pilgrim",
+      "display": "阴司朝圣线",
+      "region": "yin_underworld",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_modao"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "yinming_escape",
+          "summary": "yinming_escape",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "nether_river_pilgrim",
+          "summary": "nether_river_pilgrim",
+          "rep_delta": {
+            "rep_modao": 5
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "nether_river_fog_event",
+          "summary": "nether_river_fog_event",
+          "rep_delta": {
+            "rep_modao": 12
+          },
+          "fail_rep_delta": {
+            "rep_modao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "yin_protect_talisman_bulk",
+        "nether_river_map"
+      ],
+      "finale_rep": {
+        "rep_modao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "barbarian_kings_line",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "GREAT_VEHICLE"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "diyuan_scout",
+          "summary": "diyuan_scout",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "barbarian_border_contact",
+          "summary": "barbarian_border_contact",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "king_tribute_quest",
+          "summary": "任选妖王朝贡/试炼",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "spatial_rift_escape",
+          "summary": "spatial_rift_escape",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "barbarian_king_token",
+        "ancient_beast_core"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "spirit_eighteen_clans",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "primary_reps": [
+        "rep_tianyuan"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tianyuan_enlist",
+          "summary": "天渊入伍",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "clan_generic_tribute",
+          "summary": "clan_generic_tribute",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "treasure_fair_invite",
+          "summary": "treasure_fair_invite",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "asura_trial",
+          "summary": "asura_trial",
+          "rep_delta": {
+            "rep_tianyuan": 12
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "spirit_clan_grand_token",
+        "specialty_item_bundle"
+      ],
+      "finale_rep": {
+        "rep_tianyuan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "star_palace_internal_politics",
+      "display": "星宫派系线",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "star_palace_patrol",
+          "summary": "star_palace_patrol",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "star_palace_branch_enforcement",
+          "summary": "star_palace_branch_enforcement",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_branch_commerce",
+          "summary": "star_palace_branch_commerce",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "internal_tax_vote",
+          "summary": "internal_tax_vote",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "mulan_war_campaign",
+      "display": "慕兰天澜战役",
+      "region": "mulan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_mulan"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "mulan_scout_clash",
+          "summary": "边境遭遇",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "mulan_side",
+          "summary": "mulan_side",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "tiannan_defense_mobilize",
+          "summary": "tiannan_defense_mobilize",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "fashi_soul_array_battle",
+          "summary": "法士护阵",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "holy_bird_blessing_quest",
+          "summary": "holy_bird_blessing_quest",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "war_ceasefire_negotiation",
+          "summary": "停战谈判",
+          "rep_delta": {
+            "rep_mulan": 12
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "war_campaign_token",
+        "rep_faction_major"
+      ],
+      "finale_rep": {
+        "rep_mulan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "mulan_fashi_path",
+      "display": "慕兰法士道途",
+      "region": "mulan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_mulan"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "mulan_fashi_initiation",
+          "summary": "mulan_fashi_initiation",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "holy_bird_altar_visit",
+          "summary": "holy_bird_altar_visit",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "tianhu_beast_tame_optional",
+          "summary": "tianhu_beast_tame_optional",
+          "rep_delta": {
+            "rep_mulan": 12
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_mulan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "tianlan_defense_line",
+      "display": "天澜御兽线",
+      "region": "tianlan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tianlan_oath_renew",
+          "summary": "tianlan_oath_renew",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "tianlan_beast_soul_call_training",
+          "summary": "tianlan_beast_soul_call_training",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "mulan_war_campaign",
+          "summary": "mulan_war_campaign",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "wutu_mulan_feud_line",
+      "display": "突兀慕兰世仇",
+      "region": "mulan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "wutu_raid_mulan_camp",
+          "summary": "wutu_raid_mulan_camp",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "mulan_counter_hunt",
+          "summary": "mulan_counter_hunt",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "feud_truce_broker",
+          "summary": "feud_truce_broker",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "fallen_demon_expedition",
+      "display": "坠魔谷探谷",
+      "region": "fallen_demon_valley",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fallen_demon_scout",
+          "summary": "fallen_demon_scout",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "seal_weak_event",
+          "summary": "seal_weak_event",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "demon_qi_purge_side",
+          "summary": "demon_qi_purge_side",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "ancient_demon_projection_boss",
+          "summary": "ancient_demon_projection_boss",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "dajin_wanbao_route",
+      "display": "大晋商路",
+      "region": "dajin",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "auction_invite_dajin",
+          "summary": "auction_invite_dajin",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "dajin_clan_feud_choice",
+          "summary": "dajin_clan_feud_choice",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_rumor",
+          "summary": "kunwu_rumor",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "yin_luo_ghost_sect",
+      "display": "阴罗殿线",
+      "region": "yinming",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "yin_luo_initiation",
+          "summary": "yin_luo_initiation",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "soul_banner_quest",
+          "summary": "soul_banner_quest",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "nether_ferry_pass",
+          "summary": "nether_ferry_pass",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "kunwu_mountain_expedition",
+      "display": "昆吾山探山",
+      "region": "kunwu",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_kunwu"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "kunwu_intel",
+          "summary": "kunwu_intel",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_map_fragment_turnin",
+          "summary": "kunwu_map_fragment_turnin",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_cold_snap_survive",
+          "summary": "kunwu_cold_snap_survive",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_puppet_king",
+          "summary": "kunwu_puppet_king",
+          "rep_delta": {
+            "rep_kunwu": 12
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "kunwu_seal_fragment",
+        "kunwu_puppet_core"
+      ],
+      "finale_rep": {
+        "rep_kunwu": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "tianyuan_merit_path",
+      "display": "天渊功勋线",
+      "region": "tianyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tianyuan_merit_enlist",
+          "summary": "tianyuan_merit_enlist",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "demon_beast_siege_defense",
+          "summary": "demon_beast_siege_defense",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_permit_apply",
+          "summary": "diyuan_permit_apply",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "spirit_realm_border",
+      "display": "灵界边境",
+      "region": "spirit_realm_border",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 2,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "wild_land_beast_horde",
+          "summary": "wild_land_beast_horde",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "spatial_rift_flutter_survive",
+          "summary": "spatial_rift_flutter_survive",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "ghost_sect_ban_arc",
+      "display": "鬼修禁入正道",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "ghost_expose_event",
+          "summary": "ghost_expose_event",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "righteous_sect_ghost_hunt",
+          "summary": "righteous_sect_ghost_hunt",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "sect_ban_lift_rare_quest",
+          "summary": "sect_ban_lift_rare_quest",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "fengyuan_explorer",
+      "display": "风元探索",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "summary": "fengyuan_clan_intro",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "spirit_fengyuan_border_patrol",
+          "summary": "spirit_fengyuan_border_patrol",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "wild_land_rumor",
+          "summary": "wild_land_rumor",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "barbarian_king_hunt",
+      "display": "蛮荒妖王线",
+      "region": "barbarian_wasteland",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "barbarian_border_contact",
+          "summary": "barbarian_border_contact",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "barbarian_beast_tide_survive",
+          "summary": "barbarian_beast_tide_survive",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "barbarian_king_token_hunt",
+          "summary": "barbarian_king_token_hunt",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "human_clan_neutral_intro",
+      "display": "世家引荐",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 2,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "summary": "fengyuan_clan_intro",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "clan_guest_register",
+          "summary": "clan_guest_register",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "clan_array_mo_line",
+      "display": "莫家阵法线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "array_disk_commission",
+          "summary": "array_disk_commission",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "formation_trial_mo",
+          "summary": "formation_trial_mo",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "clan_feud_mediation_optional",
+          "summary": "clan_feud_mediation_optional",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "clan_refinement_yu_line",
+      "display": "俞家炼器线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "spirit_ore_escort",
+          "summary": "spirit_ore_escort",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "refinement_apprentice_yu",
+          "summary": "refinement_apprentice_yu",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "artifact_appraisal_quest",
+          "summary": "artifact_appraisal_quest",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "clan_alchemy_gu_line",
+      "display": "谷家丹道线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "herb_tribute_gu",
+          "summary": "herb_tribute_gu",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "alchemy_furnace_access",
+          "summary": "alchemy_furnace_access",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "pill_quality_audit",
+          "summary": "pill_quality_audit",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "clan_talisman_ning_line",
+      "display": "宁家符箓线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "talisman_blank_order",
+          "summary": "talisman_blank_order",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "talisman_inscription_lesson",
+          "summary": "talisman_inscription_lesson",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "clan_raid_defense_ning",
+          "summary": "clan_raid_defense_ning",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "human_clan_league_hub",
+      "display": "世家联盟总线",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_dajin_court"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "summary": "fengyuan_clan_intro",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "clan_guest_register",
+          "summary": "clan_guest_register",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "dajin_clan_feud",
+          "summary": "dajin_clan_feud",
+          "rep_delta": {
+            "rep_dajin_court": 12
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_dajin_court": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "spirit_eighteen_pilgrimage",
+      "display": "灵界十八族巡礼",
+      "region": "spirit_fengyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_tianyuan"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fengyuan_clan_intro",
+          "summary": "fengyuan_clan_intro",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "spirit_eighteen_pilgrimage",
+          "summary": "spirit_eighteen_pilgrimage",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "tianyuan_enlist",
+          "summary": "tianyuan_enlist",
+          "rep_delta": {
+            "rep_tianyuan": 12
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_tianyuan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "void_great_cultivation_arc",
+      "display": "炼虚大乘道途",
+      "region": null,
+      "realm_span": [
+        "VOID_REFINING",
+        "TRIBULATION"
+      ],
+      "primary_reps": [
+        "rep_tianyuan"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "void_rift_surge",
+          "summary": "void_rift_surge",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "diyuan_core_probe",
+          "summary": "diyuan_core_probe",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "great_vehicle_insight",
+          "summary": "great_vehicle_insight",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "tribulation_cloud_gather",
+          "summary": "tribulation_cloud_gather",
+          "rep_delta": {
+            "rep_tianyuan": 12
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_tianyuan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "diyuan_depth_delve",
+      "display": "地渊深层",
+      "region": "diyuan",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "diyuan_permit_apply",
+          "summary": "diyuan_permit_apply",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "diyuan_pressure_wave",
+          "summary": "diyuan_pressure_wave",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_core_probe",
+          "summary": "diyuan_core_probe",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "diyuan_core_crystal_boss",
+          "summary": "diyuan_core_crystal_boss",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "mortal_to_spirit_bridge",
+      "display": "人界化神·赴灵界",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "mortal_realm_cap_insight",
+          "summary": "mortal_realm_cap_insight",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "ascension_gate_rumor",
+          "summary": "ascension_gate_rumor",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "spirit_realm_gate_voucher",
+          "summary": "spirit_realm_gate_voucher",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "inverse_star_recruit",
+      "display": "逆星入盟",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "inverse_star_contact_rumor",
+          "summary": "inverse_star_contact_rumor",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_cipher_trial",
+          "summary": "inverse_star_cipher_trial",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "inverse_star_oath",
+          "summary": "inverse_star_oath",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "inverse_star_smuggle_arc",
+      "display": "走私补给线",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "inverse_star_smuggler_pack",
+          "summary": "inverse_star_smuggler_pack",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "star_palace_patrol_dodge",
+          "summary": "star_palace_patrol_dodge",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "void_palace_intel_sell",
+          "summary": "void_palace_intel_sell",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "inverse_star_void_heist",
+      "display": "虚天情报战",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 3,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "void_key_fragment_rumor",
+          "summary": "void_key_fragment_rumor",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_black_market_buy",
+          "summary": "inverse_star_black_market_buy",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_spy_expose_optional",
+          "summary": "star_palace_spy_expose_optional",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chaotic_sea_civil_war",
+      "display": "星宫逆星对峙",
+      "region": "chaotic_sea",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "star_palace_patrol_quest",
+          "summary": "star_palace_patrol_quest",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "inverse_star_ambush_event",
+          "summary": "inverse_star_ambush_event",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "star_palace_enforcement_raid",
+          "summary": "star_palace_enforcement_raid",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "inverse_star_smuggle_run",
+          "summary": "inverse_star_smuggle_run",
+          "rep_delta": {
+            "rep_star_palace": 5
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "chaotic_sea_neutral_ending_optional",
+          "summary": "chaotic_sea_neutral_ending_optional",
+          "rep_delta": {
+            "rep_star_palace": 12
+          },
+          "fail_rep_delta": {
+            "rep_star_palace": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chain_seven_sect_outer_to_inner",
+      "display": "七派外门晋升内门",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 0,
+      "step_rewards": [],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chain_mulan_war_campaign",
+      "display": "慕兰大战战役",
+      "region": "mulan_border",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_mulan"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "mulan_scout_clash",
+          "summary": "边境遭遇",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "fashi_soul_array_battle",
+          "summary": "法士大阵",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "holy_bird_blessing_quest",
+          "summary": "holy_bird_blessing_quest",
+          "rep_delta": {
+            "rep_mulan": 5
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "war_ceasefire_negotiation",
+          "summary": "停战",
+          "rep_delta": {
+            "rep_mulan": 12
+          },
+          "fail_rep_delta": {
+            "rep_mulan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_mulan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chain_void_palace_expedition",
+      "display": "虚天殿探险链",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 0,
+      "step_rewards": [],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chain_ascension_spirit_world",
+      "display": "飞升灵界前置",
+      "region": null,
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 0,
+      "step_rewards": [],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "chain_tianyuan_enlist",
+      "display": "天渊城服役",
+      "region": "spirit_world",
+      "realm_span": null,
+      "primary_reps": [
+        "rep_star_palace"
+      ],
+      "step_count": 0,
+      "step_rewards": [],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_star_palace": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "blood_forbidden_campaign",
+      "display": "血色禁地历练",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "blood_forbidden_rumor",
+          "summary": "传闻与名额",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "hook_blood_forbidden_ticket",
+          "summary": "争取入场令",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "blood_forbidden_entry_scar",
+          "summary": "穿越禁制入口",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "blood_forbidden_outer_layer",
+          "summary": "外层猎妖取药",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "blood_forbidden_inner_layer",
+          "summary": "内层结伴破禁",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "blood_jiao_guardian",
+          "summary": "守关妖蛟",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "foundation_pill_material",
+        "blood_forbidden_herb",
+        "contribution_rank_inner"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "void_palace_campaign",
+      "display": "虚天殿探宝",
+      "region": "chaotic_sea",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 6,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "void_palace_cycle_notice",
+          "summary": "三百年周期预告",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "void_key_fragment_hunt",
+          "summary": "搜集虚天钥碎片",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "void_palace_outer_hall",
+          "summary": "外殿傀儡战",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "void_palace_herb_garden",
+          "summary": "灵药园采集",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "void_palace_cold_jade_hall",
+          "summary": "寒玉殿极寒",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 6,
+          "hook": "void_palace_treasury",
+          "summary": "核心宝库",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "void_key_fragment",
+        "void_palace_cold_jade",
+        "ancient_spirit_treasure_shard"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "fallen_demon_campaign",
+      "display": "坠魔谷探秘",
+      "region": "fallen_demon_valley",
+      "realm_span": [
+        "NASCENT_SOUL",
+        "DEITY_TRANSFORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "fallen_demon_seal_weaken",
+          "summary": "封印松动传闻",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "demon_qi_purge_prep",
+          "summary": "备驱魔丹与辟邪物",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "fallen_demon_outer_gorge",
+          "summary": "外谷魔雾",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "fallen_demon_rift_layer",
+          "summary": "裂隙层心魔",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "ancient_demon_projection",
+          "summary": "古魔投影",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "demon_qi_purge_pill",
+        "space_rift_compass",
+        "fallen_demon_chest"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "kunwu_mountain_campaign",
+      "display": "昆吾山夺宝",
+      "region": "kunwu",
+      "realm_span": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_kunwu"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "kunwu_open_permit",
+          "summary": "入山许可",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "kunwu_outer_array",
+          "summary": "外阵破禁",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "kunwu_mine_tunnel",
+          "summary": "矿脉傀儡",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "kunwu_puppet_hall",
+          "summary": "傀儡殿",
+          "rep_delta": {
+            "rep_kunwu": 5
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "kunwu_peak_seal",
+          "summary": "峰顶封印",
+          "rep_delta": {
+            "rep_kunwu": 12
+          },
+          "fail_rep_delta": {
+            "rep_kunwu": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "kunwu_core_ore",
+        "kunwu_puppet_core",
+        "kunwu_seal_fragment"
+      ],
+      "finale_rep": {
+        "rep_kunwu": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "nether_river_campaign",
+      "display": "冥河之地行",
+      "region": "nether_river",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "nether_ferry_ticket",
+          "summary": "冥河渡费",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "nether_river_fog_entry",
+          "summary": "阴雾入界",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "nether_soul_shoal",
+          "summary": "魂滩采集",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "nether_ghost_hall",
+          "summary": "冥殿鬼修",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "nether_river_guardian",
+          "summary": "守关",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "soul_gathering_stone",
+        "ghost_cultivation_manual",
+        "nether_river_chest"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "diyuan_campaign",
+      "display": "地渊探脉",
+      "region": "diyuan",
+      "realm_span": [
+        "VOID_REFINEMENT",
+        "BODY_FUSION"
+      ],
+      "primary_reps": [
+        "rep_tianyuan"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "diyuan_permit_apply",
+          "summary": "天渊功勋换地渊令",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "diyuan_rift_mouth",
+          "summary": "裂隙口重压",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "diyuan_shallow_mine",
+          "summary": "浅矿灵脉",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "diyuan_pressure_zone",
+          "summary": "重压带",
+          "rep_delta": {
+            "rep_tianyuan": 5
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "diyuan_ancient_beast",
+          "summary": "古兽守脉",
+          "rep_delta": {
+            "rep_tianyuan": 12
+          },
+          "fail_rep_delta": {
+            "rep_tianyuan": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "spirit_vein_shard",
+        "diyuan_core_crystal",
+        "pressure_resist_charm"
+      ],
+      "finale_rep": {
+        "rep_tianyuan": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "dajin_righteous_demon_line",
+      "display": "大晋正魔边境线",
+      "region": "dajin",
+      "realm_span": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "primary_reps": [
+        "rep_dajin_court"
+      ],
+      "step_count": 5,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "dajin_border_rumor",
+          "summary": "边境传闻",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "dajin_righteous_patrol_hook",
+          "summary": "dajin_righteous_patrol_hook",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "dajin_demon_infiltrate_hook",
+          "summary": "dajin_demon_infiltrate_hook",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "wanbao_auction_lead",
+          "summary": "wanbao_auction_lead",
+          "rep_delta": {
+            "rep_dajin_court": 5
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        },
+        {
+          "step": 5,
+          "hook": "kunwu_expedition",
+          "summary": "kunwu_expedition",
+          "rep_delta": {
+            "rep_dajin_court": 12
+          },
+          "fail_rep_delta": {
+            "rep_dajin_court": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [],
+      "finale_rep": {
+        "rep_dajin_court": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "yanyue_illusion_path",
+      "display": "掩月宗幻媚线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "primary_reps": [
+        "rep_yanyue"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "yanyue_entry_trial",
+          "summary": "神识心性试炼",
+          "rep_delta": {
+            "rep_yanyue": 5
+          },
+          "fail_rep_delta": {
+            "rep_yanyue": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "illusion_array_practice",
+          "summary": "幻阵双修课业",
+          "rep_delta": {
+            "rep_yanyue": 5
+          },
+          "fail_rep_delta": {
+            "rep_yanyue": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "seven_sect_tournament",
+          "summary": "七派大比（可选）",
+          "rep_delta": {
+            "rep_yanyue": 5
+          },
+          "fail_rep_delta": {
+            "rep_yanyue": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "inner_veil_secret",
+          "summary": "内门媚术秘传",
+          "rep_delta": {
+            "rep_yanyue": 12
+          },
+          "fail_rep_delta": {
+            "rep_yanyue": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "yanyue_inner_token",
+        "illusion_manual_fragment"
+      ],
+      "finale_rep": {
+        "rep_yanyue": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "tianfu_talisman_path",
+      "display": "天符门制符线",
+      "region": "tiannan",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tianfu_paper_grind",
+          "summary": "符纸灵墨基础",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "low_talisman_cert",
+          "summary": "低阶符考核",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "mid_talisman_inner",
+          "summary": "筑基后中阶符室",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "high_talisman_secret",
+          "summary": "结丹秘传符（可选分支）",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "talisman_master_seal",
+        "high_talisman_recipe_scroll"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "demonic_six_expanded",
+      "display": "魔道六宗深入线",
+      "region": "tiannan_north_waste",
+      "realm_span": [
+        "QI_REFINING",
+        "CORE_FORMATION"
+      ],
+      "primary_reps": [
+        "rep_zhengdao"
+      ],
+      "step_count": 4,
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "demonic_north_rumor",
+          "summary": "北迁与边境悬赏",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 2,
+          "hook": "sect_branch_choice",
+          "summary": "六宗择一入门",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 3,
+          "hook": "righteous_bounty_hunt",
+          "summary": "正道围剿压力",
+          "rep_delta": {
+            "rep_zhengdao": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        },
+        {
+          "step": 4,
+          "hook": "north_waste_ruin",
+          "summary": "荒原古冢夺宝",
+          "rep_delta": {
+            "rep_zhengdao": 12
+          },
+          "fail_rep_delta": {
+            "rep_zhengdao": -3
+          }
+        }
+      ],
+      "rewards_finale_items": [
+        "demonic_core_material",
+        "sect_method_scroll"
+      ],
+      "finale_rep": {
+        "rep_zhengdao": 15
+      },
+      "unlock_methods": null,
+      "branches": null,
+      "special": null
+    },
+    {
+      "chain_id": "xianjie_ascension_path",
+      "display": "飞升入仙",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "tribulation_land_final",
+          "summary": "人界渡劫",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "ascend_light",
+          "summary": "飞升光门",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "xianjie_landing",
+          "summary": "仙界落地适应仙灵力",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 4,
+          "hook": "choose_first_camp",
+          "summary": "初选真言/散修/黑风等",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 5
+      },
+      "unlock_methods": null,
+      "v130": true
+    },
+    {
+      "chain_id": "zhenyan_men_path",
+      "display": "真言门修行线",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "zhenyan_entry_trial",
+          "summary": "入门试真言",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "true_word_practice",
+          "summary": "真言诀修成",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "wuxing_seed_trial",
+          "summary": "幻世种子试炼",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 4,
+          "hook": "elder_mission",
+          "summary": "长老任务",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 5,
+          "hook": "wuxing_full_world_insight",
+          "summary": "大五行幻世感悟",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 30
+      },
+      "unlock_methods": [
+        "zhenyan_true_word_art",
+        "great_five_elements_world_art",
+        "zhenyan_elder_canon"
+      ],
+      "v130": true
+    },
+    {
+      "chain_id": "time_law_path",
+      "display": "时间法则线",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "time_fragment_find",
+          "summary": "得时间法则机缘",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "time_slow_mastery",
+          "summary": "迟滞域小成",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "time_lock_trial",
+          "summary": "时锁试炼",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 4,
+          "hook": "reversion_fragment",
+          "summary": "逆转残篇",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 10
+      },
+      "unlock_methods": [
+        "time_law_scripture",
+        "time_reversion_fragment"
+      ],
+      "v130": true
+    },
+    {
+      "chain_id": "reincarnation_hall_path",
+      "display": "轮回殿线",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "hall_contact",
+          "summary": "接触轮回殿",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "first_trade",
+          "summary": "首次交易",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "soul_mark_mission",
+          "summary": "轮回印任务",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 4,
+          "hook": "judgment_witness",
+          "summary": "见证裁断",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_reincarnation_hall": 25
+      },
+      "unlock_methods": [
+        "reincarnation_hall_art"
+      ],
+      "v130": true
+    },
+    {
+      "chain_id": "heifeng_and_gray",
+      "display": "黑风海与灰界",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "heifeng_sail",
+          "summary": "黑风航行",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "storm_tribulation",
+          "summary": "风劫",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "gray_border",
+          "summary": "灰界边境",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 4,
+          "hook": "nether_escape",
+          "summary": "冥渡脱困",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 10
+      },
+      "unlock_methods": [
+        "heifeng_sea_art",
+        "gray_realm_nether_art"
+      ],
+      "v130": true
+    },
+    {
+      "chain_id": "xianjie_endgame_glimpse",
+      "display": "仙界终局窥影",
+      "region": "xianjie",
+      "step_rewards": [
+        {
+          "step": 1,
+          "hook": "daluo_threshold",
+          "summary": "大罗门槛",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 2,
+          "hook": "law_fusion",
+          "summary": "多法则融合叙事",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        },
+        {
+          "step": 3,
+          "hook": "dao_glimpse",
+          "summary": "道祖窥影",
+          "rep_delta": {
+            "rep_zhenyan": 5
+          },
+          "fail_rep_delta": {
+            "rep_zhenyan": -2
+          }
+        }
+      ],
+      "finale_rep": {
+        "rep_zhenyan": 10
+      },
+      "unlock_methods": [
+        "dao_ancestor_glimpse"
+      ],
+      "v130": true
+    }
+  ],
+  "v130_xianjie": true
+}

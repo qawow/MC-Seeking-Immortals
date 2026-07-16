@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "source": "v144 势力原著向简述总表",
+  "factions": [
+    {
+      "id": "huangfeng_valley",
+      "lore": "黄枫谷：越国七派之一，药园与综合传承见长，玩家友好开局。贡献制严，血色配额看贡献与门派选拔。战力非七派最强，胜在稳与资源线。"
+    },
+    {
+      "id": "yanyue_sect",
+      "lore": "掩月宗：七派之首气质，双修与魔道手段并立，与正道关隘摩擦多。人情与仇怨都重，禁地与外事话语权大。"
+    },
+    {
+      "id": "spirit_beast_mountain",
+      "lore": "灵兽山：御兽、血脉与契约。可与御灵宗有倒戈/竞合叙事。洞府多灵兽设施。"
+    },
+    {
+      "id": "qingxu_gate",
+      "lore": "清虚门：剑修清修，门风冷淡，重剑心日课。"
+    },
+    {
+      "id": "huadao_wu",
+      "lore": "化刀坞：刀法器修，重兵刃炼与杀伐。"
+    },
+    {
+      "id": "tianque_fort",
+      "lore": "天阙堡：堡垒防御与阵守，边战友好。"
+    },
+    {
+      "id": "giant_sword_gate",
+      "lore": "巨剑门：重剑开山，灵耗高，宜体魄并修。"
+    },
+    {
+      "id": "qixuan_men",
+      "lore": "七玄门：凡人武馆/入仙跳板气质，墨大夫线启蒙，非常规高阶仙门。"
+    },
+    {
+      "id": "ghost_spirit_gate",
+      "lore": "鬼灵门：鬼道摄魂炼尸，与阴罗、冥河浅层相合；正道声望 reciprocal。"
+    },
+    {
+      "id": "hehuan_sect",
+      "lore": "合欢宗：魔道双修采补，心性与因果风险高。"
+    },
+    {
+      "id": "moyan_gate",
+      "lore": "魔焰门：魔焰火毒，攻伐狠、污名重。"
+    },
+    {
+      "id": "tiansha_sect",
+      "lore": "天煞宗：煞功附身，险修。"
+    },
+    {
+      "id": "yuling_sect",
+      "lore": "御灵宗：驱虫灵婴御兽，与灵兽山竞合。"
+    },
+    {
+      "id": "qianhuan_sect",
+      "lore": "千幻宗：幻术渗透，侦察与刺杀友好。"
+    },
+    {
+      "id": "luoyun_sect",
+      "lore": "落云宗：云梦山，中后期长老/客卿向舞台。"
+    },
+    {
+      "id": "star_palace",
+      "lore": "星宫：乱星海秩序中枢。登记、传送网、征税与补天级配额叙事；与逆星死对立。"
+    },
+    {
+      "id": "inverse_star_alliance",
+      "lore": "逆星盟：反星宫暗线，走私暗港，暗号接头，高风险高回报。"
+    },
+    {
+      "id": "qianzhu_teach",
+      "lore": "千竹教：傀儡机关，大衍残篇权重，完整大衍不保底。"
+    },
+    {
+      "id": "mulan_fashi_council",
+      "lore": "慕兰神师府：草原符师与风灵石军功经济，战时锁边。"
+    },
+    {
+      "id": "tianlan_temple",
+      "lore": "天澜圣殿：佛力降魔，与慕兰对峙的另一端。"
+    },
+    {
+      "id": "miaoyin_men",
+      "lore": "妙音门：音律神识，乱星海中立偏门，共鸣台与客卿往来。"
+    }
+  ],
+  "npc_count": 13,
+  "crossref": [
+    "faction_graph.json",
+    "tiannan_faction_specialty.json",
+    "named_npc_seeds_v137.json"
+  ]
+}

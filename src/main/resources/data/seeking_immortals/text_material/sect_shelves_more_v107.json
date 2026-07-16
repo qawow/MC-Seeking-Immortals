@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v107 宗门货架续：掩月宗 / 落云宗 / 鬼灵门",
+  "disclaimer": "价格为下品灵石或贡献结构。声望锁。贴原著门派气质。道侣/魔道红线另见 bond 与 never_list",
+  "global_rules": {
+    "sect_only": true,
+    "rep_discount": {"friendly": 0.9, "honored": 0.8, "exalted": 0.7},
+    "never_list": ["掌天瓶", "绿液", "通天完整", "真魂丹", "炼神术", "六丁天甲量贩"]
+  },
+  "sects": [
+    {
+      "id": "manyue",
+      "display": "掩月宗",
+      "region": "越国七派 / 后迁落云相关",
+      "currency": ["low_stone", "sect_contrib"],
+      "rep_faction": "manyue",
+      "bond_link": "nangong_bond",
+      "flavor": "双修掩月、女修为主、情谊与宗门资源交织；阳环/血魔线属剧情非货架",
+      "shelves": [
+        {
+          "id": "outer_veil",
+          "display": "外门掩月架",
+          "rep_min": 0,
+          "wares": [
+            {"id": "yin_yang_primer", "display": "阴阳入门册", "price": [50, 300]},
+            {"id": "beauty_pill_low", "display": "驻颜丹（低）", "price": [30, 200]},
+            {"id": "veil_robe_basic", "display": "掩月外袍", "price": [40, 400]},
+            {"id": "xiang_fu_stack", "display": "迷香符捆", "price": [20, 150]},
+            {"id": "heal_dan_mid", "display": "疗伤丹（中）", "price": [50, 400]}
+          ]
+        },
+        {
+          "id": "inner_moon",
+          "display": "内门月华架",
+          "rep_min": 25,
+          "wares": [
+            {"id": "shuang_xiu_assist", "display": "双修辅香（合规）", "price": [200, 3000], "note": "非强制、可拒"},
+            {"id": "yin_ling_dan", "display": "阴灵丹", "price": [300, 4000]},
+            {"id": "moon_array_flag", "display": "月华小阵旗", "price": [500, 5000]},
+            {"id": "storage_bracelet_f", "display": "女修储物镯式样", "price": [1000, 20000]}
+          ]
+        },
+        {
+          "id": "core_favor",
+          "display": "核心人情架",
+          "rep_min": 50,
+          "bond_min": 30,
+          "wares": [
+            {"id": "yang_huan_clue", "display": "阳环线索玉简", "price": "剧情", "note": "不卖实物阳环"},
+            {"id": "blood_sword_intel", "display": "血魔剑情报", "price": "剧情"},
+            {"id": "nangong_letter_slot", "display": "宗主传讯额度", "price": "bond", "scarce": true}
+          ]
+        },
+        {
+          "id": "exalted_bond",
+          "display": "道侣崇敬架",
+          "rep_min": 70,
+          "bond_min": 80,
+          "wares": [
+            {"id": "liuding_unlock_path", "display": "六丁天甲解锁路径", "price": "bond80", "note": "非货架秒买实物"},
+            {"id": "dual_stable_kit", "display": "双修稳态匣", "price": "剧情"}
+          ]
+        }
+      ],
+      "rules": {
+        "no_sell_yang_huan_physical": true,
+        "no_sell_liuding_bulk": true,
+        "hostile_below": -40
+      }
+    },
+    {
+      "id": "luoyun",
+      "display": "落云宗",
+      "region": "天南后期 / 韩立道侣归属结构",
+      "currency": ["low_stone", "sect_contrib"],
+      "rep_faction": "luoyun",
+      "flavor": "稳重剑阵、护宗与聚灵；元婴交换会后地位上升",
+      "shelves": [
+        {
+          "id": "guest_hall",
+          "display": "客卿基础架",
+          "rep_min": 0,
+          "wares": [
+            {"id": "cloud_sword_talisman", "display": "落云剑符", "price": [30, 300]},
+            {"id": "ju_ling_flag_s", "display": "小聚灵旗", "price": [100, 1500]},
+            {"id": "sect_heal_kit", "display": "护宗疗伤包", "price": [80, 800]},
+            {"id": "escape_cloud_fu", "display": "遁云符", "price": [50, 500]}
+          ]
+        },
+        {
+          "id": "inner_array",
+          "display": "内门阵法架",
+          "rep_min": 30,
+          "wares": [
+            {"id": "array_wuxing_rent", "display": "颠倒五行旗租赁", "price": [500, 8000]},
+            {"id": "cloud_mountain_map", "display": "落云山防图", "price": [200, 2000]},
+            {"id": "mid_storage", "display": "中储物袋", "price": [100, 800]},
+            {"id": "sword_maintain_oil", "display": "飞剑保养油", "price": [100, 1500]}
+          ]
+        },
+        {
+          "id": "nascent_support",
+          "display": "元婴支援架",
+          "rep_min": 55,
+          "wares": [
+            {"id": "kun_xian_huan_rent", "display": "困仙环类租赁", "price": [5000, 50000], "scarce": true},
+            {"id": "exchange_fair_pass", "display": "元婴交换会入场荐", "price": "声望+人情"},
+            {"id": "guardian_array_slot", "display": "护山阵眼轮值", "price": "贡献"}
+          ]
+        },
+        {
+          "id": "master_hall",
+          "display": "宗主权限架",
+          "rep_min": 80,
+          "bond_link": "nangong_bond",
+          "wares": [
+            {"id": "luoyun_master_seal", "display": "落云事务印", "price": "剧情"},
+            {"id": "ally_war_supply", "display": "盟军联防补给", "price": "军功折算"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guiling",
+      "display": "鬼灵门",
+      "region": "天南魔道 / 阴罗相关",
+      "currency": ["low_stone", "xue_ya_mi", "black_favor"],
+      "rep_faction": "guiling_men",
+      "flavor": "炼尸、阴魂、血祭边缘；正道身份进货需易容/卧底",
+      "axis_note": "正道默认偏低；魔道身份友好",
+      "shelves": [
+        {
+          "id": "outer_yin",
+          "display": "外门阴货",
+          "rep_min": -20,
+          "wares": [
+            {"id": "yin_sha_fu", "display": "阴煞符", "price": [20, 200]},
+            {"id": "corpse_drive_needle", "display": "驱尸针", "price": [50, 500]},
+            {"id": "low_corpse_material", "display": "低阶尸材", "price": [30, 400]},
+            {"id": "soul_sand", "display": "魂砂", "price": [40, 600]}
+          ]
+        },
+        {
+          "id": "inner_ghost",
+          "display": "内门鬼货",
+          "rep_min": 20,
+          "wares": [
+            {"id": "gui_luo_fan_scrap", "display": "鬼罗幡残料", "price": [2000, 30000], "scarce": true},
+            {"id": "chi_hun_method_hint", "display": "赤魂之法残页", "price": [1000, 15000]},
+            {"id": "mid_jiangshi_core", "display": "中阶炼尸核", "price": [800, 12000]},
+            {"id": "xue_ya_mi_stack", "display": "血牙米", "price": "魔道通货"}
+          ]
+        },
+        {
+          "id": "elder_black",
+          "display": "长老黑架",
+          "rep_min": 45,
+          "wares": [
+            {"id": "tian_shi_zhu_clue", "display": "天尸珠线索", "price": "剧情", "note": "不直接卖珠"},
+            {"id": "wang_chan_heat_token", "display": "王蝉线热度符", "price": "事件"},
+            {"id": "yin_luo_intro", "display": "阴罗引荐令", "price": [5000, 50000], "scarce": true}
+          ]
+        },
+        {
+          "id": "hostile_bounty",
+          "display": "敌对追杀板",
+          "rep_max": -40,
+          "wares": [],
+          "effect": "刷鬼灵追杀队，非商店"
+        }
+      ],
+      "rules": {
+        "orthodox_mask_required": "正道购内门货需易容，破除补扣声望",
+        "no_sell_complete_gui_luo_easy": true,
+        "public_demonic_cast_penalty": true
+      }
+    }
+  ],
+  "cross_shop_notes": [
+    "掩月：情谊锁阳环/六丁路径，不卖碾压实物",
+    "落云：阵法与护宗，交换会入场荐",
+    "鬼灵：阴货与炼尸，正道默认难进，敌对变追杀"
+  ],
+  "description": "三宗门补全天南势力货架。与 v106 黄枫/天符/御灵并列，对接 reputation_unlocks 与 bond。"
+}

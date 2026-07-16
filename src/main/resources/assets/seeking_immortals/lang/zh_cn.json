@@ -3713,7 +3713,6 @@
   "block.seeking_immortals.alchemy_lid_tier_4": "四阶丹炉盖",
   "block.seeking_immortals.alchemy_lid_tier_5": "五阶丹炉盖",
   "message.seeking_immortals.alchemy_furnace.lid_blocked": "炉顶位置被占据，无法安放炉盖。",
-<<<<<<< HEAD
   "message.seeking_immortals.method.conflict": "功法冲突：%s 与已学《%s》相容等级 %s（%s），不可同修。",
   "message.seeking_immortals.method.techniques_granted": "功法层数解锁术法 %s 门。",
   "message.seeking_immortals.spell.generic_projectile.success": "术法弹道命中，造成 %s 点伤害。",
@@ -3727,8 +3726,7 @@
   "message.seeking_immortals.spell.generic_melee.success": "近身剑意斩落。",
   "message.seeking_immortals.spell.generic_illusion.success": "幻术弥散，心神受扰。",
   "message.seeking_immortals.spell.generic_control.success": "禁锢之力扩散。",
-  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。"
-=======
+  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。",
   "item.seeking_immortals.altar_stone": "契坛石",
   "tooltip.seeking_immortals.material.altar_stone": "契坛石。多方块建造材料（v135 对齐）。",
   "item.seeking_immortals.anchor_spike": "界域锚定针",
@@ -4381,6 +4379,8 @@
   "tooltip.seeking_immortals.talisman_grade.low": "低阶符箓",
   "tooltip.seeking_immortals.talisman_grade.mid": "中阶符箓",
   "tooltip.seeking_immortals.talisman_grade.high": "高阶符箓",
-  "tooltip.seeking_immortals.talisman_grade.ancient": "古符"
->>>>>>> task/m03-item-catalog
+  "tooltip.seeking_immortals.talisman_grade.ancient": "古符",
+  "message.seeking_immortals.faction_conflict.daily_trigger": "区域冲突触发：%s（%s）",
+  "message.seeking_immortals.sect.apply_ghost_ban": "鬼修身份被拒：宗门 %s 禁收/追杀标记已生效。",
+  "message.seeking_immortals.sect.apply_entry_denied": "入门被拒：%s（%s）"
 }
