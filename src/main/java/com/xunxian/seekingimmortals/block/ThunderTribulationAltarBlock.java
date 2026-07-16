@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.block;
 
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.structure.ThunderTribulationAltarStructure;
@@ -27,12 +29,14 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
  * Thunder tribulation altar core. Sneak-use validates the outer ring + corner pillars multiblock
- * and grants short defensive buffs when complete. Survival consumes spirit-stone shards.
- * Activation is visual/audio only — no LightningBolt entity is spawned.
+ * and grants short defensive buffs + tribulation resistance when complete.
+ * Survival consumes spirit-stone shards. Activation is visual/audio only — no LightningBolt entity.
  */
 public class ThunderTribulationAltarBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     private static final int SPIRIT_STONE_COST = 12;
+    /** 对齐 tribulation_items 中 array/talisman 量级的短期抗劫加成。 */
+    private static final int ALTAR_TRIB_RES_BONUS = 8;
 
     public ThunderTribulationAltarBlock(Properties properties) {
         super(properties);
@@ -83,6 +87,10 @@ public class ThunderTribulationAltarBlock extends Block {
 
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 200, 1));
         serverPlayer.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0));
+        CultivationHelper.get(serverPlayer).ifPresent(cultivation -> {
+            cultivation.addTribulationResistance(ALTAR_TRIB_RES_BONUS);
+            SyncCultivationDataPacket.send(serverPlayer, cultivation);
+        });
         playActivationEffects(serverPlayer.serverLevel(), pos);
         player.displayClientMessage(Component.translatable(
                 "message.seeking_immortals.thunder_tribulation_altar.activated"), true);

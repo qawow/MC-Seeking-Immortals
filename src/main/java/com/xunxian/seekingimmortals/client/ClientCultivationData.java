@@ -102,7 +102,11 @@ public final class ClientCultivationData {
             double meditationAuraMultiplier,
             double meditationTechniqueMultiplier,
             double meditationStoneBonus,
-            double meditationTotalPerSecond) {
+            double meditationTotalPerSecond,
+            String constitutionId,
+            String cultivationPathId,
+            String playableRaceId,
+            String ghostPathStageId) {
         public static Snapshot empty() {
             return new Snapshot(
                     "未同步", "", 0, 100, 0, 0, 1L, 0, 100, 0, 0, 0, 0,
@@ -111,7 +115,8 @@ public final class ClientCultivationData {
                     false, false, 0, false, 0, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D,
                     0.0D, 1.5D, 0.0D, 0.0D, 1.0D, 0.0D, 100, "天地灵气",
                     0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0, 0.0D, 0.0D, 0.0D,
-                    1.0D, 1.0D, 1.0D, 0.0D, 0.0D);
+                    1.0D, 1.0D, 1.0D, 0.0D, 0.0D,
+                    "none", "orthodox", "human_mortal", "");
         }
     }
 }
