@@ -69,10 +69,12 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -88,6 +90,9 @@ public final class ModEvents {
     private static final String EXCHANGE_COUNT_KEY = "SeekingImmortalsExchangeCount";
     private static final int DAILY_EXCHANGE_LIMIT = 3;
     private static final String AGE_DAY_KEY = "SeekingImmortalsAgeDay";
+    /** M14: 防止 PvP 伤害替换路径内再次 hurt 造成递归 */
+    private static final ThreadLocal<Boolean> PVP_COMBAT_GUARD = ThreadLocal.withInitial(() -> Boolean.FALSE);
+    private static final String PVP_RESOLVED_KEY = "SeekingImmortalsPvpResolved";
     private static final String MEDITATION_X_KEY = "SeekingImmortalsMeditationX";
     private static final String MEDITATION_Y_KEY = "SeekingImmortalsMeditationY";
     private static final String MEDITATION_Z_KEY = "SeekingImmortalsMeditationZ";
@@ -247,8 +252,58 @@ public final class ModEvents {
         });
     }
 
+    /**
+     * M14 风险②：在 LivingAttackEvent 早阶段做命中/闪避裁决，避免原版护甲/吸收先吞资源。
+     * 风险①：ThreadLocal 守卫阻止同路径 hurt 递归。
+     */
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public static void onLivingAttackPvp(LivingAttackEvent event) {
+        if (event.getEntity().level().isClientSide) {
+            return;
+        }
+        if (Boolean.TRUE.equals(PVP_COMBAT_GUARD.get())) {
+            return;
+        }
+        if (!(event.getSource().getEntity() instanceof ServerPlayer attacker)) {
+            return;
+        }
+        if (!(event.getEntity() instanceof ServerPlayer defender)) {
+            return;
+        }
+        Entity directEntity = event.getSource().getDirectEntity();
+        if (directEntity != null && directEntity.getPersistentData().getBoolean("SeekingImmortalsProjectileDamage")) {
+            return;
+        }
+
+        PVP_COMBAT_GUARD.set(Boolean.TRUE);
+        try {
+            float baseAmount = event.getAmount();
+            com.xunxian.seekingimmortals.combat.DamageResult result =
+                    com.xunxian.seekingimmortals.combat.CombatCalculator.calculateDamage(
+                            attacker, defender, baseAmount, attacker.getRandom(), false);
+            if (result.isMissed() || result.isDodged()) {
+                event.setCanceled(true);
+                com.xunxian.seekingimmortals.combat.CombatCalculator.showDamageFeedback(attacker, defender, result);
+                return;
+            }
+            // 将裁决结果缓存到防御者，LivingHurtEvent 只消费不再二次随机
+            CompoundTag data = defender.getPersistentData();
+            data.putBoolean(PVP_RESOLVED_KEY, true);
+            data.putFloat(PVP_RESOLVED_KEY + "Amount", (float) result.getFinalDamage());
+            data.putBoolean(PVP_RESOLVED_KEY + "Crit", result.isCrit());
+            com.xunxian.seekingimmortals.combat.CombatCalculator.showDamageFeedback(attacker, defender, result);
+        } finally {
+            PVP_COMBAT_GUARD.set(Boolean.FALSE);
+        }
+    }
+
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
+        if (Boolean.TRUE.equals(PVP_COMBAT_GUARD.get())) {
+            // 风险①：守卫期间不再重入修仙伤害替换
+            return;
+        }
+
         if (event.getEntity() instanceof Player hurtPlayer) {
             // M13: 寿元耗尽致死不触发打坐中断与走火入魔
             if (hurtPlayer.getPersistentData().getBoolean("SeekingImmortalsLifespanDeath")) {
@@ -303,6 +358,17 @@ public final class ModEvents {
         if (!(sourceEntity instanceof ServerPlayer attacker)) return;
         if (!(event.getEntity() instanceof ServerPlayer defender)) return;
         if (event.getEntity().level().isClientSide) return;
+
+        // M14: 优先消费 LivingAttackEvent 的早裁决结果，避免二次随机与护甲前置吞资源
+        CompoundTag data = defender.getPersistentData();
+        if (data.getBoolean(PVP_RESOLVED_KEY)) {
+            float resolved = data.getFloat(PVP_RESOLVED_KEY + "Amount");
+            data.remove(PVP_RESOLVED_KEY);
+            data.remove(PVP_RESOLVED_KEY + "Amount");
+            data.remove(PVP_RESOLVED_KEY + "Crit");
+            event.setAmount(resolved);
+            return;
+        }
 
         com.xunxian.seekingimmortals.combat.DamageResult result =
                 com.xunxian.seekingimmortals.combat.CombatCalculator.calculateDamage(

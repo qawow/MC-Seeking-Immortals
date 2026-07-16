@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v99 十绝毒与专解/抗性对照（贴原著毒圣门体系结构）",
+  "disclaimer": "十绝名为原著体系；专解部分为结构对应，非药典剂量",
+  "faction": "毒圣门 / 万毒谷相关",
+  "general_rules": {
+    "stacking": "多毒叠加指数级危险",
+    "body_resist": ["万毒混元身", "高阶炼体", "噬金虫噬毒结构"],
+    "general_antidote_weak": "百炼解毒丹仅对低中毒",
+    "soul_poison": "需神识/啼魂/佛门手段"
+  },
+  "ten_poisons": [
+    {
+      "id": "bi_jiu",
+      "display": "碧鸠",
+      "source_creature": "碧嘴鸠",
+      "vector": "毒涎/毒羽",
+      "symptom": "脏腑溃、呼吸锁",
+      "onset": "快",
+      "realm_lethal": ["FOUNDATION", "CORE_FORMATION"],
+      "antidote_structure": ["碧鸠专解", "以毒攻毒鸠胆", "高阶解毒丹"],
+      "resist": ["毒体", "水属性净化"],
+      "description": "十绝之一。南疆毒沼常见载体；鸠涎入药亦可。"
+    },
+    {
+      "id": "xue_sha_du",
+      "display": "血煞毒（结构入表）",
+      "source": "血煞虫/血祭",
+      "vector": "虫噬精血",
+      "symptom": "血热狂化后虚脱",
+      "antidote_structure": ["清血丹", "佛光", "停虫先于解毒"],
+      "description": "战场与魔道常见；先灭虫再清血。"
+    },
+    {
+      "id": "shi_xin_gu_du",
+      "display": "蚀心蛊毒",
+      "source_creature": "蚀心蛊母",
+      "vector": "入体蛊",
+      "symptom": "心神受控、剧痛",
+      "antidote_structure": ["搜蛊出体", "啼魂噬蛊", "封神识阵"],
+      "description": "偏控制。解法重「取出/噬尽」而非喝药。"
+    },
+    {
+      "id": "yin_huo_du",
+      "display": "阴火毒",
+      "source": "阴火虫/鬼罗阵",
+      "vector": "灼魂",
+      "symptom": "神魂灼伤、法力阴滞",
+      "antidote_structure": ["养魂木", "安魂丹", "阳火反制"],
+      "description": "伤魂不伤表。神识流克制。"
+    },
+    {
+      "id": "feng_du",
+      "display": "风毒",
+      "source_creature": "风毒蝎后等",
+      "vector": "气雾",
+      "symptom": "经脉游走剧痛、遁速乱",
+      "antidote_structure": ["定经散", "防风阵内疗", "专解风毒"],
+      "description": "南疆风蚀谷。中毒时禁强行遁光。"
+    },
+    {
+      "id": "han_du",
+      "display": "寒毒",
+      "source": "玄冰虫/寒髓失控/寒焰反噬",
+      "vector": "入骨",
+      "symptom": "经脉冻结、行动迟",
+      "antidote_structure": ["太阳精火微量", "回阳体系", "玄冰丹反调（慎）"],
+      "description": "北地与寒焰修士职业病。"
+    },
+    {
+      "id": "huo_du",
+      "display": "火毒",
+      "source": "碧焰酒过服、火域、火蚁",
+      "vector": "内火燔烧",
+      "symptom": "经脉焦、心神燥",
+      "antidote_structure": ["寒泉", "雪魄丸", "清心丹"],
+      "description": "修炼辅助药的常见副作用。"
+    },
+    {
+      "id": "shi_du",
+      "display": "尸毒",
+      "source": "炼尸/天尸珠/僵",
+      "vector": "爪创与雾",
+      "symptom": "伤口黑腐、血脉阴化",
+      "antidote_structure": ["佛门净水", "降魔", "百炼+专解尸毒"],
+      "description": "鬼道交战标配威胁。"
+    },
+    {
+      "id": "hai_yao_du",
+      "display": "海妖剧毒",
+      "source": "八级毒蛟等",
+      "vector": "蛟血/牙",
+      "symptom": "组织溶解、法力紊乱",
+      "antidote_structure": ["高阶解毒", "妖丹同源中和", "回阳级急救"],
+      "description": "外星海猎蛟必备抗毒。"
+    },
+    {
+      "id": "gu_mo_qi_du",
+      "display": "古魔气侵",
+      "source": "血焰/元刹/魔气之渊",
+      "vector": "魔气入体",
+      "symptom": "心性暴戾、功法异变",
+      "antidote_structure": ["天晶碑类封印", "佛门", "八灵尺", "强制闭关清魔"],
+      "description": "高于普通毒，属污染。解法是镇压与净化。"
+    },
+    {
+      "id": "wan_du_mix",
+      "display": "万毒混元（施术态）",
+      "source": "万毒混元身修士",
+      "vector": "体表接触/毒域",
+      "symptom": "百毒齐发",
+      "antidote_structure": ["远离毒域", "同阶毒体互克", "顶阶专解"],
+      "description": "功法态毒域，非单剂。优先风筝与破体。"
+    },
+    {
+      "id": "shi_jue_generic_slot",
+      "display": "十绝其余槽位（结构）",
+      "note": "原著十绝名目以毒圣门传承为准，模组可按地区扩展鸠、蝎、尸、蛟、蛊、寒、火、风、魂、魔十类",
+      "description": "用十类向量覆盖十绝，避免点名不全时玩法空洞。"
+    }
+  ],
+  "antidote_items": [
+    {
+      "id": "bailian_jiedu",
+      "display": "百炼解毒丹",
+      "covers": ["低中阶蛇蝎", "普通战场毒"],
+      "fails_on": ["十绝本体", "古魔气", "蚀心蛊"]
+    },
+    {
+      "id": "qingxue_dan",
+      "display": "清血丹（结构）",
+      "covers": ["血煞", "轻尸毒"]
+    },
+    {
+      "id": "an_hun_set",
+      "display": "安魂/定灵系",
+      "covers": ["阴火灼魂", "轻魂毒"]
+    },
+    {
+      "id": "nuan_yang_baoyu",
+      "display": "暖阳宝玉",
+      "covers": ["特定奇毒（欧阳飞天线）"],
+      "description": "剧情专解，非万金油。"
+    },
+    {
+      "id": "huiyang_emergency",
+      "display": "回阳真水（急救）",
+      "covers": ["濒死多毒并发"],
+      "cost": "极珍，勿当普通解毒"
+    },
+    {
+      "id": "fo_jing_shui",
+      "display": "佛门净水/降魔",
+      "covers": ["尸毒", "鬼毒", "轻魔侵"]
+    }
+  ],
+  "combat_loadout_poison": {
+    "nanjiang": ["百炼解毒×5", "清血", "防风面具结构", "火符清虫"],
+    "outer_sea_jiao": ["高阶解毒", "疗伤", "抗水压"],
+    "nether": ["安魂", "阳火", "啼魂"],
+    "moqi_yuan": ["净魔", "短时任务", "勿恋战"]
+  },
+  "description": "毒是资源也是关卡。专解>万金油；控制类先除虫蛊。"
+}

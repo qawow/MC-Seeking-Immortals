@@ -1,3 +1,19 @@
+## 457. 2026-07-16 M14 战斗与状态落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_172740_m14_combat_status/`
+  status_effects.json                  Done 22 ids 权威语料 + 发布副本
+  StatusRegistry / ModMobEffects       Done applyStatus + 境界/体质命中抵抗
+  Poison/antidote + loadout            Done PoisonAntidoteService + LoadoutByRealmService
+  Combat risks ①②③                    Done Attack 早裁决 + ThreadLocal 守卫 + Optional stats
+  Damage hooks                         Done DamagePipelineHooks pre/post
+  Tests                                Done M14CombatStatusTest
+  Network                              Unchanged 无新包；PROTOCOL 保持 21（不擅自递增）
+  Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
+  Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m14_combat_status.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes
