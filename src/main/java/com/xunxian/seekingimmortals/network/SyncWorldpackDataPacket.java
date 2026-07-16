@@ -63,7 +63,12 @@ public record SyncWorldpackDataPacket(String currentRegionId, String currentRegi
         context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             com.xunxian.seekingimmortals.client.ClientWorldpackData.set(packet);
             if (packet.openScreen()) {
-                net.minecraft.client.Minecraft.getInstance().setScreen(new com.xunxian.seekingimmortals.client.WorldpackScreen());
+                net.minecraft.client.Minecraft minecraft = net.minecraft.client.Minecraft.getInstance();
+                if (minecraft.screen instanceof com.xunxian.seekingimmortals.client.WorldpackScreen screen) {
+                    screen.refreshFromSync();
+                } else {
+                    minecraft.setScreen(new com.xunxian.seekingimmortals.client.WorldpackScreen());
+                }
             }
         }));
         context.setPacketHandled(true);

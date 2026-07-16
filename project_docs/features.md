@@ -1,3 +1,5 @@
+0.2.1 feature note: frontend hardening adds selected-chain quest tracking, complete lifecycle mirror resync, server-rendered nonce-bound dialogue choices, safe deferred shop opening, responsive bestiary/chronicle/compendium layouts, untruncated 1,894-entry lore sync, HUD rail safety below 300px, live worldpack countdowns, and deterministic 5% movement controls. Protocol 24.
+
 0.2.0 feature note: M00-M16 十七模块统一进入 main，覆盖数据管线、境界、功法、物品、炼制、经济、区域、阵法、宗门、秘境、妖兽、任务、NPC、维度飞升、战斗状态、法宝与图鉴百科；运行时 text-material manifest 完整索引 289 个发布 JSON，协议 23 隔离新增 M16 lore 消息。
 
 0.1.501 feature note: CultivationStatsScreen now presents a responsive cultivation chronicle instead of a single overflowing attribute sheet. Foundation, Combat, and Practice tabs keep every section reachable through clipped mouse-wheel pages; wide layouts add a live player portrait rail while compact layouts reclaim that space. The screen uses an original ink-green, old-bronze, jade, spirit-cyan, and cinnabar visual language, reuses shipped skill icons, preserves all existing actions, and changes no network packet surface. Focused layout tests and the full Gradle build pass.

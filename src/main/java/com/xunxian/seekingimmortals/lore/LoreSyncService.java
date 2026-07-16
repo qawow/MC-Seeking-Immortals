@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.lore;
 
 import com.xunxian.seekingimmortals.beast.BestiaryUnlockService;
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService;
 import com.xunxian.seekingimmortals.catalog.FactionQuestCatalogService;
 import com.xunxian.seekingimmortals.network.SyncLoreUnlockPacket;
@@ -8,8 +9,10 @@ import com.xunxian.seekingimmortals.quest.TimelineChronicleService;
 import net.minecraft.server.level.ServerPlayer;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 /** M16: assemble unlock snapshots and open encyclopedia screens (read-only). */
 public final class LoreSyncService {
@@ -35,7 +38,22 @@ public final class LoreSyncService {
     }
 
     private static List<String> bestiaryIds(ServerPlayer player) {
-        return BestiaryUnlockService.unlockedIds(player);
+        return canonicalBestiaryIds(BestiaryUnlockService.unlockedIds(player));
+    }
+
+    static List<String> canonicalBestiaryIds(List<String> storedIds) {
+        if (storedIds == null || storedIds.isEmpty()) {
+            return List.of();
+        }
+        Set<String> canonical = new LinkedHashSet<>();
+        for (String storedId : storedIds) {
+            String id = storedId == null ? "" : storedId.trim().toLowerCase(Locale.ROOT);
+            BeastBestiaryService.BeastEntry entry = BeastBestiaryService.all().get(id);
+            if (entry != null) {
+                canonical.add(entry.id().toLowerCase(Locale.ROOT));
+            }
+        }
+        return List.copyOf(canonical);
     }
 
     private static List<String> chronicleIds(ServerPlayer player) {

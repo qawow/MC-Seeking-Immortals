@@ -6,8 +6,8 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public final class ModNetwork {
-    // 0.2.0: M16 adds lore sync/action messages, so protocol 22 clients are incompatible.
-    private static final String PROTOCOL_VERSION = "23";
+    // 0.2.1: dialogue screens now receive a bounded server-rendered view.
+    private static final String PROTOCOL_VERSION = "24";
 
     public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
             new ResourceLocation(SeekingImmortalsMod.MODID, "main"),

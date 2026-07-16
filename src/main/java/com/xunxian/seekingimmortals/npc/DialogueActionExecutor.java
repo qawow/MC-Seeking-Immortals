@@ -64,6 +64,53 @@ public final class DialogueActionExecutor {
         return ok;
     }
 
+    /** Executes node-entry effects while leaving menu-opening effects for an explicit validated choice. */
+    public static boolean executeImmediate(ServerPlayer player, String npcId, String treeId, String nodeId,
+                                           List<DialogueBranchService.Effect> effects) {
+        if (player == null || effects == null || effects.isEmpty()) {
+            return true;
+        }
+        boolean ok = true;
+        for (DialogueBranchService.Effect effect : effects) {
+            if (!isDeferredChoice(effect) && !execute(player, npcId, treeId, nodeId, effect)) {
+                ok = false;
+            }
+        }
+        return ok;
+    }
+
+    public static boolean isDeferredChoice(DialogueBranchService.Effect effect) {
+        return effect != null && OPEN_SHOP.equals(normalize(effect.type()));
+    }
+
+    /** Effects that leave or replace the dialogue UI; the session must clear and no new view is sent. */
+    public static boolean isTerminalEffect(DialogueBranchService.Effect effect) {
+        if (effect == null) {
+            return false;
+        }
+        String type = normalize(effect.type());
+        return TELEPORT.equals(type)
+                || START_TELEPORT.equals(type)
+                || START_TRAVEL.equals(type)
+                || OPEN_TRAVEL_UI.equals(type)
+                || ENTER_INSTANCE.equals(type)
+                || OPEN_SHOP.equals(type)
+                || DENY_SERVICE.equals(type)
+                || END.equals(type);
+    }
+
+    public static boolean hasTerminalEffect(List<DialogueBranchService.Effect> effects) {
+        if (effects == null || effects.isEmpty()) {
+            return false;
+        }
+        for (DialogueBranchService.Effect effect : effects) {
+            if (isTerminalEffect(effect) && !isDeferredChoice(effect)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean execute(ServerPlayer player, String npcId, String treeId, String nodeId,
                                   DialogueBranchService.Effect effect) {
         if (player == null || effect == null) {

@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.network;
 
+import io.netty.handler.codec.DecoderException;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,9 +13,9 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public record SyncQuestTrackerPacket(List<String> lines) {
-    /** M11: 62 chains + status/mainline headers; protocol 22 covers the expanded encoded count range. */
-    private static final int MAX_LINES = 72;
-    private static final int MAX_LEN = 160;
+    /** M11: 62 chains plus status and mainline headers require a bounded 72-line snapshot. */
+    public static final int MAX_LINES = 72;
+    public static final int MAX_LINE_LENGTH = 160;
 
     public static void send(ServerPlayer player, List<String> lines) {
         ModNetwork.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player),
@@ -23,20 +24,23 @@ public record SyncQuestTrackerPacket(List<String> lines) {
 
     public static void encode(SyncQuestTrackerPacket packet, FriendlyByteBuf buffer) {
         List<String> list = packet.lines() == null ? List.of() : packet.lines();
-        buffer.writeVarInt(Math.min(MAX_LINES, list.size()));
-        int written = 0;
+        if (list.size() > MAX_LINES) {
+            throw new IllegalArgumentException("quest tracker line count " + list.size() + " exceeds " + MAX_LINES);
+        }
+        buffer.writeVarInt(list.size());
         for (String line : list) {
-            if (written >= MAX_LINES) break;
-            buffer.writeUtf(line == null ? "" : line, MAX_LEN);
-            written++;
+            buffer.writeUtf(line == null ? "" : line, MAX_LINE_LENGTH);
         }
     }
 
     public static SyncQuestTrackerPacket decode(FriendlyByteBuf buffer) {
         int count = buffer.readVarInt();
-        List<String> lines = new ArrayList<>();
-        for (int i = 0; i < count && i < MAX_LINES; i++) {
-            lines.add(buffer.readUtf(MAX_LEN));
+        if (count < 0 || count > MAX_LINES) {
+            throw new DecoderException("quest tracker line count " + count + " exceeds " + MAX_LINES);
+        }
+        List<String> lines = new ArrayList<>(count);
+        for (int i = 0; i < count; i++) {
+            lines.add(buffer.readUtf(MAX_LINE_LENGTH));
         }
         return new SyncQuestTrackerPacket(List.copyOf(lines));
     }
@@ -46,11 +50,7 @@ public record SyncQuestTrackerPacket(List<String> lines) {
         context.enqueueWork(() -> DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             com.xunxian.seekingimmortals.client.ClientQuestTrackerData.set(packet);
             net.minecraft.client.Minecraft mc = net.minecraft.client.Minecraft.getInstance();
-            // Wave457: never steal focus from dialogue or other screens.
-            // Only open tracker when no screen is open, or refresh if already tracker.
-            if (mc.screen == null) {
-                mc.setScreen(new com.xunxian.seekingimmortals.client.QuestTrackerScreen());
-            } else if (mc.screen instanceof com.xunxian.seekingimmortals.client.QuestTrackerScreen tracker) {
+            if (mc.screen instanceof com.xunxian.seekingimmortals.client.QuestTrackerScreen tracker) {
                 tracker.refreshWidgets();
             }
         }));

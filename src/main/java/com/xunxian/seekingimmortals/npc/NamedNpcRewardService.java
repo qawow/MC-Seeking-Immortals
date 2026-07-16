@@ -34,6 +34,16 @@ public final class NamedNpcRewardService {
 
     private NamedNpcRewardService() {}
 
+    /** Preserve claimed dialogue/NPC reward ledger across death/clone. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null || !originalData.contains(CLAIMED_ROOT)) {
+            return;
+        }
+        if (originalData.get(CLAIMED_ROOT) != null) {
+            clonedData.put(CLAIMED_ROOT, originalData.get(CLAIMED_ROOT).copy());
+        }
+    }
+
     public static Snapshot builtin() {
         return BUILTIN;
     }

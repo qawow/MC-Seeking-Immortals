@@ -1,7 +1,10 @@
 package com.xunxian.seekingimmortals.client;
 
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -72,6 +75,37 @@ class ScreenLayoutTest {
         for (int[] size : sizes) {
             assertOperationalLayouts(size[0], size[1]);
         }
+    }
+
+    @Test
+    void loreJournalScreensFitAndSwitchAtPanelWidthBreakpoints() {
+        int[][] sizes = {
+                {120, 90}, {287, 180}, {288, 180}, {320, 180},
+                {387, 220}, {388, 220}, {854, 480}
+        };
+        for (int[] size : sizes) {
+            assertBestiaryLayout(size[0], size[1]);
+            assertChronicleLayout(size[0], size[1]);
+            assertCompendiumLayout(size[0], size[1]);
+        }
+    }
+
+    @Test
+    void bestiarySelectionTracksCanonicalIdAcrossReordering() {
+        List<BeastBestiaryService.BeastEntry> entries =
+                BeastBestiaryService.all().values().stream().limit(2).toList();
+        assertEquals(2, entries.size());
+        String selectedId = entries.get(0).id();
+
+        assertEquals(0, BestiaryScreen.findSelectedIndex(entries, selectedId));
+        assertEquals(1, BestiaryScreen.findSelectedIndex(
+                List.of(entries.get(1), entries.get(0)), selectedId));
+    }
+
+    @Test
+    void visualCompendiumRefreshTargetsVisualPage() {
+        assertEquals("visual", LoreCompendiumScreen.actionForTab(LoreCompendiumScreen.Tab.VISUAL));
+        assertEquals("compendium", LoreCompendiumScreen.actionForTab(LoreCompendiumScreen.Tab.HUB));
     }
 
     @Test
@@ -348,6 +382,73 @@ class ScreenLayoutTest {
         WorldpackScreen.Layout worldpack = WorldpackScreen.calculateLayout(screenWidth, screenHeight);
         assertPanelFits(screenWidth, screenHeight, worldpack.panelWidth(), worldpack.panelHeight());
         assertTrue(worldpack.content().width() > 0 && worldpack.content().height() > 0);
+    }
+
+    private static void assertBestiaryLayout(int screenWidth, int screenHeight) {
+        BestiaryScreen.Layout layout = BestiaryScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.width(), layout.height());
+        assertEquals(layout.width() < 280, layout.stacked());
+        List<BestiaryScreen.Rect> rects = List.of(
+                layout.list(), layout.detail(), layout.refresh(), layout.close(),
+                layout.filterAll(), layout.filterUnlocked(), layout.filterLocked());
+        assertTrue(rects.stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
+        assertFalse(layout.list().intersects(layout.detail()));
+        assertFalse(layout.refresh().intersects(layout.close()));
+        assertFalse(layout.filterAll().intersects(layout.filterUnlocked()));
+        assertFalse(layout.filterUnlocked().intersects(layout.filterLocked()));
+        assertFalse(layout.filterAll().intersects(layout.list()));
+        assertFalse(layout.filterUnlocked().intersects(layout.list()));
+        assertFalse(layout.filterLocked().intersects(layout.list()));
+        // At least one body line must remain visible even at 120x90.
+        assertTrue(layout.list().h() >= 10, "bestiary list body too short at " + screenWidth + "x" + screenHeight);
+        assertTrue(layout.detail().h() >= 10, "bestiary detail body too short at " + screenWidth + "x" + screenHeight);
+        assertTrue(layout.list().w() >= 1 && layout.detail().w() >= 1);
+    }
+
+    private static void assertChronicleLayout(int screenWidth, int screenHeight) {
+        ChronicleScreen.Layout layout = ChronicleScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.width(), layout.height());
+        assertEquals(layout.width() < 280, layout.stacked());
+        List<ChronicleScreen.Rect> rects = List.of(
+                layout.list(), layout.detail(), layout.refresh(), layout.close(),
+                layout.eventsTab(), layout.timelineTab());
+        assertTrue(rects.stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
+        assertFalse(layout.list().intersects(layout.detail()));
+        assertFalse(layout.refresh().intersects(layout.close()));
+        assertFalse(layout.eventsTab().intersects(layout.timelineTab()));
+        assertFalse(layout.eventsTab().intersects(layout.list()));
+        assertFalse(layout.timelineTab().intersects(layout.list()));
+        assertTrue(layout.list().h() >= 10, "chronicle list body too short at " + screenWidth + "x" + screenHeight);
+        assertTrue(layout.detail().h() >= 10, "chronicle detail body too short at " + screenWidth + "x" + screenHeight);
+        assertTrue(layout.list().w() >= 1 && layout.detail().w() >= 1);
+    }
+
+    private static void assertCompendiumLayout(int screenWidth, int screenHeight) {
+        LoreCompendiumScreen.Layout layout = LoreCompendiumScreen.calculateLayout(screenWidth, screenHeight);
+        assertPanelFits(screenWidth, screenHeight, layout.width(), layout.height());
+        int expectedColumns = layout.width() >= 380 ? 6 : layout.width() >= 280 ? 3 : 2;
+        assertEquals(expectedColumns, layout.controlColumns());
+        List<LoreCompendiumScreen.Rect> controls = List.of(
+                layout.hubTab(), layout.glossaryTab(), layout.numericTab(), layout.visualTab(),
+                layout.bestiaryBtn(), layout.chronicleBtn());
+        assertTrue(controls.stream().allMatch(rect -> rect.inside(screenWidth, screenHeight)));
+        for (int i = 0; i < controls.size(); i++) {
+            assertFalse(controls.get(i).intersects(layout.viewport()),
+                    "compendium controls must leave room for content");
+            for (int j = i + 1; j < controls.size(); j++) {
+                assertFalse(controls.get(i).intersects(controls.get(j)),
+                        "compendium controls must not overlap");
+            }
+        }
+        assertTrue(layout.viewport().inside(screenWidth, screenHeight));
+        assertTrue(layout.refresh().inside(screenWidth, screenHeight));
+        assertTrue(layout.close().inside(screenWidth, screenHeight));
+        assertFalse(layout.viewport().intersects(layout.refresh()));
+        assertFalse(layout.viewport().intersects(layout.close()));
+        assertFalse(layout.refresh().intersects(layout.close()));
+        assertTrue(layout.viewport().h() >= 10,
+                "compendium viewport body too short at " + screenWidth + "x" + screenHeight);
+        assertTrue(layout.viewport().w() >= 1);
     }
 
     private static void assertShopRowsFit(int panelWidth, int panelHeight) {

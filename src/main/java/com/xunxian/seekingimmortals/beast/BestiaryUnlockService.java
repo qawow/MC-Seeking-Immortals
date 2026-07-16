@@ -28,6 +28,16 @@ public final class BestiaryUnlockService {
 
     private BestiaryUnlockService() {}
 
+    /** Preserve bestiary unlocks across death/clone. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null || !originalData.contains(ROOT)) {
+            return;
+        }
+        if (originalData.get(ROOT) != null) {
+            clonedData.put(ROOT, originalData.get(ROOT).copy());
+        }
+    }
+
     public static boolean unlock(ServerPlayer player, String beastId, UnlockKind kind) {
         if (player == null || beastId == null || beastId.isBlank() || kind == null) {
             return false;

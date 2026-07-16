@@ -9,7 +9,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 - Mod id: `seeking_immortals`
 - Java: 17
 - Build system: ForgeGradle 6.x via Gradle Wrapper
-- Current version: `0.2.0` in `gradle.properties`
+- Current version: `0.2.1` in `gradle.properties`
 - Theme: original 凡人流修仙 gameplay — 灵力、境界、灵根、寿元、功法/术法、灵石、丹药、材料、符箓、聚灵阵、修仙 UI and combat attributes.
 
 This working directory is commonly used without Git history. Before modifying existing files, create a backup under `.bak/<timestamp>/` or `backups/<timestamp>/` and report the rollback path.
@@ -272,7 +272,7 @@ Current packets registered in `ModNetwork`:
 - `ReleaseTechniquePacket`
 - `SetTechniqueSlotPacket`
 
-`ModNetwork.PROTOCOL_VERSION` is currently `23`. If packet fields/order or incompatible channel behavior change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
+`ModNetwork.PROTOCOL_VERSION` is currently `24`. If packet fields/order or incompatible channel behavior change, bump the protocol version to prevent mismatched clients/servers from decoding stale packet formats.
 
 Client state mirrors:
 

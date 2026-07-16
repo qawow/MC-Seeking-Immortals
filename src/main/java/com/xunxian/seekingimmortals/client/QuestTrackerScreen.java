@@ -35,14 +35,13 @@ public class QuestTrackerScreen extends Screen {
     /** Called when tracker data refreshes while this screen is open. */
     public void refreshWidgets() {
         clearWidgets();
-        scrollOffset = 0;
         rebuildButtons();
     }
 
     private void rebuildButtons() {
         Layout layout = calculateLayout(width, height);
         List<Rect> buttons = layout.buttons();
-        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.firstActiveChain();
+        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.selectedChain();
         String chainId = active.map(ClientQuestTrackerData.ChainLine::id).orElse("");
         boolean canAct = active.isPresent() && !active.get().complete() && !chainId.isBlank();
         boolean locked = active.map(ClientQuestTrackerData.ChainLine::branchLocked).orElse(false);
@@ -109,7 +108,7 @@ public class QuestTrackerScreen extends Screen {
         ImmortalUiSkin.withScissor(graphics, viewport.x() + 1, viewport.y() + 1,
                 Math.max(1, viewport.width() - 2), Math.max(1, viewport.height() - 2),
                 () -> renderLines(graphics, lines, viewport.x() + 5,
-                        viewport.y() + 3 - scrollOffset, contentWidth));
+                        viewport.y() + 3 - scrollOffset, contentWidth, mouseX, mouseY));
         ImmortalUiSkin.drawThinScrollbar(graphics, viewport.right() - 3, viewport.y() + 1,
                 Math.max(1, viewport.height() - 2), renderedContentHeight, visibleHeight, scrollOffset);
 
@@ -135,6 +134,25 @@ public class QuestTrackerScreen extends Screen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0) {
+            Layout layout = calculateLayout(width, height);
+            Rect viewport = layout.viewport();
+            if (viewport.contains(mouseX, mouseY)) {
+                int contentWidth = Math.max(1, viewport.width() - 10);
+                int contentY = (int)Math.floor(mouseY) - (viewport.y() + 3) + scrollOffset;
+                Optional<ClientQuestTrackerData.ChainLine> clicked = chainAtContentOffset(
+                        ClientQuestTrackerData.lines(), contentWidth, contentY);
+                if (clicked.isPresent() && ClientQuestTrackerData.selectChain(clicked.get().id())) {
+                    refreshWidgets();
+                    return true;
+                }
+            }
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
     private int measureLines(List<String> lines, int contentWidth) {
         if (lines.isEmpty()) return font.lineHeight;
         int height = 0;
@@ -145,7 +163,8 @@ public class QuestTrackerScreen extends Screen {
         return Math.max(1, height - LINE_GAP);
     }
 
-    private void renderLines(GuiGraphics graphics, List<String> lines, int x, int y, int contentWidth) {
+    private void renderLines(GuiGraphics graphics, List<String> lines, int x, int y, int contentWidth,
+                             int mouseX, int mouseY) {
         if (lines.isEmpty()) {
             ImmortalUiSkin.drawStringFit(font, graphics,
                     Component.translatable("screen.seeking_immortals.quest_tracker.empty").getString(),
@@ -155,6 +174,17 @@ public class QuestTrackerScreen extends Screen {
         int cursorY = y;
         for (String line : lines) {
             String safeLine = line == null ? "" : line;
+            int lineHeight = lineHeight(safeLine, contentWidth);
+            Optional<ClientQuestTrackerData.ChainLine> parsed = ClientQuestTrackerData.parseChainLine(safeLine);
+            if (parsed.isPresent()) {
+                boolean selected = parsed.get().id().equals(ClientQuestTrackerData.selectedChainId());
+                boolean hovered = mouseX >= x - 2 && mouseX < x + contentWidth + 2
+                        && mouseY >= cursorY - 1 && mouseY < cursorY + lineHeight - 1;
+                if (selected || hovered) {
+                    graphics.fill(x - 2, cursorY - 1, x + contentWidth + 2, cursorY + lineHeight - 1,
+                            selected ? ImmortalUiSkin.JOURNAL_ROW_SELECTED : ImmortalUiSkin.JOURNAL_ROW_HOVERED);
+                }
+            }
             int color = safeLine.startsWith("OK ") ? ImmortalUiSkin.JOURNAL_JADE_TEXT
                     : safeLine.startsWith("ERR ") ? ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT
                     : ImmortalUiSkin.JOURNAL_PAPER;
@@ -165,8 +195,29 @@ public class QuestTrackerScreen extends Screen {
         }
     }
 
+    private Optional<ClientQuestTrackerData.ChainLine> chainAtContentOffset(
+            List<String> lines, int contentWidth, int contentY) {
+        if (contentY < 0) {
+            return Optional.empty();
+        }
+        int cursor = 0;
+        for (String line : lines) {
+            String safeLine = line == null ? "" : line;
+            int height = lineHeight(safeLine, contentWidth);
+            if (contentY >= cursor && contentY < cursor + height) {
+                return ClientQuestTrackerData.parseChainLine(safeLine);
+            }
+            cursor += height;
+        }
+        return Optional.empty();
+    }
+
+    private int lineHeight(String line, int contentWidth) {
+        return Math.max(1, font.split(Component.literal(line), contentWidth).size()) * (font.lineHeight + LINE_GAP);
+    }
+
     private String activeHint() {
-        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.firstActiveChain();
+        Optional<ClientQuestTrackerData.ChainLine> active = ClientQuestTrackerData.selectedChain();
         if (active.isEmpty()) return "";
         ClientQuestTrackerData.ChainLine line = active.get();
         if (line.complete()) {

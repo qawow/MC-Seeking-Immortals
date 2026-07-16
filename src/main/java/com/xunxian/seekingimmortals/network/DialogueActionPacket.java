@@ -10,9 +10,8 @@ import java.util.Locale;
 import java.util.function.Supplier;
 
 /**
- * Client→server dialogue actions for visual dialogue GUI.
- * <p>Field layout unchanged (action/chainId/choice) — protocol stays 21.
- * {@code chainId} may be a text-quest chain id OR an M12 dialogue tree / npc id.</p>
+ * Client-to-server intent for the current dialogue view.
+ * The three-string wire layout is retained; {@code chainId} now carries the server-issued context nonce.
  */
 public record DialogueActionPacket(String action, String chainId, String choice) {
     public static final String ACTION_TALK = "talk";
@@ -44,49 +43,28 @@ public record DialogueActionPacket(String action, String chainId, String choice)
                 return;
             }
             String action = packet.action == null ? "" : packet.action.trim().toLowerCase(Locale.ROOT);
-            String chainId = packet.chainId == null ? "" : packet.chainId.trim();
+            String dialogueContext = packet.chainId == null ? "" : packet.chainId.trim();
             String choice = packet.choice == null ? "" : packet.choice.trim();
 
-            // M12 path: active dialogue session or tree/npc id prefix.
-            boolean m12 = NpcDialogueApi.getSession(player).isPresent()
-                    || chainId.startsWith("tree_")
-                    || chainId.startsWith("npc_")
-                    || chainId.startsWith("template:");
-            if (m12) {
+            if (NpcDialogueApi.matchesContext(player, dialogueContext)) {
                 switch (action) {
-                    case ACTION_TALK -> {
-                        if (NpcDialogueApi.getSession(player).isEmpty()) {
-                            // chainId may be tree id or npc id
-                            if (chainId.startsWith("tree_") || chainId.startsWith("template:")) {
-                                NpcDialogueApi.startDialogue(player, "", chainId);
-                            } else {
-                                NpcDialogueApi.startDialogue(player, chainId, "");
-                            }
-                        } else {
-                            // Re-present current node without re-running effects.
-                            NpcDialogueApi.currentView(player).ifPresent(view ->
-                                    NpcDialogueApi.onDialogueNodeReached(player, view.npcId(), view.nodeId()));
-                        }
+                    case ACTION_TALK -> NpcDialogueApi.refresh(player, dialogueContext);
+                    case ACTION_ACT -> NpcDialogueApi.selectNext(player, dialogueContext, choice);
+                    case ACTION_CLOSE -> NpcDialogueApi.close(player, dialogueContext);
+                    default -> {
                     }
-                    case ACTION_ACT -> NpcDialogueApi.selectNext(player, choice);
-                    case ACTION_CLOSE -> NpcDialogueApi.clearSession(player);
-                    default -> NpcDialogueApi.selectNext(player, choice);
                 }
                 return;
             }
 
-            // Legacy text-quest chain dialogue path (M11-adjacent).
-            switch (action) {
-                case ACTION_TALK -> TextQuestDialogueService.talk(player, chainId);
-                case ACTION_ACT -> TextQuestDialogueService.act(player, chainId, choice);
-                case ACTION_CLOSE -> {
-                    // no-op server state
+            if (TextQuestDialogueService.matchesContext(player, dialogueContext)) {
+                switch (action) {
+                    case ACTION_TALK -> TextQuestDialogueService.refresh(player, dialogueContext);
+                    case ACTION_ACT -> TextQuestDialogueService.actCurrent(player, dialogueContext, choice);
+                    case ACTION_CLOSE -> TextQuestDialogueService.close(player, dialogueContext);
+                    default -> {
+                    }
                 }
-                default -> TextQuestDialogueService.talk(player, chainId);
-            }
-            // Re-open/refresh GUI after act so client sees updated branch/stage text.
-            if (!ACTION_CLOSE.equals(action) && !chainId.isBlank()) {
-                OpenDialogueScreenPacket.send(player, chainId);
             }
         });
         context.setPacketHandled(true);

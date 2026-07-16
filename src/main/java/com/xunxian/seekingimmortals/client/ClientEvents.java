@@ -194,6 +194,7 @@ public final class ClientEvents {
             }
             while (OPEN_QUEST_TRACKER_KEY.consumeClick()) {
                 if (player != null && minecraft.screen == null) {
+                    minecraft.setScreen(new QuestTrackerScreen());
                     com.xunxian.seekingimmortals.network.ModNetwork.CHANNEL.sendToServer(
                             new com.xunxian.seekingimmortals.network.QuestTrackerActionPacket("sync"));
                 }
@@ -299,4 +300,3 @@ public final class ClientEvents {
         }
     }
 }
-

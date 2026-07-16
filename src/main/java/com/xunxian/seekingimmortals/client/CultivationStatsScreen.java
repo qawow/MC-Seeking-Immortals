@@ -12,6 +12,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.List;
 import java.util.Locale;
@@ -197,6 +198,21 @@ public class CultivationStatsScreen extends Screen {
 
     static boolean usesPageColumns(int contentWidth) {
         return contentWidth >= PAGE_COLUMN_WIDTH;
+    }
+
+    static double quantizeMovementScale(double value) {
+        return clamp01(Math.round(value / MOVEMENT_SLIDER_STEP) * MOVEMENT_SLIDER_STEP);
+    }
+
+    static double keyboardMovementScale(double value, int direction) {
+        int normalizedDirection = Integer.compare(direction, 0);
+        return quantizeMovementScale(quantizeMovementScale(value) + normalizedDirection * MOVEMENT_SLIDER_STEP);
+    }
+
+    static boolean shouldSendMovementScale(double value, double acknowledgedScale, double pendingScale) {
+        return Double.isNaN(pendingScale)
+                ? Math.abs(value - acknowledgedScale) >= 0.0001D
+                : Math.abs(value - pendingScale) >= 0.0001D;
     }
 
     static PanelLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -898,14 +914,17 @@ public class CultivationStatsScreen extends Screen {
     private static final class MovementSpeedSlider extends AbstractSliderButton {
         private boolean syncing;
         private double pendingScale = Double.NaN;
+        private double acknowledgedScale;
 
         MovementSpeedSlider(int x, int y, int width, int height, double scale) {
-            super(x, y, width, height, Component.empty(), step(scale));
+            super(x, y, width, height, Component.empty(), quantizeMovementScale(scale));
+            acknowledgedScale = value;
             updateMessage();
         }
 
         void syncFromSnapshot(double scale) {
-            double stepped = step(scale);
+            double stepped = quantizeMovementScale(scale);
+            acknowledgedScale = stepped;
             if (!Double.isNaN(pendingScale)) {
                 if (Math.abs(stepped - pendingScale) < 0.0001D) {
                     pendingScale = Double.NaN;
@@ -920,6 +939,24 @@ public class CultivationStatsScreen extends Screen {
             value = stepped;
             updateMessage();
             syncing = false;
+        }
+
+        @Override
+        public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+            if (keyCode == GLFW.GLFW_KEY_LEFT || keyCode == GLFW.GLFW_KEY_RIGHT) {
+                if (!active || !visible) {
+                    return false;
+                }
+                double next = keyboardMovementScale(value,
+                        keyCode == GLFW.GLFW_KEY_LEFT ? -1 : 1);
+                if (Math.abs(next - value) >= 0.0001D) {
+                    value = next;
+                    applyValue();
+                    updateMessage();
+                }
+                return true;
+            }
+            return super.keyPressed(keyCode, scanCode, modifiers);
         }
 
         @Override
@@ -955,15 +992,11 @@ public class CultivationStatsScreen extends Screen {
 
         @Override
         protected void applyValue() {
-            value = step(value);
-            if (!syncing) {
+            value = quantizeMovementScale(value);
+            if (!syncing && shouldSendMovementScale(value, acknowledgedScale, pendingScale)) {
                 pendingScale = value;
                 ModNetwork.CHANNEL.sendToServer(new SetMovementSpeedScalePacket(value));
             }
-        }
-
-        private static double step(double value) {
-            return clamp01(Math.round(value / MOVEMENT_SLIDER_STEP) * MOVEMENT_SLIDER_STEP);
         }
     }
 

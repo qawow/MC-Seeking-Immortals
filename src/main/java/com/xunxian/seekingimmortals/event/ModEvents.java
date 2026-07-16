@@ -30,6 +30,7 @@ import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.network.SyncSkillDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestService;
+import com.xunxian.seekingimmortals.quest.TextQuestChainService;
 import com.xunxian.seekingimmortals.quest.TextQuestNpcHookService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
@@ -127,14 +128,20 @@ public final class ModEvents {
         event.getOriginal().reviveCaps();
         CultivationHelper.get(event.getOriginal()).ifPresent(oldData ->
                 CultivationHelper.get(event.getEntity()).ifPresent(newData -> newData.loadNBTData(oldData.saveNBTData())));
-        com.xunxian.seekingimmortals.catalog.ManualCatalogService.copyProgressionData(
-                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
-        com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(
-                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
-        com.xunxian.seekingimmortals.craft.GardenLiquidService.copyPersistentData(
-                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
-        com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService.copyPersistentData(
-                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
+        CompoundTag originalData = event.getOriginal().getPersistentData();
+        CompoundTag clonedData = event.getEntity().getPersistentData();
+        com.xunxian.seekingimmortals.catalog.ManualCatalogService.copyProgressionData(originalData, clonedData);
+        com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(originalData, clonedData);
+        com.xunxian.seekingimmortals.craft.GardenLiquidService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService.copyPersistentData(originalData, clonedData);
+        // Text-quest / lore / NPC authority mirrors. Temporary dialogue sessions are intentionally excluded.
+        TextQuestChainService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.quest.TimelineChronicleService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.catalog.ChronicleTradeSoftService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.beast.BestiaryUnlockService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.npc.NamedNpcRewardService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.npc.NpcFavorService.copyPersistentData(originalData, clonedData);
+        com.xunxian.seekingimmortals.npc.NpcDialogueFlags.copyPersistentData(originalData, clonedData);
         event.getOriginal().invalidateCaps();
     }
 
@@ -424,7 +431,7 @@ public final class ModEvents {
         BreakthroughService.restorePreservedOnRespawn(player);
         CultivationHelper.get(player).ifPresent(cultivation -> {
             refreshCultivationAttributeState(player, cultivation);
-            SyncSkillDataPacket.send(player, cultivation);
+            syncClientMirrors(player, cultivation);
         });
     }
 
@@ -441,12 +448,8 @@ public final class ModEvents {
                 player, event.getTo().location().toString());
         CultivationHelper.get(player).ifPresent(cultivation -> {
             TribulationService.handleDimensionChange(player, cultivation);
-            // M06: re-resolve region after dimension change and resync worldpack snapshot.
-            com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(player);
             refreshCultivationAttributeState(player, cultivation);
-            SyncCultivationDataPacket.send(player, cultivation);
-            SyncSkillDataPacket.send(player, cultivation);
-            WorldpackGameplayService.sync(player, false);
+            syncClientMirrors(player, cultivation);
         });
     }
 
@@ -551,23 +554,25 @@ public final class ModEvents {
                 givePatchouliGuideBook(serverPlayer);
                 // Wave467: claim offline auction outbid refunds.
                 com.xunxian.seekingimmortals.catalog.AuctionSoftService.claimPendingRefunds(serverPlayer);
-                // M06: resolve region from dimension/biome before worldpack sync.
-                com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(serverPlayer);
                 // M04: 掌天瓶唯一性服务端强制
                 com.xunxian.seekingimmortals.craft.GardenLiquidService.enforceUniqueBottle(serverPlayer);
-                SyncLearnedTechniquesPacket.send(serverPlayer, cultivation);
-                SyncCultivationDataPacket.send(serverPlayer, cultivation);
-                SyncSkillDataPacket.send(serverPlayer, cultivation);
-                // Wave477: learned methods sync (protocol 14).
-                com.xunxian.seekingimmortals.catalog.ManualCatalogService.syncLearnedMethods(serverPlayer);
-                // Wave486: freeform method-tree layout sync (protocol 17).
-                com.xunxian.seekingimmortals.catalog.MethodLayoutService.sync(serverPlayer);
-                SectContributionService.syncSect(serverPlayer, cultivation, false);
-                WorldpackGameplayService.sync(serverPlayer, false);
-                // M16: read-only lore unlock snapshot for encyclopedia screens.
-                com.xunxian.seekingimmortals.lore.LoreSyncService.syncOnly(serverPlayer);
+                syncClientMirrors(serverPlayer, cultivation);
             }
         });
+    }
+
+    private static void syncClientMirrors(ServerPlayer player, PlayerCultivation cultivation) {
+        // Resolve location-owned state before emitting the complete client mirror snapshot.
+        com.xunxian.seekingimmortals.region.RegionRegistry.resolveAndSync(player);
+        SyncCultivationDataPacket.send(player, cultivation);
+        SyncLearnedTechniquesPacket.send(player, cultivation);
+        SyncSkillDataPacket.send(player, cultivation);
+        com.xunxian.seekingimmortals.catalog.ManualCatalogService.syncLearnedMethods(player);
+        com.xunxian.seekingimmortals.catalog.MethodLayoutService.sync(player);
+        SectContributionService.syncSect(player, cultivation, false);
+        WorldpackGameplayService.syncSnapshot(player);
+        TextQuestChainService.syncTracker(player);
+        com.xunxian.seekingimmortals.lore.LoreSyncService.syncOnly(player);
     }
 
     private static boolean unlockConfiguredTechniqueSkills(ServerPlayer player, PlayerCultivation cultivation) {

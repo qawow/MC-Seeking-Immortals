@@ -24,6 +24,8 @@ public class WorldpackScreen extends Screen {
 
     private Tab tab = Tab.REGIONS;
     private int listScroll;
+    private long observedRevision = Long.MIN_VALUE;
+    private int observedActionState = Integer.MIN_VALUE;
 
     public WorldpackScreen() {
         super(Component.translatable("screen.seeking_immortals.worldpack.title"));
@@ -35,10 +37,26 @@ public class WorldpackScreen extends Screen {
         rebuildActionWidgets();
     }
 
+    public void refreshFromSync() {
+        rebuildActionWidgets();
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+        int actionState = actionState(data);
+        if (data.revision() != observedRevision || actionState != observedActionState) {
+            rebuildActionWidgets();
+        }
+    }
+
     private void rebuildActionWidgets() {
         clearWidgets();
         Layout layout = calculateLayout(width, height);
         ClientWorldpackData.Snapshot data = ClientWorldpackData.get();
+        observedRevision = data.revision();
+        observedActionState = actionState(data);
 
         addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
                 layout.refreshButton().width(), layout.refreshButton().height(),
@@ -84,7 +102,7 @@ public class WorldpackScreen extends Screen {
                         ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
                                 WorldpackGameplayService.ACTION_ENTER, realm.id())));
                 button.active = realm.anchorReady() && realm.currentRegion() && !realm.active()
-                        && realm.remainingCooldownTicks() <= 0 && data.activeSecretRealmId().isBlank();
+                        && data.currentRealmCooldownTicks(realm) <= 0 && data.activeSecretRealmId().isBlank();
                 addRenderableWidget(button);
             }
         }
@@ -175,7 +193,7 @@ public class WorldpackScreen extends Screen {
         if (!data.dailyEventId().isBlank()) {
             y = statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.daily_event",
-                            data.dailyEventDisplay(), Math.max(0L, data.dailyEventRemainingTicks() / 20L)),
+                            data.dailyEventDisplay(), Math.max(0L, data.currentDailyEventRemainingTicks() / 20L)),
                     ImmortalUiSkin.JOURNAL_WARNING);
             statusLine(graphics, status, y, bottom,
                     Component.translatable("screen.seeking_immortals.worldpack.effects",
@@ -215,10 +233,11 @@ public class WorldpackScreen extends Screen {
                              ClientWorldpackData.SecretRealm realm) {
         Rect action = rowAction(layout, (row.y() - listViewport(layout).y()) / layout.rowHeight());
         int textWidth = Math.max(1, action.x() - row.x() - 8);
-        String cooldown = realm.remainingCooldownTicks() <= 0
+        long remainingCooldownTicks = ClientWorldpackData.get().currentRealmCooldownTicks(realm);
+        String cooldown = remainingCooldownTicks <= 0
                 ? Component.translatable("screen.seeking_immortals.worldpack.ready").getString()
                 : Component.translatable("screen.seeking_immortals.worldpack.cooldown_seconds",
-                Math.max(1L, (realm.remainingCooldownTicks() + 19L) / 20L)).getString();
+                Math.max(1L, (remainingCooldownTicks + 19L) / 20L)).getString();
         String text = realm.display() + " / " + realm.minRealm() + " / " + cooldown;
         ImmortalUiSkin.drawStringFit(font, graphics, text, row.x() + 4, row.y() + 3, textWidth,
                 realm.active() ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER, false);
@@ -267,6 +286,14 @@ public class WorldpackScreen extends Screen {
         if (effects == null || effects.isEmpty()) return "-";
         return effects.stream().map(WorldpackScreen::effectDescription)
                 .filter(description -> !description.isBlank()).collect(Collectors.joining(", "));
+    }
+
+    private static int actionState(ClientWorldpackData.Snapshot data) {
+        int hash = Boolean.hashCode(!data.activeSecretRealmId().isBlank());
+        for (ClientWorldpackData.SecretRealm realm : data.realms()) {
+            hash = 31 * hash + Boolean.hashCode(data.currentRealmCooldownTicks(realm) <= 0L);
+        }
+        return hash;
     }
 
     private static String effectDescription(String effect) {

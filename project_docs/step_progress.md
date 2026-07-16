@@ -1,3 +1,34 @@
+## 471. 2026-07-17 0.2.1 前端 UI 审查修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_072140_ui_frontend_review_fix/`
+  Clone PersistentData                 Done 文本任务/时间线/贸易软账/图鉴/NPC奖励/好感/对话 flag 全复制；临时对话 session 不复制
+  Worldpack syncSnapshot               Done 只读镜像：get + peekRegionId + peekDailyEvent，无 prepare/refresh/锚点副作用
+  Dialogue conditions                  Done array_state/window_open/need_permit/equals 反转真实求值；未知 op fail closed
+  Dialogue idempotency / terminal      Done tree:node 幂等；仅有效果节点发奖/好感；terminal 清 session 不重发 View；nonce 竞态防护
+  Lore narrow layout                   Done Bestiary/Chronicle/Compendium 120x90 至少 1 行 body；chrome 压缩
+  Tests                                Done ScreenLayout 最小 body；条件 fail-closed；terminal 分类；PersistentAuthorityCopy
+  Version/protocol                     Done `0.2.1` -> `0.2.2`；protocol 保持 24（无 wire 变化）
+  Full verification                    Done `./gradlew build`；BUILD SUCCESSFUL in 55s
+  Update note                          Done `project_docs/updates/20260717_0.2.1_ui_frontend_repair.md`
+
+## 470. 2026-07-17 0.2.1 前端 UI 修复
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_062158_ui_frontend_fix/`；发布后基线在其 `post_release_340d7d7f/`
+  Quest tracker                        Done 同步不抢屏；J 键先开页；按 chain id 选择/保持/执行
+  Client mirror lifecycle              Done 登录、重生、换维统一同步修炼/术法/技能/功法/布局/宗门/世界/任务/百科
+  Dialogue authority / UI              Done bounded View；nonce/choice/8格/维度校验；动态选项；refresh 无副作用
+  Shop dialogue                        Done open_shop 延迟为已校验选项；先清 session，商店不再被对话屏覆盖
+  Lore screens / sync                  Done 响应式三屏；视觉行换行；1894 图鉴完整同步；严格容量边界
+  HUD / worldpack / movement           Done `<300` rail；快照 revision + 动态倒计时；身法 5% 步进/去重
+  Lang                                 Done 新增 open_shop 双语键；zh/en key parity 保持
+  Version/protocol                     Done `0.2.0` -> `0.2.1`；dialogue S2C wire change，protocol `23` -> `24`
+  Full verification                    Done `./gradlew build`；558 tests；BUILD SUCCESSFUL in 54s
+  Update note                          Done `project_docs/updates/20260717_0.2.1_ui_frontend_repair.md`
+
 ## 469. 2026-07-17 0.2.0 十七模块统一里程碑
 
   Step   Status   Notes

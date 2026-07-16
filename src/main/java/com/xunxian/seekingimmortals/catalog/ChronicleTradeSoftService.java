@@ -29,10 +29,23 @@ public final class ChronicleTradeSoftService {
     private static final Map<String, String> CHRONICLE_TO_CHAIN = buildChronicleMap();
     public static final String DISCOVERED_TAG = "seeking_immortals_chronicle_discovered";
     public static final String SETTLED_TAG = "seeking_immortals_trade_settled";
+    private static final List<String> PERSISTENT_TAGS = List.of(DISCOVERED_TAG, SETTLED_TAG);
 
     public record EmbarkFee(String itemId, int count, String displayKey) {}
 
     private ChronicleTradeSoftService() {}
+
+    /** Preserve chronicle discover/settle authority across death/clone. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null) {
+            return;
+        }
+        for (String key : PERSISTENT_TAGS) {
+            if (originalData.contains(key) && originalData.get(key) != null) {
+                clonedData.put(key, originalData.get(key).copy());
+            }
+        }
+    }
 
     public static int chronicleCount() {
         return FactionQuestCatalogService.builtin().chronicleEvents().size();

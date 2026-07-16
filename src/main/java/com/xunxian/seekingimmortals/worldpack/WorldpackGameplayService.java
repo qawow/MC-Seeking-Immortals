@@ -106,6 +106,55 @@ public final class WorldpackGameplayService {
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
     }
 
+    /**
+     * Lifecycle mirror only: reads existing world/player worldpack state without creating anchors,
+     * platforms, or rolling/refreshing daily events.
+     */
+    public static void syncSnapshot(ServerPlayer player) {
+        if (player == null || player.server == null) {
+            return;
+        }
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+            WorldpackSavedData savedData = WorldpackSavedData.get(player.server.overworld());
+            String regionId = peekRegionId(cultivation, snapshot);
+            WorldpackSavedData.EventRoll eventRoll = peekDailyEvent(player, cultivation, savedData, regionId);
+            SyncWorldpackDataPacket.send(player, toPacket(
+                    buildSnapshot(player, cultivation, savedData, snapshot, eventRoll, false)));
+        });
+    }
+
+    /** Read-only region id for lifecycle mirrors; never mutates the current-region fallback. */
+    private static String peekRegionId(PlayerCultivation cultivation, WorldpackDataService.Snapshot snapshot) {
+        String regionId = cultivation.getWorldpackCurrentRegionId();
+        if (snapshot.findRegion(regionId).isPresent()
+                || com.xunxian.seekingimmortals.region.RegionRegistry.isKnown(regionId)) {
+            return regionId;
+        }
+        return DEFAULT_REGION_ID;
+    }
+
+    /** Read-only daily-event mirror: prefer existing saved/player roll, never roll or dispatch hooks. */
+    private static WorldpackSavedData.EventRoll peekDailyEvent(ServerPlayer player, PlayerCultivation cultivation,
+                                                                WorldpackSavedData savedData, String regionId) {
+        String resolved = regionId == null ? "" : regionId;
+        long gameTime = player != null && player.server != null
+                ? player.server.overworld().getGameTime()
+                : 0L;
+        Optional<WorldpackSavedData.EventRoll> saved = savedData == null
+                ? Optional.empty()
+                : savedData.peekDailyEvent(resolved);
+        if (saved.isPresent() && (gameTime <= 0L || saved.get().isActive(gameTime))) {
+            return saved.get();
+        }
+        String playerEvent = cultivation.getWorldpackActiveDailyEventId();
+        long until = cultivation.getWorldpackActiveDailyEventUntilTick();
+        if (playerEvent != null && !playerEvent.isBlank() && (gameTime <= 0L || until > gameTime)) {
+            return new WorldpackSavedData.EventRoll(resolved, playerEvent, until);
+        }
+        return saved.orElseGet(() -> new WorldpackSavedData.EventRoll(resolved, "", 0L));
+    }
+
     public static void handleClientAction(ServerPlayer player, String action, String targetId) {
         String normalizedAction = action == null ? "" : action.trim().toLowerCase(Locale.ROOT);
         switch (normalizedAction) {
@@ -1322,4 +1371,3 @@ public final class WorldpackGameplayService {
 
     private record DefaultDimensionAnchor(String id, String dimension, int x, int z) {}
 }
-

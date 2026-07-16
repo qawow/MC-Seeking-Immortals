@@ -39,12 +39,27 @@ public final class TextQuestChainService {
     private static final String NPC_TAG = "seeking_immortals_text_quest_npc";
     /** Unified one-time ledger shared with FtbRewardBridgeService. */
     public static final String AUTHORITY_REWARD_TAG = "seeking_immortals_quest_authority_rewards";
+    private static final String MID_REWARD_TAG = "seeking_immortals_text_quest_mid_rewards";
+    private static final List<String> PERSISTENT_TAGS = List.of(
+            ROOT_TAG, REWARD_TAG, BRANCH_TAG, NPC_TAG, MID_REWARD_TAG, AUTHORITY_REWARD_TAG);
 
     public static final String BRANCH_RIGHTEOUS = "righteous";
     public static final String BRANCH_NEUTRAL = "neutral";
     public static final String BRANCH_DEMONIC = "demonic";
 
     private TextQuestChainService() {}
+
+    /** Preserve text-quest authority progress across death/clone. Temporary dialogue sessions are excluded. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null) {
+            return;
+        }
+        for (String key : PERSISTENT_TAGS) {
+            if (originalData.contains(key) && originalData.get(key) != null) {
+                clonedData.put(key, originalData.get(key).copy());
+            }
+        }
+    }
 
     public record ChainProgress(String id, int stage, int stepCount, boolean complete) {}
 
@@ -578,8 +593,6 @@ public final class TextQuestChainService {
         }
         return "npc_text_quest_guide";
     }
-
-    private static final String MID_REWARD_TAG = "seeking_immortals_text_quest_mid_rewards";
 
     private static void grantMidStageReward(ServerPlayer player, String chainId, int stage, int stepCount) {
         if (stepCount < 4 || stage <= 1) {

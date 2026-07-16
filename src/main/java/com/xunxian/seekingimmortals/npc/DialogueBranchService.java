@@ -81,42 +81,44 @@ public final class DialogueBranchService {
         return findTree(treeId).map(tree -> tree.nodes().get(normalize(nodeId)));
     }
 
-    /**
-     * Pick the first next-node whose {@code when} condition matches the player context.
-     * Falls back to first default / first listed next.
-     */
+    /** Pick the first allowed next node, using a sole {@code default:true} node only as fallback. */
     public static Optional<Node> resolveNext(ServerPlayer player, String npcId, Tree tree, Node current) {
-        if (tree == null || current == null) {
-            return Optional.empty();
+        List<Node> available = availableNext(player, npcId, tree, current);
+        return available.isEmpty() ? Optional.empty() : Optional.of(available.get(0));
+    }
+
+    /** Returns only direct, currently eligible successors. Unrelated tree nodes are never exposed. */
+    static List<Node> availableNext(ServerPlayer player, String npcId, Tree tree, Node current) {
+        if (tree == null || current == null || current.next().isEmpty()) {
+            return List.of();
         }
-        List<String> nextIds = current.next();
-        if (nextIds.isEmpty()) {
-            return Optional.empty();
-        }
+        List<Node> allowed = new ArrayList<>();
         Node fallback = null;
-        for (String nextId : nextIds) {
+        for (String nextId : current.next()) {
             Node candidate = tree.nodes().get(normalize(nextId));
             if (candidate == null) {
                 continue;
             }
-            if (matches(player, npcId, candidate.when())) {
-                return Optional.of(candidate);
-            }
-            if (fallback == null && isDefaultWhen(candidate.when())) {
-                fallback = candidate;
-            }
-        }
-        if (fallback != null) {
-            return Optional.of(fallback);
-        }
-        // last resort: first existing next
-        for (String nextId : nextIds) {
-            Node candidate = tree.nodes().get(normalize(nextId));
-            if (candidate != null) {
-                return Optional.of(candidate);
+            if (isDefaultWhen(candidate.when())) {
+                if (fallback == null) {
+                    fallback = candidate;
+                }
+            } else if (matches(player, npcId, candidate.when())) {
+                allowed.add(candidate);
             }
         }
-        return Optional.empty();
+        if (allowed.isEmpty() && fallback != null) {
+            allowed.add(fallback);
+        }
+        return List.copyOf(allowed);
+    }
+
+    static boolean isDirectNext(Node current, String nodeId) {
+        if (current == null) {
+            return false;
+        }
+        String target = normalize(nodeId);
+        return !target.isBlank() && current.next().stream().anyMatch(id -> target.equals(normalize(id)));
     }
 
     public static Optional<Node> resolveRoot(ServerPlayer player, String npcId, Tree tree) {
@@ -127,8 +129,8 @@ public final class DialogueBranchService {
         if (root == null) {
             return tree.nodes().values().stream().findFirst();
         }
-        // Root itself may be a router; walk one auto-step if it has next and no player-facing lines needed.
-        if (!root.next().isEmpty()) {
+        // Only line-less roots are routers. A root with dialogue must be shown before any transition.
+        if (root.lines().isEmpty() && !root.next().isEmpty()) {
             Optional<Node> routed = resolveNext(player, npcId, tree, root);
             if (routed.isPresent()) {
                 return routed;
@@ -141,19 +143,21 @@ public final class DialogueBranchService {
         if (when == null || when.isEmpty()) {
             return true;
         }
-        if (when.containsKey("default") && asBool(when.get("default"))) {
-            // default is always true, but only used as fallback priority by resolver.
-            return true;
+        if (when.size() == 1 && when.containsKey("default")) {
+            return asBool(when.get("default"));
         }
+        // equals:false inverts sibling has_item/has_token/has_stones checks for corpus forms like
+        // {has_item:"token", equals:false}. equals alone is not a free-standing condition.
+        boolean invertPossession = when.containsKey("equals") && !asBool(when.get("equals"));
         boolean anyHard = false;
         boolean allHard = true;
         for (Map.Entry<String, Object> entry : when.entrySet()) {
             String op = normalize(entry.getKey());
-            if ("default".equals(op)) {
+            if ("default".equals(op) || "equals".equals(op)) {
                 continue;
             }
             anyHard = true;
-            if (!matchOp(player, npcId, op, entry.getValue())) {
+            if (!matchOp(player, npcId, op, entry.getValue(), when, invertPossession)) {
                 allHard = false;
                 break;
             }
@@ -161,14 +165,15 @@ public final class DialogueBranchService {
         return !anyHard || allHard;
     }
 
-    private static boolean isDefaultWhen(Map<String, Object> when) {
-        if (when == null || when.isEmpty()) {
-            return true;
+    static boolean isDefaultWhen(Map<String, Object> when) {
+        if (when == null || when.size() != 1) {
+            return false;
         }
         return when.containsKey("default") && asBool(when.get("default")) && when.size() == 1;
     }
 
-    private static boolean matchOp(ServerPlayer player, String npcId, String op, Object raw) {
+    private static boolean matchOp(ServerPlayer player, String npcId, String op, Object raw,
+                                   Map<String, Object> when, boolean invertPossession) {
         return switch (op) {
             case "rep_gte" -> {
                 RepThreshold thr = parseRepThreshold(raw);
@@ -183,9 +188,25 @@ public final class DialogueBranchService {
                 int value = reputation(player, rep);
                 yield value < 0 || value <= ReputationService.NEUTRAL_THRESHOLD - 10;
             }
-            case "has_item", "has_token" -> hasItem(player, stringOf(raw));
-            case "has_stones" -> hasItem(player, "low_spirit_stone") || hasItem(player, "mid_spirit_stone")
-                    || hasItem(player, "seeking_immortals:low_spirit_stone");
+            case "has_item", "has_token" -> {
+                // Boolean form: has_token:false means "player must NOT hold a permit/token".
+                // String form: has_item:"id" checks inventory, optionally inverted by equals:false.
+                if (raw instanceof Boolean bool) {
+                    boolean hasPermit = hasAnyPermit(player);
+                    yield bool == hasPermit;
+                }
+                boolean has = hasItem(player, stringOf(raw));
+                yield invertPossession ? !has : has;
+            }
+            case "has_stones" -> {
+                boolean has = hasItem(player, "low_spirit_stone") || hasItem(player, "mid_spirit_stone")
+                        || hasItem(player, "seeking_immortals:low_spirit_stone")
+                        || hasItem(player, "seeking_immortals:mid_spirit_stone");
+                if (raw instanceof Boolean bool) {
+                    yield bool == has;
+                }
+                yield invertPossession ? !has : has;
+            }
             case "has_contribution", "has_contribution_currency" -> contribution(player) > 0;
             case "has_contribution_lt" -> contribution(player) < asInt(raw, Integer.MAX_VALUE);
             case "realm_gte" -> CultivationHelper.meetsRealm(player, stripRealmQualifier(stringOf(raw)));
@@ -197,9 +218,125 @@ public final class DialogueBranchService {
                 boolean member = isFactionMember(player, npcId);
                 yield "faction_member".equals(op) == member;
             }
-            case "array_state", "window_open", "need_permit", "equals" -> true; // soft gates for M09/M13
-            default -> true;
+            case "array_state" -> matchArrayState(player, stringOf(raw));
+            case "window_open" -> {
+                boolean expected = asBool(raw);
+                yield expected == isAnySecretRealmWindowOpen(player);
+            }
+            case "need_permit" -> {
+                // need_permit:true requires a permit item unless paired with has_token:false
+                // (the no_permit branch), which is already handled by has_token.
+                if (!asBool(raw)) {
+                    yield true;
+                }
+                if (when != null && when.containsKey("has_token") && when.get("has_token") instanceof Boolean token
+                        && !token) {
+                    // Sibling has_token:false owns the inverted permit check.
+                    yield true;
+                }
+                yield hasAnyPermit(player);
+            }
+            default -> false; // unknown ops fail closed
         };
+    }
+
+    private static boolean matchArrayState(ServerPlayer player, String expectedRaw) {
+        String expected = normalize(expectedRaw);
+        if (expected.isBlank()) {
+            return false;
+        }
+        String actual = resolveNearbyArrayState(player);
+        return expected.equals(actual);
+    }
+
+    /**
+     * Resolve nearby fixed/long-range teleport array completeness.
+     * intact = formed complete, damaged = partial structure present, disabled = nothing nearby.
+     */
+    static String resolveNearbyArrayState(ServerPlayer player) {
+        if (player == null || player.level() == null) {
+            return "disabled";
+        }
+        // Prefer explicit dialogue flags first so tests and quest scripts can drive states.
+        if (NpcDialogueFlags.hasFlag(player, "array_state_intact")
+                || NpcDialogueFlags.hasFlag(player, "array_intact")) {
+            return "intact";
+        }
+        if (NpcDialogueFlags.hasFlag(player, "array_state_damaged")
+                || NpcDialogueFlags.hasFlag(player, "array_damaged")) {
+            return "damaged";
+        }
+        if (NpcDialogueFlags.hasFlag(player, "array_state_disabled")
+                || NpcDialogueFlags.hasFlag(player, "array_disabled")) {
+            return "disabled";
+        }
+        try {
+            net.minecraft.core.BlockPos origin = player.blockPosition();
+            boolean fixed = com.xunxian.seekingimmortals.structure.MultiblockStationService
+                    .isStationFormed(player.level(), "fixed_teleport_array", origin)
+                    || com.xunxian.seekingimmortals.structure.MultiblockStationService
+                    .isStationFormed(player.level(), "long_range_teleport_array", origin);
+            if (fixed) {
+                return "intact";
+            }
+            // Soft proximity scan: any teleport pedestal/array block nearby counts as damaged
+            // (present but not fully formed).
+            for (int dx = -4; dx <= 4; dx++) {
+                for (int dy = -2; dy <= 2; dy++) {
+                    for (int dz = -4; dz <= 4; dz++) {
+                        net.minecraft.world.level.block.state.BlockState state =
+                                player.level().getBlockState(origin.offset(dx, dy, dz));
+                        if (state.is(com.xunxian.seekingimmortals.registry.ModBlocks.TELEPORT_ARRAY_PEDESTAL.get())
+                                || state.is(com.xunxian.seekingimmortals.registry.ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get())
+                                || state.is(com.xunxian.seekingimmortals.registry.ModBlocks.SPIRIT_GATHERING_ARRAY.get())) {
+                            return "damaged";
+                        }
+                    }
+                }
+            }
+        } catch (Throwable ignored) {
+            // Unit tests / missing registries fall through to disabled.
+        }
+        return "disabled";
+    }
+
+    static boolean isAnySecretRealmWindowOpen(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        if (NpcDialogueFlags.hasFlag(player, "window_open")
+                || NpcDialogueFlags.hasFlag(player, "secret_realm_window_open")) {
+            return true;
+        }
+        if (NpcDialogueFlags.hasFlag(player, "window_closed")
+                || NpcDialogueFlags.hasFlag(player, "blood_forbidden_closed")) {
+            return false;
+        }
+        try {
+            for (com.xunxian.seekingimmortals.worldpack.SecretRealmCatalogService.RealmDef def
+                    : com.xunxian.seekingimmortals.worldpack.SecretRealmCatalogService.snapshot().all()) {
+                if (com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService.isOpenWindow(player, def)) {
+                    return true;
+                }
+            }
+        } catch (Throwable ignored) {
+            // Tests without server clock treat window as closed unless flagged open.
+        }
+        return false;
+    }
+
+    static boolean hasAnyPermit(ServerPlayer player) {
+        if (player == null) {
+            return false;
+        }
+        return hasItem(player, "sect_permit")
+                || hasItem(player, "diyuan_permit")
+                || hasItem(player, "chaotic_sea_teleport_permit")
+                || hasItem(player, "seeking_immortals:sect_permit")
+                || hasItem(player, "seeking_immortals:diyuan_permit")
+                || hasItem(player, "seeking_immortals:chaotic_sea_teleport_permit")
+                || NpcDialogueFlags.hasFlag(player, "has_teleport_permit")
+                || NpcDialogueFlags.hasFlag(player, "teleport_permit");
     }
 
     private static boolean isFactionMember(ServerPlayer player, String npcId) {

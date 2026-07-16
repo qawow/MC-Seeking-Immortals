@@ -14,9 +14,12 @@ import java.util.List;
 
 /** M16 read-only chronicle / timeline journal. */
 public class ChronicleScreen extends Screen {
-    private static final int PANEL_W = 420;
-    private static final int PANEL_H = 260;
+    private static final int MAX_PANEL_W = 420;
+    private static final int MAX_PANEL_H = 260;
+    private static final int PANEL_MARGIN = 4;
+    private static final int STACKED_BREAKPOINT = 280;
     private static final int ROW_H = 18;
+    private static final int MIN_BODY_LINE = 10;
 
     private enum Tab { EVENTS, TIMELINE }
 
@@ -38,6 +41,11 @@ public class ChronicleScreen extends Screen {
     protected void init() {
         super.init();
         rebuildLists();
+        rebuildActionWidgets();
+    }
+
+    private void rebuildActionWidgets() {
+        clearWidgets();
         Layout layout = calculateLayout(width, height);
         addRenderableWidget(ImmortalButton.secondary(layout.refresh().x(), layout.refresh().y(),
                 layout.refresh().w(), layout.refresh().h(),
@@ -46,14 +54,18 @@ public class ChronicleScreen extends Screen {
         addRenderableWidget(ImmortalButton.secondary(layout.close().x(), layout.close().y(),
                 layout.close().w(), layout.close().h(),
                 Component.translatable("gui.done"), b -> onClose()));
-        addRenderableWidget(ImmortalButton.primary(layout.eventsTab().x(), layout.eventsTab().y(),
-                layout.eventsTab().w(), layout.eventsTab().h(),
-                Component.translatable("screen.seeking_immortals.chronicle.tab_events"),
-                b -> setTab(Tab.EVENTS)));
-        addRenderableWidget(ImmortalButton.secondary(layout.timelineTab().x(), layout.timelineTab().y(),
-                layout.timelineTab().w(), layout.timelineTab().h(),
-                Component.translatable("screen.seeking_immortals.chronicle.tab_timeline"),
-                b -> setTab(Tab.TIMELINE)));
+        addRenderableWidget(tabButton(layout.eventsTab(), Tab.EVENTS,
+                "screen.seeking_immortals.chronicle.tab_events"));
+        addRenderableWidget(tabButton(layout.timelineTab(), Tab.TIMELINE,
+                "screen.seeking_immortals.chronicle.tab_timeline"));
+    }
+
+    private ImmortalButton tabButton(Rect rect, Tab target, String key) {
+        return tab == target
+                ? ImmortalButton.primary(rect.x(), rect.y(), rect.w(), rect.h(),
+                        Component.translatable(key), b -> setTab(target))
+                : ImmortalButton.secondary(rect.x(), rect.y(), rect.w(), rect.h(),
+                        Component.translatable(key), b -> setTab(target));
     }
 
     private void setTab(Tab next) {
@@ -61,6 +73,7 @@ public class ChronicleScreen extends Screen {
             tab = next;
             listScroll = 0;
             selected = -1;
+            rebuildActionWidgets();
         }
     }
 
@@ -165,7 +178,8 @@ public class ChronicleScreen extends Screen {
                     int y = layout.detail().y() + 6;
                     for (String line : lines) {
                         List<net.minecraft.util.FormattedCharSequence> wrapped =
-                                font.split(Component.literal(line == null ? "" : line), layout.detail().w() - 12);
+                                font.split(Component.literal(line == null ? "" : line),
+                                        Math.max(1, layout.detail().w() - 12));
                         for (net.minecraft.util.FormattedCharSequence seq : wrapped) {
                             graphics.drawString(font, seq, layout.detail().x() + 6, y, ImmortalUiSkin.JOURNAL_PAPER, false);
                             y += font.lineHeight + 2;
@@ -204,31 +218,98 @@ public class ChronicleScreen extends Screen {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
-    private static Layout calculateLayout(int width, int height) {
-        int left = Math.max(4, (width - PANEL_W) / 2);
-        int top = Math.max(4, (height - PANEL_H) / 2);
-        int listX = left + 8;
-        int listY = top + 40;
-        int listW = 180;
-        int listH = PANEL_H - 72;
-        int detailX = listX + listW + 8;
-        int detailW = left + PANEL_W - 8 - detailX;
-        Rect list = new Rect(listX, listY, listW, listH);
-        Rect detail = new Rect(detailX, listY, detailW, listH);
-        int btnY = top + PANEL_H - 24;
-        Rect refresh = new Rect(left + 8, btnY, 70, 16);
-        Rect close = new Rect(left + PANEL_W - 78, btnY, 70, 16);
-        Rect eventsTab = new Rect(left + 8, top + 24, 70, 14);
-        Rect timelineTab = new Rect(left + 82, top + 24, 70, 14);
-        return new Layout(left, top, PANEL_W, PANEL_H, list, detail, refresh, close, eventsTab, timelineTab);
+    static Layout calculateLayout(int width, int height) {
+        int screenWidth = Math.max(1, width);
+        int screenHeight = Math.max(1, height);
+        int panelWidth = Math.min(MAX_PANEL_W, Math.max(1, screenWidth - Math.min(PANEL_MARGIN * 2, screenWidth - 1)));
+        int panelHeight = Math.min(MAX_PANEL_H, Math.max(1, screenHeight - Math.min(PANEL_MARGIN * 2, screenHeight - 1)));
+        int left = Math.max(0, (screenWidth - panelWidth) / 2);
+        int top = Math.max(0, (screenHeight - panelHeight) / 2);
+        int pad = Math.min(8, Math.max(1, panelWidth / 12));
+        int innerX = left + pad;
+        int innerWidth = Math.max(1, panelWidth - pad * 2);
+
+        boolean stacked = panelWidth < STACKED_BREAKPOINT;
+        int minContent = stacked ? MIN_BODY_LINE * 2 + 2 : MIN_BODY_LINE;
+        int titleReserve = Math.min(18, Math.max(10, panelHeight / 6));
+        int tabHeight = Math.max(1, Math.min(14, panelHeight / 8));
+        int footerHeight = Math.max(1, Math.min(16, panelHeight / 7));
+        int chrome = titleReserve + tabHeight + footerHeight + 6;
+        if (chrome + minContent > panelHeight) {
+            int deficit = chrome + minContent - panelHeight;
+            int cutTab = Math.min(Math.max(0, tabHeight - 1), deficit);
+            tabHeight -= cutTab;
+            deficit -= cutTab;
+            int cutFooter = Math.min(Math.max(0, footerHeight - 1), deficit);
+            footerHeight -= cutFooter;
+            deficit -= cutFooter;
+            titleReserve -= Math.min(Math.max(0, titleReserve - 8), deficit);
+        }
+        int tabY = top + titleReserve;
+        int footerY = Math.min(top + panelHeight - footerHeight,
+                Math.max(tabY + tabHeight + 2 + minContent, top + panelHeight - footerHeight - Math.min(4, panelHeight / 12)));
+        int contentY = tabY + tabHeight + 2;
+        int contentHeight = Math.max(minContent, footerY - contentY - 2);
+        if (contentY + contentHeight > footerY) {
+            contentHeight = Math.max(minContent, footerY - contentY);
+        }
+
+        Rect list;
+        Rect detail;
+        if (stacked) {
+            int gap = Math.min(2, Math.max(0, contentHeight - MIN_BODY_LINE * 2));
+            int listHeight = Math.max(MIN_BODY_LINE, (contentHeight - gap) / 2);
+            int detailY = contentY + listHeight + gap;
+            int detailHeight = Math.max(MIN_BODY_LINE, contentY + contentHeight - detailY);
+            list = new Rect(innerX, contentY, innerWidth, listHeight);
+            detail = new Rect(innerX, detailY, innerWidth, detailHeight);
+        } else {
+            int gap = Math.min(8, Math.max(0, innerWidth - 2));
+            int listWidth = Math.max(1, Math.min(180, (innerWidth - gap) * 44 / 100));
+            int detailX = innerX + listWidth + gap;
+            int detailWidth = Math.max(1, innerX + innerWidth - detailX);
+            list = new Rect(innerX, contentY, listWidth, Math.max(MIN_BODY_LINE, contentHeight));
+            detail = new Rect(detailX, contentY, detailWidth, Math.max(MIN_BODY_LINE, contentHeight));
+        }
+
+        int footerGap = Math.min(4, Math.max(0, innerWidth - 2));
+        int footerButtonWidth = Math.max(1, Math.min(70, (innerWidth - footerGap) / 2));
+        Rect refresh = new Rect(innerX, footerY, footerButtonWidth, footerHeight);
+        Rect close = new Rect(innerX + innerWidth - footerButtonWidth, footerY, footerButtonWidth, footerHeight);
+
+        int tabGap = Math.min(2, Math.max(0, innerWidth - 2));
+        int tabWidth = Math.max(1, (innerWidth - tabGap) / 2);
+        Rect eventsTab = new Rect(innerX, tabY, tabWidth, tabHeight);
+        Rect timelineTab = new Rect(innerX + innerWidth - tabWidth, tabY, tabWidth, tabHeight);
+        return new Layout(left, top, panelWidth, panelHeight, stacked, list, detail,
+                refresh, close, eventsTab, timelineTab);
     }
 
-    private record Rect(int x, int y, int w, int h) {
+    record Rect(int x, int y, int w, int h) {
         boolean contains(double mx, double my) {
             return mx >= x && my >= y && mx < x + w && my < y + h;
         }
+
+        int right() {
+            return x + w;
+        }
+
+        int bottom() {
+            return y + h;
+        }
+
+        boolean inside(int screenWidth, int screenHeight) {
+            return x >= 0 && y >= 0 && w > 0 && h > 0
+                    && right() <= screenWidth && bottom() <= screenHeight;
+        }
+
+
+        boolean intersects(Rect other) {
+            return x < other.right() && right() > other.x
+                    && y < other.bottom() && bottom() > other.y;
+        }
     }
 
-    private record Layout(int left, int top, int width, int height, Rect list, Rect detail,
+    record Layout(int left, int top, int width, int height, boolean stacked, Rect list, Rect detail,
                           Rect refresh, Rect close, Rect eventsTab, Rect timelineTab) {}
 }

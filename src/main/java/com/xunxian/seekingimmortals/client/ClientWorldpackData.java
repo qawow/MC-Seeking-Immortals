@@ -5,11 +5,15 @@ import com.xunxian.seekingimmortals.network.SyncWorldpackDataPacket;
 import java.util.List;
 
 public final class ClientWorldpackData {
-    private static Snapshot snapshot = Snapshot.empty();
+    private static final long NANOS_PER_TICK = 50_000_000L;
+    private static long nextRevision;
+    private static Snapshot snapshot = Snapshot.empty(0L);
 
     private ClientWorldpackData() {}
 
     public static void set(SyncWorldpackDataPacket packet) {
+        long revision = ++nextRevision;
+        long receivedAtNanos = System.nanoTime();
         snapshot = new Snapshot(
                 packet.currentRegionId(),
                 packet.currentRegionDisplay(),
@@ -40,11 +44,13 @@ public final class ClientWorldpackData {
                                 realm.currentRegion(),
                                 realm.active()))
                         .toList(),
-                true);
+                true,
+                revision,
+                receivedAtNanos);
     }
 
     public static void reset() {
-        snapshot = Snapshot.empty();
+        snapshot = Snapshot.empty(++nextRevision);
     }
 
     public static Snapshot get() {
@@ -55,9 +61,29 @@ public final class ClientWorldpackData {
                            String activeSecretRealmId, String activeSecretRealmDisplay,
                            String dailyEventId, String dailyEventDisplay, long dailyEventRemainingTicks,
                            List<String> dailyEventEffects, List<Region> regions,
-                           List<SecretRealm> realms, boolean synced) {
-        private static Snapshot empty() {
-            return new Snapshot("", "-", "", "", "", "", 0L, List.of(), List.of(), List.of(), false);
+                           List<SecretRealm> realms, boolean synced, long revision, long receivedAtNanos) {
+        public long currentDailyEventRemainingTicks() {
+            return remainingTicks(dailyEventRemainingTicks, receivedAtNanos, System.nanoTime());
+        }
+
+        public long currentRealmCooldownTicks(SecretRealm realm) {
+            return realm == null ? 0L
+                    : remainingTicks(realm.remainingCooldownTicks(), receivedAtNanos, System.nanoTime());
+        }
+
+        static long remainingTicks(long initialTicks, long receivedAtNanos, long nowNanos) {
+            long safeInitial = Math.max(0L, initialTicks);
+            long elapsedNanos = nowNanos - receivedAtNanos;
+            if (elapsedNanos <= 0L) {
+                return safeInitial;
+            }
+            long elapsedTicks = elapsedNanos / NANOS_PER_TICK;
+            return elapsedTicks >= safeInitial ? 0L : safeInitial - elapsedTicks;
+        }
+
+        private static Snapshot empty(long revision) {
+            return new Snapshot("", "-", "", "", "", "", 0L, List.of(), List.of(), List.of(),
+                    false, revision, System.nanoTime());
         }
     }
 

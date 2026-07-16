@@ -14,12 +14,15 @@ import java.util.List;
 
 /** M16 read-only bestiary journal driven by unlock records. */
 public class BestiaryScreen extends Screen {
-    private static final int PANEL_W = 420;
-    private static final int PANEL_H = 260;
+    private static final int MAX_PANEL_W = 420;
+    private static final int MAX_PANEL_H = 260;
+    private static final int PANEL_MARGIN = 4;
+    private static final int STACKED_BREAKPOINT = 280;
     private static final int ROW_H = 18;
+    private static final int MIN_BODY_LINE = 10;
 
     private int listScroll;
-    private int selected = -1;
+    private String selectedId = "";
     private String filter = "all";
     private List<BeastBestiaryService.BeastEntry> view = List.of();
 
@@ -60,7 +63,6 @@ public class BestiaryScreen extends Screen {
     private void setFilter(String next) {
         filter = next == null ? "all" : next;
         listScroll = 0;
-        selected = -1;
         rebuildView();
     }
 
@@ -80,23 +82,9 @@ public class BestiaryScreen extends Screen {
             }
             filtered.add(entry);
         }
-        // Cap list for UI responsiveness; unlocked first when showing all.
-        if ("all".equals(filter) && filtered.size() > 400) {
-            List<BeastBestiaryService.BeastEntry> unlocked = new ArrayList<>();
-            List<BeastBestiaryService.BeastEntry> locked = new ArrayList<>();
-            for (BeastBestiaryService.BeastEntry entry : filtered) {
-                if (ClientLoreData.isBeastUnlocked(entry.id())) {
-                    unlocked.add(entry);
-                } else if (locked.size() < 300) {
-                    locked.add(entry);
-                }
-            }
-            unlocked.addAll(locked);
-            filtered = unlocked;
-        }
         view = List.copyOf(filtered);
-        if (selected >= view.size()) {
-            selected = view.isEmpty() ? -1 : 0;
+        if (findSelectedIndex(view, selectedId) < 0) {
+            selectedId = "";
         }
     }
 
@@ -122,7 +110,7 @@ public class BestiaryScreen extends Screen {
                         BeastBestiaryService.BeastEntry entry = view.get(index);
                         boolean unlocked = ClientLoreData.isBeastUnlocked(entry.id());
                         int y = layout.list().y() + 2 + i * ROW_H;
-                        int bg = index == selected ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
+                        int bg = entry.id().equals(selectedId) ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
                                 : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : 0x00000000);
                         if (bg != 0) {
                             graphics.fill(layout.list().x() + 2, y, layout.list().x() + layout.list().w() - 2, y + ROW_H - 1, bg);
@@ -146,10 +134,10 @@ public class BestiaryScreen extends Screen {
         List<String> lines = new ArrayList<>();
         if (!ClientLoreData.isSynced()) {
             lines.add(Component.translatable("screen.seeking_immortals.lore.not_synced").getString());
-        } else if (selected < 0 || selected >= view.size()) {
+        } else if (findSelectedIndex(view, selectedId) < 0) {
             lines.add(Component.translatable("screen.seeking_immortals.bestiary.pick").getString());
         } else {
-            BeastBestiaryService.BeastEntry entry = view.get(selected);
+            BeastBestiaryService.BeastEntry entry = view.get(findSelectedIndex(view, selectedId));
             boolean unlocked = ClientLoreData.isBeastUnlocked(entry.id());
             if (!unlocked) {
                 lines.add(Component.translatable("screen.seeking_immortals.bestiary.locked_detail").getString());
@@ -174,7 +162,8 @@ public class BestiaryScreen extends Screen {
                     int y = layout.detail().y() + 6;
                     for (String line : lines) {
                         List<net.minecraft.util.FormattedCharSequence> wrapped =
-                                font.split(Component.literal(line == null ? "" : line), layout.detail().w() - 12);
+                                font.split(Component.literal(line == null ? "" : line),
+                                        Math.max(1, layout.detail().w() - 12));
                         for (net.minecraft.util.FormattedCharSequence seq : wrapped) {
                             graphics.drawString(font, seq, layout.detail().x() + 6, y, ImmortalUiSkin.JOURNAL_PAPER, false);
                             y += font.lineHeight + 2;
@@ -192,7 +181,7 @@ public class BestiaryScreen extends Screen {
             if (row >= 0 && row < visible) {
                 int index = listScroll + row;
                 if (index >= 0 && index < view.size()) {
-                    selected = index;
+                    selectedId = view.get(index).id();
                     return true;
                 }
             }
@@ -215,32 +204,115 @@ public class BestiaryScreen extends Screen {
         return value == null || value.isBlank() ? "-" : value;
     }
 
-    private static Layout calculateLayout(int width, int height) {
-        int left = Math.max(4, (width - PANEL_W) / 2);
-        int top = Math.max(4, (height - PANEL_H) / 2);
-        int listX = left + 8;
-        int listY = top + 40;
-        int listW = 180;
-        int listH = PANEL_H - 72;
-        int detailX = listX + listW + 8;
-        int detailW = left + PANEL_W - 8 - detailX;
-        Rect list = new Rect(listX, listY, listW, listH);
-        Rect detail = new Rect(detailX, listY, detailW, listH);
-        int btnY = top + PANEL_H - 24;
-        Rect refresh = new Rect(left + 8, btnY, 70, 16);
-        Rect close = new Rect(left + PANEL_W - 78, btnY, 70, 16);
-        Rect filterAll = new Rect(left + 8, top + 24, 50, 14);
-        Rect filterUnlocked = new Rect(left + 62, top + 24, 60, 14);
-        Rect filterLocked = new Rect(left + 126, top + 24, 60, 14);
-        return new Layout(left, top, PANEL_W, PANEL_H, list, detail, refresh, close, filterAll, filterUnlocked, filterLocked);
+    static int findSelectedIndex(List<BeastBestiaryService.BeastEntry> entries, String id) {
+        if (entries == null || id == null || id.isBlank()) {
+            return -1;
+        }
+        for (int i = 0; i < entries.size(); i++) {
+            if (id.equals(entries.get(i).id())) {
+                return i;
+            }
+        }
+        return -1;
     }
 
-    private record Rect(int x, int y, int w, int h) {
+    static Layout calculateLayout(int width, int height) {
+        int screenWidth = Math.max(1, width);
+        int screenHeight = Math.max(1, height);
+        int panelWidth = Math.min(MAX_PANEL_W, Math.max(1, screenWidth - Math.min(PANEL_MARGIN * 2, screenWidth - 1)));
+        int panelHeight = Math.min(MAX_PANEL_H, Math.max(1, screenHeight - Math.min(PANEL_MARGIN * 2, screenHeight - 1)));
+        int left = Math.max(0, (screenWidth - panelWidth) / 2);
+        int top = Math.max(0, (screenHeight - panelHeight) / 2);
+        int pad = Math.min(8, Math.max(1, panelWidth / 12));
+        int innerX = left + pad;
+        int innerWidth = Math.max(1, panelWidth - pad * 2);
+
+        boolean stacked = panelWidth < STACKED_BREAKPOINT;
+        int minContent = stacked ? MIN_BODY_LINE * 2 + 2 : MIN_BODY_LINE;
+        int titleReserve = Math.min(18, Math.max(10, panelHeight / 6));
+        int filterHeight = Math.max(1, Math.min(14, panelHeight / 8));
+        int footerHeight = Math.max(1, Math.min(16, panelHeight / 7));
+        int chrome = titleReserve + filterHeight + footerHeight + 6;
+        if (chrome + minContent > panelHeight) {
+            int deficit = chrome + minContent - panelHeight;
+            int cutFilter = Math.min(Math.max(0, filterHeight - 1), deficit);
+            filterHeight -= cutFilter;
+            deficit -= cutFilter;
+            int cutFooter = Math.min(Math.max(0, footerHeight - 1), deficit);
+            footerHeight -= cutFooter;
+            deficit -= cutFooter;
+            titleReserve -= Math.min(Math.max(0, titleReserve - 8), deficit);
+        }
+        int filterY = top + titleReserve;
+        int footerY = Math.min(top + panelHeight - footerHeight,
+                Math.max(filterY + filterHeight + 2 + minContent, top + panelHeight - footerHeight - Math.min(4, panelHeight / 12)));
+        int contentY = filterY + filterHeight + 2;
+        int contentHeight = Math.max(minContent, footerY - contentY - 2);
+        if (contentY + contentHeight > footerY) {
+            contentHeight = Math.max(minContent, footerY - contentY);
+        }
+
+        Rect list;
+        Rect detail;
+        if (stacked) {
+            int gap = Math.min(2, Math.max(0, contentHeight - MIN_BODY_LINE * 2));
+            int listHeight = Math.max(MIN_BODY_LINE, (contentHeight - gap) / 2);
+            int detailY = contentY + listHeight + gap;
+            int detailHeight = Math.max(MIN_BODY_LINE, contentY + contentHeight - detailY);
+            list = new Rect(innerX, contentY, innerWidth, listHeight);
+            detail = new Rect(innerX, detailY, innerWidth, detailHeight);
+        } else {
+            int gap = Math.min(8, Math.max(0, innerWidth - 2));
+            int listWidth = Math.max(1, Math.min(180, (innerWidth - gap) * 44 / 100));
+            int detailX = innerX + listWidth + gap;
+            int detailWidth = Math.max(1, innerX + innerWidth - detailX);
+            list = new Rect(innerX, contentY, listWidth, Math.max(MIN_BODY_LINE, contentHeight));
+            detail = new Rect(detailX, contentY, detailWidth, Math.max(MIN_BODY_LINE, contentHeight));
+        }
+
+        int footerGap = Math.min(4, Math.max(0, innerWidth - 2));
+        int footerButtonWidth = Math.max(1, Math.min(70, (innerWidth - footerGap) / 2));
+        Rect refresh = new Rect(innerX, footerY, footerButtonWidth, footerHeight);
+        Rect close = new Rect(innerX + innerWidth - footerButtonWidth, footerY, footerButtonWidth, footerHeight);
+
+        int filterGap = Math.min(2, Math.max(0, (innerWidth - 3) / 2));
+        int filterSpace = Math.max(3, innerWidth - filterGap * 2);
+        int firstWidth = Math.max(1, filterSpace / 3);
+        int secondWidth = Math.max(1, (filterSpace - firstWidth) / 2);
+        int thirdWidth = Math.max(1, filterSpace - firstWidth - secondWidth);
+        Rect filterAll = new Rect(innerX, filterY, firstWidth, filterHeight);
+        Rect filterUnlocked = new Rect(filterAll.x() + filterAll.w() + filterGap,
+                filterY, secondWidth, filterHeight);
+        Rect filterLocked = new Rect(filterUnlocked.x() + filterUnlocked.w() + filterGap,
+                filterY, thirdWidth, filterHeight);
+        return new Layout(left, top, panelWidth, panelHeight, stacked, list, detail,
+                refresh, close, filterAll, filterUnlocked, filterLocked);
+    }
+
+    record Rect(int x, int y, int w, int h) {
         boolean contains(double mx, double my) {
             return mx >= x && my >= y && mx < x + w && my < y + h;
         }
+
+        int right() {
+            return x + w;
+        }
+
+        int bottom() {
+            return y + h;
+        }
+
+        boolean inside(int screenWidth, int screenHeight) {
+            return x >= 0 && y >= 0 && w > 0 && h > 0
+                    && right() <= screenWidth && bottom() <= screenHeight;
+        }
+
+        boolean intersects(Rect other) {
+            return x < other.right() && right() > other.x
+                    && y < other.bottom() && bottom() > other.y;
+        }
     }
 
-    private record Layout(int left, int top, int width, int height, Rect list, Rect detail,
+    record Layout(int left, int top, int width, int height, boolean stacked, Rect list, Rect detail,
                           Rect refresh, Rect close, Rect filterAll, Rect filterUnlocked, Rect filterLocked) {}
 }

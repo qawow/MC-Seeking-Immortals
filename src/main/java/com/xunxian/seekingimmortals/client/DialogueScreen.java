@@ -3,6 +3,7 @@ package com.xunxian.seekingimmortals.client;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.network.DialogueActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
+import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.registry.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -13,10 +14,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.FormattedCharSequence;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-/** Visual dialogue GUI for text-quest dialogue trees. */
+/** Visual dialogue GUI driven entirely by a bounded server view. */
 public class DialogueScreen extends Screen {
     private static final int DESIRED_WIDTH = 360;
     private static final int DESIRED_HEIGHT = 240;
@@ -33,71 +35,87 @@ public class DialogueScreen extends Screen {
     private static final ResourceLocation PORTRAIT_KUNWU =
             new ResourceLocation(SeekingImmortalsMod.MODID, "textures/gui/dialogue/portrait_kunwu.png");
 
-    private final String chainId;
-    private boolean greetingPlayed;
+    private final OpenDialogueScreenPacket view;
+    private final List<ImmortalButton> actionButtons = new ArrayList<>();
+    private boolean actionPending;
+    private boolean closeSent;
     private int promptScroll;
     private int renderedPromptHeight;
 
-    public DialogueScreen(String chainId) {
+    public DialogueScreen(OpenDialogueScreenPacket view) {
         super(Component.translatable("screen.seeking_immortals.dialogue.title"));
-        this.chainId = chainId == null ? "" : chainId;
+        this.view = view == null
+                ? new OpenDialogueScreenPacket("", "", "", "", Component.empty(), List.of(), List.of())
+                : view;
     }
 
     @Override
     protected void init() {
         super.init();
-        Layout layout = calculateLayout(width, height);
+        actionButtons.clear();
+        Layout layout = calculateLayout(width, height, view.choices().size());
         addButton(layout.refresh(), Component.translatable("screen.seeking_immortals.dialogue.refresh"), button -> {
-            playVoice(ModSounds.DIALOGUE_GREETING.get());
-            ModNetwork.CHANNEL.sendToServer(new DialogueActionPacket(DialogueActionPacket.ACTION_TALK, chainId, ""));
-        }, false);
-        addButton(layout.close(), Component.translatable("screen.seeking_immortals.dialogue.close"), button -> {
-            ModNetwork.CHANNEL.sendToServer(new DialogueActionPacket(DialogueActionPacket.ACTION_CLOSE, chainId, ""));
-            onClose();
-        }, false);
-        addButton(layout.start(), Component.translatable("screen.seeking_immortals.dialogue.start"), button -> {
-            playVoice(npcVoice());
-            sendAct("start");
-        }, true);
-        addButton(layout.advance(), Component.translatable("screen.seeking_immortals.dialogue.advance"), button -> {
-            playVoice(ModSounds.DIALOGUE_ADVANCE.get());
-            sendAct("advance");
-        }, true);
-        addBranchButton(layout.righteous(), "righteous",
-                Component.translatable("screen.seeking_immortals.dialogue.righteous"));
-        addBranchButton(layout.neutral(), "neutral",
-                Component.translatable("screen.seeking_immortals.dialogue.neutral"));
-        addBranchButton(layout.demonic(), "demonic",
-                Component.translatable("screen.seeking_immortals.dialogue.demonic"));
+            if (beginAction()) {
+                playVoice(ModSounds.DIALOGUE_GREETING.get());
+                send(DialogueActionPacket.ACTION_TALK, "");
+            }
+        }, false, true);
+        addButton(layout.close(), Component.translatable("screen.seeking_immortals.dialogue.close"), button -> onClose(),
+                false, false);
 
-        if (!greetingPlayed) {
-            greetingPlayed = true;
-            playVoice(npcVoice());
+        int count = Math.min(view.choices().size(), layout.choiceButtons().size());
+        for (int index = 0; index < count; index++) {
+            OpenDialogueScreenPacket.Choice choice = view.choices().get(index);
+            Rect rect = layout.choiceButtons().get(index);
+            addButton(rect, choice.label(), button -> {
+                if (beginAction()) {
+                    playVoice(ModSounds.DIALOGUE_BRANCH.get());
+                    send(DialogueActionPacket.ACTION_ACT, choice.id());
+                }
+            }, index == 0, true);
         }
-    }
-
-    private void addBranchButton(Rect rect, String action, Component label) {
-        addButton(rect, label, button -> {
-            playVoice(ModSounds.DIALOGUE_BRANCH.get());
-            sendAct(action);
-        }, false);
+        playVoice(npcVoice());
     }
 
     private void addButton(Rect rect, Component label, net.minecraft.client.gui.components.Button.OnPress onPress,
-                           boolean primary) {
-        addRenderableWidget(primary
+                           boolean primary, boolean actionButton) {
+        ImmortalButton button = primary
                 ? ImmortalButton.primary(rect.x(), rect.y(), rect.width(), rect.height(), label, onPress)
-                : ImmortalButton.secondary(rect.x(), rect.y(), rect.width(), rect.height(), label, onPress));
+                : ImmortalButton.secondary(rect.x(), rect.y(), rect.width(), rect.height(), label, onPress);
+        addRenderableWidget(button);
+        if (actionButton) {
+            actionButtons.add(button);
+        }
     }
 
-    private void sendAct(String action) {
-        ModNetwork.CHANNEL.sendToServer(new DialogueActionPacket(DialogueActionPacket.ACTION_ACT, chainId, action));
+    private boolean beginAction() {
+        if (actionPending || view.context().isBlank()) {
+            return false;
+        }
+        actionPending = true;
+        for (ImmortalButton button : actionButtons) {
+            button.active = false;
+        }
+        return true;
+    }
+
+    private void send(String action, String choice) {
+        ModNetwork.CHANNEL.sendToServer(new DialogueActionPacket(action, view.context(), choice));
+    }
+
+    @Override
+    public void onClose() {
+        if (!closeSent && !view.context().isBlank()) {
+            closeSent = true;
+            send(DialogueActionPacket.ACTION_CLOSE, "");
+        }
+        super.onClose();
     }
 
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         renderBackground(graphics);
-        Layout layout = calculateLayout(width, height);
+        Layout layout = calculateLayout(width, height, view.choices().size());
         Rect panel = layout.panel();
         Rect titleArea = layout.titleArea();
         Rect portrait = layout.portrait();
@@ -106,12 +124,12 @@ public class DialogueScreen extends Screen {
         ImmortalUiSkin.drawLayeredPanel(graphics, panel.x(), panel.y(), panel.width(), panel.height());
         int headerHeight = Math.max(12, layout.refresh().bottom() - panel.y() + layout.padding());
         ImmortalUiSkin.drawTitleBar(graphics, panel.x() + 4, panel.y() + 4,
-                Math.max(1, panel.width() - 8), Math.min(headerHeight, panel.height() - 4));
+                Math.max(1, panel.width() - 8), Math.min(headerHeight, Math.max(1, panel.height() - 4)));
         ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), titleArea.x(), titleArea.y(),
                 titleArea.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
 
         if (portrait.width() > 1 && portrait.height() > 1) {
-            graphics.blit(portraitForChain(), portrait.x(), portrait.y(), portrait.width(), portrait.height(),
+            graphics.blit(portraitForView(), portrait.x(), portrait.y(), portrait.width(), portrait.height(),
                     0.0F, 0.0F, 72, 88, 72, 88);
             graphics.renderOutline(portrait.x(), portrait.y(), portrait.width(), portrait.height(),
                     ImmortalUiSkin.JOURNAL_BORDER);
@@ -133,7 +151,7 @@ public class DialogueScreen extends Screen {
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
-        Rect viewport = calculateLayout(width, height).promptViewport();
+        Rect viewport = calculateLayout(width, height, view.choices().size()).promptViewport();
         int visibleHeight = Math.max(1, viewport.height() - 6);
         if (viewport.contains(mouseX, mouseY) && renderedPromptHeight > visibleHeight) {
             promptScroll = clampScroll(promptScroll - (int)Math.round(delta * 14.0D),
@@ -144,11 +162,15 @@ public class DialogueScreen extends Screen {
     }
 
     private List<Component> promptLines() {
-        return List.of(
-                Component.translatable("screen.seeking_immortals.dialogue.chain", chainId),
-                Component.translatable("screen.seeking_immortals.dialogue.hint_talk"),
-                Component.translatable("screen.seeking_immortals.dialogue.hint_branch"),
-                Component.translatable("screen.seeking_immortals.dialogue.hint_actions"));
+        List<Component> lines = new ArrayList<>();
+        if (!view.speaker().getString().isBlank()) {
+            lines.add(view.speaker());
+        }
+        lines.addAll(view.lines());
+        if (lines.isEmpty()) {
+            lines.add(Component.literal("……"));
+        }
+        return List.copyOf(lines);
     }
 
     private int measurePrompts(int contentWidth) {
@@ -161,19 +183,22 @@ public class DialogueScreen extends Screen {
 
     private void renderPrompts(GuiGraphics graphics, int x, int y, int contentWidth) {
         int cursorY = y;
-        List<Component> promptLines = promptLines();
-        for (int index = 0; index < promptLines.size(); index++) {
-            int color = index == 0 ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_PAPER;
-            for (FormattedCharSequence sequence : font.split(promptLines.get(index), contentWidth)) {
+        List<Component> lines = promptLines();
+        for (int index = 0; index < lines.size(); index++) {
+            int color = index == 0 ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER;
+            for (FormattedCharSequence sequence : font.split(lines.get(index), contentWidth)) {
                 graphics.drawString(font, sequence, x, cursorY, color, false);
                 cursorY += font.lineHeight + 2;
+            }
+            if (index == 0 && lines.size() > 1) {
+                cursorY += 2;
             }
         }
     }
 
-    private ResourceLocation portraitForChain() {
-        String id = chainId == null ? "" : chainId.toLowerCase(Locale.ROOT);
-        if (id.contains("huangfeng") || id.contains("qixuan")) return PORTRAIT_MO_LAO;
+    private ResourceLocation portraitForView() {
+        String id = (view.npcId() + " " + view.sourceId()).toLowerCase(Locale.ROOT);
+        if (id.contains("huangfeng") || id.contains("qixuan") || id.contains("mo_lao")) return PORTRAIT_MO_LAO;
         if (id.contains("mulan") || id.contains("tianlan")) return PORTRAIT_MULAN;
         if (id.contains("ghost") || id.contains("yin")) return PORTRAIT_YINLUO;
         if (id.contains("star") || id.contains("chaotic") || id.contains("void")) return PORTRAIT_STAR;
@@ -182,8 +207,8 @@ public class DialogueScreen extends Screen {
     }
 
     private SoundEvent npcVoice() {
-        String id = chainId == null ? "" : chainId.toLowerCase(Locale.ROOT);
-        if (id.contains("huangfeng") || id.contains("qixuan")) {
+        String id = (view.npcId() + " " + view.sourceId()).toLowerCase(Locale.ROOT);
+        if (id.contains("huangfeng") || id.contains("qixuan") || id.contains("mo_lao")) {
             return ModSounds.DIALOGUE_NPC_MO_LAO.get();
         }
         return ModSounds.DIALOGUE_NPC_GUIDE.get();
@@ -201,6 +226,10 @@ public class DialogueScreen extends Screen {
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {
+        return calculateLayout(screenWidth, screenHeight, OpenDialogueScreenPacket.MAX_CHOICES);
+    }
+
+    static Layout calculateLayout(int screenWidth, int screenHeight, int choiceCount) {
         int safeWidth = Math.max(1, screenWidth);
         int safeHeight = Math.max(1, screenHeight);
         int margin = safeWidth < 180 || safeHeight < 120 ? 4 : 12;
@@ -235,39 +264,24 @@ public class DialogueScreen extends Screen {
                     Math.max(1, refresh.x() - gap - left - padding), 10);
         }
 
-        int actionRows = narrow ? 3 : 2;
-        int footerHeight = actionRows * buttonHeight + (actionRows - 1) * gap;
+        int count = Math.max(0, Math.min(OpenDialogueScreenPacket.MAX_CHOICES, choiceCount));
+        int columns = count <= 1 ? 1 : 2;
+        int rows = count == 0 ? 0 : (count + columns - 1) / columns;
+        int footerHeight = rows == 0 ? 0 : rows * buttonHeight + (rows - 1) * gap;
         int footerY = Math.max(top, panel.bottom() - padding - footerHeight);
-        Rect start;
-        Rect advance;
-        Rect righteous;
-        Rect neutral;
-        Rect demonic;
-        if (narrow) {
-            int columnWidth = Math.max(1, (innerWidth - gap) / 2);
-            start = new Rect(left + padding, footerY, columnWidth, buttonHeight);
-            advance = new Rect(start.right() + gap, footerY,
-                    Math.max(1, innerWidth - gap - columnWidth), buttonHeight);
-            righteous = new Rect(left + padding, footerY + buttonHeight + gap, columnWidth, buttonHeight);
-            neutral = new Rect(righteous.right() + gap, righteous.y(), advance.width(), buttonHeight);
-            demonic = new Rect(left + padding + Math.max(0, (innerWidth - columnWidth) / 2),
-                    footerY + (buttonHeight + gap) * 2, columnWidth, buttonHeight);
-        } else {
-            int firstWidth = Math.max(1, (innerWidth - gap) / 2);
-            start = new Rect(left + padding, footerY, firstWidth, buttonHeight);
-            advance = new Rect(start.right() + gap, footerY,
-                    Math.max(1, innerWidth - gap - firstWidth), buttonHeight);
-            int branchWidth = Math.max(1, (innerWidth - gap * 2) / 3);
-            int branchY = footerY + buttonHeight + gap;
-            righteous = new Rect(left + padding, branchY, branchWidth, buttonHeight);
-            neutral = new Rect(righteous.right() + gap, branchY, branchWidth, buttonHeight);
-            demonic = new Rect(neutral.right() + gap, branchY,
-                    Math.max(1, innerWidth - branchWidth * 2 - gap * 2), buttonHeight);
+        int columnWidth = columns == 1 ? innerWidth : Math.max(1, (innerWidth - gap) / 2);
+        List<Rect> choices = new ArrayList<>();
+        for (int index = 0; index < count; index++) {
+            int column = index % columns;
+            int row = index / columns;
+            int x = left + padding + column * (columnWidth + gap);
+            int width = column == columns - 1 ? Math.max(1, panel.right() - padding - x) : columnWidth;
+            choices.add(new Rect(x, footerY + row * (buttonHeight + gap), width, buttonHeight));
         }
 
-        int contentTop = refresh.bottom() + gap;
-        if (narrow) contentTop = titleArea.bottom() + gap;
-        int contentBottom = Math.max(contentTop + 1, footerY - gap);
+        int contentTop = narrow ? titleArea.bottom() + gap : refresh.bottom() + gap;
+        int contentBottom = Math.max(contentTop + 1, footerY - (rows == 0 ? 0 : gap));
+        contentBottom = Math.min(panel.bottom() - padding, contentBottom);
         int contentHeight = Math.max(1, contentBottom - contentTop);
         int portraitHeight = Math.min(88, contentHeight);
         int portraitWidth = Math.max(1, Math.min(72, (int)Math.round(portraitHeight * 72.0D / 88.0D)));
@@ -279,7 +293,7 @@ public class DialogueScreen extends Screen {
                 Math.max(1, promptRight - left - padding), contentHeight);
 
         return new Layout(panel, titleArea, promptViewport, portrait, refresh, close,
-                start, advance, righteous, neutral, demonic, padding);
+                List.copyOf(choices), padding);
     }
 
     static int clampScroll(int offset, int contentHeight, int viewportHeight) {
@@ -287,8 +301,7 @@ public class DialogueScreen extends Screen {
     }
 
     record Layout(Rect panel, Rect titleArea, Rect promptViewport, Rect portrait,
-                  Rect refresh, Rect close, Rect start, Rect advance,
-                  Rect righteous, Rect neutral, Rect demonic, int padding) {}
+                  Rect refresh, Rect close, List<Rect> choiceButtons, int padding) {}
 
     record Rect(int x, int y, int width, int height) {
         int right() { return x + width; }

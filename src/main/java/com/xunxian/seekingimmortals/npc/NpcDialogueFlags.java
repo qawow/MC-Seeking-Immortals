@@ -14,6 +14,16 @@ public final class NpcDialogueFlags {
 
     private NpcDialogueFlags() {}
 
+    /** Preserve dialogue/quest flags across death/clone. Temporary dialogue sessions are excluded. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null || !originalData.contains(ROOT)) {
+            return;
+        }
+        if (originalData.get(ROOT) != null) {
+            clonedData.put(ROOT, originalData.get(ROOT).copy());
+        }
+    }
+
     public static boolean hasFlag(ServerPlayer player, String flag) {
         if (player == null) {
             return false;

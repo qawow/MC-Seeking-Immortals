@@ -30,7 +30,7 @@ final class ImmortalHudLayout {
         int innerBottom = Math.max(innerTop + 1, height - margin);
         int innerWidth = Math.max(1, innerRight - innerLeft);
         int innerHeight = Math.max(1, innerBottom - innerTop);
-        boolean railMode = width < 240 || height < 140;
+        boolean railMode = width < 300 || height < 140;
 
         return railMode
                 ? compactLayout(width, height, margin, gap, innerLeft, innerTop, innerRight, innerBottom,

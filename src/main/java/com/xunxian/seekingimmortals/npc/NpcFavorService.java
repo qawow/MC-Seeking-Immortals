@@ -18,6 +18,16 @@ public final class NpcFavorService {
 
     private NpcFavorService() {}
 
+    /** Preserve NPC favor across death/clone. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null || !originalData.contains(ROOT)) {
+            return;
+        }
+        if (originalData.get(ROOT) != null) {
+            clonedData.put(ROOT, originalData.get(ROOT).copy());
+        }
+    }
+
     public static int get(ServerPlayer player, String npcId) {
         if (player == null) {
             return 0;

@@ -29,6 +29,16 @@ public final class TimelineChronicleService {
 
     private TimelineChronicleService() {}
 
+    /** Preserve timeline unlocks across death/clone. */
+    public static void copyPersistentData(CompoundTag originalData, CompoundTag clonedData) {
+        if (originalData == null || clonedData == null || !originalData.contains(TIMELINE_TAG)) {
+            return;
+        }
+        if (originalData.get(TIMELINE_TAG) != null) {
+            clonedData.put(TIMELINE_TAG, originalData.get(TIMELINE_TAG).copy());
+        }
+    }
+
     public record TimelinePhase(String phase, String realm, int nodeCount) {}
 
     public record Snapshot(List<TimelinePhase> phases, int chronicleCount, List<String> mainlineOrder) {
