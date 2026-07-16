@@ -61,6 +61,58 @@
       "learn_requirements": {
         "note": "实现/索引向条目。"
       }
+    },
+    {
+      "alias": "alchemy_furnace_g1",
+      "canonical": "alchemy_furnace",
+      "source": "block_items_catalog",
+      "note": "展示 id 映射到功能丹炉",
+      "setting": {
+        "lore": "alchemy_furnace_g1",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "M03 别名解析条目。"
+      }
+    },
+    {
+      "alias": "refinement_forge_g1",
+      "canonical": "refinement_forge",
+      "source": "block_items_catalog",
+      "note": "展示 id 映射到一品炼器台",
+      "setting": {
+        "lore": "refinement_forge_g1",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "M03 别名解析条目。"
+      }
+    },
+    {
+      "alias": "yin_essence_ore_block",
+      "canonical": "yin_essence_ore",
+      "source": "block_items_catalog",
+      "note": "展示 id 映射到阴元矿",
+      "setting": {
+        "lore": "yin_essence_ore_block",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "M03 别名解析条目。"
+      }
+    },
+    {
+      "alias": "earth_fire_alchemy_room",
+      "canonical": "sect_earth_fire_room",
+      "source": "block_items_catalog",
+      "note": "展示 id 映射到宗门地火室",
+      "setting": {
+        "lore": "earth_fire_alchemy_room",
+        "ref": "item_id_aliases.json"
+      },
+      "learn_requirements": {
+        "note": "M03 别名解析条目。"
+      }
     }
   ]
 }

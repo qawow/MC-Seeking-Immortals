@@ -167,7 +167,13 @@ STATE_DIR="$REPO_ROOT/.gradle/ai-preflight"
 STATE_PATH="$STATE_DIR/last-success.json"
 FINGERPRINT=$(get_tracked_file_fingerprint "$REPO_ROOT" "${TRACKED_PATHS[@]}")
 
+<<<<<<< HEAD
 # Record-only path is used by build.doLast after a successful build; never re-run gates.
+=======
+# Record-state-only must not re-run the version-bump gate: it is the post-build
+# fingerprint writer used by Gradle build.doLast (including emergency rebuilds
+# that intentionally skip the bump check).
+>>>>>>> task/m03-item-catalog
 if [[ "$RECORD_STATE_ONLY" -eq 1 ]]; then
   mkdir -p "$STATE_DIR"
   cat > "$STATE_PATH" <<EOF

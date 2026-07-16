@@ -1673,9 +1673,9 @@
         "merchant_shops.json"
       ],
       "canonical_type": "item",
-      "canonical_id": "seeking_immortals:coral_spirit_pearl_raw",
+      "canonical_id": "seeking_immortals:coral_spirit_pearl",
       "status": "implemented",
-      "note": "Wave 0.1.444 bulk catalog carrier / decompressed."
+      "note": "M03 alias -> coral_spirit_pearl"
     },
     {
       "source_category": "material",
@@ -9013,9 +9013,9 @@
         "remaining_catalog"
       ],
       "canonical_type": "item",
-      "canonical_id": "seeking_immortals:yellow_essence_grass",
+      "canonical_id": "seeking_immortals:yellow_essence",
       "status": "implemented",
-      "note": "Wave 0.1.446 remaining catalog carrier."
+      "note": "M03 alias -> yellow_essence"
     },
     {
       "source_category": "material",
@@ -9059,7 +9059,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:sect_earth_fire_room",
       "status": "implemented",
-      "note": "Wave 0.1.446 alias to existing sect_earth_fire_room."
+      "note": "M03 alias -> sect_earth_fire_room"
     },
     {
       "source_category": "equipment",
@@ -9070,7 +9070,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:refinement_forge",
       "status": "implemented",
-      "note": "Wave 0.1.446 alias to existing refinement_forge."
+      "note": "M03 alias -> refinement_forge"
     },
     {
       "source_category": "equipment",
@@ -9081,7 +9081,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:yin_essence_ore",
       "status": "implemented",
-      "note": "Wave 0.1.446 alias to existing yin_essence_ore."
+      "note": "M03 alias -> yin_essence_ore"
     },
     {
       "source_category": "equipment",
@@ -9092,7 +9092,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:alchemy_furnace",
       "status": "implemented",
-      "note": "Wave 0.1.446 alias to existing alchemy_furnace."
+      "note": "M03 alias -> alchemy_furnace"
     },
     {
       "source_category": "talisman",
@@ -10183,9 +10183,9 @@
         "items_by_region.json"
       ],
       "canonical_type": "item",
-      "canonical_id": "seeking_immortals:qingye_leaf_fan",
+      "canonical_id": "seeking_immortals:yellow_umbrella",
       "status": "implemented",
-      "note": "Wave 0.1.451 alias yellow_palm_fan -> qingye_leaf_fan"
+      "note": "M03 alias -> yellow_umbrella"
     },
     {
       "source_category": "manual",
@@ -12238,7 +12238,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:kunwu_copper",
       "status": "implemented",
-      "note": "Wave 0.1.452 alias kunwu_spirit_copper -> kunwu_copper from item_id_aliases.json"
+      "note": "M03 alias -> kunwu_copper"
     },
     {
       "source_category": "material",
@@ -12250,7 +12250,7 @@
       "canonical_type": "item",
       "canonical_id": "seeking_immortals:sea_soul_grass",
       "status": "implemented",
-      "note": "Wave 0.1.452 alias sea_soul_grass_herb -> sea_soul_grass from item_id_aliases.json"
+      "note": "M03 alias -> sea_soul_grass"
     },
     {
       "source_category": "currency",
@@ -12284,6 +12284,3858 @@
       "canonical_id": "skill_trees_overview",
       "status": "deferred",
       "note": "Non-item soft tag/doc overview; no physical carrier by design (0.1.453)."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "altar_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:altar_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "anchor_spike",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:anchor_spike",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "ancient_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:ancient_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "anti_theft_port",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:anti_theft_port",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_disk_basic",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_disk_basic",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_flag",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_flag",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_flag_large",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_flag_large",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "arrow_wall",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:arrow_wall",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "auth_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:auth_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bamboo_slip",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bamboo_slip",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "banner_pole",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:banner_pole",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "barrier_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:barrier_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "battlement",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:battlement",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "bay_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bay_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "beast_gate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:beast_gate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bell_tassel",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bell_tassel",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bellows",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bellows",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bid_voice_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bid_voice_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "black_iron",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:black_iron",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "black_jade_slab",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:black_jade_slab",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "black_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:black_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "blood_groove_liner",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_groove_liner",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "blood_sand",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_sand",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "blood_seal_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_seal_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "blood_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bloodline_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bloodline_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "board_wood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:board_wood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bone_fragment",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bone_fragment",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "borrow_seal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:borrow_seal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "boundary_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:boundary_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "broken_teleport_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:broken_teleport_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "bronze_ingot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bronze_ingot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "cabinet_wood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:cabinet_wood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "calm_array_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:calm_array_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "challenge_dais",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:challenge_dais",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "chisel_formation",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:chisel_formation",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "city_brick",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:city_brick",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "clay_spirit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:clay_spirit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "cleanse_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:cleanse_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "cold_jade_box",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:cold_jade_box",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "console_bamboo",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:console_bamboo",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "const_temp_talisman",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:const_temp_talisman",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "contract_rack",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:contract_rack",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "control_array_plate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:control_array_plate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "copper_hoop",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:copper_hoop",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "copper_scrap",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:copper_scrap",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "core_infuse_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:core_infuse_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "corpse_chain_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:corpse_chain_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "count_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:count_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "crate_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:crate_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "crimson_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:crimson_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "crimson_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:crimson_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "crystal_array_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:crystal_array_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "demon_nail",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:demon_nail",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "demon_subdue_bell",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:demon_subdue_bell",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "demon_suppress_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:demon_suppress_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "demon_well_rim",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:demon_well_rim",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "diag_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:diag_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "direction_stele",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:direction_stele",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "dragon_relief_cast",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:dragon_relief_cast",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "drawer_set",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:drawer_set",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "drip_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:drip_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "dual_fire_mouth",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:dual_fire_mouth",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "dual_futon_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:dual_futon_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "earth_fire_tap",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:earth_fire_tap",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "earth_pedestal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:earth_pedestal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "eternal_lamp",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:eternal_lamp",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "evolution_fluid_shell",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:evolution_fluid_shell",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "feeding_trough",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:feeding_trough",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fire_charcoal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fire_charcoal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fire_pedestal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fire_pedestal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fire_pipe",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fire_pipe",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fireproof_talisman",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fireproof_talisman",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fireproof_xuan_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fireproof_xuan_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "fog_break_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fog_break_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "frost_jade",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:frost_jade",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "frost_quench",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:frost_quench",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "futon",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:futon",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "gather_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:gather_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "gather_fire_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:gather_fire_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "gather_stone_core",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:gather_stone_core",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "gold_rim_jade",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:gold_rim_jade",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "greenhouse_frame",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:greenhouse_frame",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "guard_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:guard_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "guide_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:guide_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "heart_mirror_shard",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:heart_mirror_shard",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "high_platform_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:high_platform_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "holo_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:holo_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "ice_crystal_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:ice_crystal_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "identity_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:identity_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "immortal_array_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:immortal_array_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "immortal_spirit_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:immortal_spirit_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "immortal_spirit_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:immortal_spirit_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "infant_fire_seed",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:infant_fire_seed",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "iron_sheet",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:iron_sheet",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "irrigation_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:irrigation_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "isolation_dome",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:isolation_dome",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "jade_array_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:jade_array_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "jade_platform",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:jade_platform",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "jade_rest",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:jade_rest",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "joint_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:joint_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "key_socket_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:key_socket_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "lecture_futon_zone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:lecture_futon_zone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "lightning_rod_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:lightning_rod_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "locator_bead",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:locator_bead",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "material_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:material_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "metal_pedestal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:metal_pedestal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "micro_gather_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:micro_gather_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "mist_bead",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:mist_bead",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "mooring_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:mooring_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "nurture_micro_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:nurture_micro_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "obelisk_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:obelisk_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "octagon_platform_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:octagon_platform_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "offering_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:offering_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "owner_lock",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:owner_lock",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "patrol_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:patrol_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "platform_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:platform_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "platinum_array_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:platinum_array_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "price_tag_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:price_tag_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "privacy_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:privacy_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "puppet_port",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:puppet_port",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "purple_gold",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:purple_gold",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "purple_sandalwood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:purple_sandalwood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "quench_basin",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:quench_basin",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "quench_spirit_pool",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:quench_spirit_pool",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "rack_wood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:rack_wood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "red_copper",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:red_copper",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "reef_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:reef_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "reef_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:reef_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "refine_slab",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:refine_slab",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "refresh_talisman",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:refresh_talisman",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "repair_bench",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:repair_bench",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "rift_anchor",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:rift_anchor",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "ring_array_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:ring_array_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "roster_pearl_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:roster_pearl_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "safety_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:safety_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "sand_pit_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sand_pit_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "sea_gate_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sea_gate_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "seal_casket",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:seal_casket",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "seal_chain",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:seal_chain",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "seal_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:seal_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "seal_leak_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:seal_leak_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "seal_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:seal_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "sharp_rune_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sharp_rune_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "shield_generator",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:shield_generator",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "shunt_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:shunt_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "signal_lamp",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:signal_lamp",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "soothe_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:soothe_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "soul_nail",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:soul_nail",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "sound_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sound_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "soundproof_brick",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:soundproof_brick",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "space_array_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:space_array_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "sphere_mold",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sphere_mold",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spike_pit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spike_pit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_bamboo",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_bamboo",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_bamboo_fence",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_bamboo_fence",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_cable",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_cable",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_core",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_core",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_flame_bead",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_flame_bead",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_ink_pool",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_ink_pool",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_jade_pipe",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_jade_pipe",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_membrane",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_membrane",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_pearl",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_pearl",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_soil",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_soil",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_stone_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_stone_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_stone_well",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_stone_well",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_thread",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_thread",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_vein_interface",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_vein_interface",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_wood_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_wood_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_wood_shelf",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_wood_shelf",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stabilizer_needle",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stabilizer_needle",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stall_wood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stall_wood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "star_emblem",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:star_emblem",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "star_lamp",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:star_lamp",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "star_map_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:star_map_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "statue_kit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:statue_kit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stealth_flag",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stealth_flag",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "steel_joint",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:steel_joint",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "stele_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stele_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stone_door",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stone_door",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stone_table",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stone_table",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "stop_flag",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:stop_flag",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "striker",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:striker",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "supply_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:supply_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "suppress_nail",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:suppress_nail",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "suspend_frame",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:suspend_frame",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "taiji_lintel",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:taiji_lintel",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "talisman_paper_rack",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:talisman_paper_rack",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "temp_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:temp_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "temp_control_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:temp_control_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "temple_timber",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:temple_timber",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "thick_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:thick_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "thunder_plate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:thunder_plate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "time_law_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:time_law_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "timer_stele",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:timer_stele",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "totem_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:totem_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "trap_plate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:trap_plate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "trial_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:trial_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "tribulation_rod",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:tribulation_rod",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "triple_seal_door",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:triple_seal_door",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "true_word_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:true_word_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "vent_chimney",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:vent_chimney",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "vent_rune_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:vent_rune_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "vessel_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:vessel_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "wall_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:wall_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "warm_brick",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:warm_brick",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "warm_jade_chip",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:warm_jade_chip",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "water_adjacent",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:water_adjacent",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "water_pedestal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:water_pedestal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "water_spirit_channel",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:water_spirit_channel",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "weigh_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:weigh_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "well_rim_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:well_rim_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "white_jade",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:white_jade",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "white_jade_disk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:white_jade_disk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "white_jade_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:white_jade_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "white_jade_slab",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:white_jade_slab",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "wood_pedestal",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:wood_pedestal",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "world_seed_core",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:world_seed_core",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "worldgen",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:worldgen",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "worldgen_or_event",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:worldgen_or_event",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "worldgen_or_quest",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:worldgen_or_quest",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "xuan_iron_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xuan_iron_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "xuan_stone_deep",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xuan_stone_deep",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "yang_stone",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yang_stone",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "yin_fire_brazier",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yin_fire_brazier",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "yin_soil",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yin_soil",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "yin_wood",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yin_wood",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "yinyang_floor_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yinyang_floor_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "zither_slot",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:zither_slot",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "war_banner_cloth",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:war_banner_cloth",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "array_break_etch",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_break_etch",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "tent_cloth",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:tent_cloth",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "portable_repair_bench",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:portable_repair_bench",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "material_crate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:material_crate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "capture_ring",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:capture_ring",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "earth_spike_talisman",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:earth_spike_talisman",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "golden_light_shield",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:golden_light_shield",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "thunder_talisman_xuan",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:thunder_talisman_xuan",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "armor_talisman_di",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:armor_talisman_di",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "escape_talisman_di",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:escape_talisman_di",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "hua_ling_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:hua_ling_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "jiang_ling_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:jiang_ling_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "liu_ding_tian_jia",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:liu_ding_tian_jia",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "jiugong_tianqian_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:jiugong_tianqian_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "po_jie_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:po_jie_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "wanli_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:wanli_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "dingshen_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:dingshen_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "talisman",
+      "source_id": "blood_escape_fu",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_escape_fu",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_vein_tap",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_vein_tap",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "ice_crystal_cooler",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:ice_crystal_cooler",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "immortal_alchemy_cauldron",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:immortal_alchemy_cauldron",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "time_acceleration_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:time_acceleration_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "wuxing_world_seed_block",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:wuxing_world_seed_block",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "cave_dwelling_core",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:cave_dwelling_core",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "sect_formation_hub",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:sect_formation_hub",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "infant_fire_alchemy_room",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:infant_fire_alchemy_room",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_fire_brazier",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_fire_brazier",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "bao_ding_socket",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:bao_ding_socket",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "puppet_workshop",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:puppet_workshop",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "puppet_core_forge",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:puppet_core_forge",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_beast_pen",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_beast_pen",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "beast_contract_altar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:beast_contract_altar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "formation_flag_post",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:formation_flag_post",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "kill_array_hub",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:kill_array_hub",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "illusion_array_hub",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:illusion_array_hub",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_well",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_well",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "soul_banner_altar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:soul_banner_altar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "corpse_refinement_pit",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:corpse_refinement_pit",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "meditation_chamber",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:meditation_chamber",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "dual_cultivation_chamber",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:dual_cultivation_chamber",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "star_palace_teleport_gate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:star_palace_teleport_gate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "inverse_star_smuggle_dock",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:inverse_star_smuggle_dock",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "immortal_teleport_grand_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:immortal_teleport_grand_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "true_word_lecture_platform",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:true_word_lecture_platform",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "reincarnation_trade_desk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:reincarnation_trade_desk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "kunwu_seal_pillar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:kunwu_seal_pillar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "auction_display_dais",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:auction_display_dais",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_stone_vault",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_stone_vault",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "scripture_pavilion_shelf",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:scripture_pavilion_shelf",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "contribution_stele",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:contribution_stele",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "flying_boat_dock",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:flying_boat_dock",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "spirit_field_irrigation",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_field_irrigation",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "pill_cabinet",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:pill_cabinet",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "weapon_rack_artifact",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:weapon_rack_artifact",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "blood_forbidden_entry_stele",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_forbidden_entry_stele",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "xutian_palace_gate_fragment",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xutian_palace_gate_fragment",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "blood_forbidden_blood_pool",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_forbidden_blood_pool",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "blood_forbidden_trial_altar",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_forbidden_trial_altar",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "blood_forbidden_exit_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:blood_forbidden_exit_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "xutian_main_hall",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xutian_main_hall",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "xutian_trap_corridor",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xutian_trap_corridor",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "xutian_key_socket",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:xutian_key_socket",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "kunwu_seal_hall",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:kunwu_seal_hall",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "kunwu_frost_forge",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:kunwu_frost_forge",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "qianzhu_mechanism_tower",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:qianzhu_mechanism_tower",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "qianzhu_control_console",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:qianzhu_control_console",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "fallen_demon_rift",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:fallen_demon_rift",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "yinyang_cave_gate",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:yinyang_cave_gate",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "chaotic_sea_island_lighthouse",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:chaotic_sea_island_lighthouse",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "miaoyin_resonance_platform",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:miaoyin_resonance_platform",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "tianlan_bell_tower",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:tianlan_bell_tower",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "palm_heaven_bottle_stand",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:palm_heaven_bottle_stand",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_herb_greenhouse",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_herb_greenhouse",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "market_stall_counter",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:market_stall_counter",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "warehouse_loading_bay",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:warehouse_loading_bay",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "tianyuan_wall_segment",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:tianyuan_wall_segment",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "asura_trial_ring",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:asura_trial_ring",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "structure_repair_bench",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:structure_repair_bench",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "structure_blueprint_table",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:structure_blueprint_table",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "array_maintenance_obelisk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:array_maintenance_obelisk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "furnace_safety_array",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:furnace_safety_array",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "ownership_stele",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:ownership_stele",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "spirit_beast_evolution_pool",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:spirit_beast_evolution_pool",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "tribulation_platform",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:tribulation_platform",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "material",
+      "source_id": "inner_sect_task_board",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:inner_sect_task_board",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "war_banner_pole",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:war_banner_pole",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "siege_spirit_ram",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:siege_spirit_ram",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "field_repair_tent",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:field_repair_tent",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
+    },
+    {
+      "source_category": "block_item",
+      "source_id": "capture_point_obelisk",
+      "source_files": [
+        "catalog_bulk_items.json",
+        "M03_item_catalog"
+      ],
+      "canonical_type": "item",
+      "canonical_id": "seeking_immortals:capture_point_obelisk",
+      "status": "implemented",
+      "note": "M03 bulk catalog carrier."
     }
   ]
 }

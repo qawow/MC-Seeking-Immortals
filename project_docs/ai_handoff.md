@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 > CURRENT TRUTH 2026-07-16: M02 techniques. Published author corpus 747 techniques + 136 methods + skill trees 90 + conflict matrix + method_layer_matrix_v130 into text_material. TechniqueDataManager/ClientTechniqueData load corpus; AbstractTechniqueEffectResolver maps 40 effect.type; ManualConflictMatrixService on learnMethod; MethodLayerTechniqueService grants layer unlocks; ReleaseTechniquePacket uses resolver; SyncLearnedTechniques MAX 768; PROTOCOL 20→21. mod_version kept 0.1.506 by task redline (build with -PaiSkipVersionBumpCheck=true). Full build SUCCESSFUL. Details: project_docs/updates/20260716_m02_techniques.md.
+=======
+> CURRENT TRUTH 2026-07-16: M03 item catalog on `task/m03-item-catalog`. Bulk carriers 869→1190 via `ModBulkItems` + `catalog_bulk_items.json`; `ItemCatalogService.resolveCatalogItem` alias API; talisman grade metadata on carriers; display block_items filled; unique palm-heaven/green-liquid blocked from bulk. Reconcile missing=0 for main catalogs. `mod_version` intentionally unchanged (task redline) at 0.1.506; protocol remains 20. Build uses `-PaiSkipVersionBumpCheck=true`.
+>>>>>>> task/m03-item-catalog
 
 > CURRENT TRUTH 2026-07-16: mojibake cleanup. Restored `gradle.properties` Chinese mod_name/description, garbled Java comments in PlayerCultivation/ModEvents, phase-5-report and 0.1.60 update note. Rebuilt readable Chinese body in ai_handoff (kept CURRENT TRUTH history). Fixed corrupted `文本材料/` path strings in docs. Historical U+FFFD truncation in features/step_progress/missing/pending left deferred (mostly irreversible). mod_version remains 0.1.506; protocol remains 20. No packet field/order/encoding change.
 
