@@ -38,23 +38,42 @@ public final class SummonHonestMvpService {
     private SummonHonestMvpService() {}
 
     public static int puppetDefinitionCount() {
+        int rich = com.xunxian.seekingimmortals.beast.PuppetDefinitionService.size();
+        if (rich > 0) {
+            return rich;
+        }
         return LoreCatalogService.builtin().puppetDefinitions().size();
     }
 
     public static Optional<LoreCatalogService.Entry> findPuppet(String id) {
-        return Optional.ofNullable(LoreCatalogService.builtin().puppetDefinitions().get(id == null ? "" : id));
+        String key = id == null ? "" : id.trim().toLowerCase(Locale.ROOT);
+        // M10 rich puppet definitions take precedence.
+        var rich = com.xunxian.seekingimmortals.beast.PuppetDefinitionService.find(key);
+        if (rich.isPresent()) {
+            var def = rich.get();
+            return Optional.of(new LoreCatalogService.Entry(def.id(), def.display(), def.tier()));
+        }
+        return Optional.ofNullable(LoreCatalogService.builtin().puppetDefinitions().get(key));
     }
 
     public static boolean summonProxy(ServerPlayer player, String puppetOrSummonId) {
         String id = puppetOrSummonId == null ? "" : puppetOrSummonId.trim().toLowerCase(Locale.ROOT);
         Optional<LoreCatalogService.Entry> puppet = findPuppet(id);
+        Optional<com.xunxian.seekingimmortals.beast.PuppetDefinitionService.PuppetDef> richPuppet =
+                com.xunxian.seekingimmortals.beast.PuppetDefinitionService.find(id);
         boolean[] ok = {false};
         CultivationHelper.get(player).ifPresent(cultivation -> {
             int amp = 0;
             int duration = 20 * 20;
             double health = 24.0D;
             double damage = 4.5D;
-            if (puppet.isPresent()) {
+            if (richPuppet.isPresent()) {
+                var def = richPuppet.get();
+                health = Math.max(8.0D, def.hpBase());
+                damage = Math.max(2.0D, def.damage());
+                amp = Math.min(2, def.tierIndex());
+                duration = 20 * (20 + def.tierIndex() * 8);
+            } else if (puppet.isPresent()) {
                 String tier = puppet.get().extra() == null ? "" : puppet.get().extra().toLowerCase(Locale.ROOT);
                 if (tier.contains("high") || tier.contains("3") || tier.contains("ancient")) {
                     amp = 2;
@@ -74,7 +93,9 @@ public final class SummonHonestMvpService {
                 damage = 6.5D;
             }
 
-            SummonedServitorEntity.Archetype archetype = archetypeOf(id);
+            SummonedServitorEntity.Archetype archetype = richPuppet.isPresent()
+                    ? SummonedServitorEntity.Archetype.PUPPET
+                    : archetypeOf(id);
 
             // Wave472: BEAST catalog summons require a real beast contract.
             if (archetype == SummonedServitorEntity.Archetype.BEAST) {
@@ -347,14 +368,18 @@ public final class SummonHonestMvpService {
 
     public static SummonedServitorEntity.Archetype archetypeOf(String summonId) {
         String id = summonId == null ? "" : summonId.trim().toLowerCase(Locale.ROOT);
-        if (id.startsWith("beast_") || id.startsWith("captured_") || id.contains("beast") || id.contains("wolf")
+        // M10: catalog puppet ids (e.g. giant_ape_puppet) must win over beast keyword "ape".
+        if (com.xunxian.seekingimmortals.beast.PuppetDefinitionService.find(id).isPresent()
+                || id.startsWith("puppet_") || id.contains("puppet") || id.contains("golem")
+                || id.contains("mech") || id.contains("kuilei") || id.contains("assemble")
+                || id.contains("iron_puppet")) {
+            return SummonedServitorEntity.Archetype.PUPPET;
+        }
+        if (id.startsWith("beast_") || id.startsWith("captured_") || id.startsWith("ecology_")
+                || id.contains("beast") || id.contains("wolf")
                 || id.contains("tiger") || id.contains("bird") || id.contains("serpent") || id.contains("dragon")
                 || id.contains("yuling") || id.contains("fox") || id.contains("ape") || id.contains("turtle")) {
             return SummonedServitorEntity.Archetype.BEAST;
-        }
-        if (id.startsWith("puppet_") || id.contains("puppet") || id.contains("golem") || id.contains("wood")
-                || id.contains("mech") || id.contains("kuilei") || id.contains("assemble") || id.contains("iron_puppet")) {
-            return SummonedServitorEntity.Archetype.PUPPET;
         }
         if (id.contains("ghost") || id.contains("soul") || id.contains("corpse") || id.contains("yin")
                 || id.contains("wraith") || id.contains("gui") || id.contains("nascent")) {

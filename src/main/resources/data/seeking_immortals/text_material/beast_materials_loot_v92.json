@@ -1,0 +1,486 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v92 妖兽掉落结构；对接十三级妖兽阶",
+  "disclaimer": "掉落率为结构权重非原著统计",
+  "tier_loot_table": [
+    {
+      "tier": 1,
+      "realm": "QI_REFINING_EARLY",
+      "common": [
+        "兽皮",
+        "兽骨",
+        "劣质兽血"
+      ],
+      "uncommon": [
+        "低阶兽筋"
+      ],
+      "rare": [],
+      "price_carcass_low_stone": [
+        1,
+        5
+      ]
+    },
+    {
+      "tier": 2,
+      "realm": "QI_REFINING_MID",
+      "common": [
+        "兽皮",
+        "兽骨"
+      ],
+      "uncommon": [
+        "初级妖兽血"
+      ],
+      "rare": [
+        "半品妖核碎片"
+      ],
+      "price_carcass_low_stone": [
+        3,
+        15
+      ]
+    },
+    {
+      "tier": 3,
+      "realm": "QI_REFINING_LATE",
+      "common": [
+        "韧皮",
+        "利齿"
+      ],
+      "uncommon": [
+        "妖兽血"
+      ],
+      "rare": [
+        "未凝妖丹残渣"
+      ],
+      "price_carcass_low_stone": [
+        10,
+        40
+      ]
+    },
+    {
+      "tier": 4,
+      "realm": "QI_REFINING_PEAK",
+      "common": [
+        "妖皮",
+        "妖骨"
+      ],
+      "uncommon": [
+        "妖血一瓶"
+      ],
+      "rare": [
+        "准妖丹"
+      ],
+      "price_carcass_low_stone": [
+        30,
+        100
+      ]
+    },
+    {
+      "tier": 5,
+      "realm": "FOUNDATION_EARLY",
+      "common": [
+        "妖皮",
+        "妖筋"
+      ],
+      "uncommon": [
+        "五级妖丹"
+      ],
+      "rare": [
+        "本命骨"
+      ],
+      "demon_core": true,
+      "price_core_low_stone": [
+        200,
+        800
+      ]
+    },
+    {
+      "tier": 6,
+      "realm": "FOUNDATION_MID",
+      "common": [
+        "六级妖皮"
+      ],
+      "uncommon": [
+        "六级妖丹"
+      ],
+      "rare": [
+        "毒囊/火囊等器官"
+      ],
+      "price_core_low_stone": [
+        800,
+        5000
+      ],
+      "pill_link": [
+        "jiang_chen_dan"
+      ]
+    },
+    {
+      "tier": 7,
+      "realm": "FOUNDATION_LATE",
+      "common": [
+        "化形前妖材"
+      ],
+      "uncommon": [
+        "七级妖丹"
+      ],
+      "rare": [
+        "半化形血脉碎片"
+      ],
+      "special": "接近化形，猎杀引雷风险结构",
+      "price_core_low_stone": [
+        3000,
+        15000
+      ]
+    },
+    {
+      "tier": 8,
+      "realm": "CORE_FORMATION_EARLY",
+      "common": [
+        "本命鳞片",
+        "化形妖皮"
+      ],
+      "uncommon": [
+        "八级妖丹"
+      ],
+      "rare": [
+        "精魂（可炼降灵符）"
+      ],
+      "price_core_low_stone": [
+        20000,
+        150000
+      ]
+    },
+    {
+      "tier": 9,
+      "realm": "CORE_FORMATION_MID",
+      "common": [
+        "高阶妖骨"
+      ],
+      "uncommon": [
+        "九级妖丹"
+      ],
+      "rare": [
+        "内殿秘材级器官"
+      ],
+      "price_core_low_stone": [
+        50000,
+        300000
+      ]
+    },
+    {
+      "tier": 10,
+      "realm": "CORE_FORMATION_LATE",
+      "common": [
+        "准婴级妖材"
+      ],
+      "uncommon": [
+        "十级妖丹"
+      ],
+      "rare": [
+        "空间系碎片（极低）"
+      ],
+      "price_core_low_stone": [
+        100000,
+        600000
+      ]
+    },
+    {
+      "tier": 11,
+      "realm": "NASCENT_SOUL",
+      "common": [
+        "婴级妖皮骨"
+      ],
+      "uncommon": [
+        "十一级妖丹/内丹"
+      ],
+      "rare": [
+        "真灵血丝（极低）"
+      ],
+      "price_note": "元婴修士级争夺"
+    },
+    {
+      "tier": 12,
+      "realm": "DEITY_TRANSFORMATION",
+      "common": [
+        "化神级妖材"
+      ],
+      "uncommon": [
+        "十二级内丹"
+      ],
+      "rare": [
+        "真灵血脉"
+      ],
+      "price_unit": "spirit_realm"
+    },
+    {
+      "tier": 13,
+      "realm": "VOID_TO_GREAT_VEHICLE",
+      "common": [
+        "古兽王残骸"
+      ],
+      "uncommon": [
+        "妖王核"
+      ],
+      "rare": [
+        "真灵本源"
+      ],
+      "price_note": "战役/地渊深层，不可常规经济"
+    }
+  ],
+  "named_beast_drops": [
+    {
+      "beast": "墨蛟",
+      "tier_hint": 5,
+      "drops": [
+        "墨蛟丹",
+        "淫囊（剧情）",
+        "蛟皮"
+      ],
+      "zone": "血色禁地"
+    },
+    {
+      "beast": "血玉蜘蛛",
+      "tier_hint": 5,
+      "drops": [
+        "血玉蜘蛛丝",
+        "蛛毒"
+      ],
+      "zone": "战场/禁地"
+    },
+    {
+      "beast": "啼魂兽",
+      "tier_hint": "special",
+      "drops": [
+        "吸魂相关精魄",
+        "进阶后鬼影材"
+      ],
+      "note": "灵兽培养线，非普通击杀掉落"
+    },
+    {
+      "beast": "银翅夜叉",
+      "tier_hint": 10,
+      "drops": [
+        "银翅",
+        "夜叉骨",
+        "阴月精华关联"
+      ],
+      "zone": "阴阳窟"
+    },
+    {
+      "beast": "阴芝马",
+      "tier_hint": "special",
+      "drops": [
+        "阴芝马血肉（培婴丹主料）"
+      ],
+      "zone": "阴阳窟"
+    },
+    {
+      "beast": "八级毒蛟",
+      "tier_hint": 8,
+      "drops": [
+        "本命鳞片",
+        "毒血",
+        "精魂",
+        "八级妖丹"
+      ],
+      "zone": "乱星海"
+    },
+    {
+      "beast": "金蛟王",
+      "tier_hint": 11,
+      "drops": [
+        "金属性妖丹",
+        "龙鳞果移植法关联",
+        "淬骨诀线索"
+      ],
+      "zone": "乱星海"
+    },
+    {
+      "beast": "天澜兽",
+      "tier_hint": "special",
+      "drops": [
+        "帝流浆",
+        "怪异金角",
+        "化形相关"
+      ],
+      "note": "收服/护法线优先于击杀"
+    },
+    {
+      "beast": "真蟾兽",
+      "tier_hint": 12,
+      "drops": [
+        "真蟾液",
+        "蟾核"
+      ],
+      "zone": "灵界任务"
+    },
+    {
+      "beast": "冥雷兽",
+      "tier_hint": 12,
+      "drops": [
+        "雷核",
+        "冥雷筋"
+      ],
+      "zone": "地渊周边"
+    },
+    {
+      "beast": "合体级魔猿",
+      "tier_hint": 13,
+      "drops": [
+        "魔核",
+        "山岳巨猿真血",
+        "玄天残刃线索"
+      ],
+      "zone": "魔金山脉"
+    }
+  ],
+  "insect_special": [
+    {
+      "id": "shi_jin_chong",
+      "display": "噬金虫",
+      "use": [
+        "噬金克金",
+        "群攻",
+        "进化虫王"
+      ],
+      "feed": [
+        "金属性矿材",
+        "金系妖丹",
+        "特殊晶石"
+      ],
+      "loot_if_kill": "不推荐击杀；活体培养价值远高于尸体"
+    },
+    {
+      "id": "gold_back_yaolang",
+      "display": "金背妖螂等御灵虫",
+      "use": [
+        "御灵宗驱虫"
+      ],
+      "faction": "yuling_zong"
+    }
+  ],
+  "named_creature_loot": [
+    {
+      "creature": "墨蛟",
+      "drops": [
+        "墨蛟丹",
+        "蛟皮",
+        "淫囊(剧情)"
+      ]
+    },
+    {
+      "creature": "八级毒蛟",
+      "drops": [
+        "八级妖丹",
+        "本命鳞",
+        "毒血",
+        "精魂"
+      ]
+    },
+    {
+      "creature": "赤火蛟",
+      "drops": [
+        "赤火蛟鳞",
+        "妖丹",
+        "蛟筋"
+      ]
+    },
+    {
+      "creature": "银翅夜叉",
+      "drops": [
+        "银翅",
+        "夜叉骨"
+      ]
+    },
+    {
+      "creature": "阴芝马",
+      "drops": [
+        "血肉(培婴)"
+      ]
+    },
+    {
+      "creature": "火蟾兽",
+      "drops": [
+        "火蟾丹",
+        "七焰扇线索"
+      ]
+    },
+    {
+      "creature": "金蛟王",
+      "drops": [
+        "金属性妖丹",
+        "龙鳞果线索"
+      ]
+    },
+    {
+      "creature": "昊阳鸟",
+      "drops": [
+        "昊阳翎羽"
+      ]
+    },
+    {
+      "creature": "乌凤",
+      "drops": [
+        "乌凤之翎"
+      ]
+    },
+    {
+      "creature": "游天鲲鹏",
+      "drops": [
+        "鲲鹏翎羽"
+      ]
+    },
+    {
+      "creature": "真蟾",
+      "drops": [
+        "真蟾液"
+      ]
+    },
+    {
+      "creature": "合体魔猿",
+      "drops": [
+        "魔核",
+        "山岳巨猿真血"
+      ]
+    },
+    {
+      "creature": "螟虫之母",
+      "drops": [
+        "黑色晶石"
+      ]
+    },
+    {
+      "creature": "碧嘴鸠",
+      "drops": [
+        "碧鸠毒涎"
+      ]
+    },
+    {
+      "creature": "麝兰兽",
+      "drops": [
+        "粪便(引参)",
+        "麝香囊"
+      ]
+    },
+    {
+      "creature": "地渊暗兽",
+      "drops": [
+        "暗兽内丹",
+        "阴寒材"
+      ]
+    },
+    {
+      "creature": "尸魈",
+      "drops": [
+        "尸材",
+        "怨气结晶"
+      ]
+    },
+    {
+      "creature": "普通鬼物",
+      "drops": [
+        "魂火",
+        "阴气结晶"
+      ]
+    }
+  ]
+}

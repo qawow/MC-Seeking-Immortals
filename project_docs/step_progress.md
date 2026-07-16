@@ -7269,3 +7269,12 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `./gradlew --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
   Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
   Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
+
+## M10 妖兽生态 2026-07-17
+
+- 状态：完成
+- 功能点：主数据/刷怪表/掉落/灵宠/傀儡/Boss/图鉴解锁/CaptureJar 阶位上限全部勾选
+- 构建：`bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true`
+- 版本：mod_version 不升（红线）；protocol 21 不变
+- 备份：`.bak/20260717_030716_m10_beasts_ecology/`
+- 更新笔记：`project_docs/updates/20260717_m10_beasts_ecology.md`

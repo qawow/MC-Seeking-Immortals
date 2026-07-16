@@ -37,6 +37,15 @@ public final class BossEncounterService {
         if (!(player.level() instanceof ServerLevel level)) {
             return false;
         }
+        // M10: prefer catalog boss (tier-scaled + phase skills) when known.
+        if (com.xunxian.seekingimmortals.beast.BeastBossService.find(bossId).isPresent()) {
+            boolean catalog = com.xunxian.seekingimmortals.beast.BeastBossService.spawnCatalogBoss(player, bossId);
+            if (catalog) {
+                player.getPersistentData().putBoolean(key, true);
+                ReputationService.add(player, "secret_realm_explorer", 1);
+                return true;
+            }
+        }
         SummonedServitorEntity.Archetype archetype = TrialCombatShellService.archetypeFor(bossId);
         double health = 80.0D;
         double damage = 10.0D;

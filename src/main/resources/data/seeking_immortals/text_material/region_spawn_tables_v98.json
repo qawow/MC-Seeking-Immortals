@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v98 区域刷怪表：地图→生物权重。贴原著生态；权重可重平衡",
+  "disclaimer": "weight 为相对权重非百分比；named/event 不进日常刷新",
+  "weight_guide": {
+    "common": "40-100",
+    "uncommon": "15-40",
+    "rare": "5-15",
+    "elite": "1-5",
+    "boss_event": "0（仅事件）"
+  },
+  "regions": [
+    {
+      "id": "blood_forbidden",
+      "display": "血色禁地",
+      "realm_rec": ["QI_REFINING", "FOUNDATION_early"],
+      "danger": 3,
+      "respawn": "试炼周期/秘境实例",
+      "spawns": [
+        {"creature": "伴妖草指示巢穴的妖兽群", "id": "xiang_yao_cao_marker", "weight": 50, "tier": [3, 6]},
+        {"creature": "银色飞虫", "id": "yin_se_feichong", "weight": 35, "pack": true},
+        {"creature": "蛇妖（各级）", "id": "she_yao_generic", "weight": 30},
+        {"creature": "碧鳞蛇", "id": "bi_lin_she", "weight": 25},
+        {"creature": "虎妖/狼妖低阶", "id": "hu_yao_generic", "weight": 20},
+        {"creature": "墨蛟", "id": "mo_jiao", "weight": 3, "elite": true, "note": "水域巢穴固定点"},
+        {"creature": "灵貂盗药", "id": "diao_yao", "weight": 10}
+      ],
+      "resources_nearby": ["玉髓芝", "紫猴花", "天灵果", "千年灵草"],
+      "rules": ["炼气试炼为主", "高阶妖兽权重压低", "墨蛟建议定点"]
+    },
+    {
+      "id": "yue_spirit_veins",
+      "display": "越国灵脉山地/七派外围",
+      "realm_rec": ["QI_REFINING", "FOUNDATION"],
+      "danger": 2,
+      "spawns": [
+        {"creature": "灵兽山放养种", "id": "ling_shou_shan_stock", "weight": 40, "tame_shop": true},
+        {"creature": "蛇妖", "id": "she_yao_generic", "weight": 35},
+        {"creature": "狼妖群", "id": "lang_yao_generic", "weight": 25},
+        {"creature": "虎妖", "id": "hu_yao_generic", "weight": 15},
+        {"creature": "火鳞鼠", "id": "huo_ling_shu", "weight": 20, "near": "矿洞"},
+        {"creature": "彩云鹿", "id": "cai_yun_lu", "weight": 12},
+        {"creature": "风灵蝶", "id": "feng_ling_die", "weight": 15},
+        {"creature": "石岩龟", "id": "shi_yan_gui", "weight": 10}
+      ],
+      "night_mod": {"ghost_weight_add": 5, "note": "战场边缘偶见低阶鬼物"}
+    },
+    {
+      "id": "huangfeng_medicine_garden",
+      "display": "黄枫谷药园及后山",
+      "realm_rec": ["QI_REFINING"],
+      "danger": 1,
+      "spawns": [
+        {"creature": "碧鳞蛇", "id": "bi_lin_she", "weight": 40},
+        {"creature": "灵貂", "id": "diao_yao", "weight": 30},
+        {"creature": "灵鸡警戒", "id": "ling_ji_shou", "weight": 20},
+        {"creature": "低阶虫", "id": "cai_lian_chong", "weight": 15}
+      ],
+      "rules": ["护园任务刷", "杀鹿/鹿类扣声望可选"]
+    },
+    {
+      "id": "chaotic_inner_sea",
+      "display": "乱星海内星海",
+      "realm_rec": ["FOUNDATION", "CORE_FORMATION"],
+      "danger": 4,
+      "spawns": [
+        {"creature": "普通海兽", "id": "hai_shou_generic", "weight": 60, "tier": [3, 7]},
+        {"creature": "甲壳海兽", "id": "hai_jiao_kuilei", "weight": 30},
+        {"creature": "低阶水蛟", "id": "shui_jiao_low", "weight": 15},
+        {"creature": "星海水母妖", "id": "xing_hai_shui_mu", "weight": 20},
+        {"creature": "婴鲤兽", "id": "ying_li_shou", "weight": 8, "quest_up": "六连殿邀猎"},
+        {"creature": "风系妖禽", "id": "feng_yao_niao", "weight": 15, "island": true}
+      ],
+      "hubs": ["天星城"]
+    },
+    {
+      "id": "chaotic_outer_sea",
+      "display": "乱星海外星海",
+      "realm_rec": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "danger": 6,
+      "spawns": [
+        {"creature": "普通海兽高阶", "id": "hai_shou_generic", "weight": 40, "tier": [6, 9]},
+        {"creature": "妖鲨", "id": "sha_yu_yao", "weight": 25},
+        {"creature": "触手海怪", "id": "zhang_yu_yao", "weight": 15},
+        {"creature": "血蛟帆", "id": "xue_jiao_fan", "weight": 12},
+        {"creature": "八级毒蛟", "id": "du_jiao_t8", "weight": 5, "elite": true},
+        {"creature": "化形龟妖", "id": "gui_yao_huaxing", "weight": 3, "elite": true},
+        {"creature": "雷兽", "id": "lei_shou_generic", "weight": 10, "near": "雷岛"},
+        {"creature": "鲸语兽", "id": "jing_yu_shou", "weight": 4, "deep": true},
+        {"creature": "金蛟王", "id": "jin_jiao_wang", "weight": 0, "event": "极品灵石矿争夺"},
+        {"creature": "风希", "id": "feng_xi", "weight": 0, "event": "剧情"},
+        {"creature": "游天鲲鹏/罗睺", "id": "you_tian_kunpeng", "weight": 0, "event": "真灵交战目击"}
+      ],
+      "beast_tide": {"mod": 1.8, "extra": ["妖鲨", "血蛟帆", "海兽潮"]}
+    },
+    {
+      "id": "nether_mist",
+      "display": "阴冥之地",
+      "realm_rec": ["FOUNDATION", "NASCENT_SOUL"],
+      "danger": 5,
+      "rules": ["法力异常可选", "阴修/啼魂加成"],
+      "spawns": [
+        {"creature": "普通鬼物", "id": "gui_wu_generic", "weight": 50},
+        {"creature": "初级炼尸", "id": "lian_shi_low", "weight": 20},
+        {"creature": "阴火虫", "id": "yin_huo_chong", "weight": 25},
+        {"creature": "噬魂妖", "id": "shi_hun_yao", "weight": 15},
+        {"creature": "孽猿", "id": "nie_yuan", "weight": 8},
+        {"creature": "尸魈", "id": "si_xiao", "weight": 3, "elite": true},
+        {"creature": "雪云狐", "id": "xue_yun_hu", "weight": 5, "edge": true}
+      ],
+      "loot_bias": ["魄石", "阴灵水", "魂火"]
+    },
+    {
+      "id": "zhuimo_valley",
+      "display": "坠魔谷",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 7,
+      "spawns": [
+        {"creature": "火蟾兽", "id": "huo_chan_shou", "weight": 25},
+        {"creature": "坠魔蟒兽", "id": "mang_shou_zhuimo", "weight": 25},
+        {"creature": "云翼蟒", "id": "yun_yi_meng", "weight": 15},
+        {"creature": "火鸦", "id": "huo_yao_niao", "weight": 20},
+        {"creature": "巨猿类", "id": "ju_yuan_kuilei_beast", "weight": 12},
+        {"creature": "古魔残魄", "id": "gumo_canpo", "weight": 8},
+        {"creature": "血焰主魂", "id": "xue_yan_gumo", "weight": 0, "event": "主线BOSS"},
+        {"creature": "上古战场残阵危害", "weight": 10, "hazard": true}
+      ],
+      "zones": {
+        "outer": ["火蟾", "蟒", "罡银沙点"],
+        "inner": ["灵烛果点", "古魔", "北极元晶线索"]
+      }
+    },
+    {
+      "id": "yunmeng",
+      "display": "云梦山水/试剑",
+      "realm_rec": ["CORE_FORMATION", "NASCENT_SOUL"],
+      "danger": 4,
+      "spawns": [
+        {"creature": "护山灵兽结构", "id": "zhen_yan_shou", "weight": 10},
+        {"creature": "彩云鹿", "id": "cai_yun_lu", "weight": 20},
+        {"creature": "风灵蝶", "id": "feng_ling_die", "weight": 25},
+        {"creature": "木灵/树妖", "id": "mu_yao_tree", "weight": 15},
+        {"creature": "剑意残留", "weight": 20, "hazard": true, "note": "非生物"}
+      ],
+      "rules": ["试剑期刷怪降，重试炼机关"]
+    },
+    {
+      "id": "mulan_grassland",
+      "display": "慕兰草原",
+      "realm_rec": ["FOUNDATION", "NASCENT_SOUL"],
+      "danger": 5,
+      "war": true,
+      "spawns": [
+        {"creature": "慕兰战兽", "id": "war_mount_mulan", "weight": 40},
+        {"creature": "狼妖群", "id": "lang_yao_generic", "weight": 30},
+        {"creature": "黑风豹", "id": "hei_feng_bao", "weight": 20},
+        {"creature": "血魔犬", "id": "xue_mo_quan", "weight": 15},
+        {"creature": "图腾兽/圣兽结构", "id": "mei_lan_shengwu", "weight": 5, "elite": true}
+      ],
+      "totem_field": "敌方单位+图腾加成"
+    },
+    {
+      "id": "tianlan_steppe",
+      "display": "天澜草原",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 5,
+      "spawns": [
+        {"creature": "战骑/狼群", "id": "lang_yao_generic", "weight": 30},
+        {"creature": "天澜圣兽", "id": "tian_lan_shou", "weight": 0, "event": "契约/剧情"},
+        {"creature": "突兀仙师单位", "weight": 20, "faction": "humanoid"}
+      ],
+      "risk": "噬金虫暴露→追杀事件"
+    },
+    {
+      "id": "yinyang_ku",
+      "display": "阴阳窟",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 6,
+      "spawns": [
+        {"creature": "阴毒虫/阴火虫", "id": "yin_huo_chong", "weight": 30},
+        {"creature": "初级炼尸", "id": "lian_shi_low", "weight": 20},
+        {"creature": "飞天尸", "id": "fei_tian_shi", "weight": 12},
+        {"creature": "银翅夜叉", "id": "yinchi_yecha", "weight": 4, "elite": true},
+        {"creature": "阴芝马", "id": "yin_zhi_ma", "weight": 6, "capture_prefer": true},
+        {"creature": "鬼物", "id": "gui_wu_generic", "weight": 25}
+      ],
+      "rules": ["阴芝马优先捕捉", "夜叉高危"]
+    },
+    {
+      "id": "kunwu",
+      "display": "昆吾山",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 8,
+      "spawns": [
+        {"creature": "金石傀儡兽", "id": "jin_shi_ren", "weight": 25},
+        {"creature": "古魔残魄", "id": "gumo_canpo", "weight": 15},
+        {"creature": "真魔气危害", "weight": 20, "hazard": true},
+        {"creature": "禁制灵", "weight": 15, "hazard": true},
+        {"creature": "元刹/血焰相关", "id": "xue_yan_gumo", "weight": 0, "event": true},
+        {"creature": "万年尸熊线", "weight": 0, "event": "血刃"}
+      ],
+      "rules": ["几乎全事件驱动", "日常刷怪少"]
+    },
+    {
+      "id": "xiaojigong_ice",
+      "display": "北地冰原/小极宫外围",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 5,
+      "spawns": [
+        {"creature": "冰原狼", "id": "bing_yuan_lang", "weight": 40},
+        {"creature": "寒冰蟾", "id": "han_bing_chan", "weight": 25},
+        {"creature": "玄冰虫", "id": "xuan_bing_chong", "weight": 20, "near": "玄玉洞"},
+        {"creature": "冰峰雀", "id": "bing_feng_que", "weight": 20},
+        {"creature": "化形妖修巡逻", "weight": 10, "faction": "yao"},
+        {"creature": "冰凤", "id": "bing_feng", "weight": 0, "event": "盟友/剧情"},
+        {"creature": "万妖谷来袭", "weight": 0, "event": "攻山"}
+      ]
+    },
+    {
+      "id": "huoyu",
+      "display": "火狱",
+      "realm_rec": ["NASCENT_SOUL", "DEITY_TRANSFORMATION"],
+      "danger": 6,
+      "spawns": [
+        {"creature": "火鸦/火禽", "id": "huo_yao_niao", "weight": 35},
+        {"creature": "火蚁虫群", "id": "huo_yi_chong_wang", "weight": 30, "pack": true},
+        {"creature": "火鳞鼠", "id": "huo_ling_shu", "weight": 20},
+        {"creature": "赤火蛟级威胁", "id": "chi_huo_jiao", "weight": 5, "elite": true},
+        {"creature": "环境阳火危害", "weight": 25, "hazard": true}
+      ],
+      "boss_resource": "太阳精火点（事件）"
+    },
+    {
+      "id": "nanjiang_desert",
+      "display": "南疆大漠",
+      "realm_rec": ["FOUNDATION", "NASCENT_SOUL"],
+      "danger": 5,
+      "spawns": [
+        {"creature": "毒蝎妖", "id": "du_xie", "weight": 40},
+        {"creature": "沙虫", "id": "sha_chong_wan", "weight": 25},
+        {"creature": "沙海蝎王", "id": "sha_hai_scorpion_king", "weight": 3, "elite": true},
+        {"creature": "碧嘴鸠", "id": "bi_zui_jiu", "weight": 10},
+        {"creature": "血煞虫", "id": "xue_sha_chong", "weight": 8},
+        {"creature": "幽冥蛊虫", "id": "you_ming_gu", "weight": 5}
+      ],
+      "resources": ["姜黄晶", "毒材"]
+    },
+    {
+      "id": "dajin_wilds",
+      "display": "大晋野外/临江",
+      "realm_rec": ["FOUNDATION", "NASCENT_SOUL"],
+      "danger": 4,
+      "spawns": [
+        {"creature": "虎狼蛇通用", "id": "hu_yao_generic", "weight": 30},
+        {"creature": "土蜥龙", "id": "tu_shi_long_qian", "weight": 20},
+        {"creature": "赤火蛟", "id": "chi_huo_jiao", "weight": 4, "elite": true, "near": "临江"},
+        {"creature": "墨鳞马野群", "id": "mo_lin_ma", "weight": 15},
+        {"creature": "暗影豹", "id": "an_ying_bao", "weight": 12},
+        {"creature": "金石傀儡遗迹", "id": "jin_shi_ren", "weight": 8}
+      ]
+    },
+    {
+      "id": "wubianhai_abyss",
+      "display": "无边海魔气之渊",
+      "realm_rec": ["NASCENT_SOUL"],
+      "danger": 6,
+      "spawns": [
+        {"creature": "古魔残魄", "id": "gumo_canpo", "weight": 30},
+        {"creature": "魔气生物/血煞虫", "id": "xue_sha_chong", "weight": 25},
+        {"creature": "鬼物", "id": "gui_wu_generic", "weight": 20},
+        {"creature": "环境魔气", "weight": 30, "hazard": true}
+      ],
+      "loot_bias": ["魔髓钻", "叱灵软玉"]
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊",
+      "realm_rec": ["DEITY_TRANSFORMATION", "VOID_REFINEMENT"],
+      "danger": 7,
+      "currency": "tianyuan_merit",
+      "spawns": [
+        {"creature": "冥雷兽", "id": "ming_lei_shou", "weight": 25},
+        {"creature": "地渊暗兽", "id": "an_shou_diyuan", "weight": 30},
+        {"creature": "灵界雷兽", "id": "lei_shou_spirit", "weight": 15},
+        {"creature": "豹麟可遇野生", "id": "bao_lin_shou", "weight": 5, "capture": true},
+        {"creature": "侦察蜉蝣", "id": "diyuan_fu_you_scout", "weight": 20},
+        {"creature": "真蟾兽", "id": "zhen_chan", "weight": 8}
+      ],
+      "depth_mod": {"deeper": "权重向暗兽/雷兽倾斜"}
+    },
+    {
+      "id": "tianyuan_outskirts",
+      "display": "天渊城外围灵地",
+      "realm_rec": ["DEITY_TRANSFORMATION"],
+      "danger": 4,
+      "spawns": [
+        {"creature": "灵界低阶妖兽模板", "weight": 40, "tier": [10, 11]},
+        {"creature": "木甲虫", "id": "mu_jia_chong", "weight": 20},
+        {"creature": "镇岩兽（宗门）", "id": "zhen_yan_shou", "weight": 5},
+        {"creature": "盗猎者", "weight": 15, "humanoid": true}
+      ]
+    },
+    {
+      "id": "mogin_range",
+      "display": "魔金山脉",
+      "realm_rec": ["BODY_INTEGRATION", "GREAT_VEHICLE"],
+      "danger": 8,
+      "spawns": [
+        {"creature": "魔狼/魔犬", "id": "mo_lang_generic", "weight": 35},
+        {"creature": "天外魔影", "id": "tianwai_moying", "weight": 20},
+        {"creature": "合体魔猿", "id": "mo_yuan_heti", "weight": 5, "elite": true},
+        {"creature": "魔鳄", "id": "mo_e", "weight": 0, "event": "圣祖级"},
+        {"creature": "魔气风暴", "weight": 15, "hazard": true}
+      ]
+    },
+    {
+      "id": "minghe",
+      "display": "冥河之地",
+      "realm_rec": ["GREAT_VEHICLE"],
+      "danger": 9,
+      "spawns": [
+        {"creature": "蜉蝣族虫潮", "id": "fu_you_zu_bug", "weight": 30},
+        {"creature": "冥河守护结构", "weight": 10, "elite": true},
+        {"creature": "大乘目击", "weight": 0, "event": true}
+      ],
+      "rules": ["几乎全任务驱动"]
+    },
+    {
+      "id": "guanghan",
+      "display": "广寒界",
+      "realm_rec": ["VOID_REFINEMENT", "BODY_INTEGRATION"],
+      "danger": 8,
+      "spawns": [
+        {"creature": "广寒暗兽幼体", "id": "guanghan_anshou_cub", "weight": 35},
+        {"creature": "暗兽", "id": "an_shou_diyuan", "weight": 25},
+        {"creature": "界面生灵杂项", "weight": 20},
+        {"creature": "暗兽王", "weight": 0, "event": "顶奖线"}
+      ]
+    },
+    {
+      "id": "spirit_insect_nests",
+      "display": "虫修洞府/御灵山门",
+      "realm_rec": ["QI_REFINING", "CORE_FORMATION"],
+      "danger": 3,
+      "spawns": [
+        {"creature": "金背妖螂", "id": "jin_bei_yaolang", "weight": 30},
+        {"creature": "彩练虫", "id": "cai_lian_chong", "weight": 30},
+        {"creature": "金蚕丝虫", "id": "jin_can_si", "weight": 20},
+        {"creature": "六翼霜蚣（叛逃野）", "id": "liu_yi_shuang_gong", "weight": 2, "rare": true},
+        {"creature": "噬金虫（绝不可野刷成灾）", "id": "shi_jin_chong", "weight": 0, "obtain": "培养线"}
+      ]
+    },
+    {
+      "id": "ghost_faction_grounds",
+      "display": "鬼灵门/阴罗宗驻地外围",
+      "realm_rec": ["FOUNDATION", "NASCENT_SOUL"],
+      "danger": 5,
+      "spawns": [
+        {"creature": "初级炼尸", "id": "lian_shi_low", "weight": 40},
+        {"creature": "狂战尸", "id": "kuang_zhan_shi", "weight": 25},
+        {"creature": "鬼物", "id": "gui_wu_generic", "weight": 30},
+        {"creature": "赤瞳妖鸦", "id": "chi_tong_yao_niao", "weight": 20},
+        {"creature": "飞天尸", "id": "fei_tian_shi", "weight": 8}
+      ],
+      "alignment": "demonic"
+    }
+  ],
+  "global_rules": {
+    "companion_no_wild_farm": ["噬金虫", "啼魂", "天澜圣兽", "冰凤"],
+    "true_spirit_event_only": true,
+    "herb_guard_chance": 0.35,
+    "elite_share_loot_table": "beast_materials_loot_v92 tier by tier_hint",
+    "named_override": "named_npc_loot_rewards_v97"
+  }
+}

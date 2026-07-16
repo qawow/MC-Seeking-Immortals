@@ -4397,5 +4397,10 @@
   "command.seeking_immortals.region.routes.entry": "- %s | %s→%s | days=%s-%s | fee=%s",
   "message.seeking_immortals.faction_conflict.daily_trigger": "区域冲突触发：%s（%s）",
   "message.seeking_immortals.sect.apply_ghost_ban": "鬼修身份被拒：宗门 %s 禁收/追杀标记已生效。",
-  "message.seeking_immortals.sect.apply_entry_denied": "入门被拒：%s（%s）"
+  "message.seeking_immortals.sect.apply_entry_denied": "入门被拒：%s（%s）",
+  "message.seeking_immortals.beast.tier_gate": "契约失败：妖兽阶位 %s 超出当前压制（己方约 %s 阶）。",
+  "message.seeking_immortals.beast.realm_gate": "契约失败：境界不足（需 %s）。",
+  "message.seeking_immortals.beast.stage": "灵兽 %s 成长至「%s」：亲和 %s / 成长 %s",
+  "message.seeking_immortals.capture.tier_cap": "收容失败：目标 %s 阶，当前上限 %s 阶。",
+  "message.seeking_immortals.bestiary.unlocked": "图鉴解锁：%s"
 }

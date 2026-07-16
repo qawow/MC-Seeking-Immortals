@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 生态栖息地：区域→常见生物/资源",
+  "habitats": [
+    {
+      "id": "blood_forbidden",
+      "display": "血色禁地",
+      "region": "tiannan",
+      "creatures": ["墨蛟", "银色飞虫", "伴妖草指示妖兽", "低中阶妖兽"],
+      "resources": ["筑基四主药", "低阶法器残"],
+      "danger": 3,
+      "entry": "炼气试炼"
+    },
+    {
+      "id": "yue_spirit_veins",
+      "display": "越国灵脉山地",
+      "creatures": ["普通妖兽1-5级", "灵兽山放养种"],
+      "resources": ["灵草", "矿砂"],
+      "factions": ["七派"]
+    },
+    {
+      "id": "chaotic_inner_sea",
+      "display": "乱星海内星海",
+      "creatures": ["海兽3-8级", "婴鲤兽"],
+      "resources": ["海兽妖丹", "岛礁药"],
+      "hubs": ["天星城"]
+    },
+    {
+      "id": "chaotic_outer_sea",
+      "display": "乱星海外星海",
+      "creatures": ["毒蛟", "风希级妖", "金蛟王", "化形龟妖", "真灵交战偶见"],
+      "resources": ["极品灵石矿", "鲲鹏翎", "顶阶妖丹"],
+      "danger": 6
+    },
+    {
+      "id": "nether_mist",
+      "display": "阴冥之地",
+      "creatures": ["阴兽", "鬼物", "啼魂成长目标"],
+      "resources": ["阴灵水", "魄石"],
+      "rules": "法力异常可选"
+    },
+    {
+      "id": "zhuimo_valley",
+      "display": "坠魔谷",
+      "creatures": ["火蟾", "蟒兽", "古魔血焰"],
+      "resources": ["灵烛果", "罡银沙", "古修遗宝", "北极元晶"],
+      "danger": 7
+    },
+    {
+      "id": "yunmeng",
+      "display": "云梦山水",
+      "creatures": ["剑意残留非生物", "守护灵兽结构"],
+      "resources": ["定灵丹", "灵眼树", "醇液"]
+    },
+    {
+      "id": "mulan_grassland",
+      "display": "慕兰草原",
+      "creatures": ["图腾兽", "战兽", "天澜圣兽信仰"],
+      "resources": ["血祭材", "法师秘物"],
+      "war": true
+    },
+    {
+      "id": "tianlan_steppe",
+      "display": "天澜草原",
+      "creatures": ["天澜圣兽", "突兀仙师战骑"],
+      "resources": ["圣鼎线索"],
+      "risk": "噬金虫暴露"
+    },
+    {
+      "id": "yinyang_ku",
+      "display": "阴阳窟",
+      "creatures": ["阴芝马", "银翅夜叉", "阴毒虫"],
+      "resources": ["培婴主料", "阴材"],
+      "danger": 6
+    },
+    {
+      "id": "kunwu",
+      "display": "昆吾山",
+      "creatures": ["元刹分魂", "真魔气", "禁制灵"],
+      "resources": ["通天灵宝", "太阴真火", "天晶碑"],
+      "danger": 8
+    },
+    {
+      "id": "xiaojigong_ice",
+      "display": "北地冰原/小极宫",
+      "creatures": ["冰凤", "化形妖修", "万妖谷来袭"],
+      "resources": ["玄冰花", "万年玄玉", "寒焰"]
+    },
+    {
+      "id": "huoyu",
+      "display": "火狱",
+      "creatures": ["火属妖兽"],
+      "resources": ["太阳精火", "太阳精石"],
+      "danger": 6
+    },
+    {
+      "id": "wubianhai_abyss",
+      "display": "无边海魔气之渊",
+      "creatures": ["魔气生物", "第二元婴线"],
+      "resources": ["魔髓钻", "叱灵软玉"]
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊",
+      "creatures": ["冥雷兽", "古兽", "暗兽", "蜉蝣相关"],
+      "resources": ["阴寒材", "功勋任务物"],
+      "danger": 7
+    },
+    {
+      "id": "mogin_range",
+      "display": "魔金山脉",
+      "creatures": ["合体魔猿", "天外魔", "魔鳄"],
+      "resources": ["魔核", "真血", "金阙玉书"],
+      "danger": 8
+    },
+    {
+      "id": "minghe",
+      "display": "冥河之地",
+      "creatures": ["大乘级存在", "冥河守护"],
+      "resources": ["冥河神乳"],
+      "danger": 9
+    },
+    {
+      "id": "guanghan",
+      "display": "广寒界",
+      "creatures": ["暗兽王", "界面生灵"],
+      "resources": ["虚灵丹", "太乙青山", "仙药", "炼神术"]
+    }
+  ],
+  "spawn_rules_structural": {
+    "herb_guard_chance": 0.35,
+    "named_boss_unique": true,
+    "true_spirit_sighting": "事件非刷新",
+    "companion_prefer_capture": ["啼魂", "噬金虫", "土甲龙", "豹麟"]
+  }
+}

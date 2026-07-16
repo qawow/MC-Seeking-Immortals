@@ -306,6 +306,8 @@ public class SummonedServitorEntity extends PathfinderMob implements GeoEntity {
             }
             // Hostile trial shells do not require an owner and stay in arena AI.
             if (hostileTrial) {
+                // M10: phased boss skills for secret-realm bosses.
+                com.xunxian.seekingimmortals.beast.BeastBossService.tickBossSkills(this);
                 return;
             }
             if (ownerUUID != null && level() instanceof ServerLevel serverLevel) {

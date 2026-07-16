@@ -5,6 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.beast.BeastBestiaryService;
+import com.xunxian.seekingimmortals.beast.BeastCompanionService;
+import com.xunxian.seekingimmortals.beast.BeastTierService;
 import com.xunxian.seekingimmortals.catalog.SummonHonestMvpService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
@@ -13,22 +16,33 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.phys.AABB;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 
 /**
- * Wave491: runtime consumer of text_material/spawn_tables.json.
+ * M10: runtime consumer of spawn_tables.json + region_spawn_tables_v98.
  * Spawns SummonedServitor beast proxies weighted by region/biome; denser on leyline clusters.
+ * Red lines: true-spirit / companion beasts never enter daily tables; per-chunk cap + dedupe.
  */
 public final class BeastSpawnTableService {
+    /** Hard cap of ecology beasts near a player spawn request. */
+    public static final int MAX_SPAWN_PER_REQUEST = 6;
+    /** Hard cap of ecology beasts in a chunk radius. */
+    public static final int MAX_ECOLOGY_NEAR = 12;
+    public static final double NEAR_RADIUS = 48.0D;
+
     private static final List<Table> TABLES = loadTables();
 
     private BeastSpawnTableService() {}
@@ -53,6 +67,8 @@ public final class BeastSpawnTableService {
         for (Table table : TABLES) {
             int score = 0;
             if (!region.isBlank() && region.equals(table.region())) {
+                score += 3;
+            } else if (!region.isBlank() && (region.contains(table.region()) || table.region().contains(region))) {
                 score += 2;
             }
             if (!biome.isBlank() && (biome.contains(table.biome()) || table.biome().contains(biome)
@@ -73,6 +89,9 @@ public final class BeastSpawnTableService {
         }
         int total = 0;
         for (Weight weight : table.weights()) {
+            if (isBanned(weight.beastId())) {
+                continue;
+            }
             total += effectiveWeight(weight, cluster);
         }
         if (total <= 0) {
@@ -81,12 +100,32 @@ public final class BeastSpawnTableService {
         int pick = random.nextInt(total);
         int cursor = 0;
         for (Weight weight : table.weights()) {
+            if (isBanned(weight.beastId())) {
+                continue;
+            }
             cursor += effectiveWeight(weight, cluster);
             if (pick < cursor) {
                 return Optional.of(weight);
             }
         }
-        return Optional.of(table.weights().get(table.weights().size() - 1));
+        // Last non-banned.
+        for (int i = table.weights().size() - 1; i >= 0; i--) {
+            Weight w = table.weights().get(i);
+            if (!isBanned(w.beastId())) {
+                return Optional.of(w);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public static boolean isBanned(String beastId) {
+        if (beastId == null || beastId.isBlank()) {
+            return true;
+        }
+        if (BeastCompanionService.isProtectedCompanion(beastId)) {
+            return true;
+        }
+        return BeastBestiaryService.isBannedFromDailySpawn(beastId);
     }
 
     private static int effectiveWeight(Weight weight, boolean cluster) {
@@ -94,7 +133,6 @@ public final class BeastSpawnTableService {
         if (!cluster) {
             return base;
         }
-        // Cluster densifies mid/high tier beasts.
         if (weight.tier() >= 4) {
             return base * 3;
         }
@@ -118,35 +156,62 @@ public final class BeastSpawnTableService {
         boolean cluster = SpiritualAuraManager.isLeylineCluster(level, new ChunkPos(pos));
         Optional<Table> table = findTable(regionHint, biomePath);
         if (table.isEmpty()) {
+            // Prefer M06 region id if available.
+            try {
+                String resolved = com.xunxian.seekingimmortals.region.RegionRegistry.resolveRegionId(level, pos, regionHint);
+                if (resolved != null && !resolved.isBlank()) {
+                    table = findTable(resolved, biomePath);
+                }
+            } catch (Throwable ignored) {
+                // RegionRegistry may be absent in pure unit tests.
+            }
+        }
+        if (table.isEmpty()) {
             table = findTable("tiannan", "forest");
         }
         if (table.isEmpty()) {
             return 0;
         }
-        int want = Math.max(1, count + (cluster ? 2 : 0));
+        int existing = countEcologyNear(level, player.getX(), player.getY(), player.getZ());
+        int room = Math.max(0, MAX_ECOLOGY_NEAR - existing);
+        if (room <= 0) {
+            return 0;
+        }
+        int want = Math.min(MAX_SPAWN_PER_REQUEST, Math.min(room, Math.max(1, count + (cluster ? 2 : 0))));
         int spawned = 0;
         RandomSource random = player.getRandom();
-        for (int i = 0; i < want; i++) {
+        // Dedupe beast ids within this request.
+        Map<String, Integer> seen = new LinkedHashMap<>();
+        for (int i = 0; i < want * 3 && spawned < want; i++) {
             Optional<Weight> roll = roll(table.get(), random, cluster);
             if (roll.isEmpty()) {
                 continue;
             }
             Weight weight = roll.get();
-            double health = 18.0D + weight.tier() * 6.0D;
-            double damage = 3.0D + weight.tier() * 1.5D;
-            int life = 20 * (40 + weight.tier() * 10);
+            if (isBanned(weight.beastId())) {
+                continue;
+            }
+            int prior = seen.getOrDefault(weight.beastId(), 0);
+            // Soft dedupe: same id at most 2 per request unless table is tiny.
+            if (prior >= 2 && table.get().weights().size() > 2) {
+                continue;
+            }
+            BeastTierService.ScaledStats stats = BeastTierService.scaleStats(weight.tier());
             boolean ok = SummonHonestMvpService.spawnConfigured(
                     player,
                     "ecology_" + weight.beastId(),
-                    life,
-                    health,
-                    damage,
+                    stats.lifeTicks(),
+                    stats.health(),
+                    stats.damage(),
                     SummonedServitorEntity.Archetype.BEAST);
-            // spawnConfigured currently requires owner and may count against cap; use wild hostile shell path instead.
             if (!ok) {
-                spawned += spawnWildProxy(level, player, weight, i);
+                if (spawnWildProxy(level, player, weight, spawned) > 0) {
+                    spawned++;
+                    seen.put(weight.beastId(), prior + 1);
+                }
             } else {
                 spawned++;
+                seen.put(weight.beastId(), prior + 1);
             }
         }
         if (spawned > 0) {
@@ -158,6 +223,21 @@ public final class BeastSpawnTableService {
         return spawned;
     }
 
+    public static int countEcologyNear(ServerLevel level, double x, double y, double z) {
+        if (level == null) {
+            return 0;
+        }
+        AABB box = new AABB(x - NEAR_RADIUS, y - 16.0D, z - NEAR_RADIUS,
+                x + NEAR_RADIUS, y + 16.0D, z + NEAR_RADIUS);
+        int count = 0;
+        for (Entity entity : level.getEntities(null, box)) {
+            if (entity.getPersistentData().getBoolean("seeking_immortals_ecology_beast")) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     private static int spawnWildProxy(ServerLevel level, ServerPlayer player, Weight weight, int index) {
         SummonedServitorEntity entity = com.xunxian.seekingimmortals.registry.ModEntities.SUMMONED_SERVITOR.get().create(level);
         if (entity == null) {
@@ -165,10 +245,9 @@ public final class BeastSpawnTableService {
         }
         entity.moveTo(player.getX() + (index - 1) * 1.4D, player.getY(), player.getZ() + 1.8D + index * 0.3D,
                 player.getYRot(), 0.0F);
-        double health = 18.0D + weight.tier() * 6.0D;
-        double damage = 3.0D + weight.tier() * 1.5D;
-        entity.configureHostileTrial("ecology_" + weight.beastId(), 20 * (50 + weight.tier() * 12),
-                health, damage, SummonedServitorEntity.Archetype.BEAST);
+        BeastTierService.ScaledStats stats = BeastTierService.scaleStats(weight.tier());
+        entity.configureHostileTrial("ecology_" + weight.beastId(), stats.lifeTicks(),
+                stats.health(), stats.damage(), SummonedServitorEntity.Archetype.BEAST);
         entity.getPersistentData().putBoolean("seeking_immortals_ecology_beast", true);
         entity.getPersistentData().putString("seeking_immortals_beast_id", weight.beastId());
         entity.getPersistentData().putInt("seeking_immortals_beast_tier", weight.tier());
@@ -178,10 +257,32 @@ public final class BeastSpawnTableService {
 
     private static List<Table> loadTables() {
         List<Table> tables = new ArrayList<>();
+        // Base spawn_tables.json
+        tables.addAll(loadLegacySpawnTables());
+        // M10 region_spawn_tables_v98 keyed by M06 region_id
+        tables.addAll(loadRegionSpawnTables());
+        // Filter banned weights out of every table (red line).
+        List<Table> cleaned = new ArrayList<>();
+        for (Table table : tables) {
+            List<Weight> weights = new ArrayList<>();
+            for (Weight w : table.weights()) {
+                if (!isBanned(w.beastId())) {
+                    weights.add(w);
+                }
+            }
+            if (!weights.isEmpty()) {
+                cleaned.add(new Table(table.region(), table.biome(), List.copyOf(weights)));
+            }
+        }
+        return List.copyOf(cleaned);
+    }
+
+    private static List<Table> loadLegacySpawnTables() {
+        List<Table> tables = new ArrayList<>();
         String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/spawn_tables.json";
         try (InputStream stream = BeastSpawnTableService.class.getClassLoader().getResourceAsStream(path)) {
             if (stream == null) {
-                return List.of();
+                return tables;
             }
             try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
                 JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
@@ -216,9 +317,80 @@ public final class BeastSpawnTableService {
                 }
             }
         } catch (Exception ignored) {
-            return List.of();
+            return tables;
         }
-        return List.copyOf(tables);
+        return tables;
+    }
+
+    private static List<Table> loadRegionSpawnTables() {
+        List<Table> tables = new ArrayList<>();
+        String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/region_spawn_tables_v98.json";
+        try (InputStream stream = BeastSpawnTableService.class.getClassLoader().getResourceAsStream(path)) {
+            if (stream == null) {
+                return tables;
+            }
+            try (Reader reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
+                JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+                JsonArray regions = root.has("regions") && root.get("regions").isJsonArray()
+                        ? root.getAsJsonArray("regions") : new JsonArray();
+                for (JsonElement element : regions) {
+                    if (!element.isJsonObject()) {
+                        continue;
+                    }
+                    JsonObject regionObj = element.getAsJsonObject();
+                    String regionId = str(regionObj, "id");
+                    if (regionId.isBlank()) {
+                        continue;
+                    }
+                    List<Weight> weights = new ArrayList<>();
+                    if (regionObj.has("spawns") && regionObj.get("spawns").isJsonArray()) {
+                        for (JsonElement spawnEl : regionObj.getAsJsonArray("spawns")) {
+                            if (!spawnEl.isJsonObject()) {
+                                continue;
+                            }
+                            JsonObject spawn = spawnEl.getAsJsonObject();
+                            String beastId = str(spawn, "id");
+                            if (beastId.isBlank()) {
+                                continue;
+                            }
+                            int weight = spawn.has("weight") ? spawn.get("weight").getAsInt() : 10;
+                            int tier = parseTier(spawn);
+                            weights.add(new Weight(beastId, BeastTierService.clampTier(tier), Math.max(1, weight)));
+                        }
+                    }
+                    if (!weights.isEmpty()) {
+                        // Region tables are biome-agnostic ("any").
+                        tables.add(new Table(regionId, "any", List.copyOf(weights)));
+                    }
+                }
+            }
+        } catch (Exception ignored) {
+            return tables;
+        }
+        return tables;
+    }
+
+    private static int parseTier(JsonObject spawn) {
+        if (spawn.has("tier")) {
+            JsonElement t = spawn.get("tier");
+            if (t.isJsonPrimitive()) {
+                try {
+                    return t.getAsInt();
+                } catch (Exception ignored) {
+                    // fall through
+                }
+            } else if (t.isJsonArray() && t.getAsJsonArray().size() > 0) {
+                try {
+                    return t.getAsJsonArray().get(0).getAsInt();
+                } catch (Exception ignored) {
+                    // fall through
+                }
+            }
+        }
+        // Fall back to bestiary tier.
+        return BeastBestiaryService.find(str(spawn, "id"))
+                .map(BeastBestiaryService.BeastEntry::tier)
+                .orElse(1);
     }
 
     private static String str(JsonObject object, String key) {

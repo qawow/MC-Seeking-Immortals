@@ -346,6 +346,8 @@ public final class ModEvents {
             if (com.xunxian.seekingimmortals.sect.SectWarService.isWarShell(mob)) {
                 com.xunxian.seekingimmortals.sect.SectWarService.onWarShellKilled(killer, mob);
             }
+            // M10: ecology beast loot + bestiary unlock on kill.
+            com.xunxian.seekingimmortals.beast.BeastLootService.handleEcologyKill(killer, mob);
             // Wave489/491: sect daily kill mission progress with typed target filter.
             if (mob.getType().getCategory() == net.minecraft.world.entity.MobCategory.MONSTER) {
                 String typeId = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES

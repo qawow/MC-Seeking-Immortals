@@ -4387,5 +4387,10 @@
   "command.seeking_immortals.region.routes.entry": "- %s | %s->%s | days=%s-%s | fee=%s",
   "message.seeking_immortals.faction_conflict.daily_trigger": "Faction conflict triggered: %s (%s)",
   "message.seeking_immortals.sect.apply_ghost_ban": "Ghost path rejected by sect %s; hunt mark applied.",
-  "message.seeking_immortals.sect.apply_entry_denied": "Sect entry denied: %s (%s)"
+  "message.seeking_immortals.sect.apply_entry_denied": "Sect entry denied: %s (%s)",
+  "message.seeking_immortals.beast.tier_gate": "Contract failed: beast tier %s exceeds your suppress band (~%s).",
+  "message.seeking_immortals.beast.realm_gate": "Contract failed: realm too low (need %s).",
+  "message.seeking_immortals.beast.stage": "Spirit beast %s grew to '%s': affinity %s / growth %s",
+  "message.seeking_immortals.capture.tier_cap": "Capture failed: target tier %s, your cap is %s.",
+  "message.seeking_immortals.bestiary.unlocked": "Bestiary unlocked: %s"
 }
