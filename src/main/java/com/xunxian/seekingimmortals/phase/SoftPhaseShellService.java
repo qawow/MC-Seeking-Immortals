@@ -11,6 +11,10 @@ import java.util.Map;
 /**
  * Soft runtime shells for roadmap Phase 12-18.
  * Wave463: mark packages start linked text-quest chains and support enter.
+ * <p>
+ * M05 note: numeric new-game-plus / difficulty {@code price_mod} is owned by
+ * {@link com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService}, not this shell.
+ * Soft phases remain narrative unlock flags only.
  */
 public final class SoftPhaseShellService {
     private static final String ROOT = "seeking_immortals_soft_phases";

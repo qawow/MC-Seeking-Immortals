@@ -5,6 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
+import com.xunxian.seekingimmortals.catalog.MarketPriceService;
+import com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService;
+import com.xunxian.seekingimmortals.catalog.TradeRouteEconomyService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.network.SyncShopDataPacket;
 import com.xunxian.seekingimmortals.quest.QuestProgress;
@@ -61,6 +64,7 @@ public final class ShopService {
     public static final String RANK_OUTER_DISCIPLE = "outer_disciple";
     public static final String RANK_INNER_DISCIPLE = "inner_disciple";
     public static final String RANK_CORE_DISCIPLE = "core_disciple";
+    public static final PurchaseStatus BLOCKED_ITEM_STATUS = PurchaseStatus.BAD_ITEM;
 
     private static final Map<String, Shop> CACHE = new ConcurrentHashMap<>();
     private static final Map<String, StockState> STOCK_CACHE = new ConcurrentHashMap<>();
@@ -256,12 +260,13 @@ public final class ShopService {
         List<ShopEntryData> entries = shop.entries().stream()
                 .map(entry -> {
                     StockPreview stock = stockPreview(shopId, entry, gameTime);
-                    boolean locked = entry.hasRankRequirement() && !meetsRankRequirement(entry, sectStage);
+                    boolean blocked = MarketPriceService.isBlockedFromOpenMarket(entry.itemId());
+                    boolean locked = blocked || (entry.hasRankRequirement() && !meetsRankRequirement(entry, sectStage));
                     return new ShopEntryData(
                             entry.id(),
                             itemDescriptionId(entry),
                             entry.count(),
-                            adjustedCost(shop.id(), entry, costModifier),
+                            adjustedCost(player, shop.id(), entry, costModifier),
                             entry.currency(),
                             currencyDescriptionId(entry),
                             stock.remainingStock(),
@@ -281,6 +286,9 @@ public final class ShopService {
         Entry entry = entryOptional.get();
         if (!CURRENCY_SECT_CONTRIBUTION.equals(entry.currency())) {
             return new PurchaseResult(PurchaseStatus.UNSUPPORTED_CURRENCY, entry, null, progress.getContribution());
+        }
+        if (MarketPriceService.isBlockedFromOpenMarket(entry.itemId())) {
+            return new PurchaseResult(BLOCKED_ITEM_STATUS, entry, null, progress.getContribution());
         }
         Item item = resolveItem(entry.itemId());
         if (item == null || item == Items.AIR) {
@@ -318,7 +326,10 @@ public final class ShopService {
             return new PurchaseResult(PurchaseStatus.UNKNOWN_ENTRY, null, null, -1);
         }
         Entry entry = entryOptional.get();
-        int adjustedCost = adjustedCost(shopId, entry, costModifier);
+        if (MarketPriceService.isBlockedFromOpenMarket(entry.itemId())) {
+            return new PurchaseResult(BLOCKED_ITEM_STATUS, entry, null, -1);
+        }
+        int adjustedCost = adjustedCost(player, shopId, entry, costModifier);
         if (!CURRENCY_ITEM.equals(entry.currency())) {
             return new PurchaseResult(PurchaseStatus.UNSUPPORTED_CURRENCY, entry, null, -1);
         }
@@ -367,16 +378,32 @@ public final class ShopService {
     }
 
     public static int adjustedCost(String shopId, Entry entry, CostModifier modifier) {
+        return adjustedCost(null, shopId, entry, modifier);
+    }
+
+    public static int adjustedCost(ServerPlayer player, String shopId, Entry entry, CostModifier modifier) {
+        if (entry == null) {
+            return 1;
+        }
         CostModifier safeModifier = modifier == null ? CostModifier.NONE : modifier;
-        return Math.max(1, safeModifier.adjustCost(shopId == null ? "" : shopId, entry, entry.cost()));
+        String region = TradeRouteEconomyService.shopRegion(shopId).orElse("");
+        double routeMod = TradeRouteEconomyService.priceModifier(region, entry.itemId());
+        double ngMod = player == null ? 1.0D : NewGamePlusEconomyService.priceModFor(player);
+        int economyCost = MarketPriceService.applyPricing(entry.itemId(), region, entry.cost(), routeMod, ngMod);
+        return Math.max(1, safeModifier.adjustCost(shopId == null ? "" : shopId, entry, economyCost));
     }
 
     public static int adjustedCost(Entry entry, CostModifier modifier) {
-        return adjustedCost("", entry, modifier);
+        return adjustedCost(null, "", entry, modifier);
     }
 
     public static int adjustedCostForTest(Entry entry, CostModifier modifier) {
         return adjustedCost(entry, modifier);
+    }
+
+    /** Region slug for a market/sect shop (merchant_shops corpus). Stable for M06 consumers. */
+    public static Optional<String> shopRegionId(String shopId) {
+        return TradeRouteEconomyService.shopRegion(shopId);
     }
 
     public static boolean meetsRankRequirement(Entry entry, int sectStage) {

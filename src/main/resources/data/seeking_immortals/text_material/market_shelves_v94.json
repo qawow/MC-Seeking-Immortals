@@ -1,0 +1,1123 @@
+{
+  "schema_version": 2,
+  "source": "汇编 v94 区域坊市货架。贴原著常见流通物；价为下品灵石量级可重平衡",
+  "disclaimer": "库存为结构权重，非逐日刷新表",
+  "global_rules": {
+    "tax_pct_default": 5,
+    "bargain_range": [
+      0.9,
+      1.05
+    ],
+    "identity_check": "结丹以上大宗坊市可扫储物气息",
+    "contraband": [
+      "禁术全本",
+      "通天灵宝",
+      "掌天瓶类",
+      "活人炉鼎可选关闭"
+    ]
+  },
+  "markets": [
+    {
+      "id": "tainan_xiaohui_stalls",
+      "display": "太南小会摊位",
+      "region": "tiannan",
+      "realm_focus": [
+        "MORTAL",
+        "QI_REFINING"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "炼气散",
+              "price": [
+                1,
+                10
+              ],
+              "stock": "high",
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true
+            },
+            {
+              "name": "养精丹",
+              "price": [
+                10,
+                50
+              ],
+              "stock": "mid",
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true
+            },
+            {
+              "name": "筑基丹",
+              "price": [
+                500,
+                2000
+              ],
+              "stock": "rare_event",
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true,
+              "adulteration_risk": 0.15,
+              "note_v144": "真货稀、掺假有；大晋/宗门更稳"
+            }
+          ]
+        },
+        {
+          "cat": "tool",
+          "items": [
+            {
+              "name": "下品飞剑",
+              "price": [
+                5,
+                40
+              ]
+            },
+            {
+              "name": "储物袋（小）",
+              "price": [
+                20,
+                80
+              ]
+            },
+            {
+              "name": "初级符（火球/金光盾）",
+              "price": [
+                1,
+                15
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "info",
+          "items": [
+            {
+              "name": "升仙令用途情报",
+              "price": [
+                10,
+                50
+              ],
+              "type": "service"
+            },
+            {
+              "name": "七派招收消息",
+              "price": [
+                5,
+                30
+              ]
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "凡人/炼气入门交易结构。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "huangfenggu_market",
+      "display": "黄枫谷坊市",
+      "region": "tiannan_yue",
+      "faction": "huangfeng_gu",
+      "realm_focus": [
+        "QI_REFINING",
+        "FOUNDATION"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "聚灵丹",
+              "price": [
+                20,
+                100
+              ],
+              "stock": "high",
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true
+            },
+            {
+              "name": "养精丹",
+              "price": [
+                10,
+                50
+              ],
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true
+            },
+            {
+              "name": "筑基丹（宗门配额外）",
+              "price": [
+                800,
+                2500
+              ],
+              "stock": "very_rare",
+              "note": "多被截购"
+            },
+            {
+              "name": "灵髓丸",
+              "price": [
+                80,
+                400
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "低阶灵草",
+              "price": [
+                2,
+                30
+              ]
+            },
+            {
+              "name": "炼器粗铁/灵木",
+              "price": [
+                5,
+                50
+              ]
+            },
+            {
+              "name": "符纸灵墨",
+              "price": [
+                3,
+                20
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "tool",
+          "items": [
+            {
+              "name": "中品法器",
+              "price": [
+                50,
+                300
+              ]
+            },
+            {
+              "name": "上品法器",
+              "price": [
+                200,
+                1500
+              ]
+            },
+            {
+              "name": "初级阵盘",
+              "price": [
+                100,
+                800
+              ]
+            },
+            {
+              "name": "地火室时租",
+              "price": [
+                20,
+                100
+              ],
+              "per": "日"
+            }
+          ]
+        },
+        {
+          "cat": "manual",
+          "items": [
+            {
+              "name": "基础法术玉简",
+              "price": [
+                30,
+                200
+              ]
+            },
+            {
+              "name": "残缺剑诀",
+              "price": [
+                100,
+                1000
+              ],
+              "stock": "low"
+            }
+          ]
+        }
+      ],
+      "contribution_shop": {
+        "currency": "sect_contribution",
+        "items": [
+          {
+            "name": "筑基丹名额",
+            "cost": [
+              500,
+              2000
+            ]
+          },
+          {
+            "name": "内门洞府权",
+            "cost": [
+              300,
+              1500
+            ]
+          },
+          {
+            "name": "青元剑诀前几层（弟子）",
+            "cost": "quest"
+          }
+        ]
+      },
+      "setting": {
+        "lore": "韩立早期常驻；丹药自炼+坊市补材。"
+      }
+    },
+    {
+      "id": "yuejing_secret_shop",
+      "display": "越京/王府周边秘店",
+      "region": "tiannan_yue",
+      "realm_focus": [
+        "FOUNDATION"
+      ],
+      "risk": "魔道渗透",
+      "shelves": [
+        {
+          "cat": "manual",
+          "items": [
+            {
+              "name": "弄焰诀",
+              "price": [
+                200,
+                1500
+              ]
+            },
+            {
+              "name": "敛息术",
+              "price": [
+                150,
+                1200
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "odd",
+          "items": [
+            {
+              "name": "来路不明符宝",
+              "price": [
+                100,
+                2000
+              ]
+            },
+            {
+              "name": "黑煞教线索",
+              "price": [
+                50,
+                300
+              ],
+              "type": "info"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tianxing_city_market",
+      "display": "天星城坊市",
+      "region": "chaotic_sea",
+      "realm_focus": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "金髓丸",
+              "price": [
+                200,
+                1200
+              ]
+            },
+            {
+              "name": "结丹辅助丹",
+              "price": [
+                2000,
+                15000
+              ],
+              "stock": "low"
+            },
+            {
+              "name": "海产疗伤丹",
+              "price": [
+                50,
+                500
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "六级海兽妖丹",
+              "price": [
+                800,
+                6000
+              ]
+            },
+            {
+              "name": "七级妖丹",
+              "price": [
+                3000,
+                20000
+              ]
+            },
+            {
+              "name": "金雷竹相关（极罕）",
+              "price": [
+                50000,
+                300000
+              ],
+              "stock": "event"
+            },
+            {
+              "name": "霓裳草",
+              "price": [
+                50,
+                400
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "tool",
+          "items": [
+            {
+              "name": "法宝胚",
+              "price": [
+                3000,
+                30000
+              ]
+            },
+            {
+              "name": "遁器",
+              "price": [
+                1000,
+                20000
+              ]
+            },
+            {
+              "name": "秘店顶级法器",
+              "price": [
+                2000,
+                25000
+              ],
+              "note": "天星宗坊市秘店结构"
+            }
+          ]
+        },
+        {
+          "cat": "service",
+          "items": [
+            {
+              "name": "炼器代工",
+              "price": [
+                500,
+                10000
+              ]
+            },
+            {
+              "name": "星宫执事疏通",
+              "price": [
+                1000,
+                20000
+              ],
+              "type": "bribe"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "乱星海内星海中枢；海兽材与结丹资源充足于天南。"
+      }
+    },
+    {
+      "id": "heishi_cujinge_market",
+      "display": "黑石城/寸金阁周边",
+      "region": "chaotic_sea_outer",
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "price_mod": 1.2,
+      "shelves": [
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "玛瑙角",
+              "price": [
+                8000,
+                45000
+              ]
+            },
+            {
+              "name": "外星海妖材",
+              "price": [
+                500,
+                30000
+              ]
+            },
+            {
+              "name": "千叶露",
+              "price": [
+                5000,
+                35000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "event",
+          "items": [
+            {
+              "name": "兽潮前囤货溢价",
+              "mod": 1.5
+            },
+            {
+              "name": "奇渊岛开发物资",
+              "price": [
+                100,
+                5000
+              ]
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "外星海据点；寸金阁拍卖与坊市联动。"
+      }
+    },
+    {
+      "id": "luoyun_zong_market",
+      "display": "落云宗/天道盟坊市",
+      "region": "tiannan",
+      "realm_focus": [
+        "CORE_FORMATION",
+        "NASCENT_SOUL"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "定灵丹（极罕流通）",
+              "price": [
+                30000,
+                120000
+              ],
+              "stock": "auction_prefer"
+            },
+            {
+              "name": "元婴修为丹",
+              "price": [
+                10000,
+                60000
+              ]
+            },
+            {
+              "name": "疗伤顶阶丹",
+              "price": [
+                2000,
+                20000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "庚精消息",
+              "price": [
+                1000,
+                5000
+              ],
+              "type": "info"
+            },
+            {
+              "name": "傀儡零件",
+              "price": [
+                500,
+                15000
+              ]
+            },
+            {
+              "name": "阵旗",
+              "price": [
+                200,
+                5000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "war",
+          "items": [
+            {
+              "name": "边功兑换入口",
+              "ref": "auction_catalog_v93#border_wager_reward"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "韩立归天南后常驻经济圈；元婴交易会辐射。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "tiannan_tiantian_city",
+      "display": "阗天城交易圈",
+      "region": "tiannan_border",
+      "realm_focus": [
+        "NASCENT_SOUL"
+      ],
+      "shelves": [
+        {
+          "cat": "barter",
+          "items": [
+            {
+              "name": "赤精芝",
+              "price": [
+                10000,
+                50000
+              ]
+            },
+            {
+              "name": "未认主法宝",
+              "price": [
+                20000,
+                120000
+              ]
+            },
+            {
+              "name": "上古傀儡",
+              "price": [
+                30000,
+                200000
+              ]
+            },
+            {
+              "name": "魄石",
+              "price": [
+                5000,
+                50000
+              ]
+            }
+          ]
+        }
+      ],
+      "mode": "exchange_first",
+      "setting": {
+        "lore": "天南交易会主场结构；以物易物优先。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "jinjing_surface",
+      "display": "晋京明面坊市",
+      "region": "dajin",
+      "price_mod": 1.3,
+      "realm_focus": [
+        "FOUNDATION",
+        "NASCENT_SOUL"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "筑基丹",
+              "price": [
+                500,
+                2000
+              ],
+              "price_ref": "item_price_quest_crosswalk_v143.json",
+              "v144_aligned": true,
+              "stock": "rare_event",
+              "adulteration_risk": 0.15,
+              "note_v144": "真货稀、掺假有；大晋/宗门更稳"
+            },
+            {
+              "name": "结丹/结婴辅助丹",
+              "price": [
+                5000,
+                100000
+              ]
+            },
+            {
+              "name": "培婴辅材成品",
+              "price": [
+                20000,
+                150000
+              ],
+              "stock": "low"
+            }
+          ]
+        },
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "庚精",
+              "price": [
+                25000,
+                120000
+              ],
+              "stock": "low"
+            },
+            {
+              "name": "晶化妖丹",
+              "price": [
+                8000,
+                50000
+              ]
+            },
+            {
+              "name": "傀儡材",
+              "price": [
+                3000,
+                80000
+              ]
+            },
+            {
+              "name": "姜黄晶",
+              "price": [
+                2000,
+                25000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "tool",
+          "items": [
+            {
+              "name": "高阶法宝",
+              "price": [
+                30000,
+                300000
+              ]
+            },
+            {
+              "name": "地符/天符",
+              "price": [
+                500,
+                100000
+              ]
+            },
+            {
+              "name": "炼器工坊时租",
+              "price": [
+                100,
+                2000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "manual",
+          "items": [
+            {
+              "name": "正道功法残卷",
+              "price": [
+                1000,
+                50000
+              ]
+            },
+            {
+              "name": "炼器入门至高阶玉简",
+              "price": [
+                500,
+                30000
+              ]
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "人界供给最足明面市场；价高于天南。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "jinjing_underground",
+      "display": "晋京地下秘市",
+      "region": "dajin",
+      "risk": [
+        "ambush",
+        "identity",
+        "demonic_flag"
+      ],
+      "price_mod": 0.9,
+      "shelves": [
+        {
+          "cat": "contraband",
+          "items": [
+            {
+              "name": "墨金",
+              "price": [
+                18000,
+                90000
+              ]
+            },
+            {
+              "name": "五行玉",
+              "price": [
+                12000,
+                80000
+              ]
+            },
+            {
+              "name": "禁术残篇",
+              "price": [
+                20000,
+                200000
+              ]
+            },
+            {
+              "name": "魔功玉简",
+              "price": [
+                15000,
+                150000
+              ]
+            },
+            {
+              "name": "来路不明古宝",
+              "price": [
+                80000,
+                600000
+              ]
+            },
+            {
+              "name": "魔髓钻收购席",
+              "type": "barter"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "韩立换庚精/五行玉结构；拍完易被跟踪。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "tianfu_men_shop",
+      "display": "天符门符市",
+      "region": "dajin",
+      "faction": "tianfu_men",
+      "shelves": [
+        {
+          "cat": "talisman",
+          "items": [
+            {
+              "name": "黄符批",
+              "price": [
+                1,
+                20
+              ]
+            },
+            {
+              "name": "玄符",
+              "price": [
+                30,
+                300
+              ]
+            },
+            {
+              "name": "地符",
+              "price": [
+                500,
+                8000
+              ]
+            },
+            {
+              "name": "化灵符（客卿/任务）",
+              "price": [
+                20000,
+                150000
+              ],
+              "stock": "quest"
+            },
+            {
+              "name": "降灵符（归还/交易）",
+              "price": [
+                5000,
+                80000
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "service",
+          "items": [
+            {
+              "name": "代画符",
+              "price": [
+                10,
+                5000
+              ]
+            },
+            {
+              "name": "灵影术传授（特殊）",
+              "price": "favor"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "符道中心；化灵符压箱底。"
+      },
+      "v144_economy_note": "关键丹药价格对齐 formulary/crosswalk；unique 不上市"
+    },
+    {
+      "id": "xiaojigong_trade",
+      "display": "小极宫交易",
+      "region": "dajin_ice",
+      "realm_focus": [
+        "NASCENT_SOUL"
+      ],
+      "shelves": [
+        {
+          "cat": "cold",
+          "items": [
+            {
+              "name": "玄冰花",
+              "price": [
+                15000,
+                90000
+              ]
+            },
+            {
+              "name": "万年玄玉",
+              "price": [
+                50000,
+                400000
+              ]
+            },
+            {
+              "name": "寒焰相关辅材",
+              "price": [
+                10000,
+                100000
+              ]
+            },
+            {
+              "name": "玄冰丹",
+              "price": [
+                15000,
+                80000
+              ]
+            }
+          ]
+        }
+      ],
+      "access": "关系/邀约",
+      "setting": {
+        "lore": "寒焰修士内部流通为主。"
+      }
+    },
+    {
+      "id": "tianyuan_city_market",
+      "display": "天渊城坊市",
+      "region": "spirit_realm",
+      "currency": [
+        "spirit_realm_stone",
+        "tianyuan_merit"
+      ],
+      "realm_focus": [
+        "DEITY_TRANSFORMATION",
+        "GREAT_VEHICLE"
+      ],
+      "shelves": [
+        {
+          "cat": "pill",
+          "items": [
+            {
+              "name": "玉清丹",
+              "merit": [
+                15,
+                40
+              ]
+            },
+            {
+              "name": "真蟾液",
+              "merit": [
+                30,
+                100
+              ]
+            },
+            {
+              "name": "腾龙丹材/成品",
+              "merit": [
+                20,
+                80
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "material",
+          "items": [
+            {
+              "name": "天雷木",
+              "merit": [
+                20,
+                80
+              ]
+            },
+            {
+              "name": "墨麒麟鳞",
+              "merit": [
+                40,
+                120
+              ]
+            },
+            {
+              "name": "雷纹传授",
+              "merit": [
+                10,
+                30
+              ],
+              "type": "service"
+            }
+          ]
+        },
+        {
+          "cat": "land",
+          "items": [
+            {
+              "name": "灵地租约",
+              "merit": [
+                30,
+                200
+              ]
+            },
+            {
+              "name": "护劫阵一次",
+              "merit": [
+                100,
+                100
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "gear",
+          "items": [
+            {
+              "name": "雷珠/雷帕材料包",
+              "merit": [
+                25,
+                90
+              ]
+            },
+            {
+              "name": "化神级法宝残",
+              "price_note": "灵界通货"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "飞升修士补给核心；青冥卫功勋可兑。"
+      }
+    },
+    {
+      "id": "diyuan_camp_vendor",
+      "display": "地渊营地补给",
+      "region": "spirit_realm_diyuan",
+      "currency": "tianyuan_merit",
+      "shelves": [
+        {
+          "cat": "consumable",
+          "items": [
+            {
+              "name": "疗伤灵药",
+              "merit": [
+                5,
+                25
+              ]
+            },
+            {
+              "name": "寒抗丹膳",
+              "merit": [
+                8,
+                30
+              ]
+            },
+            {
+              "name": "临时阵旗",
+              "merit": [
+                10,
+                40
+              ]
+            }
+          ]
+        },
+        {
+          "cat": "loot_sell",
+          "items": [
+            {
+              "name": "地渊妖材回收",
+              "rate": "0.4~0.7 估价"
+            }
+          ]
+        }
+      ],
+      "setting": {
+        "lore": "试炼/巡防临时货摊。"
+      }
+    },
+    {
+      "id": "sizhu_pre_mogin",
+      "display": "四族拍卖外围摊",
+      "region": "spirit_realm",
+      "realm_focus": [
+        "VOID_REFINEMENT",
+        "BODY_INTEGRATION"
+      ],
+      "shelves": [
+        {
+          "cat": "high",
+          "items": [
+            {
+              "name": "合体级材料碎",
+              "price_note": "灵界顶价"
+            },
+            {
+              "name": "魔金山脉情报",
+              "type": "info"
+            },
+            {
+              "name": "真灵血丝（传闻）",
+              "stock": "myth"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "restock_hints": {
+    "common": "日/周刷新",
+    "rare": "月/事件",
+    "unique": "任务绑定不刷新"
+  },
+  "v144_price_align": true,
+  "align_ref": "market_shelf_price_align_v144.json"
+}

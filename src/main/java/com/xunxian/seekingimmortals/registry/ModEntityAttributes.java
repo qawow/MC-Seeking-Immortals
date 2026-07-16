@@ -14,5 +14,6 @@ public final class ModEntityAttributes {
     public static void register(EntityAttributeCreationEvent event) {
         event.put(ModEntities.SECT_STEWARD.get(), Villager.createAttributes().build());
         event.put(ModEntities.MARKET_TRADER.get(), Villager.createAttributes().build());
+        event.put(ModEntities.SPIRIT_STONE_BANKER.get(), Villager.createAttributes().build());
     }
 }

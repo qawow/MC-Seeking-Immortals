@@ -15,4 +15,13 @@ class AuctionSoftServiceTest {
         AuctionSoftService.Venue wanbao = snapshot.findVenue("wanbao_auction").orElseThrow();
         assertEquals(0, wanbao.repMin(), "a fresh player must be able to place the first Wanbao bid");
     }
+
+    @Test
+    void mergesWanbaoFrameworkPool() {
+        AuctionSoftService.Snapshot snapshot = AuctionSoftService.builtin();
+        // economy_auction_bands has 4 lots; wanbao stock+lots add more framework entries
+        assertTrue(snapshot.lotCount() >= 8,
+                "expected bands+wanbao merged lots, got " + snapshot.lotCount());
+        assertTrue(snapshot.lots().stream().anyMatch(lot -> lot.id().startsWith("wanbao_")));
+    }
 }

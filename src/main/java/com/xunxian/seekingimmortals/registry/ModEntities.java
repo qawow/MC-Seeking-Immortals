@@ -6,6 +6,7 @@ import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import com.xunxian.seekingimmortals.entity.SpiritBoatEntity;
+import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
 import com.xunxian.seekingimmortals.entity.SwordProjectileEntity;
 import net.minecraft.world.entity.EntityType;
@@ -48,6 +49,12 @@ public final class ModEntities {
             .clientTrackingRange(10)
             .updateInterval(3)
             .build("market_trader"));
+
+    public static final RegistryObject<EntityType<SpiritStoneBankerEntity>> SPIRIT_STONE_BANKER = ENTITIES.register("spirit_stone_banker", () -> EntityType.Builder.<SpiritStoneBankerEntity>of(SpiritStoneBankerEntity::new, MobCategory.CREATURE)
+            .sized(0.6F, 1.95F)
+            .clientTrackingRange(10)
+            .updateInterval(3)
+            .build("spirit_stone_banker"));
 
     public static final RegistryObject<EntityType<SummonedServitorEntity>> SUMMONED_SERVITOR = ENTITIES.register("summoned_servitor", () -> EntityType.Builder.<SummonedServitorEntity>of(SummonedServitorEntity::new, MobCategory.CREATURE)
             .sized(0.7F, 1.9F)

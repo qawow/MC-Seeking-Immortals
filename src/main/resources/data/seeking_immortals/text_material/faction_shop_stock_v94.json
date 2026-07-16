@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v94 宗门/势力专属货架与贡献兑换",
+  "factions": [
+    {
+      "id": "huangfeng_gu",
+      "display": "黄枫谷",
+      "currency": "contribution",
+      "stock": [
+        {
+          "name": "筑基丹名额",
+          "cost": [
+            500,
+            2000
+          ],
+          "note_v144": "贡献名额，非坊市灵石价；灵石参考 500–2000",
+          "cash_ref_low": [
+            500,
+            2000
+          ],
+          "v144": true
+        },
+        {
+          "name": "聚灵丹批",
+          "cost": [
+            20,
+            100
+          ]
+        },
+        {
+          "name": "青元剑诀权限",
+          "cost": "disciple"
+        },
+        {
+          "name": "药园职",
+          "cost": "quest"
+        },
+        {
+          "name": "地火室时",
+          "cost": [
+            10,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yan_yue_zong",
+      "display": "掩月宗",
+      "stock": [
+        {
+          "name": "双修功法入门",
+          "cost": "inner"
+        },
+        {
+          "name": "魅术符",
+          "price": [
+            50,
+            500
+          ]
+        },
+        {
+          "name": "阳环/血魔相关（剧情）",
+          "stock": "quest"
+        }
+      ]
+    },
+    {
+      "id": "yuling_zong",
+      "display": "御灵宗",
+      "stock": [
+        {
+          "name": "驱虫术",
+          "cost": "disciple"
+        },
+        {
+          "name": "灵虫卵",
+          "price": [
+            100,
+            5000
+          ]
+        },
+        {
+          "name": "六翼霜蚣线索",
+          "type": "info"
+        }
+      ]
+    },
+    {
+      "id": "guiling_men",
+      "display": "鬼灵门",
+      "alignment": "demonic",
+      "stock": [
+        {
+          "name": "炼尸入门",
+          "cost": "inner"
+        },
+        {
+          "name": "鬼物",
+          "price": [
+            200,
+            20000
+          ]
+        },
+        {
+          "name": "坠魔令（事件）",
+          "stock": "event"
+        }
+      ]
+    },
+    {
+      "id": "hehuan_zong",
+      "display": "合欢宗",
+      "stock": [
+        {
+          "name": "合欢功残",
+          "cost": "inner"
+        },
+        {
+          "name": "魅香",
+          "price": [
+            50,
+            2000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "luoyun_zong",
+      "display": "落云宗",
+      "stock": [
+        {
+          "name": "长老库：元婴丹",
+          "cost": [
+            5000,
+            50000
+          ]
+        },
+        {
+          "name": "阵法支援",
+          "cost": "war_merit"
+        },
+        {
+          "name": "洞府升级",
+          "cost": [
+            2000,
+            20000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baiqiao_yuan",
+      "display": "百巧院",
+      "stock": [
+        {
+          "name": "奇门机关材",
+          "price": [
+            500,
+            30000
+          ]
+        },
+        {
+          "name": "巧器图纸",
+          "price": [
+            1000,
+            20000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "qianzhu_jiao",
+      "display": "千竹教",
+      "stock": [
+        {
+          "name": "大衍诀传承",
+          "cost": "true_disciple"
+        },
+        {
+          "name": "傀儡术",
+          "cost": "true_disciple"
+        },
+        {
+          "name": "魄石收购",
+          "price": [
+            5000,
+            50000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xinggong",
+      "display": "星宫",
+      "region": "chaotic_sea",
+      "stock": [
+        {
+          "name": "元磁神光功法（拉拢）",
+          "cost": "favor_quest"
+        },
+        {
+          "name": "元磁神山（剧情）",
+          "stock": "unique"
+        },
+        {
+          "name": "星宫令",
+          "price": [
+            1000,
+            10000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "miaoyin_men",
+      "display": "妙音门",
+      "stock": [
+        {
+          "name": "音律攻心符",
+          "price": [
+            200,
+            5000
+          ]
+        },
+        {
+          "name": "长老供奉俸禄",
+          "type": "income"
+        }
+      ]
+    },
+    {
+      "id": "tianfu_men",
+      "display": "天符门",
+      "stock": [
+        {
+          "name": "符谱",
+          "cost": "disciple"
+        },
+        {
+          "name": "化灵符",
+          "cost": "elder_favor"
+        },
+        {
+          "name": "降灵符服务",
+          "price": [
+            5000,
+            50000
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xiaojigong",
+      "display": "小极宫",
+      "stock": [
+        {
+          "name": "寒焰入门",
+          "cost": "inner"
+        },
+        {
+          "name": "玄冰花配额",
+          "price": [
+            15000,
+            90000
+          ]
+        },
+        {
+          "name": "藏经阁阅览",
+          "cost": "favor"
+        }
+      ]
+    },
+    {
+      "id": "yinluo_zong",
+      "display": "阴罗宗",
+      "alignment": "demonic",
+      "stock": [
+        {
+          "name": "鬼罗幡（内部）",
+          "cost": "core"
+        },
+        {
+          "name": "封魂咒相关",
+          "stock": "forbidden"
+        },
+        {
+          "name": "灭仙珠",
+          "cost": "elder"
+        }
+      ]
+    },
+    {
+      "id": "tianyuan_guard",
+      "display": "天渊卫",
+      "currency": "tianyuan_merit",
+      "stock": [
+        {
+          "name": "标准配发丹",
+          "merit": [
+            5,
+            20
+          ]
+        },
+        {
+          "name": "雷系制式物",
+          "merit": [
+            10,
+            50
+          ]
+        },
+        {
+          "name": "晋升考核券",
+          "merit": [
+            30,
+            80
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jiuguo_meng",
+      "display": "九国盟/边军",
+      "currency": "tiannan_war_merit",
+      "stock": [
+        {
+          "name": "庚精",
+          "merit": [
+            150,
+            300
+          ]
+        },
+        {
+          "name": "玄天仙藤根茎",
+          "merit": [
+            200,
+            400
+          ]
+        },
+        {
+          "name": "疗伤批",
+          "merit": [
+            10,
+            30
+          ]
+        }
+      ]
+    }
+  ],
+  "reputation_gates": {
+    "hostile": "拒售或涨价×2",
+    "neutral": "标准",
+    "friendly": "9折+任务货",
+    "exalted": "秘库开启"
+  },
+  "v144": true
+}
