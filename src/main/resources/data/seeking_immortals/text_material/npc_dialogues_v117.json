@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "source": "v117 NPC对话包",
+  "dialogues": [
+    {
+      "id": "dlg_zhao_deacon",
+      "npc": "npc_huangfeng_outer",
+      "scenes": [
+        {
+          "when": "first_meet",
+          "lines": [
+            "报上名来。",
+            "木灵根？先领长春功残页，别想一步登天。",
+            "筑基丹？贡献够了再问。"
+          ]
+        },
+        {
+          "when": "high_rep",
+          "lines": [
+            "你还算给谷里争脸。",
+            "地火室？我替你递个话。"
+          ]
+        },
+        {
+          "when": "low_rep",
+          "lines": [
+            "滚出山门。",
+            "再靠近巡卫的剑不长眼。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_outer。场景数 3。first_meet：报上名来。／木灵根？先领长春功残页，别想一步登天。／筑基丹？贡献够了再问。 high_rep：你还算给谷里争脸。／地火室？我替你递个话。 low_rep：滚出山门。／再靠近巡卫的剑不长眼。",
+      "display": "对话·npc_huangfeng_outer",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_dan_tang",
+      "npc": "npc_huangfeng_dan_tang",
+      "scenes": [
+        {
+          "when": "apprentice",
+          "lines": [
+            "火候数着，别跟我扯天赋。",
+            "炸炉赔灵石，没有例外。"
+          ]
+        },
+        {
+          "when": "ask_foundation",
+          "lines": [
+            "你听不见我说「不谈」吗？",
+            "有令再来。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_huangfeng_dan_tang。场景数 2。apprentice：火候数着，别跟我扯天赋。／炸炉赔灵石，没有例外。 ask_foundation：你听不见我说「不谈」吗？／有令再来。",
+      "display": "对话·npc_huangfeng_dan_tang",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_star_censor",
+      "npc": "npc_star_palace_censor",
+      "scenes": [
+        {
+          "when": "patrol",
+          "lines": [
+            "外海不是法外。",
+            "出示令牌。",
+            "通缉犯？束手。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_star_palace_censor。场景数 1。patrol：外海不是法外。／出示令牌。／通缉犯？束手。",
+      "display": "对话·npc_star_palace_censor",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_inverse_broker",
+      "npc": "npc_inverse_star_broker",
+      "scenes": [
+        {
+          "when": "trade",
+          "lines": [
+            "灵石先放桌上。",
+            "钥碎有货，你的命自己看着办。",
+            "星宫来了？我从不认识你。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_inverse_star_broker。场景数 1。trade：灵石先放桌上。／钥碎有货，你的命自己看着办。／星宫来了？我从不认识你。",
+      "display": "对话·npc_inverse_star_broker",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_blood_guard",
+      "npc": "npc_blood_forbidden_guard",
+      "scenes": [
+        {
+          "when": "entry",
+          "lines": [
+            "令。",
+            "假令？留下手。",
+            "进去别死在门口，晦气。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_blood_forbidden_guard。场景数 1。entry：令。／假令？留下手。／进去别死在门口，晦气。",
+      "display": "对话·npc_blood_forbidden_guard",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_nether_ferry",
+      "npc": "npc_nether_ferryman",
+      "scenes": [
+        {
+          "when": "cross",
+          "lines": [
+            "渡资。阴材或心愿。",
+            "神乳？你不该知道这个词。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_nether_ferryman。场景数 1。cross：渡资。阴材或心愿。／神乳？你不该知道这个词。",
+      "display": "对话·npc_nether_ferryman",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_jiuxian",
+      "npc": "npc_jiuxian_gatekeeper",
+      "scenes": [
+        {
+          "when": "gate",
+          "lines": [
+            "非大乘勿近。",
+            "闭关令。",
+            "峰顶不是给你们开黑的地方。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_jiuxian_gatekeeper。场景数 1。gate：非大乘勿近。／闭关令。／峰顶不是给你们开黑的地方。",
+      "display": "对话·npc_jiuxian_gatekeeper",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_tianyuan_clerk",
+      "npc": "npc_tianyuan_clerk",
+      "scenes": [
+        {
+          "when": "register",
+          "lines": [
+            "人界来的？放下架子。",
+            "功勋不够换什么换。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_tianyuan_clerk。场景数 1。register：人界来的？放下架子。／功勋不够换什么换。",
+      "display": "对话·npc_tianyuan_clerk",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_appraiser",
+      "npc": "npc_wandering_appraiser",
+      "scenes": [
+        {
+          "when": "identify",
+          "lines": [
+            "先付钱。",
+            "这丹是假的，壳子倒不错。",
+            "我嘴严，钱到位就行。"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_wandering_appraiser。场景数 1。identify：先付钱。／这丹是假的，壳子倒不错。／我嘴严，钱到位就行。",
+      "display": "对话·npc_wandering_appraiser",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    },
+    {
+      "id": "dlg_mulan_fashi",
+      "npc": "npc_mulan_fashi",
+      "scenes": [
+        {
+          "when": "war",
+          "lines": [
+            "圣禽不可猎。",
+            "天澜风起，跟不跟？"
+          ]
+        }
+      ],
+      "description": "【对话包】NPC npc_mulan_fashi。场景数 1。war：圣禽不可猎。／天澜风起，跟不跟？",
+      "display": "对话·npc_mulan_fashi",
+      "type": "npc_dialogue",
+      "tags": [
+        "dialogue_v117"
+      ]
+    }
+  ]
+}

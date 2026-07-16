@@ -404,8 +404,9 @@ public final class ModEvents {
         if (event.getLevel().isClientSide || !(event.getTarget() instanceof Villager villager)) return;
 
         Player player = event.getEntity();
-        if (player instanceof ServerPlayer serverPlayer && villager instanceof MarketTraderEntity) {
-            ShopService.openMarket(serverPlayer);
+        if (player instanceof ServerPlayer serverPlayer && villager instanceof MarketTraderEntity trader) {
+            // M12: named trader opens dialogue/shop via MarketTraderEntity; shelves still M05.
+            trader.openFor(serverPlayer);
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
             return;
@@ -413,7 +414,10 @@ public final class ModEvents {
         if (player instanceof ServerPlayer serverPlayer && villager instanceof SectStewardEntity steward) {
             // Wave489: steward interaction also marks escort-proxy daily progress.
             com.xunxian.seekingimmortals.sect.SectMissionGenerator.onStewardEscortMark(serverPlayer);
-            SectContributionService.handleStewardInteraction(serverPlayer, steward);
+            // M12: try named-NPC dialogue first; fall back to M08 sect hall business.
+            if (!steward.openDialogue(serverPlayer)) {
+                SectContributionService.handleStewardInteraction(serverPlayer, steward);
+            }
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
             return;

@@ -1,6 +1,18 @@
 {
   "schema_version": 2,
-  "note": "v138 扩写 archetypes 对话；详见 npc_dialogue_templates_v138.json",
+  "source": "v138 NPC 对话模板（可复用）",
+  "note": "按职能 archetype 组织；具名 NPC 挂 archetype + 专用钩子",
+  "tags": [
+    "greeting",
+    "quest_offer",
+    "quest_turnin",
+    "shop",
+    "travel",
+    "rep_gate",
+    "threat",
+    "lore",
+    "farewell"
+  ],
   "archetypes": [
     {
       "id": "sect_contribution_clerk",
@@ -322,17 +334,6 @@
       "branch_tree_id": "tree_secret_realm_guide"
     }
   ],
-  "dialogue_tags": [
-    "greeting",
-    "quest_offer",
-    "quest_turnin",
-    "shop",
-    "travel",
-    "rep_gate",
-    "threat",
-    "lore",
-    "farewell"
-  ],
   "named_npc_bindings": [
     {
       "npc_id": "npc_huangfeng_contribution",
@@ -367,7 +368,6 @@
       "archetype": "gray_guide"
     }
   ],
-  "v138": true,
   "branches_ref": "npc_dialogue_branches_v139.json",
   "v139": true,
   "v142": true

@@ -1,0 +1,584 @@
+{
+  "schema_version": 1,
+  "source": "v140 对话 effects ↔ 任务/原著锚点硬链接",
+  "disclaimer": "可玩绑定；quest id 可在实现时映射到任务表。贴原著事件用 novel_anchor 标注。",
+  "effect_types": [
+    "open_quest_board",
+    "offer_quest",
+    "turnin_quests",
+    "open_shop",
+    "grant_item",
+    "start_teleport",
+    "enter_instance",
+    "add_rep",
+    "deny_service",
+    "combat_flag",
+    "set_flag",
+    "mark_structure",
+    "start_travel",
+    "unlock",
+    "call_guard"
+  ],
+  "links": [
+    {
+      "effect": "open_shop:blood_forbidden_quota",
+      "quest_ids": [
+        "huangfeng_blood_quota",
+        "sect_blood_forbidden_quota"
+      ],
+      "novel_anchor": "七派炼气弟子血色禁地配额",
+      "instance": "blood_forbidden",
+      "item": "blood_forbidden_token"
+    },
+    {
+      "effect": "grant_item:blood_forbidden_token",
+      "quest_ids": [
+        "huangfeng_blood_quota"
+      ],
+      "novel_anchor": "试炼令/配额令",
+      "leads_to": "enter_instance:blood_forbidden"
+    },
+    {
+      "effect": "enter_instance:blood_forbidden",
+      "quest_ids": [
+        "blood_forbidden_run",
+        "nangong_wan_weight_optional"
+      ],
+      "novel_anchor": "血色禁地试炼；墨蛟/南宫婉为权重事件非强制",
+      "structures": [
+        "blood_forbidden_entry_stele",
+        "blood_forbidden_exit_array"
+      ],
+      "layer_diagram": "secret_realm_layer_diagrams_v140.json#blood_forbidden"
+    },
+    {
+      "effect": "open_shop:star_registration",
+      "quest_ids": [
+        "star_palace_register"
+      ],
+      "novel_anchor": "乱星海星宫登记秩序网",
+      "rep": "rep_star_palace"
+    },
+    {
+      "effect": "unlock:star_palace_teleport_gate",
+      "quest_ids": [
+        "star_palace_register"
+      ],
+      "structures": [
+        "star_palace_teleport_gate"
+      ],
+      "novel_anchor": "星宫传送网"
+    },
+    {
+      "effect": "mark_structure:inverse_star_smuggle_dock",
+      "quest_ids": [
+        "inverse_star_intro",
+        "inverse_cipher"
+      ],
+      "novel_anchor": "逆星盟暗港",
+      "rep": "rep_inverse_star",
+      "conflict_rep": "rep_star_palace"
+    },
+    {
+      "effect": "open_shop:inverse_black",
+      "quest_ids": [
+        "inverse_star_trade"
+      ],
+      "novel_anchor": "逆星走私货"
+    },
+    {
+      "effect": "set_flag:tianyuan_registered",
+      "quest_ids": [
+        "tianyuan_landing_register"
+      ],
+      "novel_anchor": "飞升落地登记",
+      "dimension": "tianyuan"
+    },
+    {
+      "effect": "teleport:spirit_fengyuan",
+      "quest_ids": [
+        "tianyuan_to_fengyuan_gate"
+      ],
+      "cost_contribution": 500,
+      "novel_anchor": "天渊管制门入风元",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "effect": "open_quest_board:tianyuan_garrison",
+      "quest_ids": [
+        "tianyuan_garrison_duty"
+      ],
+      "novel_anchor": "驻军贡献"
+    },
+    {
+      "effect": "offer_quest:zhenyan_outer_lesson",
+      "quest_ids": [
+        "zhenyan_outer_lesson"
+      ],
+      "chain": "xianjie / zhenyan",
+      "novel_anchor": "真言门外门授业",
+      "structure": "true_word_lecture_platform"
+    },
+    {
+      "effect": "offer_quest:wuxing_intro",
+      "quest_ids": [
+        "wuxing_intro",
+        "great_five_elements_intro"
+      ],
+      "novel_anchor": "大五行幻世入门（仙界可玩）",
+      "structure": "wuxing_world_seed_block",
+      "rep": "rep_zhenyan"
+    },
+    {
+      "effect": "open_shop:reincarnation_desk",
+      "quest_ids": [
+        "reincarnation_trade"
+      ],
+      "novel_anchor": "轮回殿交易",
+      "rep": "rep_reincarnation_hall"
+    },
+    {
+      "effect": "offer_quest:reincarnation_intro",
+      "quest_ids": [
+        "reincarnation_intro"
+      ],
+      "novel_anchor": "轮回殿跑腿引见"
+    },
+    {
+      "effect": "open_quest:court_hunt_gray",
+      "quest_ids": [
+        "court_hunt_gray",
+        "heavenly_court_wanted"
+      ],
+      "novel_anchor": "天庭缉灰",
+      "rep": "rep_heavenly_court"
+    },
+    {
+      "effect": "offer_quest:heifeng_gray_sail",
+      "quest_ids": [
+        "heifeng_gray_sail"
+      ],
+      "novel_anchor": "黑风海接灰界航",
+      "node": "node_immortal_heifeng"
+    },
+    {
+      "effect": "start_travel:gray_border",
+      "quest_ids": [
+        "gray_border_guide"
+      ],
+      "novel_anchor": "灰界边境引路",
+      "rep": "rep_gray_realm"
+    },
+    {
+      "effect": "enter_instance:xutian_hint",
+      "quest_ids": [
+        "xutian_window_prepare",
+        "xutian_key_fragment"
+      ],
+      "novel_anchor": "虚天殿开启窗口与钥/残图",
+      "instance": "xutian_palace",
+      "layer_diagram": "secret_realm_layer_diagrams_v140.json#xutian_palace",
+      "unique_loot_policy": "鼎/冰焰/补天丹等 unique 竞争"
+    },
+    {
+      "effect": "enter_instance:kunwu",
+      "quest_ids": [
+        "kunwu_clue_assemble",
+        "kunwu_expedition"
+      ],
+      "novel_anchor": "昆吾线索拼图入山",
+      "instance": "kunwu_mountain",
+      "layer_diagram": "secret_realm_layer_diagrams_v140.json#kunwu_mountain"
+    },
+    {
+      "effect": "enter_instance:zhuimo",
+      "quest_ids": [
+        "zhuimo_token",
+        "lingzhu_fruit_run"
+      ],
+      "novel_anchor": "坠魔令；灵烛果/造化一生一次",
+      "instance": "zhuimo_valley",
+      "layer_diagram": "secret_realm_layer_diagrams_v140.json#zhuimo_valley"
+    },
+    {
+      "effect": "enter_instance:yinyang",
+      "quest_ids": [
+        "yinyang_ku_intel",
+        "peiying_material_hunt"
+      ],
+      "novel_anchor": "阴阳窟阴芝马活捕、培婴",
+      "instance": "yinyang_ku"
+    },
+    {
+      "effect": "mark_structure:qianzhu_control_console",
+      "quest_ids": [
+        "qianzhu_tower_trial",
+        "dayan_clue"
+      ],
+      "novel_anchor": "千竹机关/大衍残篇不保底",
+      "instance": "thousand_bamboo_puppet_tower"
+    },
+    {
+      "effect": "start_teleport",
+      "quest_ids": [
+        "any_travel"
+      ],
+      "novel_anchor": "固定传送阵；打断见 seq_teleport_interrupt",
+      "structures": [
+        "teleport_array_pedestal"
+      ],
+      "fail_if_array": [
+        "damaged",
+        "disabled"
+      ]
+    }
+  ],
+  "quest_stub_catalog": [
+    {
+      "id": "huangfeng_blood_quota",
+      "display": "黄枫谷·禁地配额",
+      "region": "tiannan",
+      "novel": "血色禁地",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "blood_forbidden_run",
+      "display": "血色禁地试炼",
+      "region": "tiannan",
+      "novel": "血色禁地",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "nangong_wan_weight_optional",
+      "display": "墨蛟水潭事件权重（可选）",
+      "region": "blood_forbidden",
+      "novel": "南宫婉/墨蛟",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "star_palace_register",
+      "display": "星宫登记",
+      "region": "chaotic_sea",
+      "novel": "星宫",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "inverse_star_intro",
+      "display": "逆星接头",
+      "region": "chaotic_sea",
+      "novel": "逆星盟",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "tianyuan_landing_register",
+      "display": "天渊落地登记",
+      "region": "tianyuan",
+      "novel": "飞升",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "tianyuan_to_fengyuan_gate",
+      "display": "界门入风元",
+      "region": "tianyuan",
+      "novel": "灵界",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "zhenyan_outer_lesson",
+      "display": "真言外门听法",
+      "region": "xianjie",
+      "novel": "真言门",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "wuxing_intro",
+      "display": "大五行幻世入门",
+      "region": "xianjie",
+      "novel": "五行幻世",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "reincarnation_intro",
+      "display": "轮回殿引见",
+      "region": "xianjie",
+      "novel": "轮回殿",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "court_hunt_gray",
+      "display": "天庭缉灰",
+      "region": "xianjie",
+      "novel": "天庭/灰界",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "heifeng_gray_sail",
+      "display": "黑风接灰界",
+      "region": "heifeng",
+      "novel": "黑风海",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "xutian_window_prepare",
+      "display": "虚天窗口筹备",
+      "region": "chaotic_sea_or_dajin",
+      "novel": "虚天殿",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "kunwu_clue_assemble",
+      "display": "昆吾线索拼合",
+      "region": "dajin",
+      "novel": "昆吾山",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "zhuimo_token",
+      "display": "坠魔令获取",
+      "region": "high_mortal",
+      "novel": "坠魔谷",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "lingzhu_fruit_run",
+      "display": "灵烛果争夺",
+      "region": "zhuimo",
+      "novel": "灵烛果/造化",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "yinyang_ku_intel",
+      "display": "阴阳窟情报",
+      "region": "dajin",
+      "novel": "阴阳窟",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "peiying_material_hunt",
+      "display": "培婴材料（阴芝马）",
+      "region": "yinyang_ku",
+      "novel": "培婴丹",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "qianzhu_tower_trial",
+      "display": "千竹塔试炼",
+      "region": "west_or_sea",
+      "novel": "千竹/大衍",
+      "expanded_in": "quest_chains_playable_v141.json"
+    },
+    {
+      "id": "dayan_clue",
+      "display": "大衍残篇线索",
+      "region": "qianzhu",
+      "novel": "大衍决",
+      "expanded_in": "quest_chains_playable_v141.json"
+    }
+  ],
+  "xianjie_chain_hooks_imported": [
+    {
+      "chain": "xianjie_ascension_path",
+      "hook": "tribulation_land_final",
+      "summary": "人界渡劫"
+    },
+    {
+      "chain": "xianjie_ascension_path",
+      "hook": "ascend_light",
+      "summary": "飞升光门"
+    },
+    {
+      "chain": "xianjie_ascension_path",
+      "hook": "xianjie_landing",
+      "summary": "仙界落地适应仙灵力"
+    },
+    {
+      "chain": "xianjie_ascension_path",
+      "hook": "choose_first_camp",
+      "summary": "初选真言/散修/黑风等"
+    },
+    {
+      "chain": "zhenyan_men_path",
+      "hook": "zhenyan_entry_trial",
+      "summary": "入门试真言"
+    },
+    {
+      "chain": "zhenyan_men_path",
+      "hook": "true_word_practice",
+      "summary": "真言诀修成"
+    },
+    {
+      "chain": "zhenyan_men_path",
+      "hook": "wuxing_seed_trial",
+      "summary": "幻世种子试炼"
+    },
+    {
+      "chain": "zhenyan_men_path",
+      "hook": "elder_mission",
+      "summary": "长老任务"
+    },
+    {
+      "chain": "zhenyan_men_path",
+      "hook": "wuxing_full_world_insight",
+      "summary": "大五行幻世感悟"
+    },
+    {
+      "chain": "time_law_path",
+      "hook": "time_fragment_find",
+      "summary": "得时间法则机缘"
+    },
+    {
+      "chain": "time_law_path",
+      "hook": "time_slow_mastery",
+      "summary": "迟滞域小成"
+    },
+    {
+      "chain": "time_law_path",
+      "hook": "time_lock_trial",
+      "summary": "时锁试炼"
+    },
+    {
+      "chain": "time_law_path",
+      "hook": "reversion_fragment",
+      "summary": "逆转残篇"
+    },
+    {
+      "chain": "reincarnation_hall_path",
+      "hook": "hall_contact",
+      "summary": "接触轮回殿"
+    },
+    {
+      "chain": "reincarnation_hall_path",
+      "hook": "first_trade",
+      "summary": "首次交易"
+    },
+    {
+      "chain": "reincarnation_hall_path",
+      "hook": "soul_mark_mission",
+      "summary": "轮回印任务"
+    },
+    {
+      "chain": "reincarnation_hall_path",
+      "hook": "judgment_witness",
+      "summary": "见证裁断"
+    },
+    {
+      "chain": "heifeng_and_gray",
+      "hook": "heifeng_sail",
+      "summary": "黑风航行"
+    },
+    {
+      "chain": "heifeng_and_gray",
+      "hook": "storm_tribulation",
+      "summary": "风劫"
+    },
+    {
+      "chain": "heifeng_and_gray",
+      "hook": "gray_border",
+      "summary": "灰界边境"
+    },
+    {
+      "chain": "heifeng_and_gray",
+      "hook": "nether_escape",
+      "summary": "冥渡脱困"
+    },
+    {
+      "chain": "xianjie_endgame_glimpse",
+      "hook": "daluo_threshold",
+      "summary": "大罗门槛"
+    },
+    {
+      "chain": "xianjie_endgame_glimpse",
+      "hook": "law_fusion",
+      "summary": "多法则融合叙事"
+    },
+    {
+      "chain": "xianjie_endgame_glimpse",
+      "hook": "dao_glimpse",
+      "summary": "道祖窥影"
+    }
+  ],
+  "dialogue_tree_effect_index": [
+    {
+      "tree": "tree_sect_contribution_clerk",
+      "effects": [
+        "open_quest_board",
+        "open_shop:blood_forbidden_quota",
+        "grant_item:blood_forbidden_token",
+        "turnin_quests"
+      ]
+    },
+    {
+      "tree": "tree_teleport_array_keeper",
+      "effects": [
+        "start_teleport",
+        "hint:structure_repair_bench"
+      ]
+    },
+    {
+      "tree": "tree_star_palace_registrar",
+      "effects": [
+        "open_shop:star_registration",
+        "unlock:star_palace_teleport_gate",
+        "add_rep:rep_star_palace"
+      ]
+    },
+    {
+      "tree": "tree_inverse_star_contact",
+      "effects": [
+        "mark_structure:inverse_star_smuggle_dock",
+        "open_shop:inverse_black",
+        "combat_flag"
+      ]
+    },
+    {
+      "tree": "tree_tianyuan_registrar",
+      "effects": [
+        "set_flag:tianyuan_registered",
+        "teleport:spirit_fengyuan",
+        "open_quest_board:tianyuan_garrison"
+      ]
+    },
+    {
+      "tree": "tree_zhenyan_lecturer",
+      "effects": [
+        "offer_quest:zhenyan_outer_lesson",
+        "offer_quest:wuxing_intro"
+      ]
+    },
+    {
+      "tree": "tree_reincarnation_clerk",
+      "effects": [
+        "open_shop:reincarnation_desk",
+        "offer_quest:reincarnation_intro"
+      ]
+    },
+    {
+      "tree": "tree_heavenly_inspector",
+      "effects": [
+        "open_quest:court_hunt_gray",
+        "combat_or_arrest"
+      ]
+    },
+    {
+      "tree": "tree_heifeng_captain",
+      "effects": [
+        "offer_quest:heifeng_gray_sail",
+        "start_travel:heifeng_sea"
+      ]
+    },
+    {
+      "tree": "tree_gray_guide",
+      "effects": [
+        "start_travel:gray_border"
+      ]
+    },
+    {
+      "tree": "tree_secret_realm_guide",
+      "effects": [
+        "enter_instance:blood_forbidden"
+      ]
+    }
+  ],
+  "playable_chains_ref": "quest_chains_playable_v141.json",
+  "v141": true
+}

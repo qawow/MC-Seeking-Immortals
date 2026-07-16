@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v97 具名 NPC/事件战利品与剧情奖励（贴原著节点）",
+  "disclaimer": "guaranteed 为剧情向；概率为结构",
+  "entries": [
+    {
+      "id": "mo_daifu",
+      "display": "墨大夫",
+      "realm": "QI_REFINING_PEAK_fake",
+      "context": "夺舍反杀",
+      "guaranteed": ["长春功相关", "小瓶机缘触发(剧情)", "医术残"],
+      "description": "凡人开局关键；瓶为世界唯一规则物。"
+    },
+    {
+      "id": "jin_guang_shangren",
+      "display": "金光上人",
+      "realm": "QI_REFINING",
+      "guaranteed": ["小剑符宝", "升仙令"],
+      "description": "野狼帮线；入仙门票来源之一。"
+    },
+    {
+      "id": "ouyang_feitian",
+      "display": "欧阳飞天",
+      "guaranteed": ["暖阳宝玉"],
+      "description": "墨家解毒线。"
+    },
+    {
+      "id": "lu_shixiong",
+      "display": "陆师兄",
+      "realm": "QI_REFINING",
+      "guaranteed": ["筑基丹×2结构", "法器"],
+      "description": "陈巧倩事件；丹可自用或卖。"
+    },
+    {
+      "id": "mo_jiao_event",
+      "display": "墨蛟（血色）",
+      "guaranteed": ["墨蛟材"],
+      "optional": ["淫囊剧情"],
+      "description": "与南宫婉联手。"
+    },
+    {
+      "id": "wang_chan",
+      "display": "王蝉",
+      "realm": "FOUNDATION",
+      "faction": "鬼灵门",
+      "loot_table": "foundation_elite+demonic",
+      "heat": "鬼灵门仇恨+",
+      "description": "燕翎堡追杀线。"
+    },
+    {
+      "id": "tunnel_scramble",
+      "display": "灵矿地道混战",
+      "guaranteed_pool": ["血玉蜘蛛卵", "古传送阵组件", "大挪移令"],
+      "note": "三关键物可分配权重，建议唯一",
+      "description": "魔道袭矿后路线改变级掉落。"
+    },
+    {
+      "id": "heisha_jiao",
+      "display": "黑煞教",
+      "guaranteed_pool": ["虚天残图", "五行血凝丹", "邪修袋"],
+      "description": "覆灭黑煞教。"
+    },
+    {
+      "id": "yuling_core",
+      "display": "御灵宗结丹夺舍曲魂者",
+      "guaranteed": ["绿煌剑等法宝结构"],
+      "description": "嘉元城线。"
+    },
+    {
+      "id": "xin_ruyin_gift",
+      "display": "辛如音赠物",
+      "type": "reward_not_loot",
+      "guaranteed": ["阵法相关赠礼", "情谊道具"],
+      "description": "撤离越国线。"
+    },
+    {
+      "id": "gu_zhanglao",
+      "display": "古长老（六连殿）",
+      "realm": "CORE_FORMATION",
+      "guaranteed": ["降尘丹", "混元钵", "储物袋"],
+      "description": "婴鲤兽后杀人灭口反杀。"
+    },
+    {
+      "id": "jiyin",
+      "display": "极阴",
+      "realm": "NASCENT_SOUL",
+      "loot_note": "强敌，完整击杀极难；后期可交蛮胡子",
+      "rewards_if_win": ["玄阴相关", "储物重宝"],
+      "description": "虚天殿与乱星海阴影。"
+    },
+    {
+      "id": "xuangui",
+      "display": "玄骨",
+      "realm": "NASCENT_SOUL",
+      "guaranteed_if_win": ["虚天鼎争夺权", "曲魂身躯线"],
+      "description": "虚天殿火并。"
+    },
+    {
+      "id": "xutian_clear",
+      "display": "虚天殿收获包",
+      "guaranteed_pool": ["九曲灵参", "玉如意", "补天丹争夺", "虚天鼎", "乾蓝冰焰", "玄阴经", "万年灵乳", "养魂木"],
+      "unique": true,
+      "description": "顶副本奖励池。"
+    },
+    {
+      "id": "fengxi_line",
+      "display": "风希线",
+      "rewards": ["碧焰酒", "风雷翅（抢）", "毒蛟材"],
+      "risk": "双妖追杀",
+      "description": "结丹后期突破与遁器。"
+    },
+    {
+      "id": "wen_tianren",
+      "display": "温天仁",
+      "realm": "CORE_plus",
+      "note": "阴冥法力受限时可以凡武杀",
+      "loot": "魔道储物",
+      "description": "六道传人结构。"
+    },
+    {
+      "id": "nether_clear",
+      "display": "阴冥之地",
+      "guaranteed_pool": ["阴灵水", "魄石大量", "降灵线索"],
+      "description": "啼魂进阶环境。"
+    },
+    {
+      "id": "yunmeng_trial",
+      "display": "试剑大会/云梦",
+      "guaranteed_pool": ["定灵丹", "灵眼树根", "明清灵水线索"],
+      "description": "结婴辅助包。"
+    },
+    {
+      "id": "tiannan_trade",
+      "display": "天南交易会",
+      "barter": ["赤精芝", "上古傀儡术", "困仙环类"],
+      "description": "以物易物。"
+    },
+    {
+      "id": "yanyue_escape",
+      "display": "掩月宗带走南宫婉",
+      "guaranteed": ["血魔剑", "阳环", "道侣线"],
+      "description": "非纯击杀掉落。"
+    },
+    {
+      "id": "yinluo_silao",
+      "display": "阴罗宗四长老",
+      "guaranteed": ["鬼罗幡", "炼尸之法", "解封魂动机"],
+      "description": "大庚剑阵赴约。"
+    },
+    {
+      "id": "border_wager",
+      "display": "边界赌战",
+      "rewards": ["庚精", "玄天仙藤根茎", "元明灯", "军功"],
+      "description": "陆夫人等击杀+赏库。"
+    },
+    {
+      "id": "dayan_shenjun",
+      "display": "大衍神君",
+      "type": "交易/传承",
+      "rewards": ["大衍诀完善", "傀儡术", "土甲龙"],
+      "cost": "助其了愿",
+      "description": "极西线。"
+    },
+    {
+      "id": "zhuimo_outer",
+      "display": "坠魔谷外谷",
+      "guaranteed_pool": ["罡银沙", "七焰扇法", "火蟾蟒兽丹"],
+      "description": "与南陇侯线。"
+    },
+    {
+      "id": "lingzhu_path",
+      "display": "灵烛果线",
+      "guaranteed": ["灵烛果", "造化丹机会"],
+      "partner": "紫灵",
+      "description": "摘果限时。"
+    },
+    {
+      "id": "xueyan_main",
+      "display": "血焰主魂",
+      "rewards_if_survive": ["灵缈园大量灵药", "闭关资源"],
+      "loss_risk": ["青竹剑被夺两柄"],
+      "description": "高死亡率事件。"
+    },
+    {
+      "id": "moyuan_repair",
+      "display": "魔气之渊任务",
+      "guaranteed": ["魔髓钻", "叱灵软玉", "灵鳌岛封赏结构"],
+      "description": "修鬼罗幡+三大修士人情。"
+    },
+    {
+      "id": "xuanye_wang",
+      "display": "炫烨王",
+      "type": "赠/合作",
+      "guaranteed": ["金刚罩", "天尸珠", "晶化妖丹关联"],
+      "description": "参王大会后线。"
+    },
+    {
+      "id": "fengjia_miku",
+      "display": "冯家密窟",
+      "guaranteed": ["明王诀"],
+      "description": "佛门炼体拼图。"
+    },
+    {
+      "id": "xiao_laoer",
+      "display": "肖老儿",
+      "guaranteed": ["寒髓"],
+      "description": "敲诈反杀。"
+    },
+    {
+      "id": "underground_auction_han",
+      "display": "晋京地下拍（韩立）",
+      "barter_out": ["魔髓钻"],
+      "barter_in": ["墨金", "五行玉", "庚精"],
+      "risk": "暴露追杀",
+      "description": "黑市名场面。"
+    },
+    {
+      "id": "kuzhu_laoren",
+      "display": "苦竹老人",
+      "type": "比试",
+      "guaranteed": ["乌凤之翎"],
+      "description": "胜后交付。"
+    },
+    {
+      "id": "yinyangku_run",
+      "display": "阴阳窟",
+      "guaranteed_pool": ["阴芝马", "银翅夜叉材"],
+      "fail_risk": "团灭/被昆吾传送打断",
+      "description": "培婴丹前端。"
+    },
+    {
+      "id": "kunwu_full",
+      "display": "昆吾山",
+      "guaranteed_pool": [
+        "培婴丹",
+        "天晶碑",
+        "太阴真火",
+        "通灵火鼎",
+        "圭灵牌",
+        "书卷",
+        "五子同心魔",
+        "鬼罗幡",
+        "降魔杖",
+        "八灵尺",
+        "黑风旗残",
+        "血刃",
+        "破界符",
+        "空间节点资料",
+        "夺回青竹剑"
+      ],
+      "unique": true,
+      "description": "人界顶奖励池；死亡率极高。"
+    },
+    {
+      "id": "qian_laomo",
+      "display": "乾老魔",
+      "guaranteed": ["五子同心魔", "鬼罗幡", "降魔杖可能"],
+      "description": "北极元光截杀。"
+    },
+    {
+      "id": "xiaojigong_betray",
+      "display": "小极宫寒焰修士反目",
+      "guaranteed": ["五种寒焰", "万年玄玉", "乾蓝鼎", "灭仙珠结构"],
+      "description": "冲阶失败夺鼎。"
+    },
+    {
+      "id": "jiyin_late",
+      "display": "极阴（后期）",
+      "rewards": ["交蛮胡子", "托天魔功", "洞府遗宝"],
+      "description": "碧灵岛线。"
+    },
+    {
+      "id": "manhuzi_cache",
+      "display": "蛮胡子洞府",
+      "guaranteed": ["托天魔功", "遗宝", "银蝌文后开启"],
+      "description": "拼梵圣真魔功。"
+    },
+    {
+      "id": "jinjiaowang",
+      "display": "金蛟王",
+      "guaranteed_pool": ["金属性妖丹", "极品灵石争夺", "龙鳞果/淬骨诀线索"],
+      "description": "外星海。"
+    },
+    {
+      "id": "jinhua_laozu",
+      "display": "金花老祖",
+      "guaranteed": ["天阙玉书残"],
+      "description": "魔湖岛。"
+    },
+    {
+      "id": "hu_laomo_purple",
+      "display": "呼老魔处救紫灵",
+      "cost": ["寒髓或等价"],
+      "rewards": ["紫灵自由", "魔元丹(玄玉换)"],
+      "description": "魔陀山。"
+    },
+    {
+      "id": "huoyu_taiyang",
+      "display": "火狱",
+      "guaranteed": ["太阳精火"],
+      "description": "回阳真水前置。"
+    },
+    {
+      "id": "maliang",
+      "display": "真仙马良",
+      "rewards_if_win": ["真魂丹", "盗天瓶相关", "斩元仙剑残", "仙灵宝鉴等"],
+      "description": "灵界终局级之一；非人界。"
+    },
+    {
+      "id": "guanghan_clear",
+      "display": "广寒界",
+      "guaranteed_pool": ["炼神术", "太乙青山", "虚灵丹", "金篆文", "海量仙药"],
+      "description": "炼虚飞跃包。"
+    },
+    {
+      "id": "lingyuling_gift",
+      "display": "凌玉灵/星宫",
+      "type": "关系奖励",
+      "pool": ["元磁神山", "元磁神光功法", "三次援手契约"],
+      "description": "拉拢与交易。"
+    },
+    {
+      "id": "nangongwan_gift",
+      "display": "南宫婉",
+      "type": "道侣",
+      "pool": ["六丁天甲符", "双修辅助", "落云归属"],
+      "description": "情感线关键道具。"
+    },
+    {
+      "id": "ziling_coop",
+      "display": "紫灵协作",
+      "pool": ["坠魔灵烛", "情谊", "后期魔界线"],
+      "description": "多次并肩。"
+    },
+    {
+      "id": "yuanyao_gift",
+      "display": "元瑶",
+      "pool": ["啼魂兽", "万年灵乳", "阵法", "阴冥线"],
+      "description": "灵兽与阴冥关键。"
+    }
+  ],
+  "design_rules": {
+    "unique_world": ["掌天瓶", "虚天鼎默认", "八灵尺", "详尽节点资料"],
+    "account_bind_quest": ["大挪移令", "古传送修复"],
+    "pvp_heat": "杀具名正道长老→悬赏"
+  }
+}

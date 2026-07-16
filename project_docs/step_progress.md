@@ -1,3 +1,47 @@
+## 461. 2026-07-17 M10 / M12 主线集成
+
+  Step   Status   Notes
+  ---   ---   ---
+  Diff review                          Done M10 32 files（+39,246/-730）；M12 33 files（+9,213/-467）；两边 diff --check 通过
+  Backup                               Done `.bak/20260717_032749_merge_m10_m12/`
+  Merge M10                            Done `9bb9a5c0` → `9a269e17` fast-forward
+  Merge M12                            Done 仅 ai_handoff 首行冲突；保留 M10/M12 两条记录，ModEvents 自动合并双路径
+  Version/protocol                     Done `0.1.506` → `0.1.507`；DialogueActionPacket wire format 未变，protocol 保持 21
+  Full verification                    Done `./gradlew build` BUILD SUCCESSFUL in 1m13s（11 tasks）
+  Update note                          Done `project_docs/updates/20260717_merge_m10_m12.md`
+
+## 460. 2026-07-17 M12 NPC 与对话落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_030507_m12_npc_dialogue/`
+  Publish corpus                       Done named_npcs/templates/branches/loot/vendor → text_material
+  NamedNpcRegistry                   Done v116+seeds+bindings；region/role/shop/tree
+  DialogueTemplate + Branch runtime    Done v138 archetypes + v139 trees/condition ops
+  NpcDialogueApi + Event              Done startDialogue/selectNext + DialogueNodeReachedEvent
+  Action executor + rewards            Done open_shop/grant_item/teleport…；v97 幂等 claimed
+  Favor / flags                        Done player persistent NBT
+  Entity AI + spawn                    Done SectSteward/MarketTrader 驻点作息；NpcSpawnService
+  Packet routing                       Done DialogueActionPacket 兼容 M12 session（字段未改）
+  Commands                             Done `/seeking_immortals npc …`
+  Tests                                Done npc/* 聚焦绿
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.506）；protocol 保持 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m12_npc_dialogue.md`
+
+## 459. 2026-07-17 M10 妖兽生态落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_030716_m10_beasts_ecology/`
+  Ecology corpus                       Done 图鉴/生态/区域刷怪/掉落/灵宠成长语料发布
+  Runtime services                     Done 图鉴、阶位、掉落、灵宠、傀儡、Boss、解锁服务
+  Integration hooks                    Done CaptureJar、契约、召唤代理、击杀掉落与图鉴解锁
+  Tests                                Done beast/* 与 BeastSpawnTableService 聚焦测试
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.506）；protocol 保持 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m10_beasts_ecology.md`
+
 ## 458. 2026-07-16 M08 宗门与势力落地
 
   Step   Status   Notes
@@ -7269,12 +7313,3 @@ zh_cn/en_us localization, vanilla-echo-shard item model, and text-material id-ma
   Verification   Done   Focused `FtbQuestSnbtTest` passed after the Tiannan bridge changes. Final current-tree `./gradlew --no-daemon --max-workers=1 build` passed with BUILD SUCCESSFUL and `aiPreflight` recorded `mod_version=0.1.365`; inherited network-package warning reviewed as unrelated to this FTB/docs recheck.
   Backup   Done   Existing docs were backed up to `.bak/20260707_0.1.365_current_tree_build_recheck/`; the new update note had no previous file to preserve.
   Follow-up   Pending   Audit inherited network-package diffs before release if packet formats changed; continue replacing FTB inventory checks with authoritative task/reward/state bridges; live-smoke portal/refinement/FTB flows.
-
-## M10 妖兽生态 2026-07-17
-
-- 状态：完成
-- 功能点：主数据/刷怪表/掉落/灵宠/傀儡/Boss/图鉴解锁/CaptureJar 阶位上限全部勾选
-- 构建：`bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true`
-- 版本：mod_version 不升（红线）；protocol 21 不变
-- 备份：`.bak/20260717_030716_m10_beasts_ecology/`
-- 更新笔记：`project_docs/updates/20260717_m10_beasts_ecology.md`
