@@ -194,9 +194,8 @@ public final class TechniqueDataManager {
     }
 
     private static Realm parseRealm(String id) {
-        if (id == null || id.isBlank()) return Realm.QI_REFINING;
-        try { return Realm.valueOf(id.toUpperCase(Locale.ROOT)); }
-        catch (IllegalArgumentException e) { return Realm.QI_REFINING; }
+        Realm realm = Realm.fromDesignId(id);
+        return realm == null ? Realm.QI_REFINING : realm;
     }
 
     public static double getBreakthroughQualityBonus(TechniqueEntry technique) {

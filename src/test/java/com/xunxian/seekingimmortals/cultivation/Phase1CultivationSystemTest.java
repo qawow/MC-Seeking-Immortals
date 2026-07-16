@@ -212,7 +212,8 @@ class Phase1CultivationSystemTest {
                 1.5D, 1.2D, 1.1D, 33.0D, 22.0D, 0.2D, 1.6D, 0.1D,
                 0.95D, 1.0D, 0.05D, 150, "天地灵气", 0.65D, 0.2D,
                 0.15D, 0.08D, 0.05D, 2, 1.0D, 1.1D, 1.2D, 1.3D,
-                1.4D, 1.5D, 6.0D, 7.0D);
+                1.4D, 1.5D, 6.0D, 7.0D,
+                "five_thunder", "orthodox", "human_cultivator", "");
         FriendlyByteBuf buffer = new FriendlyByteBuf(Unpooled.buffer());
         SyncCultivationDataPacket.encode(packet, buffer);
         SyncCultivationDataPacket decoded = SyncCultivationDataPacket.decode(buffer);
@@ -225,6 +226,8 @@ class Phase1CultivationSystemTest {
         assertEquals(1, decoded.tribulationCurrentStrike());
         assertEquals(3, decoded.tribulationTotalStrikes());
         assertEquals(40, decoded.tribulationNextStrikeTicks());
+        assertEquals("orthodox", decoded.cultivationPathId());
+        assertEquals("human_cultivator", decoded.playableRaceId());
     }
 
     @Test
@@ -315,15 +318,15 @@ class Phase1CultivationSystemTest {
 
     @Test
     void validatesTribulationWaveAndTriggerRules() {
-        // Aligned to 文本材料/data/tribulation_rules.json waves (minor=3, major=5, void=7, great-vehicle+=9)
+        // Aligned to 文本材料/data/tribulation_rules.json waves
         assertEquals(3, TribulationService.getStrikeCount(Realm.CORE_FORMATION));
         assertEquals(3, TribulationService.getStrikeCount(Realm.NASCENT_SOUL));
         assertEquals(5, TribulationService.getStrikeCount(Realm.SOUL_TRANSFORMATION));
-        assertEquals(7, TribulationService.getStrikeCount(Realm.VOID_REFINEMENT));
-        assertEquals(9, TribulationService.getStrikeCount(Realm.UNITY));
-        assertEquals(9, TribulationService.getStrikeCount(Realm.MAHAYANA));
-        assertEquals(9, TribulationService.getStrikeCount(Realm.TRIBULATION));
-        assertEquals(9, TribulationService.getStrikeCount(Realm.TRUE_IMMORTAL));
+        assertEquals(9, TribulationService.getStrikeCount(Realm.VOID_REFINEMENT));
+        assertEquals(12, TribulationService.getStrikeCount(Realm.UNITY));
+        assertEquals(18, TribulationService.getStrikeCount(Realm.MAHAYANA));
+        assertEquals(27, TribulationService.getStrikeCount(Realm.TRIBULATION));
+        assertEquals(27, TribulationService.getStrikeCount(Realm.TRUE_IMMORTAL));
 
         assertFalse(TribulationService.shouldTriggerAfterBreakthrough(Realm.QI_REFINING, Realm.FOUNDATION_ESTABLISHMENT));
         assertFalse(TribulationService.shouldTriggerAfterBreakthrough(Realm.FOUNDATION_ESTABLISHMENT, Realm.FOUNDATION_ESTABLISHMENT));

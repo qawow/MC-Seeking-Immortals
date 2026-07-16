@@ -83,7 +83,12 @@ public record SyncCultivationDataPacket(
         double meditationAuraMultiplier,
         double meditationTechniqueMultiplier,
         double meditationStoneBonus,
-        double meditationTotalPerSecond) {
+        double meditationTotalPerSecond,
+        // M01: 路线/种族/体质 id（登录同步，供下游门槛与 UI）
+        String constitutionId,
+        String cultivationPathId,
+        String playableRaceId,
+        String ghostPathStageId) {
     private static final int REALM_TEXT_LIMIT = 64;
     private static final int STAGE_TEXT_LIMIT = 64;
     private static final int ROOT_TEXT_LIMIT = 128;
@@ -92,6 +97,10 @@ public record SyncCultivationDataPacket(
     private static final int GOLD_CORE_TEXT_LIMIT = 64;
     private static final int TRIBULATION_TARGET_TEXT_LIMIT = 64;
     private static final int AURA_NATURE_TEXT_LIMIT = 64;
+    private static final int CONSTITUTION_TEXT_LIMIT = 64;
+    private static final int PATH_TEXT_LIMIT = 64;
+    private static final int RACE_TEXT_LIMIT = 64;
+    private static final int GHOST_STAGE_TEXT_LIMIT = 64;
 
     public static SyncCultivationDataPacket from(ServerPlayer player, PlayerCultivation cultivation) {
         SpiritualAuraManager.AuraInfo auraInfo = SpiritualAuraManager.getAuraInfo(player.level(), player.blockPosition());
@@ -167,7 +176,11 @@ public record SyncCultivationDataPacket(
                 meditation.auraMultiplier(),
                 meditation.techniqueMultiplier(),
                 meditation.heldStoneBonus(),
-                meditation.totalPerSecond());
+                meditation.totalPerSecond(),
+                cultivation.getConstitutionId(),
+                cultivation.getCultivationPathId(),
+                cultivation.getPlayableRaceId(),
+                cultivation.getGhostPathStageId());
     }
 
     public static void send(ServerPlayer player, PlayerCultivation cultivation) {
@@ -257,6 +270,10 @@ public record SyncCultivationDataPacket(
         buffer.writeDouble(packet.meditationTechniqueMultiplier);
         buffer.writeDouble(packet.meditationStoneBonus);
         buffer.writeDouble(packet.meditationTotalPerSecond);
+        buffer.writeUtf(cap(packet.constitutionId, CONSTITUTION_TEXT_LIMIT), CONSTITUTION_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.cultivationPathId, PATH_TEXT_LIMIT), PATH_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.playableRaceId, RACE_TEXT_LIMIT), RACE_TEXT_LIMIT);
+        buffer.writeUtf(cap(packet.ghostPathStageId, GHOST_STAGE_TEXT_LIMIT), GHOST_STAGE_TEXT_LIMIT);
     }
 
     public static SyncCultivationDataPacket decode(FriendlyByteBuf buffer) {
@@ -323,7 +340,11 @@ public record SyncCultivationDataPacket(
                 buffer.readDouble(),
                 buffer.readDouble(),
                 buffer.readDouble(),
-                buffer.readDouble());
+                buffer.readDouble(),
+                buffer.readUtf(CONSTITUTION_TEXT_LIMIT),
+                buffer.readUtf(PATH_TEXT_LIMIT),
+                buffer.readUtf(RACE_TEXT_LIMIT),
+                buffer.readUtf(GHOST_STAGE_TEXT_LIMIT));
     }
 
     public static void handle(SyncCultivationDataPacket packet, Supplier<NetworkEvent.Context> contextSupplier) {
@@ -392,7 +413,11 @@ public record SyncCultivationDataPacket(
                         packet.meditationAuraMultiplier,
                         packet.meditationTechniqueMultiplier,
                         packet.meditationStoneBonus,
-                        packet.meditationTotalPerSecond))));
+                        packet.meditationTotalPerSecond,
+                        packet.constitutionId,
+                        packet.cultivationPathId,
+                        packet.playableRaceId,
+                        packet.ghostPathStageId))));
         context.setPacketHandled(true);
     }
 

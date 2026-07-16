@@ -652,21 +652,7 @@ public final class WorldpackGameplayService {
     }
 
     static Realm parseRealm(String value) {
-        if (value == null || value.isBlank()) {
-            return null;
-        }
-        String normalized = value.trim().toUpperCase(Locale.ROOT).replace('-', '_');
-        if ("FOUNDATION".equals(normalized)) {
-            normalized = "FOUNDATION_ESTABLISHMENT";
-        }
-        for (Realm realm : Realm.values()) {
-            if (realm.name().equals(normalized)
-                    || realm.getDesignId().equalsIgnoreCase(normalized)
-                    || realm.getDesignKey().equalsIgnoreCase(normalized)) {
-                return realm;
-            }
-        }
-        return null;
+        return Realm.fromDesignId(value);
     }
 
     private static WorldpackSnapshot buildSnapshot(ServerPlayer player, PlayerCultivation cultivation,

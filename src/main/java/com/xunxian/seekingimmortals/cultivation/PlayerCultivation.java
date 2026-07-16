@@ -49,6 +49,14 @@ public class PlayerCultivation {
     private SpiritualRoot spiritualRoot = SpiritualRoot.TRIPLE;
     private final EnumSet<SpiritualRootAttribute> spiritualRootAttributes = EnumSet.of(SpiritualRootAttribute.WOOD, SpiritualRootAttribute.WATER, SpiritualRootAttribute.FIRE);
     private SpecialPhysique specialPhysique = SpecialPhysique.NONE;
+    /** 语料 constitution_catalog id；空表示沿用 specialPhysique 映射。 */
+    private String constitutionId = "none";
+    /** 修炼路线：orthodox / ghost_cultivator 等。 */
+    private String cultivationPathId = PathRaceCatalog.DEFAULT_PATH_ID;
+    /** 可玩种族：playable_races.json id。 */
+    private String playableRaceId = PathRaceCatalog.DEFAULT_RACE_ID;
+    /** 鬼修路线阶段 id；非鬼道为空。 */
+    private String ghostPathStageId = "";
     private int lifespanYears = Realm.MORTAL.getLifespanYears();
     private int ageYears = 16;
     private boolean usedReturnYangTrueWater = false;
@@ -84,7 +92,7 @@ public class PlayerCultivation {
     private final Map<String, Long> worldpackCooldownUntilTicks = new HashMap<>();
     private String worldpackActiveDailyEventId = "";
     private long worldpackActiveDailyEventUntilTick = 0L;
-    // M3: 璧扮伀椋庨櫓琛板噺绱 tick 璁℃暟鍣紙闈炲彇妯★紝淇濊瘉绋冲畾瑙﹀彂锛?    private int qiDevDecayAccumulatorTicks = 0;
+    // M3: 走火风险衰减累计 tick 计数器（非取模，保证稳定触发）
     private int qiDevDecayAccumulatorTicks = 0;
     private int leylineQiDevDecayAccumulatorTicks = 0;
 
@@ -184,6 +192,16 @@ public class PlayerCultivation {
     public Set<SpiritualRootAttribute> getSpiritualRootAttributes() { return EnumSet.copyOf(spiritualRootAttributes); }
     public SpiritualRootAttribute getSpiritualRootAttribute() { return spiritualRootAttributes.iterator().next(); }
     public SpecialPhysique getSpecialPhysique() { return specialPhysique; }
+    public String getConstitutionId() {
+        if (constitutionId != null && !constitutionId.isBlank() && !"none".equalsIgnoreCase(constitutionId)) {
+            return constitutionId;
+        }
+        return SpecialPhysique.toConstitutionId(specialPhysique);
+    }
+    public String getCultivationPathId() { return cultivationPathId == null || cultivationPathId.isBlank() ? PathRaceCatalog.DEFAULT_PATH_ID : cultivationPathId; }
+    public String getPlayableRaceId() { return playableRaceId == null || playableRaceId.isBlank() ? PathRaceCatalog.DEFAULT_RACE_ID : playableRaceId; }
+    public String getGhostPathStageId() { return ghostPathStageId == null ? "" : ghostPathStageId; }
+    public boolean isGhostPath() { return PathRaceCatalog.builtin().isGhostPath(getCultivationPathId()); }
     public int getSpiritualRootPurity() { return spiritualRootPurity; }
     public boolean isSpiritualRootAwakened() { return spiritualRootAwakened; }
     public boolean isSpiritualRootTested() { return spiritualRootTested; }
@@ -381,7 +399,34 @@ public class PlayerCultivation {
         this.spiritualRootAttributes.add(attribute);
         this.rootInitialized = true;
     }
-    public void setSpecialPhysique(SpecialPhysique specialPhysique) { this.specialPhysique = specialPhysique; }
+    public void setSpecialPhysique(SpecialPhysique specialPhysique) {
+        this.specialPhysique = specialPhysique == null ? SpecialPhysique.NONE : specialPhysique;
+        this.constitutionId = SpecialPhysique.toConstitutionId(this.specialPhysique);
+    }
+
+    public void setConstitutionId(String constitutionId) {
+        String cleaned = constitutionId == null || constitutionId.isBlank() ? "none" : constitutionId.trim().toLowerCase(Locale.ROOT);
+        this.constitutionId = cleaned.length() > 64 ? cleaned.substring(0, 64) : cleaned;
+        this.specialPhysique = SpecialPhysique.fromConstitutionId(this.constitutionId);
+    }
+
+    public void setCultivationPathId(String pathId) {
+        this.cultivationPathId = PathRaceCatalog.sanitizePathId(pathId);
+        if (!isGhostPath()) {
+            this.ghostPathStageId = "";
+        }
+    }
+
+    public void setPlayableRaceId(String raceId) {
+        this.playableRaceId = PathRaceCatalog.sanitizeRaceId(raceId);
+    }
+
+    public void setGhostPathStageId(String stageId) {
+        this.ghostPathStageId = PathRaceCatalog.sanitizeGhostStageId(stageId);
+        if (this.ghostPathStageId != null && !this.ghostPathStageId.isBlank()) {
+            this.cultivationPathId = PathRaceCatalog.GHOST_PATH_ID;
+        }
+    }
     public void setGoldCore(GoldCoreGrade grade, int score) {
         goldCoreGrade = grade == null ? GoldCoreGrade.NONE : grade;
         goldCoreScore = Math.max(0, score);
@@ -466,6 +511,8 @@ public class PlayerCultivation {
             case WIND -> 1.13D;
             case THUNDER -> 1.20D;
             case ICE -> 1.14D;
+            case YIN -> 1.15D;
+            case YANG -> 1.15D;
             case DARK -> 1.16D;
             case HIDDEN_THUNDER -> 1.24D;
             case HIDDEN_DARK -> 1.22D;
@@ -567,41 +614,26 @@ public class PlayerCultivation {
 
     public void ensureRootInitialized(RandomSource random) {
         if (rootInitialized) return;
-        spiritualRoot = randomRoot(random);
-        spiritualRootAttributes.clear();
-        spiritualRootAttributes.addAll(randomAttributes(random, spiritualRoot));
-        specialPhysique = SpecialPhysique.random(random);
+        // 与 spirit_roots_catalog 权重对齐
+        LingGenCalculator.Result result = LingGenCalculator.roll(random, 0.0D);
+        applyLingGenResult(result);
+        SpecialPhysique rolled = SpecialPhysique.random(random);
+        setSpecialPhysique(rolled);
+        if (playableRaceId == null || playableRaceId.isBlank()) {
+            playableRaceId = PathRaceCatalog.DEFAULT_RACE_ID;
+        }
+        if (cultivationPathId == null || cultivationPathId.isBlank()) {
+            cultivationPathId = PathRaceCatalog.DEFAULT_PATH_ID;
+        }
         rootInitialized = true;
     }
 
     private SpiritualRoot randomRoot(RandomSource random) {
-        int roll = random.nextInt(10000);
-        if (roll < 8) return SpiritualRoot.HEAVENLY;
-        // 闅愮伒鏍瑰崈骞撮毦閬囦笖闇€鐗规畩琛€鑴?鏈虹紭瑙夐啋锛屾殏涓嶅弬涓庨娆＄櫥褰曢殢鏈恒€?        if (roll < 88) return SpiritualRoot.MUTATED;
-        if (roll < 1350) return SpiritualRoot.DUAL;
-        if (roll < 4300) return SpiritualRoot.TRIPLE;
-        if (roll < 8900) return SpiritualRoot.FALSE_ROOT;
-        return SpiritualRoot.MIXED;
+        return LingGenCalculator.roll(random, 0.0D).root();
     }
 
     private List<SpiritualRootAttribute> randomAttributes(RandomSource random, SpiritualRoot root) {
-        List<SpiritualRootAttribute> result = new ArrayList<>();
-        EnumSet<SpiritualRootAttribute> excluded = EnumSet.noneOf(SpiritualRootAttribute.class);
-        if (root == SpiritualRoot.HIDDEN) {
-            result.add(SpiritualRootAttribute.randomHidden(random));
-            return result;
-        }
-        if (root == SpiritualRoot.MUTATED) {
-            result.add(SpiritualRootAttribute.randomMutated(random));
-            return result;
-        }
-        int count = root.getAttributeCount();
-        while (result.size() < count) {
-            SpiritualRootAttribute attribute = SpiritualRootAttribute.randomFiveElement(random, excluded);
-            excluded.add(attribute);
-            result.add(attribute);
-        }
-        return result;
+        return new ArrayList<>(LingGenCalculator.roll(random, 0.0D).attributes());
     }
 
     public String getSpiritualRootAttributeNames() {
@@ -630,10 +662,12 @@ public class PlayerCultivation {
     }
 
     public double getPhysiqueCultivationSpeedMultiplier() {
-        return specialPhysique.getCultivationMultiplier();
+        return ConstitutionCatalogService.cultivationMultiplier(getConstitutionId());
     }
 
     public double getCultivationSpeedMultiplier() {
+        // 运行时灵根分类倍率（天灵根 5.0 等）保留既有身份；
+        // 语料 stack_cap x2.5 作用于目录品阶×体质叠乘，见 ConstitutionCatalogService.clampStackedCultivation。
         return Math.max(0.05D, getSpiritualRootCultivationSpeedCoefficient() * getPhysiqueCultivationSpeedMultiplier());
     }
 
@@ -851,8 +885,8 @@ public class PlayerCultivation {
         double attributeBonus = spiritualRootAttributes.stream()
                 .mapToDouble(attr -> switch (attr) {
                     case THUNDER, HIDDEN_THUNDER -> 0.08D;
-                    case ICE, WATER -> 0.03D;
-                    case EARTH, METAL -> 0.02D;
+                    case ICE, WATER, YIN -> 0.03D;
+                    case EARTH, METAL, YANG -> 0.02D;
                     default -> 0.0D;
                 })
                 .max()
@@ -861,11 +895,14 @@ public class PlayerCultivation {
             case FIVE_THUNDER_BODY -> 0.12D;
             case HIDDEN_THUNDER_ROOT -> 0.10D;
             case HEAVENLY_YIN_BODY, MYSTIC_YIN_BODY -> 0.08D;
-            case CHASTE_YIN_BODY, NINE_SPIRIT_SWORD_BODY -> 0.06D;
-            case GOLD_FORGING_BODY, MOLTEN_GOLD_BODY, ICE_MARROW_BODY -> 0.04D;
+            case CHASTE_YIN_BODY, NINE_SPIRIT_SWORD_BODY, UNDYING_BODY -> 0.06D;
+            case GOLD_FORGING_BODY, MOLTEN_GOLD_BODY, ICE_MARROW_BODY, VAJRA_BODY -> 0.04D;
             default -> 0.0D;
         };
-        return Math.min(0.20D, attributeBonus + physiqueBonus + getMagicResistance() * 0.10D);
+        // constitution_catalog.bonus.thunder_tribulation 为伤害修正（负值=减伤）
+        double catalogDelta = ConstitutionCatalogService.tribulationDamageDelta(getConstitutionId());
+        double catalogBonus = catalogDelta < 0.0D ? -catalogDelta : 0.0D;
+        return Math.min(0.20D, attributeBonus + physiqueBonus + catalogBonus + getMagicResistance() * 0.10D);
     }
 
     public double getAccuracyRate() {
@@ -941,7 +978,7 @@ public class PlayerCultivation {
                 .mapToDouble(SpiritualRootAttribute::getBreakthroughCoefficient)
                 .average()
                 .orElse(1.0D);
-        return attributeMultiplier * specialPhysique.getBreakthroughMultiplier();
+        return attributeMultiplier * ConstitutionCatalogService.breakthroughMultiplier(getConstitutionId());
     }
 
     private static final int MORTAL_MIN_SPIRITUAL_POWER = 50;
@@ -1382,19 +1419,8 @@ public class PlayerCultivation {
     }
 
     private double getBaseBreakthroughChance() {
-        return switch (realm) {
-            case MORTAL -> 0.10D;
-            case QI_REFINING -> 0.05D;
-            case FOUNDATION_ESTABLISHMENT -> 0.03D;
-            case CORE_FORMATION -> 0.08D;
-            case NASCENT_SOUL -> 0.02D;
-            case SOUL_TRANSFORMATION -> 0.005D;
-            case VOID_REFINEMENT -> 0.003D;
-            case UNITY -> 0.002D;
-            case MAHAYANA -> 0.001D;
-            case TRIBULATION -> 0.0005D;
-            case TRUE_IMMORTAL -> 0.0001D;
-        };
+        // 对齐 realm_breakthrough_v98 base_success（层内/跨境）
+        return BreakthroughCatalog.baseSuccess(this);
     }
 
     private double getBreakthroughChanceCap(Realm targetRealm) {
@@ -1581,6 +1607,10 @@ public class PlayerCultivation {
         tag.putString("SpiritualRootAttributes", spiritualRootAttributes.stream().map(Enum::name).collect(Collectors.joining(",")));
         tag.putString("SpiritualRootAttribute", getSpiritualRootAttribute().name());
         tag.putString("SpecialPhysique", specialPhysique.name());
+        tag.putString("ConstitutionId", getConstitutionId());
+        tag.putString("CultivationPathId", getCultivationPathId());
+        tag.putString("PlayableRaceId", getPlayableRaceId());
+        tag.putString("GhostPathStageId", getGhostPathStageId());
         tag.putInt("LifespanYears", lifespanYears);
         tag.putInt("AgeYears", ageYears);
         tag.putBoolean("UsedReturnYangTrueWater", usedReturnYangTrueWater);
@@ -1661,6 +1691,24 @@ public class PlayerCultivation {
         spiritualRoot = SpiritualRoot.fromName(tag.getString("SpiritualRoot"));
         loadSpiritualRootAttributes(tag);
         try { specialPhysique = SpecialPhysique.valueOf(tag.getString("SpecialPhysique")); } catch (Exception ignored) { specialPhysique = SpecialPhysique.NONE; }
+        if (tag.contains("ConstitutionId") && !tag.getString("ConstitutionId").isBlank()) {
+            constitutionId = tag.getString("ConstitutionId").trim().toLowerCase(Locale.ROOT);
+            specialPhysique = SpecialPhysique.fromConstitutionId(constitutionId);
+        } else {
+            constitutionId = SpecialPhysique.toConstitutionId(specialPhysique);
+        }
+        cultivationPathId = tag.contains("CultivationPathId")
+                ? PathRaceCatalog.sanitizePathId(tag.getString("CultivationPathId"))
+                : PathRaceCatalog.DEFAULT_PATH_ID;
+        playableRaceId = tag.contains("PlayableRaceId")
+                ? PathRaceCatalog.sanitizeRaceId(tag.getString("PlayableRaceId"))
+                : PathRaceCatalog.DEFAULT_RACE_ID;
+        ghostPathStageId = tag.contains("GhostPathStageId")
+                ? PathRaceCatalog.sanitizeGhostStageId(tag.getString("GhostPathStageId"))
+                : "";
+        if (!ghostPathStageId.isBlank()) {
+            cultivationPathId = PathRaceCatalog.GHOST_PATH_ID;
+        }
         lifespanYears = tag.contains("LifespanYears") ? tag.getInt("LifespanYears") : realm.getLifespanYears();
         ageYears = tag.contains("AgeYears") ? tag.getInt("AgeYears") : 16;
         usedReturnYangTrueWater = tag.getBoolean("UsedReturnYangTrueWater");

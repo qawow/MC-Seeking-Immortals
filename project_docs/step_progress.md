@@ -1,3 +1,19 @@
+## 453. 2026-07-16 0.1.506 M01 境界修炼基础落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_154521_m01_realm_progression/`
+  Realm/lifespan/alias                 Done designId 对齐语料；`Realm.fromDesignId`；寿元表对齐
+  Spirit root                          Done YIN/YANG + LingGen 权重对齐 catalog
+  Constitution catalog                 Done `ConstitutionCatalogService` + constitutionId 持久化
+  Tribulation/breakthrough catalogs    Done 波数/base_success 参数化；祭坛抗劫
+  Path/race + gate API                 Done path/race/ghostStage + ProgressionGateApi
+  Sync packet                          Done SyncCultivationDataPacket +4 字段；protocol 19→20
+  Tests                                Done M01ProgressionFoundationTest 6/6；Phase1+BreakthroughAid 全绿
+  Version/protocol                     Done `0.1.505`→`0.1.506`；protocol `19`→`20`
+  Full verification                    Partial compile/jar 成功；`:test` 2 失败仍为 M00（747 vs 346、body.json.json）
+  Update note                          Done `project_docs/updates/20260716_m01_realm_progression.md`
+
 ## 452. 2026-07-16 0.1.505 Linux 命令与 preflight 移植
 
   Step   Status   Notes

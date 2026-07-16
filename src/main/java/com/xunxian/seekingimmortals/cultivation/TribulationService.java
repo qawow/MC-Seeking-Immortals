@@ -94,19 +94,11 @@ public final class TribulationService {
     }
 
     /**
-     * Strike counts aligned to 文本材料/data/tribulation_rules.json waves:
-     * minor_soul_trial=3, heart_demon_or_thunder=5, void_thunder tier high=7,
-     * great-vehicle / true immortal = 9.
+     * Strike counts from {@link TribulationRulesCatalog} (text_material/tribulation_rules.json).
+     * Fallback: NS3 / ST5 / VR9 / BI12 / GV18 / TL27.
      */
     public static int getStrikeCount(Realm targetRealm) {
-        return switch (targetRealm) {
-            case CORE_FORMATION -> 3;          // 结丹劫 / minor-adjacent
-            case NASCENT_SOUL -> 3;         // minor_soul_trial waves=3
-            case SOUL_TRANSFORMATION -> 5;     // heart_demon_or_thunder waves=5
-            case VOID_REFINEMENT -> 7;      // void_thunder high
-            case UNITY, MAHAYANA, TRIBULATION, TRUE_IMMORTAL -> 9;
-            default -> 0;
-        };
+        return TribulationRulesCatalog.strikeCount(targetRealm);
     }
 
     public static double calculateStrikeDamage(double maxHealth, Realm targetRealm, int strikeNumber, int totalStrikes,
@@ -243,6 +235,12 @@ public final class TribulationService {
     }
 
     private static double getTargetDamageMultiplier(Realm targetRealm) {
+        // 优先用语料 damage_per_wave_base 归一化到 maxHealth 倍率；无数据时回退旧表。
+        double base = TribulationRulesCatalog.damagePerWaveBase(targetRealm);
+        if (base > 0.0D) {
+            // 语料基值约 40~300；映射到 0.26~0.90 的 maxHealth 倍率区间。
+            return Math.min(0.90D, Math.max(0.20D, base / 250.0D));
+        }
         return switch (targetRealm) {
             case CORE_FORMATION -> 0.26D;
             case NASCENT_SOUL -> 0.32D;
