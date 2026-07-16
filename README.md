@@ -48,19 +48,19 @@
 
 Windows PowerShell：
 
-```powershell
+```bash
 # 完整验证并构建 JAR
-.\gradlew.bat --no-daemon --max-workers=1 build
+./gradlew --no-daemon --max-workers=1 build
 
 # 开发客户端 / 专用服务端
-.\gradlew.bat runClient
-.\gradlew.bat runServer
+./gradlew runClient
+./gradlew runServer
 
 # 数据生成
-.\gradlew.bat runData
+./gradlew runData
 ```
 
-Linux/macOS 使用对应的 `./gradlew` 命令。完整构建会先执行 `scripts/preflight.ps1`，检查版本递增和网络变更提示，然后编译、运行测试并重混淆 JAR。
+Linux/macOS 使用对应的 `./gradlew` 命令。完整构建会先执行 `scripts/preflight.sh`，检查版本递增和网络变更提示，然后编译、运行测试并重混淆 JAR。
 
 ## 玩法概览
 

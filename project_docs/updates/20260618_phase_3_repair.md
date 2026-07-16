@@ -23,7 +23,7 @@
 
 ## 构建
 
-- 命令：`./gradlew.bat --no-daemon --max-workers=1 build`
+- 命令：`./gradlew --no-daemon --max-workers=1 build`
 - 结果：BUILD SUCCESSFUL
 
 ## 文档

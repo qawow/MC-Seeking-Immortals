@@ -2,7 +2,7 @@
 
 > Date: 2026-06-19
 > Scope: Phase 6 only
-> Build: `.\gradlew.bat --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 34s
+> Build: `./gradlew --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 34s
 > Phase boundary: Did not implement Phase 7 HUD or any later system.
 
 ## Implemented
@@ -22,8 +22,8 @@
 
 ## Validation
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 Result: BUILD SUCCESSFUL in 34s（compileJava / test / build 通过）。
 

@@ -5,13 +5,13 @@ Read and follow it before implementing code, resource, build, gameplay, or regre
 
 ## Current Baseline
 
-- Workspace: `D:\codex\mc-mod`
+- Workspace: `/root/mc-mod`
 - Mod: `seeking_immortals`
 - Minecraft / Forge: `1.20.1` / `47.2.0`
 - Current `mod_version`: read `gradle.properties` first; after the 0.1.80 review-fix work it is `0.1.80`.
 - Current `ModNetwork.PROTOCOL_VERSION`: `7`.
-- Normal build command: `.\gradlew.bat --no-daemon --max-workers=1 build`
-- No-Patchouli dev client command: `.\gradlew.bat --no-daemon --max-workers=1 runClientNoPatchouli`
+- Normal build command: `./gradlew --no-daemon --max-workers=1 build`
+- No-Patchouli dev client command: `./gradlew --no-daemon --max-workers=1 runClientNoPatchouli`
 
 ## Required Reading Order
 
@@ -87,8 +87,8 @@ Never revert unrelated dirty work. The workspace often contains many historical 
 
 After code/resource/build/gameplay/config changes, run:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 If build fails:
@@ -97,7 +97,7 @@ If build fails:
 2. Re-run the build.
 3. Do not report completion until the build succeeds or the exact blocker is documented.
 
-The build runs `scripts/preflight.ps1`. If preflight says shippable files changed but `mod_version` did not change, bump `mod_version` instead of bypassing the gate.
+The build runs `scripts/preflight.sh`. If preflight says shippable files changed but `mod_version` did not change, bump `mod_version` instead of bypassing the gate.
 
 Only use `-PaiSkipVersionBumpCheck=true` for an explicitly documented emergency/manual override.
 
@@ -105,14 +105,14 @@ Only use `-PaiSkipVersionBumpCheck=true` for an explicitly documented emergency/
 
 Normal client:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 runClient
+```bash
+./gradlew --no-daemon --max-workers=1 runClient
 ```
 
 No-Patchouli client:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 runClientNoPatchouli
+```bash
+./gradlew --no-daemon --max-workers=1 runClientNoPatchouli
 ```
 
 Use `runClientNoPatchouli` for local single-player regression when Patchouli dev runtime blocks startup.

@@ -183,8 +183,8 @@ flowchart LR
 
 代码或资源改动后必须运行：
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 游戏内建议验证：

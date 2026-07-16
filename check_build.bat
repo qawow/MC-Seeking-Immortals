@@ -1,4 +1,5 @@
 @echo off
+REM Linux equivalent: ./check_build.sh
 echo Checking compilation status...
 echo.
 type "C:\Users\palin\AppData\Local\Temp\claude\D--codex-mc-mod\1565b572-1ad8-4f31-8109-d550c8c2c641\tasks\boyihn6nx.output" | findstr /C:"BUILD SUCCESSFUL" /C:"BUILD FAILED" /C:"FAILURE" /C:"error:" /C:"错误" >nul 2>&1

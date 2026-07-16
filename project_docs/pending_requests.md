@@ -180,7 +180,7 @@
 
 0.1.359 pending update: The `0.1.357` Mulan / Tianlan / Demonic Six FTB item-task bridge is now current-tree verified under `mod_version=0.1.359`, including focused `FtbQuestSnbtTest` and full Gradle build. The immediate Buddhist spell compile blocker is also reconciled in the shared tree. Remaining quest work is unchanged: broader item/advancement/custom task conditions, authoritative reward grants, branch/exclusion locks, NPC/server event triggers, Mulan/Tianlan faction and beast-contract validation, demonic karma validation, Seeking Immortals quest-state synchronization, boss/encounter hooks, dedicated icons, and live FTB client smoke tests.
 
-0.1.359 pending update: The immediate current-tree verification for the `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge and the `0.1.358` 13x13 realm gate slice is no longer pending. Focused `FtbQuestSnbtTest` and full `.\gradlew.bat --no-daemon --max-workers=1 build` both pass under `mod_version=0.1.359`. Remaining work is unchanged: audit inherited network-package diffs before release if packet formats changed, live-smoke the larger realm gate, add route/UI/quest polish, and replace non-consuming FTB inventory checks with authoritative advancement/custom tasks, rewards, branch locks, NPC/server triggers, and Seeking Immortals quest-state synchronization.
+0.1.359 pending update: The immediate current-tree verification for the `0.1.357` Mulan/Tianlan/Demonic FTB item-task bridge and the `0.1.358` 13x13 realm gate slice is no longer pending. Focused `FtbQuestSnbtTest` and full `./gradlew --no-daemon --max-workers=1 build` both pass under `mod_version=0.1.359`. Remaining work is unchanged: audit inherited network-package diffs before release if packet formats changed, live-smoke the larger realm gate, add route/UI/quest polish, and replace non-consuming FTB inventory checks with authoritative advancement/custom tasks, rewards, branch locks, NPC/server triggers, and Seeking Immortals quest-state synchronization.
 
 0.1.359 pending update: Spell/effect work no longer needs first executable hooks for the current Buddhist technique set in `techniques/buddhist.json`. `BuddhistSpell` now covers Buddha Light, Sarira Shield, Demon-Subduing Palm, Zen Pulse, Vajra Palm, and Dajin Buddhist Vajra through the existing server-authoritative release path with custom DustParticle visuals, anti-demon/undead suppression, shield projectile deflection, and no vanilla attack entities. Remaining Buddhist spell work still needs strict Buddhist-method/source gates, dedicated icons and particle textures, source-accurate Buddhist manual/sect acquisition, persistent shield-state tuning, PvP balance, and live client visual smoke tests.
 
@@ -510,7 +510,7 @@
   0.1.126 pending update: Yuling Pavilion now offers the implemented beast_soul_essence equivalent in its contribution hall by reusing the current generic Beast Core item. Remaining spirit-beast work still needs exact beast-soul essence tiers, spirit-beast contract behavior, puppet consumption, beast source drops, and registered nurture/feed items before broader spirit-beast imports.
 
   0.1.124 pending update: Tiannan refinement forge is implemented at the shipped market-data level for the two Spirit Iron equivalents that can safely map to registered items. Remaining refinement-shop work still needs exact material tiers, refinement manuals, quench oil, forge hammers, artifact crafting tools, and broader refining gameplay before more text-material entries are imported.
-  0.1.123 verification update: final .\\gradlew.bat --no-daemon --max-workers=1 build passed on the merged workspace and aiPreflight recorded mod_version=0.1.123. The inherited network-package warning was reviewed; no packet fields/order/encoding/registrations changed, so ModNetwork.PROTOCOL_VERSION remains 9. Remaining work is exact material identity and gated shop-schema support before broader merchant imports.
+  0.1.123 verification update: final .\\./gradlew --no-daemon --max-workers=1 build passed on the merged workspace and aiPreflight recorded mod_version=0.1.123. The inherited network-package warning was reviewed; no packet fields/order/encoding/registrations changed, so ModNetwork.PROTOCOL_VERSION remains 9. Remaining work is exact material identity and gated shop-schema support before broader merchant imports.
 
   0.1.122 verification update: focused shop/resource tests and final Gradle build passed. The inherited network-package preflight warning was reviewed; the Qinglan furnace backfill changed no packet fields/order/encoding/registrations, so ModNetwork.PROTOCOL_VERSION remains 9. Remaining work is shop-schema support for rank/monthly/realm gates before gated alchemy equipment or pills are imported.
 
@@ -678,7 +678,7 @@
 
 ## 0.1.80 verification closure
 
-- [x] Final required build completed after documentation reconciliation and compile unblock: `./gradlew.bat --no-daemon --max-workers=1 build` passed with `BUILD SUCCESSFUL in 42s`.
+- [x] Final required build completed after documentation reconciliation and compile unblock: `./gradlew --no-daemon --max-workers=1 build` passed with `BUILD SUCCESSFUL in 42s`.
 - [ ] Manual `runClientNoPatchouli` regression remains pending for the high-realm flows listed above.
 
 # 0.1.81 follow-up

@@ -16,7 +16,7 @@
   - `cultivationMax`、`manaMax`、`divSense`、`hpBase`
   - 修为增加、灵力恢复
   - 突破成功、突破失败、失败回退 20%、`qiDevRisk +10`
-- 但 `./gradlew.bat build` 在 `:compileJava` 失败，因此按任务板规则，本次 Realm System 条目不得标记为 `[x]`。
+- 但 `./gradlew build` 在 `:compileJava` 失败，因此按任务板规则，本次 Realm System 条目不得标记为 `[x]`。
 
 ## 构建阻塞
 

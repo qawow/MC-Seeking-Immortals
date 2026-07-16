@@ -1,6 +1,6 @@
 ﻿# Phase 5 Report - 涓硅嵂涓庣偧涓圭郴缁?> Date: 2026-06-19
 > Scope: Phase 5 only, per latest user instruction
-> Build: `.\gradlew.bat --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 36s
+> Build: `./gradlew --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 36s
 > Phase boundary: Did not implement Phase 6 绁炵灏忕摱 or any later system.
 
 ## Numbering Note
@@ -26,8 +26,8 @@ No full Menu/Screen was added. The project has no existing menu/screen container
 
 Build command:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 Result: BUILD SUCCESSFUL (compileJava, test, build passed).

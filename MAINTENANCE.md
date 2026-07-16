@@ -66,12 +66,12 @@
 
 ### 4. 验证
 
-```powershell
+```bash
 # 定向测试示例
-.\gradlew.bat --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest
+./gradlew --no-daemon --max-workers=1 test --tests com.xunxian.seekingimmortals.resources.ResourceJsonParseTest
 
 # 最终门禁
-.\gradlew.bat --no-daemon --max-workers=1 build
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 完整构建必须成功或在文档中记录精确阻塞原因。不要用 `-PaiSkipVersionBumpCheck=true` 绕过正常版本门禁。

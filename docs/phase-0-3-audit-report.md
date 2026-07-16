@@ -13,11 +13,11 @@
 - 审阅 `docs/task-board.md`、`docs/mvp-scope.md`、`docs/implementation-roadmap.md`、`project_docs/ai_handoff.md`、`project_docs/step_progress.md`。
 - 核对 `src/main/java` 与 `src/main/resources` 的当前实现证据。
 - 不把 `build/`、`.bak/`、`generated_art/` 等生成/历史目录当作实现真相。
-- 以当前 `gradlew.bat build` 结果作为 [x] 判定门槛。
+- 以当前 `./gradlew build` 结果作为 [x] 判定门槛。
 
 ## Build Result
 
-- Command: `.\gradlew.bat --no-daemon --max-workers=1 build`
+- Command: `./gradlew --no-daemon --max-workers=1 build`
 - Result: BUILD SUCCESSFUL in 28s（`compileJava`/`test`/`build` 均通过，`compileTestJava UP-TO-DATE`）。
 - Notes: 历史报告显示 Phase 1/3/4/5 构建均成功；Phase 2 报告当时构建失败，但后续 Phase 3 修复已使整体构建恢复成功。
 

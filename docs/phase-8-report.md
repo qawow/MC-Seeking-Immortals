@@ -2,7 +2,7 @@
 
 > Date: 2026-06-19
 > Scope: Phase 8 only
-> Build: `.\gradlew.bat --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 35s
+> Build: `./gradlew --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 35s
 > Phase boundary: Did not enter Phase 9.
 
 ## Completed
@@ -24,8 +24,8 @@ These are not build blockers and do not leave missing model/texture/lang resourc
 
 ## Validation
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 Result: BUILD SUCCESSFUL in 35s.

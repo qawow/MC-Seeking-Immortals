@@ -2,7 +2,7 @@
 
 > Date: 2026-06-18
 > Scope: Phase 3 only
-> Build: `./gradlew.bat --no-daemon --max-workers=1 build` succeeded
+> Build: `./gradlew --no-daemon --max-workers=1 build` succeeded
 > Phase boundary: Did not implement Phase 4, skill-system expansion, full HUD work, alchemy, or quest content.
 
 ## Summary
@@ -70,8 +70,8 @@ The previous build blockers were corrected as part of validation:
 - Two long Gradle runs timed out and their Java processes were stopped.
 - Final command succeeded:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 Result: `BUILD SUCCESSFUL in 43s`.

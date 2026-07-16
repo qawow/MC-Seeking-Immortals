@@ -94,7 +94,7 @@
 
 > 编号说明：2026-06-20 按执行记录重排，统一为 P5 炼丹 / P6 神秘小瓶 / P7 基础 HUD / P8 资源验证；原 Phase 6 筑基技能（全 stub）并入 Phase 9 待办。
 >
-> 状态来源：`docs/phase-0-3-audit-report.md`（2026-06-19 Phase 0~6 审计，当前 `gradlew build` 成功）、`docs/phase-1-repair-report.md`、`docs/phase-3-repair-report.md`、`docs/phase-4-report.md`、`docs/phase-5-report.md`、`docs/phase-6-report.md`、`docs/phase-8-report.md`、`docs/texture-resource-audit.md`、`docs/gap-audit-report.md`、`docs/code-review-fix-checklist.md`（代码审查修复落地清单，2026-06-27 0.1.57 收尾勾选）、`project_docs/updates/20260625_0.1.54.md`、`project_docs/updates/20260627_0.1.55.md`、`project_docs/updates/20260627_0.1.56.md`、`project_docs/updates/20260627_0.1.57.md`。只有证据明确且 `./gradlew.bat build` 成功的任务可标记为 `[x]`；Partial/Missing/Unknown 标记不计入完成数。
+> 状态来源：`docs/phase-0-3-audit-report.md`（2026-06-19 Phase 0~6 审计，当前 `gradlew build` 成功）、`docs/phase-1-repair-report.md`、`docs/phase-3-repair-report.md`、`docs/phase-4-report.md`、`docs/phase-5-report.md`、`docs/phase-6-report.md`、`docs/phase-8-report.md`、`docs/texture-resource-audit.md`、`docs/gap-audit-report.md`、`docs/code-review-fix-checklist.md`（代码审查修复落地清单，2026-06-27 0.1.57 收尾勾选）、`project_docs/updates/20260625_0.1.54.md`、`project_docs/updates/20260627_0.1.55.md`、`project_docs/updates/20260627_0.1.56.md`、`project_docs/updates/20260627_0.1.57.md`。只有证据明确且 `./gradlew build` 成功的任务可标记为 `[x]`；Partial/Missing/Unknown 标记不计入完成数。
 
 ---
 
@@ -157,7 +157,7 @@
 - [x] 实现灵力回速计算方法
 - [x] 实现修为回速计算方法
 - [x] 实现飞行速度计算方法
-- [x] 添加境界属性基准表单元测试 — `Phase1CultivationSystemTest` 已覆盖练气/筑基基准表并通过 `./gradlew.bat test`
+- [x] 添加境界属性基准表单元测试 — `Phase1CultivationSystemTest` 已覆盖练气/筑基基准表并通过 `./gradlew test`
 - [x] 验证 `/seeking_immortals realm` 命令显示正确
 
 ### 验收标准
@@ -170,7 +170,7 @@
 
 ### Phase 1 完成标记
 
-- [x] **Phase 1 已完成，可进入 Phase 2** — `./gradlew.bat test` 与 `./gradlew.bat build` 均已通过；未实现 Phase 2 功能
+- [x] **Phase 1 已完成，可进入 Phase 2** — `./gradlew test` 与 `./gradlew build` 均已通过；未实现 Phase 2 功能
 
 ---
 
@@ -285,7 +285,7 @@
 
 ### Phase 3 完成标记
 
-- [x] **Phase 3 已完成，可进入 Phase 4** — `docs/phase-3-repair-report.md` 已生成，`./gradlew.bat --no-daemon --max-workers=1 build` 已通过；本次未进入 Phase 4 实现
+- [x] **Phase 3 已完成，可进入 Phase 4** — `docs/phase-3-repair-report.md` 已生成，`./gradlew --no-daemon --max-workers=1 build` 已通过；本次未进入 Phase 4 实现
 
 ---
 
@@ -335,7 +335,7 @@
 
 ### Phase 4 完成标记
 
-- [x] **Phase 4 已完成，可进入 Phase 5** — `docs/phase-4-report.md` 已生成，`./gradlew.bat --no-daemon --max-workers=1 build` 已通过；本次未进入 Phase 5 实现
+- [x] **Phase 4 已完成，可进入 Phase 5** — `docs/phase-4-report.md` 已生成，`./gradlew --no-daemon --max-workers=1 build` 已通过；本次未进入 Phase 5 实现
 
 ---
 
@@ -510,7 +510,7 @@
 - [x] 缺失模型、方块状态和 lang 已补齐
 - [x] 未生成新图片、未调用图片 API
 - [x] 未修改 Java 代码
-- [x] `.\gradlew.bat --no-daemon --max-workers=1 build` 通过
+- [x] `./gradlew --no-daemon --max-workers=1 build` 通过
 - [x] 已生成 `docs/phase-8-report.md`
 - [x] 已更新 `docs/task-board.md`
 
@@ -773,12 +773,12 @@
 - Current implementation checkpoint: `mod_version=0.1.83`, `ModNetwork.PROTOCOL_VERSION=8`.
 - This is a targeted review-fix pass, not a new Phase expansion.
 - Fixed Qinglan old-save sect-stage migration, Big Dipper cooldown data parity, small-screen Sect/Technique UI clamps, and technique UI localization.
-- Automated test verification passed: `.\gradlew.bat --no-daemon --max-workers=1 test` ended with `BUILD SUCCESSFUL in 16s`.
+- Automated test verification passed: `./gradlew --no-daemon --max-workers=1 test` ended with `BUILD SUCCESSFUL in 16s`.
 - Manual checks remain for upgraded old saves, GUI Scale 1/2/3/Auto, English language UI, and in-client Big Dipper cooldown display.
 
 ### 2026-07-03 0.1.83 final verification
 
-- Final `.\gradlew.bat --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 36s`.
+- Final `./gradlew --no-daemon --max-workers=1 build` passed: `BUILD SUCCESSFUL in 36s`.
 - `aiPreflight` recorded `mod_version=0.1.83`; protocol remains `8` because packet wire shape did not change.
 ## 2026-07-03 0.1.84 pending docs/resources/regression
 

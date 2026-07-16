@@ -2,7 +2,7 @@
 
 > Repair date: 2026-06-18
 > Scope: Phase 1 only — Core Attributes and Realm System
-> Build: `./gradlew.bat build` succeeded
+> Build: `./gradlew build` succeeded
 > Phase boundary: No Phase 2, Phase 3, or Phase 4 features were implemented
 
 ## Summary
@@ -49,8 +49,8 @@ Added `Phase1CultivationSystemTest` with JUnit 5 coverage for:
 
 ## Validation
 
-- `./gradlew.bat test`: BUILD SUCCESSFUL
-- `./gradlew.bat build`: BUILD SUCCESSFUL
+- `./gradlew test`: BUILD SUCCESSFUL
+- `./gradlew build`: BUILD SUCCESSFUL
 
 ## Task Board Result
 

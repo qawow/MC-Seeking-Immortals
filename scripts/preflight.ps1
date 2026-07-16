@@ -1,3 +1,4 @@
+# Linux equivalent: scripts/preflight.sh (build.gradle selects by OS).
 [CmdletBinding()]
 param(
     [switch]$SkipVersionBumpCheck,

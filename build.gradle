@@ -92,32 +92,41 @@ tasks.register('aiPreflight', Exec) {
     group = 'verification'
     description = 'Checks AI workflow gates before building.'
 
-    def scriptFile = file('scripts/preflight.ps1')
+    def isWindows = org.gradle.internal.os.OperatingSystem.current().isWindows()
+    def scriptFile = isWindows ? file('scripts/preflight.ps1') : file('scripts/preflight.sh')
     onlyIf { scriptFile.exists() }
 
-    if (project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()) {
-        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
-    } else {
-        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
-    }
+    def skipBump = project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()
 
-    if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+    if (isWindows) {
         executable 'powershell'
+        if (skipBump) {
+            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
+        } else {
+            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
+        }
     } else {
-        executable 'pwsh'
+        executable 'bash'
+        if (skipBump) {
+            args scriptFile.absolutePath, '--skip-version-bump-check'
+        } else {
+            args scriptFile.absolutePath
+        }
     }
 }
 
 tasks.named('build') {
     dependsOn tasks.named('aiPreflight')
     doLast {
+        def isWindows = org.gradle.internal.os.OperatingSystem.current().isWindows()
         exec {
-            if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            if (isWindows) {
                 executable 'powershell'
+                args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
             } else {
-                executable 'pwsh'
+                executable 'bash'
+                args file('scripts/preflight.sh').absolutePath, '--record-state-only'
             }
-            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
         }
     }
 }

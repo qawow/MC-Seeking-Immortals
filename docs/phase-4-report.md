@@ -2,7 +2,7 @@
 
 > Date: 2026-06-19
 > Scope: Phase 4 only
-> Build: `./gradlew.bat --no-daemon --max-workers=1 build` succeeded
+> Build: `./gradlew --no-daemon --max-workers=1 build` succeeded
 > Phase boundary: Did not implement Phase 5, 神秘小瓶, 炼丹, NPC, 任务线, 筑基/金丹技能, 完整 HUD, or texture/resource art work.
 
 ## Summary
@@ -53,8 +53,8 @@ The implementation completes:
 - The capture error was repaired.
 - Final validation:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 Result: `BUILD SUCCESSFUL in 37s`.

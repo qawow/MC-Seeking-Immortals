@@ -1,4 +1,5 @@
 @echo off
+REM Linux equivalent: ./check_java.sh
 echo Checking Java installation...
 where java >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (

@@ -6,5 +6,5 @@
 - Updated `mystic_vial`, `waste_pill`, and `technique_manual_azure_origin_sword_derivative` item models to use item-id texture paths.
 - Added missing `spirit_ore` item lang keys.
 - Generated `docs/texture-resource-audit.md` and `docs/phase-8-report.md`.
-- Build verification: `.\gradlew.bat --no-daemon --max-workers=1 build` succeeded in 35s.
+- Build verification: `./gradlew --no-daemon --max-workers=1 build` succeeded in 35s.
 - Phase boundary: Phase 9 was not entered.

@@ -4,7 +4,7 @@
 > Scope: Phase 8 only - resources, models, blockstates, textures, and lang
 > Java changes: none
 > Image generation: none
-> Build: `.\gradlew.bat --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 35s
+> Build: `./gradlew --no-daemon --max-workers=1 build` BUILD SUCCESSFUL in 35s
 
 ## Inputs Read
 
@@ -59,8 +59,8 @@ The project namespace is `seeking_immortals`. The user-facing requirement mentio
 - 0.1.80 review-fix check: `rg "xiuxian:" src/main/resources project_docs docs` returns only this explanatory docs section, and `src/main/resources/assets/xiuxian` is absent.
 - Final build command:
 
-```powershell
-.\gradlew.bat --no-daemon --max-workers=1 build
+```bash
+./gradlew --no-daemon --max-workers=1 build
 ```
 
 Result: BUILD SUCCESSFUL in 35s.

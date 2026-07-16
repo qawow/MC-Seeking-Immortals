@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-root = Path(r"D:/codex/mc-mod")
+root = Path(__file__).resolve().parents[1]
 src = root / "src/main"
 java_dir = src / "java/com/xunxian/seekingimmortals"
 res = src / "resources"

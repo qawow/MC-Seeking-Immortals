@@ -2,12 +2,12 @@
 
 > Date: 2026-06-18
 > Scope: User-specified Phase 2 only — Realm System
-> Build: Failed current `./gradlew.bat build`
+> Build: Failed current `./gradlew build`
 > Phase boundary: No Java code was changed; no spiritual-root identification, meditation GUI, HUD, alchemy, skill, texture/resource work, or Phase 3 expansion was implemented.
 
 ## Summary
 
-The requested Phase 2 Realm System checklist has clear implementation evidence in the current source, but the checklist cannot be marked complete because the required `./gradlew.bat build` failed during `compileJava`. This pass audited the existing code, generated this report, and updated `docs/task-board.md`; it did not modify Java source or implement new gameplay behavior.
+The requested Phase 2 Realm System checklist has clear implementation evidence in the current source, but the checklist cannot be marked complete because the required `./gradlew build` failed during `compileJava`. This pass audited the existing code, generated this report, and updated `docs/task-board.md`; it did not modify Java source or implement new gameplay behavior.
 
 The current implementation includes:
 
@@ -43,7 +43,7 @@ The current implementation includes:
 
 ## Validation
 
-- `./gradlew.bat build`: FAILED during `:compileJava`.
+- `./gradlew build`: FAILED during `:compileJava`.
 - First blocking errors:
   - `LingGenTestStoneItem`: static context calls non-static `showResult`, `playEffects`, and `consumeUse`.
   - `SyncCultivationDataPacket`: missing helper methods `getMatchingPassiveBonus(...)` and `isSittingOnMeditationCushion(...)`.

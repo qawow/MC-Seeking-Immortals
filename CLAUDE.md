@@ -44,7 +44,7 @@ Codex and Claude Code must follow the same fixed order on this repository:
 3. Create a backup of every existing file that will be edited under `.bak/<timestamp>/` or `backups/<timestamp>/`, preserving relative paths.
 4. Implement the smallest scoped change that satisfies the task.
 5. Update project docs and add/update a note under `project_docs/updates/` when a step, blocker, build verification, or phase wrap-up is completed.
-6. Run `./gradlew build` after code/resource/build changes. The Gradle build runs `scripts/preflight.ps1` first to catch missing `mod_version` bumps.
+6. Run `./gradlew build` after code/resource/build changes. The Gradle build runs `scripts/preflight.sh` first to catch missing `mod_version` bumps.
 7. If the build fails, fix the failure and rerun the build. Do not report completion until the build succeeds or the blocker is documented with exact failure details.
 8. Before finishing any repository update, inspect `git status` and the relevant diff, then stage only files belonging to the current update.
 9. After every completed update batch, create a local Git commit with a Chinese subject and Chinese description. Do not create an empty commit when no files changed.

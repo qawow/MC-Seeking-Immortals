@@ -7,7 +7,7 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-root = Path(r"D:/codex/mc-mod")
+root = Path(__file__).resolve().parents[1]
 java_dir = root / "src/main/java/com/xunxian/seekingimmortals"
 assets = root / "src/main/resources/assets/seeking_immortals"
 data = root / "src/main/resources/data/seeking_immortals"
