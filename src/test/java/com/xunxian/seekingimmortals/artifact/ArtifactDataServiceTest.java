@@ -53,7 +53,7 @@ class ArtifactDataServiceTest {
     void loadsShippedArtifactCatalogs() {
         ArtifactDataService.Snapshot snapshot = ArtifactDataService.builtin();
 
-        assertEquals(16, ArtifactDataService.sourceFiles().size());
+        assertEquals(18, ArtifactDataService.sourceFiles().size());
         assertEquals(217, snapshot.artifacts().size());
         assertEquals(73, snapshot.refinementRecipes().size());
         assertEquals(8, snapshot.flightVehicles().size());

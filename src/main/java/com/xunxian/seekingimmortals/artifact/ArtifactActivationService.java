@@ -106,15 +106,60 @@ public final class ArtifactActivationService {
             return false;
         }
 
+        // M15: 认主红线 — 他人本命/已认主法宝不可用。
+        if (!ArtifactOwnershipService.canActivate(player, stack, artifactId)) {
+            return false;
+        }
+
+        double powerScale = ArtifactPowerService.effectiveScale(player, stack, artifact);
+        if (powerScale <= 0.0D) {
+            player.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.artifact.suppressed"), true);
+            return false;
+        }
+
         ActivationInfo info = activationInfo(snapshot, artifact);
+        // M15: 优先走 M02 SkillEffectRegistry 主动技映射（冷却/灵力服务端校验）。
+        if (info.supported() && !ActivationKind.REPAIR.id.equals(info.kind())) {
+            if (ArtifactActiveSkillService.tryCast(player, cultivation, stack, artifact, powerScale)) {
+                if (info.integrityCost() > 0 && !player.getAbilities().instabuild) {
+                    int effectiveCost = effectiveIntegrityCost(player, artifact, info);
+                    int integrity = getIntegrity(stack, artifact);
+                    if (integrity < effectiveCost) {
+                        damageIntegrity(stack, artifact, integrity);
+                    } else {
+                        damageIntegrity(stack, artifact, effectiveCost);
+                    }
+                }
+                consumeTalismanUse(player, stack, info);
+                playActivationFeedback(player);
+                SyncCultivationDataPacket.send(player, cultivation);
+                if (ArtifactPowerService.isSuppressed(player, artifact)) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.artifact.suppressed_partial",
+                            String.format(Locale.ROOT, "%.0f%%", powerScale * 100.0D)), true);
+                }
+                player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.activated",
+                        stack.getHoverName(),
+                        ArtifactPowerService.scaledSpiritualCost(info.spiritualPowerCost(), powerScale)), true);
+                return true;
+            }
+        }
+
         if (!info.supported()) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.unsupported"), true);
             return false;
         }
-        if (cultivation.getRealm().ordinal() < info.minRealm().ordinal()) {
-            player.displayClientMessage(Component.translatable(
-                    "message.seeking_immortals.artifact.realm_too_low", info.minRealm().getDisplayName()), true);
-            return false;
+        if (cultivation.getRealm().ordinal() < info.minRealm().ordinal()
+                && !com.xunxian.seekingimmortals.cultivation.ProgressionGateApi.meetsRealm(
+                        cultivation, info.minRealm())) {
+            // 越阶仍可释放，但 powerScale 已压制；仅当完全凡人且无门槛通过时拒绝低阶。
+            if (powerScale < ArtifactDataService.builtin().realmPowerScale().belowRealmMin() + 1.0e-6D
+                    && cultivation.getRealm().ordinal() + 2 < info.minRealm().ordinal()) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.realm_too_low", info.minRealm().getDisplayName()), true);
+                return false;
+            }
         }
         if (player.getCooldowns().isOnCooldown(stack.getItem())) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.cooldown"), true);
@@ -152,7 +197,8 @@ public final class ArtifactActivationService {
                     "message.seeking_immortals.artifact.talisman_depleted", stack.getHoverName()), true);
             return false;
         }
-        int spCost = effectiveSpiritualCost(player, artifact, info);
+        int spCost = ArtifactPowerService.scaledSpiritualCost(
+                effectiveSpiritualCost(player, artifact, info), powerScale);
         if (!cultivation.consumeSpiritualPower(spCost)) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.not_enough_qi"), true);
             return false;
@@ -177,12 +223,18 @@ public final class ArtifactActivationService {
                 }
             }
         }
-        int cooldown = effectiveCooldown(player, artifact, info);
+        int cooldown = ArtifactPowerService.scaledCooldown(
+                effectiveCooldown(player, artifact, info), powerScale);
         player.getCooldowns().addCooldown(activatedItem, cooldown);
         consumeTalismanUse(player, stack, info);
         playActivationFeedback(player);
         SyncCultivationDataPacket.send(player, cultivation);
         if (repairTarget == null) {
+            if (ArtifactPowerService.isSuppressed(player, artifact)) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.artifact.suppressed_partial",
+                        String.format(Locale.ROOT, "%.0f%%", powerScale * 100.0D)), true);
+            }
             player.displayClientMessage(Component.translatable("message.seeking_immortals.artifact.activated",
                     stack.getHoverName(), spCost), true);
         }

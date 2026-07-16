@@ -307,8 +307,20 @@ public final class ModEvents {
             if (directEntity != null && directEntity.getPersistentData().contains("SeekingImmortalsDamageMultiplier")) {
                 multiplier *= directEntity.getPersistentData().getDouble("SeekingImmortalsDamageMultiplier");
             }
+            // M15: 法宝协同攻击倍率（经伤害管线，不直改属性）。
+            multiplier *= com.xunxian.seekingimmortals.artifact.ArtifactSynergyService
+                    .outgoingDamageMultiplier(player);
             event.setAmount(event.getAmount() * (float)multiplier);
         });
+
+        // M15: 防御协同降低承伤（仍走 LivingHurt 管线）。
+        if (event.getEntity() instanceof Player hurtTarget) {
+            float incoming = (float) com.xunxian.seekingimmortals.artifact.ArtifactSynergyService
+                    .incomingDamageMultiplier(hurtTarget);
+            if (incoming != 1.0F) {
+                event.setAmount(event.getAmount() * incoming);
+            }
+        }
 
         if (!(sourceEntity instanceof ServerPlayer attacker)) return;
         if (!(event.getEntity() instanceof ServerPlayer defender)) return;
@@ -956,10 +968,19 @@ public final class ModEvents {
             return true;
         }
         if (stack.getItem() instanceof ArtifactCatalogItem artifactItem) {
+            // M15: 语料飞行能力 + 硬编码兼容旧 id。
+            if (com.xunxian.seekingimmortals.artifact.ArtifactDataService.builtin()
+                    .isFlyingCapable(artifactItem.artifactId())) {
+                return true;
+            }
             return switch (artifactItem.artifactId()) {
                 case "flying_sword_low", "silver_giant_sword", "wind_escape_sail", "cloud_boots" -> true;
                 default -> false;
             };
+        }
+        if (stack.getItem() instanceof com.xunxian.seekingimmortals.item.FlyingArtifactItem flying) {
+            return com.xunxian.seekingimmortals.artifact.ArtifactDataService.builtin()
+                    .isFlyingCapable(flying.artifactId());
         }
         return false;
     }

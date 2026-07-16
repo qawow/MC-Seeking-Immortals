@@ -70,11 +70,18 @@ public class ArtifactCatalogItem extends Item {
             }
             return InteractionResultHolder.consume(stack);
         }
-        // Wave456: sneak-use binds natal artifact (one per player).
+        // M15: sneak-use 认主（UUID 绑定 + 本命）。
         if (player.isShiftKeyDown()) {
             if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
-                boolean bound = NatalBindingService.bind(serverPlayer, stack);
-                return bound ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
+                boolean claimed = com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService
+                        .claim(serverPlayer, stack, artifactId);
+                // 器灵觉醒：已认主且再次潜行+主手空冷却时尝试（同路径，claim 幂等后走 awaken）。
+                if (!claimed && com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService
+                        .ownerUuid(stack).map(id -> id.equals(serverPlayer.getUUID())).orElse(false)) {
+                    claimed = com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService
+                            .tryAwakenSpirit(serverPlayer, stack, artifactId);
+                }
+                return claimed ? InteractionResultHolder.success(stack) : InteractionResultHolder.fail(stack);
             }
             return InteractionResultHolder.consume(stack);
         }
@@ -123,6 +130,7 @@ public class ArtifactCatalogItem extends Item {
             } else if (appraised || creativeFull) {
                 ArtifactActivationService.appendActivationTooltip(stack, artifact, tooltip);
             }
+            com.xunxian.seekingimmortals.artifact.ArtifactOwnershipService.appendOwnershipTooltip(stack, tooltip);
             if (stack.hasTag() && stack.getTag().getBoolean(NatalBindingService.STACK_BOUND)) {
                 int growth = NatalBindingService.growthFromStack(stack);
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bound_mark")
@@ -135,6 +143,10 @@ public class ArtifactCatalogItem extends Item {
                 tooltip.add(Component.translatable("tooltip.seeking_immortals.natal.bind_hint")
                         .withStyle(ChatFormatting.DARK_GRAY));
             }
+            com.xunxian.seekingimmortals.artifact.ArtifactActiveSkillService.resolve(artifactId).ifPresent(skill ->
+                    tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.active_skill",
+                                    skill.techniqueId())
+                            .withStyle(ChatFormatting.BLUE)));
         }, () -> tooltip.add(Component.translatable("tooltip.seeking_immortals.artifact.missing", artifactId)
                 .withStyle(ChatFormatting.RED)));
         if (com.xunxian.seekingimmortals.artifact.ArtifactAppraisalService.isAppraisalTool(artifactId)) {

@@ -199,6 +199,11 @@ public final class ArtifactRefinementService {
         boolean success = succeeds(player.getRandom().nextDouble(), adjustedRate);
         if (success) {
             ItemStack output = new ItemStack(outputItem);
+            // M15: 祭炼成功写入主人 UUID 与祭炼层数起点。
+            output.getOrCreateTag().putUUID(ArtifactOwnershipService.OWNER_UUID_TAG, player.getUUID());
+            output.getOrCreateTag().putString(ArtifactOwnershipService.OWNER_NAME_TAG,
+                    player.getGameProfile().getName());
+            ArtifactOwnershipService.addRefinementLayer(output, 1);
             Component outputName = output.getHoverName();
             if (!player.getInventory().add(output)) {
                 player.drop(output, false);
