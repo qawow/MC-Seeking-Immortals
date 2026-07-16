@@ -14,6 +14,25 @@ class SpiritualAuraManagerTest {
         assertTrue(info.leyline());
         assertTrue(info.cluster());
         assertEquals(100, info.concentration());
+        assertEquals(1.0D, info.regionMultiplier(), 1e-9);
+    }
+
+    @Test
+    void auraInfoRecordIncludesRegionFields() {
+        SpiritualAuraManager.AuraInfo info = new SpiritualAuraManager.AuraInfo(
+                180, 1.0D, 1.0D, 1.0D, 0, SpiritualAuraManager.AuraNature.SPIRIT_REALM, false, false,
+                "tianyuan", 2.0D);
+        assertEquals("tianyuan", info.regionId());
+        assertEquals(2.0D, info.regionMultiplier(), 1e-9);
+        assertEquals(180, info.concentration());
+    }
+
+    @Test
+    void regionMultiplierUsesRegistryAndClamps() {
+        double tianyuan = SpiritualAuraManager.getRegionMultiplier("tianyuan");
+        assertTrue(tianyuan >= 1.5D);
+        assertTrue(tianyuan <= 2.5D);
+        assertEquals(1.0D, SpiritualAuraManager.getRegionMultiplier(""), 1e-9);
     }
 
     @Test

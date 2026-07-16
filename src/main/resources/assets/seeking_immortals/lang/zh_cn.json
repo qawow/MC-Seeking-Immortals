@@ -3713,7 +3713,6 @@
   "block.seeking_immortals.alchemy_lid_tier_4": "四阶丹炉盖",
   "block.seeking_immortals.alchemy_lid_tier_5": "五阶丹炉盖",
   "message.seeking_immortals.alchemy_furnace.lid_blocked": "炉顶位置被占据，无法安放炉盖。",
-<<<<<<< HEAD
   "message.seeking_immortals.method.conflict": "功法冲突：%s 与已学《%s》相容等级 %s（%s），不可同修。",
   "message.seeking_immortals.method.techniques_granted": "功法层数解锁术法 %s 门。",
   "message.seeking_immortals.spell.generic_projectile.success": "术法弹道命中，造成 %s 点伤害。",
@@ -3727,8 +3726,7 @@
   "message.seeking_immortals.spell.generic_melee.success": "近身剑意斩落。",
   "message.seeking_immortals.spell.generic_illusion.success": "幻术弥散，心神受扰。",
   "message.seeking_immortals.spell.generic_control.success": "禁锢之力扩散。",
-  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。"
-=======
+  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。",
   "item.seeking_immortals.altar_stone": "契坛石",
   "tooltip.seeking_immortals.material.altar_stone": "契坛石。多方块建造材料（v135 对齐）。",
   "item.seeking_immortals.anchor_spike": "界域锚定针",
@@ -4381,6 +4379,20 @@
   "tooltip.seeking_immortals.talisman_grade.low": "低阶符箓",
   "tooltip.seeking_immortals.talisman_grade.mid": "中阶符箓",
   "tooltip.seeking_immortals.talisman_grade.high": "高阶符箓",
-  "tooltip.seeking_immortals.talisman_grade.ancient": "古符"
->>>>>>> task/m03-item-catalog
+  "tooltip.seeking_immortals.talisman_grade.ancient": "古符",
+  "message.seeking_immortals.aura.detector.region": "所属区域：%s（区域灵气倍率 %s）",
+  "message.seeking_immortals.leyline_compass.found_region": "§d§l【寻脉罗盘】§r 当前区域：%s。罗盘微震，%s方向约 %s 格外有 %s 灵脉波动。",
+  "message.seeking_immortals.leyline_compass.not_found_region": "§7§l【寻脉罗盘】§r 当前区域：%s。附近灵机平稳，未发现明显灵脉。",
+  "tooltip.seeking_immortals.leyline_compass.region": "记录区域：%s",
+  "command.seeking_immortals.region.daily_events.status": "每日事件：启用=%s，扩展事件=%s，钩子=%s",
+  "command.seeking_immortals.region.daily_events.toggle": "每日事件调度已设置为：%s",
+  "command.seeking_immortals.region.daily_events.need_server": "需要在服务器世界中执行",
+  "command.seeking_immortals.region.daily_events.rolled": "已强制重掷全部区域每日事件",
+  "command.seeking_immortals.region.here": "当前区域：%s（%s），灵气倍率 %s，维度 %s",
+  "command.seeking_immortals.region.list.header": "区域注册表：共 %s 条，其中语料卡片 %s 张",
+  "command.seeking_immortals.region.list.entry": "- %s | %s | aura=%s | dim=%s | worldpack=%s",
+  "command.seeking_immortals.region.items.header": "区域 %s 物品：%s 项",
+  "command.seeking_immortals.region.items.entry": "- %s | %s | %s | %s",
+  "command.seeking_immortals.region.routes.header": "路线 %s → %s：直接边 %s，连通=%s",
+  "command.seeking_immortals.region.routes.entry": "- %s | %s→%s | days=%s-%s | fee=%s"
 }

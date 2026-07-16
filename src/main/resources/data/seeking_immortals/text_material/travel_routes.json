@@ -1,0 +1,797 @@
+{
+  "schema_version": 3,
+  "source": "汇编 v102 地图/秘境连接与旅行时间表（贴原著地理尺度结构）",
+  "disclaimer": "时间为叙事量级（时/日/月）；遁光、传送、破界可大幅缩短。非精确地理测量",
+  "time_units": {
+    "hour": "时辰级短途",
+    "day": "日级陆行/近海",
+    "month": "月级远途/闭关途中",
+    "year": "年级跨域或苦修路"
+  },
+  "transport_modes": [
+    {
+      "id": "walk_mortal",
+      "display": "凡人步行",
+      "speed_mod": 0.05,
+      "need": []
+    },
+    {
+      "id": "mount",
+      "display": "灵兽/战骑",
+      "speed_mod": 0.3,
+      "need": [
+        "坐骑"
+      ]
+    },
+    {
+      "id": "escape_light",
+      "display": "遁光",
+      "speed_mod": 1.0,
+      "need": [
+        "FOUNDATION+"
+      ]
+    },
+    {
+      "id": "fabao_fly",
+      "display": "法宝飞遁",
+      "speed_mod": 1.5,
+      "need": [
+        "CORE+"
+      ]
+    },
+    {
+      "id": "fenglei_chi",
+      "display": "风雷翅",
+      "speed_mod": 3.0,
+      "need": [
+        "风雷翅"
+      ]
+    },
+    {
+      "id": "teleport_array",
+      "display": "传送阵",
+      "speed_mod": 99,
+      "need": [
+        "阵费",
+        "权限"
+      ],
+      "fixed": true
+    },
+    {
+      "id": "danuoyi",
+      "display": "大挪移令",
+      "speed_mod": 99,
+      "need": [
+        "大挪移令",
+        "古点"
+      ],
+      "charges": "结构消耗"
+    },
+    {
+      "id": "pojie",
+      "display": "破界/节点",
+      "speed_mod": 99,
+      "need": [
+        "破界符",
+        "节点资料"
+      ],
+      "realm": "飞升"
+    },
+    {
+      "id": "ship_sea",
+      "display": "法舟海航",
+      "speed_mod": 0.8,
+      "need": [
+        "舟",
+        "海图"
+      ]
+    },
+    {
+      "id": "ascension_channel",
+      "display": "飞升通道",
+      "speed_mod": 99,
+      "need": [
+        "DEITY_TRANSFORMATION_peak",
+        "tribulation_success"
+      ]
+    },
+    {
+      "id": "regulated_portal",
+      "display": "管制界门",
+      "speed_mod": 99,
+      "need": [
+        "VOID_REFINEMENT",
+        "contribution"
+      ]
+    },
+    {
+      "id": "great_vehicle_ascension",
+      "display": "大乘飞升",
+      "speed_mod": 99,
+      "need": [
+        "GREAT_VEHICLE"
+      ]
+    },
+    {
+      "id": "ghost_path_portal",
+      "display": "鬼道阴司门",
+      "speed_mod": 50,
+      "need": [
+        "ghost_method"
+      ]
+    },
+    {
+      "id": "avatar_descent",
+      "display": "分身下界",
+      "speed_mod": 99,
+      "need": [
+        "VOID_REFINEMENT",
+        "clone"
+      ]
+    },
+    {
+      "id": "immortal_grand_array",
+      "display": "仙界大阵传送",
+      "speed_mod": 99,
+      "need": [
+        "TRUE_IMMORTAL",
+        "immortal_stone"
+      ]
+    }
+  ],
+  "hubs": [
+    {
+      "id": "tainan_xiaohui",
+      "display": "太南小会",
+      "realm_band": "MORTAL_QI",
+      "region": "天南入口"
+    },
+    {
+      "id": "huangfeng",
+      "display": "黄枫谷",
+      "realm_band": "QI_FOUNDATION",
+      "region": "越国七派"
+    },
+    {
+      "id": "yue_spirit",
+      "display": "越国灵脉山地",
+      "realm_band": "QI_FOUNDATION",
+      "region": "天南"
+    },
+    {
+      "id": "blood_forbidden",
+      "display": "血色禁地入口",
+      "realm_band": "QI",
+      "instance": true
+    },
+    {
+      "id": "tianxing",
+      "display": "天星城",
+      "realm_band": "FOUNDATION_CORE",
+      "region": "内星海"
+    },
+    {
+      "id": "heishi",
+      "display": "黑石城",
+      "realm_band": "CORE_NASCENT",
+      "region": "外星海边缘"
+    },
+    {
+      "id": "xutian_gate",
+      "display": "虚天殿开启点",
+      "realm_band": "CORE+",
+      "instance": true,
+      "cycle": "数十年级"
+    },
+    {
+      "id": "nether_mist",
+      "display": "阴冥之地",
+      "realm_band": "FOUNDATION_NASCENT",
+      "hazard": "法力异常"
+    },
+    {
+      "id": "yunmeng",
+      "display": "云梦山",
+      "realm_band": "CORE_NASCENT",
+      "region": "天南圣地"
+    },
+    {
+      "id": "tiannan_fair",
+      "display": "天南交换会场",
+      "realm_band": "NASCENT",
+      "cycle": "定期"
+    },
+    {
+      "id": "border_war",
+      "display": "慕兰-天南边界",
+      "realm_band": "FOUNDATION_NASCENT",
+      "war": true
+    },
+    {
+      "id": "zhuimo",
+      "display": "坠魔谷入口",
+      "realm_band": "NASCENT",
+      "token": "坠魔令"
+    },
+    {
+      "id": "jinjing",
+      "display": "晋京",
+      "realm_band": "CORE_NASCENT",
+      "region": "大晋"
+    },
+    {
+      "id": "yinyang_ku",
+      "display": "阴阳窟",
+      "realm_band": "NASCENT",
+      "hazard": "阴毒"
+    },
+    {
+      "id": "kunwu",
+      "display": "昆吾山",
+      "realm_band": "NASCENT",
+      "instance": true
+    },
+    {
+      "id": "xiaojigong",
+      "display": "小极宫",
+      "realm_band": "NASCENT",
+      "region": "北地"
+    },
+    {
+      "id": "huoyu",
+      "display": "火狱",
+      "realm_band": "NASCENT_DEITY",
+      "hazard": "至阳"
+    },
+    {
+      "id": "outer_sea_deep",
+      "display": "外星海深域",
+      "realm_band": "CORE_NASCENT",
+      "hazard": "兽潮"
+    },
+    {
+      "id": "feisheng_node",
+      "display": "飞升节点",
+      "realm_band": "DEITY",
+      "need": [
+        "破界",
+        "资料"
+      ]
+    },
+    {
+      "id": "tianyuan",
+      "display": "天渊城",
+      "realm_band": "DEITY+",
+      "region": "灵界"
+    },
+    {
+      "id": "diyuan",
+      "display": "地渊营地",
+      "realm_band": "DEITY_VOID",
+      "currency": "merit"
+    },
+    {
+      "id": "xinggong",
+      "display": "星宫",
+      "realm_band": "DEITY+",
+      "region": "灵界"
+    },
+    {
+      "id": "guanghan",
+      "display": "广寒界入口",
+      "realm_band": "VOID+",
+      "instance": true
+    },
+    {
+      "id": "minghe",
+      "display": "冥河",
+      "realm_band": "GREAT",
+      "endgame": true
+    },
+    {
+      "id": "mogin",
+      "display": "魔金山脉",
+      "realm_band": "INTEGRATION+",
+      "region": "魔界边缘结构"
+    },
+    {
+      "id": "tianyuan_city",
+      "display": "天渊城",
+      "realm_band": "VOID_PLUS",
+      "region": "灵界入口",
+      "dimension": "seeking_immortals:tianyuan"
+    },
+    {
+      "id": "spirit_fengyuan_hub",
+      "display": "风元大陆枢纽",
+      "realm_band": "VOID_PLUS",
+      "region": "灵界",
+      "dimension": "seeking_immortals:spirit_fengyuan"
+    },
+    {
+      "id": "immortal_main_hub",
+      "display": "仙界主城",
+      "realm_band": "TRUE_IMMORTAL",
+      "region": "仙界",
+      "dimension": "seeking_immortals:immortal_realm"
+    },
+    {
+      "id": "yin_ming_hub",
+      "display": "冥河渡口",
+      "realm_band": "GHOST",
+      "region": "阴司",
+      "dimension": "seeking_immortals:yin_ming_pocket"
+    }
+  ],
+  "routes": [
+    {
+      "from": "tainan_xiaohui",
+      "to": "huangfeng",
+      "base_days": [
+        10,
+        40
+      ],
+      "modes": [
+        "walk_mortal",
+        "escape_light"
+      ],
+      "note": "入仙后显著缩短"
+    },
+    {
+      "from": "huangfeng",
+      "to": "yue_spirit",
+      "base_days": [
+        1,
+        7
+      ],
+      "modes": [
+        "escape_light",
+        "mount"
+      ]
+    },
+    {
+      "from": "huangfeng",
+      "to": "blood_forbidden",
+      "base_days": [
+        3,
+        15
+      ],
+      "modes": [
+        "escape_light"
+      ],
+      "season": "试炼期开放"
+    },
+    {
+      "from": "huangfeng",
+      "to": "yunmeng",
+      "base_days": [
+        15,
+        60
+      ],
+      "modes": [
+        "escape_light",
+        "fabao_fly"
+      ],
+      "note": "圣地戒备"
+    },
+    {
+      "from": "huangfeng",
+      "to": "tianxing",
+      "base_days": [
+        30,
+        180
+      ],
+      "modes": [
+        "escape_light",
+        "teleport_array",
+        "danuoyi"
+      ],
+      "note": "撤离天南主路径结构"
+    },
+    {
+      "from": "tianxing",
+      "to": "heishi",
+      "base_days": [
+        10,
+        60
+      ],
+      "modes": [
+        "ship_sea",
+        "fabao_fly"
+      ],
+      "hazard": "海兽"
+    },
+    {
+      "from": "tianxing",
+      "to": "outer_sea_deep",
+      "base_days": [
+        20,
+        90
+      ],
+      "modes": [
+        "ship_sea",
+        "fenglei_chi"
+      ],
+      "hazard": "兽潮"
+    },
+    {
+      "from": "tianxing",
+      "to": "xutian_gate",
+      "base_days": [
+        5,
+        30
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "need": [
+        "虚天残图拼合",
+        "开启窗口"
+      ]
+    },
+    {
+      "from": "tianxing",
+      "to": "nether_mist",
+      "base_days": [
+        7,
+        40
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "hazard": "法力异常"
+    },
+    {
+      "from": "yunmeng",
+      "to": "tiannan_fair",
+      "base_days": [
+        5,
+        20
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "cycle": "会期"
+    },
+    {
+      "from": "tiannan_fair",
+      "to": "border_war",
+      "base_days": [
+        10,
+        45
+      ],
+      "modes": [
+        "fabao_fly",
+        "mount"
+      ],
+      "war": true
+    },
+    {
+      "from": "border_war",
+      "to": "zhuimo",
+      "base_days": [
+        15,
+        60
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "need": [
+        "坠魔令"
+      ]
+    },
+    {
+      "from": "tiannan_fair",
+      "to": "jinjing",
+      "base_days": [
+        20,
+        90
+      ],
+      "modes": [
+        "fabao_fly",
+        "teleport_array"
+      ],
+      "note": "大晋入境盘查"
+    },
+    {
+      "from": "jinjing",
+      "to": "yinyang_ku",
+      "base_days": [
+        10,
+        40
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "hazard": "阴毒"
+    },
+    {
+      "from": "jinjing",
+      "to": "kunwu",
+      "base_days": [
+        15,
+        50
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "need": [
+        "线索拼图"
+      ]
+    },
+    {
+      "from": "jinjing",
+      "to": "xiaojigong",
+      "base_days": [
+        20,
+        80
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "hazard": "极寒"
+    },
+    {
+      "from": "xiaojigong",
+      "to": "huoyu",
+      "base_days": [
+        25,
+        100
+      ],
+      "modes": [
+        "fabao_fly",
+        "fenglei_chi"
+      ],
+      "note": "寒火两端"
+    },
+    {
+      "from": "outer_sea_deep",
+      "to": "heishi",
+      "base_days": [
+        15,
+        70
+      ],
+      "modes": [
+        "ship_sea"
+      ]
+    },
+    {
+      "from": "kunwu",
+      "to": "feisheng_node",
+      "base_days": [
+        0,
+        30
+      ],
+      "modes": [
+        "pojie"
+      ],
+      "need": [
+        "破界符",
+        "节点资料"
+      ]
+    },
+    {
+      "from": "feisheng_node",
+      "to": "tianyuan",
+      "base_days": [
+        0,
+        7
+      ],
+      "modes": [
+        "pojie"
+      ],
+      "note": "界面穿越，风险另计"
+    },
+    {
+      "from": "tianyuan",
+      "to": "diyuan",
+      "base_days": [
+        5,
+        30
+      ],
+      "modes": [
+        "escape_light",
+        "teleport_array"
+      ],
+      "currency": "merit_travel"
+    },
+    {
+      "from": "tianyuan",
+      "to": "xinggong",
+      "base_days": [
+        10,
+        60
+      ],
+      "modes": [
+        "fabao_fly",
+        "teleport_array"
+      ]
+    },
+    {
+      "from": "tianyuan",
+      "to": "guanghan",
+      "base_days": [
+        20,
+        120
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "need": [
+        "界面令/机缘"
+      ]
+    },
+    {
+      "from": "tianyuan",
+      "to": "minghe",
+      "base_days": [
+        30,
+        180
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "endgame": true
+    },
+    {
+      "from": "tianyuan",
+      "to": "mogin",
+      "base_days": [
+        40,
+        200
+      ],
+      "modes": [
+        "fabao_fly"
+      ],
+      "hazard": "魔气"
+    },
+    {
+      "from": "huangfeng",
+      "to": "tianyuan_city",
+      "base_days": [
+        0,
+        0
+      ],
+      "modes": [
+        "ascension_channel"
+      ],
+      "note": "非走出来，渡劫飞升",
+      "dimension_cross": true,
+      "v136": true
+    },
+    {
+      "from": "tianyuan_city",
+      "to": "spirit_fengyuan_hub",
+      "base_days": [
+        0,
+        1
+      ],
+      "modes": [
+        "regulated_portal"
+      ],
+      "note": "贡献费界门",
+      "v136": true
+    },
+    {
+      "from": "spirit_fengyuan_hub",
+      "to": "immortal_main_hub",
+      "base_days": [
+        0,
+        0
+      ],
+      "modes": [
+        "great_vehicle_ascension"
+      ],
+      "note": "大乘飞升",
+      "v136": true
+    },
+    {
+      "from": "huangfeng",
+      "to": "yin_ming_hub",
+      "base_days": [
+        0,
+        3
+      ],
+      "modes": [
+        "ghost_path_portal"
+      ],
+      "note": "鬼道入口",
+      "v136": true
+    },
+    {
+      "from": "tainan_xiaohui",
+      "to": "node_chaotic_sea_via_port",
+      "base_days": [
+        15,
+        60
+      ],
+      "modes": [
+        "sea_ship",
+        "flying_boat"
+      ],
+      "note": "出海乱星海",
+      "v136": true
+    }
+  ],
+  "instance_windows": [
+    {
+      "id": "blood_forbidden",
+      "open": "试炼周期",
+      "duration_days": [
+        10,
+        30
+      ],
+      "entry": "宗门配额/令"
+    },
+    {
+      "id": "xutian",
+      "open": "数十年一遇结构",
+      "duration_days": [
+        15,
+        60
+      ],
+      "entry": "残图+实力"
+    },
+    {
+      "id": "zhuimo",
+      "open": "令牌触发/周期",
+      "duration_days": [
+        20,
+        90
+      ],
+      "entry": "坠魔令"
+    },
+    {
+      "id": "kunwu",
+      "open": "线索凑齐",
+      "duration_days": "任务驱动",
+      "entry": "拼图"
+    },
+    {
+      "id": "guanghan",
+      "open": "灵界机缘",
+      "duration_days": "任务驱动",
+      "entry": "界面"
+    }
+  ],
+  "travel_costs": {
+    "teleport_low_stone": [
+      100,
+      5000
+    ],
+    "sea_ship_ticket": [
+      50,
+      2000
+    ],
+    "border_pass": [
+      "令牌",
+      "声望",
+      "贿赂结构"
+    ],
+    "merit_portal": "天渊内短传耗功勋"
+  },
+  "blockers": [
+    {
+      "cond": "炼气无遁",
+      "effect": "跨省以月计"
+    },
+    {
+      "cond": "兽潮",
+      "effect": "星海航线关闭或×3时间"
+    },
+    {
+      "cond": "战争",
+      "effect": "边界需军令"
+    },
+    {
+      "cond": "身份暴露噬金/魔功",
+      "effect": "部分枢纽追杀事件"
+    },
+    {
+      "cond": "无节点资料",
+      "effect": "不可飞升"
+    }
+  ],
+  "description": "用 hub+route 驱动大地图；秘境用 instance_windows；时间随交通工具缩放。",
+  "v136_dimension_methods": "dimension_travel_methods_v136.json"
+}

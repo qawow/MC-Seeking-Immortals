@@ -1,4 +1,19 @@
-<<<<<<< HEAD
+## 457. 2026-07-16 M06 区域与世界事件落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_225956_m06_regions_events/`
+  RegionRegistry 归一                  Done worldpack + region_cards + biomes 合成；对外唯一权威
+  itemsForRegion                       Done RegionItemsService
+  Daily events scheduler/hooks         Done DailyEventScheduler + RegionEventConfig + 命令开关
+  Biome / travel graph                 Done RegionBiomeMap + TravelRouteGraph（发布 travel_routes.json）
+  Aura / leyline region hook           Done SpiritualAuraManager regionMultiplier + 测灵盘/寻脉罗盘
+  Player region resolve/sync           Done 登录/跨维度 resolveAndSync；复用 SyncWorldpackDataPacket
+  Tests                                Done RegionRegistryTest + Aura + Worldpack 聚焦绿
+  Version                              Unchanged 任务红线不升 mod_version；protocol 保持 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m06_regions_events.md`
+
 ## 456. 2026-07-16 M02 功法与术法落地
 
   Step   Status   Notes
@@ -15,7 +30,6 @@
   Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
   Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m02_techniques.md`
-=======
 ## 456. 2026-07-16 M03 物品目录与批量注册
 
   Step   Status   Notes
@@ -32,7 +46,6 @@
   Version/protocol                     Unchanged 任务红线禁止改 `mod_version`；protocol 保持 `20`
   Update note                          Done `project_docs/updates/20260716_m03_item_catalog.md`
   Full verification                    Done `./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL（任务红线禁止 bump）
->>>>>>> task/m03-item-catalog
 
 ## 455. 2026-07-16 中文乱码修复（mojibake / 路径损坏）
 
@@ -4201,7 +4214,8 @@
   Planning   Done   Continued the cooperative 0.1.109 canonicalization follow-up and scoped this pass to the final active old seeking_immortals:spirit_stone recipe/Patchouli references.
   Backup   Done   Current edited files were backed up to .bak/20260704_0.1.110_spirit_stone_refs_finish/; earlier pre-concurrency backup also exists at .bak/20260704_0.1.109_spirit_stone_refs_finish/.
   Version/protocol   Done   mod_version is 0.1.110; ModNetwork.PROTOCOL_VERSION remains 9 because no packet fields/order/encoding/registrations changed.
-  Resource refs   Done   Updated ire_talisman, rmor_talisman, Patchouli basics icon, and Patchouli spirit-stones icon to registered seeking_immortals:metal_spirit_stone.
+  Resource refs   Done   Updated 
+ire_talisman, rmor_talisman, Patchouli basics icon, and Patchouli spirit-stones icon to registered seeking_immortals:metal_spirit_stone.
   Build   Pending   Focused JSON validation and final ./gradlew --no-daemon --max-workers=1 build will be run next.
   Follow-up   Pending   Broader text-material id alias/canonical mapping remains before importing shops, talismans, beasts, artifacts, or techniques.
 

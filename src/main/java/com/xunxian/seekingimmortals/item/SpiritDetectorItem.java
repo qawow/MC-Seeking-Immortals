@@ -1,5 +1,7 @@
 package com.xunxian.seekingimmortals.item;
 
+import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
 import com.xunxian.seekingimmortals.spiritual.SpiritualAuraManager;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -25,16 +27,22 @@ public class SpiritDetectorItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-            SpiritualAuraManager.AuraInfo aura = SpiritualAuraManager.getAuraInfo(serverLevel, player.blockPosition());
+            String preferred = CultivationHelper.get(player)
+                    .map(cultivation -> cultivation.getWorldpackCurrentRegionId())
+                    .orElse("");
+            SpiritualAuraManager.AuraInfo aura = SpiritualAuraManager.getAuraInfo(
+                    serverLevel, player.blockPosition(), preferred);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.header"), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.concentration", aura.concentration()), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.detail",
                     format(aura.dimensionMultiplier()), format(aura.biomeMultiplier()), format(aura.leylineMultiplier()), aura.formationBonus()), false);
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.region",
+                    RegionRegistry.find(aura.regionId()).map(region -> region.display()).orElse(aura.regionId()),
+                    format(aura.regionMultiplier())), false);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.nature", aura.nature().getDisplayName()), false);
             if (aura.leyline()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.leyline"), false);
             }
-            // Wave489: dense multi-vein cluster readout for ecology/leyline tools.
             if (aura.cluster()) {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.aura.detector.cluster"), false);
             }

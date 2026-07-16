@@ -41,6 +41,11 @@ import com.xunxian.seekingimmortals.sect.SectDefinitionService;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import com.xunxian.seekingimmortals.shop.ShopService;
 import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.region.DailyEventScheduler;
+import com.xunxian.seekingimmortals.region.RegionEventConfig;
+import com.xunxian.seekingimmortals.region.RegionItemsService;
+import com.xunxian.seekingimmortals.region.RegionRegistry;
+import com.xunxian.seekingimmortals.region.TravelRouteGraph;
 import com.xunxian.seekingimmortals.worldpack.SpatialNodeCatalogService;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackDataService;
@@ -194,7 +199,29 @@ public final class SeekingImmortalsCommand {
                                         .executes(ctx -> worldpackSetAnchor(ctx.getSource(), StringArgumentType.getString(ctx, "anchor")))))
                         .then(Commands.literal("regions").executes(ctx -> worldpackRegions(ctx.getSource())))
                         .then(Commands.literal("realms").executes(ctx -> worldpackRealms(ctx.getSource())))
-                        .then(Commands.literal("events").executes(ctx -> worldpackEvents(ctx.getSource()))))
+                        .then(Commands.literal("events").executes(ctx -> worldpackEvents(ctx.getSource())))
+                        .then(Commands.literal("daily_events")
+                                .executes(ctx -> regionDailyEventsStatus(ctx.getSource()))
+                                .then(Commands.literal("status").executes(ctx -> regionDailyEventsStatus(ctx.getSource())))
+                                .then(Commands.literal("enable").requires(source -> source.hasPermission(2))
+                                        .executes(ctx -> regionDailyEventsToggle(ctx.getSource(), true)))
+                                .then(Commands.literal("disable").requires(source -> source.hasPermission(2))
+                                        .executes(ctx -> regionDailyEventsToggle(ctx.getSource(), false)))
+                                .then(Commands.literal("roll").requires(source -> source.hasPermission(2))
+                                        .executes(ctx -> regionDailyEventsRoll(ctx.getSource())))))
+                .then(Commands.literal("region")
+                        .executes(ctx -> regionHere(ctx.getSource()))
+                        .then(Commands.literal("here").executes(ctx -> regionHere(ctx.getSource())))
+                        .then(Commands.literal("list").executes(ctx -> regionList(ctx.getSource())))
+                        .then(Commands.literal("items")
+                                .then(Commands.argument("region", StringArgumentType.word())
+                                        .executes(ctx -> regionItems(ctx.getSource(), StringArgumentType.getString(ctx, "region")))))
+                        .then(Commands.literal("routes")
+                                .then(Commands.argument("from", StringArgumentType.word())
+                                        .then(Commands.argument("to", StringArgumentType.word())
+                                                .executes(ctx -> regionRoutes(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "from"),
+                                                        StringArgumentType.getString(ctx, "to")))))))
                 .then(Commands.literal("catalog")
                         .executes(ctx -> catalogSummary(ctx.getSource()))
                         .then(Commands.literal("summary").executes(ctx -> catalogSummary(ctx.getSource())))
@@ -975,6 +1002,93 @@ public final class SeekingImmortalsCommand {
                     event.regionId(),
                     event.weight(),
                     event.durationTicks()), false);
+        }
+        return 1;
+    }
+
+    private static int regionDailyEventsStatus(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.daily_events.status",
+                RegionEventConfig.isDailyEventsEnabled(),
+                DailyEventScheduler.expandedEventCount(),
+                DailyEventScheduler.hookCount()), false);
+        return 1;
+    }
+
+    private static int regionDailyEventsToggle(CommandSourceStack source, boolean enabled) {
+        RegionEventConfig.setDailyEventsEnabled(enabled);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.daily_events.toggle", enabled), true);
+        return 1;
+    }
+
+    private static int regionDailyEventsRoll(CommandSourceStack source) {
+        net.minecraft.server.MinecraftServer server = source.getServer();
+        if (server == null) {
+            source.sendFailure(Component.translatable("command.seeking_immortals.region.daily_events.need_server"));
+            return 0;
+        }
+        DailyEventScheduler.rollAllRegions(server.overworld(), true);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.region.daily_events.rolled"), true);
+        return 1;
+    }
+
+    private static int regionHere(CommandSourceStack source) throws CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = source.getPlayerOrException();
+        String regionId = RegionRegistry.resolveAndSync(player);
+        var definition = RegionRegistry.find(regionId);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.here",
+                regionId,
+                definition.map(region -> region.display()).orElse(regionId),
+                definition.map(region -> String.format(Locale.ROOT, "%.2f", region.auraMultiplier())).orElse("1.00"),
+                definition.map(region -> region.dimensionId()).orElse("")), false);
+        return 1;
+    }
+
+    private static int regionList(CommandSourceStack source) {
+        var snapshot = RegionRegistry.builtin();
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.list.header",
+                snapshot.size(),
+                snapshot.cardCount()), false);
+        for (var region : snapshot.cards()) {
+            source.sendSuccess(() -> Component.translatable(
+                    "command.seeking_immortals.region.list.entry",
+                    region.id(),
+                    region.display(),
+                    String.format(Locale.ROOT, "%.2f", region.auraMultiplier()),
+                    region.dimensionId(),
+                    region.hasWorldpack()), false);
+        }
+        return 1;
+    }
+
+    private static int regionItems(CommandSourceStack source, String regionId) {
+        var items = RegionItemsService.itemsForRegion(regionId);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.items.header", regionId, items.size()), false);
+        int shown = 0;
+        for (var item : items) {
+            if (shown++ >= 20) {
+                break;
+            }
+            source.sendSuccess(() -> Component.translatable(
+                    "command.seeking_immortals.region.items.entry",
+                    item.id(), item.display(), item.category(), item.rarity()), false);
+        }
+        return 1;
+    }
+
+    private static int regionRoutes(CommandSourceStack source, String from, String to) {
+        var routes = TravelRouteGraph.builtin().routesBetween(from, to);
+        boolean connected = TravelRouteGraph.builtin().isConnected(from, to);
+        source.sendSuccess(() -> Component.translatable(
+                "command.seeking_immortals.region.routes.header", from, to, routes.size(), connected), false);
+        for (var route : routes) {
+            source.sendSuccess(() -> Component.translatable(
+                    "command.seeking_immortals.region.routes.entry",
+                    route.id(), route.from(), route.to(), route.minDays(), route.maxDays(), route.feeLowStone()), false);
         }
         return 1;
     }

@@ -687,9 +687,17 @@ public final class WorldpackGameplayService {
                 })
                 .toList();
         String eventId = eventRoll.eventId();
-        String eventDisplay = snapshot.findDailyEvent(eventId).map(WorldpackGameplayService::display).orElse("");
+        String eventDisplay = snapshot.findDailyEvent(eventId).map(WorldpackGameplayService::display).orElseGet(() -> {
+            for (WorldpackDataService.DailyEvent event : com.xunxian.seekingimmortals.region.DailyEventScheduler
+                    .expandedCandidates(currentRegion, snapshot)) {
+                if (event.id().equals(eventId)) {
+                    return display(event);
+                }
+            }
+            return eventId;
+        });
         long eventRemaining = Math.max(0L, eventRoll.untilTick() - now);
-        List<String> effects = snapshot.findDailyEvent(eventId).map(WorldpackDataService.DailyEvent::effects).orElse(List.of());
+        List<String> effects = activeEffects(snapshot, eventRoll);
         return new WorldpackSnapshot(
                 currentRegion,
                 snapshot.findRegion(currentRegion).map(WorldpackGameplayService::display).orElse(currentRegion),
@@ -759,9 +767,10 @@ public final class WorldpackGameplayService {
     private static WorldpackSavedData.EventRoll refreshDailyEvent(ServerPlayer player, PlayerCultivation cultivation,
                                                                   WorldpackSavedData savedData, WorldpackDataService.Snapshot snapshot,
                                                                   String regionId) {
-        WorldpackSavedData.EventRoll roll = savedData.getOrRollDailyEvent(regionId, snapshot, gameTime(player), player.getRandom());
+        // M06: expanded candidates + hook dispatch live in DailyEventScheduler.
+        WorldpackSavedData.EventRoll roll = com.xunxian.seekingimmortals.region.DailyEventScheduler
+                .ensurePlayerEvent(player, regionId);
         cultivation.setWorldpackDailyEvent(roll.eventId(), roll.untilTick());
-        DailyEventEncounterService.maybeSpawn(player, roll.eventId());
         return roll;
     }
 
@@ -773,15 +782,30 @@ public final class WorldpackGameplayService {
     }
 
     private static List<String> activeEffects(WorldpackDataService.Snapshot snapshot, WorldpackSavedData.EventRoll roll) {
-        return snapshot.findDailyEvent(roll.eventId())
-                .filter(event -> !event.id().isBlank())
-                .map(WorldpackDataService.DailyEvent::effects)
-                .orElse(List.of());
+        if (roll == null || roll.eventId().isBlank()) {
+            return List.of();
+        }
+        Optional<WorldpackDataService.DailyEvent> direct = snapshot.findDailyEvent(roll.eventId());
+        if (direct.isPresent()) {
+            return direct.get().effects();
+        }
+        // Expanded multi-region text events may only exist as synthetic candidates.
+        for (WorldpackDataService.DailyEvent event : com.xunxian.seekingimmortals.region.DailyEventScheduler
+                .expandedCandidates(roll.regionId(), snapshot)) {
+            if (roll.eventId().equals(event.id())) {
+                return event.effects();
+            }
+        }
+        return List.of();
     }
 
     private static String normalizeRegion(PlayerCultivation cultivation, WorldpackDataService.Snapshot snapshot) {
         String regionId = cultivation.getWorldpackCurrentRegionId();
         if (snapshot.findRegion(regionId).isPresent()) {
+            return regionId;
+        }
+        // Prefer unified registry before falling back to starter region.
+        if (com.xunxian.seekingimmortals.region.RegionRegistry.isKnown(regionId)) {
             return regionId;
         }
         cultivation.setWorldpackCurrentRegionId(DEFAULT_REGION_ID);
