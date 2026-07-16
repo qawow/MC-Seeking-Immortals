@@ -96,8 +96,8 @@ public class PlayerCultivation {
     private int qiDevDecayAccumulatorTicks = 0;
     private int leylineQiDevDecayAccumulatorTicks = 0;
 
-    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 骞崇ǔ鎵撳潗姣?720 绉?-1
-    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 鐏佃剦棰濆姣?360 绉?-1
+    private static final int QI_DEV_RISK_DECAY_TICKS = 720 * 20;     // 平稳打坐每 720 秒 -1
+    private static final int LEYLINE_RISK_DECAY_TICKS = 360 * 20;    // 灵脉额外每 360 秒 -1
 
     public PlayerCultivation() {
         clearTechniqueSlots();
@@ -473,7 +473,9 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鍩虹鎴樻枟浜插拰锛氭妸鐏垫牴灞炴€ц惤瀹炲埌鐜版湁杩戞垬銆佹姇灏勭墿鍜岀绠撲激瀹充笂銆?     * 璇ュ€嶇巼鍙湪鐏垫牴宸茶閱掓椂鐢熸晥锛岀函搴﹁秺楂樻敹鐩婅秺鎺ヨ繎婊″€硷紱鏈閱掍笉鎻愪緵浼ゅ鍔犳垚銆?     */
+     * 基础战斗亲和：把灵根属性落实到现有近战、投射物和符箓伤害上。
+     * 该倍率只在灵根已觉醒时生效，纯度越高收益越接近满值；未觉醒不提供伤害加成。
+     */
     public double getSpiritualRootDamageMultiplier() {
         if (!spiritualRootAwakened || spiritualRootAttributes.isEmpty()) return 1.0D;
         double affinity = spiritualRootAttributes.stream()
@@ -485,8 +487,10 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鎸囧畾灞炴€ф湳娉曚翰鍜屽€嶇巼銆?     * 涓诲睘鎬у懡涓粰瀹屾暣鍔犳垚锛屽壇灞炴€у懡涓粰鍗婇鍔犳垚锛涙湭瑙夐啋鎴栨湭妫€娴嬬伒鏍规椂涓嶆彁渚涗笓绮惧姞鎴愩€?     *
-     * <p>淇濈暀璇ユ棫鍏ュ彛鐢ㄤ簬鍏煎鐗╁搧涓庡悗缁唬鐮侊紝瀹為檯鍏紡缁熶竴濮旀墭缁?TechniqueAffinityCalculator銆?/p>
+     * 指定属性术法亲和倍率。
+     * 主属性命中给完整加成，副属性命中给半额加成；未觉醒或未检测灵根时不提供专精加成。
+     *
+     * <p>保留该旧入口用于兼容物品与后续代码，实际公式统一委托给 TechniqueAffinityCalculator。</p>
      */
     public double getTechniqueAffinityMultiplier(SpiritualRootAttribute primary, SpiritualRootAttribute... secondary) {
         return TechniqueAffinityCalculator.calculate(this, primary, secondary).multiplier();
@@ -646,17 +650,17 @@ public class PlayerCultivation {
         return spiritualRoot.getCultivationSpeedCoefficient();
     }
 
-    /** 涓硅嵂鏁堟灉鍚告敹鍊嶇巼锛堜綆璧勮川鐏垫牴鏇撮珮锛?*/
+    /** 丹药效果吸收倍率（低资质灵根更高） */
     public double getPillAbsorptionMultiplier() {
         return spiritualRoot.getPillAbsorptionMultiplier();
     }
 
-    /** 闈掔帀灏忕摱棰濆鑾峰彇姒傜巼锛堥鐣欐帴鍙ｏ級 */
+    /** 青玉小瓶额外获取概率（预留接口） */
     public double getJadeVialDropChance() {
         return spiritualRoot.getJadeVialDropChance();
     }
 
-    /** 鐏垫牴灞炴€у己搴﹀€嶆暟锛堢畝鍖栫函搴﹀悗锛屽熀浜庣伒鏍瑰垎绫伙級 */
+    /** 灵根属性强度倍数（简化纯度后，基于灵根分类） */
     public double getAttributeStrengthMultiplier() {
         return spiritualRoot.getAttributeStrengthMultiplier();
     }
@@ -972,7 +976,9 @@ public class PlayerCultivation {
     }
 
     /**
-     * 绐佺牬缁煎悎鍊嶇巼锛堜綋璐?脳 灞炴€э紝涓嶅惈鐏垫牴鍔犳硶鍔犳垚锛夈€?     * 鐏垫牴鍔犳垚鏀逛负鍔犳硶锛屽湪 getBreakthroughChanceBreakdown 涓彔鍔犮€?     */
+     * 突破综合倍率（体质 × 属性，不含灵根加法加成）。
+     * 灵根加成改为加法，在 getBreakthroughChanceBreakdown 中累加。
+     */
     public double getBreakthroughMultiplier() {
         double attributeMultiplier = spiritualRootAttributes.stream()
                 .mapToDouble(SpiritualRootAttribute::getBreakthroughCoefficient)
@@ -997,10 +1003,11 @@ public class PlayerCultivation {
         return (int)Math.round(base * stage.getMaxSpiritualPowerMultiplier() * getGoldCoreAttributeMultiplier());
     }
 
-    // ========== Phase 1: 琛嶇敓灞炴€ц绠楁柟娉?==========
+    // ========== Phase 1: 衍生属性计算方法 ==========
 
     /**
-     * 鑾峰彇鏈€澶х敓鍛藉€硷紙HP锛?     * <p>鍏紡: hpBase 脳 闃舵鍊嶇巼</p>
+     * 获取最大生命值（HP）
+     * <p>公式: hpBase × 阶段倍率</p>
      */
     public int getMaxHealthPoints() {
         int base = RealmStageConfig.getHpBase(realm);
@@ -1010,8 +1017,8 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鑾峰彇鐏靛姏鍥炲閫熷害锛堢偣/绉掞級
-     * <p>鍏紡: 澧冪晫鍩哄噯 脳 鐏垫牴鍥炲绯绘暟 脳 閲嶄激鎯╃綒</p>
+     * 获取灵力回复速度（点/秒）
+     * <p>公式: 境界基准 × 灵根回复系数 × 重伤惩罚</p>
      */
     public float getManaRecoveryPerSecond() {
         float base = RealmStageConfig.getManaRecoveryBase(realm);
@@ -1020,7 +1027,8 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鑾峰彇淇负澧為暱閫熷害锛堢偣/绉掞紝鎵撳潗鐘舵€佷笅锛?     * <p>鍏紡: 澧冪晫鍩哄噯 脳 鐏垫牴淇偧閫熷害绯绘暟 脳 浣撹川鍊嶇巼</p>
+     * 获取修为增长速度（点/秒，打坐状态下）
+     * <p>公式: 境界基准 × 灵根修炼速度系数 × 体质倍率</p>
      */
     public float getCultivationGainPerSecond() {
         float base = RealmStageConfig.getCultivationGainBase(realm);
@@ -1029,12 +1037,12 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鑾峰彇椋炶閫熷害锛堟柟鍧?绉掞級
-     * <p>鍏紡: 澧冪晫鍩哄噯 脳 闃舵鍔犳垚</p>
+     * 获取飞行速度（方块/秒）
+     * <p>公式: 境界基准 × 阶段加成</p>
      */
     public float getFlyingSpeed() {
         float base = RealmStageConfig.getFlyingSpeedBase(realm);
-        // 闃舵鍊嶇巼绠€鍖栵細鍒濇湡1.0锛屼腑鏈?.2锛屽悗鏈?.5锛屽渾婊?.8
+        // 阶段倍率简化：初期1.0，中期1.2，后期1.5，圆满1.8
         return base * stage.getMaxSpiritualPowerMultiplier();
     }
 
@@ -1096,7 +1104,7 @@ public class PlayerCultivation {
         qiDeviationRisk = clamp(qiDeviationRisk + amount, 0, MAX_QI_DEVIATION_RISK);
     }
 
-    /** M3: 骞崇ǔ鎵撳潗姣?tick 绱姞锛岃揪闃堝€?-1 璧扮伀椋庨櫓锛況isk=0 鏃堕噸缃疮鍔犲櫒銆?*/
+    /** M3: 平稳打坐每 tick 累加，达阈值 -1 走火风险；risk=0 时重置累加器。 */
     public void tickQiDeviationDecay(boolean leyline) {
         if (qiDeviationRisk <= 0) {
             qiDevDecayAccumulatorTicks = 0;
@@ -1263,13 +1271,16 @@ public class PlayerCultivation {
     }
 
     /**
-     * 鐩存帴澧炲噺淇负缁忛獙鍊硷紙涓嶅簲鐢ㄤ慨鐐奸€熷害鍊嶇巼锛夛紝鐢ㄤ簬璧扮伀鍏ラ瓟绛夋儵缃氥€?     * 涓嶄細浣庝簬褰撳墠澧冪晫璧峰缁忛獙鍊笺€?     */
+     * 直接增减修为经验值（不应用修炼速度倍率），用于走火入魔等惩罚。
+     * 不会低于当前境界起始经验值。
+     */
     public void addCultivationExpRaw(int amount) {
         cultivationExp = Math.max(getCurrentStageStartExp(), Math.min(getCurrentStageCapExp(), cultivationExp + amount));
     }
 
     /**
-     * 鍏紑鏂规硶锛氭帀钀戒竴涓鐣岄樁娈碉紙鐢ㄤ簬璧扮伀鍏ラ瓟涓ラ噸鏁堟灉锛夈€?     */
+     * 公开方法：掉落一个境界阶段（用于走火入魔严重效果）。
+     */
     public void fallOneStagePublic() {
         fallOneStage();
     }
@@ -1374,7 +1385,7 @@ public class PlayerCultivation {
         public double chance() { return chanceBreakdown.chance(); }
     }
 
-    // ========== 璧扮伀鍏ラ瓟鍒嗙骇 ==========
+    // ========== 走火入魔分级 ==========
     public enum QiDeviationTier {
         NONE, MINOR, MODERATE, SEVERE, EXTREME
     }
@@ -1782,7 +1793,7 @@ public class PlayerCultivation {
         techniqueCooldownUntilTicks.clear();
         // M9: legacy cooldown values used per-dimension gameTime; clear them after global-time migration.
         if (tag.contains("TechniqueCooldownUntilTicks") && tag.getInt("CultivationNbtVersion") < 1) {
-            // 鏃у喎鍗村€兼竻绌猴紝棣栨鐧诲綍閲嶇疆鍏ㄩ儴鍐峰嵈
+            // 旧冷却值清空，首次登录重置全部冷却
         } else if (tag.contains("TechniqueCooldownUntilTicks")) {
         } else if (tag.contains("TechniqueCooldownUntilTicks")) {
             CompoundTag cooldownTag = tag.getCompound("TechniqueCooldownUntilTicks");

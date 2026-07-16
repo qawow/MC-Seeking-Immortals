@@ -105,10 +105,12 @@ public final class ModEvents {
     private static final String DIYUAN_SECRET_REALM_ID = "diyuan";
     private static final int DIYUAN_PRESSURE_INTERVAL_TICKS = 200;
     private static final int DIYUAN_PRESSURE_MESSAGE_INTERVAL_TICKS = 1200;
-    // 璧扮伀鍏ラ瓟椋庨櫓锛氬彈浼や慨鐐兼瘡绉?+2%
+    // 走火入魔风险：受伤修炼每秒 +2%
     private static final int INJURED_MEDITATION_RISK_PER_SECOND = 2;
-    // 璧扮伀鍏ラ瓟椋庨櫓琛板噺锛氬钩绋虫墦鍧愭瘡灏忔椂 -5%锛堟瘡 720 绉?-1%锛?    private static final int QI_DEV_RISK_DECAY_INTERVAL_SECONDS = 720;
-    // 璧扮伀鍏ラ瓟椋庨櫓琛板噺锛氱伒鑴夋墦鍧愰澶栨瘡灏忔椂 -10%锛堟瘡 360 绉?-1%锛?    private static final int LEYLINE_RISK_DECAY_INTERVAL_SECONDS = 360;
+    // 走火入魔风险衰减：平稳打坐每小时 -5%（每 720 秒 -1%）
+    private static final int QI_DEV_RISK_DECAY_INTERVAL_SECONDS = 720;
+    // 走火入魔风险衰减：灵脉打坐额外每小时 -10%（每 360 秒 -1%）
+    private static final int LEYLINE_RISK_DECAY_INTERVAL_SECONDS = 360;
     private ModEvents() {}
 
     @SubscribeEvent
@@ -203,12 +205,12 @@ public final class ModEvents {
                         consumeStoneBonus(bonusStone, stoneBonus);
                     }
 
-                    // 璧扮伀鍏ラ瓟椋庨櫓锛氬彈浼ょ姸鎬佷笅淇偧姣忕 +2%
+                    // 走火入魔风险：受伤状态下修炼每秒 +2%
                     if (event.player.getHealth() < event.player.getMaxHealth()) {
                         cultivation.addQiDeviationRisk(INJURED_MEDITATION_RISK_PER_SECOND);
                     }
 
-                    // M3: 璧扮伀鍏ラ瓟椋庨櫓琛板噺 鈥斺€?鐢ㄧ疮璁?tick 璁℃暟鍣紝涓嶅啀渚濊禆 tickCount 鍙栨ā
+                    // M3: 走火入魔风险衰减 —— 用累计 tick 计数器，不再依赖 tickCount 取模
                     cultivation.tickQiDeviationDecay(auraInfo.leyline());
                 }
             } else {
@@ -248,7 +250,7 @@ public final class ModEvents {
     @SubscribeEvent
     public static void onLivingHurt(LivingHurtEvent event) {
         if (event.getEntity() instanceof Player hurtPlayer) {
-            // M13: 瀵垮厓鑰楀敖鑷存涓嶈Е鍙戞墦鍧愪腑鏂笌璧扮伀鍏ラ瓟
+            // M13: 寿元耗尽致死不触发打坐中断与走火入魔
             if (hurtPlayer.getPersistentData().getBoolean("SeekingImmortalsLifespanDeath")) {
                 hurtPlayer.getPersistentData().remove("SeekingImmortalsLifespanDeath");
                 return;
@@ -282,7 +284,7 @@ public final class ModEvents {
             directEntity.getPersistentData().remove("SeekingImmortalsCustomDamage");
         }
 
-        // H9: 椋炲墤/鍐伴敟寮瑰皠鐗╀激瀹冲凡鍦ㄧ敓鎴愭椂 calculateDamage锛岃烦杩?cultivation multiplier 涓?PvP CombatCalculator 浜屾閲嶇畻
+        // H9: 飞剑/冰锥弹射物伤害已在生成时 calculateDamage，跳过 cultivation multiplier 与 PvP CombatCalculator 二次重算
         if (directEntity != null && directEntity.getPersistentData().getBoolean("SeekingImmortalsProjectileDamage")) {
             return;
         }
@@ -811,7 +813,7 @@ public final class ModEvents {
             return;
         }
 
-        // H11: 鐏靛姏涓嶈冻鏃朵笉鎺堜簣椋炶锛岄伩鍏?grant/revoke 鎶栧姩
+        // H11: 灵力不足时不授予飞行，避免 grant/revoke 抖动
         if (cultivation.getSpiritualPower() < profile.costPerSecond()) {
             revokeFlying(serverPlayer, "message.seeking_immortals.flight.stop.no_power");
             SyncCultivationDataPacket.send(serverPlayer, cultivation);
@@ -1111,7 +1113,7 @@ public final class ModEvents {
         data.putLong(AGE_DAY_KEY, currentDay);
         cultivation.addAgeYears((int) Math.min(passedDays, 1000L));
         if (cultivation.isLifespanExhausted() && !player.isCreative() && !player.isSpectator()) {
-            // M13: 璁剧疆瀵垮厓姝讳骸 flag锛岄樆姝?onLivingHurt 涓墦鍧愪腑鏂笌璧扮伀鍏ラ瓟
+            // M13: 设置寿元死亡 flag，阻止 onLivingHurt 中打坐中断与走火入魔
             player.getPersistentData().putBoolean("SeekingImmortalsLifespanDeath", true);
             player.hurt(player.damageSources().fellOutOfWorld(), Float.MAX_VALUE);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.lifespan.exhausted"), false);
