@@ -87,7 +87,9 @@
   "item.seeking_immortals.spirit_stone_superior": "Superior Spirit Stone",
   "message.seeking_immortals.exchange.limit": "Daily spirit stone exchange limit reached: %s times",
   "message.seeking_immortals.exchange.success": "Spirit stone exchange succeeded: %s/%s today",
-  "message.seeking_immortals.exchange.no_stones": "You need 100 spirit stones of the same grade to exchange for the next grade",
+  "message.seeking_immortals.exchange.no_stones": "You need 100 spirit stones of the same grade to exchange with the spirit stone banker",
+  "message.seeking_immortals.exchange.spawn_failed": "Failed to create a spirit stone banker.",
+  "message.seeking_immortals.exchange.spawned": "Spirit stone banker spawned. Right-click to exchange.",
   "message.seeking_immortals.spirit_stone.single_only": "Split spirit stones into a single item before guided absorption",
   "message.seeking_immortals.spirit_stone.empty": "This spirit stone has no spiritual power left",
   "message.seeking_immortals.spirit_stone.absorbing": "Guiding spirit stone absorption: %s%%",
@@ -921,6 +923,7 @@
   "message.seeking_immortals.sect.apply_already_member": "You are already a disciple of %s.",
   "message.seeking_immortals.sect.apply_other_sect": "You already have a sect identity: %s.",
   "entity.seeking_immortals.market_trader": "Market Trader",
+  "entity.seeking_immortals.spirit_stone_banker": "Spirit Stone Banker",
   "screen.seeking_immortals.shop.market_title": "Herbal Market",
   "screen.seeking_immortals.shop.market_title.tiannan_demonic_dual_market": "Tiannan Demonic Market",
   "screen.seeking_immortals.shop.market_title.chaotic_sea_island_general": "Chaotic Sea Island Goods",
@@ -4519,5 +4522,7 @@
   "message.seeking_immortals.garden_liquid.bottle_unique": "Palm bottle is unique; extras removed.",
   "message.seeking_immortals.garden_liquid.bottle_not_owner": "Palm bottle owner mismatch; confiscated.",
   "item.seeking_immortals.palm_heaven_bottle": "Palm Heaven Bottle",
-  "item.seeking_immortals.green_liquid_drop": "Green Liquid"
+  "item.seeking_immortals.green_liquid_drop": "Green Liquid",
+  "message.seeking_immortals.auction.realm_too_low": "Your realm is too low for this lot (requires %s).",
+  "message.seeking_immortals.auction.spirit_realm_only": "This lot is available only through Spirit Realm auctions."
 }

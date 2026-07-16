@@ -1,0 +1,442 @@
+{
+  "schema_version": 1,
+  "source": "v113 原包46店货架说明索引",
+  "total": 46,
+  "by_region": {
+    "tiannan": 12,
+    "chaotic_sea": 6,
+    "dajin": 3,
+    "nether_river": 1,
+    "tianyuan": 1,
+    "spirit_fengyuan": 20,
+    "mulan": 1,
+    "outer_sea_market": 1,
+    "yin_underworld": 1
+  },
+  "shops": [
+    {
+      "id": "huangfeng_contribution_hall",
+      "display": "黄枫谷贡献堂",
+      "region": "tiannan",
+      "faction": "huangfeng_valley",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#huangfeng_valley",
+      "desc_id": "shop_huangfeng_contribution_hall"
+    },
+    {
+      "id": "tiannan_herb_market",
+      "display": "天南坊市灵草摊",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_herb_market"
+    },
+    {
+      "id": "luoyun_contribution_hall",
+      "display": "落云宗贡献殿",
+      "region": "tiannan",
+      "faction": "luoyun_sect",
+      "currency": "sect_contribution",
+      "stock_ref": "sect_contribution_shop.json#luoyun_sect",
+      "desc_id": "shop_luoyun_contribution_hall"
+    },
+    {
+      "id": "chaotic_sea_island_general",
+      "display": "乱星海岛杂货",
+      "region": "chaotic_sea",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_chaotic_sea_island_general"
+    },
+    {
+      "id": "inverse_star_black_market",
+      "display": "逆星盟黑市",
+      "region": "chaotic_sea",
+      "faction": "inverse_star_alliance",
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_inverse_star_black_market"
+    },
+    {
+      "id": "dajin_wanbao_pavilion",
+      "display": "大晋万宝阁",
+      "region": "dajin",
+      "faction": null,
+      "currency": "mid_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_dajin_wanbao_pavilion"
+    },
+    {
+      "id": "nether_ferry_vendor",
+      "display": "冥河渡夫",
+      "region": "nether_river",
+      "faction": null,
+      "currency": "yin_stone",
+      "stock_ref": null,
+      "desc_id": "shop_nether_ferry_vendor"
+    },
+    {
+      "id": "tianyuan_merit_exchange",
+      "display": "天渊功勋殿",
+      "region": "tianyuan",
+      "faction": null,
+      "currency": "alliance_merit",
+      "stock_ref": null,
+      "desc_id": "shop_tianyuan_merit_exchange"
+    },
+    {
+      "id": "fengyuan_clan_auction",
+      "display": "风元氏族拍卖行",
+      "region": "spirit_fengyuan",
+      "faction": null,
+      "currency": "high_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_fengyuan_clan_auction"
+    },
+    {
+      "id": "mulan_fashi_supply",
+      "display": "慕兰法士物资站",
+      "region": "mulan",
+      "faction": "mulan_council",
+      "currency": "war_contribution",
+      "stock_ref": null,
+      "desc_id": "shop_mulan_fashi_supply"
+    },
+    {
+      "id": "tiannan_puppet_lane",
+      "display": "天南傀儡巷",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_puppet_lane"
+    },
+    {
+      "id": "tiannan_formation_lane",
+      "display": "天南阵法坊",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_formation_lane"
+    },
+    {
+      "id": "tiannan_talisman_lane",
+      "display": "天南制符阁",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_talisman_lane"
+    },
+    {
+      "id": "tiannan_demonic_dual_market",
+      "display": "天南魔市（双修货）",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_demonic_dual_market"
+    },
+    {
+      "id": "hehuan_contribution_pavilion",
+      "display": "合欢宗贡献楼",
+      "region": "tiannan",
+      "faction": "hehuan_sect",
+      "currency": "sect_contribution",
+      "stock_ref": null,
+      "desc_id": "shop_hehuan_contribution_pavilion"
+    },
+    {
+      "id": "tiannan_refinement_forge",
+      "display": "天南炼器坊",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_tiannan_refinement_forge"
+    },
+    {
+      "id": "star_palace_merit_hall",
+      "display": "星宫功勋殿",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "currency": "sect_contribution",
+      "stock_ref": null,
+      "desc_id": "shop_star_palace_merit_hall"
+    },
+    {
+      "id": "star_palace_patrol_supply",
+      "display": "星宫巡防补给",
+      "region": "chaotic_sea",
+      "faction": "star_palace",
+      "currency": null,
+      "stock_ref": null,
+      "desc_id": "shop_star_palace_patrol_supply"
+    },
+    {
+      "id": "qixuan_village_stall",
+      "display": "七玄村货摊",
+      "region": "tiannan",
+      "faction": null,
+      "currency": null,
+      "stock_ref": null,
+      "desc_id": "shop_qixuan_village_stall"
+    },
+    {
+      "id": "qianzhu_puppet_hall",
+      "display": "千竹傀儡堂",
+      "region": "tiannan",
+      "faction": "qianzhu_sect",
+      "currency": "contribution",
+      "stock_ref": null,
+      "desc_id": "shop_qianzhu_puppet_hall"
+    },
+    {
+      "id": "pirate_black_market_outer_sea",
+      "display": "外海黑市",
+      "region": "chaotic_sea",
+      "faction": "pirate_scatter",
+      "currency": "spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_pirate_black_market_outer_sea"
+    },
+    {
+      "id": "outer_sea_public_stall",
+      "display": "外海公开摊位",
+      "region": "outer_sea_market",
+      "faction": null,
+      "currency": "spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_outer_sea_public_stall"
+    },
+    {
+      "id": "spirit_clan_tianhu_exchange",
+      "display": "天狐族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "tianhu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_tianhu_exchange"
+    },
+    {
+      "id": "spirit_clan_shuyao_exchange",
+      "display": "树妖族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shuyao",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_shuyao_exchange"
+    },
+    {
+      "id": "spirit_clan_shiren_exchange",
+      "display": "石人族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shiren",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_shiren_exchange"
+    },
+    {
+      "id": "spirit_clan_feiling_exchange",
+      "display": "飞灵族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "feiling",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_feiling_exchange"
+    },
+    {
+      "id": "spirit_clan_jinyi_exchange",
+      "display": "金翼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "jinyi",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_jinyi_exchange"
+    },
+    {
+      "id": "spirit_clan_yaksha_exchange",
+      "display": "夜叉族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "yaksha",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_yaksha_exchange"
+    },
+    {
+      "id": "spirit_clan_tianyuan_city_exchange",
+      "display": "天渊城特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "tianyuan_city",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_tianyuan_city_exchange"
+    },
+    {
+      "id": "spirit_clan_langzu_exchange",
+      "display": "狼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "langzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_langzu_exchange"
+    },
+    {
+      "id": "spirit_clan_zhizu_exchange",
+      "display": "蛛族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "zhizu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_zhizu_exchange"
+    },
+    {
+      "id": "spirit_clan_shezu_exchange",
+      "display": "蛇族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shezu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_shezu_exchange"
+    },
+    {
+      "id": "spirit_clan_xiongzu_exchange",
+      "display": "熊族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "xiongzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_xiongzu_exchange"
+    },
+    {
+      "id": "spirit_clan_huzhu_exchange",
+      "display": "虎族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "huzhu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_huzhu_exchange"
+    },
+    {
+      "id": "spirit_clan_yuzu_exchange",
+      "display": "鱼族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "yuzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_yuzu_exchange"
+    },
+    {
+      "id": "spirit_clan_niaozu_exchange",
+      "display": "鸟族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "niaozu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_niaozu_exchange"
+    },
+    {
+      "id": "spirit_clan_guizu_exchange",
+      "display": "龟族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "guizu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_guizu_exchange"
+    },
+    {
+      "id": "spirit_clan_shouzu_exchange",
+      "display": "兽族（泛）特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "shouzu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_shouzu_exchange"
+    },
+    {
+      "id": "spirit_clan_mozu_exchange",
+      "display": "魔族支系特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "mozu",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_mozu_exchange"
+    },
+    {
+      "id": "spirit_clan_renzu_lingjie_exchange",
+      "display": "灵界人族特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "renzu_lingjie",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_renzu_lingjie_exchange"
+    },
+    {
+      "id": "spirit_clan_barbarian_council_exchange",
+      "display": "蛮荒妖王议会特产阁",
+      "region": "spirit_fengyuan",
+      "faction": "barbarian_council",
+      "currency": "spirit_stone_mid",
+      "stock_ref": null,
+      "desc_id": "shop_spirit_clan_barbarian_council_exchange"
+    },
+    {
+      "id": "wanbao_auction_house_tiannan",
+      "display": "万宝楼（天南分会）",
+      "region": "tiannan",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_wanbao_auction_house_tiannan"
+    },
+    {
+      "id": "chaotic_sea_black_market",
+      "display": "乱星海黑市",
+      "region": "chaotic_sea",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_chaotic_sea_black_market"
+    },
+    {
+      "id": "dajin_spirit_stone_bank",
+      "display": "大晋灵石庄",
+      "region": "dajin",
+      "faction": null,
+      "currency": "low_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_dajin_spirit_stone_bank"
+    },
+    {
+      "id": "kunwu_array_material_shop",
+      "display": "坤吴阵材铺",
+      "region": "dajin",
+      "faction": "kunwu_lineage",
+      "currency": "mid_spirit_stone",
+      "stock_ref": null,
+      "desc_id": "shop_kunwu_array_material_shop"
+    },
+    {
+      "id": "yin_luo_ghost_trade",
+      "display": "阴罗鬼市",
+      "region": "yin_underworld",
+      "faction": null,
+      "currency": "yin_pearl",
+      "stock_ref": null,
+      "desc_id": "shop_yin_luo_ghost_trade"
+    }
+  ],
+  "never_stock": [
+    "掌天瓶",
+    "绿液",
+    "通天完整",
+    "真魂丹",
+    "炼神术完本",
+    "造化丹复制",
+    "六丁量贩"
+  ],
+  "description": "与 sect_shelves、item_descriptions_v113 交叉。"
+}

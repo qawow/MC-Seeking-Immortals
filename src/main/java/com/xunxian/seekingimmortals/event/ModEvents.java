@@ -19,6 +19,8 @@ import com.xunxian.seekingimmortals.cultivation.TribulationService;
 import com.xunxian.seekingimmortals.entity.CushionSeatEntity;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
 import com.xunxian.seekingimmortals.entity.SectStewardEntity;
+import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
+import com.xunxian.seekingimmortals.catalog.SpiritStoneLadderService;
 import com.xunxian.seekingimmortals.item.ArtifactCatalogItem;
 import com.xunxian.seekingimmortals.item.SpiritStoneItem;
 import com.xunxian.seekingimmortals.item.pill.CatalogPillItem;
@@ -130,6 +132,8 @@ public final class ModEvents {
         com.xunxian.seekingimmortals.catalog.MethodLayoutService.copyLayoutData(
                 event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
         com.xunxian.seekingimmortals.craft.GardenLiquidService.copyPersistentData(
+                event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
+        com.xunxian.seekingimmortals.catalog.NewGamePlusEconomyService.copyPersistentData(
                 event.getOriginal().getPersistentData(), event.getEntity().getPersistentData());
         event.getOriginal().invalidateCaps();
     }
@@ -454,6 +458,11 @@ public final class ModEvents {
             event.setCanceled(true);
             return;
         }
+        // M05: spirit stone ladder upgrades only on original banker NPC (not vanilla villagers).
+        if (player instanceof ServerPlayer serverPlayer && villager instanceof SpiritStoneBankerEntity) {
+            handleSpiritStoneBankerExchange(serverPlayer, event);
+            return;
+        }
         if (player instanceof ServerPlayer serverPlayer && QuestService.handleNamedVillagerInteraction(serverPlayer, villager)) {
             event.setCancellationResult(InteractionResult.SUCCESS);
             event.setCanceled(true);
@@ -466,9 +475,16 @@ public final class ModEvents {
             event.setCanceled(true);
             return;
         }
-        if (!player.isShiftKeyDown()) return;
-        if (!(player.level() instanceof ServerLevel serverLevel)) return;
+        // Compatibility fallback until banker NPCs have a survival spawn path.
+        if (player instanceof ServerPlayer serverPlayer && player.isShiftKeyDown()) {
+            handleSpiritStoneBankerExchange(serverPlayer, event);
+        }
+    }
 
+    private static void handleSpiritStoneBankerExchange(ServerPlayer player, PlayerInteractEvent.EntityInteract event) {
+        if (!(player.level() instanceof ServerLevel serverLevel)) {
+            return;
+        }
         long currentDay = serverLevel.getDayTime() / 24000L;
         CompoundTag data = player.getPersistentData();
         if (data.getLong(EXCHANGE_DAY_KEY) != currentDay) {
@@ -479,31 +495,20 @@ public final class ModEvents {
         int usedToday = data.getInt(EXCHANGE_COUNT_KEY);
         if (usedToday >= DAILY_EXCHANGE_LIMIT) {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.exchange.limit", DAILY_EXCHANGE_LIMIT), true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
+            event.setCanceled(true);
             return;
         }
 
-        if (tryExchange(player, ModItems.METAL_SPIRIT_STONE_HIGH.get(), ModItems.METAL_SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.METAL_SPIRIT_STONE_MID.get(), ModItems.METAL_SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.METAL_SPIRIT_STONE.get(), ModItems.METAL_SPIRIT_STONE_MID.get())
-                || tryExchange(player, ModItems.WOOD_SPIRIT_STONE_HIGH.get(), ModItems.WOOD_SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.WOOD_SPIRIT_STONE_MID.get(), ModItems.WOOD_SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.WOOD_SPIRIT_STONE.get(), ModItems.WOOD_SPIRIT_STONE_MID.get())
-                || tryExchange(player, ModItems.WATER_SPIRIT_STONE_HIGH.get(), ModItems.WATER_SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.WATER_SPIRIT_STONE_MID.get(), ModItems.WATER_SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.WATER_SPIRIT_STONE.get(), ModItems.WATER_SPIRIT_STONE_MID.get())
-                || tryExchange(player, ModItems.FIRE_ELEMENT_SPIRIT_STONE_HIGH.get(), ModItems.FIRE_ELEMENT_SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.FIRE_ELEMENT_SPIRIT_STONE_MID.get(), ModItems.FIRE_ELEMENT_SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.FIRE_ELEMENT_SPIRIT_STONE.get(), ModItems.FIRE_ELEMENT_SPIRIT_STONE_MID.get())
-                || tryExchange(player, ModItems.EARTH_SPIRIT_STONE_HIGH.get(), ModItems.EARTH_SPIRIT_STONE_SUPERIOR.get())
-                || tryExchange(player, ModItems.EARTH_SPIRIT_STONE_MID.get(), ModItems.EARTH_SPIRIT_STONE_HIGH.get())
-                || tryExchange(player, ModItems.EARTH_SPIRIT_STONE.get(), ModItems.EARTH_SPIRIT_STONE_MID.get())) {
+        // Right-click banker to upgrade ladder stones; no shift required on original NPC.
+        if (SpiritStoneLadderService.tryUpgrade(player)) {
             data.putInt(EXCHANGE_COUNT_KEY, usedToday + 1);
             player.displayClientMessage(Component.translatable("message.seeking_immortals.exchange.success", usedToday + 1, DAILY_EXCHANGE_LIMIT), true);
-            event.setCancellationResult(InteractionResult.SUCCESS);
-            event.setCanceled(true);
         } else {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.exchange.no_stones"), true);
         }
+        event.setCancellationResult(InteractionResult.SUCCESS);
+        event.setCanceled(true);
     }
 
     @SubscribeEvent
@@ -1211,26 +1216,8 @@ public final class ModEvents {
 
     private record MeditationTechniqueBonus(String name, double multiplier) {}
 
+    @Deprecated
     private static boolean tryExchange(Player player, Item input, Item output) {
-        Inventory inventory = player.getInventory();
-        int count = 0;
-        for (ItemStack stack : inventory.items) {
-            if (stack.is(input)) count += stack.getCount();
-        }
-        if (count < 100) return false;
-
-        int remaining = 100;
-        for (ItemStack stack : inventory.items) {
-            if (!stack.is(input)) continue;
-            int remove = Math.min(remaining, stack.getCount());
-            stack.shrink(remove);
-            remaining -= remove;
-            if (remaining <= 0) break;
-        }
-
-        if (!inventory.add(new ItemStack(output))) {
-            player.drop(new ItemStack(output), false);
-        }
-        return true;
+        return SpiritStoneLadderService.exchange(player, input, output, SpiritStoneLadderService.ratioPerTier());
     }
 }

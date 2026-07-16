@@ -202,6 +202,17 @@ public final class AuctionSoftService {
             return false;
         }
 
+        // M05: unique / no_trade items never enter the auction channel.
+        if (!MarketPriceService.isAuctionEligible(lot.rewardItem())
+                || MarketPriceService.isBlockedFromOpenMarket(lot.rewardItem())
+                || MarketPriceService.isBlockedFromOpenMarket(lot.id())) {
+            player.displayClientMessage(Component.translatable("message.seeking_immortals.auction.unknown", lotId), false);
+            return false;
+        }
+        if (!meetsLotAccess(player, lot)) {
+            return false;
+        }
+
         // Wave492: configurable appraisal gate (high-tier / all lots).
         if (!player.getAbilities().instabuild && requiresAppraisal(lot) && !playerMeetsAppraisalGate(player)) {
             player.displayClientMessage(Component.translatable(
@@ -551,6 +562,44 @@ public final class AuctionSoftService {
         return amount;
     }
 
+    private static boolean meetsLotAccess(ServerPlayer player, Lot lot) {
+        String note = lot.sourceNote() == null ? "" : lot.sourceNote();
+        String realmId = metadataValue(note, "realm_gate");
+        if (!realmId.isBlank() && !player.getAbilities().instabuild) {
+            com.xunxian.seekingimmortals.cultivation.Realm required =
+                    com.xunxian.seekingimmortals.cultivation.Realm.fromDesignId(realmId);
+            var cultivation = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(player).orElse(null);
+            if (required != null && (cultivation == null || cultivation.getRealm().ordinal() < required.ordinal())) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.auction.realm_too_low", required.getDisplayName()), true);
+                return false;
+            }
+        }
+        if (note.contains("spirit_realm_only=true") && !player.getAbilities().instabuild) {
+            String dimension = player.level().dimension().location().toString().toLowerCase(Locale.ROOT);
+            boolean inSpiritRealm = dimension.contains("tianyuan") || dimension.contains("spirit_fengyuan")
+                    || player.getPersistentData().getBoolean(
+                    com.xunxian.seekingimmortals.worldpack.AscensionService.FLAG_ASCENDED);
+            if (!inSpiritRealm) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.auction.spirit_realm_only"), true);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static String metadataValue(String note, String key) {
+        String prefix = key + "=";
+        for (String token : note.split(";")) {
+            String value = token.trim();
+            if (value.startsWith(prefix)) {
+                return value.substring(prefix.length()).trim();
+            }
+        }
+        return "";
+    }
+
     private static final class AuctionCatalogHolder {
         private static final Snapshot SNAPSHOT = loadBuiltin();
 
@@ -584,12 +633,17 @@ public final class AuctionSoftService {
                 venues.add(new Venue(id, str(o, "region"), str(o, "faction"), str(o, "currency_alt"), Math.max(0, repMin)));
             }
             List<Lot> lots = new ArrayList<>();
+            java.util.LinkedHashSet<String> seenLots = new java.util.LinkedHashSet<>();
             for (com.google.gson.JsonElement element : array(root, "lots")) {
                 if (!element.isJsonObject()) continue;
                 com.google.gson.JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
                 List<String> extras = stringList(o.get("extras"));
+                String reward = str(o, "reward_item");
+                if (MarketPriceService.isBlockedFromOpenMarket(reward) || MarketPriceService.isBlockedFromOpenMarket(id)) {
+                    continue;
+                }
                 lots.add(new Lot(
                         id,
                         str(o, "display"),
@@ -597,11 +651,106 @@ public final class AuctionSoftService {
                         asLong(o, "low_stone_equiv_max"),
                         str(o, "source_note"),
                         str(o, "venue_id"),
-                        str(o, "reward_item"),
+                        reward,
                         extras));
+                seenLots.add(id.toLowerCase(java.util.Locale.ROOT));
             }
+            // M05: merge wanbao pavilion / great-jin auction framework pool (artifact detail = M15).
+            mergeWanbaoLots(lots, seenLots, venues);
             return new Snapshot(java.util.Collections.unmodifiableList(venues),
                     java.util.Collections.unmodifiableList(lots), increment, depositFloor);
+        }
+
+        private static void mergeWanbaoLots(List<Lot> lots, java.util.Set<String> seenLots, List<Venue> venues) {
+            com.google.gson.JsonObject wanbao = readJson("data/" + com.xunxian.seekingimmortals.SeekingImmortalsMod.MODID
+                    + "/text_material/wanbao_auction_artifacts.json");
+            if (wanbao == null) {
+                return;
+            }
+            String defaultVenue = venues.stream()
+                    .map(Venue::id)
+                    .filter(id -> id != null && id.contains("wanbao"))
+                    .findFirst()
+                    .orElse(venues.isEmpty() ? "wanbao_auction" : venues.get(0).id());
+            for (com.google.gson.JsonElement element : array(wanbao, "wanbao_pavilion_stock")) {
+                addWanbaoLot(lots, seenLots, element, defaultVenue, false);
+            }
+            for (com.google.gson.JsonElement element : array(wanbao, "great_jin_auction_lots")) {
+                addWanbaoLot(lots, seenLots, element, defaultVenue, true);
+            }
+        }
+
+        private static void addWanbaoLot(List<Lot> lots, java.util.Set<String> seenLots,
+                                         com.google.gson.JsonElement element, String defaultVenue, boolean auctionLot) {
+            if (element == null || !element.isJsonObject()) {
+                return;
+            }
+            com.google.gson.JsonObject o = element.getAsJsonObject();
+            String artifactId = str(o, "artifact_id");
+            if (artifactId.isBlank()) {
+                artifactId = str(o, "id");
+            }
+            if (artifactId.isBlank()) {
+                return;
+            }
+            String lotId = (auctionLot ? "wanbao_lot_" : "wanbao_stock_") + artifactId;
+            String key = lotId.toLowerCase(java.util.Locale.ROOT);
+            if (seenLots.contains(key)) {
+                return;
+            }
+            if (MarketPriceService.isBlockedFromOpenMarket(artifactId)) {
+                return;
+            }
+            long[] band = parsePriceBand(str(o, "price_band"), asLong(o, "start_bid_mid_stone"));
+            String display = str(o, "display");
+            if (display.isBlank()) {
+                display = artifactId;
+            }
+            String note = auctionLot ? "wanbao_great_jin_lot" : "wanbao_pavilion_stock";
+            String realm = str(o, "realm_gate");
+            if (!realm.isBlank()) {
+                note = note + ";realm_gate=" + realm;
+            }
+            if (asBool(o, "spirit_realm_only")) {
+                note = note + ";spirit_realm_only=true";
+            }
+            lots.add(new Lot(lotId, display, band[0], band[1], note, defaultVenue, artifactId, List.of()));
+            seenLots.add(key);
+        }
+
+        private static long[] parsePriceBand(String priceBand, long startBidMidStone) {
+            String band = priceBand == null ? "" : priceBand.toLowerCase(java.util.Locale.ROOT);
+            // mid_stone_X_Y → low-stone using ladder ratio 100
+            if (band.startsWith("mid_stone_")) {
+                String[] parts = band.substring("mid_stone_".length()).split("_");
+                if (parts.length >= 2) {
+                    try {
+                        long min = Long.parseLong(parts[0]) * 100L;
+                        long max = Long.parseLong(parts[1]) * 100L;
+                        return new long[]{Math.max(1L, min), Math.max(min, max)};
+                    } catch (Exception ignored) {
+                    }
+                }
+            }
+            if (band.startsWith("low_stone_")) {
+                String[] parts = band.substring("low_stone_".length()).split("_");
+                if (parts.length >= 1) {
+                    try {
+                        long min = Long.parseLong(parts[0]);
+                        long max = parts.length >= 2 ? Long.parseLong(parts[1]) : min;
+                        return new long[]{Math.max(1L, min), Math.max(min, max)};
+                    } catch (Exception ignored) {
+                    }
+                }
+            }
+            if (startBidMidStone > 0L) {
+                long min = startBidMidStone * 100L;
+                return new long[]{min, min * 2L};
+            }
+            if (band.contains("auction_only")) {
+                return new long[]{5000L, 20000L};
+            }
+            return new long[]{800L, 5000L};
         }
 
         private static List<String> stringList(com.google.gson.JsonElement element) {
@@ -643,6 +792,11 @@ public final class AuctionSoftService {
         private static long asLong(com.google.gson.JsonObject o, String key) {
             if (o == null || !o.has(key) || !o.get(key).isJsonPrimitive()) return 0L;
             try { return o.get(key).getAsLong(); } catch (Exception ignored) { return 0L; }
+        }
+
+        private static boolean asBool(com.google.gson.JsonObject o, String key) {
+            if (o == null || !o.has(key) || !o.get(key).isJsonPrimitive()) return false;
+            try { return o.get(key).getAsBoolean(); } catch (Exception ignored) { return false; }
         }
     }
 }

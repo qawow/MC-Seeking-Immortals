@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "source": "v144 坊市关键货架与勾稽价对齐",
+  "disclaimer": "覆盖 market_shelves 关键名；unique 标明非开放市",
+  "open_market": [
+    {
+      "name": "炼气散",
+      "price_low_stone": [
+        1,
+        10
+      ],
+      "stock": "high",
+      "regions": [
+        "tiannan",
+        "chaotic_sea"
+      ]
+    },
+    {
+      "name": "养精丹",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "stock": "mid"
+    },
+    {
+      "name": "聚灵丹",
+      "price_low_stone": [
+        20,
+        100
+      ],
+      "stock": "mid"
+    },
+    {
+      "name": "筑基丹",
+      "price_low_stone": [
+        500,
+        2000
+      ],
+      "stock": "rare_event",
+      "adulteration_risk": 0.15,
+      "note": "血色三主料可自炼 sink；市售真货少"
+    },
+    {
+      "name": "筑基丹（大晋级）",
+      "price_low_stone": [
+        1000,
+        4000
+      ],
+      "stock": "rare",
+      "regions": [
+        "dajin"
+      ]
+    },
+    {
+      "name": "玉髓芝",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "stock": "low",
+      "source_prefer": "blood_forbidden"
+    },
+    {
+      "name": "紫猴花",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "stock": "low",
+      "source_prefer": "blood_forbidden"
+    },
+    {
+      "name": "天灵果",
+      "price_low_stone": [
+        10,
+        50
+      ],
+      "stock": "low",
+      "source_prefer": "blood_forbidden"
+    }
+  ],
+  "contribution_or_quota": [
+    {
+      "name": "血色禁地试炼令",
+      "cost_contribution": [
+        25,
+        40
+      ],
+      "shop": "huangfeng_contribution",
+      "not_spirit_stone": true
+    },
+    {
+      "name": "筑基丹名额（宗门）",
+      "cost_contribution": [
+        500,
+        2000
+      ],
+      "or_cost_note": "内门限额，非市价直接买破规则"
+    },
+    {
+      "name": "补天丹线索/配额",
+      "cost": "star_palace_or_xutian_contest",
+      "price_if_leak_low": [
+        20000,
+        200000
+      ],
+      "stock": "extreme_rare"
+    }
+  ],
+  "not_on_open_shelf": [
+    {
+      "name": "灵烛果",
+      "reason": "unique 坠魔争夺；造化一生一次",
+      "price_reference_only": [
+        3000,
+        30000
+      ]
+    },
+    {
+      "name": "阴芝马（活）",
+      "reason": "活捕任务向",
+      "price_reference_only": [
+        80000,
+        500000
+      ]
+    },
+    {
+      "name": "培婴丹",
+      "reason": "高阶协作炼丹/黑市极稀",
+      "price_reference_only": [
+        50000,
+        500000
+      ]
+    },
+    {
+      "name": "回阳真水",
+      "reason": "化神 unique 合成",
+      "no_trade": true
+    },
+    {
+      "name": "太阳精火",
+      "reason": "火狱限次",
+      "no_trade": true
+    },
+    {
+      "name": "炼神术",
+      "reason": "广寒 unique 秘法",
+      "no_trade": true
+    },
+    {
+      "name": "虚灵丹",
+      "reason": "合体 scarce 任务/功勋",
+      "merit_or_quest": true
+    },
+    {
+      "name": "完整大衍决",
+      "reason": "不保底不直售",
+      "fragments_ok": true
+    }
+  ],
+  "market_file_updates": 6,
+  "crosswalk_ref": "item_price_quest_crosswalk_v143.json"
+}

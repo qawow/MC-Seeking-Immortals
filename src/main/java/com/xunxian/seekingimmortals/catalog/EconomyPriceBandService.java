@@ -57,7 +57,9 @@ public final class EconomyPriceBandService {
         if (id.contains("ticket") || id.contains("permit")) {
             return Optional.of("travel_ticket");
         }
-        if (id.contains("ore") || id.contains("iron") || id.contains("jade") || id.contains("crystal")) {
+        boolean oreToken = id.equals("ore") || id.startsWith("ore_")
+                || id.endsWith("_ore") || id.contains("_ore_");
+        if (oreToken || id.contains("iron") || id.contains("jade") || id.contains("crystal")) {
             return Optional.of("ore_rare");
         }
         return Optional.empty();

@@ -26,6 +26,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.TribulationService;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
+import com.xunxian.seekingimmortals.entity.SpiritStoneBankerEntity;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
 import com.xunxian.seekingimmortals.npc.DialogueBranchService;
@@ -224,7 +225,9 @@ public final class SeekingImmortalsCommand {
                                                         StringArgumentType.getString(ctx, "entryOrShop"),
                                                         StringArgumentType.getString(ctx, "entry"))))))
                         .then(Commands.literal("spawn_trader").requires(source -> source.hasPermission(2))
-                                .executes(ctx -> marketSpawnTrader(ctx.getSource()))))
+                                .executes(ctx -> marketSpawnTrader(ctx.getSource())))
+                        .then(Commands.literal("spawn_banker").requires(source -> source.hasPermission(2))
+                                .executes(ctx -> marketSpawnBanker(ctx.getSource()))))
                 .then(Commands.literal("worldpack")
                         .executes(ctx -> worldpackOpen(ctx.getSource()))
                         .then(Commands.literal("open").executes(ctx -> worldpackOpen(ctx.getSource())))
@@ -1102,6 +1105,22 @@ public final class SeekingImmortalsCommand {
         trader.setPersistenceRequired();
         player.serverLevel().addFreshEntity(trader);
         source.sendSuccess(() -> Component.translatable("message.seeking_immortals.market.spawned"), true);
+        return 1;
+    }
+
+    private static int marketSpawnBanker(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        SpiritStoneBankerEntity banker = ModEntities.SPIRIT_STONE_BANKER.get().create(player.serverLevel());
+        if (banker == null) {
+            source.sendFailure(Component.translatable("message.seeking_immortals.exchange.spawn_failed"));
+            return 0;
+        }
+        banker.moveTo(player.getX(), player.getY(), player.getZ(), player.getYRot(), 0.0F);
+        banker.setCustomName(Component.translatable("entity.seeking_immortals.spirit_stone_banker"));
+        banker.setCustomNameVisible(true);
+        banker.setPersistenceRequired();
+        player.serverLevel().addFreshEntity(banker);
+        source.sendSuccess(() -> Component.translatable("message.seeking_immortals.exchange.spawned"), true);
         return 1;
     }
 

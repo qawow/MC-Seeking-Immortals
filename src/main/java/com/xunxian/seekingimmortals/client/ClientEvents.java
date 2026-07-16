@@ -142,6 +142,7 @@ public final class ClientEvents {
         event.registerEntityRenderer(ModEntities.CULTIVATION_FIREBALL.get(), CultivationFireballRenderer::new);
         event.registerEntityRenderer(ModEntities.SECT_STEWARD.get(), VillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.MARKET_TRADER.get(), VillagerRenderer::new);
+        event.registerEntityRenderer(ModEntities.SPIRIT_STONE_BANKER.get(), VillagerRenderer::new);
         event.registerEntityRenderer(ModEntities.SUMMONED_SERVITOR.get(), SummonedServitorRenderer::new);
         event.registerEntityRenderer(ModEntities.SPIRIT_BOAT.get(), EmptyEntityRenderer::new);
     }

@@ -201,6 +201,22 @@
   Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
   Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m04_craft_production.md`
+## 457b. 2026-07-16 M05 经济与交易落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_223521_m05_economy/`
+  Publish missing corpus               Done market_price/tags/shelves/v144/ng+/... → text_material
+  Spirit stone ladder                  Done SpiritStoneLadderService 1:100 chain
+  Banker NPC                           Done SpiritStoneBankerEntity；原版村民不再兑换
+  Market price + tags                  Done MarketPriceService；unique 禁通道
+  Trade routes                         Done TradeRouteEconomyService 差价进 ShopService
+  Auction + wanbao                     Done AuctionSoftService merge pool
+  NG+ / contribution                   Done NewGamePlusEconomyService + ContributionExchangeService
+  SavedData compat                     Done AuctionHouseSavedDataCompatibilityTest
+  Version                              Unchanged 任务红线不升 mod_version（0.1.506）；protocol 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m05_economy_trade.md`
 
 ## 456. 2026-07-16 M02 功法与术法落地
 
