@@ -1,3 +1,22 @@
+## 459. 2026-07-17 M12 NPC 与对话落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_030507_m12_npc_dialogue/`
+  Publish corpus                       Done named_npcs/templates/branches/loot/vendor → text_material
+  NamedNpcRegistry                   Done v116+seeds+bindings；region/role/shop/tree
+  DialogueTemplate + Branch runtime    Done v138 archetypes + v139 trees/condition ops
+  NpcDialogueApi + Event              Done startDialogue/selectNext + DialogueNodeReachedEvent
+  Action executor + rewards            Done open_shop/grant_item/teleport…；v97 幂等 claimed
+  Favor / flags                        Done player persistent NBT
+  Entity AI + spawn                    Done SectSteward/MarketTrader 驻点作息；NpcSpawnService
+  Packet routing                       Done DialogueActionPacket 兼容 M12 session（字段未改）
+  Commands                             Done `/seeking_immortals npc …`
+  Tests                                Done npc/* 聚焦绿
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.506）；protocol 保持 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m12_npc_dialogue.md`
+
 ## 458. 2026-07-16 M08 宗门与势力落地
 
   Step   Status   Notes

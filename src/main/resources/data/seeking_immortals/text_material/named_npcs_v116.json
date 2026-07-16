@@ -1,0 +1,2331 @@
+{
+  "schema_version": 1,
+  "source": "v116 具名NPC：28宗×5职司 + 关键NPC",
+  "total": 168,
+  "npcs": [
+    {
+      "id": "npc_huangfeng_valley_sect_master",
+      "display": "黄枫谷·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huangfeng_valley"
+      ],
+      "description": "【具名NPC】黄枫谷·掌门/代掌。宗门：黄枫谷（huangfeng_valley）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['alchemy_mid', 'pill_trade']。货架档：2。声望轨：sect_huangfeng。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huangfeng_valley_great_elder",
+      "display": "黄枫谷·大长老",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huangfeng_valley"
+      ],
+      "description": "【具名NPC】黄枫谷·大长老。宗门：黄枫谷（huangfeng_valley）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['alchemy_mid', 'pill_trade']。货架档：2。声望轨：sect_huangfeng。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huangfeng_valley_alchemy_elder",
+      "display": "黄枫谷·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huangfeng_valley"
+      ],
+      "description": "【具名NPC】黄枫谷·丹堂执事。宗门：黄枫谷（huangfeng_valley）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['alchemy_mid', 'pill_trade']。货架档：2。声望轨：sect_huangfeng。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huangfeng_valley_outer_deacon",
+      "display": "黄枫谷·外门执事",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huangfeng_valley"
+      ],
+      "description": "【具名NPC】黄枫谷·外门执事。宗门：黄枫谷（huangfeng_valley）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['alchemy_mid', 'pill_trade']。货架档：2。声望轨：sect_huangfeng。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huangfeng_valley_patrol_captain",
+      "display": "黄枫谷·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huangfeng_valley"
+      ],
+      "description": "【具名NPC】黄枫谷·巡卫队长。宗门：黄枫谷（huangfeng_valley）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['alchemy_mid', 'pill_trade']。货架档：2。声望轨：sect_huangfeng。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yanyue_sect_sect_master",
+      "display": "掩月宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "yanyue_sect"
+      ],
+      "description": "【具名NPC】掩月宗·掌门/代掌。宗门：掩月宗（yanyue_sect）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['dual_cultivation', 'body_refining', 'illusion']。货架档：3。声望轨：sect_yanyue。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yanyue_sect_great_elder",
+      "display": "掩月宗·大长老",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "yanyue_sect"
+      ],
+      "description": "【具名NPC】掩月宗·大长老。宗门：掩月宗（yanyue_sect）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['dual_cultivation', 'body_refining', 'illusion']。货架档：3。声望轨：sect_yanyue。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yanyue_sect_alchemy_elder",
+      "display": "掩月宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "yanyue_sect"
+      ],
+      "description": "【具名NPC】掩月宗·丹堂执事。宗门：掩月宗（yanyue_sect）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['dual_cultivation', 'body_refining', 'illusion']。货架档：3。声望轨：sect_yanyue。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yanyue_sect_outer_deacon",
+      "display": "掩月宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "yanyue_sect"
+      ],
+      "description": "【具名NPC】掩月宗·外门执事。宗门：掩月宗（yanyue_sect）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['dual_cultivation', 'body_refining', 'illusion']。货架档：3。声望轨：sect_yanyue。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yanyue_sect_patrol_captain",
+      "display": "掩月宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "yanyue_sect"
+      ],
+      "description": "【具名NPC】掩月宗·巡卫队长。宗门：掩月宗（yanyue_sect）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['dual_cultivation', 'body_refining', 'illusion']。货架档：3。声望轨：sect_yanyue。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_spirit_beast_mountain_sect_master",
+      "display": "灵兽山·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "spirit_beast_mountain"
+      ],
+      "description": "【具名NPC】灵兽山·掌门/代掌。宗门：灵兽山（spirit_beast_mountain）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['beast_taming', 'refinement_support']。货架档：2。声望轨：sect_lingshou。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_spirit_beast_mountain_great_elder",
+      "display": "灵兽山·大长老",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "spirit_beast_mountain"
+      ],
+      "description": "【具名NPC】灵兽山·大长老。宗门：灵兽山（spirit_beast_mountain）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['beast_taming', 'refinement_support']。货架档：2。声望轨：sect_lingshou。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_spirit_beast_mountain_alchemy_elder",
+      "display": "灵兽山·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "spirit_beast_mountain"
+      ],
+      "description": "【具名NPC】灵兽山·丹堂执事。宗门：灵兽山（spirit_beast_mountain）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['beast_taming', 'refinement_support']。货架档：2。声望轨：sect_lingshou。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_spirit_beast_mountain_outer_deacon",
+      "display": "灵兽山·外门执事",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "spirit_beast_mountain"
+      ],
+      "description": "【具名NPC】灵兽山·外门执事。宗门：灵兽山（spirit_beast_mountain）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['beast_taming', 'refinement_support']。货架档：2。声望轨：sect_lingshou。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_spirit_beast_mountain_patrol_captain",
+      "display": "灵兽山·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "spirit_beast_mountain"
+      ],
+      "description": "【具名NPC】灵兽山·巡卫队长。宗门：灵兽山（spirit_beast_mountain）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['beast_taming', 'refinement_support']。货架档：2。声望轨：sect_lingshou。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingxu_gate_sect_master",
+      "display": "清虚门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qingxu_gate"
+      ],
+      "description": "【具名NPC】清虚门·掌门/代掌。宗门：清虚门（qingxu_gate）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['tao_spells', 'formation_basic']。货架档：2。声望轨：sect_qingxu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingxu_gate_great_elder",
+      "display": "清虚门·大长老",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qingxu_gate"
+      ],
+      "description": "【具名NPC】清虚门·大长老。宗门：清虚门（qingxu_gate）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['tao_spells', 'formation_basic']。货架档：2。声望轨：sect_qingxu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingxu_gate_alchemy_elder",
+      "display": "清虚门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qingxu_gate"
+      ],
+      "description": "【具名NPC】清虚门·丹堂执事。宗门：清虚门（qingxu_gate）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['tao_spells', 'formation_basic']。货架档：2。声望轨：sect_qingxu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingxu_gate_outer_deacon",
+      "display": "清虚门·外门执事",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qingxu_gate"
+      ],
+      "description": "【具名NPC】清虚门·外门执事。宗门：清虚门（qingxu_gate）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['tao_spells', 'formation_basic']。货架档：2。声望轨：sect_qingxu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingxu_gate_patrol_captain",
+      "display": "清虚门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qingxu_gate"
+      ],
+      "description": "【具名NPC】清虚门·巡卫队长。宗门：清虚门（qingxu_gate）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['tao_spells', 'formation_basic']。货架档：2。声望轨：sect_qingxu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huadao_wu_sect_master",
+      "display": "化刀坞·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "huadao_wu",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huadao_wu"
+      ],
+      "description": "【具名NPC】化刀坞·掌门/代掌。宗门：化刀坞（huadao_wu）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['blade']。货架档：1。声望轨：sect_huadao。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huadao_wu_great_elder",
+      "display": "化刀坞·大长老",
+      "type": "named_npc",
+      "sect_id": "huadao_wu",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huadao_wu"
+      ],
+      "description": "【具名NPC】化刀坞·大长老。宗门：化刀坞（huadao_wu）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['blade']。货架档：1。声望轨：sect_huadao。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huadao_wu_alchemy_elder",
+      "display": "化刀坞·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "huadao_wu",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huadao_wu"
+      ],
+      "description": "【具名NPC】化刀坞·丹堂执事。宗门：化刀坞（huadao_wu）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['blade']。货架档：1。声望轨：sect_huadao。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huadao_wu_outer_deacon",
+      "display": "化刀坞·外门执事",
+      "type": "named_npc",
+      "sect_id": "huadao_wu",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huadao_wu"
+      ],
+      "description": "【具名NPC】化刀坞·外门执事。宗门：化刀坞（huadao_wu）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['blade']。货架档：1。声望轨：sect_huadao。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huadao_wu_patrol_captain",
+      "display": "化刀坞·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "huadao_wu",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "huadao_wu"
+      ],
+      "description": "【具名NPC】化刀坞·巡卫队长。宗门：化刀坞（huadao_wu）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['blade']。货架档：1。声望轨：sect_huadao。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianque_fort_sect_master",
+      "display": "天阙堡·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "tianque_fort",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "tianque_fort"
+      ],
+      "description": "【具名NPC】天阙堡·掌门/代掌。宗门：天阙堡（tianque_fort）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['defense_artifacts']。货架档：1。声望轨：sect_tianque。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianque_fort_great_elder",
+      "display": "天阙堡·大长老",
+      "type": "named_npc",
+      "sect_id": "tianque_fort",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "tianque_fort"
+      ],
+      "description": "【具名NPC】天阙堡·大长老。宗门：天阙堡（tianque_fort）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['defense_artifacts']。货架档：1。声望轨：sect_tianque。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianque_fort_alchemy_elder",
+      "display": "天阙堡·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "tianque_fort",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "tianque_fort"
+      ],
+      "description": "【具名NPC】天阙堡·丹堂执事。宗门：天阙堡（tianque_fort）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['defense_artifacts']。货架档：1。声望轨：sect_tianque。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianque_fort_outer_deacon",
+      "display": "天阙堡·外门执事",
+      "type": "named_npc",
+      "sect_id": "tianque_fort",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "tianque_fort"
+      ],
+      "description": "【具名NPC】天阙堡·外门执事。宗门：天阙堡（tianque_fort）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['defense_artifacts']。货架档：1。声望轨：sect_tianque。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianque_fort_patrol_captain",
+      "display": "天阙堡·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "tianque_fort",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "tianque_fort"
+      ],
+      "description": "【具名NPC】天阙堡·巡卫队长。宗门：天阙堡（tianque_fort）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['defense_artifacts']。货架档：1。声望轨：sect_tianque。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_giant_sword_gate_sect_master",
+      "display": "巨剑门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "giant_sword_gate"
+      ],
+      "description": "【具名NPC】巨剑门·掌门/代掌。宗门：巨剑门（giant_sword_gate）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['sword']。货架档：1。声望轨：sect_jujian。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_giant_sword_gate_great_elder",
+      "display": "巨剑门·大长老",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "giant_sword_gate"
+      ],
+      "description": "【具名NPC】巨剑门·大长老。宗门：巨剑门（giant_sword_gate）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['sword']。货架档：1。声望轨：sect_jujian。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_giant_sword_gate_alchemy_elder",
+      "display": "巨剑门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "giant_sword_gate"
+      ],
+      "description": "【具名NPC】巨剑门·丹堂执事。宗门：巨剑门（giant_sword_gate）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['sword']。货架档：1。声望轨：sect_jujian。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_giant_sword_gate_outer_deacon",
+      "display": "巨剑门·外门执事",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "giant_sword_gate"
+      ],
+      "description": "【具名NPC】巨剑门·外门执事。宗门：巨剑门（giant_sword_gate）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['sword']。货架档：1。声望轨：sect_jujian。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_giant_sword_gate_patrol_captain",
+      "display": "巨剑门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "giant_sword_gate"
+      ],
+      "description": "【具名NPC】巨剑门·巡卫队长。宗门：巨剑门（giant_sword_gate）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['sword']。货架档：1。声望轨：sect_jujian。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qixuan_men_sect_master",
+      "display": "七玄门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qixuan_men"
+      ],
+      "description": "【具名NPC】七玄门·掌门/代掌。宗门：七玄门（qixuan_men）。域：tiannan。立场：neutral。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['starter']。货架档：0。声望轨：sect_qixuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qixuan_men_great_elder",
+      "display": "七玄门·大长老",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qixuan_men"
+      ],
+      "description": "【具名NPC】七玄门·大长老。宗门：七玄门（qixuan_men）。域：tiannan。立场：neutral。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['starter']。货架档：0。声望轨：sect_qixuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qixuan_men_alchemy_elder",
+      "display": "七玄门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qixuan_men"
+      ],
+      "description": "【具名NPC】七玄门·丹堂执事。宗门：七玄门（qixuan_men）。域：tiannan。立场：neutral。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['starter']。货架档：0。声望轨：sect_qixuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qixuan_men_outer_deacon",
+      "display": "七玄门·外门执事",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qixuan_men"
+      ],
+      "description": "【具名NPC】七玄门·外门执事。宗门：七玄门（qixuan_men）。域：tiannan。立场：neutral。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['starter']。货架档：0。声望轨：sect_qixuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qixuan_men_patrol_captain",
+      "display": "七玄门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qixuan_men"
+      ],
+      "description": "【具名NPC】七玄门·巡卫队长。宗门：七玄门（qixuan_men）。域：tiannan。立场：neutral。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['starter']。货架档：0。声望轨：sect_qixuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_ghost_spirit_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "ghost_spirit_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·掌门/代掌。宗门：鬼灵门（ghost_spirit_gate）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['ghost', 'poison']。货架档：2。声望轨：sect_guiling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_ghost_spirit_gate_great_elder",
+      "display": "鬼灵门·大长老",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "ghost_spirit_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·大长老。宗门：鬼灵门（ghost_spirit_gate）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['ghost', 'poison']。货架档：2。声望轨：sect_guiling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_ghost_spirit_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "ghost_spirit_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·丹堂执事。宗门：鬼灵门（ghost_spirit_gate）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['ghost', 'poison']。货架档：2。声望轨：sect_guiling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_ghost_spirit_gate_outer_deacon",
+      "display": "鬼灵门·外门执事",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "ghost_spirit_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·外门执事。宗门：鬼灵门（ghost_spirit_gate）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['ghost', 'poison']。货架档：2。声望轨：sect_guiling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_ghost_spirit_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "ghost_spirit_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·巡卫队长。宗门：鬼灵门（ghost_spirit_gate）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['ghost', 'poison']。货架档：2。声望轨：sect_guiling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_hehuan_sect_sect_master",
+      "display": "合欢宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "hehuan_sect"
+      ],
+      "description": "【具名NPC】合欢宗·掌门/代掌。宗门：合欢宗（hehuan_sect）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['dual_cultivation', 'illusion']。货架档：3。声望轨：sect_hehuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_hehuan_sect_great_elder",
+      "display": "合欢宗·大长老",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "hehuan_sect"
+      ],
+      "description": "【具名NPC】合欢宗·大长老。宗门：合欢宗（hehuan_sect）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['dual_cultivation', 'illusion']。货架档：3。声望轨：sect_hehuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_hehuan_sect_alchemy_elder",
+      "display": "合欢宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "hehuan_sect"
+      ],
+      "description": "【具名NPC】合欢宗·丹堂执事。宗门：合欢宗（hehuan_sect）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['dual_cultivation', 'illusion']。货架档：3。声望轨：sect_hehuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_hehuan_sect_outer_deacon",
+      "display": "合欢宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "hehuan_sect"
+      ],
+      "description": "【具名NPC】合欢宗·外门执事。宗门：合欢宗（hehuan_sect）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['dual_cultivation', 'illusion']。货架档：3。声望轨：sect_hehuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_hehuan_sect_patrol_captain",
+      "display": "合欢宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "hehuan_sect"
+      ],
+      "description": "【具名NPC】合欢宗·巡卫队长。宗门：合欢宗（hehuan_sect）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['dual_cultivation', 'illusion']。货架档：3。声望轨：sect_hehuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_moyan_gate_sect_master",
+      "display": "魔焰门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "moyan_gate",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "moyan_gate"
+      ],
+      "description": "【具名NPC】魔焰门·掌门/代掌。宗门：魔焰门（moyan_gate）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['fire_demonic']。货架档：2。声望轨：sect_moyan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_moyan_gate_great_elder",
+      "display": "魔焰门·大长老",
+      "type": "named_npc",
+      "sect_id": "moyan_gate",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "moyan_gate"
+      ],
+      "description": "【具名NPC】魔焰门·大长老。宗门：魔焰门（moyan_gate）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['fire_demonic']。货架档：2。声望轨：sect_moyan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_moyan_gate_alchemy_elder",
+      "display": "魔焰门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "moyan_gate",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "moyan_gate"
+      ],
+      "description": "【具名NPC】魔焰门·丹堂执事。宗门：魔焰门（moyan_gate）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['fire_demonic']。货架档：2。声望轨：sect_moyan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_moyan_gate_outer_deacon",
+      "display": "魔焰门·外门执事",
+      "type": "named_npc",
+      "sect_id": "moyan_gate",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "moyan_gate"
+      ],
+      "description": "【具名NPC】魔焰门·外门执事。宗门：魔焰门（moyan_gate）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['fire_demonic']。货架档：2。声望轨：sect_moyan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_moyan_gate_patrol_captain",
+      "display": "魔焰门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "moyan_gate",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "moyan_gate"
+      ],
+      "description": "【具名NPC】魔焰门·巡卫队长。宗门：魔焰门（moyan_gate）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['fire_demonic']。货架档：2。声望轨：sect_moyan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tiansha_sect_sect_master",
+      "display": "天煞宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "tiansha_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tiansha_sect"
+      ],
+      "description": "【具名NPC】天煞宗·掌门/代掌。宗门：天煞宗（tiansha_sect）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['assassination']。货架档：2。声望轨：sect_tiansha。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tiansha_sect_great_elder",
+      "display": "天煞宗·大长老",
+      "type": "named_npc",
+      "sect_id": "tiansha_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tiansha_sect"
+      ],
+      "description": "【具名NPC】天煞宗·大长老。宗门：天煞宗（tiansha_sect）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['assassination']。货架档：2。声望轨：sect_tiansha。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tiansha_sect_alchemy_elder",
+      "display": "天煞宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "tiansha_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tiansha_sect"
+      ],
+      "description": "【具名NPC】天煞宗·丹堂执事。宗门：天煞宗（tiansha_sect）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['assassination']。货架档：2。声望轨：sect_tiansha。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tiansha_sect_outer_deacon",
+      "display": "天煞宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "tiansha_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tiansha_sect"
+      ],
+      "description": "【具名NPC】天煞宗·外门执事。宗门：天煞宗（tiansha_sect）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['assassination']。货架档：2。声望轨：sect_tiansha。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tiansha_sect_patrol_captain",
+      "display": "天煞宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "tiansha_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tiansha_sect"
+      ],
+      "description": "【具名NPC】天煞宗·巡卫队长。宗门：天煞宗（tiansha_sect）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['assassination']。货架档：2。声望轨：sect_tiansha。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_sect_master",
+      "display": "御灵宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "yuling_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect"
+      ],
+      "description": "【具名NPC】御灵宗·掌门/代掌。宗门：御灵宗（yuling_sect）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['beast_taming', 'soul']。货架档：2。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_great_elder",
+      "display": "御灵宗·大长老",
+      "type": "named_npc",
+      "sect_id": "yuling_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect"
+      ],
+      "description": "【具名NPC】御灵宗·大长老。宗门：御灵宗（yuling_sect）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['beast_taming', 'soul']。货架档：2。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_alchemy_elder",
+      "display": "御灵宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "yuling_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect"
+      ],
+      "description": "【具名NPC】御灵宗·丹堂执事。宗门：御灵宗（yuling_sect）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['beast_taming', 'soul']。货架档：2。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_outer_deacon",
+      "display": "御灵宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "yuling_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect"
+      ],
+      "description": "【具名NPC】御灵宗·外门执事。宗门：御灵宗（yuling_sect）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['beast_taming', 'soul']。货架档：2。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_patrol_captain",
+      "display": "御灵宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "yuling_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect"
+      ],
+      "description": "【具名NPC】御灵宗·巡卫队长。宗门：御灵宗（yuling_sect）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['beast_taming', 'soul']。货架档：2。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianhuan_sect_sect_master",
+      "display": "千幻宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qianhuan_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qianhuan_sect"
+      ],
+      "description": "【具名NPC】千幻宗·掌门/代掌。宗门：千幻宗（qianhuan_sect）。域：tiannan。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['illusion']。货架档：2。声望轨：sect_qianhuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianhuan_sect_great_elder",
+      "display": "千幻宗·大长老",
+      "type": "named_npc",
+      "sect_id": "qianhuan_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qianhuan_sect"
+      ],
+      "description": "【具名NPC】千幻宗·大长老。宗门：千幻宗（qianhuan_sect）。域：tiannan。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['illusion']。货架档：2。声望轨：sect_qianhuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianhuan_sect_alchemy_elder",
+      "display": "千幻宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qianhuan_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qianhuan_sect"
+      ],
+      "description": "【具名NPC】千幻宗·丹堂执事。宗门：千幻宗（qianhuan_sect）。域：tiannan。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['illusion']。货架档：2。声望轨：sect_qianhuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianhuan_sect_outer_deacon",
+      "display": "千幻宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "qianhuan_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qianhuan_sect"
+      ],
+      "description": "【具名NPC】千幻宗·外门执事。宗门：千幻宗（qianhuan_sect）。域：tiannan。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['illusion']。货架档：2。声望轨：sect_qianhuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianhuan_sect_patrol_captain",
+      "display": "千幻宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qianhuan_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qianhuan_sect"
+      ],
+      "description": "【具名NPC】千幻宗·巡卫队长。宗门：千幻宗（qianhuan_sect）。域：tiannan。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['illusion']。货架档：2。声望轨：sect_qianhuan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_luoyun_sect_sect_master",
+      "display": "落云宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "luoyun_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "luoyun_sect"
+      ],
+      "description": "【具名NPC】落云宗·掌门/代掌。宗门：落云宗（luoyun_sect）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['alchemy_top']。货架档：4。声望轨：sect_luoyun。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_luoyun_sect_great_elder",
+      "display": "落云宗·大长老",
+      "type": "named_npc",
+      "sect_id": "luoyun_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "luoyun_sect"
+      ],
+      "description": "【具名NPC】落云宗·大长老。宗门：落云宗（luoyun_sect）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['alchemy_top']。货架档：4。声望轨：sect_luoyun。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_luoyun_sect_alchemy_elder",
+      "display": "落云宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "luoyun_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "luoyun_sect"
+      ],
+      "description": "【具名NPC】落云宗·丹堂执事。宗门：落云宗（luoyun_sect）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['alchemy_top']。货架档：4。声望轨：sect_luoyun。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_luoyun_sect_outer_deacon",
+      "display": "落云宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "luoyun_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "luoyun_sect"
+      ],
+      "description": "【具名NPC】落云宗·外门执事。宗门：落云宗（luoyun_sect）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['alchemy_top']。货架档：4。声望轨：sect_luoyun。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_luoyun_sect_patrol_captain",
+      "display": "落云宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "luoyun_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "luoyun_sect"
+      ],
+      "description": "【具名NPC】落云宗·巡卫队长。宗门：落云宗（luoyun_sect）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['alchemy_top']。货架档：4。声望轨：sect_luoyun。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_star_palace_sect_master",
+      "display": "星宫·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "sect_master",
+      "alignment": "lawful",
+      "tags": [
+        "named_npc_v116",
+        "star_palace"
+      ],
+      "description": "【具名NPC】星宫·掌门/代掌。宗门：星宫（star_palace）。域：chaotic_sea。立场：lawful。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['governance', 'teleport_hubs', 'order_enforcement', 'artifact_standard']。货架档：4。声望轨：faction_star_palace。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_star_palace_great_elder",
+      "display": "星宫·大长老",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "great_elder",
+      "alignment": "lawful",
+      "tags": [
+        "named_npc_v116",
+        "star_palace"
+      ],
+      "description": "【具名NPC】星宫·大长老。宗门：星宫（star_palace）。域：chaotic_sea。立场：lawful。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['governance', 'teleport_hubs', 'order_enforcement', 'artifact_standard']。货架档：4。声望轨：faction_star_palace。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_star_palace_alchemy_elder",
+      "display": "星宫·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "alchemy_elder",
+      "alignment": "lawful",
+      "tags": [
+        "named_npc_v116",
+        "star_palace"
+      ],
+      "description": "【具名NPC】星宫·丹堂执事。宗门：星宫（star_palace）。域：chaotic_sea。立场：lawful。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['governance', 'teleport_hubs', 'order_enforcement', 'artifact_standard']。货架档：4。声望轨：faction_star_palace。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_star_palace_outer_deacon",
+      "display": "星宫·外门执事",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "outer_deacon",
+      "alignment": "lawful",
+      "tags": [
+        "named_npc_v116",
+        "star_palace"
+      ],
+      "description": "【具名NPC】星宫·外门执事。宗门：星宫（star_palace）。域：chaotic_sea。立场：lawful。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['governance', 'teleport_hubs', 'order_enforcement', 'artifact_standard']。货架档：4。声望轨：faction_star_palace。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_star_palace_patrol_captain",
+      "display": "星宫·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "patrol_captain",
+      "alignment": "lawful",
+      "tags": [
+        "named_npc_v116",
+        "star_palace"
+      ],
+      "description": "【具名NPC】星宫·巡卫队长。宗门：星宫（star_palace）。域：chaotic_sea。立场：lawful。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['governance', 'teleport_hubs', 'order_enforcement', 'artifact_standard']。货架档：4。声望轨：faction_star_palace。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_inverse_star_alliance_sect_master",
+      "display": "逆星盟·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "role": "sect_master",
+      "alignment": "rebel",
+      "tags": [
+        "named_npc_v116",
+        "inverse_star_alliance"
+      ],
+      "description": "【具名NPC】逆星盟·掌门/代掌。宗门：逆星盟（inverse_star_alliance）。域：chaotic_sea。立场：rebel。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['black_market']。货架档：3。声望轨：faction_inverse_star。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_inverse_star_alliance_great_elder",
+      "display": "逆星盟·大长老",
+      "type": "named_npc",
+      "sect_id": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "role": "great_elder",
+      "alignment": "rebel",
+      "tags": [
+        "named_npc_v116",
+        "inverse_star_alliance"
+      ],
+      "description": "【具名NPC】逆星盟·大长老。宗门：逆星盟（inverse_star_alliance）。域：chaotic_sea。立场：rebel。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['black_market']。货架档：3。声望轨：faction_inverse_star。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_inverse_star_alliance_alchemy_elder",
+      "display": "逆星盟·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "role": "alchemy_elder",
+      "alignment": "rebel",
+      "tags": [
+        "named_npc_v116",
+        "inverse_star_alliance"
+      ],
+      "description": "【具名NPC】逆星盟·丹堂执事。宗门：逆星盟（inverse_star_alliance）。域：chaotic_sea。立场：rebel。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['black_market']。货架档：3。声望轨：faction_inverse_star。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_inverse_star_alliance_outer_deacon",
+      "display": "逆星盟·外门执事",
+      "type": "named_npc",
+      "sect_id": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "role": "outer_deacon",
+      "alignment": "rebel",
+      "tags": [
+        "named_npc_v116",
+        "inverse_star_alliance"
+      ],
+      "description": "【具名NPC】逆星盟·外门执事。宗门：逆星盟（inverse_star_alliance）。域：chaotic_sea。立场：rebel。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['black_market']。货架档：3。声望轨：faction_inverse_star。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_inverse_star_alliance_patrol_captain",
+      "display": "逆星盟·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "inverse_star_alliance",
+      "region": "chaotic_sea",
+      "role": "patrol_captain",
+      "alignment": "rebel",
+      "tags": [
+        "named_npc_v116",
+        "inverse_star_alliance"
+      ],
+      "description": "【具名NPC】逆星盟·巡卫队长。宗门：逆星盟（inverse_star_alliance）。域：chaotic_sea。立场：rebel。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['black_market']。货架档：3。声望轨：faction_inverse_star。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_teach_sect_master",
+      "display": "千竹教·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qianzhu_teach",
+      "region": "extreme_west",
+      "role": "sect_master",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_teach"
+      ],
+      "description": "【具名NPC】千竹教·掌门/代掌。宗门：千竹教（qianzhu_teach）。域：extreme_west。立场：neutral。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['puppet', 'formation_trap']。货架档：3。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_teach_great_elder",
+      "display": "千竹教·大长老",
+      "type": "named_npc",
+      "sect_id": "qianzhu_teach",
+      "region": "extreme_west",
+      "role": "great_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_teach"
+      ],
+      "description": "【具名NPC】千竹教·大长老。宗门：千竹教（qianzhu_teach）。域：extreme_west。立场：neutral。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['puppet', 'formation_trap']。货架档：3。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_teach_alchemy_elder",
+      "display": "千竹教·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qianzhu_teach",
+      "region": "extreme_west",
+      "role": "alchemy_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_teach"
+      ],
+      "description": "【具名NPC】千竹教·丹堂执事。宗门：千竹教（qianzhu_teach）。域：extreme_west。立场：neutral。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['puppet', 'formation_trap']。货架档：3。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_teach_outer_deacon",
+      "display": "千竹教·外门执事",
+      "type": "named_npc",
+      "sect_id": "qianzhu_teach",
+      "region": "extreme_west",
+      "role": "outer_deacon",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_teach"
+      ],
+      "description": "【具名NPC】千竹教·外门执事。宗门：千竹教（qianzhu_teach）。域：extreme_west。立场：neutral。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['puppet', 'formation_trap']。货架档：3。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_teach_patrol_captain",
+      "display": "千竹教·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qianzhu_teach",
+      "region": "extreme_west",
+      "role": "patrol_captain",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_teach"
+      ],
+      "description": "【具名NPC】千竹教·巡卫队长。宗门：千竹教（qianzhu_teach）。域：extreme_west。立场：neutral。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['puppet', 'formation_trap']。货架档：3。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_mulan_fashi_council_sect_master",
+      "display": "慕兰神师府·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "mulan_fashi_council",
+      "region": "mulan",
+      "role": "sect_master",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "mulan_fashi_council"
+      ],
+      "description": "【具名NPC】慕兰神师府·掌门/代掌。宗门：慕兰神师府（mulan_fashi_council）。域：mulan。立场：tribal_faith。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['spirit_art_fashi']。货架档：2。声望轨：faction_mulan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_mulan_fashi_council_great_elder",
+      "display": "慕兰神师府·大长老",
+      "type": "named_npc",
+      "sect_id": "mulan_fashi_council",
+      "region": "mulan",
+      "role": "great_elder",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "mulan_fashi_council"
+      ],
+      "description": "【具名NPC】慕兰神师府·大长老。宗门：慕兰神师府（mulan_fashi_council）。域：mulan。立场：tribal_faith。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['spirit_art_fashi']。货架档：2。声望轨：faction_mulan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_mulan_fashi_council_alchemy_elder",
+      "display": "慕兰神师府·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "mulan_fashi_council",
+      "region": "mulan",
+      "role": "alchemy_elder",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "mulan_fashi_council"
+      ],
+      "description": "【具名NPC】慕兰神师府·丹堂执事。宗门：慕兰神师府（mulan_fashi_council）。域：mulan。立场：tribal_faith。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['spirit_art_fashi']。货架档：2。声望轨：faction_mulan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_mulan_fashi_council_outer_deacon",
+      "display": "慕兰神师府·外门执事",
+      "type": "named_npc",
+      "sect_id": "mulan_fashi_council",
+      "region": "mulan",
+      "role": "outer_deacon",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "mulan_fashi_council"
+      ],
+      "description": "【具名NPC】慕兰神师府·外门执事。宗门：慕兰神师府（mulan_fashi_council）。域：mulan。立场：tribal_faith。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['spirit_art_fashi']。货架档：2。声望轨：faction_mulan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_mulan_fashi_council_patrol_captain",
+      "display": "慕兰神师府·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "mulan_fashi_council",
+      "region": "mulan",
+      "role": "patrol_captain",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "mulan_fashi_council"
+      ],
+      "description": "【具名NPC】慕兰神师府·巡卫队长。宗门：慕兰神师府（mulan_fashi_council）。域：mulan。立场：tribal_faith。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['spirit_art_fashi']。货架档：2。声望轨：faction_mulan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianlan_temple_sect_master",
+      "display": "天澜圣殿·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "tianlan_temple",
+      "region": "tianlan",
+      "role": "sect_master",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "tianlan_temple"
+      ],
+      "description": "【具名NPC】天澜圣殿·掌门/代掌。宗门：天澜圣殿（tianlan_temple）。域：tianlan。立场：tribal_faith。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['holy_beast_oath']。货架档：2。声望轨：faction_tianlan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianlan_temple_great_elder",
+      "display": "天澜圣殿·大长老",
+      "type": "named_npc",
+      "sect_id": "tianlan_temple",
+      "region": "tianlan",
+      "role": "great_elder",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "tianlan_temple"
+      ],
+      "description": "【具名NPC】天澜圣殿·大长老。宗门：天澜圣殿（tianlan_temple）。域：tianlan。立场：tribal_faith。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['holy_beast_oath']。货架档：2。声望轨：faction_tianlan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianlan_temple_alchemy_elder",
+      "display": "天澜圣殿·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "tianlan_temple",
+      "region": "tianlan",
+      "role": "alchemy_elder",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "tianlan_temple"
+      ],
+      "description": "【具名NPC】天澜圣殿·丹堂执事。宗门：天澜圣殿（tianlan_temple）。域：tianlan。立场：tribal_faith。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['holy_beast_oath']。货架档：2。声望轨：faction_tianlan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianlan_temple_outer_deacon",
+      "display": "天澜圣殿·外门执事",
+      "type": "named_npc",
+      "sect_id": "tianlan_temple",
+      "region": "tianlan",
+      "role": "outer_deacon",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "tianlan_temple"
+      ],
+      "description": "【具名NPC】天澜圣殿·外门执事。宗门：天澜圣殿（tianlan_temple）。域：tianlan。立场：tribal_faith。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['holy_beast_oath']。货架档：2。声望轨：faction_tianlan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianlan_temple_patrol_captain",
+      "display": "天澜圣殿·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "tianlan_temple",
+      "region": "tianlan",
+      "role": "patrol_captain",
+      "alignment": "tribal_faith",
+      "tags": [
+        "named_npc_v116",
+        "tianlan_temple"
+      ],
+      "description": "【具名NPC】天澜圣殿·巡卫队长。宗门：天澜圣殿（tianlan_temple）。域：tianlan。立场：tribal_faith。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['holy_beast_oath']。货架档：2。声望轨：faction_tianlan。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_sect_sect_master",
+      "display": "千竹教·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qianzhu_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_sect"
+      ],
+      "description": "【具名NPC】千竹教·掌门/代掌。宗门：千竹教（qianzhu_sect）。域：tiannan。立场：righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['puppet', 'talisman_support']。货架档：2。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_sect_great_elder",
+      "display": "千竹教·大长老",
+      "type": "named_npc",
+      "sect_id": "qianzhu_sect",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_sect"
+      ],
+      "description": "【具名NPC】千竹教·大长老。宗门：千竹教（qianzhu_sect）。域：tiannan。立场：righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['puppet', 'talisman_support']。货架档：2。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_sect_alchemy_elder",
+      "display": "千竹教·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qianzhu_sect",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_sect"
+      ],
+      "description": "【具名NPC】千竹教·丹堂执事。宗门：千竹教（qianzhu_sect）。域：tiannan。立场：righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['puppet', 'talisman_support']。货架档：2。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_sect_outer_deacon",
+      "display": "千竹教·外门执事",
+      "type": "named_npc",
+      "sect_id": "qianzhu_sect",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_sect"
+      ],
+      "description": "【具名NPC】千竹教·外门执事。宗门：千竹教（qianzhu_sect）。域：tiannan。立场：righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['puppet', 'talisman_support']。货架档：2。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qianzhu_sect_patrol_captain",
+      "display": "千竹教·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qianzhu_sect",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "righteous",
+      "tags": [
+        "named_npc_v116",
+        "qianzhu_sect"
+      ],
+      "description": "【具名NPC】千竹教·巡卫队长。宗门：千竹教（qianzhu_sect）。域：tiannan。立场：righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['puppet', 'talisman_support']。货架档：2。声望轨：sect_qianzhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_secret_sect_master",
+      "display": "御灵宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "yuling_sect_secret",
+      "region": "tiannan",
+      "role": "sect_master",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect_secret"
+      ],
+      "description": "【具名NPC】御灵宗·掌门/代掌。宗门：御灵宗（yuling_sect_secret）。域：tiannan。立场：neutral。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['beast_puppet', 'hidden']。货架档：1。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_secret_great_elder",
+      "display": "御灵宗·大长老",
+      "type": "named_npc",
+      "sect_id": "yuling_sect_secret",
+      "region": "tiannan",
+      "role": "great_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect_secret"
+      ],
+      "description": "【具名NPC】御灵宗·大长老。宗门：御灵宗（yuling_sect_secret）。域：tiannan。立场：neutral。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['beast_puppet', 'hidden']。货架档：1。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_secret_alchemy_elder",
+      "display": "御灵宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "yuling_sect_secret",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect_secret"
+      ],
+      "description": "【具名NPC】御灵宗·丹堂执事。宗门：御灵宗（yuling_sect_secret）。域：tiannan。立场：neutral。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['beast_puppet', 'hidden']。货架档：1。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_secret_outer_deacon",
+      "display": "御灵宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "yuling_sect_secret",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect_secret"
+      ],
+      "description": "【具名NPC】御灵宗·外门执事。宗门：御灵宗（yuling_sect_secret）。域：tiannan。立场：neutral。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['beast_puppet', 'hidden']。货架档：1。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_yuling_sect_secret_patrol_captain",
+      "display": "御灵宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "yuling_sect_secret",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "alignment": "neutral",
+      "tags": [
+        "named_npc_v116",
+        "yuling_sect_secret"
+      ],
+      "description": "【具名NPC】御灵宗·巡卫队长。宗门：御灵宗（yuling_sect_secret）。域：tiannan。立场：neutral。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['beast_puppet', 'hidden']。货架档：1。声望轨：sect_yuling。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_guiling_gate_sect_master",
+      "display": "鬼灵门·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "guiling_gate",
+      "region": "tiannan_north_waste",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "guiling_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·掌门/代掌。宗门：鬼灵门（guiling_gate）。域：tiannan_north_waste。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['摄魂', '炼尸', '阴火']。货架档：1。声望轨：sect_guiling_gate。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_guiling_gate_great_elder",
+      "display": "鬼灵门·大长老",
+      "type": "named_npc",
+      "sect_id": "guiling_gate",
+      "region": "tiannan_north_waste",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "guiling_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·大长老。宗门：鬼灵门（guiling_gate）。域：tiannan_north_waste。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['摄魂', '炼尸', '阴火']。货架档：1。声望轨：sect_guiling_gate。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_guiling_gate_alchemy_elder",
+      "display": "鬼灵门·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "guiling_gate",
+      "region": "tiannan_north_waste",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "guiling_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·丹堂执事。宗门：鬼灵门（guiling_gate）。域：tiannan_north_waste。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['摄魂', '炼尸', '阴火']。货架档：1。声望轨：sect_guiling_gate。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_guiling_gate_outer_deacon",
+      "display": "鬼灵门·外门执事",
+      "type": "named_npc",
+      "sect_id": "guiling_gate",
+      "region": "tiannan_north_waste",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "guiling_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·外门执事。宗门：鬼灵门（guiling_gate）。域：tiannan_north_waste。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['摄魂', '炼尸', '阴火']。货架档：1。声望轨：sect_guiling_gate。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_guiling_gate_patrol_captain",
+      "display": "鬼灵门·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "guiling_gate",
+      "region": "tiannan_north_waste",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "guiling_gate"
+      ],
+      "description": "【具名NPC】鬼灵门·巡卫队长。宗门：鬼灵门（guiling_gate）。域：tiannan_north_waste。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['摄魂', '炼尸', '阴火']。货架档：1。声望轨：sect_guiling_gate。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianmo_sect_sect_master",
+      "display": "天魔宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "tianmo_sect",
+      "region": "tiannan_north_waste",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tianmo_sect"
+      ],
+      "description": "【具名NPC】天魔宗·掌门/代掌。宗门：天魔宗（tianmo_sect）。域：tiannan_north_waste。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['魔体', '狂战', '血祭']。货架档：1。声望轨：sect_tianmo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianmo_sect_great_elder",
+      "display": "天魔宗·大长老",
+      "type": "named_npc",
+      "sect_id": "tianmo_sect",
+      "region": "tiannan_north_waste",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tianmo_sect"
+      ],
+      "description": "【具名NPC】天魔宗·大长老。宗门：天魔宗（tianmo_sect）。域：tiannan_north_waste。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['魔体', '狂战', '血祭']。货架档：1。声望轨：sect_tianmo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianmo_sect_alchemy_elder",
+      "display": "天魔宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "tianmo_sect",
+      "region": "tiannan_north_waste",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tianmo_sect"
+      ],
+      "description": "【具名NPC】天魔宗·丹堂执事。宗门：天魔宗（tianmo_sect）。域：tiannan_north_waste。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['魔体', '狂战', '血祭']。货架档：1。声望轨：sect_tianmo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianmo_sect_outer_deacon",
+      "display": "天魔宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "tianmo_sect",
+      "region": "tiannan_north_waste",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tianmo_sect"
+      ],
+      "description": "【具名NPC】天魔宗·外门执事。宗门：天魔宗（tianmo_sect）。域：tiannan_north_waste。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['魔体', '狂战', '血祭']。货架档：1。声望轨：sect_tianmo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_tianmo_sect_patrol_captain",
+      "display": "天魔宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "tianmo_sect",
+      "region": "tiannan_north_waste",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "tianmo_sect"
+      ],
+      "description": "【具名NPC】天魔宗·巡卫队长。宗门：天魔宗（tianmo_sect）。域：tiannan_north_waste。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['魔体', '狂战', '血祭']。货架档：1。声望轨：sect_tianmo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingluo_sect_sect_master",
+      "display": "青罗宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "qingluo_sect",
+      "region": "tiannan_north_waste",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qingluo_sect"
+      ],
+      "description": "【具名NPC】青罗宗·掌门/代掌。宗门：青罗宗（qingluo_sect）。域：tiannan_north_waste。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['毒术', '虫傀']。货架档：1。声望轨：sect_qingluo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingluo_sect_great_elder",
+      "display": "青罗宗·大长老",
+      "type": "named_npc",
+      "sect_id": "qingluo_sect",
+      "region": "tiannan_north_waste",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qingluo_sect"
+      ],
+      "description": "【具名NPC】青罗宗·大长老。宗门：青罗宗（qingluo_sect）。域：tiannan_north_waste。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['毒术', '虫傀']。货架档：1。声望轨：sect_qingluo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingluo_sect_alchemy_elder",
+      "display": "青罗宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "qingluo_sect",
+      "region": "tiannan_north_waste",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qingluo_sect"
+      ],
+      "description": "【具名NPC】青罗宗·丹堂执事。宗门：青罗宗（qingluo_sect）。域：tiannan_north_waste。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['毒术', '虫傀']。货架档：1。声望轨：sect_qingluo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingluo_sect_outer_deacon",
+      "display": "青罗宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "qingluo_sect",
+      "region": "tiannan_north_waste",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qingluo_sect"
+      ],
+      "description": "【具名NPC】青罗宗·外门执事。宗门：青罗宗（qingluo_sect）。域：tiannan_north_waste。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['毒术', '虫傀']。货架档：1。声望轨：sect_qingluo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_qingluo_sect_patrol_captain",
+      "display": "青罗宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "qingluo_sect",
+      "region": "tiannan_north_waste",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "qingluo_sect"
+      ],
+      "description": "【具名NPC】青罗宗·巡卫队长。宗门：青罗宗（qingluo_sect）。域：tiannan_north_waste。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['毒术', '虫傀']。货架档：1。声望轨：sect_qingluo。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_wanhu_sect_sect_master",
+      "display": "万狐宗·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "wanhu_sect",
+      "region": "tiannan_north_waste",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "wanhu_sect"
+      ],
+      "description": "【具名NPC】万狐宗·掌门/代掌。宗门：万狐宗（wanhu_sect）。域：tiannan_north_waste。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['幻术', '妖狐']。货架档：1。声望轨：sect_wanhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_wanhu_sect_great_elder",
+      "display": "万狐宗·大长老",
+      "type": "named_npc",
+      "sect_id": "wanhu_sect",
+      "region": "tiannan_north_waste",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "wanhu_sect"
+      ],
+      "description": "【具名NPC】万狐宗·大长老。宗门：万狐宗（wanhu_sect）。域：tiannan_north_waste。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['幻术', '妖狐']。货架档：1。声望轨：sect_wanhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_wanhu_sect_alchemy_elder",
+      "display": "万狐宗·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "wanhu_sect",
+      "region": "tiannan_north_waste",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "wanhu_sect"
+      ],
+      "description": "【具名NPC】万狐宗·丹堂执事。宗门：万狐宗（wanhu_sect）。域：tiannan_north_waste。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['幻术', '妖狐']。货架档：1。声望轨：sect_wanhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_wanhu_sect_outer_deacon",
+      "display": "万狐宗·外门执事",
+      "type": "named_npc",
+      "sect_id": "wanhu_sect",
+      "region": "tiannan_north_waste",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "wanhu_sect"
+      ],
+      "description": "【具名NPC】万狐宗·外门执事。宗门：万狐宗（wanhu_sect）。域：tiannan_north_waste。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['幻术', '妖狐']。货架档：1。声望轨：sect_wanhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_wanhu_sect_patrol_captain",
+      "display": "万狐宗·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "wanhu_sect",
+      "region": "tiannan_north_waste",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "wanhu_sect"
+      ],
+      "description": "【具名NPC】万狐宗·巡卫队长。宗门：万狐宗（wanhu_sect）。域：tiannan_north_waste。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['幻术', '妖狐']。货架档：1。声望轨：sect_wanhu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_xuewu_sect_sect_master",
+      "display": "血巫教·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "xuewu_sect",
+      "region": "tiannan_north_waste",
+      "role": "sect_master",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "xuewu_sect"
+      ],
+      "description": "【具名NPC】血巫教·掌门/代掌。宗门：血巫教（xuewu_sect）。域：tiannan_north_waste。立场：demonic。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['血咒', '巫术']。货架档：1。声望轨：sect_xuewu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_xuewu_sect_great_elder",
+      "display": "血巫教·大长老",
+      "type": "named_npc",
+      "sect_id": "xuewu_sect",
+      "region": "tiannan_north_waste",
+      "role": "great_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "xuewu_sect"
+      ],
+      "description": "【具名NPC】血巫教·大长老。宗门：血巫教（xuewu_sect）。域：tiannan_north_waste。立场：demonic。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['血咒', '巫术']。货架档：1。声望轨：sect_xuewu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_xuewu_sect_alchemy_elder",
+      "display": "血巫教·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "xuewu_sect",
+      "region": "tiannan_north_waste",
+      "role": "alchemy_elder",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "xuewu_sect"
+      ],
+      "description": "【具名NPC】血巫教·丹堂执事。宗门：血巫教（xuewu_sect）。域：tiannan_north_waste。立场：demonic。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['血咒', '巫术']。货架档：1。声望轨：sect_xuewu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_xuewu_sect_outer_deacon",
+      "display": "血巫教·外门执事",
+      "type": "named_npc",
+      "sect_id": "xuewu_sect",
+      "region": "tiannan_north_waste",
+      "role": "outer_deacon",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "xuewu_sect"
+      ],
+      "description": "【具名NPC】血巫教·外门执事。宗门：血巫教（xuewu_sect）。域：tiannan_north_waste。立场：demonic。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['血咒', '巫术']。货架档：1。声望轨：sect_xuewu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_xuewu_sect_patrol_captain",
+      "display": "血巫教·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "xuewu_sect",
+      "region": "tiannan_north_waste",
+      "role": "patrol_captain",
+      "alignment": "demonic",
+      "tags": [
+        "named_npc_v116",
+        "xuewu_sect"
+      ],
+      "description": "【具名NPC】血巫教·巡卫队长。宗门：血巫教（xuewu_sect）。域：tiannan_north_waste。立场：demonic。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['血咒', '巫术']。货架档：1。声望轨：sect_xuewu。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_sect_master",
+      "display": "大晋佛寺一脉·掌门/代掌",
+      "type": "named_npc",
+      "sect_id": "dajin_buddhist_temple_line",
+      "region": "dajin",
+      "role": "sect_master",
+      "alignment": "neutral_righteous",
+      "tags": [
+        "named_npc_v116",
+        "dajin_buddhist_temple_line"
+      ],
+      "description": "【具名NPC】大晋佛寺一脉·掌门/代掌。宗门：大晋佛寺一脉（dajin_buddhist_temple_line）。域：dajin。立场：neutral_righteous。职司：掌门/代掌。最高决策，剧情罕见现身，声望阈值极高才可谒见。宗门特长：['body_refining', 'purify_demon']。货架档：None。声望轨：None。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_great_elder",
+      "display": "大晋佛寺一脉·大长老",
+      "type": "named_npc",
+      "sect_id": "dajin_buddhist_temple_line",
+      "region": "dajin",
+      "role": "great_elder",
+      "alignment": "neutral_righteous",
+      "tags": [
+        "named_npc_v116",
+        "dajin_buddhist_temple_line"
+      ],
+      "description": "【具名NPC】大晋佛寺一脉·大长老。宗门：大晋佛寺一脉（dajin_buddhist_temple_line）。域：dajin。立场：neutral_righteous。职司：大长老。执法与资源分配，贡献兑换终审。宗门特长：['body_refining', 'purify_demon']。货架档：None。声望轨：None。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_alchemy_elder",
+      "display": "大晋佛寺一脉·丹堂执事",
+      "type": "named_npc",
+      "sect_id": "dajin_buddhist_temple_line",
+      "region": "dajin",
+      "role": "alchemy_elder",
+      "alignment": "neutral_righteous",
+      "tags": [
+        "named_npc_v116",
+        "dajin_buddhist_temple_line"
+      ],
+      "description": "【具名NPC】大晋佛寺一脉·丹堂执事。宗门：大晋佛寺一脉（dajin_buddhist_temple_line）。域：dajin。立场：neutral_righteous。职司：丹堂执事。丹方、地火房、筑基丹配额相关。宗门特长：['body_refining', 'purify_demon']。货架档：None。声望轨：None。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_outer_deacon",
+      "display": "大晋佛寺一脉·外门执事",
+      "type": "named_npc",
+      "sect_id": "dajin_buddhist_temple_line",
+      "region": "dajin",
+      "role": "outer_deacon",
+      "alignment": "neutral_righteous",
+      "tags": [
+        "named_npc_v116",
+        "dajin_buddhist_temple_line"
+      ],
+      "description": "【具名NPC】大晋佛寺一脉·外门执事。宗门：大晋佛寺一脉（dajin_buddhist_temple_line）。域：dajin。立场：neutral_righteous。职司：外门执事。入门、七脉、日常任务发放。宗门特长：['body_refining', 'purify_demon']。货架档：None。声望轨：None。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_dajin_buddhist_temple_line_patrol_captain",
+      "display": "大晋佛寺一脉·巡卫队长",
+      "type": "named_npc",
+      "sect_id": "dajin_buddhist_temple_line",
+      "region": "dajin",
+      "role": "patrol_captain",
+      "alignment": "neutral_righteous",
+      "tags": [
+        "named_npc_v116",
+        "dajin_buddhist_temple_line"
+      ],
+      "description": "【具名NPC】大晋佛寺一脉·巡卫队长。宗门：大晋佛寺一脉（dajin_buddhist_temple_line）。域：dajin。立场：neutral_righteous。职司：巡卫队长。山门盘查、负声望驱逐。宗门特长：['body_refining', 'purify_demon']。货架档：None。声望轨：None。交互：任务/兑换/盘查/剧情。不可作为无限刷怪击杀源；击杀宗门要员引发追杀令与声望崩盘。对话气质随玩家声望：友好报价、中立公事、敌对拒售或直接开打。与 sect_shelves、merchant_shops、quest_hooks 交叉引用时优先本 id。"
+    },
+    {
+      "id": "npc_huangfeng_dan_tang",
+      "display": "黄枫谷·丹堂管事",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "alchemy_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】黄枫谷·丹堂管事（npc_huangfeng_dan_tang）。域：tiannan。职司：alchemy_elder。管地火房排班与低阶丹方。筑基丹事从不过口风，只认贡献与长老令。可触发丹童循环。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_huangfeng_outer",
+      "display": "黄枫谷·外门赵执事",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】黄枫谷·外门赵执事（npc_huangfeng_outer）。域：tiannan。职司：outer_deacon。测灵后第一人。发长春功残页、辟谷与七脉通令。势利但守规矩。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_yanyue_shadow",
+      "display": "掩月宗·影堂引路人",
+      "type": "named_npc",
+      "sect_id": "yanyue_sect",
+      "region": "tiannan",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】掩月宗·影堂引路人（npc_yanyue_shadow）。域：tiannan。职司：quest_giver_main。阴柔功法与双修边界任务。声望不够只给外围。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_spirit_beast_herder",
+      "display": "灵兽山·御兽长",
+      "type": "named_npc",
+      "sect_id": "spirit_beast_mountain",
+      "region": "tiannan",
+      "role": "great_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】灵兽山·御兽长（npc_spirit_beast_herder）。域：tiannan。职司：great_elder。灵兽契约与山中禁地通行证。虐待灵兽扣声望。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_qingxu_quiet",
+      "display": "清虚门·静修堂主",
+      "type": "named_npc",
+      "sect_id": "qingxu_gate",
+      "region": "tiannan",
+      "role": "great_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】清虚门·静修堂主（npc_qingxu_quiet）。域：tiannan。职司：great_elder。清修、符阵入门。厌战，给身法与恢复类任务。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_jujian_forge",
+      "display": "巨剑门·剑冢执事",
+      "type": "named_npc",
+      "sect_id": "giant_sword_gate",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】巨剑门·剑冢执事（npc_jujian_forge）。域：tiannan。职司：patrol_captain。试剑与重剑认主。败者打扫剑冢。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_qixuan_chief",
+      "display": "七玄门·门主（江湖）",
+      "type": "named_npc",
+      "sect_id": "qixuan_men",
+      "region": "tiannan",
+      "role": "sect_master",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】七玄门·门主（江湖）（npc_qixuan_chief）。域：tiannan。职司：sect_master。凡人门派天花板。入道前剧情、仇家与药园外围。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_ghost_spirit_ferry",
+      "display": "鬼灵门·引渡使",
+      "type": "named_npc",
+      "sect_id": "ghost_spirit_gate",
+      "region": "yinming",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】鬼灵门·引渡使（npc_ghost_spirit_ferry）。域：yinming。职司：quest_giver_main。鬼道入门与阴罗相关。正道来客需过心性。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_hehuan_host",
+      "display": "合欢宗·堂主",
+      "type": "named_npc",
+      "sect_id": "hehuan_sect",
+      "region": "tiannan",
+      "role": "sect_master",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】合欢宗·堂主（npc_hehuan_host）。域：tiannan。职司：sect_master。声望与幻术双修线。高风险社交任务。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_star_palace_censor",
+      "display": "星宫·巡察使",
+      "type": "named_npc",
+      "sect_id": "star_palace",
+      "region": "chaotic_sea",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】星宫·巡察使（npc_star_palace_censor）。域：chaotic_sea。职司：patrol_captain。外海法度、通缉与制式军械。负星宫声望被盘。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_inverse_star_broker",
+      "display": "逆星·灰市掮客",
+      "type": "named_npc",
+      "sect_id": "inverse_star",
+      "region": "outer_sea_market",
+      "role": "black_market_contact",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】逆星·灰市掮客（npc_inverse_star_broker）。域：outer_sea_market。职司：black_market_contact。虚空钥匙碎片传闻、走私包。可能卖玩家。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_liulian_envoy",
+      "display": "六连殿·联络修",
+      "type": "named_npc",
+      "sect_id": "liulian",
+      "region": "chaotic_sea",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】六连殿·联络修（npc_liulian_envoy）。域：chaotic_sea。职司：quest_giver_main。内海政治任务与禁令牌。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_dajin_auctioneer",
+      "display": "大晋·拍卖行掌柜",
+      "type": "named_npc",
+      "sect_id": "dajin_neutral",
+      "region": "great_jin_central",
+      "role": "black_market_contact",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】大晋·拍卖行掌柜（npc_dajin_auctioneer）。域：great_jin_central。职司：black_market_contact。降尘/庚精级拍品过眼。抽成狠，鉴定严。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_dajin_border_general",
+      "display": "大晋边军·校尉",
+      "type": "named_npc",
+      "sect_id": "dajin_border",
+      "region": "dajin",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】大晋边军·校尉（npc_dajin_border_general）。域：dajin。职司：patrol_captain。军功任务、风石回收、正魔边战。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_mulan_fashi",
+      "display": "慕兰·法师长老",
+      "type": "named_npc",
+      "sect_id": "mulan",
+      "region": "mulan",
+      "role": "great_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】慕兰·法师长老（npc_mulan_fashi）。域：mulan。职司：great_elder。天澜战场与圣禽禁忌。可谈可战。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_mulan_scout_chief",
+      "display": "慕兰·斥候长",
+      "type": "named_npc",
+      "sect_id": "mulan",
+      "region": "tianlan",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】慕兰·斥候长（npc_mulan_scout_chief）。域：tianlan。职司：patrol_captain。骨哨与向导。猎狼皮换人情。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_tianyuan_clerk",
+      "display": "天渊城·功勋吏",
+      "type": "named_npc",
+      "sect_id": "tianyuan",
+      "region": "tianyuan",
+      "role": "outer_deacon",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】天渊城·功勋吏（npc_tianyuan_clerk）。域：tianyuan。职司：outer_deacon。飞升后新手任务与功勋兑换。眼高于顶。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_qianzhu_mechanic",
+      "display": "千竹·机关长老",
+      "type": "named_npc",
+      "sect_id": "qianzhu",
+      "region": "extreme_west_thousand_bamboo",
+      "role": "alchemy_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】千竹·机关长老（npc_qianzhu_mechanic）。域：extreme_west_thousand_bamboo。职司：alchemy_elder。傀儡零件与塔试资格。大衍残篇线索。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_kunwu_guide",
+      "display": "昆吾·火脉向导",
+      "type": "named_npc",
+      "sect_id": "kunwu_local",
+      "region": "kunwu",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】昆吾·火脉向导（npc_kunwu_guide）。域：kunwu。职司：quest_giver_main。卖抗火符与地图，可能吃里爬外。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_nether_ferryman",
+      "display": "冥河·摆渡残影",
+      "type": "named_npc",
+      "sect_id": "nether",
+      "region": "nether_river",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】冥河·摆渡残影（npc_nether_ferryman）。域：nether_river。职司：quest_giver_main。阴司入口叙事。收阴材或心愿为渡资。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_blood_forbidden_guard",
+      "display": "血色禁地·守界修",
+      "type": "named_npc",
+      "sect_id": "blood_forbidden",
+      "region": "tiannan",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】血色禁地·守界修（npc_blood_forbidden_guard）。域：tiannan。职司：patrol_captain。名额令查验。无令者驱离或激战。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_xutian_observer",
+      "display": "虚天殿·观殿人",
+      "type": "named_npc",
+      "sect_id": "xutian",
+      "region": "tiannan",
+      "role": "great_elder",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】虚天殿·观殿人（npc_xutian_observer）。域：tiannan。职司：great_elder。殿期开启情报。不卖完整鼎。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_diyuan_miner",
+      "display": "地渊·矿脉包工头",
+      "type": "named_npc",
+      "sect_id": "diyuan",
+      "region": "dajin",
+      "role": "outer_deacon",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】地渊·矿脉包工头（npc_diyuan_miner）。域：dajin。职司：outer_deacon。深地委托与逃遁建议。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_asura_trial_warden",
+      "display": "修罗界·试炼令使",
+      "type": "named_npc",
+      "sect_id": "asura",
+      "region": "spirit_realm_border",
+      "role": "quest_giver_main",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】修罗界·试炼令使（npc_asura_trial_warden）。域：spirit_realm_border。职司：quest_giver_main。发令、收杀意晶、警告心性。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_jiuxian_gatekeeper",
+      "display": "九仙山·守峰人",
+      "type": "named_npc",
+      "sect_id": "jiuxian",
+      "region": "spirit_fengyuan",
+      "role": "sect_master",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】九仙山·守峰人（npc_jiuxian_gatekeeper）。域：spirit_fengyuan。职司：sect_master。非大众本守门。查大乘资质与闭关令。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_garden_auditor",
+      "display": "灵缈园·采药审计",
+      "type": "named_npc",
+      "sect_id": "spirit_garden",
+      "region": "spirit_fengyuan",
+      "role": "patrol_captain",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】灵缈园·采药审计（npc_garden_auditor）。域：spirit_fengyuan。职司：patrol_captain。软顶与抛售审计。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_wandering_appraiser",
+      "display": "散修·鉴宝张",
+      "type": "named_npc",
+      "sect_id": "neutral",
+      "region": "tiannan",
+      "role": "black_market_contact",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】散修·鉴宝张（npc_wandering_appraiser）。域：tiannan。职司：black_market_contact。鉴定假丹假图。收费灵石，嘴严看钱。 击杀有剧情与声望后果；优先对话与任务。"
+    },
+    {
+      "id": "npc_seven_meridian_judge",
+      "display": "七脉试炼·评分执事",
+      "type": "named_npc",
+      "sect_id": "huangfeng_valley",
+      "region": "tiannan",
+      "role": "outer_deacon",
+      "tags": [
+        "named_npc_v116",
+        "key_npc"
+      ],
+      "description": "【关键具名NPC】七脉试炼·评分执事（npc_seven_meridian_judge）。域：tiannan。职司：outer_deacon。反碾压审计、发贡献令。 击杀有剧情与声望后果；优先对话与任务。"
+    }
+  ]
+}

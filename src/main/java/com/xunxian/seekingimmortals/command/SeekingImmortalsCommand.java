@@ -28,6 +28,13 @@ import com.xunxian.seekingimmortals.cultivation.TribulationService;
 import com.xunxian.seekingimmortals.entity.MarketTraderEntity;
 import com.xunxian.seekingimmortals.network.SyncCultivationDataPacket;
 import com.xunxian.seekingimmortals.network.SyncLearnedTechniquesPacket;
+import com.xunxian.seekingimmortals.npc.DialogueBranchService;
+import com.xunxian.seekingimmortals.npc.DialogueTemplateService;
+import com.xunxian.seekingimmortals.npc.NamedNpcRegistry;
+import com.xunxian.seekingimmortals.npc.NamedNpcRewardService;
+import com.xunxian.seekingimmortals.npc.NpcDialogueApi;
+import com.xunxian.seekingimmortals.npc.NpcFavorService;
+import com.xunxian.seekingimmortals.npc.NpcSpawnService;
 import com.xunxian.seekingimmortals.phase.SoftPhaseShellService;
 import com.xunxian.seekingimmortals.quest.MainStorySoftService;
 import com.xunxian.seekingimmortals.quest.QuestHookSoftService;
@@ -164,6 +171,40 @@ public final class SeekingImmortalsCommand {
                                         .then(Commands.literal("complete")
                                                 .then(Commands.argument("id", StringArgumentType.word())
                                                         .executes(ctx -> mainStoryComplete(ctx.getSource(), StringArgumentType.getString(ctx, "id"))))))))
+                .then(Commands.literal("npc")
+                        .executes(ctx -> npcSummary(ctx.getSource()))
+                        .then(Commands.literal("list")
+                                .executes(ctx -> npcSummary(ctx.getSource()))
+                                .then(Commands.argument("region", StringArgumentType.word())
+                                        .executes(ctx -> npcListRegion(ctx.getSource(), StringArgumentType.getString(ctx, "region")))))
+                        .then(Commands.literal("info")
+                                .then(Commands.argument("id", StringArgumentType.word())
+                                        .executes(ctx -> npcInfo(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("talk")
+                                .then(Commands.argument("id", StringArgumentType.word())
+                                        .executes(ctx -> npcTalk(ctx.getSource(), StringArgumentType.getString(ctx, "id"), ""))
+                                        .then(Commands.argument("tree", StringArgumentType.word())
+                                                .executes(ctx -> npcTalk(
+                                                        ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "id"),
+                                                        StringArgumentType.getString(ctx, "tree"))))))
+                        .then(Commands.literal("act")
+                                .then(Commands.argument("choice", StringArgumentType.word())
+                                        .executes(ctx -> npcAct(ctx.getSource(), StringArgumentType.getString(ctx, "choice")))))
+                        .then(Commands.literal("favor")
+                                .then(Commands.argument("id", StringArgumentType.word())
+                                        .executes(ctx -> npcFavor(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("spawn").requires(source -> source.hasPermission(2))
+                                .then(Commands.argument("id", StringArgumentType.word())
+                                        .executes(ctx -> npcSpawn(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("ensure_region").requires(source -> source.hasPermission(2))
+                                .then(Commands.argument("region", StringArgumentType.word())
+                                        .executes(ctx -> npcEnsureRegion(ctx.getSource(), StringArgumentType.getString(ctx, "region"), 3))
+                                        .then(Commands.argument("limit", IntegerArgumentType.integer(1, 16))
+                                                .executes(ctx -> npcEnsureRegion(
+                                                        ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "region"),
+                                                        IntegerArgumentType.getInteger(ctx, "limit")))))))
                 .then(Commands.literal("market")
                         .executes(ctx -> marketOpen(ctx.getSource()))
                         .then(Commands.literal("open")
@@ -622,6 +663,100 @@ public final class SeekingImmortalsCommand {
 
     private static int textQuestTalk(CommandSourceStack source, String id) throws CommandSyntaxException {
         return TextQuestDialogueService.talk(source.getPlayerOrException(), id) ? 1 : 0;
+    }
+
+    private static int npcSummary(CommandSourceStack source) {
+        source.sendSuccess(() -> Component.literal("[M12] named_npcs=" + NamedNpcRegistry.count()
+                + " trees=" + DialogueBranchService.treeCount()
+                + " archetypes=" + DialogueTemplateService.archetypeCount()
+                + " rewards=" + NamedNpcRewardService.entryCount()), false);
+        int shown = 0;
+        for (NamedNpcRegistry.NamedNpc npc : NamedNpcRegistry.all()) {
+            if (shown++ >= 8) {
+                break;
+            }
+            String line = npc.id() + " | " + npc.display() + " | " + npc.regionId()
+                    + " | tree=" + npc.dialogueTreeId() + " | shop=" + npc.shopId();
+            source.sendSuccess(() -> Component.literal(line), false);
+        }
+        return 1;
+    }
+
+    private static int npcListRegion(CommandSourceStack source, String region) {
+        List<NamedNpcRegistry.NamedNpc> list = NamedNpcRegistry.byRegion(region);
+        source.sendSuccess(() -> Component.literal("[M12] region " + region + " npcs=" + list.size()), false);
+        int shown = 0;
+        for (NamedNpcRegistry.NamedNpc npc : list) {
+            if (shown++ >= 12) {
+                break;
+            }
+            source.sendSuccess(() -> Component.literal(npc.id() + " / " + npc.role() + " / " + npc.dialogueTreeId()), false);
+        }
+        return list.isEmpty() ? 0 : 1;
+    }
+
+    private static int npcInfo(CommandSourceStack source, String id) {
+        return NamedNpcRegistry.find(id).map(npc -> {
+            source.sendSuccess(() -> Component.literal("[NPC] " + npc.id() + " " + npc.display()), false);
+            source.sendSuccess(() -> Component.literal("sect=" + npc.sectId()
+                    + " faction=" + npc.factionId()
+                    + " region=" + npc.regionId()
+                    + " role=" + npc.role()), false);
+            source.sendSuccess(() -> Component.literal("archetype=" + npc.archetype()
+                    + " tree=" + npc.dialogueTreeId()
+                    + " shop=" + npc.shopId()
+                    + " rep=" + npc.reputationTrack()), false);
+            return 1;
+        }).orElseGet(() -> {
+            source.sendFailure(Component.literal("unknown npc: " + id));
+            return 0;
+        });
+    }
+
+    private static int npcTalk(CommandSourceStack source, String id, String tree) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = NpcDialogueApi.startDialogue(player, id, tree);
+        source.sendSuccess(() -> Component.literal(ok ? "[M12] dialogue started: " + id : "[M12] dialogue failed: " + id), false);
+        return ok ? 1 : 0;
+    }
+
+    private static int npcAct(CommandSourceStack source, String choice) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = NpcDialogueApi.selectNext(player, choice);
+        source.sendSuccess(() -> Component.literal(ok ? "[M12] choice ok: " + choice : "[M12] choice failed: " + choice), false);
+        return ok ? 1 : 0;
+    }
+
+    private static int npcFavor(CommandSourceStack source, String id) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        int value = NpcFavorService.get(player, id);
+        source.sendSuccess(() -> Component.literal("[M12] favor " + id + "=" + value), false);
+        return 1;
+    }
+
+    private static int npcSpawn(CommandSourceStack source, String id) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        var npc = NamedNpcRegistry.find(id);
+        boolean merchant = npc.map(n -> n.role().contains("black_market")
+                || n.archetype().contains("market")
+                || n.archetype().contains("vendor")).orElse(false);
+        var spawned = merchant
+                ? NpcSpawnService.spawnTrader(player.serverLevel(), player.blockPosition(), id)
+                : NpcSpawnService.spawnSteward(player.serverLevel(), player.blockPosition(), id);
+        if (spawned.isEmpty()) {
+            source.sendFailure(Component.literal("spawn failed: " + id));
+            return 0;
+        }
+        source.sendSuccess(() -> Component.literal("[M12] spawned " + id), true);
+        return 1;
+    }
+
+    private static int npcEnsureRegion(CommandSourceStack source, String region, int limit) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        List<String> spawned = NpcSpawnService.ensureRegionNpcs(player.serverLevel(), player.blockPosition(), region, limit);
+        source.sendSuccess(() -> Component.literal("[M12] ensure_region " + region + " spawned=" + spawned.size()
+                + " " + String.join(",", spawned)), true);
+        return spawned.size();
     }
 
     private static int textQuestTalkAct(CommandSourceStack source, String id, String choice) throws CommandSyntaxException {

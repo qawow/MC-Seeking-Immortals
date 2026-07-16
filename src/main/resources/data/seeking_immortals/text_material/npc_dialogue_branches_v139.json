@@ -1,0 +1,1509 @@
+{
+  "schema_version": 1,
+  "source": "v139 对话分支 + 声望条件句",
+  "extends": "npc_dialogue_templates_v138.json",
+  "condition_ops": {
+    "rep_gte": "声望 >= N",
+    "rep_lt": "声望 < N",
+    "rep_hostile": "声望敌对档",
+    "has_item": "持有物品",
+    "has_token": "持有令牌",
+    "realm_gte": "境界 >=",
+    "quest_flag": "任务旗",
+    "faction_member": "势力成员",
+    "array_state": "结构状态",
+    "default": "兜底"
+  },
+  "trees": [
+    {
+      "id": "tree_sect_contribution_clerk",
+      "archetype": "sect_contribution_clerk",
+      "npc_ids": [
+        "npc_huangfeng_contribution"
+      ],
+      "root": "greet_route",
+      "nodes": [
+        {
+          "id": "greet_route",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "师弟/师妹，可是来交任务换贡献的？"
+          ],
+          "next": [
+            "offer_if_member",
+            "reject_if_hostile",
+            "guest_limited"
+          ],
+          "effects": []
+        },
+        {
+          "id": "reject_if_hostile",
+          "when": {
+            "rep_hostile": "rep_huangfeng_gu"
+          },
+          "lines": [
+            "黄枫谷的门，不欢迎你这种面孔。",
+            "再近一步，护山阵请你。"
+          ],
+          "next": [
+            "end_hostile"
+          ],
+          "effects": [
+            {
+              "type": "deny_service"
+            }
+          ]
+        },
+        {
+          "id": "guest_limited",
+          "when": {
+            "rep_lt": {
+              "rep": "rep_huangfeng_gu",
+              "n": 10
+            },
+            "not_member": true
+          },
+          "lines": [
+            "外客只能领公示板上的散修任务。",
+            "入门再谈贡献兑换。"
+          ],
+          "next": [
+            "offer_scatter_quest",
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "offer_if_member",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_huangfeng_gu",
+              "n": 10
+            }
+          },
+          "lines": [
+            "任务牌刷新了。禁地配额要靠贡献换，别想空手套。"
+          ],
+          "next": [
+            "quest_list",
+            "quota_shop",
+            "turnin"
+          ],
+          "effects": []
+        },
+        {
+          "id": "quest_list",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "这几桩记入贡献，完成后来核销。"
+          ],
+          "next": [
+            "turnin",
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board"
+            }
+          ]
+        },
+        {
+          "id": "quota_shop",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_huangfeng_gu",
+              "n": 40
+            },
+            "realm_gte": "QI_REFINING_late"
+          },
+          "lines": [
+            "禁地窗口将开，贡献够了可以换试炼令。"
+          ],
+          "next": [
+            "buy_token",
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "blood_forbidden_quota",
+              "quest_ids": [
+                "huangfeng_blood_quota"
+              ],
+              "novel_anchor": "血色禁地配额"
+            }
+          ]
+        },
+        {
+          "id": "quota_shop_deny",
+          "when": {
+            "rep_lt": {
+              "rep": "rep_huangfeng_gu",
+              "n": 40
+            }
+          },
+          "lines": [
+            "贡献不够，配额轮不到你。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": []
+        },
+        {
+          "id": "turnin",
+          "when": {
+            "quest_flag": "has_completable_quest"
+          },
+          "lines": [
+            "东西齐了。贡献已记上。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "turnin_quests"
+            }
+          ]
+        },
+        {
+          "id": "buy_token",
+          "when": {
+            "has_contribution_currency": true
+          },
+          "lines": [
+            "令牌给你。窗口内自己进，死了不退贡献。"
+          ],
+          "next": [
+            "farewell"
+          ],
+          "effects": [
+            {
+              "type": "grant_item",
+              "item": "blood_forbidden_token",
+              "quest_ids": [
+                "huangfeng_blood_quota"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "farewell",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "去罢，别在殿里吵闹。"
+          ],
+          "next": [],
+          "effects": []
+        },
+        {
+          "id": "end_hostile",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "……"
+          ],
+          "next": [],
+          "effects": [
+            {
+              "type": "end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tree_teleport_array_keeper",
+      "archetype": "teleport_array_keeper",
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "要传哪里？灵石与令牌都备好了？"
+          ],
+          "next": [
+            "check_array",
+            "no_permit",
+            "hostile"
+          ],
+          "effects": []
+        },
+        {
+          "id": "hostile",
+          "when": {
+            "rep_hostile": "local_faction"
+          },
+          "lines": [
+            "敌对势力，阵不启。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "no_permit",
+          "when": {
+            "has_token": false,
+            "need_permit": true
+          },
+          "lines": [
+            "你这令牌过期了——或者根本没有。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "check_array",
+          "when": {
+            "array_state": "disabled"
+          },
+          "lines": [
+            "阵瘫痪了，先找人修。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "hint",
+              "structure": "structure_repair_bench"
+            }
+          ]
+        },
+        {
+          "id": "check_array_damaged",
+          "when": {
+            "array_state": "damaged"
+          },
+          "lines": [
+            "阵纹不稳，传也行，别怪我没提醒——可能偏航。"
+          ],
+          "next": [
+            "pay_and_go_risky",
+            "cancel"
+          ],
+          "effects": []
+        },
+        {
+          "id": "pay_and_go",
+          "when": {
+            "array_state": "intact",
+            "has_stones": true
+          },
+          "lines": [
+            "目标阵有回应，站中间，收神。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "start_teleport"
+            }
+          ]
+        },
+        {
+          "id": "pay_and_go_risky",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "……随意。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "start_teleport",
+              "backlash_bonus": 0.1
+            }
+          ]
+        },
+        {
+          "id": "cancel",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "想好了再来。"
+          ],
+          "next": [],
+          "effects": []
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "落地别挡道。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_star_palace_registrar",
+      "archetype": "star_palace_registrar",
+      "npc_ids": [
+        "npc_star_palace_clerk"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "乱星海航线与传送，先登记再谈。"
+          ],
+          "next": [
+            "inverse_block",
+            "register",
+            "vip"
+          ],
+          "effects": []
+        },
+        {
+          "id": "inverse_block",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_inverse_star",
+              "n": 30
+            }
+          },
+          "lines": [
+            "逆星痕迹过重，驳回。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "deny_service"
+            }
+          ]
+        },
+        {
+          "id": "register",
+          "when": {
+            "rep_lt": {
+              "rep": "rep_star_palace",
+              "n": 5
+            }
+          },
+          "lines": [
+            "注册费、月例写在表上。交了再谈岛际折扣。"
+          ],
+          "next": [
+            "pay_register",
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "star_registration"
+            }
+          ]
+        },
+        {
+          "id": "vip",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_star_palace",
+              "n": 50
+            }
+          },
+          "lines": [
+            "老面孔。高级航线与星宫门可用。"
+          ],
+          "next": [
+            "open_travel",
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "unlock",
+              "gates": [
+                "star_palace_teleport_gate"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pay_register",
+          "when": {
+            "has_stones": true
+          },
+          "lines": [
+            "登记完成。星宫秩序，逆星勿近。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "add_rep",
+              "rep": "rep_star_palace",
+              "delta": 5
+            }
+          ]
+        },
+        {
+          "id": "open_travel",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "要传哪座岛？"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_travel_ui"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "下一艘船不等人。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_inverse_star_contact",
+      "archetype": "inverse_star_contact",
+      "root": "cipher",
+      "nodes": [
+        {
+          "id": "cipher",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "暗号对了？不对就滚。"
+          ],
+          "next": [
+            "ok",
+            "fail_cipher",
+            "star_spy"
+          ],
+          "effects": []
+        },
+        {
+          "id": "star_spy",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_star_palace",
+              "n": 40
+            }
+          },
+          "lines": [
+            "星宫走狗？海葬。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "combat_flag"
+            }
+          ]
+        },
+        {
+          "id": "fail_cipher",
+          "when": {
+            "quest_flag": "wrong_cipher"
+          },
+          "lines": [
+            "……送客。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "ok",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_inverse_star",
+              "n": 1
+            },
+            "or_quest": "inverse_intro"
+          },
+          "lines": [
+            "货在暗港，价用灵石和人情一起算。"
+          ],
+          "next": [
+            "smuggle_dock",
+            "shop",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "smuggle_dock",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "趸船阵今晚有空位，别带尾巴。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "mark_structure",
+              "id": "inverse_star_smuggle_dock"
+            }
+          ]
+        },
+        {
+          "id": "shop",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "要货还是要路引？"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "inverse_black"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "散了，别同路。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_tianyuan_registrar",
+      "archetype": "tianyuan_registrar",
+      "npc_ids": [
+        "npc_tianyuan_registrar"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "飞升者？先登记灵位与来历。"
+          ],
+          "next": [
+            "not_ascended",
+            "register",
+            "portal_fee"
+          ],
+          "effects": []
+        },
+        {
+          "id": "not_ascended",
+          "when": {
+            "realm_lt": "VOID_REFINEMENT",
+            "not_flag": "ascended_tianyuan"
+          },
+          "lines": [
+            "你还没走过飞升通道——怎么进来的？"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "anomaly_log"
+            }
+          ]
+        },
+        {
+          "id": "register",
+          "when": {
+            "quest_flag": "need_tianyuan_register"
+          },
+          "lines": [
+            "名字记下了。人界旧怨到了灵界，自己掂量。"
+          ],
+          "next": [
+            "portal_fee",
+            "jobs"
+          ],
+          "effects": [
+            {
+              "type": "set_flag",
+              "flag": "tianyuan_registered"
+            }
+          ]
+        },
+        {
+          "id": "portal_fee",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "去风元走管制门，贡献五百，少一文不启。",
+            "分身下界可以，本体留下。"
+          ],
+          "next": [
+            "pay_portal",
+            "avatar_info",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "pay_portal",
+          "when": {
+            "has_contribution": 500,
+            "realm_gte": "VOID_REFINEMENT"
+          },
+          "lines": [
+            "门开了。适应灵气再远行。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "teleport",
+              "to": "spirit_fengyuan",
+              "cost_contribution": 500,
+              "quest_ids": [
+                "tianyuan_to_fengyuan_gate"
+              ],
+              "novel_anchor": "天渊→风元界门"
+            }
+          ]
+        },
+        {
+          "id": "pay_portal_deny",
+          "when": {
+            "has_contribution_lt": 500
+          },
+          "lines": [
+            "贡献不够。去做驻军差事。"
+          ],
+          "next": [
+            "jobs",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "avatar_info",
+          "when": {
+            "realm_gte": "VOID_REFINEMENT"
+          },
+          "lines": [
+            "分身下界有冷却，死的是分身。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "jobs",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "驻军差事可换贡献，界门费也能减。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_quest_board",
+              "board": "tianyuan_garrison"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "退。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_zhenyan_lecturer",
+      "archetype": "zhenyan_lecturer",
+      "npc_ids": [
+        "npc_zhenyan_elder_template"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "真言一道，口舌即法。"
+          ],
+          "next": [
+            "outer",
+            "inner",
+            "hostile_gray"
+          ],
+          "effects": []
+        },
+        {
+          "id": "hostile_gray",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_gray_realm",
+              "n": 40
+            },
+            "rep_lt": {
+              "rep": "rep_zhenyan",
+              "n": 0
+            }
+          },
+          "lines": [
+            "灰界气味……先洗干净再来听课。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "outer",
+          "when": {
+            "rep_lt": {
+              "rep": "rep_zhenyan",
+              "n": 20
+            }
+          },
+          "lines": [
+            "外门弟子，先听完再问。此课听完，去演练大五行入门。"
+          ],
+          "next": [
+            "accept_lesson",
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest",
+              "q": "zhenyan_outer_lesson",
+              "quest_ids": [
+                "zhenyan_outer_lesson"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "inner",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_zhenyan",
+              "n": 50
+            }
+          },
+          "lines": [
+            "幻世种子不是玩具，等你资格够了——你勉强够了。"
+          ],
+          "next": [
+            "wuxing_intro",
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest",
+              "q": "wuxing_intro",
+              "quest_ids": [
+                "wuxing_intro"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "accept_lesson",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "退到听法蒲团去。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "mark_structure",
+              "id": "true_word_lecture_platform"
+            }
+          ]
+        },
+        {
+          "id": "wuxing_intro",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "去看幻世种子台，勿妄触。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "mark_structure",
+              "id": "wuxing_world_seed_block"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "退。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_reincarnation_clerk",
+      "archetype": "reincarnation_clerk",
+      "npc_ids": [
+        "npc_reincarnation_clerk"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "契约在此，签字前请读完反噬条。"
+          ],
+          "next": [
+            "low_rep",
+            "trade",
+            "court_watch"
+          ],
+          "effects": []
+        },
+        {
+          "id": "court_watch",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_heavenly_court",
+              "n": 60
+            }
+          },
+          "lines": [
+            "天庭红人？价码另算，且可能被审计。"
+          ],
+          "next": [
+            "trade_expensive",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "low_rep",
+          "when": {
+            "rep_lt": {
+              "rep": "rep_reincarnation_hall",
+              "n": 5
+            }
+          },
+          "lines": [
+            "先做一桩跑腿，再谈禁忌货。"
+          ],
+          "next": [
+            "intro_quest",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "trade",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_reincarnation_hall",
+              "n": 5
+            }
+          },
+          "lines": [
+            "魂类物、情报、禁忌路引，明码或暗码。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "reincarnation_desk"
+            }
+          ]
+        },
+        {
+          "id": "trade_expensive",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "审计附加费已计入。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "reincarnation_desk",
+              "tax": 0.2
+            }
+          ]
+        },
+        {
+          "id": "intro_quest",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "去灰界边缘送一封无字信——别拆。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest",
+              "q": "reincarnation_intro",
+              "quest_ids": [
+                "reincarnation_intro"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "殿外勿提今日所谈。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_heavenly_inspector",
+      "archetype": "heavenly_inspector",
+      "npc_ids": [
+        "npc_heavenly_court_inspector"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "报上名号与驻地。"
+          ],
+          "next": [
+            "wanted",
+            "gray_smell",
+            "clean"
+          ],
+          "effects": []
+        },
+        {
+          "id": "wanted",
+          "when": {
+            "quest_flag": "wanted_by_heaven"
+          },
+          "lines": [
+            "你名在通缉册。收手或受缚。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "combat_or_arrest"
+            }
+          ]
+        },
+        {
+          "id": "gray_smell",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_gray_realm",
+              "n": 25
+            }
+          },
+          "lines": [
+            "灰界走卒与黑风私枭，格杀勿论——你最好解释。"
+          ],
+          "next": [
+            "explain",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "clean",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_heavenly_court",
+              "n": 10
+            }
+          },
+          "lines": [
+            "律法当前，勿阻公务。可告发灰界线索。"
+          ],
+          "next": [
+            "report",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "explain",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "……本使记下了。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "add_suspicion"
+            }
+          ]
+        },
+        {
+          "id": "report",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "线索有赏。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_quest",
+              "q": "court_hunt_gray"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "退到一旁。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_secret_realm_guide",
+      "archetype": "secret_realm_guide",
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "令牌？配额？窗口要关了。"
+          ],
+          "next": [
+            "no_window",
+            "no_token",
+            "enter"
+          ],
+          "effects": []
+        },
+        {
+          "id": "no_window",
+          "when": {
+            "quest_flag": "blood_forbidden_closed"
+          },
+          "lines": [
+            "未到开放周期，界碑是死的。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "no_token",
+          "when": {
+            "has_item": "blood_forbidden_token",
+            "equals": false
+          },
+          "lines": [
+            "没有试炼令，摸界碑也是送死。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "enter",
+          "when": {
+            "has_item": "blood_forbidden_token",
+            "window_open": true
+          },
+          "lines": [
+            "触界碑，收神，别掉队。超时不撤，禁地自己会清场。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "enter_instance",
+              "realm": "blood_forbidden",
+              "quest_ids": [
+                "blood_forbidden_run"
+              ],
+              "novel_anchor": "血色禁地"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "活着出来再吹牛。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_heifeng_captain",
+      "archetype": "heifeng_captain",
+      "npc_ids": [
+        "npc_heifeng_captain"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "船上规矩：听旗、听风、听我。"
+          ],
+          "next": [
+            "gray_route",
+            "refuse_court",
+            "sail"
+          ],
+          "effects": []
+        },
+        {
+          "id": "refuse_court",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_heavenly_court",
+              "n": 50
+            }
+          },
+          "lines": [
+            "天庭的人？本船不载。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "gray_route",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_gray_realm",
+              "n": 10
+            }
+          },
+          "lines": [
+            "想过灰界？先问你命硬不硬——涨潮开船。"
+          ],
+          "next": [
+            "sail",
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "offer_quest",
+              "q": "heifeng_gray_sail",
+              "quest_ids": [
+                "heifeng_gray_sail"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sail",
+          "when": {
+            "has_stones": true
+          },
+          "lines": [
+            "抓牢舷，别喂海。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "start_travel",
+              "route": "heifeng_sea"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "……"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_gray_guide",
+      "archetype": "gray_guide",
+      "npc_ids": [
+        "npc_gray_border_guide"
+      ],
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "……跟紧。别问名字。"
+          ],
+          "next": [
+            "court_block",
+            "lead",
+            "betray_risk"
+          ],
+          "effects": []
+        },
+        {
+          "id": "court_block",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_heavenly_court",
+              "n": 30
+            }
+          },
+          "lines": [
+            "天庭的人？那我们无话可说。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "lead",
+          "when": {
+            "rep_gte": {
+              "rep": "rep_gray_realm",
+              "n": 5
+            }
+          },
+          "lines": [
+            "边境雾起时走，晚了就不是原价。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "start_travel",
+              "route": "gray_border"
+            }
+          ]
+        },
+        {
+          "id": "betray_risk",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "预付。雾里不好算账。"
+          ],
+          "next": [
+            "lead",
+            "end"
+          ],
+          "effects": []
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "到此为止。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    },
+    {
+      "id": "tree_market_vendor",
+      "archetype": "market_vendor",
+      "root": "greet",
+      "nodes": [
+        {
+          "id": "greet",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "看看货？不买也别动手。"
+          ],
+          "next": [
+            "hostile",
+            "shop"
+          ],
+          "effects": []
+        },
+        {
+          "id": "hostile",
+          "when": {
+            "rep_hostile": "local_market"
+          },
+          "lines": [
+            "守卫！"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "call_guard"
+            }
+          ]
+        },
+        {
+          "id": "shop",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "灵石当面点清，概不赊账。"
+          ],
+          "next": [
+            "end"
+          ],
+          "effects": [
+            {
+              "type": "open_shop",
+              "shop": "market_stall"
+            }
+          ]
+        },
+        {
+          "id": "end",
+          "when": {
+            "default": true
+          },
+          "lines": [
+            "慢走。"
+          ],
+          "next": [],
+          "effects": []
+        }
+      ]
+    }
+  ],
+  "effect_quest_links_ref": "dialogue_effect_quest_links_v140.json",
+  "v140": true
+}

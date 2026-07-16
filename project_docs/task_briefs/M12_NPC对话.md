@@ -10,13 +10,13 @@
 
 ## 功能点清单（可勾选）
 
-- [ ] 对话模板：`npc_dialogue_templates` + `npc_dialogues_v117` → 对话树数据驱动加载（现 `OpenDialogueScreen`/`DialogueAction` 包 + TextQuestDialogue 树运行时扩量）。
-- [ ] 具名 NPC：`named_npcs_v116` → NPC 注册表（id、区域、势力、身份、商店引用、对话树引用）。
-- [ ] NPC 奖励：`named_npc_loot_rewards_v97` → 对话/好感触发的奖励发放（id 走 M03，幂等标记同 M11 红线）。
-- [ ] 实体行为：`SectSteward`、`MarketTrader` AI 扩展（驻点、作息、按 region 分布刷新；宗门业务逻辑归 M08，商店货架归 M05/M08）。
-- [ ] 对话推进 API：`onDialogueNodeReached(npcId, nodeId, player)` 事件发布 + `startDialogue(npcId, treeId)` 服务接口（M11 消费）。
-- [ ] 对话内嵌动作协议：对话节点触发"打开商店/交付任务物/传送"的动作枚举，服务端校验后执行。
-- [ ] 好感/关系度（如语料含）持久化入玩家或 NPC SavedData。
+- [x] 对话模板：`npc_dialogue_templates` + `npc_dialogues_v117` → 对话树数据驱动加载（现 `OpenDialogueScreen`/`DialogueAction` 包 + TextQuestDialogue 树运行时扩量）。
+- [x] 具名 NPC：`named_npcs_v116` → NPC 注册表（id、区域、势力、身份、商店引用、对话树引用）。
+- [x] NPC 奖励：`named_npc_loot_rewards_v97` → 对话/好感触发的奖励发放（id 走 M03，幂等标记同 M11 红线）。
+- [x] 实体行为：`SectSteward`、`MarketTrader` AI 扩展（驻点、作息、按 region 分布刷新；宗门业务逻辑归 M08，商店货架归 M05/M08）。
+- [x] 对话推进 API：`onDialogueNodeReached(npcId, nodeId, player)` 事件发布 + `startDialogue(npcId, treeId)` 服务接口（M11 消费）。
+- [x] 对话内嵌动作协议：对话节点触发"打开商店/交付任务物/传送"的动作枚举，服务端校验后执行。
+- [x] 好感/关系度（如语料含）持久化入玩家或 NPC SavedData。
 
 ## 涉及文件
 
@@ -52,3 +52,11 @@
 ## 工作流提醒
 
 按 README 通用工作流。`DialogueAction` 包字段变更 → 双升 mod_version + PROTOCOL_VERSION。
+
+## 落地备注（2026-07-17）
+
+- 包：`com.xunxian.seekingimmortals.npc.*`
+- 公共 API：`NpcDialogueApi.startDialogue` / `selectNext` / `onDialogueNodeReached` + `DialogueNodeReachedEvent`
+- 动作：`DialogueActionExecutor`（open_shop/grant_item/teleport/add_rep/set_flag/enter_instance…）
+- 协议：`DialogueActionPacket` 字段未改（action/chainId/choice），PROTOCOL 保持 21；mod_version 按任务红线不升
+- 命令：`/seeking_immortals npc list|info|talk|act|favor|spawn|ensure_region`
