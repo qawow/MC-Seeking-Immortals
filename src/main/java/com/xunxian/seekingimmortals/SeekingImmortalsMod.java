@@ -13,6 +13,7 @@ import com.xunxian.seekingimmortals.registry.ModEntities;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.registry.ModBulkItems;
 import com.xunxian.seekingimmortals.registry.ModMenus;
+import com.xunxian.seekingimmortals.registry.ModMobEffects;
 import com.xunxian.seekingimmortals.registry.ModRecipes;
 import com.xunxian.seekingimmortals.registry.ModSounds;
 import com.xunxian.seekingimmortals.registry.ModStructures;
@@ -31,6 +32,7 @@ public class SeekingImmortalsMod {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.register(modBus);
         ModBulkItems.register(modBus);
+        ModMobEffects.register(modBus);
         ModBlocks.register(modBus);
         ModBlockEntities.register(modBus);
         ModEntities.register(modBus);

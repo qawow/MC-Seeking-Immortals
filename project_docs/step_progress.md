@@ -217,6 +217,7 @@
   Version                              Unchanged 任务红线不升 mod_version（0.1.506）；protocol 21
   Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m05_economy_trade.md`
+
 ## 457c. 2026-07-16 M07 阵法与多方块落地
 
   Step   Status   Notes
@@ -234,6 +235,22 @@
   Protocol                             Unchanged 21（无包变更）
   Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
   Update note                          Done `project_docs/updates/20260716_m07_formations_multiblock.md`
+
+## 457d. 2026-07-17 M14 战斗与状态主线集成
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_172740_m14_combat_status/`
+  status_effects.json                  Done 22 ids 权威语料 + 发布副本
+  StatusRegistry / ModMobEffects       Done applyStatus + 境界/体质命中抵抗
+  Poison/antidote + loadout            Done PoisonAntidoteService + LoadoutByRealmService
+  Combat risks ①②③                    Done 保留 LivingHurt setAmount/cancel；舍弃会覆盖 M15 且可能残留的 Attack 缓存；Optional stats
+  Damage hooks                         Done DamagePipelineHooks pre/post
+  Tests                                Done M14CombatStatusTest
+  Network                              Unchanged M14 无新包；集成基线 PROTOCOL 22
+  Version                              Unchanged 等 17 模块统一发布，暂保持 mod_version 0.1.509
+  Full verification                    Done `./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m12s
+  Update note                          Done `project_docs/updates/20260716_m14_combat_status.md`
 
 ## 456. 2026-07-16 M02 功法与术法落地
 
