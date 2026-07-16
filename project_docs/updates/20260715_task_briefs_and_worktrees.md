@@ -8,7 +8,7 @@ docs-only（项目文档 + 语料批次入库；无代码/资源/构建逻辑改
 
 1. **语料批次入库**：提交既有 `文本材料/` v147 批次（40 修改 + 325 新增，共 365 文件），作为独立审计提交（遵循"先单独提交已完成的早期批次"策略）。
 2. **任务简报**：新增 `project_docs/task_briefs/`——`README.md`（模块总表、接口关系图、合并顺序、通用工作流）+ 17 份简报 `M00_数据管线.md` … `M16_图鉴百科.md`。每份含：目标、可勾选功能点清单、涉及文件（语料侧+模组侧，所有权唯一）、依赖前置库、接口交叉（谁提供→谁消费）、验收与红线（DESIGNER_HANDBOOK §5 红线内嵌）、工作流提醒。
-3. **worktree**：为每个模块建立 `task/mXX-<slug>` 分支与 `D:/codex/mc-mod-worktrees/<mXX-slug>` worktree（共 17 个），全部基于包含语料与简报的最新 main HEAD。
+3. **worktree**：为每个模块建立 `task/mXX-<slug>` 分支与 `/root/mc-mod-worktrees/<mXX-slug>` worktree（共 17 个），全部基于包含语料与简报的最新 main HEAD。
 
 ## 拆分要点
 

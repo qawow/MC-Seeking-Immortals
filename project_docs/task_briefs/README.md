@@ -12,23 +12,23 @@
 
 | 模块 | 简报 | 分支 | worktree 目录 |
 | --- | --- | --- | --- |
-| M00 数据管线与校验 | [M00_数据管线.md](M00_数据管线.md) | `task/m00-data-pipeline` | `D:/codex/mc-mod-worktrees/m00-data-pipeline` |
-| M01 境界与修炼基础 | [M01_境界修炼.md](M01_境界修炼.md) | `task/m01-realm-progression` | `D:/codex/mc-mod-worktrees/m01-realm-progression` |
-| M02 功法与术法 | [M02_功法术法.md](M02_功法术法.md) | `task/m02-techniques` | `D:/codex/mc-mod-worktrees/m02-techniques` |
-| M03 物品目录与批量注册 | [M03_物品目录.md](M03_物品目录.md) | `task/m03-item-catalog` | `D:/codex/mc-mod-worktrees/m03-item-catalog` |
-| M04 炼制与生产 | [M04_炼制生产.md](M04_炼制生产.md) | `task/m04-craft-production` | `D:/codex/mc-mod-worktrees/m04-craft-production` |
-| M05 经济与交易 | [M05_经济交易.md](M05_经济交易.md) | `task/m05-economy-trade` | `D:/codex/mc-mod-worktrees/m05-economy-trade` |
-| M06 区域与世界事件 | [M06_区域事件.md](M06_区域事件.md) | `task/m06-regions-events` | `D:/codex/mc-mod-worktrees/m06-regions-events` |
-| M07 阵法与多方块 | [M07_阵法多方块.md](M07_阵法多方块.md) | `task/m07-formations-multiblock` | `D:/codex/mc-mod-worktrees/m07-formations-multiblock` |
-| M08 宗门与势力 | [M08_宗门势力.md](M08_宗门势力.md) | `task/m08-sects-factions` | `D:/codex/mc-mod-worktrees/m08-sects-factions` |
-| M09 秘境与副本 | [M09_秘境副本.md](M09_秘境副本.md) | `task/m09-secret-realms` | `D:/codex/mc-mod-worktrees/m09-secret-realms` |
-| M10 妖兽与生态 | [M10_妖兽生态.md](M10_妖兽生态.md) | `task/m10-beasts-ecology` | `D:/codex/mc-mod-worktrees/m10-beasts-ecology` |
-| M11 任务与主线 | [M11_任务主线.md](M11_任务主线.md) | `task/m11-quests-story` | `D:/codex/mc-mod-worktrees/m11-quests-story` |
-| M12 NPC 与对话 | [M12_NPC对话.md](M12_NPC对话.md) | `task/m12-npc-dialogue` | `D:/codex/mc-mod-worktrees/m12-npc-dialogue` |
-| M13 维度与飞升 | [M13_维度飞升.md](M13_维度飞升.md) | `task/m13-dimensions-ascension` | `D:/codex/mc-mod-worktrees/m13-dimensions-ascension` |
-| M14 战斗与状态 | [M14_战斗状态.md](M14_战斗状态.md) | `task/m14-combat-status` | `D:/codex/mc-mod-worktrees/m14-combat-status` |
-| M15 法宝与器灵 | [M15_法宝器灵.md](M15_法宝器灵.md) | `task/m15-artifacts` | `D:/codex/mc-mod-worktrees/m15-artifacts` |
-| M16 图鉴与百科 | [M16_图鉴百科.md](M16_图鉴百科.md) | `task/m16-lore-books` | `D:/codex/mc-mod-worktrees/m16-lore-books` |
+| M00 数据管线与校验 | [M00_数据管线.md](M00_数据管线.md) | `task/m00-data-pipeline` | `/root/mc-mod-worktrees/m00-data-pipeline` |
+| M01 境界与修炼基础 | [M01_境界修炼.md](M01_境界修炼.md) | `task/m01-realm-progression` | `/root/mc-mod-worktrees/m01-realm-progression` |
+| M02 功法与术法 | [M02_功法术法.md](M02_功法术法.md) | `task/m02-techniques` | `/root/mc-mod-worktrees/m02-techniques` |
+| M03 物品目录与批量注册 | [M03_物品目录.md](M03_物品目录.md) | `task/m03-item-catalog` | `/root/mc-mod-worktrees/m03-item-catalog` |
+| M04 炼制与生产 | [M04_炼制生产.md](M04_炼制生产.md) | `task/m04-craft-production` | `/root/mc-mod-worktrees/m04-craft-production` |
+| M05 经济与交易 | [M05_经济交易.md](M05_经济交易.md) | `task/m05-economy-trade` | `/root/mc-mod-worktrees/m05-economy-trade` |
+| M06 区域与世界事件 | [M06_区域事件.md](M06_区域事件.md) | `task/m06-regions-events` | `/root/mc-mod-worktrees/m06-regions-events` |
+| M07 阵法与多方块 | [M07_阵法多方块.md](M07_阵法多方块.md) | `task/m07-formations-multiblock` | `/root/mc-mod-worktrees/m07-formations-multiblock` |
+| M08 宗门与势力 | [M08_宗门势力.md](M08_宗门势力.md) | `task/m08-sects-factions` | `/root/mc-mod-worktrees/m08-sects-factions` |
+| M09 秘境与副本 | [M09_秘境副本.md](M09_秘境副本.md) | `task/m09-secret-realms` | `/root/mc-mod-worktrees/m09-secret-realms` |
+| M10 妖兽与生态 | [M10_妖兽生态.md](M10_妖兽生态.md) | `task/m10-beasts-ecology` | `/root/mc-mod-worktrees/m10-beasts-ecology` |
+| M11 任务与主线 | [M11_任务主线.md](M11_任务主线.md) | `task/m11-quests-story` | `/root/mc-mod-worktrees/m11-quests-story` |
+| M12 NPC 与对话 | [M12_NPC对话.md](M12_NPC对话.md) | `task/m12-npc-dialogue` | `/root/mc-mod-worktrees/m12-npc-dialogue` |
+| M13 维度与飞升 | [M13_维度飞升.md](M13_维度飞升.md) | `task/m13-dimensions-ascension` | `/root/mc-mod-worktrees/m13-dimensions-ascension` |
+| M14 战斗与状态 | [M14_战斗状态.md](M14_战斗状态.md) | `task/m14-combat-status` | `/root/mc-mod-worktrees/m14-combat-status` |
+| M15 法宝与器灵 | [M15_法宝器灵.md](M15_法宝器灵.md) | `task/m15-artifacts` | `/root/mc-mod-worktrees/m15-artifacts` |
+| M16 图鉴与百科 | [M16_图鉴百科.md](M16_图鉴百科.md) | `task/m16-lore-books` | `/root/mc-mod-worktrees/m16-lore-books` |
 
 ## 接口关系图（提供方 → 消费方）
 

@@ -1,3 +1,16 @@
+## 451. 2026-07-16 任务简报所有权核对增补 + worktree 路径修正
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_task_briefs_paths/`（HEAD 版 18 简报 + step_progress + 0715 更新说明）
+  Corpus re-read                       Done 640 文件分域复读（修炼/生产/妖兽/世界/势力/任务/经济/视觉）
+  Path fix                             Done 简报与文档内 `D:/codex/mc-mod-worktrees` → `/root/mc-mod-worktrees`（18 文件）
+  Ownership补全                        Done M01–M16 语料清单增补;跨模块字段级边界注记;M14 status_effects.json 更正为"语料缺失需自建"
+  Update note                          Done `project_docs/updates/20260716_task_briefs_ownership_audit.md`
+  Worktrees                            Unchanged 17 branches/worktrees 健在(f258f0fa);开工前各分支 merge main 取修订版简报
+  Version/protocol                     Unchanged `0.1.504` / protocol `19`（docs-only）
+  Full verification                    Skipped docs-only;全局阻塞仍归 M00（747 vs 346、body.json.json）
+
 ## 450. 2026-07-15 文本材料 v147 拆解为 17 份任务简报 + worktree
 
   Step   Status   Notes
@@ -7,7 +20,7 @@
   Corpus commit                        Done docs-only v147 batch (schema v55); no mod_version bump
   Task briefs                          Done `project_docs/task_briefs/README.md` + M00–M16 (17 briefs)
   Update note                          Done `project_docs/updates/20260715_task_briefs_and_worktrees.md`
-  Worktrees                            Done 17 branches `task/mXX-*` under `D:/codex/mc-mod-worktrees/`
+  Worktrees                            Done 17 branches `task/mXX-*` under `/root/mc-mod-worktrees/`
   Version/protocol                     Unchanged `0.1.504` / protocol `19` (docs-only)
   Full verification                    Skipped docs-only; known red inherited by M00 (747 vs 346 techniques, `body.json.json`)
 

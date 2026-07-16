@@ -1,6 +1,6 @@
 # M12 NPC 与对话
 
-- 分支：`task/m12-npc-dialogue` ｜ worktree：`D:/codex/mc-mod-worktrees/m12-npc-dialogue`
+- 分支：`task/m12-npc-dialogue` ｜ worktree：`/root/mc-mod-worktrees/m12-npc-dialogue`
 - 前置模块：M00、M06（region_id，NPC 分布）、M05（商店框架，商人复用）
 - 优先级：P1（M11 任务的对话前置）
 
@@ -21,7 +21,9 @@
 ## 涉及文件
 
 **语料侧（本模块拥有）**
-- `文本材料/data/npc_dialogue_templates*`、`npc_dialogues_v117*`、`named_npcs_v116*`、`named_npc_loot_rewards_v97*`
+- `文本材料/data/npc_dialogue_templates.json`、`npc_dialogue_templates_v138*`（archetype 模板权威：greeting/quest_offer/quest_turnin/shop/travel/rep_gate/threat/lore/farewell 九类 lines + binds + branch_tree_id）
+- `文本材料/data/npc_dialogue_branches_v139*`（分支树权威：condition_ops = rep_gte/rep_lt/rep_hostile/has_item/has_token/realm_gte/quest_flag/faction_member/array_state/default;节点 when/lines/next/effects）
+- `文本材料/data/npc_dialogues_v117*`、`named_npcs_v116*`、`named_npc_seeds_v137*`（具名 NPC 播种权威）、`npc_vendor_roster_v96*`、`named_npc_loot_rewards_v97*`
 
 **模组侧（本模块拥有）**
 - `OpenDialogueScreen`/`DialogueAction` 包数据面与对话屏幕数据扩量
