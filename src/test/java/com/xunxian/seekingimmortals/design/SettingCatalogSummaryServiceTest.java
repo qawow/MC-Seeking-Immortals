@@ -18,7 +18,7 @@ class SettingCatalogSummaryServiceTest {
 
         SettingCatalogSummary summary = SettingCatalogSummaryService.summarize(dataRoot);
 
-        assertEquals(346, summary.declaredTechniqueCount());
+        assertEquals(747, summary.declaredTechniqueCount());
         assertEquals(20, summary.declaredTechniqueFileCount());
         assertTrue(summary.presentFiles() >= 20);
         assertTrue(summary.validFiles() > 0);

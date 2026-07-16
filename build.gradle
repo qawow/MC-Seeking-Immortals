@@ -93,7 +93,9 @@ tasks.register('aiPreflight', Exec) {
     description = 'Checks AI workflow gates before building.'
 
     def isWindows = org.gradle.internal.os.OperatingSystem.current().isWindows()
-    def scriptFile = isWindows ? file('scripts/preflight.ps1') : file('scripts/preflight.sh')
+    // Prefer bash preflight.sh on non-Windows; fall back to preflight.py if sh missing.
+    def scriptFile = isWindows ? file('scripts/preflight.ps1')
+            : (file('scripts/preflight.sh').exists() ? file('scripts/preflight.sh') : file('scripts/preflight.py'))
     onlyIf { scriptFile.exists() }
 
     def skipBump = project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()
@@ -104,6 +106,13 @@ tasks.register('aiPreflight', Exec) {
             args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
         } else {
             args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
+        }
+    } else if (scriptFile.name.endsWith('.py')) {
+        executable 'python3'
+        if (skipBump) {
+            args scriptFile.absolutePath, '--skip-version-bump-check'
+        } else {
+            args scriptFile.absolutePath
         }
     } else {
         executable 'bash'
@@ -123,15 +132,21 @@ tasks.named('build') {
             if (isWindows) {
                 executable 'powershell'
                 args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
-            } else {
+            } else if (file('scripts/preflight.sh').exists()) {
                 executable 'bash'
                 args file('scripts/preflight.sh').absolutePath, '--record-state-only'
+            } else {
+                executable 'python3'
+                args file('scripts/preflight.py').absolutePath, '--record-state-only'
             }
         }
     }
 }
 
 tasks.named('processResources', ProcessResources).configure {
+    // Windows NTFS ADS sidecars break resource URL conversion on Linux.
+    exclude '**/*:Zone.Identifier'
+    exclude '**/*Zone.Identifier'
     var replaceProperties = [
             minecraft_version: minecraft_version,
             forge_version: forge_version,
