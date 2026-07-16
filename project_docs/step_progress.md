@@ -1,3 +1,18 @@
+## 452. 2026-07-16 0.1.505 M00 方案 A 解除 747/346 与 body.json.json 阻塞
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_133639_m00_scheme_a/`
+  Index stem fix                       Done `文本材料/data/techniques/index.json` `files[]` 从 `body.json` 改回 `body`（与 by_school / Java 契约一致）
+  Test baseline                        Done `SettingCatalogSummaryServiceTest` `declaredTechniqueCount` 346 → 747；文件数仍 20
+  Publish copy                         Unchanged 发布副本保持 346；升至 747 留待 M02
+  JsonSanity join logic                Unchanged 仅靠索引 stem 修复自动对齐，未改校验逻辑
+  Docs                                 Done M00 简报两项勾选 + 裁决记录；ai_handoff / step_progress 标记阻塞已解除
+  Version/protocol                     Done `0.1.504` → `0.1.505`；协议保持 `19`
+  Linux preflight                      Done `scripts/preflight.py` + `build.gradle` 非 Windows 走 python3（环境无 pwsh）
+  Zone.Identifier exclude              Done `processResources` 排除 `*:Zone.Identifier`，避免 Linux 资源打包失败
+  Full verification                    Done `./gradlew --no-daemon build` BUILD SUCCESSFUL in 1m31s；相关 technique index 测试通过
+
 ## 451. 2026-07-16 任务简报所有权核对增补 + worktree 路径修正
 
   Step   Status   Notes

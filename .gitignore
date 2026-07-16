@@ -55,6 +55,8 @@ ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 *~
+*:Zone.Identifier
+*Zone.Identifier
 
 # Logs and crash reports
 logs/

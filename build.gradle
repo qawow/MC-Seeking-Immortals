@@ -92,19 +92,24 @@ tasks.register('aiPreflight', Exec) {
     group = 'verification'
     description = 'Checks AI workflow gates before building.'
 
-    def scriptFile = file('scripts/preflight.ps1')
+    def windows = org.gradle.internal.os.OperatingSystem.current().isWindows()
+    def scriptFile = windows ? file('scripts/preflight.ps1') : file('scripts/preflight.py')
     onlyIf { scriptFile.exists() }
 
-    if (project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()) {
-        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
-    } else {
-        args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
-    }
-
-    if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+    if (windows) {
         executable 'powershell'
+        if (project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()) {
+            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath, '-SkipVersionBumpCheck'
+        } else {
+            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', scriptFile.absolutePath
+        }
     } else {
-        executable 'pwsh'
+        executable 'python3'
+        if (project.hasProperty('aiSkipVersionBumpCheck') && project.property('aiSkipVersionBumpCheck').toString().toBoolean()) {
+            args scriptFile.absolutePath, '--skip-version-bump-check'
+        } else {
+            args scriptFile.absolutePath
+        }
     }
 }
 
@@ -112,17 +117,22 @@ tasks.named('build') {
     dependsOn tasks.named('aiPreflight')
     doLast {
         exec {
-            if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            def windows = org.gradle.internal.os.OperatingSystem.current().isWindows()
+            if (windows) {
                 executable 'powershell'
+                args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
             } else {
-                executable 'pwsh'
+                executable 'python3'
+                args file('scripts/preflight.py').absolutePath, '--record-state-only'
             }
-            args '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', file('scripts/preflight.ps1').absolutePath, '-RecordStateOnly'
         }
     }
 }
 
 tasks.named('processResources', ProcessResources).configure {
+    // Windows NTFS ADS sidecars break resource URL conversion on Linux.
+    exclude '**/*:Zone.Identifier'
+    exclude '**/*Zone.Identifier'
     var replaceProperties = [
             minecraft_version: minecraft_version,
             forge_version: forge_version,
