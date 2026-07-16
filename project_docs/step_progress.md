@@ -1,3 +1,20 @@
+## 456. 2026-07-16 M03 物品目录与批量注册
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_164746_m03_item_catalog/`
+  Catalog reconcile                    Done pills/herbs/materials/consumables/manuals/talismans/puppet/currency/block/formation missing=0
+  Bulk expand                          Done `catalog_bulk_items.json` 869→1190（结构材料/符箓v92/展示方块等 +321）
+  Talisman grade                       Done bulk `grade` + `CatalogCarrierItem` tooltip；消耗归 M14
+  Puppet parts                         Done 15 部件载体齐全
+  Descriptions                         Done catalogs + item_descriptions → lang/tooltip
+  Alias API                            Done `ItemCatalogService.resolveCatalogItem` / aliases 9
+  Unique redline                       Done 掌天瓶/绿液未进 bulk
+  Tests                                Done `ItemCatalogServiceTest` + `ModBulkItemsTest`
+  Version/protocol                     Unchanged 任务红线禁止改 `mod_version`；protocol 保持 `20`
+  Update note                          Done `project_docs/updates/20260716_m03_item_catalog.md`
+  Full verification                    Done `./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL（任务红线禁止 bump）
+
 ## 455. 2026-07-16 中文乱码修复（mojibake / 路径损坏）
 
   Step   Status   Notes

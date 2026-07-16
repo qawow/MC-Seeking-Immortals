@@ -5,7 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
-import com.xunxian.seekingimmortals.item.material.BaseMaterialItem;
+import com.xunxian.seekingimmortals.item.CatalogCarrierItem;
 import com.xunxian.seekingimmortals.item.material.MaterialCategory;
 import com.xunxian.seekingimmortals.item.material.MaterialRarity;
 import net.minecraft.world.item.Item;
@@ -24,17 +24,34 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Data-driven bulk carriers for text-material catalog ids that lack dedicated Java fields.
  * Loaded from assets/seeking_immortals/catalog_bulk_items.json at class init.
+ * <p>
+ * M03: sole bulk registration pipeline for catalog item-id authority.
+ * Unique story items (掌天瓶/绿液) are never registered here.
  */
 public final class ModBulkItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, SeekingImmortalsMod.MODID);
 
+    private static final Set<String> UNIQUE_FORBIDDEN = Set.of(
+            "palm_heaven_bottle",
+            "palm_sky_bottle",
+            "heaven_palm_vase",
+            "green_liquid",
+            "lv_ye",
+            "garden_liquid",
+            "little_green_bottle",
+            "mystic_green_liquid"
+    );
+
     private static final Map<String, RegistryObject<Item>> BY_ID = new LinkedHashMap<>();
     private static final List<String> IDS = new ArrayList<>();
+    private static final Map<String, String> GRADES = new LinkedHashMap<>();
+    private static final Map<String, String> CATEGORIES = new LinkedHashMap<>();
 
     static {
         loadAndRegister();
@@ -58,8 +75,21 @@ public final class ModBulkItems {
         return IDS.size();
     }
 
+    public static String gradeOf(String id) {
+        if (id == null) {
+            return "";
+        }
+        return GRADES.getOrDefault(id.trim().toLowerCase(Locale.ROOT), "");
+    }
+
+    public static String categoryOf(String id) {
+        if (id == null) {
+            return "";
+        }
+        return CATEGORIES.getOrDefault(id.trim().toLowerCase(Locale.ROOT), "");
+    }
+
     private static void loadAndRegister() {
-        // Prefer classpath resource under assets/seeking_immortals/
         String path = "/assets/" + SeekingImmortalsMod.MODID + "/catalog_bulk_items.json";
         try (InputStream in = ModBulkItems.class.getResourceAsStream(path)) {
             if (in == null) {
@@ -80,17 +110,28 @@ public final class ModBulkItems {
                 String id = o.has("id") ? o.get("id").getAsString() : "";
                 if (id == null || id.isBlank()) continue;
                 id = id.trim().toLowerCase(Locale.ROOT);
+                if (UNIQUE_FORBIDDEN.contains(id)) {
+                    SeekingImmortalsMod.LOGGER.warn("Skipped unique forbidden bulk id: {}", id);
+                    continue;
+                }
                 if (BY_ID.containsKey(id)) continue;
                 String category = o.has("category") ? o.get("category").getAsString() : "material";
                 String rarity = o.has("rarity") ? o.get("rarity").getAsString() : "common";
-                String desc = o.has("description") ? o.get("description").getAsString() : ("Catalog carrier: " + id);
+                String desc = o.has("description") ? o.get("description").getAsString() : ("目录载体：" + id);
+                String grade = o.has("grade") ? o.get("grade").getAsString() : "";
                 final String rid = id;
                 final String cat = category;
                 final String rar = rarity;
                 final String description = desc;
-                RegistryObject<Item> reg = ITEMS.register(rid, () -> createItem(cat, rar, description));
+                final String itemGrade = grade == null ? "" : grade;
+                RegistryObject<Item> reg = ITEMS.register(rid,
+                        () -> createItem(rid, cat, rar, description, itemGrade));
                 BY_ID.put(rid, reg);
                 IDS.add(rid);
+                CATEGORIES.put(rid, cat == null ? "material" : cat.toLowerCase(Locale.ROOT));
+                if (itemGrade != null && !itemGrade.isBlank()) {
+                    GRADES.put(rid, itemGrade.toLowerCase(Locale.ROOT));
+                }
             }
             SeekingImmortalsMod.LOGGER.info("Registered {} bulk catalog item carriers", IDS.size());
         } catch (Exception e) {
@@ -98,7 +139,7 @@ public final class ModBulkItems {
         }
     }
 
-    private static Item createItem(String category, String rarity, String description) {
+    private static Item createItem(String catalogId, String category, String rarity, String description, String grade) {
         String cat = category == null ? "material" : category.toLowerCase(Locale.ROOT);
         MaterialCategory materialCategory = switch (cat) {
             case "pill", "consumable" -> MaterialCategory.SPIRITUAL_HERB;
@@ -107,6 +148,7 @@ public final class ModBulkItems {
             case "currency", "access_item" -> MaterialCategory.SPECIAL;
             case "mineral", "ore" -> MaterialCategory.MINERAL;
             case "beast", "beast_material" -> MaterialCategory.BEAST_MATERIAL;
+            case "herb" -> MaterialCategory.SPIRITUAL_HERB;
             default -> MaterialCategory.SPECIAL;
         };
         MaterialRarity materialRarity = switch ((rarity == null ? "common" : rarity).toLowerCase(Locale.ROOT)) {
@@ -127,6 +169,6 @@ public final class ModBulkItems {
         } else if ("pill".equals(cat) || "consumable".equals(cat) || "talisman".equals(cat)) {
             props = props.stacksTo(16);
         }
-        return new BaseMaterialItem(props, materialCategory, materialRarity, description);
+        return new CatalogCarrierItem(props, materialCategory, materialRarity, description, catalogId, grade);
     }
 }

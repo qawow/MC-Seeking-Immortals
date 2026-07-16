@@ -163,6 +163,26 @@ TRACKED_PATHS=(
   scripts
 )
 
+STATE_DIR="$REPO_ROOT/.gradle/ai-preflight"
+STATE_PATH="$STATE_DIR/last-success.json"
+FINGERPRINT=$(get_tracked_file_fingerprint "$REPO_ROOT" "${TRACKED_PATHS[@]}")
+
+# Record-state-only must not re-run the version-bump gate: it is the post-build
+# fingerprint writer used by Gradle build.doLast (including emergency rebuilds
+# that intentionally skip the bump check).
+if [[ "$RECORD_STATE_ONLY" -eq 1 ]]; then
+  mkdir -p "$STATE_DIR"
+  cat > "$STATE_PATH" <<EOF
+{
+  "modVersion": "$MOD_VERSION",
+  "fingerprint": "$FINGERPRINT",
+  "checkedAt": "$(date -Iseconds 2>/dev/null || date '+%Y-%m-%dT%H:%M:%S')"
+}
+EOF
+  echo "AI preflight state recorded: mod_version=$MOD_VERSION"
+  exit 0
+fi
+
 if [[ "$SKIP_VERSION_BUMP_CHECK" -eq 1 ]]; then
   echo "AI preflight version bump check skipped by --skip-version-bump-check." >&2
   exit 0
@@ -217,24 +237,6 @@ if CHANGED_RAW=$(get_changed_paths_from_git "$REPO_ROOT"); then
   fi
 else
   echo "Git status is unavailable; using last successful preflight fingerprint as a fallback." >&2
-fi
-
-STATE_DIR="$REPO_ROOT/.gradle/ai-preflight"
-STATE_PATH="$STATE_DIR/last-success.json"
-FINGERPRINT=$(get_tracked_file_fingerprint "$REPO_ROOT" "${TRACKED_PATHS[@]}")
-
-if [[ "$RECORD_STATE_ONLY" -eq 1 ]]; then
-  mkdir -p "$STATE_DIR"
-  # Minimal JSON without requiring jq
-  cat > "$STATE_PATH" <<EOF
-{
-  "modVersion": "$MOD_VERSION",
-  "fingerprint": "$FINGERPRINT",
-  "checkedAt": "$(date -Iseconds 2>/dev/null || date '+%Y-%m-%dT%H:%M:%S')"
-}
-EOF
-  echo "AI preflight state recorded: mod_version=$MOD_VERSION"
-  exit 0
 fi
 
 if [[ -f "$STATE_PATH" ]]; then
