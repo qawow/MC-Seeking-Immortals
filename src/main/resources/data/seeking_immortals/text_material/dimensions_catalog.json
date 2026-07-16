@@ -1,6 +1,6 @@
 {
   "schema_version": 10,
-  "source": "汇编 五界 + 飞升链；模组 P0 维度落地表",
+  "source": "汇编 五界 + 飞升链；模组 P0 维度落地表 | v136 维度通行补全",
   "design_note": "保留界层结构；入境门槛用境界/任务/道具类型，不写精确概率",
   "cosmology_five_realms": [
     {
@@ -65,10 +65,11 @@
     {
       "id": "immortal_realm",
       "display": "仙界",
-      "playable": false,
+      "playable": true,
       "note": "远期 DLC",
       "setting": {
-        "lore": "仙界：大乘飞升占位。"
+        "lore": "仙界：大乘飞升占位。",
+        "v136": "playable via great_vehicle_ascension; see dimension_travel_methods_v136.json"
       },
       "learn_requirements": {
         "traverse": {
@@ -405,6 +406,49 @@
       "from": "seeking_immortals:mortal_world",
       "to": "seeking_immortals:demon_rift",
       "allowed": "event_only"
+    },
+    {
+      "from": "seeking_immortals:spirit_fengyuan",
+      "to": "seeking_immortals:immortal_realm",
+      "allowed": "great_vehicle_ascension",
+      "gate": "spirit_to_immortal",
+      "ref": "dimension_travel_methods_v136.json"
+    },
+    {
+      "from": "seeking_immortals:tianyuan",
+      "to": "seeking_immortals:immortal_realm",
+      "allowed": "great_vehicle_ascension_or_rare_escort",
+      "gate": "spirit_to_immortal"
+    },
+    {
+      "from": "seeking_immortals:immortal_realm",
+      "to": "seeking_immortals:spirit_fengyuan",
+      "allowed": "story_incarnation_only",
+      "note": "非自由"
+    },
+    {
+      "from": "seeking_immortals:immortal_realm",
+      "to": "seeking_immortals:mortal_world",
+      "allowed": "forbidden_default",
+      "note": "防刷"
+    },
+    {
+      "from": "seeking_immortals:yin_ming_pocket",
+      "to": "seeking_immortals:mortal_world",
+      "allowed": "nether_exit_rite_or_eject",
+      "gate": "yin_return"
+    },
+    {
+      "from": "seeking_immortals:demon_rift",
+      "to": "seeking_immortals:mortal_world",
+      "allowed": "rift_collapse_or_seal_escape",
+      "gate": "demon_return"
+    },
+    {
+      "from": "seeking_immortals:spirit_fengyuan",
+      "to": "seeking_immortals:tianyuan",
+      "allowed": "portal_fee",
+      "gate": "fengyuan_to_tianyuan"
     }
   ],
   "instanced_secret_realms": {
@@ -434,5 +478,6 @@
   "yin_cluster_ref": "yin_underworld_cluster.json",
   "spatial_nodes_ref": "spatial_nodes_catalog.json",
   "dajin_factions_ref": "dajin_factions.json",
-  "dimension_registry_ref": "dimension_registry.json"
+  "dimension_registry_ref": "dimension_registry.json",
+  "v136_travel_methods": "dimension_travel_methods_v136.json"
 }

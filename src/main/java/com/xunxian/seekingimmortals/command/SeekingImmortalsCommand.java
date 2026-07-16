@@ -310,6 +310,24 @@ public final class SeekingImmortalsCommand {
                                                 .executes(ctx -> catalogSpatialTravel(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
                                 .then(Commands.argument("id", StringArgumentType.word())
                                         .executes(ctx -> catalogSpatialPreview(ctx.getSource(), StringArgumentType.getString(ctx, "id")))))
+                        .then(Commands.literal("dimensions")
+                                .executes(ctx -> catalogDimensions(ctx.getSource()))
+                                .then(Commands.literal("list").executes(ctx -> catalogDimensions(ctx.getSource())))
+                                .then(Commands.literal("get")
+                                        .then(Commands.argument("id", StringArgumentType.greedyString())
+                                                .executes(ctx -> catalogDimensionGet(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "id")))))
+                                .then(Commands.literal("travel")
+                                        .then(Commands.argument("route", StringArgumentType.word())
+                                                .executes(ctx -> catalogDimensionTravel(ctx.getSource(),
+                                                        StringArgumentType.getString(ctx, "route"))))))
+                        .then(Commands.literal("ascension")
+                                .executes(ctx -> catalogAscensionStatus(ctx.getSource()))
+                                .then(Commands.literal("status").executes(ctx -> catalogAscensionStatus(ctx.getSource())))
+                                .then(Commands.literal("attempt").executes(ctx -> catalogAscensionAttempt(ctx.getSource(), false)))
+                                .then(Commands.literal("confirm").executes(ctx -> catalogAscensionAttempt(ctx.getSource(), true)))
+                                .then(Commands.literal("cancel").executes(ctx -> catalogAscensionCancel(ctx.getSource())))
+                                .then(Commands.literal("restore").executes(ctx -> catalogAscensionRestore(ctx.getSource()))))
                         .then(Commands.literal("reputation")
                                 .executes(ctx -> catalogReputationList(ctx.getSource()))
                                 .then(Commands.literal("list").executes(ctx -> catalogReputationList(ctx.getSource())))
@@ -1359,6 +1377,88 @@ public final class SeekingImmortalsCommand {
         if (ok) {
             source.sendSuccess(() -> Component.translatable("command.seeking_immortals.catalog.auction.settle_ok", id), false);
         }
+        return ok ? 1 : 0;
+    }
+
+    private static int catalogDimensions(CommandSourceStack source) {
+        var snap = com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.snapshot();
+        source.sendSuccess(() -> Component.literal("M13 dimensions: " + snap.size()
+                + " (playable=" + snap.playable().size()
+                + ", deferred=" + snap.deferredIds().size()
+                + ", auraCovered=" + com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.coversAuraKnownDimensions()
+                + ", methods=" + com.xunxian.seekingimmortals.worldpack.DimensionTravelService.methodCount()
+                + ", routes=" + com.xunxian.seekingimmortals.worldpack.DimensionTravelService.routeCount()
+                + ", gates=" + com.xunxian.seekingimmortals.worldpack.SpiritRealmInterfaceService.gateCount()
+                + ", yinRegions=" + com.xunxian.seekingimmortals.worldpack.YinUnderworldClusterService.snapshot().regionCount()
+                + ")"), false);
+        int shown = 0;
+        for (var def : snap.playable()) {
+            String line = def.id() + " | " + def.display() + " | " + def.cosmology()
+                    + " | min=" + def.minRealm() + (def.isDeferred() ? " | DEFERRED" : "");
+            source.sendSuccess(() -> Component.literal(line), false);
+            if (++shown >= 16) break;
+        }
+        for (String deferred : snap.deferredIds()) {
+            source.sendSuccess(() -> Component.literal("deferred: " + deferred), false);
+        }
+        return 1;
+    }
+
+    private static int catalogDimensionGet(CommandSourceStack source, String id) {
+        var optional = com.xunxian.seekingimmortals.worldpack.DimensionRegistryService.find(id);
+        if (optional.isEmpty()) {
+            source.sendFailure(Component.literal("unknown dimension: " + id));
+            return 0;
+        }
+        var def = optional.get();
+        source.sendSuccess(() -> Component.literal(def.id() + " display=" + def.display()
+                + " cosmology=" + def.cosmology()
+                + " minRealm=" + def.minRealm()
+                + " cap=" + def.realmCap()
+                + " mc=" + def.effectiveMinecraftId()
+                + " status=" + def.status()
+                + " note=" + def.note()), false);
+        return 1;
+    }
+
+    private static int catalogDimensionTravel(CommandSourceStack source, String route) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.worldpack.DimensionTravelService.travelByRoute(player, route);
+        source.sendSuccess(() -> Component.literal(ok ? "travel ok: " + route : "travel failed: " + route), false);
+        return ok ? 1 : 0;
+    }
+
+    private static int catalogAscensionStatus(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        var missing = com.xunxian.seekingimmortals.worldpack.AscensionService.missingRequirements(player);
+        boolean can = com.xunxian.seekingimmortals.worldpack.AscensionService.canAscend(player);
+        boolean pending = com.xunxian.seekingimmortals.worldpack.AscensionService.hasPendingConfirmation(player);
+        source.sendSuccess(() -> Component.literal("ascension can=" + can
+                + " pending=" + pending
+                + " stage=" + com.xunxian.seekingimmortals.worldpack.AscensionService.currentStage(player)
+                + " stages=" + com.xunxian.seekingimmortals.worldpack.AscensionService.stageCount()
+                + " missing=" + missing), false);
+        return 1;
+    }
+
+    private static int catalogAscensionAttempt(CommandSourceStack source, boolean confirm) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = confirm
+                ? com.xunxian.seekingimmortals.worldpack.AscensionService.confirmLoadoutAndAscend(player)
+                : com.xunxian.seekingimmortals.worldpack.AscensionService.attemptAscension(player, false);
+        source.sendSuccess(() -> Component.literal(ok ? "ascension executed" : "ascension not completed"), false);
+        return ok ? 1 : 0;
+    }
+
+    private static int catalogAscensionCancel(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.worldpack.AscensionService.cancelPending(player);
+        return ok ? 1 : 0;
+    }
+
+    private static int catalogAscensionRestore(CommandSourceStack source) throws CommandSyntaxException {
+        ServerPlayer player = source.getPlayerOrException();
+        boolean ok = com.xunxian.seekingimmortals.worldpack.AscensionService.restoreBackup(player);
         return ok ? 1 : 0;
     }
 

@@ -115,6 +115,37 @@
         "minor_asura"
       ],
       "realm_min_typical": "VOID_REFINEMENT"
+    },
+    {
+      "id": "fengyuan_to_tianyuan",
+      "type": "regulated_portal",
+      "from": "spirit_fengyuan",
+      "to": "tianyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "fee_contribution": 300,
+      "from_dimension": "seeking_immortals:spirit_fengyuan",
+      "to_dimension": "seeking_immortals:tianyuan",
+      "v136": true
+    },
+    {
+      "id": "spirit_to_immortal",
+      "type": "ascension",
+      "from": "spirit_realm",
+      "to": "immortal_realm",
+      "realm_min": "GREAT_VEHICLE",
+      "one_way": true,
+      "from_dimension": "seeking_immortals:spirit_fengyuan",
+      "to_dimension": "seeking_immortals:immortal_realm",
+      "note": "大乘飞升仙界",
+      "v136": true
+    },
+    {
+      "id": "diyuan_trial_access",
+      "type": "trial_gate",
+      "from": "spirit_fengyuan",
+      "to": "diyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "v136": true
     }
   ],
   "avatar_descent": {
@@ -168,5 +199,6 @@
   },
   "dimensions_catalog_ref": "dimensions_catalog.json",
   "spatial_nodes_ref": "spatial_nodes_catalog.json",
-  "clan_quests_ref": "spirit_realm_clan_quests.json"
+  "clan_quests_ref": "spirit_realm_clan_quests.json",
+  "v136_travel_methods": "dimension_travel_methods_v136.json"
 }

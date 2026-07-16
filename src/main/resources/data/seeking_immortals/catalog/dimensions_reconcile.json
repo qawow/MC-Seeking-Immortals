@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "datapack_dimensions": [
+    "asura_realm",
+    "demon_rift",
+    "immortal_realm",
+    "nether_river_pocket",
+    "secret_realm_blood_forbidden",
+    "secret_realm_fallen_demon",
+    "secret_realm_mist_cave",
+    "secret_realm_void_palace",
+    "spirit_fengyuan",
+    "tianyuan",
+    "yin_ming_pocket"
+  ],
+  "datapack_dimension_types": [
+    "demon_rift",
+    "nether_river_pocket",
+    "secret_realm_blood",
+    "secret_realm_demon",
+    "secret_realm_instance",
+    "secret_realm_mist",
+    "secret_realm_void",
+    "spirit_fengyuan",
+    "tianyuan",
+    "yin_ming_pocket"
+  ],
+  "catalog_dimensions": [
+    "seeking_immortals:mortal_world",
+    "seeking_immortals:tianyuan",
+    "seeking_immortals:spirit_fengyuan",
+    "seeking_immortals:yin_ming_pocket",
+    "seeking_immortals:demon_rift",
+    "seeking_immortals:immortal_realm"
+  ],
+  "registry_dimensions": [
+    "seeking_immortals:mortal_world",
+    "seeking_immortals:tianyuan",
+    "seeking_immortals:nether_river_pocket",
+    "seeking_immortals:secret_realm_instance",
+    "seeking_immortals:yin_underworld"
+  ],
+  "deferred": [
+    {
+      "id": "seeking_immortals:secret_realm_instance",
+      "display": "秘境实例模板",
+      "type": "instanced",
+      "min_realm": "",
+      "status": "deferred_template",
+      "note": "模板类型，非独立可进入维度；由 M09 实例化"
+    },
+    {
+      "id": "seeking_immortals:yin_underworld",
+      "display": "阴司集群（逻辑）",
+      "type": "yin_underworld_cluster",
+      "min_realm": "",
+      "status": "deferred_logical",
+      "note": "逻辑集群 id；实际口袋为 yin_ming_pocket / nether_river_pocket",
+      "maps_to": [
+        "seeking_immortals:yin_ming_pocket",
+        "seeking_immortals:nether_river_pocket"
+      ]
+    }
+  ],
+  "notes": [
+    "mortal_world maps to minecraft:overworld (no custom dim json)",
+    "yin_underworld is logical cluster; pockets are yin_ming_pocket + nether_river_pocket",
+    "secret_realm_instance is template type used by asura_realm and immortal_realm",
+    "asura_realm and immortal_realm reuse dimension_type secret_realm_instance"
+  ]
+}

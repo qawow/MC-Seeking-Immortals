@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "mod_id": "seeking_immortals",
   "source": "dimensions_catalog.json → MC 维度注册",
   "dimensions": [
@@ -74,7 +74,77 @@
       "to": "tianyuan",
       "method": "ascension",
       "gate_id": "mortal_to_tianyuan"
+    },
+    {
+      "from": "tiannan",
+      "to": "chaotic_sea",
+      "method": "sea_ship",
+      "cost_band": "ticket",
+      "time_band": "weeks"
+    },
+    {
+      "from": "tiannan",
+      "to": "great_jin",
+      "method": "sect_gate_or_array",
+      "cost_band": "permit"
+    },
+    {
+      "from": "tiannan",
+      "to": "mulan",
+      "method": "border_array",
+      "cost_band": "border_pass"
+    },
+    {
+      "from": "mortal_world",
+      "to": "tianyuan",
+      "method": "ascension_channel",
+      "cost_band": "tribulation",
+      "one_way": true
+    },
+    {
+      "from": "tianyuan",
+      "to": "mortal_world",
+      "method": "avatar_descent",
+      "cost_band": "clone_risk",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "method": "regulated_portal",
+      "cost_band": "contribution_500"
+    },
+    {
+      "from": "spirit_fengyuan",
+      "to": "immortal_realm",
+      "method": "great_vehicle_ascension",
+      "cost_band": "law_tribulation"
+    },
+    {
+      "from": "mortal_world",
+      "to": "yin_ming_pocket",
+      "method": "ghost_path_portal",
+      "cost_band": "ghost_method"
+    },
+    {
+      "from": "mortal_world",
+      "to": "demon_rift",
+      "method": "event_rift",
+      "cost_band": "event"
+    },
+    {
+      "from": "immortal_realm",
+      "to": "immortal_hubs",
+      "method": "immortal_grand_array",
+      "cost_band": "immortal_stone"
+    },
+    {
+      "from": "secret_realm",
+      "to": "parent_dim",
+      "method": "exit_array_or_timeout",
+      "cost_band": "none"
     }
   ],
-  "catalog_ref": "dimensions_catalog.json"
+  "catalog_ref": "dimensions_catalog.json",
+  "v136_travel_methods": "dimension_travel_methods_v136.json"
 }

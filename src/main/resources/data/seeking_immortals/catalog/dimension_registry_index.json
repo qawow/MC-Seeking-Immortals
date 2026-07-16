@@ -1,40 +1,159 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "source": "dimension_registry.json + catalog + datapack",
   "dimensions": [
     {
       "id": "seeking_immortals:mortal_world",
       "display": "人界",
       "key": "seeking_immortals:mortal_world",
       "cosmology": "mortal_realm",
-      "min_realm": ""
+      "min_realm": "",
+      "minecraft": {
+        "type": "overworld",
+        "default": true
+      }
     },
     {
       "id": "seeking_immortals:tianyuan",
       "display": "天渊城",
       "key": "seeking_immortals:tianyuan",
       "cosmology": "spirit_realm",
-      "min_realm": "DEITY_TRANSFORMATION"
+      "min_realm": "DEITY_TRANSFORMATION",
+      "minecraft": {
+        "type": "custom",
+        "loader": "dimension_type_tianyuan"
+      }
     },
     {
       "id": "seeking_immortals:nether_river_pocket",
       "display": "冥河秘境",
       "key": "seeking_immortals:nether_river_pocket",
       "cosmology": "",
-      "min_realm": "FOUNDATION"
+      "min_realm": "FOUNDATION",
+      "minecraft": {
+        "type": "pocket",
+        "parent": "seeking_immortals:mortal_world"
+      }
     },
     {
       "id": "seeking_immortals:secret_realm_instance",
       "display": "秘境实例",
       "key": "seeking_immortals:secret_realm_instance",
       "cosmology": "",
-      "min_realm": ""
+      "min_realm": "",
+      "minecraft": {
+        "type": "instanced"
+      }
     },
     {
       "id": "seeking_immortals:yin_underworld",
       "display": "阴司集群",
       "key": "seeking_immortals:yin_underworld",
       "cosmology": "yin_underworld_cluster",
-      "min_realm": ""
+      "min_realm": "",
+      "minecraft": {
+        "type": "pocket",
+        "parent": "seeking_immortals:mortal_world"
+      }
+    },
+    {
+      "id": "seeking_immortals:spirit_fengyuan",
+      "display": "灵界·风元大陆",
+      "key": "seeking_immortals:spirit_fengyuan",
+      "cosmology": "spirit_realm",
+      "min_realm": "VOID_REFINEMENT",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "dimensions_catalog"
+    },
+    {
+      "id": "seeking_immortals:yin_ming_pocket",
+      "display": "冥河界域",
+      "key": "seeking_immortals:yin_ming_pocket",
+      "cosmology": "yin_underworld_cluster",
+      "min_realm": "FOUNDATION",
+      "minecraft": {
+        "type": "pocket"
+      },
+      "source": "dimensions_catalog"
+    },
+    {
+      "id": "seeking_immortals:demon_rift",
+      "display": "魔界裂隙（临时）",
+      "key": "seeking_immortals:demon_rift",
+      "cosmology": "ancient_demon_realm",
+      "min_realm": "NASCENT_SOUL",
+      "minecraft": {
+        "type": "instanced"
+      },
+      "source": "dimensions_catalog"
+    },
+    {
+      "id": "seeking_immortals:immortal_realm",
+      "display": "仙界",
+      "key": "seeking_immortals:immortal_realm",
+      "cosmology": "immortal_realm",
+      "min_realm": "GREAT_VEHICLE_peak",
+      "minecraft": {
+        "type": "reserved"
+      },
+      "source": "dimensions_catalog"
+    },
+    {
+      "id": "seeking_immortals:asura_realm",
+      "display": "修罗界",
+      "key": "seeking_immortals:asura_realm",
+      "cosmology": "secret_realm_instance",
+      "min_realm": "",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "datapack"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_blood_forbidden",
+      "display": "血禁秘境",
+      "key": "seeking_immortals:secret_realm_blood_forbidden",
+      "cosmology": "secret_realm_instance",
+      "min_realm": "",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "datapack"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_fallen_demon",
+      "display": "坠魔谷秘境",
+      "key": "seeking_immortals:secret_realm_fallen_demon",
+      "cosmology": "secret_realm_instance",
+      "min_realm": "",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "datapack"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_mist_cave",
+      "display": "迷雾洞府",
+      "key": "seeking_immortals:secret_realm_mist_cave",
+      "cosmology": "secret_realm_instance",
+      "min_realm": "",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "datapack"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_void_palace",
+      "display": "虚天殿",
+      "key": "seeking_immortals:secret_realm_void_palace",
+      "cosmology": "secret_realm_instance",
+      "min_realm": "",
+      "minecraft": {
+        "type": "custom"
+      },
+      "source": "datapack"
     }
   ],
   "travel_gates": [
@@ -49,6 +168,75 @@
       "to": "tianyuan",
       "method": "ascension",
       "gate_id": "mortal_to_tianyuan"
+    },
+    {
+      "from": "tiannan",
+      "to": "chaotic_sea",
+      "method": "sea_ship",
+      "cost_band": "ticket",
+      "time_band": "weeks"
+    },
+    {
+      "from": "tiannan",
+      "to": "great_jin",
+      "method": "sect_gate_or_array",
+      "cost_band": "permit"
+    },
+    {
+      "from": "tiannan",
+      "to": "mulan",
+      "method": "border_array",
+      "cost_band": "border_pass"
+    },
+    {
+      "from": "mortal_world",
+      "to": "tianyuan",
+      "method": "ascension_channel",
+      "cost_band": "tribulation",
+      "one_way": true
+    },
+    {
+      "from": "tianyuan",
+      "to": "mortal_world",
+      "method": "avatar_descent",
+      "cost_band": "clone_risk",
+      "realm_min": "VOID_REFINEMENT"
+    },
+    {
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "method": "regulated_portal",
+      "cost_band": "contribution_500"
+    },
+    {
+      "from": "spirit_fengyuan",
+      "to": "immortal_realm",
+      "method": "great_vehicle_ascension",
+      "cost_band": "law_tribulation"
+    },
+    {
+      "from": "mortal_world",
+      "to": "yin_ming_pocket",
+      "method": "ghost_path_portal",
+      "cost_band": "ghost_method"
+    },
+    {
+      "from": "mortal_world",
+      "to": "demon_rift",
+      "method": "event_rift",
+      "cost_band": "event"
+    },
+    {
+      "from": "immortal_realm",
+      "to": "immortal_hubs",
+      "method": "immortal_grand_array",
+      "cost_band": "immortal_stone"
+    },
+    {
+      "from": "secret_realm",
+      "to": "parent_dim",
+      "method": "exit_array_or_timeout",
+      "cost_band": "none"
     }
   ]
 }

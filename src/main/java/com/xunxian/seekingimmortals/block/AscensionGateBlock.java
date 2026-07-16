@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.block;
 
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.structure.AscensionGateStructure;
+import com.xunxian.seekingimmortals.worldpack.AscensionService;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -61,7 +62,20 @@ public class AscensionGateBlock extends Block {
         }
         ServerLevel origin = serverPlayer.serverLevel();
         BlockPos originPos = pos.immutable();
-        if (WorldpackGameplayService.useAscensionGate(serverPlayer)) {
+        // M13: prefer full ascension flow (realm/quest/tribulation + loadout confirm/backup).
+        // Fall back to legacy worldpack gate travel when player already ascended or still in secret realm.
+        boolean activated;
+        if (AscensionService.hasPendingConfirmation(serverPlayer)) {
+            activated = AscensionService.confirmLoadoutAndAscend(serverPlayer);
+        } else if (AscensionService.canAscend(serverPlayer) || !com.xunxian.seekingimmortals.npc.NpcDialogueFlags.hasFlag(serverPlayer, AscensionService.FLAG_ASCENDED)) {
+            activated = AscensionService.attemptAscension(serverPlayer, false);
+            if (!activated && !AscensionService.hasPendingConfirmation(serverPlayer)) {
+                activated = WorldpackGameplayService.useAscensionGate(serverPlayer);
+            }
+        } else {
+            activated = WorldpackGameplayService.useAscensionGate(serverPlayer);
+        }
+        if (activated) {
             origin.sendParticles(ParticleTypes.END_ROD, originPos.getX() + 0.5D, originPos.getY() + 1.2D, originPos.getZ() + 0.5D,
                     60, 1.1D, 1.2D, 1.1D, 0.03D);
             origin.playSound(null, originPos, SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 0.55F, 1.35F);

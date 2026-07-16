@@ -34,7 +34,8 @@ public final class SpatialNodeCatalogService {
         return BUILTIN;
     }
 
-    public record Node(String id, String display, String type, String region, List<String> requires, int costSpiritStone) {}
+    public record Node(String id, String display, String type, String region, List<String> requires, int costSpiritStone,
+                       String dimensionFrom, String dimensionTo, boolean oneWay) {}
 
     public record Snapshot(Map<String, Node> nodes) {
         public int size() { return nodes.size(); }
@@ -84,13 +85,36 @@ public final class SpatialNodeCatalogService {
             return false;
         }
         String type = node.type() == null ? "" : node.type().trim().toLowerCase(Locale.ROOT);
+        // M13: cross-dimension nodes go through DimensionTravelService (server route authority).
+        if (node.dimensionTo() != null && !node.dimensionTo().isBlank()
+                && (type.contains("ascension") || isCrossDimension(node))) {
+            if (type.contains("ascension")) {
+                boolean ascended = AscensionService.attemptAscension(player, false)
+                        || (AscensionService.hasPendingConfirmation(player) && false);
+                if (ascended || AscensionService.hasPendingConfirmation(player)) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
+                    registerNetworkNode(player, node);
+                    return ascended || AscensionService.hasPendingConfirmation(player);
+                }
+            }
+            boolean dimOk = DimensionTravelService.travelToDimension(player, node.dimensionTo(), type);
+            if (dimOk) {
+                registerNetworkNode(player, node);
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
+                return true;
+            }
+        }
         boolean ok = switch (type) {
             case "pocket_gate" -> WorldpackGameplayService.useNetherFerryGate(player, false);
             case "ancient_rift" -> WorldpackGameplayService.useAncientRiftGate(player, false);
             case "cycle_gate" -> WorldpackGameplayService.useCycleGate(player, false);
             case "hidden_rift" -> WorldpackGameplayService.useHiddenRiftGate(player, false);
             case "king_territory" -> WorldpackGameplayService.useKingTerritoryGate(player, false);
-            case "sect_gate", "fixed_teleport_array", "ascension_gate" -> WorldpackGameplayService.usePortalArray(player);
+            case "ascension_gate" -> AscensionService.attemptAscension(player, false)
+                    || WorldpackGameplayService.useAscensionGate(player, false);
+            case "sect_gate", "fixed_teleport_array" -> WorldpackGameplayService.usePortalArray(player);
             default -> {
                 String region = node.region() == null || node.region().isBlank()
                         ? WorldpackGameplayService.DEFAULT_REGION_ID
@@ -99,10 +123,40 @@ public final class SpatialNodeCatalogService {
             }
         };
         if (ok) {
+            registerNetworkNode(player, node);
             player.displayClientMessage(Component.translatable(
                     "message.seeking_immortals.spatial_node.travel_ok", node.display(), type), true);
         }
         return ok;
+    }
+
+    private static boolean isCrossDimension(Node node) {
+        if (node.dimensionFrom() == null || node.dimensionFrom().isBlank()
+                || node.dimensionTo() == null || node.dimensionTo().isBlank()) {
+            return false;
+        }
+        String from = DimensionRegistryService.toMinecraftDimensionId(node.dimensionFrom());
+        String to = DimensionRegistryService.toMinecraftDimensionId(node.dimensionTo());
+        return !from.equals(to);
+    }
+
+    private static void registerNetworkNode(ServerPlayer player, Node node) {
+        if (player == null || node == null || !(player.level() instanceof net.minecraft.server.level.ServerLevel level)) {
+            return;
+        }
+        SpatialNodeNetworkSavedData data = SpatialNodeNetworkSavedData.get(level);
+        String id = node.id();
+        data.upsert(new SpatialNodeNetworkSavedData.NetworkNode(
+                id,
+                node.id(),
+                player.level().dimension().location().toString(),
+                player.blockPosition().getX(),
+                player.blockPosition().getY(),
+                player.blockPosition().getZ(),
+                node.type() == null ? "" : node.type(),
+                true,
+                player.level().getGameTime()));
+        data.markUsed(id, player.level().getGameTime());
     }
 
     private static Snapshot loadBuiltin() {
@@ -128,7 +182,8 @@ public final class SpatialNodeCatalogService {
                 try { cost = o.get("cost_spirit_stone").getAsInt(); } catch (Exception ignored) {}
             }
             map.put(id.toLowerCase(Locale.ROOT), new Node(id, str(o, "display"), str(o, "type"), str(o, "region"),
-                    List.copyOf(requires), cost));
+                    List.copyOf(requires), cost, str(o, "dimension_from"), str(o, "dimension_to"),
+                    o.has("one_way") && o.get("one_way").isJsonPrimitive() && o.get("one_way").getAsBoolean()));
         }
         return new Snapshot(Collections.unmodifiableMap(map));
     }

@@ -1,25 +1,64 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "stages": [
     {
       "id": "mortal_peak",
-      "display": "凡俗之巅"
+      "display": "凡俗之巅",
+      "realm": "DEITY_TRANSFORMATION",
+      "dimension": "",
+      "gate": "",
+      "one_way": false,
+      "requires": [
+        "tribulation_success"
+      ],
+      "realm_min": "",
+      "method": ""
     },
     {
       "id": "ascension_channel",
-      "display": "飞升通道"
+      "display": "飞升通道",
+      "realm": "",
+      "dimension": "seeking_immortals:tianyuan",
+      "gate": "mortal_to_tianyuan",
+      "one_way": true,
+      "requires": [],
+      "realm_min": "",
+      "method": "ascension_channel"
     },
     {
       "id": "tianyuan_garrison",
-      "display": "天渊驻军"
+      "display": "天渊驻军",
+      "realm": "",
+      "dimension": "seeking_immortals:tianyuan",
+      "gate": "",
+      "one_way": false,
+      "requires": [],
+      "realm_min": "",
+      "method": ""
     },
     {
       "id": "spirit_fengyuan",
-      "display": "灵界风元"
+      "display": "灵界风元",
+      "realm": "",
+      "dimension": "seeking_immortals:spirit_fengyuan",
+      "gate": "tianyuan_to_spirit_fengyuan",
+      "one_way": false,
+      "requires": [],
+      "realm_min": "VOID_REFINEMENT",
+      "method": ""
     },
     {
       "id": "great_vehicle_ascension",
-      "display": "大乘飞升"
+      "display": "大乘飞升",
+      "realm": "GREAT_VEHICLE",
+      "dimension": "seeking_immortals:immortal_realm",
+      "gate": "",
+      "one_way": false,
+      "requires": [],
+      "realm_min": "",
+      "method": "great_vehicle_ascension"
     }
-  ]
+  ],
+  "quest_chain_ref": "spirit_realm_rise",
+  "main_chapter_ref": "chapter_6_spirit_realm"
 }

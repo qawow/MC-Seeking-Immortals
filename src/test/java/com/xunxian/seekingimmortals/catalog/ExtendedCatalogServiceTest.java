@@ -16,7 +16,7 @@ class ExtendedCatalogServiceTest {
         assertEquals(7, snapshot.chapters().size());
         assertEquals(71, snapshot.dailyEvents().size());
         assertEquals(55, snapshot.alchemyRecipes().size());
-        assertEquals(25, snapshot.spatialNodes().size());
+        assertEquals(33, snapshot.spatialNodes().size());
         assertTrue(snapshot.materials().size() >= 200);
         assertTrue(snapshot.pills().size() >= 100);
         assertTrue(snapshot.artifacts().size() >= 200);

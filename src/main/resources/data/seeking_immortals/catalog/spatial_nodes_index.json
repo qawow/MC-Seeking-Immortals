@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "nodes": [
     {
       "id": "node_tiannan_huangfeng",
@@ -9,7 +9,14 @@
       "requires": [
         "sect_permit_or_contribution"
       ],
-      "cost_spirit_stone": 20
+      "cost_spirit_stone": 20,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_yanyue",
+        "node_qingxu"
+      ]
     },
     {
       "id": "node_chaotic_sea_hub",
@@ -19,7 +26,14 @@
       "requires": [
         "chaotic_sea_teleport_permit"
       ],
-      "cost_spirit_stone": 80
+      "cost_spirit_stone": 80,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_star_palace",
+        "node_inverse_star_hideout"
+      ]
     },
     {
       "id": "node_dajin_wanbao",
@@ -29,7 +43,13 @@
       "requires": [
         "auction_invite_or_reputation"
       ],
-      "cost_spirit_stone": 50
+      "cost_spirit_stone": 50,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_tiannan_huangfeng"
+      ]
     },
     {
       "id": "node_mulan_steppe",
@@ -39,7 +59,13 @@
       "requires": [
         "mulan_pass_or_war_truce"
       ],
-      "cost_spirit_stone": 30
+      "cost_spirit_stone": 30,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_tiannan_border"
+      ]
     },
     {
       "id": "node_fallen_demon_rift",
@@ -50,7 +76,13 @@
         "realm_NASCENT_SOUL",
         "seal_weak_event"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:demon_rift",
+      "one_way": false,
+      "links": [
+        "seeking_immortals:demon_rift"
+      ]
     },
     {
       "id": "node_void_sighting",
@@ -60,7 +92,11 @@
       "requires": [
         "space_rift_compass"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "gate_mortal_to_tianyuan",
@@ -71,7 +107,11 @@
         "DEITY_TRANSFORMATION_peak",
         "tribulation_success"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:tianyuan",
+      "one_way": true,
+      "links": []
     },
     {
       "id": "gate_tianyuan_to_fengyuan",
@@ -82,7 +122,13 @@
         "border_merit_token",
         "VOID_REFINEMENT_permit"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:tianyuan",
+      "dimension_to": "seeking_immortals:spirit_fengyuan",
+      "one_way": false,
+      "links": [
+        "seeking_immortals:spirit_fengyuan"
+      ]
     },
     {
       "id": "node_nether_ferry",
@@ -93,28 +139,46 @@
         "yin_stone",
         "ferry_pass"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:yin_ming_pocket",
+      "one_way": false,
+      "links": [
+        "seeking_immortals:nether_river_pocket"
+      ]
     },
     {
       "id": "node_star_palace",
-      "display": "星宫天星城阵枢",
-      "type": "sect_gate",
+      "display": "星宫传送枢纽",
+      "type": "fixed_teleport_array",
       "region": "chaotic_sea",
       "requires": [
-        "rep_star_palace_neutral",
-        "chaotic_sea_teleport_permit"
+        "rep_star_palace_or_token"
       ],
-      "cost_spirit_stone": 60
+      "cost_spirit_stone": 40,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_chaotic_sea_hub",
+        "node_miaoyin"
+      ]
     },
     {
       "id": "node_inverse_star_hideout",
-      "display": "逆星盟暗港",
-      "type": "hidden_rift",
+      "display": "逆星暗桩节点",
+      "type": "sect_gate",
       "region": "chaotic_sea",
       "requires": [
-        "inverse_star_contact_or_smuggle"
+        "rep_inverse_star"
       ],
-      "cost_spirit_stone": 40
+      "cost_spirit_stone": 15,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_chaotic_sea_hub"
+      ]
     },
     {
       "id": "node_void_palace_gate",
@@ -125,35 +189,64 @@
         "void_palace_key_fragment",
         "cycle_void_palace_open"
       ],
-      "cost_spirit_stone": 200
+      "cost_spirit_stone": 200,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "secret_realm:void_palace"
+      ]
     },
     {
       "id": "node_tiannan_border",
-      "display": "天南边境驿",
+      "display": "天南边关传送",
       "type": "fixed_teleport_array",
-      "region": "tiannan",
-      "requires": [],
-      "cost_spirit_stone": 15
+      "region": "tiannan_mulan_border",
+      "requires": [
+        "border_pass"
+      ],
+      "cost_spirit_stone": 35,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_mulan_steppe",
+        "node_tiannan_huangfeng"
+      ]
     },
     {
       "id": "node_yanyue",
-      "display": "掩月宗阵",
+      "display": "掩月宗传送阵",
       "type": "fixed_teleport_array",
       "region": "tiannan",
       "requires": [
-        "sect_yanyue"
+        "sect_permit_or_hostile_infiltrate"
       ],
-      "cost_spirit_stone": 25
+      "cost_spirit_stone": 25,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_tiannan_huangfeng",
+        "node_qingxu"
+      ]
     },
     {
       "id": "node_qingxu",
-      "display": "清虚门阵",
+      "display": "清虚门传送阵",
       "type": "fixed_teleport_array",
       "region": "tiannan",
       "requires": [
-        "sect_qingxu"
+        "sect_permit"
       ],
-      "cost_spirit_stone": 25
+      "cost_spirit_stone": 20,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_tiannan_huangfeng",
+        "node_yanyue"
+      ]
     },
     {
       "id": "node_north_ridge",
@@ -161,7 +254,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_mist_valley",
@@ -169,7 +266,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_ancient_forest",
@@ -177,7 +278,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_sky_cliff",
@@ -185,7 +290,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_venom_swamp",
@@ -193,7 +302,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_green_jungle",
@@ -201,7 +314,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_deep_lake",
@@ -209,7 +326,11 @@
       "type": "king_territory",
       "region": "barbarian_wasteland",
       "requires": [],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_tiannan_to_chaotic_sea",
@@ -217,9 +338,14 @@
       "type": "",
       "region": "tiannan",
       "requires": [
-        "{\"realm_min\": \"FOUNDATION\", \"cost_spirit_stone\": 500}"
+        "realm_min:FOUNDATION",
+        "cost_spirit_stone:500"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_spirit_world_rift",
@@ -227,9 +353,13 @@
       "type": "",
       "region": "human_realm_edge",
       "requires": [
-        "{\"realm_min\": \"DEITY_TRANSFORMATION\"}"
+        "realm_min:DEITY_TRANSFORMATION"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
     },
     {
       "id": "node_tianyuan_gate",
@@ -237,9 +367,148 @@
       "type": "",
       "region": "spirit_world",
       "requires": [
-        "{\"realm_min\": \"VOID_REFINING\", \"registration\": true}"
+        "realm_min:VOID_REFINING",
+        "registration:True"
       ],
-      "cost_spirit_stone": 0
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "",
+      "one_way": false,
+      "links": []
+    },
+    {
+      "id": "node_miaoyin",
+      "display": "妙音门传送",
+      "type": "fixed_teleport_array",
+      "region": "chaotic_sea",
+      "requires": [
+        "rep_miaoyin_or_guest"
+      ],
+      "cost_spirit_stone": 30,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:mortal_world",
+      "one_way": false,
+      "links": [
+        "node_star_palace",
+        "node_chaotic_sea_hub"
+      ]
+    },
+    {
+      "id": "node_blood_forbidden_entry",
+      "display": "血色禁地入口节点",
+      "type": "ancient_rift",
+      "region": "tiannan",
+      "requires": [
+        "blood_forbidden_open",
+        "token_or_quota"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "instance:blood_forbidden",
+      "one_way": false,
+      "links": []
+    },
+    {
+      "id": "node_yin_ming_gate",
+      "display": "阴司入口节点",
+      "type": "ancient_rift",
+      "region": "yin_edge",
+      "requires": [
+        "ghost_path_or_item"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:mortal_world",
+      "dimension_to": "seeking_immortals:yin_ming_pocket",
+      "one_way": false,
+      "links": []
+    },
+    {
+      "id": "gate_spirit_to_immortal",
+      "display": "大乘飞升仙界门",
+      "type": "ascension_gate",
+      "region": "spirit_fengyuan",
+      "requires": [
+        "GREAT_VEHICLE",
+        "tribulation_or_law"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:spirit_fengyuan",
+      "dimension_to": "seeking_immortals:immortal_realm",
+      "one_way": true,
+      "links": []
+    },
+    {
+      "id": "node_immortal_zhenyan",
+      "display": "真言门山门传送",
+      "type": "fixed_teleport_array",
+      "region": "xianjie",
+      "requires": [
+        "rep_zhenyan_or_outer"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:immortal_realm",
+      "dimension_to": "seeking_immortals:immortal_realm",
+      "one_way": false,
+      "links": [
+        "node_immortal_hub"
+      ]
+    },
+    {
+      "id": "node_immortal_hub",
+      "display": "仙界主城传送枢纽",
+      "type": "fixed_teleport_array",
+      "region": "xianjie",
+      "requires": [
+        "TRUE_IMMORTAL"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:immortal_realm",
+      "dimension_to": "seeking_immortals:immortal_realm",
+      "one_way": false,
+      "links": [
+        "node_immortal_zhenyan",
+        "node_immortal_heifeng"
+      ]
+    },
+    {
+      "id": "node_immortal_heifeng",
+      "display": "黑风海航标节点",
+      "type": "sect_gate",
+      "region": "heifeng_sea",
+      "requires": [
+        "heifeng_or_sail"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:immortal_realm",
+      "dimension_to": "seeking_immortals:immortal_realm",
+      "one_way": false,
+      "links": [
+        "node_immortal_hub"
+      ]
+    },
+    {
+      "id": "gate_fengyuan_to_tianyuan",
+      "display": "风元回天渊门",
+      "type": "sect_gate",
+      "region": "spirit_fengyuan",
+      "requires": [
+        "VOID_REFINEMENT",
+        "fee"
+      ],
+      "cost_spirit_stone": 0,
+      "dimension_from": "seeking_immortals:spirit_fengyuan",
+      "dimension_to": "seeking_immortals:tianyuan",
+      "one_way": false,
+      "links": [
+        "gate_tianyuan_to_fengyuan"
+      ]
     }
+  ],
+  "node_types": [
+    "fixed_teleport_array",
+    "ancient_rift",
+    "sect_gate",
+    "ascension_gate",
+    "demon_rift_event"
   ]
 }

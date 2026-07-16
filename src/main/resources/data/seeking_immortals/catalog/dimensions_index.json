@@ -1,41 +1,54 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "source": "dimensions_catalog.json + datapack reconcile",
   "dimensions": [
     {
       "id": "seeking_immortals:mortal_world",
       "display": "人界（主世界）",
       "type": "mortal_realm",
-      "min_realm": "DEITY_TRANSFORMATION"
+      "min_realm": "DEITY_TRANSFORMATION",
+      "minecraft_layer": "overworld",
+      "datapack": "minecraft:overworld"
     },
     {
       "id": "seeking_immortals:tianyuan",
       "display": "天渊城",
       "type": "spirit_realm",
-      "min_realm": ""
+      "min_realm": "DEITY_TRANSFORMATION",
+      "minecraft_layer": "custom",
+      "datapack": "tianyuan"
     },
     {
       "id": "seeking_immortals:spirit_fengyuan",
       "display": "灵界·风元大陆",
       "type": "spirit_realm",
-      "min_realm": "GREAT_VEHICLE"
+      "min_realm": "VOID_REFINEMENT",
+      "minecraft_layer": "custom",
+      "datapack": "spirit_fengyuan"
     },
     {
       "id": "seeking_immortals:yin_ming_pocket",
       "display": "冥河界域",
       "type": "yin_underworld_cluster",
-      "min_realm": ""
+      "min_realm": "FOUNDATION",
+      "minecraft_layer": "pocket",
+      "datapack": "yin_ming_pocket"
     },
     {
       "id": "seeking_immortals:demon_rift",
       "display": "魔界裂隙（临时）",
       "type": "ancient_demon_realm",
-      "min_realm": ""
+      "min_realm": "NASCENT_SOUL",
+      "minecraft_layer": "instanced",
+      "datapack": "demon_rift"
     },
     {
       "id": "seeking_immortals:immortal_realm",
       "display": "仙界",
       "type": "immortal_realm",
-      "min_realm": ""
+      "min_realm": "GREAT_VEHICLE_peak",
+      "minecraft_layer": "reserved",
+      "datapack": "immortal_realm"
     },
     {
       "id": "mortal_realm",
@@ -77,13 +90,75 @@
       "id": "tianyuan_city_district",
       "display": "天渊城",
       "type": "cosmology",
-      "min_realm": ""
+      "min_realm": "VOID_REFINING"
     },
     {
       "id": "yin_underworld_gate",
       "display": "阴司入口",
       "type": "cosmology",
-      "min_realm": ""
+      "min_realm": "FOUNDATION"
+    },
+    {
+      "id": "seeking_immortals:asura_realm",
+      "display": "修罗界",
+      "type": "secret_realm_instance",
+      "min_realm": "",
+      "datapack": "asura_realm"
+    },
+    {
+      "id": "seeking_immortals:nether_river_pocket",
+      "display": "冥河口袋",
+      "type": "yin_underworld_cluster",
+      "min_realm": "FOUNDATION",
+      "datapack": "nether_river_pocket"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_blood_forbidden",
+      "display": "血禁秘境",
+      "type": "secret_realm_instance",
+      "min_realm": "",
+      "datapack": "secret_realm_blood_forbidden"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_fallen_demon",
+      "display": "坠魔谷秘境",
+      "type": "secret_realm_instance",
+      "min_realm": "",
+      "datapack": "secret_realm_fallen_demon"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_mist_cave",
+      "display": "迷雾洞府",
+      "type": "secret_realm_instance",
+      "min_realm": "",
+      "datapack": "secret_realm_mist_cave"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_void_palace",
+      "display": "虚天殿",
+      "type": "secret_realm_instance",
+      "min_realm": "",
+      "datapack": "secret_realm_void_palace"
+    },
+    {
+      "id": "seeking_immortals:secret_realm_instance",
+      "display": "秘境实例模板",
+      "type": "instanced",
+      "min_realm": "",
+      "status": "deferred_template",
+      "note": "模板类型，非独立可进入维度；由 M09 实例化"
+    },
+    {
+      "id": "seeking_immortals:yin_underworld",
+      "display": "阴司集群（逻辑）",
+      "type": "yin_underworld_cluster",
+      "min_realm": "",
+      "status": "deferred_logical",
+      "note": "逻辑集群 id；实际口袋为 yin_ming_pocket / nether_river_pocket",
+      "maps_to": [
+        "seeking_immortals:yin_ming_pocket",
+        "seeking_immortals:nether_river_pocket"
+      ]
     }
   ]
 }

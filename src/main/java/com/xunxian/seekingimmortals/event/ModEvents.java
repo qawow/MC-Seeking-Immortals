@@ -399,6 +399,9 @@ public final class ModEvents {
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
+        // M13: re-apply realm/dimension flight policy after clearing transient sources.
+        com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy.onDimensionChanged(
+                player, event.getTo().location().toString());
         CultivationHelper.get(player).ifPresent(cultivation -> {
             TribulationService.handleDimensionChange(player, cultivation);
             // M06: re-resolve region after dimension change and resync worldpack snapshot.

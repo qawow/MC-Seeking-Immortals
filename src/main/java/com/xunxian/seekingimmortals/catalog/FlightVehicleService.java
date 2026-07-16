@@ -2,7 +2,11 @@ package com.xunxian.seekingimmortals.catalog;
 
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.entity.SpiritBoatEntity;
+import com.xunxian.seekingimmortals.registry.ModBlocks;
+import com.xunxian.seekingimmortals.structure.FlyingBoatDockStructure;
+import com.xunxian.seekingimmortals.worldpack.FlyingAuthorityPolicy;
 import com.xunxian.seekingimmortals.worldpack.WorldpackGameplayService;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -46,6 +50,13 @@ public final class FlightVehicleService {
                         vehicle.display(), vehicle.realmMin()), false);
                 return;
             }
+            if (!FlyingAuthorityPolicy.allowsVehicle(player, vehicle.id())) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.flight_vehicle.dimension_denied", vehicle.display()), false);
+                return;
+            }
+            // Optional M07 dock formed bonus: when standing on a complete flying_boat_dock, extend life.
+            boolean docked = isNearFormedDock(player);
             if (!player.getAbilities().instabuild && vehicle.fuelCount() > 0 && !vehicle.fuelItem().isBlank()) {
                 Item fuel = resolve(vehicle.fuelItem());
                 if (fuel == null || fuel == Items.AIR || !consume(player, fuel, vehicle.fuelCount())) {
@@ -58,6 +69,9 @@ public final class FlightVehicleService {
                 return;
             }
             int life = 20 * (60 + Math.max(0, (int) Math.round(vehicle.speed() * 10.0D)));
+            if (docked) {
+                life += 20 * 30;
+            }
             SpiritBoatEntity boat = new SpiritBoatEntity(level, player.getX(), player.getY() + 0.2D, player.getZ(),
                     vehicle.id(), life);
             if (!level.addFreshEntity(boat)) {
@@ -89,5 +103,37 @@ public final class FlightVehicleService {
             remaining -= take;
         }
         return remaining <= 0;
+    }
+
+    /**
+     * M07 flying_boat_dock formed check: treat SPIRIT_GATHERING_ARRAY ring + SPIRIT_ORE masts near player
+     * as a valid dock (bulk item flying_boat_dock is catalog-only; structure reuses placeable blocks).
+     */
+    public static boolean isNearFormedDock(ServerPlayer player) {
+        if (player == null || !(player.level() instanceof ServerLevel level)) {
+            return false;
+        }
+        BlockPos origin = player.blockPosition();
+        for (int dy = -1; dy <= 1; dy++) {
+            for (int dx = -2; dx <= 2; dx++) {
+                for (int dz = -2; dz <= 2; dz++) {
+                    BlockPos center = origin.offset(dx, dy, dz);
+                    FlyingBoatDockStructure.CheckResult check = FlyingBoatDockStructure.validate(
+                            level,
+                            center,
+                            ModBlocks.SPIRIT_GATHERING_ARRAY.get(),
+                            ModBlocks.SPIRIT_ORE.get());
+                    if (check.complete()) {
+                        return true;
+                    }
+                    // also accept long-range array as a "grand dock" variant
+                    if (com.xunxian.seekingimmortals.structure.ImmortalTeleportGrandArrayStructure.isFormed(
+                            level, center, ModBlocks.LONG_RANGE_TELEPORT_ARRAY.get(), ModBlocks.SPIRIT_ORE.get())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }

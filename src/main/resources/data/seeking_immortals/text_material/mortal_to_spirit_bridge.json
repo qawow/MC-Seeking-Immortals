@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "source": "derived from spirit_realm_interface.gates + ascension",
+  "id": "mortal_to_spirit_bridge",
+  "display": "凡界↔灵界通道",
+  "ascension": {
+    "trigger": "DEITY_TRANSFORMATION_peak + tribulation_success",
+    "destination_default": "tianyuan",
+    "failure_outcomes": [
+      "death",
+      "cripple",
+      "demonization"
+    ],
+    "items_help": [
+      "ascension_talisman",
+      "space_anchor_talisman"
+    ],
+    "chronicle_ref": "K6_spirit_realm"
+  },
+  "gates": [
+    {
+      "id": "mortal_to_tianyuan",
+      "type": "ascension",
+      "from": "mortal_realm",
+      "to": "tianyuan",
+      "one_way": true,
+      "note": "飞升通道，不可逆回人界本体（分身下界另机制）",
+      "to_dimension": "seeking_immortals:tianyuan",
+      "from_dimension": "seeking_immortals:mortal_world",
+      "node_ref": "gate_mortal_to_tianyuan"
+    },
+    {
+      "id": "tianyuan_to_spirit_fengyuan",
+      "type": "regulated_portal",
+      "from": "tianyuan",
+      "to": "spirit_fengyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "fee_contribution": 500,
+      "faction": "tianyuan_garrison",
+      "to_dimension": "seeking_immortals:spirit_fengyuan",
+      "from_dimension": "seeking_immortals:tianyuan"
+    },
+    {
+      "id": "spirit_subrealms",
+      "type": "secret_realm_cluster",
+      "parent": "spirit_realm",
+      "examples": [
+        "diyuan",
+        "guanghan",
+        "demon_gold_mountain",
+        "minor_asura"
+      ],
+      "realm_min_typical": "VOID_REFINEMENT"
+    },
+    {
+      "id": "fengyuan_to_tianyuan",
+      "type": "regulated_portal",
+      "from": "spirit_fengyuan",
+      "to": "tianyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "fee_contribution": 300,
+      "from_dimension": "seeking_immortals:spirit_fengyuan",
+      "to_dimension": "seeking_immortals:tianyuan",
+      "v136": true
+    },
+    {
+      "id": "spirit_to_immortal",
+      "type": "ascension",
+      "from": "spirit_realm",
+      "to": "immortal_realm",
+      "realm_min": "GREAT_VEHICLE",
+      "one_way": true,
+      "from_dimension": "seeking_immortals:spirit_fengyuan",
+      "to_dimension": "seeking_immortals:immortal_realm",
+      "note": "大乘飞升仙界",
+      "v136": true
+    },
+    {
+      "id": "diyuan_trial_access",
+      "type": "trial_gate",
+      "from": "spirit_fengyuan",
+      "to": "diyuan",
+      "realm_min": "VOID_REFINEMENT",
+      "v136": true
+    }
+  ],
+  "avatar_descent": {
+    "enabled": true,
+    "user_realm_min": "VOID_REFINEMENT",
+    "mortal_body": "weaker_clone",
+    "purpose": [
+      "avoid_tribulation",
+      "inheritance",
+      "resource_gather"
+    ],
+    "risk": "clone_death_no_main_death"
+  },
+  "descent_to_mortal": {
+    "enabled": true,
+    "realm_min": "VOID_REFINEMENT",
+    "note": "分身下界，本体留灵界"
+  },
+  "window": {
+    "main_body_one_way": true,
+    "open_trigger": "DEITY_TRANSFORMATION_peak + tribulation_success",
+    "loss_note": "通道损耗：本体飞升后不可逆回；分身下界另计"
+  }
+}

@@ -1,3 +1,19 @@
+## 465. 2026-07-17 M13 维度与飞升落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_044005_m13_dimensions_ascension/`
+  Publish corpus                       Done dimensions/registry/ascension/interface/spatial/yin/flight + travel methods/costs/loadout/bridge
+  Reconcile datapack                   Done 11 dimension + 10 type；deferred 显式标记
+  DimensionRegistryService             Done id/cosmology/realm/entry；aura 已知维全覆盖
+  SpiritRealm + Travel                 Done 窗口/单向/损耗；服务端路线校验+冷却
+  AscensionService                     Done 境界/任务flag/渡劫 + 确认 + 备份箱 + 唯一保留
+  Spatial/Yin/Flight                   Done 33 节点网络 SavedData；阴司通行；FlyingAuthorityPolicy；dock/grand array
+  Commands/Tests                       Done catalog dimensions/ascension；M13DimensionsAscensionTest
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.508）；protocol 保持 22
+  Full verification                    Done `bash ./gradlew.unix --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m13_dimensions_ascension.md`
+
 ## 464. 2026-07-17 M09 / M11 主线集成
 
   Step   Status   Notes

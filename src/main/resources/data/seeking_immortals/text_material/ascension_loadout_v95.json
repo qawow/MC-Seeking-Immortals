@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v95 人界→灵界飞升/偷渡物资清单",
+  "paths": [
+    {
+      "id": "space_node_stealth",
+      "display": "空间节点偷渡",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "required_intel": "空间节点资料（详尽更佳）",
+      "recommended": [
+        {"item": "六丁天甲符", "role": "护身"},
+        {"item": "破界符", "role": "破障", "qty": [1, 2]},
+        {"item": "多层防御法宝/古宝", "role": "抗空间风暴"},
+        {"item": "极品灵石", "role": "灌顶续力"},
+        {"item": "疗伤顶药/回阳真水", "role": "重伤急救"},
+        {"item": "风雷翅等遁器", "role": "穿梭"},
+        {"item": "本命法宝全状态", "role": "主战"},
+        {"item": "噬金虫/啼魂等", "role": "辅助"},
+        {"item": "芥子空间物资", "role": "长期补给"}
+      ],
+      "optional": ["冰凤盟友", "第二元婴", "傀儡"],
+      "risks": ["界面压制", "元婴受损", "与同伴失散", "天渊收编"],
+      "starter_on_arrival": {
+        "note": "建议给予启动包而非保留人界灵石汇率",
+        "pack": ["天渊登记指引", "基础疗伤", "地图残", "少量灵界通货"]
+      }
+    },
+    {
+      "id": "faction_ascend",
+      "display": "宗门/大能接引飞升",
+      "required": ["化神圆满结构", "接引资格"],
+      "recommended": ["本命物", "贡献凭证", "禁制解除准备"],
+      "note": "比偷渡安全，剧情门控更严"
+    }
+  ],
+  "post_arrival_priorities": [
+    "稳定肉身与元婴",
+    "天渊卫/商会挂靠",
+    "租灵地",
+    "换雷系/体修资源",
+    "隐藏人界凶名与通天物"
+  ],
+  "weight_budget_note": "储物空间足够即可；关键是防御层次与情报"
+}
