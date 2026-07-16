@@ -1019,7 +1019,7 @@ No new placeholder textures, models, GUI assets, items, blocks, recipes, loot ta
   No new PNG textures were added for the new pill quality variants.
   New medium/high/supreme catalog pill models intentionally reuse the same pill textures as their low/base species.
   `data/seeking_immortals/alchemy/pill_material_name_map.json` is a shipped reference map, not a gameplay loader yet.
-  `�ı�����/data/alchemy_recipes.json` is aligned with the mod resources, but the setting pack data remains documentation/reference until a broader setting pack ingestion path exists.
+  `文本材料/data/alchemy_recipes.json` is aligned with the mod resources, but the setting pack data remains documentation/reference until a broader setting pack ingestion path exists.
   Custom alchemy datapack recipes are loaded by the mod, but JEI/Patchouli recipe display for this custom namespace is still a later integration task.
 ## 0.1.76 quest placeholder note
 
@@ -1095,7 +1095,7 @@ No new placeholder textures, models, GUI assets, items, blocks, recipes, loot ta
 
 ## 0.1.84 Worker D design catalog intake note
 
-  `�ı�����/data/techniques/index.json` declares 178 techniques across 19 school files, but multiple referenced technique/refinement/talisman setting pack JSON files contain broken or unterminated text fields.
+  `文本材料/data/techniques/index.json` declares 178 techniques across 19 school files, but multiple referenced technique/refinement/talisman setting pack JSON files contain broken or unterminated text fields.
   `SettingCatalogSummaryService` is intentionally a tolerant design summary reader. It reports present/valid/invalid files and parse error snippets for planning, but it does not feed these catalogs into runtime gameplay or data pack loading.
   Refinement and talisman catalogs remain design source material until the malformed JSON is normalized and mapped to registered item/block ids.
 

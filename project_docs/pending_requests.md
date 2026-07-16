@@ -728,7 +728,7 @@
 
 # 0.1.84 Worker D follow-up
 
-- [x] Add a tolerant design-catalog summary model for `�ı�����/data` techniques/refinement/talisman sources without wiring malformed setting-pack JSON into gameplay.
+- [x] Add a tolerant design-catalog summary model for `文本材料/data` techniques/refinement/talisman sources without wiring malformed setting-pack JSON into gameplay.
 - [ ] Normalize malformed source catalog JSON before any future runtime loader, datapack conversion, JEI/Patchouli generation, registry work, or skill-effect mapping.
 
 - [x] Worker D focused catalog test and final Gradle build passed for the design-summary slice; coordinator may still need to reconcile other workers before declaring the whole 0.1.84 wave complete.

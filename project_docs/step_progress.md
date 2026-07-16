@@ -1,3 +1,17 @@
+## 455. 2026-07-16 中文乱码修复（mojibake / 路径损坏）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Scan                                Done 全库扫描典型 mojibake（UTF-8 误读类）与 U+FFFD 截断
+  gradle.properties                   Done `mod_name`/`mod_description` 恢复为「寻仙问道」与原创凡人流描述（commit 64aa70fb）
+  Java comments                       Done `PlayerCultivation`/`ModEvents` 注释恢复；`phase-5-report`/`20260628_0.1.60` 同步（commit ac9bb29f）
+  ai_handoff body                     Done 替换损坏中文主体为可读交接正文；保留 CURRENT TRUTH 历史区
+  Path fix                            Done `文本材料/` 路径在 missing/pending/step_progress 中的损坏串恢复
+  Historical U+FFFD                   Deferred `features.md`/`step_progress.md` 等历史截断 `U+FFFD` 多为不可逆，未整文件重写
+  review_diff.txt                     Deferred 本地审计 diff，不进游戏
+  Version/protocol                    Unchanged 代码修复已在 `0.1.506` / protocol `20`；本批剩余为 docs
+  Backup                              Done `.bak/20260716_161026/`
+
 ## 454. 2026-07-16 0.1.506 M01 境界修炼基础落地
 
   Step   Status   Notes
@@ -5027,8 +5041,8 @@
   Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.75_alchemy_data_quality/`; new recipe/model/mapping/update files did not need pre-edit backups.  
   Datapack recipes   Done   Added `AlchemyRecipeManager` and `data/seeking_immortals/alchemy/recipes/*.json`; existing furnace callers still use `AlchemyRecipe.findById` and `findByHeldIngredient`.  
   Fallback   Done   Built-in recipes remain available when no valid datapack recipes load.  
-  Naming map   Done   Added `project_docs/alchemy_pill_material_mapping.md`, `�ı�����/data/pill_material_name_map.json`, and shipped `data/seeking_immortals/alchemy/pill_material_name_map.json`.  
-  Setting pack   Done   `�ı�����/data/alchemy_recipes.json` now contains the complete 18-species table aligned to registered mod ids.  
+  Naming map   Done   Added `project_docs/alchemy_pill_material_mapping.md`, `文本材料/data/pill_material_name_map.json`, and shipped `data/seeking_immortals/alchemy/pill_material_name_map.json`.
+  Setting pack   Done   `文本材料/data/alchemy_recipes.json` now contains the complete 18-species table aligned to registered mod ids.
   Quality outputs   Done   Added low/medium/high/supreme outputs for all 18 catalog species; quality changes pill effect strength/duration only.  
   Version   Done   `gradle.properties` bumped to `0.1.75`; protocol remains `6` because packet format did not change.  
   JSON validation   Done   UTF-8 JSON parse check passed for alchemy resources, setting-pack alchemy data, mapping data, and lang files.  
@@ -5238,7 +5252,7 @@
   ---   ---   ---  
   Read handoff   Done   Read AGENTS.md/project docs plus Minecraft and safe-coding skill guidance before editing.  
   Backup   Done   Existing edited files were backed up to `.bak/20260703_0.1.84_worker_d_design_catalogs/`; new design/test/update files did not need pre-edit backups.  
-  Catalog analysis   Done   Inspected `�ı�����/data/techniques`, refinement, and talisman catalogs; confirmed `techniques/index.json` declares 178 techniques across 19 files while several source JSON files are malformed.  
+  Catalog analysis   Done   Inspected `文本材料/data/techniques`, refinement, and talisman catalogs; confirmed `techniques/index.json` declares 178 techniques across 19 files while several source JSON files are malformed.
   Implementation   Done   Added a tolerant `SettingCatalogSummary` model/service that records file validity and parse errors instead of treating setting-pack JSON as gameplay truth.  
   Version/protocol   Done   `mod_version` bumped to `0.1.84`; `ModNetwork.PROTOCOL_VERSION` remains `8` because no packet fields/order/encoding or channel behavior changed.  
   Tests   Done   Focused catalog summary test and final Gradle build passed; see 68.1 below.  
@@ -6613,7 +6627,7 @@
   Step   Status   Notes
   ---   ---   ---
   Coordination   Done   Preserved the verified 0.1.186 Huangfeng/Danxia seed-pack workspace, resynced current docs/version after the parallel change landed, and avoided packet, registry, model, texture, GUI, shop, alchemy runtime, region, secret-realm, and production Java gameplay hot files.
-  Text-material read   Done   Full scan read all 276 files under `鏂囨湰鏉愭枡`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#yin_corruption_warning`, whose source region is existing shipped region `yinming`.
+  Text-material read   Done   Full scan read all 276 files under `文本材料`; all 154 JSON files parsed successfully. This slice uses `daily_random_events.json#yin_corruption_warning`, whose source region is existing shipped region `yinming`.
   Planning   Done   Scoped to one additive exact source-id daily-event hook. The older shipped `yinming_corruption_warning` event remains for saved-data/legacy compatibility rather than being renamed or removed.
   Backup   Done   Existing edited files were backed up to `.bak/20260706_0.1.187_yin_corruption_exact_event/` and the version reconciliation was backed up to `.bak/20260706_0.1.188_yin_corruption_exact_event_reconcile/`.
   Version/protocol   Done   `mod_version` is `0.1.188`; `ModNetwork.PROTOCOL_VERSION` remains `9` because no packet fields/order/encoding/registrations changed.
