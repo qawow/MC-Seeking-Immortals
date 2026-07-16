@@ -1,0 +1,13 @@
+{
+  "name": "技能树总览",
+  "category": "seeking_immortals:techniques",
+  "icon": "seeking_immortals:technique_manual_common",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 skill_trees_overview。游戏内百科与命令可进一步检索。",
+      "title": "技能树总览"
+    }
+  ]
+}

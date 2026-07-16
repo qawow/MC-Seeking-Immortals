@@ -1,3 +1,20 @@
+## 468. 2026-07-17 M16 图鉴与百科落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_051756_m16_lore_books/`
+  Patchouli expand                     Done 47→87 词条 ×2 语言；8 分类；语料 static/item_book 缺口补齐
+  Glossary / numeric / visual          Done 语料发布 + runtime 服务 + 百科页
+  Bestiary / Chronicle screens         Done ImmortalUiSkin 阅读屏；解锁驱动可见性
+  SettingCatalogSummary expand         Done 全类目摘要 + categoryCount
+  Sync packets                         Done SyncLoreUnlockPacket + LoreScreenActionPacket（追加）
+  Lang audit                           Done zh/en 4510 对齐；scripts/m16_lang_audit.py
+  Patchouli guard                      Done getBookStackSafe + PATCHOULI_LOADED
+  Tests                                Done M16LoreCorpusTest + PatchouliGuideParityTest
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.509）；protocol 22
+  Full verification                    Done `bash ./gradlew.unix --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m16_lore_books.md`
+
 ## 467. 2026-07-17 M13 / M15 主线集成
 
   Step   Status   Notes

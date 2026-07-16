@@ -1,17 +1,32 @@
 package com.xunxian.seekingimmortals.design;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public record SettingCatalogSummary(
         int declaredTechniqueCount,
         int declaredTechniqueFileCount,
         List<String> declaredTechniqueFiles,
-        List<CatalogFileStatus> files
+        List<CatalogFileStatus> files,
+        Map<String, Integer> categoryCounts
 ) {
     public SettingCatalogSummary {
         declaredTechniqueFiles = List.copyOf(declaredTechniqueFiles);
         files = List.copyOf(files);
+        categoryCounts = categoryCounts == null
+                ? Map.of()
+                : java.util.Collections.unmodifiableMap(new LinkedHashMap<>(categoryCounts));
+    }
+
+    /** Backward-compatible constructor used by older call sites/tests. */
+    public SettingCatalogSummary(
+            int declaredTechniqueCount,
+            int declaredTechniqueFileCount,
+            List<String> declaredTechniqueFiles,
+            List<CatalogFileStatus> files) {
+        this(declaredTechniqueCount, declaredTechniqueFileCount, declaredTechniqueFiles, files, Map.of());
     }
 
     public long presentFiles() {
@@ -32,6 +47,13 @@ public record SettingCatalogSummary(
 
     public Optional<CatalogFileStatus> find(String relativePath) {
         return files.stream().filter(status -> status.relativePath().equals(relativePath)).findFirst();
+    }
+
+    public int categoryCount(String category) {
+        if (category == null) {
+            return 0;
+        }
+        return categoryCounts.getOrDefault(category, 0);
     }
 
     public record CatalogFileStatus(String relativePath, boolean present, boolean valid, int entryCount, String error) {

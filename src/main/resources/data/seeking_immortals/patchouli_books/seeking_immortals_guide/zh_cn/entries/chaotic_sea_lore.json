@@ -1,0 +1,28 @@
+{
+  "name": "乱星海志",
+  "category": "seeking_immortals:world_realms",
+  "icon": "seeking_immortals:leyline_compass",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "汇编 乱星海地理与势力；结构向非逐句原著",
+      "title": "乱星海百科"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "inner_sea: 内星海：星宫直控，双圣坐镇，传送阵与补天丹配额垄断叙事。$(br)outer_sea: 外星海：岛屿林立，海盗与散修，登记征税与逆星暗线并存。$(br)abyss: 深渊裂隙：高阶海兽与走私航线，对应秘境 chaotic_sea_abyss_rift。$(br)void_palace_node: 虚天殿周期开放，钥碎片为星宫、逆星、商盟共同筹码。",
+      "title": "地理"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(l)星宫$() — 乱星海名义秩序：外海登记、岛税、清剿海盗与逆星。双圣闭关，长老会与执法队实际主事；执法派要铁腕，贸易派重拍卖与坊市税。玩家忠诚线：巡逻功勋、清剿悬赏、虚天殿情报上缴。$(br)$(l)逆星盟$() — 对抗星宫割据：密语入盟、走私玉简、策应海盗。暗线可窃钥、破坏巡防，终章仍可能与虚天殿钥任务交汇。$(br)$(l)乱星海商盟$() — 中立贸易：星宫与逆星夹缝跑货，航海术与走私标签；可倒卖虚天殿情报两边通吃。$(br)$(l)蓬莱派$() — 乱星海剑修大派，水剑与遁术；不必然绑星宫，可接外海猎妖与秘境组队。$(br)$(l)外海魔宫$() — 外海魔道据点，与逆星时有合作；入魔修玩家可选，正道声望恶化。",
+      "title": "势力志"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "星宫忠诚线: quest_chains.json#chaotic_sea_politics: star_palace_patrol → pirate_bounty → void_palace_key$(br)逆星暗线: inverse_star_contact → stolen_jade_slip → inverse_star_sabotage → void_palace_key$(br)商盟中立: None",
+      "title": "玩家路径"
+    }
+  ]
+}

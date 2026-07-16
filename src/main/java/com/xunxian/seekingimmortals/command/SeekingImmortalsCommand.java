@@ -537,7 +537,23 @@ public final class SeekingImmortalsCommand {
                                 .then(Commands.argument("note", StringArgumentType.greedyString())
                                         .executes(ctx -> liveSmokeSign(ctx.getSource(),
                                                 StringArgumentType.getString(ctx, "note"))))))
-                .then(Commands.literal("breakthrough").executes(ctx -> breakthrough(ctx.getSource()))));
+                .then(Commands.literal("breakthrough").executes(ctx -> breakthrough(ctx.getSource())))
+                .then(Commands.literal("lore")
+                        .executes(ctx -> loreHub(ctx.getSource()))
+                        .then(Commands.literal("hub").executes(ctx -> loreOpen(ctx.getSource(), "compendium")))
+                        .then(Commands.literal("compendium").executes(ctx -> loreOpen(ctx.getSource(), "compendium")))
+                        .then(Commands.literal("bestiary").executes(ctx -> loreOpen(ctx.getSource(), "bestiary")))
+                        .then(Commands.literal("chronicle").executes(ctx -> loreOpen(ctx.getSource(), "chronicle")))
+                        .then(Commands.literal("glossary")
+                                .executes(ctx -> loreGlossary(ctx.getSource(), ""))
+                                .then(Commands.argument("query", StringArgumentType.greedyString())
+                                        .executes(ctx -> loreGlossary(ctx.getSource(),
+                                                StringArgumentType.getString(ctx, "query")))))
+                        .then(Commands.literal("numeric").executes(ctx -> loreNumeric(ctx.getSource())))
+                        .then(Commands.literal("visual").executes(ctx -> loreVisual(ctx.getSource())))
+                        .then(Commands.literal("summary").executes(ctx -> loreHub(ctx.getSource())))
+                        .then(Commands.literal("lang").executes(ctx -> loreLangAudit(ctx.getSource())))
+                        .then(Commands.literal("patchouli").executes(ctx -> lorePatchouliStatus(ctx.getSource())))));
     }
 
     private static int liveSmoke(CommandSourceStack source) throws CommandSyntaxException {
@@ -1292,6 +1308,122 @@ public final class SeekingImmortalsCommand {
             }
         }
         return 1;
+    }
+
+    private static int loreHub(CommandSourceStack source) {
+        com.xunxian.seekingimmortals.lore.LoreCompendiumService.HubSummary hub =
+                com.xunxian.seekingimmortals.lore.LoreCompendiumService.hub();
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.hub",
+                hub.glossary(), hub.bestiaryTotal(), hub.chronicleTotal(), hub.timelinePhases(),
+                hub.loreCatalogTotal()), false);
+        for (String line : hub.lines()) {
+            String copy = line;
+            source.sendSuccess(() -> Component.literal(copy), false);
+        }
+        if (source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player) {
+            for (String line : com.xunxian.seekingimmortals.lore.LoreCompendiumService.playerProgressLines(player)) {
+                String copy = line;
+                source.sendSuccess(() -> Component.literal(copy), false);
+            }
+        }
+        return 1;
+    }
+
+    private static int loreOpen(CommandSourceStack source, String screen) {
+        if (!(source.getEntity() instanceof net.minecraft.server.level.ServerPlayer player)) {
+            source.sendFailure(Component.translatable("command.seeking_immortals.lore.players_only"));
+            return 0;
+        }
+        com.xunxian.seekingimmortals.lore.LoreSyncService.syncAndOpen(player, screen);
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.opened", screen), false);
+        return 1;
+    }
+
+    private static int loreGlossary(CommandSourceStack source, String query) {
+        if (query == null || query.isBlank()) {
+            source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.glossary.header",
+                    com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.size()), false);
+            for (String line : com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.sampleLines(12)) {
+                String copy = line;
+                source.sendSuccess(() -> Component.literal(copy), false);
+            }
+            return 1;
+        }
+        return com.xunxian.seekingimmortals.lore.NameAliasGlossaryService.find(query)
+                .map(entry -> {
+                    String aliases = entry.aliases().isEmpty() ? "-" : String.join("/", entry.aliases());
+                    source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.glossary.entry",
+                            entry.primary(), entry.id(), entry.type(), aliases), false);
+                    return 1;
+                })
+                .orElseGet(() -> {
+                    source.sendFailure(Component.translatable("command.seeking_immortals.lore.glossary.missing", query));
+                    return 0;
+                });
+    }
+
+    private static int loreNumeric(CommandSourceStack source) {
+        if (!com.xunxian.seekingimmortals.lore.NumericOverviewService.present()) {
+            source.sendFailure(Component.translatable("command.seeking_immortals.lore.numeric.missing"));
+            return 0;
+        }
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.numeric.header"), false);
+        for (String line : com.xunxian.seekingimmortals.lore.NumericOverviewService.sampleLines(20)) {
+            String copy = line;
+            source.sendSuccess(() -> Component.literal(copy), false);
+        }
+        return 1;
+    }
+
+    private static int loreVisual(CommandSourceStack source) {
+        com.xunxian.seekingimmortals.lore.VisualStyleService.Snapshot snap =
+                com.xunxian.seekingimmortals.lore.VisualStyleService.builtin();
+        if (!snap.present()) {
+            source.sendFailure(Component.translatable("command.seeking_immortals.lore.visual.missing"));
+            return 0;
+        }
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.visual.header",
+                snap.styleGuideId()), false);
+        for (String line : snap.paletteLines()) {
+            String copy = line;
+            source.sendSuccess(() -> Component.literal(copy), false);
+        }
+        return 1;
+    }
+
+    private static int loreLangAudit(CommandSourceStack source) {
+        // Lightweight shipped audit: report known M16 key presence via translation fallback pattern.
+        String[] required = {
+                "screen.seeking_immortals.bestiary.title",
+                "screen.seeking_immortals.chronicle.title",
+                "screen.seeking_immortals.compendium.title",
+                "key.seeking_immortals.open_lore_compendium",
+                "key.seeking_immortals.open_bestiary",
+                "key.seeking_immortals.open_chronicle",
+                "command.seeking_immortals.lore.hub"
+        };
+        int ok = 0;
+        for (String key : required) {
+            Component c = Component.translatable(key);
+            boolean missing = c.getString().equals(key);
+            if (!missing) {
+                ok++;
+            }
+            String status = missing ? "MISSING" : "ok";
+            source.sendSuccess(() -> Component.literal(status + " " + key), false);
+        }
+        int finalOk = ok;
+        source.sendSuccess(() -> Component.translatable("command.seeking_immortals.lore.lang.summary",
+                finalOk, required.length), false);
+        return ok == required.length ? 1 : 0;
+    }
+
+    private static int lorePatchouliStatus(CommandSourceStack source) {
+        boolean loaded = com.xunxian.seekingimmortals.compat.ModCompat.PATCHOULI_LOADED;
+        source.sendSuccess(() -> Component.translatable(
+                loaded ? "command.seeking_immortals.lore.patchouli.loaded"
+                        : "command.seeking_immortals.lore.patchouli.absent"), false);
+        return loaded ? 1 : 0;
     }
 
     private static int catalogLore(CommandSourceStack source) {

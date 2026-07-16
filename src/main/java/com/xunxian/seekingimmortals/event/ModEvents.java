@@ -536,6 +536,8 @@ public final class ModEvents {
                 com.xunxian.seekingimmortals.catalog.MethodLayoutService.sync(serverPlayer);
                 SectContributionService.syncSect(serverPlayer, cultivation, false);
                 WorldpackGameplayService.sync(serverPlayer, false);
+                // M16: read-only lore unlock snapshot for encyclopedia screens.
+                com.xunxian.seekingimmortals.lore.LoreSyncService.syncOnly(serverPlayer);
             }
         });
     }
@@ -559,13 +561,20 @@ public final class ModEvents {
     }
 
     private static void givePatchouliGuideBook(ServerPlayer player) {
-        if (!ModCompat.PATCHOULI_LOADED) return;
+        // Patchouli is optional: never touch PatchouliAPI when the mod is absent.
+        if (!ModCompat.PATCHOULI_LOADED) {
+            return;
+        }
 
         CompoundTag data = player.getPersistentData();
-        if (data.getBoolean(PATCHOULI_GUIDE_GIVEN_KEY)) return;
+        if (data.getBoolean(PATCHOULI_GUIDE_GIVEN_KEY)) {
+            return;
+        }
 
-        ItemStack guideBook = PatchouliGuideBridge.getBookStack(GUIDE_BOOK_ID);
-        if (guideBook.isEmpty()) return;
+        ItemStack guideBook = PatchouliGuideBridge.getBookStackSafe(GUIDE_BOOK_ID);
+        if (guideBook.isEmpty()) {
+            return;
+        }
 
         boolean added = player.getInventory().add(guideBook);
         if (!added) {

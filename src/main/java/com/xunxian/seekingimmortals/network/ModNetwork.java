@@ -171,5 +171,16 @@ public final class ModNetwork {
                 .decoder(SyncSkillDataPacket::decode)
                 .consumerMainThread(SyncSkillDataPacket::handle)
                 .add();
+        // M16: lore unlock sync + encyclopedia open intent (appended; no existing packet field change).
+        CHANNEL.messageBuilder(SyncLoreUnlockPacket.class, id++)
+                .encoder(SyncLoreUnlockPacket::encode)
+                .decoder(SyncLoreUnlockPacket::decode)
+                .consumerMainThread(SyncLoreUnlockPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(LoreScreenActionPacket.class, id++)
+                .encoder(LoreScreenActionPacket::encode)
+                .decoder(LoreScreenActionPacket::decode)
+                .consumerMainThread(LoreScreenActionPacket::handle)
+                .add();
     }
 }

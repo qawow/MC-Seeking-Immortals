@@ -59,6 +59,21 @@ public final class ClientEvents {
             InputConstants.Type.KEYSYM,
             GLFW.GLFW_KEY_J,
             "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_LORE_COMPENDIUM_KEY = new KeyMapping(
+            "key.seeking_immortals.open_lore_compendium",
+            InputConstants.Type.KEYSYM,
+            InputConstants.UNKNOWN.getValue(),
+            "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_BESTIARY_KEY = new KeyMapping(
+            "key.seeking_immortals.open_bestiary",
+            InputConstants.Type.KEYSYM,
+            InputConstants.UNKNOWN.getValue(),
+            "key.categories.seeking_immortals");
+    public static final KeyMapping OPEN_CHRONICLE_KEY = new KeyMapping(
+            "key.seeking_immortals.open_chronicle",
+            InputConstants.Type.KEYSYM,
+            InputConstants.UNKNOWN.getValue(),
+            "key.categories.seeking_immortals");
     public static final KeyMapping BREAKTHROUGH_KEY = new KeyMapping(
             "key.seeking_immortals.breakthrough",
             InputConstants.Type.KEYSYM,
@@ -103,6 +118,9 @@ public final class ClientEvents {
         event.register(OPEN_CULTIVATION_STATS_KEY);
         event.register(OPEN_MEDITATION_KEY);
         event.register(OPEN_QUEST_TRACKER_KEY);
+        event.register(OPEN_LORE_COMPENDIUM_KEY);
+        event.register(OPEN_BESTIARY_KEY);
+        event.register(OPEN_CHRONICLE_KEY);
         event.register(BREAKTHROUGH_KEY);
         for (KeyMapping keyMapping : RELEASE_TECHNIQUE_KEYS) {
             event.register(keyMapping);
@@ -179,6 +197,24 @@ public final class ClientEvents {
                             new com.xunxian.seekingimmortals.network.QuestTrackerActionPacket("sync"));
                 }
             }
+            while (OPEN_LORE_COMPENDIUM_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    ModNetwork.CHANNEL.sendToServer(
+                            new com.xunxian.seekingimmortals.network.LoreScreenActionPacket("compendium"));
+                }
+            }
+            while (OPEN_BESTIARY_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    ModNetwork.CHANNEL.sendToServer(
+                            new com.xunxian.seekingimmortals.network.LoreScreenActionPacket("bestiary"));
+                }
+            }
+            while (OPEN_CHRONICLE_KEY.consumeClick()) {
+                if (player != null && minecraft.screen == null) {
+                    ModNetwork.CHANNEL.sendToServer(
+                            new com.xunxian.seekingimmortals.network.LoreScreenActionPacket("chronicle"));
+                }
+            }
             for (int i = 0; i < RELEASE_TECHNIQUE_KEYS.length; i++) {
                 while (RELEASE_TECHNIQUE_KEYS[i].consumeClick()) {
                     if (ClientTechniqueData.isSynced() && !ClientTechniqueData.getTechniqueInSlot(i).isBlank()) {
@@ -228,6 +264,7 @@ public final class ClientEvents {
             ClientWorldpackData.reset();
             ClientQuestTrackerData.reset();
             ClientAuctionLadderData.reset();
+            ClientLoreData.reset();
         }
 
         private static void drainTechniqueKeyClicks() {
@@ -236,6 +273,9 @@ public final class ClientEvents {
             OPEN_CULTIVATION_STATS_KEY.consumeClick();
             OPEN_MEDITATION_KEY.consumeClick();
             OPEN_QUEST_TRACKER_KEY.consumeClick();
+            OPEN_LORE_COMPENDIUM_KEY.consumeClick();
+            OPEN_BESTIARY_KEY.consumeClick();
+            OPEN_CHRONICLE_KEY.consumeClick();
             BREAKTHROUGH_KEY.consumeClick();
             for (KeyMapping keyMapping : RELEASE_TECHNIQUE_KEYS) {
                 keyMapping.consumeClick();

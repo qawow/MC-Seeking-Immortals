@@ -1,0 +1,28 @@
+{
+  "name": "功法术法分册",
+  "category": "seeking_immortals:techniques",
+  "icon": "seeking_immortals:technique_manual_common",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "作者侧功法 747、心法 136、技能树 90。学习受境界/宗门/冲突矩阵约束。",
+      "title": "功法分册"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "客户端槽位 → ReleaseTechniquePacket → 服务端校验槽位/已学/冷却/灵力 → 同步。",
+      "title": "释放流程"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "MethodLayerTechniqueService 在修炼层推进时授予映射术法。",
+      "title": "层数解锁"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ManualConflictMatrixService 在学习心法时拦截互斥组合。",
+      "title": "冲突矩阵"
+    }
+  ]
+}

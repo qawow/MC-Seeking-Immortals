@@ -1,0 +1,13 @@
+{
+  "name": "万宝楼拍卖",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:immortal_jade",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 wanbao_auction。游戏内百科与命令可进一步检索。",
+      "title": "万宝楼拍卖"
+    }
+  ]
+}

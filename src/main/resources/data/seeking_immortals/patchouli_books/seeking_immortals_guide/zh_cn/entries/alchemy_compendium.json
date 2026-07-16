@@ -1,0 +1,18 @@
+{
+  "name": "炼丹分册",
+  "category": "seeking_immortals:alchemy_pills",
+  "icon": "seeking_immortals:alchemy_furnace",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "炼丹炉成阵（盖/阵眼/外环/岩浆）；品阶丹药 LOW/MIDDLE/HIGH/PERFECT 倍率。",
+      "title": "炼丹分册"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "alchemy_recipes 与技能门槛由服务端结算；JEI 可选展示。",
+      "title": "配方权威"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "坊市商人",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:metal_spirit_stone",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "坊市 merchant_shops.json、贡献堂 sect_contribution_shop.json",
+      "title": "坊市商人"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "语料 patchouli_item_book.static_entries.merchants",
+      "title": "来源"
+    }
+  ]
+}

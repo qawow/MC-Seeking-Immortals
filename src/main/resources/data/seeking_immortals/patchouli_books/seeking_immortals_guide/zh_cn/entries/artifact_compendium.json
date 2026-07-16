@@ -1,0 +1,28 @@
+{
+  "name": "法宝与器灵分册",
+  "category": "seeking_immortals:artifacts_formations",
+  "icon": "seeking_immortals:flying_sword_low",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "M15 语料 217 件法宝 + 十一阶品阶。认主 UUID、祭炼层数、器灵觉醒（本命+层≥5+结丹）。",
+      "title": "法宝分册"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "主动技映射术法效果注册表；协同经 LivingHurt 倍率，不绕过伤害管线。",
+      "title": "主动与协同"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "realm_power_scale 对 cost/CD/damage 做越阶压制。",
+      "title": "越阶压制"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "可飞行法宝接入 FlyingAuthority 数据判定。",
+      "title": "飞行法宝"
+    }
+  ]
+}

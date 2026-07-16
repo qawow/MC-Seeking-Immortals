@@ -1,0 +1,43 @@
+{
+  "name": "编年史与时间线",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:immortal_jade",
+  "sortnum": 40,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "编年事件 56 条；主线节点 11。阅读界面由游戏内编年史屏展示解锁记录。",
+      "title": "编年史导读"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "炼气: 子阶 13 / 寿元 120$(br)筑基: 子阶 4 / 寿元 250$(br)结丹: 子阶 3 / 寿元 600$(br)元婴: 子阶 3 / 寿元 1200$(br)化神: 子阶 3 / 寿元 2500$(br)炼虚: 子阶 3 / 寿元 5000$(br)合体: 子阶 3 / 寿元 10000$(br)大乘: 子阶 3 / 寿元 100000$(br)渡劫期: 子阶 1 / 寿元 None",
+      "title": "境界寿元表"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "tl_mengmei_five_realms$(br)tl_tiannan_qi_entry$(br)tl_foundation_blood$(br)tl_core_void_palace$(br)tl_chaotic_sea$(br)tl_nascent_yin_yang$(br)tl_dajin_mulan$(br)tl_diyuan_tianyuan$(br)tl_ascend_spirit$(br)tl_spirit_void_asura$(br)tl_guanghan_end",
+      "title": "主线顺序（摘）"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "FOUNDATION: pill_or_sect_resource$(br)CORE_FORMATION: pill_and_demon_core$(br)DEITY_TRANSFORMATION: tribulation_and_spirit_density$(br)VOID_REFINEMENT: artificial_root_or_rare_manual",
+      "title": "瓶颈"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(l)五界分立$() — 人界、灵界、阴司、上古魔界、仙界规则固化。$(br)$(l)真灵陨落纪$() — 真灵强者陨落，身躯化冥河、广寒残片等秘境。$(br)$(l)修罗界崩$() — 修罗界崩溃，碎片偶现为小修罗界。$(br)$(l)圣禽临凡$() — 青孔雀一脉被慕兰兽族供奉之始。$(br)$(l)天澜圣兽约$() — 突兀族立圣兽之印，与慕兰世仇并立约。$(br)$(l)昆吾灵山鼎盛$() — 人界第一灵山，道佛儒魔并修。",
+      "title": "事件摘录 1"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(l)石灵傀儡术兴盛$() — 妖魄封石像，上古傀儡高峰。$(br)$(l)千竹祖师悟衍$() — 大衍神君创大衍诀与机关傀儡术。$(br)$(l)虚天殿建成$() — 乱星海上古修士建玉殿沉入虚空。$(br)$(l)血色禁地隐居潮$() — 越国古修入禁地闭关坐化。$(br)$(l)人魔大战（第一次）$() — 昆吾山与魔族大军交锋，灵山受损。$(br)$(l)培婴丹方鼎盛$() — 化神辅助丹方后随宗灭失传。",
+      "title": "事件摘录 2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(l)上古魔界裂隙大开$() — 古魔侵入人界，上界协助封印。$(br)$(l)灵气脉络伤损$() — 灵脉被魔气污染，环境永久劣化。$(br)$(l)化神上限跌落$() — 人界难达化神中后期。$(br)$(l)坠魔谷战役$() — 魔修大能设阵互战形成坠魔谷。$(br)$(l)封魔阵立约$() — 封印主要裂隙，非全部。$(br)$(l)魔金山脉形成$() — 始祖魔修自爆，魔气山脉。",
+      "title": "事件摘录 3"
+    }
+  ]
+}

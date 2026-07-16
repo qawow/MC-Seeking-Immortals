@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "source": "汇编 v103 数值总览一页（机读）。与 docs/NUMERIC_ONEPAGER_v103.md 同步",
+  "currency": {
+    "low_stone": 1,
+    "mid_stone": 100,
+    "high_stone": 10000,
+    "top_stone": 1000000,
+    "isolated": [
+      "tiannan_merit",
+      "tianyuan_merit",
+      "sect_contrib"
+    ]
+  },
+  "price_anchors_low_stone": {
+    "zhu_ji_dan": [
+      500,
+      2000
+    ],
+    "jiang_chen_dan": [
+      3000,
+      15000
+    ],
+    "ding_ling_dan": [
+      20000,
+      100000
+    ],
+    "jiu_qu_dan": [
+      30000,
+      150000
+    ],
+    "geng_jing": [
+      20000,
+      120000
+    ],
+    "ma_nao_jiao": [
+      8000,
+      45000
+    ],
+    "qian_ye_lu": [
+      5000,
+      35000
+    ],
+    "yang_jing_dan": [
+      10,
+      50
+    ],
+    "ju_ling_dan": [
+      20,
+      100
+    ],
+    "ling_sui_dan": [
+      80,
+      400
+    ],
+    "jin_sui_wan": [
+      200,
+      1200
+    ],
+    "hui_sha_wan": [
+      8000,
+      50000
+    ],
+    "bai_lian_jie_du": [
+      50,
+      800
+    ],
+    "si_ling_wan": [
+      20,
+      200
+    ],
+    "huang_fu": [
+      1,
+      20
+    ],
+    "xuan_fu": [
+      30,
+      300
+    ],
+    "di_fu": [
+      500,
+      8000
+    ],
+    "tian_fu": [
+      5000,
+      100000
+    ],
+    "yao_dan_t6": [
+      500,
+      5000
+    ],
+    "yao_dan_t7": [
+      2000,
+      20000
+    ],
+    "yao_dan_t8": [
+      10000,
+      100000
+    ],
+    "yao_dan_t9": [
+      50000,
+      500000
+    ],
+    "storage_bag_s": [
+      20,
+      80
+    ],
+    "storage_bag_m": [
+      100,
+      800
+    ],
+    "storage_bracelet": [
+      1000,
+      50000
+    ],
+    "array_juling": [
+      100,
+      2000
+    ],
+    "array_wuxing": [
+      5000,
+      50000
+    ],
+    "teleport_fee": [
+      100,
+      5000
+    ],
+    "sea_ticket": [
+      50,
+      2000
+    ],
+    "mo_sui_zuan": [
+      30000,
+      200000
+    ],
+    "mo_jin": [
+      18000,
+      100000
+    ],
+    "wu_xing_yu": [
+      12000,
+      90000
+    ],
+    "xuan_bing_hua": [
+      15000,
+      90000
+    ],
+    "wan_nian_xuan_yu": [
+      50000,
+      400000
+    ],
+    "sheng_xian_ling": [
+      50,
+      300
+    ],
+    "blood_four_herb_bundle": [
+      80,
+      400
+    ],
+    "gang_yin_sha": [
+      500,
+      8000
+    ],
+    "mo_jiao_jin": [
+      300,
+      5000
+    ],
+    "mo_jiao_zhu": [
+      500,
+      8000
+    ],
+    "huo_chan_dan": [
+      800,
+      12000
+    ],
+    "blood_trial_kit": [
+      100,
+      500
+    ],
+    "yin_zhi": [
+      2000,
+      30000
+    ],
+    "kunwu_construct_core": [
+      2000,
+      30000
+    ],
+    "kunwu_jinhuo_sha": [
+      500,
+      8000
+    ],
+    "shuang_ji_cai": [
+      1000,
+      15000
+    ],
+    "yin_sha_jing": [
+      3000,
+      40000
+    ],
+    "bing_po_jing": [
+      3000,
+      40000
+    ],
+    "rongyan_jing": [
+      500,
+      8000
+    ],
+    "bi_huo_sha_robe": [
+      800,
+      12000
+    ],
+    "yuling_mid_egg": [
+      2000,
+      30000
+    ],
+    "gui_luo_fan_scrap": [
+      2000,
+      30000
+    ],
+    "yin_ling_dan": [
+      300,
+      4000
+    ],
+    "array_wuxing_rent": [
+      500,
+      8000
+    ],
+    "kun_xian_huan_rent": [
+      5000,
+      50000
+    ],
+    "sea_chart_outer": [
+      1000,
+      20000
+    ],
+    "ying_li_zhu": [
+      600,
+      10000
+    ],
+    "storm_crystal": [
+      500,
+      8000
+    ],
+    "jin_jing_pass": [
+      50,
+      2000
+    ],
+    "garden_guard": [
+      50,
+      2000
+    ],
+    "juling_garden_flag": [
+      100,
+      2000
+    ],
+    "mechanism_scrap": [
+      20,
+      800
+    ],
+    "yin_pearl": [
+      500,
+      15000
+    ],
+    "yin_ward_pill": [
+      100,
+      2000
+    ],
+    "puppet_core_blank": [
+      500,
+      20000
+    ],
+    "yin_material": [
+      50,
+      3000
+    ],
+    "wind_spirit_stone": [
+      80,
+      5000
+    ],
+    "mulan_talisman_scroll": [
+      100,
+      4000
+    ],
+    "low_artifact_ruin": [
+      100,
+      3000
+    ],
+    "low_pill_trial": [
+      5,
+      50
+    ],
+    "break_seal_talisman_low": [
+      20,
+      200
+    ],
+    "spirit_stone_cache": [
+      50,
+      2000
+    ],
+    "void_pearl": [
+      5000,
+      80000
+    ],
+    "demon_gold_ore": [
+      3000,
+      60000
+    ],
+    "holy_demon_blood": [
+      10000,
+      150000
+    ],
+    "killing_intent_crystal": [
+      8000,
+      120000
+    ],
+    "asura_armor": [
+      10000,
+      200000
+    ],
+    "ten_thousand_year_herb_garden": [
+      20000,
+      200000
+    ],
+    "sea_demon_core": [
+      2000,
+      50000
+    ],
+    "spirit_herb_high": [
+      500,
+      20000
+    ],
+    "talisman_paper_mid": [
+      30,
+      800
+    ],
+    "foundation_pill": [
+      500,
+      2000
+    ],
+    "jiangchen_pill": [
+      3000,
+      15000
+    ],
+    "jiedan_pill": [
+      5000,
+      40000
+    ],
+    "nascent_soul_pill": [
+      8000,
+      80000
+    ],
+    "huashen_pill": [
+      50000,
+      500000
+    ],
+    "four_main_herb_bundle": [
+      80,
+      400
+    ],
+    "condensation_pill": [
+      5,
+      80
+    ],
+    "bigu_pill": [
+      2,
+      30
+    ],
+    "antidote_pill_common": [
+      10,
+      200
+    ]
+  },
+  "global_price_modifiers": {
+    "beast_tide": 1.8,
+    "war": 2.0,
+    "black_market": 1.3,
+    "sect_internal": 0.7,
+    "auction_premium": 1.5,
+    "rep_friend": 0.9,
+    "rep_hostile": 1.5
+  },
+  "breakthrough_base_success": {
+    "qi_to_foundation": 0.35,
+    "foundation_to_core": 0.2,
+    "core_to_nascent": 0.15,
+    "nascent_to_deity": 0.08,
+    "deity_to_void": 0.12,
+    "void_to_integration": 0.1,
+    "integration_to_great": 0.06,
+    "great_to_true_immortal": 0.03
+  },
+  "breakthrough_key_modifiers": [
+    {
+      "id": "second_zhuji_dan",
+      "delta": 0.15,
+      "note": "第三粒近无效"
+    },
+    {
+      "id": "jiang_chen_dan",
+      "delta": 0.2
+    },
+    {
+      "id": "san_zhuan",
+      "delta": 0.15
+    },
+    {
+      "id": "ding_ling",
+      "delta": 0.12
+    },
+    {
+      "id": "jiu_qu_dan",
+      "delta": 0.12
+    },
+    {
+      "id": "pei_ying",
+      "delta": 0.1
+    },
+    {
+      "id": "mo_yuan_pack",
+      "delta": 0.1
+    },
+    {
+      "id": "body_dual",
+      "delta": 0.08
+    }
+  ],
+  "bottle_liquid_year_caps": {
+    "story": 12,
+    "standard": 6,
+    "hard": 3,
+    "legend": 1
+  },
+  "reputation_bands": {
+    "hostile": [
+      -100,
+      -40
+    ],
+    "unfriendly": [
+      -39,
+      -10
+    ],
+    "neutral": [
+      -9,
+      20
+    ],
+    "friendly": [
+      21,
+      50
+    ],
+    "honored": [
+      51,
+      80
+    ],
+    "exalted": [
+      81,
+      100
+    ]
+  },
+  "travel_speed_mod": {
+    "walk_mortal": 0.05,
+    "mount": 0.3,
+    "escape_light": 1.0,
+    "fabao_fly": 1.5,
+    "fenglei_chi": 3.0,
+    "teleport_array": 99,
+    "danuoyi": 99,
+    "pojie": 99,
+    "ship_sea": 0.8
+  },
+  "combat_threat_guide": {
+    "1": "凡人~炼气前",
+    "2": "炼气中后",
+    "3": "筑基",
+    "4": "筑基后~结丹前",
+    "5": "结丹",
+    "6": "结丹后~元婴前",
+    "7": "元婴",
+    "8": "元婴后期",
+    "9": "化神关"
+  },
+  "content_snapshot": {
+    "bestiary_expansion_total": 1848,
+    "item_desc_total": 10182,
+    "v121_items": 1142,
+    "v122_items": 1350
+  },
+  "redlines": [
+    "bottle_unique_no_trade",
+    "liquid_year_cap",
+    "no_jizi_liquid_uncapped_stack",
+    "unique_once",
+    "merit_stone_isolation",
+    "no_true_spirit_wild_farm",
+    "fail_breakthrough_keep_unique_quest_items"
+  ],
+  "secret_realms_v104": {
+    "blood_forbidden": {
+      "window_days": [
+        10,
+        30
+      ],
+      "threat": [
+        1,
+        6
+      ]
+    },
+    "xutian": {
+      "window_days": [
+        15,
+        60
+      ],
+      "threat": [
+        5,
+        9
+      ]
+    },
+    "zhuimo": {
+      "window_days": [
+        20,
+        90
+      ],
+      "threat": [
+        6,
+        10
+      ]
+    }
+  },
+  "merit_anchors": {
+    "yuqing_dan": [
+      15,
+      40
+    ],
+    "tenglong_dan": [
+      20,
+      50
+    ],
+    "zhenchan_ye": [
+      30,
+      100
+    ],
+    "tianlei_mu": [
+      20,
+      80
+    ],
+    "moqilin_lin": [
+      40,
+      120
+    ],
+    "hujie": 100
+  },
+  "secret_realms_v105": {
+    "kunwu": {
+      "threat": [
+        7,
+        11
+      ],
+      "unique": [
+        "八灵尺",
+        "详尽节点"
+      ]
+    },
+    "yinyang_ku": {
+      "threat": [
+        7,
+        11
+      ],
+      "key": "培婴丹活料"
+    },
+    "tianyuan_diyuan": {
+      "merit_isolated": true
+    }
+  },
+  "sect_discounts": {
+    "friendly": 0.9,
+    "honored": 0.8,
+    "exalted": 0.7
+  },
+  "deity_chain_v106": {
+    "base": 0.08,
+    "mo_yuan": 0.1,
+    "body": 0.08,
+    "steps": 9
+  },
+  "endgame_v106": {
+    "unique": [
+      "炼神术",
+      "真魂丹",
+      "回阳合成标记"
+    ]
+  },
+  "sect_count": 6,
+  "dajin_tax_gate": [
+    0.05,
+    0.15
+  ],
+  "garden_yield_mod": {
+    "mortal": 0.5,
+    "sect": 1.0,
+    "cave": 1.1,
+    "jizi": 1.3
+  },
+  "merge_note": "original catalogs + expansion bestiary + deep realms",
+  "secret_realms_deep_covered": 19,
+  "catalog_align_v112": true,
+  "original_catalog_counts": {
+    "pills": 114,
+    "herbs": 79,
+    "materials": 221,
+    "artifacts": 217,
+    "consumables": 57,
+    "manuals": 21,
+    "beasts": 42
+  },
+  "merchant_shops_total": 46,
+  "longform_key_items_v113": true,
+  "quest_chains": 62,
+  "sects": 28,
+  "cultivation_methods": 91,
+  "alchemy_recipes": 55,
+  "chronicle_events": 56,
+  "quest_hooks": 208,
+  "timeline_guide_v115": true,
+  "v116_deep_pass": true,
+  "techniques_deep": 369,
+  "named_npcs": 168,
+  "v117_narrative_pass": true,
+  "quest_chains_deep": 62,
+  "v118_visual_pass": true,
+  "v119_visual_storyboard": true,
+  "v120_effect_sheets": true,
+  "v121_fx_pipeline": true,
+  "v122_look_cards": true
+}

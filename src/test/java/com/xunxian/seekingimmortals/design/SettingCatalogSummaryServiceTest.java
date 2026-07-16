@@ -36,6 +36,8 @@ class SettingCatalogSummaryServiceTest {
         assertTrue(talismanCatalog.present());
         assertTrue(talismanCatalog.valid());
         assertEquals(47, talismanCatalog.entryCount());
+        assertTrue(summary.categoryCounts().containsKey("techniques"));
+        assertTrue(summary.categoryCount("glossary") >= 100);
     }
 }
 

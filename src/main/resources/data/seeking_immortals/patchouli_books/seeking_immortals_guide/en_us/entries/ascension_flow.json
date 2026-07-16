@@ -1,0 +1,13 @@
+{
+  "name": "飞升流程",
+  "category": "seeking_immortals:world_realms",
+  "icon": "seeking_immortals:leyline_compass",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 ascension_flow。游戏内百科与命令可进一步检索。",
+      "title": "飞升流程"
+    }
+  ]
+}

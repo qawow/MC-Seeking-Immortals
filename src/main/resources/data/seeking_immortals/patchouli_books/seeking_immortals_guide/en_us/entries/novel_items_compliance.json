@@ -1,0 +1,13 @@
+{
+  "name": "原著物品合规",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:pearl_raw",
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 ITEMS_EXPANSION_v57.md 与 novel_items_master_index.json",
+      "title": "物品与合规"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "妖兽阶位表",
+  "category": "seeking_immortals:beasts_puppets",
+  "icon": "seeking_immortals:beast_core",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "妖兽 1-4/5-8/9-13 通用掉落 beast_loot_tiers.json",
+      "title": "妖兽阶位表"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "语料 patchouli_item_book.static_entries.beast_tiers",
+      "title": "来源"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "炼器法宝索引",
+  "category": "seeking_immortals:artifacts_formations",
+  "icon": "seeking_immortals:flying_sword_low",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 refinement_artifacts。游戏内百科与命令可进一步检索。",
+      "title": "炼器法宝索引"
+    }
+  ]
+}

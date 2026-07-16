@@ -1,0 +1,13 @@
+{
+  "name": "千竹傀儡循环",
+  "category": "seeking_immortals:beasts_puppets",
+  "icon": "seeking_immortals:beast_core",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 qianzhu_puppet_loop。游戏内百科与命令可进一步检索。",
+      "title": "千竹傀儡循环"
+    }
+  ]
+}

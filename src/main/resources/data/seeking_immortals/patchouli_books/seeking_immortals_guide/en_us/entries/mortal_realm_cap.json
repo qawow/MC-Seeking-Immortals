@@ -1,0 +1,13 @@
+{
+  "name": "人界瓶颈",
+  "category": "seeking_immortals:basics",
+  "icon": "seeking_immortals:qi_recovery_pill",
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "化神结构上限与 mortal_to_spirit_bridge 任务链。",
+      "title": "人界境界上限"
+    }
+  ]
+}

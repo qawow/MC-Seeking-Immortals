@@ -1,0 +1,18 @@
+{
+  "name": "合规说明",
+  "category": "seeking_immortals:reference",
+  "icon": "seeking_immortals:spirit_charm",
+  "sortnum": 60,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "专属古宝以残片、仿制品、模板形式出现，见 artifacts_catalog.note",
+      "title": "合规说明"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "语料 patchouli_item_book.static_entries.compliance_note",
+      "title": "来源"
+    }
+  ]
+}

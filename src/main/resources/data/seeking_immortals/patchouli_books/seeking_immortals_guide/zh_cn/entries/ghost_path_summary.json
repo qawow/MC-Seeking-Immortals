@@ -1,0 +1,13 @@
+{
+  "name": "鬼修路径",
+  "category": "seeking_immortals:techniques",
+  "icon": "seeking_immortals:yin_stone",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 ghost_path_summary。游戏内百科与命令可进一步检索。",
+      "title": "鬼修路径"
+    }
+  ]
+}

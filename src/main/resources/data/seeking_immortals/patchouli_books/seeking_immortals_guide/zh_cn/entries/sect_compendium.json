@@ -1,0 +1,23 @@
+{
+  "name": "宗门势力分册",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:immortal_jade",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "可玩宗门任务/商店/对话包齐全；贡献商店禁止无限贡献换灵石。",
+      "title": "宗门分册"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "ReputationUnlockService 阈值查询；势力冲突接区域日事件。",
+      "title": "声望解锁"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "GhostSectBanService 限制鬼修路径入门。",
+      "title": "鬼修禁令"
+    }
+  ]
+}

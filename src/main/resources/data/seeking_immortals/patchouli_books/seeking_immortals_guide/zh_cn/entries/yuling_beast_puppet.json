@@ -1,0 +1,13 @@
+{
+  "name": "御灵兽傀",
+  "category": "seeking_immortals:beasts_puppets",
+  "icon": "seeking_immortals:spirit_beast_bridle",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 yuling_beast_puppet。游戏内百科与命令可进一步检索。",
+      "title": "御灵兽傀"
+    }
+  ]
+}

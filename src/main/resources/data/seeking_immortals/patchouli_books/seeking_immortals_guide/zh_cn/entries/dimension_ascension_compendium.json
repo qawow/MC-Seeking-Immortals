@@ -1,0 +1,23 @@
+{
+  "name": "维度与飞升分册",
+  "category": "seeking_immortals:world_realms",
+  "icon": "seeking_immortals:leyline_compass",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "M13 维度注册、灵界窗口、飞升确认与备份箱；空间节点网络 33 点。",
+      "title": "维度与飞升"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "DimensionTravelService 服务端路线/冷却，不信任客户端维度目标。",
+      "title": "旅行权威"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "FlyingAuthorityPolicy 统一飞行来源（法宝/舟/阵）。",
+      "title": "飞行策略"
+    }
+  ]
+}

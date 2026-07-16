@@ -1,0 +1,13 @@
+{
+  "name": "大晋与昆吾",
+  "category": "seeking_immortals:world_realms",
+  "icon": "seeking_immortals:immortal_jade",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 dajin_kunwu。游戏内百科与命令可进一步检索。",
+      "title": "大晋与昆吾"
+    }
+  ]
+}

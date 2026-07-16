@@ -1,0 +1,13 @@
+{
+  "name": "天澜圣殿",
+  "category": "seeking_immortals:sects_factions",
+  "icon": "seeking_immortals:qingxin_pill",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "见 patchouli_item_book 分类索引条目 tianlan_temple。游戏内百科与命令可进一步检索。",
+      "title": "天澜圣殿"
+    }
+  ]
+}

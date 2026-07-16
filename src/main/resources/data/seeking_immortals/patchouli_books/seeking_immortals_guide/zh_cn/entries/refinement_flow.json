@@ -1,0 +1,18 @@
+{
+  "name": "炼器流程",
+  "category": "seeking_immortals:artifacts_formations",
+  "icon": "seeking_immortals:flying_sword_low",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "炼器阵+手册+灵铁/铜；古宝残片重铸",
+      "title": "炼器流程"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "语料 patchouli_item_book.static_entries.refinement_flow",
+      "title": "来源"
+    }
+  ]
+}
