@@ -3702,5 +3702,19 @@
   "block.seeking_immortals.alchemy_lid_high": "Tier 3 Alchemy Lid",
   "block.seeking_immortals.alchemy_lid_tier_4": "Tier 4 Alchemy Lid",
   "block.seeking_immortals.alchemy_lid_tier_5": "Tier 5 Alchemy Lid",
-  "message.seeking_immortals.alchemy_furnace.lid_blocked": "Top of furnace is blocked; cannot place lid."
+  "message.seeking_immortals.alchemy_furnace.lid_blocked": "Top of furnace is blocked; cannot place lid.",
+  "message.seeking_immortals.method.conflict": "Method conflict: %s conflicts with learned %s at grade %s (%s).",
+  "message.seeking_immortals.method.techniques_granted": "Method layer unlocked %s techniques.",
+  "message.seeking_immortals.spell.generic_projectile.success": "Projectile art hits for %s damage.",
+  "message.seeking_immortals.spell.generic_beam.success": "Beam art hits for %s damage.",
+  "message.seeking_immortals.spell.generic_aoe.success": "Area art erupts around you.",
+  "message.seeking_immortals.spell.generic_debuff.success": "Debuff mark lands on the target.",
+  "message.seeking_immortals.spell.generic_buff.success": "Protective spiritual power rises.",
+  "message.seeking_immortals.spell.generic_heal.success": "Spiritual power mends your wounds.",
+  "message.seeking_immortals.spell.generic_movement.success": "Movement art quickens your steps.",
+  "message.seeking_immortals.spell.generic_summon.success": "Summoned servitor appears: %s.",
+  "message.seeking_immortals.spell.generic_melee.success": "Melee sword intent strikes.",
+  "message.seeking_immortals.spell.generic_illusion.success": "Illusion clouds the mind.",
+  "message.seeking_immortals.spell.generic_control.success": "Control field spreads.",
+  "message.seeking_immortals.skill_tree.tree_info": "Skill tree %s: method %s, spells %s, secrets %s."
 }

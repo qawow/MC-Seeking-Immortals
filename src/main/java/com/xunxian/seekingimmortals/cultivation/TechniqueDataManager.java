@@ -21,15 +21,29 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Loads techniques from:
+ * <ul>
+ *   <li>datapack {@code cultivation/*.json} (legacy realm-bucket pack)</li>
+ *   <li>classpath {@code text_material/techniques/*.json} (M02 author corpus, 747)</li>
+ * </ul>
+ * Text-material entries win on id collision so published corpus is authoritative.
+ */
 public final class TechniqueDataManager {
-    private static final List<String> BUILTIN_FILES = List.of(
+    private static final List<String> BUILTIN_CULTIVATION_FILES = List.of(
             "qi_refining_techniques.json",
             "foundation_establishment_techniques.json",
             "core_formation_techniques.json",
             "nascent_soul_techniques.json",
             "spirit_transformation_plus_techniques.json",
             "special_common_techniques.json");
-    private static final Map<String, SourceSummary> BUILTIN_SOURCE_SUMMARIES = loadBuiltInSourceSummaries();
+    private static final List<String> TEXT_MATERIAL_TECHNIQUE_FILES = List.of(
+            "body", "buddhist", "confucian", "dao", "demon_path", "demonic", "divine_sense",
+            "elemental", "fashi", "formation", "ghost", "illusion", "misc", "movement",
+            "puppet", "recovery", "secret_arts", "sword", "talisman", "xuan_yin");
+
+    private static final Map<String, TechniqueEntry> BUILTIN_TECHNIQUES = loadBuiltInTechniques();
+    private static final Map<String, SourceSummary> BUILTIN_SOURCE_SUMMARIES = buildSourceSummaries(BUILTIN_TECHNIQUES);
 
     private TechniqueDataManager() {}
 
@@ -65,21 +79,42 @@ public final class TechniqueDataManager {
 
     public static Optional<TechniqueEntry> getTechnique(MinecraftServer server, String id) {
         if (id == null || id.isBlank()) return Optional.empty();
+        TechniqueEntry builtin = BUILTIN_TECHNIQUES.get(id);
+        if (builtin != null) {
+            return Optional.of(builtin);
+        }
+        if (server == null) {
+            return Optional.empty();
+        }
         return Optional.ofNullable(loadTechniques(server).get(id));
     }
 
+    /** Classpath-only snapshot used by tests and client mirrors. */
+    public static Map<String, TechniqueEntry> builtinTechniques() {
+        return BUILTIN_TECHNIQUES;
+    }
+
+    public static int builtinTechniqueCount() {
+        return BUILTIN_TECHNIQUES.size();
+    }
+
     public static Map<String, TechniqueEntry> loadTechniques(MinecraftServer server) {
-        Map<String, TechniqueEntry> result = new LinkedHashMap<>();
+        Map<String, TechniqueEntry> result = new LinkedHashMap<>(BUILTIN_TECHNIQUES);
+        if (server == null) {
+            return result;
+        }
         server.getResourceManager().listResources("cultivation", location -> location.getPath().endsWith(".json")).forEach((location, resource) -> {
-            if (!SeekingImmortalsMod.MODID.equals(location.getNamespace()) || location.getPath().endsWith("special_common_techniques.json")) {
+            if (!SeekingImmortalsMod.MODID.equals(location.getNamespace())) {
                 return;
             }
             try (BufferedReader reader = resource.openAsReader()) {
-                loadEntries(reader, result);
+                loadCultivationEntries(reader, result, false);
             } catch (Exception exception) {
                 SeekingImmortalsMod.LOGGER.warn("Failed to load cultivation technique data from {}", location, exception);
             }
         });
+        // Text-material already baked into BUILTIN; re-apply so datapack overrides lose to corpus ids.
+        result.putAll(BUILTIN_TECHNIQUES);
         return result;
     }
 
@@ -87,7 +122,7 @@ public final class TechniqueDataManager {
         if (attributeCondition == null || attributeCondition.isBlank()) return true;
         String normalized = attributeCondition.toLowerCase(Locale.ROOT);
         if (containsAny(normalized, "通用", "辅助", "秘术", "神识", "神念", "空间", "跨界", "封印", "保命", "傀儡", "炼体",
-                "赶路", "身法", "符", "阵", "阵法", "无属性")) {
+                "赶路", "身法", "符", "阵", "阵法", "无属性", "neutral", "common")) {
             return true;
         }
         for (SpiritualRootAttribute attribute : cultivation.getSpiritualRootAttributes()) {
@@ -121,21 +156,47 @@ public final class TechniqueDataManager {
         return calculateAffinity(cultivation, attributeExpression).multiplier();
     }
 
-    private static Map<String, SourceSummary> loadBuiltInSourceSummaries() {
+    public static double getBreakthroughQualityBonus(TechniqueEntry technique) {
+        if (technique.quality() > 0) return Math.min(0.10D, Math.max(0, technique.quality()) / 100.0D);
+        String id = technique.id().toLowerCase(Locale.ROOT);
+        String source = technique.source().toLowerCase(Locale.ROOT);
+        if (containsAny(source, "天阶", "化神", "灵界", "古魔", "通天", "大衍", "元磁", "真魔") || containsAny(id, "spirit_transformation", "heaven", "void", "magnetic")) return 0.10D;
+        if (containsAny(source, "元婴", "古宝", "高级", "真灵") || containsAny(id, "nascent", "soul")) return 0.08D;
+        if (containsAny(source, "结丹", "金丹", "剑诀", "秘典") || containsAny(id, "core", "golden", "sword")) return 0.06D;
+        if (containsAny(source, "筑基", "中阶", "阵法", "符宝") || containsAny(id, "foundation")) return 0.04D;
+        if (containsAny(source, "长春功", "低阶", "炼气")) return 0.02D;
+        return 0.0D;
+    }
+
+    private static Map<String, TechniqueEntry> loadBuiltInTechniques() {
         Map<String, TechniqueEntry> entries = new LinkedHashMap<>();
         ClassLoader loader = TechniqueDataManager.class.getClassLoader();
-        for (String filename : BUILTIN_FILES) {
+        for (String filename : BUILTIN_CULTIVATION_FILES) {
             String path = "data/" + SeekingImmortalsMod.MODID + "/cultivation/" + filename;
             try (InputStream stream = loader.getResourceAsStream(path)) {
                 if (stream == null) continue;
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-                    loadEntries(reader, entries);
+                    loadCultivationEntries(reader, entries, true);
                 }
             } catch (Exception exception) {
-                SeekingImmortalsMod.LOGGER.warn("Failed to load built-in technique tooltip data from {}", path, exception);
+                SeekingImmortalsMod.LOGGER.warn("Failed to load built-in technique data from {}", path, exception);
             }
         }
+        for (String stem : TEXT_MATERIAL_TECHNIQUE_FILES) {
+            String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/techniques/" + stem + ".json";
+            try (InputStream stream = loader.getResourceAsStream(path)) {
+                if (stream == null) continue;
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
+                    loadTextMaterialEntries(reader, entries, stem);
+                }
+            } catch (Exception exception) {
+                SeekingImmortalsMod.LOGGER.warn("Failed to load text-material technique data from {}", path, exception);
+            }
+        }
+        return Map.copyOf(entries);
+    }
 
+    private static Map<String, SourceSummary> buildSourceSummaries(Map<String, TechniqueEntry> entries) {
         Map<String, LinkedHashSet<String>> attributesBySource = new LinkedHashMap<>();
         Map<String, List<String>> namesBySource = new LinkedHashMap<>();
         entries.values().stream().sorted(Comparator.comparing(TechniqueEntry::id)).forEach(entry -> {
@@ -159,23 +220,96 @@ public final class TechniqueDataManager {
         return Map.copyOf(summaries);
     }
 
-    private static void loadEntries(BufferedReader reader, Map<String, TechniqueEntry> result) {
+    private static void loadCultivationEntries(BufferedReader reader, Map<String, TechniqueEntry> result, boolean overwrite) {
         JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
         JsonArray techniques = root.getAsJsonArray("techniques");
         if (techniques == null) return;
         for (JsonElement element : techniques) {
+            if (!element.isJsonObject()) continue;
             JsonObject object = element.getAsJsonObject();
             String id = getString(object, "id");
             if (id.isBlank()) continue;
+            if (!overwrite && result.containsKey(id)) continue;
+            String name = getString(object, "name");
+            if (name.isBlank()) name = getString(object, "display");
             result.put(id, new TechniqueEntry(
                     id,
-                    getString(object, "name"),
+                    name,
                     getString(object, "source"),
                     getString(object, "attribute"),
                     getInt(object, "quality"),
                     object.has("cost") ? object.get("cost").getAsInt() : 15,
-                    parseRealm(getString(object, "required_realm"))));
+                    parseRealm(firstNonBlank(getString(object, "required_realm"), getString(object, "realm_min"))),
+                    getString(object, "requires_method"),
+                    getString(object, "type"),
+                    "",
+                    "",
+                    getInt(object, "cooldown_ticks")));
         }
+    }
+
+    private static void loadTextMaterialEntries(BufferedReader reader, Map<String, TechniqueEntry> result, String schoolFallback) {
+        JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+        JsonArray techniques = root.getAsJsonArray("techniques");
+        if (techniques == null) return;
+        String schoolDefault = getString(root, "school");
+        if (schoolDefault.isBlank()) schoolDefault = schoolFallback;
+        for (JsonElement element : techniques) {
+            if (!element.isJsonObject()) continue;
+            JsonObject object = element.getAsJsonObject();
+            String id = getString(object, "id");
+            if (id.isBlank()) continue;
+            String display = getString(object, "display");
+            if (display.isBlank()) display = getString(object, "name");
+            String school = getString(object, "school");
+            if (school.isBlank()) school = schoolDefault;
+            String elementAttr = getString(object, "element");
+            if (elementAttr.isBlank()) elementAttr = school;
+            String source = getString(object, "source");
+            if (source.isBlank()) source = school;
+            String requiresMethod = getString(object, "requires_method");
+            if (requiresMethod.isBlank()) requiresMethod = getString(object, "source_method");
+            String effectType = "";
+            String effectElement = "";
+            if (object.has("effect") && object.get("effect").isJsonObject()) {
+                JsonObject effect = object.getAsJsonObject("effect");
+                effectType = getString(effect, "type");
+                effectElement = getString(effect, "element");
+                if (elementAttr.isBlank()) elementAttr = effectElement;
+            } else if (object.has("effect") && object.get("effect").isJsonPrimitive()) {
+                effectType = object.get("effect").getAsString();
+            }
+            int cost = object.has("spirit_cost_base") && !object.get("spirit_cost_base").isJsonNull()
+                    ? object.get("spirit_cost_base").getAsInt()
+                    : (object.has("cost") && !object.get("cost").isJsonNull() ? object.get("cost").getAsInt() : 15);
+            Realm realm = parseRealm(firstNonBlank(
+                    getString(object, "realm_min"),
+                    learnRequirementRealm(object),
+                    getString(object, "required_realm")));
+            String tier = getString(object, "tier");
+            // Text-material always overwrites legacy cultivation ids so corpus is authoritative.
+            result.put(id, new TechniqueEntry(
+                    id,
+                    display,
+                    source,
+                    elementAttr,
+                    getInt(object, "quality"),
+                    Math.max(1, cost),
+                    realm,
+                    requiresMethod,
+                    tier.isBlank() ? "spell" : tier,
+                    effectType,
+                    effectElement,
+                    getInt(object, "cooldown_ticks")));
+        }
+    }
+
+    private static String learnRequirementRealm(JsonObject object) {
+        if (!object.has("learn_requirements") || !object.get("learn_requirements").isJsonObject()) {
+            return "";
+        }
+        JsonObject learn = object.getAsJsonObject("learn_requirements");
+        return getString(learn, "realm_min");
     }
 
     private static boolean containsAny(String text, String... tokens) {
@@ -186,31 +320,88 @@ public final class TechniqueDataManager {
     }
 
     private static String getString(JsonObject object, String key) {
-        return object.has(key) && !object.get(key).isJsonNull() ? object.get(key).getAsString() : "";
+        return object.has(key) && !object.get(key).isJsonNull() && object.get(key).isJsonPrimitive()
+                ? object.get(key).getAsString() : "";
     }
 
     private static int getInt(JsonObject object, String key) {
-        return object.has(key) && !object.get(key).isJsonNull() ? object.get(key).getAsInt() : 0;
+        return object.has(key) && !object.get(key).isJsonNull() && object.get(key).isJsonPrimitive()
+                ? object.get(key).getAsInt() : 0;
+    }
+
+    private static String firstNonBlank(String... values) {
+        for (String value : values) {
+            if (value != null && !value.isBlank()) {
+                return value;
+            }
+        }
+        return "";
     }
 
     private static Realm parseRealm(String id) {
+        if (id == null || id.isBlank()) {
+            return Realm.QI_REFINING;
+        }
         Realm realm = Realm.fromDesignId(id);
-        return realm == null ? Realm.QI_REFINING : realm;
+        if (realm != null) {
+            return realm;
+        }
+        String normalized = id.trim().toUpperCase(Locale.ROOT)
+                .replace(' ', '_')
+                .replace('-', '_');
+        // Common corpus aliases
+        return switch (normalized) {
+            case "FOUNDATION", "FOUNDATION_ESTABLISHMENT" -> Realm.FOUNDATION_ESTABLISHMENT;
+            case "CORE", "CORE_FORMATION", "GOLDEN_CORE", "JINDAN" -> Realm.CORE_FORMATION;
+            case "NASCENT", "NASCENT_SOUL", "YUAN_YING" -> Realm.NASCENT_SOUL;
+            case "SPIRIT_TRANSFORMATION", "SPIRIT_TRANSFORMATION_PLUS", "HUASHEN" -> {
+                Realm r = Realm.fromDesignId("SPIRIT_TRANSFORMATION");
+                yield r == null ? Realm.NASCENT_SOUL : r;
+            }
+            case "VOID_REFINEMENT", "BODY_INTEGRATION", "MAHAYANA", "TRUE_IMMORTAL", "IMMORTAL" -> {
+                Realm r = Realm.fromDesignId(normalized);
+                yield r == null ? Realm.NASCENT_SOUL : r;
+            }
+            default -> Realm.QI_REFINING;
+        };
     }
 
-    public static double getBreakthroughQualityBonus(TechniqueEntry technique) {
-        if (technique.quality() > 0) return Math.min(0.10D, Math.max(0, technique.quality()) / 100.0D);
-        String id = technique.id().toLowerCase(Locale.ROOT);
-        String source = technique.source().toLowerCase(Locale.ROOT);
-        if (containsAny(source, "天阶", "化神", "灵界", "古魔", "通天", "大衍", "元磁", "真魔") || containsAny(id, "spirit_transformation", "heaven", "void", "magnetic")) return 0.10D;
-        if (containsAny(source, "元婴", "古宝", "高级", "真灵") || containsAny(id, "nascent", "soul")) return 0.08D;
-        if (containsAny(source, "结丹", "金丹", "剑诀", "秘典") || containsAny(id, "core", "golden", "sword")) return 0.06D;
-        if (containsAny(source, "筑基", "中阶", "阵法", "符宝") || containsAny(id, "foundation")) return 0.04D;
-        if (containsAny(source, "长春功", "低阶", "炼气")) return 0.02D;
-        return 0.0D;
+    public record TechniqueEntry(
+            String id,
+            String name,
+            String source,
+            String attribute,
+            int quality,
+            int cost,
+            Realm requiredRealm,
+            String requiresMethod,
+            String tier,
+            String effectType,
+            String effectElement,
+            int cooldownTicks) {
+        /** Legacy 7-arg constructor used by tests and older call sites. */
+        public TechniqueEntry(String id, String name, String source, String attribute,
+                              int quality, int cost, Realm requiredRealm) {
+            this(id, name, source, attribute, quality, cost, requiredRealm, "", "", "", "", 0);
+        }
+
+        public TechniqueEntry {
+            id = id == null ? "" : id;
+            name = name == null ? "" : name;
+            source = source == null ? "" : source;
+            attribute = attribute == null ? "" : attribute;
+            requiresMethod = requiresMethod == null ? "" : requiresMethod;
+            tier = tier == null ? "" : tier;
+            effectType = effectType == null ? "" : effectType;
+            effectElement = effectElement == null ? "" : effectElement;
+            cost = Math.max(0, cost);
+            cooldownTicks = Math.max(0, cooldownTicks);
+            if (requiredRealm == null) {
+                requiredRealm = Realm.QI_REFINING;
+            }
+        }
     }
 
-    public record TechniqueEntry(String id, String name, String source, String attribute, int quality, int cost, Realm requiredRealm) {}
     public record SourceSummary(String source, List<String> attributes, List<String> names) {
         public static SourceSummary empty(String source) {
             return new SourceSummary(source, List.of(), List.of());

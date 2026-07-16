@@ -15,7 +15,7 @@
         "damage_base": 0,
         "tags": []
       },
-      "description": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "浩然正气：confucian派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 12。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -29,7 +29,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "confucian",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "confucian",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "word_suppress",
@@ -44,7 +57,7 @@
         "damage_base": 32,
         "tags": []
       },
-      "description": "言镇：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "言镇：confucian派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 16。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -58,7 +71,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "neutral",
+      "path": "confucian",
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "confucian",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "scroll_strike",
@@ -73,7 +98,7 @@
         "damage_base": 36,
         "tags": []
       },
-      "description": "书卷击：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "书卷击：confucian派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -87,7 +112,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "neutral",
+      "path": "confucian",
+      "alignment": "righteous",
+      "tags": [
+        "neutral",
+        "confucian",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ink_sea",
@@ -102,7 +139,7 @@
         "damage_base": 40,
         "tags": []
       },
-      "description": "墨海：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "墨海：confucian派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 20。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -116,7 +153,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "water",
+      "path": "confucian",
+      "alignment": "righteous",
+      "tags": [
+        "water",
+        "confucian",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "confucian_righteous_qi",
@@ -124,11 +173,11 @@
       "school": "confucian",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "浩然正气：confucian法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "浩然正气：confucian派术法，属性倾向 yang。境界门槛 FOUNDATION，耗灵约 18。儒修：浩然、言责、礼法场域，偏辅助与克邪。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "yang",
         "damage_base": 37,
         "tags": [
           "confucian"
@@ -148,7 +197,36 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yang",
+      "path": "confucian",
+      "alignment": "righteous",
+      "tags": [
+        "yang",
+        "confucian",
+        "righteous",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

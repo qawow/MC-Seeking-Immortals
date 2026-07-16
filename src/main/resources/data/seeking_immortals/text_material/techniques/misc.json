@@ -18,7 +18,7 @@
         ]
       },
       "tier": "spell",
-      "description": "掌心雷：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "掌心雷：misc派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 10。雷法震邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -32,7 +32,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "thunder",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "thunder",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_escape",
@@ -50,7 +65,7 @@
         ]
       },
       "tier": "spell",
-      "description": "血遁：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "血遁：misc派术法，属性倾向 blood。境界门槛 QI_REFINING，耗灵约 10。耗血换力。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -64,7 +79,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "movement",
+      "tags": [
+        "misc_pending_move:movement",
+        "blood",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "blood",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "earth_burrow",
@@ -82,7 +111,7 @@
         ]
       },
       "tier": "spell",
-      "description": "土遁：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "土遁：misc派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 10。保命逃遁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -96,7 +125,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "movement",
+      "tags": [
+        "misc_pending_move:movement",
+        "earth",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "green_shield",
@@ -114,7 +157,7 @@
         ]
       },
       "tier": "spell",
-      "description": "青元护体：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "青元护体：misc派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -128,7 +171,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "recovery",
+      "tags": [
+        "misc_pending_move:recovery",
+        "wood",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "wood",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_chop",
@@ -146,7 +203,7 @@
         ]
       },
       "tier": "spell",
-      "description": "斩魂诀：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "泛用斩魂。**不是**失神刺。失神刺见 divine_sense.shishen_spike。神魂手段，慎用。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -160,7 +217,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "divine_sense",
+      "tags": [
+        "not_shishen",
+        "misc_pending_move:divine_sense",
+        "v124",
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_roar",
@@ -178,7 +250,7 @@
         ]
       },
       "tier": "spell",
-      "description": "魔啸：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "魔啸：misc派术法，属性倾向 demon。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -192,7 +264,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "demonic",
+      "tags": [
+        "misc_pending_move:demonic",
+        "demon",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "demon",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_needle",
@@ -210,7 +297,7 @@
         ]
       },
       "tier": "spell",
-      "description": "灭灵针：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "灭灵针：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -224,7 +311,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ice_prison",
@@ -242,7 +342,7 @@
         ]
       },
       "tier": "spell",
-      "description": "玄冰牢：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "玄冰牢：misc派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 10。寒气侵体。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -256,7 +356,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "ice",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "fire_rain",
@@ -274,7 +388,7 @@
         ]
       },
       "tier": "spell",
-      "description": "火雨术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "火雨术：misc派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 10。凝火杀伐。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -288,7 +402,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "fire",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sand_bury",
@@ -306,7 +435,7 @@
         ]
       },
       "tier": "spell",
-      "description": "流沙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "流沙术：misc派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -320,7 +449,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "earth",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ghost_bind",
@@ -338,7 +481,7 @@
         ]
       },
       "tier": "spell",
-      "description": "缚鬼索：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "缚鬼索：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -352,7 +495,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "ghost",
+      "tags": [
+        "misc_pending_move:ghost",
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "beast_summon",
@@ -370,7 +528,7 @@
         ]
       },
       "tier": "spell",
-      "description": "唤兽术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "唤兽术：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -384,7 +542,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "fashi",
+      "tags": [
+        "misc_pending_move:fashi",
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_wall",
@@ -402,7 +573,7 @@
         ]
       },
       "tier": "spell",
-      "description": "灵墙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "灵墙术：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -416,7 +587,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "corpse_explode",
@@ -434,7 +616,7 @@
         ]
       },
       "tier": "spell",
-      "description": "尸爆：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "尸爆：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -448,7 +630,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "demonic",
+      "tags": [
+        "misc_pending_move:demonic",
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sword_rain",
@@ -466,7 +663,7 @@
         ]
       },
       "tier": "spell",
-      "description": "剑雨术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "剑雨术：misc派术法，属性倾向 metal。境界门槛 QI_REFINING，耗灵约 10。剑意锋锐。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -480,7 +677,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "sword",
+      "tags": [
+        "misc_pending_move:sword",
+        "metal",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mirror_reflect",
@@ -498,7 +709,7 @@
         ]
       },
       "tier": "spell",
-      "description": "镜光反：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "镜光反：misc派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -512,7 +723,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "illusion",
+      "tags": [
+        "misc_pending_move:illusion",
+        "illusion",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "illusion",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "water_dragon",
@@ -530,7 +755,7 @@
         ]
       },
       "tier": "spell",
-      "description": "水龙术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "水龙术：misc派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -544,7 +769,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "water",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "gold_needle",
@@ -562,7 +801,7 @@
         ]
       },
       "tier": "spell",
-      "description": "金针术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "金针术：misc派术法，属性倾向 metal。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -576,7 +815,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "metal",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_fire",
@@ -594,7 +847,7 @@
         ]
       },
       "tier": "spell",
-      "description": "阴火焚：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "阴火焚：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。凝火杀伐。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -608,7 +861,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yang_burst",
@@ -626,7 +894,7 @@
         ]
       },
       "tier": "spell",
-      "description": "阳爆：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "阳爆：misc派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -640,7 +908,22 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "misc_pending_move:elemental",
+        "fire",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "misc",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "five_elements_palm",
@@ -658,7 +941,7 @@
         ]
       },
       "tier": "spell",
-      "description": "五行掌：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "五行掌：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -672,7 +955,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_search",
@@ -690,7 +984,7 @@
         ]
       },
       "tier": "spell",
-      "description": "搜魂术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "搜魂术：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。神魂手段，慎用。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -704,7 +998,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_seal",
@@ -722,7 +1029,7 @@
         ]
       },
       "tier": "spell",
-      "description": "封灵印：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "封灵印：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -736,7 +1043,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "demon_subdue",
@@ -754,7 +1072,7 @@
         ]
       },
       "tier": "spell",
-      "description": "伏魔印：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "伏魔印：misc派术法，属性倾向 buddhist。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -768,7 +1086,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "buddhist",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "buddhist",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_sword",
@@ -786,7 +1116,7 @@
         ]
       },
       "tier": "spell",
-      "description": "血剑术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "血剑术：misc派术法，属性倾向 blood。境界门槛 QI_REFINING，耗灵约 10。剑意锋锐。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -800,7 +1130,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "blood",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "blood",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "phantom_clone",
@@ -818,7 +1160,7 @@
         ]
       },
       "tier": "spell",
-      "description": "幻影分身：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "幻影分身：misc派术法，属性倾向 illusion。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -832,7 +1174,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "illusion",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "illusion",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sky_hook",
@@ -850,7 +1204,7 @@
         ]
       },
       "tier": "spell",
-      "description": "摄魂钩：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "摄魂钩：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。神魂手段，慎用。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -864,7 +1218,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ground_spike",
@@ -882,7 +1249,7 @@
         ]
       },
       "tier": "spell",
-      "description": "地刺阵：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "地刺阵：misc派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 10。借阵力。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -896,7 +1263,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "earth",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "lightning_chain",
@@ -914,7 +1293,7 @@
         ]
       },
       "tier": "spell",
-      "description": "连锁雷：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "连锁雷：misc派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 10。雷法震邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -928,7 +1307,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "thunder",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "thunder",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "frost_breath",
@@ -946,7 +1338,7 @@
         ]
       },
       "tier": "spell",
-      "description": "寒息：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "寒息：misc派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -960,7 +1352,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "ice",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "ice",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "molten_splash",
@@ -978,7 +1382,7 @@
         ]
       },
       "tier": "spell",
-      "description": "熔岩溅：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "熔岩溅：misc派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -992,7 +1396,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "fire",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_absorb",
@@ -1010,7 +1427,7 @@
         ]
       },
       "tier": "spell",
-      "description": "摄灵术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "摄灵术：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -1024,7 +1441,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "bone_armor",
@@ -1042,7 +1470,7 @@
         ]
       },
       "tier": "spell",
-      "description": "骨甲术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "骨甲术：misc派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -1056,7 +1484,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "yin",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "yin",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "star_fall",
@@ -1074,7 +1515,7 @@
         ]
       },
       "tier": "spell",
-      "description": "坠星术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "坠星术：misc派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -1088,7 +1529,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "void_slash",
@@ -1106,7 +1558,7 @@
         ]
       },
       "tier": "spell",
-      "description": "虚空斩：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "虚空斩：misc派术法，属性倾向 void。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -1120,7 +1572,19 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "void",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "void",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "heaven_punish",
@@ -1138,7 +1602,7 @@
         ]
       },
       "tier": "spell",
-      "description": "天罚术：misc法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "天罚术：misc派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 10。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -1152,7 +1616,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "thunder",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "thunder",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "beast_tame_call",
@@ -1160,11 +1637,11 @@
       "school": "misc",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "驭兽啸：misc法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "驭兽啸：misc派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "neutral",
         "damage_base": 37,
         "tags": [
           "misc"
@@ -1184,7 +1661,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_beast_contract",
@@ -1192,11 +1680,11 @@
       "school": "misc",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "灵兽契约术：misc法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "灵兽契约术：misc派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "neutral",
         "damage_base": 37,
         "tags": [
           "misc"
@@ -1216,16 +1704,27 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "void_rift_slash",
       "display": "裂隙斩",
       "school": "misc",
       "tier": "spell",
-      "realm_min": "VOID_REFINING",
+      "realm_min": "VOID_REFINEMENT",
       "element": "spatial",
-      "description": "裂隙斩：misc法术，需境界 VOID_REFINING 以上方可施展。",
+      "description": "裂隙斩：misc派术法，属性倾向 spatial。境界门槛 VOID_REFINEMENT，耗灵约 50。",
       "spirit_cost_base": 50,
       "effect": {
         "type": "beam",
@@ -1249,13 +1748,24 @@
           "manual_slip"
         ],
         "prerequisite_mode": "requires_method_if_set",
-        "realm_min": "VOID_REFINING",
+        "realm_min": "VOID_REFINEMENT",
         "spirit_roots": {
           "bonus": [
             "spatial"
           ]
         }
-      }
+      },
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "spatial",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "great_vehicle_palm",
@@ -1263,11 +1773,11 @@
       "school": "misc",
       "tier": "spell",
       "realm_min": "GREAT_VEHICLE",
-      "description": "大乘神掌：misc法术，需境界 GREAT_VEHICLE 以上方可施展。",
+      "description": "大乘神掌：misc派术法，属性倾向 neutral。境界门槛 GREAT_VEHICLE，耗灵约 58。",
       "spirit_cost_base": 58,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "neutral",
         "damage_base": 97,
         "tags": [
           "misc"
@@ -1287,7 +1797,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "GREAT_VEHICLE"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "defensive_pearl_light",
@@ -1295,11 +1816,11 @@
       "school": "misc",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "护体珠光：misc法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "护体珠光：misc派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "neutral",
         "damage_base": 49,
         "tags": [
           "misc"
@@ -1319,7 +1840,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "magnet_control",
@@ -1328,7 +1860,7 @@
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
       "element": "metal",
-      "description": "元磁控物：misc法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "元磁控物：misc派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 26。 常随功法「yuanci_shenguang_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "beam",
@@ -1358,7 +1890,27 @@
             "metal"
           ]
         }
-      }
+      },
+      "requires_method": "yuanci_shenguang_art",
+      "suggested_school_v123": "elemental",
+      "tags": [
+        "v124",
+        "yuanci",
+        "novel_canon",
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "metal",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "star_palace",
+      "path": "misc",
+      "alignment": "neutral",
+      "source_method": "yuanci_shenguang_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "nascent_soul_avatar",
@@ -1370,9 +1922,10 @@
         "tags": [
           "avatar",
           "soul"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "元婴暂离肉身，法力强增但肉身脆弱。",
+      "description": "元婴出窍：misc派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 34。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 34,
@@ -1391,7 +1944,17 @@
         "cannot_learn_if": [
           "no_nascent_soul"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "deity_transformation_domain",
@@ -1402,9 +1965,10 @@
         "type": "field",
         "tags": [
           "domain"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "小范围法则压制，属神通前置表现。",
+      "description": "化神领域：misc派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 42。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 42,
@@ -1421,7 +1985,17 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "DEITY_TRANSFORMATION"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "gold_devour_swarm",
@@ -1433,9 +2007,10 @@
         "tags": [
           "swarm",
           "metal_eater"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "驱使噬金虫啃噬敌方法宝灵光。",
+      "description": "噬金虫群：misc派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 26,
@@ -1460,19 +2035,30 @@
           "beast_taming_secret"
         ],
         "compliance": "噬金虫仿"
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "lingzu_pearl_barrage",
       "display": "灵珠连射",
       "school": "misc",
-      "realm_min": "SPIRIT_SEVERING",
+      "realm_min": "VOID_REFINEMENT",
       "requires_method": "lingzu_pearl_art",
       "effect": {
         "type": "projectile",
-        "damage_base": 100
+        "damage_base": 100,
+        "element": "neutral"
       },
-      "description": "灵珠连发。",
+      "description": "灵珠连射：misc派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 —。 常随功法「lingzu_pearl_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1488,14 +2074,25 @@
           "manual_slip"
         ],
         "prerequisite_mode": "all",
-        "realm_min": "SPIRIT_SEVERING",
+        "realm_min": "VOID_REFINEMENT",
         "prerequisite_methods": [
           "lingzu_pearl_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "source_method": "lingzu_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
-      "id": "inverse_star_veil",
+      "id": "inverse_star_veil_trace",
       "display": "逆星匿踪",
       "school": "misc",
       "realm_min": "FOUNDATION",
@@ -1518,7 +2115,26 @@
           "realm_min": "FOUNDATION",
           "quest": "inverse_star_contact"
         }
-      }
+      },
+      "notes_v123": "原 id 与 illusion.inverse_star_veil 冲突，v123 更名",
+      "faction_id": "inverse_star_alliance",
+      "tags": [
+        "chaotic_sea",
+        "v128",
+        "inverse_star",
+        "void",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "requires_method": "inverse_star_art",
+      "element": "void",
+      "path": "misc",
+      "alignment": "neutral",
+      "source_method": "inverse_star_art",
+      "v138_field_fill": true,
+      "description": "逆星匿踪：misc派术法，属性倾向 void。境界门槛 FOUNDATION，耗灵约 18。 常随功法「inverse_star_art」体系解锁。",
+      "v143_desc_polish": true
     },
     {
       "id": "star_palace_seal_burst",
@@ -1544,7 +2160,24 @@
           "realm_min": "FOUNDATION",
           "faction": "star_palace"
         }
-      }
+      },
+      "faction_id": "star_palace",
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "requires_method": "star_palace_art",
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "source_method": "star_palace_art",
+      "v138_field_fill": true,
+      "description": "星宫封灵爆：misc派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 24。 常随功法「star_palace_art」体系解锁。",
+      "v143_desc_polish": true
     },
     {
       "id": "treasure_appraisal_glimpse",
@@ -1559,20 +2192,36 @@
         "type": "inspect",
         "element": "neutral",
         "damage_base": 0,
-        "tags": ["treasure", "non_combat"]
+        "tags": [
+          "treasure",
+          "non_combat"
+        ]
       },
-      "description": "以神识扫过法器胚体，辨明大致品阶与是否藏煞，拍卖前常用。",
+      "description": "鉴宝灵光：misc派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。 常随功法「treasure_appraisal_art」体系解锁。",
       "setting": {
         "lore": "万宝楼学徒第一课：先看宝光，再谈价钱。",
         "combat_style": "非战斗"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
-        "prerequisite_methods": ["treasure_appraisal_art"]
-      }
+        "prerequisite_methods": [
+          "treasure_appraisal_art"
+        ]
+      },
+      "element": "neutral",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "misc",
+        "spell"
+      ],
+      "source_method": "treasure_appraisal_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
-      "id": "golden_armor_talisman_cast",
+      "id": "golden_armor_talisman_forge_cast",
       "display": "金刚护体符",
       "school": "misc",
       "realm_min": "FOUNDATION",
@@ -1584,16 +2233,95 @@
         "type": "buff",
         "element": "earth",
         "damage_base": 0,
-        "tags": ["talisman", "defense"]
+        "tags": [
+          "talisman",
+          "defense"
+        ]
       },
-      "description": "炼器宗门将护体符文炼入符纸，短时提升肉身与法器共鸣。",
+      "description": "金刚护体符：misc派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。符成而发。 常随功法「artifact_refining_basic」体系解锁。",
       "setting": {
         "lore": "天阙堡外门弟子护身标配，需炼器基础诀方可绘制。"
       },
       "learn_requirements": {
         "realm_min": "FOUNDATION",
-        "prerequisite_methods": ["artifact_refining_basic"]
-      }
+        "prerequisite_methods": [
+          "artifact_refining_basic"
+        ]
+      },
+      "notes_v123": "原 id 与 talisman 冲突；本条为炼器/misc 向",
+      "element": "earth",
+      "path": "misc",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "artifact_refining_basic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianque_forge_focus",
+      "display": "天阙锻意",
+      "school": "misc",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "炼器基础诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "craft",
+          "forge"
+        ]
+      },
+      "description": "天阙锻意：misc派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 8。 常随功法「artifact_refining_basic」体系解锁。",
+      "requires_method": "artifact_refining_basic",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "artifact_refining_basic"
+      },
+      "tags": [
+        "v127",
+        "tianque",
+        "craft",
+        "fire",
+        "misc",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼器专注，提升锻造成功率叙事。",
+        "v127": true,
+        "sect": "tianque_fort",
+        "track": null
+      },
+      "sect_id": "tianque_fort",
+      "element": "fire",
+      "path": "misc",
+      "alignment": "neutral",
+      "source_method": "artifact_refining_basic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

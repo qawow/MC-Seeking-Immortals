@@ -24,7 +24,7 @@
           "soul_damage"
         ]
       },
-      "description": "噬魂阴风：ghost法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "噬魂阴风：ghost派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 14。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
@@ -44,7 +44,20 @@
         "prerequisite_methods": [
           "yin_luo_ghost_art"
         ]
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_banner_wave",
@@ -62,7 +75,7 @@
           "banner"
         ]
       },
-      "description": "招魂幡浪：ghost法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "招魂幡浪：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 22。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
@@ -82,7 +95,20 @@
         "prerequisite_methods": [
           "yin_luo_ghost_art"
         ]
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_luo_ghost_cloak",
@@ -97,9 +123,10 @@
         "type": "buff",
         "tags": [
           "stealth_yin"
-        ]
+        ],
+        "element": "yin"
       },
-      "description": "阴罗鬼cloak：ghost法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "阴罗鬼cloak：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
@@ -119,7 +146,20 @@
         "prerequisite_methods": [
           "yin_luo_ghost_art"
         ]
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ghost_king_avatar",
@@ -134,9 +174,10 @@
         "type": "summon",
         "tags": [
           "ghost_king"
-        ]
+        ],
+        "element": "yin"
       },
-      "description": "鬼王化身：ghost神通，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "鬼王化身：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「yin_luo_ghost_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
@@ -158,7 +199,18 @@
           "yin_luo_ghost_art"
         ],
         "prerequisite_mode": "all"
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "secret"
+      ],
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "nether_ghost_walk",
@@ -173,9 +225,10 @@
         "type": "movement",
         "tags": [
           "nether"
-        ]
+        ],
+        "element": "yin"
       },
-      "description": "冥河鬼步：ghost法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "冥河鬼步：ghost派术法，属性倾向 yin。境界门槛 QI_REFINING，耗灵约 12。 常随功法「ghost_nether_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "阴魂尸鬼",
@@ -195,7 +248,20 @@
         "prerequisite_methods": [
           "ghost_nether_art"
         ]
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "ghost_nether_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ghost_walk",
@@ -204,7 +270,7 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "yin",
-      "description": "鬼步：ghost法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "鬼步：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「ghost_nether_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
@@ -240,7 +306,19 @@
             "yin"
           ]
         }
-      }
+      },
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "ghost_nether_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_body_condense",
@@ -249,7 +327,7 @@
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
       "element": "yin",
-      "description": "凝阴体：ghost法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "凝阴体：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 26。 常随功法「ghost_nether_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "beam",
@@ -285,7 +363,19 @@
             "yin"
           ]
         }
-      }
+      },
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "ghost_nether_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "guiling_corpse_summon",
@@ -297,9 +387,10 @@
         "type": "summon",
         "tags": [
           "corpse"
-        ]
+        ],
+        "element": "yin"
       },
-      "description": "驱使炼尸扑敌。",
+      "description": "唤尸术：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「guiling_soul_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -322,7 +413,718 @@
           }
         ],
         "karma": "demonic"
-      }
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "tags": [
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yinluo_banner_call",
+      "display": "阴罗召鬼",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 28,
+      "source": "阴罗鬼诀",
+      "effect": {
+        "type": "summon",
+        "element": "yin",
+        "damage_base": 30,
+        "tags": [
+          "ghost"
+        ]
+      },
+      "description": "阴罗召鬼：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 28。 常随功法「yin_luo_ghost_art」体系解锁。",
+      "setting": {
+        "combat_style": "阴罗宗法召阴鬼。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阴罗宗法召阴鬼。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yin_luo_ghost_art"
+      },
+      "requires_method": "yin_luo_ghost_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_ghost_intro",
+      "display": "鬼修入门锁",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 18
+      },
+      "description": "鬼修入门锁：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 16。 常随功法「sect_specialty_ghost」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_ghost"
+      },
+      "requires_method": "sect_specialty_ghost",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "sect_specialty_ghost",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_soul_hook",
+      "display": "鬼灵摄魂钩",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "鬼灵门",
+      "effect": {
+        "type": "soul_attack",
+        "element": "yin",
+        "damage_base": 38,
+        "tags": [
+          "soul"
+        ]
+      },
+      "description": "鬼灵摄魂钩：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 22。神魂手段，慎用。 常随功法「guiling_soul_art」体系解锁。",
+      "requires_method": "guiling_soul_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "guiling_soul_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "guiling_gate",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "鬼灵门入门摄魂。钩锁神识边缘，与大衍惊神刺不同源。",
+        "combat_style": "ghost",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "ghost",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_corpse_drive",
+      "display": "驱尸术",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "鬼灵门",
+      "effect": {
+        "type": "summon",
+        "element": "yin",
+        "damage_base": 28,
+        "tags": [
+          "corpse"
+        ]
+      },
+      "description": "驱尸术：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 20。 常随功法「guiling_soul_art」体系解锁。",
+      "requires_method": "guiling_soul_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "guiling_soul_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "guiling_gate",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "驱使炼尸作战。",
+        "combat_style": "ghost",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "ghost",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_yin_fire",
+      "display": "鬼灵阴火",
+      "school": "ghost",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "鬼灵门",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 48,
+        "tags": [
+          "fire",
+          "yin"
+        ]
+      },
+      "description": "鬼灵阴火：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 32。凝火杀伐。 常随功法「guiling_soul_art」体系解锁。",
+      "requires_method": "guiling_soul_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "guiling_soul_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "guiling_gate",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "阴火焚神魂。",
+        "combat_style": "ghost",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "ghost",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_soul_banner_wave",
+      "display": "摄魂幡浪",
+      "school": "ghost",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "鬼灵门",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 42,
+        "tags": [
+          "banner"
+        ]
+      },
+      "description": "摄魂幡浪：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。神魂手段，慎用。 常随功法「guiling_soul_art」体系解锁。",
+      "requires_method": "guiling_soul_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "guiling_soul_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "guiling_gate",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "幡面掀魂浪，范围压制。",
+        "combat_style": "ghost",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "ghost",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_corpse_burst_chain",
+      "display": "炼尸连环爆",
+      "school": "ghost",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 55,
+      "source": "鬼灵门",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 70,
+        "tags": [
+          "corpse",
+          "sacrifice"
+        ]
+      },
+      "description": "炼尸连环爆：ghost派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 55。 常随功法「guiling_soul_art」体系解锁。",
+      "requires_method": "guiling_soul_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "guiling_soul_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "guiling_gate",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "自爆炼尸链，高伤高耗。",
+        "combat_style": "ghost",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "ghost",
+      "source_method": "guiling_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yinluo_nine_soul",
+      "display": "阴罗九魂锁",
+      "school": "ghost",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "阴罗鬼诀",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 35
+      },
+      "description": "阴罗九魂锁：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 40。神魂手段，慎用。 常随功法「yin_luo_ghost_art」体系解锁。",
+      "requires_method": "yin_luo_ghost_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "yin_luo_ghost_art"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "九魂锁。",
+        "v129": true
+      },
+      "faction_id": "yinluo_zong",
+      "region": "dajin",
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yinluo_corpse_tide",
+      "display": "阴罗尸潮",
+      "school": "ghost",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 50,
+      "source": "阴罗鬼诀",
+      "effect": {
+        "type": "summon",
+        "element": "yin",
+        "damage_base": 48
+      },
+      "description": "阴罗尸潮：ghost派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 50。 常随功法「yin_luo_ghost_art」体系解锁。",
+      "requires_method": "yin_luo_ghost_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "yin_luo_ghost_art"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "尸潮。",
+        "v129": true
+      },
+      "faction_id": "yinluo_zong",
+      "region": "dajin",
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "yin_luo_ghost_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectgho2_v129_1",
+      "display": "鬼专·击",
+      "school": "ghost",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "ghost专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "鬼专·击：ghost派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「sect_specialty_ghost」体系解锁。",
+      "requires_method": "sect_specialty_ghost",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_ghost"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "鬼专补全第1式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "sect_specialty_ghost",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectgho2_v129_2",
+      "display": "鬼专·护",
+      "school": "ghost",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "ghost专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "鬼专·护：ghost派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 18。 常随功法「sect_specialty_ghost」体系解锁。",
+      "requires_method": "sect_specialty_ghost",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_ghost"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "鬼专补全第2式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "sect_specialty_ghost",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectgho2_v129_3",
+      "display": "鬼专·爆",
+      "school": "ghost",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "ghost专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "yin",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "鬼专·爆：ghost派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 24。 常随功法「sect_specialty_ghost」体系解锁。",
+      "requires_method": "sect_specialty_ghost",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_ghost"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "鬼专补全第3式。",
+        "v129": true
+      },
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "sect_specialty_ghost",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "reincarnation_soul_pull",
+      "display": "轮回摄魂",
+      "school": "ghost",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "轮回殿秘典",
+      "effect": {
+        "type": "soul_attack",
+        "element": "soul",
+        "damage_base": 55,
+        "tags": [
+          "reincarnation"
+        ]
+      },
+      "description": "轮回摄魂：ghost派术法，属性倾向 soul。境界门槛 TRUE_IMMORTAL，耗灵约 40。神魂手段，慎用。 常随功法「reincarnation_hall_art」体系解锁。",
+      "requires_method": "reincarnation_hall_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "reincarnation_hall_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "soul",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "摄魂入轮回边缘。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_reincarnation",
+        "faction": "reincarnation_hall",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "reincarnation_hall",
+      "law_type": "law_reincarnation",
+      "element": "soul",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "reincarnation_hall_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "gray_mist_veil",
+      "display": "灰界雾纱",
+      "school": "ghost",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "灰界冥渡诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "gray"
+        ]
+      },
+      "description": "灰界雾纱：ghost派术法，属性倾向 yin。境界门槛 GOLDEN_IMMORTAL，耗灵约 35。 常随功法「gray_realm_nether_art」体系解锁。",
+      "requires_method": "gray_realm_nether_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "gray_realm_nether_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灰雾隐匿。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "gray_realm",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "gray_realm",
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "gray_realm_nether_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "gray_soul_drain",
+      "display": "灰界抽魂",
+      "school": "ghost",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 45,
+      "source": "灰界冥渡诀",
+      "effect": {
+        "type": "drain",
+        "element": "soul",
+        "damage_base": 50,
+        "tags": [
+          "gray"
+        ]
+      },
+      "description": "灰界抽魂：ghost派术法，属性倾向 soul。境界门槛 GOLDEN_IMMORTAL，耗灵约 45。神魂手段，慎用。 常随功法「gray_realm_nether_art」体系解锁。",
+      "requires_method": "gray_realm_nether_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "gray_realm_nether_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "soul",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "抽魂。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "gray_realm",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "gray_realm",
+      "element": "soul",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "gray_realm_nether_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "gray_nether_domain",
+      "display": "灰冥域",
+      "school": "ghost",
+      "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+      "spirit_cost_base": 70,
+      "source": "灰界冥渡诀",
+      "effect": {
+        "type": "domain",
+        "element": "yin",
+        "damage_base": 65,
+        "tags": [
+          "gray",
+          "domain"
+        ]
+      },
+      "description": "灰冥域：ghost派术法，属性倾向 yin。境界门槛 TAIYI_GOLDEN_IMMORTAL，耗灵约 70。 常随功法「gray_realm_nether_art」体系解锁。",
+      "requires_method": "gray_realm_nether_art",
+      "learn_requirements": {
+        "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+        "requires_method": "gray_realm_nether_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "yin",
+        "ghost",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灰冥领域。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "gray_realm",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "gray_realm",
+      "element": "yin",
+      "path": "ghost",
+      "alignment": "ghost",
+      "source_method": "gray_realm_nether_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

@@ -17,7 +17,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "唤木傀：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "唤木傀：puppet派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 12。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -36,7 +36,20 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "wood",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "puppet",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_swarm",
@@ -53,7 +66,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "傀群术：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "傀群术：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -72,7 +85,19 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_self_destruct",
@@ -89,7 +114,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "傀爆：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "傀爆：puppet派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 30。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -108,7 +133,21 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "fire",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "puppet",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_thread_control",
@@ -125,7 +164,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "控灵丝：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "控灵丝：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 10。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -144,7 +183,19 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dayan_eye",
@@ -161,7 +212,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "大衍神眼：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "大衍神眼：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -180,7 +231,21 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "tags": [
+        "dayan",
+        "novel_canon",
+        "v124",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "iron_puppet",
@@ -197,7 +262,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "铁傀召：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "铁傀召：puppet派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 12。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -216,7 +281,20 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "metal",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "puppet",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "array_puppet",
@@ -233,7 +311,7 @@
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "阵傀：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "阵傀：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 19。借阵力。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -252,7 +330,19 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_control_basic",
@@ -265,10 +355,11 @@
         "type": "command",
         "tags": [
           "puppet"
-        ]
+        ],
+        "element": "neutral"
       },
       "tier": "spell",
-      "description": "控傀诀：puppet法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "控傀诀：puppet派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 5。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "requires_method": "dayan_art",
       "setting": {
         "combat_style": "傀儡作战",
@@ -288,7 +379,19 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_array_trap",
@@ -301,11 +404,12 @@
         "type": "trap",
         "tags": [
           "mechanism"
-        ]
+        ],
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "dayan_art",
-      "description": "机关阵术：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "机关阵术：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。借阵力。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "setting": {
         "combat_style": "傀儡作战",
         "cast_bias": "summon",
@@ -324,7 +428,19 @@
         "prerequisite_methods": [
           "dayan_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_swarm_command",
@@ -338,9 +454,10 @@
         "type": "summon",
         "tags": [
           "puppet_swarm"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "群傀号令：puppet神通，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "群傀号令：puppet派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 30。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "傀儡作战",
@@ -362,7 +479,18 @@
           "dayan_art"
         ],
         "prerequisite_mode": "all"
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "secret"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "beast_soul_puppet_bind",
@@ -376,9 +504,10 @@
         "type": "craft_gate",
         "tags": [
           "beast_puppet"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "兽魂傀绑：puppet法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "兽魂傀绑：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 22。神魂手段，慎用。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「yuling_beast_puppet_art」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "傀儡作战",
@@ -398,7 +527,19 @@
         "prerequisite_methods": [
           "yuling_beast_puppet_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "yuling_beast_puppet_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "puppet_summon_basic",
@@ -406,11 +547,11 @@
       "school": "puppet",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "唤傀术：puppet法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "唤傀术：puppet派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "neutral",
         "damage_base": 49,
         "tags": [
           "puppet"
@@ -439,7 +580,478 @@
           }
         ],
         "divine_sense_min": "above_average"
-      }
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayan_puppet_link",
+      "display": "大衍傀丝",
+      "school": "puppet",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "大衍诀",
+      "effect": {
+        "type": "command",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "dayan",
+          "puppet"
+        ]
+      },
+      "description": "大衍傀丝：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_art」体系解锁。",
+      "setting": {
+        "combat_style": "以大衍神识牵引傀儡，丝稳且远。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "以大衍神识牵引傀儡，丝稳且远。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dayan_art"
+      },
+      "requires_method": "dayan_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "dayan",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qianzhu_puppet_assemble",
+      "display": "千竹装配",
+      "school": "puppet",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "千竹傀儡术",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 10,
+        "tags": [
+          "puppet"
+        ]
+      },
+      "description": "千竹装配：puppet派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 15。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「qianzhu_puppet_art」体系解锁。",
+      "setting": {
+        "combat_style": "快速装配/激活千竹制式傀儡。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "快速装配/激活千竹制式傀儡。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qianzhu_puppet_art"
+      },
+      "requires_method": "qianzhu_puppet_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "qianzhu_puppet_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_puppet_intro",
+      "display": "傀修入门傀",
+      "school": "puppet",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 15
+      },
+      "description": "傀修入门傀：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「sect_specialty_puppet」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_puppet"
+      },
+      "requires_method": "sect_specialty_puppet",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_puppet",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayants2_v129_1",
+      "display": "大衍真·击",
+      "school": "puppet",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 12,
+      "source": "大衍真解",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "大衍真·击：puppet派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 12。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_true_solution」体系解锁。",
+      "requires_method": "dayan_true_solution",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dayan_true_solution"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "大衍真补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "dayan_true_solution",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayants2_v129_2",
+      "display": "大衍真·护",
+      "school": "puppet",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 18,
+      "source": "大衍真解",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "大衍真·护：puppet派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 18。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_true_solution」体系解锁。",
+      "requires_method": "dayan_true_solution",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "dayan_true_solution"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "大衍真补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "dayan_true_solution",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayants2_v129_3",
+      "display": "大衍真·爆",
+      "school": "puppet",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 24,
+      "source": "大衍真解",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "大衍真·爆：puppet派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 24。傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「dayan_true_solution」体系解锁。",
+      "requires_method": "dayan_true_solution",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "dayan_true_solution"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "大衍真补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "dayan_true_solution",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectpup2_v129_1",
+      "display": "傀专·击",
+      "school": "puppet",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "puppet专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "傀专·击：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「sect_specialty_puppet」体系解锁。",
+      "requires_method": "sect_specialty_puppet",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_puppet"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "傀专补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_puppet",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectpup2_v129_2",
+      "display": "傀专·护",
+      "school": "puppet",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "puppet专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "傀专·护：puppet派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 18。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「sect_specialty_puppet」体系解锁。",
+      "requires_method": "sect_specialty_puppet",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_puppet"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "傀专补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_puppet",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectpup2_v129_3",
+      "display": "傀专·爆",
+      "school": "puppet",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "puppet专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "傀专·爆：puppet派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 24。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「sect_specialty_puppet」体系解锁。",
+      "requires_method": "sect_specialty_puppet",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_puppet"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "lore": "傀专补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_puppet",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qianzhu_puppet_art_auto_3",
+      "display": "千竹傀儡术·式3",
+      "school": "puppet",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "千竹傀儡术",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "千竹傀儡术·式3：puppet派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「qianzhu_puppet_art」体系解锁。",
+      "requires_method": "qianzhu_puppet_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qianzhu_puppet_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "qianzhu_puppet_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yuling_beast_puppet_art_auto_3",
+      "display": "御灵兽傀诀·式3",
+      "school": "puppet",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "御灵兽傀诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "御灵兽傀诀·式3：puppet派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。驱傀作战。 傀儡术：驱核、破核、遥控；千竹塔与工坊友好。 常随功法「yuling_beast_puppet_art」体系解锁。",
+      "requires_method": "yuling_beast_puppet_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "yuling_beast_puppet_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "puppet",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "puppet",
+      "alignment": "neutral",
+      "source_method": "yuling_beast_puppet_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

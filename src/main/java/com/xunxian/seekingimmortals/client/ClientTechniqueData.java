@@ -18,15 +18,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+/**
+ * Client mirror for learned techniques / slots / cooldowns.
+ * M02: builtin summaries include the full text_material technique corpus (747).
+ */
 public final class ClientTechniqueData {
     public static final int SLOT_COUNT = 7;
-    private static final List<String> BUILTIN_FILES = List.of(
+    private static final List<String> BUILTIN_CULTIVATION_FILES = List.of(
             "qi_refining_techniques.json",
             "foundation_establishment_techniques.json",
             "core_formation_techniques.json",
             "nascent_soul_techniques.json",
             "spirit_transformation_plus_techniques.json",
             "special_common_techniques.json");
+    private static final List<String> TEXT_MATERIAL_TECHNIQUE_FILES = List.of(
+            "body", "buddhist", "confucian", "dao", "demon_path", "demonic", "divine_sense",
+            "elemental", "fashi", "formation", "ghost", "illusion", "misc", "movement",
+            "puppet", "recovery", "secret_arts", "sword", "talisman", "xuan_yin");
     private static final Map<String, TechniqueSummary> BUILTIN_SUMMARIES = loadBuiltInSummaries();
     private static List<String> learnedTechniques = List.of();
     private static List<String> techniqueSlots = emptySlots();
@@ -97,6 +105,10 @@ public final class ClientTechniqueData {
         return BUILTIN_SUMMARIES.getOrDefault(id, TechniqueSummary.fallback(id));
     }
 
+    public static int builtinSummaryCount() {
+        return BUILTIN_SUMMARIES.size();
+    }
+
     public static boolean canRelease(String id, ClientCultivationData.Snapshot data) {
         TechniqueSummary summary = getTechniqueSummary(id);
         return !isCoolingDown(id) && data.spiritualPower() >= summary.cost() && !data.severeInjury() && !data.shatteredCore();
@@ -137,7 +149,7 @@ public final class ClientTechniqueData {
     private static Map<String, TechniqueSummary> loadBuiltInSummaries() {
         Map<String, TechniqueSummary> summaries = new HashMap<>();
         ClassLoader loader = ClientTechniqueData.class.getClassLoader();
-        for (String filename : BUILTIN_FILES) {
+        for (String filename : BUILTIN_CULTIVATION_FILES) {
             String path = "data/" + SeekingImmortalsMod.MODID + "/cultivation/" + filename;
             try (InputStream stream = loader.getResourceAsStream(path)) {
                 if (stream == null) continue;
@@ -162,15 +174,54 @@ public final class ClientTechniqueData {
                 // Client tooltip data is best-effort; fallback summaries keep the HUD usable.
             }
         }
+        for (String stem : TEXT_MATERIAL_TECHNIQUE_FILES) {
+            String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/techniques/" + stem + ".json";
+            try (InputStream stream = loader.getResourceAsStream(path)) {
+                if (stream == null) continue;
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
+                    JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+                    JsonArray techniques = root.getAsJsonArray("techniques");
+                    if (techniques == null) continue;
+                    for (JsonElement element : techniques) {
+                        if (!element.isJsonObject()) continue;
+                        JsonObject object = element.getAsJsonObject();
+                        String id = getString(object, "id");
+                        if (id.isBlank()) continue;
+                        String display = getString(object, "display");
+                        if (display.isBlank()) display = getString(object, "name");
+                        String source = getString(object, "source");
+                        if (source.isBlank()) source = getString(object, "school");
+                        if (source.isBlank()) source = stem;
+                        String attribute = getString(object, "element");
+                        if (attribute.isBlank()) attribute = getString(object, "school");
+                        int cost = getInt(object, "spirit_cost_base",
+                                getInt(object, "cost", configuredCost(id, getString(object, "tier"), attribute)));
+                        int cooldown = getInt(object, "cooldown_ticks", configuredCooldown(id));
+                        // Corpus overwrites legacy cultivation summaries.
+                        summaries.put(id, new TechniqueSummary(
+                                id,
+                                valueOrFallback(display, id),
+                                valueOrFallback(source, stem),
+                                valueOrFallback(attribute, "common"),
+                                Math.max(1, cost),
+                                Math.max(20, cooldown)));
+                    }
+                }
+            } catch (Exception ignored) {
+                // best-effort
+            }
+        }
         return Map.copyOf(summaries);
     }
 
     private static String getString(JsonObject object, String key) {
-        return object.has(key) && !object.get(key).isJsonNull() ? object.get(key).getAsString() : "";
+        return object.has(key) && !object.get(key).isJsonNull() && object.get(key).isJsonPrimitive()
+                ? object.get(key).getAsString() : "";
     }
 
     private static int getInt(JsonObject object, String key, int fallback) {
-        return object.has(key) && !object.get(key).isJsonNull() ? Math.max(0, object.get(key).getAsInt()) : fallback;
+        return object.has(key) && !object.get(key).isJsonNull() && object.get(key).isJsonPrimitive()
+                ? Math.max(0, object.get(key).getAsInt()) : fallback;
     }
 
     private static String valueOrFallback(String value, String fallback) {
@@ -202,7 +253,7 @@ public final class ClientTechniqueData {
 
     private static SkillType skillTypeByTechniqueId(String id) {
         for (SkillType skillType : SkillType.values()) {
-            if (skillType.getTechniqueId().equals(id)) {
+            if (skillType.getTechniqueId() != null && skillType.getTechniqueId().equals(id)) {
                 return skillType;
             }
         }

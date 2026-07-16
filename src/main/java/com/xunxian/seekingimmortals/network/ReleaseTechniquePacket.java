@@ -10,7 +10,6 @@ import com.xunxian.seekingimmortals.skill.TalismanConsumePolicy;
 import com.xunxian.seekingimmortals.skill.TechniqueGateService;
 import com.xunxian.seekingimmortals.skill.effect.SkillContext;
 import com.xunxian.seekingimmortals.skill.effect.SkillEffect;
-import com.xunxian.seekingimmortals.skill.effect.SkillEffectRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -83,14 +82,27 @@ public record ReleaseTechniquePacket(int slot) {
                         SyncLearnedTechniquesPacket.send(player, cultivation);
                         return;
                     }
-                    SkillType skillType = SkillEffectRegistry.byTechniqueId(technique.id());
-                    if (skillType == null) {
-                        skillType = SkillEffectRegistry.byDisplayName(technique.name());
+                    SkillType skillType = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
+                            .resolveSkillType(technique);
+                    SkillEffect effect = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
+                            .resolve(technique);
+                    CultivationSkill skill = null;
+                    if (skillType != null) {
+                        skill = cultivation.getSkill(skillType);
+                        if (skill == null || !skill.isUnlocked()) {
+                            // Auto-unlock mapped SkillType when the technique itself is already learned.
+                            if (cultivation.hasLearnedTechnique(techniqueId)) {
+                                cultivation.unlockSkillForQuest(skillType);
+                                skill = cultivation.getSkill(skillType);
+                            }
+                        }
                     }
-                    SkillEffect effect = skillType == null ? null : SkillEffectRegistry.get(skillType);
-                    CultivationSkill skill = skillType == null ? null : cultivation.getSkill(skillType);
-                    // H4: effect 未注册或未解锁 → 拒绝释放，不扣费不冷却
-                    if (effect == null || skill == null || !skill.isUnlocked()) {
+                    if (skill == null || !skill.isUnlocked()) {
+                        // M02: abstract effect path for corpus techniques without SkillType.
+                        skill = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver.virtualSkill();
+                    }
+                    // H4: effect 未注册 → 拒绝释放，不扣费不冷却
+                    if (effect == null) {
                         player.displayClientMessage(
                                 Component.translatable("message.seeking_immortals.technique_release.effect_unavailable"), true);
                         SyncLearnedTechniquesPacket.send(player, cultivation);
@@ -150,7 +162,9 @@ public record ReleaseTechniquePacket(int slot) {
                     if (!cultivation.consumeSpiritualPower(cost)) {
                         return;
                     }
-                    cultivation.addSkillProficiency(skillType, 10);
+                    if (skillType != null) {
+                        cultivation.addSkillProficiency(skillType, 10);
+                    }
                     // Wave490/492: multi-cast practice + honest dual-cast extras.
                     if (cultivation.hasSkill(com.xunxian.seekingimmortals.skill.SkillType.MULTI_CASTING)) {
                         if (player.tickCount % 3 == 0) {
@@ -213,13 +227,22 @@ public record ReleaseTechniquePacket(int slot) {
             if (!gate.allowed()) {
                 continue;
             }
-            SkillType skillType = SkillEffectRegistry.byTechniqueId(technique.id());
-            if (skillType == null) {
-                skillType = SkillEffectRegistry.byDisplayName(technique.name());
+            SkillType skillType = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
+                    .resolveSkillType(technique);
+            SkillEffect effect = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver
+                    .resolve(technique);
+            CultivationSkill skill = null;
+            if (skillType != null) {
+                skill = cultivation.getSkill(skillType);
+                if ((skill == null || !skill.isUnlocked()) && cultivation.hasLearnedTechnique(techniqueId)) {
+                    cultivation.unlockSkillForQuest(skillType);
+                    skill = cultivation.getSkill(skillType);
+                }
             }
-            SkillEffect effect = skillType == null ? null : SkillEffectRegistry.get(skillType);
-            CultivationSkill skill = skillType == null ? null : cultivation.getSkill(skillType);
-            if (effect == null || skill == null || !skill.isUnlocked() || !effect.canExecute(player, cultivation)) {
+            if (skill == null || !skill.isUnlocked()) {
+                skill = com.xunxian.seekingimmortals.skill.effect.AbstractTechniqueEffectResolver.virtualSkill();
+            }
+            if (effect == null || !effect.canExecute(player, cultivation)) {
                 continue;
             }
             int cost = effect.getSpiritualPowerCost(skill.getLevel());
@@ -249,7 +272,9 @@ public record ReleaseTechniquePacket(int slot) {
             // Dual-cast secondary CD is slightly longer to prevent spam.
             cooldownTicks = Math.max(cooldownTicks, (int) Math.round(cooldownTicks * 1.15D));
             cultivation.setTechniqueCooldown(techniqueId, gameTime + cooldownTicks);
-            cultivation.addSkillProficiency(skillType, 6);
+            if (skillType != null) {
+                cultivation.addSkillProficiency(skillType, 6);
+            }
             fired++;
         }
         return fired;

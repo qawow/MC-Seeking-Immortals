@@ -67,6 +67,13 @@ public final class TechniqueGateService {
         if (!realm.allowed()) {
             return realm;
         }
+        // M02: secret/ultimate (神通/禁术) hard-require their declared realm on both learn and cast.
+        if (isHighTierArt(technique)) {
+            GateResult highTier = checkRealm(cultivation, technique);
+            if (!highTier.allowed()) {
+                return highTier;
+            }
+        }
         GateResult sect = checkSectHint(cultivation, technique);
         if (!sect.allowed()) {
             return sect;
@@ -86,6 +93,14 @@ public final class TechniqueGateService {
             }
         }
         return GateResult.ok();
+    }
+
+    private static boolean isHighTierArt(TechniqueDataManager.TechniqueEntry technique) {
+        String tier = technique.tier() == null ? "" : technique.tier().toLowerCase(Locale.ROOT);
+        String type = technique.effectType() == null ? "" : technique.effectType().toLowerCase(Locale.ROOT);
+        String blob = (technique.id() + " " + technique.source() + " " + technique.name()).toLowerCase(Locale.ROOT);
+        return tier.contains("secret") || type.contains("secret") || type.contains("ultimate")
+                || blob.contains("禁术") || blob.contains("神通") || blob.contains("forbidden");
     }
 
     /**
@@ -224,7 +239,10 @@ public final class TechniqueGateService {
      */
     private static GateResult checkMethod(ServerPlayer player, PlayerCultivation cultivation,
                                           TechniqueDataManager.TechniqueEntry technique) {
-        String method = REQUIRES_METHOD.getOrDefault(normalize(technique.id()), "");
+        String method = technique.requiresMethod() == null ? "" : normalize(technique.requiresMethod());
+        if (method.isBlank()) {
+            method = REQUIRES_METHOD.getOrDefault(normalize(technique.id()), "");
+        }
         if (method.isBlank()) {
             method = inferMethodFromBlob(technique);
         }
@@ -406,58 +424,69 @@ public final class TechniqueGateService {
                 "spirit_transformation_plus_techniques.json",
                 "special_common_techniques.json")) {
             String path = "data/" + SeekingImmortalsMod.MODID + "/cultivation/" + file;
-            try (InputStream stream = loader.getResourceAsStream(path)) {
-                if (stream == null) {
-                    continue;
+            loadRequiresMethodFromPath(loader, path, map, false);
+        }
+        // M02: full text_material technique corpus (20 school files) for requires_method.
+        for (String file : Set.of(
+                "body.json", "buddhist.json", "confucian.json", "dao.json", "demon_path.json",
+                "demonic.json", "divine_sense.json", "elemental.json", "fashi.json", "formation.json",
+                "ghost.json", "illusion.json", "misc.json", "movement.json", "puppet.json",
+                "recovery.json", "secret_arts.json", "sword.json", "talisman.json", "xuan_yin.json")) {
+            String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/techniques/" + file;
+            loadRequiresMethodFromPath(loader, path, map, true);
+        }
+        // Builtin TechniqueEntry.requiresMethod fills any residual gaps.
+        try {
+            for (TechniqueDataManager.TechniqueEntry entry : TechniqueDataManager.builtinTechniques().values()) {
+                if (entry != null && !entry.id().isBlank() && entry.requiresMethod() != null
+                        && !entry.requiresMethod().isBlank()) {
+                    map.putIfAbsent(normalize(entry.id()), normalize(entry.requiresMethod()));
                 }
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-                    JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-                    JsonArray techniques = root.getAsJsonArray("techniques");
-                    if (techniques == null) {
+            }
+        } catch (Throwable ignored) {
+            // optional during early class init
+        }
+        return Map.copyOf(map);
+    }
+
+    private static void loadRequiresMethodFromPath(ClassLoader loader, String path,
+                                                   Map<String, String> map, boolean putIfAbsent) {
+        try (InputStream stream = loader.getResourceAsStream(path)) {
+            if (stream == null) {
+                return;
+            }
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
+                JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
+                JsonArray techniques = root.getAsJsonArray("techniques");
+                if (techniques == null) {
+                    return;
+                }
+                for (JsonElement element : techniques) {
+                    if (!element.isJsonObject()) {
                         continue;
                     }
-                    for (JsonElement element : techniques) {
-                        JsonObject object = element.getAsJsonObject();
-                        String id = object.has("id") && !object.get("id").isJsonNull() ? object.get("id").getAsString() : "";
-                        String method = object.has("requires_method") && !object.get("requires_method").isJsonNull()
-                                ? object.get("requires_method").getAsString() : "";
-                        if (!id.isBlank() && !method.isBlank()) {
+                    JsonObject object = element.getAsJsonObject();
+                    String id = object.has("id") && !object.get("id").isJsonNull() ? object.get("id").getAsString() : "";
+                    String method = "";
+                    if (object.has("requires_method") && !object.get("requires_method").isJsonNull()
+                            && object.get("requires_method").isJsonPrimitive()) {
+                        method = object.get("requires_method").getAsString();
+                    } else if (object.has("source_method") && !object.get("source_method").isJsonNull()
+                            && object.get("source_method").isJsonPrimitive()) {
+                        method = object.get("source_method").getAsString();
+                    }
+                    if (!id.isBlank() && !method.isBlank()) {
+                        if (putIfAbsent) {
+                            map.putIfAbsent(normalize(id), normalize(method));
+                        } else {
                             map.put(normalize(id), normalize(method));
                         }
                     }
                 }
-            } catch (Exception exception) {
-                SeekingImmortalsMod.LOGGER.warn("Failed to load technique method gates from {}", path, exception);
             }
+        } catch (Exception exception) {
+            SeekingImmortalsMod.LOGGER.warn("Failed to load technique method gates from {}", path, exception);
         }
-        // Text-material demonic/formation high-value ids as fallback.
-        for (String file : Set.of("demonic.json", "formation.json", "ghost.json", "illusion.json")) {
-            String path = "data/" + SeekingImmortalsMod.MODID + "/text_material/techniques/" + file;
-            try (InputStream stream = loader.getResourceAsStream(path)) {
-                if (stream == null) {
-                    continue;
-                }
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-                    JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
-                    JsonArray techniques = root.getAsJsonArray("techniques");
-                    if (techniques == null) {
-                        continue;
-                    }
-                    for (JsonElement element : techniques) {
-                        JsonObject object = element.getAsJsonObject();
-                        String id = object.has("id") && !object.get("id").isJsonNull() ? object.get("id").getAsString() : "";
-                        String method = object.has("requires_method") && !object.get("requires_method").isJsonNull()
-                                ? object.get("requires_method").getAsString() : "";
-                        if (!id.isBlank() && !method.isBlank()) {
-                            map.putIfAbsent(normalize(id), normalize(method));
-                        }
-                    }
-                }
-            } catch (Exception exception) {
-                SeekingImmortalsMod.LOGGER.warn("Failed to load text-material method gates from {}", path, exception);
-            }
-        }
-        return Map.copyOf(map);
     }
 
     private static Map<String, String> buildMethodHomeSects() {

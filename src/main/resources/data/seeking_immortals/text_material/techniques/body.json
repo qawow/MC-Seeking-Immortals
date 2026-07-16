@@ -16,7 +16,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "金刚诀：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "金刚诀：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -36,7 +36,20 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "iron_skin",
@@ -52,7 +65,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "铁肤术：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "铁肤术：body派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -72,7 +85,20 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "metal",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "metal",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dragon_strength",
@@ -88,7 +114,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "龙力诀：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "龙力诀：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -108,7 +134,20 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "palm_wind",
@@ -124,7 +163,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "掌风：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "掌风：body派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -144,7 +183,20 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "wind",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "wind",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "body_flash",
@@ -160,7 +212,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "身闪：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "身闪：body派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 10。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -180,7 +232,19 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "bone_crush",
@@ -196,7 +260,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "碎骨拳：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "碎骨拳：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 16。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -216,7 +280,20 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "qi_burst_palm",
@@ -232,7 +309,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "气爆掌：body法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "气爆掌：body派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "requires_method": "tianmo_body_art",
       "setting": {
         "cultivation_type": "body",
@@ -252,7 +329,19 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "body_hardness",
@@ -260,11 +349,11 @@
       "school": "body",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "金刚不坏：body法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "金刚不坏：body派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 26。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "earth",
         "damage_base": 49,
         "tags": [
           "body"
@@ -290,19 +379,32 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "barbarian_roar",
       "display": "蛮荒咆哮",
       "school": "body",
       "tier": "spell",
-      "realm_min": "VOID_REFINING",
-      "description": "蛮荒咆哮：body法术，需境界 VOID_REFINING 以上方可施展。",
+      "realm_min": "VOID_REFINEMENT",
+      "description": "蛮荒咆哮：body派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 50。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "spirit_cost_base": 50,
       "effect": {
         "type": "beam",
-        "element": null,
+        "element": "earth",
         "damage_base": 85,
         "tags": [
           "body"
@@ -324,11 +426,24 @@
           "manual_slip"
         ],
         "prerequisite_mode": "all",
-        "realm_min": "VOID_REFINING",
+        "realm_min": "VOID_REFINEMENT",
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "tianmo_blood_armor",
@@ -341,9 +456,10 @@
         "tags": [
           "defense",
           "demonic"
-        ]
+        ],
+        "element": "earth"
       },
-      "description": "血祭化甲，短时大幅提升物防。",
+      "description": "天魔血甲：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。耗血换力。 体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -365,7 +481,1823 @@
         "prerequisite_methods": [
           "tianmo_body_art"
         ]
-      }
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mingwang_body_harden",
+      "display": "明王金身（初）",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 25,
+      "source": "明王决",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "明王金身（初）：body派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 25。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「mingwang_jue」体系解锁。",
+      "setting": {
+        "combat_style": "明王决肉身硬化，抗普攻法宝。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "明王决肉身硬化，抗普攻法宝。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "mingwang_jue"
+      },
+      "requires_method": "mingwang_jue",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "mingwang_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fansheng_golden_body",
+      "display": "梵圣金身",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 60,
+      "source": "梵圣真魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "body",
+          "golden"
+        ]
+      },
+      "description": "梵圣金身：body派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 60。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「fansheng_zhenmogong」体系解锁。",
+      "setting": {
+        "combat_style": "梵圣真魔功金身态。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "梵圣真魔功金身态。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "fansheng_zhenmogong"
+      },
+      "requires_method": "fansheng_zhenmogong",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "fansheng_zhenmogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "baipulse_weaponize",
+      "display": "百脉兵骨",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 40,
+      "source": "百脉炼宝诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "百脉兵骨：body派术法，属性倾向 metal。境界门槛 VOID_REFINEMENT，耗灵约 40。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「baipulse_lianbao_jue」体系解锁。",
+      "setting": {
+        "combat_style": "骨骼法宝化，拳脚带宝光。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "骨骼法宝化，拳脚带宝光。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "baipulse_lianbao_jue"
+      },
+      "requires_method": "baipulse_lianbao_jue",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "metal",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "baipulse_lianbao_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "cuigu_strengthen",
+      "display": "淬骨强化",
+      "school": "body",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 20,
+      "source": "淬骨决",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "淬骨强化：body派术法，属性倾向 earth。境界门槛 DEITY_TRANSFORMATION，耗灵约 20。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「cuigu_jue」体系解锁。",
+      "setting": {
+        "combat_style": "淬骨决力气与骨强。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "淬骨决力气与骨强。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "cuigu_jue"
+      },
+      "requires_method": "cuigu_jue",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "cuigu_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "border_guard_stance",
+      "display": "守边罡",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 15,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "守边罡：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 15。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiannan_border_guard_art」体系解锁。",
+      "setting": {
+        "combat_style": "天南守边",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "天南守边",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tiannan_border_guard_art"
+      },
+      "requires_method": "tiannan_border_guard_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiannan_border_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "barbarian_roar_art",
+      "display": "蛮荒怒吼",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 35,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "debuff",
+        "element": "earth",
+        "damage_base": 20
+      },
+      "description": "蛮荒怒吼：body派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 35。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「barbarian_body_art」体系解锁。",
+      "setting": {
+        "combat_style": "蛮荒炼体",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "蛮荒炼体",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "barbarian_body_art"
+      },
+      "requires_method": "barbarian_body_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "barbarian_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingwu_iron_skin",
+      "display": "灵武铁皮",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "灵武铁皮：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「lingwu_sect_art」体系解锁。",
+      "setting": {
+        "combat_style": "灵武炼体",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "灵武炼体",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lingwu_sect_art"
+      },
+      "requires_method": "lingwu_sect_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "lingwu_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tiansha_prison_force",
+      "display": "天煞镇狱劲",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 70,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "melee",
+        "element": "yin",
+        "damage_base": 85
+      },
+      "description": "天煞镇狱劲：body派术法，属性倾向 yin。境界门槛 BODY_INTEGRATION，耗灵约 70。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiansha_zhenyu_gong」体系解锁。",
+      "setting": {
+        "combat_style": "天煞镇狱",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "天煞镇狱",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "tiansha_zhenyu_gong"
+      },
+      "requires_method": "tiansha_zhenyu_gong",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "yin",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiansha_zhenyu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuzang_mana_well",
+      "display": "五藏法泉",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 0,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "五藏法泉：body派术法，属性倾向 neutral。境界门槛 BODY_INTEGRATION，耗灵约 0。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「wuzang_duanyuan_gong」体系解锁。",
+      "setting": {
+        "combat_style": "五藏锻元",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "五藏锻元",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "wuzang_duanyuan_gong"
+      },
+      "requires_method": "wuzang_duanyuan_gong",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "wuzang_duanyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_body_intro",
+      "display": "体修入门劲",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 10,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "melee",
+        "element": "earth",
+        "damage_base": 20
+      },
+      "description": "体修入门劲：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 10。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「sect_specialty_body」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_body"
+      },
+      "requires_method": "sect_specialty_body",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_body",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_iron_demon_skin",
+      "display": "天魔铁肤",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "天魔宗",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "天魔铁肤：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "earth",
+        "tianmo_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔体硬化。",
+        "combat_style": "body",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "earth",
+      "path": "tianmo_sect",
+      "alignment": "neutral",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianmo_body_rebuild",
+      "display": "天魔炼体",
+      "school": "body",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "天魔宗",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "天魔炼体：body派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 30。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianmo_body_art」体系解锁。",
+      "requires_method": "tianmo_body_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianmo_body_art"
+      },
+      "tags": [
+        "v125",
+        "six_sects",
+        "yin",
+        "tianmo_sect",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短期提升体魄抗性。",
+        "combat_style": "body",
+        "six_sect": "tianmo_sect",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "tianmo_sect",
+      "element": "yin",
+      "path": "tianmo_sect",
+      "alignment": "neutral",
+      "source_method": "tianmo_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianque_bastion_guard",
+      "display": "天阙堡罡",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "天阙堡",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "defense"
+        ]
+      },
+      "description": "天阙堡罡：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 16。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianque_fort_art」体系解锁。",
+      "requires_method": "tianque_fort_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianque_fort_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "tianque_fort",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "守城厚罡。",
+        "v126": true,
+        "seven_sect": "tianque_fort"
+      },
+      "seven_sect_id": "tianque_fort",
+      "element": "earth",
+      "path": "tianque_fort",
+      "alignment": "neutral",
+      "source_method": "tianque_fort_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianque_shield_bash",
+      "display": "天阙盾击",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "天阙堡",
+      "effect": {
+        "type": "melee",
+        "element": "earth",
+        "damage_base": 34,
+        "tags": [
+          "defense"
+        ]
+      },
+      "description": "天阙盾击：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。守御为主。 体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianque_fort_art」体系解锁。",
+      "requires_method": "tianque_fort_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianque_fort_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "tianque_fort",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "盾击反击。",
+        "v126": true,
+        "seven_sect": "tianque_fort"
+      },
+      "seven_sect_id": "tianque_fort",
+      "element": "earth",
+      "path": "tianque_fort",
+      "alignment": "neutral",
+      "source_method": "tianque_fort_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_iron_palm",
+      "display": "天澜铁掌",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "天澜降魔功",
+      "effect": {
+        "type": "melee",
+        "element": "earth",
+        "damage_base": 34,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "天澜铁掌：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 16。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianlan_temple_vajra_art」体系解锁。",
+      "requires_method": "tianlan_temple_vajra_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianlan_temple_vajra_art"
+      },
+      "tags": [
+        "v127",
+        "tianlan",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼体近战。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tianlan_temple_vajra_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mingwang_layer2",
+      "display": "明王金身·二",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 30,
+      "source": "明王决",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "明王金身·二：body派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 30。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「mingwang_jue」体系解锁。",
+      "requires_method": "mingwang_jue",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "mingwang_jue"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "明王二层。",
+        "v129": true
+      },
+      "faction_id": "dajin_feng",
+      "region": "dajin",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "mingwang_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mingwang_layer3",
+      "display": "明王金身·三",
+      "school": "body",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 40,
+      "source": "明王决",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "明王金身·三：body派术法，属性倾向 earth。境界门槛 DEITY_TRANSFORMATION，耗灵约 40。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「mingwang_jue」体系解锁。",
+      "requires_method": "mingwang_jue",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "mingwang_jue"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "明王三层。",
+        "v129": true
+      },
+      "faction_id": "dajin_feng",
+      "region": "dajin",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "mingwang_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mingwang_vajra_strike",
+      "display": "明王杵击",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 35,
+      "source": "明王决",
+      "effect": {
+        "type": "melee",
+        "element": "light",
+        "damage_base": 55
+      },
+      "description": "明王杵击：body派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 35。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「mingwang_jue」体系解锁。",
+      "requires_method": "mingwang_jue",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "mingwang_jue"
+      },
+      "tags": [
+        "v129",
+        "light",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金身近战。",
+        "v129": true
+      },
+      "faction_id": "dajin_feng",
+      "region": "dajin",
+      "element": "light",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "mingwang_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fansheng_nirvana_flash",
+      "display": "梵圣涅槃闪",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 50,
+      "source": "梵圣真魔功",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "梵圣涅槃闪：body派术法，属性倾向 neutral。境界门槛 VOID_REFINEMENT，耗灵约 50。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「fansheng_zhenmogong」体系解锁。",
+      "requires_method": "fansheng_zhenmogong",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "fansheng_zhenmogong"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "setting": {
+        "lore": "涅槃闪。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "fansheng_zhenmogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "fansheng_magic_fist",
+      "display": "梵圣魔拳",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 45,
+      "source": "梵圣真魔功",
+      "effect": {
+        "type": "melee",
+        "element": "yin",
+        "damage_base": 70
+      },
+      "description": "梵圣魔拳：body派术法，属性倾向 yin。境界门槛 VOID_REFINEMENT，耗灵约 45。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「fansheng_zhenmogong」体系解锁。",
+      "requires_method": "fansheng_zhenmogong",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "fansheng_zhenmogong"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "魔拳。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "yin",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "fansheng_zhenmogong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "baipulse_sword_bone",
+      "display": "百脉剑骨",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 40,
+      "source": "百脉炼宝诀",
+      "effect": {
+        "type": "melee",
+        "element": "metal",
+        "damage_base": 65
+      },
+      "description": "百脉剑骨：body派术法，属性倾向 metal。境界门槛 VOID_REFINEMENT，耗灵约 40。剑意锋锐。 体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「baipulse_lianbao_jue」体系解锁。",
+      "requires_method": "baipulse_lianbao_jue",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "baipulse_lianbao_jue"
+      },
+      "tags": [
+        "v129",
+        "metal",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "剑骨。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "metal",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "baipulse_lianbao_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "baipulse_full_armor",
+      "display": "百脉通宝铠",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 55,
+      "source": "百脉炼宝诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0
+      },
+      "description": "百脉通宝铠：body派术法，属性倾向 metal。境界门槛 BODY_INTEGRATION，耗灵约 55。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「baipulse_lianbao_jue」体系解锁。",
+      "requires_method": "baipulse_lianbao_jue",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "baipulse_lianbao_jue"
+      },
+      "tags": [
+        "v129",
+        "metal",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "通铠。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "metal",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "baipulse_lianbao_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuzang_overflow",
+      "display": "五藏溢法",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 30,
+      "source": "五藏锻元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "五藏溢法：body派术法，属性倾向 neutral。境界门槛 BODY_INTEGRATION，耗灵约 30。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「wuzang_duanyuan_gong」体系解锁。",
+      "requires_method": "wuzang_duanyuan_gong",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "wuzang_duanyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "setting": {
+        "lore": "溢法。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "wuzang_duanyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuzang_organ_shield",
+      "display": "五藏器盾",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 35,
+      "source": "五藏锻元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "五藏器盾：body派术法，属性倾向 earth。境界门槛 BODY_INTEGRATION，耗灵约 35。守御为主。 体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「wuzang_duanyuan_gong」体系解锁。",
+      "requires_method": "wuzang_duanyuan_gong",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "wuzang_duanyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "器盾。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "wuzang_duanyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tiansha_xuanqiao_open",
+      "display": "天煞玄窍",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 50,
+      "source": "天煞镇狱功",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0
+      },
+      "description": "天煞玄窍：body派术法，属性倾向 yin。境界门槛 BODY_INTEGRATION，耗灵约 50。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiansha_zhenyu_gong」体系解锁。",
+      "requires_method": "tiansha_zhenyu_gong",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "tiansha_zhenyu_gong"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄窍。",
+        "v129": true
+      },
+      "region": "mojie",
+      "element": "yin",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiansha_zhenyu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tiansha_prison_domain",
+      "display": "天煞狱域",
+      "school": "body",
+      "realm_min": "GREAT_VEHICLE",
+      "spirit_cost_base": 70,
+      "source": "天煞镇狱功",
+      "effect": {
+        "type": "field",
+        "element": "yin",
+        "damage_base": 60
+      },
+      "description": "天煞狱域：body派术法，属性倾向 yin。境界门槛 GREAT_VEHICLE，耗灵约 70。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiansha_zhenyu_gong」体系解锁。",
+      "requires_method": "tiansha_zhenyu_gong",
+      "learn_requirements": {
+        "realm_min": "GREAT_VEHICLE",
+        "requires_method": "tiansha_zhenyu_gong"
+      },
+      "tags": [
+        "v129",
+        "yin",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "狱域。",
+        "v129": true
+      },
+      "region": "mojie",
+      "element": "yin",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiansha_zhenyu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianyuan_guard_stance",
+      "display": "天渊卫姿态",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 25,
+      "source": "天渊守城诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0
+      },
+      "description": "天渊卫姿态：body派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 25。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tianyuan_guard_art」体系解锁。",
+      "requires_method": "tianyuan_guard_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "tianyuan_guard_art"
+      },
+      "tags": [
+        "v129",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "卫姿。",
+        "v129": true
+      },
+      "faction_id": "tianyuan",
+      "region": "lingjie",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tianyuan_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "border2_v129_1",
+      "display": "守边·击",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "天南守边诀",
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "守边·击：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiannan_border_guard_art」体系解锁。",
+      "requires_method": "tiannan_border_guard_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tiannan_border_guard_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "守边补全第1式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiannan_border_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "border2_v129_2",
+      "display": "守边·护",
+      "school": "body",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "天南守边诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "守边·护：body派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 18。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiannan_border_guard_art」体系解锁。",
+      "requires_method": "tiannan_border_guard_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tiannan_border_guard_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "守边补全第2式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiannan_border_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "border2_v129_3",
+      "display": "守边·爆",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "天南守边诀",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "守边·爆：body派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 24。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「tiannan_border_guard_art」体系解锁。",
+      "requires_method": "tiannan_border_guard_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tiannan_border_guard_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "守边补全第3式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "tiannan_border_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "barb2_v129_1",
+      "display": "蛮荒·击",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 12,
+      "source": "蛮荒炼体诀",
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "蛮荒·击：body派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「barbarian_body_art」体系解锁。",
+      "requires_method": "barbarian_body_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "barbarian_body_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "蛮荒补全第1式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "barbarian_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "barb2_v129_2",
+      "display": "蛮荒·护",
+      "school": "body",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 18,
+      "source": "蛮荒炼体诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "蛮荒·护：body派术法，属性倾向 earth。境界门槛 VOID_REFINEMENT，耗灵约 18。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「barbarian_body_art」体系解锁。",
+      "requires_method": "barbarian_body_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "barbarian_body_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "蛮荒补全第2式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "barbarian_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "barb2_v129_3",
+      "display": "蛮荒·爆",
+      "school": "body",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 24,
+      "source": "蛮荒炼体诀",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "蛮荒·爆：body派术法，属性倾向 earth。境界门槛 BODY_INTEGRATION，耗灵约 24。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「barbarian_body_art」体系解锁。",
+      "requires_method": "barbarian_body_art",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "barbarian_body_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "蛮荒补全第3式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "barbarian_body_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingwu2_v129_1",
+      "display": "灵武·击",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "灵武门炼体诀",
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵武·击：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「lingwu_sect_art」体系解锁。",
+      "requires_method": "lingwu_sect_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lingwu_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵武补全第1式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "lingwu_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingwu2_v129_2",
+      "display": "灵武·护",
+      "school": "body",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "灵武门炼体诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵武·护：body派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 18。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「lingwu_sect_art」体系解锁。",
+      "requires_method": "lingwu_sect_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "lingwu_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵武补全第2式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "lingwu_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingwu2_v129_3",
+      "display": "灵武·爆",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "灵武门炼体诀",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵武·爆：body派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 24。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「lingwu_sect_art」体系解锁。",
+      "requires_method": "lingwu_sect_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "lingwu_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵武补全第3式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "lingwu_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectbod2_v129_1",
+      "display": "体专·击",
+      "school": "body",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "body专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "体专·击：body派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 12。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「sect_specialty_body」体系解锁。",
+      "requires_method": "sect_specialty_body",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_body"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "体专补全第1式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_body",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectbod2_v129_2",
+      "display": "体专·护",
+      "school": "body",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "body专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "体专·护：body派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 18。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「sect_specialty_body」体系解锁。",
+      "requires_method": "sect_specialty_body",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_body"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "体专补全第2式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_body",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sectbod2_v129_3",
+      "display": "体专·爆",
+      "school": "body",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "body专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "体专·爆：body派术法，属性倾向 earth。境界门槛 NASCENT_SOUL，耗灵约 24。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「sect_specialty_body」体系解锁。",
+      "requires_method": "sect_specialty_body",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_body"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "体专补全第3式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_body",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "cuigu_jue_auto_2",
+      "display": "淬骨决·式2",
+      "school": "body",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 14,
+      "source": "淬骨决",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "淬骨决·式2：body派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 14。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「cuigu_jue」体系解锁。",
+      "requires_method": "cuigu_jue",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "cuigu_jue"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "cuigu_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "cuigu_jue_auto_3",
+      "display": "淬骨决·式3",
+      "school": "body",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 20,
+      "source": "淬骨决",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "淬骨决·式3：body派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 20。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「cuigu_jue」体系解锁。",
+      "requires_method": "cuigu_jue",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "cuigu_jue"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "body",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "cuigu_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "immortal_body_harden",
+      "display": "仙体淬",
+      "school": "body",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "仙体金身诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "仙体淬：body派术法，属性倾向 earth。境界门槛 TRUE_IMMORTAL，耗灵约 30。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「body_immortal_golden_art」体系解锁。",
+      "requires_method": "body_immortal_golden_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "body_immortal_golden_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "仙体硬化。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "body_immortal_golden_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "immortal_body_fist",
+      "display": "仙体崩拳",
+      "school": "body",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "仙体金身诀",
+      "effect": {
+        "type": "melee",
+        "element": "earth",
+        "damage_base": 70,
+        "tags": [
+          "body"
+        ]
+      },
+      "description": "仙体崩拳：body派术法，属性倾向 earth。境界门槛 GOLDEN_IMMORTAL，耗灵约 40。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「body_immortal_golden_art」体系解锁。",
+      "requires_method": "body_immortal_golden_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "body_immortal_golden_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "earth",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "近战崩拳。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "earth",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "body_immortal_golden_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "immortal_golden_avatar",
+      "display": "仙金身",
+      "school": "body",
+      "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+      "spirit_cost_base": 55,
+      "source": "仙体金身诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": [
+          "body",
+          "golden"
+        ]
+      },
+      "description": "仙金身：body派术法，属性倾向 metal。境界门槛 TAIYI_GOLDEN_IMMORTAL，耗灵约 55。体修：横练、爆发、抗击；与魔功体修有重叠风险。 常随功法「body_immortal_golden_art」体系解锁。",
+      "requires_method": "body_immortal_golden_art",
+      "learn_requirements": {
+        "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+        "requires_method": "body_immortal_golden_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "metal",
+        "body",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金身态。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "element": "metal",
+      "path": "body",
+      "alignment": "neutral",
+      "source_method": "body_immortal_golden_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v143": true
 }

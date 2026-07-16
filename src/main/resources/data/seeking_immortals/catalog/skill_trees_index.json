@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "source": "m02_skill_trees",
   "trees": [
     {
       "id": "sword_qingyuan",
@@ -9,27 +10,27 @@
     {
       "id": "ghost_xuan_yin",
       "display": "鬼修·玄阴",
-      "layer": "ghost_nether_art"
+      "layer": ""
     },
     {
       "id": "talisman_tianfu",
       "display": "天符制符",
-      "layer": "tianfu_spirit_scripture"
+      "layer": ""
     },
     {
       "id": "fashi_mulan",
       "display": "慕兰法士灵术",
-      "layer": "mulan_wind_spirit_art"
+      "layer": ""
     },
     {
       "id": "alchemy_huangfeng",
       "display": "黄枫丹道",
-      "layer": "changchun_gong"
+      "layer": ""
     },
     {
       "id": "puppet_dayan",
       "display": "大衍傀儡",
-      "layer": "dayan_art"
+      "layer": ""
     },
     {
       "id": "blade_huadao",
@@ -44,17 +45,17 @@
     {
       "id": "beast_lingshou",
       "display": "灵兽驭兽",
-      "layer": "lingshou_beast_mind_art"
+      "layer": ""
     },
     {
       "id": "star_palace_sea",
       "display": "星宫镇海",
-      "layer": "star_palace_art"
+      "layer": ""
     },
     {
       "id": "inverse_star",
       "display": "逆星秘法",
-      "layer": "inverse_star_art"
+      "layer": ""
     },
     {
       "id": "elemental_five",
@@ -64,7 +65,7 @@
     {
       "id": "illusion_yanyue",
       "display": "掩月幻阵",
-      "layer": "yanyue_illusion_art"
+      "layer": ""
     },
     {
       "id": "blade_giant_sword",
@@ -74,372 +75,372 @@
     {
       "id": "puppet_qianzhu",
       "display": "千竹傀儡",
-      "layer": "qianzhu_puppet_art"
+      "layer": ""
     },
     {
       "id": "puppet_yuling",
       "display": "御灵兽傀",
-      "layer": "yuling_beast_puppet_art"
+      "layer": ""
     },
     {
       "id": "demonic_guiling",
       "display": "鬼灵摄魂",
-      "layer": "guiling_soul_art"
+      "layer": ""
     },
     {
       "id": "demonic_hehuan",
       "display": "合欢媚术",
-      "layer": "hehuan_mind_art"
+      "layer": ""
     },
     {
       "id": "demonic_tianmo",
       "display": "天魔战体",
-      "layer": "tianmo_body_art"
+      "layer": ""
     },
     {
       "id": "ascension_tianyuan",
       "display": "天渊戍边",
-      "layer": "changchun_gong"
+      "layer": ""
     },
     {
       "id": "yin_cluster_ghost",
       "display": "阴司鬼修",
-      "layer": "ghost_nether_art"
+      "layer": ""
     },
     {
       "id": "inverse_star_covert",
       "display": "逆星秘行",
-      "layer": "inverse_star_art"
+      "layer": ""
     },
     {
       "id": "yin_luo_ghost",
       "display": "阴罗鬼术",
-      "layer": "yin_luo_ghost_art"
+      "layer": ""
     },
     {
       "id": "hehuan_dual",
       "display": "hehuan_sect道途",
-      "layer": "hehuan_mind_art"
+      "layer": ""
     },
     {
       "id": "tianmo_body",
       "display": "tianmo_sect道途",
-      "layer": "tianmo_body_art"
+      "layer": ""
     },
     {
       "id": "qingluo_poison",
       "display": "qingluo_sect道途",
-      "layer": "qingluo_poison_art"
+      "layer": ""
     },
     {
       "id": "wanhu_phantom",
       "display": "wanhu_sect道途",
-      "layer": "wanhu_phantom_art"
+      "layer": ""
     },
     {
       "id": "xuewu_blood",
       "display": "xuewu_sect道途",
-      "layer": "xuewu_blood_art"
+      "layer": ""
     },
     {
       "id": "tree_xuan_yin_art",
       "display": "玄阴诀道途",
-      "layer": "xuan_yin_art"
+      "layer": ""
     },
     {
       "id": "tree_beast_transformation_art",
       "display": "妖修化形诀道途",
-      "layer": "beast_transformation_art"
+      "layer": ""
     },
     {
       "id": "tree_spirit_art_mulan",
       "display": "慕兰灵术总纲道途",
-      "layer": "spirit_art_mulan"
+      "layer": ""
     },
     {
       "id": "tree_yanyue_cycle_art",
       "display": "素女轮回功（仿）道途",
-      "layer": "yanyue_cycle_art"
+      "layer": ""
     },
     {
       "id": "tree_qingxu_pure_tao_art",
       "display": "清虚玄功道途",
-      "layer": "qingxu_pure_tao_art"
+      "layer": ""
     },
     {
       "id": "tree_tianlan_holy_beast_art",
       "display": "天澜圣兽诀道途",
-      "layer": "tianlan_holy_beast_art"
+      "layer": ""
     },
     {
       "id": "tree_tiannan_border_guard_art",
       "display": "天南守边诀道途",
-      "layer": "tiannan_border_guard_art"
+      "layer": ""
     },
     {
       "id": "tree_chaotic_sea_nav_art",
       "display": "星海御浪诀道途",
-      "layer": "chaotic_sea_nav_art"
+      "layer": ""
     },
     {
       "id": "tree_demonic_blood_art_generic",
       "display": "血煞功（魔道）道途",
-      "layer": "demonic_blood_art_generic"
+      "layer": ""
     },
     {
       "id": "tree_star_palace_sea_art",
       "display": "镇海诀道途",
-      "layer": "star_palace_sea_art"
+      "layer": ""
     },
     {
       "id": "tree_inverse_star_shadow_art",
       "display": "逆星潜行诀道途",
-      "layer": "inverse_star_shadow_art"
+      "layer": ""
     },
     {
       "id": "tree_dajin_clan_ancestor_art",
       "display": "世家祖传诀道途",
-      "layer": "dajin_clan_ancestor_art"
+      "layer": ""
     },
     {
       "id": "tree_kunwu_ice_guard_art",
       "display": "昆吾寒罡诀道途",
-      "layer": "kunwu_ice_guard_art"
+      "layer": ""
     },
     {
       "id": "tree_huangfeng_alchemy_scripture",
       "display": "黄枫丹经道途",
-      "layer": "huangfeng_alchemy_scripture"
+      "layer": ""
     },
     {
       "id": "tree_qixuan_mortal_art",
       "display": "七玄凡诀道途",
-      "layer": "qixuan_mortal_art"
+      "layer": ""
     },
     {
       "id": "tree_qixuan_azure_pearl_art",
       "display": "青珠诀道途",
-      "layer": "qixuan_azure_pearl_art"
+      "layer": ""
     },
     {
       "id": "tree_dayan_true_solution",
       "display": "大衍真解道途",
-      "layer": "dayan_true_solution"
+      "layer": ""
     },
     {
       "id": "tree_tianlan_beast_soul_art",
       "display": "天澜御兽诀道途",
-      "layer": "tianlan_beast_soul_art"
+      "layer": ""
     },
     {
       "id": "tree_taixu_gong",
       "display": "太虚功道途",
-      "layer": "taixu_gong"
+      "layer": ""
     },
     {
       "id": "tree_jinxuan_gong",
       "display": "金玄功道途",
-      "layer": "jinxuan_gong"
+      "layer": ""
     },
     {
       "id": "tree_muyuan_gong",
       "display": "木元功道途",
-      "layer": "muyuan_gong"
+      "layer": ""
     },
     {
       "id": "tree_shuiyuan_gong",
       "display": "水元功道途",
-      "layer": "shuiyuan_gong"
+      "layer": ""
     },
     {
       "id": "tree_huoyuan_gong",
       "display": "火元功道途",
-      "layer": "huoyuan_gong"
+      "layer": ""
     },
     {
       "id": "tree_tuyuan_gong",
       "display": "土元功道途",
-      "layer": "tuyuan_gong"
+      "layer": ""
     },
     {
       "id": "tree_qingmu_gong",
       "display": "青木诀道途",
-      "layer": "qingmu_gong"
+      "layer": ""
     },
     {
       "id": "tree_lieyan_zhenjing",
       "display": "烈焰真经道途",
-      "layer": "lieyan_zhenjing"
+      "layer": ""
     },
     {
       "id": "tree_xuanbing_zhenjing",
       "display": "玄冰真经道途",
-      "layer": "xuanbing_zhenjing"
+      "layer": ""
     },
     {
       "id": "tree_jinyi_gong",
       "display": "金翼功道途",
-      "layer": "jinyi_gong"
+      "layer": ""
     },
     {
       "id": "tree_yanyue_gong",
       "display": "掩月诀道途",
-      "layer": "yanyue_gong"
+      "layer": ""
     },
     {
       "id": "tree_luoyun_dan_dao",
       "display": "落云丹道诀道途",
-      "layer": "luoyun_dan_dao"
+      "layer": ""
     },
     {
       "id": "tree_tianfu_scripture",
       "display": "天符灵诀道途",
-      "layer": "tianfu_scripture"
+      "layer": ""
     },
     {
       "id": "tree_tiannan_seven_sect_base",
       "display": "天南七派基础功道途",
-      "layer": "tiannan_seven_sect_base"
+      "layer": ""
     },
     {
       "id": "tree_dajin_buddhist_base",
       "display": "大晋佛修基础道途",
-      "layer": "dajin_buddhist_base"
+      "layer": ""
     },
     {
       "id": "tree_void_refining_scripture",
       "display": "炼虚真经道途",
-      "layer": "void_refining_scripture"
+      "layer": ""
     },
     {
       "id": "tree_great_vehicle_dao",
       "display": "大乘道典道途",
-      "layer": "great_vehicle_dao"
+      "layer": ""
     },
     {
       "id": "tree_spirit_severing_art",
       "display": "炼神诀道途",
-      "layer": "spirit_severing_art"
+      "layer": ""
     },
     {
       "id": "tree_barbarian_body_art",
       "display": "蛮荒炼体诀道途",
-      "layer": "barbarian_body_art"
+      "layer": ""
     },
     {
       "id": "tree_tianyuan_guard_art",
       "display": "天渊守城诀道途",
-      "layer": "tianyuan_guard_art"
+      "layer": ""
     },
     {
       "id": "tree_fallen_demon_art",
       "display": "坠魔功道途",
-      "layer": "fallen_demon_art"
+      "layer": ""
     },
     {
       "id": "tree_blood_demon_art",
       "display": "血魔功道途",
-      "layer": "blood_demon_art"
+      "layer": ""
     },
     {
       "id": "tree_xuantian_ice_art",
       "display": "玄天冰魄功道途",
-      "layer": "xuantian_ice_art"
+      "layer": ""
     },
     {
       "id": "tree_wudang_sword_art",
       "display": "武当剑诀（仿）道途",
-      "layer": "wudang_sword_art"
+      "layer": ""
     },
     {
       "id": "tree_nangong_wangzu_art",
       "display": "南宫王族秘传（仿）道途",
-      "layer": "nangong_wangzu_art"
+      "layer": ""
     },
     {
       "id": "tree_lingzu_pearl_art",
       "display": "灵族凝珠诀道途",
-      "layer": "lingzu_pearl_art"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_qi_refining",
       "display": "QI_REFINING通修诀（通称）道途",
-      "layer": "generic_cultivation_qi_refining"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_foundation",
       "display": "FOUNDATION通修诀（通称）道途",
-      "layer": "generic_cultivation_foundation"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_core_formation",
       "display": "CORE_FORMATION通修诀（通称）道途",
-      "layer": "generic_cultivation_core_formation"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_nascent_soul",
       "display": "NASCENT_SOUL通修诀（通称）道途",
-      "layer": "generic_cultivation_nascent_soul"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_deity_transformation",
       "display": "DEITY_TRANSFORMATION通修诀（通称）道途",
-      "layer": "generic_cultivation_deity_transformation"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_void_refining",
       "display": "VOID_REFINING通修诀（通称）道途",
-      "layer": "generic_cultivation_void_refining"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_great_vehicle",
       "display": "GREAT_VEHICLE通修诀（通称）道途",
-      "layer": "generic_cultivation_great_vehicle"
+      "layer": ""
     },
     {
       "id": "tree_generic_cultivation_spirit_severing",
       "display": "SPIRIT_SEVERING通修诀（通称）道途",
-      "layer": "generic_cultivation_spirit_severing"
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_sword",
-      "display": "剑道专精入门（通称）道途",
-      "layer": "sect_specialty_sword"
+      "display": "sword专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_body",
-      "display": "炼体专精入门（通称）道途",
-      "layer": "sect_specialty_body"
+      "display": "body专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_talisman",
-      "display": "符道专精入门（通称）道途",
-      "layer": "sect_specialty_talisman"
+      "display": "talisman专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_formation",
-      "display": "阵道专精入门（通称）道途",
-      "layer": "sect_specialty_formation"
+      "display": "formation专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_puppet",
-      "display": "傀儡专精入门（通称）道途",
-      "layer": "sect_specialty_puppet"
+      "display": "puppet专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_alchemy",
-      "display": "丹道专精入门（通称）道途",
-      "layer": "sect_specialty_alchemy"
+      "display": "alchemy专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_ghost",
-      "display": "鬼道专精入门（通称）道途",
-      "layer": "sect_specialty_ghost"
+      "display": "ghost专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_demonic",
-      "display": "魔道专精入门（通称）道途",
-      "layer": "sect_specialty_demonic"
+      "display": "demonic专精入门（通称）道途",
+      "layer": ""
     },
     {
       "id": "tree_sect_specialty_artifact",

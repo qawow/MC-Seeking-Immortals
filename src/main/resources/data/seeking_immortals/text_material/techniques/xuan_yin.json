@@ -17,8 +17,8 @@
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
-      "requires_method": "ghost_nether_art",
-      "description": "噬魂云：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "description": "噬魂云：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 8。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
       "setting": {
         "cast_type": "sustained",
         "target": "area",
@@ -38,7 +38,24 @@
         "prerequisite_methods": [
           "ghost_nether_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "corpse_explosion",
@@ -54,7 +71,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "尸爆：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "尸爆：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 20。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -74,7 +91,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_soul_chain",
@@ -91,8 +125,8 @@
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
-      "requires_method": "ghost_nether_art",
-      "description": "阴魂链：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "requires_method": "xuan_yin_art",
+      "description": "阴魂链：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 14。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
       "setting": {
         "combat_style": "魔道阴术",
         "karma": "demonic",
@@ -111,7 +145,24 @@
         "prerequisite_methods": [
           "ghost_nether_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blood_corruption",
@@ -127,7 +178,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "污血术：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "污血术：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 8。耗血换力。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -147,7 +198,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "corpse_armor",
@@ -163,7 +231,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "炼尸甲：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "炼尸甲：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -183,7 +251,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "underworld_flame",
@@ -199,7 +284,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "幽冥火：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "幽冥火：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 19。凝火杀伐。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -219,7 +304,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_corrosion",
@@ -235,7 +337,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "阴蚀：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "阴蚀：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 9。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -255,7 +357,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ghost_king_summon",
@@ -271,7 +390,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "鬼王召：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "鬼王召：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 12。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -291,7 +410,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_banner",
@@ -307,7 +443,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "招魂：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "招魂：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 11。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
       "requires_method": "xuan_yin_art",
       "setting": {
         "combat_style": "魔道阴术",
@@ -327,7 +463,24 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_anchor_rite",
@@ -347,7 +500,7 @@
           "stage_soul_anchor"
         ]
       },
-      "description": "魂锚仪式：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "魂锚仪式：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 25。神魂手段，慎用。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "魔道阴术",
@@ -363,7 +516,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "FOUNDATION"
-      }
+      },
+      "element": "yin",
+      "path": "xuan_yin",
+      "alignment": "neutral",
+      "tags": [
+        "yin",
+        "xuan_yin",
+        "neutral",
+        "utility"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "yin_soul_burst",
@@ -381,7 +547,7 @@
           "high_risk"
         ]
       },
-      "description": "阴婴爆散：xuan_yin神通，需境界 NASCENT_SOUL 以上方可施展。",
+      "description": "阴婴爆散：xuan_yin派术法，属性倾向 yin。境界门槛 NASCENT_SOUL，耗灵约 55。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "魔道阴术",
@@ -398,7 +564,18 @@
         ],
         "realm_min_override_strict": true,
         "realm_min": "NASCENT_SOUL"
-      }
+      },
+      "element": "yin",
+      "path": "xuan_yin",
+      "alignment": "neutral",
+      "tags": [
+        "yin",
+        "xuan_yin",
+        "neutral",
+        "secret"
+      ],
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "poluo_soul_pull",
@@ -415,7 +592,7 @@
           "soul"
         ]
       },
-      "description": "夺魂牵引：xuan_yin法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "夺魂牵引：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
       "source": "凡人向扩充",
       "requires_method": "xuan_yin_art",
       "setting": {
@@ -436,11 +613,189 @@
         "prerequisite_methods": [
           "xuan_yin_art"
         ]
-      }
+      },
+      "seven_sect_id": "yanyue_sect",
+      "tags": [
+        "seven_sects",
+        "yanyue_sect",
+        "v126",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuanyin_cold_aura",
+      "display": "玄阴寒息",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "玄阴经",
+      "effect": {
+        "type": "debuff",
+        "element": "yin",
+        "damage_base": 20,
+        "tags": [
+          "cold"
+        ]
+      },
+      "description": "玄阴寒息：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「xuan_yin_art」体系解锁。",
+      "setting": {
+        "combat_style": "玄阴寒气侵蚀灵力运转。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "玄阴寒气侵蚀灵力运转。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xuan_yin_art"
+      },
+      "requires_method": "xuan_yin_art",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "yanyue_sect",
+        "v126",
+        "novel_canon",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuanyin_soul_thread",
+      "display": "玄阴魂丝",
+      "school": "xuan_yin",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "玄阴经",
+      "effect": {
+        "type": "control",
+        "element": "yin",
+        "damage_base": 25,
+        "tags": [
+          "soul"
+        ]
+      },
+      "description": "玄阴魂丝：xuan_yin派术法，属性倾向 yin。境界门槛 CORE_FORMATION，耗灵约 32。神魂手段，慎用。 常随功法「xuan_yin_art」体系解锁。",
+      "setting": {
+        "combat_style": "阴丝锁神识边缘，非大衍惊神刺。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "阴丝锁神识边缘，非大衍惊神刺。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "xuan_yin_art"
+      },
+      "requires_method": "xuan_yin_art",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "yanyue_sect",
+        "v126",
+        "novel_canon",
+        "yin",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "yanyue_sect",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guiling_xuan_bridge",
+      "display": "鬼灵玄阴渡",
+      "school": "xuan_yin",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "鬼灵门兼修",
+      "effect": {
+        "type": "buff_self",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "bridge"
+        ]
+      },
+      "description": "鬼灵玄阴渡：xuan_yin派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 18。 常随功法「xuan_yin_art」体系解锁。",
+      "requires_method": "xuan_yin_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xuan_yin_art"
+      },
+      "tags": [
+        "seven_sects",
+        "guiling",
+        "yanyue_sect",
+        "v126",
+        "six_sects",
+        "v125",
+        "yin",
+        "guiling_gate",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "鬼灵门修士沟通玄阴寒力的桥梁技。",
+        "combat_style": "xuan_yin",
+        "six_sect": "guiling_gate",
+        "novel_pack_canon": true,
+        "v125": true
+      },
+      "six_sect_id": "guiling_gate",
+      "seven_sect_id": "yanyue_sect",
+      "element": "yin",
+      "path": "guiling_gate",
+      "alignment": "neutral",
+      "source_method": "xuan_yin_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
   "method_gate": {
     "ghost_nether_art": "冥河鬼修诀",
     "xuan_yin_art": "玄阴诀（魔道分支，非鬼修专属）"
-  }
+  },
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

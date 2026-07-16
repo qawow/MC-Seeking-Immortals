@@ -17,7 +17,7 @@
       },
       "tier": "spell",
       "element_required": "fire",
-      "description": "火弹术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "低阶火弹术。灵力凝火射出，炼气期常备。木功行者亦可借木生火打出，威力随灵力与火灵根略变，不求一击必杀，求熟练与连发。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "cast_type": "instant",
@@ -50,7 +50,26 @@
           "sect_basic",
           "slip_common"
         ]
-      }
+      },
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "changchun",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "fire",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v143_desc_polish": true
     },
     {
       "id": "water_arrow",
@@ -67,7 +86,7 @@
       },
       "tier": "spell",
       "element_required": "water",
-      "description": "水箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "水箭术：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 8。水灵根友好；可克火、润疗与困敌。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -92,7 +111,23 @@
             "water"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "water",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v143_desc_polish": true
     },
     {
       "id": "earth_spike",
@@ -109,7 +144,7 @@
       },
       "tier": "spell",
       "element_required": "earth",
-      "description": "土刺术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "土刺术：elemental派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 8。土灵根友好；防身、厚重、阵基。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -134,7 +169,23 @@
             "earth"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wood_bind",
@@ -151,7 +202,7 @@
       },
       "tier": "spell",
       "element_required": "wood",
-      "description": "藤缚术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "藤缚术：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 8。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -176,7 +227,23 @@
             "wood"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v143_desc_polish": true
     },
     {
       "id": "metal_needle",
@@ -193,7 +260,7 @@
       },
       "tier": "spell",
       "element_required": "metal",
-      "description": "金针术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "金针术：elemental派术法，属性倾向 metal。境界门槛 QI_REFINING，耗灵约 8。金灵根友好；破甲、剑气辅、锋锐。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -218,7 +285,23 @@
             "metal"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "metal",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ice_shard",
@@ -235,7 +318,7 @@
       },
       "tier": "spell",
       "element_required": "ice",
-      "description": "冰锥术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "冰锥术：elemental派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 8。寒气侵体。 寒域增幅，惧纯阳。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -260,7 +343,23 @@
             "ice"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "ice",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wind_blade",
@@ -277,7 +376,7 @@
       },
       "tier": "spell",
       "element_required": "wind",
-      "description": "风刃术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "风刃术：elemental派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 8。身法与风刃，草原/海上略优。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -302,7 +401,23 @@
             "wind"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wind",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_polish": true,
+      "v143_desc_polish": true
     },
     {
       "id": "thunder_palm",
@@ -319,7 +434,7 @@
       },
       "tier": "spell",
       "element_required": "thunder",
-      "description": "雷击掌：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "雷击掌：elemental派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 9。雷法震邪。 雷法克邪，正道山门常见。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -344,7 +459,24 @@
             "thunder"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "thunder",
+        "neutral",
+        "spell"
+      ],
+      "element": "thunder",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "flame_ring",
@@ -361,7 +493,7 @@
       },
       "tier": "spell",
       "element_required": "fire",
-      "description": "火环术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "火环术：elemental派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 11。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -386,7 +518,24 @@
             "fire"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "frost_armor",
@@ -403,7 +552,7 @@
       },
       "tier": "spell",
       "element_required": "ice",
-      "description": "寒冰护体：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "寒冰护体：elemental派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 8。寒气侵体。 寒域增幅，惧纯阳。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -428,7 +577,23 @@
             "ice"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "ice",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "lava_burst",
@@ -445,7 +610,7 @@
       },
       "tier": "spell",
       "element_required": "fire",
-      "description": "熔岩爆：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "熔岩爆：elemental派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 14。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -470,7 +635,24 @@
             "fire"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mist_rain",
@@ -487,7 +669,7 @@
       },
       "tier": "spell",
       "element_required": "water",
-      "description": "雾雨术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "雾雨术：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 8。水灵根友好；可克火、润疗与困敌。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -512,7 +694,23 @@
             "water"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "water",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sand_storm",
@@ -529,7 +727,7 @@
       },
       "tier": "spell",
       "element_required": "earth",
-      "description": "沙暴术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "沙暴术：elemental派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。土灵根友好；防身、厚重、阵基。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -554,7 +752,23 @@
             "earth"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "vine_arrow",
@@ -571,7 +785,7 @@
       },
       "tier": "spell",
       "element_required": "wood",
-      "description": "木箭术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "木箭术：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 8。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -596,7 +810,23 @@
             "wood"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "gold_beam",
@@ -613,7 +843,7 @@
       },
       "tier": "spell",
       "element_required": "metal",
-      "description": "金芒术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "金芒术：elemental派术法，属性倾向 metal。境界门槛 QI_REFINING，耗灵约 10。金灵根友好；破甲、剑气辅、锋锐。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -638,7 +868,23 @@
             "metal"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "metal",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "blizzard",
@@ -655,7 +901,7 @@
       },
       "tier": "spell",
       "element_required": "ice",
-      "description": "暴雪术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "暴雪术：elemental派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 13。寒域增幅，惧纯阳。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -680,7 +926,23 @@
             "ice"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "ice",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cyclone",
@@ -697,7 +959,7 @@
       },
       "tier": "spell",
       "element_required": "wind",
-      "description": "旋风术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "旋风术：elemental派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 10。身法与风刃，草原/海上略优。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -722,7 +984,23 @@
             "wind"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wind",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "chain_lightning",
@@ -739,7 +1017,7 @@
       },
       "tier": "spell",
       "element_required": "thunder",
-      "description": "连锁雷：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "连锁雷：elemental派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 17。雷法震邪。 雷法克邪，正道山门常见。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -764,7 +1042,24 @@
             "thunder"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "thunder",
+        "neutral",
+        "spell"
+      ],
+      "element": "thunder",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "dark_flame",
@@ -781,7 +1076,7 @@
       },
       "tier": "spell",
       "element_required": "dark",
-      "description": "暗焰术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "暗焰术：elemental派术法，属性倾向 dark。境界门槛 QI_REFINING，耗灵约 9。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -806,7 +1101,23 @@
             "dark"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "dark",
+        "neutral",
+        "spell"
+      ],
+      "element": "dark",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "light_orb",
@@ -823,7 +1134,7 @@
       },
       "tier": "spell",
       "element_required": "light",
-      "description": "光球术：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "光球术：elemental派术法，属性倾向 light。境界门槛 QI_REFINING，耗灵约 8。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -848,7 +1159,23 @@
             "light"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "light",
+        "neutral",
+        "spell"
+      ],
+      "element": "light",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "steam_cloud",
@@ -865,7 +1192,7 @@
       },
       "tier": "spell",
       "element_required": "water",
-      "description": "蒸汽云：elemental法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "蒸汽云：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 8。水灵根友好；可克火、润疗与困敌。 常随功法「changchun_gong」体系解锁。",
       "requires_method": "changchun_gong",
       "setting": {
         "combat_style": "五行术法",
@@ -890,7 +1217,23 @@
             "water"
           ]
         }
-      }
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "water",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ice_spear",
@@ -899,7 +1242,7 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "ice",
-      "description": "冰矛术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "冰矛术：elemental派术法，属性倾向 ice。境界门槛 FOUNDATION，耗灵约 18。寒气侵体。 寒域增幅，惧纯阳。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -935,7 +1278,23 @@
             "ice"
           ]
         }
-      }
+      },
+      "element_required": "ice",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "ice",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "flame_burst",
@@ -944,7 +1303,7 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "fire",
-      "description": "炎爆术：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "炎爆术：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -980,7 +1339,24 @@
             "fire"
           ]
         }
-      }
+      },
+      "element_required": "fire",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "evil_ward_thunder",
@@ -990,7 +1366,7 @@
       "realm_min": "CORE_FORMATION",
       "element": "thunder",
       "note": "合规化名",
-      "description": "辟邪雷（仿）：elemental法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "辟邪雷（仿）：elemental派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 26。雷法震邪。 雷法克邪，正道山门常见。 常随功法「five_elements_root_art」体系解锁。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "projectile",
@@ -1001,7 +1377,7 @@
         ]
       },
       "source": "凡人向扩充",
-      "requires_method": "changchun_gong",
+      "requires_method": "five_elements_root_art",
       "setting": {
         "combat_style": "五行术法",
         "cast_bias": "elemental",
@@ -1026,7 +1402,21 @@
             "thunder"
           ]
         }
-      }
+      },
+      "element_required": "thunder",
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "thunder",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "five_elements_root_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_fire",
@@ -1036,7 +1426,7 @@
       "element": "fire",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "fire系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "fire系爆发术（通称）：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1072,7 +1462,24 @@
             "fire"
           ]
         }
-      }
+      },
+      "element_required": "fire",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_water",
@@ -1082,7 +1489,7 @@
       "element": "water",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "water系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "water系爆发术（通称）：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 18。水灵根友好；可克火、润疗与困敌。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1118,7 +1525,23 @@
             "water"
           ]
         }
-      }
+      },
+      "element_required": "water",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "water",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_earth",
@@ -1128,7 +1551,7 @@
       "element": "earth",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "earth系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "earth系爆发术（通称）：elemental派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。土灵根友好；防身、厚重、阵基。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1164,7 +1587,23 @@
             "earth"
           ]
         }
-      }
+      },
+      "element_required": "earth",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "earth",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_wind",
@@ -1174,7 +1613,7 @@
       "element": "wind",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "wind系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "wind系爆发术（通称）：elemental派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。身法与风刃，草原/海上略优。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1210,7 +1649,23 @@
             "wind"
           ]
         }
-      }
+      },
+      "element_required": "wind",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wind",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_metal",
@@ -1220,7 +1675,7 @@
       "element": "metal",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "metal系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "metal系爆发术（通称）：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1256,7 +1711,23 @@
             "metal"
           ]
         }
-      }
+      },
+      "element_required": "metal",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "metal",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_wood",
@@ -1266,7 +1737,7 @@
       "element": "wood",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "wood系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "wood系爆发术（通称）：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 18。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1302,7 +1773,23 @@
             "wood"
           ]
         }
-      }
+      },
+      "element_required": "wood",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_ice",
@@ -1312,7 +1799,7 @@
       "element": "ice",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "ice系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "ice系爆发术（通称）：elemental派术法，属性倾向 ice。境界门槛 FOUNDATION，耗灵约 18。寒域增幅，惧纯阳。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1348,7 +1835,23 @@
             "ice"
           ]
         }
-      }
+      },
+      "element_required": "ice",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "ice",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "elemental_burst_thunder",
@@ -1358,7 +1861,7 @@
       "element": "thunder",
       "realm_min": "FOUNDATION",
       "structural": true,
-      "description": "thunder系爆发术（通称）：elemental法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "thunder系爆发术（通称）：elemental派术法，属性倾向 thunder。境界门槛 FOUNDATION，耗灵约 18。雷法克邪，正道山门常见。 常随功法「changchun_gong」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "projectile",
@@ -1394,7 +1897,24 @@
             "thunder"
           ]
         }
-      }
+      },
+      "element_required": "thunder",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "thunder",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "huangfeng_fire_serpent",
@@ -1411,7 +1931,7 @@
           "sect_huangfeng"
         ]
       },
-      "description": "黄枫谷低阶火系法术，凝火成蛇扑敌。",
+      "description": "黄枫火蛇术：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「changchun_gong」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -1439,7 +1959,22 @@
             "fire"
           ]
         }
-      }
+      },
+      "element_required": "fire",
+      "seven_sect_id": "huangfeng_valley",
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "fire",
+        "neutral",
+        "spell"
+      ],
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "luoyun_spirit_flame",
@@ -1453,9 +1988,10 @@
         "damage_base": 36,
         "tags": [
           "alchemy_synergy"
-        ]
+        ],
+        "element": "fire"
       },
-      "description": "丹火化焰，斗法威力一般但可引丹火。",
+      "description": "落云灵焰：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「luoyun_dan_dao」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -1483,27 +2019,42 @@
             "fire"
           ]
         }
-      }
+      },
+      "sect_id": "luoyun_sect",
+      "tags": [
+        "v127",
+        "luoyun",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "luoyun_dan_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "primordial_magnet_sphere",
       "display": "元磁神光",
       "school": "elemental",
       "element": "metal",
-      "realm_min": "CORE_FORMATION",
+      "realm_min": "DEITY_TRANSFORMATION",
       "effect": {
         "type": "aoe",
         "damage_base": 80,
         "tags": [
           "magnet",
           "control"
-        ]
+        ],
+        "element": "metal"
       },
-      "description": "元磁之力摄物控敌，金属法宝受制。",
+      "description": "元磁神光：elemental派术法，属性倾向 metal。境界门槛 DEITY_TRANSFORMATION，耗灵约 26。金灵根友好；破甲、剑气辅、锋锐。 常随功法「yuanci_shenguang_art」体系解锁。",
       "tier": "spell",
-      "source": "凡人向扩充",
+      "source": "星宫/元磁",
       "spirit_cost_base": 26,
-      "requires_method": "changchun_gong",
+      "requires_method": "yuanci_shenguang_art",
       "setting": {
         "cast_type": "sustained",
         "target": "area",
@@ -1527,7 +2078,25 @@
             "metal"
           ]
         }
-      }
+      },
+      "tags": [
+        "v124",
+        "yuanci",
+        "novel_canon",
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "star_palace",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "yuanci_shenguang_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ice_jade_shield",
@@ -1540,9 +2109,10 @@
         "type": "buff",
         "tags": [
           "ice_shield"
-        ]
+        ],
+        "element": "ice"
       },
-      "description": "凝冰为盾，挡术法。",
+      "description": "冰玉盾：elemental派术法，属性倾向 ice。境界门槛 FOUNDATION，耗灵约 —。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuanbing_zhenjing」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1569,7 +2139,18 @@
             "ice"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "xuanbing_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "flame_serpent_storm",
@@ -1580,9 +2161,10 @@
       "requires_method": "lieyan_zhenjing",
       "effect": {
         "type": "aoe",
-        "damage_base": 75
+        "damage_base": 75,
+        "element": "fire"
       },
-      "description": "火蛇交织成风暴。",
+      "description": "炎蛇风暴：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 —。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_zhenjing」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1609,7 +2191,18 @@
             "fire"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "lieyan_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wood_spirit_vine",
@@ -1622,9 +2215,10 @@
         "type": "control",
         "tags": [
           "bind"
-        ]
+        ],
+        "element": "wood"
       },
-      "description": "藤萝缚足。",
+      "description": "木灵藤：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 —。木灵根友好；药园、束缚、回春向。 常随功法「qingmu_gong」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1651,7 +2245,18 @@
             "wood"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "qingmu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "water_mirror_reflect",
@@ -1664,9 +2269,10 @@
         "type": "buff",
         "tags": [
           "reflect_partial"
-        ]
+        ],
+        "element": "water"
       },
-      "description": "水镜偏折部分术法。",
+      "description": "水镜术：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 —。水灵根友好；可克火、润疗与困敌。 常随功法「shuiyuan_gong」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1693,7 +2299,18 @@
             "water"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "shuiyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "earth_mountain_press",
@@ -1704,9 +2321,10 @@
       "requires_method": "tuyuan_gong",
       "effect": {
         "type": "aoe",
-        "damage_base": 65
+        "damage_base": 65,
+        "element": "earth"
       },
-      "description": "土灵化山影砸落。",
+      "description": "山岳压：elemental派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 —。土灵根友好；防身、厚重、阵基。 常随功法「tuyuan_gong」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1733,7 +2351,18 @@
             "earth"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "tuyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "xuantian_ice_prison",
@@ -1746,9 +2375,10 @@
         "type": "control",
         "tags": [
           "freeze"
-        ]
+        ],
+        "element": "ice"
       },
-      "description": "冰封敌人行动。",
+      "description": "玄天冰牢：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 —。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuantian_ice_art」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "setting": {
@@ -1775,9 +2405,3437 @@
             "ice"
           ]
         }
-      }
+      },
+      "path": "elemental",
+      "alignment": "neutral",
+      "tags": [
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "source_method": "xuantian_ice_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dingshen_talisman_qi",
+      "display": "定神符（长春过渡）",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 8,
+      "source": "长春功/黄枫低阶",
+      "effect": {
+        "type": "buff_self",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "talisman_like"
+        ]
+      },
+      "description": "定神符（长春过渡）：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 8。符成而发。 木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
+      "setting": {
+        "combat_style": "长春阶段常用定神，稳固心神，抗低阶幻。符纸或术式皆可。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "长春阶段常用定神，稳固心神，抗低阶幻。符纸或术式皆可。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "changchun_gong"
+      },
+      "requires_method": "changchun_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "changchun",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wood_spirit_shield_basic",
+      "display": "木灵护体",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "长春功/黄枫低阶",
+      "effect": {
+        "type": "buff_self",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "木灵护体：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 10。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
+      "setting": {
+        "combat_style": "长春木系基础护体。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "长春木系基础护体。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "changchun_gong"
+      },
+      "requires_method": "changchun_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "changchun",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "spring_wood_heal_minor",
+      "display": "长春回春",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "长春功/黄枫低阶",
+      "effect": {
+        "type": "heal",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "heal"
+        ]
+      },
+      "description": "长春回春：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
+      "setting": {
+        "combat_style": "木系微疗，长春气质。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "木系微疗，长春气质。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "changchun_gong"
+      },
+      "requires_method": "changchun_gong",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "novel_canon",
+        "changchun",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "huangfeng_valley",
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "nongyan_flame_burst",
+      "display": "弄焰喷火",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "弄焰决",
+      "effect": {
+        "type": "cone",
+        "element": "fire",
+        "damage_base": 40,
+        "tags": [
+          "fire"
+        ]
+      },
+      "description": "弄焰喷火：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 22。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「nongyan_jue」体系解锁。",
+      "setting": {
+        "combat_style": "弄焰决催动的火焰喷涌，炼器助火亦可。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "弄焰决催动的火焰喷涌，炼器助火亦可。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "nongyan_jue"
+      },
+      "requires_method": "nongyan_jue",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "nongyan_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "muyuan_wood_spike",
+      "display": "木元刺",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 28
+      },
+      "description": "木元刺：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 16。木灵根友好；药园、束缚、回春向。 常随功法「muyuan_gong」体系解锁。",
+      "setting": {
+        "combat_style": "木元功木刺",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "木元功木刺",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "muyuan_gong"
+      },
+      "requires_method": "muyuan_gong",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "muyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huoyuan_fire_whip",
+      "display": "火元鞭",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 16,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "beam",
+        "element": "fire",
+        "damage_base": 28
+      },
+      "description": "火元鞭：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 16。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「huoyuan_gong」体系解锁。",
+      "setting": {
+        "combat_style": "火元功火鞭",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "火元功火鞭",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "huoyuan_gong"
+      },
+      "requires_method": "huoyuan_gong",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huoyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinyi_blade_feather",
+      "display": "金翼羽刃",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 30
+      },
+      "description": "金翼羽刃：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinyi_gong」体系解锁。",
+      "setting": {
+        "combat_style": "金翼功羽刃",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "金翼功羽刃",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "jinyi_gong"
+      },
+      "requires_method": "jinyi_gong",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinyi_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingzhu_water_orb",
+      "display": "青珠水弹",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 18
+      },
+      "description": "青珠水弹：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 10。水灵根友好；可克火、润疗与困敌。 常随功法「qixuan_azure_pearl_art」体系解锁。",
+      "setting": {
+        "combat_style": "青珠水弹",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "青珠水弹",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qixuan_azure_pearl_art"
+      },
+      "requires_method": "qixuan_azure_pearl_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qixuan_azure_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "kunwu_frost_armor",
+      "display": "昆吾寒罡",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "ice",
+        "damage_base": 0
+      },
+      "description": "昆吾寒罡：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 30。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
+      "setting": {
+        "combat_style": "昆吾寒罡护体",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "昆吾寒罡护体",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "kunwu_ice_guard_art"
+      },
+      "requires_method": "kunwu_ice_guard_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "kunwu_ice_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_sea_wave",
+      "display": "镇海浪",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "aoe",
+        "element": "water",
+        "damage_base": 32
+      },
+      "description": "镇海浪：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 22。水灵根友好；可克火、润疗与困敌。 常随功法「star_palace_sea_art」体系解锁。",
+      "setting": {
+        "combat_style": "镇海浪涛",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "area",
+        "lore": "镇海浪涛",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "star_palace_sea_art"
+      },
+      "requires_method": "star_palace_sea_art",
+      "tags": [
+        "v124",
+        "star_palace",
+        "chaotic_sea",
+        "fill_zero_method",
+        "v128",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "faction_id": "star_palace",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "star_palace_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "nav_tide_step",
+      "display": "御浪步",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "movement",
+        "element": "water",
+        "damage_base": 0
+      },
+      "description": "御浪步：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 14。水灵根友好；可克火、润疗与困敌。 常随功法「chaotic_sea_nav_art」体系解锁。",
+      "setting": {
+        "combat_style": "星海御浪",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "星海御浪",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "chaotic_sea_nav_art"
+      },
+      "requires_method": "chaotic_sea_nav_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "chaotic_sea_nav_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huangjin_metal_gang",
+      "display": "皇金罡气",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0
+      },
+      "description": "皇金罡气：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「huangjin_sect_art」体系解锁。",
+      "setting": {
+        "combat_style": "皇金宗",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "皇金宗",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "huangjin_sect_art"
+      },
+      "requires_method": "huangjin_sect_art",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huangjin_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huangfeng_garden_ward",
+      "display": "药园护阵小术",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 10,
+      "source": "黄枫谷",
+      "effect": {
+        "type": "field",
+        "element": "wood",
+        "damage_base": 8,
+        "tags": [
+          "utility"
+        ]
+      },
+      "description": "药园护阵小术：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 10。借阵力。 木灵根友好；药园、束缚、回春向。 常随功法「changchun_gong」体系解锁。",
+      "requires_method": "changchun_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "changchun_gong"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "huangfeng_valley",
+        "wood",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "药园驱兽小术。",
+        "v126": true,
+        "seven_sect": "huangfeng_valley"
+      },
+      "seven_sect_id": "huangfeng_valley",
+      "element": "wood",
+      "path": "huangfeng_valley",
+      "alignment": "neutral",
+      "source_method": "changchun_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_cloud_mist_escape",
+      "display": "落云雾遁",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 22,
+      "source": "落云梦诀",
+      "effect": {
+        "type": "dash",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "escape",
+          "cloud"
+        ]
+      },
+      "description": "落云雾遁：elemental派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 22。保命逃遁。 水灵根友好；可克火、润疗与困敌。 常随功法「luoyun_cloud_dream_art」体系解锁。",
+      "requires_method": "luoyun_cloud_dream_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "luoyun_cloud_dream_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "化云雾短距遁走，落云宗特色保命。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "luoyun_cloud_dream_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_cloud_blade",
+      "display": "落云刃",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 28,
+      "source": "落云梦诀",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 42,
+        "tags": [
+          "cloud"
+        ]
+      },
+      "description": "落云刃：elemental派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 28。水灵根友好；可克火、润疗与困敌。 常随功法「luoyun_cloud_dream_art」体系解锁。",
+      "requires_method": "luoyun_cloud_dream_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "luoyun_cloud_dream_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "云气凝刃射敌。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "luoyun_cloud_dream_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_spirit_flame_combat",
+      "display": "落云丹火（战）",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "落云丹道/梦诀",
+      "effect": {
+        "type": "cone",
+        "element": "fire",
+        "damage_base": 36,
+        "tags": [
+          "alchemy_fire",
+          "combat"
+        ]
+      },
+      "description": "落云丹火（战）：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 20。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「luoyun_cloud_dream_art」体系解锁。",
+      "requires_method": "luoyun_cloud_dream_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "luoyun_cloud_dream_art"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "丹火转战斗喷焰；炼丹时另作炉火。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "luoyun_cloud_dream_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "luoyun_refine_flame_steady",
+      "display": "落云稳炉火",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 8,
+      "source": "落云丹道诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "alchemy",
+          "utility"
+        ]
+      },
+      "description": "落云稳炉火：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 8。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「luoyun_dan_dao」体系解锁。",
+      "requires_method": "luoyun_dan_dao",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "luoyun_dan_dao"
+      },
+      "tags": [
+        "v127",
+        "luoyun",
+        "craft",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼丹小成：炉火不爆概率叙事。",
+        "v127": true,
+        "sect": "luoyun_sect",
+        "track": "late_game"
+      },
+      "sect_id": "luoyun_sect",
+      "track": "late_game",
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "luoyun_dan_dao",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingyan_stone_skin",
+      "display": "青岩石肤",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "青岩厚土诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "defense",
+          "earth"
+        ]
+      },
+      "description": "青岩石肤：elemental派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。土灵根友好；防身、厚重、阵基。 常随功法「qingyan_earth_guard_art」体系解锁。",
+      "requires_method": "qingyan_earth_guard_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qingyan_earth_guard_art"
+      },
+      "tags": [
+        "v127",
+        "qingyan",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "土行护体。",
+        "v127": true,
+        "sect": "qingyan_sect",
+        "track": null
+      },
+      "sect_id": "qingyan_sect",
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingyan_earth_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingyan_earth_spike_wall",
+      "display": "青岩刺壁",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "青岩厚土诀",
+      "effect": {
+        "type": "wall",
+        "element": "earth",
+        "damage_base": 28,
+        "tags": [
+          "earth"
+        ]
+      },
+      "description": "青岩刺壁：elemental派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 20。土灵根友好；防身、厚重、阵基。 常随功法「qingyan_earth_guard_art」体系解锁。",
+      "requires_method": "qingyan_earth_guard_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingyan_earth_guard_art"
+      },
+      "tags": [
+        "v127",
+        "qingyan",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "岩刺墙。",
+        "v127": true,
+        "sect": "qingyan_sect",
+        "track": null
+      },
+      "sect_id": "qingyan_sect",
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingyan_earth_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingyan_quake",
+      "display": "青岩震",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 32,
+      "source": "青岩厚土诀",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 48,
+        "tags": [
+          "earth"
+        ]
+      },
+      "description": "青岩震：elemental派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 32。土灵根友好；防身、厚重、阵基。 常随功法「qingyan_earth_guard_art」体系解锁。",
+      "requires_method": "qingyan_earth_guard_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qingyan_earth_guard_art"
+      },
+      "tags": [
+        "v127",
+        "qingyan",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "地震波。",
+        "v127": true,
+        "sect": "qingyan_sect",
+        "track": null
+      },
+      "sect_id": "qingyan_sect",
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingyan_earth_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_palace_tide_cut",
+      "display": "星宫潮斩",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 22,
+      "source": "镇海诀",
+      "effect": {
+        "type": "beam",
+        "element": "water",
+        "damage_base": 38,
+        "tags": [
+          "water"
+        ]
+      },
+      "description": "星宫潮斩：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 22。水灵根友好；可克火、润疗与困敌。 常随功法「star_palace_sea_art」体系解锁。",
+      "requires_method": "star_palace_sea_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "star_palace_sea_art"
+      },
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "潮力斩击。",
+        "v128": true,
+        "faction": "star_palace"
+      },
+      "faction_id": "star_palace",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "star_palace_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "star_palace_whirlpool",
+      "display": "星宫涡狱",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 36,
+      "source": "镇海诀",
+      "effect": {
+        "type": "field",
+        "element": "water",
+        "damage_base": 40,
+        "tags": [
+          "water",
+          "control"
+        ]
+      },
+      "description": "星宫涡狱：elemental派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 36。水灵根友好；可克火、润疗与困敌。 常随功法「star_palace_sea_art」体系解锁。",
+      "requires_method": "star_palace_sea_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "star_palace_sea_art"
+      },
+      "tags": [
+        "star_palace",
+        "chaotic_sea",
+        "v128",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "海域漩涡困敌。",
+        "v128": true,
+        "faction": "star_palace"
+      },
+      "faction_id": "star_palace",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "star_palace_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "chaotic_storm_brace",
+      "display": "星海抗飓",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "星海御浪诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "sail"
+        ]
+      },
+      "description": "星海抗飓：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 14。水灵根友好；可克火、润疗与困敌。 常随功法「chaotic_sea_nav_art」体系解锁。",
+      "requires_method": "chaotic_sea_nav_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "chaotic_sea_nav_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "抗风暴。",
+        "v128": true,
+        "faction": null
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "chaotic_sea_nav_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "chaotic_wave_ride",
+      "display": "御浪驰",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "星海御浪诀",
+      "effect": {
+        "type": "dash",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "sail"
+        ]
+      },
+      "description": "御浪驰：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 12。水灵根友好；可克火、润疗与困敌。 常随功法「chaotic_sea_nav_art」体系解锁。",
+      "requires_method": "chaotic_sea_nav_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "chaotic_sea_nav_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "浪上加速。",
+        "v128": true,
+        "faction": null
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "chaotic_sea_nav_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "kunwu_frost_spike",
+      "display": "昆吾寒刺",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 26,
+      "source": "昆吾寒罡诀",
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 40
+      },
+      "description": "昆吾寒刺：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 26。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
+      "requires_method": "kunwu_ice_guard_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "kunwu_ice_guard_art"
+      },
+      "tags": [
+        "v129",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "寒刺。",
+        "v129": true
+      },
+      "faction_id": "kunwu",
+      "region": "dajin",
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "kunwu_ice_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "kunwu_absolute_zero_guard",
+      "display": "昆吾绝寒罡",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 38,
+      "source": "昆吾寒罡诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "ice",
+        "damage_base": 0
+      },
+      "description": "昆吾绝寒罡：elemental派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 38。寒域增幅，惧纯阳。 常随功法「kunwu_ice_guard_art」体系解锁。",
+      "requires_method": "kunwu_ice_guard_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "kunwu_ice_guard_art"
+      },
+      "tags": [
+        "v129",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "绝寒。",
+        "v129": true
+      },
+      "faction_id": "kunwu",
+      "region": "dajin",
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "kunwu_ice_guard_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "ye_clan_bloodline_flash",
+      "display": "叶家血脉闪",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 28,
+      "source": "叶家皇脉诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "blood",
+        "damage_base": 0
+      },
+      "description": "叶家血脉闪：elemental派术法，属性倾向 blood。境界门槛 CORE_FORMATION，耗灵约 28。耗血换力。 常随功法「dajin_ye_clan_art」体系解锁。",
+      "requires_method": "dajin_ye_clan_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dajin_ye_clan_art"
+      },
+      "tags": [
+        "v129",
+        "blood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "血脉闪。",
+        "v129": true
+      },
+      "faction_id": "dajin_ye_clan",
+      "region": "dajin",
+      "element": "blood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "dajin_ye_clan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_clan_heritage_bolt",
+      "display": "世家祖传雷",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "世家祖传诀",
+      "effect": {
+        "type": "projectile",
+        "element": "thunder",
+        "damage_base": 28
+      },
+      "description": "世家祖传雷：elemental派术法，属性倾向 thunder。境界门槛 FOUNDATION，耗灵约 18。雷法震邪。 雷法克邪，正道山门常见。 常随功法「dajin_clan_ancestor_art」体系解锁。",
+      "requires_method": "dajin_clan_ancestor_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dajin_clan_ancestor_art"
+      },
+      "tags": [
+        "v129",
+        "thunder",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "祖传雷。",
+        "v129": true
+      },
+      "faction_id": "dajin_clans",
+      "region": "dajin",
+      "element": "thunder",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "dajin_clan_ancestor_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_clan_heritage_shield",
+      "display": "世家护灵",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "世家祖传诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "世家护灵：elemental派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。 常随功法「dajin_clan_ancestor_art」体系解锁。",
+      "requires_method": "dajin_clan_ancestor_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dajin_clan_ancestor_art"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "lore": "护灵。",
+        "v129": true
+      },
+      "faction_id": "dajin_clans",
+      "region": "dajin",
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "dajin_clan_ancestor_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xiaji_spirit_surge",
+      "display": "小极灵涌",
+      "school": "elemental",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 45,
+      "source": "小极宫玄功",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 50
+      },
+      "description": "小极灵涌：elemental派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 45。 常随功法「xiaji_palace_art」体系解锁。",
+      "requires_method": "xiaji_palace_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "xiaji_palace_art"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵涌。",
+        "v129": true
+      },
+      "faction_id": "xiaji_palace",
+      "region": "dajin",
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xiaji_palace_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_v129_1",
+      "display": "烈焰·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "烈焰功",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰·击：elemental派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 12。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_gong」体系解锁。",
+      "requires_method": "lieyan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lieyan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰补全第1式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_v129_2",
+      "display": "烈焰·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "烈焰功",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰·护：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_gong」体系解锁。",
+      "requires_method": "lieyan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lieyan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰补全第2式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_v129_3",
+      "display": "烈焰·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "烈焰功",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰·爆：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 24。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_gong」体系解锁。",
+      "requires_method": "lieyan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "lieyan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰补全第3式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_zj_v129_1",
+      "display": "烈焰真·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "烈焰真经",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰真·击：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 12。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_zhenjing」体系解锁。",
+      "requires_method": "lieyan_zhenjing",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lieyan_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰真补全第1式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_zj_v129_2",
+      "display": "烈焰真·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "烈焰真经",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰真·护：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_zhenjing」体系解锁。",
+      "requires_method": "lieyan_zhenjing",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "lieyan_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰真补全第2式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lieyan_zj_v129_3",
+      "display": "烈焰真·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "烈焰真经",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "烈焰真·爆：elemental派术法，属性倾向 fire。境界门槛 NASCENT_SOUL，耗灵约 24。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「lieyan_zhenjing」体系解锁。",
+      "requires_method": "lieyan_zhenjing",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "lieyan_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "烈焰真补全第3式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "lieyan_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "muyuan_v129_1",
+      "display": "木元·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "木元功",
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "木元·击：elemental派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 12。木灵根友好；药园、束缚、回春向。 常随功法「muyuan_gong」体系解锁。",
+      "requires_method": "muyuan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "muyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "木元补全第1式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "muyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "muyuan_v129_2",
+      "display": "木元·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "木元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "木元·护：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 18。木灵根友好；药园、束缚、回春向。 常随功法「muyuan_gong」体系解锁。",
+      "requires_method": "muyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "muyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "木元补全第2式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "muyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "muyuan_v129_3",
+      "display": "木元·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "木元功",
+      "effect": {
+        "type": "aoe",
+        "element": "wood",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "木元·爆：elemental派术法，属性倾向 wood。境界门槛 CORE_FORMATION，耗灵约 24。木灵根友好；药园、束缚、回春向。 常随功法「muyuan_gong」体系解锁。",
+      "requires_method": "muyuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "muyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "木元补全第3式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "muyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "shuiyuan_v129_1",
+      "display": "水元·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "水元功",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "水元·击：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 12。水灵根友好；可克火、润疗与困敌。 常随功法「shuiyuan_gong」体系解锁。",
+      "requires_method": "shuiyuan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "shuiyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "水元补全第1式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "shuiyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "shuiyuan_v129_2",
+      "display": "水元·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "水元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "水元·护：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 18。水灵根友好；可克火、润疗与困敌。 常随功法「shuiyuan_gong」体系解锁。",
+      "requires_method": "shuiyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "shuiyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "水元补全第2式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "shuiyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "shuiyuan_v129_3",
+      "display": "水元·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "水元功",
+      "effect": {
+        "type": "aoe",
+        "element": "water",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "水元·爆：elemental派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 24。水灵根友好；可克火、润疗与困敌。 常随功法「shuiyuan_gong」体系解锁。",
+      "requires_method": "shuiyuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "shuiyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "水元补全第3式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "shuiyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huoyuan_v129_1",
+      "display": "火元·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "火元功",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "火元·击：elemental派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 12。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「huoyuan_gong」体系解锁。",
+      "requires_method": "huoyuan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "huoyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "火元补全第1式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huoyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huoyuan_v129_2",
+      "display": "火元·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "火元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "火元·护：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 18。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「huoyuan_gong」体系解锁。",
+      "requires_method": "huoyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "huoyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "火元补全第2式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huoyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huoyuan_v129_3",
+      "display": "火元·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "火元功",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "火元·爆：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 24。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「huoyuan_gong」体系解锁。",
+      "requires_method": "huoyuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "huoyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "火元补全第3式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huoyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuyuan_v129_1",
+      "display": "土元·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "土元功",
+      "effect": {
+        "type": "projectile",
+        "element": "earth",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "土元·击：elemental派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。土灵根友好；防身、厚重、阵基。 常随功法「tuyuan_gong」体系解锁。",
+      "requires_method": "tuyuan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "tuyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "土元补全第1式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "tuyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuyuan_v129_2",
+      "display": "土元·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "土元功",
+      "effect": {
+        "type": "buff_self",
+        "element": "earth",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "土元·护：elemental派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。土灵根友好；防身、厚重、阵基。 常随功法「tuyuan_gong」体系解锁。",
+      "requires_method": "tuyuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tuyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "土元补全第2式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "tuyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tuyuan_v129_3",
+      "display": "土元·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "土元功",
+      "effect": {
+        "type": "aoe",
+        "element": "earth",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "土元·爆：elemental派术法，属性倾向 earth。境界门槛 CORE_FORMATION，耗灵约 24。土灵根友好；防身、厚重、阵基。 常随功法「tuyuan_gong」体系解锁。",
+      "requires_method": "tuyuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tuyuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "土元补全第3式。",
+        "v129": true
+      },
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "tuyuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinxuan_v129_1",
+      "display": "金玄·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "金玄功",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金玄·击：elemental派术法，属性倾向 metal。境界门槛 QI_REFINING，耗灵约 12。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinxuan_gong」体系解锁。",
+      "requires_method": "jinxuan_gong",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "jinxuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金玄补全第1式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinxuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinxuan_v129_2",
+      "display": "金玄·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "金玄功",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金玄·护：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinxuan_gong」体系解锁。",
+      "requires_method": "jinxuan_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "jinxuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金玄补全第2式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinxuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinxuan_v129_3",
+      "display": "金玄·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "金玄功",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金玄·爆：elemental派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 24。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinxuan_gong」体系解锁。",
+      "requires_method": "jinxuan_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "jinxuan_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金玄补全第3式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinxuan_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingmu_v129_1",
+      "display": "青木·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "青木诀",
+      "effect": {
+        "type": "projectile",
+        "element": "wood",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青木·击：elemental派术法，属性倾向 wood。境界门槛 FOUNDATION，耗灵约 12。木灵根友好；药园、束缚、回春向。 常随功法「qingmu_gong」体系解锁。",
+      "requires_method": "qingmu_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qingmu_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青木补全第1式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingmu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingmu_v129_2",
+      "display": "青木·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "青木诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "wood",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青木·护：elemental派术法，属性倾向 wood。境界门槛 CORE_FORMATION，耗灵约 18。木灵根友好；药园、束缚、回春向。 常随功法「qingmu_gong」体系解锁。",
+      "requires_method": "qingmu_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qingmu_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青木补全第2式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingmu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingmu_v129_3",
+      "display": "青木·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "青木诀",
+      "effect": {
+        "type": "aoe",
+        "element": "wood",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青木·爆：elemental派术法，属性倾向 wood。境界门槛 NASCENT_SOUL，耗灵约 24。木灵根友好；药园、束缚、回春向。 常随功法「qingmu_gong」体系解锁。",
+      "requires_method": "qingmu_gong",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "qingmu_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青木补全第3式。",
+        "v129": true
+      },
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qingmu_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuanbing_v129_1",
+      "display": "玄冰·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "玄冰真经",
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄冰·击：elemental派术法，属性倾向 ice。境界门槛 FOUNDATION，耗灵约 12。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuanbing_zhenjing」体系解锁。",
+      "requires_method": "xuanbing_zhenjing",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "xuanbing_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄冰补全第1式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuanbing_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuanbing_v129_2",
+      "display": "玄冰·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "玄冰真经",
+      "effect": {
+        "type": "buff_self",
+        "element": "ice",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄冰·护：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 18。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuanbing_zhenjing」体系解锁。",
+      "requires_method": "xuanbing_zhenjing",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "xuanbing_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄冰补全第2式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuanbing_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuanbing_v129_3",
+      "display": "玄冰·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "玄冰真经",
+      "effect": {
+        "type": "aoe",
+        "element": "ice",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄冰·爆：elemental派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 24。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuanbing_zhenjing」体系解锁。",
+      "requires_method": "xuanbing_zhenjing",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "xuanbing_zhenjing"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄冰补全第3式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuanbing_zhenjing",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuantian_v129_1",
+      "display": "玄天冰·击",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 12,
+      "source": "玄天冰魄功",
+      "effect": {
+        "type": "projectile",
+        "element": "ice",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄天冰·击：elemental派术法，属性倾向 ice。境界门槛 CORE_FORMATION，耗灵约 12。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuantian_ice_art」体系解锁。",
+      "requires_method": "xuantian_ice_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "xuantian_ice_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄天冰补全第1式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuantian_ice_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuantian_v129_2",
+      "display": "玄天冰·护",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 18,
+      "source": "玄天冰魄功",
+      "effect": {
+        "type": "buff_self",
+        "element": "ice",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄天冰·护：elemental派术法，属性倾向 ice。境界门槛 NASCENT_SOUL，耗灵约 18。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuantian_ice_art」体系解锁。",
+      "requires_method": "xuantian_ice_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "xuantian_ice_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄天冰补全第2式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuantian_ice_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "xuantian_v129_3",
+      "display": "玄天冰·爆",
+      "school": "elemental",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 24,
+      "source": "玄天冰魄功",
+      "effect": {
+        "type": "aoe",
+        "element": "ice",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "玄天冰·爆：elemental派术法，属性倾向 ice。境界门槛 DEITY_TRANSFORMATION，耗灵约 24。寒气侵体。 寒域增幅，惧纯阳。 常随功法「xuantian_ice_art」体系解锁。",
+      "requires_method": "xuantian_ice_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "xuantian_ice_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "ice",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "玄天冰补全第3式。",
+        "v129": true
+      },
+      "element": "ice",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "xuantian_ice_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinyi_v129_1",
+      "display": "金翼·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "金翼功",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金翼·击：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 12。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinyi_gong」体系解锁。",
+      "requires_method": "jinyi_gong",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "jinyi_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金翼补全第1式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinyi_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinyi_v129_2",
+      "display": "金翼·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "金翼功",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金翼·护：elemental派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinyi_gong」体系解锁。",
+      "requires_method": "jinyi_gong",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "jinyi_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金翼补全第2式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinyi_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jinyi_v129_3",
+      "display": "金翼·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "金翼功",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "金翼·爆：elemental派术法，属性倾向 metal。境界门槛 NASCENT_SOUL，耗灵约 24。金灵根友好；破甲、剑气辅、锋锐。 常随功法「jinyi_gong」体系解锁。",
+      "requires_method": "jinyi_gong",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "jinyi_gong"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "金翼补全第3式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "jinyi_gong",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingzhu_v129_1",
+      "display": "青珠·击",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "青珠诀",
+      "effect": {
+        "type": "projectile",
+        "element": "water",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青珠·击：elemental派术法，属性倾向 water。境界门槛 QI_REFINING，耗灵约 12。水灵根友好；可克火、润疗与困敌。 常随功法「qixuan_azure_pearl_art」体系解锁。",
+      "requires_method": "qixuan_azure_pearl_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "qixuan_azure_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青珠补全第1式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qixuan_azure_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingzhu_v129_2",
+      "display": "青珠·护",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "青珠诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青珠·护：elemental派术法，属性倾向 water。境界门槛 FOUNDATION，耗灵约 18。水灵根友好；可克火、润疗与困敌。 常随功法「qixuan_azure_pearl_art」体系解锁。",
+      "requires_method": "qixuan_azure_pearl_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "qixuan_azure_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青珠补全第2式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qixuan_azure_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "qingzhu_v129_3",
+      "display": "青珠·爆",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "青珠诀",
+      "effect": {
+        "type": "aoe",
+        "element": "water",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "青珠·爆：elemental派术法，属性倾向 water。境界门槛 CORE_FORMATION，耗灵约 24。水灵根友好；可克火、润疗与困敌。 常随功法「qixuan_azure_pearl_art」体系解锁。",
+      "requires_method": "qixuan_azure_pearl_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "qixuan_azure_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "青珠补全第3式。",
+        "v129": true
+      },
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "qixuan_azure_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huangjin_v129_1",
+      "display": "皇金·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "皇金宗金罡诀",
+      "effect": {
+        "type": "projectile",
+        "element": "metal",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "皇金·击：elemental派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 12。金灵根友好；破甲、剑气辅、锋锐。 常随功法「huangjin_sect_art」体系解锁。",
+      "requires_method": "huangjin_sect_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "huangjin_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "皇金补全第1式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huangjin_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huangjin_v129_2",
+      "display": "皇金·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "皇金宗金罡诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "metal",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "皇金·护：elemental派术法，属性倾向 metal。境界门槛 CORE_FORMATION，耗灵约 18。金灵根友好；破甲、剑气辅、锋锐。 常随功法「huangjin_sect_art」体系解锁。",
+      "requires_method": "huangjin_sect_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "huangjin_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "皇金补全第2式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huangjin_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "huangjin_v129_3",
+      "display": "皇金·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "皇金宗金罡诀",
+      "effect": {
+        "type": "aoe",
+        "element": "metal",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "皇金·爆：elemental派术法，属性倾向 metal。境界门槛 NASCENT_SOUL，耗灵约 24。金灵根友好；破甲、剑气辅、锋锐。 常随功法「huangjin_sect_art」体系解锁。",
+      "requires_method": "huangjin_sect_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "huangjin_sect_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "皇金补全第3式。",
+        "v129": true
+      },
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "huangjin_sect_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "nongyan2_v129_1",
+      "display": "弄焰·击",
+      "school": "elemental",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "弄焰决",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "弄焰·击：elemental派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 12。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「nongyan_jue」体系解锁。",
+      "requires_method": "nongyan_jue",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "nongyan_jue"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "弄焰补全第1式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "nongyan_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "nongyan2_v129_2",
+      "display": "弄焰·护",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "弄焰决",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "弄焰·护：elemental派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 18。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「nongyan_jue」体系解锁。",
+      "requires_method": "nongyan_jue",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "nongyan_jue"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "弄焰补全第2式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "nongyan_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "nongyan2_v129_3",
+      "display": "弄焰·爆",
+      "school": "elemental",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "弄焰决",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "弄焰·爆：elemental派术法，属性倾向 fire。境界门槛 NASCENT_SOUL，耗灵约 24。火灵根友好；丹房、火域、杀伐皆常用。 常随功法「nongyan_jue」体系解锁。",
+      "requires_method": "nongyan_jue",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "nongyan_jue"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "弄焰补全第3式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "nongyan_jue",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_clan_ancestor_art_auto_3",
+      "display": "世家祖传诀·式3",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "世家祖传诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "世家祖传诀·式3：elemental派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。 常随功法「dajin_clan_ancestor_art」体系解锁。",
+      "requires_method": "dajin_clan_ancestor_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "dajin_clan_ancestor_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "dajin_clan_ancestor_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "five_elements_root_art_auto_3",
+      "display": "五行根基诀·式3",
+      "school": "elemental",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 14,
+      "source": "五行根基诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "五行根基诀·式3：elemental派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 14。 常随功法「five_elements_root_art」体系解锁。",
+      "requires_method": "five_elements_root_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "five_elements_root_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "five_elements_root_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "yuanci_shenguang_art_auto_3",
+      "display": "元磁神光功法·式3",
+      "school": "elemental",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 14,
+      "source": "元磁神光功法",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "元磁神光功法·式3：elemental派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 14。 常随功法「yuanci_shenguang_art」体系解锁。",
+      "requires_method": "yuanci_shenguang_art",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "yuanci_shenguang_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "yuanci_shenguang_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dajin_ye_clan_art_auto_3",
+      "display": "叶家皇脉诀·式3",
+      "school": "elemental",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 14,
+      "source": "叶家皇脉诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 24,
+        "tags": [
+          "v129_final_fill"
+        ]
+      },
+      "description": "叶家皇脉诀·式3：elemental派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 14。 常随功法「dajin_ye_clan_art」体系解锁。",
+      "requires_method": "dajin_ye_clan_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dajin_ye_clan_art"
+      },
+      "tags": [
+        "v129",
+        "final_fill_min3",
+        "neutral",
+        "elemental",
+        "spell"
+      ],
+      "setting": {
+        "v129": true,
+        "fill": true
+      },
+      "element": "neutral",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "dajin_ye_clan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_metal_edge",
+      "display": "幻世金锋",
+      "school": "elemental",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "beam",
+        "element": "metal",
+        "damage_base": 60,
+        "tags": [
+          "five_elements"
+        ]
+      },
+      "description": "幻世金锋：elemental派术法，属性倾向 metal。境界门槛 TRUE_IMMORTAL，耗灵约 35。金灵根友好；破甲、剑气辅、锋锐。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "metal",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "幻世金行杀伐。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "metal",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_wood_bind_world",
+      "display": "幻世木囚",
+      "school": "elemental",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "control",
+        "element": "wood",
+        "damage_base": 30,
+        "tags": [
+          "five_elements"
+        ]
+      },
+      "description": "幻世木囚：elemental派术法，属性倾向 wood。境界门槛 TRUE_IMMORTAL，耗灵约 35。木灵根友好；药园、束缚、回春向。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wood",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "木行囚笼。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "wood",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_water_mirror",
+      "display": "幻世水镜",
+      "school": "elemental",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "water",
+        "damage_base": 0,
+        "tags": [
+          "five_elements"
+        ]
+      },
+      "description": "幻世水镜：elemental派术法，属性倾向 water。境界门槛 GOLDEN_IMMORTAL，耗灵约 40。水灵根友好；可克火、润疗与困敌。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "water",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "水镜反照。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "water",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_fire_realm",
+      "display": "幻世火域",
+      "school": "elemental",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 45,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "field",
+        "element": "fire",
+        "damage_base": 55,
+        "tags": [
+          "five_elements",
+          "domain"
+        ]
+      },
+      "description": "幻世火域：elemental派术法，属性倾向 fire。境界门槛 GOLDEN_IMMORTAL，耗灵约 45。凝火杀伐。 火灵根友好；丹房、火域、杀伐皆常用。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "fire",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "火域灼敌。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "fire",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "wuxing_earth_suppress",
+      "display": "幻世土镇",
+      "school": "elemental",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 45,
+      "source": "大五行幻世诀",
+      "effect": {
+        "type": "debuff",
+        "element": "earth",
+        "damage_base": 35,
+        "tags": [
+          "five_elements"
+        ]
+      },
+      "description": "幻世土镇：elemental派术法，属性倾向 earth。境界门槛 GOLDEN_IMMORTAL，耗灵约 45。土灵根友好；防身、厚重、阵基。 常随功法「great_five_elements_world_art」体系解锁。",
+      "requires_method": "great_five_elements_world_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "great_five_elements_world_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "earth",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "土行镇压。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_five_elements",
+        "faction": "zhenyan_men",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "zhenyan_men",
+      "law_type": "law_five_elements",
+      "element": "earth",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "great_five_elements_world_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "heifeng_black_gale",
+      "display": "黑风割",
+      "school": "elemental",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 40,
+      "source": "黑风海御风诀",
+      "effect": {
+        "type": "aoe",
+        "element": "wind",
+        "damage_base": 58,
+        "tags": [
+          "wind"
+        ]
+      },
+      "description": "黑风割：elemental派术法，属性倾向 wind。境界门槛 GOLDEN_IMMORTAL，耗灵约 40。身法与风刃，草原/海上略优。 常随功法「heifeng_sea_art」体系解锁。",
+      "requires_method": "heifeng_sea_art",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "heifeng_sea_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "wind",
+        "elemental",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "黑风杀伐。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "heifeng_sea",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "heifeng_sea",
+      "element": "wind",
+      "path": "elemental",
+      "alignment": "neutral",
+      "source_method": "heifeng_sea_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
   "root_gate_note": "汇编18：灵根属性解锁对应属性法术；伪灵根可学但效率 debuff 在 cultivation 侧",
-  "root_gate_ref": "spirit_roots_catalog.json#synergy"
+  "root_gate_ref": "spirit_roots_catalog.json#synergy",
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_polish": true,
+  "v142": true,
+  "v143": true
 }

@@ -17,7 +17,7 @@
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "烈火符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "烈火符：talisman派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 10。凝火杀伐。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -37,7 +37,25 @@
         "prerequisite_methods": [
           "tianfu_spirit_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ice_talisman",
@@ -54,7 +72,7 @@
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "寒冰符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "寒冰符：talisman派术法，属性倾向 ice。境界门槛 QI_REFINING，耗灵约 9。寒气侵体。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -74,7 +92,24 @@
         "prerequisite_methods": [
           "tianfu_spirit_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "ice",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "ice",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "teleport_talisman",
@@ -91,7 +126,7 @@
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "遁天符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "遁天符：talisman派术法，属性倾向 space。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -111,7 +146,24 @@
         "prerequisite_methods": [
           "tianfu_spirit_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "space",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "space",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_shield_talisman",
@@ -127,7 +179,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "护体符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "护体符：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
       "requires_method": "tianfu_scripture",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -148,7 +200,23 @@
         "prerequisite_methods": [
           "tianfu_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "explosion_talisman",
@@ -164,7 +232,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "爆炎符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "爆炎符：talisman派术法，属性倾向 fire。境界门槛 QI_REFINING，耗灵约 17。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
       "requires_method": "tianfu_scripture",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -185,7 +253,25 @@
         "prerequisite_methods": [
           "tianfu_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "wind_talisman",
@@ -201,7 +287,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "神行符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神行符：talisman派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
       "requires_method": "tianfu_scripture",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -222,7 +308,24 @@
         "prerequisite_methods": [
           "tianfu_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "wind",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "seal_talisman",
@@ -238,7 +341,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "定身符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "定身符：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
       "requires_method": "tianfu_scripture",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -259,7 +362,23 @@
         "prerequisite_methods": [
           "tianfu_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "ghost_talisman",
@@ -276,8 +395,8 @@
       },
       "tier": "spell",
       "path_required": "ghost_cultivator",
-      "requires_method": "yin_luo_ghost_art",
-      "description": "驱鬼符：talisman法术，需境界 QI_REFINING 以上方可施展。",
+      "requires_method": "tianfu_spirit_scripture",
+      "description": "驱鬼符：talisman派术法，属性倾向 yang。境界门槛 QI_REFINING，耗灵约 14。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -297,7 +416,25 @@
         "prerequisite_methods": [
           "yin_luo_ghost_art"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "yang",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "yang",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_chain_talisman_cast",
@@ -314,7 +451,7 @@
           "bind"
         ]
       },
-      "description": "缚灵符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "缚灵符术：talisman派术法，属性倾向 spirit。境界门槛 FOUNDATION，耗灵约 16。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -335,7 +472,24 @@
         "prerequisite_methods": [
           "tianfu_spirit_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "spirit",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "spirit",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "golden_armor_talisman_cast",
@@ -352,7 +506,7 @@
           "defense"
         ]
       },
-      "description": "金刚符术：talisman法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "金刚符术：talisman派术法，属性倾向 metal。境界门槛 FOUNDATION，耗灵约 14。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -373,7 +527,24 @@
         "prerequisite_methods": [
           "tianfu_spirit_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "metal",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "metal",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "thunder_talisman_storm",
@@ -388,7 +559,7 @@
         "element": "thunder",
         "damage_base": 60
       },
-      "description": "雷符暴雨：talisman神通，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "雷符暴雨：talisman派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 32。雷法震邪。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "source": "凡人向扩充",
       "setting": {
         "combat_style": "符箓瞬发",
@@ -411,7 +582,23 @@
           "tianfu_spirit_scripture"
         ],
         "prerequisite_mode": "all"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "thunder",
+        "talisman",
+        "neutral",
+        "secret"
+      ],
+      "element": "thunder",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "tianfu_golden_chain",
@@ -424,9 +611,10 @@
         "damage_base": 30,
         "tags": [
           "bind"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "符箓化金链缚敌。",
+      "description": "天符金链：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -449,7 +637,22 @@
         "prerequisite_methods": [
           "tianfu_scripture"
         ]
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_fire_burst_talisman",
@@ -461,11 +664,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "aoe_fire",
-        "damage_base": 18
+        "damage_base": 18,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「爆炎符」后可瞬发消耗符箓。",
+      "description": "爆炎符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -480,7 +684,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "fire_burst_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_ice_seal_talisman",
@@ -492,11 +711,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "slow_ice",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「冰封符」后可瞬发消耗符箓。",
+      "description": "冰封符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。寒气侵体。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -511,7 +731,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "ice_seal_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_escape_heaven_talisman",
@@ -523,11 +758,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "long_escape",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「遁天符」后可瞬发消耗符箓。",
+      "description": "遁天符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -542,7 +778,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "escape_heaven_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_spirit_fix_talisman",
@@ -554,11 +805,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "anti_illusion",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「定神符」后可瞬发消耗符箓。",
+      "description": "制符学会「定神符」后可瞬发消耗符箓。 定神符：原著低阶常用，可与长春阶段衔接；系统上亦可天符解锁。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -573,7 +825,24 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "spirit_fix_talisman"
-      }
+      },
+      "tags": [
+        "alt_seven",
+        "v127",
+        "novel_canon",
+        "v124",
+        "tianfu",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "sect_id": "tianfu_gate",
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_thunder_talisman",
@@ -585,11 +854,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "thunder_strike",
-        "damage_base": 80
+        "damage_base": 80,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「雷霄符」后可瞬发消耗符箓。",
+      "description": "雷霄符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 8。雷法震邪。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -604,7 +874,22 @@
         "prerequisite_mode": "all",
         "realm_min": "CORE_FORMATION",
         "craft_recipe_id": "thunder_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_soul_lock_talisman",
@@ -616,11 +901,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "soul_bind",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「锁魂符」后可瞬发消耗符箓。",
+      "description": "锁魂符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -635,7 +921,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "soul_lock_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_teleport_array_talisman",
@@ -647,11 +948,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "array_teleport",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「传送符」后可瞬发消耗符箓。",
+      "description": "传送符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -666,7 +968,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "teleport_array_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_beast_contract_talisman",
@@ -678,11 +995,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "pet_contract",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「御兽契符」后可瞬发消耗符箓。",
+      "description": "御兽契符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -697,7 +1015,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "beast_contract_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_anti_demon_talisman",
@@ -709,11 +1042,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "demon_repulse",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「驱魔符」后可瞬发消耗符箓。",
+      "description": "驱魔符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -728,7 +1062,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "anti_demon_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_yin_protect_talisman",
@@ -740,11 +1089,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "yin_damage_resist_0.3",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「阴灵护符」后可瞬发消耗符箓。",
+      "description": "阴灵护符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -759,7 +1109,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "yin_protect_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_ghost_hide_talisman",
@@ -771,11 +1136,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "mask_qi",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「敛魂符」后可瞬发消耗符箓。",
+      "description": "敛魂符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -790,7 +1156,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "ghost_hide_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_space_anchor_talisman",
@@ -802,11 +1183,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "prevent_teleport",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「定空符」后可瞬发消耗符箓。",
+      "description": "定空符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -821,7 +1203,22 @@
         "prerequisite_mode": "all",
         "realm_min": "CORE_FORMATION",
         "craft_recipe_id": "space_anchor_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_life_save_talisman",
@@ -833,11 +1230,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "auto_resurrect_once",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「替身符」后可瞬发消耗符箓。",
+      "description": "替身符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -852,7 +1250,22 @@
         "prerequisite_mode": "all",
         "realm_min": "NASCENT_SOUL",
         "craft_recipe_id": "life_save_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_earth_wall_talisman",
@@ -864,11 +1277,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "temp_wall",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「土墙符」后可瞬发消耗符箓。",
+      "description": "土墙符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -883,7 +1297,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "earth_wall_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_mirage_heart_talisman",
@@ -895,11 +1324,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "illusion_charm",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「幻心符」后可瞬发消耗符箓。",
+      "description": "幻心符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -914,7 +1344,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "mirage_heart_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_invisibility_talisman",
@@ -926,11 +1371,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "invisibility_short",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「匿形符」后可瞬发消耗符箓。",
+      "description": "匿形符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -945,7 +1391,22 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "invisibility_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_spirit_gather_talisman",
@@ -957,11 +1418,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "local_spirit_boost",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「聚灵符」后可瞬发消耗符箓。",
+      "description": "聚灵符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -976,7 +1438,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "spirit_gather_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_illusion_talisman",
@@ -988,11 +1465,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「迷踪符」后可瞬发消耗符箓。",
+      "description": "迷踪符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1007,7 +1485,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "illusion_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_star_palace_patrol_talisman",
@@ -1019,11 +1512,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「星宫巡海符」后可瞬发消耗符箓。",
+      "description": "星宫巡海符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1038,7 +1532,26 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "star_palace_patrol_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "v127",
+        "star_palace",
+        "chaotic_sea",
+        "alt_seven",
+        "tianfu",
+        "v128",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "faction_id": "star_palace",
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_golden_armor_talisman",
@@ -1050,11 +1563,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「金刚符」后可瞬发消耗符箓。",
+      "description": "金刚符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1069,7 +1583,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "golden_armor_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_inverse_star_cipher_talisman",
@@ -1081,11 +1610,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「逆星暗号符」后可瞬发消耗符箓。",
+      "description": "逆星暗号符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1100,7 +1630,26 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "inverse_star_cipher_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "v127",
+        "chaotic_sea",
+        "inverse_star",
+        "alt_seven",
+        "tianfu",
+        "v128",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "faction_id": "inverse_star_alliance",
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_bu_tian_talisman",
@@ -1112,11 +1661,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「补天符」后可瞬发消耗符箓。",
+      "description": "补天符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1131,7 +1681,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "bu_tian_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_wood_bind_talisman",
@@ -1143,11 +1708,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「木缚符」后可瞬发消耗符箓。",
+      "description": "木缚符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1162,7 +1728,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "wood_bind_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_metal_blade_talisman",
@@ -1174,11 +1755,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「金刃符」后可瞬发消耗符箓。",
+      "description": "金刃符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1193,7 +1775,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "metal_blade_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_void_palace_key_talisman",
@@ -1205,11 +1802,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「虚天引路符」后可瞬发消耗符箓。",
+      "description": "虚天引路符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1224,7 +1822,22 @@
         "prerequisite_mode": "all",
         "realm_min": "QI_REFINING",
         "craft_recipe_id": "void_palace_key_talisman"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "cast_talisman_wooden_ox",
@@ -1236,11 +1849,12 @@
       "effect": {
         "type": "talisman_consume",
         "effect_key": "talisman_consume",
-        "damage_base": 12
+        "damage_base": 12,
+        "element": "neutral"
       },
       "tier": "spell",
       "requires_method": "tianfu_spirit_scripture",
-      "description": "制符学会「木牛符」后可瞬发消耗符箓。",
+      "description": "木牛符·瞬发：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 8。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
       "setting": {
         "combat_style": "符箓瞬发",
         "cast_bias": "instant",
@@ -1255,10 +1869,384 @@
         "prerequisite_mode": "all",
         "realm_min": "FOUNDATION",
         "craft_recipe_id": "talisman_wooden_ox"
-      }
+      },
+      "sect_id": "tianfu_gate",
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mid_grade_talisman_burst",
+      "display": "中级符爆",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 0,
+      "source": "天符/自制",
+      "effect": {
+        "type": "talisman_consume",
+        "element": "fire",
+        "damage_base": 55,
+        "tags": [
+          "consume"
+        ]
+      },
+      "description": "中级符爆：talisman派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 0。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
+      "setting": {
+        "combat_style": "使用中级攻击符。韩立符道营生与战备。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "使用中级攻击符。韩立符道营生与战备。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "requires_method": "tianfu_spirit_scripture",
+      "tags": [
+        "alt_seven",
+        "v127",
+        "novel_canon",
+        "v124",
+        "tianfu",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "sect_id": "tianfu_gate",
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "sect_talisman_intro",
+      "display": "符修入门符",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 0,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "talisman_consume",
+        "element": "fire",
+        "damage_base": 25
+      },
+      "description": "符修入门符：talisman派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 0。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「sect_specialty_talisman」体系解锁。",
+      "setting": {
+        "combat_style": "专精入门",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "专精入门",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_talisman"
+      },
+      "requires_method": "sect_specialty_talisman",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_talisman",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianfu_grade3_master_cast",
+      "display": "天符三品连爆",
+      "school": "talisman",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 0,
+      "source": "天符灵经",
+      "effect": {
+        "type": "talisman_consume",
+        "element": "thunder",
+        "damage_base": 70,
+        "tags": [
+          "talisman",
+          "aoe"
+        ]
+      },
+      "description": "天符三品连爆：talisman派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 0。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
+      "requires_method": "tianfu_spirit_scripture",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "thunder",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "三品符连续激发（耗符库存）。",
+        "v127": true,
+        "sect": "tianfu_gate",
+        "track": null
+      },
+      "sect_id": "tianfu_gate",
+      "element": "thunder",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianfu_ink_resonance",
+      "display": "灵墨共鸣",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "天符灵诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "talisman"
+        ]
+      },
+      "description": "灵墨共鸣：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 12。符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_scripture」体系解锁。",
+      "requires_method": "tianfu_scripture",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianfu_scripture"
+      },
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短时提升符术威力。",
+        "v127": true,
+        "sect": "tianfu_gate",
+        "track": null
+      },
+      "sect_id": "tianfu_gate",
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianfu_paper_shield_wall",
+      "display": "符墙",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 20,
+      "source": "天符灵经",
+      "effect": {
+        "type": "wall",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "defense",
+          "talisman"
+        ]
+      },
+      "description": "符墙：talisman派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 20。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「tianfu_spirit_scripture」体系解锁。",
+      "requires_method": "tianfu_spirit_scripture",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianfu_spirit_scripture"
+      },
+      "tags": [
+        "alt_seven",
+        "tianfu",
+        "v127",
+        "neutral",
+        "talisman",
+        "spell"
+      ],
+      "setting": {
+        "lore": "多张护体符展开为墙。",
+        "v127": true,
+        "sect": "tianfu_gate",
+        "track": null
+      },
+      "sect_id": "tianfu_gate",
+      "element": "neutral",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "tianfu_spirit_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "secttal2_v129_1",
+      "display": "符专·击",
+      "school": "talisman",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 12,
+      "source": "talisman专精入门（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "fire",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "符专·击：talisman派术法，属性倾向 fire。境界门槛 FOUNDATION，耗灵约 12。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「sect_specialty_talisman」体系解锁。",
+      "requires_method": "sect_specialty_talisman",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "sect_specialty_talisman"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "符专补全第1式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_talisman",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "secttal2_v129_2",
+      "display": "符专·护",
+      "school": "talisman",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 18,
+      "source": "talisman专精入门（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "fire",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "符专·护：talisman派术法，属性倾向 fire。境界门槛 CORE_FORMATION，耗灵约 18。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「sect_specialty_talisman」体系解锁。",
+      "requires_method": "sect_specialty_talisman",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "sect_specialty_talisman"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "符专补全第2式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_talisman",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "secttal2_v129_3",
+      "display": "符专·爆",
+      "school": "talisman",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 24,
+      "source": "talisman专精入门（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "fire",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "符专·爆：talisman派术法，属性倾向 fire。境界门槛 NASCENT_SOUL，耗灵约 24。符成而发。 符道：一符一用或连符，战前准备重于临场。 常随功法「sect_specialty_talisman」体系解锁。",
+      "requires_method": "sect_specialty_talisman",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "sect_specialty_talisman"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "fire",
+        "talisman",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "符专补全第3式。",
+        "v129": true
+      },
+      "element": "fire",
+      "path": "talisman",
+      "alignment": "neutral",
+      "source_method": "sect_specialty_talisman",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
   "method_gate": {
     "tianfu_spirit_scripture": "天符灵经"
-  }
+  },
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

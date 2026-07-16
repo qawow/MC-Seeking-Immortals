@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.network;
 
 import com.xunxian.seekingimmortals.skill.LifeSkillService;
+import com.xunxian.seekingimmortals.skill.SkillTreeCatalogService;
 import com.xunxian.seekingimmortals.skill.SkillType;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -8,10 +9,12 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.util.Locale;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
  * Wave491 protocol 18: client→server life/special skill tree practice intents.
+ * M02: also resolves skill_trees.json tree ids for info queries.
  * Reuses LifeSkillService / SpecialSkillService; no parallel XP table.
  */
 public record SkillTreeActionPacket(String action, String skillId) {
@@ -43,13 +46,24 @@ public record SkillTreeActionPacket(String action, String skillId) {
                         "message.seeking_immortals.skill_tree.practice_disabled"), true);
                 return;
             }
-            SkillType type = resolve(packet.skillId);
-            if (type == null) {
-                player.displayClientMessage(Component.translatable(
-                        "message.seeking_immortals.skill_tree.unknown", packet.skillId()), true);
-                return;
-            }
             if (ACTION_INFO.equals(action)) {
+                Optional<SkillTreeCatalogService.Tree> tree = SkillTreeCatalogService.builtin().find(packet.skillId);
+                if (tree.isPresent()) {
+                    SkillTreeCatalogService.Tree t = tree.get();
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.skill_tree.tree_info",
+                            t.display(),
+                            t.methodRoot().isBlank() ? "-" : t.methodRoot(),
+                            t.spells().size(),
+                            t.secrets().size()), false);
+                    return;
+                }
+                SkillType type = resolve(packet.skillId);
+                if (type == null) {
+                    player.displayClientMessage(Component.translatable(
+                            "message.seeking_immortals.skill_tree.unknown", packet.skillId()), true);
+                    return;
+                }
                 int level = LifeSkillService.level(player, type);
                 player.displayClientMessage(Component.translatable(
                         "message.seeking_immortals.skill_tree.info",

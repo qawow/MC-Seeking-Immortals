@@ -270,13 +270,28 @@ public final class ManualCatalogService {
                         method.display()), false);
                 return;
             }
+            // M02: manual conflict matrix D/F pairs block learning.
+            com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.GateResult conflict =
+                    com.xunxian.seekingimmortals.skill.ManualConflictMatrixService.canLearnMethod(player, method.id());
+            if (!conflict.allowed()) {
+                if (conflict.messageKey() != null && !conflict.messageKey().isBlank()) {
+                    player.displayClientMessage(Component.translatable(conflict.messageKey(), conflict.args()), false);
+                }
+                return;
+            }
             markLearnedMethod(player, method.id());
             setMethodLayer(player, method.id(), 1);
+            int techniquesGranted = com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
+                    .grantForMethodLayer(player, method.id(), 1);
             // Light insight buff so learning is immediately felt.
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 30, 0));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20 * 60, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.learned",
                     method.display(), method.school().isBlank() ? "-" : method.school()), true);
+            if (techniquesGranted > 0) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.method.techniques_granted", techniquesGranted), false);
+            }
             ok[0] = true;
         });
         return ok[0];
@@ -330,10 +345,16 @@ public final class ManualCatalogService {
             }
             int nextLayer = layer + 1;
             setMethodLayer(player, method.id(), nextLayer);
+            int techniquesGranted = com.xunxian.seekingimmortals.skill.MethodLayerTechniqueService
+                    .grantForMethodLayer(player, method.id(), nextLayer);
             SyncLearnedMethodsPacket.send(player);
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 20 * 15, 0));
             player.displayClientMessage(Component.translatable("message.seeking_immortals.method.cultivated",
                     method.display(), nextLayer, MAX_METHOD_LAYER), true);
+            if (techniquesGranted > 0) {
+                player.displayClientMessage(Component.translatable(
+                        "message.seeking_immortals.method.techniques_granted", techniquesGranted), false);
+            }
             ok[0] = true;
         });
         return ok[0];

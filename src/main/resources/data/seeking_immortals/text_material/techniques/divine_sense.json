@@ -15,7 +15,7 @@
         "damage_base": 0,
         "tags": []
       },
-      "description": "神识扫描：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神识扫描：以神识铺开探敌探物。大衍修士范围与精度远超常人；强敌可反噬神识。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
@@ -30,7 +30,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "tags": [
+        "generic_sense",
+        "v124",
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_desc_polish": true
     },
     {
       "id": "sense_pressure",
@@ -45,7 +58,7 @@
         "damage_base": 25,
         "tags": []
       },
-      "description": "神识压：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神识压：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
@@ -60,7 +73,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sense_needle",
@@ -75,13 +99,13 @@
         "damage_base": 30,
         "tags": []
       },
-      "description": "神念针：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神念针：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 15。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
         "cast_type": "instant",
         "target": "single",
-        "lore": "神念针：divine_sense法术，需境界 QI_REFINING 以上方可施展。"
+        "lore": "与大衍惊神/失神刺区分"
       },
       "learn_requirements": {
         "learn_source": [
@@ -90,7 +114,20 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "requires_method": null,
+      "tags": [
+        "generic_not_dayan",
+        "v124",
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sense_domain",
@@ -105,7 +142,7 @@
         "damage_base": 45,
         "tags": []
       },
-      "description": "神识域：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神识域：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 22。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
@@ -120,7 +157,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mind_read",
@@ -135,7 +183,7 @@
         "damage_base": 0,
         "tags": []
       },
-      "description": "读心：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "读心：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
@@ -150,7 +198,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "sense_lock",
@@ -165,7 +224,7 @@
         "damage_base": 40,
         "tags": []
       },
-      "description": "神识锁：divine_sense法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "神识锁：divine_sense派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 20。",
       "setting": {
         "combat_style": "神识攻防",
         "cost_note": "神识",
@@ -180,7 +239,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "divine_sense_scan",
@@ -188,13 +258,14 @@
       "school": "divine_sense",
       "tier": "spell",
       "realm_min": "FOUNDATION",
-      "description": "神识探查：divine_sense法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "神识扫描：以神识铺开探敌探物。大衍修士范围与精度远超常人；强敌可反噬神识。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "scan",
         "tags": [
           "divine_sense"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -211,7 +282,20 @@
           "any_foundation_manual"
         ],
         "note": "筑基后神识外放方可习。"
-      }
+      },
+      "tags": [
+        "generic_sense",
+        "v124",
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_desc_polish": true
     },
     {
       "id": "divine_sense_lock",
@@ -219,13 +303,14 @@
       "school": "divine_sense",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "神识锁敌：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "神识锁敌：divine_sense派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "scan",
         "tags": [
           "divine_sense"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -242,7 +327,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_attack_wave",
@@ -250,13 +346,14 @@
       "school": "divine_sense",
       "tier": "spell",
       "realm_min": "CORE_FORMATION",
-      "description": "神魂冲击：divine_sense法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "神魂冲击：divine_sense派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。神魂手段，慎用。",
       "spirit_cost_base": 26,
       "effect": {
         "type": "scan",
         "tags": [
           "divine_sense"
-        ]
+        ],
+        "element": "neutral"
       },
       "source": "凡人向扩充",
       "setting": {
@@ -273,7 +370,18 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "soul_cry_shock",
@@ -285,9 +393,10 @@
         "damage_base": 60,
         "tags": [
           "beast_soul"
-        ]
+        ],
+        "element": "neutral"
       },
-      "description": "神魂冲击，对鬼物额外伤害。",
+      "description": "啼魂尖啸：divine_sense派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 26。神魂手段，慎用。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 26,
@@ -305,7 +414,891 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "tags": [
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jingshen_spike",
+      "display": "惊神刺",
+      "school": "divine_sense",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 45,
+      "source": "大衍神君·大衍诀",
+      "effect": {
+        "type": "soul_attack",
+        "element": "soul",
+        "damage_base": 80,
+        "tags": [
+          "divine_sense",
+          "stun_mind",
+          "dayan"
+        ]
+      },
+      "description": "大衍诀正统神识神通。以神识化刺突击敌识海，令其神识剧痛失神，高手可借机秒杀同阶。耗神识极大，需大衍诀根基。 常随功法「dayan_art」体系解锁。",
+      "setting": {
+        "combat_style": "大衍神君所创，载于大衍诀。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "大衍神君所创，载于大衍诀。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dayan_art"
+      },
+      "requires_method": "dayan_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "dayan",
+        "jingshen",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "shishen_spike",
+      "display": "失神刺",
+      "school": "divine_sense",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 28,
+      "source": "韩立简化·大衍",
+      "effect": {
+        "type": "soul_attack",
+        "element": "soul",
+        "damage_base": 45,
+        "tags": [
+          "divine_sense",
+          "stun_mind",
+          "dayan",
+          "simplified"
+        ]
+      },
+      "description": "韩立根据惊神刺简化的神识攻击。威力与耗神识低于惊神刺，仍可造成短暂失神。**必须大衍诀（或等价神识功）**，非长春/青元附赠。 常随功法「dayan_art」体系解锁。",
+      "setting": {
+        "combat_style": "惊神刺简化版；原著常用神识偷袭手段。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "惊神刺简化版；原著常用神识偷袭手段。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dayan_art"
+      },
+      "requires_method": "dayan_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "dayan",
+        "shishen",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayan_split_mind",
+      "display": "大衍分神",
+      "school": "divine_sense",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 40,
+      "source": "大衍诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "dayan",
+          "split_mind"
+        ]
+      },
+      "description": "大衍分神：divine_sense派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 40。 常随功法「dayan_art」体系解锁。",
+      "setting": {
+        "combat_style": "分出一缕神识专注操控傀儡或探查，本体仍可战斗。大衍诀核心应用。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "分出一缕神识专注操控傀儡或探查，本体仍可战斗。大衍诀核心应用。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "dayan_art"
+      },
+      "requires_method": "dayan_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "dayan",
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayan_sense_boost",
+      "display": "大衍炼神（层进）",
+      "school": "divine_sense",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 0,
+      "source": "大衍诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "dayan",
+          "passive_train"
+        ]
+      },
+      "description": "大衍炼神（层进）：divine_sense派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 0。 常随功法「dayan_art」体系解锁。",
+      "setting": {
+        "combat_style": "大衍诀修炼带来的神识强度成长（系统可用被动层数表达）。非独立攻击技。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "大衍诀修炼带来的神识强度成长（系统可用被动层数表达）。非独立攻击技。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "dayan_art"
+      },
+      "requires_method": "dayan_art",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "dayan",
+        "passive",
+        "neutral",
+        "divine_sense",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "dayan_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lian_shen_focus",
+      "display": "炼神专注",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 30,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "buff_self",
+        "element": "soul",
+        "damage_base": 0
+      },
+      "description": "炼神专注：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 30。 常随功法「lian_shen_shu」体系解锁。",
+      "setting": {
+        "combat_style": "炼神术专注",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "炼神术专注",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "lian_shen_shu"
+      },
+      "requires_method": "lian_shen_shu",
+      "tags": [
+        "v124",
+        "fill_zero_method",
+        "novel_canon",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lian_shen_shu",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "spirit_sever_generic_probe",
+      "display": "炼神通探",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 25,
+      "source": "炼神诀通称",
+      "requires_method": "spirit_severing_art",
+      "effect": {
+        "type": "scan",
+        "element": "soul",
+        "damage_base": 0,
+        "tags": []
+      },
+      "description": "炼神通探：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 25。 常随功法「spirit_severing_art」体系解锁。",
+      "tags": [
+        "v124",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "spirit_severing_art"
+      },
+      "setting": {
+        "lore": "通称",
+        "v124": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "spirit_severing_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "miaoyin_sense_echo",
+      "display": "妙音回响探",
+      "school": "divine_sense",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "妙音玄律",
+      "effect": {
+        "type": "scout",
+        "element": "yin",
+        "damage_base": 0,
+        "tags": [
+          "sound",
+          "scout"
+        ]
+      },
+      "description": "妙音回响探：divine_sense派术法，属性倾向 yin。境界门槛 FOUNDATION，耗灵约 14。 常随功法「miaoyin_sound_art」体系解锁。",
+      "requires_method": "miaoyin_sound_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "miaoyin_sound_art"
+      },
+      "tags": [
+        "v128",
+        "chaotic_sea",
+        "yin",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "以音探敌。",
+        "v128": true,
+        "faction": "miaoyin_men"
+      },
+      "faction_id": "miaoyin_men",
+      "element": "yin",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "miaoyin_sound_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lian_shen_layer2",
+      "display": "炼神二层",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 40,
+      "source": "炼神术",
+      "effect": {
+        "type": "buff_self",
+        "element": "soul",
+        "damage_base": 0
+      },
+      "description": "炼神二层：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 40。 常随功法「lian_shen_shu」体系解锁。",
+      "requires_method": "lian_shen_shu",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "lian_shen_shu"
+      },
+      "tags": [
+        "v129",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "二层。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lian_shen_shu",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lian_shen_spike",
+      "display": "炼神刺",
+      "school": "divine_sense",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 55,
+      "source": "炼神术",
+      "effect": {
+        "type": "soul_attack",
+        "element": "soul",
+        "damage_base": 85
+      },
+      "description": "炼神刺：divine_sense派术法，属性倾向 soul。境界门槛 BODY_INTEGRATION，耗灵约 55。 常随功法「lian_shen_shu」体系解锁。",
+      "requires_method": "lian_shen_shu",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "lian_shen_shu"
+      },
+      "tags": [
+        "v129",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "禁术刺，异于大衍惊神。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lian_shen_shu",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "guanghan_map_probe",
+      "display": "广寒图探",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 30,
+      "source": "广寒星图诀",
+      "effect": {
+        "type": "scan",
+        "element": "soul",
+        "damage_base": 0
+      },
+      "description": "广寒图探：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 30。 常随功法「guanghan_star_map_art」体系解锁。",
+      "requires_method": "guanghan_star_map_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "guanghan_star_map_art"
+      },
+      "tags": [
+        "v129",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "图探。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "guanghan_star_map_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "spsev2_v129_1",
+      "display": "炼神通·击",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 12,
+      "source": "炼神诀（通称）",
+      "effect": {
+        "type": "projectile",
+        "element": "soul",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "炼神通·击：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 12。 常随功法「spirit_severing_art」体系解锁。",
+      "requires_method": "spirit_severing_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "spirit_severing_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼神通补全第1式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "spirit_severing_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "spsev2_v129_2",
+      "display": "炼神通·护",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 18,
+      "source": "炼神诀（通称）",
+      "effect": {
+        "type": "buff_self",
+        "element": "soul",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "炼神通·护：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 18。 常随功法「spirit_severing_art」体系解锁。",
+      "requires_method": "spirit_severing_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "spirit_severing_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼神通补全第2式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "spirit_severing_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "spsev2_v129_3",
+      "display": "炼神通·爆",
+      "school": "divine_sense",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 24,
+      "source": "炼神诀（通称）",
+      "effect": {
+        "type": "aoe",
+        "element": "soul",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "炼神通·爆：divine_sense派术法，属性倾向 soul。境界门槛 BODY_INTEGRATION，耗灵约 24。 常随功法「spirit_severing_art」体系解锁。",
+      "requires_method": "spirit_severing_art",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "spirit_severing_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "炼神通补全第3式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "spirit_severing_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingzu2_v129_1",
+      "display": "灵族珠·击",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 12,
+      "source": "灵族凝珠诀",
+      "effect": {
+        "type": "projectile",
+        "element": "soul",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵族珠·击：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 12。 常随功法「lingzu_pearl_art」体系解锁。",
+      "requires_method": "lingzu_pearl_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "lingzu_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵族珠补全第1式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lingzu_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingzu2_v129_2",
+      "display": "灵族珠·护",
+      "school": "divine_sense",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 18,
+      "source": "灵族凝珠诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "soul",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵族珠·护：divine_sense派术法，属性倾向 soul。境界门槛 VOID_REFINEMENT，耗灵约 18。 常随功法「lingzu_pearl_art」体系解锁。",
+      "requires_method": "lingzu_pearl_art",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "lingzu_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵族珠补全第2式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lingzu_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingzu2_v129_3",
+      "display": "灵族珠·爆",
+      "school": "divine_sense",
+      "realm_min": "BODY_INTEGRATION",
+      "spirit_cost_base": 24,
+      "source": "灵族凝珠诀",
+      "effect": {
+        "type": "aoe",
+        "element": "soul",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "灵族珠·爆：divine_sense派术法，属性倾向 soul。境界门槛 BODY_INTEGRATION，耗灵约 24。 常随功法「lingzu_pearl_art」体系解锁。",
+      "requires_method": "lingzu_pearl_art",
+      "learn_requirements": {
+        "realm_min": "BODY_INTEGRATION",
+        "requires_method": "lingzu_pearl_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "灵族珠补全第3式。",
+        "v129": true
+      },
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "lingzu_pearl_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "time_sense_echo",
+      "display": "时光残响探",
+      "school": "divine_sense",
+      "realm_min": "GOLDEN_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "时间法则经",
+      "effect": {
+        "type": "scout",
+        "element": "time",
+        "damage_base": 0,
+        "tags": [
+          "time"
+        ]
+      },
+      "description": "时光残响探：divine_sense派术法，属性倾向 time。境界门槛 GOLDEN_IMMORTAL，耗灵约 35。 常随功法「time_law_scripture」体系解锁。",
+      "requires_method": "time_law_scripture",
+      "learn_requirements": {
+        "realm_min": "GOLDEN_IMMORTAL",
+        "requires_method": "time_law_scripture"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "time",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "窥探短暂时光残响。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_time",
+        "faction": null,
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "law_type": "law_time",
+      "element": "time",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "time_law_scripture",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "reincarnation_mark",
+      "display": "轮回印",
+      "school": "divine_sense",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 35,
+      "source": "轮回殿秘典",
+      "effect": {
+        "type": "debuff",
+        "element": "soul",
+        "damage_base": 30,
+        "tags": [
+          "reincarnation"
+        ]
+      },
+      "description": "轮回印：divine_sense派术法，属性倾向 soul。境界门槛 TRUE_IMMORTAL，耗灵约 35。 常随功法「reincarnation_hall_art」体系解锁。",
+      "requires_method": "reincarnation_hall_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "reincarnation_hall_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "打上轮回印记。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_reincarnation",
+        "faction": "reincarnation_hall",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "reincarnation_hall",
+      "law_type": "law_reincarnation",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "reincarnation_hall_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "reincarnation_judgment",
+      "display": "轮回裁断",
+      "school": "divine_sense",
+      "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+      "spirit_cost_base": 75,
+      "source": "轮回殿秘典",
+      "effect": {
+        "type": "ultimate",
+        "element": "soul",
+        "damage_base": 95,
+        "tags": [
+          "reincarnation",
+          "ultimate"
+        ]
+      },
+      "description": "轮回裁断：divine_sense派术法，属性倾向 soul。境界门槛 TAIYI_GOLDEN_IMMORTAL，耗灵约 75。 常随功法「reincarnation_hall_art」体系解锁。",
+      "requires_method": "reincarnation_hall_art",
+      "learn_requirements": {
+        "realm_min": "TAIYI_GOLDEN_IMMORTAL",
+        "requires_method": "reincarnation_hall_art"
+      },
+      "tags": [
+        "v130",
+        "xianjie",
+        "immortal_realm",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "裁断级魂攻。",
+        "v130": true,
+        "region": "xianjie",
+        "law": "law_reincarnation",
+        "faction": "reincarnation_hall",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "reincarnation_hall",
+      "law_type": "law_reincarnation",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "reincarnation_hall_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "dayan_to_reincarnation_bridge",
+      "display": "大衍通轮回感",
+      "school": "divine_sense",
+      "realm_min": "TRUE_IMMORTAL",
+      "spirit_cost_base": 30,
+      "source": "轮回殿/大衍衔接",
+      "effect": {
+        "type": "buff_self",
+        "element": "soul",
+        "damage_base": 0,
+        "tags": [
+          "bridge",
+          "dayan"
+        ]
+      },
+      "description": "大衍通轮回感：divine_sense派术法，属性倾向 soul。境界门槛 TRUE_IMMORTAL，耗灵约 30。 常随功法「reincarnation_hall_art」体系解锁。",
+      "requires_method": "reincarnation_hall_art",
+      "learn_requirements": {
+        "realm_min": "TRUE_IMMORTAL",
+        "requires_method": "reincarnation_hall_art"
+      },
+      "tags": [
+        "v130",
+        "bridge",
+        "dayan",
+        "soul",
+        "divine_sense",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "大衍神识感悟轮回边缘（非自动学会轮回殿秘典）。",
+        "v130": true,
+        "region": "xianjie",
+        "law": null,
+        "faction": "reincarnation_hall",
+        "novel_anchor": true
+      },
+      "region": "xianjie",
+      "faction_id": "reincarnation_hall",
+      "element": "soul",
+      "path": "divine_sense",
+      "alignment": "neutral",
+      "source_method": "reincarnation_hall_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
-  ]
+  ],
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

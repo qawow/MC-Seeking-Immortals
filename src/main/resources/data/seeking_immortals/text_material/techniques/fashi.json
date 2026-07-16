@@ -1,11 +1,11 @@
 {
   "schema_version": 9,
-  "school": "fashi_spirit_art",
+  "school": "fashi",
   "techniques": [
     {
       "id": "spirit_art_wind_blade",
       "display": "风刃灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 8,
       "source": "慕兰传承",
@@ -22,7 +22,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "风刃灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "风刃灵术：fashi派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 8。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -40,12 +40,26 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_earth_wall",
       "display": "土墙灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 12,
       "source": "慕兰传承",
@@ -62,7 +76,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "土墙灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "土墙灵术：fashi派术法，属性倾向 earth。境界门槛 QI_REFINING，耗灵约 12。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -80,12 +94,26 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "earth",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_holy_light",
       "display": "圣光灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 17,
       "source": "慕兰传承",
@@ -102,7 +130,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "圣光灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "圣光灵术：fashi派术法，属性倾向 yang。境界门槛 QI_REFINING，耗灵约 17。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -120,12 +148,27 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "yang",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "yang",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_beast_call",
       "display": "唤兽灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 12,
       "source": "慕兰传承",
@@ -142,7 +185,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "唤兽灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "唤兽灵术：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -160,12 +203,25 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_thunder",
       "display": "雷灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 11,
       "source": "通用",
@@ -176,7 +232,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "雷灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "雷灵术：fashi派术法，属性倾向 thunder。境界门槛 QI_REFINING，耗灵约 11。雷法震邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -190,12 +246,26 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "thunder",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "thunder",
+      "path": "fashi",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_heal",
       "display": "愈灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 15,
       "source": "通用",
@@ -206,7 +276,7 @@
         "tags": []
       },
       "tier": "spell",
-      "description": "愈灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "愈灵术：fashi派术法，属性倾向 wood。境界门槛 QI_REFINING，耗灵约 15。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -220,12 +290,25 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "QI_REFINING"
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "wood",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "wood",
+      "path": "fashi",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_sand_storm",
       "display": "风沙灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "FOUNDATION",
       "spirit_cost_base": 18,
       "source": "慕兰神师",
@@ -241,7 +324,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "风沙灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "风沙灵术：fashi派术法，属性倾向 earth_wind。境界门槛 FOUNDATION，耗灵约 18。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -259,12 +342,26 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "earth_wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth_wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_holy_beast_call",
       "display": "圣兽唤灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "FOUNDATION",
       "spirit_cost_base": 25,
       "source": "天澜圣殿",
@@ -279,7 +376,7 @@
       "tier": "spell",
       "requires_method": "tianlan_holy_beast_art",
       "faction_required": "tianlan_temple",
-      "description": "圣兽唤灵术：fashi_spirit_art法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "圣兽唤灵术：fashi派术法，属性倾向 beast。境界门槛 FOUNDATION，耗灵约 25。 常随功法「tianlan_holy_beast_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -297,12 +394,29 @@
         "prerequisite_methods": [
           "tianlan_holy_beast_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "tianlan",
+        "v127",
+        "beast",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "sect_id": "tianlan_temple",
+      "element": "beast",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_holy_beast_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_wind_ride",
       "display": "御风灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "QI_REFINING",
       "spirit_cost_base": 10,
       "source": "慕兰传承",
@@ -320,7 +434,7 @@
       "requires_method": "mulan_wind_spirit_art",
       "race_required": "mulan_fashi",
       "race_override_quest": "mulan_side",
-      "description": "御风灵术：fashi_spirit_art法术，需境界 QI_REFINING 以上方可施展。",
+      "description": "御风灵术：fashi派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 10。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -338,12 +452,26 @@
         "prerequisite_methods": [
           "mulan_wind_spirit_art"
         ]
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_lightning_palm",
       "display": "雷掌灵术",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "CORE_FORMATION",
       "spirit_cost_base": 30,
       "source": "法士高阶",
@@ -353,7 +481,7 @@
         "damage_base": 45
       },
       "tier": "spell",
-      "description": "雷掌灵术：fashi_spirit_art法术，需境界 CORE_FORMATION 以上方可施展。",
+      "description": "雷掌灵术：fashi派术法，属性倾向 thunder。境界门槛 CORE_FORMATION，耗灵约 30。雷法震邪。",
       "setting": {
         "combat_style": "杂学秘术",
         "cast_type": "instant",
@@ -367,7 +495,21 @@
         ],
         "prerequisite_mode": "requires_method_if_set",
         "realm_min": "CORE_FORMATION"
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "thunder",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "thunder",
+      "path": "fashi",
+      "alignment": "neutral",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v142_flavor": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mulan_wind_blade",
@@ -376,7 +518,7 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "wind",
-      "description": "慕兰风刃：fashi法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "慕兰风刃：fashi派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
@@ -401,7 +543,20 @@
           "mulan_wind_spirit_art"
         ],
         "race_required": "mulan_fashi"
-      }
+      },
+      "tags": [
+        "fashi_spirit_art_alias",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "mulan_earth_wall",
@@ -410,7 +565,7 @@
       "tier": "spell",
       "realm_min": "FOUNDATION",
       "element": "earth",
-      "description": "慕兰土墙：fashi法术，需境界 FOUNDATION 以上方可施展。",
+      "description": "慕兰土墙：fashi派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 18。 常随功法「mulan_wind_spirit_art」体系解锁。",
       "spirit_cost_base": 18,
       "effect": {
         "type": "beam",
@@ -446,7 +601,20 @@
             "earth"
           ]
         }
-      }
+      },
+      "tags": [
+        "fashi_spirit_art_alias",
+        "earth",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "v141_desc_light": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_fengyuan_wind_wall",
@@ -459,9 +627,10 @@
         "type": "wall",
         "tags": [
           "wind"
-        ]
+        ],
+        "element": "wind"
       },
-      "description": "风灵化墙挡术法。",
+      "description": "风元风墙：fashi派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。 常随功法「spirit_art_mulan」体系解锁。",
       "tier": "spell",
       "source": "凡人向扩充",
       "spirit_cost_base": 18,
@@ -489,17 +658,29 @@
             "wind"
           ]
         }
-      }
+      },
+      "tags": [
+        "fashi_spirit_art_alias",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "spirit_art_mulan",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_holy_feather_guard",
       "display": "圣羽护体",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "CORE_FORMATION",
       "spirit_cost_base": 35,
       "source": "圣禽祭祀",
       "tier": "secret",
-      "requires_method": "mulan_holy_beast_art",
+      "requires_method": "tianlan_holy_beast_art",
       "effect": {
         "type": "buff_self",
         "element": "spirit",
@@ -520,17 +701,34 @@
             "mulan_holy_beast_art"
           ]
         }
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "tianlan",
+        "v127",
+        "spirit",
+        "fashi",
+        "neutral",
+        "secret"
+      ],
+      "sect_id": "tianlan_temple",
+      "element": "spirit",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_holy_beast_art",
+      "v138_field_fill": true,
+      "description": "圣羽护体：fashi派术法，属性倾向 spirit。境界门槛 CORE_FORMATION，耗灵约 35。 常随功法「tianlan_holy_beast_art」体系解锁。",
+      "v143_desc_polish": true
     },
     {
       "id": "spirit_art_array_anchor",
       "display": "阵眼定灵",
-      "school": "fashi_spirit_art",
+      "school": "fashi",
       "realm_min": "FOUNDATION",
       "spirit_cost_base": 28,
       "source": "慕兰护族大阵",
       "tier": "spell",
-      "requires_method": "mulan_array_spirit_art",
+      "requires_method": "mulan_wind_spirit_art",
       "effect": {
         "type": "buff_zone",
         "element": "earth",
@@ -549,8 +747,809 @@
             "mulan_array_spirit_art"
           ]
         }
-      }
+      },
+      "tags": [
+        "fashi_spirit_art",
+        "earth",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "element": "earth",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "mulan_wind_spirit_art",
+      "v138_field_fill": true,
+      "description": "阵眼定灵：fashi派术法，属性倾向 earth。境界门槛 FOUNDATION，耗灵约 28。借阵力。 常随功法「mulan_wind_spirit_art」体系解锁。",
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jingzhe_partial_change",
+      "display": "惊蛰化形（残）",
+      "school": "fashi",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 50,
+      "source": "惊蛰十二变",
+      "effect": {
+        "type": "transform",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "true_spirit"
+        ]
+      },
+      "description": "惊蛰化形（残）：fashi派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 50。 常随功法「jingzhe_shier_bian」体系解锁。",
+      "setting": {
+        "combat_style": "真灵血脉部分变化。需惊蛰十二变与对应真血。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "真灵血脉部分变化。需惊蛰十二变与对应真血。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "jingzhe_shier_bian"
+      },
+      "requires_method": "jingzhe_shier_bian",
+      "tags": [
+        "novel_canon",
+        "v124",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "jingzhe_shier_bian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "beast_tame_bond",
+      "display": "御兽契约",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 15,
+      "source": "驭兽心法",
+      "effect": {
+        "type": "command",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "beast"
+        ]
+      },
+      "description": "御兽契约：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 15。 常随功法「lingshou_beast_mind_art」体系解锁。",
+      "setting": {
+        "combat_style": "与灵兽建立御使纽带。",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "与灵兽建立御使纽带。",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lingshou_beast_mind_art"
+      },
+      "requires_method": "lingshou_beast_mind_art",
+      "tags": [
+        "seven_sects",
+        "v124",
+        "v126",
+        "spirit_beast_mountain",
+        "novel_canon",
+        "neutral",
+        "spell"
+      ],
+      "seven_sect_id": "spirit_beast_mountain",
+      "element": "neutral",
+      "path": "spirit_beast_mountain",
+      "alignment": "neutral",
+      "source_method": "lingshou_beast_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_beast_soul_link",
+      "display": "天澜兽魂契",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 20,
+      "source": "补全占位/原著扩展",
+      "effect": {
+        "type": "command",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "天澜兽魂契：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 20。神魂手段，慎用。 常随功法「tianlan_beast_soul_art」体系解锁。",
+      "setting": {
+        "combat_style": "天澜御兽",
+        "cost_note": "灵力/神识视类型",
+        "cast_type": "instant",
+        "target": "single",
+        "lore": "天澜御兽",
+        "novel_canon": true,
+        "v124": true
+      },
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "tianlan_beast_soul_art"
+      },
+      "requires_method": "tianlan_beast_soul_art",
+      "tags": [
+        "fill_zero_method",
+        "v124",
+        "tianlan",
+        "v127",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "sect_id": "tianlan_temple",
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_beast_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingshou_call_pet",
+      "display": "灵兽召唤",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 16,
+      "source": "灵兽山",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "beast"
+        ]
+      },
+      "description": "灵兽召唤：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 16。 常随功法「lingshou_beast_mind_art」体系解锁。",
+      "requires_method": "lingshou_beast_mind_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "lingshou_beast_mind_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "spirit_beast_mountain",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "召出契约灵兽。",
+        "v126": true,
+        "seven_sect": "spirit_beast_mountain"
+      },
+      "seven_sect_id": "spirit_beast_mountain",
+      "element": "neutral",
+      "path": "spirit_beast_mountain",
+      "alignment": "neutral",
+      "source_method": "lingshou_beast_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingshou_shared_sense",
+      "display": "兽人共感",
+      "school": "fashi",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 14,
+      "source": "灵兽山",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "beast"
+        ]
+      },
+      "description": "兽人共感：fashi派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 14。 常随功法「lingshou_beast_mind_art」体系解锁。",
+      "requires_method": "lingshou_beast_mind_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "lingshou_beast_mind_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "spirit_beast_mountain",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "与兽共享感知。",
+        "v126": true,
+        "seven_sect": "spirit_beast_mountain"
+      },
+      "seven_sect_id": "spirit_beast_mountain",
+      "element": "neutral",
+      "path": "spirit_beast_mountain",
+      "alignment": "neutral",
+      "source_method": "lingshou_beast_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingshou_frenzy_command",
+      "display": "狂化驱令",
+      "school": "fashi",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 30,
+      "source": "灵兽山",
+      "effect": {
+        "type": "command",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "beast"
+        ]
+      },
+      "description": "狂化驱令：fashi派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 30。 常随功法「lingshou_beast_mind_art」体系解锁。",
+      "requires_method": "lingshou_beast_mind_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "lingshou_beast_mind_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "spirit_beast_mountain",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "令灵兽短期狂化。",
+        "v126": true,
+        "seven_sect": "spirit_beast_mountain"
+      },
+      "seven_sect_id": "spirit_beast_mountain",
+      "element": "neutral",
+      "path": "spirit_beast_mountain",
+      "alignment": "neutral",
+      "source_method": "lingshou_beast_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "lingshou_pack_hunt",
+      "display": "群兽围猎",
+      "school": "fashi",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 50,
+      "source": "灵兽山",
+      "effect": {
+        "type": "summon",
+        "element": "neutral",
+        "damage_base": 45,
+        "tags": [
+          "beast",
+          "aoe"
+        ]
+      },
+      "description": "群兽围猎：fashi派术法，属性倾向 neutral。境界门槛 NASCENT_SOUL，耗灵约 50。 常随功法「lingshou_beast_mind_art」体系解锁。",
+      "requires_method": "lingshou_beast_mind_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "lingshou_beast_mind_art"
+      },
+      "tags": [
+        "seven_sects",
+        "v126",
+        "spirit_beast_mountain",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "多兽协同。",
+        "v126": true,
+        "seven_sect": "spirit_beast_mountain"
+      },
+      "seven_sect_id": "spirit_beast_mountain",
+      "element": "neutral",
+      "path": "spirit_beast_mountain",
+      "alignment": "neutral",
+      "source_method": "lingshou_beast_mind_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlan_holy_descent",
+      "display": "圣兽虚影降",
+      "school": "fashi",
+      "realm_min": "NASCENT_SOUL",
+      "spirit_cost_base": 60,
+      "source": "天澜圣兽诀",
+      "effect": {
+        "type": "summon",
+        "element": "light",
+        "damage_base": 70,
+        "tags": [
+          "holy_beast",
+          "ultimate"
+        ]
+      },
+      "description": "圣兽虚影降：fashi派术法，属性倾向 light。境界门槛 NASCENT_SOUL，耗灵约 60。 常随功法「tianlan_holy_beast_art」体系解锁。",
+      "requires_method": "tianlan_holy_beast_art",
+      "learn_requirements": {
+        "realm_min": "NASCENT_SOUL",
+        "requires_method": "tianlan_holy_beast_art"
+      },
+      "tags": [
+        "tianlan",
+        "v127",
+        "light",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "短时圣兽虚影助战。",
+        "v127": true,
+        "sect": "tianlan_temple",
+        "track": null
+      },
+      "sect_id": "tianlan_temple",
+      "element": "light",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_holy_beast_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jingzhe_second_blood",
+      "display": "惊蛰二变",
+      "school": "fashi",
+      "realm_min": "DEITY_TRANSFORMATION",
+      "spirit_cost_base": 55,
+      "source": "惊蛰十二变",
+      "effect": {
+        "type": "transform",
+        "element": "neutral",
+        "damage_base": 0
+      },
+      "description": "惊蛰二变：fashi派术法，属性倾向 neutral。境界门槛 DEITY_TRANSFORMATION，耗灵约 55。 常随功法「jingzhe_shier_bian」体系解锁。",
+      "requires_method": "jingzhe_shier_bian",
+      "learn_requirements": {
+        "realm_min": "DEITY_TRANSFORMATION",
+        "requires_method": "jingzhe_shier_bian"
+      },
+      "tags": [
+        "v129",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "二变。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "jingzhe_shier_bian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "jingzhe_wing_storm",
+      "display": "惊蛰翼暴",
+      "school": "fashi",
+      "realm_min": "VOID_REFINEMENT",
+      "spirit_cost_base": 60,
+      "source": "惊蛰十二变",
+      "effect": {
+        "type": "aoe",
+        "element": "wind",
+        "damage_base": 75
+      },
+      "description": "惊蛰翼暴：fashi派术法，属性倾向 wind。境界门槛 VOID_REFINEMENT，耗灵约 60。 常随功法「jingzhe_shier_bian」体系解锁。",
+      "requires_method": "jingzhe_shier_bian",
+      "learn_requirements": {
+        "realm_min": "VOID_REFINEMENT",
+        "requires_method": "jingzhe_shier_bian"
+      },
+      "tags": [
+        "v129",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "翼暴。",
+        "v129": true
+      },
+      "region": "lingjie",
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "jingzhe_shier_bian",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "beastbas2_v129_1",
+      "display": "御兽基·击",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "御兽基础诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "御兽基·击：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。 常随功法「beast_taming_basic」体系解锁。",
+      "requires_method": "beast_taming_basic",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "beast_taming_basic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "御兽基补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "beast_taming_basic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "beastbas2_v129_2",
+      "display": "御兽基·护",
+      "school": "fashi",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "御兽基础诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "御兽基·护：fashi派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「beast_taming_basic」体系解锁。",
+      "requires_method": "beast_taming_basic",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "beast_taming_basic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "御兽基补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "beast_taming_basic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "beastbas2_v129_3",
+      "display": "御兽基·爆",
+      "school": "fashi",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "御兽基础诀",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "御兽基·爆：fashi派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 24。 常随功法「beast_taming_basic」体系解锁。",
+      "requires_method": "beast_taming_basic",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "beast_taming_basic"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "御兽基补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "beast_taming_basic",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mulanbase2_v129_1",
+      "display": "慕兰总·击",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "慕兰灵术总纲",
+      "effect": {
+        "type": "projectile",
+        "element": "wind",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "慕兰总·击：fashi派术法，属性倾向 wind。境界门槛 QI_REFINING，耗灵约 12。 常随功法「spirit_art_mulan」体系解锁。",
+      "requires_method": "spirit_art_mulan",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "spirit_art_mulan"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "慕兰总补全第1式。",
+        "v129": true
+      },
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "spirit_art_mulan",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mulanbase2_v129_2",
+      "display": "慕兰总·护",
+      "school": "fashi",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "慕兰灵术总纲",
+      "effect": {
+        "type": "buff_self",
+        "element": "wind",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "慕兰总·护：fashi派术法，属性倾向 wind。境界门槛 FOUNDATION，耗灵约 18。 常随功法「spirit_art_mulan」体系解锁。",
+      "requires_method": "spirit_art_mulan",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "spirit_art_mulan"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "慕兰总补全第2式。",
+        "v129": true
+      },
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "spirit_art_mulan",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "mulanbase2_v129_3",
+      "display": "慕兰总·爆",
+      "school": "fashi",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "慕兰灵术总纲",
+      "effect": {
+        "type": "aoe",
+        "element": "wind",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "慕兰总·爆：fashi派术法，属性倾向 wind。境界门槛 CORE_FORMATION，耗灵约 24。 常随功法「spirit_art_mulan」体系解锁。",
+      "requires_method": "spirit_art_mulan",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "spirit_art_mulan"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "wind",
+        "fashi",
+        "neutral",
+        "spell"
+      ],
+      "setting": {
+        "lore": "慕兰总补全第3式。",
+        "v129": true
+      },
+      "element": "wind",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "spirit_art_mulan",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlanbs2_v129_1",
+      "display": "天澜兽·击",
+      "school": "fashi",
+      "realm_min": "QI_REFINING",
+      "spirit_cost_base": 12,
+      "source": "天澜御兽诀",
+      "effect": {
+        "type": "projectile",
+        "element": "neutral",
+        "damage_base": 20,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "天澜兽·击：fashi派术法，属性倾向 neutral。境界门槛 QI_REFINING，耗灵约 12。 常随功法「tianlan_beast_soul_art」体系解锁。",
+      "requires_method": "tianlan_beast_soul_art",
+      "learn_requirements": {
+        "realm_min": "QI_REFINING",
+        "requires_method": "tianlan_beast_soul_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "天澜兽补全第1式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_beast_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlanbs2_v129_2",
+      "display": "天澜兽·护",
+      "school": "fashi",
+      "realm_min": "FOUNDATION",
+      "spirit_cost_base": 18,
+      "source": "天澜御兽诀",
+      "effect": {
+        "type": "buff_self",
+        "element": "neutral",
+        "damage_base": 0,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "天澜兽·护：fashi派术法，属性倾向 neutral。境界门槛 FOUNDATION，耗灵约 18。 常随功法「tianlan_beast_soul_art」体系解锁。",
+      "requires_method": "tianlan_beast_soul_art",
+      "learn_requirements": {
+        "realm_min": "FOUNDATION",
+        "requires_method": "tianlan_beast_soul_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "天澜兽补全第2式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_beast_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
+    },
+    {
+      "id": "tianlanbs2_v129_3",
+      "display": "天澜兽·爆",
+      "school": "fashi",
+      "realm_min": "CORE_FORMATION",
+      "spirit_cost_base": 24,
+      "source": "天澜御兽诀",
+      "effect": {
+        "type": "aoe",
+        "element": "neutral",
+        "damage_base": 44,
+        "tags": [
+          "v129_fill"
+        ]
+      },
+      "description": "天澜兽·爆：fashi派术法，属性倾向 neutral。境界门槛 CORE_FORMATION，耗灵约 24。 常随功法「tianlan_beast_soul_art」体系解锁。",
+      "requires_method": "tianlan_beast_soul_art",
+      "learn_requirements": {
+        "realm_min": "CORE_FORMATION",
+        "requires_method": "tianlan_beast_soul_art"
+      },
+      "tags": [
+        "v129",
+        "fill_min3",
+        "neutral",
+        "fashi",
+        "spell"
+      ],
+      "setting": {
+        "lore": "天澜兽补全第3式。",
+        "v129": true
+      },
+      "element": "neutral",
+      "path": "fashi",
+      "alignment": "neutral",
+      "source_method": "tianlan_beast_soul_art",
+      "v138_field_fill": true,
+      "v143_desc_polish": true
     }
   ],
-  "race_gate_note": "慕兰灵术需法士种族或投诚任务"
+  "race_gate_note": "慕兰灵术需法士种族或投诚任务 v123: school 统一为 fashi（原 fashi_spirit_art 作 alias 标签）。",
+  "v123_patched": true,
+  "v124_novel_canon": true,
+  "v125": true,
+  "v126": true,
+  "v127": true,
+  "v128": true,
+  "v129": true,
+  "v129_final_fill": true,
+  "v130": true,
+  "v138_field_fill": {
+    "note": "顶层 element/path/alignment/tags/source_method 回填",
+    "from_effect_element": true
+  },
+  "v141_desc_light": true,
+  "v142": true,
+  "v143": true
 }

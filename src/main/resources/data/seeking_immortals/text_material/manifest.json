@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "source": "文本材料/data",
-  "catalog_files": 163,
+  "catalog_files": 188,
   "technique_files": 21,
-  "total_files": 207,
+  "total_files": 209,
   "files": [
     {
       "id": "alchemy_recipes",
@@ -194,7 +194,7 @@
     {
       "id": "cultivation_methods",
       "file": "cultivation_methods.json",
-      "entries": 91,
+      "entries": 136,
       "primary_key": "methods"
     },
     {
@@ -986,13 +986,13 @@
     {
       "id": "techniques/body",
       "file": "techniques/body.json",
-      "entries": 10,
+      "entries": 54,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/buddhist",
       "file": "techniques/buddhist.json",
-      "entries": 6,
+      "entries": 15,
       "primary_key": "techniques"
     },
     {
@@ -1004,55 +1004,55 @@
     {
       "id": "techniques/dao",
       "file": "techniques/dao.json",
-      "entries": 7,
+      "entries": 33,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/demon_path",
       "file": "techniques/demon_path.json",
-      "entries": 4,
+      "entries": 8,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/demonic",
       "file": "techniques/demonic.json",
-      "entries": 16,
+      "entries": 52,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/divine_sense",
       "file": "techniques/divine_sense.json",
-      "entries": 10,
+      "entries": 30,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/elemental",
       "file": "techniques/elemental.json",
-      "entries": 41,
+      "entries": 123,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/fashi",
       "file": "techniques/fashi.json",
-      "entries": 15,
+      "entries": 34,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/formation",
       "file": "techniques/formation.json",
-      "entries": 14,
+      "entries": 38,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/ghost",
       "file": "techniques/ghost.json",
-      "entries": 8,
+      "entries": 24,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/illusion",
       "file": "techniques/illusion.json",
-      "entries": 13,
+      "entries": 40,
       "primary_key": "techniques"
     },
     {
@@ -1064,49 +1064,49 @@
     {
       "id": "techniques/misc",
       "file": "techniques/misc.json",
-      "entries": 50,
+      "entries": 51,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/movement",
       "file": "techniques/movement.json",
-      "entries": 12,
+      "entries": 29,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/puppet",
       "file": "techniques/puppet.json",
-      "entries": 12,
+      "entries": 23,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/recovery",
       "file": "techniques/recovery.json",
-      "entries": 8,
+      "entries": 15,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/secret_arts",
       "file": "techniques/secret_arts.json",
-      "entries": 50,
+      "entries": 63,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/sword",
       "file": "techniques/sword.json",
-      "entries": 15,
+      "entries": 49,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/talisman",
       "file": "techniques/talisman.json",
-      "entries": 38,
+      "entries": 46,
       "primary_key": "techniques"
     },
     {
       "id": "techniques/xuan_yin",
       "file": "techniques/xuan_yin.json",
-      "entries": 12,
+      "entries": 15,
       "primary_key": "techniques"
     },
     {
@@ -1246,6 +1246,19 @@
       "file": "region_cards/yinming.json",
       "entries": 1,
       "primary_key": "region"
+    },
+    {
+      "id": "manual_conflict_matrix_v100",
+      "file": "manual_conflict_matrix_v100.json",
+      "entries": 35,
+      "primary_key": "pairs"
+    },
+    {
+      "id": "method_layer_technique_matrix_v130",
+      "file": "method_layer_technique_matrix_v130.json",
+      "entries": 136,
+      "primary_key": "method_layer_tables"
     }
-  ]
+  ],
+  "total_entries": 3985
 }

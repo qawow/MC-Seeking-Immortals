@@ -3712,5 +3712,19 @@
   "block.seeking_immortals.alchemy_lid_high": "三阶丹炉盖",
   "block.seeking_immortals.alchemy_lid_tier_4": "四阶丹炉盖",
   "block.seeking_immortals.alchemy_lid_tier_5": "五阶丹炉盖",
-  "message.seeking_immortals.alchemy_furnace.lid_blocked": "炉顶位置被占据，无法安放炉盖。"
+  "message.seeking_immortals.alchemy_furnace.lid_blocked": "炉顶位置被占据，无法安放炉盖。",
+  "message.seeking_immortals.method.conflict": "功法冲突：%s 与已学《%s》相容等级 %s（%s），不可同修。",
+  "message.seeking_immortals.method.techniques_granted": "功法层数解锁术法 %s 门。",
+  "message.seeking_immortals.spell.generic_projectile.success": "术法弹道命中，造成 %s 点伤害。",
+  "message.seeking_immortals.spell.generic_beam.success": "术法光束贯穿，造成 %s 点伤害。",
+  "message.seeking_immortals.spell.generic_aoe.success": "范围术法爆发，波及周遭。",
+  "message.seeking_immortals.spell.generic_debuff.success": "咒印落下，目标受压制。",
+  "message.seeking_immortals.spell.generic_buff.success": "护体灵力涌起。",
+  "message.seeking_immortals.spell.generic_heal.success": "灵力回涌，伤势稍愈。",
+  "message.seeking_immortals.spell.generic_movement.success": "身法骤起，步履如风。",
+  "message.seeking_immortals.spell.generic_summon.success": "召唤物应召而来：%s。",
+  "message.seeking_immortals.spell.generic_melee.success": "近身剑意斩落。",
+  "message.seeking_immortals.spell.generic_illusion.success": "幻术弥散，心神受扰。",
+  "message.seeking_immortals.spell.generic_control.success": "禁锢之力扩散。",
+  "message.seeking_immortals.skill_tree.tree_info": "技能树 %s：主功法 %s，法术 %s，神通 %s。"
 }

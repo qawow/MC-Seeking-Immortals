@@ -131,13 +131,33 @@ public final class TextMaterialCatalogService {
         }
 
         Map<String, MethodEntry> methods = new LinkedHashMap<>();
-        JsonObject methodRoot = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/cultivation_methods_index.json");
+        // M02: prefer full text_material cultivation_methods (136), then enrich/fallback to catalog index.
+        JsonObject methodRoot = readJson("data/" + SeekingImmortalsMod.MODID + "/text_material/cultivation_methods.json");
         if (methodRoot != null) {
             for (JsonElement element : array(methodRoot, "methods")) {
                 if (!element.isJsonObject()) continue;
                 JsonObject o = element.getAsJsonObject();
                 String id = str(o, "id");
                 if (id.isBlank()) continue;
+                String realmMin = str(o, "realm_min");
+                if (realmMin.isBlank() && o.has("learn_requirements") && o.get("learn_requirements").isJsonObject()) {
+                    realmMin = str(o.getAsJsonObject("learn_requirements"), "realm_min");
+                }
+                String school = str(o, "school");
+                if (school.isBlank()) school = str(o, "combat_school");
+                if (school.isBlank()) school = str(o, "unlocks_techniques_school");
+                String attribute = str(o, "element");
+                if (attribute.isBlank()) attribute = str(o, "element_required");
+                methods.put(id, new MethodEntry(id, str(o, "display"), realmMin, school, attribute));
+            }
+        }
+        JsonObject methodIndex = readJson("data/" + SeekingImmortalsMod.MODID + "/catalog/cultivation_methods_index.json");
+        if (methodIndex != null) {
+            for (JsonElement element : array(methodIndex, "methods")) {
+                if (!element.isJsonObject()) continue;
+                JsonObject o = element.getAsJsonObject();
+                String id = str(o, "id");
+                if (id.isBlank() || methods.containsKey(id)) continue;
                 methods.put(id, new MethodEntry(id, str(o, "display"), str(o, "realm_min"),
                         str(o, "school"), str(o, "attribute")));
             }

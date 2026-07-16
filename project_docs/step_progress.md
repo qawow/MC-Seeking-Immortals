@@ -1,3 +1,20 @@
+## 456. 2026-07-16 M02 功法与术法落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260716_164708_m02_techniques/`
+  Publish 747 techniques               Done text_material/techniques 覆盖至 747
+  Methods 136 / trees 90               Done catalog + text_material + Method/SkillTree services
+  Effect resolver                      Done AbstractTechniqueEffectResolver（40 type）
+  Conflict matrix                      Done ManualConflictMatrixService on learnMethod
+  Layer matrix v130                    Done MethodLayerTechniqueService grant on learn/cultivate
+  Release path                         Done resolver + auto-unlock mapped SkillType
+  Sync capacity / protocol              Done MAX_LEARNED 768；PROTOCOL 20→21
+  Tests                                Done M02TechniqueCorpusTest + full suite green
+  Version                              Unchanged 任务红线不升 mod_version（0.1.506）；build 用 aiSkipVersionBumpCheck
+  Full verification                    Done `./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260716_m02_techniques.md`
+
 ## 455. 2026-07-16 中文乱码修复（mojibake / 路径损坏）
 
   Step   Status   Notes

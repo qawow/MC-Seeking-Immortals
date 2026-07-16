@@ -17,8 +17,9 @@ import java.util.function.Supplier;
 
 public record SyncLearnedTechniquesPacket(List<String> learnedTechniques, List<String> techniqueSlots, Map<String, Integer> cooldownRemainingTicks) {
     public static final int MAX_TECHNIQUE_ID_LENGTH = 128;
-    public static final int MAX_LEARNED_TECHNIQUES = 256;
-    public static final int MAX_COOLDOWNS = 256;
+    /** M02: raised for 747 corpus (learned set still bounded; not a full catalog dump). */
+    public static final int MAX_LEARNED_TECHNIQUES = 768;
+    public static final int MAX_COOLDOWNS = 768;
     public static final int MAX_TECHNIQUE_SLOTS = PlayerCultivation.TECHNIQUE_SLOT_COUNT;
 
     public static SyncLearnedTechniquesPacket from(ServerPlayer player, PlayerCultivation cultivation) {

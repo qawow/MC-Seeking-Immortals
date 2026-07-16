@@ -16,7 +16,7 @@ class TextMaterialCatalogServiceTest {
     @Test
     void loadsManualsMethodsAndFlightBindings() {
         assertEquals(21, ManualCatalogService.manualCount());
-        assertEquals(91, ManualCatalogService.methodCount());
+        assertEquals(136, ManualCatalogService.methodCount());
         assertEquals(8, FlightVehicleService.vehicleCount());
         assertTrue(FlightVehicleService.find("wind_feather_raft").isPresent());
     }
