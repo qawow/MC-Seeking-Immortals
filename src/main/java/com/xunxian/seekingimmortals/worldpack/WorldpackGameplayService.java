@@ -1,8 +1,10 @@
 package com.xunxian.seekingimmortals.worldpack;
 
+import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
 import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
+import com.xunxian.seekingimmortals.cultivation.ProgressionGateApi;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.block.PortalArrayStructure;
 import com.xunxian.seekingimmortals.item.StarPalaceTaxReceiptItem;
@@ -212,8 +214,27 @@ public final class WorldpackGameplayService {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.wrong_region", realm.regionId()));
                 return;
             }
-            if (!meetsMinRealm(cultivation.getRealm(), realm.minRealm())) {
+            if (!meetsMinRealm(cultivation.getRealm(), realm.minRealm())
+                    && !ProgressionGateApi.meetsRealm(player, realm.minRealm())) {
                 player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.realm_too_low", realm.minRealm()));
+                return;
+            }
+            Optional<String> openDenied = SecretRealmSessionService.validateOpen(player, realm.id());
+            if (openDenied.isPresent()) {
+                String reason = openDenied.get();
+                if (reason.startsWith("realm_too_low:")) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.realm_too_low", reason.substring("realm_too_low:".length())));
+                } else if (reason.startsWith("party_full:")) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.party_full", reason.substring("party_full:".length())));
+                } else if (reason.startsWith("window_closed:")) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.window_closed", reason.substring("window_closed:".length())));
+                } else {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.enter_denied", reason));
+                }
                 return;
             }
             long now = gameTime(player);
@@ -281,6 +302,7 @@ public final class WorldpackGameplayService {
                 }
             });
             SecretRealmTrialService.onEnter(player, realm.id());
+            SecretRealmSessionService.onEnter(player, realm.id());
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
@@ -318,12 +340,14 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            String current = normalizeRegion(cultivation, snapshot);
-            String destination = NETHER_RIVER_REGION_ID.equals(current)
-                    ? DEFAULT_REGION_ID
-                    : NETHER_RIVER_REGION_ID;
-            success[0] = travel(player, destination, true);
+            success[0] = enterBoundRealmOr(player, "nether_ferry_gate", () -> {
+                WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+                String current = normalizeRegion(cultivation, snapshot);
+                String destination = NETHER_RIVER_REGION_ID.equals(current)
+                        ? DEFAULT_REGION_ID
+                        : NETHER_RIVER_REGION_ID;
+                return travel(player, destination, true);
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -336,6 +360,20 @@ public final class WorldpackGameplayService {
     public static boolean useAncientRiftGate(ServerPlayer player, boolean enforceRequires) {
         if (enforceRequires && !SpatialNodeRequiresService.enforceByType(player, "ancient_rift")) {
             return false;
+        }
+        // M09: prefer bound secret realm when catalog maps this gate.
+        if (SecretRealmCatalogService.primaryRealmForGate("ancient_rift_gate").isPresent()) {
+            boolean[] bound = { false };
+            CultivationHelper.get(player).ifPresent(cultivation -> {
+                if (!cultivation.getWorldpackActiveSecretRealmId().isBlank()) {
+                    bound[0] = returnFromSecretRealm(player);
+                    return;
+                }
+                bound[0] = enterBoundRealmOr(player, "ancient_rift_gate", () -> false);
+            });
+            if (bound[0]) {
+                return true;
+            }
         }
         boolean[] success = { false };
         CultivationHelper.get(player).ifPresentOrElse(cultivation -> {
@@ -371,12 +409,15 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            // One-way mortal -> spirit realm hub.
-            success[0] = travel(player, TIANYUAN_REGION_ID, true);
-            if (success[0]) {
-                player.sendSystemMessage(Component.translatable(
-                        "message.seeking_immortals.worldpack.ascension_gate_travel"));
-            }
+            // M09: prefer high-realm secret bindings; fallback is spirit-realm hub travel.
+            success[0] = enterBoundRealmOr(player, "ascension_gate", () -> {
+                boolean hopped = travel(player, TIANYUAN_REGION_ID, true);
+                if (hopped) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.ascension_gate_travel"));
+                }
+                return hopped;
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -401,15 +442,18 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            success[0] = enterSecretRealm(player, "blood_forbidden");
-            if (!success[0]) {
-                // Fallback: try fallen demon corridor then re-enter.
-                success[0] = travel(player, FALLEN_DEMON_REGION_ID, true);
-                if (success[0]) {
-                    player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.blood_gate_corridor"));
-                }
-            }
+            success[0] = enterBoundRealmOr(player, "blood_forbidden_gate",
+                    () -> {
+                        if (enterSecretRealm(player, "blood_forbidden")) {
+                            return true;
+                        }
+                        boolean corridor = travel(player, FALLEN_DEMON_REGION_ID, true);
+                        if (corridor) {
+                            player.sendSystemMessage(Component.translatable(
+                                    "message.seeking_immortals.worldpack.blood_gate_corridor"));
+                        }
+                        return corridor;
+                    });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -434,23 +478,22 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            String current = normalizeRegion(cultivation, snapshot);
-            if (!CHAOTIC_SEA_REGION_ID.equals(current)) {
-                // First hop to chaotic sea; void palace enter still requires ticket via enterSecretRealm.
-                success[0] = travel(player, CHAOTIC_SEA_REGION_ID, true);
-                if (success[0]) {
-                    player.sendSystemMessage(Component.translatable(
-                            "message.seeking_immortals.worldpack.cycle_gate_to_sea"));
+            success[0] = enterBoundRealmOr(player, "cycle_gate", () -> {
+                WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+                String current = normalizeRegion(cultivation, snapshot);
+                if (!CHAOTIC_SEA_REGION_ID.equals(current)) {
+                    boolean hopped = travel(player, CHAOTIC_SEA_REGION_ID, true);
+                    if (hopped) {
+                        player.sendSystemMessage(Component.translatable(
+                                "message.seeking_immortals.worldpack.cycle_gate_to_sea"));
+                    }
+                    return hopped;
                 }
-                return;
-            }
-            // Already in chaotic sea: attempt void_palace secret realm enter (ticket gated).
-            success[0] = enterSecretRealm(player, "void_palace");
-            if (!success[0]) {
-                // Fall back to generic portal travel if ticket missing.
-                success[0] = travel(player, DEFAULT_REGION_ID, true);
-            }
+                if (enterSecretRealm(player, "void_palace")) {
+                    return true;
+                }
+                return travel(player, DEFAULT_REGION_ID, true);
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -470,12 +513,14 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            String current = normalizeRegion(cultivation, snapshot);
-            String destination = INVERSE_STAR_HIDEOUT_REGION_ID.equals(current)
-                    ? CHAOTIC_SEA_REGION_ID
-                    : INVERSE_STAR_HIDEOUT_REGION_ID;
-            success[0] = travel(player, destination, true);
+            success[0] = enterBoundRealmOr(player, "hidden_rift_gate", () -> {
+                WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+                String current = normalizeRegion(cultivation, snapshot);
+                String destination = INVERSE_STAR_HIDEOUT_REGION_ID.equals(current)
+                        ? CHAOTIC_SEA_REGION_ID
+                        : INVERSE_STAR_HIDEOUT_REGION_ID;
+                return travel(player, destination, true);
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -497,16 +542,19 @@ public final class WorldpackGameplayService {
                 success[0] = returnFromSecretRealm(player);
                 return;
             }
-            WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
-            String current = normalizeRegion(cultivation, snapshot);
-            String destination = BARBARIAN_WASTELAND_REGION_ID.equals(current)
-                    ? SPIRIT_FENGYUAN_REGION_ID
-                    : BARBARIAN_WASTELAND_REGION_ID;
-            success[0] = travel(player, destination, true);
-            if (success[0] && BARBARIAN_WASTELAND_REGION_ID.equals(destination)) {
-                player.sendSystemMessage(Component.translatable(
-                        "message.seeking_immortals.worldpack.king_territory_hint"));
-            }
+            success[0] = enterBoundRealmOr(player, "king_territory_gate", () -> {
+                WorldpackDataService.Snapshot snapshot = WorldpackDataService.builtin();
+                String current = normalizeRegion(cultivation, snapshot);
+                String destination = BARBARIAN_WASTELAND_REGION_ID.equals(current)
+                        ? SPIRIT_FENGYUAN_REGION_ID
+                        : BARBARIAN_WASTELAND_REGION_ID;
+                boolean hopped = travel(player, destination, true);
+                if (hopped && BARBARIAN_WASTELAND_REGION_ID.equals(destination)) {
+                    player.sendSystemMessage(Component.translatable(
+                            "message.seeking_immortals.worldpack.king_territory_hint"));
+                }
+                return hopped;
+            });
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
     }
@@ -537,11 +585,35 @@ public final class WorldpackGameplayService {
             cultivation.setWorldpackActiveSecretRealmId("");
             cultivation.clearWorldpackReturnLocation();
             SecretRealmTrialService.onReturn(player);
+            SecretRealmSessionService.onLeave(player);
             player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.return_success"));
             sync(player, false);
             success[0] = true;
         }, () -> player.sendSystemMessage(Component.translatable("message.seeking_immortals.worldpack.no_data")));
         return success[0];
+    }
+
+    /**
+     * M09: gate block → bound secret realm enter (ticket/realm/window validated server-side).
+     * Falls back to the provided travel runnable when no catalog binding exists.
+     */
+    public static boolean enterBoundRealmOr(ServerPlayer player, String gateBlockId, java.util.function.Supplier<Boolean> fallback) {
+        Optional<SecretRealmCatalogService.RealmDef> bound = SecretRealmCatalogService.primaryRealmForGate(gateBlockId);
+        if (bound.isEmpty()) {
+            return fallback != null && Boolean.TRUE.equals(fallback.get());
+        }
+        SecretRealmCatalogService.RealmDef def = bound.get();
+        // Ensure player region matches when possible so enterSecretRealm region gate can pass.
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            if (!def.regionId().isBlank()
+                    && !def.regionId().equals(cultivation.getWorldpackCurrentRegionId())) {
+                travel(player, def.regionId(), false);
+            }
+        });
+        if (enterSecretRealm(player, def.id())) {
+            return true;
+        }
+        return fallback != null && Boolean.TRUE.equals(fallback.get());
     }
 
     public static boolean setAnchor(ServerPlayer player, String anchorId) {
@@ -1187,7 +1259,23 @@ public final class WorldpackGameplayService {
     }
 
     private static Item resolveItem(String itemId) {
-        ResourceLocation location = ResourceLocation.tryParse(itemId == null ? "" : itemId);
+        if (itemId == null || itemId.isBlank()) {
+            return null;
+        }
+        // M03 catalog first (aliases / bulk carriers), then direct registry lookup.
+        try {
+            Item catalog = ItemCatalogService.resolveCatalogItem(itemId);
+            if (catalog != null && catalog != Items.AIR) {
+                return catalog;
+            }
+        } catch (Throwable ignored) {
+            // unit tests / early bootstrap
+        }
+        ResourceLocation location = ResourceLocation.tryParse(itemId);
+        if (location == null) {
+            String bare = itemId.contains(":") ? itemId.substring(itemId.indexOf(':') + 1) : itemId;
+            location = ResourceLocation.tryParse(com.xunxian.seekingimmortals.SeekingImmortalsMod.MODID + ":" + bare);
+        }
         if (location == null) {
             return null;
         }

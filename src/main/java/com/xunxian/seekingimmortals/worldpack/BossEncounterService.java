@@ -96,37 +96,71 @@ public final class BossEncounterService {
             return;
         }
         CompoundTag kills = killer.getPersistentData().getCompound(KILL_ROOT).copy();
-        if (kills.getBoolean(bossId)) {
-            return;
+        boolean firstKill = !kills.getBoolean(bossId);
+        if (firstKill) {
+            kills.putBoolean(bossId, true);
+            killer.getPersistentData().put(KILL_ROOT, kills);
         }
-        kills.putBoolean(bossId, true);
-        killer.getPersistentData().put(KILL_ROOT, kills);
+        // M09: first/repeat loot from boss_loot_runtime (unique never on repeat).
+        boolean firstClear = firstKill;
+        String realmId = resolveRealmId(killer, bossId);
+        if (!realmId.isBlank()) {
+            firstClear = !SecretRealmProgressSavedData.get(killer).hasFirstCleared(killer.getUUID(), realmId);
+        }
+        int granted = BossLootService.grantBossLoot(killer, bossId, firstClear, killer.getRandom());
         if (killer.level() instanceof ServerLevel level) {
-            placeBossCache(level, boss.blockPosition().above(), bossId);
+            placeBossCache(level, boss.blockPosition().above(), bossId, firstClear);
         }
-        ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 8);
+        ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 8 : 3);
         if (!killer.getInventory().add(bonus.copy())) {
             killer.drop(bonus.copy(), false);
         }
-        ReputationService.add(killer, "secret_realm_explorer", 3);
+        ReputationService.add(killer, "secret_realm_explorer", firstClear ? 3 : 1);
         killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated", bossId), true);
+        if (granted > 0) {
+            killer.displayClientMessage(Component.translatable(
+                    "message.seeking_immortals.boss.loot_granted", bossId, granted, firstClear), false);
+        }
+        // Core boss defeat clears the secret realm for M11/M06 hooks (session-latched).
+        if (!realmId.isBlank()) {
+            SecretRealmSessionService.onRealmCleared(realmId, killer);
+        }
     }
 
-    private static void placeBossCache(ServerLevel level, BlockPos pos, String bossId) {
+    private static String resolveRealmId(ServerPlayer killer, String bossId) {
+        String active = "";
+        var optional = com.xunxian.seekingimmortals.cultivation.CultivationHelper.get(killer);
+        if (optional.isPresent()) {
+            active = optional.get().getWorldpackActiveSecretRealmId();
+        }
+        if (active != null && !active.isBlank()) {
+            return active.trim().toLowerCase(java.util.Locale.ROOT);
+        }
+        return BossLootService.find(bossId).map(BossLootService.TableDef::secretRealmId).orElse("");
+    }
+
+    private static void placeBossCache(ServerLevel level, BlockPos pos, String bossId, boolean firstClear) {
         BlockPos chestPos = pos;
         if (!level.getBlockState(chestPos).isAir() && !level.getBlockState(chestPos).canBeReplaced()) {
             chestPos = pos.above();
         }
         level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
         if (level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest) {
-            chest.setItem(0, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 12));
-            chest.setItem(1, new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
+            // Prefer rolled catalog drops already granted to inventory; chest keeps soft residual.
+            chest.setItem(0, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 12 : 4));
+            if (firstClear) {
+                chest.setItem(1, new ItemStack(ModItems.IMMORTAL_JADE.get(), 1));
+            }
             if (bossId.contains("void") || bossId.contains("asura")) {
-                chest.setItem(2, new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
+                if (firstClear) {
+                    chest.setItem(2, new ItemStack(ModItems.VOID_CRYSTAL.get(), 1));
+                } else {
+                    chest.setItem(2, new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2));
+                }
             } else if (bossId.contains("demon") || bossId.contains("blood")) {
-                chest.setItem(2, new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), 2));
+                chest.setItem(2, new ItemStack(ModItems.DEMONIC_BLOOD_CORAL.get(), firstClear ? 2 : 1));
             } else {
-                chest.setItem(2, new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), 2));
+                chest.setItem(2, new ItemStack(ModItems.ALLIANCE_MERIT_TOKEN.get(), firstClear ? 2 : 1));
             }
         }
     }

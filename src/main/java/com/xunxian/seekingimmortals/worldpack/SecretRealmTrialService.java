@@ -138,6 +138,13 @@ public final class SecretRealmTrialService {
     }
 
     private static boolean isShellTrialRealm(String id) {
+        if (id == null || id.isBlank()) {
+            return false;
+        }
+        // M09: any catalog deep-dive realm gets a layered trial shell.
+        if (SecretRealmCatalogService.find(id).isPresent()) {
+            return true;
+        }
         return id.contains("blood_forbidden")
                 || id.contains("fallen_demon")
                 || id.contains("void_palace")
@@ -152,7 +159,12 @@ public final class SecretRealmTrialService {
                 || id.contains("yinming")
                 || id.contains("spirit_realm")
                 || id.contains("huangfeng")
-                || id.contains("trial");
+                || id.contains("trial")
+                || id.contains("tomb")
+                || id.contains("grotto")
+                || id.contains("ruins")
+                || id.contains("puppet")
+                || id.contains("abyss");
     }
 
     private static void applyLayerHazards(ServerPlayer player, String realmId) {
@@ -433,13 +445,16 @@ public final class SecretRealmTrialService {
 
     private static void unlockCore(ServerPlayer player, String realmId, BlockPos near) {
         CompoundTag root = player.getPersistentData().getCompound(CORE_CLEAR_ROOT).copy();
-        if (!root.getBoolean(realmId)) {
+        boolean first = !root.getBoolean(realmId);
+        if (first) {
             root.putBoolean(realmId, true);
             player.getPersistentData().put(CORE_CLEAR_ROOT, root);
             fillNearbySealedChest(player, near, realmId, Layer.CORE);
             ReputationService.add(player, "secret_realm_explorer", 2);
             player.sendSystemMessage(Component.translatable(
                     "message.seeking_immortals.worldpack.trial_core_clear", realmId));
+            // M09: publish clear hook when core guardian falls (no catalog boss path).
+            SecretRealmSessionService.onRealmCleared(realmId, player);
         }
         grantOneTimeRareDropProxy(player, realmId);
     }

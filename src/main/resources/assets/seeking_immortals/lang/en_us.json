@@ -4392,5 +4392,15 @@
   "message.seeking_immortals.beast.realm_gate": "Contract failed: realm too low (need %s).",
   "message.seeking_immortals.beast.stage": "Spirit beast %s grew to '%s': affinity %s / growth %s",
   "message.seeking_immortals.capture.tier_cap": "Capture failed: target tier %s, your cap is %s.",
-  "message.seeking_immortals.bestiary.unlocked": "Bestiary unlocked: %s"
+  "message.seeking_immortals.bestiary.unlocked": "Bestiary unlocked: %s",
+  "message.seeking_immortals.worldpack.party_full": "Secret realm party is full (cap %s).",
+  "message.seeking_immortals.worldpack.window_closed": "Secret realm open window closed: %s",
+  "message.seeking_immortals.worldpack.enter_denied": "Cannot enter secret realm: %s",
+  "message.seeking_immortals.worldpack.realm_first_clear": "First clear of %s (total %s).",
+  "message.seeking_immortals.worldpack.realm_repeat_clear": "Repeat clear of %s (total %s).",
+  "message.seeking_immortals.worldpack.realm_timeout": "Secret realm %s timed out; forced return.",
+  "message.seeking_immortals.worldpack.realm_death_eject": "You fell in secret realm %s and were ejected.",
+  "message.seeking_immortals.worldpack.trial_traps_armed": "Secret realm %s traps armed (%s fields via M07).",
+  "message.seeking_immortals.boss.loot_granted": "Boss %s loot settled: %s stacks (first_clear=%s)"
+
 }

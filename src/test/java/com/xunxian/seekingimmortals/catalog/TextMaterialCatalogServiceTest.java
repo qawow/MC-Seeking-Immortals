@@ -8,9 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class TextMaterialCatalogServiceTest {
     @Test
     void loadsSecretRealmFlavorsFromTemplate() {
-        assertEquals(14, TextMaterialCatalogService.builtin().secretRealmFlavors().size());
+        // M09 expands flavor coverage to author 19 (+ optional yinming_pocket).
+        assertTrue(TextMaterialCatalogService.builtin().secretRealmFlavors().size() >= 19);
         assertTrue(TextMaterialCatalogService.builtin().findFlavor("blood_forbidden").isPresent());
         assertTrue(TextMaterialCatalogService.builtin().findFlavor("void_palace").isPresent());
+        assertTrue(TextMaterialCatalogService.builtin().findFlavor("seven_meridian_cave").isPresent());
     }
 
     @Test

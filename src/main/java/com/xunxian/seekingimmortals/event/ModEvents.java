@@ -178,6 +178,10 @@ public final class ModEvents {
                 if (serverPlayer.tickCount % 100 == 0) {
                     com.xunxian.seekingimmortals.worldpack.SecretRealmTrialService.tickHazard(serverPlayer);
                 }
+                // M09: timeout kick / session recovery every second.
+                if (serverPlayer.tickCount % 20 == 0) {
+                    com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService.tickSessions(serverPlayer);
+                }
                 // Wave485: battlefield AI pulse while sect war is active.
                 if (serverPlayer.tickCount % 40 == 0) {
                     com.xunxian.seekingimmortals.sect.SectWarService.tickBattlefieldAi(serverPlayer);
@@ -362,6 +366,8 @@ public final class ModEvents {
         player.getPersistentData().remove(AuraBodyShieldSpell.ACTIVE_KEY);
         MultiSwordArraySpell.clear(player);
         FlyingAuthority.clearAll(player);
+        // M09: death inside secret realm ejects to return anchor.
+        com.xunxian.seekingimmortals.worldpack.SecretRealmSessionService.handlePlayerDeath(player);
         CultivationHelper.get(player).ifPresent(cultivation -> TribulationService.handleDeath(player, cultivation));
     }
 

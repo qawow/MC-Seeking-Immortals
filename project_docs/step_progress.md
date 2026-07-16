@@ -1,3 +1,21 @@
+## 462. 2026-07-17 M09 秘境副本落地
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_040118_m09_secret_realms/`
+  Author corpus runtime                Done secret_realm_runtime 19 + boss_loot_runtime + flavor≥19
+  Worldpack master expand              Done 补齐 6 个作者秘境；region 引用齐全
+  Services                             Done Catalog/Session/Progress/BossLoot/Trap/ClearedEvent
+  Gate bindings                        Done 7 gate → enterBoundRealmOr + server open checks
+  Boss/guards + loot                   Done M10 shells + first/repeat loot + chest tables
+  onRealmCleared                       Done Forge event + session latch
+  Time/party/death                     Done SavedData session timer + death eject
+  M07 traps                            Done FormationFieldService.activateFreeField
+  Tests                                Done SecretRealmM09ServiceTest + suite green
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.1.507）；protocol 21
+  Full verification                    Done `bash ./gradlew --no-daemon build -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL
+  Update note                          Done `project_docs/updates/20260717_m09_secret_realms.md`
+
 ## 461. 2026-07-17 M10 / M12 主线集成
 
   Step   Status   Notes

@@ -31,6 +31,18 @@ public final class SecretRealmDimensionService {
         map.put("fallen_demon_depths", SeekingImmortalsMod.MODID + ":secret_realm_fallen_demon");
         map.put("asura_realm", SeekingImmortalsMod.MODID + ":asura_realm");
         map.put("immortal_realm", SeekingImmortalsMod.MODID + ":immortal_realm");
+        // M09 soft bindings to existing M13 pocket dims for author 19 catalog.
+        map.put("yinming_pocket", SeekingImmortalsMod.MODID + ":yin_ming_pocket");
+        map.put("nether_river_land", SeekingImmortalsMod.MODID + ":nether_river_pocket");
+        map.put("wild_ancient_tomb", SeekingImmortalsMod.MODID + ":nether_river_pocket");
+        map.put("yin_mountain_catacomb", SeekingImmortalsMod.MODID + ":nether_river_pocket");
+        map.put("minor_asura_realm", SeekingImmortalsMod.MODID + ":asura_realm");
+        map.put("guanghan_realm", SeekingImmortalsMod.MODID + ":tianyuan");
+        map.put("diyuan", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
+        map.put("demon_gold_mountain", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
+        map.put("spirit_grass_valley", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
+        map.put("jiuxian_seclusion", SeekingImmortalsMod.MODID + ":spirit_fengyuan");
+        map.put("chaotic_sea_abyss_rift", SeekingImmortalsMod.MODID + ":demon_rift");
         return Map.copyOf(map);
     }
 
@@ -61,6 +73,21 @@ public final class SecretRealmDimensionService {
         }
         if (id.contains("demon") || id.contains("fallen")) {
             return Optional.of(REALM_DIMENSIONS.get("fallen_demon_valley"));
+        }
+        if (id.contains("yinming") || id.contains("yin_ming")) {
+            return Optional.of(REALM_DIMENSIONS.get("yinming_pocket"));
+        }
+        if (id.contains("nether") || id.contains("yin_mountain") || id.contains("wild_ancient_tomb")) {
+            return Optional.of(REALM_DIMENSIONS.get("nether_river_land"));
+        }
+        if (id.contains("diyuan") || id.contains("fengyuan") || id.contains("jiuxian") || id.contains("spirit_grass")) {
+            return Optional.of(REALM_DIMENSIONS.get("diyuan"));
+        }
+        if (id.contains("guanghan") || id.contains("tianyuan")) {
+            return Optional.of(REALM_DIMENSIONS.get("guanghan_realm"));
+        }
+        if (id.contains("abyss") || id.contains("rift")) {
+            return Optional.of(REALM_DIMENSIONS.get("chaotic_sea_abyss_rift"));
         }
         return Optional.empty();
     }
