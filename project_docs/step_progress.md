@@ -1,3 +1,17 @@
+## 477. 2026-07-17 GUI Phase3 分页/revision 验证
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_203453_ui_phase3_verify/`
+  Market client paging helpers         Done PAGE_SIZE=6 maxPage/slice
+  Auction server paging helpers        Done canPagePrevious/Next + page payloads
+  Worldpack readiness helpers          Done actionState / canTravel / canEnter
+  Wall-clock countdown test            Done remainingTicks 暂停不漂移
+  Focused tests                        Done ClientWorldpackDataTest + MarketAuctionPagingTest + ScreenLayoutTest
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m25s
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Update note                          Done `project_docs/updates/20260717_ui_phase3_verify.md`
+
 ## 476. 2026-07-17 GUI Phase3 三屏迁移（Worldpack/Market/Auction）
 
   Step   Status   Notes

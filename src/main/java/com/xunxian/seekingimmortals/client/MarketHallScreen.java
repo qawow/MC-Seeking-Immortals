@@ -63,8 +63,8 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         ClientShopData.Snapshot data = ClientShopData.get();
         boolean ready = data.synced() && (data.shopId().isBlank() || data.shopId().equals(shopId));
         List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
-        int maxPage = entries.isEmpty() ? 0 : (entries.size() - 1) / PAGE_SIZE;
-        page = Math.max(0, Math.min(page, maxPage));
+        int maxPage = maxPage(entries.size());
+        page = clampPage(page, maxPage);
         observedRevision = 31 * data.hashCode() + 31 * shopIndex + page;
 
         ImmortalButton previousShop = ImmortalButton.secondary(layout.previousShopButton().x(),
@@ -115,8 +115,8 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         nextPage.active = page < maxPage;
         addRenderableWidget(nextPage);
 
-        int from = page * PAGE_SIZE;
-        int to = Math.min(entries.size(), from + PAGE_SIZE);
+        int from = pageStart(page);
+        int to = pageEnd(page, entries.size());
         int pageCount = to - from;
         listPanel.setBounds(layout.viewport())
                 .setContentHeight(calculateContentHeight(pageCount));
@@ -200,8 +200,8 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         ClientShopData.Snapshot data = ClientShopData.get();
         boolean ready = data.synced() && (data.shopId().isBlank() || data.shopId().equals(shopId));
         List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
-        int from = Math.min(entries.size(), page * PAGE_SIZE);
-        int to = Math.min(entries.size(), from + PAGE_SIZE);
+        int from = pageStart(page);
+        int to = pageEnd(page, entries.size());
         listPanel.setBounds(layout.viewport())
                 .setContentHeight(calculateContentHeight(to - from));
         if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
@@ -247,13 +247,38 @@ public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallM
         return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
+    /** Client-side market page size; must stay independent of auction server paging. */
+    static int pageSize() {
+        return PAGE_SIZE;
+    }
+
+    static int maxPage(int entryCount) {
+        return entryCount <= 0 ? 0 : (entryCount - 1) / PAGE_SIZE;
+    }
+
+    static int clampPage(int page, int maxPage) {
+        return Math.max(0, Math.min(page, Math.max(0, maxPage)));
+    }
+
+    static int pageStart(int page) {
+        return Math.max(0, page) * PAGE_SIZE;
+    }
+
+    static int pageEnd(int page, int entryCount) {
+        return Math.min(Math.max(0, entryCount), pageStart(page) + PAGE_SIZE);
+    }
+
+    static int pageItemCount(int page, int entryCount) {
+        return Math.max(0, pageEnd(page, entryCount) - pageStart(page));
+    }
+
     private void drawEntries(GuiGraphics graphics, MarketLayout layout, int mouseX, int mouseY) {
         String shopId = currentShopId();
         ClientShopData.Snapshot data = ClientShopData.get();
         boolean ready = data.synced() && (data.shopId().isBlank() || data.shopId().equals(shopId));
         List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
-        int from = Math.min(entries.size(), page * PAGE_SIZE);
-        int to = Math.min(entries.size(), from + PAGE_SIZE);
+        int from = pageStart(page);
+        int to = pageEnd(page, entries.size());
         listPanel.setBounds(layout.viewport())
                 .setContentHeight(calculateContentHeight(to - from));
         listPanel.clampToViewport();

@@ -112,8 +112,7 @@ public class WorldpackScreen extends AbstractJournalScreen {
                         Component.translatable("screen.seeking_immortals.worldpack.travel"), ignored ->
                                 ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
                                         WorldpackGameplayService.ACTION_TRAVEL, region.id())));
-                button.active = region.anchorReady() && !region.current()
-                        && data.activeSecretRealmId().isBlank();
+                button.active = canTravelRegion(data, region);
                 addRenderableWidget(button);
             } else {
                 ClientWorldpackData.SecretRealm realm = data.realms().get(listScroll + row);
@@ -121,8 +120,7 @@ public class WorldpackScreen extends AbstractJournalScreen {
                         Component.translatable("screen.seeking_immortals.worldpack.enter"), ignored ->
                                 ModNetwork.CHANNEL.sendToServer(new WorldpackActionPacket(
                                         WorldpackGameplayService.ACTION_ENTER, realm.id())));
-                button.active = realm.anchorReady() && realm.currentRegion() && !realm.active()
-                        && data.currentRealmCooldownTicks(realm) <= 0 && data.activeSecretRealmId().isBlank();
+                button.active = canEnterRealm(data, realm);
                 addRenderableWidget(button);
             }
         }
@@ -306,12 +304,31 @@ public class WorldpackScreen extends AbstractJournalScreen {
                 .filter(description -> !description.isBlank()).collect(Collectors.joining(", "));
     }
 
-    private static int actionState(ClientWorldpackData.Snapshot data) {
+    /** Package-visible for tests: rebuild fingerprint for return-button / cooldown readiness. */
+    static int actionState(ClientWorldpackData.Snapshot data) {
         int hash = Boolean.hashCode(!data.activeSecretRealmId().isBlank());
         for (ClientWorldpackData.SecretRealm realm : data.realms()) {
             hash = 31 * hash + Boolean.hashCode(data.currentRealmCooldownTicks(realm) <= 0L);
         }
         return hash;
+    }
+
+    /** Travel is only active when the region is anchored, not current, and no secret realm is open. */
+    static boolean canTravelRegion(ClientWorldpackData.Snapshot data, ClientWorldpackData.Region region) {
+        return region != null && data != null
+                && region.anchorReady()
+                && !region.current()
+                && data.activeSecretRealmId().isBlank();
+    }
+
+    /** Enter is only active when anchor/current-region ready, not active, cooldown elapsed, and not already in a realm. */
+    static boolean canEnterRealm(ClientWorldpackData.Snapshot data, ClientWorldpackData.SecretRealm realm) {
+        return realm != null && data != null
+                && realm.anchorReady()
+                && realm.currentRegion()
+                && !realm.active()
+                && data.currentRealmCooldownTicks(realm) <= 0
+                && data.activeSecretRealmId().isBlank();
     }
 
     private static String effectDescription(String effect) {

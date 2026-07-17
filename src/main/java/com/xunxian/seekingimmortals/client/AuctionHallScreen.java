@@ -58,12 +58,12 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
         ImmortalButton previous = ImmortalButton.secondary(layout.previousButton().x(), layout.previousButton().y(),
                 layout.previousButton().width(), layout.previousButton().height(), Component.literal("<"), button ->
                         send(AuctionActionPacket.ACTION_PAGE, Integer.toString(Math.max(0, page - 1))));
-        previous.active = page > 0;
+        previous.active = canPagePrevious(page);
         addRenderableWidget(previous);
         ImmortalButton next = ImmortalButton.secondary(layout.nextButton().x(), layout.nextButton().y(),
                 layout.nextButton().width(), layout.nextButton().height(), Component.literal(">"), button ->
                         send(AuctionActionPacket.ACTION_PAGE, Integer.toString(page + 1)));
-        next.active = !data.synced() || page < data.maxPage();
+        next.active = canPageNext(data.synced(), page, data.maxPage());
         addRenderableWidget(next);
 
         List<SyncAuctionLadderPacket.LotBid> lots = data.lots();
@@ -211,6 +211,28 @@ public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHal
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
         return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
+    }
+
+    /** Server-side page controls: previous is only active past page 0. */
+    static boolean canPagePrevious(int page) {
+        return page > 0;
+    }
+
+    /**
+     * Next stays enabled while unsynced (so refresh/page requests can still be sent)
+     * or when the current server page is below maxPage.
+     */
+    static boolean canPageNext(boolean synced, int page, int maxPage) {
+        return !synced || page < maxPage;
+    }
+
+    /** Requested page payload for previous/next buttons. */
+    static int previousPage(int page) {
+        return Math.max(0, page - 1);
+    }
+
+    static int nextPage(int page) {
+        return Math.max(0, page + 1);
     }
 
     private void drawLots(GuiGraphics graphics, HallLayout layout, int mouseX, int mouseY) {
