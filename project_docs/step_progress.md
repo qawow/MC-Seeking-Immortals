@@ -1,3 +1,17 @@
+## 473. 2026-07-17 GUI Phase2 四屏迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_174500_ui_phase2_screens/`
+  ScrollableListPanel insets           Done scissor/scrollHeightReduce/track insets
+  RefinementPlanScreen                 Done AbstractJournalScreen + panel
+  QuestTrackerScreen                   Done 同上；保留链点击/hint
+  LifeSkillTreeScreen                  Done 双列技能卡 + parent 返回
+  MeditationScreen                     Done 仪表盘 content renderer
+  Version/protocol                     Unchanged 0.2.2 / protocol 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m14s
+  Update note                          Done `project_docs/updates/20260717_ui_phase2_four_screens.md`
+
 ## 472. 2026-07-17 GUI 共享基础设施试点
 
   Step   Status   Notes

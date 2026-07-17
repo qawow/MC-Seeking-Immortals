@@ -39,6 +39,13 @@ public final class ScrollableListPanel {
     private int contentInsetRight = 0;
     private int contentInsetBottom = 0;
     private int scrollbarInsetRight = 3;
+    private int scissorInsetLeft;
+    private int scissorInsetTop;
+    private int scissorInsetRight;
+    private int scissorInsetBottom;
+    private int scrollHeightReduce;
+    private int scrollbarTrackTopInset;
+    private int scrollbarTrackBottomInset;
     private int rowHeight = 26;
     private int rowGap = 0;
 
@@ -83,6 +90,34 @@ public final class ScrollableListPanel {
         return this;
     }
 
+    /**
+     * Shrinks the scissor rectangle inside {@link #setBounds} without moving content insets,
+     * matching the common journal pattern of a 1px inner clip.
+     */
+    public ScrollableListPanel setScissorInsets(int left, int top, int right, int bottom) {
+        this.scissorInsetLeft = Math.max(0, left);
+        this.scissorInsetTop = Math.max(0, top);
+        this.scissorInsetRight = Math.max(0, right);
+        this.scissorInsetBottom = Math.max(0, bottom);
+        return this;
+    }
+
+    /**
+     * Reduces the height used for scroll clamping and scrollbar thumb math.
+     * Used when content has top/bottom padding so max-scroll is contentHeight - (viewport - pad).
+     */
+    public ScrollableListPanel setScrollHeightReduce(int pixels) {
+        this.scrollHeightReduce = Math.max(0, pixels);
+        return this;
+    }
+
+    /** Insets the thin scrollbar track from the panel top/bottom edges. */
+    public ScrollableListPanel setScrollbarTrackInsets(int top, int bottom) {
+        this.scrollbarTrackTopInset = Math.max(0, top);
+        this.scrollbarTrackBottomInset = Math.max(0, bottom);
+        return this;
+    }
+
     public ScrollableListPanel setRowMetrics(int rowHeight, int rowGap) {
         this.rowHeight = Math.max(1, rowHeight);
         this.rowGap = Math.max(0, rowGap);
@@ -122,7 +157,7 @@ public final class ScrollableListPanel {
     }
 
     public void setScrollOffset(int scrollOffset) {
-        this.scrollOffset = clampScroll(scrollOffset, contentHeight, height);
+        this.scrollOffset = clampScroll(scrollOffset, contentHeight, scrollViewportHeight());
     }
 
     public void resetScroll() {
@@ -130,7 +165,7 @@ public final class ScrollableListPanel {
     }
 
     public void clampToViewport() {
-        this.scrollOffset = clampScroll(scrollOffset, contentHeight, height);
+        this.scrollOffset = clampScroll(scrollOffset, contentHeight, scrollViewportHeight());
     }
 
     public boolean contains(double mouseX, double mouseY) {
@@ -149,8 +184,13 @@ public final class ScrollableListPanel {
         return Math.max(1, width - contentInsetLeft - contentInsetRight);
     }
 
+    /** Height used for max-scroll and scrollbar thumb math (bounds height minus optional pad). */
+    public int scrollViewportHeight() {
+        return Math.max(1, height - scrollHeightReduce);
+    }
+
     public int maxScroll() {
-        return Math.max(0, contentHeight - Math.max(1, height));
+        return Math.max(0, contentHeight - scrollViewportHeight());
     }
 
     public int visibleRowCount() {
@@ -177,10 +217,12 @@ public final class ScrollableListPanel {
     }
 
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
-        if (!contains(mouseX, mouseY) || contentHeight <= height || delta == 0.0D) {
+        int viewportHeight = scrollViewportHeight();
+        if (!contains(mouseX, mouseY) || contentHeight <= viewportHeight || delta == 0.0D) {
             return false;
         }
-        int next = clampScroll(scrollOffset - (int) Math.round(delta * scrollStep), contentHeight, height);
+        int next = clampScroll(scrollOffset - (int) Math.round(delta * scrollStep),
+                contentHeight, viewportHeight);
         if (next == scrollOffset) {
             return true;
         }
@@ -203,7 +245,7 @@ public final class ScrollableListPanel {
     public void renderContent(GuiGraphics graphics, ContentRenderer renderer) {
         Objects.requireNonNull(renderer, "renderer");
         clampToViewport();
-        ImmortalUiSkin.withScissor(graphics, x, y, width, height, () ->
+        withScissorRegion(graphics, () ->
                 renderer.render(graphics, contentX(), contentY(), contentWidth()));
         drawScrollbar(graphics);
     }
@@ -216,7 +258,7 @@ public final class ScrollableListPanel {
         int visible = visibleRowCount();
         int first = firstVisibleRow();
         int hovered = hoveredRow(mouseX, mouseY, itemCount);
-        ImmortalUiSkin.withScissor(graphics, x, y, width, height, () -> {
+        withScissorRegion(graphics, () -> {
             for (int row = 0; row < visible && first + row < itemCount; row++) {
                 int index = first + row;
                 UiRect bounds = rowBounds(row);
@@ -229,6 +271,14 @@ public final class ScrollableListPanel {
             }
         });
         drawScrollbar(graphics);
+    }
+
+    private void withScissorRegion(GuiGraphics graphics, Runnable renderer) {
+        int scissorX = x + scissorInsetLeft;
+        int scissorY = y + scissorInsetTop;
+        int scissorW = Math.max(1, width - scissorInsetLeft - scissorInsetRight);
+        int scissorH = Math.max(1, height - scissorInsetTop - scissorInsetBottom);
+        ImmortalUiSkin.withScissor(graphics, scissorX, scissorY, scissorW, scissorH, renderer);
     }
 
     public UiRect rowBounds(int visibleRowIndex) {
@@ -302,8 +352,10 @@ public final class ScrollableListPanel {
     }
 
     public void drawScrollbar(GuiGraphics graphics) {
-        ImmortalUiSkin.drawThinScrollbar(graphics, x + width - scrollbarInsetRight, y, height,
-                contentHeight, height, scrollOffset);
+        int trackY = y + scrollbarTrackTopInset;
+        int trackHeight = Math.max(1, height - scrollbarTrackTopInset - scrollbarTrackBottomInset);
+        ImmortalUiSkin.drawThinScrollbar(graphics, x + width - scrollbarInsetRight, trackY, trackHeight,
+                contentHeight, scrollViewportHeight(), scrollOffset);
     }
 
     public static int clampScroll(int requested, int contentHeight, int viewportHeight) {
