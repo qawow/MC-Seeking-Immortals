@@ -170,52 +170,26 @@ class ScreenLayoutTest {
 
     @Test
     void cultivationHealthReplacementRequiresRenderableHudState() {
-        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, false, true),
-                "custom health should replace vanilla hearts only when it will render");
-        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(true, true, false, true),
+        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, true),
+                "custom health should replace vanilla hearts whenever survival HUD would draw");
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(true, true, true),
                 "F1 or hidden GUI must keep vanilla cancellation disabled");
-        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, false, false, true),
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, false, true),
                 "missing player must keep vanilla cancellation disabled");
-        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, true, true),
-                "blocking screens such as chat must keep vanilla cancellation disabled");
-        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, false, false),
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, false),
                 "non-survival HUD state must keep vanilla cancellation disabled");
     }
 
     @Test
-    void cultivationHealthAllowsInventoryAndPauseScreens() {
-        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(null),
-                "no open screen should not block health replacement");
-        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(
-                        net.minecraft.client.gui.screens.inventory.InventoryScreen.class),
-                "inventory must keep custom 气血 reconstruction");
-        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(
-                        net.minecraft.client.gui.screens.PauseScreen.class),
-                "pause/ESC must keep custom 气血 reconstruction");
-        assertTrue(CultivationHealthOverlay.blocksHealthReplacementByClass(
-                        net.minecraft.client.gui.screens.ChatScreen.class),
-                "chat should still block custom health replacement");
-        assertTrue(CultivationHealthOverlay.blocksHealthReplacementByClass(
-                        net.minecraft.client.gui.screens.TitleScreen.class),
-                "other full screens should still block custom health replacement");
-        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
-                        false, true,
-                        CultivationHealthOverlay.blocksHealthReplacementByClass(
-                                net.minecraft.client.gui.screens.inventory.InventoryScreen.class),
-                        true),
-                "inventory allow-list must keep render and cancel on the same predicate");
-        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
-                        false, true,
-                        CultivationHealthOverlay.blocksHealthReplacementByClass(
-                                net.minecraft.client.gui.screens.PauseScreen.class),
-                        true),
-                "pause allow-list must keep render and cancel on the same predicate");
-        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
-                        false, true,
-                        CultivationHealthOverlay.blocksHealthReplacementByClass(
-                                net.minecraft.client.gui.screens.ChatScreen.class),
-                        true),
-                "chat must not cancel vanilla hearts without drawing the custom panel");
+    void cultivationHealthIgnoresOpenScreensForReplacement() {
+        // Open screens no longer participate in the pure predicate; inventory/pause/chat/full UI
+        // all keep custom 气血 + vanilla heart cancel as long as survival HUD would draw.
+        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, true),
+                "any open screen must still replace vanilla hearts under survival HUD");
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(true, true, true),
+                "F1 still disables both custom health and vanilla cancellation");
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, false),
+                "creative/non-survival still disables both custom health and vanilla cancellation");
     }
 
     @Test

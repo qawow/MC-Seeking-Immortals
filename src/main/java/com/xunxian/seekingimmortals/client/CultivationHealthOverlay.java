@@ -2,13 +2,9 @@ package com.xunxian.seekingimmortals.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.PauseScreen;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 
-import javax.annotation.Nullable;
 import java.util.Locale;
 
 public final class CultivationHealthOverlay {
@@ -34,32 +30,17 @@ public final class CultivationHealthOverlay {
         return shouldReplaceVanillaPlayerHealth(
                 minecraft.options.hideGui,
                 minecraft.player != null,
-                blocksHealthReplacement(minecraft.screen),
                 gui.shouldDrawSurvivalElements());
     }
 
-    /** Inventory and pause keep the custom 气血 panel; chat and full-screen UIs block replacement. */
-    static boolean blocksHealthReplacement(@Nullable Screen screen) {
-        return blocksHealthReplacementByClass(screen == null ? null : screen.getClass());
-    }
-
-    static boolean blocksHealthReplacementByClass(@Nullable Class<?> screenClass) {
-        if (screenClass == null) {
-            return false;
-        }
-        if (InventoryScreen.class.isAssignableFrom(screenClass)) {
-            return false;
-        }
-        if (PauseScreen.class.isAssignableFrom(screenClass)) {
-            return false;
-        }
-        return true;
-    }
-
+    /**
+     * Custom 气血 owns survival player-health whenever the survival HUD would draw.
+     * Open screens (inventory, pause, chat, full-screen UIs) no longer restore vanilla hearts;
+     * render and PLAYER_HEALTH cancel stay on this same predicate.
+     */
     static boolean shouldReplaceVanillaPlayerHealth(boolean hideGui, boolean hasPlayer,
-                                                     boolean screenBlocksReplacement,
                                                      boolean shouldDrawSurvivalElements) {
-        return !hideGui && hasPlayer && !screenBlocksReplacement && shouldDrawSurvivalElements;
+        return !hideGui && hasPlayer && shouldDrawSurvivalElements;
     }
 
     static void renderHealthBar(GuiGraphics graphics, Minecraft minecraft, LocalPlayer player, int screenWidth, int screenHeight) {

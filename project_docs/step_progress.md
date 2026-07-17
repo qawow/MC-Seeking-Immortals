@@ -1,3 +1,14 @@
+## 473. 2026-07-17 0.2.4 任意界面隐藏原版血量
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_150446_health_no_vanilla_screens/`
+  Health screen gate                   Done 去掉 Screen 门控；任意界面下生存 HUD 仍用自定义气血并 cancel 原版心形
+  Tests                                Done ScreenLayoutTest 改为忽略 open-screen，仅保留 F1/玩家/非生存门控
+  Version/protocol                     Done `0.2.3` -> `0.2.4`；protocol 保持 24
+  Full verification                    Done `./gradlew build`
+  Update note                          Done `project_docs/updates/20260717_0.2.4_health_overlay_no_vanilla_screens.md`
+
 ## 472. 2026-07-17 0.2.3 背包/暂停保留气血 UI
 
   Step   Status   Notes
