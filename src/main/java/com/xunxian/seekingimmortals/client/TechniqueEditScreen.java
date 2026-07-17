@@ -133,7 +133,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
             int maxScroll = maxLearnedScroll(techniques.size(), maxRows);
             if (maxScroll > 0) {
                 int direction = delta > 0.0D ? -1 : 1;
-                learnedScrollOffset = Mth.clamp(learnedScrollOffset + direction, 0, maxScroll);
+                learnedScrollOffset = scrollLearnedBy(learnedScrollOffset, direction, techniques.size(), maxRows);
                 return true;
             }
         }
@@ -302,8 +302,21 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
         return learnedViewport(calculateLayout(width, height)).contains(mouseX, mouseY);
     }
 
-    private int maxLearnedScroll(int totalRows, int visibleRows) {
-        return Math.max(0, totalRows - visibleRows);
+    static int maxLearnedScroll(int totalRows, int visibleRows) {
+        return Math.max(0, totalRows - Math.max(1, visibleRows));
+    }
+
+    /** Package-visible: learned-list wheel step used by drag-source pane. */
+    static int scrollLearnedBy(int current, int direction, int totalRows, int visibleRows) {
+        return Mth.clamp(current + direction, 0, maxLearnedScroll(totalRows, visibleRows));
+    }
+
+    /**
+     * Package-visible drag contract: releasing over a valid slot binds the technique;
+     * releasing outside clears the drag without sending a packet (slot &lt; 0).
+     */
+    static boolean shouldBindOnRelease(int hoveredSlot, String draggingTechniqueId) {
+        return hoveredSlot >= 0 && draggingTechniqueId != null && !draggingTechniqueId.isBlank();
     }
 
     private static UiRect toUi(Rect rect) {
