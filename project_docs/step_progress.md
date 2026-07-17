@@ -1,3 +1,18 @@
+## 472. 2026-07-17 GUI 共享基础设施试点
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_172250_ui_shared_infra/`
+  UiRect / ScrollableListPanel / TabBar Done 共享几何、滚动视口、按钮式 Tab
+  AbstractJournalScreen                Done 标准 journal Screen 流水线
+  AbstractJournalContainerScreen       Done 容器屏 journal 流水线
+  Pilot AlchemyStatusScreen            Done 迁到 AbstractJournalScreen + ScrollableListPanel
+  Pilot AlchemyFurnaceScreen           Done 迁到 AbstractJournalContainerScreen
+  Other screens                        Untouched 本阶段不改
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.2.2）；protocol 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m41s
+  Update note                          Done `project_docs/updates/20260717_ui_shared_infra_pilot.md`
+
 ## 471. 2026-07-17 0.2.1 前端 UI 审查修复
 
   Step   Status   Notes

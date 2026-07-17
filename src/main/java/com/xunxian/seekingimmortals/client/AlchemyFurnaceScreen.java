@@ -2,11 +2,10 @@ package com.xunxian.seekingimmortals.client;
 
 import com.xunxian.seekingimmortals.menu.AlchemyFurnaceMenu;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnaceMenu> {
+public class AlchemyFurnaceScreen extends AbstractJournalContainerScreen<AlchemyFurnaceMenu> {
     public AlchemyFurnaceScreen(AlchemyFurnaceMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
         this.imageWidth = 176;
@@ -14,14 +13,9 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
         int x = leftPos;
         int y = topPos;
-        ImmortalUiSkin.drawLayeredPanel(graphics, x, y, imageWidth, imageHeight);
-        ImmortalUiSkin.drawTitleBar(graphics, x + 5, y + 4, imageWidth - 10, 14);
-        graphics.drawCenteredString(font,
-                ImmortalUiSkin.fitWidth(font, title.getString(), imageWidth - 24),
-                x + imageWidth / 2, y + 7, ImmortalUiSkin.JOURNAL_BORDER);
         drawSlot(graphics, x, y, 26, 20);
         drawSlot(graphics, x, y, 62, 20);
         drawSlot(graphics, x, y, 26, 48);
@@ -43,9 +37,7 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
+    protected void renderJournalOverlays(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.alchemy_menu.progress",
                         Math.max(0, menu.getTotal() - menu.getProgress()), menu.getTotal()).getString(),
@@ -62,11 +54,6 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
                                 : "screen.seeking_immortals.alchemy_menu.room_none").getString(),
                 leftPos + 90, topPos + 69, 78,
                 menu.hasEarthFireRoom() ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-        renderTooltip(graphics, mouseX, mouseY);
-    }
-
-    @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
     }
 
     static FurnaceLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -83,11 +70,6 @@ public class AlchemyFurnaceScreen extends AbstractContainerScreen<AlchemyFurnace
 
     private static void drawSlot(GuiGraphics graphics, int left, int top, int slotX, int slotY) {
         ImmortalUiSkin.drawSkillSlot(graphics, left + slotX - 1, top + slotY - 1, 18, false);
-    }
-
-    record UiRect(int x, int y, int width, int height) {
-        int right() { return x + width; }
-        int bottom() { return y + height; }
     }
 
     record FurnaceLayout(int left, int top, UiRect visiblePanel) {}
