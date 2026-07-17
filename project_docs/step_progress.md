@@ -45,6 +45,139 @@
   Version/protocol                     Done `0.2.2` -> `0.2.3`；protocol 保持 24
   Full verification                    Done `./gradlew build`
   Update note                          Done `project_docs/updates/20260717_0.2.3_health_overlay_inventory_pause.md`
+## 476. 2026-07-17 ImmortalUiSkin 色板清理
+
+  Step   Status   Notes
+  ---   ---   ---
+  Legacy screen audit                  Done 4 legacy 屏仅用 JOURNAL_*；不阻塞
+  Delete unused COLOR_*                Done TITLE/SUCCESS/DANGER/BLUE/HOVER_BG
+  Named hex constants                  Done Stats/MethodTree/TechniqueEdit/skill bar + skin internals
+  Retain helper palette                Done PANEL/SKILL/STATUS/HEALTH/TOOLTIP + COLOR_TEXT_*
+  JEI hex                              Untouched
+  Full verification                    Done BUILD SUCCESSFUL in 1m7s；client 裸 hex=0
+  Update note                          Done `project_docs/updates/20260717_ui_palette_cleanup.md`
+
+## 480. 2026-07-17 图节点拖拽与列表/详情双滚动验证
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_232803_ui_drag_dual_scroll_verify/`
+  MethodTree drag helpers              Done clamp/offset/hit-test
+  MethodTree dual scroll helpers       Done list 行滚 + detail 像素滚独立
+  TechniqueEdit drag/scroll helpers    Done bind-on-release + learned scroll
+  DragDualScrollTest                   Done 7 cases green
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done focused + full build 1m5s
+  Update note                          Done `project_docs/updates/20260717_ui_drag_dual_scroll_verify.md`
+
+## 479. 2026-07-17 CultivationStatsScreen 迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_212213_ui_cultivation_stats/`
+  Shell AbstractJournalScreen          Done chrome/title/content；header 双行仍 drawHeader
+  TabBar replace drawTab               Done 删 JournalTabButton；select 重建 widgets
+  ScrollableListPanel pages            Done 双遍测高 + contentRevision 重置
+  Footer jumps / inventory return      Kept MethodTree/LifeSkill/onClose
+  MovementSpeedSlider                  Kept COMBAT 可见 + packet
+  Public layout/interaction APIs       Kept ScreenLayoutTest / InteractionTest
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done focused tests + full build 1m20s
+  Update note                          Done `project_docs/updates/20260717_ui_cultivation_stats.md`
+
+## 478. 2026-07-17 SectHallScreen 迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_211305_ui_sect_hall/`
+  Migration plan                       Done 4 Tab 钩子拆分 + 非会员候选人
+  Shell + TabBar                       Done ACS chrome/title/body；默认 MISSION
+  Scrollable candidates/SHOP           Done ScrollableListPanel 行滚
+  Static tabs                          Kept DIALOGUE/MISSION/PROGRESS footer
+  SectScreen legacy                    Untouched
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m27s
+  Update note                          Done `project_docs/updates/20260717_ui_sect_hall.md`
+
+## 477. 2026-07-17 GUI Phase3 分页/revision 验证
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_203453_ui_phase3_verify/`
+  Market client paging helpers         Done PAGE_SIZE=6 maxPage/slice
+  Auction server paging helpers        Done canPagePrevious/Next + page payloads
+  Worldpack readiness helpers          Done actionState / canTravel / canEnter
+  Wall-clock countdown test            Done remainingTicks 暂停不漂移
+  Focused tests                        Done ClientWorldpackDataTest + MarketAuctionPagingTest + ScreenLayoutTest
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m25s
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Update note                          Done `project_docs/updates/20260717_ui_phase3_verify.md`
+
+## 476. 2026-07-17 GUI Phase3 三屏迁移（Worldpack/Market/Auction）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_181023_ui_phase3_three_screens/`
+  WorldpackScreen                      Done AbstractJournalScreen + TabBar + ScrollableListPanel；revision/冷却逻辑保留
+  MarketHallScreen                     Done ACS + 客户端 PAGE_SIZE=6 + 页内滚动
+  AuctionHallScreen                    Done ACS + 服务端翻页 + 页内滚动
+  Pagination mixed                     Kept 两种分页机制未统一
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m9s
+  Update note                          Done `project_docs/updates/20260717_ui_phase3_three_screens.md`
+
+## 475. 2026-07-17 TechniqueEdit / Dialogue 渲染外壳迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  TechniqueEditScreen                  Done AbstractJournalScreen；拖拽 hitbox 完整保留
+  DialogueScreen shell                 Done 仅 chrome/content；session/nonce/choice 未改
+  Business logic touch                 None npc/network/test 无 diff
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m15s
+  Update note                          Done `project_docs/updates/20260717_ui_technique_dialogue_shell.md`
+
+## 474. 2026-07-17 AbstractLoreScreen 三本 lore 抽取
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_181200_ui_abstract_lore/`
+  AbstractLoreScreen                   Done 壳体/packet/list+detail chrome
+  TabBar                               Done Chronicle tabs + Bestiary filters + Compendium tabs
+  Bestiary/Chronicle/Compendium        Done 迁到 AbstractLoreScreen；保留 Layout API
+  ScreenLayoutTest contracts           Kept 断言不放宽
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m6s
+  Update note                          Done `project_docs/updates/20260717_ui_abstract_lore.md`
+
+## 473. 2026-07-17 GUI Phase2 四屏迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_174500_ui_phase2_screens/`
+  ScrollableListPanel insets           Done scissor/scrollHeightReduce/track insets
+  RefinementPlanScreen                 Done AbstractJournalScreen + panel
+  QuestTrackerScreen                   Done 同上；保留链点击/hint
+  LifeSkillTreeScreen                  Done 双列技能卡 + parent 返回
+  MeditationScreen                     Done 仪表盘 content renderer
+  Version/protocol                     Unchanged 0.2.2 / protocol 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m14s
+  Update note                          Done `project_docs/updates/20260717_ui_phase2_four_screens.md`
+
+## 472. 2026-07-17 GUI 共享基础设施试点
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_172250_ui_shared_infra/`
+  UiRect / ScrollableListPanel / TabBar Done 共享几何、滚动视口、按钮式 Tab
+  AbstractJournalScreen                Done 标准 journal Screen 流水线
+  AbstractJournalContainerScreen       Done 容器屏 journal 流水线
+  Pilot AlchemyStatusScreen            Done 迁到 AbstractJournalScreen + ScrollableListPanel
+  Pilot AlchemyFurnaceScreen           Done 迁到 AbstractJournalContainerScreen
+  Other screens                        Untouched 本阶段不改
+  Version/protocol                     Unchanged 任务红线不升 mod_version（0.2.2）；protocol 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m41s
+  Update note                          Done `project_docs/updates/20260717_ui_shared_infra_pilot.md`
 
 ## 471. 2026-07-17 0.2.1 前端 UI 审查修复
 

@@ -1,13 +1,12 @@
 package com.xunxian.seekingimmortals.client;
 
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 import java.util.Locale;
 
 /** Compact journal view of the player's alchemy progression. */
-public class AlchemyStatusScreen extends Screen {
+public class AlchemyStatusScreen extends AbstractJournalScreen {
     private static final int PANEL_MARGIN = 4;
     private static final int DEFAULT_WIDTH = 300;
     private static final int DEFAULT_HEIGHT = 190;
@@ -16,13 +15,17 @@ public class AlchemyStatusScreen extends Screen {
     private final int skillLevel;
     private final int skillExp;
     private final String lastMessage;
-    private int scrollOffset;
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
     public AlchemyStatusScreen(int skillLevel, int skillExp, String lastMessage) {
         super(Component.translatable("screen.seeking_immortals.alchemy.title"));
         this.skillLevel = skillLevel;
         this.skillExp = skillExp;
         this.lastMessage = lastMessage == null ? "" : lastMessage;
+        this.listPanel.setScrollStep(18)
+                .setContentInsets(7, 6, 7, 0)
+                .setScrollbarInsetRight(3)
+                .setContentHeight(CONTENT_HEIGHT);
     }
 
     @Override
@@ -35,47 +38,30 @@ public class AlchemyStatusScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
         StatusLayout layout = calculateLayout(width, height);
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        graphics.drawCenteredString(font, ImmortalUiSkin.fitWidth(font, title.getString(),
-                        Math.max(1, layout.header().width() - 14)),
-                layout.header().x() + layout.header().width() / 2,
-                layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height());
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                layout.header(), layout.viewport());
+    }
 
-        scrollOffset = clampScroll(scrollOffset, CONTENT_HEIGHT, layout.viewport().height());
-        int contentY = layout.viewport().y() + 6 - scrollOffset;
-        ImmortalUiSkin.withScissor(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height(),
-                () -> renderContent(graphics, layout.viewport().x() + 7, contentY,
-                        Math.max(1, layout.viewport().width() - 14)));
-        ImmortalUiSkin.drawThinScrollbar(graphics, layout.viewport().right() - 3,
-                layout.viewport().y(), layout.viewport().height(), CONTENT_HEIGHT,
-                layout.viewport().height(), scrollOffset);
-        super.render(graphics, mouseX, mouseY, partialTick);
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
+        StatusLayout layout = calculateLayout(width, height);
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(CONTENT_HEIGHT)
+                .renderContent(graphics, (g, contentX, contentY, contentWidth) ->
+                        renderContent(g, contentX, contentY, contentWidth));
     }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         StatusLayout layout = calculateLayout(width, height);
-        if (layout.viewport().contains(mouseX, mouseY) && CONTENT_HEIGHT > layout.viewport().height()) {
-            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 18.0D),
-                    CONTENT_HEIGHT, layout.viewport().height());
+        listPanel.setBounds(layout.viewport()).setContentHeight(CONTENT_HEIGHT);
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     static StatusLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -100,8 +86,7 @@ public class AlchemyStatusScreen extends Screen {
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
-        int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
-        return Math.max(0, Math.min(requested, maximum));
+        return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
     private void renderContent(GuiGraphics graphics, int x, int y, int width) {
@@ -141,18 +126,6 @@ public class AlchemyStatusScreen extends Screen {
                 Math.max(1, width - 4), ImmortalUiSkin.JOURNAL_PAPER, false);
         ImmortalUiSkin.drawSemanticStatusBar(graphics, x, y + 12, width, 7, fraction, style);
         return y + 25;
-    }
-
-    record UiRect(int x, int y, int width, int height) {
-        int right() { return x + width; }
-        int bottom() { return y + height; }
-        boolean contains(double mouseX, double mouseY) {
-            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
-        }
-        boolean intersects(UiRect other) {
-            return other != null && x < other.right() && right() > other.x()
-                    && y < other.bottom() && bottom() > other.y();
-        }
     }
 
     record StatusLayout(int left, int top, int panelWidth, int panelHeight,

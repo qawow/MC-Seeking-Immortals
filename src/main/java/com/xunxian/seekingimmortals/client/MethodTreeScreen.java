@@ -36,10 +36,10 @@ public class MethodTreeScreen extends Screen {
     private static final int LINE = 12;
     private static final int NODE = 12;
     private static final int LINK = ImmortalUiSkin.JOURNAL_BORDER_DIM;
-    private static final int NODE_EMPTY = 0xFF3B493C;
+    private static final int NODE_EMPTY = ImmortalUiSkin.JOURNAL_NODE_EMPTY;
     private static final int NODE_REACHED = ImmortalUiSkin.JOURNAL_JADE;
     private static final int NODE_CURRENT = ImmortalUiSkin.JOURNAL_BORDER;
-    private static final int NODE_LOCKED = 0xFF5B5646;
+    private static final int NODE_LOCKED = ImmortalUiSkin.JOURNAL_NODE_LOCKED;
     private static final int GRAPH_COLS = 3;
     private static final int GRAPH_MAX = 6;
 
@@ -310,7 +310,59 @@ public class MethodTreeScreen extends Screen {
     }
 
     private int maxDetailScroll(Layout layout) {
-        return Math.max(0, renderedDetailHeight - layout.detail().height());
+        return maxDetailScroll(renderedDetailHeight, layout.detail().height());
+    }
+
+    /** Package-visible for dual-scroll tests: detail pane max offset in pixels. */
+    static int maxDetailScroll(int contentHeight, int viewportHeight) {
+        return Math.max(0, contentHeight - Math.max(1, viewportHeight));
+    }
+
+    /** Package-visible for dual-scroll tests: list pane max first-row offset. */
+    static int maxListScroll(int itemCount, int visibleRows) {
+        return Math.max(0, itemCount - Math.max(1, visibleRows));
+    }
+
+    static int scrollListBy(int current, int direction, int itemCount, int visibleRows) {
+        int max = maxListScroll(itemCount, visibleRows);
+        return Mth.clamp(current - direction, 0, max);
+    }
+
+    static int scrollDetailBy(int current, int direction, int contentHeight, int viewportHeight, int step) {
+        int max = maxDetailScroll(contentHeight, viewportHeight);
+        return Mth.clamp(current - direction * Math.max(1, step), 0, max);
+    }
+
+    /**
+     * Package-visible for graph-drag tests: clamp absolute node top-left inside the graph bounds.
+     */
+    static int[] clampGraphNodePosition(int targetX, int targetY,
+                                        int graphOriginX, int graphOriginY,
+                                        int graphWidth, int graphHeight,
+                                        int nodeW, int nodeH) {
+        int x = Mth.clamp(targetX, graphOriginX, graphOriginX + Math.max(0, graphWidth - nodeW));
+        int y = Mth.clamp(targetY, graphOriginY, graphOriginY + Math.max(0, graphHeight - nodeH));
+        return new int[]{x, y};
+    }
+
+    /**
+     * Package-visible for graph-drag tests: convert absolute node position back into
+     * freeform offset from the default grid slot (col/row).
+     */
+    static int[] offsetFromGrid(int absoluteX, int absoluteY,
+                                int graphOriginX, int graphOriginY,
+                                int indexInWindow, int columns,
+                                int nodeW, int nodeH, int gapX, int gapY) {
+        int col = Math.max(0, indexInWindow) % Math.max(1, columns);
+        int row = Math.max(0, indexInWindow) / Math.max(1, columns);
+        int baseX = graphOriginX + col * (nodeW + gapX);
+        int baseY = graphOriginY + row * (nodeH + gapY);
+        return new int[]{absoluteX - baseX, absoluteY - baseY};
+    }
+
+    /** Hit-test used by click/drag start; package-visible for tests. */
+    static boolean graphHitContains(int x, int y, int w, int h, double mx, double my) {
+        return mx >= x && mx <= x + w && my >= y && my <= y + h;
     }
 
     @Override
@@ -729,8 +781,10 @@ public class MethodTreeScreen extends Screen {
             int nodeH = graphNodeHeight;
             int targetX = (int) Math.round(mouseX - dragGrabX);
             int targetY = (int) Math.round(mouseY - dragGrabY);
-            targetX = Mth.clamp(targetX, graphOriginX, graphOriginX + Math.max(0, graphWidth - nodeW));
-            targetY = Mth.clamp(targetY, graphOriginY, graphOriginY + Math.max(0, graphHeight - nodeH));
+            int[] clamped = clampGraphNodePosition(targetX, targetY,
+                    graphOriginX, graphOriginY, graphWidth, graphHeight, nodeW, nodeH);
+            targetX = clamped[0];
+            targetY = clamped[1];
 
             // Convert absolute position back into offset from default grid slot.
             int idxInWindow = -1;
@@ -742,12 +796,9 @@ public class MethodTreeScreen extends Screen {
                 }
             }
             if (idxInWindow >= 0) {
-                int col = idxInWindow % graphColumns;
-                int row = idxInWindow / graphColumns;
-                int baseX = graphOriginX + col * (nodeW + graphGapX);
-                int baseY = graphOriginY + row * (nodeH + graphGapY);
                 layoutOffsets.put(draggingMethodId.toLowerCase(Locale.ROOT),
-                        new int[]{targetX - baseX, targetY - baseY});
+                        offsetFromGrid(targetX, targetY, graphOriginX, graphOriginY,
+                                idxInWindow, graphColumns, nodeW, nodeH, graphGapX, graphGapY));
             }
             return true;
         }
@@ -851,11 +902,12 @@ public class MethodTreeScreen extends Screen {
         Layout layout = calculateLayout(width, height);
         int direction = (int)Math.signum(delta);
         if (direction != 0 && layout.list().contains(mouseX, mouseY)) {
-            scroll = Mth.clamp(scroll - direction, 0, maxScroll());
+            scroll = scrollListBy(scroll, direction, filtered.size(), visibleListRows(layout));
             return true;
         }
         if (direction != 0 && layout.detail().contains(mouseX, mouseY)) {
-            detailScroll = Mth.clamp(detailScroll - direction * LINE, 0, maxDetailScroll(layout));
+            detailScroll = scrollDetailBy(detailScroll, direction,
+                    renderedDetailHeight, layout.detail().height(), LINE);
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);

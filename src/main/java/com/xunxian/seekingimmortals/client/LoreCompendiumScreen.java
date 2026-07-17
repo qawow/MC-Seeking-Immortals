@@ -4,10 +4,7 @@ import com.xunxian.seekingimmortals.lore.LoreCompendiumService;
 import com.xunxian.seekingimmortals.lore.NameAliasGlossaryService;
 import com.xunxian.seekingimmortals.lore.NumericOverviewService;
 import com.xunxian.seekingimmortals.lore.VisualStyleService;
-import com.xunxian.seekingimmortals.network.LoreScreenActionPacket;
-import com.xunxian.seekingimmortals.network.ModNetwork;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.util.Mth;
@@ -16,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** M16 encyclopedia hub: category summary, glossary and numeric/visual quick reference. */
-public class LoreCompendiumScreen extends Screen {
+public class LoreCompendiumScreen extends AbstractLoreScreen {
     public enum Tab {
         HUB,
         GLOSSARY,
@@ -24,13 +21,9 @@ public class LoreCompendiumScreen extends Screen {
         VISUAL
     }
 
-    private static final int MAX_PANEL_W = 420;
-    private static final int MAX_PANEL_H = 260;
-    private static final int PANEL_MARGIN = 4;
     private static final int WIDE_CONTROLS_WIDTH = 380;
     private static final int MEDIUM_CONTROLS_WIDTH = 280;
     private static final int ROW_H = 14;
-    private static final int MIN_BODY_LINE = 10;
 
     private Tab tab;
     private int scroll;
@@ -45,12 +38,19 @@ public class LoreCompendiumScreen extends Screen {
         this.tab = tab == null ? Tab.HUB : tab;
     }
 
+    @Override
     public void refreshFromSync() {
         rebuildLines();
     }
 
     public boolean isShowing(Tab target) {
         return tab == target;
+    }
+
+    @Override
+    protected PanelBounds lorePanelBounds() {
+        Layout layout = calculateLayout(width, height);
+        return new PanelBounds(layout.left(), layout.top(), layout.width(), layout.height());
     }
 
     @Override
@@ -63,32 +63,36 @@ public class LoreCompendiumScreen extends Screen {
     private void rebuildActionWidgets() {
         clearWidgets();
         Layout layout = calculateLayout(width, height);
-        addRenderableWidget(ImmortalButton.secondary(layout.refresh().x(), layout.refresh().y(),
-                layout.refresh().w(), layout.refresh().h(),
-                Component.translatable("screen.seeking_immortals.lore.refresh"),
-                b -> ModNetwork.CHANNEL.sendToServer(new LoreScreenActionPacket(tabAction()))));
-        addRenderableWidget(ImmortalButton.secondary(layout.close().x(), layout.close().y(),
-                layout.close().w(), layout.close().h(),
-                Component.translatable("gui.done"), b -> onClose()));
-        addRenderableWidget(tabButton(layout.hubTab(), Tab.HUB, "screen.seeking_immortals.compendium.tab_hub"));
-        addRenderableWidget(tabButton(layout.glossaryTab(), Tab.GLOSSARY, "screen.seeking_immortals.compendium.tab_glossary"));
-        addRenderableWidget(tabButton(layout.numericTab(), Tab.NUMERIC, "screen.seeking_immortals.compendium.tab_numeric"));
-        addRenderableWidget(tabButton(layout.visualTab(), Tab.VISUAL, "screen.seeking_immortals.compendium.tab_visual"));
+        addRefreshAndClose(layout.refresh().x(), layout.refresh().y(), layout.refresh().w(), layout.refresh().h(),
+                layout.close().x(), layout.close().y(), layout.close().w(), layout.close().h(),
+                tabAction());
+
+        TabBar<Tab> tabs = new TabBar<>(tab);
+        tabs.addTab(Tab.HUB, Component.translatable("screen.seeking_immortals.compendium.tab_hub"),
+                        toUiRect(layout.hubTab().x(), layout.hubTab().y(), layout.hubTab().w(), layout.hubTab().h()))
+                .addTab(Tab.GLOSSARY, Component.translatable("screen.seeking_immortals.compendium.tab_glossary"),
+                        toUiRect(layout.glossaryTab().x(), layout.glossaryTab().y(),
+                                layout.glossaryTab().w(), layout.glossaryTab().h()))
+                .addTab(Tab.NUMERIC, Component.translatable("screen.seeking_immortals.compendium.tab_numeric"),
+                        toUiRect(layout.numericTab().x(), layout.numericTab().y(),
+                                layout.numericTab().w(), layout.numericTab().h()))
+                .addTab(Tab.VISUAL, Component.translatable("screen.seeking_immortals.compendium.tab_visual"),
+                        toUiRect(layout.visualTab().x(), layout.visualTab().y(),
+                                layout.visualTab().w(), layout.visualTab().h()))
+                .setOnSelect(this::setTab);
+        for (ImmortalButton button : tabs.attach(null)) {
+            addRenderableWidget(button);
+        }
+
+        // Inter-screen jumps stay as secondary action buttons (not tabs).
         addRenderableWidget(ImmortalButton.secondary(layout.bestiaryBtn().x(), layout.bestiaryBtn().y(),
                 layout.bestiaryBtn().w(), layout.bestiaryBtn().h(),
                 Component.translatable("screen.seeking_immortals.compendium.open_bestiary"),
-                b -> ModNetwork.CHANNEL.sendToServer(new LoreScreenActionPacket("bestiary"))));
+                b -> sendLoreAction("bestiary")));
         addRenderableWidget(ImmortalButton.secondary(layout.chronicleBtn().x(), layout.chronicleBtn().y(),
                 layout.chronicleBtn().w(), layout.chronicleBtn().h(),
                 Component.translatable("screen.seeking_immortals.compendium.open_chronicle"),
-                b -> ModNetwork.CHANNEL.sendToServer(new LoreScreenActionPacket("chronicle"))));
-    }
-
-    private ImmortalButton tabButton(Rect rect, Tab target, String key) {
-        ImmortalButton button = tab == target
-                ? ImmortalButton.primary(rect.x(), rect.y(), rect.w(), rect.h(), Component.translatable(key), b -> setTab(target))
-                : ImmortalButton.secondary(rect.x(), rect.y(), rect.w(), rect.h(), Component.translatable(key), b -> setTab(target));
-        return button;
+                b -> sendLoreAction("chronicle")));
     }
 
     private void setTab(Tab next) {
@@ -179,13 +183,9 @@ public class LoreCompendiumScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
         Layout layout = calculateLayout(width, height);
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(), layout.width(), layout.height());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.left() + 6, layout.top() + 6, layout.width() - 12, 16);
-        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(),
-                layout.left() + 12, layout.top() + 10, layout.width() - 24, ImmortalUiSkin.JOURNAL_BORDER, false);
         ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
                 layout.viewport().w(), layout.viewport().h());
 
@@ -205,7 +205,6 @@ public class LoreCompendiumScreen extends Screen {
         ImmortalUiSkin.drawThinScrollbar(graphics, layout.viewport().x() + layout.viewport().w() - 3,
                 layout.viewport().y() + 1, Math.max(1, layout.viewport().h() - 2),
                 contentHeight, visible, scroll);
-        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     @Override

@@ -6,7 +6,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 /** Read-only client mirror of life and special skill progression. */
-public class LifeSkillTreeScreen extends Screen {
+public class LifeSkillTreeScreen extends AbstractJournalScreen {
     private static final int PANEL_MARGIN = 4;
     private static final int DEFAULT_PANEL_WIDTH = 520;
     private static final int DEFAULT_PANEL_HEIGHT = 360;
@@ -34,12 +34,14 @@ public class LifeSkillTreeScreen extends Screen {
     };
 
     private final Screen parent;
-    private int scrollOffset;
-    private int renderedContentHeight;
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
 
     public LifeSkillTreeScreen(Screen parent) {
         super(Component.translatable("screen.seeking_immortals.skill_tree.title"));
         this.parent = parent;
+        this.listPanel.setScrollStep(18)
+                .setContentInsets(5, 5, 7, 0)
+                .setScrollbarInsetRight(3);
     }
 
     @Override
@@ -54,57 +56,66 @@ public class LifeSkillTreeScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
         SkillTreeLayout layout = calculateLayout(width, height);
-        drawFrame(graphics, layout);
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                layout.header(), layout.viewport());
+    }
 
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
+        graphics.drawCenteredString(font,
+                ImmortalUiSkin.fitWidth(font, getTitle().getString(), Math.max(1, header.width() - 16)),
+                header.x() + header.width() / 2,
+                header.y() + Math.max(2, (header.height() - 8) / 2),
+                ImmortalUiSkin.JOURNAL_BORDER);
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
+        SkillTreeLayout layout = calculateLayout(width, height);
         UiRect viewport = layout.viewport();
-        renderedContentHeight = ClientSkillData.isSynced()
+        int contentHeight = ClientSkillData.isSynced()
                 ? calculateContentHeight(layout.columns()) : viewport.height();
-        scrollOffset = clampScroll(scrollOffset, renderedContentHeight, viewport.height());
-        int startY = viewport.y() + 5 - scrollOffset;
-
-        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
-            if (!ClientSkillData.isSynced()) {
-                ImmortalUiSkin.drawWrappedText(font, graphics,
-                        Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync"),
-                        viewport.x() + 8, viewport.y() + 10, Math.max(1, viewport.width() - 16),
-                        Math.max(1, viewport.height() - 16), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-                return;
-            }
-
-            int contentX = viewport.x() + 5;
-            int contentWidth = Math.max(1, viewport.width() - 12);
-            if (layout.columns()) {
-                int columnWidth = Math.max(1, (contentWidth - COLUMN_GAP) / 2);
-                renderSection(graphics, contentX, startY, columnWidth,
-                        Component.translatable("screen.seeking_immortals.skill_tree.section.life"),
-                        LIFE_SKILLS, mouseX, mouseY);
-                renderSection(graphics, contentX + columnWidth + COLUMN_GAP, startY,
-                        Math.max(1, contentWidth - columnWidth - COLUMN_GAP),
-                        Component.translatable("screen.seeking_immortals.skill_tree.section.special"),
-                        SPECIAL_SKILLS, mouseX, mouseY);
-            } else {
-                int nextY = renderSection(graphics, contentX, startY, contentWidth,
-                        Component.translatable("screen.seeking_immortals.skill_tree.section.life"),
-                        LIFE_SKILLS, mouseX, mouseY);
-                renderSection(graphics, contentX, nextY + 6, contentWidth,
-                        Component.translatable("screen.seeking_immortals.skill_tree.section.special"),
-                        SPECIAL_SKILLS, mouseX, mouseY);
-            }
-        });
-        ImmortalUiSkin.drawThinScrollbar(graphics, viewport.right() - 3, viewport.y(), viewport.height(),
-                renderedContentHeight, viewport.height(), scrollOffset);
-        super.render(graphics, mouseX, mouseY, partialTick);
+        listPanel.setBounds(viewport)
+                .setContentHeight(contentHeight)
+                .renderContent(graphics, (g, contentX, contentY, contentWidth) -> {
+                    if (!ClientSkillData.isSynced()) {
+                        ImmortalUiSkin.drawWrappedText(font, g,
+                                Component.translatable("screen.seeking_immortals.skill_tree.waiting_sync"),
+                                viewport.x() + 8, viewport.y() + 10, Math.max(1, viewport.width() - 16),
+                                Math.max(1, viewport.height() - 16), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+                        return;
+                    }
+                    if (layout.columns()) {
+                        int columnWidth = Math.max(1, (contentWidth - COLUMN_GAP) / 2);
+                        renderSection(g, contentX, contentY, columnWidth,
+                                Component.translatable("screen.seeking_immortals.skill_tree.section.life"),
+                                LIFE_SKILLS, mouseX, mouseY);
+                        renderSection(g, contentX + columnWidth + COLUMN_GAP, contentY,
+                                Math.max(1, contentWidth - columnWidth - COLUMN_GAP),
+                                Component.translatable("screen.seeking_immortals.skill_tree.section.special"),
+                                SPECIAL_SKILLS, mouseX, mouseY);
+                    } else {
+                        int nextY = renderSection(g, contentX, contentY, contentWidth,
+                                Component.translatable("screen.seeking_immortals.skill_tree.section.life"),
+                                LIFE_SKILLS, mouseX, mouseY);
+                        renderSection(g, contentX, nextY + 6, contentWidth,
+                                Component.translatable("screen.seeking_immortals.skill_tree.section.special"),
+                                SPECIAL_SKILLS, mouseX, mouseY);
+                    }
+                });
     }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         SkillTreeLayout layout = calculateLayout(width, height);
-        if (layout.viewport().contains(mouseX, mouseY) && renderedContentHeight > layout.viewport().height()) {
-            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 18.0D),
-                    renderedContentHeight, layout.viewport().height());
+        UiRect viewport = layout.viewport();
+        int contentHeight = ClientSkillData.isSynced()
+                ? calculateContentHeight(layout.columns()) : viewport.height();
+        listPanel.setBounds(viewport).setContentHeight(contentHeight);
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
@@ -117,11 +128,6 @@ public class LifeSkillTreeScreen extends Screen {
             return;
         }
         super.onClose();
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     static SkillTreeLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -153,8 +159,7 @@ public class LifeSkillTreeScreen extends Screen {
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
-        int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
-        return Math.max(0, Math.min(requested, maximum));
+        return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
     static int skillMaxLevel(SkillType type) {
@@ -172,20 +177,6 @@ public class LifeSkillTreeScreen extends Screen {
 
     private static int sectionHeight(int entries) {
         return SECTION_HEADER_HEIGHT + Math.max(0, entries) * (SKILL_ROW_HEIGHT + SKILL_ROW_GAP);
-    }
-
-    private void drawFrame(GuiGraphics graphics, SkillTreeLayout layout) {
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        graphics.drawCenteredString(font,
-                ImmortalUiSkin.fitWidth(font, title.getString(), Math.max(1, layout.header().width() - 16)),
-                layout.header().x() + layout.header().width() / 2,
-                layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2),
-                ImmortalUiSkin.JOURNAL_BORDER);
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height());
     }
 
     private int renderSection(GuiGraphics graphics, int x, int y, int width, Component heading,
@@ -250,25 +241,6 @@ public class LifeSkillTreeScreen extends Screen {
                 skill.proficiency() / 10000.0D,
                 skill.unlocked() ? ImmortalUiSkin.StatusBarStyle.CULTIVATION
                         : ImmortalUiSkin.StatusBarStyle.NEUTRAL);
-    }
-
-    record UiRect(int x, int y, int width, int height) {
-        int right() {
-            return x + width;
-        }
-
-        int bottom() {
-            return y + height;
-        }
-
-        boolean contains(double mouseX, double mouseY) {
-            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < y + height;
-        }
-
-        boolean intersects(UiRect other) {
-            return other != null && x < other.right() && right() > other.x()
-                    && y < other.bottom() && bottom() > other.y();
-        }
     }
 
     record SkillTreeLayout(int left, int top, int panelWidth, int panelHeight, boolean columns,

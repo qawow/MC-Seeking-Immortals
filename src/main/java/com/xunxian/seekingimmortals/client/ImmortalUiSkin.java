@@ -21,7 +21,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * framework dependency.</p>
  */
 public final class ImmortalUiSkin {
-    // Panel styling colors
+    // Shared surface helpers still used by drawPanel / skill slots / health / tooltips.
+    // Not referenced by the four remaining legacy screens (Shop/Auction/Sect/Storage),
+    // which already draw through the journal palette below.
     public static final int PANEL_BORDER = 0xCCE6D59A;
     public static final int PANEL = 0xD61B1208;
     public static final int PANEL_INNER = 0xCC2A1B0D;
@@ -39,16 +41,12 @@ public final class ImmortalUiSkin {
     public static final int TOOLTIP_PANEL = 0xEE130C05;
     public static final int TOOLTIP_BORDER = 0xDDE6D59A;
 
-    // Theme semantic text colors
-    public static final int COLOR_TITLE = 0xFFE6D59A;       // 修仙金黄色标题
-    public static final int COLOR_TEXT_MUTED = 0xFFBFAF8A;  // 淡褐色辅助/等待文本
-    public static final int COLOR_TEXT_NORMAL = 0xFFEFE4C2; // 米黄色普通正文/标签值
-    public static final int COLOR_TEXT_SUCCESS = 0xFFB8F5A2;// 淡绿色正面提示/可释放
-    public static final int COLOR_TEXT_DANGER = 0xFFFF8A8A; // 淡红色负面/不可释放/警告
-    public static final int COLOR_TEXT_BLUE = 0xFF9AD1FF;   // 淡蓝色（用于法力/灵力提示）
-    public static final int COLOR_HOVER_BG = 0x332F8F45;    // 悬停选中的浅绿半透明背景
+    // HUD text colors still used by TechniqueSkillBarOverlay / BreathingHudOverlay.
+    public static final int COLOR_TEXT_MUTED = 0xFFBFAF8A;
+    public static final int COLOR_TEXT_NORMAL = 0xFFEFE4C2;
 
-    // Shared journal palette. Kept separate from the legacy palette so screens can migrate incrementally.
+    // Shared journal palette.
+    public static final int JOURNAL_TRANSPARENT = 0x00000000;
     public static final int JOURNAL_SHADOW = 0x88000000;
     public static final int JOURNAL_BORDER = 0xFFB99A55;
     public static final int JOURNAL_BORDER_DIM = 0x886F5A31;
@@ -74,6 +72,14 @@ public final class ImmortalUiSkin {
     public static final int JOURNAL_WARNING = 0xFFE1B36A;
     public static final int JOURNAL_BAR_BACKING = 0xEE080C0A;
     public static final int JOURNAL_BAR_HIGHLIGHT = 0x332B5845;
+    public static final int JOURNAL_ICON_INSET = 0xFF532823;
+    public static final int JOURNAL_SEAL_INSET = 0xFF582A24;
+    public static final int JOURNAL_NODE_EMPTY = 0xFF3B493C;
+    public static final int JOURNAL_NODE_LOCKED = 0xFF5B5646;
+    public static final int JOURNAL_DIVIDER_GLOW = 0x663B8060;
+    public static final int JOURNAL_SCROLLBAR_TRACK = 0x99101611;
+    public static final int JOURNAL_CULTIVATION_FILL = 0x8836E6D0;
+    public static final int JOURNAL_CULTIVATION_HIGHLIGHT = 0xAA8FFFF0;
 
     // Compact HUD surfaces use the same materials with less visual weight.
     public static final int HUD_SHADOW = 0x66000000;
@@ -81,6 +87,11 @@ public final class ImmortalUiSkin {
     public static final int HUD_BACKING = 0xE8100E09;
     public static final int HUD_INNER = 0xE8161D14;
     public static final int HUD_EDGE = 0x885B4524;
+    public static final int HUD_SKILL_DISABLED_OVERLAY = 0x66120D0A;
+    public static final int HUD_COOLDOWN_OVERLAY = 0xCC4E1712;
+    public static final int HUD_SKILL_PLACEHOLDER_ALPHA = 0xAA000000;
+    public static final int HUD_SKILL_PLACEHOLDER_SEED_MASK = 0x003F3F3F;
+    public static final int HUD_SKILL_PLACEHOLDER_FLOOR = 0x00202020;
 
     // Skill-rail-only translucent tokens. Do not reuse for journal/status chrome.
     public static final int HUD_SKILL_SHADOW = 0x44000000;
@@ -182,7 +193,7 @@ public final class ImmortalUiSkin {
         graphics.fill(x, y, x + 1, y + height, JOURNAL_BORDER_DIM);
         if (height >= 12) {
             int inset = Math.max(2, height / 8);
-            graphics.fill(x + 1, y + inset, x + 2, y + height - inset, 0x663B8060);
+            graphics.fill(x + 1, y + inset, x + 2, y + height - inset, JOURNAL_DIVIDER_GLOW);
         }
     }
 
@@ -262,6 +273,14 @@ public final class ImmortalUiSkin {
 
     public static void drawSkillIconBacking(GuiGraphics graphics, int x, int y, int width, int height, int color) {
         drawBox(graphics, x, y, width, height, color, PANEL_INNER_BORDER);
+    }
+
+    /** Deterministic placeholder fill for techniques without a dedicated icon PNG. */
+    public static int skillPlaceholderColor(String techniqueId) {
+        int colorSeed = Math.abs(techniqueId == null ? 0 : techniqueId.hashCode());
+        return HUD_SKILL_PLACEHOLDER_ALPHA
+                | (colorSeed & HUD_SKILL_PLACEHOLDER_SEED_MASK)
+                | HUD_SKILL_PLACEHOLDER_FLOOR;
     }
 
     /** True when a generated skill-icon PNG exists for the given techniqueId. */
@@ -357,9 +376,9 @@ public final class ImmortalUiSkin {
         int fillWidth = Math.max(0, Math.min(innerWidth, (int) Math.round(innerWidth * clamped)));
         if (fillWidth <= 0 || innerHeight <= 0) return;
 
-        graphics.fill(innerX, innerY, innerX + fillWidth, innerY + innerHeight, 0x8836E6D0);
+        graphics.fill(innerX, innerY, innerX + fillWidth, innerY + innerHeight, JOURNAL_CULTIVATION_FILL);
         int highlightHeight = Math.max(1, innerHeight / 2);
-        graphics.fill(innerX, innerY, innerX + fillWidth, innerY + highlightHeight, 0xAA8FFFF0);
+        graphics.fill(innerX, innerY, innerX + fillWidth, innerY + highlightHeight, JOURNAL_CULTIVATION_HIGHLIGHT);
     }
 
     public static void drawTooltipPanel(GuiGraphics graphics, int x, int y, int width, int height) {
@@ -376,7 +395,7 @@ public final class ImmortalUiSkin {
         int padding = height >= 8 ? 2 : 0;
         int trackY = y + padding;
         int trackHeight = Math.max(1, height - padding * 2);
-        graphics.fill(x, trackY, x + 2, trackY + trackHeight, 0x99101611);
+        graphics.fill(x, trackY, x + 2, trackY + trackHeight, JOURNAL_SCROLLBAR_TRACK);
 
         int thumbHeight = Math.max(Math.min(12, trackHeight),
                 (int)Math.round(trackHeight * (viewportHeight / (double)contentHeight)));
