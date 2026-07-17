@@ -29,7 +29,7 @@ public final class BreathingHudOverlay {
         int x = panel.x();
         int y = panel.y();
 
-        ImmortalUiSkin.drawHudPanel(graphics, x, y, width, height);
+        ImmortalUiSkin.drawBreathingTablet(graphics, x, y, width, height);
         int padding = width >= 100 ? 6 : Math.max(2, Math.min(4, width / 12));
         int contentWidth = Math.max(1, width - padding * 2);
         int titleY = y + Math.max(2, Math.min(5, height / 7));
@@ -57,10 +57,10 @@ public final class BreathingHudOverlay {
                     ImmortalUiSkin.JOURNAL_SPIRIT);
             drawLine(graphics, minecraft,
                     "功法 " + format(data.physiqueCultivationSpeedMultiplier()) + "x",
-                    x + padding, textY, columnWidth, textBottom, ImmortalUiSkin.COLOR_TEXT_NORMAL);
+                    x + padding, textY, columnWidth, textBottom, ImmortalUiSkin.JOURNAL_PAPER);
             drawLine(graphics, minecraft,
                     "灵根 " + format(data.rootCultivationSpeedCoefficient()) + "x",
-                    rightX, textY, columnWidth, textBottom, ImmortalUiSkin.COLOR_TEXT_NORMAL);
+                    rightX, textY, columnWidth, textBottom, ImmortalUiSkin.JOURNAL_PAPER);
         } else {
             textY = drawLine(graphics, minecraft,
                     "效率 " + format(data.cultivationSpeedMultiplier()) + "x  灵气 " + data.auraConcentration(),

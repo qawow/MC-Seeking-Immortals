@@ -7,14 +7,18 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 
 import java.util.Locale;
 
+/**
+ * Custom 气血/护体 overlay. Owns the right-top jade-tablet chrome for the merged
+ * status strip; cultivation content is painted by {@link CultivationHudOverlay}
+ * into the lower band when the free HUD is visible.
+ */
 public final class CultivationHealthOverlay {
-    private static final int DEFAULT_WIDTH = 154;
-    private static final int DEFAULT_HEIGHT = 40;
-    private static final int LEFT_MARGIN = 6;
+    private static final int DEFAULT_WIDTH = 220;
+    private static final int DEFAULT_HEIGHT = 38;
     private static final int TOP_MARGIN = 6;
     private static final int PADDING_X = 8;
     private static final int TEXT_LINE_HEIGHT = 9;
-    private static final int BAR_HEIGHT = 8;
+    private static final int BAR_HEIGHT = 7;
 
     private CultivationHealthOverlay() {}
 
@@ -44,58 +48,80 @@ public final class CultivationHealthOverlay {
     }
 
     static void renderHealthBar(GuiGraphics graphics, Minecraft minecraft, LocalPlayer player, int screenWidth, int screenHeight) {
-        ImmortalHudLayout.Rect panel = ImmortalHudLayout.healthRect(screenWidth, screenHeight);
-        int width = panel.width();
-        int height = panel.height();
-        int x = panel.x();
-        int y = panel.y();
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        boolean fullStrip = minecraft.screen == null && ClientCultivationData.isSynced();
+        ImmortalHudLayout.Rect chrome = fullStrip ? layout.statusStrip() : layout.healthOnlyStrip();
+        ImmortalHudLayout.Rect band = fullStrip ? layout.healthBand() : healthBandInside(chrome);
+
         float maxHealth = Math.max(1.0F, player.getMaxHealth());
         float health = Math.max(0.0F, Math.min(player.getHealth(), maxHealth));
         float absorption = Math.max(0.0F, player.getAbsorptionAmount());
 
-        ImmortalUiSkin.drawHudPanel(graphics, x, y, width, height);
+        ImmortalUiSkin.drawStatusStripChrome(graphics, chrome.x(), chrome.y(),
+                chrome.width(), chrome.height(), fullStrip);
 
-        int padding = width >= 72 ? PADDING_X : Math.min(3, Math.max(1, (width - 1) / 4));
-        int textX = x + padding;
-        int contentWidth = Math.max(1, width - padding * 2);
+        int padding = band.width() >= 72 ? PADDING_X : Math.min(3, Math.max(1, (band.width() - 1) / 4));
+        int textX = band.x() + Math.max(0, Math.min(padding - 2, band.width() / 8));
+        // Leave room for the left cinnabar edge painted by the chrome.
+        textX = Math.max(textX, chrome.x() + 5);
+        int contentWidth = Math.max(1, band.right() - textX - 3);
         String title = "气血 " + formatValue(health) + "/" + formatValue(maxHealth);
-        int barHeight = height >= 16
-                ? Math.max(5, Math.min(BAR_HEIGHT, height / 4))
-                : Math.max(2, Math.min(BAR_HEIGHT, height / 4));
-        int barY = Math.max(y, y + height - barHeight - Math.min(5, Math.max(1, height / 8)));
-        int textY = y + Math.min(5, Math.max(2, height / 7));
+        int barHeight = band.height() >= 14
+                ? Math.max(4, Math.min(BAR_HEIGHT, band.height() / 3))
+                : Math.max(2, Math.min(BAR_HEIGHT, Math.max(1, band.height() / 3)));
+        int barY = Math.max(band.y(), band.bottom() - barHeight - 1);
+        int textY = band.y() + Math.min(2, Math.max(0, band.height() / 10));
         if (textY + minecraft.font.lineHeight <= barY) {
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, title, textX, textY,
                     contentWidth, ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT, false);
+            textY += TEXT_LINE_HEIGHT;
         }
-        if (absorption > 0.0F && textY + TEXT_LINE_HEIGHT + minecraft.font.lineHeight <= barY) {
+        if (absorption > 0.0F && textY + minecraft.font.lineHeight <= barY) {
             String absorptionText = "护体 +" + formatValue(absorption);
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, absorptionText,
-                    textX, textY + TEXT_LINE_HEIGHT, contentWidth, ImmortalUiSkin.JOURNAL_WARNING, false);
+                    textX, textY, contentWidth, ImmortalUiSkin.JOURNAL_WARNING, false);
         }
 
         double healthFraction = health / maxHealth;
         double absorptionFraction = absorption / maxHealth;
         ImmortalUiSkin.drawHealthBar(graphics, textX, barY, contentWidth, barHeight,
                 healthFraction, absorptionFraction);
+
+        // Jade divider under the health band when the full strip is open for cultivation content.
+        if (fullStrip && layout.cultivationBand().height() > 4) {
+            ImmortalUiSkin.drawHudDivider(graphics, band.x(), band.bottom() - 1, band.width());
+        }
+    }
+
+    private static ImmortalHudLayout.Rect healthBandInside(ImmortalHudLayout.Rect chrome) {
+        int pad = chrome.width() >= 80 && chrome.height() >= 28 ? 4
+                : chrome.height() >= 16 ? 3 : 2;
+        int innerX = chrome.x() + pad;
+        int innerY = chrome.y() + pad;
+        int innerW = Math.max(1, chrome.width() - pad * 2);
+        int innerH = Math.max(1, chrome.height() - pad * 2);
+        return new ImmortalHudLayout.Rect(innerX, innerY, innerW, innerH);
     }
 
     static int panelWidth(int screenWidth) {
-        int maxAllowed = Math.max(1, screenWidth - LEFT_MARGIN * 2);
-        return Math.max(1, Math.min(DEFAULT_WIDTH, maxAllowed));
+        ImmortalHudLayout.Rect strip = ImmortalHudLayout.healthOnlyStripRect(screenWidth, 480);
+        return Math.max(1, Math.min(DEFAULT_WIDTH, strip.width()));
     }
 
     static int panelHeight(int screenHeight) {
-        int maxAllowed = Math.max(1, screenHeight - TOP_MARGIN * 2);
-        return Math.max(1, Math.min(DEFAULT_HEIGHT, maxAllowed));
+        ImmortalHudLayout.Rect strip = ImmortalHudLayout.healthOnlyStripRect(854, screenHeight);
+        return Math.max(1, Math.min(DEFAULT_HEIGHT, strip.height()));
     }
 
+    /** Right-anchored X for the compact health-only strip (legacy test helper). */
     static int calculatePanelX(int screenWidth) {
-        return Math.max(0, Math.min(LEFT_MARGIN, screenWidth - panelWidth(screenWidth)));
+        ImmortalHudLayout.Rect strip = ImmortalHudLayout.healthOnlyStripRect(screenWidth, 480);
+        return strip.x();
     }
 
     static int calculatePanelY(int screenHeight) {
-        return Math.max(0, Math.min(TOP_MARGIN, screenHeight - panelHeight(screenHeight)));
+        ImmortalHudLayout.Rect strip = ImmortalHudLayout.healthOnlyStripRect(854, screenHeight);
+        return Math.max(0, Math.min(TOP_MARGIN, strip.y()));
     }
 
     private static String formatValue(float value) {

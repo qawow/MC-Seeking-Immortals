@@ -10,6 +10,9 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.List;
 
+/**
+ * Left vertical jade-slip rail for the seven technique release slots.
+ */
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
 public final class TechniqueSkillBarOverlay {
     private static final int BAR_WIDTH = 30;
@@ -54,7 +57,7 @@ public final class TechniqueSkillBarOverlay {
         String hoveredTechnique = null;
         int hoveredY = frame.y();
 
-        ImmortalUiSkin.drawHudPanel(graphics, frame.x(), frame.y(), frame.width(), frame.height());
+        ImmortalUiSkin.drawJadeSlipRail(graphics, frame.x(), frame.y(), frame.width(), frame.height());
         int safeSlotSize = Math.max(1, slotSize);
         int slotX = frame.x() + Math.max(0, (frame.width() - safeSlotSize) / 2);
         List<String> slots = techniqueSlots == null ? List.of() : techniqueSlots;
@@ -82,7 +85,7 @@ public final class TechniqueSkillBarOverlay {
         Minecraft minecraft = Minecraft.getInstance();
         boolean hasTechnique = techniqueId != null && !techniqueId.isBlank();
 
-        ImmortalUiSkin.drawSkillSlot(graphics, x, y, size, hasTechnique);
+        ImmortalUiSkin.drawJadeSlipSlot(graphics, x, y, size, hasTechnique);
         if (hasTechnique) {
             drawTechniqueIcon(graphics, x, y, size, techniqueId);
             ClientCultivationData.Snapshot data = ClientCultivationData.getSnapshot();
@@ -111,7 +114,7 @@ public final class TechniqueSkillBarOverlay {
         String label = Integer.toString(index + 1);
         if (size >= minecraft.font.lineHeight && minecraft.font.width(label) <= size - 2) {
             graphics.drawString(minecraft.font, label, x + 1, y + 1,
-                    hasTechnique ? ImmortalUiSkin.COLOR_TEXT_NORMAL : ImmortalUiSkin.COLOR_TEXT_MUTED, true);
+                    hasTechnique ? ImmortalUiSkin.JOURNAL_PAPER : ImmortalUiSkin.JOURNAL_PAPER_MUTED, true);
         }
     }
 
@@ -147,7 +150,7 @@ public final class TechniqueSkillBarOverlay {
         int panelHeight = Math.max(1, Math.min(desiredHeight, Math.max(1, screenHeight - margin * 2)));
         int x = calculateTooltipX(frame.x(), frame.width(), panelWidth, screenWidth, margin);
         int y = clampInt(slotY, margin, Math.max(margin, screenHeight - panelHeight - margin));
-        ImmortalUiSkin.drawHudPanel(graphics, x, y, panelWidth, panelHeight);
+        ImmortalUiSkin.drawStatusStripChrome(graphics, x, y, panelWidth, panelHeight, false);
 
         int textX = x + Math.min(6, Math.max(2, panelWidth / 12));
         int textWidth = Math.max(1, x + panelWidth - textX - 3);
@@ -159,7 +162,7 @@ public final class TechniqueSkillBarOverlay {
             }
             int color = i == lines.size() - 1
                     ? (canRelease ? ImmortalUiSkin.JOURNAL_JADE_TEXT : ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT)
-                    : i == 3 ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.COLOR_TEXT_NORMAL;
+                    : i == 3 ? ImmortalUiSkin.JOURNAL_SPIRIT : ImmortalUiSkin.JOURNAL_PAPER;
             ImmortalUiSkin.drawStringFit(minecraft.font, graphics, lines.get(i),
                     textX, textY, textWidth, color, false);
             textY += minecraft.font.lineHeight + 2;
@@ -167,24 +170,13 @@ public final class TechniqueSkillBarOverlay {
     }
 
     static int calculateBarX(int screenWidth) {
-        return Math.max(0, Math.min(LEFT_MARGIN, screenWidth - totalBarWidth()));
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, 480);
+        return layout.techniques().x();
     }
 
     static int calculateBarY(int screenHeight) {
-        int totalHeight = totalBarHeight();
-        if (screenHeight <= totalHeight + VERTICAL_MARGIN * 2) {
-            return Math.max(0, (screenHeight - totalHeight) / 2);
-        }
-        int minY = VERTICAL_MARGIN;
-        int maxY = screenHeight - totalHeight - VERTICAL_MARGIN;
-        int y = clampInt((screenHeight - totalHeight) / 2, minY, maxY);
-        int healthBottom = CultivationHealthOverlay.calculatePanelY(screenHeight)
-                + CultivationHealthOverlay.panelHeight(screenHeight)
-                + HUD_GAP;
-        if (screenHeight >= healthBottom + totalHeight + VERTICAL_MARGIN) {
-            y = clampInt(Math.max(y, healthBottom), healthBottom, maxY);
-        }
-        return y;
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(854, screenHeight);
+        return layout.techniques().y();
     }
 
     static int calculateTooltipX(int barX, int panelWidth, int screenWidth) {

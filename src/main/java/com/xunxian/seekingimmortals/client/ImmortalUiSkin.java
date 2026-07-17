@@ -397,6 +397,150 @@ public final class ImmortalUiSkin {
         }
     }
 
+    /**
+     * Right-top jade-tablet chrome for the merged 气血/修为/灵力 strip.
+     * {@code fullStrip} adds a taller tablet body and a bottom cinnabar seal mark.
+     */
+    public static void drawStatusStripChrome(GuiGraphics graphics, int x, int y, int width, int height,
+                                             boolean fullStrip) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
+        graphics.fill(x, y, x + width, y + height, HUD_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, HUD_BACKING);
+        }
+        if (width > 6 && height > 6) {
+            graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
+            graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
+        }
+        // Left cinnabar edge — talisman seal strip on the jade tablet.
+        if (width >= 8 && height >= 8) {
+            graphics.fill(x + 2, y + 3, x + 4, y + height - 3, JOURNAL_CINNABAR);
+        }
+        // Jade tick on the right rim.
+        if (width >= 12 && height >= 10) {
+            graphics.fill(x + width - 4, y + 4, x + width - 3, y + height - 4, JOURNAL_JADE);
+        }
+        // Tiny corner L-marks on the full strip only.
+        if (fullStrip && width >= 28 && height >= 24) {
+            int mark = Math.min(10, Math.max(4, width / 16));
+            drawCornerMark(graphics, x + 5, y + 5, mark, 1, 1);
+            drawCornerMark(graphics, x + width - 5, y + 5, mark, -1, 1);
+            drawCornerMark(graphics, x + 5, y + height - 5, mark, 1, -1);
+            drawCornerMark(graphics, x + width - 5, y + height - 5, mark, -1, -1);
+            int seal = Math.min(8, Math.max(4, Math.min(width, height) / 10));
+            drawCinnabarSeal(graphics, x + width - seal - 5, y + height - seal - 4, seal);
+        }
+    }
+
+    /** Softer meditation tablet for the bottom breathing HUD. */
+    public static void drawBreathingTablet(GuiGraphics graphics, int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
+        graphics.fill(x, y, x + width, y + height, HUD_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, HUD_BACKING);
+        }
+        if (width > 6 && height > 6) {
+            graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
+            graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
+        }
+        if (width >= 12 && height >= 10) {
+            graphics.fill(x + width - 4, y + 4, x + width - 3, y + height - 4, JOURNAL_JADE);
+        }
+        if (width >= 20 && height >= 14) {
+            int seal = Math.min(7, Math.max(3, Math.min(width, height) / 8));
+            drawCinnabarSeal(graphics, x + width - seal - 5, y + 4, seal);
+        }
+    }
+
+    /** Thin vertical jade-slip rail behind the seven technique slots. */
+    public static void drawJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
+        graphics.fill(x, y, x + width, y + height, HUD_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, HUD_BACKING);
+        }
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, HUD_INNER);
+        }
+        if (width >= 6 && height >= 10) {
+            graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, JOURNAL_JADE);
+        }
+        if (width >= 8 && height >= 12) {
+            graphics.fill(x + 2, y + 3, x + 3, y + height - 3, JOURNAL_CINNABAR);
+        }
+    }
+
+    /**
+     * Jade-slip / talisman skill slot. Prefer this over the legacy gold
+     * {@link #drawSkillSlot} for the live player skill rail.
+     */
+    public static void drawJadeSlipSlot(GuiGraphics graphics, int x, int y, int size, boolean filled) {
+        if (size <= 0) return;
+        int border = filled ? JOURNAL_BORDER : JOURNAL_BORDER_DIM;
+        int fill = filled ? 0xCC121814 : 0x66100E09;
+        drawBox(graphics, x, y, size, size, fill, border);
+        if (size >= 6) {
+            graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);
+        }
+        if (filled && size >= 8) {
+            graphics.fill(x + 1, y + 1, x + 2, y + size - 1, JOURNAL_CINNABAR);
+        }
+    }
+
+    /** Thin bronze + jade divider used between health and cultivation bands. */
+    public static void drawHudDivider(GuiGraphics graphics, int x, int y, int width) {
+        if (width <= 0) return;
+        graphics.fill(x, y, x + width, y + 1, JOURNAL_BORDER_DIM);
+        if (width >= 10) {
+            graphics.fill(x, y, x + Math.max(3, width / 5), y + 1, JOURNAL_JADE);
+        }
+    }
+
+    /** Small square cinnabar seal ornament (native fills). */
+    public static void drawCinnabarSeal(GuiGraphics graphics, int x, int y, int size) {
+        if (size <= 0) return;
+        graphics.fill(x, y, x + size, y + size, JOURNAL_CINNABAR);
+        if (size >= 3) {
+            graphics.fill(x + 1, y + 1, x + size - 1, y + size - 1, JOURNAL_CINNABAR_BRIGHT);
+        }
+        if (size >= 5) {
+            graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, JOURNAL_CINNABAR);
+        }
+    }
+
+    /**
+     * Label + right-aligned value + semantic bar under them.
+     * Returns the y coordinate just below the drawn meter row.
+     */
+    public static int drawMeterRow(Font font, GuiGraphics graphics, int x, int y, int width,
+                                   String label, String value, double fraction, StatusBarStyle style) {
+        if (font == null || graphics == null || width <= 0) return y;
+        int lineHeight = Math.max(1, font.lineHeight);
+        int labelColor = switch (style == null ? StatusBarStyle.NEUTRAL : style) {
+            case CULTIVATION -> JOURNAL_JADE_TEXT;
+            case SPIRIT -> JOURNAL_SPIRIT;
+            case HEALTH -> JOURNAL_CINNABAR_BRIGHT;
+            case WARNING -> JOURNAL_WARNING;
+            case DANGER -> JOURNAL_CINNABAR_BRIGHT;
+            case NEUTRAL -> JOURNAL_PAPER;
+        };
+        String safeLabel = label == null ? "" : label;
+        String safeValue = value == null ? "" : value;
+        int valueWidth = font.width(safeValue);
+        int labelMax = Math.max(1, width - valueWidth - 4);
+        drawStringFit(font, graphics, safeLabel, x, y, labelMax, labelColor, false);
+        if (valueWidth > 0 && valueWidth <= width) {
+            graphics.drawString(font, safeValue, x + width - valueWidth, y, labelColor, false);
+        }
+        int barY = y + lineHeight + 1;
+        int barHeight = 4;
+        drawSemanticStatusBar(graphics, x, barY, width, barHeight, fraction, style);
+        return barY + barHeight + 2;
+    }
+
     /** Runs a renderer inside a GUI-space scissor and always restores the prior scissor. */
     public static void withScissor(GuiGraphics graphics, int x, int y, int width, int height,
                                    Runnable renderer) {

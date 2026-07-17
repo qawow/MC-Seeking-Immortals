@@ -11,16 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Cultivation content for the merged right-top status strip.
+ * Does not draw outer chrome — {@link CultivationHealthOverlay} owns the jade tablet frame.
+ */
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
 public final class CultivationHudOverlay {
-    private static final int MIN_PANEL_WIDTH = 136;
-    private static final int MAX_PANEL_WIDTH = 184;
-    private static final int RIGHT_MARGIN = 4;
-    private static final int TOP_MARGIN = 4;
-    private static final int PADDING_X = 7;
-    private static final int PADDING_Y = 5;
-    private static final int LINE_HEIGHT = 10;
-    private static final int BAR_HEIGHT = 5;
+    private static final int RIGHT_MARGIN = 6;
+    private static final int PADDING_X = 2;
+    private static final int PADDING_Y = 2;
     private static final int QI_DEV_WARN_THRESHOLD = 50;
     private static final int QI_DEV_DANGER_THRESHOLD = 70;
 
@@ -32,54 +31,52 @@ public final class CultivationHudOverlay {
         if (!ClientCultivationData.isSynced()) return;
 
         ClientCultivationData.Snapshot data = ClientCultivationData.getSnapshot();
-        List<HudLine> trailingLines = trailingLines(data);
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        ImmortalHudLayout.Rect band = layout.cultivationBand();
+        if (band.width() <= 0 || band.height() <= 0) return;
+
+        int paddingX = band.width() >= 80 ? PADDING_X : Math.max(1, Math.min(2, band.width() / 20));
+        int paddingY = band.height() >= 40 ? PADDING_Y : 1;
+        // Keep clear of the left cinnabar chrome edge.
+        int textX = Math.max(band.x() + paddingX, layout.statusStrip().x() + 5);
+        int textY = band.y() + paddingY + 1;
+        int barWidth = Math.max(1, band.right() - textX - 3);
+        int contentBottom = band.bottom() - paddingY;
+
+        ImmortalUiSkin.withScissor(graphics, band.x(), band.y(), band.width(), band.height(), () ->
+                renderCultivationBand(graphics, minecraft, data, textX, textY, barWidth, contentBottom));
+    }
+
+    private static void renderCultivationBand(GuiGraphics graphics, Minecraft minecraft,
+                                              ClientCultivationData.Snapshot data,
+                                              int textX, int textY, int barWidth, int contentBottom) {
+        int cursor = textY;
         String realmLine = "境界 " + data.realm() + data.stage();
-        String cultivationLine = "修为 " + shortNumber(data.cultivation()) + "/" + shortNumber(data.cultivationMax());
-        String manaLine = "灵力 " + shortNumber(data.mana()) + "/" + shortNumber(data.manaMax());
-        String coreLine = coreLine(data);
+        if (!canDrawText(minecraft, cursor, contentBottom)) return;
+        drawFit(minecraft, graphics, realmLine, textX, cursor, barWidth, ImmortalUiSkin.JOURNAL_BORDER);
+        cursor += minecraft.font.lineHeight + 1;
 
-        ImmortalHudLayout.Rect panel = ImmortalHudLayout.cultivationRect(screenWidth, screenHeight);
-        int paddingX = panel.width() >= 80 ? PADDING_X : Math.max(2, Math.min(4, panel.width() / 10));
-        int paddingY = panel.height() >= 48 ? PADDING_Y : 3;
-        int textX = panel.x() + paddingX;
-        int textY = panel.y() + paddingY;
-        int barWidth = Math.max(1, panel.width() - paddingX * 2);
-        int contentBottom = panel.bottom() - paddingY;
+        if (cursor + minecraft.font.lineHeight + 6 > contentBottom) return;
+        cursor = ImmortalUiSkin.drawMeterRow(minecraft.font, graphics, textX, cursor, barWidth,
+                "修为", shortNumber(data.cultivation()) + "/" + shortNumber(data.cultivationMax()),
+                clamp01(fraction(data.cultivation(), data.cultivationMax())),
+                ImmortalUiSkin.StatusBarStyle.CULTIVATION);
 
-        ImmortalUiSkin.drawHudPanel(graphics, panel.x(), panel.y(), panel.width(), panel.height());
-        if (!canDrawText(minecraft, textY, contentBottom)) return;
-        drawFit(minecraft, graphics, realmLine, textX, textY, barWidth, ImmortalUiSkin.JOURNAL_BORDER);
-        textY += minecraft.font.lineHeight + 1;
+        if (cursor + minecraft.font.lineHeight + 6 > contentBottom) return;
+        cursor = ImmortalUiSkin.drawMeterRow(minecraft.font, graphics, textX, cursor, barWidth,
+                "灵力", shortNumber(data.mana()) + "/" + shortNumber(data.manaMax()),
+                clamp01(fraction(data.mana(), data.manaMax())),
+                ImmortalUiSkin.StatusBarStyle.SPIRIT);
 
-        double cultivationFraction = clamp01(fraction(data.cultivation(), data.cultivationMax()));
-        int barHeight = panel.height() >= 18
-                ? Math.max(3, Math.min(BAR_HEIGHT, panel.height() / 8))
-                : 2;
-        if (!canDrawBar(textY, barHeight, contentBottom)) return;
-        ImmortalUiSkin.drawSemanticStatusBar(graphics, textX, textY, barWidth, barHeight,
-                cultivationFraction, ImmortalUiSkin.StatusBarStyle.CULTIVATION);
-        textY += barHeight + 1;
-        if (!canDrawText(minecraft, textY, contentBottom)) return;
-        drawFit(minecraft, graphics, cultivationLine, textX, textY, barWidth, ImmortalUiSkin.JOURNAL_JADE_TEXT);
-        textY += minecraft.font.lineHeight + 1;
-
-        double manaFraction = clamp01(fraction(data.mana(), data.manaMax()));
-        if (!canDrawBar(textY, barHeight, contentBottom)) return;
-        ImmortalUiSkin.drawSemanticStatusBar(graphics, textX, textY, barWidth, barHeight,
-                manaFraction, ImmortalUiSkin.StatusBarStyle.SPIRIT);
-        textY += barHeight + 1;
-        if (!canDrawText(minecraft, textY, contentBottom)) return;
-        drawFit(minecraft, graphics, manaLine, textX, textY, barWidth, ImmortalUiSkin.JOURNAL_SPIRIT);
-        textY += minecraft.font.lineHeight + 1;
-
-        if (canDrawText(minecraft, textY, contentBottom)) {
-            drawFit(minecraft, graphics, coreLine, textX, textY, barWidth, coreLineColor(data));
-            textY += minecraft.font.lineHeight + 1;
+        String core = coreLine(data);
+        if (canDrawText(minecraft, cursor, contentBottom)) {
+            drawFit(minecraft, graphics, core, textX, cursor, barWidth, coreLineColor(data));
+            cursor += minecraft.font.lineHeight + 1;
         }
-        for (HudLine line : trailingLines) {
-            if (!canDrawText(minecraft, textY, contentBottom)) return;
-            drawFit(minecraft, graphics, line.text(), textX, textY, barWidth, line.color());
-            textY += minecraft.font.lineHeight + 1;
+        for (HudLine line : trailingLines(data)) {
+            if (!canDrawText(minecraft, cursor, contentBottom)) return;
+            drawFit(minecraft, graphics, line.text(), textX, cursor, barWidth, line.color());
+            cursor += minecraft.font.lineHeight + 1;
         }
     }
 
@@ -126,55 +123,29 @@ public final class CultivationHudOverlay {
         return builder.toString();
     }
 
-    private static int panelWidth(Minecraft minecraft, List<String> lines, int screenWidth) {
-        int maxTextWidth = 0;
-        for (String line : lines) {
-            maxTextWidth = Math.max(maxTextWidth, minecraft.font.width(line));
-        }
-        int desired = Math.max(MIN_PANEL_WIDTH, Math.min(MAX_PANEL_WIDTH, maxTextWidth + PADDING_X * 2));
-        int maxAllowed = availablePanelWidth(screenWidth);
-        return Math.max(1, Math.min(desired, maxAllowed));
-    }
-
     static int availablePanelWidth(int screenWidth) {
-        return Math.max(1, screenWidth - TechniqueSkillBarOverlay.leftReservedWidth() - RIGHT_MARGIN);
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, 480);
+        return Math.max(1, layout.statusStrip().width());
     }
 
     static int calculatePanelX(int screenWidth, int panelWidth) {
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, 480);
+        int stripX = layout.statusStrip().x();
         int maxX = Math.max(0, screenWidth - panelWidth);
         int rightAnchored = Math.max(0, screenWidth - panelWidth - RIGHT_MARGIN);
         int leftReserved = TechniqueSkillBarOverlay.leftReservedWidth();
         if (screenWidth >= leftReserved + panelWidth) {
-            return Math.max(leftReserved, Math.min(rightAnchored, maxX));
+            return Math.max(leftReserved, Math.min(Math.max(stripX, rightAnchored), maxX));
         }
         return Math.max(0, Math.min(rightAnchored, maxX));
-    }
-
-    private static int panelHeight(int trailingLineCount, int screenHeight) {
-        int desired = PADDING_Y * 2
-                + LINE_HEIGHT
-                + (BAR_HEIGHT + 1 + LINE_HEIGHT) * 2
-                + LINE_HEIGHT
-                + trailingLineCount * LINE_HEIGHT;
-        int maxAllowed = Math.max(1, screenHeight - 4);
-        return Math.max(1, Math.min(desired, maxAllowed));
     }
 
     private static boolean canDrawText(Minecraft minecraft, int y, int bottom) {
         return y + minecraft.font.lineHeight <= bottom;
     }
 
-    private static boolean canDrawBar(int y, int height, int bottom) {
-        return y + height <= bottom;
-    }
-
     private static void drawFit(Minecraft minecraft, GuiGraphics graphics, String text, int x, int y, int maxWidth, int color) {
         ImmortalUiSkin.drawStringFit(minecraft.font, graphics, text, x, y, maxWidth, color, false);
-    }
-
-    private static String fit(Minecraft minecraft, String text, int maxWidth) {
-        if (minecraft.font.width(text) <= maxWidth) return text;
-        return minecraft.font.plainSubstrByWidth(text, Math.max(0, maxWidth - minecraft.font.width("..."))) + "...";
     }
 
     private static double fraction(long current, long max) {

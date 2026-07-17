@@ -142,10 +142,10 @@ class ScreenLayoutTest {
     }
 
     @Test
-    void techniqueSkillBarAvoidsTopLeftHealthWhenHeightAllows() {
-        assertSkillBarAvoidsHealth(320, 240);
-        assertSkillBarAvoidsHealth(320, 320);
-        assertSkillBarAvoidsHealth(854, 480);
+    void techniqueSkillBarStaysLeftOfMergedStatusStrip() {
+        assertSkillBarAvoidsStatusStrip(320, 240);
+        assertSkillBarAvoidsStatusStrip(320, 320);
+        assertSkillBarAvoidsStatusStrip(854, 480);
     }
 
     @Test
@@ -162,7 +162,7 @@ class ScreenLayoutTest {
     }
 
     @Test
-    void cultivationHealthBarFitsTopLeft() {
+    void cultivationHealthBarFitsTopRight() {
         assertHealthBarFits(90, 50);
         assertHealthBarFits(180, 90);
         assertHealthBarFits(854, 480);
@@ -298,6 +298,7 @@ class ScreenLayoutTest {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
         assertTrue(layout.allInside(), "all cultivation HUD panels must stay inside the screen");
         assertTrue(layout.panelsSeparated(), "cultivation HUD panels must not overlap");
+        assertTrue(layout.bandsValid(), "health/cultivation bands must nest inside the status strip");
         assertTrue(layout.techniqueSlotSize() > 0, "technique slots must remain visible");
     }
 
@@ -473,52 +474,52 @@ class ScreenLayoutTest {
     }
 
     private static void assertSkillBarFits(int screenWidth, int screenHeight) {
-        int x = TechniqueSkillBarOverlay.calculateBarX(screenWidth);
-        int y = TechniqueSkillBarOverlay.calculateBarY(screenHeight);
-        int barWidth = TechniqueSkillBarOverlay.totalBarWidth();
-        int barHeight = TechniqueSkillBarOverlay.totalBarHeight();
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        ImmortalHudLayout.Rect techniques = layout.techniques();
 
-        assertTrue(x >= 0, "skill bar x must be non-negative");
-        assertTrue(y >= 0, "skill bar y must be non-negative");
-        assertTrue(x <= 8, "skill bar should stay anchored near the left edge");
-        assertTrue(x + barWidth <= screenWidth, "skill bar must stay inside screen width");
-        assertTrue(y + barHeight <= screenHeight, "skill bar must stay inside screen height");
+        assertTrue(techniques.x() >= 0, "skill bar x must be non-negative");
+        assertTrue(techniques.y() >= 0, "skill bar y must be non-negative");
+        assertTrue(techniques.x() <= layout.margin() + 2,
+                "skill bar should stay anchored near the left edge");
+        assertTrue(techniques.right() <= screenWidth, "skill bar must stay inside screen width");
+        assertTrue(techniques.bottom() <= screenHeight, "skill bar must stay inside screen height");
     }
 
     private static void assertCultivationHudAvoidsSkillBar(int screenWidth, int screenHeight) {
-        int panelWidth = Math.min(160, CultivationHudOverlay.availablePanelWidth(screenWidth));
-        int x = CultivationHudOverlay.calculatePanelX(screenWidth, panelWidth);
-        int skillX = TechniqueSkillBarOverlay.calculateBarX(screenWidth);
-        int skillRightReserve = skillX + TechniqueSkillBarOverlay.totalBarWidth();
-        int leftReserved = TechniqueSkillBarOverlay.leftReservedWidth();
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        ImmortalHudLayout.Rect strip = layout.statusStrip();
+        ImmortalHudLayout.Rect techniques = layout.techniques();
 
-        assertTrue(panelWidth > 0, "cultivation HUD panel width must stay positive");
-        assertTrue(x >= 0, "cultivation HUD x must be non-negative");
-        assertTrue(x + panelWidth <= screenWidth, "cultivation HUD must stay inside screen width");
-        assertTrue(skillRightReserve <= leftReserved, "left skill bar must fit inside its reserved width");
-        assertTrue(x >= leftReserved, "cultivation HUD must not overlap the left skill bar reserve");
+        assertTrue(strip.width() > 0, "status strip width must stay positive");
+        assertTrue(strip.x() >= 0, "status strip x must be non-negative");
+        assertTrue(strip.right() <= screenWidth, "status strip must stay inside screen width");
+        assertFalse(strip.intersects(techniques),
+                "merged status strip must not overlap the left skill rail");
+        assertTrue(strip.x() >= techniques.right() || layout.railMode(),
+                "regular layout keeps the status strip to the right of the skill rail");
     }
 
-    private static void assertSkillBarAvoidsHealth(int screenWidth, int screenHeight) {
-        int skillY = TechniqueSkillBarOverlay.calculateBarY(screenHeight);
-        int healthBottom = CultivationHealthOverlay.calculatePanelY(screenHeight)
-                + CultivationHealthOverlay.panelHeight(screenHeight);
-        assertTrue(skillY >= healthBottom,
-                "left skill bar should start below the top-left health panel when height allows");
+    private static void assertSkillBarAvoidsStatusStrip(int screenWidth, int screenHeight) {
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        assertFalse(layout.techniques().intersects(layout.statusStrip()),
+                "left skill rail must not overlap the right-top status strip");
+        assertTrue(layout.bandsValid(), "nested health/cultivation bands must stay valid");
     }
 
     private static void assertHealthBarFits(int screenWidth, int screenHeight) {
-        int x = CultivationHealthOverlay.calculatePanelX(screenWidth);
-        int y = CultivationHealthOverlay.calculatePanelY(screenHeight);
-        int width = CultivationHealthOverlay.panelWidth(screenWidth);
-        int height = CultivationHealthOverlay.panelHeight(screenHeight);
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
+        ImmortalHudLayout.Rect strip = layout.healthOnlyStrip();
 
-        assertTrue(width > 0, "health HUD width must stay positive");
-        assertTrue(height > 0, "health HUD height must stay positive");
-        assertTrue(x >= 0, "health HUD x must be non-negative");
-        assertTrue(y >= 0, "health HUD y must be non-negative");
-        assertTrue(x + width <= screenWidth, "health HUD must stay inside screen width");
-        assertTrue(y + height <= screenHeight, "health HUD must stay inside screen height");
+        assertTrue(strip.width() > 0, "health HUD width must stay positive");
+        assertTrue(strip.height() > 0, "health HUD height must stay positive");
+        assertTrue(strip.x() >= 0, "health HUD x must be non-negative");
+        assertTrue(strip.y() >= 0, "health HUD y must be non-negative");
+        assertTrue(strip.right() <= screenWidth, "health HUD must stay inside screen width");
+        assertTrue(strip.bottom() <= screenHeight, "health HUD must stay inside screen height");
+        if (!layout.railMode() && screenWidth >= 180) {
+            assertTrue(strip.right() >= screenWidth - layout.margin() - 2,
+                    "health strip should stay near the right edge on regular layouts");
+        }
     }
 
     private static void assertCultivationStatsLayoutFits(int screenWidth, int screenHeight) {

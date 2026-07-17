@@ -13,6 +13,7 @@ class ImmortalHudLayoutTest {
             assertTrue(layout.railMode(), "rail layout expected at width " + width);
             assertTrue(layout.allInside(), "HUD must stay inside at width " + width);
             assertTrue(layout.panelsSeparated(), "HUD panels must not overlap at width " + width);
+            assertTrue(layout.bandsValid(), "health/cultivation bands must nest in status strip at width " + width);
         }
     }
 
@@ -23,5 +24,20 @@ class ImmortalHudLayoutTest {
         assertFalse(layout.railMode());
         assertTrue(layout.allInside());
         assertTrue(layout.panelsSeparated());
+        assertTrue(layout.bandsValid());
+    }
+
+    @Test
+    void regularLayoutAnchorsStatusStripTopRightAndSkillsLeft() {
+        ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(854, 480);
+
+        assertFalse(layout.railMode());
+        assertTrue(layout.techniques().x() <= layout.margin() + 2,
+                "skill rail should stay near the left edge");
+        assertTrue(layout.statusStrip().right() >= 854 - layout.margin() - 2,
+                "status strip should stay near the right edge");
+        assertTrue(layout.statusStrip().y() <= layout.margin() + 2,
+                "status strip should stay near the top edge");
+        assertTrue(layout.bandsValid());
     }
 }
