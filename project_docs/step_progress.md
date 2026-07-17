@@ -1,3 +1,14 @@
+## 472. 2026-07-17 0.2.3 背包/暂停保留气血 UI
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_142355_health_screen_gate/`
+  Health screen gate                   Done Inventory/Pause 白名单；聊天与其它全屏仍阻止；render/cancel 同谓词
+  Tests                                Done ScreenLayoutTest 白名单与阻止矩阵
+  Version/protocol                     Done `0.2.2` -> `0.2.3`；protocol 保持 24
+  Full verification                    Done `./gradlew build`
+  Update note                          Done `project_docs/updates/20260717_0.2.3_health_overlay_inventory_pause.md`
+
 ## 471. 2026-07-17 0.2.1 前端 UI 审查修复
 
   Step   Status   Notes

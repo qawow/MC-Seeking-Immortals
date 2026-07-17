@@ -177,9 +177,45 @@ class ScreenLayoutTest {
         assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, false, false, true),
                 "missing player must keep vanilla cancellation disabled");
         assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, true, true),
-                "open chat/screens must keep vanilla cancellation disabled");
+                "blocking screens such as chat must keep vanilla cancellation disabled");
         assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(false, true, false, false),
                 "non-survival HUD state must keep vanilla cancellation disabled");
+    }
+
+    @Test
+    void cultivationHealthAllowsInventoryAndPauseScreens() {
+        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(null),
+                "no open screen should not block health replacement");
+        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(
+                        net.minecraft.client.gui.screens.inventory.InventoryScreen.class),
+                "inventory must keep custom 气血 reconstruction");
+        assertFalse(CultivationHealthOverlay.blocksHealthReplacementByClass(
+                        net.minecraft.client.gui.screens.PauseScreen.class),
+                "pause/ESC must keep custom 气血 reconstruction");
+        assertTrue(CultivationHealthOverlay.blocksHealthReplacementByClass(
+                        net.minecraft.client.gui.screens.ChatScreen.class),
+                "chat should still block custom health replacement");
+        assertTrue(CultivationHealthOverlay.blocksHealthReplacementByClass(
+                        net.minecraft.client.gui.screens.TitleScreen.class),
+                "other full screens should still block custom health replacement");
+        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
+                        false, true,
+                        CultivationHealthOverlay.blocksHealthReplacementByClass(
+                                net.minecraft.client.gui.screens.inventory.InventoryScreen.class),
+                        true),
+                "inventory allow-list must keep render and cancel on the same predicate");
+        assertTrue(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
+                        false, true,
+                        CultivationHealthOverlay.blocksHealthReplacementByClass(
+                                net.minecraft.client.gui.screens.PauseScreen.class),
+                        true),
+                "pause allow-list must keep render and cancel on the same predicate");
+        assertFalse(CultivationHealthOverlay.shouldReplaceVanillaPlayerHealth(
+                        false, true,
+                        CultivationHealthOverlay.blocksHealthReplacementByClass(
+                                net.minecraft.client.gui.screens.ChatScreen.class),
+                        true),
+                "chat must not cancel vanilla hearts without drawing the custom panel");
     }
 
     @Test
