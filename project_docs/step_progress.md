@@ -1,3 +1,16 @@
+## 474. 2026-07-17 AbstractLoreScreen 三本 lore 抽取
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_181200_ui_abstract_lore/`
+  AbstractLoreScreen                   Done 壳体/packet/list+detail chrome
+  TabBar                               Done Chronicle tabs + Bestiary filters + Compendium tabs
+  Bestiary/Chronicle/Compendium        Done 迁到 AbstractLoreScreen；保留 Layout API
+  ScreenLayoutTest contracts           Kept 断言不放宽
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m6s
+  Update note                          Done `project_docs/updates/20260717_ui_abstract_lore.md`
+
 ## 473. 2026-07-17 GUI Phase2 四屏迁移
 
   Step   Status   Notes

@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-17: AbstractLoreScreen extracts shared lore chrome for Bestiary/Chronicle/Compendium (title strip, refresh/close, list+detail narrow layout, LoreScreenAction helpers). Tabs/filters use TabBar. Public Layout/Rect contracts preserved for ScreenLayoutTest. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_abstract_lore.md.
+
 > CURRENT TRUTH 2026-07-17: GUI Phase2 migrates RefinementPlanScreen, QuestTrackerScreen, LifeSkillTreeScreen and MeditationScreen onto AbstractJournalScreen + ScrollableListPanel. ScrollableListPanel gains scissor/scroll-height/track insets for refine/quest padding parity. mod_version stays 0.2.2 by task redline; protocol remains 24. Details: project_docs/updates/20260717_ui_phase2_four_screens.md.
 
 > CURRENT TRUTH 2026-07-17: GUI shared infrastructure pilot. Adds AbstractJournalScreen / AbstractJournalContainerScreen / ScrollableListPanel / TabBar / UiRect. Migrates only AlchemyStatusScreen + AlchemyFurnaceScreen with pixel-parity chrome/scroll. mod_version stays 0.2.2 by task redline; protocol remains 24. Details: project_docs/updates/20260717_ui_shared_infra_pilot.md.
