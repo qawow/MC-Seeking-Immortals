@@ -1,3 +1,16 @@
+## 476. 2026-07-17 GUI Phase3 三屏迁移（Worldpack/Market/Auction）
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_181023_ui_phase3_three_screens/`
+  WorldpackScreen                      Done AbstractJournalScreen + TabBar + ScrollableListPanel；revision/冷却逻辑保留
+  MarketHallScreen                     Done ACS + 客户端 PAGE_SIZE=6 + 页内滚动
+  AuctionHallScreen                    Done ACS + 服务端翻页 + 页内滚动
+  Pagination mixed                     Kept 两种分页机制未统一
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m9s
+  Update note                          Done `project_docs/updates/20260717_ui_phase3_three_screens.md`
+
 ## 475. 2026-07-17 TechniqueEdit / Dialogue 渲染外壳迁移
 
   Step   Status   Notes

@@ -5,29 +5,31 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.ShopActionPacket;
 import com.xunxian.seekingimmortals.shop.ShopService;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 import java.util.List;
 
-/** Multi-shop market hall with responsive filters, pagination and row scrolling. */
-public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
+/** Multi-shop market hall with responsive filters, client pagination and row scrolling. */
+public class MarketHallScreen extends AbstractJournalContainerScreen<MarketHallMenu> {
     private static final int PANEL_MARGIN = 4;
     private static final int PAGE_SIZE = 6;
     private static final int ROW_HEIGHT = 44;
     private static final int ROW_GAP = 4;
 
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
     private int shopIndex;
     private int page;
-    private int scrollOffset;
-    private int contentHeight;
     private int observedRevision = Integer.MIN_VALUE;
 
     public MarketHallScreen(MarketHallMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
         this.imageWidth = 360;
         this.imageHeight = 236;
+        this.listPanel.setScrollStep(20)
+                .setContentInsets(4, 4, 5, 0)
+                .setRowMetrics(ROW_HEIGHT, ROW_GAP)
+                .setScrollbarInsetRight(3);
     }
 
     @Override
@@ -70,7 +72,7 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
                 layout.previousShopButton().height(), Component.literal("<店"), button -> {
                     shopIndex = Math.max(0, shopIndex - 1);
                     page = 0;
-                    scrollOffset = 0;
+                    listPanel.resetScroll();
                     syncCurrentShop();
                     rebuild();
                 });
@@ -81,7 +83,7 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
                 layout.nextShopButton().height(), Component.literal("店>"), button -> {
                     shopIndex = Math.min(ids.size() - 1, shopIndex + 1);
                     page = 0;
-                    scrollOffset = 0;
+                    listPanel.resetScroll();
                     syncCurrentShop();
                     rebuild();
                 });
@@ -98,7 +100,7 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
                 layout.previousPageButton().y(), layout.previousPageButton().width(),
                 layout.previousPageButton().height(), Component.literal("<"), button -> {
                     page = Math.max(0, page - 1);
-                    scrollOffset = 0;
+                    listPanel.resetScroll();
                     rebuild();
                 });
         previousPage.active = page > 0;
@@ -107,7 +109,7 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
                 layout.nextPageButton().y(), layout.nextPageButton().width(),
                 layout.nextPageButton().height(), Component.literal(">"), button -> {
                     page = Math.min(maxPage, page + 1);
-                    scrollOffset = 0;
+                    listPanel.resetScroll();
                     rebuild();
                 });
         nextPage.active = page < maxPage;
@@ -115,8 +117,11 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
 
         int from = page * PAGE_SIZE;
         int to = Math.min(entries.size(), from + PAGE_SIZE);
-        contentHeight = calculateContentHeight(to - from);
-        scrollOffset = clampScroll(scrollOffset, contentHeight, layout.viewport().height());
+        int pageCount = to - from;
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(pageCount));
+        listPanel.clampToViewport();
+        int scrollOffset = listPanel.scrollOffset();
         int rowY = layout.viewport().y() + 4 - scrollOffset;
         for (int i = from; i < to; i++) {
             ClientShopData.Entry entry = entries.get(i);
@@ -127,11 +132,11 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
             int buttonY = row.y() + 23;
             ImmortalButton buy = entry.locked()
                     ? ImmortalButton.secondary(row.right() - buttonWidth - 4, buttonY, buttonWidth, 17,
-                            Component.translatable("screen.seeking_immortals.shop.locked"), ignored -> {})
+                    Component.translatable("screen.seeking_immortals.shop.locked"), ignored -> {})
                     : ImmortalButton.primary(row.right() - buttonWidth - 4, buttonY, buttonWidth, 17,
-                            Component.translatable("screen.seeking_immortals.shop.buy"), ignored ->
-                                    ModNetwork.CHANNEL.sendToServer(new ShopActionPacket(
-                                            ShopService.ACTION_BUY, shopId, entry.id())));
+                    Component.translatable("screen.seeking_immortals.shop.buy"), ignored ->
+                            ModNetwork.CHANNEL.sendToServer(new ShopActionPacket(
+                                    ShopService.ACTION_BUY, shopId, entry.id())));
             buy.active = entry.remainingStock() != 0 && !entry.locked();
             buy.visible = buttonY >= layout.viewport().y() && buttonY + 17 <= layout.viewport().bottom();
             addRenderableWidget(buy);
@@ -148,33 +153,62 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    protected UiRect journalTitleBar() {
         MarketLayout layout = calculateLayout(width, height);
-        drawFrame(graphics, layout);
-        drawEntries(graphics, layout, mouseX, mouseY);
+        return layout.header();
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
+    protected void renderJournalTitle(GuiGraphics graphics, UiRect header) {
+        ClientShopData.Snapshot data = ClientShopData.get();
+        Component heading = Component.translatable(data.titleKey().isBlank()
+                ? "screen.seeking_immortals.shop.market_title" : data.titleKey());
+        ImmortalUiSkin.drawStringFit(font, graphics, heading.getString(), header.x() + 7,
+                header.y() + 3, Math.max(1, header.width() - 12),
+                ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalChrome(GuiGraphics graphics) {
+        MarketLayout layout = calculateLayout(width, height);
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        UiRect header = layout.header();
+        ImmortalUiSkin.drawTitleBar(graphics, header.x(), header.y(), header.width(), header.height());
+        renderJournalTitle(graphics, header);
+    }
+
+    @Override
+    protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+        MarketLayout layout = calculateLayout(width, height);
+        ClientShopData.Snapshot data = ClientShopData.get();
+        String shopId = data.shopId().isBlank() ? currentShopId() : data.shopId();
+        String summary = Component.translatable("screen.seeking_immortals.shop.shop_id", shopId).getString()
+                + " · " + (shopIndex + 1) + "/" + shopIds().size() + " · p" + (page + 1);
+        ImmortalUiSkin.drawStringFit(font, graphics, summary, layout.summary().x() + 3,
+                layout.summary().y() + 2, Math.max(1, layout.summary().width() - 6),
+                ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
+                layout.viewport().width(), layout.viewport().height());
+        drawEntries(graphics, layout, mouseX, mouseY);
     }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         MarketLayout layout = calculateLayout(width, height);
-        if (layout.viewport().contains(mouseX, mouseY) && contentHeight > layout.viewport().height()) {
-            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 20.0D),
-                    contentHeight, layout.viewport().height());
+        String shopId = currentShopId();
+        ClientShopData.Snapshot data = ClientShopData.get();
+        boolean ready = data.synced() && (data.shopId().isBlank() || data.shopId().equals(shopId));
+        List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
+        int from = Math.min(entries.size(), page * PAGE_SIZE);
+        int to = Math.min(entries.size(), from + PAGE_SIZE);
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(to - from));
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
             rebuild();
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
     }
 
     static MarketLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -210,29 +244,7 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
-        int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
-        return Math.max(0, Math.min(requested, maximum));
-    }
-
-    private void drawFrame(GuiGraphics graphics, MarketLayout layout) {
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        ClientShopData.Snapshot data = ClientShopData.get();
-        Component heading = Component.translatable(data.titleKey().isBlank()
-                ? "screen.seeking_immortals.shop.market_title" : data.titleKey());
-        ImmortalUiSkin.drawStringFit(font, graphics, heading.getString(), layout.header().x() + 7,
-                layout.header().y() + 3, Math.max(1, layout.header().width() - 12),
-                ImmortalUiSkin.JOURNAL_BORDER, false);
-        String shopId = data.shopId().isBlank() ? currentShopId() : data.shopId();
-        String summary = Component.translatable("screen.seeking_immortals.shop.shop_id", shopId).getString()
-                + " · " + (shopIndex + 1) + "/" + shopIds().size() + " · p" + (page + 1);
-        ImmortalUiSkin.drawStringFit(font, graphics, summary, layout.summary().x() + 3,
-                layout.summary().y() + 2, Math.max(1, layout.summary().width() - 6),
-                ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height());
+        return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
     private void drawEntries(GuiGraphics graphics, MarketLayout layout, int mouseX, int mouseY) {
@@ -242,6 +254,10 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
         List<ClientShopData.Entry> entries = ready ? data.entries() : List.of();
         int from = Math.min(entries.size(), page * PAGE_SIZE);
         int to = Math.min(entries.size(), from + PAGE_SIZE);
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(to - from));
+        listPanel.clampToViewport();
+        int scrollOffset = listPanel.scrollOffset();
         int rowY = layout.viewport().y() + 4 - scrollOffset;
         ImmortalUiSkin.withScissor(graphics, layout.viewport().x(), layout.viewport().y(),
                 layout.viewport().width(), layout.viewport().height(), () -> {
@@ -281,23 +297,13 @@ public class MarketHallScreen extends AbstractContainerScreen<MarketHallMenu> {
                                 entry.locked() ? ImmortalUiSkin.JOURNAL_WARNING : ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
                     }
                 });
-        ImmortalUiSkin.drawThinScrollbar(graphics, layout.viewport().right() - 3,
-                layout.viewport().y(), layout.viewport().height(), contentHeight,
-                layout.viewport().height(), scrollOffset);
+        listPanel.drawScrollbar(graphics);
     }
 
     private void drawEmpty(GuiGraphics graphics, UiRect viewport, String key) {
         ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(key).getString(),
                 viewport.x() + 8, viewport.y() + 10, Math.max(1, viewport.width() - 16),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-    }
-
-    record UiRect(int x, int y, int width, int height) {
-        int right() { return x + width; }
-        int bottom() { return y + height; }
-        boolean contains(double mouseX, double mouseY) {
-            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
-        }
     }
 
     record MarketLayout(int left, int top, int panelWidth, int panelHeight,

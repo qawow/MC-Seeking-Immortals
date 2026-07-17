@@ -5,20 +5,18 @@ import com.xunxian.seekingimmortals.network.AuctionActionPacket;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SyncAuctionLadderPacket;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
 import java.util.List;
 
-/** Live, paged auction ladder with a responsive scroll viewport. */
-public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> {
+/** Live, server-paged auction ladder with an in-page scroll viewport. */
+public class AuctionHallScreen extends AbstractJournalContainerScreen<AuctionHallMenu> {
     private static final int PANEL_MARGIN = 4;
     private static final int ROW_HEIGHT = 50;
     private static final int ROW_GAP = 4;
 
-    private int scrollOffset;
-    private int contentHeight;
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
     private int observedRevision = Integer.MIN_VALUE;
     private int observedPage = -1;
 
@@ -26,6 +24,10 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
         super(menu, inv, title);
         this.imageWidth = 360;
         this.imageHeight = 236;
+        this.listPanel.setScrollStep(20)
+                .setContentInsets(4, 4, 5, 0)
+                .setRowMetrics(ROW_HEIGHT, ROW_GAP)
+                .setScrollbarInsetRight(3);
     }
 
     @Override
@@ -41,7 +43,7 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
         ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
         int page = data.page();
         if (observedPage != -1 && observedPage != page) {
-            scrollOffset = 0;
+            listPanel.resetScroll();
         }
         observedPage = page;
         observedRevision = data.hashCode();
@@ -65,8 +67,10 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
         addRenderableWidget(next);
 
         List<SyncAuctionLadderPacket.LotBid> lots = data.lots();
-        contentHeight = calculateContentHeight(lots.size());
-        scrollOffset = clampScroll(scrollOffset, contentHeight, layout.viewport().height());
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(lots.size()));
+        listPanel.clampToViewport();
+        int scrollOffset = listPanel.scrollOffset();
         int rowY = layout.viewport().y() + 4 - scrollOffset;
         for (int i = 0; i < lots.size(); i++) {
             SyncAuctionLadderPacket.LotBid lot = lots.get(i);
@@ -117,33 +121,57 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
     }
 
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    protected UiRect journalTitleBar() {
         HallLayout layout = calculateLayout(width, height);
-        drawFrame(graphics, layout);
-        drawLots(graphics, layout, mouseX, mouseY);
+        return layout.header();
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
+    protected void renderJournalTitle(GuiGraphics graphics, UiRect header) {
+        HallLayout layout = calculateLayout(width, height);
+        int titleWidth = layout.panelWidth() < 240 ? header.width()
+                : Math.max(1, layout.refreshButton().x() - header.x() - 5);
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.auction.title").getString(),
+                header.x() + 7, header.y() + Math.max(2, (header.height() - 8) / 2),
+                titleWidth, ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalChrome(GuiGraphics graphics) {
+        HallLayout layout = calculateLayout(width, height);
+        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
+                layout.panelWidth(), layout.panelHeight());
+        UiRect header = layout.header();
+        ImmortalUiSkin.drawTitleBar(graphics, header.x(), header.y(), header.width(), header.height());
+        renderJournalTitle(graphics, header);
+    }
+
+    @Override
+    protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+        HallLayout layout = calculateLayout(width, height);
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        ImmortalUiSkin.drawStringFit(font, graphics,
+                Component.translatable("screen.seeking_immortals.auction.page",
+                        data.page() + 1, data.maxPage() + 1, data.totalLots()).getString(),
+                layout.summary().x() + 3, layout.summary().y() + 2,
+                Math.max(1, layout.summary().width() - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
+                layout.viewport().width(), layout.viewport().height());
+        drawLots(graphics, layout, mouseX, mouseY);
     }
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         HallLayout layout = calculateLayout(width, height);
-        if (layout.viewport().contains(mouseX, mouseY) && contentHeight > layout.viewport().height()) {
-            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 20.0D),
-                    contentHeight, layout.viewport().height());
+        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(data.lots().size()));
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
             rebuildButtons();
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
     }
 
     static HallLayout calculateLayout(int screenWidth, int screenHeight) {
@@ -182,33 +210,15 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
-        int maximum = Math.max(0, contentHeight - Math.max(1, viewportHeight));
-        return Math.max(0, Math.min(requested, maximum));
-    }
-
-    private void drawFrame(GuiGraphics graphics, HallLayout layout) {
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        int titleWidth = layout.panelWidth() < 240 ? layout.header().width()
-                : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
-        ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable("screen.seeking_immortals.auction.title").getString(),
-                layout.header().x() + 7, layout.header().y() + Math.max(2, (layout.header().height() - 8) / 2),
-                titleWidth, ImmortalUiSkin.JOURNAL_BORDER, false);
-        ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
-        ImmortalUiSkin.drawStringFit(font, graphics,
-                Component.translatable("screen.seeking_immortals.auction.page",
-                        data.page() + 1, data.maxPage() + 1, data.totalLots()).getString(),
-                layout.summary().x() + 3, layout.summary().y() + 2,
-                Math.max(1, layout.summary().width() - 6), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.viewport().x(), layout.viewport().y(),
-                layout.viewport().width(), layout.viewport().height());
+        return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
     private void drawLots(GuiGraphics graphics, HallLayout layout, int mouseX, int mouseY) {
         ClientAuctionLadderData.Snapshot data = ClientAuctionLadderData.get();
+        listPanel.setBounds(layout.viewport())
+                .setContentHeight(calculateContentHeight(data.lots().size()));
+        listPanel.clampToViewport();
+        int scrollOffset = listPanel.scrollOffset();
         int rowY = layout.viewport().y() + 4 - scrollOffset;
         ImmortalUiSkin.withScissor(graphics, layout.viewport().x(), layout.viewport().y(),
                 layout.viewport().width(), layout.viewport().height(), () -> {
@@ -239,27 +249,13 @@ public class AuctionHallScreen extends AbstractContainerScreen<AuctionHallMenu> 
                                         ? ImmortalUiSkin.JOURNAL_PAPER_MUTED : ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
                     }
                 });
-        ImmortalUiSkin.drawThinScrollbar(graphics, layout.viewport().right() - 3,
-                layout.viewport().y(), layout.viewport().height(), contentHeight,
-                layout.viewport().height(), scrollOffset);
+        listPanel.drawScrollbar(graphics);
     }
 
     private void drawEmpty(GuiGraphics graphics, UiRect viewport, String key) {
         ImmortalUiSkin.drawStringFit(font, graphics, Component.translatable(key).getString(),
                 viewport.x() + 8, viewport.y() + 10, Math.max(1, viewport.width() - 16),
                 ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
-    }
-
-    record UiRect(int x, int y, int width, int height) {
-        int right() { return x + width; }
-        int bottom() { return y + height; }
-        boolean contains(double mouseX, double mouseY) {
-            return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
-        }
-        boolean intersects(UiRect other) {
-            return other != null && x < other.right() && right() > other.x()
-                    && y < other.bottom() && bottom() > other.y();
-        }
     }
 
     record HallLayout(int left, int top, int panelWidth, int panelHeight,
