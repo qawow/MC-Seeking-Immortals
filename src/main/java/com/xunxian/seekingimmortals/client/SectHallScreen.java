@@ -5,7 +5,6 @@ import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SectActionPacket;
 import com.xunxian.seekingimmortals.sect.SectContributionService;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,22 +12,34 @@ import net.minecraft.world.entity.player.Inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Productized sect hall with dialogue, mission, shop and progress parity. */
-public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
+/**
+ * Productized sect hall with dialogue, mission, shop and progress parity.
+ *
+ * <p>Journal shell: {@link AbstractJournalContainerScreen} + {@link TabBar} + {@link ScrollableListPanel}.
+ * Tabs default to {@link Tab#MISSION}. Non-members hide tabs and show a join-candidate list.
+ * Only candidates and SHOP use row scrolling; DIALOGUE/MISSION/PROGRESS are static text + footer actions.</p>
+ */
+public class SectHallScreen extends AbstractJournalContainerScreen<SectHallMenu> {
     private static final int MAX_PANEL_WIDTH = 360;
     private static final int MAX_PANEL_HEIGHT = 236;
     private static final int PANEL_MARGIN = 4;
     private static final int LINE = 13;
     private static final int ROW_HEIGHT = 22;
 
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
+    private final TabBar<Tab> tabBar = new TabBar<>(Tab.MISSION);
+
     private Tab tab = Tab.MISSION;
-    private int listScroll;
 
     public SectHallScreen(SectHallMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
         // Keep the container origin contract intact even though the current menu has no slots.
         this.imageWidth = 360;
         this.imageHeight = 236;
+        this.listPanel.setScrollStep(ROW_HEIGHT)
+                .setRowMetrics(ROW_HEIGHT, 0)
+                .setScrollbarInsetRight(3);
+        this.tabBar.setOnSelect(this::setTab);
     }
 
     @Override
@@ -37,25 +48,25 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         rebuildActionWidgets();
     }
 
+    // -------------------------------------------------------------------------
+    // Widget rebuild (shared chrome controls + tab-specific action buttons)
+    // -------------------------------------------------------------------------
+
     private void rebuildActionWidgets() {
         clearWidgets();
         Layout layout = calculateLayout(width, height);
         ClientSectData.Snapshot data = ClientSectData.get();
-        addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
-                layout.refreshButton().width(), layout.refreshButton().height(),
-                Component.translatable("screen.seeking_immortals.sect.refresh"), button ->
-                        ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
-                                SectContributionService.ACTION_OPEN, menu.focusSectId(), ""))));
-        addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
-                layout.closeButton().width(), layout.closeButton().height(),
-                Component.translatable("screen.seeking_immortals.sect.close"), button -> onClose()));
+        addChromeButtons(layout);
 
-        if (!data.synced()) return;
+        if (!data.synced()) {
+            listPanel.resetScroll();
+            return;
+        }
         if (!data.member()) {
             addCandidateButtons(layout, data);
             return;
         }
-        addTabButtons(layout);
+        attachTabs(layout);
         switch (tab) {
             case DIALOGUE -> addDialogueButtons(layout, data);
             case MISSION -> addMissionButtons(layout);
@@ -64,35 +75,45 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         }
     }
 
-    private void addTabButtons(Layout layout) {
-        addTabButton(layout.dialogueTab(), Tab.DIALOGUE);
-        addTabButton(layout.missionTab(), Tab.MISSION);
-        addTabButton(layout.shopTab(), Tab.SHOP);
-        addTabButton(layout.progressTab(), Tab.PROGRESS);
+    private void addChromeButtons(Layout layout) {
+        addRenderableWidget(ImmortalButton.secondary(layout.refreshButton().x(), layout.refreshButton().y(),
+                layout.refreshButton().width(), layout.refreshButton().height(),
+                Component.translatable("screen.seeking_immortals.sect.refresh"), button ->
+                        ModNetwork.CHANNEL.sendToServer(new SectActionPacket(
+                                SectContributionService.ACTION_OPEN, menu.focusSectId(), ""))));
+        addRenderableWidget(ImmortalButton.secondary(layout.closeButton().x(), layout.closeButton().y(),
+                layout.closeButton().width(), layout.closeButton().height(),
+                Component.translatable("screen.seeking_immortals.sect.close"), button -> onClose()));
     }
 
-    private void addTabButton(Rect bounds, Tab target) {
-        ImmortalButton button = target == tab
-                ? ImmortalButton.primary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
-                Component.translatable(target.key), ignored -> setTab(target))
-                : ImmortalButton.secondary(bounds.x(), bounds.y(), bounds.width(), bounds.height(),
-                Component.translatable(target.key), ignored -> setTab(target));
-        addRenderableWidget(button);
+    private void attachTabs(Layout layout) {
+        tabBar.clearTabs()
+                .setSelected(tab)
+                .addTab(Tab.DIALOGUE, Component.translatable(Tab.DIALOGUE.key), toUi(layout.dialogueTab()))
+                .addTab(Tab.MISSION, Component.translatable(Tab.MISSION.key), toUi(layout.missionTab()))
+                .addTab(Tab.SHOP, Component.translatable(Tab.SHOP.key), toUi(layout.shopTab()))
+                .addTab(Tab.PROGRESS, Component.translatable(Tab.PROGRESS.key), toUi(layout.progressTab()));
+        for (ImmortalButton button : tabBar.attach(null)) {
+            addRenderableWidget(button);
+        }
     }
 
     private void setTab(Tab target) {
         if (tab != target) {
             tab = target;
-            listScroll = 0;
+            listPanel.resetScroll();
             rebuildActionWidgets();
         }
     }
 
+    // ---- Tab button hooks ---------------------------------------------------
+
     private void addCandidateButtons(Layout layout, ClientSectData.Snapshot data) {
         Rect viewport = candidateViewport(layout);
-        int visible = visibleRows(viewport, layout.rowHeight());
         List<ClientSectData.Candidate> candidates = data.candidates();
-        listScroll = Mth.clamp(listScroll, 0, Math.max(0, candidates.size() - visible));
+        bindListViewport(viewport, layout.rowHeight(), candidates.size());
+        int listScroll = listPanel.scrollRows();
+        int visible = listPanel.visibleRowCount();
         for (int row = 0; row < visible && listScroll + row < candidates.size(); row++) {
             ClientSectData.Candidate candidate = candidates.get(listScroll + row);
             Rect action = rowAction(viewport, layout.rowHeight(), row);
@@ -138,9 +159,10 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
 
     private void addShopButtons(Layout layout, ClientSectData.Snapshot data) {
         Rect viewport = shopViewport(layout);
-        int visible = visibleRows(viewport, layout.rowHeight());
         List<ClientSectData.ShopEntry> entries = data.shopEntries();
-        listScroll = Mth.clamp(listScroll, 0, Math.max(0, entries.size() - visible));
+        bindListViewport(viewport, layout.rowHeight(), entries.size());
+        int listScroll = listPanel.scrollRows();
+        int visible = listPanel.visibleRowCount();
         for (int row = 0; row < visible && listScroll + row < entries.size(); row++) {
             ClientSectData.ShopEntry entry = entries.get(listScroll + row);
             Rect action = rowAction(viewport, layout.rowHeight(), row);
@@ -159,19 +181,40 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                                 SectContributionService.ACTION_ADVANCE, "", ""))));
     }
 
+    // -------------------------------------------------------------------------
+    // Journal chrome / body
+    // -------------------------------------------------------------------------
+
     @Override
-    protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+    protected UiRect journalTitleBar() {
         Layout layout = calculateLayout(width, height);
-        ClientSectData.Snapshot data = ClientSectData.get();
+        return toUi(layout.header());
+    }
+
+    @Override
+    protected void renderJournalChrome(GuiGraphics graphics) {
+        Layout layout = calculateLayout(width, height);
         ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
                 layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
+        UiRect header = toUi(layout.header());
+        ImmortalUiSkin.drawTitleBar(graphics, header.x(), header.y(), header.width(), header.height());
+        renderJournalTitle(graphics, header);
+    }
+
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, UiRect header) {
+        Layout layout = calculateLayout(width, height);
         ImmortalUiSkin.drawStringFit(font, graphics,
                 Component.translatable("screen.seeking_immortals.sect.title").getString(),
                 layout.titleArea().x(),
                 layout.titleArea().y() + Math.max(2, (layout.titleArea().height() - 8) / 2),
                 layout.titleArea().width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalBody(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+        Layout layout = calculateLayout(width, height);
+        ClientSectData.Snapshot data = ClientSectData.get();
         renderSummary(graphics, layout.summary(), data);
 
         Rect content = data.member() && tab != Tab.SHOP
@@ -197,6 +240,8 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         }
     }
 
+    // ---- Shared summary -----------------------------------------------------
+
     private void renderSummary(GuiGraphics graphics, Rect summary, ClientSectData.Snapshot data) {
         if (summary.height() < 9) return;
         int y = summary.y() + 1;
@@ -220,6 +265,8 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         return y + LINE;
     }
 
+    // ---- Tab content hooks --------------------------------------------------
+
     private void renderCandidates(GuiGraphics graphics, Layout layout, Rect content,
                                   ClientSectData.Snapshot data, int mouseX, int mouseY) {
         Rect viewport = candidateViewport(layout);
@@ -236,9 +283,10 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                     viewport.height(), ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             return;
         }
-        int visible = visibleRows(viewport, layout.rowHeight());
-        int hovered = hoveredRow(viewport, layout.rowHeight(), mouseX, mouseY);
-        listScroll = Mth.clamp(listScroll, 0, Math.max(0, data.candidates().size() - visible));
+        bindListViewport(viewport, layout.rowHeight(), data.candidates().size());
+        int listScroll = listPanel.scrollRows();
+        int visible = listPanel.visibleRowCount();
+        int hovered = listPanel.hoveredRow(mouseX, mouseY, data.candidates().size());
         ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
             for (int row = 0; row < visible && listScroll + row < data.candidates().size(); row++) {
                 ClientSectData.Candidate candidate = data.candidates().get(listScroll + row);
@@ -252,7 +300,7 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                         Math.max(1, action.x() - item.x() - 8), ImmortalUiSkin.JOURNAL_PAPER, false);
             }
         });
-        drawScrollbar(graphics, content, viewport, data.candidates().size(), layout.rowHeight());
+        listPanel.drawScrollbar(graphics);
     }
 
     private void renderDialogue(GuiGraphics graphics, Rect content, ClientSectData.Snapshot data) {
@@ -300,9 +348,10 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                     ImmortalUiSkin.JOURNAL_PAPER_MUTED, false);
             return;
         }
-        int visible = visibleRows(viewport, layout.rowHeight());
-        int hovered = hoveredRow(viewport, layout.rowHeight(), mouseX, mouseY);
-        listScroll = Mth.clamp(listScroll, 0, Math.max(0, data.shopEntries().size() - visible));
+        bindListViewport(viewport, layout.rowHeight(), data.shopEntries().size());
+        int listScroll = listPanel.scrollRows();
+        int visible = listPanel.visibleRowCount();
+        int hovered = listPanel.hoveredRow(mouseX, mouseY, data.shopEntries().size());
         ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(), () -> {
             for (int row = 0; row < visible && listScroll + row < data.shopEntries().size(); row++) {
                 ClientSectData.ShopEntry entry = data.shopEntries().get(listScroll + row);
@@ -317,7 +366,7 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                         Math.max(1, action.x() - item.x() - 8), ImmortalUiSkin.JOURNAL_PAPER, false);
             }
         });
-        drawScrollbar(graphics, content, viewport, data.shopEntries().size(), layout.rowHeight());
+        listPanel.drawScrollbar(graphics);
     }
 
     private void renderProgress(GuiGraphics graphics, Rect content, ClientSectData.Snapshot data) {
@@ -337,22 +386,9 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         }
     }
 
-    private void drawScrollbar(GuiGraphics graphics, Rect content, Rect viewport,
-                               int total, int rowHeight) {
-        ImmortalUiSkin.drawThinScrollbar(graphics, content.right() - 3,
-                viewport.y(), viewport.height(), total * rowHeight, viewport.height(), listScroll * rowHeight);
-    }
-
-    @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderTooltip(graphics, mouseX, mouseY);
-    }
-
-    @Override
-    protected void renderLabels(GuiGraphics graphics, int mouseX, int mouseY) {
-    }
+    // -------------------------------------------------------------------------
+    // Input
+    // -------------------------------------------------------------------------
 
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
@@ -370,11 +406,10 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         } else {
             return super.mouseScrolled(mouseX, mouseY, delta);
         }
-        if (viewport.contains(mouseX, mouseY)) {
-            int next = Mth.clamp(listScroll - (int)Math.signum(delta), 0,
-                    Math.max(0, total - visibleRows(viewport, layout.rowHeight())));
-            if (next != listScroll) {
-                listScroll = next;
+        bindListViewport(viewport, layout.rowHeight(), total);
+        int before = listPanel.scrollRows();
+        if (listPanel.mouseScrolledRows(mouseX, mouseY, delta, total)) {
+            if (listPanel.scrollRows() != before) {
                 rebuildActionWidgets();
             }
             return true;
@@ -382,8 +417,26 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         return super.mouseScrolled(mouseX, mouseY, delta);
     }
 
+    // -------------------------------------------------------------------------
+    // Layout helpers (public API preserved for ScreenLayoutTest)
+    // -------------------------------------------------------------------------
+
+    private void bindListViewport(Rect viewport, int rowHeight, int itemCount) {
+        listPanel.setBounds(toUi(viewport))
+                .setRowMetrics(rowHeight, 0)
+                .setContentRows(itemCount);
+        listPanel.clampToViewport();
+        int visible = listPanel.visibleRowCount();
+        int clamped = Mth.clamp(listPanel.scrollRows(), 0, Math.max(0, itemCount - visible));
+        listPanel.setScrollRows(clamped);
+    }
+
     private String safe(String value) {
         return value == null || value.isBlank() ? "-" : value;
+    }
+
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {
@@ -456,10 +509,6 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
                 Math.max(1, rect.width() - inset * 2), Math.max(1, rect.height() - inset * 2));
     }
 
-    private static int visibleRows(Rect viewport, int rowHeight) {
-        return Math.max(1, viewport.height() / rowHeight);
-    }
-
     private static Rect rowRect(Rect viewport, int rowHeight, int row) {
         return new Rect(viewport.x(), viewport.y() + row * rowHeight, viewport.width(), rowHeight);
     }
@@ -470,12 +519,6 @@ public class SectHallScreen extends AbstractContainerScreen<SectHallMenu> {
         int height = Math.max(12, Math.min(18, item.height() - 4));
         return new Rect(item.right() - width - 3, item.y() + Math.max(1, (item.height() - height) / 2),
                 width, height);
-    }
-
-    private static int hoveredRow(Rect viewport, int rowHeight, double mouseX, double mouseY) {
-        if (!viewport.contains(mouseX, mouseY)) return -1;
-        int row = (int)((mouseY - viewport.y()) / rowHeight);
-        return row < visibleRows(viewport, rowHeight) ? row : -1;
     }
 
     private static List<Rect> footerButtons(Layout layout, int count) {

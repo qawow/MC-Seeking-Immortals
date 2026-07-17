@@ -1,3 +1,17 @@
+## 478. 2026-07-17 SectHallScreen 迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_211305_ui_sect_hall/`
+  Migration plan                       Done 4 Tab 钩子拆分 + 非会员候选人
+  Shell + TabBar                       Done ACS chrome/title/body；默认 MISSION
+  Scrollable candidates/SHOP           Done ScrollableListPanel 行滚
+  Static tabs                          Kept DIALOGUE/MISSION/PROGRESS footer
+  SectScreen legacy                    Untouched
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m27s
+  Update note                          Done `project_docs/updates/20260717_ui_sect_hall.md`
+
 ## 477. 2026-07-17 GUI Phase3 分页/revision 验证
 
   Step   Status   Notes
