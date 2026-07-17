@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-17: TechniqueEditScreen and DialogueScreen migrate only their render shells onto AbstractJournalScreen. Drag hitboxes and dialogue session/nonce/choice/close ACTION paths are unchanged. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_technique_dialogue_shell.md.
+
 > CURRENT TRUTH 2026-07-17: AbstractLoreScreen extracts shared lore chrome for Bestiary/Chronicle/Compendium (title strip, refresh/close, list+detail narrow layout, LoreScreenAction helpers). Tabs/filters use TabBar. Public Layout/Rect contracts preserved for ScreenLayoutTest. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_abstract_lore.md.
 
 > CURRENT TRUTH 2026-07-17: GUI Phase2 migrates RefinementPlanScreen, QuestTrackerScreen, LifeSkillTreeScreen and MeditationScreen onto AbstractJournalScreen + ScrollableListPanel. ScrollableListPanel gains scissor/scroll-height/track insets for refine/quest padding parity. mod_version stays 0.2.2 by task redline; protocol remains 24. Details: project_docs/updates/20260717_ui_phase2_four_screens.md.

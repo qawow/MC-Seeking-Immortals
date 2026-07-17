@@ -1,3 +1,14 @@
+## 475. 2026-07-17 TechniqueEdit / Dialogue 渲染外壳迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  TechniqueEditScreen                  Done AbstractJournalScreen；拖拽 hitbox 完整保留
+  DialogueScreen shell                 Done 仅 chrome/content；session/nonce/choice 未改
+  Business logic touch                 None npc/network/test 无 diff
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done `bash ./gradlew build --no-daemon -PaiSkipVersionBumpCheck=true` BUILD SUCCESSFUL in 1m15s
+  Update note                          Done `project_docs/updates/20260717_ui_technique_dialogue_shell.md`
+
 ## 474. 2026-07-17 AbstractLoreScreen 三本 lore 抽取
 
   Step   Status   Notes

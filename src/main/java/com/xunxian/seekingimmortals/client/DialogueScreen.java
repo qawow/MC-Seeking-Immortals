@@ -7,7 +7,6 @@ import com.xunxian.seekingimmortals.network.OpenDialogueScreenPacket;
 import com.xunxian.seekingimmortals.registry.ModSounds;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 /** Visual dialogue GUI driven entirely by a bounded server view. */
-public class DialogueScreen extends Screen {
+public class DialogueScreen extends AbstractJournalScreen {
     private static final int DESIRED_WIDTH = 360;
     private static final int DESIRED_HEIGHT = 240;
     private static final ResourceLocation PORTRAIT_DEFAULT =
@@ -113,20 +112,33 @@ public class DialogueScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
+        Layout layout = calculateLayout(width, height, view.choices().size());
+        Rect panel = layout.panel();
+        // Header/inner-frame null: dialogue uses a taller title strip that wraps refresh/close
+        // and a separate prompt frame drawn in content (not the single journal inner frame).
+        return new JournalChrome(panel.x(), panel.y(), panel.width(), panel.height(), null, null);
+    }
+
+    @Override
+    protected void renderJournalChrome(GuiGraphics graphics, JournalChrome chrome) {
         Layout layout = calculateLayout(width, height, view.choices().size());
         Rect panel = layout.panel();
         Rect titleArea = layout.titleArea();
-        Rect portrait = layout.portrait();
-        Rect prompts = layout.promptViewport();
-
         ImmortalUiSkin.drawLayeredPanel(graphics, panel.x(), panel.y(), panel.width(), panel.height());
         int headerHeight = Math.max(12, layout.refresh().bottom() - panel.y() + layout.padding());
         ImmortalUiSkin.drawTitleBar(graphics, panel.x() + 4, panel.y() + 4,
                 Math.max(1, panel.width() - 8), Math.min(headerHeight, Math.max(1, panel.height() - 4)));
-        ImmortalUiSkin.drawStringFit(font, graphics, title.getString(), titleArea.x(), titleArea.y(),
+        ImmortalUiSkin.drawStringFit(font, graphics, getTitle().getString(), titleArea.x(), titleArea.y(),
                 titleArea.width(), ImmortalUiSkin.JOURNAL_BORDER, false);
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
+        Layout layout = calculateLayout(width, height, view.choices().size());
+        Rect portrait = layout.portrait();
+        Rect prompts = layout.promptViewport();
 
         if (portrait.width() > 1 && portrait.height() > 1) {
             graphics.blit(portraitForView(), portrait.x(), portrait.y(), portrait.width(), portrait.height(),
@@ -146,7 +158,6 @@ public class DialogueScreen extends Screen {
                         prompts.y() + 3 - promptScroll, contentWidth));
         ImmortalUiSkin.drawThinScrollbar(graphics, prompts.right() - 3, prompts.y() + 1,
                 Math.max(1, prompts.height() - 2), renderedPromptHeight, visibleHeight, promptScroll);
-        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     @Override
@@ -218,11 +229,6 @@ public class DialogueScreen extends Screen {
         if (sound != null) {
             Minecraft.getInstance().getSoundManager().play(SimpleSoundInstance.forUI(sound, 1.0F));
         }
-    }
-
-    @Override
-    public boolean isPauseScreen() {
-        return false;
     }
 
     static Layout calculateLayout(int screenWidth, int screenHeight) {

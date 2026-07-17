@@ -3,13 +3,12 @@ package com.xunxian.seekingimmortals.client;
 import com.xunxian.seekingimmortals.network.ModNetwork;
 import com.xunxian.seekingimmortals.network.SetTechniqueSlotPacket;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 
 import java.util.List;
 
-public class TechniqueEditScreen extends Screen {
+public class TechniqueEditScreen extends AbstractJournalScreen {
     private static final int PANEL_WIDTH = 420;
     private static final int PANEL_HEIGHT = 260;
     private static final int PANEL_MARGIN = 4;
@@ -36,16 +35,45 @@ public class TechniqueEditScreen extends Screen {
     }
 
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
-        renderPanel(graphics, mouseX, mouseY);
-        super.render(graphics, mouseX, mouseY, partialTick);
-        renderDraggedTechnique(graphics, mouseX, mouseY);
+    protected JournalChrome journalChrome() {
+        Layout layout = calculateLayout(width, height);
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                toUi(layout.header()), null);
     }
 
     @Override
-    public boolean isPauseScreen() {
-        return false;
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
+        // Keep the original fixed y+4 centered title (not the base fit/vertical-center helper).
+        graphics.drawCenteredString(font, getTitle(), header.x() + header.width() / 2,
+                header.y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
+        if (header.height() >= 28) {
+            ImmortalUiSkin.drawStringFit(font, graphics,
+                    Component.translatable("screen.seeking_immortals.technique_edit.instruction").getString(),
+                    header.x() + 8, header.y() + 18,
+                    Math.max(1, header.width() - 16), ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
+        }
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
+        Layout layout = calculateLayout(width, height);
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.slotPane().x(), layout.slotPane().y(),
+                layout.slotPane().width(), layout.slotPane().height());
+        ImmortalUiSkin.drawInnerFrame(graphics, layout.learnedPane().x(), layout.learnedPane().y(),
+                layout.learnedPane().width(), layout.learnedPane().height());
+
+        List<String> techniques = ClientTechniqueData.isSynced() ? ClientTechniqueData.getLearnedTechniques() : List.of();
+        List<String> slots = ClientTechniqueData.isSynced() ? ClientTechniqueData.getTechniqueSlots() : List.of();
+        renderSlots(graphics, layout, slots, mouseX, mouseY);
+        renderLearnedList(graphics, layout, techniques, mouseX, mouseY);
+    }
+
+    @Override
+    protected void renderAfterWidgets(GuiGraphics graphics, JournalChrome chrome,
+                                      int mouseX, int mouseY, float partialTick) {
+        // Drag ghost must paint above widgets, matching pre-migration super.render → ghost order.
+        renderDraggedTechnique(graphics, mouseX, mouseY);
     }
 
     @Override
@@ -110,32 +138,6 @@ public class TechniqueEditScreen extends Screen {
             }
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
-    }
-
-    private void renderPanel(GuiGraphics graphics, int mouseX, int mouseY) {
-        Layout layout = calculateLayout(width, height);
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        graphics.drawCenteredString(font, title, layout.header().x() + layout.header().width() / 2,
-                layout.header().y() + 4, ImmortalUiSkin.JOURNAL_BORDER);
-        if (layout.header().height() >= 28) {
-            ImmortalUiSkin.drawStringFit(font, graphics,
-                    Component.translatable("screen.seeking_immortals.technique_edit.instruction").getString(),
-                    layout.header().x() + 8, layout.header().y() + 18,
-                    Math.max(1, layout.header().width() - 16), ImmortalUiSkin.JOURNAL_JADE_TEXT, false);
-        }
-
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.slotPane().x(), layout.slotPane().y(),
-                layout.slotPane().width(), layout.slotPane().height());
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.learnedPane().x(), layout.learnedPane().y(),
-                layout.learnedPane().width(), layout.learnedPane().height());
-
-        List<String> techniques = ClientTechniqueData.isSynced() ? ClientTechniqueData.getLearnedTechniques() : List.of();
-        List<String> slots = ClientTechniqueData.isSynced() ? ClientTechniqueData.getTechniqueSlots() : List.of();
-        renderSlots(graphics, layout, slots, mouseX, mouseY);
-        renderLearnedList(graphics, layout, techniques, mouseX, mouseY);
     }
 
     private void renderSlots(GuiGraphics graphics, Layout layout, List<String> slots, int mouseX, int mouseY) {
@@ -302,6 +304,10 @@ public class TechniqueEditScreen extends Screen {
 
     private int maxLearnedScroll(int totalRows, int visibleRows) {
         return Math.max(0, totalRows - visibleRows);
+    }
+
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
     }
 
     static int calculatePanelWidth(int screenWidth) {
