@@ -1,3 +1,18 @@
+## 479. 2026-07-17 CultivationStatsScreen 迁移
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_212213_ui_cultivation_stats/`
+  Shell AbstractJournalScreen          Done chrome/title/content；header 双行仍 drawHeader
+  TabBar replace drawTab               Done 删 JournalTabButton；select 重建 widgets
+  ScrollableListPanel pages            Done 双遍测高 + contentRevision 重置
+  Footer jumps / inventory return      Kept MethodTree/LifeSkill/onClose
+  MovementSpeedSlider                  Kept COMBAT 可见 + packet
+  Public layout/interaction APIs       Kept ScreenLayoutTest / InteractionTest
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done focused tests + full build 1m20s
+  Update note                          Done `project_docs/updates/20260717_ui_cultivation_stats.md`
+
 ## 478. 2026-07-17 SectHallScreen 迁移
 
   Step   Status   Notes

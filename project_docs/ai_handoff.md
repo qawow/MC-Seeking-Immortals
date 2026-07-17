@@ -1,3 +1,5 @@
+> CURRENT TRUTH 2026-07-17: CultivationStatsScreen migrates to AbstractJournalScreen + TabBar + ScrollableListPanel, replacing the last true ImmortalUiSkin.drawTab path. MethodTree/LifeSkill jumps, inventory return flag, MovementSpeedSlider and page content formulas unchanged. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_cultivation_stats.md.
+
 > CURRENT TRUTH 2026-07-17: SectHallScreen migrates to AbstractJournalContainerScreen + TabBar + ScrollableListPanel (4 tabs, default MISSION). Candidates/SHOP keep row scroll; DIALOGUE/MISSION/PROGRESS stay static text + footer actions. Layout API preserved. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_sect_hall.md.
 
 > CURRENT TRUTH 2026-07-17: GUI Phase3 verify adds pure helpers + tests for market client PAGE_SIZE=6 paging, auction server page/maxPage controls, worldpack actionState/button readiness after revision rebuild, and wall-clock remainingTicks (no pause-time drift). mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_phase3_verify.md.

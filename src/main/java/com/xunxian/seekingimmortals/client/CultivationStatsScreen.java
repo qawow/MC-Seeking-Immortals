@@ -8,7 +8,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.Component;
@@ -17,7 +16,7 @@ import org.lwjgl.glfw.GLFW;
 import java.util.List;
 import java.util.Locale;
 
-public class CultivationStatsScreen extends Screen {
+public class CultivationStatsScreen extends AbstractJournalScreen {
     private static final int DEFAULT_PANEL_WIDTH = 548;
     private static final int DEFAULT_PANEL_HEIGHT = 360;
     private static final int PANEL_MARGIN = 4;
@@ -60,9 +59,10 @@ public class CultivationStatsScreen extends Screen {
 
     private final LocalPlayer player;
     private final boolean returnToInventory;
+    private final ScrollableListPanel listPanel = new ScrollableListPanel();
+    private final TabBar<StatsTab> tabBar = new TabBar<>(StatsTab.FOUNDATION);
     private StatsTab activeTab = StatsTab.FOUNDATION;
     private MovementSpeedSlider movementSpeedSlider;
-    private int scrollOffset;
     private int renderedContentHeight;
     private int contentRevision = Integer.MIN_VALUE;
 
@@ -74,16 +74,26 @@ public class CultivationStatsScreen extends Screen {
         super(Component.translatable("screen.seeking_immortals.cultivation_stats.title"));
         this.player = player;
         this.returnToInventory = returnToInventory;
+        this.listPanel.setScrollStep(20)
+                .setScrollbarInsetRight(3);
+        this.tabBar.setOnSelect(this::selectTab);
     }
 
     @Override
     protected void init() {
         super.init();
+        rebuildActionWidgets();
+    }
+
+    /**
+     * Rebuilds tabs/footer/slider. Required so TabBar primary/secondary selection tracks activeTab
+     * (the old JournalTabButton re-evaluated selection every frame).
+     */
+    private void rebuildActionWidgets() {
+        clearWidgets();
         PanelLayout layout = calculateLayout(width, height);
 
-        addRenderableWidget(new JournalTabButton(layout.foundationTab(), StatsTab.FOUNDATION));
-        addRenderableWidget(new JournalTabButton(layout.combatTab(), StatsTab.COMBAT));
-        addRenderableWidget(new JournalTabButton(layout.studyTab(), StatsTab.STUDY));
+        attachTabs(layout);
 
         addRenderableWidget(ImmortalButton.primary(layout.breakthroughButton().x(), layout.breakthroughButton().y(),
                 layout.breakthroughButton().width(), layout.breakthroughButton().height(),
@@ -114,16 +124,43 @@ public class CultivationStatsScreen extends Screen {
         updateSliderVisibility(layout);
     }
 
+    private void attachTabs(PanelLayout layout) {
+        tabBar.clearTabs()
+                .setSelected(activeTab)
+                .addTab(StatsTab.FOUNDATION, StatsTab.FOUNDATION.title(), toSharedRect(layout.foundationTab()))
+                .addTab(StatsTab.COMBAT, StatsTab.COMBAT.title(), toSharedRect(layout.combatTab()))
+                .addTab(StatsTab.STUDY, StatsTab.STUDY.title(), toSharedRect(layout.studyTab()));
+        for (ImmortalButton button : tabBar.attach(null)) {
+            addRenderableWidget(button);
+        }
+    }
+
+    private static com.xunxian.seekingimmortals.client.UiRect toSharedRect(UiRect rect) {
+        return new com.xunxian.seekingimmortals.client.UiRect(rect.x(), rect.y(), rect.width(), rect.height());
+    }
+
     @Override
-    public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-        renderBackground(graphics);
+    protected JournalChrome journalChrome() {
+        PanelLayout layout = calculateLayout(width, height);
+        return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
+                toSharedRect(layout.header()), toSharedRect(layout.content()));
+    }
+
+    @Override
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome,
+                                      com.xunxian.seekingimmortals.client.UiRect header) {
+        // Title/subtitle seal are drawn in drawHeader to preserve the dual-line journal header.
+    }
+
+    @Override
+    protected void renderJournalContent(GuiGraphics graphics, JournalChrome chrome,
+                                        int mouseX, int mouseY, float partialTick) {
         renderCultivationJournal(graphics, mouseX, mouseY);
-        super.render(graphics, mouseX, mouseY, partialTick);
     }
 
     @Override
     public void resize(Minecraft minecraft, int width, int height) {
-        scrollOffset = 0;
+        listPanel.resetScroll();
         renderedContentHeight = 0;
         contentRevision = Integer.MIN_VALUE;
         super.resize(minecraft, width, height);
@@ -133,10 +170,9 @@ public class CultivationStatsScreen extends Screen {
     public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
         PanelLayout layout = calculateLayout(width, height);
         UiRect viewport = layout.pageViewport(activeTab);
-        int maxScroll = maxScroll(renderedContentHeight, viewport.height());
-        if (viewport.contains(mouseX, mouseY) && maxScroll > 0) {
-            scrollOffset = clampScroll(scrollOffset - (int)Math.round(delta * 20.0D),
-                    renderedContentHeight, viewport.height());
+        listPanel.setBounds(toSharedRect(viewport))
+                .setContentHeight(renderedContentHeight);
+        if (listPanel.mouseScrolled(mouseX, mouseY, delta)) {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, delta);
@@ -171,10 +207,10 @@ public class CultivationStatsScreen extends Screen {
             return;
         }
         activeTab = tab;
-        scrollOffset = 0;
+        listPanel.resetScroll();
         renderedContentHeight = 0;
         contentRevision = Integer.MIN_VALUE;
-        updateSliderVisibility(calculateLayout(width, height));
+        rebuildActionWidgets();
     }
 
     private void updateSliderVisibility(PanelLayout layout) {
@@ -271,11 +307,7 @@ public class CultivationStatsScreen extends Screen {
     }
 
     static int clampScroll(int requested, int contentHeight, int viewportHeight) {
-        return Math.max(0, Math.min(requested, maxScroll(contentHeight, viewportHeight)));
-    }
-
-    private static int maxScroll(int contentHeight, int viewportHeight) {
-        return Math.max(0, contentHeight - Math.max(1, viewportHeight));
+        return ScrollableListPanel.clampScroll(requested, contentHeight, viewportHeight);
     }
 
     private void renderCultivationJournal(GuiGraphics graphics, int mouseX, int mouseY) {
@@ -304,19 +336,18 @@ public class CultivationStatsScreen extends Screen {
         UiRect viewport = layout.pageViewport(activeTab);
         int revision = currentContentRevision();
         if (revision != contentRevision) {
-            scrollOffset = 0;
+            listPanel.resetScroll();
             renderedContentHeight = 0;
             contentRevision = revision;
         }
         int pageWidth = Math.max(20, viewport.width() - SCROLLBAR_RESERVE);
         int measuredEndY = renderPage(null, viewport.x(), viewport.y(), pageWidth, data);
         renderedContentHeight = contentHeightFromBounds(viewport.y(), measuredEndY);
-        scrollOffset = clampScroll(scrollOffset, renderedContentHeight, viewport.height());
-        int startY = viewport.y() - scrollOffset;
-
-        ImmortalUiSkin.withScissor(graphics, viewport.x(), viewport.y(), viewport.width(), viewport.height(),
-                () -> renderPage(graphics, viewport.x(), startY, pageWidth, data));
-        drawScrollBar(graphics, viewport, renderedContentHeight, scrollOffset);
+        listPanel.setBounds(toSharedRect(viewport))
+                .setContentHeight(renderedContentHeight);
+        listPanel.clampToViewport();
+        listPanel.renderContent(graphics, (g, contentX, contentY, contentWidth) ->
+                renderPage(g, viewport.x(), contentY, pageWidth, data));
     }
 
     private int renderPage(GuiGraphics graphics, int x, int y, int width,
@@ -604,12 +635,8 @@ public class CultivationStatsScreen extends Screen {
     }
 
     private void drawJournalFrame(GuiGraphics graphics, PanelLayout layout) {
-        ImmortalUiSkin.drawLayeredPanel(graphics, layout.left(), layout.top(),
-                layout.panelWidth(), layout.panelHeight());
-        ImmortalUiSkin.drawTitleBar(graphics, layout.header().x(), layout.header().y(),
-                layout.header().width(), layout.header().height());
-        ImmortalUiSkin.drawInnerFrame(graphics, layout.content().x(), layout.content().y(),
-                layout.content().width(), layout.content().height());
+        // Layered panel + title bar + content frame come from AbstractJournalScreen chrome.
+        // Re-draw content frame here is a no-op visual duplicate avoided; only extras remain:
         if (layout.wide()) {
             ImmortalUiSkin.drawInnerFrame(graphics, layout.profile().x(), layout.profile().y(),
                     layout.profile().width(), layout.profile().height());
@@ -735,11 +762,6 @@ public class CultivationStatsScreen extends Screen {
             ImmortalUiSkin.drawSemanticStatusBar(graphics, x, y + 10, width, 7, fraction, style);
         }
         return y + 21;
-    }
-
-    private void drawScrollBar(GuiGraphics graphics, UiRect viewport, int contentHeight, int offset) {
-        ImmortalUiSkin.drawThinScrollbar(graphics, viewport.right() - 3, viewport.y(), viewport.height(),
-                contentHeight, viewport.height(), offset);
     }
 
     private void drawColumnDivider(GuiGraphics graphics, int x, int y, int height) {
@@ -890,26 +912,6 @@ public class CultivationStatsScreen extends Screen {
 
     private record LifeSkillEntry(String label, SkillType type) {}
 
-    private final class JournalTabButton extends Button {
-        private final StatsTab tab;
-
-        JournalTabButton(UiRect rect, StatsTab tab) {
-            super(rect.x(), rect.y(), rect.width(), rect.height(), tab.title(),
-                    button -> selectTab(tab), DEFAULT_NARRATION);
-            this.tab = tab;
-        }
-
-        @Override
-        protected void renderWidget(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
-            boolean selected = activeTab == tab;
-            int textColor = selected ? PAPER : isHoveredOrFocused() ? JADE : PAPER_MUTED;
-            ImmortalUiSkin.InteractionState state = selected ? ImmortalUiSkin.InteractionState.SELECTED
-                    : isHoveredOrFocused() ? ImmortalUiSkin.InteractionState.HOVERED
-                    : ImmortalUiSkin.InteractionState.NORMAL;
-            ImmortalUiSkin.drawTab(graphics, getX(), getY(), getWidth(), getHeight(), state);
-            FontHolder.drawCentered(graphics, getMessage(), getX(), getY(), getWidth(), getHeight(), textColor);
-        }
-    }
 
     private static final class MovementSpeedSlider extends AbstractSliderButton {
         private boolean syncing;
