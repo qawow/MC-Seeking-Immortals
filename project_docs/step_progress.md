@@ -1,3 +1,16 @@
+## 475. 2026-07-17 0.2.6 状态条左上 + 技能栏左中半透明
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_170201_hud_left_status_skill/`
+  Layout left-stack                    Done statusStrip 左上；techniques 在 strip 下垂直居中；rail 可 fallback
+  Skin redesign                        Done 加深 status chrome；半透明 HUD_SKILL_* rail/slot
+  Overlays                             Done Skill 接半透明 API；Health/Cultivation 左上 javadoc 与 helper
+  Tests                                Done ScreenLayoutTest + ImmortalHudLayoutTest 改左上/非重叠断言
+  Version/protocol                     Done `0.2.5` -> `0.2.6`；protocol 保持 24
+  Full verification                    Done `./gradlew build`
+  Update note                          Done `project_docs/updates/20260717_0.2.6_hud_left_status_skill.md`
+
 ## 474. 2026-07-17 0.2.5 凡人风格 HUD 深度重设计
 
   Step   Status   Notes

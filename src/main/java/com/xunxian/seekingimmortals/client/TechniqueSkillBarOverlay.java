@@ -11,7 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.List;
 
 /**
- * Left vertical jade-slip rail for the seven technique release slots.
+ * Left vertical semi-transparent jade-slip rail for the seven technique release slots.
+ * Anchored left and vertically centered under the left-top status strip.
  */
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
 public final class TechniqueSkillBarOverlay {
@@ -57,7 +58,7 @@ public final class TechniqueSkillBarOverlay {
         String hoveredTechnique = null;
         int hoveredY = frame.y();
 
-        ImmortalUiSkin.drawJadeSlipRail(graphics, frame.x(), frame.y(), frame.width(), frame.height());
+        ImmortalUiSkin.drawTranslucentJadeSlipRail(graphics, frame.x(), frame.y(), frame.width(), frame.height());
         int safeSlotSize = Math.max(1, slotSize);
         int slotX = frame.x() + Math.max(0, (frame.width() - safeSlotSize) / 2);
         List<String> slots = techniqueSlots == null ? List.of() : techniqueSlots;
@@ -85,7 +86,7 @@ public final class TechniqueSkillBarOverlay {
         Minecraft minecraft = Minecraft.getInstance();
         boolean hasTechnique = techniqueId != null && !techniqueId.isBlank();
 
-        ImmortalUiSkin.drawJadeSlipSlot(graphics, x, y, size, hasTechnique);
+        ImmortalUiSkin.drawTranslucentJadeSlipSlot(graphics, x, y, size, hasTechnique);
         if (hasTechnique) {
             drawTechniqueIcon(graphics, x, y, size, techniqueId);
             ClientCultivationData.Snapshot data = ClientCultivationData.getSnapshot();

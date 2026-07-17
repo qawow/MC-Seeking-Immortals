@@ -12,12 +12,11 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Cultivation content for the merged right-top status strip.
+ * Cultivation content for the merged left-top status strip.
  * Does not draw outer chrome — {@link CultivationHealthOverlay} owns the jade tablet frame.
  */
 @Mod.EventBusSubscriber(modid = SeekingImmortalsMod.MODID, value = Dist.CLIENT)
 public final class CultivationHudOverlay {
-    private static final int RIGHT_MARGIN = 6;
     private static final int PADDING_X = 2;
     private static final int PADDING_Y = 2;
     private static final int QI_DEV_WARN_THRESHOLD = 50;
@@ -132,12 +131,7 @@ public final class CultivationHudOverlay {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, 480);
         int stripX = layout.statusStrip().x();
         int maxX = Math.max(0, screenWidth - panelWidth);
-        int rightAnchored = Math.max(0, screenWidth - panelWidth - RIGHT_MARGIN);
-        int leftReserved = TechniqueSkillBarOverlay.leftReservedWidth();
-        if (screenWidth >= leftReserved + panelWidth) {
-            return Math.max(leftReserved, Math.min(Math.max(stripX, rightAnchored), maxX));
-        }
-        return Math.max(0, Math.min(rightAnchored, maxX));
+        return Math.max(0, Math.min(stripX, maxX));
     }
 
     private static boolean canDrawText(Minecraft minecraft, int y, int bottom) {

@@ -82,6 +82,14 @@ public final class ImmortalUiSkin {
     public static final int HUD_INNER = 0xE8161D14;
     public static final int HUD_EDGE = 0x885B4524;
 
+    // Skill-rail-only translucent tokens. Do not reuse for journal/status chrome.
+    public static final int HUD_SKILL_SHADOW = 0x44000000;
+    public static final int HUD_SKILL_BORDER = 0x99B99A55;
+    public static final int HUD_SKILL_BACKING = 0x66100E09;
+    public static final int HUD_SKILL_INNER = 0x55161D14;
+    public static final int HUD_SKILL_SLOT_FILLED = 0x99121814;
+    public static final int HUD_SKILL_SLOT_EMPTY = 0x44100E09;
+
     // Layout layout spacing tokens
     public static final int LINE_HEIGHT = 11;
     public static final int SECTION_GAP = 5;
@@ -398,12 +406,15 @@ public final class ImmortalUiSkin {
     }
 
     /**
-     * Right-top jade-tablet chrome for the merged 气血/修为/灵力 strip.
+     * Left-top jade-tablet chrome for the merged 气血/修为/灵力 strip.
      * {@code fullStrip} adds a taller tablet body and a bottom cinnabar seal mark.
+     * Stays more solid than the translucent skill rail for combat readability.
      */
     public static void drawStatusStripChrome(GuiGraphics graphics, int x, int y, int width, int height,
                                              boolean fullStrip) {
         if (width <= 0 || height <= 0) return;
+        // Soft multi-layer shadow for a deeper 玉简 float.
+        graphics.fill(x + 2, y + 3, x + width + 2, y + height + 3, 0x44000000);
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
         graphics.fill(x, y, x + width, y + height, HUD_BORDER);
         if (width > 2 && height > 2) {
@@ -412,10 +423,16 @@ public final class ImmortalUiSkin {
         if (width > 6 && height > 6) {
             graphics.fill(x + 3, y + 3, x + width - 3, y + height - 3, HUD_INNER);
             graphics.fill(x + 2, y + 2, x + width - 2, y + 3, HUD_EDGE);
+            if (height > 8) {
+                graphics.fill(x + 2, y + height - 3, x + width - 2, y + height - 2, HUD_EDGE);
+            }
         }
         // Left cinnabar edge — talisman seal strip on the jade tablet.
         if (width >= 8 && height >= 8) {
             graphics.fill(x + 2, y + 3, x + 4, y + height - 3, JOURNAL_CINNABAR);
+            if (height >= 14) {
+                graphics.fill(x + 2, y + 3, x + 3, Math.min(y + height - 3, y + 10), JOURNAL_CINNABAR_BRIGHT);
+            }
         }
         // Jade tick on the right rim.
         if (width >= 12 && height >= 10) {
@@ -454,7 +471,7 @@ public final class ImmortalUiSkin {
         }
     }
 
-    /** Thin vertical jade-slip rail behind the seven technique slots. */
+    /** Thin vertical jade-slip rail behind the seven technique slots (solid legacy path). */
     public static void drawJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
         graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SHADOW);
@@ -474,13 +491,50 @@ public final class ImmortalUiSkin {
     }
 
     /**
+     * Semi-transparent jade-slip rail for the live left skill bar.
+     * Uses skill-only tokens so journal/status solid HUD chrome stays readable.
+     */
+    public static void drawTranslucentJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
+        if (width <= 0 || height <= 0) return;
+        graphics.fill(x + 1, y + 2, x + width + 1, y + height + 2, HUD_SKILL_SHADOW);
+        graphics.fill(x, y, x + width, y + height, HUD_SKILL_BORDER);
+        if (width > 2 && height > 2) {
+            graphics.fill(x + 1, y + 1, x + width - 1, y + height - 1, HUD_SKILL_BACKING);
+        }
+        if (width > 4 && height > 4) {
+            graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, HUD_SKILL_INNER);
+        }
+        if (width >= 6 && height >= 10) {
+            graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, JOURNAL_JADE);
+        }
+        if (width >= 8 && height >= 12) {
+            graphics.fill(x + 2, y + 3, x + 3, y + height - 3, JOURNAL_CINNABAR);
+        }
+    }
+
+    /**
      * Jade-slip / talisman skill slot. Prefer this over the legacy gold
-     * {@link #drawSkillSlot} for the live player skill rail.
+     * {@link #drawSkillSlot} for solid previews; live HUD uses
+     * {@link #drawTranslucentJadeSlipSlot}.
      */
     public static void drawJadeSlipSlot(GuiGraphics graphics, int x, int y, int size, boolean filled) {
         if (size <= 0) return;
         int border = filled ? JOURNAL_BORDER : JOURNAL_BORDER_DIM;
         int fill = filled ? 0xCC121814 : 0x66100E09;
+        drawBox(graphics, x, y, size, size, fill, border);
+        if (size >= 6) {
+            graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);
+        }
+        if (filled && size >= 8) {
+            graphics.fill(x + 1, y + 1, x + 2, y + size - 1, JOURNAL_CINNABAR);
+        }
+    }
+
+    /** Semi-transparent skill slot for the live left technique rail. */
+    public static void drawTranslucentJadeSlipSlot(GuiGraphics graphics, int x, int y, int size, boolean filled) {
+        if (size <= 0) return;
+        int border = filled ? HUD_SKILL_BORDER : JOURNAL_BORDER_DIM;
+        int fill = filled ? HUD_SKILL_SLOT_FILLED : HUD_SKILL_SLOT_EMPTY;
         drawBox(graphics, x, y, size, size, fill, border);
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);

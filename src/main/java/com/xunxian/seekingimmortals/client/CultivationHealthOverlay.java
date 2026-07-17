@@ -8,7 +8,7 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import java.util.Locale;
 
 /**
- * Custom 气血/护体 overlay. Owns the right-top jade-tablet chrome for the merged
+ * Custom 气血/护体 overlay. Owns the left-top jade-tablet chrome for the merged
  * status strip; cultivation content is painted by {@link CultivationHudOverlay}
  * into the lower band when the free HUD is visible.
  */
@@ -113,7 +113,7 @@ public final class CultivationHealthOverlay {
         return Math.max(1, Math.min(DEFAULT_HEIGHT, strip.height()));
     }
 
-    /** Right-anchored X for the compact health-only strip (legacy test helper). */
+    /** Left-anchored X for the compact health-only strip (legacy test helper). */
     static int calculatePanelX(int screenWidth) {
         ImmortalHudLayout.Rect strip = ImmortalHudLayout.healthOnlyStripRect(screenWidth, 480);
         return strip.x();

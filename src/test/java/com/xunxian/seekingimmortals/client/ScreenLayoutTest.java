@@ -142,7 +142,7 @@ class ScreenLayoutTest {
     }
 
     @Test
-    void techniqueSkillBarStaysLeftOfMergedStatusStrip() {
+    void techniqueSkillBarStaysSeparatedFromLeftTopStatusStrip() {
         assertSkillBarAvoidsStatusStrip(320, 240);
         assertSkillBarAvoidsStatusStrip(320, 320);
         assertSkillBarAvoidsStatusStrip(854, 480);
@@ -162,7 +162,7 @@ class ScreenLayoutTest {
     }
 
     @Test
-    void cultivationHealthBarFitsTopRight() {
+    void cultivationHealthBarFitsTopLeft() {
         assertHealthBarFits(90, 50);
         assertHealthBarFits(180, 90);
         assertHealthBarFits(854, 480);
@@ -483,6 +483,10 @@ class ScreenLayoutTest {
                 "skill bar should stay anchored near the left edge");
         assertTrue(techniques.right() <= screenWidth, "skill bar must stay inside screen width");
         assertTrue(techniques.bottom() <= screenHeight, "skill bar must stay inside screen height");
+        if (!layout.railMode() && screenHeight >= 180) {
+            assertTrue(techniques.y() >= layout.statusStrip().bottom(),
+                    "regular skill bar should sit under the left-top status strip");
+        }
     }
 
     private static void assertCultivationHudAvoidsSkillBar(int screenWidth, int screenHeight) {
@@ -495,15 +499,23 @@ class ScreenLayoutTest {
         assertTrue(strip.right() <= screenWidth, "status strip must stay inside screen width");
         assertFalse(strip.intersects(techniques),
                 "merged status strip must not overlap the left skill rail");
-        assertTrue(strip.x() >= techniques.right() || layout.railMode(),
-                "regular layout keeps the status strip to the right of the skill rail");
+        assertTrue(layout.panelsSeparated(),
+                "status strip, skill rail and breathing tablet must stay separated");
+        if (!layout.railMode()) {
+            assertTrue(techniques.y() >= strip.bottom() || strip.x() >= techniques.right(),
+                    "regular layout stacks skill rail under the left-top strip or keeps them x-separated");
+        }
     }
 
     private static void assertSkillBarAvoidsStatusStrip(int screenWidth, int screenHeight) {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(screenWidth, screenHeight);
         assertFalse(layout.techniques().intersects(layout.statusStrip()),
-                "left skill rail must not overlap the right-top status strip");
+                "left skill rail must not overlap the left-top status strip");
         assertTrue(layout.bandsValid(), "nested health/cultivation bands must stay valid");
+        if (!layout.railMode()) {
+            assertTrue(layout.statusStrip().x() <= layout.margin() + 2,
+                    "regular status strip should stay near the left edge");
+        }
     }
 
     private static void assertHealthBarFits(int screenWidth, int screenHeight) {
@@ -517,8 +529,10 @@ class ScreenLayoutTest {
         assertTrue(strip.right() <= screenWidth, "health HUD must stay inside screen width");
         assertTrue(strip.bottom() <= screenHeight, "health HUD must stay inside screen height");
         if (!layout.railMode() && screenWidth >= 180) {
-            assertTrue(strip.right() >= screenWidth - layout.margin() - 2,
-                    "health strip should stay near the right edge on regular layouts");
+            assertTrue(strip.x() <= layout.margin() + 2,
+                    "health strip should stay near the left edge on regular layouts");
+            assertTrue(strip.y() <= layout.margin() + 2,
+                    "health strip should stay near the top edge on regular layouts");
         }
     }
 

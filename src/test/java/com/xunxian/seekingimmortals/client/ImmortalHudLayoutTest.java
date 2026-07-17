@@ -28,16 +28,19 @@ class ImmortalHudLayoutTest {
     }
 
     @Test
-    void regularLayoutAnchorsStatusStripTopRightAndSkillsLeft() {
+    void regularLayoutAnchorsStatusStripTopLeftAndSkillsLeftCentered() {
         ImmortalHudLayout.Layout layout = ImmortalHudLayout.calculate(854, 480);
 
         assertFalse(layout.railMode());
         assertTrue(layout.techniques().x() <= layout.margin() + 2,
                 "skill rail should stay near the left edge");
-        assertTrue(layout.statusStrip().right() >= 854 - layout.margin() - 2,
-                "status strip should stay near the right edge");
+        assertTrue(layout.statusStrip().x() <= layout.margin() + 2,
+                "status strip should stay near the left edge");
         assertTrue(layout.statusStrip().y() <= layout.margin() + 2,
                 "status strip should stay near the top edge");
+        assertTrue(layout.techniques().y() >= layout.statusStrip().bottom(),
+                "skill rail should sit under the left-top status strip");
         assertTrue(layout.bandsValid());
+        assertTrue(layout.panelsSeparated());
     }
 }
