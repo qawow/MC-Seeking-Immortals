@@ -170,7 +170,7 @@ public class TechniqueEditScreen extends AbstractJournalScreen {
                             iconSize, techniqueId);
                     if (!canRelease) {
                         graphics.fill(icon.x() + iconInset, icon.y() + iconInset,
-                                icon.x() + iconInset + iconSize, icon.y() + iconInset + iconSize, 0x88000000);
+                                icon.x() + iconInset + iconSize, icon.y() + iconInset + iconSize, ImmortalUiSkin.JOURNAL_SHADOW);
                     }
                 }
                 if (icon.width() >= 10) {

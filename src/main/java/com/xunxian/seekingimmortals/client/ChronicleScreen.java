@@ -102,7 +102,7 @@ public class ChronicleScreen extends AbstractLoreScreen {
                         int index = listScroll + i;
                         int y = layout.list().y() + 2 + i * ROW_H;
                         int bg = index == selected ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
-                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : 0x00000000);
+                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : ImmortalUiSkin.JOURNAL_TRANSPARENT);
                         if (bg != 0) {
                             graphics.fill(layout.list().x() + 2, y, layout.list().x() + layout.list().w() - 2, y + ROW_H - 1, bg);
                         }

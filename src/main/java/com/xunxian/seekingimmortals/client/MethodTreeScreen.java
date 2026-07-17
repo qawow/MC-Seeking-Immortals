@@ -36,10 +36,10 @@ public class MethodTreeScreen extends Screen {
     private static final int LINE = 12;
     private static final int NODE = 12;
     private static final int LINK = ImmortalUiSkin.JOURNAL_BORDER_DIM;
-    private static final int NODE_EMPTY = 0xFF3B493C;
+    private static final int NODE_EMPTY = ImmortalUiSkin.JOURNAL_NODE_EMPTY;
     private static final int NODE_REACHED = ImmortalUiSkin.JOURNAL_JADE;
     private static final int NODE_CURRENT = ImmortalUiSkin.JOURNAL_BORDER;
-    private static final int NODE_LOCKED = 0xFF5B5646;
+    private static final int NODE_LOCKED = ImmortalUiSkin.JOURNAL_NODE_LOCKED;
     private static final int GRAPH_COLS = 3;
     private static final int GRAPH_MAX = 6;
 

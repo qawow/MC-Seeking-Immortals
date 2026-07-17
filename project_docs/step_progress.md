@@ -1,3 +1,28 @@
+## 476. 2026-07-17 ImmortalUiSkin 色板清理
+
+  Step   Status   Notes
+  ---   ---   ---
+  Legacy screen audit                  Done 4 legacy 屏仅用 JOURNAL_*；不阻塞
+  Delete unused COLOR_*                Done TITLE/SUCCESS/DANGER/BLUE/HOVER_BG
+  Named hex constants                  Done Stats/MethodTree/TechniqueEdit/skill bar + skin internals
+  Retain helper palette                Done PANEL/SKILL/STATUS/HEALTH/TOOLTIP + COLOR_TEXT_*
+  JEI hex                              Untouched
+  Full verification                    Done BUILD SUCCESSFUL in 1m7s；client 裸 hex=0
+  Update note                          Done `project_docs/updates/20260717_ui_palette_cleanup.md`
+
+## 480. 2026-07-17 图节点拖拽与列表/详情双滚动验证
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260717_232803_ui_drag_dual_scroll_verify/`
+  MethodTree drag helpers              Done clamp/offset/hit-test
+  MethodTree dual scroll helpers       Done list 行滚 + detail 像素滚独立
+  TechniqueEdit drag/scroll helpers    Done bind-on-release + learned scroll
+  DragDualScrollTest                   Done 7 cases green
+  Version/protocol                     Unchanged 0.2.2 / 24
+  Full verification                    Done focused + full build 1m5s
+  Update note                          Done `project_docs/updates/20260717_ui_drag_dual_scroll_verify.md`
+
 ## 479. 2026-07-17 CultivationStatsScreen 迁移
 
   Step   Status   Notes

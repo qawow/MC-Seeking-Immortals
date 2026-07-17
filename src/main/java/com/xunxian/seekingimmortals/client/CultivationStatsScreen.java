@@ -625,7 +625,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
             ImmortalUiSkin.drawSkillIcon(graphics, iconX, iconY, 16, techniqueId);
         } else {
             graphics.fill(iconX, iconY, iconX + 16, iconY + 16, CINNABAR);
-            graphics.fill(iconX + 1, iconY + 1, iconX + 15, iconY + 15, 0xFF532823);
+            graphics.fill(iconX + 1, iconY + 1, iconX + 15, iconY + 15, ImmortalUiSkin.JOURNAL_ICON_INSET);
             String mark = summary.name().isBlank() ? "术" : summary.name().substring(0, 1);
             graphics.drawCenteredString(font, mark, iconX + 8, iconY + 4, PAPER);
         }
@@ -772,7 +772,7 @@ public class CultivationStatsScreen extends AbstractJournalScreen {
 
     private void drawSeal(GuiGraphics graphics, int x, int y, int size, String mark) {
         graphics.fill(x, y, x + size, y + size, CINNABAR_BRIGHT);
-        graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, 0xFF582A24);
+        graphics.fill(x + 2, y + 2, x + size - 2, y + size - 2, ImmortalUiSkin.JOURNAL_SEAL_INSET);
         graphics.fill(x + 4, y + 4, x + size - 4, y + size - 4, CINNABAR);
         graphics.drawCenteredString(font, fit(mark, size - 6), x + size / 2, y + Math.max(3, (size - 8) / 2), PAPER);
     }

@@ -90,7 +90,7 @@ public final class TechniqueSkillBarOverlay {
             boolean canRelease = ClientTechniqueData.canRelease(techniqueId, data);
             int cooldownTicks = ClientTechniqueData.getCooldownRemainingTicks(techniqueId);
             if (!canRelease && size > 2) {
-                graphics.fill(x + 1, y + 1, x + size - 1, y + size - 1, 0x66120D0A);
+                graphics.fill(x + 1, y + 1, x + size - 1, y + size - 1, ImmortalUiSkin.HUD_SKILL_DISABLED_OVERLAY);
             }
             if (cooldownTicks > 0) {
                 drawCooldownOverlay(graphics, x, y, size,
@@ -223,7 +223,7 @@ public final class TechniqueSkillBarOverlay {
                 * Math.max(0.0D, Math.min(1.0D, fraction))));
         graphics.fill(x + inset, y + inset, x + size - inset,
                 Math.min(y + size - inset, y + inset + overlayHeight),
-                0xCC4E1712);
+                ImmortalUiSkin.HUD_COOLDOWN_OVERLAY);
         int edgeY = Math.min(y + size - 1, y + inset + overlayHeight - 1);
         graphics.fill(x + inset, edgeY, x + size - inset, edgeY + 1,
                 ImmortalUiSkin.JOURNAL_CINNABAR_BRIGHT);
@@ -250,8 +250,7 @@ public final class TechniqueSkillBarOverlay {
             return;
         }
         if (size >= 4) {
-            int colorSeed = Math.abs(techniqueId.hashCode());
-            int fillColor = 0xAA000000 | (colorSeed & 0x003F3F3F) | 0x00202020;
+            int fillColor = ImmortalUiSkin.skillPlaceholderColor(techniqueId);
             int backingInset = Math.max(1, size / 5);
             ImmortalUiSkin.drawSkillIconBacking(graphics, x + backingInset, y + backingInset,
                     Math.max(1, size - backingInset * 2), Math.max(1, size - backingInset * 2), fillColor);

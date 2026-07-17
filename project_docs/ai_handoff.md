@@ -1,3 +1,7 @@
+> CURRENT TRUTH 2026-07-17: ImmortalUiSkin palette cleanup. Deleted unused COLOR_TITLE/SUCCESS/DANGER/BLUE/HOVER_BG. Named journal/HUD constants replace Stats/MethodTree/TechniqueEdit/skill-bar bare hex. PANEL/SKILL/STATUS/HEALTH/TOOLTIP retained for skin helpers; COLOR_TEXT_MUTED/NORMAL retained for HUD. Four legacy screens only use JOURNAL_*. JEI hex untouched. mod_version 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_palette_cleanup.md.
+
+> CURRENT TRUTH 2026-07-17: Drag/dual-scroll verify covers MethodTree graph-node freeform drag clamp/offset/hit-test and independent list+detail scroll math, plus TechniqueEdit learned-list scroll and release-bind contract. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_drag_dual_scroll_verify.md.
+
 > CURRENT TRUTH 2026-07-17: CultivationStatsScreen migrates to AbstractJournalScreen + TabBar + ScrollableListPanel, replacing the last true ImmortalUiSkin.drawTab path. MethodTree/LifeSkill jumps, inventory return flag, MovementSpeedSlider and page content formulas unchanged. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_cultivation_stats.md.
 
 > CURRENT TRUTH 2026-07-17: SectHallScreen migrates to AbstractJournalContainerScreen + TabBar + ScrollableListPanel (4 tabs, default MISSION). Candidates/SHOP keep row scroll; DIALOGUE/MISSION/PROGRESS stay static text + footer actions. Layout API preserved. mod_version stays 0.2.2; protocol 24. Details: project_docs/updates/20260717_ui_sect_hall.md.

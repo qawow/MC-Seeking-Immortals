@@ -118,7 +118,7 @@ public class BestiaryScreen extends AbstractLoreScreen {
                         boolean unlocked = ClientLoreData.isBeastUnlocked(entry.id());
                         int y = layout.list().y() + 2 + i * ROW_H;
                         int bg = entry.id().equals(selectedId) ? ImmortalUiSkin.JOURNAL_ROW_SELECTED
-                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : 0x00000000);
+                                : (i % 2 == 0 ? ImmortalUiSkin.JOURNAL_ROW : ImmortalUiSkin.JOURNAL_TRANSPARENT);
                         if (bg != 0) {
                             graphics.fill(layout.list().x() + 2, y, layout.list().x() + layout.list().w() - 2, y + ROW_H - 1, bg);
                         }
