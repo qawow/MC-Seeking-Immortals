@@ -22,8 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class ImmortalUiSkin {
     // Shared surface helpers still used by drawPanel / skill slots / health / tooltips.
-    // Not referenced by the four remaining legacy screens (Shop/Auction/Sect/Storage),
-    // which already draw through the journal palette below.
+    // Journal screens draw through JOURNAL_* + paper/jade material helpers below.
     public static final int PANEL_BORDER = 0xCCE6D59A;
     public static final int PANEL = 0xD61B1208;
     public static final int PANEL_INNER = 0xCC2A1B0D;
@@ -538,6 +537,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 4 && height > 4) {
             graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, HUD_INNER);
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 2, y + 2, width - 4, height - 4);
         }
         if (width >= 6 && height >= 10) {
             graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, JOURNAL_JADE);
@@ -550,6 +550,7 @@ public final class ImmortalUiSkin {
     /**
      * Semi-transparent jade-slip rail for the live left skill bar.
      * Uses skill-only tokens so journal/status solid HUD chrome stays readable.
+     * Jade grain is low-alpha so the rail stays see-through.
      */
     public static void drawTranslucentJadeSlipRail(GuiGraphics graphics, int x, int y, int width, int height) {
         if (width <= 0 || height <= 0) return;
@@ -560,6 +561,7 @@ public final class ImmortalUiSkin {
         }
         if (width > 4 && height > 4) {
             graphics.fill(x + 2, y + 2, x + width - 2, y + height - 2, HUD_SKILL_INNER);
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 2, y + 2, width - 4, height - 4);
         }
         if (width >= 6 && height >= 10) {
             graphics.fill(x + width - 3, y + 3, x + width - 2, y + height - 3, JOURNAL_JADE);
@@ -579,6 +581,9 @@ public final class ImmortalUiSkin {
         int border = filled ? JOURNAL_BORDER : JOURNAL_BORDER_DIM;
         int fill = filled ? HUD_SLOT_FILLED_SOLID : HUD_SLOT_EMPTY_SOLID;
         drawBox(graphics, x, y, size, size, fill, border);
+        if (size > 4) {
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 1, y + 1, size - 2, size - 2);
+        }
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);
         }
@@ -593,6 +598,10 @@ public final class ImmortalUiSkin {
         int border = filled ? HUD_SKILL_BORDER : JOURNAL_BORDER_DIM;
         int fill = filled ? HUD_SKILL_SLOT_FILLED : HUD_SKILL_SLOT_EMPTY;
         drawBox(graphics, x, y, size, size, fill, border);
+        if (filled && size > 4) {
+            // Grain only on filled slots so empty rail stays quieter.
+            drawTiledTexture(graphics, JADE_TEXTURE, x + 1, y + 1, size - 2, size - 2);
+        }
         if (size >= 6) {
             graphics.fill(x + 1, y + 1, x + size - 1, y + 2, filled ? JOURNAL_JADE : HUD_EDGE);
         }

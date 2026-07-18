@@ -1,3 +1,14 @@
+## 477. 2026-07-18 0.2.9 HUD 技能轨玉纹对齐
+
+  Step   Status   Notes
+  ---   ---   ---
+  Backup                               Done `.bak/20260718_160752_hud_skill_jade/`
+  Skill rail/slot jade tile            Done solid+translucent rail；filled slot 叠纹
+  Auction nested UiRect → Rect         Done 与 Shop/Sect 命名一致；toUi 桥接
+  Version/protocol                     Done `0.2.8` -> `0.2.9`；protocol 保持 24
+  Full verification                    Done `./gradlew build`
+  Update note                          Done `project_docs/updates/20260718_0.2.9_hud_skill_jade.md`
+
 ## 476. 2026-07-18 0.2.8 凡人问道录全前端 UI
 
   Step   Status   Notes

@@ -47,13 +47,13 @@ public class AuctionScreen extends AbstractJournalScreen {
         for (int i = 0; i < lots.size(); i++) {
             AuctionSoftService.Lot lot = lots.get(i);
             int y = rowY + i * (ROW_HEIGHT + ROW_GAP);
-            UiRect row = new UiRect(layout.viewport().x() + 4, y,
+            Rect row = new Rect(layout.viewport().x() + 4, y,
                     Math.max(1, layout.viewport().width() - 9), ROW_HEIGHT);
             addLotButtons(layout.viewport(), row, lot);
         }
     }
 
-    private void addLotButtons(UiRect viewport, UiRect row, AuctionSoftService.Lot lot) {
+    private void addLotButtons(Rect viewport, Rect row, AuctionSoftService.Lot lot) {
         int gap = 3;
         int buttonWidth = Math.max(1, (row.width() - gap * 2 - 8) / 3);
         int buttonY = row.y() + 29;
@@ -85,16 +85,15 @@ public class AuctionScreen extends AbstractJournalScreen {
     protected JournalChrome journalChrome() {
         AuctionLayout layout = calculateLayout(width, height);
         return new JournalChrome(layout.left(), layout.top(), layout.panelWidth(), layout.panelHeight(),
-                toShared(layout.header()), null);
+                toUi(layout.header()), null);
     }
 
-    private static com.xunxian.seekingimmortals.client.UiRect toShared(UiRect rect) {
-        return new com.xunxian.seekingimmortals.client.UiRect(rect.x(), rect.y(), rect.width(), rect.height());
+    private static UiRect toUi(Rect rect) {
+        return new UiRect(rect.x(), rect.y(), rect.width(), rect.height());
     }
 
     @Override
-    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome,
-                                      com.xunxian.seekingimmortals.client.UiRect header) {
+    protected void renderJournalTitle(GuiGraphics graphics, JournalChrome chrome, UiRect header) {
         AuctionLayout layout = calculateLayout(width, height);
         int titleWidth = layout.panelWidth() < 240 ? layout.header().width()
                 : Math.max(1, layout.refreshButton().x() - layout.header().x() - 5);
@@ -143,15 +142,15 @@ public class AuctionScreen extends AbstractJournalScreen {
                 ? Math.max(1, (panelWidth - padding * 3) / 2)
                 : Math.min(64, Math.max(1, (panelWidth - padding * 3) / 2));
         int buttonY = top + (compact ? 21 : 7);
-        UiRect header = new UiRect(left + padding, top + 4, Math.max(1, panelWidth - padding * 2),
+        Rect header = new Rect(left + padding, top + 4, Math.max(1, panelWidth - padding * 2),
                 compact ? 14 : 21);
-        UiRect refresh = new UiRect(compact ? left + padding : left + panelWidth - padding * 2 - buttonWidth * 2,
+        Rect refresh = new Rect(compact ? left + padding : left + panelWidth - padding * 2 - buttonWidth * 2,
                 buttonY, buttonWidth, buttonHeight);
-        UiRect close = new UiRect(refresh.right() + padding, buttonY, buttonWidth, buttonHeight);
+        Rect close = new Rect(refresh.right() + padding, buttonY, buttonWidth, buttonHeight);
         int summaryY = top + headerHeight + 3;
-        UiRect summary = new UiRect(left + padding, summaryY, Math.max(1, panelWidth - padding * 2), 13);
+        Rect summary = new Rect(left + padding, summaryY, Math.max(1, panelWidth - padding * 2), 13);
         int viewportY = summary.y() + summary.height() + 3;
-        UiRect viewport = new UiRect(left + padding, viewportY, Math.max(1, panelWidth - padding * 2),
+        Rect viewport = new Rect(left + padding, viewportY, Math.max(1, panelWidth - padding * 2),
                 Math.max(1, top + panelHeight - padding - viewportY));
         return new AuctionLayout(left, top, panelWidth, panelHeight, header, summary, viewport, refresh, close);
     }
@@ -180,7 +179,7 @@ public class AuctionScreen extends AbstractJournalScreen {
                     }
                     for (int i = 0; i < lots.size(); i++) {
                         AuctionSoftService.Lot lot = lots.get(i);
-                        UiRect row = new UiRect(layout.viewport().x() + 4,
+                        Rect row = new Rect(layout.viewport().x() + 4,
                                 rowY + i * (ROW_HEIGHT + ROW_GAP),
                                 Math.max(1, layout.viewport().width() - 9), ROW_HEIGHT);
                         boolean hovered = row.contains(mouseX, mouseY);
@@ -200,19 +199,19 @@ public class AuctionScreen extends AbstractJournalScreen {
                 layout.viewport().height(), scrollOffset);
     }
 
-    record UiRect(int x, int y, int width, int height) {
+    record Rect(int x, int y, int width, int height) {
         int right() { return x + width; }
         int bottom() { return y + height; }
         boolean contains(double mouseX, double mouseY) {
             return mouseX >= x && mouseX < right() && mouseY >= y && mouseY < bottom();
         }
-        boolean intersects(UiRect other) {
+        boolean intersects(Rect other) {
             return other != null && x < other.right() && right() > other.x()
                     && y < other.bottom() && bottom() > other.y();
         }
     }
 
     record AuctionLayout(int left, int top, int panelWidth, int panelHeight,
-                         UiRect header, UiRect summary, UiRect viewport,
-                         UiRect refreshButton, UiRect closeButton) {}
+                         Rect header, Rect summary, Rect viewport,
+                         Rect refreshButton, Rect closeButton) {}
 }
