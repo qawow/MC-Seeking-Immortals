@@ -207,6 +207,59 @@ class M13DimensionsAscensionTest {
         assertTrue(platformWrite > commitCheck);
     }
 
+    @Test
+    void ascensionFallbackCommitsOnlyAfterVerifiedTeleport() throws Exception {
+        Path sourcePath = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "worldpack", "AscensionService.java");
+        String source = Files.readString(sourcePath);
+        int start = source.indexOf("private static boolean teleportToTianyuan");
+        int end = source.indexOf("private static Snapshot load()", start);
+        String method = source.substring(start, end);
+        int teleport = method.indexOf("player.teleportTo(target");
+        int commitCheck = method.indexOf("if (!teleportCommitted(");
+        int platformWrite = method.indexOf("target.setBlock");
+        assertTrue(teleport >= 0);
+        assertTrue(commitCheck > teleport);
+        assertTrue(platformWrite > commitCheck);
+        assertFalse(method.contains("WorldpackGameplayService.travel"));
+        assertFalse(method.contains("setWorldpackCurrentRegionId"));
+        assertTrue(AscensionService.teleportCommitted(true, 0.0D));
+        assertTrue(AscensionService.teleportCommitted(true, 16.0D));
+        assertFalse(AscensionService.teleportCommitted(false, 0.0D));
+        assertFalse(AscensionService.teleportCommitted(true, Math.nextUp(16.0D)));
+        assertFalse(AscensionService.teleportCommitted(true, Double.NaN));
+    }
+
+    @Test
+    void ascensionStateCommitsAfterFailureRollbackBranch() throws Exception {
+        Path sourcePath = Path.of("src", "main", "java", "com", "xunxian", "seekingimmortals",
+                "worldpack", "AscensionService.java");
+        String source = Files.readString(sourcePath);
+        int start = source.indexOf("public static boolean attemptAscension");
+        int end = source.indexOf("public static boolean confirmLoadoutAndAscend", start);
+        String method = source.substring(start, end);
+        int backup = method.indexOf("backupInventory(player)");
+        int reset = method.indexOf("applyLoadoutReset(player)");
+        int teleport = method.indexOf("teleportToTianyuan(player)");
+        int restore = method.indexOf("restoreBackup(player)");
+        int confirmed = method.indexOf("FLAG_LOADOUT_CONFIRMED, true");
+        int region = method.indexOf("setWorldpackCurrentRegionId(\"tianyuan\")");
+        int ascended = method.indexOf("FLAG_ASCENDED, true");
+        int clearBackup = method.indexOf("clearBackup(player)");
+        int flightRefresh = method.indexOf("FlyingAuthorityPolicy.onDimensionChanged");
+        int starterPack = method.indexOf("grantStarterPack(player)");
+        assertTrue(backup >= 0);
+        assertTrue(reset > backup);
+        assertTrue(teleport > reset);
+        assertTrue(restore > teleport);
+        assertTrue(confirmed > restore);
+        assertTrue(region > restore);
+        assertTrue(ascended > region);
+        assertTrue(clearBackup > ascended);
+        assertTrue(flightRefresh > clearBackup);
+        assertTrue(starterPack > clearBackup);
+    }
+
     /**
      * After successful teleport, the temporary rollback snapshot must be discarded so
      * restore returns no_backup and unique/equipment stacks cannot be re-injected.

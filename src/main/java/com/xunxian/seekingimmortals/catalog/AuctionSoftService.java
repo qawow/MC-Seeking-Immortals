@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.catalog;
 
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.worldpack.AuctionHouseSavedData;
 import com.xunxian.seekingimmortals.worldpack.ReputationService;
@@ -321,17 +322,13 @@ public final class AuctionSoftService {
         ItemStack reward = new ItemStack(rewardItemFor(lot), rewardCountFor(lot));
         // Wave492: won auction lots arrive pre-appraised for economy honesty.
         markAppraisedReward(reward, lot);
-        if (!player.getInventory().add(reward.copy())) {
-            player.drop(reward.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, reward);
         // Grant first valid extra if present.
         for (String extra : lot.extras()) {
             Item extraItem = resolveItem(extra);
             if (extraItem != null && extraItem != Items.AIR) {
                 ItemStack extraStack = new ItemStack(extraItem, 1);
-                if (!player.getInventory().add(extraStack.copy())) {
-                    player.drop(extraStack.copy(), false);
-                }
+                InventoryDeliveryService.giveOrDrop(player, extraStack);
                 break;
             }
         }
@@ -541,9 +538,7 @@ public final class AuctionSoftService {
             return;
         }
         ItemStack stack = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), count);
-        if (!player.getInventory().add(stack.copy())) {
-            player.drop(stack.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, stack);
     }
 
     /** Wave467: claim offline outbid refunds on login. */

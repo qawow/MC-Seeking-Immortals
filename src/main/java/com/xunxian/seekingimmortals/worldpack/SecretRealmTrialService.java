@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.worldpack;
 
 import com.xunxian.seekingimmortals.catalog.TextMaterialCatalogService;
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModBlocks;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.core.BlockPos;
@@ -435,9 +436,7 @@ public final class SecretRealmTrialService {
         player.getPersistentData().put(MID_CLEAR_ROOT, root);
         fillNearbySealedChest(player, near, realmId, Layer.MID);
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 4);
-        if (!player.getInventory().add(bonus.copy())) {
-            player.drop(bonus.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, bonus);
         ReputationService.add(player, "secret_realm_explorer", 1);
         player.sendSystemMessage(Component.translatable(
                 "message.seeking_immortals.worldpack.trial_mid_clear", realmId));
@@ -488,9 +487,7 @@ public final class SecretRealmTrialService {
         }
         // Fallback: grant layer loot directly if sealed chest not found.
         ItemStack stack = new ItemStack(proxyRewardItem(realmId), layer == Layer.CORE ? 2 : 1);
-        if (!player.getInventory().add(stack.copy())) {
-            player.drop(stack.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, stack);
     }
 
     /** Wave480: health/damage pairs for typed guardian shells. */
@@ -523,9 +520,7 @@ public final class SecretRealmTrialService {
         }
         Item reward = proxyRewardItem(realmId);
         ItemStack stack = new ItemStack(reward, 1);
-        if (!player.getInventory().add(stack.copy())) {
-            player.drop(stack.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, stack);
         root.putBoolean(realmId, true);
         player.getPersistentData().put(REWARD_ROOT, root);
 

@@ -1,3 +1,17 @@
+## 492. 2026-07-19 0.2.26 飞升护送与库存事务
+
+  Step   Status   Notes
+  ---   ---   ---
+  Review scope   Done   主线程与 4 名 `gpt-5.6-sol` / `reasoning_effort=max` 子代理复核飞升取消、护送状态机、部分入包语义和秘境奖励生命周期。
+  Backup   Done   23 个既有目标文件按相对路径备份至 `.bak/20260719_064447_p0_integrity/`；两个新增 Java 文件及新 update note 无既有版本可备份。
+  Ascension transaction   Done   删除 worldpack 失败后的二次直传；目标 level/坐标验收前不写确认、pending、区域、飞升、阶段或起步礼状态，失败按槽恢复行囊。
+  Escort authority   Done   调用方向收为事件 -> 生成器 -> 服务；生成失败不接取，完成要求当前 generated escort、有效 owner/UUID、活体实体及同时靠近玩家与本次执事；inactive/丢失不再代理完成。
+  Exact delivery   Done   新增 Forge `giveItemToPlayer` 交付服务并迁移 17 个 Boss/妖兽/秘境/拍卖/任务/制符点与飞升起步礼；超量按最大堆叠拆分，只生成真实余量实体。
+  Tests   Done   新增库存交付回归，扩展飞升提交顺序和宗门护送依赖方向/持久化顺序回归；全量 635 项测试通过。
+  Version/protocol   Done   0.2.24/0.2.25 构建后均有 max 复审追加代码修复，最终 `mod_version` 升至 0.2.26；无包字段、顺序、编码、注册或通道行为变化，protocol 保持 24。
+  Verification   Done   普通 `./gradlew build` BUILD SUCCESSFUL，preflight 正常记录 0.2.26。
+  Update note   Done   `project_docs/updates/20260719_0.2.26_p0_inventory_escort_ascension.md`
+
 ## 491. 2026-07-19 0.2.23 秘境与旅行事务权限
 
   Step   Status   Notes

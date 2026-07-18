@@ -327,7 +327,10 @@ public final class SectContributionService {
             // Wave490: alternate kill/escort/beast/formation generator missions with item dailies.
             if ((day & 1L) == 1L) {
                 SectMissionGenerator.Mission generated = SectMissionGenerator.generate(definition.get().id());
-                SectMissionGenerator.acceptGenerated(player, generated);
+                if (!SectMissionGenerator.acceptGenerated(player, generated)) {
+                    syncSect(player, cultivation, true);
+                    return;
+                }
                 progress.setSectMission(generated.id(), day);
                 player.sendSystemMessage(Component.translatable(
                         "message.seeking_immortals.sect.mission_accepted_generated",

@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.quest;
 
 import com.xunxian.seekingimmortals.catalog.ExtendedCatalogService;
 import com.xunxian.seekingimmortals.cultivation.CultivationHelper;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.network.SyncQuestTrackerPacket;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import com.xunxian.seekingimmortals.sect.SectDefinitionService;
@@ -516,9 +517,7 @@ public final class TextQuestChainService {
             case BRANCH_DEMONIC -> new ItemStack(ModItems.YIN_STONE.get(), 4);
             default -> new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2);
         };
-        if (!player.getInventory().add(bonus.copy())) {
-            player.drop(bonus.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, bonus);
         markAuthorityReward(player, ledgerKey);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.text_quest.branch_bonus",
                 branch, bonus.getHoverName()), true);
@@ -608,9 +607,7 @@ public final class TextQuestChainService {
             return;
         }
         ItemStack reward = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), 2);
-        if (!player.getInventory().add(reward.copy())) {
-            player.drop(reward.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, reward);
         mid.putBoolean(key, true);
         player.getPersistentData().put(MID_REWARD_TAG, mid);
         player.displayClientMessage(Component.translatable(
@@ -632,9 +629,7 @@ public final class TextQuestChainService {
             return;
         }
         for (ItemStack stack : stacks) {
-            if (!player.getInventory().add(stack.copy())) {
-                player.drop(stack.copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(player, stack);
         }
         markAuthorityReward(player, id);
         // Keep legacy soft-reward tag for older clients/docs that still read it.

@@ -467,7 +467,7 @@ public final class ModEvents {
         }
         if (player instanceof ServerPlayer serverPlayer && villager instanceof SectStewardEntity steward) {
             // Wave489: steward interaction also marks escort-proxy daily progress.
-            com.xunxian.seekingimmortals.sect.SectMissionGenerator.onStewardEscortMark(serverPlayer);
+            com.xunxian.seekingimmortals.sect.SectMissionGenerator.onStewardEscortMark(serverPlayer, steward);
             // M12: try named-NPC dialogue first; fall back to M08 sect hall business.
             if (!steward.openDialogue(serverPlayer)) {
                 SectContributionService.handleStewardInteraction(serverPlayer, steward);

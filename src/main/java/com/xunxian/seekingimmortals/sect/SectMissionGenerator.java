@@ -2,6 +2,7 @@ package com.xunxian.seekingimmortals.sect;
 
 import com.xunxian.seekingimmortals.skill.LifeSkillService;
 import com.xunxian.seekingimmortals.skill.SkillType;
+import com.xunxian.seekingimmortals.entity.SectStewardEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -47,9 +48,9 @@ public final class SectMissionGenerator {
     }
 
     /** Wave490: persist full generated mission payload for steward turn-in. */
-    public static void acceptGenerated(ServerPlayer player, Mission mission) {
+    public static boolean acceptGenerated(ServerPlayer player, Mission mission) {
         if (player == null || mission == null) {
-            return;
+            return false;
         }
         CompoundTag tag = new CompoundTag();
         tag.putString("id", mission.id() == null ? "" : mission.id());
@@ -57,7 +58,6 @@ public final class SectMissionGenerator {
         tag.putString("target", mission.target() == null ? "" : mission.target());
         tag.putInt("count", Math.max(1, mission.count()));
         tag.putInt("reward", Math.max(0, mission.rewardContribution()));
-        player.getPersistentData().put(ACTIVE_ROOT, tag);
         // Reset type-specific progress counters on accept.
         CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
         if ("kill".equalsIgnoreCase(mission.type())) {
@@ -66,10 +66,16 @@ public final class SectMissionGenerator {
         }
         if ("escort".equalsIgnoreCase(mission.type())) {
             root.putBoolean("escort", false);
-            // Wave491: spawn true escort servitor on accept.
-            EscortMissionService.startEscort(player);
+            if (!EscortMissionService.startEscort(player)) {
+                clearGenerated(player);
+                return false;
+            }
+        } else {
+            EscortMissionService.clearEscort(player, true);
         }
+        player.getPersistentData().put(ACTIVE_ROOT, tag);
         player.getPersistentData().put(PROGRESS_ROOT, root);
+        return true;
     }
 
     public static Mission activeGenerated(ServerPlayer player) {
@@ -122,19 +128,20 @@ public final class SectMissionGenerator {
         return k.contains(n) || n.contains(k);
     }
 
-    public static void onStewardEscortMark(ServerPlayer player) {
+    public static void onStewardEscortMark(ServerPlayer player, SectStewardEntity steward) {
         if (player == null) {
             return;
         }
-        // Wave491: true escort arrival requires active escort entity near player+steward.
-        if (EscortMissionService.isActive(player)) {
-            EscortMissionService.onStewardContact(player);
+        Mission active = activeGenerated(player);
+        if (active == null || !"escort".equalsIgnoreCase(active.type())
+                || !EscortMissionService.onStewardContact(player, steward)) {
             return;
         }
         CompoundTag root = player.getPersistentData().getCompound(PROGRESS_ROOT).copy();
         root.putBoolean("escort", true);
         root.putLong("escort_pos", player.blockPosition().asLong());
         player.getPersistentData().put(PROGRESS_ROOT, root);
+        player.displayClientMessage(Component.translatable("message.seeking_immortals.escort.arrived"), false);
     }
 
     public static boolean turnIn(ServerPlayer player, Mission mission) {
@@ -168,6 +175,7 @@ public final class SectMissionGenerator {
                 player.displayClientMessage(Component.translatable("message.seeking_immortals.sect_mission.escort_missing"), false);
                 return false;
             }
+            EscortMissionService.clearEscort(player, true);
             root.putBoolean("escort", false);
         } else if ("beast".equals(type)) {
             int contracts = com.xunxian.seekingimmortals.cultivation.BeastContractService.list(player).size();

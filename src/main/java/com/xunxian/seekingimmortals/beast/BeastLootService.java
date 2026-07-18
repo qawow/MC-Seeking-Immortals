@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -160,9 +161,7 @@ public final class BeastLootService {
             if (stack.isEmpty()) {
                 continue;
             }
-            if (!killer.getInventory().add(stack.get().copy())) {
-                killer.drop(stack.get().copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(killer, stack.get());
             granted++;
         }
         // Named / bestiary explicit drops (lower chance each).
@@ -174,9 +173,7 @@ public final class BeastLootService {
             if (stack.isEmpty()) {
                 continue;
             }
-            if (!killer.getInventory().add(stack.get().copy())) {
-                killer.drop(stack.get().copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(killer, stack.get());
             granted++;
         }
         // Tier common material table flavor.
@@ -185,9 +182,7 @@ public final class BeastLootService {
             String pick = commons.get(rng.nextInt(commons.size()));
             Optional<ItemStack> stack = resolveStack(pick, 1);
             if (stack.isPresent()) {
-                if (!killer.getInventory().add(stack.get().copy())) {
-                    killer.drop(stack.get().copy(), false);
-                }
+                InventoryDeliveryService.giveOrDrop(killer, stack.get());
                 granted++;
             }
         }

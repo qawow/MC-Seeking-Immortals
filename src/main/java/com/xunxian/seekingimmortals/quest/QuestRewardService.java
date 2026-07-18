@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -123,9 +124,7 @@ public final class QuestRewardService {
         }
         ItemStack stack = resolveUniqueStack(key, uniqueToken);
         if (!stack.isEmpty()) {
-            if (!player.getInventory().add(stack.copy())) {
-                player.drop(stack.copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(player, stack);
         }
         markUniqueClaimed(player, key);
         player.displayClientMessage(Component.translatable(

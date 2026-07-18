@@ -1,5 +1,6 @@
 package com.xunxian.seekingimmortals.craft;
 
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -104,9 +105,7 @@ public final class TalismanCraftService {
             return new CraftResult(false, recipe, ItemStack.EMPTY, "message.seeking_immortals.talisman_table.failed");
         }
         ItemStack product = new ItemStack(recipe.product());
-        if (!player.getInventory().add(product.copy())) {
-            player.drop(product.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, product);
         com.xunxian.seekingimmortals.skill.LifeSkillService.grantPractice(player,
                 com.xunxian.seekingimmortals.skill.SkillType.TALISMAN_CRAFTING, 22, 10);
         return new CraftResult(true, recipe, product, "message.seeking_immortals.talisman_table.activated");

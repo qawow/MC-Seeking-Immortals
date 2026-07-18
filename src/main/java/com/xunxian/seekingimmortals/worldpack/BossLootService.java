@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.xunxian.seekingimmortals.SeekingImmortalsMod;
 import com.xunxian.seekingimmortals.catalog.ItemCatalogService;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -105,17 +106,13 @@ public final class BossLootService {
                 continue;
             }
             ItemStack gift = stack.get();
-            if (!player.getInventory().add(gift.copy())) {
-                player.drop(gift.copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(player, gift);
             granted++;
         }
         if (granted == 0) {
             // Soft fallback so bosses never feel empty on a bad roll.
             ItemStack fallback = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 6 : 3);
-            if (!player.getInventory().add(fallback.copy())) {
-                player.drop(fallback.copy(), false);
-            }
+            InventoryDeliveryService.giveOrDrop(player, fallback);
             granted = 1;
         }
         return granted;

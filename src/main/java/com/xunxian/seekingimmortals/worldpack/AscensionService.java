@@ -11,6 +11,7 @@ import com.xunxian.seekingimmortals.cultivation.PlayerCultivation;
 import com.xunxian.seekingimmortals.cultivation.Realm;
 import com.xunxian.seekingimmortals.cultivation.RealmStage;
 import com.xunxian.seekingimmortals.cultivation.TribulationService;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.npc.NpcDialogueFlags;
 import com.xunxian.seekingimmortals.quest.TextQuestChainService;
 import net.minecraft.core.BlockPos;
@@ -176,10 +177,6 @@ public final class AscensionService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.backup_hint"), false);
             return false;
         }
-        if (confirmLoadout) {
-            NpcDialogueFlags.setFlag(player, FLAG_LOADOUT_CONFIRMED, true);
-            clearPending(player);
-        }
         if (!NpcDialogueFlags.hasFlag(player, FLAG_LOADOUT_CONFIRMED) && !confirmLoadout) {
             // pending exists — require explicit confirm
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.need_confirm"), false);
@@ -195,13 +192,20 @@ public final class AscensionService {
             player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.teleport_failed"), false);
             return false;
         }
+        NpcDialogueFlags.setFlag(player, FLAG_LOADOUT_CONFIRMED, true);
+        clearPending(player);
+        CultivationHelper.get(player).ifPresent(cultivation -> {
+            cultivation.clearWorldpackReturnLocation();
+            cultivation.setWorldpackCurrentRegionId("tianyuan");
+            cultivation.setWorldpackActiveSecretRealmId("");
+        });
         NpcDialogueFlags.setFlag(player, FLAG_ASCENDED, true);
         NpcDialogueFlags.setFlag(player, FLAG_ASCENSION_READY, true);
         setStage(player, "tianyuan_garrison");
+        // The rollback snapshot must not survive any non-essential post-commit side effect.
+        clearBackup(player);
         FlyingAuthorityPolicy.onDimensionChanged(player, DimensionRegistryService.TIANYUAN);
         grantStarterPack(player);
-        // Success: discard rollback snapshot so no later restore can duplicate unique/equipment items.
-        clearBackup(player);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.success"), false);
         player.displayClientMessage(Component.translatable("message.seeking_immortals.ascension.backup_stored"), false);
         return true;
@@ -397,16 +401,10 @@ public final class AscensionService {
             return;
         }
         ItemStack stack = new ItemStack(item, Math.max(1, count));
-        if (!player.getInventory().add(stack)) {
-            player.drop(stack, false);
-        }
+        InventoryDeliveryService.giveOrDrop(player, stack);
     }
 
     private static boolean teleportToTianyuan(ServerPlayer player) {
-        // prefer worldpack region travel (sets anchors/region state)
-        if (WorldpackGameplayService.travel(player, "tianyuan")) {
-            return true;
-        }
         Optional<ServerLevel> level = DimensionRegistryService.resolveLevel(player, DimensionRegistryService.TIANYUAN);
         if (level.isEmpty()) {
             return false;
@@ -414,6 +412,10 @@ public final class AscensionService {
         ServerLevel target = level.get();
         int y = target.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, 0, 0) + 1;
         y = Math.max(target.getMinBuildHeight() + 2, Math.min(target.getMaxBuildHeight() - 2, y));
+        player.teleportTo(target, 0.5D, y, 0.5D, player.getYRot(), player.getXRot());
+        if (!teleportCommitted(player.serverLevel() == target, player.distanceToSqr(0.5D, y, 0.5D))) {
+            return false;
+        }
         BlockPos base = new BlockPos(0, y - 1, 0);
         for (int dx = -2; dx <= 2; dx++) {
             for (int dz = -2; dz <= 2; dz++) {
@@ -422,13 +424,11 @@ public final class AscensionService {
                 target.setBlock(base.offset(dx, 2, dz), Blocks.AIR.defaultBlockState(), 3);
             }
         }
-        CultivationHelper.get(player).ifPresent(c -> {
-            c.clearWorldpackReturnLocation();
-            c.setWorldpackCurrentRegionId("tianyuan");
-            c.setWorldpackActiveSecretRealmId("");
-        });
-        player.teleportTo(target, 0.5D, y, 0.5D, player.getYRot(), player.getXRot());
         return true;
+    }
+
+    static boolean teleportCommitted(boolean targetLevelReached, double distanceSqr) {
+        return targetLevelReached && Double.isFinite(distanceSqr) && distanceSqr <= 16.0D;
     }
 
     private static Snapshot load() {

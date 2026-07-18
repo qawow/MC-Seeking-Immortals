@@ -1,6 +1,7 @@
 package com.xunxian.seekingimmortals.worldpack;
 
 import com.xunxian.seekingimmortals.entity.SummonedServitorEntity;
+import com.xunxian.seekingimmortals.item.InventoryDeliveryService;
 import com.xunxian.seekingimmortals.registry.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -112,9 +113,7 @@ public final class BossEncounterService {
             placeBossCache(level, boss.blockPosition().above(), bossId, firstClear);
         }
         ItemStack bonus = new ItemStack(ModItems.SPIRIT_STONE_SHARD.get(), firstClear ? 8 : 3);
-        if (!killer.getInventory().add(bonus.copy())) {
-            killer.drop(bonus.copy(), false);
-        }
+        InventoryDeliveryService.giveOrDrop(killer, bonus);
         ReputationService.add(killer, "secret_realm_explorer", firstClear ? 3 : 1);
         killer.displayClientMessage(Component.translatable("message.seeking_immortals.boss.defeated", bossId), true);
         if (granted > 0) {
